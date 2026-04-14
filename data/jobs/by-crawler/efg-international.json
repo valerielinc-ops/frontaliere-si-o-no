@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-04-13T21:36:50.620Z",
+  "assembledAt": "2026-04-14T09:50:30.818Z",
   "jobs": [
     {
       "id": "efg-6203",
@@ -50,7 +50,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.393Z",
+      "crawledAt": "2026-04-14T09:50:28.305Z",
       "slugByLocale": {
         "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -109,7 +109,8 @@
           "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -262,7 +263,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.392Z",
+      "crawledAt": "2026-04-14T09:50:28.304Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -454,7 +455,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.391Z",
+      "crawledAt": "2026-04-14T09:50:28.303Z",
       "slugByLocale": {
         "it": "sviluppatore-commerciale-del-gruppo-di-pianificazione-patrimoniale-efg-international-ag-zurich",
         "en": "wealth-planning-group-business-developer-efg-zurich",
@@ -489,7 +490,8 @@
       "previousSlugs": [
         "wealth-planning-group-business-developer-efg-zurich"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -643,7 +645,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.390Z",
+      "crawledAt": "2026-04-14T09:50:28.303Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -803,7 +805,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.389Z",
+      "crawledAt": "2026-04-14T09:50:28.301Z",
       "slugByLocale": {
         "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
         "en": "senior-cloud-engineer-efg-international-ag-geneve",
@@ -1012,7 +1014,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.389Z",
+      "crawledAt": "2026-04-14T09:50:28.301Z",
       "slugByLocale": {
         "it": "contratto-temporaneo-analista-aziendale-sviluppatore-efg-international-ag-lugano",
         "en": "temp-contract-business-analyst-developer-efg-international-ag-lugano-n9334f",
@@ -1198,7 +1200,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.387Z",
+      "crawledAt": "2026-04-14T09:50:28.299Z",
       "slugByLocale": {
         "it": "senior-fx-specialista-consulente-efg-international-ag-zurich",
         "en": "senior-fx-specialist-advisor-efg-international-ag-zurich",
@@ -1245,185 +1247,8 @@
           "senior-specialista-fx-consulente-efg-international-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
-    },
-    {
-      "id": "efg-6061",
-      "slug": "ingegnere-ai-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "AI Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Introduction of the team\n\n- At EFG we want to create value fom data. Within our Data Office department, we’re seeking a highly skilled and motivated AI Software Engineer to join our Machine Learning & GenAI team. You will embark on building a new, scalable AI platform and design, build, and deploy AI-driven systems that deliver measurable business impact.\n\n- This is an excellent opportunity to make a significant impact in a growing organization committed to delivering an outstanding digital banking experience for our clients.\n\nMain responsibilities\n\n-  1) Platform and Architecture\n\n- Design and build a hybrid (on-prem / on-cloud) AI/ML platform to run AI use cases at scale (feature stores, model registry, experimentation, evaluation, observability).\n\n- Define and implement secure, reliable inference and training architectures, including vector search and RAG components where applicable.\n\n- Provide platform support for embeddings, vector databases, and AI agentic communication protocols to enable grounded, interoperable AI workflows.\n\n- Document machine learning processes, system architecture, and operational runbooks for reproducibility and knowledge sharing.\n\n-  2) Model Development & Evaluation\n\n- Collaborate on training, fine-tuning, and optimizing models (LLMs, NLP, recommendations), including LoRA/PEFT when relevant.\n\n- Implement guardrails and prompt strategies to reduce hallucinations and improve safety and consistency, and support agentic workflows.\n\n- Establish evaluation frameworks for RAG and LLM systems.\n\n-  3) Software Development & MLOps\n\n- Own end-to-end software development of AI services and APIs (from design and coding to testing and deployment).\n\n- Automate build, test, and deployment using CI/CD pipelines; manage model/version releases via model registries.\n\n- Implement continuous monitoring for deployed AI systems.\n\n-  4) Product & Stakeholder Collaboration\n\n- Work closely with Business Users, Product Owners, Business Engineers, Data Managers, Data Scientists, and technology teams to understand AI/ML use cases, requirements, and success metrics.\n\n- Partner with Data Scientists to iterate on prototypes and convert them into robust, scalable production services.\n\n- Translate emerging GenAI/Agentic AI capabilities into actionable product opportunities and reusable components for the Bank.\n\n-  5) Security, Privacy, and Compliance\n\n- Ensure all AI/ML solutions meet bank-wide data and AI guidelines and standards, including data protection, cyber security, and responsible AI practices.\n\n- Embed privacy-by-design, access controls, encryption, and auditability across data flows and model operations.\n\n- Collaborate with Risk, Security, and Compliance to align with SOC 2, GDPR/CCPA, and internal governance.\n\n## Skills and experience\n\n## 1) Education\n\n- Advanced degree in Computer Science, Data Science, Mathematics, Statistics, Physics, or related.\n\n## 2) Must-Have\n\n- Extensive knowledge of ML/AI frameworks: PyTorch or TensorFlow; Hugging Face ecosystem; LangChain/LlamaIndex or equivalent for orchestration, data structures, data modeling, and software architecture.\n\n- Practical LLM experience: prompt engineering, fine-tuning/LoRA, embeddings, vector databases (FAISS, Pinecone, Weaviate), RAG patterns.\n\n- Solid programming skills in Python, R or Java/Scala, hands on experience in SQL, ETL tool and Linux and Control-M & Terraform knowledge are a plus.\n\n- Prior experience deploying applications on cloud environments (Azure); familiarity with hybrid on‑prem/cloud setups.\n\n- Experience building production-grade services and APIs (REST/gRPC), cloud-native (AWS/GCP/Azure), containers (Docker), and orchestration (Openshift, Kubernetes).\n\n- MLOps foundations: experiment tracking (MLflow/W&B), model registries, CI/CD, model monitoring, feature stores.\n\n- Ability to monitor, debug, and maintain CI/CD pipelines that feed into production deployments (GitHub Actions/GitLab CI/Azure DevOps).\n\n- Data engineering proficiency: SQL, data modeling, ETL/ELT, and working with warehouses/lakes (Snowflake, BigQuery, S3/Delta).\n\n- Ability to work in a SCRUM/Agile environment with a focus on delivery and stakeholder collaboration.\n\n- Excellent analytical and problem-solving abilities; results- and detail-oriented with strong written and verbal communication.\n\n- Experience in the Banking Or Wealth Management Industry is an advantage\n\n## 3) Nice-to-Have\n\n- Experience deploying and optimizing open-source models (Llama, Mistral, Mixtral) on GPUs; quantization (INT8/4), tensor/Flash attention.\n\n- Knowledge of retrieval systems (BM25, hybrid search), semantic caching, and structured tool use/agents.\n\n- Evaluation expertise for LLMs: rubric-based grading, golden sets, adversarial testing, and A/B experimentation.\n\n- Security practices for AI applications: prompt injection defenses, output filtering, content moderation, and red-teaming.\n\n- Contributions to open-source AI projects or published work.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n-  Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\n- Should you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-02-11",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6061",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "AI Engineer",
-        "it": "Ingegnere AI",
-        "de": "KI-Ingenieur",
-        "fr": "Ingénieur IA"
-      },
-      "descriptionByLocale": {
-        "en": "## Introduction of the team\n\n- At EFG we want to create value fom data. Within our Data Office department, we’re seeking a highly skilled and motivated AI Software Engineer to join our Machine Learning & GenAI team. You will embark on building a new, scalable AI platform and design, build, and deploy AI-driven systems that deliver measurable business impact.\n\n- This is an excellent opportunity to make a significant impact in a growing organization committed to delivering an outstanding digital banking experience for our clients.\n\nMain responsibilities\n\n-  1) Platform and Architecture\n\n- Design and build a hybrid (on-prem / on-cloud) AI/ML platform to run AI use cases at scale (feature stores, model registry, experimentation, evaluation, observability).\n\n- Define and implement secure, reliable inference and training architectures, including vector search and RAG components where applicable.\n\n- Provide platform support for embeddings, vector databases, and AI agentic communication protocols to enable grounded, interoperable AI workflows.\n\n- Document machine learning processes, system architecture, and operational runbooks for reproducibility and knowledge sharing.\n\n-  2) Model Development & Evaluation\n\n- Collaborate on training, fine-tuning, and optimizing models (LLMs, NLP, recommendations), including LoRA/PEFT when relevant.\n\n- Implement guardrails and prompt strategies to reduce hallucinations and improve safety and consistency, and support agentic workflows.\n\n- Establish evaluation frameworks for RAG and LLM systems.\n\n-  3) Software Development & MLOps\n\n- Own end-to-end software development of AI services and APIs (from design and coding to testing and deployment).\n\n- Automate build, test, and deployment using CI/CD pipelines; manage model/version releases via model registries.\n\n- Implement continuous monitoring for deployed AI systems.\n\n-  4) Product & Stakeholder Collaboration\n\n- Work closely with Business Users, Product Owners, Business Engineers, Data Managers, Data Scientists, and technology teams to understand AI/ML use cases, requirements, and success metrics.\n\n- Partner with Data Scientists to iterate on prototypes and convert them into robust, scalable production services.\n\n- Translate emerging GenAI/Agentic AI capabilities into actionable product opportunities and reusable components for the Bank.\n\n-  5) Security, Privacy, and Compliance\n\n- Ensure all AI/ML solutions meet bank-wide data and AI guidelines and standards, including data protection, cyber security, and responsible AI practices.\n\n- Embed privacy-by-design, access controls, encryption, and auditability across data flows and model operations.\n\n- Collaborate with Risk, Security, and Compliance to align with SOC 2, GDPR/CCPA, and internal governance.\n\n## Skills and experience\n\n## 1) Education\n\n- Advanced degree in Computer Science, Data Science, Mathematics, Statistics, Physics, or related.\n\n## 2) Must-Have\n\n- Extensive knowledge of ML/AI frameworks: PyTorch or TensorFlow; Hugging Face ecosystem; LangChain/LlamaIndex or equivalent for orchestration, data structures, data modeling, and software architecture.\n\n- Practical LLM experience: prompt engineering, fine-tuning/LoRA, embeddings, vector databases (FAISS, Pinecone, Weaviate), RAG patterns.\n\n- Solid programming skills in Python, R or Java/Scala, hands on experience in SQL, ETL tool and Linux and Control-M & Terraform knowledge are a plus.\n\n- Prior experience deploying applications on cloud environments (Azure); familiarity with hybrid on‑prem/cloud setups.\n\n- Experience building production-grade services and APIs (REST/gRPC), cloud-native (AWS/GCP/Azure), containers (Docker), and orchestration (Openshift, Kubernetes).\n\n- MLOps foundations: experiment tracking (MLflow/W&B), model registries, CI/CD, model monitoring, feature stores.\n\n- Ability to monitor, debug, and maintain CI/CD pipelines that feed into production deployments (GitHub Actions/GitLab CI/Azure DevOps).\n\n- Data engineering proficiency: SQL, data modeling, ETL/ELT, and working with warehouses/lakes (Snowflake, BigQuery, S3/Delta).\n\n- Ability to work in a SCRUM/Agile environment with a focus on delivery and stakeholder collaboration.\n\n- Excellent analytical and problem-solving abilities; results- and detail-oriented with strong written and verbal communication.\n\n- Experience in the Banking Or Wealth Management Industry is an advantage\n\n## 3) Nice-to-Have\n\n- Experience deploying and optimizing open-source models (Llama, Mistral, Mixtral) on GPUs; quantization (INT8/4), tensor/Flash attention.\n\n- Knowledge of retrieval systems (BM25, hybrid search), semantic caching, and structured tool use/agents.\n\n- Evaluation expertise for LLMs: rubric-based grading, golden sets, adversarial testing, and A/B experimentation.\n\n- Security practices for AI applications: prompt injection defenses, output filtering, content moderation, and red-teaming.\n\n- Contributions to open-source AI projects or published work.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n-  Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\n- Should you wish to apply for this position use this link to apply.",
-        "it": "Presentazione del team\n- In EFG vogliamo creare valore dai dati. All'interno del nostro dipartimento Data Office, stiamo cercando un ingegnere del software AI altamente qualificato e motivato per unirsi al nostro team di Machine Learning & GenAI. Parteciperai alla costruzione di una nuova piattaforma AI scalabile e progetterai, costruirai e distribuirai sistemi basati su AI che offrono un impatto aziendale misurabile.\n- Questa è un'ottima opportunità per avere un impatto significativo in un'organizzazione in crescita impegnata a offrire un'esperienza di banking digitale eccezionale per i nostri clienti. Responsabilità principali - 1) Piattaforma e Architettura\n- Progettare e costruire una piattaforma AI/ML ibrida (on-prem/on-cloud) per eseguire casi d'uso AI su larga scala (feature store, registro dei modelli, sperimentazione, valutazione, osservabilità).\n- Definire e implementare architetture di inferenza e allenamento sicure e affidabili, inclusi componenti di ricerca vettoriale e RAG ove applicabile.\n- Fornire supporto alla piattaforma per embeddings, database vettoriali e protocolli di comunicazione agentic AI per abilitare flussi di lavoro AI interoperabili e basati su fondamenti.\n- Documentare i processi di machine learning, l'architettura dei sistemi e le procedure operative per la riproducibilità e la condivisione delle conoscenze. - 2) Sviluppo e valutazione dei modelli\n- Collaborare all'allenamento, alla regolazione fine e all'ottimizzazione dei modelli (LLM, NLP, raccomandazioni), inclusa LoRA/PEFT ove pertinente.\n- Implementare guardrail e strategie di prompt per ridurre le allucinazioni e migliorare la sicurezza e la coerenza, e supportare flussi di lavoro agentic.\n- Stabilire framework di valutazione per sistemi RAG e LLM. - 3) Sviluppo del software e MLOps\n- Possedere lo sviluppo end-to-end del software dei servizi AI e delle API (dal design alla codifica, test e distribuzione).\n- Automatizzare la costruzione, il test e la distribuzione usando pipeline CI/CD; gestire le versioni dei modelli/rilasci via registri dei modelli.\n- Implementare il monitoraggio continuo per i sistemi AI distribuiti. - 4) Prodotto e collaborazione con gli stakeholder\n- Lavorare a stretto contatto con gli utenti business, i proprietari dei prodotti, gli ingegneri business, i gestori dei dati, gli scienziati dei dati e i team tecnologici per comprendere i casi d'uso AI/ML, i requisiti e le metriche di successo.\n- Collaborare con gli scienziati dei dati per iterare sui prototipi e convertirli in servizi di produzione robusti e scalabili.\n- Tradurre le capacità emergenti di GenAI/Agentic AI in opportunità di prodotto concrete e componenti riutilizzabili per la Banca. - 5) Sicurezza, privacy e conformità\n- Assicurare che tutte le soluzioni AI/ML soddisfino le linee guida e gli standard aziendali per i dati e l'AI, inclusa la protezione dei dati, la sicurezza informatica e le pratiche di AI responsabile.\n- Incorporare la privacy-by-design, i controlli di accesso, la crittografia e l'auditabilità attraverso i flussi di dati e le operazioni dei modelli.\n- Collaborare con Rischi, Sicurezza e Conformità per allinearsi con SOC 2, GDPR/CCPA e governance interna.\n\n## Competenze ed esperienza\n\n## 1) Istruzione\n- Laurea avanzata in Informatica, Data Science, Matematica, Statistica, Fisica o affine.\n\n## 2) Must-Have\n- Conoscenza approfondita dei framework ML/AI: PyTorch o TensorFlow; ecosistema Hugging Face; LangChain/LlamaIndex o equivalente per l'orchestrazione, le strutture dei dati, la modellazione dei dati e l'architettura del software.\n- Esperienza pratica con LLM: ingegneria dei prompt, regolazione fine/LoRA, embeddings, database vettoriali (FAISS, Pinecone, Weaviate), pattern RAG.\n- Competenze di programmazione solide in Python, R o Java/Scala, esperienza pratica con SQL, ETL tool e Linux e conoscenza di Control-M & Terraform sono un vantaggio.\n- Esperienza precedente nello sviluppo di applicazioni distribuite su ambienti cloud (Azure); familiarità con configurazioni ibride on-prem/cloud.\n- Esperienza nella costruzione di servizi e API di produzione (REST/gRPC), cloud-native (AWS/GCP/Azure), contenitori (Docker) e orchestrazione (Openshift, Kubernetes).\n- Fondamenti di MLOps: monitoraggio degli esperimenti (MLflow/W&B), registri dei modelli, CI/CD, monitoraggio dei modelli, feature store.\n- Capacità di monitorare, debugbare e mantenere pipeline CI/CD che alimentano le distribuzioni di produzione (GitHub Actions/GitLab CI/Azure DevOps).\n- Competenza nell'ingegneria dei dati: SQL, modellazione dei dati, ETL/ELT e lavoro con magazzini/laghi (Snowflake, BigQuery, S3/Delta).\n- Capacità di lavorare in un ambiente SCRUM/Agile con un focus sulla consegna e sulla collaborazione con gli stakeholder.\n- Eccellenti abilità analitiche e di risoluzione dei problemi; orientato ai risultati e ai dettagli con forte comunicazione scritta e verbale.\n- Esperienza nel settore bancario o nella gestione della ricchezza è un vantaggio.\n\n## 3) Nice-to-Have\n- Esperienza nella distribuzione e ottimizzazione di modelli open-source (Llama, Mistral, Mixtral) su GPU; quantizzazione (INT8/4), attenzione tensoriale/Flash.\n- Conoscenza dei sistemi di recupero (BM25, ricerca ibrida), caching semantico e uso di strumenti strutturati/agenti.\n- Competenza nella valutazione per LLM: valutazione basata su rubriche, insiemi aurei, testing avverso e sperimentazione A/B.\n- Pratiche di sicurezza per applicazioni AI: difese contro l'iniezione dei prompt, filtraggio degli output, moderazione dei contenuti e red-teaming.\n- Contributi a progetti AI open-source o lavori pubblicati. I nostri valori\n- Accountability: Assumersi la responsabilità per compiti e sfide, nonché cercare il miglioramento continuo.\n- Hands-on: Essere proattivi per fornire risultati di alta qualità rapidamente.\n- Passionate: Essere impegnati e sforzarsi per l'eccellenza.\n- Solution-driven: Focalizzarsi sugli esiti per i clienti e trattare i clienti in modo equo con un atteggiamento consapevole del rischio.\n- Partnership-oriented: Promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.\n- Si prega di allegare una lettera di presentazione al CV quando si invia la domanda.\n\n## Applicazione\n- Se si desidera candidarsi per questa posizione, utilizzare questo link per inviare la domanda.",
-        "de": "Einführung des Teams\n- Bei EFG möchten wir einen Mehrwert aus Daten schaffen. Innerhalb unserer Data Office-Abteilung suchen wir einen hochqualifizierten und motivierten KI-Softwareingenieur, der sich unserem Team für Machine Learning & GenAI anschließen soll. Sie werden an der Erstellung einer neuen, skalierbaren KI-Plattform arbeiten und KI-gesteuerte Systeme entwerfen, bauen und deployen, die einen messbaren Geschäftserfolg erzielen.\n- Dies ist eine hervorragende Gelegenheit, einen bedeutenden Einfluss in einer wachsenden Organisation zu haben, die sich für die Bereitstellung einer herausragenden digitalen Bankingerfahrung für unsere Kunden einsetzt. Hauptverantwortungen - 1) Plattform und Architektur\n- Entwerfen und bauen Sie eine hybride (on-prem/on-cloud) KI/ML-Plattform, um KI-Anwendungsfälle im großen Maßstab auszuführen (Feature-Stores, Modell-Register, Experimentierung, Bewertung, Beobachtbarkeit).\n- Definieren und implementieren Sie sichere, zuverlässige Inferenz- und Trainingsarchitekturen, einschließlich Vektor-Suche und RAG-Komponenten, sofern anwendbar.\n- Bieten Sie Plattform-Support für Embeddings, Vektor-Datenbanken und KI-agentic-Kommunikationsprotokolle, um fundierte, interoperable KI-Workflows zu ermöglichen.\n- Dokumentieren Sie Machine-Learning-Prozesse, Systemarchitektur und betriebliche Runbooks für Reproduzierbarkeit und Wissensaustausch. - 2) Modellentwicklung und -bewertung\n- Arbeiten Sie an der Ausbildung, Feinabstimmung und Optimierung von Modellen (LLM, NLP, Empfehlungen), einschließlich LoRA/PEFT, wenn relevant.\n- Implementieren Sie Schutzmechanismen und Prompt-Strategien, um Halluzinationen zu reduzieren und Sicherheit und Konsistenz zu verbessern, und unterstützen Sie agentic-Workflows.\n- Etablieren Sie Bewertungsrahmen für RAG- und LLM-Systeme. - 3) Softwareentwicklung und MLOps\n- Übernehmen Sie die end-to-end-Softwareentwicklung von KI-Diensten und APIs (von Design und Codierung bis hin zu Tests und Bereitstellung).\n- Automatisieren Sie Build, Test und Bereitstellung mithilfe von CI/CD-Pipelines; verwalten Sie Modell-/Versionen-Release über Modell-Register.\n- Implementieren Sie kontinuierliche Überwachung für bereitgestellte KI-Systeme. - 4) Produkt- und Stakeholder-Zusammenarbeit\n- Arbeiten Sie eng mit Business-Usern, Produktverantwortlichen, Business-Ingenieuren, Datenmanagern, Datenwissenschaftlern und Technologieteams zusammen, um KI/ML-Anwendungsfälle, Anforderungen und Erfolgsmetriken zu verstehen.\n- Arbeiten Sie mit Datenwissenschaftlern zusammen, um Prototypen zu iterieren und in robuste, skalierbare Produktionsdienste umzuwandeln.\n- Übersetzen Sie aufkommende GenAI/Agentic-AI-Fähigkeiten in umsetzbare Produktchancen und wiederverwendbare Komponenten für die Bank. - 5) Sicherheit, Datenschutz und Compliance\n- Stellen Sie sicher, dass alle KI/ML-Lösungen die unternehmensweiten Richtlinien und Standards für Daten und KI einhalten, einschließlich Datenschutz, Cybersicherheit und verantwortungsvoller KI-Praktiken.\n- Integrieren Sie Datenschutz durch Design, Zugriffskontrollen, Verschlüsselung und Auditierbarkeit über Datenflüsse und Modelloperationen.\n- Arbeiten Sie mit Risiko-, Sicherheits- und Compliance-Teams zusammen, um SOC 2, GDPR/CCPA und interne Governance-Richtlinien einzuhalten.\n\n## Fähigkeiten und Erfahrung\n\n## 1) Ausbildung\n- Fortgeschrittene Qualifikation in Informatik, Data Science, Mathematik, Statistik, Physik oder verwandtem Gebiet.\n\n## 2) Must-Have\n- Umfangreiche Kenntnisse von ML/AI-Frameworks: PyTorch oder TensorFlow; Hugging-Face-Ökosystem; LangChain/LlamaIndex oder gleichwertig für Orchestrierung, Datenstrukturen, Datenmodellierung und Softwarearchitektur.\n- Praktische Erfahrung mit LLM: Prompt-Engineering, Feinabstimmung/LoRA, Embeddings, Vektor-Datenbanken (FAISS, Pinecone, Weaviate), RAG-Muster.\n- Solide Programmierkenntnisse in Python, R oder Java/Scala; praktische Erfahrung mit SQL, ETL-Tool und Linux; Kenntnisse von Control-M & Terraform sind von Vorteil.\n- Frühere Erfahrung mit der Bereitstellung von Anwendungen in Cloud-Umgebungen (Azure); Vertrautheit mit hybriden On-Prem/Cloud-Setup.\n- Erfahrung mit der Erstellung von Produktionsdiensten und APIs (REST/gRPC), Cloud-Native (AWS/GCP/Azure), Containern (Docker) und Orchestrierung (Openshift, Kubernetes).\n- MLOps-Grundlagen: Experimentverfolgung (MLflow/W&B), Modell-Register, CI/CD, Modellüberwachung, Feature-Stores.\n- Fähigkeit, CI/CD-Pipelines zu überwachen, zu debuggen und zu warten, die in Produktionsbereitstellungen einfließen (GitHub Actions/GitLab CI/Azure DevOps).\n- Dateningenieur-Kompetenz: SQL, Datenmodellierung, ETL/ELT und Arbeit mit Data Warehouses/Lakes (Snowflake, BigQuery, S3/Delta).\n- Fähigkeit, in einer SCRUM/Agile-Umgebung mit Fokus auf Lieferung und Stakeholder-Zusammenarbeit zu arbeiten.\n- Hervorragende analytische und Problemlösungsfähigkeiten; ergebnis- und detailorientiert mit starker schriftlicher und verbaler Kommunikation.\n- Erfahrung in der Banken- oder Vermögensverwaltungsbranche ist von Vorteil.\n\n## 3) Nice-to-Have\n- Erfahrung mit der Bereitstellung und Optimierung von Open-Source-Modellen (Llama, Mistral, Mixtral) auf GPUs; Quantisierung (INT8/4), Tensor-/Flash-Aufmerksamkeit.\n- Kenntnisse von Retrieval-Systemen (BM25, hybride Suche), semantischem Caching und strukturiertem Werkzeuggebrauch/Agenten.\n- Bewertungsexpertise für LLM: rubrikbasierte Bewertung, goldene Sets, adversatives Testen und A/B-Experimentierung.\n- Sicherheitspraktiken für KI-Anwendungen: Prompt-Injection-Abwehr, Ausgabe-Filterung, Inhaltsmoderation und Red-Teaming.\n- Beiträge zu Open-Source-KI-Projekten oder veröffentlichte Arbeiten. Unsere Werte\n- Verantwortung: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung.\n- Hands-on: Proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern.\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben.\n- Lösungsorientiert: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikoorientierten Mindset.\n- Partnerschaftlich: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.\n- Bitte fügen Sie Ihrem CV einen Deckbrief bei, wenn Sie sich bewerben.\n\n## Bewerbung\n- Wenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link, um Ihre Bewerbung abzusenden.",
-        "fr": "Présentation de l'équipe\n- Chez EFG, nous voulons créer de la valeur à partir des données. Au sein de notre département Data Office, nous recherchons un ingénieur logiciel IA hautement qualifié et motivé pour rejoindre notre équipe de Machine Learning & GenAI. Vous travaillerez à la construction d'une nouvelle plateforme IA scalable et concevrez, construirez et déployerez des systèmes basés sur IA qui offrent un impact commercial mesurable.\n- C'est une excellente opportunité pour avoir un impact significatif dans une organisation en croissance qui s'engage à fournir une expérience bancaire digitale exceptionnelle pour nos clients. Responsabilités principales - 1) Plateforme et Architecture\n- Concevoir et construire une plateforme IA/ML hybride (on-prem/on-cloud) pour exécuter des cas d'utilisation IA à grande échelle (feature stores, registre des modèles, expérimentation, évaluation, observabilité).\n- Définir et mettre en œuvre des architectures d'inférence et de formation sécurisées et fiables, y compris des composants de recherche vectorielle et RAG le cas échéant.\n- Fournir un support de plateforme pour les embeddings, les bases de données vectorielles et les protocoles de communication agentic IA pour permettre des flux de travail IA interopérables et fondés sur des faits.\n- Documenter les processus de machine learning, l'architecture des systèmes et les procédures opérationnelles pour la reproductibilité et le partage de connaissances. - 2) Développement et évaluation de modèles\n- Collaborer à la formation, à l'ajustement fin et à l'optimisation de modèles (LLM, NLP, recommandations), y compris LoRA/PEFT si pertinent.\n- Mettre en œuvre des garde-fous et des stratégies de prompt pour réduire les hallucinations et améliorer la sécurité et la cohérence, et supporter les flux de travail agentic.\n- Établir des cadres d'évaluation pour les systèmes RAG et LLM. - 3) Développement logiciel et MLOps\n- Assurer le développement logiciel end-to-end des services IA et des API (de la conception à la codification, aux tests et au déploiement).\n- Automatiser la construction, les tests et le déploiement à l'aide de pipelines CI/CD; gérer les versions des modèles/versions via des registres de modèles.\n- Mettre en œuvre une surveillance continue pour les systèmes IA déployés. - 4) Produit et collaboration avec les parties prenantes\n- Travailler en étroite collaboration avec les utilisateurs métier, les propriétaires de produits, les ingénieurs métier, les gestionnaires de données, les scientifiques de données et les équipes technologiques pour comprendre les cas d'utilisation IA/ML, les exigences et les indicateurs de succès.\n- Collaborer avec les scientifiques de données pour itérer sur les prototypes et les convertir en services de production robustes et scalables.\n- Traduire les capacités émergentes de GenAI/Agentic AI en opportunités de produit concrètes et en composants réutilisables pour la banque. - 5) Sécurité, confidentialité et conformité\n- Assurer que toutes les solutions IA/ML répondent aux directives et normes de l'entreprise pour les données et l'IA, y compris la protection des données, la cybersécurité et les pratiques d'IA responsables.\n- Intégrer la confidentialité par conception, les contrôles d'accès, le cryptage et l'auditabilité à travers les flux de données et les opérations de modèle.\n- Collaborer avec les équipes de risque, de sécurité et de conformité pour aligner sur SOC 2, GDPR/CCPA et la gouvernance interne.\n\n## Compétences et expérience\n\n## 1) Éducation\n- Diplôme avancé en informatique, science des données, mathématiques, statistiques, physique ou domaine connexe.\n\n## 2) Must-Have\n- Connaissance approfondie des frameworks ML/AI: PyTorch ou TensorFlow; écosystème Hugging Face; LangChain/LlamaIndex ou équivalent pour l'orchestration, les structures de données, la modélisation des données et l'architecture logicielle.\n- Expérience pratique avec LLM: ingénierie de prompt, ajustement fin/LoRA, embeddings, bases de données vectorielles (FAISS, Pinecone, Weaviate), modèles RAG.\n- Compétences de programmation solides en Python, R ou Java/Scala; expérience pratique avec SQL, outil ETL et Linux; connaissances de Control-M & Terraform sont un plus.\n- Expérience antérieure dans le déploiement d'applications dans des environnements cloud (Azure); familiarité avec les configurations hybrides on-prem/cloud.\n- Expérience dans la construction de services et d'API de production (REST/gRPC), cloud-native (AWS/GCP/Azure), conteneurs (Docker) et orchestration (Openshift, Kubernetes).\n- Fondements de MLOps: suivi des expériences (MLflow/W&B), registres de modèles, CI/CD, surveillance des modèles, feature stores.\n- Capacité à surveiller, déboguer et maintenir des pipelines CI/CD qui alimentent les déploiements de production (GitHub Actions/GitLab CI/Azure DevOps).\n- Compétence en ingénierie de données: SQL, modélisation de données, ETL/ELT et travail avec des entrepôts/lacs de données (Snowflake, BigQuery, S3/Delta).\n- Capacité à travailler dans un environnement SCRUM/Agile avec un focus sur la livraison et la collaboration avec les parties prenantes.\n- Excellentes capacités analytiques et de résolution de problèmes; orienté vers les résultats et les détails avec une forte communication écrite et verbale.\n- Expérience dans le secteur bancaire ou la gestion de patrimoine est un avantage.\n\n## 3) Nice-to-Have\n- Expérience dans le déploiement et l'optimisation de modèles open-source (Llama, Mistral, Mixtral) sur GPU; quantification (INT8/4), attention tensorielle/Flash.\n- Connaissance des systèmes de récupération (BM25, recherche hybride), mise en cache sémantique et utilisation d'outils structurés/agents.\n- Expertise en évaluation pour LLM: évaluation basée sur des rubriques, ensembles dorés, tests adverses et expérimentation A/B.\n- Pratiques de sécurité pour les applications IA: défenses contre l'injection de prompts, filtrage des sorties, modération du contenu et red-teaming.\n- Contributions à des projets IA open-source ou travaux publiés. Nos valeurs\n- Responsabilité: Prendre en charge les tâches et les défis, ainsi que rechercher l'amélioration continue.\n- Hands-on: Être proactif pour fournir des résultats de haute qualité rapidement.\n- Passionné: Être engagé et s'efforcer d'excellence.\n- Solution-driven: Se concentrer sur les résultats pour les clients et traiter les clients de manière équitable avec un esprit de risque.\n- Partnership-oriented: Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n- Veuillez joindre une lettre de motivation à votre CV lorsque vous postulez.\n\n## Candidature\n- Si vous souhaitez postuler à ce poste, utilisez ce lien pour envoyer votre candidature."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [],
-            "keywords": [],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Introduction of the team",
-                "paragraphs": [
-                  "Main responsibilities"
-                ],
-                "bullets": [
-                  "At EFG we want to create value fom data. Within our Data Office department, we’re seeking a highly skilled and motivated AI Software Engineer to join our Machine Learning & GenAI team. You will embark on building a new, scalable AI platform and design, build, and deploy AI-driven systems that deliver measurable business impact.",
-                  "This is an excellent opportunity to make a significant impact in a growing organization committed to delivering an outstanding digital banking experience for our clients.",
-                  "<strong>1) Platform and Architecture </strong>",
-                  "Design and build a hybrid (on-prem / on-cloud) AI/ML platform to run AI use cases at scale (feature stores, model registry, experimentation, evaluation, observability).",
-                  "Define and implement secure, reliable inference and training architectures, including vector search and RAG components where applicable.",
-                  "Provide platform support for embeddings, vector databases, and AI agentic communication protocols to enable grounded, interoperable AI workflows.",
-                  "Document machine learning processes, system architecture, and operational runbooks for reproducibility and knowledge sharing.",
-                  "<strong>2) Model Development & Evaluation</strong>",
-                  "Collaborate on training, fine-tuning, and optimizing models (LLMs, NLP, recommendations), including LoRA/PEFT when relevant.",
-                  "Implement guardrails and prompt strategies to reduce hallucinations and improve safety and consistency, and support agentic workflows.",
-                  "Establish evaluation frameworks for RAG and LLM systems.",
-                  "<strong>3) Software Development & MLOps</strong>",
-                  "Own end-to-end software development of AI services and APIs (from design and coding to testing and deployment).",
-                  "Automate build, test, and deployment using CI/CD pipelines; manage model/version releases via model registries.",
-                  "Implement continuous monitoring for deployed AI systems.",
-                  "<strong>4) Product & Stakeholder Collaboration</strong>",
-                  "Work closely with Business Users, Product Owners, Business Engineers, Data Managers, Data Scientists, and technology teams to understand AI/ML use cases, requirements, and success metrics.",
-                  "Partner with Data Scientists to iterate on prototypes and convert them into robust, scalable production services.",
-                  "Translate emerging GenAI/Agentic AI capabilities into actionable product opportunities and reusable components for the Bank.",
-                  "<strong>5) Security, Privacy, and Compliance</strong>",
-                  "Ensure all AI/ML solutions meet bank-wide data and AI guidelines and standards, including data protection, cyber security, and responsible AI practices.",
-                  "Embed privacy-by-design, access controls, encryption, and auditability across data flows and model operations.",
-                  "Collaborate with Risk, Security, and Compliance to align with SOC 2, GDPR/CCPA, and internal governance."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "1) Education",
-                "paragraphs": [],
-                "bullets": [
-                  "Advanced degree in Computer Science, Data Science, Mathematics, Statistics, Physics, or related."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "2) Must-Have",
-                "paragraphs": [],
-                "bullets": [
-                  "Extensive knowledge of ML/AI frameworks: PyTorch or TensorFlow; Hugging Face ecosystem; LangChain/LlamaIndex or equivalent for orchestration, data structures, data modeling, and software architecture.",
-                  "Practical LLM experience: prompt engineering, fine-tuning/LoRA, embeddings, vector databases (FAISS, Pinecone, Weaviate), RAG patterns.",
-                  "Solid programming skills in Python, R or Java/Scala, hands on experience in SQL, ETL tool and Linux and Control-M & Terraform knowledge are a plus. <i> </i>",
-                  "Prior experience deploying applications on cloud environments (Azure); familiarity with hybrid on‑prem/cloud setups.",
-                  "Experience building production-grade services and APIs (REST/gRPC), cloud-native (AWS/GCP/Azure), containers (Docker), and orchestration (Openshift, Kubernetes).",
-                  "MLOps foundations: experiment tracking (MLflow/W&B), model registries, CI/CD, model monitoring, feature stores.",
-                  "Ability to monitor, debug, and maintain CI/CD pipelines that feed into production deployments (GitHub Actions/GitLab CI/Azure DevOps).",
-                  "Data engineering proficiency: SQL, data modeling, ETL/ELT, and working with warehouses/lakes (Snowflake, BigQuery, S3/Delta).",
-                  "Ability to work in a SCRUM/Agile environment with a focus on delivery and stakeholder collaboration.",
-                  "Excellent analytical and problem-solving abilities; results- and detail-oriented with strong written and verbal communication.",
-                  "Experience in the Banking Or Wealth Management Industry is an advantage"
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "3) Nice-to-Have",
-                "paragraphs": [
-                  "Our Values"
-                ],
-                "bullets": [
-                  "Experience deploying and optimizing open-source models (Llama, Mistral, Mixtral) on GPUs; quantization (INT8/4), tensor/Flash attention.",
-                  "Knowledge of retrieval systems (BM25, hybrid search), semantic caching, and structured tool use/agents.",
-                  "Evaluation expertise for LLMs: rubric-based grading, golden sets, adversarial testing, and A/B experimentation.",
-                  "Security practices for AI applications: prompt injection defenses, output filtering, content moderation, and red-teaming.",
-                  "Contributions to open-source AI projects or published work.",
-                  "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-                  "Hands-on: Being proactive to rapidly deliver high-quality results",
-                  "Passionate: Being committed and striving for excellence",
-                  "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-                  "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-                  "<strong>Please ensure to attach a cover letter to your CV when filling the application.</strong>"
-                ]
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-04-13T21:36:48.386Z",
-      "slugByLocale": {
-        "it": "ingegnere-ai-efg-international-ag-geneve",
-        "en": "ai-engineer-efg-international-ag-geneve",
-        "de": "ki-ingenieur-efg-international-ag-geneve",
-        "fr": "ingenieur-ia-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-02-11",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "ai-engineer-efg-geneve",
-        "ai-ingenieur-efg-international-ag-geneve",
-        "ai-ingegnere-efg-international-ag-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "ai-engineer-efg-geneve",
-          "ai-ingenieur-efg-international-ag-geneve"
-        ],
-        "it": [
-          "ai-ingenieur-efg-international-ag-geneve",
-          "ai-ingegnere-efg-international-ag-geneve",
-          "ai-engineer-efg-geneve"
-        ],
-        "de": [
-          "ai-ingenieur-efg-international-ag-geneve"
-        ],
-        "fr": [
-          "ai-ingenieur-efg-international-ag-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:28:21.952Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6066",
@@ -1563,7 +1388,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.386Z",
+      "crawledAt": "2026-04-14T09:50:28.298Z",
       "slugByLocale": {
         "it": "ufficiale-servizi-clienti-geneva-talent-pool-efg-international-ag-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1598,7 +1423,186 @@
       "previousSlugs": [
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6061",
+      "slug": "ingegnere-ai-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "AI Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Introduction of the team\n\n- At EFG we want to create value fom data. Within our Data Office department, we’re seeking a highly skilled and motivated AI Software Engineer to join our Machine Learning & GenAI team. You will embark on building a new, scalable AI platform and design, build, and deploy AI-driven systems that deliver measurable business impact.\n\n- This is an excellent opportunity to make a significant impact in a growing organization committed to delivering an outstanding digital banking experience for our clients.\n\nMain responsibilities\n\n-  1) Platform and Architecture\n\n- Design and build a hybrid (on-prem / on-cloud) AI/ML platform to run AI use cases at scale (feature stores, model registry, experimentation, evaluation, observability).\n\n- Define and implement secure, reliable inference and training architectures, including vector search and RAG components where applicable.\n\n- Provide platform support for embeddings, vector databases, and AI agentic communication protocols to enable grounded, interoperable AI workflows.\n\n- Document machine learning processes, system architecture, and operational runbooks for reproducibility and knowledge sharing.\n\n-  2) Model Development & Evaluation\n\n- Collaborate on training, fine-tuning, and optimizing models (LLMs, NLP, recommendations), including LoRA/PEFT when relevant.\n\n- Implement guardrails and prompt strategies to reduce hallucinations and improve safety and consistency, and support agentic workflows.\n\n- Establish evaluation frameworks for RAG and LLM systems.\n\n-  3) Software Development & MLOps\n\n- Own end-to-end software development of AI services and APIs (from design and coding to testing and deployment).\n\n- Automate build, test, and deployment using CI/CD pipelines; manage model/version releases via model registries.\n\n- Implement continuous monitoring for deployed AI systems.\n\n-  4) Product & Stakeholder Collaboration\n\n- Work closely with Business Users, Product Owners, Business Engineers, Data Managers, Data Scientists, and technology teams to understand AI/ML use cases, requirements, and success metrics.\n\n- Partner with Data Scientists to iterate on prototypes and convert them into robust, scalable production services.\n\n- Translate emerging GenAI/Agentic AI capabilities into actionable product opportunities and reusable components for the Bank.\n\n-  5) Security, Privacy, and Compliance\n\n- Ensure all AI/ML solutions meet bank-wide data and AI guidelines and standards, including data protection, cyber security, and responsible AI practices.\n\n- Embed privacy-by-design, access controls, encryption, and auditability across data flows and model operations.\n\n- Collaborate with Risk, Security, and Compliance to align with SOC 2, GDPR/CCPA, and internal governance.\n\n## Skills and experience\n\n## 1) Education\n\n- Advanced degree in Computer Science, Data Science, Mathematics, Statistics, Physics, or related.\n\n## 2) Must-Have\n\n- Extensive knowledge of ML/AI frameworks: PyTorch or TensorFlow; Hugging Face ecosystem; LangChain/LlamaIndex or equivalent for orchestration, data structures, data modeling, and software architecture.\n\n- Practical LLM experience: prompt engineering, fine-tuning/LoRA, embeddings, vector databases (FAISS, Pinecone, Weaviate), RAG patterns.\n\n- Solid programming skills in Python, R or Java/Scala, hands on experience in SQL, ETL tool and Linux and Control-M & Terraform knowledge are a plus.\n\n- Prior experience deploying applications on cloud environments (Azure); familiarity with hybrid on‑prem/cloud setups.\n\n- Experience building production-grade services and APIs (REST/gRPC), cloud-native (AWS/GCP/Azure), containers (Docker), and orchestration (Openshift, Kubernetes).\n\n- MLOps foundations: experiment tracking (MLflow/W&B), model registries, CI/CD, model monitoring, feature stores.\n\n- Ability to monitor, debug, and maintain CI/CD pipelines that feed into production deployments (GitHub Actions/GitLab CI/Azure DevOps).\n\n- Data engineering proficiency: SQL, data modeling, ETL/ELT, and working with warehouses/lakes (Snowflake, BigQuery, S3/Delta).\n\n- Ability to work in a SCRUM/Agile environment with a focus on delivery and stakeholder collaboration.\n\n- Excellent analytical and problem-solving abilities; results- and detail-oriented with strong written and verbal communication.\n\n- Experience in the Banking Or Wealth Management Industry is an advantage\n\n## 3) Nice-to-Have\n\n- Experience deploying and optimizing open-source models (Llama, Mistral, Mixtral) on GPUs; quantization (INT8/4), tensor/Flash attention.\n\n- Knowledge of retrieval systems (BM25, hybrid search), semantic caching, and structured tool use/agents.\n\n- Evaluation expertise for LLMs: rubric-based grading, golden sets, adversarial testing, and A/B experimentation.\n\n- Security practices for AI applications: prompt injection defenses, output filtering, content moderation, and red-teaming.\n\n- Contributions to open-source AI projects or published work.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n-  Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\n- Should you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-02-11",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6061",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "AI Engineer",
+        "it": "Ingegnere AI",
+        "de": "KI-Ingenieur",
+        "fr": "Ingénieur IA"
+      },
+      "descriptionByLocale": {
+        "en": "## Introduction of the team\n\n- At EFG we want to create value fom data. Within our Data Office department, we’re seeking a highly skilled and motivated AI Software Engineer to join our Machine Learning & GenAI team. You will embark on building a new, scalable AI platform and design, build, and deploy AI-driven systems that deliver measurable business impact.\n\n- This is an excellent opportunity to make a significant impact in a growing organization committed to delivering an outstanding digital banking experience for our clients.\n\nMain responsibilities\n\n-  1) Platform and Architecture\n\n- Design and build a hybrid (on-prem / on-cloud) AI/ML platform to run AI use cases at scale (feature stores, model registry, experimentation, evaluation, observability).\n\n- Define and implement secure, reliable inference and training architectures, including vector search and RAG components where applicable.\n\n- Provide platform support for embeddings, vector databases, and AI agentic communication protocols to enable grounded, interoperable AI workflows.\n\n- Document machine learning processes, system architecture, and operational runbooks for reproducibility and knowledge sharing.\n\n-  2) Model Development & Evaluation\n\n- Collaborate on training, fine-tuning, and optimizing models (LLMs, NLP, recommendations), including LoRA/PEFT when relevant.\n\n- Implement guardrails and prompt strategies to reduce hallucinations and improve safety and consistency, and support agentic workflows.\n\n- Establish evaluation frameworks for RAG and LLM systems.\n\n-  3) Software Development & MLOps\n\n- Own end-to-end software development of AI services and APIs (from design and coding to testing and deployment).\n\n- Automate build, test, and deployment using CI/CD pipelines; manage model/version releases via model registries.\n\n- Implement continuous monitoring for deployed AI systems.\n\n-  4) Product & Stakeholder Collaboration\n\n- Work closely with Business Users, Product Owners, Business Engineers, Data Managers, Data Scientists, and technology teams to understand AI/ML use cases, requirements, and success metrics.\n\n- Partner with Data Scientists to iterate on prototypes and convert them into robust, scalable production services.\n\n- Translate emerging GenAI/Agentic AI capabilities into actionable product opportunities and reusable components for the Bank.\n\n-  5) Security, Privacy, and Compliance\n\n- Ensure all AI/ML solutions meet bank-wide data and AI guidelines and standards, including data protection, cyber security, and responsible AI practices.\n\n- Embed privacy-by-design, access controls, encryption, and auditability across data flows and model operations.\n\n- Collaborate with Risk, Security, and Compliance to align with SOC 2, GDPR/CCPA, and internal governance.\n\n## Skills and experience\n\n## 1) Education\n\n- Advanced degree in Computer Science, Data Science, Mathematics, Statistics, Physics, or related.\n\n## 2) Must-Have\n\n- Extensive knowledge of ML/AI frameworks: PyTorch or TensorFlow; Hugging Face ecosystem; LangChain/LlamaIndex or equivalent for orchestration, data structures, data modeling, and software architecture.\n\n- Practical LLM experience: prompt engineering, fine-tuning/LoRA, embeddings, vector databases (FAISS, Pinecone, Weaviate), RAG patterns.\n\n- Solid programming skills in Python, R or Java/Scala, hands on experience in SQL, ETL tool and Linux and Control-M & Terraform knowledge are a plus.\n\n- Prior experience deploying applications on cloud environments (Azure); familiarity with hybrid on‑prem/cloud setups.\n\n- Experience building production-grade services and APIs (REST/gRPC), cloud-native (AWS/GCP/Azure), containers (Docker), and orchestration (Openshift, Kubernetes).\n\n- MLOps foundations: experiment tracking (MLflow/W&B), model registries, CI/CD, model monitoring, feature stores.\n\n- Ability to monitor, debug, and maintain CI/CD pipelines that feed into production deployments (GitHub Actions/GitLab CI/Azure DevOps).\n\n- Data engineering proficiency: SQL, data modeling, ETL/ELT, and working with warehouses/lakes (Snowflake, BigQuery, S3/Delta).\n\n- Ability to work in a SCRUM/Agile environment with a focus on delivery and stakeholder collaboration.\n\n- Excellent analytical and problem-solving abilities; results- and detail-oriented with strong written and verbal communication.\n\n- Experience in the Banking Or Wealth Management Industry is an advantage\n\n## 3) Nice-to-Have\n\n- Experience deploying and optimizing open-source models (Llama, Mistral, Mixtral) on GPUs; quantization (INT8/4), tensor/Flash attention.\n\n- Knowledge of retrieval systems (BM25, hybrid search), semantic caching, and structured tool use/agents.\n\n- Evaluation expertise for LLMs: rubric-based grading, golden sets, adversarial testing, and A/B experimentation.\n\n- Security practices for AI applications: prompt injection defenses, output filtering, content moderation, and red-teaming.\n\n- Contributions to open-source AI projects or published work.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n-  Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\n- Should you wish to apply for this position use this link to apply.",
+        "it": "Presentazione del team\n- In EFG vogliamo creare valore dai dati. All'interno del nostro dipartimento Data Office, stiamo cercando un ingegnere del software AI altamente qualificato e motivato per unirsi al nostro team di Machine Learning & GenAI. Parteciperai alla costruzione di una nuova piattaforma AI scalabile e progetterai, costruirai e distribuirai sistemi basati su AI che offrono un impatto aziendale misurabile.\n- Questa è un'ottima opportunità per avere un impatto significativo in un'organizzazione in crescita impegnata a offrire un'esperienza di banking digitale eccezionale per i nostri clienti. Responsabilità principali - 1) Piattaforma e Architettura\n- Progettare e costruire una piattaforma AI/ML ibrida (on-prem/on-cloud) per eseguire casi d'uso AI su larga scala (feature store, registro dei modelli, sperimentazione, valutazione, osservabilità).\n- Definire e implementare architetture di inferenza e allenamento sicure e affidabili, inclusi componenti di ricerca vettoriale e RAG ove applicabile.\n- Fornire supporto alla piattaforma per embeddings, database vettoriali e protocolli di comunicazione agentic AI per abilitare flussi di lavoro AI interoperabili e basati su fondamenti.\n- Documentare i processi di machine learning, l'architettura dei sistemi e le procedure operative per la riproducibilità e la condivisione delle conoscenze. - 2) Sviluppo e valutazione dei modelli\n- Collaborare all'allenamento, alla regolazione fine e all'ottimizzazione dei modelli (LLM, NLP, raccomandazioni), inclusa LoRA/PEFT ove pertinente.\n- Implementare guardrail e strategie di prompt per ridurre le allucinazioni e migliorare la sicurezza e la coerenza, e supportare flussi di lavoro agentic.\n- Stabilire framework di valutazione per sistemi RAG e LLM. - 3) Sviluppo del software e MLOps\n- Possedere lo sviluppo end-to-end del software dei servizi AI e delle API (dal design alla codifica, test e distribuzione).\n- Automatizzare la costruzione, il test e la distribuzione usando pipeline CI/CD; gestire le versioni dei modelli/rilasci via registri dei modelli.\n- Implementare il monitoraggio continuo per i sistemi AI distribuiti. - 4) Prodotto e collaborazione con gli stakeholder\n- Lavorare a stretto contatto con gli utenti business, i proprietari dei prodotti, gli ingegneri business, i gestori dei dati, gli scienziati dei dati e i team tecnologici per comprendere i casi d'uso AI/ML, i requisiti e le metriche di successo.\n- Collaborare con gli scienziati dei dati per iterare sui prototipi e convertirli in servizi di produzione robusti e scalabili.\n- Tradurre le capacità emergenti di GenAI/Agentic AI in opportunità di prodotto concrete e componenti riutilizzabili per la Banca. - 5) Sicurezza, privacy e conformità\n- Assicurare che tutte le soluzioni AI/ML soddisfino le linee guida e gli standard aziendali per i dati e l'AI, inclusa la protezione dei dati, la sicurezza informatica e le pratiche di AI responsabile.\n- Incorporare la privacy-by-design, i controlli di accesso, la crittografia e l'auditabilità attraverso i flussi di dati e le operazioni dei modelli.\n- Collaborare con Rischi, Sicurezza e Conformità per allinearsi con SOC 2, GDPR/CCPA e governance interna.\n\n## Competenze ed esperienza\n\n## 1) Istruzione\n- Laurea avanzata in Informatica, Data Science, Matematica, Statistica, Fisica o affine.\n\n## 2) Must-Have\n- Conoscenza approfondita dei framework ML/AI: PyTorch o TensorFlow; ecosistema Hugging Face; LangChain/LlamaIndex o equivalente per l'orchestrazione, le strutture dei dati, la modellazione dei dati e l'architettura del software.\n- Esperienza pratica con LLM: ingegneria dei prompt, regolazione fine/LoRA, embeddings, database vettoriali (FAISS, Pinecone, Weaviate), pattern RAG.\n- Competenze di programmazione solide in Python, R o Java/Scala, esperienza pratica con SQL, ETL tool e Linux e conoscenza di Control-M & Terraform sono un vantaggio.\n- Esperienza precedente nello sviluppo di applicazioni distribuite su ambienti cloud (Azure); familiarità con configurazioni ibride on-prem/cloud.\n- Esperienza nella costruzione di servizi e API di produzione (REST/gRPC), cloud-native (AWS/GCP/Azure), contenitori (Docker) e orchestrazione (Openshift, Kubernetes).\n- Fondamenti di MLOps: monitoraggio degli esperimenti (MLflow/W&B), registri dei modelli, CI/CD, monitoraggio dei modelli, feature store.\n- Capacità di monitorare, debugbare e mantenere pipeline CI/CD che alimentano le distribuzioni di produzione (GitHub Actions/GitLab CI/Azure DevOps).\n- Competenza nell'ingegneria dei dati: SQL, modellazione dei dati, ETL/ELT e lavoro con magazzini/laghi (Snowflake, BigQuery, S3/Delta).\n- Capacità di lavorare in un ambiente SCRUM/Agile con un focus sulla consegna e sulla collaborazione con gli stakeholder.\n- Eccellenti abilità analitiche e di risoluzione dei problemi; orientato ai risultati e ai dettagli con forte comunicazione scritta e verbale.\n- Esperienza nel settore bancario o nella gestione della ricchezza è un vantaggio.\n\n## 3) Nice-to-Have\n- Esperienza nella distribuzione e ottimizzazione di modelli open-source (Llama, Mistral, Mixtral) su GPU; quantizzazione (INT8/4), attenzione tensoriale/Flash.\n- Conoscenza dei sistemi di recupero (BM25, ricerca ibrida), caching semantico e uso di strumenti strutturati/agenti.\n- Competenza nella valutazione per LLM: valutazione basata su rubriche, insiemi aurei, testing avverso e sperimentazione A/B.\n- Pratiche di sicurezza per applicazioni AI: difese contro l'iniezione dei prompt, filtraggio degli output, moderazione dei contenuti e red-teaming.\n- Contributi a progetti AI open-source o lavori pubblicati. I nostri valori\n- Accountability: Assumersi la responsabilità per compiti e sfide, nonché cercare il miglioramento continuo.\n- Hands-on: Essere proattivi per fornire risultati di alta qualità rapidamente.\n- Passionate: Essere impegnati e sforzarsi per l'eccellenza.\n- Solution-driven: Focalizzarsi sugli esiti per i clienti e trattare i clienti in modo equo con un atteggiamento consapevole del rischio.\n- Partnership-oriented: Promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.\n- Si prega di allegare una lettera di presentazione al CV quando si invia la domanda.\n\n## Applicazione\n- Se si desidera candidarsi per questa posizione, utilizzare questo link per inviare la domanda.",
+        "de": "Einführung des Teams\n- Bei EFG möchten wir einen Mehrwert aus Daten schaffen. Innerhalb unserer Data Office-Abteilung suchen wir einen hochqualifizierten und motivierten KI-Softwareingenieur, der sich unserem Team für Machine Learning & GenAI anschließen soll. Sie werden an der Erstellung einer neuen, skalierbaren KI-Plattform arbeiten und KI-gesteuerte Systeme entwerfen, bauen und deployen, die einen messbaren Geschäftserfolg erzielen.\n- Dies ist eine hervorragende Gelegenheit, einen bedeutenden Einfluss in einer wachsenden Organisation zu haben, die sich für die Bereitstellung einer herausragenden digitalen Bankingerfahrung für unsere Kunden einsetzt. Hauptverantwortungen - 1) Plattform und Architektur\n- Entwerfen und bauen Sie eine hybride (on-prem/on-cloud) KI/ML-Plattform, um KI-Anwendungsfälle im großen Maßstab auszuführen (Feature-Stores, Modell-Register, Experimentierung, Bewertung, Beobachtbarkeit).\n- Definieren und implementieren Sie sichere, zuverlässige Inferenz- und Trainingsarchitekturen, einschließlich Vektor-Suche und RAG-Komponenten, sofern anwendbar.\n- Bieten Sie Plattform-Support für Embeddings, Vektor-Datenbanken und KI-agentic-Kommunikationsprotokolle, um fundierte, interoperable KI-Workflows zu ermöglichen.\n- Dokumentieren Sie Machine-Learning-Prozesse, Systemarchitektur und betriebliche Runbooks für Reproduzierbarkeit und Wissensaustausch. - 2) Modellentwicklung und -bewertung\n- Arbeiten Sie an der Ausbildung, Feinabstimmung und Optimierung von Modellen (LLM, NLP, Empfehlungen), einschließlich LoRA/PEFT, wenn relevant.\n- Implementieren Sie Schutzmechanismen und Prompt-Strategien, um Halluzinationen zu reduzieren und Sicherheit und Konsistenz zu verbessern, und unterstützen Sie agentic-Workflows.\n- Etablieren Sie Bewertungsrahmen für RAG- und LLM-Systeme. - 3) Softwareentwicklung und MLOps\n- Übernehmen Sie die end-to-end-Softwareentwicklung von KI-Diensten und APIs (von Design und Codierung bis hin zu Tests und Bereitstellung).\n- Automatisieren Sie Build, Test und Bereitstellung mithilfe von CI/CD-Pipelines; verwalten Sie Modell-/Versionen-Release über Modell-Register.\n- Implementieren Sie kontinuierliche Überwachung für bereitgestellte KI-Systeme. - 4) Produkt- und Stakeholder-Zusammenarbeit\n- Arbeiten Sie eng mit Business-Usern, Produktverantwortlichen, Business-Ingenieuren, Datenmanagern, Datenwissenschaftlern und Technologieteams zusammen, um KI/ML-Anwendungsfälle, Anforderungen und Erfolgsmetriken zu verstehen.\n- Arbeiten Sie mit Datenwissenschaftlern zusammen, um Prototypen zu iterieren und in robuste, skalierbare Produktionsdienste umzuwandeln.\n- Übersetzen Sie aufkommende GenAI/Agentic-AI-Fähigkeiten in umsetzbare Produktchancen und wiederverwendbare Komponenten für die Bank. - 5) Sicherheit, Datenschutz und Compliance\n- Stellen Sie sicher, dass alle KI/ML-Lösungen die unternehmensweiten Richtlinien und Standards für Daten und KI einhalten, einschließlich Datenschutz, Cybersicherheit und verantwortungsvoller KI-Praktiken.\n- Integrieren Sie Datenschutz durch Design, Zugriffskontrollen, Verschlüsselung und Auditierbarkeit über Datenflüsse und Modelloperationen.\n- Arbeiten Sie mit Risiko-, Sicherheits- und Compliance-Teams zusammen, um SOC 2, GDPR/CCPA und interne Governance-Richtlinien einzuhalten.\n\n## Fähigkeiten und Erfahrung\n\n## 1) Ausbildung\n- Fortgeschrittene Qualifikation in Informatik, Data Science, Mathematik, Statistik, Physik oder verwandtem Gebiet.\n\n## 2) Must-Have\n- Umfangreiche Kenntnisse von ML/AI-Frameworks: PyTorch oder TensorFlow; Hugging-Face-Ökosystem; LangChain/LlamaIndex oder gleichwertig für Orchestrierung, Datenstrukturen, Datenmodellierung und Softwarearchitektur.\n- Praktische Erfahrung mit LLM: Prompt-Engineering, Feinabstimmung/LoRA, Embeddings, Vektor-Datenbanken (FAISS, Pinecone, Weaviate), RAG-Muster.\n- Solide Programmierkenntnisse in Python, R oder Java/Scala; praktische Erfahrung mit SQL, ETL-Tool und Linux; Kenntnisse von Control-M & Terraform sind von Vorteil.\n- Frühere Erfahrung mit der Bereitstellung von Anwendungen in Cloud-Umgebungen (Azure); Vertrautheit mit hybriden On-Prem/Cloud-Setup.\n- Erfahrung mit der Erstellung von Produktionsdiensten und APIs (REST/gRPC), Cloud-Native (AWS/GCP/Azure), Containern (Docker) und Orchestrierung (Openshift, Kubernetes).\n- MLOps-Grundlagen: Experimentverfolgung (MLflow/W&B), Modell-Register, CI/CD, Modellüberwachung, Feature-Stores.\n- Fähigkeit, CI/CD-Pipelines zu überwachen, zu debuggen und zu warten, die in Produktionsbereitstellungen einfließen (GitHub Actions/GitLab CI/Azure DevOps).\n- Dateningenieur-Kompetenz: SQL, Datenmodellierung, ETL/ELT und Arbeit mit Data Warehouses/Lakes (Snowflake, BigQuery, S3/Delta).\n- Fähigkeit, in einer SCRUM/Agile-Umgebung mit Fokus auf Lieferung und Stakeholder-Zusammenarbeit zu arbeiten.\n- Hervorragende analytische und Problemlösungsfähigkeiten; ergebnis- und detailorientiert mit starker schriftlicher und verbaler Kommunikation.\n- Erfahrung in der Banken- oder Vermögensverwaltungsbranche ist von Vorteil.\n\n## 3) Nice-to-Have\n- Erfahrung mit der Bereitstellung und Optimierung von Open-Source-Modellen (Llama, Mistral, Mixtral) auf GPUs; Quantisierung (INT8/4), Tensor-/Flash-Aufmerksamkeit.\n- Kenntnisse von Retrieval-Systemen (BM25, hybride Suche), semantischem Caching und strukturiertem Werkzeuggebrauch/Agenten.\n- Bewertungsexpertise für LLM: rubrikbasierte Bewertung, goldene Sets, adversatives Testen und A/B-Experimentierung.\n- Sicherheitspraktiken für KI-Anwendungen: Prompt-Injection-Abwehr, Ausgabe-Filterung, Inhaltsmoderation und Red-Teaming.\n- Beiträge zu Open-Source-KI-Projekten oder veröffentlichte Arbeiten. Unsere Werte\n- Verantwortung: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung.\n- Hands-on: Proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern.\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben.\n- Lösungsorientiert: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikoorientierten Mindset.\n- Partnerschaftlich: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.\n- Bitte fügen Sie Ihrem CV einen Deckbrief bei, wenn Sie sich bewerben.\n\n## Bewerbung\n- Wenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link, um Ihre Bewerbung abzusenden.",
+        "fr": "Présentation de l'équipe\n- Chez EFG, nous voulons créer de la valeur à partir des données. Au sein de notre département Data Office, nous recherchons un ingénieur logiciel IA hautement qualifié et motivé pour rejoindre notre équipe de Machine Learning & GenAI. Vous travaillerez à la construction d'une nouvelle plateforme IA scalable et concevrez, construirez et déployerez des systèmes basés sur IA qui offrent un impact commercial mesurable.\n- C'est une excellente opportunité pour avoir un impact significatif dans une organisation en croissance qui s'engage à fournir une expérience bancaire digitale exceptionnelle pour nos clients. Responsabilités principales - 1) Plateforme et Architecture\n- Concevoir et construire une plateforme IA/ML hybride (on-prem/on-cloud) pour exécuter des cas d'utilisation IA à grande échelle (feature stores, registre des modèles, expérimentation, évaluation, observabilité).\n- Définir et mettre en œuvre des architectures d'inférence et de formation sécurisées et fiables, y compris des composants de recherche vectorielle et RAG le cas échéant.\n- Fournir un support de plateforme pour les embeddings, les bases de données vectorielles et les protocoles de communication agentic IA pour permettre des flux de travail IA interopérables et fondés sur des faits.\n- Documenter les processus de machine learning, l'architecture des systèmes et les procédures opérationnelles pour la reproductibilité et le partage de connaissances. - 2) Développement et évaluation de modèles\n- Collaborer à la formation, à l'ajustement fin et à l'optimisation de modèles (LLM, NLP, recommandations), y compris LoRA/PEFT si pertinent.\n- Mettre en œuvre des garde-fous et des stratégies de prompt pour réduire les hallucinations et améliorer la sécurité et la cohérence, et supporter les flux de travail agentic.\n- Établir des cadres d'évaluation pour les systèmes RAG et LLM. - 3) Développement logiciel et MLOps\n- Assurer le développement logiciel end-to-end des services IA et des API (de la conception à la codification, aux tests et au déploiement).\n- Automatiser la construction, les tests et le déploiement à l'aide de pipelines CI/CD; gérer les versions des modèles/versions via des registres de modèles.\n- Mettre en œuvre une surveillance continue pour les systèmes IA déployés. - 4) Produit et collaboration avec les parties prenantes\n- Travailler en étroite collaboration avec les utilisateurs métier, les propriétaires de produits, les ingénieurs métier, les gestionnaires de données, les scientifiques de données et les équipes technologiques pour comprendre les cas d'utilisation IA/ML, les exigences et les indicateurs de succès.\n- Collaborer avec les scientifiques de données pour itérer sur les prototypes et les convertir en services de production robustes et scalables.\n- Traduire les capacités émergentes de GenAI/Agentic AI en opportunités de produit concrètes et en composants réutilisables pour la banque. - 5) Sécurité, confidentialité et conformité\n- Assurer que toutes les solutions IA/ML répondent aux directives et normes de l'entreprise pour les données et l'IA, y compris la protection des données, la cybersécurité et les pratiques d'IA responsables.\n- Intégrer la confidentialité par conception, les contrôles d'accès, le cryptage et l'auditabilité à travers les flux de données et les opérations de modèle.\n- Collaborer avec les équipes de risque, de sécurité et de conformité pour aligner sur SOC 2, GDPR/CCPA et la gouvernance interne.\n\n## Compétences et expérience\n\n## 1) Éducation\n- Diplôme avancé en informatique, science des données, mathématiques, statistiques, physique ou domaine connexe.\n\n## 2) Must-Have\n- Connaissance approfondie des frameworks ML/AI: PyTorch ou TensorFlow; écosystème Hugging Face; LangChain/LlamaIndex ou équivalent pour l'orchestration, les structures de données, la modélisation des données et l'architecture logicielle.\n- Expérience pratique avec LLM: ingénierie de prompt, ajustement fin/LoRA, embeddings, bases de données vectorielles (FAISS, Pinecone, Weaviate), modèles RAG.\n- Compétences de programmation solides en Python, R ou Java/Scala; expérience pratique avec SQL, outil ETL et Linux; connaissances de Control-M & Terraform sont un plus.\n- Expérience antérieure dans le déploiement d'applications dans des environnements cloud (Azure); familiarité avec les configurations hybrides on-prem/cloud.\n- Expérience dans la construction de services et d'API de production (REST/gRPC), cloud-native (AWS/GCP/Azure), conteneurs (Docker) et orchestration (Openshift, Kubernetes).\n- Fondements de MLOps: suivi des expériences (MLflow/W&B), registres de modèles, CI/CD, surveillance des modèles, feature stores.\n- Capacité à surveiller, déboguer et maintenir des pipelines CI/CD qui alimentent les déploiements de production (GitHub Actions/GitLab CI/Azure DevOps).\n- Compétence en ingénierie de données: SQL, modélisation de données, ETL/ELT et travail avec des entrepôts/lacs de données (Snowflake, BigQuery, S3/Delta).\n- Capacité à travailler dans un environnement SCRUM/Agile avec un focus sur la livraison et la collaboration avec les parties prenantes.\n- Excellentes capacités analytiques et de résolution de problèmes; orienté vers les résultats et les détails avec une forte communication écrite et verbale.\n- Expérience dans le secteur bancaire ou la gestion de patrimoine est un avantage.\n\n## 3) Nice-to-Have\n- Expérience dans le déploiement et l'optimisation de modèles open-source (Llama, Mistral, Mixtral) sur GPU; quantification (INT8/4), attention tensorielle/Flash.\n- Connaissance des systèmes de récupération (BM25, recherche hybride), mise en cache sémantique et utilisation d'outils structurés/agents.\n- Expertise en évaluation pour LLM: évaluation basée sur des rubriques, ensembles dorés, tests adverses et expérimentation A/B.\n- Pratiques de sécurité pour les applications IA: défenses contre l'injection de prompts, filtrage des sorties, modération du contenu et red-teaming.\n- Contributions à des projets IA open-source ou travaux publiés. Nos valeurs\n- Responsabilité: Prendre en charge les tâches et les défis, ainsi que rechercher l'amélioration continue.\n- Hands-on: Être proactif pour fournir des résultats de haute qualité rapidement.\n- Passionné: Être engagé et s'efforcer d'excellence.\n- Solution-driven: Se concentrer sur les résultats pour les clients et traiter les clients de manière équitable avec un esprit de risque.\n- Partnership-oriented: Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n- Veuillez joindre une lettre de motivation à votre CV lorsque vous postulez.\n\n## Candidature\n- Si vous souhaitez postuler à ce poste, utilisez ce lien pour envoyer votre candidature."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [],
+            "keywords": [],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Introduction of the team",
+                "paragraphs": [
+                  "Main responsibilities"
+                ],
+                "bullets": [
+                  "At EFG we want to create value fom data. Within our Data Office department, we’re seeking a highly skilled and motivated AI Software Engineer to join our Machine Learning & GenAI team. You will embark on building a new, scalable AI platform and design, build, and deploy AI-driven systems that deliver measurable business impact.",
+                  "This is an excellent opportunity to make a significant impact in a growing organization committed to delivering an outstanding digital banking experience for our clients.",
+                  "<strong>1) Platform and Architecture </strong>",
+                  "Design and build a hybrid (on-prem / on-cloud) AI/ML platform to run AI use cases at scale (feature stores, model registry, experimentation, evaluation, observability).",
+                  "Define and implement secure, reliable inference and training architectures, including vector search and RAG components where applicable.",
+                  "Provide platform support for embeddings, vector databases, and AI agentic communication protocols to enable grounded, interoperable AI workflows.",
+                  "Document machine learning processes, system architecture, and operational runbooks for reproducibility and knowledge sharing.",
+                  "<strong>2) Model Development & Evaluation</strong>",
+                  "Collaborate on training, fine-tuning, and optimizing models (LLMs, NLP, recommendations), including LoRA/PEFT when relevant.",
+                  "Implement guardrails and prompt strategies to reduce hallucinations and improve safety and consistency, and support agentic workflows.",
+                  "Establish evaluation frameworks for RAG and LLM systems.",
+                  "<strong>3) Software Development & MLOps</strong>",
+                  "Own end-to-end software development of AI services and APIs (from design and coding to testing and deployment).",
+                  "Automate build, test, and deployment using CI/CD pipelines; manage model/version releases via model registries.",
+                  "Implement continuous monitoring for deployed AI systems.",
+                  "<strong>4) Product & Stakeholder Collaboration</strong>",
+                  "Work closely with Business Users, Product Owners, Business Engineers, Data Managers, Data Scientists, and technology teams to understand AI/ML use cases, requirements, and success metrics.",
+                  "Partner with Data Scientists to iterate on prototypes and convert them into robust, scalable production services.",
+                  "Translate emerging GenAI/Agentic AI capabilities into actionable product opportunities and reusable components for the Bank.",
+                  "<strong>5) Security, Privacy, and Compliance</strong>",
+                  "Ensure all AI/ML solutions meet bank-wide data and AI guidelines and standards, including data protection, cyber security, and responsible AI practices.",
+                  "Embed privacy-by-design, access controls, encryption, and auditability across data flows and model operations.",
+                  "Collaborate with Risk, Security, and Compliance to align with SOC 2, GDPR/CCPA, and internal governance."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "1) Education",
+                "paragraphs": [],
+                "bullets": [
+                  "Advanced degree in Computer Science, Data Science, Mathematics, Statistics, Physics, or related."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "2) Must-Have",
+                "paragraphs": [],
+                "bullets": [
+                  "Extensive knowledge of ML/AI frameworks: PyTorch or TensorFlow; Hugging Face ecosystem; LangChain/LlamaIndex or equivalent for orchestration, data structures, data modeling, and software architecture.",
+                  "Practical LLM experience: prompt engineering, fine-tuning/LoRA, embeddings, vector databases (FAISS, Pinecone, Weaviate), RAG patterns.",
+                  "Solid programming skills in Python, R or Java/Scala, hands on experience in SQL, ETL tool and Linux and Control-M & Terraform knowledge are a plus. <i> </i>",
+                  "Prior experience deploying applications on cloud environments (Azure); familiarity with hybrid on‑prem/cloud setups.",
+                  "Experience building production-grade services and APIs (REST/gRPC), cloud-native (AWS/GCP/Azure), containers (Docker), and orchestration (Openshift, Kubernetes).",
+                  "MLOps foundations: experiment tracking (MLflow/W&B), model registries, CI/CD, model monitoring, feature stores.",
+                  "Ability to monitor, debug, and maintain CI/CD pipelines that feed into production deployments (GitHub Actions/GitLab CI/Azure DevOps).",
+                  "Data engineering proficiency: SQL, data modeling, ETL/ELT, and working with warehouses/lakes (Snowflake, BigQuery, S3/Delta).",
+                  "Ability to work in a SCRUM/Agile environment with a focus on delivery and stakeholder collaboration.",
+                  "Excellent analytical and problem-solving abilities; results- and detail-oriented with strong written and verbal communication.",
+                  "Experience in the Banking Or Wealth Management Industry is an advantage"
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "3) Nice-to-Have",
+                "paragraphs": [
+                  "Our Values"
+                ],
+                "bullets": [
+                  "Experience deploying and optimizing open-source models (Llama, Mistral, Mixtral) on GPUs; quantization (INT8/4), tensor/Flash attention.",
+                  "Knowledge of retrieval systems (BM25, hybrid search), semantic caching, and structured tool use/agents.",
+                  "Evaluation expertise for LLMs: rubric-based grading, golden sets, adversarial testing, and A/B experimentation.",
+                  "Security practices for AI applications: prompt injection defenses, output filtering, content moderation, and red-teaming.",
+                  "Contributions to open-source AI projects or published work.",
+                  "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+                  "Hands-on: Being proactive to rapidly deliver high-quality results",
+                  "Passionate: Being committed and striving for excellence",
+                  "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+                  "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+                  "<strong>Please ensure to attach a cover letter to your CV when filling the application.</strong>"
+                ]
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T09:50:28.297Z",
+      "slugByLocale": {
+        "it": "ingegnere-ai-efg-international-ag-geneve",
+        "en": "ai-engineer-efg-international-ag-geneve",
+        "de": "ki-ingenieur-efg-international-ag-geneve",
+        "fr": "ingenieur-ia-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-02-11",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 97500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "ai-engineer-efg-geneve",
+        "ai-ingenieur-efg-international-ag-geneve",
+        "ai-ingegnere-efg-international-ag-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "ai-engineer-efg-geneve",
+          "ai-ingenieur-efg-international-ag-geneve"
+        ],
+        "it": [
+          "ai-ingenieur-efg-international-ag-geneve",
+          "ai-ingegnere-efg-international-ag-geneve",
+          "ai-engineer-efg-geneve"
+        ],
+        "de": [
+          "ai-ingenieur-efg-international-ag-geneve"
+        ],
+        "fr": [
+          "ai-ingenieur-efg-international-ag-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:28:21.952Z"
     },
     {
       "id": "efg-5969",
@@ -1761,7 +1765,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.384Z",
+      "crawledAt": "2026-04-14T09:50:28.296Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -1822,7 +1826,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -1969,7 +1974,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.383Z",
+      "crawledAt": "2026-04-14T09:50:28.295Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "foundation-manager-efg-international-ag-lugano",
@@ -2017,7 +2022,8 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -2067,7 +2073,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.382Z",
+      "crawledAt": "2026-04-14T09:50:28.294Z",
       "slugByLocale": {
         "it": "specialista-in-riconciliazione-contabile-back-office-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -2212,7 +2218,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.381Z",
+      "crawledAt": "2026-04-14T09:50:28.293Z",
       "slugByLocale": {
         "it": "proprietario-tecnico-dell-applicazione-risk-compliance-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -2413,7 +2419,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.380Z",
+      "crawledAt": "2026-04-14T09:50:28.292Z",
       "slugByLocale": {
         "it": "controllore-finanziario-di-gruppo-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2448,7 +2454,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -2581,7 +2588,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.379Z",
+      "crawledAt": "2026-04-14T09:50:28.291Z",
       "slugByLocale": {
         "it": "operational-risk-and-advisory-it-and-information-security-specialista-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -2616,7 +2623,8 @@
       "previousSlugs": [
         "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6194",
@@ -2624,7 +2632,7 @@
       "company": "EFG International AG",
       "title": "Internship – Business Management, Global Markets & Treasury",
       "location": "Lugano",
-      "canton": "ZH",
+      "canton": "TI",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -2666,7 +2674,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.378Z",
+      "crawledAt": "2026-04-14T09:50:28.290Z",
       "slugByLocale": {
         "it": "stage-business-management-global-markets-treasury-efg-international-ag-zurich",
         "en": "internship-business-management-global-markets-treasury-efg-zurich",
@@ -2701,7 +2709,8 @@
       "previousSlugs": [
         "internship-business-management-global-markets-treasury-efg-zurich"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -2751,7 +2760,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.377Z",
+      "crawledAt": "2026-04-14T09:50:28.289Z",
       "slugByLocale": {
         "it": "addetto-all-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -2795,7 +2804,8 @@
           "client-support-officer-efg-st-moritz"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -2920,7 +2930,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.375Z",
+      "crawledAt": "2026-04-14T09:50:28.287Z",
       "slugByLocale": {
         "it": "specialista-di-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -2968,7 +2978,8 @@
           "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6150",
@@ -3061,7 +3072,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.373Z",
+      "crawledAt": "2026-04-14T09:50:28.286Z",
       "slugByLocale": {
         "it": "specialista-soluzioni-bi-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -3115,7 +3126,8 @@
           "bi-solution-specialiste-efg-international-ag-geneve"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -3190,7 +3202,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.373Z",
+      "crawledAt": "2026-04-14T09:50:28.285Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -3252,6 +3264,92 @@
       "firstSeenAt": "2026-04-13T10:28:21.940Z"
     },
     {
+      "id": "efg-6237",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
+      "source": "Oracle HCM API",
+      "sourceLang": "it",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Apprendistato Employee di commercio AFC Banca",
+        "it": "Apprendistato Impiegato/a di commercio AFC Banca",
+        "de": "Kaufmännischer Auszubildender AFC Bank",
+        "fr": "Apprenti(e) en commerce AFC Banque"
+      },
+      "descriptionByLocale": {
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca? Se questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te. Lavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità. Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone. EFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato. Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali: - analisi del mercato finanziario e del credito - conoscenza dei prodotti bancari - elaborazione e verifica di documenti - pianificazione delle scadenze e gestione delle priorità - utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese Se sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden? Wenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut. Sie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten. Während der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Neben der Ausbildung in der Firma, in der Sie von einem Tutor, der Ihnen in jedem Team gewidmet wird, werden Sie an der kaufmännischen Schule (CPC) Ihres Interesses und Kurses im Bankenzentrum (CYPprendi) gemeinsam EFG Bank unterstützt und fördert die Entwicklung der integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung zu gewährleisten. Im Laufe des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich:\n- Analyse des Finanzmarktes und Kredit\n- Wissen über Bankprodukte\n- Verarbeitung und Verifizierung von Dokumenten\n- Zeitplan der Fristen und Verwaltung von Prioritäten\n- Nutzung von Finanz-IT-Systemen Anforderungen\n- Leidenschaft für die Wirtschaft und die Bankenwelt\n- Medienschule Lizenz mit ausgezeichneten Ergebnissen\n- Erklärte relationale Fähigkeiten und Leichtigkeit, um sich an verschiedene Geschäftsszenarien anzupassen\n- Gute Computermotivationskenntnisse.",
+        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque? Si c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous. Vous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité. Au cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc. En plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à vous dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et des cours au centre bancaire (CYPprendi) ensemble EFG Bank soutient et encourage le développement de la formation professionnelle intégrée pour assurer la formation la plus complète possible à la fin de l'apprentissage. Pendant le cours, vous pouvez développer différentes compétences professionnelles, y compris: - analyse du marché financier et du crédit - connaissance des produits bancaires - traitement et vérification des documents - calendrier des échéances et gestion des priorités - utilisation des systèmes financiers informatiques\n\n## Exigences\n- Passion pour l'économie et le monde bancaire\n- Licence de l'école des médias avec d'excellents résultats\n- Expliquer les compétences relationnelles et la facilité à s'adapter à différents scénarios d'affaires\n- Bonne connaissance de la motivation informatique."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T09:50:28.284Z",
+      "slugByLocale": {
+        "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+        "en": "commercial-apprentice-afc-bank-efg-international-ag-lugano",
+        "de": "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+        "fr": "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-10",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
+      ],
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
+    },
+    {
       "id": "efg-6230",
       "slug": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
       "company": "EFG International AG",
@@ -3300,7 +3398,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.372Z",
+      "crawledAt": "2026-04-14T09:50:28.284Z",
       "slugByLocale": {
         "it": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
         "en": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-international-ag-geneve",
@@ -3429,7 +3527,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.371Z",
+      "crawledAt": "2026-04-14T09:50:28.283Z",
       "slugByLocale": {
         "it": "analista-dei-rischi-tecnologici-e-di-sicurezza-informatica-e-cibernetica-temporaneo-efg-international-ag-zurich",
         "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
@@ -3624,7 +3722,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.370Z",
+      "crawledAt": "2026-04-14T09:50:28.282Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-lugano",
@@ -3658,7 +3756,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -3708,7 +3807,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.369Z",
+      "crawledAt": "2026-04-14T09:50:28.281Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interno-per-la-cybersecurity-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -3743,7 +3842,8 @@
       "previousSlugs": [
         "cybersecurity-internal-penetration-tester-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3794,7 +3894,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.368Z",
+      "crawledAt": "2026-04-14T09:50:28.280Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -3879,7 +3979,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.367Z",
+      "crawledAt": "2026-04-14T09:50:28.279Z",
       "slugByLocale": {
         "it": "responsabile-del-team-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -3913,7 +4013,8 @@
       "previousSlugs": [
         "network-proxy-support-team-lead-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -3964,7 +4065,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.365Z",
+      "crawledAt": "2026-04-14T09:50:28.277Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3999,91 +4100,6 @@
         "strategic-planning-officer-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.931Z"
-    },
-    {
-      "id": "efg-6237",
-      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
-      "source": "Oracle HCM API",
-      "sourceLang": "it",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Commercial Apprentice AFC Bank",
-        "it": "Apprendistato Impiegato/a di commercio AFC Banca",
-        "de": "Kaufmännischer Auszubildender AFC Bank",
-        "fr": "Apprenti(e) en commerce AFC Banque"
-      },
-      "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank? If this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you. You will be working at the main Swiss offices of EFG Bank in central Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity. During the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. In addition to the training in the company, in which you will be followed by a tutor dedicated to you in each team, you will attend the commercial professional school (CPC) of your interest and courses at the banking center (CYPprendi) together EFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship. During the course you can develop different professional skills, including: - analysis of the financial market and credit - knowledge of banking products - processing and verification of documents - schedule of deadlines and management of priorities - use of financial IT systems ## Requirements - Passion for the economy and the banking world - Media school license with excellent results - Explained relational skills and ease to adapt to different business scenarios - Good computer motivation knowledge.",
-        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca? Se questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te. Lavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità. Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone. EFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato. Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali: - analisi del mercato finanziario e del credito - conoscenza dei prodotti bancari - elaborazione e verifica di documenti - pianificazione delle scadenze e gestione delle priorità - utilizzo dei sistemi informatici finanziari ## Requisiti - Passione per l’economia e il mondo bancario - Licenza di scuola media con ottimi risultati - Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi - Buone conoscenze informatiche - Conoscenza della lingua inglese Se sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden? Wenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut. Sie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten. Während der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Neben der Ausbildung in der Firma, in der Sie von einem Tutor, der Ihnen in jedem Team gewidmet wird, werden Sie an der kaufmännischen Schule (CPC) Ihres Interesses und Kurses im Bankenzentrum (CYPprendi) gemeinsam EFG Bank unterstützt und fördert die Entwicklung der integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung zu gewährleisten. Im Laufe des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich: - Analyse des Finanzmarktes und Kredit - Wissen über Bankprodukte - Verarbeitung und Verifizierung von Dokumenten - Zeitplan der Fristen und Verwaltung von Prioritäten - Nutzung von Finanz-IT-Systemen Anforderungen - Leidenschaft für die Wirtschaft und die Bankenwelt - Medienschule Lizenz mit ausgezeichneten Ergebnissen - Erklärte relationale Fähigkeiten und Leichtigkeit, um sich an verschiedene Geschäftsszenarien anzupassen - Gute Computermotivationskenntnisse.",
-        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque? Si c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous. Vous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité. Au cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc. En plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à vous dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et des cours au centre bancaire (CYPprendi) ensemble EFG Bank soutient et encourage le développement de la formation professionnelle intégrée pour assurer la formation la plus complète possible à la fin de l'apprentissage. Pendant le cours, vous pouvez développer différentes compétences professionnelles, y compris: - analyse du marché financier et du crédit - connaissance des produits bancaires - traitement et vérification des documents - calendrier des échéances et gestion des priorités - utilisation des systèmes financiers informatiques ## Exigences - Passion pour l'économie et le monde bancaire - Licence de l'école des médias avec d'excellents résultats - Expliquer les compétences relationnelles et la facilité à s'adapter à différents scénarios d'affaires - Bonne connaissance de la motivation informatique."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-04-13T21:36:48.364Z",
-      "slugByLocale": {
-        "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-        "en": "commercial-apprentice-afc-bank-efg-international-ag-lugano",
-        "de": "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-        "fr": "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-10",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
-      ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
     },
     {
       "id": "efg-6217",
@@ -4278,7 +4294,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.363Z",
+      "crawledAt": "2026-04-14T09:50:28.275Z",
       "slugByLocale": {
         "it": "audit-manager-temporary-6-mesi-efg-international-ag-geneve",
         "en": "audit-manager-temporary-6-months-efg-geneve",
@@ -4312,7 +4328,177 @@
       "previousSlugs": [
         "audit-manager-temporary-6-months-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-5799",
+      "slug": "business-analyst-legal-compliance-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Business Analyst Legal & Compliance",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Main responsibilities\n\n- Global Business & Functional Analysis:\n\n- Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.\n\n- Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.\n\n- Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions\n\n- Map end-to-end processes and highlight regional variations for harmonization\n\n- Systems Oversight & Operational Support:\n\n- Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras\n\n- Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations\n\n- Support UAT processes, system documentation, and global roll-out coordination\n\n- Governance:\n\n- Contribute to governance forums by preparing consistent, global-level reporting and status updates\n\n## Skills and experience\n\n- Solid understanding of compliance environments and internal control frameworks in banking or financial services.\n\n- Strong analytical, documentation, and stakeholder management capabilities\n\n- Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.\n\n- Global mindset with excellent cross-cultural communication skills.\n\n- Fluency in English\n\n- Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).\n\n- Technically fluent in compliance tool functionality, system workflows, and data flows\n\n- University degree in Law, Economics, Business Administration, or related field.\n\n- 5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+        "Strong analytical, documentation, and stakeholder management capabilities",
+        "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+        "Global mindset with excellent cross-cultural communication skills.",
+        "Fluency in English",
+        "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
+        "Technically fluent in compliance tool functionality, system workflows, and data flows",
+        "University degree in Law, Economics, Business Administration, or related field.",
+        "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
+      ],
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5799",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Business Analyst Legal & Compliance",
+        "it": "Business Analista Legal & Compliance",
+        "de": "Business Analyst Legal & Compliance",
+        "fr": "Business Analyste Legal & Compliance"
+      },
+      "descriptionByLocale": {
+        "en": "## Main responsibilities\n\n- Global Business & Functional Analysis:\n\n- Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.\n\n- Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.\n\n- Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions\n\n- Map end-to-end processes and highlight regional variations for harmonization\n\n- Systems Oversight & Operational Support:\n\n- Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras\n\n- Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations\n\n- Support UAT processes, system documentation, and global roll-out coordination\n\n- Governance:\n\n- Contribute to governance forums by preparing consistent, global-level reporting and status updates\n\n## Skills and experience\n\n- Solid understanding of compliance environments and internal control frameworks in banking or financial services.\n\n- Strong analytical, documentation, and stakeholder management capabilities\n\n- Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.\n\n- Global mindset with excellent cross-cultural communication skills.\n\n- Fluency in English\n\n- Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).\n\n- Technically fluent in compliance tool functionality, system workflows, and data flows\n\n- University degree in Law, Economics, Business Administration, or related field.\n\n- 5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "## Main responsibilities\n\n- Global Business & Functional Analysis:\n\n- Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.\n\n- Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.\n\n- Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions\n\n- Map end-to-end processes and highlight regional variations for harmonization\n\n- Systems Oversight & Operational Support:\n\n- Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras\n\n- Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations\n\n- Support UAT processes, system documentation, and global roll-out coordination\n\n- Governance:\n\n- Contribute to governance forums by preparing consistent, global-level reporting and status updates\n\n## Skills and experience\n\n- Solid understanding of compliance environments and internal control frameworks in banking or financial services.\n\n- Strong analytical, documentation, and stakeholder management capabilities\n\n- Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.\n\n- Global mindset with excellent cross-cultural communication skills.\n\n- Fluency in English\n\n- Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).\n\n- Technically fluent in compliance tool functionality, system workflows, and data flows\n\n- University degree in Law, Economics, Business Administration, or related field.\n\n- 5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "de": "## Main responsibilities\n\n- Global Business & Functional Analysis:\n\n- Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.\n\n- Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.\n\n- Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions\n\n- Map end-to-end processes and highlight regional variations for harmonization\n\n- Systems Oversight & Operational Support:\n\n- Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras\n\n- Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations\n\n- Support UAT processes, system documentation, and global roll-out coordination\n\n- Governance:\n\n- Contribute to governance forums by preparing consistent, global-level reporting and status updates\n\n## Skills and experience\n\n- Solid understanding of compliance environments and internal control frameworks in banking or financial services.\n\n- Strong analytical, documentation, and stakeholder management capabilities\n\n- Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.\n\n- Global mindset with excellent cross-cultural communication skills.\n\n- Fluency in English\n\n- Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).\n\n- Technically fluent in compliance tool functionality, system workflows, and data flows\n\n- University degree in Law, Economics, Business Administration, or related field.\n\n- 5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "fr": "## Main responsibilities\n\n- Global Business & Functional Analysis:\n\n- Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.\n\n- Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.\n\n- Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions\n\n- Map end-to-end processes and highlight regional variations for harmonization\n\n- Systems Oversight & Operational Support:\n\n- Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras\n\n- Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations\n\n- Support UAT processes, system documentation, and global roll-out coordination\n\n- Governance:\n\n- Contribute to governance forums by preparing consistent, global-level reporting and status updates\n\n## Skills and experience\n\n- Solid understanding of compliance environments and internal control frameworks in banking or financial services.\n\n- Strong analytical, documentation, and stakeholder management capabilities\n\n- Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.\n\n- Global mindset with excellent cross-cultural communication skills.\n\n- Fluency in English\n\n- Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).\n\n- Technically fluent in compliance tool functionality, system workflows, and data flows\n\n- University degree in Law, Economics, Business Administration, or related field.\n\n- 5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+          "Strong analytical, documentation, and stakeholder management capabilities",
+          "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+          "Global mindset with excellent cross-cultural communication skills.",
+          "Fluency in English",
+          "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
+          "Technically fluent in compliance tool functionality, system workflows, and data flows",
+          "University degree in Law, Economics, Business Administration, or related field.",
+          "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
+              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
+              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
+              "Map end-to-end processes and highlight regional variations for harmonization",
+              "Systems Oversight & Operational Support: <ul> <li>Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras",
+              "Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations",
+              "Support UAT processes, system documentation, and global roll-out coordination",
+              "Governance: <ul> <li>Contribute to governance forums by preparing consistent, global-level reporting and status updates"
+            ],
+            "requirements": [
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical, documentation, and stakeholder management capabilities",
+              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+              "Global mindset with excellent cross-cultural communication skills.",
+              "Fluency in English",
+              "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
+              "Technically fluent in compliance tool functionality, system workflows, and data flows",
+              "University degree in Law, Economics, Business Administration, or related field.",
+              "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
+              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
+              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical, documentation, and stakeholder management capabilities",
+              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical",
+              "Autonomy",
+              "Global mindset with excellent cross-cultural communication skills.",
+              "Fluency in English",
+              "Global Business & Functional Analysis",
+              "Assists in identifying",
+              "Serve as a key interface between global and local teams",
+              "Map end-to-end processes and highlight regional variations for harmonization"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Role",
+                "paragraphs": [
+                  "As part of the Global Legal & Compliance Transformation team in the Global COO Legal & Compliance Unit, the role focuses on evaluating business problems and relevant solutions, improving data consistency, and reporting capabilities across jurisdictions, with a particular focus on SAS AML, GTExchange, Firco Continuity, and Pythagoras."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T09:50:28.272Z",
+      "slugByLocale": {
+        "it": "business-analyst-legal-compliance-efg-geneve",
+        "en": "business-analyst-legal-compliance-efg-geneve",
+        "de": "business-analyst-legal-compliance-efg-geneve",
+        "fr": "business-analyst-legal-compliance-efg-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-04-14",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-14T09:50:30.818Z"
     },
     {
       "id": "efg-6068",

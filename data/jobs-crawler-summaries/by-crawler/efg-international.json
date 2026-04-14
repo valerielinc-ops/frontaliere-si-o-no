@@ -1,18 +1,135 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-13T21:36:50.625Z",
-  "total": 30,
-  "newCount": 0,
-  "updatedCount": 29,
+  "generatedAt": "2026-04-14T09:50:30.822Z",
+  "total": 31,
+  "newCount": 1,
+  "updatedCount": 30,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 32785,
-  "avgDurationMs": 32785,
+  "unchangedCount": 0,
+  "durationMs": 35147,
+  "avgDurationMs": 35147,
   "durationHistory": [
-    32785
+    35147
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-5799",
+      "slug": "business-analyst-legal-compliance-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Business Analyst Legal & Compliance",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5799",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
+              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
+              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
+              "Map end-to-end processes and highlight regional variations for harmonization",
+              "Systems Oversight & Operational Support: <ul> <li>Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras",
+              "Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations",
+              "Support UAT processes, system documentation, and global roll-out coordination",
+              "Governance: <ul> <li>Contribute to governance forums by preparing consistent, global-level reporting and status updates"
+            ],
+            "requirements": [
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical, documentation, and stakeholder management capabilities",
+              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+              "Global mindset with excellent cross-cultural communication skills.",
+              "Fluency in English",
+              "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
+              "Technically fluent in compliance tool functionality, system workflows, and data flows",
+              "University degree in Law, Economics, Business Administration, or related field.",
+              "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
+              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
+              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical, documentation, and stakeholder management capabilities",
+              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical",
+              "Autonomy",
+              "Global mindset with excellent cross-cultural communication skills.",
+              "Fluency in English",
+              "Global Business & Functional Analysis",
+              "Assists in identifying",
+              "Serve as a key interface between global and local teams",
+              "Map end-to-end processes and highlight regional variations for harmonization"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Role",
+                "paragraphs": [
+                  "As part of the Global Legal & Compliance Transformation team in the Global COO Legal & Compliance Unit, the role focuses on evaluating business problems and relevant solutions, improving data consistency, and reporting capabilities across jurisdictions, with a particular focus on SAS AML, GTExchange, Firco Continuity, and Pythagoras."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T09:50:28.272Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-04-14",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-6203",
@@ -47,7 +164,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.393Z",
+      "crawledAt": "2026-04-14T09:50:28.305Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -58,6 +175,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-03-27",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -147,7 +265,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.392Z",
+      "crawledAt": "2026-04-14T09:50:28.304Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -263,7 +381,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.391Z",
+      "crawledAt": "2026-04-14T09:50:28.303Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -274,6 +392,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -380,7 +499,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.390Z",
+      "crawledAt": "2026-04-14T09:50:28.303Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -493,7 +612,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.389Z",
+      "crawledAt": "2026-04-14T09:50:28.301Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -601,7 +720,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.389Z",
+      "crawledAt": "2026-04-14T09:50:28.301Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -720,7 +839,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.387Z",
+      "crawledAt": "2026-04-14T09:50:28.299Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -731,6 +850,131 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6066",
+      "slug": "client-services-officer-geneva-talent-pool-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Client Services Officer - Geneva Talent Pool",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-19",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6066",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
+              "Manage investment instructions and corporate action events.",
+              "Ensure accuracy and completeness of client files.",
+              "Follow up on pending issues and escalate as needed.",
+              "Serve as a contact for internal departments and as an alternative contact for clients.",
+              "Conduct research and prepare documentation as requested.",
+              "Support the Client Relationship Officer (CRO) in delegated tasks.",
+              "Monitor credit, operations, and risk according to established procedures.",
+              "Comply with the Code of Conduct and all internal regulations (Cross Border, AML, Clear Desk Policy, Absence Management)."
+            ],
+            "requirements": [
+              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
+              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
+              "Excellent proficiency in English and French; additional languages are an asset.",
+              "Proficient in standard IT systems; adaptable to new software.",
+              "Service-oriented, client-focused mindset; strong team player.",
+              "High level of confidentiality and discretion.",
+              "Proactive, self-motivated, detail-oriented, and reliable.",
+              "Open-minded and eager to learn."
+            ],
+            "benefits": [
+              "<strong>Accountability:</strong> Ownership and continuous improvement.",
+              "<strong>Hands-on:</strong> Proactive delivery of high-quality results.",
+              "<strong>Passionate:</strong> Commitment and pursuit of excellence.",
+              "<strong>Solution-driven:</strong> Focus on client outcomes and fair treatment.",
+              "<strong>Partnership-oriented:</strong> Collaboration and entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
+              "Manage investment instructions and corporate action events.",
+              "Ensure accuracy and completeness of client files.",
+              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
+              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
+              "Excellent proficiency in English and French; additional languages are an asset.",
+              "<strong>Accountability:</strong> Ownership and continuous improvement.",
+              "<strong>Hands-on:</strong> Proactive delivery of high-quality results."
+            ],
+            "keywords": [
+              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
+              "Strong understanding of private banking processes",
+              "Excellent proficiency in English and French",
+              "Proficient in standard IT systems",
+              "Service-oriented",
+              "Receive",
+              "Manage investment instructions and corporate action events.",
+              "Ensure accuracy and completeness of client files.",
+              "Follow up on pending issues and escalate as needed."
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "About EFG",
+                "paragraphs": [
+                  "EFG International is a global private banking group, serving clients in over 40 locations worldwide. As EFG continues to grow, we are building a talent pool for future Client Services Officer (CSO) positions in Geneva. Joining our talent pool means you will be among the first considered for upcoming opportunities, contributing to our dynamic and inclusive environment.",
+                  "EFG is committed to equity, inclusion, and mutual respect. We value diversity as a driver of innovation and better decision-making, and we strive to be an employer of choice."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We offer personalised solutions on a global scale to private and institutional clients. Our sustainable success depends on our people and our partnerships with clients and communities."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Candidate Communication: What to Expect",
+                "paragraphs": [
+                  "As part of our talent pool, your profile will be reviewed for a variety of CSO opportunities as they become available. The private banking market is dynamic, and the requirements for each role may shift in response to client needs, regulatory changes, or business priorities. We value candidates who are adaptable and open to evolving responsibilities.",
+                  "If your profile matches the requirements for a specific opening, you may be pre-selected and invited to complete an additional questionnaire. This helps us better understand your experience, skills, and career preferences, ensuring a strong fit for both you and EFG."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T09:50:28.298Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-01-19",
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -852,7 +1096,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.386Z",
+      "crawledAt": "2026-04-14T09:50:28.297Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -868,129 +1112,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6066",
-      "slug": "client-services-officer-geneva-talent-pool-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Client Services Officer - Geneva Talent Pool",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-19",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6066",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
-              "Manage investment instructions and corporate action events.",
-              "Ensure accuracy and completeness of client files.",
-              "Follow up on pending issues and escalate as needed.",
-              "Serve as a contact for internal departments and as an alternative contact for clients.",
-              "Conduct research and prepare documentation as requested.",
-              "Support the Client Relationship Officer (CRO) in delegated tasks.",
-              "Monitor credit, operations, and risk according to established procedures.",
-              "Comply with the Code of Conduct and all internal regulations (Cross Border, AML, Clear Desk Policy, Absence Management)."
-            ],
-            "requirements": [
-              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
-              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
-              "Excellent proficiency in English and French; additional languages are an asset.",
-              "Proficient in standard IT systems; adaptable to new software.",
-              "Service-oriented, client-focused mindset; strong team player.",
-              "High level of confidentiality and discretion.",
-              "Proactive, self-motivated, detail-oriented, and reliable.",
-              "Open-minded and eager to learn."
-            ],
-            "benefits": [
-              "<strong>Accountability:</strong> Ownership and continuous improvement.",
-              "<strong>Hands-on:</strong> Proactive delivery of high-quality results.",
-              "<strong>Passionate:</strong> Commitment and pursuit of excellence.",
-              "<strong>Solution-driven:</strong> Focus on client outcomes and fair treatment.",
-              "<strong>Partnership-oriented:</strong> Collaboration and entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
-              "Manage investment instructions and corporate action events.",
-              "Ensure accuracy and completeness of client files.",
-              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
-              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
-              "Excellent proficiency in English and French; additional languages are an asset.",
-              "<strong>Accountability:</strong> Ownership and continuous improvement.",
-              "<strong>Hands-on:</strong> Proactive delivery of high-quality results."
-            ],
-            "keywords": [
-              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
-              "Strong understanding of private banking processes",
-              "Excellent proficiency in English and French",
-              "Proficient in standard IT systems",
-              "Service-oriented",
-              "Receive",
-              "Manage investment instructions and corporate action events.",
-              "Ensure accuracy and completeness of client files.",
-              "Follow up on pending issues and escalate as needed."
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "About EFG",
-                "paragraphs": [
-                  "EFG International is a global private banking group, serving clients in over 40 locations worldwide. As EFG continues to grow, we are building a talent pool for future Client Services Officer (CSO) positions in Geneva. Joining our talent pool means you will be among the first considered for upcoming opportunities, contributing to our dynamic and inclusive environment.",
-                  "EFG is committed to equity, inclusion, and mutual respect. We value diversity as a driver of innovation and better decision-making, and we strive to be an employer of choice."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We offer personalised solutions on a global scale to private and institutional clients. Our sustainable success depends on our people and our partnerships with clients and communities."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Candidate Communication: What to Expect",
-                "paragraphs": [
-                  "As part of our talent pool, your profile will be reviewed for a variety of CSO opportunities as they become available. The private banking market is dynamic, and the requirements for each role may shift in response to client needs, regulatory changes, or business priorities. We value candidates who are adaptable and open to evolving responsibilities.",
-                  "If your profile matches the requirements for a specific opening, you may be pre-selected and invited to complete an additional questionnaire. This helps us better understand your experience, skills, and career preferences, ensuring a strong fit for both you and EFG."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-13T21:36:48.386Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-01-19",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -1097,7 +1218,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.384Z",
+      "crawledAt": "2026-04-14T09:50:28.296Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1108,6 +1229,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-11",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1224,7 +1346,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.383Z",
+      "crawledAt": "2026-04-14T09:50:28.295Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1235,6 +1357,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2025-11-26",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1277,7 +1400,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.382Z",
+      "crawledAt": "2026-04-14T09:50:28.294Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1390,7 +1513,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.381Z",
+      "crawledAt": "2026-04-14T09:50:28.293Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1537,7 +1660,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.380Z",
+      "crawledAt": "2026-04-14T09:50:28.292Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1548,6 +1671,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1653,7 +1777,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.379Z",
+      "crawledAt": "2026-04-14T09:50:28.291Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1664,6 +1788,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1706,7 +1831,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.378Z",
+      "crawledAt": "2026-04-14T09:50:28.290Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1717,6 +1842,7 @@
       "postalCode": "6900",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1732,7 +1858,7 @@
       "company": "EFG International AG",
       "title": "Client Support Officer",
       "location": "St. Moritz",
-      "canton": "TI",
+      "canton": "GR",
       "category": "admin",
       "contract": "permanent",
       "currency": "CHF",
@@ -1759,7 +1885,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.377Z",
+      "crawledAt": "2026-04-14T09:50:28.289Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1768,8 +1894,9 @@
       "salaryMax": 78000,
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1887,7 +2014,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.375Z",
+      "crawledAt": "2026-04-14T09:50:28.287Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1898,6 +2025,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -1967,7 +2095,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.373Z",
+      "crawledAt": "2026-04-14T09:50:28.286Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1978,6 +2106,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -2045,7 +2174,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.373Z",
+      "crawledAt": "2026-04-14T09:50:28.285Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2057,6 +2186,60 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T10:28:21.940Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6237",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
+      "source": "Oracle HCM API",
+      "sourceLang": "it",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T09:50:28.284Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-10",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2099,7 +2282,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.372Z",
+      "crawledAt": "2026-04-14T09:50:28.284Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2193,7 +2376,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.371Z",
+      "crawledAt": "2026-04-14T09:50:28.283Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2324,7 +2507,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.370Z",
+      "crawledAt": "2026-04-14T09:50:28.282Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2334,6 +2517,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -2376,7 +2560,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.369Z",
+      "crawledAt": "2026-04-14T09:50:28.281Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -2387,6 +2571,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -2430,7 +2615,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.368Z",
+      "crawledAt": "2026-04-14T09:50:28.280Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2483,7 +2668,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.367Z",
+      "crawledAt": "2026-04-14T09:50:28.279Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2493,6 +2678,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -2536,7 +2722,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.365Z",
+      "crawledAt": "2026-04-14T09:50:28.277Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2555,174 +2741,6 @@
         "completeness": 25
       }
     },
-    {
-      "id": "efg-6237",
-      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
-      "source": "Oracle HCM API",
-      "sourceLang": "it",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-04-13T21:36:48.364Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-10",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6068",
-      "slug": "group-insurance-expert-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Group Insurance Expert",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-03",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6068",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Product Expertise, Due Diligence & Governance <ul> <li>Be responsible for the product offering, oversee the insurance referral activity and respective revenue generated",
-              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
-              "Maintain the approved insurance product shelf aligned with client segment, regions, regulatory environment & risk appetite (whole life, private placement life insurance etc).",
-              "Evaluate insurance brokers and product lines for strength, competitiveness, and suitability.",
-              "Act as the central point for insurance broker selection, onboarding/offboarding, periodic due diligence and maintain governance standards.",
-              "Act as the central point for Insurance referral framework (procedures, guidelines etc)",
-              "Ensure proper documentation, disclosures and reporting of insurance referral activity",
-              "Monitor regulatory developments affecting insurance - based planning (e.g. cross-border rules, regulatory framework and insurance regulation). Identify and mitigate various risks related to insurance solutions (mis-selling, reputational risks etc).",
-              "Collaborate with 2nd line functions (compliance, legal and risk functions) in reviews and audits.",
-              "Internal advisory support and education <ul> <li>Develop and deliver: <ul> <li>Internal training sessions",
-              "Technical notes and planning guidelines",
-              "Case studies and best-practice examples",
-              "Provide technical guidance to RMs and Wealth Planners for client discussions.",
-              "Advisor Support & Enablement <ul> <li>Provide guidance on regulatory and suitability requirements.",
-              "Support wealth planners with best practices in client conversations",
-              "Innovation & Thought Leadership <ul> <li>Identify emerging insurance industry trends, product innovations, and planning opportunities."
-            ],
-            "requirements": [],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Product Expertise, Due Diligence & Governance <ul> <li>Be responsible for the product offering, oversee the insurance referral activity and respective revenue generated",
-              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
-              "Maintain the approved insurance product shelf aligned with client segment, regions, regulatory environment & risk appetite (whole life, private placement life insurance etc).",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Product Expertise",
-              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
-              "Maintain the approved insurance product shelf aligned with client segment",
-              "Evaluate insurance brokers and product lines for strength"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Role",
-                "paragraphs": [
-                  "The Insurance Center of Excellence (CoE) serves as the group centre of competence on the insurance offering of Wealth Planning team. The CoE on insurance manages the insurance broker network, provides expertise, governance, training and oversight to ensure insurance offering is rolled out consistently at group and regional level. It supports wealth planners and CROs and other internal units with technical knowledge, product evaluation and compliance rigor. The CoE ensures that insurance offering and referral framework of EFG is technically sound, client-appropriate, compliant with regulatory and tax requirements, and aligned with the bank’s overall wealth planning framework."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-12T21:17:36.025Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-02-03",
-      "sourceLang": "en",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-12T21:17:36.025Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "efg-6217",
       "slug": "audit-manager-temporary-6-months-efg-geneve",
@@ -2877,7 +2895,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-13T21:36:48.363Z",
+      "crawledAt": "2026-04-14T09:50:28.275Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-13",
@@ -2887,6 +2905,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -2895,6 +2914,120 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "id": "efg-6068",
+      "slug": "group-insurance-expert-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Group Insurance Expert",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-03",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6068",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Product Expertise, Due Diligence & Governance <ul> <li>Be responsible for the product offering, oversee the insurance referral activity and respective revenue generated",
+              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
+              "Maintain the approved insurance product shelf aligned with client segment, regions, regulatory environment & risk appetite (whole life, private placement life insurance etc).",
+              "Evaluate insurance brokers and product lines for strength, competitiveness, and suitability.",
+              "Act as the central point for insurance broker selection, onboarding/offboarding, periodic due diligence and maintain governance standards.",
+              "Act as the central point for Insurance referral framework (procedures, guidelines etc)",
+              "Ensure proper documentation, disclosures and reporting of insurance referral activity",
+              "Monitor regulatory developments affecting insurance - based planning (e.g. cross-border rules, regulatory framework and insurance regulation). Identify and mitigate various risks related to insurance solutions (mis-selling, reputational risks etc).",
+              "Collaborate with 2nd line functions (compliance, legal and risk functions) in reviews and audits.",
+              "Internal advisory support and education <ul> <li>Develop and deliver: <ul> <li>Internal training sessions",
+              "Technical notes and planning guidelines",
+              "Case studies and best-practice examples",
+              "Provide technical guidance to RMs and Wealth Planners for client discussions.",
+              "Advisor Support & Enablement <ul> <li>Provide guidance on regulatory and suitability requirements.",
+              "Support wealth planners with best practices in client conversations",
+              "Innovation & Thought Leadership <ul> <li>Identify emerging insurance industry trends, product innovations, and planning opportunities."
+            ],
+            "requirements": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Product Expertise, Due Diligence & Governance <ul> <li>Be responsible for the product offering, oversee the insurance referral activity and respective revenue generated",
+              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
+              "Maintain the approved insurance product shelf aligned with client segment, regions, regulatory environment & risk appetite (whole life, private placement life insurance etc).",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Product Expertise",
+              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
+              "Maintain the approved insurance product shelf aligned with client segment",
+              "Evaluate insurance brokers and product lines for strength"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Role",
+                "paragraphs": [
+                  "The Insurance Center of Excellence (CoE) serves as the group centre of competence on the insurance offering of Wealth Planning team. The CoE on insurance manages the insurance broker network, provides expertise, governance, training and oversight to ensure insurance offering is rolled out consistently at group and regional level. It supports wealth planners and CROs and other internal units with technical knowledge, product evaluation and compliance rigor. The CoE ensures that insurance offering and referral framework of EFG is technically sound, client-appropriate, compliant with regulatory and tax requirements, and aligned with the bank’s overall wealth planning framework."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-12T21:17:36.025Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-02-03",
+      "sourceLang": "en",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-12T21:17:36.025Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
