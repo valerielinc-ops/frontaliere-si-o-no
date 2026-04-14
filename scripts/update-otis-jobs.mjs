@@ -44,6 +44,7 @@ import {
   buildPublicUrl,
 } from './lib/otis-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -107,7 +108,10 @@ async function main() {
     const description = detail.description;
     const publicUrl = buildPublicUrl(raw.externalPath);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-otis-${raw.city}`);
+    // Prefer detail city (from full location text) over listing city
+    const city = detail.city || raw.city || 'Ticino';
+    const canton = inferAnyCanton(`${city} ${raw.location}`) || detail.canton || TARGET_CANTONS[0];
+    const jobSlug = slugify(`${raw.title}-otis-${city}`);
     parsedJobs.push({
       id: `otis-${urlHash}`,
       slug: jobSlug,
@@ -122,9 +126,9 @@ async function main() {
       sourceLang: detectLang(description || raw.title, 'en'),
       requirements: [],
       requirementsByLocale: { en: [] },
-      location: raw.city || 'Ticino',
-      canton: TARGET_CANTONS[0],
-      addressLocality: raw.city || 'Ticino',
+      location: city,
+      canton,
+      addressLocality: city,
       addressCountry: 'CH',
       category: 'manufacturing',
       contract: 'full-time',

@@ -227,6 +227,13 @@ describe('parseWorkdayCity', () => {
   it('extracts city from "CHE - Lugano"', () => { expect(parseWorkdayCity('CHE - Lugano')).toBe('Lugano'); });
   it('handles plain "Switzerland"', () => { expect(parseWorkdayCity('Switzerland')).toBe('Switzerland'); });
   it('handles "Lugano, Switzerland"', () => { expect(parseWorkdayCity('Lugano, Switzerland')).toBe('Lugano'); });
+  it('skips Postfach and extracts real city from "Street, Postfach, City / Canton"', () => {
+    expect(parseWorkdayCity('Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH')).toBe('Dietlikon');
+  });
+  it('skips Postfach in "Street, Postfach, Country" format', () => {
+    const city = parseWorkdayCity('Bahnhofstrasse 3, Postfach 371, Switzerland');
+    expect(city).not.toContain('Postfach');
+  });
 });
 
 describe('buildPublicUrl', () => {

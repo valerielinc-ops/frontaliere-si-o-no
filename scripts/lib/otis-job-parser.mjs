@@ -89,36 +89,41 @@ export function isSwissLocation(locationText = '') {
 /**
  * Parse city name from Workday location text.
  * Real format: "Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland"
- * Also handles: "CHE - Lugano", "Ticino, Switzerland", plain "Switzerland"
+ * Also handles: "Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH"
+ *               "CHE - Lugano", "Ticino, Switzerland", plain "Switzerland"
  */
 export function parseWorkdayCity(locText = '') {
   const cleaned = String(locText || '').trim();
   if (!cleaned) return '';
 
-  // Format: "Street, PostalCode City, Country" — extract "City" from the middle segment
+  // Format: "CHE - City" (handle before comma-based parsing)
+  if (!cleaned.includes(',') && /^[A-Z]{2,3}\s*-\s*.+/.test(cleaned)) {
+    const dashParts = cleaned.split(/\s*-\s*/);
+    return dashParts.slice(1).join('-').trim() || cleaned;
+  }
+
   const commaParts = cleaned.split(',').map((s) => s.trim());
-  if (commaParts.length >= 3) {
-    // Middle part is typically "9000 St-Gallen" — strip postal code
-    const middle = commaParts[commaParts.length - 2];
-    const cityFromMiddle = middle.replace(/^\d{4,5}\s+/, '').trim();
-    if (cityFromMiddle && !/^switzerland|svizzera|suisse|schweiz$/i.test(cityFromMiddle)) {
-      return cityFromMiddle;
-    }
+  const countryRe = /^(switzerland|svizzera|suisse|schweiz)$/i;
+  const postfachRe = /^postfach\b|^p\.?\s*o\.?\s*box\b|^casella\s*postale\b/i;
+
+  // Filter out country names and Postfach/PO Box segments — these are never city names
+  const candidates = commaParts.filter((p) => !countryRe.test(p) && !postfachRe.test(p));
+
+  // From remaining candidates, prefer the last one that is NOT a street address
+  for (let i = candidates.length - 1; i >= 0; i--) {
+    let c = candidates[i].replace(/^\d{4,5}\s+/, '').trim();
+    // Skip segments ending with a number (street addresses like "Bahnhofstrasse 3")
+    if (/\d+\s*$/.test(c)) continue;
+    // Strip "/ XX" canton suffix (e.g. "Dietlikon / ZH" → "Dietlikon")
+    c = c.replace(/\s*\/\s*[A-Z]{2}\s*$/, '').trim();
+    if (c) return c;
   }
 
-  // Format: "City, Country"
-  if (commaParts.length === 2) {
-    const candidate = commaParts[0].replace(/^\d{4,5}\s+/, '').trim();
-    if (candidate && !/^switzerland|svizzera|suisse|schweiz$/i.test(candidate)) {
-      return candidate;
-    }
-  }
-
-  // Format: "CHE - City"
-  const dashParts = cleaned.split(/\s*-\s*/);
-  if (dashParts.length > 1) {
-    const city = dashParts.slice(1).join('-').trim();
-    return city.replace(/,\s*(?:switzerland|svizzera|suisse|schweiz)$/i, '').trim() || cleaned;
+  // Fallback: return last candidate with postal code and canton suffix stripped
+  if (candidates.length > 0) {
+    let best = candidates[candidates.length - 1].replace(/^\d{4,5}\s+/, '').trim();
+    best = best.replace(/\s*\/\s*[A-Z]{2}\s*$/, '').trim();
+    if (best) return best;
   }
 
   return cleaned.replace(/,\s*(?:switzerland|svizzera|suisse|schweiz)$/i, '').trim() || cleaned;

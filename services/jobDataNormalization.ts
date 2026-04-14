@@ -113,6 +113,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'migros-ticino': gFavicon('migros.ch'),
   'mtic-group': gFavicon('mtic-group.org'),
   'oscam': gFavicon('oscam.ch'),
+  'otis': cLogo('otis.com'),
   'pkb-private-bank': cLogo('pkb.ch'),
   'posta-svizzera-centro-regionale': 'https://ohws.prospective.ch/directlink/1002253030/assets/images/logos/post_logo_2023.svg',
   'prada': '/images/logos/prada-group.svg',
