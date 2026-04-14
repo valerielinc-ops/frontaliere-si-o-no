@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-04-14T10:24:37.653Z",
+  "assembledAt": "2026-04-14T22:10:03.327Z",
   "jobs": [
     {
       "id": "mobiliar-50daec2734a8",
@@ -33,7 +33,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sion-Collaborateur-support-vente-%28fmd%29-Agence-g%C3%A9n%C3%A9rale-de-Sion/1164356655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-14T10:24:34.887Z",
+      "crawledAt": "2026-04-14T22:10:00.524Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +94,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:02:42.516Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:24:33.853Z",
+      "crawledAt": "2026-04-14T22:09:59.626Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
