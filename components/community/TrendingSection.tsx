@@ -78,12 +78,14 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  className="w-6 h-6 object-contain"
  loading="lazy"
  onError={(e) => {
- (e.target as HTMLImageElement).style.display = 'none';
+ const img = e.target as HTMLImageElement;
+ img.style.display = 'none';
+ const fallback = img.nextElementSibling as HTMLElement | null;
+ if (fallback) fallback.style.display = '';
  }}
  />
- ) : (
- <span className="text-xs text-muted">{job.company.charAt(0)}</span>
- )}
+ ) : null}
+ <span className={`text-xs text-muted${job.companyDomain ? ' hidden' : ''}`}>{job.company.charAt(0)}</span>
  </div>
  <div className="min-w-0 flex-1">
  <p className="text-sm font-semibold text-heading line-clamp-1">
