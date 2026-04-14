@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-13T21:38:03.110Z",
+  "generatedAt": "2026-04-14T09:51:39.186Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19791,
-  "avgDurationMs": 19791,
+  "durationMs": 19247,
+  "avgDurationMs": 19247,
   "durationHistory": [
-    19791
+    19247
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -42,6 +42,7 @@
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
+      "firstSeenAt": "2026-04-13T21:38:03.110Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -68,7 +69,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -78,6 +79,7 @@
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
+      "firstSeenAt": "2026-04-13T21:38:03.110Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -104,7 +106,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -114,6 +116,7 @@
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
       "id": "engel-voelkers-066a32c6e88d",
+      "firstSeenAt": "2026-04-13T21:38:03.110Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
