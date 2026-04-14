@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-04-14T10:53:14.907Z",
+  "assembledAt": "2026-04-14T22:38:44.095Z",
   "jobs": [
     {
       "id": "weisse-arena-1e76a22a7667",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4453&jobTitle=Supervisor+Housekeeping",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.792Z",
+      "crawledAt": "2026-04-14T22:38:41.974Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -134,7 +135,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4462&jobTitle=Restaurantleiter%3Ain+Camino",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.791Z",
+      "crawledAt": "2026-04-14T22:38:41.973Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -176,6 +177,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -220,7 +222,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4461&jobTitle=Stellvertretende%3Ar+K%C3%BCchenchef%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.791Z",
+      "crawledAt": "2026-04-14T22:38:41.973Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -280,6 +282,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -324,7 +327,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4460&jobTitle=Techniker%3Ain+Bahnbetrieb",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.791Z",
+      "crawledAt": "2026-04-14T22:38:41.973Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -369,6 +372,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -413,7 +417,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4470&jobTitle=Pizzaiolo%3Aa+%2F+Koch%2FK%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.790Z",
+      "crawledAt": "2026-04-14T22:38:41.972Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -473,6 +477,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.307Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -517,7 +522,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4472&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.790Z",
+      "crawledAt": "2026-04-14T22:38:41.972Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -580,6 +585,7 @@
         "servicemitarbeiter-in-weisse-arena-ch"
       ],
       "firstSeenAt": "2026-04-13T11:31:26.308Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -624,7 +630,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4474&jobTitle=Servicemitarbeiter%3Ain+im+Fr%C3%BChst%C3%BCckservice",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.790Z",
+      "crawledAt": "2026-04-14T22:38:41.972Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -678,6 +684,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.308Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -687,114 +694,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "weisse-arena-ff514e47d586",
-      "slug": "gestione-dei-contenuti-e-della-crescita-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "gestione-dei-contenuti-e-della-crescita-weisse-arena-gruppe-laax",
-        "en": "content-growth-manager-weisse-arena-ch",
-        "de": "content-growth-manager-weisse-arena-ch",
-        "fr": "responsable-contenu-croissance-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Content & Growth Manager",
-      "titleByLocale": {
-        "it": "Gestione dei contenuti e della crescita",
-        "en": "Content & Growth Manager",
-        "de": "Content & Growth Manager",
-        "fr": "Responsable Contenu & Croissance"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Du entwickelst und steuerst die kanalübergreifende Content- und Redaktionsplanung für die Weisse Arena Gruppe und stellst einen konsistenten, markenkonformen Auftritt sicher. Gemeinsam mit den Teams Growth & Sales definierst du saisonale Themen, entwickelst Lead- und Engagement-Konzepte und analysierst deren Wirkung anhand relevanter Kennzahlen. Zudem verantwortest du das Newsletter-Marketing sowie weitere Marketing- und Kommunikationsmassnahmen. Als zentrale Schnittstelle koordinierst du Inhalte und Prozesse von der Planung bis zur Umsetzung über alle relevanten Kanäle hinweg. | Was du bewegst: Entwicklung und Steuerung der kanalübergreifenden Content- und Redaktionsplanung sowie Mitwirkung bei der Definition saisonaler Kampagnen und Themen in Zusammenarbeit mit Growth & Sales Konzeption, Umsetzung und Performance-Optimierung von Newsletter- und Lead-Marketing-Massnahmen inklusive Analytics, Conversion-Steigerung und Omnichannel-Ansätzen Planung, Koordination und Umsetzung von Marketing- und Kommunikationsmassnahmen für Events, Kampagnen sowie Marken- und Freestyle-Projekte Mitarbeit bei Multimedia-Produktionen, Foto- und Video-Shootings sowie Weiterentwicklung des visuellen Markenauftritts von LAAX Verantwortung für POS-Materialien, Merchandise-Projekte sowie Marketinginitiativen über verschiedene Destinationen und Touchpoints hinweg Projektkoordination und Stakeholdermanagement von der Ideenfindung bis zur Umsetzung inklusive Budget-, Qualitäts- und Prozesskontrolle | Was dich ausmacht: Mehrjährige Erfahrung in Content-Strategie, Redaktionsplanung und Marketing-Kommunikation, idealerweise im Tourismus-, Destinations- oder Lifestyle-Umfeld Starke konzeptionelle Fähigkeiten sowie ausgeprägtes Gespür für Storytelling, Bildsprache und Markenführung Erfahrung im Newsletter- und E-Mail-Marketing inklusive CRM-Tools, Segmentierung und Performance-Analyse Versiertes Projektmanagement sowie Routine im Umgang mit Kampagnensteuerung, Redaktionsplänen und Projekttools (z. B. Asana) Sehr gute Copywriting- und Redaktionskompetenz in Deutsch und Englisch sowie Erfahrung in der Koordination von Foto- und Videoproduktionen Teamorientierte Persönlichkeit mit hoher Eigeninitiative, Agilität sowie einer strukturierten, sorgfältigen und zuverlässigen Arbeitsweise Fähigkeit, unterschiedliche Stakeholder zusammenzubringen und Prozesse aktiv voranzutreiben Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil Affinität zu Freestyle, Nachhaltigkeit sowie Identifikation mit der Marke LAAX | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Descrizione La Weisse Arena Gruppe a LAAX è pioniera nel turismo alpino e una comunità appassionata di avventure montane uniche. Il gruppo comprende diversi hotel e ristoranti, negozi di sport e noleggio, una scuola di sci, snowboard e mountain bike, oltre a una società di gestione e una di costruzioni. Il nostro successo? Un team motivato e impegnato che vive ogni giorno la propria passione. ## Mansioni - Sviluppo e gestione della pianificazione editoriale e dei contenuti trasversale ai canali, con partecipazione alla definizione di campagne e temi stagionali in collaborazione con Growth & Sales - Ideazione, implementazione e ottimizzazione delle performance di newsletter e azioni di lead marketing, incluse analisi, aumento delle conversioni e approcci omnichannel - Pianificazione, coordinamento e attuazione di iniziative di marketing e comunicazione per eventi, campagne, progetti di marca e freestyle - Collaborazione nella produzione multimediale, servizi fotografici e video, nonché sviluppo dell’identità visiva del marchio LAAX - Responsabilità per materiali POS, progetti di merchandising e iniziative di marketing attraverso diverse destinazioni e punti di contatto - Coordinamento di progetti e gestione degli stakeholder dalla fase di ideazione alla realizzazione, inclusa la supervisione di budget, qualità e processi ## Requisiti - Esperienza pluriennale in strategia dei contenuti, pianificazione editoriale e comunicazione di marketing, preferibilmente nel settore turistico, delle destinazioni o lifestyle - Forti capacità concettuali e spiccato senso per lo storytelling, il linguaggio visivo e la gestione del marchio - Esperienza in newsletter e email marketing, inclusi strumenti CRM, segmentazione e analisi delle performance - Competenze consolidate nella gestione di progetti e familiarità con la pianificazione di campagne, piani editoriali e strumenti di project management (es. Asana) - Ottima padronanza della scrittura e dell’editing in tedesco e inglese, con esperienza nella coordinazione di produzioni fotografiche e video - Personalità orientata al team, con forte iniziativa, agilità e un approccio strutturato, attento e affidabile - Capacità di coinvolgere diversi stakeholder e di promuovere attivamente i processi - Ottima conoscenza del tedesco e dell’inglese, ulteriori lingue sono un vantaggio - Affinità per il freestyle, la sostenibilità e identificazione con il marchio LAAX ## Cosa offriamo - Un posto di lavoro attraente immerso in un paesaggio montano mozzafiato - La possibilità di crescere in un team dinamico e stimolante, in una cultura aziendale vivace - Numerosi benefit per i dipendenti, come accessi gratuiti agli impianti di risalita, sconti nei nostri negozi, hotel e ristoranti, oltre a vantaggi per la tua famiglia - Inizia ora la tua avventura professionale con la Weisse Arena Gruppe inviando la tua candidatura online completa di foto - Non vediamo l’ora di conoscerti",
-        "en": "Job Description Weisse Arena Gruppe in LAAX is a pioneer in alpine tourism and a passionate community for unique mountain adventures. The group includes various hotels and gastronomy businesses, sports and rental shops, a ski, snowboard and bike school, as well as a management and a construction company. Our success? A motivated and committed team that lives out its passion every day. ## Key Responsibilities - Development and management of cross-channel content and editorial planning, including collaboration on the definition of seasonal campaigns and themes with Growth & Sales - Conceptualization, implementation, and performance optimization of newsletter and lead marketing initiatives, including analytics, conversion enhancement, and omnichannel approaches - Planning, coordination, and execution of marketing and communication measures for events, campaigns, brand projects, and freestyle initiatives - Participation in multimedia productions, photo and video shoots, as well as further development of LAAX’s visual brand identity - Responsibility for POS materials, merchandise projects, and marketing initiatives across various destinations and touchpoints - Project coordination and stakeholder management from ideation to implementation, including budget, quality, and process control ## Requirements - Several years of experience in content strategy, editorial planning, and marketing communication, ideally in tourism, destination marketing, or lifestyle sectors - Strong conceptual skills and a keen sense for storytelling, visual language, and brand management - Experience in newsletter and email marketing, including CRM tools, segmentation, and performance analysis - Proven project management skills and familiarity with campaign planning, editorial calendars, and project tools (e.g., Asana) - Excellent copywriting and editorial skills in German and English, with experience in coordinating photo and video productions - Team-oriented personality with high self-initiative, agility, and a structured, meticulous, and reliable work approach - Ability to bring together different stakeholders and actively drive processes forward - Very good German and English language skills; additional languages are a plus - Affinity for freestyle, sustainability, and identification with the LAAX brand ## What We Offer - An attractive workplace surrounded by breathtaking mountain scenery - The opportunity to grow within our dynamic, vibrant team and lively corporate culture - Numerous employee benefits, such as free mountain transport, discounts in our shops, hotels, and restaurants, as well as advantages for your family - Start your professional adventure with Weisse Arena Gruppe by submitting your complete online application with a photo - We look forward to meeting you",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Du entwickelst und steuerst die kanalübergreifende Content- und Redaktionsplanung für die Weisse Arena Gruppe und stellst einen konsistenten, markenkonformen Auftritt sicher. Gemeinsam mit den Teams Growth & Sales definierst du saisonale Themen, entwickelst Lead- und Engagement-Konzepte und analysierst deren Wirkung anhand relevanter Kennzahlen. Zudem verantwortest du das Newsletter-Marketing sowie weitere Marketing- und Kommunikationsmassnahmen. Als zentrale Schnittstelle koordinierst du Inhalte und Prozesse von der Planung bis zur Umsetzung über alle relevanten Kanäle hinweg. | Was du bewegst: Entwicklung und Steuerung der kanalübergreifenden Content- und Redaktionsplanung sowie Mitwirkung bei der Definition saisonaler Kampagnen und Themen in Zusammenarbeit mit Growth & Sales Konzeption, Umsetzung und Performance-Optimierung von Newsletter- und Lead-Marketing-Massnahmen inklusive Analytics, Conversion-Steigerung und Omnichannel-Ansätzen Planung, Koordination und Umsetzung von Marketing- und Kommunikationsmassnahmen für Events, Kampagnen sowie Marken- und Freestyle-Projekte Mitarbeit bei Multimedia-Produktionen, Foto- und Video-Shootings sowie Weiterentwicklung des visuellen Markenauftritts von LAAX Verantwortung für POS-Materialien, Merchandise-Projekte sowie Marketinginitiativen über verschiedene Destinationen und Touchpoints hinweg Projektkoordination und Stakeholdermanagement von der Ideenfindung bis zur Umsetzung inklusive Budget-, Qualitäts- und Prozesskontrolle | Was dich ausmacht: Mehrjährige Erfahrung in Content-Strategie, Redaktionsplanung und Marketing-Kommunikation, idealerweise im Tourismus-, Destinations- oder Lifestyle-Umfeld Starke konzeptionelle Fähigkeiten sowie ausgeprägtes Gespür für Storytelling, Bildsprache und Markenführung Erfahrung im Newsletter- und E-Mail-Marketing inklusive CRM-Tools, Segmentierung und Performance-Analyse Versiertes Projektmanagement sowie Routine im Umgang mit Kampagnensteuerung, Redaktionsplänen und Projekttools (z. B. Asana) Sehr gute Copywriting- und Redaktionskompetenz in Deutsch und Englisch sowie Erfahrung in der Koordination von Foto- und Videoproduktionen Teamorientierte Persönlichkeit mit hoher Eigeninitiative, Agilität sowie einer strukturierten, sorgfältigen und zuverlässigen Arbeitsweise Fähigkeit, unterschiedliche Stakeholder zusammenzubringen und Prozesse aktiv voranzutreiben Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil Affinität zu Freestyle, Nachhaltigkeit sowie Identifikation mit der Marke LAAX | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
-        "fr": "Description du poste La Weisse Arena Gruppe à LAAX est un pionnier du tourisme alpin et une communauté passionnée par les aventures en montagne uniques. Le groupe comprend divers hôtels et établissements de restauration, des magasins de sports et de location, une école de ski, de snowboard et de vélo tout-terrain, ainsi qu’une société de gestion et une société de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. ## Missions principales - Développement et gestion de la planification éditoriale et de contenu multi-canaux, avec participation à la définition de campagnes et de thèmes saisonniers en collaboration avec Growth & Sales - Conception, mise en œuvre et optimisation des performances des newsletters et des actions de lead marketing, incluant l’analyse, l’augmentation des conversions et les approches omnicanaux - Planification, coordination et exécution des initiatives de marketing et de communication pour les événements, campagnes, projets de marque et initiatives freestyle - Participation aux productions multimédias, aux séances photo et vidéo, ainsi qu’au développement de l’identité visuelle de la marque LAAX - Responsabilité des supports POS, des projets de merchandising et des initiatives marketing à travers différentes destinations et points de contact - Coordination de projets et gestion des parties prenantes de l’idéation à la mise en œuvre, incluant le contrôle du budget, de la qualité et des processus ## Profil recherché - Plusieurs années d’expérience en stratégie de contenu, planification éditoriale et communication marketing, idéalement dans les secteurs du tourisme, du marketing de destination ou du lifestyle - Solides compétences conceptuelles et sens aigu du storytelling, du langage visuel et de la gestion de marque - Expérience en newsletter et email marketing, incluant les outils CRM, la segmentation et l’analyse des performances - Maîtrise confirmée de la gestion de projet et familiarité avec la planification de campagnes, les calendriers éditoriaux et les outils de gestion de projet (ex. Asana) - Excellente maîtrise de la rédaction et de l’édition en allemand et en anglais, avec expérience dans la coordination de productions photo et vidéo - Personnalité orientée vers l’équipe, dotée d’une forte initiative personnelle, d’agilité et d’une approche structurée, rigoureuse et fiable - Capacité à rassembler différents acteurs et à faire avancer activement les processus - Excellente maîtrise de l’allemand et de l’anglais ; d’autres langues sont un atout - Affinité pour le freestyle, la durabilité et identification avec la marque LAAX ## Ce que nous offrons - Un poste de travail attractif au cœur d’un paysage montagneux à couper le souffle - La possibilité de vous épanouir au sein d’une équipe dynamique et stimulante, dans une culture d’entreprise vivante - De nombreux avantages pour les employés, comme des accès gratuits aux remontées mécaniques, des réductions dans nos magasins, hôtels et restaurants, ainsi que des avantages pour votre famille - Lancez dès maintenant votre aventure professionnelle au sein de la Weisse Arena Gruppe en envoyant votre candidature en ligne complète avec une photo - Nous avons hâte de vous rencontrer"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4483&jobTitle=Content+%26+Growth+Manager",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.789Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-29",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4483&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza pluriennale in strategia dei contenuti e marketing",
-          "Padronanza di tedesco e inglese (scrittura e editing)",
-          "Esperienza in newsletter, email marketing e CRM",
-          "Competenze in project management e strumenti come Asana",
-          "Capacità di storytelling e gestione del marchio",
-          "Affinità per turismo, lifestyle o settori affini",
-          "Attitudine al lavoro di squadra e iniziativa",
-          "Conoscenza di produzioni multimediali (foto/video)"
-        ],
-        "en": [
-          "Several years of experience in content strategy and marketing",
-          "Fluency in German and English (writing and editing)",
-          "Experience in newsletter, email marketing, and CRM",
-          "Project management skills and familiarity with tools like Asana",
-          "Strong storytelling and brand management skills",
-          "Affinity for tourism, lifestyle, or related sectors",
-          "Team-oriented attitude and self-initiative",
-          "Experience in multimedia production (photo/video)"
-        ],
-        "fr": [
-          "Plusieurs années d’expérience en stratégie de contenu et marketing",
-          "Maîtrise de l’allemand et de l’anglais (rédaction et édition)",
-          "Expérience en newsletter, email marketing et CRM",
-          "Compétences en gestion de projet et maîtrise d’outils comme Asana",
-          "Sens du storytelling et gestion de marque",
-          "Affinités avec le tourisme, le lifestyle ou secteurs connexes",
-          "Esprit d’équipe et initiative personnelle",
-          "Expérience en production multimédia (photo/vidéo)"
-        ]
-      },
-      "department": "Customer Experience & Communication",
-      "jobNumber": "WAG02351",
-      "pensum": "80 - 100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "content-growth-manager-weisse-arena-ch",
-        "inhalt-und-wachstum-manager-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "content-growth-manager-weisse-arena-ch"
-        ],
-        "de": [
-          "inhalt-und-wachstum-manager-weisse-arena-gruppe-laax"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:31:26.306Z",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
           "unitText": "YEAR"
         }
       }
@@ -830,7 +729,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4478&jobTitle=Mitarbeiter%3Ain+Sp%C3%BClk%C3%BCche",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.789Z",
+      "crawledAt": "2026-04-14T22:38:41.971Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -913,7 +812,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4476&jobTitle=Verantwortliche%3Ar+F%C3%BChst%C3%BCcksk%C3%B6chin%2FKoch",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.789Z",
+      "crawledAt": "2026-04-14T22:38:41.971Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -973,6 +872,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.307Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1017,7 +917,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4484&jobTitle=CRM+%26+Lifecycle+Marketing+Manager",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.788Z",
+      "crawledAt": "2026-04-14T22:38:41.970Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -1081,6 +981,116 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.305Z",
+      "needsRetranslation": true,
+      "salaryMin": 75500,
+      "salaryMax": 133000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 75500,
+          "maxValue": 133000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "weisse-arena-ff514e47d586",
+      "slug": "gestione-dei-contenuti-e-della-crescita-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "gestione-dei-contenuti-e-della-crescita-weisse-arena-gruppe-laax",
+        "en": "content-growth-manager-weisse-arena-ch",
+        "de": "content-growth-manager-weisse-arena-ch",
+        "fr": "responsable-contenu-croissance-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Content & Growth Manager",
+      "titleByLocale": {
+        "it": "Gestione dei contenuti e della crescita",
+        "en": "Content & Growth Manager",
+        "de": "Content & Growth Manager",
+        "fr": "Responsable Contenu & Croissance"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Du entwickelst und steuerst die kanalübergreifende Content- und Redaktionsplanung für die Weisse Arena Gruppe und stellst einen konsistenten, markenkonformen Auftritt sicher. Gemeinsam mit den Teams Growth & Sales definierst du saisonale Themen, entwickelst Lead- und Engagement-Konzepte und analysierst deren Wirkung anhand relevanter Kennzahlen. Zudem verantwortest du das Newsletter-Marketing sowie weitere Marketing- und Kommunikationsmassnahmen. Als zentrale Schnittstelle koordinierst du Inhalte und Prozesse von der Planung bis zur Umsetzung über alle relevanten Kanäle hinweg. | Was du bewegst: Entwicklung und Steuerung der kanalübergreifenden Content- und Redaktionsplanung sowie Mitwirkung bei der Definition saisonaler Kampagnen und Themen in Zusammenarbeit mit Growth & Sales Konzeption, Umsetzung und Performance-Optimierung von Newsletter- und Lead-Marketing-Massnahmen inklusive Analytics, Conversion-Steigerung und Omnichannel-Ansätzen Planung, Koordination und Umsetzung von Marketing- und Kommunikationsmassnahmen für Events, Kampagnen sowie Marken- und Freestyle-Projekte Mitarbeit bei Multimedia-Produktionen, Foto- und Video-Shootings sowie Weiterentwicklung des visuellen Markenauftritts von LAAX Verantwortung für POS-Materialien, Merchandise-Projekte sowie Marketinginitiativen über verschiedene Destinationen und Touchpoints hinweg Projektkoordination und Stakeholdermanagement von der Ideenfindung bis zur Umsetzung inklusive Budget-, Qualitäts- und Prozesskontrolle | Was dich ausmacht: Mehrjährige Erfahrung in Content-Strategie, Redaktionsplanung und Marketing-Kommunikation, idealerweise im Tourismus-, Destinations- oder Lifestyle-Umfeld Starke konzeptionelle Fähigkeiten sowie ausgeprägtes Gespür für Storytelling, Bildsprache und Markenführung Erfahrung im Newsletter- und E-Mail-Marketing inklusive CRM-Tools, Segmentierung und Performance-Analyse Versiertes Projektmanagement sowie Routine im Umgang mit Kampagnensteuerung, Redaktionsplänen und Projekttools (z. B. Asana) Sehr gute Copywriting- und Redaktionskompetenz in Deutsch und Englisch sowie Erfahrung in der Koordination von Foto- und Videoproduktionen Teamorientierte Persönlichkeit mit hoher Eigeninitiative, Agilität sowie einer strukturierten, sorgfältigen und zuverlässigen Arbeitsweise Fähigkeit, unterschiedliche Stakeholder zusammenzubringen und Prozesse aktiv voranzutreiben Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil Affinität zu Freestyle, Nachhaltigkeit sowie Identifikation mit der Marke LAAX | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Descrizione La Weisse Arena Gruppe a LAAX è pioniera nel turismo alpino e una comunità appassionata di avventure montane uniche. Il gruppo comprende diversi hotel e ristoranti, negozi di sport e noleggio, una scuola di sci, snowboard e mountain bike, oltre a una società di gestione e una di costruzioni. Il nostro successo? Un team motivato e impegnato che vive ogni giorno la propria passione. ## Mansioni - Sviluppo e gestione della pianificazione editoriale e dei contenuti trasversale ai canali, con partecipazione alla definizione di campagne e temi stagionali in collaborazione con Growth & Sales - Ideazione, implementazione e ottimizzazione delle performance di newsletter e azioni di lead marketing, incluse analisi, aumento delle conversioni e approcci omnichannel - Pianificazione, coordinamento e attuazione di iniziative di marketing e comunicazione per eventi, campagne, progetti di marca e freestyle - Collaborazione nella produzione multimediale, servizi fotografici e video, nonché sviluppo dell’identità visiva del marchio LAAX - Responsabilità per materiali POS, progetti di merchandising e iniziative di marketing attraverso diverse destinazioni e punti di contatto - Coordinamento di progetti e gestione degli stakeholder dalla fase di ideazione alla realizzazione, inclusa la supervisione di budget, qualità e processi ## Requisiti - Esperienza pluriennale in strategia dei contenuti, pianificazione editoriale e comunicazione di marketing, preferibilmente nel settore turistico, delle destinazioni o lifestyle - Forti capacità concettuali e spiccato senso per lo storytelling, il linguaggio visivo e la gestione del marchio - Esperienza in newsletter e email marketing, inclusi strumenti CRM, segmentazione e analisi delle performance - Competenze consolidate nella gestione di progetti e familiarità con la pianificazione di campagne, piani editoriali e strumenti di project management (es. Asana) - Ottima padronanza della scrittura e dell’editing in tedesco e inglese, con esperienza nella coordinazione di produzioni fotografiche e video - Personalità orientata al team, con forte iniziativa, agilità e un approccio strutturato, attento e affidabile - Capacità di coinvolgere diversi stakeholder e di promuovere attivamente i processi - Ottima conoscenza del tedesco e dell’inglese, ulteriori lingue sono un vantaggio - Affinità per il freestyle, la sostenibilità e identificazione con il marchio LAAX ## Cosa offriamo - Un posto di lavoro attraente immerso in un paesaggio montano mozzafiato - La possibilità di crescere in un team dinamico e stimolante, in una cultura aziendale vivace - Numerosi benefit per i dipendenti, come accessi gratuiti agli impianti di risalita, sconti nei nostri negozi, hotel e ristoranti, oltre a vantaggi per la tua famiglia - Inizia ora la tua avventura professionale con la Weisse Arena Gruppe inviando la tua candidatura online completa di foto - Non vediamo l’ora di conoscerti",
+        "en": "Job Description Weisse Arena Gruppe in LAAX is a pioneer in alpine tourism and a passionate community for unique mountain adventures. The group includes various hotels and gastronomy businesses, sports and rental shops, a ski, snowboard and bike school, as well as a management and a construction company. Our success? A motivated and committed team that lives out its passion every day. ## Key Responsibilities - Development and management of cross-channel content and editorial planning, including collaboration on the definition of seasonal campaigns and themes with Growth & Sales - Conceptualization, implementation, and performance optimization of newsletter and lead marketing initiatives, including analytics, conversion enhancement, and omnichannel approaches - Planning, coordination, and execution of marketing and communication measures for events, campaigns, brand projects, and freestyle initiatives - Participation in multimedia productions, photo and video shoots, as well as further development of LAAX’s visual brand identity - Responsibility for POS materials, merchandise projects, and marketing initiatives across various destinations and touchpoints - Project coordination and stakeholder management from ideation to implementation, including budget, quality, and process control ## Requirements - Several years of experience in content strategy, editorial planning, and marketing communication, ideally in tourism, destination marketing, or lifestyle sectors - Strong conceptual skills and a keen sense for storytelling, visual language, and brand management - Experience in newsletter and email marketing, including CRM tools, segmentation, and performance analysis - Proven project management skills and familiarity with campaign planning, editorial calendars, and project tools (e.g., Asana) - Excellent copywriting and editorial skills in German and English, with experience in coordinating photo and video productions - Team-oriented personality with high self-initiative, agility, and a structured, meticulous, and reliable work approach - Ability to bring together different stakeholders and actively drive processes forward - Very good German and English language skills; additional languages are a plus - Affinity for freestyle, sustainability, and identification with the LAAX brand ## What We Offer - An attractive workplace surrounded by breathtaking mountain scenery - The opportunity to grow within our dynamic, vibrant team and lively corporate culture - Numerous employee benefits, such as free mountain transport, discounts in our shops, hotels, and restaurants, as well as advantages for your family - Start your professional adventure with Weisse Arena Gruppe by submitting your complete online application with a photo - We look forward to meeting you",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Du entwickelst und steuerst die kanalübergreifende Content- und Redaktionsplanung für die Weisse Arena Gruppe und stellst einen konsistenten, markenkonformen Auftritt sicher. Gemeinsam mit den Teams Growth & Sales definierst du saisonale Themen, entwickelst Lead- und Engagement-Konzepte und analysierst deren Wirkung anhand relevanter Kennzahlen. Zudem verantwortest du das Newsletter-Marketing sowie weitere Marketing- und Kommunikationsmassnahmen. Als zentrale Schnittstelle koordinierst du Inhalte und Prozesse von der Planung bis zur Umsetzung über alle relevanten Kanäle hinweg. | Was du bewegst: Entwicklung und Steuerung der kanalübergreifenden Content- und Redaktionsplanung sowie Mitwirkung bei der Definition saisonaler Kampagnen und Themen in Zusammenarbeit mit Growth & Sales Konzeption, Umsetzung und Performance-Optimierung von Newsletter- und Lead-Marketing-Massnahmen inklusive Analytics, Conversion-Steigerung und Omnichannel-Ansätzen Planung, Koordination und Umsetzung von Marketing- und Kommunikationsmassnahmen für Events, Kampagnen sowie Marken- und Freestyle-Projekte Mitarbeit bei Multimedia-Produktionen, Foto- und Video-Shootings sowie Weiterentwicklung des visuellen Markenauftritts von LAAX Verantwortung für POS-Materialien, Merchandise-Projekte sowie Marketinginitiativen über verschiedene Destinationen und Touchpoints hinweg Projektkoordination und Stakeholdermanagement von der Ideenfindung bis zur Umsetzung inklusive Budget-, Qualitäts- und Prozesskontrolle | Was dich ausmacht: Mehrjährige Erfahrung in Content-Strategie, Redaktionsplanung und Marketing-Kommunikation, idealerweise im Tourismus-, Destinations- oder Lifestyle-Umfeld Starke konzeptionelle Fähigkeiten sowie ausgeprägtes Gespür für Storytelling, Bildsprache und Markenführung Erfahrung im Newsletter- und E-Mail-Marketing inklusive CRM-Tools, Segmentierung und Performance-Analyse Versiertes Projektmanagement sowie Routine im Umgang mit Kampagnensteuerung, Redaktionsplänen und Projekttools (z. B. Asana) Sehr gute Copywriting- und Redaktionskompetenz in Deutsch und Englisch sowie Erfahrung in der Koordination von Foto- und Videoproduktionen Teamorientierte Persönlichkeit mit hoher Eigeninitiative, Agilität sowie einer strukturierten, sorgfältigen und zuverlässigen Arbeitsweise Fähigkeit, unterschiedliche Stakeholder zusammenzubringen und Prozesse aktiv voranzutreiben Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil Affinität zu Freestyle, Nachhaltigkeit sowie Identifikation mit der Marke LAAX | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
+        "fr": "Description du poste La Weisse Arena Gruppe à LAAX est un pionnier du tourisme alpin et une communauté passionnée par les aventures en montagne uniques. Le groupe comprend divers hôtels et établissements de restauration, des magasins de sports et de location, une école de ski, de snowboard et de vélo tout-terrain, ainsi qu’une société de gestion et une société de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. ## Missions principales - Développement et gestion de la planification éditoriale et de contenu multi-canaux, avec participation à la définition de campagnes et de thèmes saisonniers en collaboration avec Growth & Sales - Conception, mise en œuvre et optimisation des performances des newsletters et des actions de lead marketing, incluant l’analyse, l’augmentation des conversions et les approches omnicanaux - Planification, coordination et exécution des initiatives de marketing et de communication pour les événements, campagnes, projets de marque et initiatives freestyle - Participation aux productions multimédias, aux séances photo et vidéo, ainsi qu’au développement de l’identité visuelle de la marque LAAX - Responsabilité des supports POS, des projets de merchandising et des initiatives marketing à travers différentes destinations et points de contact - Coordination de projets et gestion des parties prenantes de l’idéation à la mise en œuvre, incluant le contrôle du budget, de la qualité et des processus ## Profil recherché - Plusieurs années d’expérience en stratégie de contenu, planification éditoriale et communication marketing, idéalement dans les secteurs du tourisme, du marketing de destination ou du lifestyle - Solides compétences conceptuelles et sens aigu du storytelling, du langage visuel et de la gestion de marque - Expérience en newsletter et email marketing, incluant les outils CRM, la segmentation et l’analyse des performances - Maîtrise confirmée de la gestion de projet et familiarité avec la planification de campagnes, les calendriers éditoriaux et les outils de gestion de projet (ex. Asana) - Excellente maîtrise de la rédaction et de l’édition en allemand et en anglais, avec expérience dans la coordination de productions photo et vidéo - Personnalité orientée vers l’équipe, dotée d’une forte initiative personnelle, d’agilité et d’une approche structurée, rigoureuse et fiable - Capacité à rassembler différents acteurs et à faire avancer activement les processus - Excellente maîtrise de l’allemand et de l’anglais ; d’autres langues sont un atout - Affinité pour le freestyle, la durabilité et identification avec la marque LAAX ## Ce que nous offrons - Un poste de travail attractif au cœur d’un paysage montagneux à couper le souffle - La possibilité de vous épanouir au sein d’une équipe dynamique et stimulante, dans une culture d’entreprise vivante - De nombreux avantages pour les employés, comme des accès gratuits aux remontées mécaniques, des réductions dans nos magasins, hôtels et restaurants, ainsi que des avantages pour votre famille - Lancez dès maintenant votre aventure professionnelle au sein de la Weisse Arena Gruppe en envoyant votre candidature en ligne complète avec une photo - Nous avons hâte de vous rencontrer"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4483&jobTitle=Content+%26+Growth+Manager",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-14T22:38:41.970Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-29",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4483&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza pluriennale in strategia dei contenuti e marketing",
+          "Padronanza di tedesco e inglese (scrittura e editing)",
+          "Esperienza in newsletter, email marketing e CRM",
+          "Competenze in project management e strumenti come Asana",
+          "Capacità di storytelling e gestione del marchio",
+          "Affinità per turismo, lifestyle o settori affini",
+          "Attitudine al lavoro di squadra e iniziativa",
+          "Conoscenza di produzioni multimediali (foto/video)"
+        ],
+        "en": [
+          "Several years of experience in content strategy and marketing",
+          "Fluency in German and English (writing and editing)",
+          "Experience in newsletter, email marketing, and CRM",
+          "Project management skills and familiarity with tools like Asana",
+          "Strong storytelling and brand management skills",
+          "Affinity for tourism, lifestyle, or related sectors",
+          "Team-oriented attitude and self-initiative",
+          "Experience in multimedia production (photo/video)"
+        ],
+        "fr": [
+          "Plusieurs années d’expérience en stratégie de contenu et marketing",
+          "Maîtrise de l’allemand et de l’anglais (rédaction et édition)",
+          "Expérience en newsletter, email marketing et CRM",
+          "Compétences en gestion de projet et maîtrise d’outils comme Asana",
+          "Sens du storytelling et gestion de marque",
+          "Affinités avec le tourisme, le lifestyle ou secteurs connexes",
+          "Esprit d’équipe et initiative personnelle",
+          "Expérience en production multimédia (photo/vidéo)"
+        ]
+      },
+      "department": "Customer Experience & Communication",
+      "jobNumber": "WAG02351",
+      "pensum": "80 - 100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "content-growth-manager-weisse-arena-ch",
+        "inhalt-und-wachstum-manager-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "content-growth-manager-weisse-arena-ch"
+        ],
+        "de": [
+          "inhalt-und-wachstum-manager-weisse-arena-gruppe-laax"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T11:31:26.306Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -1098,9 +1108,9 @@
       "id": "weisse-arena-ae454ebcb7f1",
       "slug": "specialista-in-contabilita-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-buchhaltung-weisse-arena-ch",
         "it": "specialista-in-contabilita-weisse-arena-gruppe-laax",
         "en": "editor-in-accounting-weisse-arena-gruppe-laax",
+        "de": "sachbearbeiter-in-buchhaltung-weisse-arena-ch",
         "fr": "specialiste-en-comptabilite-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -1108,16 +1118,16 @@
       "companyDomain": "weissearena.com",
       "title": "Sachbearbeiter:in Buchhaltung",
       "titleByLocale": {
-        "de": "Sachbearbeiter:in Buchhaltung",
         "it": "Specialista in Contabilità",
         "en": "Editor:in Accounting",
+        "de": "Sachbearbeiter:in Buchhaltung",
         "fr": "Spécialiste en comptabilité"
       },
       "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Unser Accounting Team verantwortet die finanziellen Aufgaben der Weissen Arena Gruppe verantwortlich. Wir gewährleisten eine gesetzeskonforme Buchführung, liefern verlässliche Datengrundlagen für das interne Berichtswesen und sind Anlaufstelle für alle finanziellen Fragestellungen. | Du hast ein Flair für Zahlen und behältst auch bei komplexen Buchungsvorgängen den Überblick? Dann bist du bei uns genau richtig! | Was du bewegst: Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher) Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss Bearbeitung des Zahlungsverkehrs und Mahnwesens Unterstützung bei der Budgetierung und bei internen Finanzreports Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision) Allgemeine administrative Tätigkeiten im Finanzbereich | Was dich ausmacht: Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen) Mehrjährige Berufserfahrung in der Buchhaltung Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software) Exakte, strukturierte und selbständige Arbeitsweise Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil | Doch was dich erwartet geht weit über Zahlen und Fakten hinaus. Du wirst Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt. Wir suchen Menschen, die Verantwortung übernehmen, mitdenken und den Wandel aktiv mitgestalten wollen – in einem Umfeld, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Finanz- und Rechnungswesen Daniela Marschall www.weissearena.com I www.laax.com",
       "descriptionByLocale": {
-        "de": "## Descrizione\nDie Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt.\n\n## Mansioni\n- Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher)\n- Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss\n- Bearbeitung des Zahlungsverkehrs und Mahnwesens\n- Unterstützung bei der Budgetierung und bei internen Finanzreports\n- Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision)\n- Allgemeine administrative Tätigkeiten im Finanzbereich\n\n## Requisiti\n- Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen)\n- Mehrjährige Berufserfahrung in der Buchhaltung\n- Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software)\n- Exakte, strukturierte und selbständige Arbeitsweise\n- Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen\n- Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil\n\n## Cosa offriamo\n- Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt\n- Umgebung, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist\n- Zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie\n\n## Contatto\nMountain Vision AG Finanz- und Rechnungswesen\nDaniela Marschall\nwww.weissearena.com I www.laax.com",
         "it": "Descrizione Il gruppo Weisse Arena di LAAX è un pioniere del turismo alpino e una comunità entusiasta per avventure in montagna uniche. Il gruppo comprende diverse strutture alberghiere e gastronomiche, negozi sportivi e di noleggio, una scuola di sci, snowboard e mountain bike e una società di gestione e costruzione. Il nostro successo? Un team motivato e impegnato che vive la sua passione ogni giorno. ## Mansioni - Contabilizzazione autonoma delle operazioni in corso (libro mastro e libri accessori) - Esecuzione di riconciliazioni contabili e collaborazione al bilancio mensile e annuale - Elaborazione delle operazioni di pagamento e sollecito - Assistenza per la stesura del bilancio e dei rapporti finanziari interni - Collaborazione con reparti interni e partner esterni (ad es. Ad es. fiduciario, revisione) - Attività amministrative generali nel settore finanziario ## Requisiti - Formazione commerciale di base con perfezionamento in finanza e contabilità (ad es. B. Impiegato:in contabilità) - Esperienza professionale pluriennale in contabilità - Buone conoscenze dell'utente IT (MS Office, in particolare Excel; idealmente esperienza con Abacus o software comparabile) - Metodo di lavoro esatto, strutturato e indipendente - Piacere di lavorare in un ambiente vivace, orientato al team e di mentalità aperta - Tedesco come madrelingua o eccellente conoscenza del tedesco; Conoscenza dell'inglese come vantaggio ## Cosa offriamo - Parte di una cultura aziendale che promuove l'apertura, la sostenibilità e la vera convivenza",
         "en": "Descrizione The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. English Mansioni - Self-booking of current business cases (main book and secondary books) - implementation of accounts and cooperation in the monthly and annual accounts - processing of payment transactions and reminding - support in budgeting and in the case of internal financial reports - cooperation with internal departments and external partners (e.g. trust, revision) - General administrative activities in the financial sector ## Requisiti English knowledge of advantage ## Cosa offriamo - part of a corporate culture that lives openness, sustainability and real coexistence - environment characterized by innovative power, natural connectedness and flat hierarchies - numerous employee benefits, such as free mountain rides, discounts in our shops, hotels and gastronomy companies and benefits for your family ## Contatto Mountain Vision AG Finance and accounting Daniela Marschall www.weissearena",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Unser Accounting Team verantwortet die finanziellen Aufgaben der Weissen Arena Gruppe verantwortlich. Wir gewährleisten eine gesetzeskonforme Buchführung, liefern verlässliche Datengrundlagen für das interne Berichtswesen und sind Anlaufstelle für alle finanziellen Fragestellungen. | Du hast ein Flair für Zahlen und behältst auch bei komplexen Buchungsvorgängen den Überblick? Dann bist du bei uns genau richtig! | Was du bewegst: Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher) Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss Bearbeitung des Zahlungsverkehrs und Mahnwesens Unterstützung bei der Budgetierung und bei internen Finanzreports Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision) Allgemeine administrative Tätigkeiten im Finanzbereich | Was dich ausmacht: Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen) Mehrjährige Berufserfahrung in der Buchhaltung Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software) Exakte, strukturierte und selbständige Arbeitsweise Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil | Doch was dich erwartet geht weit über Zahlen und Fakten hinaus. Du wirst Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt. Wir suchen Menschen, die Verantwortung übernehmen, mitdenken und den Wandel aktiv mitgestalten wollen – in einem Umfeld, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Finanz- und Rechnungswesen Daniela Marschall www.weissearena.com I www.laax.com",
         "fr": "Descrizione Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. English Mansioni - Auto-réservation des affaires courantes (livre principal et livres secondaires) - mise en oeuvre des comptes et coopération dans les comptes mensuels et annuels - traitement des transactions de paiement et rappel - soutien dans le budget et dans le cas des rapports financiers internes - coopération avec les départements internes et les partenaires externes (par exemple, confiance, révision) - Activités administratives générales dans le secteur financier ## Requisiti English knowledge of benefits ## Cosa offriamo - partie d'une culture d'entreprise qui vit l'ouverture, la durabilité et la coexistence réelle - environnement caractérisé par une puissance innovante, des connexions naturelles et des hiérarchies plates - nombreux avantages pour les employés, tels que des tours de montagne gratuits, des rabais dans nos magasins, hôtels et compagnies gastronomiques et des avantages pour votre famille ## Contatto Mountain Vision AG Finance et comptabilité Daniela Marschall www.weissearena"
       },
       "location": "Laax",
@@ -1125,7 +1135,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4487&jobTitle=Sachbearbeiter%3Ain+Buchhaltung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:53:12.787Z",
+      "crawledAt": "2026-04-14T22:38:41.969Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -1140,26 +1150,14 @@
       "postedDate": "2026-04-13",
       "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4487&langCode=de_DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Finanz- und Rechnungswesen",
       "jobNumber": "WAG02367",
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-14T10:53:14.907Z",
+      "previousSlugs": [
+        "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
@@ -1171,9 +1169,20 @@
           "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
-      ]
+      "firstSeenAt": "2026-04-14T10:53:14.907Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
