@@ -28,9 +28,9 @@ describe('loadDashboardMetrics', () => {
     expect(content).toContain('export function loadDashboardMetrics');
   });
 
-  it('newsletter-template.mjs renderMetrics accepts metrics parameter', () => {
+  it('newsletter-template.mjs renderMetrics accepts metrics and locale parameters', () => {
     const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-template.mjs'), 'utf-8');
-    expect(content).toContain('renderMetrics(totalJobs, metrics)');
+    expect(content).toContain('renderMetrics(totalJobs, data.metrics, locale)');
   });
 
   it('newsletter-template.mjs does NOT contain hardcoded CHF 412', () => {

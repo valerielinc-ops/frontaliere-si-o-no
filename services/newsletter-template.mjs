@@ -43,6 +43,22 @@ const NL_I18N = {
     jobsLabel: 'Lavoro',
     toolsLabel: 'Strumenti',
     topClicked: '\ud83d\udd25 Più cliccata',
+    realtimeUpdate: '\u26a1 Aggiornamento in tempo reale',
+    rateLabel: 'Tasso CHF \u2192 EUR',
+    vsLastWeek: 'vs settimana scorsa',
+    salaryImpact: 'Su uno stipendio di <strong style="color:{orange};font-size:15px;">5\u2019000 CHF</strong>, questa settimana {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> in più rispetto a lunedì scorso.{yearly}',
+    salaryImpactYearly: ' In un anno fa <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Forse vale la pena controllare, no?',
+    salaryImpactVerb: ['guadagni', 'perdi'],
+    compareHint: 'Ma se confronti dove cambi, puoi recuperarne <strong style="color:{orange};">300\u2011500\u20ac</strong>. Non sono noccioline.',
+    metricJobs: 'Offerte lavoro',
+    metricUnemployment: 'Disoccupazione CH',
+    metricLamal: 'Premio LAMal Lugano',
+    editorialFallback: 'Noi preferiamo i numeri. Quelli veri, quelli che trovi in busta paga. Questa settimana: il cambio scende (di nuovo){jobs}, e c\u2019\u00e8 una votazione che forse ti sei perso tra un cappuccino e la coda a Brogeda.',
+    editorialFallbackJobs: ', le offerte di lavoro salgono a <strong>{n}</strong>',
+    articleCta: 'Leggi l\u2019analisi completa \u2192',
+    topRead: '\ud83d\udd25 Più letto',
+    defaultQuote: 'La cosa più bella di vivere al confine è che puoi scegliere in quale Paese avere il mal di testa fiscale.',
+    defaultQuoteSource: 'Anonimo frontaliere, probabilmente in coda a Brogeda',
     toolCalc: 'Calcola Stipendio',
     toolCalcDesc: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.',
     toolLamal: 'Confronto LAMal',
@@ -74,6 +90,22 @@ const NL_I18N = {
     jobsLabel: 'Jobs',
     toolsLabel: 'Tools',
     topClicked: '\ud83d\udd25 Most clicked',
+    realtimeUpdate: '\u26a1 Real-time update',
+    rateLabel: 'Rate CHF \u2192 EUR',
+    vsLastWeek: 'vs last week',
+    salaryImpact: 'On a salary of <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong>, this week you {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> compared to last Monday.{yearly}',
+    salaryImpactYearly: ' Over a year that\u2019s <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Maybe worth checking?',
+    salaryImpactVerb: ['gain', 'lose'],
+    compareHint: 'But if you compare where you exchange, you could save <strong style="color:{orange};">300\u2011500\u20ac</strong>. Not peanuts.',
+    metricJobs: 'Job offers',
+    metricUnemployment: 'Unemployment CH',
+    metricLamal: 'LAMal premium Lugano',
+    editorialFallback: 'We prefer numbers. Real ones, the kind you find on your payslip. This week: the exchange rate drops (again){jobs}, and there\u2019s a vote you may have missed between your morning coffee and the queue at Brogeda.',
+    editorialFallbackJobs: ', job offers climb to <strong>{n}</strong>',
+    articleCta: 'Read the full analysis \u2192',
+    topRead: '\ud83d\udd25 Most read',
+    defaultQuote: 'The best thing about living on the border is choosing which country gives you the fiscal headache.',
+    defaultQuoteSource: 'Anonymous frontaliere, probably stuck in the Brogeda queue',
     toolCalc: 'Salary Calculator',
     toolCalcDesc: 'From gross to net in 5 seconds. With AVS, LPP, withholding tax, and CHF/EUR conversion.',
     toolLamal: 'LAMal Comparison',
@@ -105,6 +137,22 @@ const NL_I18N = {
     jobsLabel: 'Stellen',
     toolsLabel: 'Tools',
     topClicked: '\ud83d\udd25 Meistgeklickt',
+    realtimeUpdate: '\u26a1 Echtzeit-Update',
+    rateLabel: 'Kurs CHF \u2192 EUR',
+    vsLastWeek: 'vs letzte Woche',
+    salaryImpact: 'Bei einem Gehalt von <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong> {verb} du diese Woche <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> im Vergleich zu letztem Montag.{yearly}',
+    salaryImpactYearly: ' Auf ein Jahr gerechnet sind das <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Vielleicht lohnt sich ein Blick?',
+    salaryImpactVerb: ['gewinnst', 'verlierst'],
+    compareHint: 'Aber wenn du vergleichst, wo du wechselst, kannst du <strong style="color:{orange};">300\u2011500\u20ac</strong> sparen. Keine Kleinigkeit.',
+    metricJobs: 'Stellenangebote',
+    metricUnemployment: 'Arbeitslosigkeit CH',
+    metricLamal: 'KVG-Pr\u00e4mie Lugano',
+    editorialFallback: 'Wir bevorzugen Zahlen. Echte, die du auf deiner Lohnabrechnung findest. Diese Woche: der Kurs f\u00e4llt (wieder){jobs}, und es gibt eine Abstimmung, die du vielleicht zwischen Kaffee und der Schlange am Brogeda verpasst hast.',
+    editorialFallbackJobs: ', die Stellenangebote steigen auf <strong>{n}</strong>',
+    articleCta: 'Vollst\u00e4ndige Analyse lesen \u2192',
+    topRead: '\ud83d\udd25 Meistgelesen',
+    defaultQuote: 'Das Sch\u00f6nste am Leben an der Grenze ist, dass man w\u00e4hlen kann, in welchem Land man die Steuer-Kopfschmerzen hat.',
+    defaultQuoteSource: 'Anonymer Grenzg\u00e4nger, wahrscheinlich in der Schlange am Brogeda',
     toolCalc: 'Gehaltsrechner',
     toolCalcDesc: 'Vom Brutto zum Netto in 5 Sekunden. Mit AHV, BVG, Quellensteuer und CHF/EUR-Umrechnung.',
     toolLamal: 'KVG-Vergleich',
@@ -136,6 +184,22 @@ const NL_I18N = {
     jobsLabel: 'Emplois',
     toolsLabel: 'Outils',
     topClicked: '\ud83d\udd25 Plus cliqu\u00e9e',
+    realtimeUpdate: '\u26a1 Mise \u00e0 jour en temps r\u00e9el',
+    rateLabel: 'Taux CHF \u2192 EUR',
+    vsLastWeek: 'vs semaine derni\u00e8re',
+    salaryImpact: 'Sur un salaire de <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong>, cette semaine tu {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> par rapport \u00e0 lundi dernier.{yearly}',
+    salaryImpactYearly: ' Sur un an, \u00e7a fait <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Peut-\u00eatre que \u00e7a vaut le coup de v\u00e9rifier\u2009?',
+    salaryImpactVerb: ['gagnes', 'perds'],
+    compareHint: 'Mais si tu compares o\u00f9 tu changes, tu peux r\u00e9cup\u00e9rer <strong style="color:{orange};">300\u2011500\u20ac</strong>. C\u2019est pas des cacahu\u00e8tes.',
+    metricJobs: 'Offres d\u2019emploi',
+    metricUnemployment: 'Ch\u00f4mage CH',
+    metricLamal: 'Prime LAMal Lugano',
+    editorialFallback: 'Nous, on pr\u00e9f\u00e8re les chiffres. Les vrais, ceux qu\u2019on trouve sur la fiche de paie. Cette semaine\u2009: le taux baisse (encore){jobs}, et il y a un vote que tu as peut-\u00eatre rat\u00e9 entre un caf\u00e9 et la file au Brogeda.',
+    editorialFallbackJobs: ', les offres d\u2019emploi grimpent \u00e0 <strong>{n}</strong>',
+    articleCta: 'Lire l\u2019analyse compl\u00e8te \u2192',
+    topRead: '\ud83d\udd25 Plus lu',
+    defaultQuote: 'Le plus beau quand on vit \u00e0 la fronti\u00e8re, c\u2019est de pouvoir choisir dans quel pays avoir la migraine fiscale.',
+    defaultQuoteSource: 'Frontalier anonyme, probablement dans la file au Brogeda',
     toolCalc: 'Calcul de salaire',
     toolCalcDesc: 'Du brut au net en 5 secondes. Avec AVS, LPP, imp\u00f4t \u00e0 la source et conversion CHF/EUR.',
     toolLamal: 'Comparaison LAMal',
@@ -245,28 +309,41 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
   const monthlyLoss = Math.abs(diff * 5000);
   const yearlyLoss = Math.round(monthlyLoss * 52);
 
+  // Build salary impact box
+  const verbs = nlT(locale, 'salaryImpactVerb');
+  const verb = isDown ? (verbs[1] || verbs) : (verbs[0] || verbs);
+  const yearlyStr = yearlyLoss > 50
+    ? nlT(locale, 'salaryImpactYearly').replace('{amount}', String(yearlyLoss)).replace('{orange}', BRAND_ORANGE)
+    : '';
+  const impactHtml = nlT(locale, 'salaryImpact')
+    .replace('{verb}', verb)
+    .replace('{weekly}', String(Math.round(monthlyLoss)))
+    .replace('{yearly}', yearlyStr)
+    .replace(/\{orange\}/g, BRAND_ORANGE);
+  const compareHtml = nlT(locale, 'compareHint').replace(/\{orange\}/g, BRAND_ORANGE);
+
   return `
     <tr><td class="section-pad" style="background:${BRAND_DARK};color:#fff;padding:32px 28px 28px;text-align:center;">
-      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin-bottom:6px;">\u26a1 Aggiornamento in tempo reale</div>
+      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin-bottom:6px;">${nlT(locale, 'realtimeUpdate')}</div>
       <div style="font-size:28px;font-weight:800;margin:0 0 4px;line-height:1.2;color:#fff;">${nlT(locale, 'greeting')}</div>
       <div style="font-size:14px;color:#94a3b8;margin:0 0 20px;">${nlT(locale, 'greetingSub')}</div>
 
       <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
       <a href="${directUrl('/compara-servizi/cambio-franco-euro')}" style="text-decoration:none;display:inline-block;">
       <div class="rate-box" style="display:inline-block;background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
-        <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Tasso CHF \u2192 EUR</div>
+        <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
         <div class="hero-rate" style="font-size:52px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-1px;line-height:1.1;">${rate.toFixed(4)}</div>
-        <div style="font-size:14px;margin-top:4px;color:${arrowColor};">${arrow} ${sign}${pct}% vs settimana scorsa</div>
+        <div style="font-size:14px;margin-top:4px;color:${arrowColor};">${arrow} ${sign}${pct}% ${nlT(locale, 'vsLastWeek')}</div>
       </div>
       </a>
       <!--[if mso]></td></tr></table><![endif]-->
 
       ${monthlyLoss > 1 ? `
       <div style="background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);border-radius:10px;padding:12px 18px;margin-top:14px;font-size:13px;color:#fdba74;">
-        Su uno stipendio di <strong style="color:${BRAND_ORANGE};font-size:15px;">5'000 CHF</strong>, questa settimana ${isDown ? 'perdi' : 'guadagni'} <strong style="color:${BRAND_ORANGE};font-size:15px;">\u20ac${Math.round(monthlyLoss)}</strong> ${isDown ? 'in pi\u00f9' : 'in pi\u00f9'} rispetto a luned\u00ec scorso. ${yearlyLoss > 50 ? `In un anno fa <strong style="color:${BRAND_ORANGE};font-size:15px;">\u20ac${yearlyLoss}</strong>. Forse vale la pena controllare, no?` : ''}
+        ${impactHtml}
       </div>` : ''}
 
-      <div style="margin-top:12px;font-size:14px;color:#e2e8f0;line-height:1.5;">Ma se confronti dove cambi, puoi recuperarne <strong style="color:${BRAND_ORANGE};">300\u2011500\u20ac</strong>. Non sono noccioline.</div>
+      <div style="margin-top:12px;font-size:14px;color:#e2e8f0;line-height:1.5;">${compareHtml}</div>
 
       <div style="margin-top:16px;">
         <a href="${directUrl('/compara-servizi/cambio-franco-euro')}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${nlT(locale, 'rateCta')}</a>
@@ -283,7 +360,7 @@ function renderEditorial(locale, aiBriefing, totalJobs) {
         .replace(/<p>/gi, `<p style="${pStyle}">`)
         .replace(/<p style="[^"]*">/gi, `<p style="${pStyle}">`)
     : `<p style="${pStyle}">${nlT(locale, 'editorialBody1')}</p>
-       <p style="${pStyle}">Noi preferiamo i numeri. Quelli veri, quelli che trovi in busta paga. Questa settimana: il cambio scende (di nuovo)${jobCount > 0 ? `, le offerte di lavoro salgono a <strong>${jobCount}</strong>` : ''}, e c\u2019\u00e8 una votazione che forse ti sei perso tra un cappuccino e la coda a Brogeda.</p>`;
+       <p style="${pStyle}">${nlT(locale, 'editorialFallback').replace('{jobs}', jobCount > 0 ? nlT(locale, 'editorialFallbackJobs').replace('{n}', String(jobCount)) : '')}</p>`;
 
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:28px 28px 8px;">
@@ -293,12 +370,12 @@ function renderEditorial(locale, aiBriefing, totalJobs) {
     </td></tr>`;
 }
 
-function renderMetrics(totalJobs, metrics) {
+function renderMetrics(totalJobs, metrics, locale) {
   const m = metrics || {};
   const unemploymentRate = m.unemploymentRate || '2.8%';
-  const unemploymentLabel = m.unemploymentLabel || 'Disoccupazione CH';
+  const unemploymentLabel = m.unemploymentLabel || nlT(locale, 'metricUnemployment');
   const lamalPremium = m.lamalPremium || 'CHF 467';
-  const lamalLabel = m.lamalLabel || 'Premio LAMal Lugano';
+  const lamalLabel = m.lamalLabel || nlT(locale, 'metricLamal');
 
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 8px;">
@@ -309,7 +386,7 @@ function renderMetrics(totalJobs, metrics) {
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcbc</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${totalJobs || '200+'}</div>
-              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">Offerte lavoro</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${nlT(locale, 'metricJobs')}</div>
             </div>
           </a>
         </td>
@@ -385,9 +462,9 @@ function renderJobs(matchedJobs, locale, totalJobs) {
     </td></tr>`;
 }
 
-function renderQuote(fact) {
-  const text = fact?.text || 'La cosa pi\u00f9 bella di vivere al confine \u00e8 che puoi scegliere in quale Paese avere il mal di testa fiscale.';
-  const source = fact?.source || 'Anonimo frontaliere, probabilmente in coda a Brogeda';
+function renderQuote(fact, locale) {
+  const text = fact?.text || nlT(locale, 'defaultQuote');
+  const source = fact?.source || nlT(locale, 'defaultQuoteSource');
   return `
     <tr><td class="section-pad" style="padding:8px 28px 16px;">
       <div style="background:linear-gradient(135deg,${BRAND_ORANGE},#ea580c);border-radius:12px;padding:20px 22px;text-align:center;">
@@ -442,10 +519,10 @@ function renderArticle(article, locale) {
             <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
           </div>
           <div style="padding:18px 20px;">
-            ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(article.badge)}</span>` : ''}
+            ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(nlT(locale, 'topRead'))}</span>` : ''}
             <div style="font-size:17px;font-weight:800;color:${BRAND_DARK};margin:0 0 8px;line-height:1.3;">${escapeHtml(article.title)}</div>
             <div style="font-size:13px;color:#475569;line-height:1.55;margin:0 0 14px;">${escapeHtml(article.excerpt)}</div>
-            <span style="display:inline-block;background:${BRAND_DARK};color:#fff;font-weight:700;font-size:13px;padding:10px 22px;border-radius:8px;">Leggi l\u2019analisi completa \u2192</span>
+            <span style="display:inline-block;background:${BRAND_DARK};color:#fff;font-weight:700;font-size:13px;padding:10px 22px;border-radius:8px;">${nlT(locale, 'articleCta')}</span>
           </div>
         </div>
       </a>
@@ -548,7 +625,7 @@ export function buildNewsletter(data) {
   html += renderEditorial(locale, data.aiBriefing, totalJobs);
 
   // 4. Dashboard metrics
-  html += renderMetrics(totalJobs, data.metrics);
+  html += renderMetrics(totalJobs, data.metrics, locale);
 
   // 5. Divider
   html += renderDivider();
@@ -564,7 +641,7 @@ export function buildNewsletter(data) {
   }
 
   // 7. Quote (from weekly fact or default)
-  html += renderQuote(data.weeklyFact);
+  html += renderQuote(data.weeklyFact, locale);
 
   // 8. Divider
   html += renderDivider();
