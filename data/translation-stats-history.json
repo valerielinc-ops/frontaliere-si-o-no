@@ -1,81 +1,5 @@
 [
   {
-    "timestamp": "2026-04-06T08:05:26.248Z",
-    "label": "before",
-    "total": 1504,
-    "needsRetranslation": 123,
-    "incomplete": 13,
-    "complete": 1491,
-    "missingByLocale": {
-      "it": 10,
-      "en": 7,
-      "de": 7,
-      "fr": 11
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "FFS Officine (Ferrovie Federali)",
-        "pending": 2
-      },
-      {
-        "company": "Otis SA",
-        "pending": 2
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-06T08:16:02.116Z",
-    "label": "after",
-    "total": 1504,
-    "needsRetranslation": 71,
-    "incomplete": 8,
-    "complete": 1496,
-    "missingByLocale": {
-      "it": 6,
-      "en": 6,
-      "de": 4,
-      "fr": 8
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-06T10:17:07.797Z",
     "label": "before",
     "total": 1523,
@@ -7994,6 +7918,98 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-14T14:05:28.116Z",
+    "label": "before",
+    "total": 2930,
+    "needsRetranslation": 50,
+    "incomplete": 13,
+    "complete": 2917,
+    "missingByLocale": {
+      "it": 6,
+      "en": 8,
+      "de": 6,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-14T14:43:25.211Z",
+    "label": "after",
+    "total": 2930,
+    "needsRetranslation": 46,
+    "incomplete": 6,
+    "complete": 2924,
+    "missingByLocale": {
+      "it": 2,
+      "en": 1,
+      "de": 1,
+      "fr": 4
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
         "pending": 1
       }
     ]

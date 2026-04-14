@@ -1140,7 +1140,8 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Junior Project Portfolio Manager",
@@ -5067,7 +5068,9 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-14T10:29:54.902Z"
+      "firstSeenAt": "2026-04-14T10:29:54.902Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Career Start - Audit Trade, Industries & Services ab Herbst 2026",

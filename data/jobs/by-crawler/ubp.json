@@ -620,7 +620,6 @@
       "previousSlugs": [
         "investment-advisor-ubp-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:28:15.483Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -633,8 +632,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "ubp-d2b1b07b8727",
@@ -705,7 +703,9 @@
         "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-2",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
-        "steuerspezialist-union-bancaire-privee-geneva-switzerland"
+        "steuerspezialist-union-bancaire-privee-geneva-switzerland",
+        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-04-13T11:28:14.869Z",
       "salaryMin": 49500,
@@ -2960,7 +2960,6 @@
           "junior-hr-assistant-coordinator-5-months-ubp-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:27:57.987Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -2973,8 +2972,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "ubp-09f350a4712c",

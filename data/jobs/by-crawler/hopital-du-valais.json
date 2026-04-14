@@ -2982,7 +2982,6 @@
           "pflegefachperson-40-50-mobiler-palliativdienst-hopital-du-valais-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2996,8 +2995,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-fe6b6ac437da",
