@@ -1,23 +1,53 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-04-13T22:16:12.627Z",
+  "generatedAt": "2026-04-14T10:29:54.907Z",
   "total": 98,
-  "newCount": 2,
-  "updatedCount": 94,
-  "removedCount": 1,
+  "newCount": 4,
+  "updatedCount": 92,
+  "removedCount": 2,
   "unchangedCount": 2,
-  "durationMs": 1570,
-  "avgDurationMs": 1570,
+  "durationMs": 2053,
+  "avgDurationMs": 2053,
   "durationHistory": [
-    1570
+    2053
   ],
   "newJobs": [
     {
-      "title": "Intern in Audit - Trade, Industries and Services - November 2026 bis April 2027",
-      "slug": "intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027/b54608cd-f831-4240-832c-6116810e2199",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Intern-in-Audit---Trade--Industries-and-Services---November-2026-bis-April-2027_690005WD/apply",
+      "title": "(Senior) Manager Deals Tax",
+      "slug": "senior-manager-deals-tax-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-manager-deals-tax/c7c0ca3f-1826-401c-8883-8c7e55883de8",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Deals-tax--Senior--Manager_618265WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-13",
+      "validThrough": "2026-05-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Senior Associate / Assistant Manager - Audit Trade, Industries & Services",
+      "slug": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-assistant-manager-audit-trade-industries-services/f0e7ad7e-a4c2-4b53-bb46-a87d942985e5",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Audit-Senior-Associate---Assistant-Manager---Trade--Industries---Services---Herbst-2026_668637WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
@@ -31,14 +61,44 @@
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-13",
-      "validThrough": "2036-04-09",
+      "postedDate": "2025-09-24",
+      "validThrough": "2035-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Career Start - Audit Trade, Industries & Services ab Herbst 2026",
+      "slug": "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/career-start-audit-trade-industries-services-ab-herbst-2026/2a20568b-b8f5-4af2-91ea-b9e0f9e0a0d1",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Audit---Career-Start-im-Bereich-Trade--Industries---Services---Herbst-2026_660745WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Bern",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-09-23",
+      "validThrough": "2035-09-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 16,
         "completeness": 14
       }
@@ -102,6 +162,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -137,6 +198,7 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -171,6 +233,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -206,6 +269,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -241,6 +305,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-587b00e56f0b",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -276,6 +341,7 @@
       "currency": "CHF",
       "id": "pwc-5cfa500b857f",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -311,6 +377,7 @@
       "currency": "CHF",
       "id": "pwc-698955b8020d",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,6 +413,7 @@
       "currency": "CHF",
       "id": "pwc-c6351294f72a",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -380,6 +448,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "id": "pwc-e9cfc0f40cf9",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -415,6 +484,7 @@
       "currency": "CHF",
       "id": "pwc-298804fab7cc",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -450,6 +520,7 @@
       "currency": "CHF",
       "id": "pwc-8c8cd04b2b18",
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -485,6 +556,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-005d0d93ce8b",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -520,6 +592,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "id": "pwc-2f8043b72246",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -555,6 +628,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-fb340ceaec71",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -589,9 +663,10 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "id": "pwc-8b34f0fa0d98",
-      "retranslationAttempts": 1,
       "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -627,6 +702,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-d8d7d6594dee",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -662,6 +738,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-a2268ec5d92e",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -697,6 +774,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-25fa59755ab2",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -731,6 +809,7 @@
       "salaryMax": 62500,
       "currency": "CHF",
       "id": "pwc-e84609083382",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -766,6 +845,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "id": "pwc-fdcc133e3c78",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -801,6 +881,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-dac4f124d77a",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -836,6 +917,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-88dc0dbaf301",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -871,6 +953,7 @@
       "currency": "CHF",
       "postalCode": "2000",
       "id": "pwc-e9bdc7f09f22",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -906,6 +989,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-b06d49897b7b",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -941,6 +1025,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-7f40d8501374",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -976,6 +1061,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-d4ffee80f769",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1011,6 +1097,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-b7f13ba67750",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1046,6 +1133,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-d6856d1d229f",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1081,6 +1169,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-14357198dc0e",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1115,6 +1204,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "id": "pwc-0a7d18db71c2",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1126,36 +1216,73 @@
   ],
   "removedJobs": [
     {
-      "title": "Manager/Senior Manager in SAP Group Reporting",
-      "slug": "manager-senior-manager-nel-reporting-del-gruppo-sap-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-in-sap-group-reporting/cc8047e3-bc4e-4623-b6c9-9d73366c932b",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager-Senior-Manager-in-SAP-Group-Reporting_502363WD/apply",
+      "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services - 2026",
+      "slug": "audit-senior-associate-assistant-manager-commercio-industrie-e-servizi-2026-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-2026/f0e7ad7e-a4c2-4b53-bb46-a87d942985e5",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Audit-Senior-Associate---Assistant-Manager---Trade--Industries---Services---Herbst-2026_668637WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zürich",
+      "location": "Bern",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
       "country": "CH",
-      "category": "consulting",
+      "category": "audit",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2025-11-11",
-      "validThrough": "2035-11-08",
+      "sourceLang": "de",
+      "postedDate": "2025-09-24",
+      "validThrough": "2035-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "salaryMin": 100500,
-      "salaryMax": 136500,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "id": "pwc-b5685302f5fb",
-      "_qualityScore": 92,
+      "id": "pwc-166a3733815c",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Audit - Career Start im Bereich Trade, Industries & Services - Herbst 2026",
+      "slug": "audit-inizio-carriera-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/audit-career-start-im-bereich-trade-industries-services-herbst-2026/2a20568b-b8f5-4af2-91ea-b9e0f9e0a0d1",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Audit---Career-Start-im-Bereich-Trade--Industries---Services---Herbst-2026_660745WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Bern",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-09-23",
+      "validThrough": "2035-09-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "id": "pwc-3b52e5e64bc5",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 25,
         "completeness": 22
       }
@@ -1189,6 +1316,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-445b68e57732",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1224,6 +1352,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "id": "pwc-82014fee6d7e",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
