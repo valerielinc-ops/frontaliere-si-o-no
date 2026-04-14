@@ -4143,18 +4143,26 @@ function modifyBlogArticlesTsx(data) {
   // Use generated image if available, otherwise fallback to catalog image
   const imagePath = data._generatedImagePath || `/images/places/${data.image}`;
 
-  const newEntry = `  {
-    id: '${data.id}',
-    category: '${data.category}',
-    date: '${today}',
-    image: '${imagePath}',
-    hasCalculator: ${data.hasCalculator ? 'true' : 'false'},
-  },`;
+  // Detect indentation from the file (match the indent before 'id:' in existing entries)
+  const indentMatch = src.match(/^(\s+)id: '/m);
+  const propIndent = indentMatch ? indentMatch[1] : ' ';
+  // Object-level indent is one level less (or same if single-space)
+  const objIndent = propIndent.length > 1 ? propIndent.slice(0, -1) : propIndent;
 
-  // Insert before the closing ];
+  const newEntry = [
+    `${objIndent}{`,
+    `${propIndent}id: '${data.id}',`,
+    `${propIndent}category: '${data.category}',`,
+    `${propIndent}date: '${today}',`,
+    `${propIndent}image: '${imagePath}',`,
+    `${propIndent}hasCalculator: ${data.hasCalculator ? 'true' : 'false'},`,
+    `${objIndent}},`,
+  ].join('\n');
+
+  // Insert before the closing ]; — indentation-agnostic regex
   const before = src;
   src = src.replace(
-    /(    hasCalculator: (?:true|false),\n  },\n)(];)/,
+    /(\s*hasCalculator: (?:true|false),\n\s*},\n)(];)/,
     `$1${newEntry}\n$2`
   );
   if (src === before) {
