@@ -2139,6 +2139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-7mln-talenti-pmi-frontalieri.title': 'Lombardy allocates 7 million euros for PhD researchers in SMEs: an opportunity for Ticino cross-border workers',
     'blog.article.lombardia-7mln-talenti-pmi-frontalieri.excerpt': 'The Lombardy Region is investing 7 million euros in the \'Talenti – Knowledge Transfer\' call to hire PhD researchers in SMEs. Grants of up to 56,000 euros per year for 24 months are available for permanent employment contracts.',
     'blog.article.lombardia-7mln-talenti-pmi-frontalieri.imageAlt': 'Lugano sunset with a person in a lab coat entering a modern building, symbolizing the bridge between research and businesses',
+    'blog.article.slowup-ticino-2026-giornata-senz-auto.title': 'slowUp Ticino 2026: April 19 for a car-free day',
+    'blog.article.slowup-ticino-2026-giornata-senz-auto.excerpt': 'On Sunday, April 19, 2026, 50 km of roads between Locarno and Bellinzona will be closed to traffic. There will be 18 events across Switzerland, with Ticino hosting the first one featuring live entertainment, farm stops, and activities for all ages.',
+    'blog.article.slowup-ticino-2026-giornata-senz-auto.imageAlt': 'People cycling and walking on a motorized traffic-free road between Locarno and Bellinzona during slowUp Ticino 2026 event',
 };
 
 export default blogMetaEn;

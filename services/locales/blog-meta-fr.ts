@@ -2139,6 +2139,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-7mln-talenti-pmi-frontalieri.title': 'La Lombardie alloue 7 millions pour les docteurs en PME : une opportunité pour les frontaliers tessinois',
     'blog.article.lombardia-7mln-talenti-pmi-frontalieri.excerpt': 'La Région Lombardie investit 7 millions d’euros dans l’appel à projets \'Talenti – Trasferimento delle conoscenze\' pour recruter des docteurs dans les PME. Des subventions pouvant atteindre 56 000 euros par an pendant 24 mois sont prévues pour des embauches en CDI.',
     'blog.article.lombardia-7mln-talenti-pmi-frontalieri.imageAlt': 'Lugano au coucher du soleil avec une personne en blouse de laboratoire entrant dans un bâtiment moderne, symbole du pont entre recherche et entreprises',
+    'blog.article.slowup-ticino-2026-giornata-senz-auto.title': 'slowUp Tessin 2026 : 19 avril pour une journée sans voiture',
+    'blog.article.slowup-ticino-2026-giornata-senz-auto.excerpt': 'Dimanche 19 avril 2026, 50 km de routes entre Locarno et Bellinzone seront fermées à la circulation. 18 événements en Suisse, dont le premier dans le Tessin avec animations, haltes agricoles et divertissements pour tous les âges.',
+    'blog.article.slowup-ticino-2026-giornata-senz-auto.imageAlt': 'Personnes à vélo et à pied sur une route fermée à la circulation motorisée entre Locarno et Bellinzona lors de l\'événement slowUp Ticino 2026',
 };
 
 export default blogMetaFr;

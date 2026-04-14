@@ -7569,6 +7569,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-slowup-ticino-2026-giornata-senz-auto': {
+    title: 'slowUp Ticino 2026: 19 aprile per una | Frontaliere Ticino',
+    description: 'Domenica 19 aprile 2026, 50 km di strade tra Locarno e Bellinzona chiuse al traffico. 18 eventi in Svizzera, primo in Ticino con animazioni, soste agricole e in',
+    keywords: 'frontalieri, ticino, svizzera, italia, slowup, aprile, giornata, senza',
+    ogTitle: 'slowUp Ticino 2026: 19 aprile per una giornata senza auto',
+    ogDescription: 'Domenica 19 aprile 2026, 50 km di strade tra Locarno e Bellinzona chiuse al traffico. 18 eventi in Svizzera, primo in Ticino con animazioni, soste agricole e in',
+    canonicalPath: '/articoli-frontaliere/slowup-ticino-2026-giornata-senz-auto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "slowUp Ticino 2026: 19 aprile per una giornata senza auto",
+      "description": "Domenica 19 aprile 2026, 50 km di strade tra Locarno e Bellinzona chiuse al traffico. 18 eventi in Svizzera, primo in Ticino con animazioni, soste agricole e in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/slowup-ticino-2026-giornata-senz-auto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persone in bicicletta e a piedi su strada chiusa al traffico tra Locarno e Bellinzona per l'evento slowUp Ticino 2026"
+      },
+      "datePublished": "2026-04-14T22:01:22+00:00",
+      "dateModified": "2026-04-14T22:01:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/slowup-ticino-2026-giornata-senz-auto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

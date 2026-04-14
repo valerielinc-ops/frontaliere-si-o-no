@@ -5976,4 +5976,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/lombardia-7mln-talenti-pmi-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'slowup-ticino-2026-giornata-senz-auto',
+ category: 'pratico',
+ date: '2026-04-14T22:01:22.366Z',
+ image: '/images/blog/slowup-ticino-2026-giornata-senz-auto.jpg',
+ hasCalculator: true,
+ },
 ];
