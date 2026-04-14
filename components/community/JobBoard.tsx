@@ -36,6 +36,7 @@ import {
   SlidersHorizontal,
   Sparkles,
   Star,
+  Tag,
   Users,
   X,
 } from 'lucide-react';
@@ -4361,19 +4362,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </div>
         )}
 
-        {/* Trust signals — above CTAs */}
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
-          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
-          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
-          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
+        {/* What you unlock — job-specific benefits */}
+        <div className="space-y-1.5 text-xs text-subtle">
+          <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit1')}</div>
+          <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit2')}</div>
+          <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit3')}</div>
+          <div className="inline-flex items-center gap-1.5"><Shield size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.privacyNote')}</div>
         </div>
-
-        {/* Social proof */}
-        {jobs.length > 0 && (
-          <p className="text-xs font-medium text-stripe-600 dark:text-stripe-400">
-            {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
-          </p>
-        )}
 
         <div className="space-y-3">
           <div className="space-y-2">
@@ -5311,6 +5306,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const jobCategory = selectedJob.category || '';
       const gateSalary = formatSalary(selectedJob);
       const gateContract = t(contractTranslationKey(selectedJob));
+      const gatePosted = daysSincePosted(selectedJob.postedDate);
+      const gateIsNew = isNewJob(selectedJob);
       const logoUrl = resolveCompanyLogoUrl(selectedJob);
       const descriptionPreview = String(
         selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
@@ -5352,6 +5349,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   )}
                   {gateSalary && <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400"><Euro size={14} />{gateSalary}</span>}
                   <span className="inline-flex items-center gap-1"><Clock size={14} />{gateContract}</span>
+                  <span className={`inline-flex items-center gap-1${gateIsNew ? ' font-semibold text-stripe-600 dark:text-stripe-400' : ''}`}><Calendar size={14} />{gatePosted}</span>
                 </div>
               </div>
             </div>
@@ -5360,7 +5358,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                calc(100dvh - 520px) hits 0 at 520px vh, 80px at 600px, 100px at ~620px.
                Reduced from 148px to accommodate trust signals moved above CTAs. */}
             {descriptionPreview && (
-              <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 520px), 100px)' }}>
+              <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(48px, calc(100dvh - 480px), 120px)' }}>
                 <p
                   className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
                   aria-hidden="true"
@@ -5383,19 +5381,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
               </div>
 
-              {/* Trust signals — above CTAs for mobile visibility */}
-              <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
-                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
-                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
-                <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
+              {/* What you unlock — job-specific benefits */}
+              <div className="mb-4 space-y-1.5 text-xs text-subtle">
+                <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit1')}</div>
+                <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit2')}</div>
+                <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit3')}</div>
+                <div className="inline-flex items-center gap-1.5"><Shield size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.privacyNote')}</div>
               </div>
-
-              {/* Social proof */}
-              {jobs.length > 0 && (
-                <p className="mb-3 text-xs font-medium text-stripe-600 dark:text-stripe-400">
-                  {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
-                </p>
-              )}
 
               <div className="space-y-3">
                 <div className="space-y-2">
@@ -6130,32 +6122,62 @@ const JobBoard: React.FC<JobBoardProps> = ({
           )}
         </div>
 
-        {/* Quick-filter chips */}
-        <div className="flex flex-wrap gap-1.5" role="group" aria-label={t('jobBoard.quickFilters.label')}>
-          {([
-            { id: 'today', label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h') },
-            { id: '3days', label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d') },
-            { id: '7days', label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d') },
-            { id: 'lugano', label: 'Lugano', active: selectedLocation === 'lugano', action: () => setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano') },
-            { id: 'bellinzona', label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona') },
-            { id: 'health', label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
-            { id: 'parttime', label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
-            { id: 'apprentice', label: t('jobBoard.quickFilters.apprenticeship'), active: searchQuery.toLowerCase() === 'apprendistato', action: () => setSearchQuery(searchQuery.toLowerCase() === 'apprendistato' ? '' : 'apprendistato') },
-          ] as const).map(chip => (
-            <button
-              key={chip.id}
-              type="button"
-              onClick={chip.action}
-              className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
-                chip.active
-                  ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
-                  : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-stripe-300 dark:hover:border-stripe-600'
-              }`}
-              aria-pressed={chip.active}
-            >
-              {chip.label}
-            </button>
-          ))}
+        {/* Unified quick-filter chips — two scrollable rows */}
+        <div className="space-y-2" role="group" aria-label={t('jobBoard.quickFilters.label')}>
+          {/* Row 1: Time & Location */}
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            {([
+              { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h') },
+              { id: '3days', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d') },
+              { id: '7days', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d') },
+              { id: 'lugano', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano') },
+              { id: 'mendrisio', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => setSelectedLocation(selectedLocation === 'mendrisio' ? 'all' : 'mendrisio') },
+              { id: 'bellinzona', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona') },
+              { id: 'locarno', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => setSelectedLocation(selectedLocation === 'locarno' ? 'all' : 'locarno') },
+              { id: 'chiasso', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => setSelectedLocation(selectedLocation === 'chiasso' ? 'all' : 'chiasso') },
+            ] as const).map(chip => (
+              <button
+                key={chip.id}
+                type="button"
+                onClick={chip.action}
+                className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
+                  chip.active
+                    ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
+                    : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-stripe-300 dark:hover:border-stripe-600'
+                }`}
+                aria-pressed={chip.active}
+              >
+                <chip.icon className="w-3 h-3" />
+                {chip.label}
+              </button>
+            ))}
+          </div>
+          {/* Row 2: Roles & Categories */}
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            {([
+              { id: 'infermiere', icon: Briefcase, label: 'Infermiere', active: searchQuery.toLowerCase() === 'infermiere', action: () => setSearchQuery(searchQuery.toLowerCase() === 'infermiere' ? '' : 'infermiere') },
+              { id: 'ingegnere', icon: Briefcase, label: 'Ingegnere', active: searchQuery.toLowerCase() === 'ingegnere', action: () => setSearchQuery(searchQuery.toLowerCase() === 'ingegnere' ? '' : 'ingegnere') },
+              { id: 'autista', icon: Briefcase, label: 'Autista', active: searchQuery.toLowerCase() === 'autista', action: () => setSearchQuery(searchQuery.toLowerCase() === 'autista' ? '' : 'autista') },
+              { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
+              { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
+              { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: searchQuery.toLowerCase() === 'apprendistato', action: () => setSearchQuery(searchQuery.toLowerCase() === 'apprendistato' ? '' : 'apprendistato') },
+            ] as const).map(chip => (
+              <button
+                key={chip.id}
+                type="button"
+                onClick={chip.action}
+                className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
+                  chip.active
+                    ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
+                    : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-stripe-300 dark:hover:border-stripe-600'
+                }`}
+                aria-pressed={chip.active}
+              >
+                <chip.icon className="w-3 h-3" />
+                {chip.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* FRO-332/353: Job Alert form (behind feature flag) */}
@@ -6197,7 +6219,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             onClick={() => setShowNewOnly(!showNewOnly)}
             className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl border transition-[color,background-color,border-color,box-shadow] ${
               showNewOnly
-                ? 'bg-emerald-600 border-emerald-600 text-white hover:bg-emerald-700 shadow-sm shadow-emerald-600/20'
+                ? 'bg-stripe-600 border-stripe-600 text-white hover:bg-stripe-700 shadow-sm shadow-stripe-600/20'
                 : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
             }`}
             aria-label={t('jobBoard.filter.newOnly')}
@@ -6354,10 +6376,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Related search suggestions — overflow-hidden transition prevents CLS */}
         <div className={`transition-[max-height,opacity] duration-200 overflow-hidden ${searchQuery.trim() && relatedSearchSuggestions.length > 0 ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
           {searchQuery.trim() && relatedSearchSuggestions.length > 0 && (
-            <div className="rounded-xl border border-fuchsia-200 dark:border-fuchsia-800 bg-fuchsia-50/50 dark:bg-fuchsia-950/20 p-3">
+            <div className="rounded-xl border border-stripe-200 dark:border-stripe-800 bg-stripe-50/50 dark:bg-stripe-950/20 p-3">
             <div className="flex items-center gap-2 mb-2">
-              <Search className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-300" />
-              <p className="text-xs font-semibold uppercase tracking-wide text-fuchsia-700 dark:text-fuchsia-300">Ricerche correlate</p>
+              <Search className="w-4 h-4 text-stripe-600 dark:text-stripe-300" />
+              <p className="text-xs font-semibold uppercase tracking-wide text-stripe-700 dark:text-stripe-300">Ricerche correlate</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {relatedSearchSuggestions.map((term, i) => {
@@ -6370,7 +6392,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       e.preventDefault();
                       navigateToRelatedSearch(term);
                     }}
-                    className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-surface/40 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-200 dark:border-fuchsia-700 hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 transition-colors"
+                    className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-surface/40 text-stripe-700 dark:text-stripe-300 border border-stripe-200 dark:border-stripe-700 hover:bg-stripe-100 dark:hover:bg-stripe-900/30 transition-colors"
                   >
                     {term}
                   </a>
@@ -6382,63 +6404,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
       </div>
 
-      {/* City & profession quick-filter chips */}
-      <div className="space-y-2">
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-          {([
-            { value: 'lugano', label: 'Lugano' },
-            { value: 'mendrisio', label: 'Mendrisio' },
-            { value: 'bellinzona', label: 'Bellinzona' },
-            { value: 'locarno', label: 'Locarno' },
-            { value: 'chiasso', label: 'Chiasso' },
-          ] as const).map(chip => {
-            const isActive = selectedLocation === chip.value;
-            return (
-              <button
-                key={chip.value}
-                type="button"
-                onClick={() => setSelectedLocation(isActive ? 'all' : chip.value)}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-orange-100 dark:hover:bg-slate-700'
-                }`}
-                aria-pressed={isActive}
-              >
-                <MapPin className="inline-block w-3.5 h-3.5 mr-1 -mt-0.5" />
-                {chip.label}
-              </button>
-            );
-          })}
-        </div>
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-          {([
-            { value: 'infermiere', label: 'Infermiere' },
-            { value: 'ingegnere', label: 'Ingegnere' },
-            { value: 'autista', label: 'Autista' },
-            { value: 'educatore', label: 'Educatore' },
-            { value: 'informatico', label: 'Informatico' },
-          ] as const).map(chip => {
-            const isActive = searchQuery.toLowerCase() === chip.value;
-            return (
-              <button
-                key={chip.value}
-                type="button"
-                onClick={() => setSearchQuery(isActive ? '' : chip.value)}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-orange-100 dark:hover:bg-slate-700'
-                }`}
-                aria-pressed={isActive}
-              >
-                <Briefcase className="inline-block w-3.5 h-3.5 mr-1 -mt-0.5" />
-                {chip.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 min-h-[28px]">
         <p className="text-xs sm:text-sm text-muted">
