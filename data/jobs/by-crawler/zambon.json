@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zambon",
-  "assembledAt": "2026-04-13T11:32:11.672Z",
+  "assembledAt": "2026-04-14T10:54:06.798Z",
   "jobs": [
     {
       "id": "zambon-786111",
@@ -59,7 +59,9 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T10:54:06.797Z"
     }
   ]
 }
