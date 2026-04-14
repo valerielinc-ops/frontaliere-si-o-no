@@ -4362,13 +4362,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </div>
         )}
 
-        {/* What you unlock — job-specific benefits */}
-        <div className="space-y-1.5 text-xs text-subtle">
-          <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit1')}</div>
-          <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit2')}</div>
-          <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit3')}</div>
-          <div className="inline-flex items-center gap-1.5"><Shield size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.privacyNote')}</div>
+        {/* Trust signals — above CTAs */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit3')}</span>
+          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
         </div>
+
+        {/* Social proof */}
+        {jobs.length > 0 && (
+          <p className="text-xs font-medium text-stripe-600 dark:text-stripe-400">
+            {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
+          </p>
+        )}
 
         <div className="space-y-3">
           <div className="space-y-2">
@@ -5358,7 +5365,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                calc(100dvh - 520px) hits 0 at 520px vh, 80px at 600px, 100px at ~620px.
                Reduced from 148px to accommodate trust signals moved above CTAs. */}
             {descriptionPreview && (
-              <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(48px, calc(100dvh - 480px), 120px)' }}>
+              <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 72px)' }}>
                 <p
                   className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
                   aria-hidden="true"
@@ -5381,13 +5388,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
               </div>
 
-              {/* What you unlock — job-specific benefits */}
-              <div className="mb-4 space-y-1.5 text-xs text-subtle">
-                <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit1')}</div>
-                <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit2')}</div>
-                <div className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.benefit3')}</div>
-                <div className="inline-flex items-center gap-1.5"><Shield size={13} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />{t('jobBoard.gate.privacyNote')}</div>
+              {/* Trust signals — above CTAs for mobile visibility */}
+              <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit3')}</span>
+                <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
               </div>
+
+              {/* Social proof */}
+              {jobs.length > 0 && (
+                <p className="mb-3 text-xs font-medium text-stripe-600 dark:text-stripe-400">
+                  {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
+                </p>
+              )}
 
               <div className="space-y-3">
                 <div className="space-y-2">
