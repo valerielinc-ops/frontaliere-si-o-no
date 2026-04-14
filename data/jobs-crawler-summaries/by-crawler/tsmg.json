@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-04-14T10:49:32.634Z",
+  "generatedAt": "2026-04-14T22:35:00.408Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16925,
-  "avgDurationMs": 16925,
+  "unchangedCount": 2,
+  "durationMs": 16486,
+  "avgDurationMs": 16486,
   "durationHistory": [
-    16925
+    16486
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -159,7 +159,7 @@
       "slugDisambiguator": "dfa1adf1",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -243,7 +243,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
       "slug": "autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona-677ef911",
@@ -320,7 +323,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
