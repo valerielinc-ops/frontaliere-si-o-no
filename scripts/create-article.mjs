@@ -2321,6 +2321,29 @@ async function translateArticle(data) {
     const langName = targetLang === 'en' ? 'inglese' : targetLang === 'de' ? 'tedesco' : 'francese';
     console.error(`🤖 [${targetLabel}] Traduzione ${targetLang.toUpperCase()} tramite catena AI...`);
 
+    const terminologyByLang = {
+      de: `TERMINOLOGIA TEDESCA OBBLIGATORIA:
+- "permesso G" / "permesso di frontaliere" → "G-Bewilligung" o "Grenzgängerbewilligung" (MAI "G-Führerschein" — Führerschein = patente di guida)
+- "franchi" → "Franken" (MAI "Francs" — è francese)
+- "ponti" (festività) → "Brückentage" (MAI "Brücken" — significherebbe ponti fisici)
+- "Swissminiatur" resta "Swissminiatur" (MAI aggiungere la 'a' finale italiana → "Swissminiatura")
+- "frontaliere/i" → "Grenzgänger" (MAI "grenzüberschreitender Pendler")
+- Strutture/servizi → "Einrichtungen" (MAI "Facilitäten" — non è tedesco standard)
+- Usare "ß" correttamente (gemäß, Maßstab) e le virgolette tedesche «...» o „..."`,
+      en: `ENGLISH TERMINOLOGY:
+- "permesso G" → "G permit" or "cross-border worker permit" (NEVER "G license")
+- "franchi" → "francs" or "CHF" (NEVER "Franken")
+- "ponti" (holidays) → "bank holidays" or "long weekends" (NEVER literal "bridges")
+- "Swissminiatur" stays "Swissminiatur" (NEVER add Italian 'a' → "Swissminiatura")
+- "frontaliere/i" → "cross-border worker(s)" or "cross-border commuter(s)"`,
+      fr: `TERMINOLOGIE FRANÇAISE OBLIGATOIRE:
+- "permesso G" → "permis G" ou "permis frontalier" (JAMAIS "permis de conduire G")
+- "franchi" → "francs" (JAMAIS "Franken")
+- "ponti" (fêtes) → "ponts" ou "jours fériés" (le terme "pont" existe en français)
+- "Swissminiatur" reste "Swissminiatur" (JAMAIS "Swissminiatura")
+- "frontaliere/i" → "frontalier(s)" ou "travailleur(s) frontalier(s)"`,
+    };
+
     const rules = `REGOLE DI TRADUZIONE:
 - Traduzione COMPLETA, stessa profondità e lunghezza dell'italiano
 - NON riassumere — traduci tutto il contenuto
@@ -2328,7 +2351,10 @@ async function translateArticle(data) {
 - Mantieni i link interni esattamente come sono: [testo tradotto](nav:azione) — traduci solo il testo visibile, NON l'azione nav:
 - GRASSETTO: max 2-3 parole in grassetto per INTERO campo body. Preferire ZERO grassetto.
 - Usa fraseologia naturale nella lingua target, non traduzione letterale
-- Apostrofi: usa sempre ' (diritto), mai virgolette curve`;
+- Apostrofi: usa sempre ' (diritto), mai virgolette curve
+- I nomi propri di luoghi svizzeri (Sessa, Melide, Malcantone) restano invariati in tutte le lingue
+
+${terminologyByLang[targetLang] || ''}`;
 
     // Split into 4 parallel calls — one per field group — to stay within model output limits.
     // German/French expand ~30% vs Italian; some models cap output at ~2048-4096 tokens.
