@@ -7453,6 +7453,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-ticinesi-ricerca-lavoro-milano': {
+    title: 'Infermieri ticinesi: la fuga verso | Frontaliere Ticino',
+    description: 'Una neolaureata SUPSI denuncia la mancanza di opportunità in Ticino. Il 94,9% dei laureati SUPSI trova impiego, ma il caso di Martina mostra una realtà diversa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, ticinesi, fuga, verso',
+    ogTitle: 'Infermieri ticinesi: la fuga verso Milano per trovare lav',
+    ogDescription: 'Una neolaureata SUPSI denuncia la mancanza di opportunità in Ticino. Il 94,9% dei laureati SUPSI trova impiego, ma il caso di Martina mostra una realtà diversa.',
+    canonicalPath: '/articoli-frontaliere/infermieri-ticinesi-ricerca-lavoro-milano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri ticinesi: la fuga verso Milano per trovare lav",
+      "description": "Una neolaureata SUPSI denuncia la mancanza di opportunità in Ticino. Il 94,9% dei laureati SUPSI trova impiego, ma il caso di Martina mostra una realtà diversa.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-ticinesi-ricerca-lavoro-milano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermiera ticinese camminare verso il confine di Chiasso in cerca di lavoro a Milano"
+      },
+      "datePublished": "2026-04-14T09:53:43+00:00",
+      "dateModified": "2026-04-14T09:53:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-ticinesi-ricerca-lavoro-milano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

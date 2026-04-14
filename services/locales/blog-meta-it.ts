@@ -2127,6 +2127,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.title': 'Bibo: il biglietto digitale che si attiva da solo sui mezzi ticinesi',
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.excerpt': 'Dal 30 aprile 2026 in Svizzera parte il test di Bibo, che fattura i viaggi in automatico senza bisogno di check-in. Ecco come funziona per i pendolari ticinesi',
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.imageAlt': 'Un pendolare ticinese sale su un treno a Lugano con lo smartphone in mano, pronto a testare il nuovo sistema Bibo',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.title': 'Infermieri ticinesi: la fuga verso Milano per trovare lavoro',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.excerpt': 'Una neolaureata SUPSI denuncia la mancanza di opportunità in Ticino. Il 94,9% dei laureati SUPSI trova impiego, ma il caso di Martina mostra una realtà diversa.',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.imageAlt': 'Infermiera ticinese camminare verso il confine di Chiasso in cerca di lavoro a Milano',
 };
 
 export default blogMetaIt;

@@ -2127,6 +2127,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.title': 'Bibo: le billet numérique qui s’active automatiquement dans les transports tessinois',
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.excerpt': 'Dès le 30 avril 2026, la Suisse lancera le test de Bibo, un système qui facture automatiquement les trajets sans nécessiter de validation. Voici comment ce dispositif fonctionnera pour les pendulaires tessinois.',
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.imageAlt': 'Un frontalier montant dans un train à Lugano avec son smartphone, testant le nouveau système de billetterie Bibo',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.title': 'Infirmiers tessinois : la fuite vers Milan à la recherche d’un emploi',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.excerpt': 'Une jeune diplômée de la SUPSI dénonce le manque d’opportunités au Tessin. Si 94,9 % des diplômés SUPSI trouvent un emploi, le cas de Martina révèle une réalité bien différente.',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.imageAlt': 'Infirmière tessinoise marchant vers la frontière de Chiasso à la recherche d\'un emploi à Milan',
 };
 
 export default blogMetaFr;

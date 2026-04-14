@@ -5948,4 +5948,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bibo-sistema-biglietti-digitali-mezzi-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'infermieri-ticinesi-ricerca-lavoro-milano',
+    category: 'pratico',
+    date: '2026-04-14T09:53:43.857Z',
+    image: '/images/blog/infermieri-ticinesi-ricerca-lavoro-milano.jpg',
+    hasCalculator: true,
+  },
 ];

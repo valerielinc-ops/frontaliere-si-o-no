@@ -2127,6 +2127,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.title': 'Bibo: the digital ticket that activates automatically on Ticino’s public transport',
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.excerpt': 'Starting 30 April 2026, Switzerland will launch a trial of Bibo, which automatically bills journeys without requiring passengers to check in. Here’s how it works for Ticino commuters',
     'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.imageAlt': 'A commuter boarding a Swiss train in Lugano with a smartphone, testing the new Bibo digital ticketing system',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.title': 'Ticino nurses: fleeing to Milan in search of work',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.excerpt': 'A recent SUPSI graduate speaks out about the lack of opportunities in Ticino. While 94.9% of SUPSI graduates find employment, Martina’s case reveals a far grimmer reality.',
+    'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.imageAlt': 'Ticinese nurse walking towards Chiasso border seeking work in Milan',
 };
 
 export default blogMetaEn;
