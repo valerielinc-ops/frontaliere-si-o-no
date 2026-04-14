@@ -2425,11 +2425,11 @@ const App: React.FC = () => {
  </svg>
  </div>
  </div>
- <div className="hidden sm:block">
- <span className="text-lg font-bold text-strong leading-none tracking-tight whitespace-nowrap">
+ <div>
+ <span className="text-base sm:text-lg font-bold text-strong leading-none tracking-tight whitespace-nowrap">
  {t('app.title')}
  </span>
- <p className="text-xs text-muted font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
+ <p className="hidden sm:block text-xs text-muted font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
  </div>
  </a>
  
