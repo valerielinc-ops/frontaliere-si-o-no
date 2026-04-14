@@ -6,7 +6,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Building2, Calendar, Loader2, Mail, MapPin } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Building2, Calendar, CheckCircle2, Loader2, Mail, MapPin, Shield } from 'lucide-react';
 import { useLocale } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -82,10 +82,10 @@ const EMAIL_PLACEHOLDER_COPY: Record<string, string> = {
   fr: 'Votre email',
 };
 const EMAIL_CTA_COPY: Record<string, string> = {
-  it: 'Sblocca con email',
-  en: 'Unlock with email',
-  de: 'Mit E-Mail freischalten',
-  fr: 'Débloquer par email',
+  it: 'Continua con email',
+  en: 'Continue with email',
+  de: 'Weiter mit E-Mail',
+  fr: 'Continuer avec email',
 };
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
@@ -98,6 +98,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
   const [emailInput, setEmailInput] = useState('');
   const [emailBusy, setEmailBusy] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [linkedInBusy, setLinkedInBusy] = useState(false);
 
   // Hide login block if user is already authenticated (prop) or has email access (localStorage)
   const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
@@ -219,16 +220,67 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
         </p>
       )}
 
-      {/* Google Sign-In block — hidden when user is already authenticated */}
+      {/* Sign-in block — hidden when user is already authenticated */}
       {!alreadySignedIn && (
-      <div className="rounded-xl border border-edge bg-surface-alt/60 p-5 text-center space-y-3">
+      <div role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-stripe-200 dark:border-stripe-800 bg-stripe-50 dark:bg-stripe-950/20 p-5 space-y-3">
         <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
         </p>
+        {/* Trust signals */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
+          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
+        </div>
         <div ref={googleButtonRef} className="flex justify-center" />
         {!googleButtonReady && (
           <a
-            href={`/?redirect=${encodeURIComponent(window.location.pathname)}`} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors" > {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'} </a> )} {linkedInAvailable && ( <button type="button" onClick={() => { saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location || job.addressLocality, category: job.sector }); signInWithLinkedIn(); }} className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors" > <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'} </button> )} {/* Email divider + form */} <div className="flex items-center gap-3"> <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" /> <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span> <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" /> </div> <form onSubmit={handleEmailSubmit} className="space-y-2"> <EmailInput value={emailInput} onChange={setEmailInput} placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it} className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-heading dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500" /> <button type="submit" disabled={emailBusy || !emailInput.trim()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors" > {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />} {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it} </button> </form> {emailError && <p className="text-sm text-red-600 dark:text-red-300">{emailError}</p>} </div> )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" /> {/* Related active jobs */} {relatedJobs.length > 0 && ( <div className="space-y-2"> <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2> <ul className="space-y-1.5"> {relatedJobs.slice(0, 6).map((rj) => { const rjSlug = rj.slug; const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug; const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
+            href={`/?redirect=${encodeURIComponent(window.location.pathname)}`}
+            className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          >
+            {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
+          </a>
+        )}
+        {linkedInAvailable && (
+          <button
+            type="button"
+            disabled={linkedInBusy}
+            onClick={() => {
+              setLinkedInBusy(true);
+              saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location || job.addressLocality, category: job.sector });
+              signInWithLinkedIn().catch(() => setLinkedInBusy(false));
+            }}
+            className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-[#0A66C2] hover:bg-[#004182] disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+          >
+            {linkedInBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : (
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            )}
+            {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
+          </button>
+        )}
+        <div className="flex items-center gap-3">
+          <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+          <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
+          <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+        </div>
+        <form onSubmit={handleEmailSubmit} className="space-y-2">
+          <EmailInput
+            value={emailInput}
+            onChange={setEmailInput}
+            placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
+            className="w-full px-3 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm text-heading dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+          />
+          <button
+            type="submit"
+            disabled={emailBusy || !emailInput.trim()}
+            className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+          >
+            {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+            {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
+          </button>
+        </form>
+        {emailError && <p className="text-sm text-red-600 dark:text-red-300">{emailError}</p>}
+      </div>
+      )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" /> {/* Related active jobs */} {relatedJobs.length > 0 && ( <div className="space-y-2"> <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2> <ul className="space-y-1.5"> {relatedJobs.slice(0, 6).map((rj) => { const rjSlug = rj.slug; const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug; const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
               return (
                 <li key={rjSlug}>
                   <a
