@@ -7598,6 +7598,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bike-sharing-como-riapre-30-aprile': {
+    title: 'Bike sharing a Como: 80 bici dal 30 | Frontaliere Ticino',
+    description: 'Il servizio di bike sharing a Como torna operativo il 30 aprile 2026 con 80 bici customizzate e 17 punti di prelievo. Tariffe agevolate in arrivo per la stagion',
+    keywords: 'frontalieri, ticino, svizzera, italia, bike, sharing, como, bici',
+    ogTitle: 'Bike sharing a Como: 80 bici dal 30 aprile. Dove trovarle',
+    ogDescription: 'Il servizio di bike sharing a Como torna operativo il 30 aprile 2026 con 80 bici customizzate e 17 punti di prelievo. Tariffe agevolate in arrivo per la stagion',
+    canonicalPath: '/articoli-frontaliere/bike-sharing-como-riapre-30-aprile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bike sharing a Como: 80 bici dal 30 aprile. Dove trovarle",
+      "description": "Il servizio di bike sharing a Como torna operativo il 30 aprile 2026 con 80 bici customizzate e 17 punti di prelievo. Tariffe agevolate in arrivo per la stagion",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bike-sharing-como-riapre-30-aprile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bici da bike sharing moderna parcheggiata in una città ticinese, pronta per l'uso"
+      },
+      "datePublished": "2026-04-14T22:57:04+00:00",
+      "dateModified": "2026-04-14T22:57:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-riapre-30-aprile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

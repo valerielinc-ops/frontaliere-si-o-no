@@ -2142,6 +2142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.slowup-ticino-2026-giornata-senz-auto.title': 'slowUp Ticino 2026: April 19 for a car-free day',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.excerpt': 'On Sunday, April 19, 2026, 50 km of roads between Locarno and Bellinzona will be closed to traffic. There will be 18 events across Switzerland, with Ticino hosting the first one featuring live entertainment, farm stops, and activities for all ages.',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.imageAlt': 'People cycling and walking on a motorized traffic-free road between Locarno and Bellinzona during slowUp Ticino 2026 event',
+    'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Bike sharing in Como: 80 bikes from April 30th. Where to find them and how it works',
+    'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'The bike sharing service in Como will be operational again on April 30th, 2026, with 80 customised bikes and 17 pickup points. Discounted rates are coming for the summer season.',
+    'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Modern bike-sharing bike parked in a Ticino city square, ready for use',
 };
 
 export default blogMetaEn;

@@ -1969,6 +1969,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-strategia-zanzara-tigre-chiasso-2026': { name: 'Chiasso affida ai privati la lotta alla', path: '/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026', parent: 'blog' },
     'blog-lombardia-7mln-talenti-pmi-frontalieri': { name: 'Lombardia stanzia 7 milioni per dottori', path: '/articoli-frontaliere/lombardia-7mln-talenti-pmi-frontalieri', parent: 'blog' },
     'blog-slowup-ticino-2026-giornata-senz-auto': { name: 'slowUp Ticino 2026', path: '/articoli-frontaliere/slowup-ticino-2026-giornata-senz-auto', parent: 'blog' },
+    'blog-bike-sharing-como-riapre-30-aprile': { name: 'Bike sharing a Como', path: '/articoli-frontaliere/bike-sharing-como-riapre-30-aprile', parent: 'blog' },
  };
 
  const info = sectionNames[section];

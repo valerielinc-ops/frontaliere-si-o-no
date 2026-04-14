@@ -2142,6 +2142,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.slowup-ticino-2026-giornata-senz-auto.title': 'slowUp Ticino 2026: 19 aprile per una giornata senza auto',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.excerpt': 'Domenica 19 aprile 2026, 50 km di strade tra Locarno e Bellinzona chiuse al traffico. 18 eventi in Svizzera, primo in Ticino con animazioni, soste agricole e intrattenimenti per tutte le età.',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.imageAlt': 'Persone in bicicletta e a piedi su strada chiusa al traffico tra Locarno e Bellinzona per l\'evento slowUp Ticino 2026',
+    'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Bike sharing a Como: 80 bici dal 30 aprile. Dove trovarle e come funziona',
+    'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'Il servizio di bike sharing a Como torna operativo il 30 aprile 2026 con 80 bici customizzate e 17 punti di prelievo. Tariffe agevolate in arrivo per la stagione estiva.',
+    'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Bici da bike sharing moderna parcheggiata in una città ticinese, pronta per l\'uso',
 };
 
 export default blogMetaIt;

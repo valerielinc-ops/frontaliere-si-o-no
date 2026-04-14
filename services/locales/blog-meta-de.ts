@@ -2142,6 +2142,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.slowup-ticino-2026-giornata-senz-auto.title': 'slowUp Tessin 2026: 19. April für einen autofreien Tag',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.excerpt': 'Am Sonntag, 19. April 2026, werden 50 Kilometer Strassen zwischen Locarno und Bellinzona für den Verkehr gesperrt. An 18 Standorten in der Schweiz – als erster im Tessin – gibt es ein buntes Programm mit Animationen, landwirtschaftlichen Ständen und Unterhaltung für alle Altersgruppen.',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.imageAlt': 'Menschen, die zwischen Locarno und Bellinzona auf einer für motorisierten Verkehr gesperrten Straße Rad fahren und zu Fuß gehen während der slowUp Ticino 2026 Veranstaltung',
+    'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Bike-Sharing in Como: 80 Fahrräder ab dem 30. April. Wo sie zu finden sind und wie es funktioniert',
+    'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'Das Bike-Sharing-Angebot in Como startet am 30. April 2025 mit 80 individuell gestalteten Fahrrädern und 17 Ausleihstationen. Für die Sommersaison sind vergünstigte Tarife geplant.',
+    'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Modernes Leihrad in einem Tessiner Stadtplatz, bereit zur Nutzung',
 };
 
 export default blogMetaDe;

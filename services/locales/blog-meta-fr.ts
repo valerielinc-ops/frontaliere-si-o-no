@@ -2142,6 +2142,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.slowup-ticino-2026-giornata-senz-auto.title': 'slowUp Tessin 2026 : 19 avril pour une journée sans voiture',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.excerpt': 'Dimanche 19 avril 2026, 50 km de routes entre Locarno et Bellinzone seront fermées à la circulation. 18 événements en Suisse, dont le premier dans le Tessin avec animations, haltes agricoles et divertissements pour tous les âges.',
     'blog.article.slowup-ticino-2026-giornata-senz-auto.imageAlt': 'Personnes à vélo et à pied sur une route fermée à la circulation motorisée entre Locarno et Bellinzona lors de l\'événement slowUp Ticino 2026',
+    'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Vélos en libre-service à Côme : 80 vélos à partir du 30 avril. Où les trouver et comment ça fonctionne',
+    'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'Le service de vélos en libre-service à Côme reprendra du service le 30 avril 2026 avec 80 vélos personnalisés et 17 points de retrait. Des tarifs préférentiels sont prévus pour la saison estivale.',
+    'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Vélo de location en libre-service moderne garé dans une place de ville tessinoise, prêt à l\'emploi',
 };
 
 export default blogMetaFr;

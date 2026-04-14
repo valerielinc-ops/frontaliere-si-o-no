@@ -5983,4 +5983,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/slowup-ticino-2026-giornata-senz-auto.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bike-sharing-como-riapre-30-aprile',
+ category: 'pratico',
+ date: '2026-04-14T22:57:04.071Z',
+ image: '/images/blog/bike-sharing-como-riapre-30-aprile.jpg',
+ hasCalculator: true,
+ },
 ];
