@@ -720,7 +720,7 @@ const TicinoCompanies: React.FC = () => {
  {/* Header */}
  <div className="bg-info rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-on-accent shadow-2xl">
  <div className="flex items-center gap-3 sm:gap-4 mb-4">
- <div className="p-2 sm:p-3 bg-white/20 rounded-xl sm:rounded-2xl flex-shrink-0">
+ <div className="p-2 sm:p-3 bg-on-accent/20 rounded-xl sm:rounded-2xl flex-shrink-0">
  <Building2 size={28} className="sm:w-8 sm:h-8" />
  </div>
  <div className="min-w-0">
@@ -729,8 +729,8 @@ const TicinoCompanies: React.FC = () => {
  </div>
  </div>
  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-accent mt-4">
- <div><span className="text-lg font-semibold">{filtered.length}</span> <span className="text-sm text-white/80">{t('companies.totalCompanies') || 'Aziende'}</span></div>
- <div><span className="text-lg font-semibold">{totalEmployees.toLocaleString('it-IT')}</span> <span className="text-sm text-white/80">{t('companies.totalEmployees') || 'Dipendenti'}</span></div>
+ <div><span className="text-lg font-semibold">{filtered.length}</span> <span className="text-sm text-on-accent/80">{t('companies.totalCompanies') || 'Aziende'}</span></div>
+ <div><span className="text-lg font-semibold">{totalEmployees.toLocaleString('it-IT')}</span> <span className="text-sm text-on-accent/80">{t('companies.totalEmployees') || 'Dipendenti'}</span></div>
  </div>
  </div>
 

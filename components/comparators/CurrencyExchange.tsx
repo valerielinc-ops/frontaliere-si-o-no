@@ -424,7 +424,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
 
  {/* Important Notice */}
- <div className="mt-6 p-4 bg-white/10 rounded-2xl border border-white/20">
+ <div className="mt-6 p-4 bg-on-accent/10 rounded-2xl border border-on-accent/20">
  <div className="flex items-start gap-3">
  <AlertCircle size={24} className="flex-shrink-0 mt-0.5" />
  <div className="text-sm">

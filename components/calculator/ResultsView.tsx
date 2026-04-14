@@ -534,7 +534,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
 
  
  <div className="flex items-center gap-4 sm:gap-6 relative z-10">
- <div className="bg-white/10 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
+ <div className="bg-on-accent/10 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
  {isBetterFrontaliere ? <Trophy size={28} className="text-on-accent" /> : <Armchair size={28} className="text-accent" />}
  </div>
  <div className="min-w-0">
@@ -545,19 +545,19 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </h3>
  {isBetterFrontaliere && <PartyPopper size={24} className="animate-spin [animation-duration:1s] [animation-iteration-count:1] text-on-accent" />}
  </div>
- <div className="text-white/90 font-medium flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+ <div className="text-on-accent/90 font-medium flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
  <span>{t('results.netAdvantage')}</span>
  {showEUR ? (
  <>
- <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 tabular-nums">
+ <span className="font-bold font-mono text-base sm:text-lg bg-on-accent/20 px-2 py-0.5 rounded-lg border border-on-accent/10 tabular-nums">
  € {formatCurrency(savingsEUR)}
  </span>
- <span className="font-bold font-mono text-base sm:text-lg bg-white/10 px-2 py-0.5 rounded-lg border border-white/10 tabular-nums">
+ <span className="font-bold font-mono text-base sm:text-lg bg-on-accent/10 px-2 py-0.5 rounded-lg border border-on-accent/10 tabular-nums">
  ≈ CHF {formatCurrency(savingsCHF)}
  </span>
  </>
  ) : (
- <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 tabular-nums">
+ <span className="font-bold font-mono text-base sm:text-lg bg-on-accent/20 px-2 py-0.5 rounded-lg border border-on-accent/10 tabular-nums">
  CHF {formatCurrency(savingsCHF)}
  </span>
  )}

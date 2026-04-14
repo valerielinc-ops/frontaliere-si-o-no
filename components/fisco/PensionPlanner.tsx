@@ -457,7 +457,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  </div>
  </div>
  <div className="flex items-center gap-2">
- <button onClick={handleShare} aria-label={t('common.share')} className="p-2 rounded-xl bg-white/20 hover:bg-white/30 transition-colors">
+ <button onClick={handleShare} aria-label={t('common.share')} className="p-2 rounded-xl bg-on-accent/20 hover:bg-on-accent/30 transition-colors">
  {shareState === 'copied' ? <Check size={18} className="text-on-accent" /> : <Share2 size={18} className="text-on-accent" />}
  </button>
  <TrendingUp size={32} className="text-success" />

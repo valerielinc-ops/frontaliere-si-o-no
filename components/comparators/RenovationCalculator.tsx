@@ -133,7 +133,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
  <h2 className="text-2xl font-bold">{t('renovation.title')}</h2>
  </div>
  <p className="text-on-accent text-sm">{t('renovation.subtitle')}</p>
- <span className="inline-block mt-2 text-xs font-semibold bg-white/20 rounded-full px-2.5 py-0.5">
+ <span className="inline-block mt-2 text-xs font-semibold bg-on-accent/20 rounded-full px-2.5 py-0.5">
  {t('renovation.updated2026')}
  </span>
  </div>

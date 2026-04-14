@@ -190,13 +190,13 @@ const WeeklyDigest: React.FC = () => {
  {/* Preview Header */}
  <div className="bg-info px-6 py-4">
  <div className="flex items-center gap-2 mb-1">
- <Bell size={16} className="text-white/90" />
- <span className="text-white/90 text-xs">{t('weeklyDigest.preview.header')}</span>
+ <Bell size={16} className="text-on-accent/90" />
+ <span className="text-on-accent/90 text-xs">{t('weeklyDigest.preview.header')}</span>
  </div>
  <h3 className="font-bold text-on-accent text-lg">
  {t('weeklyDigest.preview.title', { week: String(weekNum) })}
  </h3>
- <p className="text-white/70 text-sm">{dateStr}</p>
+ <p className="text-on-accent/70 text-sm">{dateStr}</p>
  </div>
 
  {/* 1. Exchange Rate */}

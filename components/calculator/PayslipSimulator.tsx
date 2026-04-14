@@ -241,7 +241,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  <div className={`bg-surface rounded-2xl border border-edge shadow-sm overflow-hidden ${extraClassName}`}>
  <button
  onClick={() => setShowInfo(!showInfo)}
- className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-white/50 /50"
+ className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-surface-alt"
  aria-label={t('payslip.lppAgeRates')}
  >
  <div className="flex items-center gap-3">

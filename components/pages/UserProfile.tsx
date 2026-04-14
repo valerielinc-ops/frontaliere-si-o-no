@@ -793,8 +793,8 @@ const UserProfile: React.FC = () => {
  <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
  {/* Header */}
  <div className="bg-gradient-to-br from-accent-strong via-info-strong to-success-strong p-4 sm:p-8 text-center text-on-accent">
- <div className="w-20 h-20 mx-auto bg-white/25 rounded-full flex items-center justify-center mb-4">
- <User size={40} className="text-white/90" />
+ <div className="w-20 h-20 mx-auto bg-on-accent/25 rounded-full flex items-center justify-center mb-4">
+ <User size={40} className="text-on-accent/90" />
  </div>
  <h1 className="text-2xl font-extrabold">{t('profile.title')}</h1>
  <p className="text-accent text-sm mt-2">{t('profile.subtitle')}</p>
@@ -904,12 +904,12 @@ const UserProfile: React.FC = () => {
  width={72}
  height={72}
  loading="lazy"
- className="w-[72px] h-[72px] rounded-full ring-3 ring-white/40 object-cover"
+ className="w-[72px] h-[72px] rounded-full ring-3 ring-on-accent/40 object-cover"
  referrerPolicy="no-referrer"
  />
  ) : (
- <div className="w-[72px] h-[72px] rounded-full bg-white/20 flex items-center justify-center ring-3 ring-white/40">
- <Camera size={28} className="text-white/70" />
+ <div className="w-[72px] h-[72px] rounded-full bg-on-accent/20 flex items-center justify-center ring-3 ring-on-accent/40">
+ <Camera size={28} className="text-on-accent/70" />
  </div>
  )}
  </div>
@@ -930,7 +930,7 @@ const UserProfile: React.FC = () => {
  </div>
  <button
  onClick={handleLogout}
- className="p-2.5 bg-white/15 hover:bg-white/25 rounded-xl transition-colors flex-shrink-0"
+ className="p-2.5 bg-on-accent/15 hover:bg-on-accent/25 rounded-xl transition-colors flex-shrink-0"
  aria-label={t('profile.logout')}
  title={t('profile.logout')}
  >
@@ -944,7 +944,7 @@ const UserProfile: React.FC = () => {
  <span className="text-accent font-medium">{t('profile.completeness')}</span>
  <span className="font-bold">{completeness}%</span>
  </div>
- <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
+ <div className="w-full bg-on-accent/20 rounded-full h-2 overflow-hidden">
  <div
  className="bg-surface rounded-full h-2 transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${completeness / 100})` }}

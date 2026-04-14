@@ -62,7 +62,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
  aria-expanded={isOpen}
  aria-controls={sectionId}
  onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
- className={`w-full flex items-center justify-between p-4 rounded-xl transition-[color,background-color,box-shadow] duration-300 group cursor-pointer ${isOpen ? 'bg-surface shadow-sm' : 'hover:bg-white/50 /50'}`}
+ className={`w-full flex items-center justify-between p-4 rounded-xl transition-[color,background-color,box-shadow] duration-300 group cursor-pointer ${isOpen ? 'bg-surface shadow-sm' : 'hover:bg-surface-alt'}`}
  >
  <div className="flex items-center gap-3">
  <div className={`p-2 rounded-lg transition-colors ${isOpen ? (iconBgMap[iconColor] ?? `bg-surface-raised ${iconColor}`) : 'bg-surface-raised text-subtle group-hover:bg-surface'}`}>
@@ -582,7 +582,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className="w-full flex items-center justify-between gap-3 p-4 bg-gradient-to-r from-accent-strong to-accent-strong-hover hover:from-accent-strong-hover hover:to-accent-strong-hover rounded-2xl text-on-accent shadow-md hover:shadow-lg transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  >
  <div className="flex items-center gap-3">
- <div className="p-2 bg-white/20 rounded-xl">
+ <div className="p-2 bg-on-accent/20 rounded-xl">
  <Sliders size={18} />
  </div>
  <div className="text-left">

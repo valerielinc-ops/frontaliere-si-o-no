@@ -1736,7 +1736,7 @@ function BlogArticles({
  <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
  article.category === 'novita'
  ? 'bg-warning-strong/80 text-on-accent'
- : 'bg-white/25 text-on-accent'
+ : 'bg-on-accent/25 text-on-accent'
  }`}>
  {article.category === 'novita'
  ? t('blog.contentType.news')
@@ -2492,7 +2492,7 @@ function BlogArticles({
  <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
  pageArticles[0].category === 'novita'
  ? 'bg-warning-strong/80 text-on-accent'
- : 'bg-white/25 text-on-accent'
+ : 'bg-on-accent/25 text-on-accent'
  }`}>
  {pageArticles[0].category === 'novita'
  ? t('blog.contentType.news')
@@ -2504,13 +2504,13 @@ function BlogArticles({
  {t('blog.hasCalculator')}
  </span>
  )}
- <span className="flex items-center gap-1 text-xs text-white/90">
+ <span className="flex items-center gap-1 text-xs text-on-accent/90">
  <Clock size={12} />
  {estimateReadingMinutes(pageArticles[0].id, t)} min
  </span>
- <span className="text-xs text-white/80">{formatDate(pageArticles[0].date)}</span>
+ <span className="text-xs text-on-accent/80">{formatDate(pageArticles[0].date)}</span>
  {pageArticles[0].updatedAt && pageArticles[0].updatedAt !== pageArticles[0].date.slice(0, 10) && (
- <span className="inline-flex items-center gap-1 text-xs text-white/80">
+ <span className="inline-flex items-center gap-1 text-xs text-on-accent/80">
  <RefreshCw size={10} />
  {t('blog.updatedOn')} {formatDate(pageArticles[0].updatedAt)}
  </span>
@@ -2519,7 +2519,7 @@ function BlogArticles({
  <h2 className="text-xl sm:text-2xl font-bold text-on-accent mb-2 leading-tight">
  {t(`blog.article.${pageArticles[0].id}.title`)}
  </h2>
- <p className="text-white/90 text-sm line-clamp-2 max-w-2xl leading-relaxed">
+ <p className="text-on-accent/90 text-sm line-clamp-2 max-w-2xl leading-relaxed">
  {t(`blog.article.${pageArticles[0].id}.excerpt`)}
  </p>
  </div>

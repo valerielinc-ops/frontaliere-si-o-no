@@ -171,13 +171,13 @@ const ShoppingCalculator: React.FC = () => {
 
  {/* Stats banner */}
  <div className="flex flex-wrap gap-3 mt-4">
- <div className="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1.5 text-sm font-bold">
+ <div className="flex items-center gap-1.5 bg-on-accent/15 rounded-lg px-3 py-1.5 text-sm font-bold">
  <ShoppingCart size={14} /> {PRODUCTS.length} {t('shopping.products')}
  </div>
- <div className="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1.5 text-sm font-bold">
+ <div className="flex items-center gap-1.5 bg-on-accent/15 rounded-lg px-3 py-1.5 text-sm font-bold">
  <MapPin size={14} /> {TOTAL_SUPERMARKETS} {t('shopping.totalSupermarkets')}
  </div>
- <div className="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1.5 text-sm font-bold">
+ <div className="flex items-center gap-1.5 bg-on-accent/15 rounded-lg px-3 py-1.5 text-sm font-bold">
  {'\uD83C\uDDE8\uD83C\uDDED'} {TOTAL_CH} · {'\uD83C\uDDEE\uD83C\uDDF9'} {TOTAL_IT}
  </div>
  </div>
@@ -185,7 +185,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Rilevamento prezzi" variant="badge" /></div>
 
  {/* Sub-tabs */}
- <div className="flex gap-1 bg-white/10 rounded-lg p-1 mt-4">
+ <div className="flex gap-1 bg-on-accent/10 rounded-lg p-1 mt-4">
  {tabConfig.map(tab => (
  <button
  key={tab.id}
@@ -193,7 +193,7 @@ const ShoppingCalculator: React.FC = () => {
  className={'flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition ' +
  (activeTab === tab.id
  ? 'bg-surface text-section-confronti shadow'
- : 'text-white/90 hover:text-on-accent hover:bg-white/10')}
+ : 'text-on-accent/90 hover:text-on-accent hover:bg-on-accent/10')}
  aria-label={tab.label}
  >
  {tab.icon}
@@ -340,24 +340,24 @@ const ShoppingCalculator: React.FC = () => {
  <ShoppingCart size={20} /> {t('shopping.cartSummary')}
  </h4>
  <div className="grid md:grid-cols-4 gap-4">
- <div className="bg-white/10 rounded-xl p-4">
- <div className="text-xs uppercase tracking-wider text-white/90">{'\uD83C\uDDEE\uD83C\uDDF9'} {t('shopping.totalItaly')}</div>
+ <div className="bg-on-accent/10 rounded-xl p-4">
+ <div className="text-xs uppercase tracking-wider text-on-accent/90">{'\uD83C\uDDEE\uD83C\uDDF9'} {t('shopping.totalItaly')}</div>
  <div className="text-2xl font-bold">{'\u20AC'} {stats.totalIT.toFixed(2)}</div>
  </div>
- <div className="bg-white/10 rounded-xl p-4">
- <div className="text-xs uppercase tracking-wider text-white/90">{'\uD83C\uDDE8\uD83C\uDDED'} {t('shopping.totalSwitzerland')}</div>
+ <div className="bg-on-accent/10 rounded-xl p-4">
+ <div className="text-xs uppercase tracking-wider text-on-accent/90">{'\uD83C\uDDE8\uD83C\uDDED'} {t('shopping.totalSwitzerland')}</div>
  <div className="text-2xl font-bold">{stats.totalCH.toFixed(2)} CHF</div>
- <div className="text-xs text-white/80">{'\u2248'} {'\u20AC'} {stats.totalCHinEUR.toFixed(2)}</div>
+ <div className="text-xs text-on-accent/80">{'\u2248'} {'\u20AC'} {stats.totalCHinEUR.toFixed(2)}</div>
  </div>
  <div className={`rounded-xl p-4 ${stats.savings > 0 ? 'bg-success-strong/30' : 'bg-danger-strong/30'}`}>
- <div className="text-xs uppercase tracking-wider text-white/90">{t('shopping.savings')}</div>
+ <div className="text-xs uppercase tracking-wider text-on-accent/90">{t('shopping.savings')}</div>
  <div className="text-2xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
- <div className="text-xs text-white/90">{stats.savingsPercent.toFixed(0)}% {stats.savings > 0 ? t('shopping.cheaper') : t('shopping.moreExpensive')}</div>
+ <div className="text-xs text-on-accent/90">{stats.savingsPercent.toFixed(0)}% {stats.savings > 0 ? t('shopping.cheaper') : t('shopping.moreExpensive')}</div>
  </div>
  <div className="bg-warning-strong/30 rounded-xl p-4">
- <div className="text-xs uppercase tracking-wider text-white/90">{t('shopping.annualSavings')}</div>
+ <div className="text-xs uppercase tracking-wider text-on-accent/90">{t('shopping.annualSavings')}</div>
  <div className="text-2xl font-bold">{'\u20AC'} {stats.annualSavings.toFixed(0)}</div>
- <div className="text-xs text-white/90">{t('shopping.weeklyTrips')}</div>
+ <div className="text-xs text-on-accent/90">{t('shopping.weeklyTrips')}</div>
  </div>
  </div>
  {stats.exceedsCustoms && (

@@ -322,16 +322,16 @@ export default function SalaryQuiz() {
  </div>
 
  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6">
- <div><span className="text-lg font-semibold">CHF {result.netCHF.toLocaleString()}</span> <span className="text-sm text-white/80">{t('salaryQuiz.netCHF')}</span></div>
- <div><span className="text-lg font-semibold">€{result.netEUR.toLocaleString()}</span> <span className="text-sm text-white/80">{t('salaryQuiz.netEUR')}</span></div>
+ <div><span className="text-lg font-semibold">CHF {result.netCHF.toLocaleString()}</span> <span className="text-sm text-on-accent/80">{t('salaryQuiz.netCHF')}</span></div>
+ <div><span className="text-lg font-semibold">€{result.netEUR.toLocaleString()}</span> <span className="text-sm text-on-accent/80">{t('salaryQuiz.netEUR')}</span></div>
  </div>
 
  {/* Salary range bar */}
- <div className="bg-white/15 rounded-xl p-4">
+ <div className="bg-on-accent/15 rounded-xl p-4">
  <p className="text-success text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
- <div className="relative h-3 bg-white/20 rounded-full">
+ <div className="relative h-3 bg-on-accent/20 rounded-full">
  <div
- className="absolute h-full bg-white/60 rounded-full"
+ className="absolute h-full bg-on-accent/60 rounded-full"
  style={{ left: '0%', width: '100%' }}
  />
  <div

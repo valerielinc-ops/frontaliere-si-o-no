@@ -63,7 +63,7 @@ const GamificationPage: React.FC = () => {
  <div className="absolute inset-0 bg-black/10" />
  <div className="relative z-10">
  <div className="flex items-center gap-4 mb-6">
- <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shadow-lg">
+ <div className="w-16 h-16 rounded-2xl bg-on-accent/20 flex items-center justify-center shadow-lg">
  <Trophy size={32} className="text-on-accent" />
  </div>
  <div>
@@ -73,16 +73,16 @@ const GamificationPage: React.FC = () => {
  </div>
 
  {/* Level + Stats row */}
- <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-white/80">
+ <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-on-accent/80">
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{levelInfo.level}</span> {t('gamification.level') || 'Livello'} — <span className="text-xs text-warning font-semibold">{levelTitle}</span></span>
- <span className="text-white/30" aria-hidden="true">·</span>
+ <span className="text-on-accent/30" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{state.xp}</span> XP</span>
- <span className="text-white/30" aria-hidden="true">·</span>
+ <span className="text-on-accent/30" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><Flame size={16} className="text-on-accent" /><span className="text-lg font-semibold text-on-accent">{state.streak}</span> {t('gamification.daysInARow') || 'giorni consecutivi'}</span>
- <span className="text-white/30" aria-hidden="true">·</span>
+ <span className="text-on-accent/30" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{unlockedCount}<span className="text-sm text-warning">/{totalCount}</span></span> {progressPercent}% {t('gamification.completed') || 'completato'}</span>
  </div>
- <div className="w-full max-w-xs bg-white/20 rounded-full h-1.5 mt-3">
+ <div className="w-full max-w-xs bg-on-accent/20 rounded-full h-1.5 mt-3">
  <div className="bg-surface rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
  </div>
  <div className="text-xs text-warning mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
@@ -109,7 +109,7 @@ const GamificationPage: React.FC = () => {
  >
  {categoryIcons[cat]}
  <span>{t(`gamification.category.${cat}`)}</span>
- <span className={`text-xs px-1.5 py-0.5 rounded-full ${selectedCategory === cat ? 'bg-white/30' : 'bg-surface-raised'}`}>
+ <span className={`text-xs px-1.5 py-0.5 rounded-full ${selectedCategory === cat ? 'bg-on-accent/30' : 'bg-surface-raised'}`}>
  {catUnlocked}/{catCount}
  </span>
  </button>

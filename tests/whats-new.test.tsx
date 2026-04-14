@@ -28,14 +28,14 @@ describe('WhatsNewBell', () => {
   it('shows unread badge when releases are unseen', () => {
     render(<WhatsNewBell onClick={vi.fn()} />);
     // Should have a badge since no release was seen
-    const badge = document.querySelector('[class*="bg-red"]');
+    const badge = document.querySelector('[class*="bg-danger"]');
     expect(badge).toBeTruthy();
   });
 
   it('hides badge after user has seen latest release', () => {
     localStorage.setItem(STORAGE_KEY, RELEASES[0].version);
     render(<WhatsNewBell onClick={vi.fn()} />);
-    const badge = document.querySelector('[class*="bg-red"]');
+    const badge = document.querySelector('[class*="bg-danger"]');
     expect(badge).toBeNull();
   });
 });

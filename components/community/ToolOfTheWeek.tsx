@@ -194,13 +194,13 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  {/* Tool Header */}
  <div className={`bg-gradient-to-r ${tool.color} px-6 py-5`}>
  <div className="flex items-center gap-4">
- <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+ <div className="w-14 h-14 bg-on-accent/20 rounded-2xl flex items-center justify-center">
  <span className="text-2xl">{tool.icon}</span>
  </div>
  <div>
  <div className="flex items-center gap-2 mb-1">
  <Star size={14} className="text-warning" />
- <span className="text-white/90 text-xs font-medium uppercase tracking-wide">
+ <span className="text-on-accent/90 text-xs font-medium uppercase tracking-wide">
  {t('toolOfWeek.badge')}
  </span>
  </div>

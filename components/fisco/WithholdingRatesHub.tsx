@@ -523,13 +523,13 @@ export default function WithholdingRatesHub() {
  return (
  <div className="space-y-8">
  <section className="rounded-3xl bg-gradient-to-br from-success-strong via-success-strong-hover to-info-strong p-6 sm:p-8 text-on-accent shadow-xl shadow-success-strong/20">
- <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]">
+ <div className="inline-flex items-center gap-2 rounded-full bg-on-accent/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]">
  <Coins className="h-4 w-4" />
  {copy.badge}
  </div>
  <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl">{copy.title}</h1>
  <p className="mt-4 max-w-4xl text-sm leading-7 text-on-accent sm:text-base">{copy.intro}</p>
- <div className="mt-6 rounded-2xl border border-white/20 bg-white/10 p-4 text-sm leading-7 text-on-accent">
+ <div className="mt-6 rounded-2xl border border-on-accent/20 bg-on-accent/10 p-4 text-sm leading-7 text-on-accent">
  {copy.disclaimer}
  </div>
  <div className="mt-6 flex flex-wrap gap-3">

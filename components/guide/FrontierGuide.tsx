@@ -652,13 +652,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="bg-gradient-to-br from-info-strong to-success-strong text-on-accent rounded-2xl shadow-stripe-md p-4 sm:p-5 border border-info/30 relative animate-fade-in">
  <button
  onClick={dismissBanner}
- className="absolute top-2 right-2 p-2 text-white/70 hover:text-on-accent hover:bg-white/20 rounded-full transition-colors"
+ className="absolute top-2 right-2 p-2 text-on-accent/70 hover:text-on-accent hover:bg-on-accent/20 rounded-full transition-colors"
  aria-label={t('guide.closeBanner')}
  >
  <X size={16} />
  </button>
  <div className="flex items-start gap-3 pr-6">
- <div className="shrink-0 p-2 bg-white/20 rounded-xl">
+ <div className="shrink-0 p-2 bg-on-accent/20 rounded-xl">
  <MapPin size={24} className="text-on-accent" />
  </div>
  <div className="space-y-1">

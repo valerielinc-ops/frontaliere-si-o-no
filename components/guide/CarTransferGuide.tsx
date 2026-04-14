@@ -37,7 +37,7 @@ const CarTransferGuide: React.FC = () => {
  {/* Header */}
  <div className="bg-gradient-to-br from-accent-strong to-accent-strong-hover rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
- <div className="p-3 bg-white/20 rounded-xl">
+ <div className="p-3 bg-on-accent/20 rounded-xl">
  <Car size={28} />
  </div>
  <div>
@@ -45,7 +45,7 @@ const CarTransferGuide: React.FC = () => {
  <p className="text-accent text-sm mt-1">{t('carTransfer.subtitle')}</p>
  </div>
  </div>
- <div className="mt-4 bg-white/10 rounded-xl p-4">
+ <div className="mt-4 bg-on-accent/10 rounded-xl p-4">
  <div className="flex items-start gap-2">
  <AlertCircle size={18} className="mt-0.5 shrink-0" />
  <p className="text-sm text-accent">{t('carTransfer.disclaimer')}</p>

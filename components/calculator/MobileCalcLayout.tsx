@@ -378,7 +378,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  ? 'bg-success'
  : 'bg-accent'
  }`}>
- <div className="p-1.5 bg-white/20 rounded-lg">
+ <div className="p-1.5 bg-on-accent/20 rounded-lg">
  {isBetterIT
  ? <TrendingUp size={20} className="text-on-accent" />
  : <TrendingDown size={20} className="text-on-accent" />
@@ -388,7 +388,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  <div className="text-on-accent font-bold text-sm tracking-tight">
  {isBetterIT ? t('mobileCalc.betterIT') : t('mobileCalc.betterCH')}
  </div>
- <div className="text-white/80 text-xs font-bold">
+ <div className="text-on-accent/80 text-xs font-bold">
  {t('mobileCalc.savings')}: +€{formatEUR(savingsMonthly)}{t('mobileCalc.perMonth')}
  </div>
  </div>
@@ -524,7 +524,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  <div className="bg-gradient-to-r from-info-strong to-success-strong px-5 py-4 text-center">
  <Mail size={28} className="text-on-accent mx-auto mb-2" />
  <h3 className="text-on-accent font-bold text-lg">{t('newsletterGate.title')}</h3>
- <p className="text-white/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
+ <p className="text-on-accent/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
  </div>
  <div className="p-5 space-y-3">
  <div className="space-y-2 text-sm text-subtle">

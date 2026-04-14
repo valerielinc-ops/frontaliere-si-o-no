@@ -88,7 +88,7 @@ export default function CalcolatoreTabContent() {
  onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
  className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-accent-strong to-accent-strong-hover hover:from-accent-strong-hover hover:to-accent-strong-hover rounded-xl text-on-accent transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
  >
- <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
+ <div className="p-1.5 bg-on-accent/20 rounded-lg flex-shrink-0">
  <Briefcase size={16} className="text-on-accent" />
  </div>
  <div className="min-w-0">

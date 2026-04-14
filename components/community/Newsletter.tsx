@@ -220,7 +220,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  value={email}
  onChange={(val) => { setEmail(val); setStatus('idle'); }}
  placeholder={t('newsletter.emailPlaceholder')}
- className="w-full px-4 py-2.5 bg-white/15 border border-white/25 rounded-xl text-on-accent placeholder-white/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+ className="w-full px-4 py-2.5 bg-on-accent/15 border border-on-accent/25 rounded-xl text-on-accent placeholder-on-accent/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-on-accent/50"
  darkVariant
  />
  </div>
@@ -241,7 +241,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  Analytics.trackNewsletter('view_form', 'google');
  await googleSignIn();
  }}
- className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white/90 text-xs font-semibold hover:bg-white/20 transition-colors"
+ className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-on-accent/10 border border-on-accent/20 rounded-xl text-on-accent/90 text-xs font-semibold hover:bg-on-accent/20 transition-colors"
  >
  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -281,7 +281,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  <div className="space-y-6 animate-fade-in">
  <div className="bg-gradient-to-br from-info-strong via-success-strong to-success-strong-hover rounded-3xl p-5 sm:p-8 text-on-accent shadow-2xl">
  <div className="flex items-center gap-4 mb-4">
- <div className="p-3 bg-white/20 rounded-2xl">
+ <div className="p-3 bg-on-accent/20 rounded-2xl">
  <Mail size={32} />
  </div>
  <div>
@@ -291,20 +291,20 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  </div>
 
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
- <div className="bg-white/20 rounded-xl p-3 text-center">
+ <div className="bg-on-accent/20 rounded-xl p-3 text-center">
  <div className="text-2xl mb-1">💱</div>
  <div className="text-sm font-bold">{t('newsletter.exchangeRate')}</div>
- <div className="text-xs text-white/70">{t('newsletter.weeklyRate')}</div>
+ <div className="text-xs text-on-accent/70">{t('newsletter.weeklyRate')}</div>
  </div>
- <div className="bg-white/20 rounded-xl p-3 text-center">
+ <div className="bg-on-accent/20 rounded-xl p-3 text-center">
  <div className="text-2xl mb-1">🚦</div>
  <div className="text-sm font-bold">{t('newsletter.borderTraffic')}</div>
- <div className="text-xs text-white/70">{t('newsletter.timesAndTips')}</div>
+ <div className="text-xs text-on-accent/70">{t('newsletter.timesAndTips')}</div>
  </div>
- <div className="bg-white/20 rounded-xl p-3 text-center">
+ <div className="bg-on-accent/20 rounded-xl p-3 text-center">
  <div className="text-2xl mb-1">📋</div>
  <div className="text-sm font-bold">{t('newsletter.taxNews')}</div>
- <div className="text-xs text-white/70">{t('newsletter.deadlinesAndChanges')}</div>
+ <div className="text-xs text-on-accent/70">{t('newsletter.deadlinesAndChanges')}</div>
  </div>
  </div>
  </div>

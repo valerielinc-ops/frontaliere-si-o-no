@@ -407,12 +407,12 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  {/* Header */}
  <div className={`bg-gradient-to-r ${ACCENT_GRADIENTS[accent]} px-6 py-4`}>
  <div className="flex items-center gap-3">
- <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+ <div className="w-10 h-10 bg-on-accent/20 rounded-xl flex items-center justify-center">
  <ImageIcon size={20} className="text-on-accent" />
  </div>
  <div>
  <h3 className="font-bold text-on-accent text-lg">{title}</h3>
- {subtitle && <p className="text-white/90 text-sm">{subtitle}</p>}
+ {subtitle && <p className="text-on-accent/90 text-sm">{subtitle}</p>}
  </div>
  </div>
  </div>

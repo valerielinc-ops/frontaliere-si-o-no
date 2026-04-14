@@ -182,7 +182,7 @@ const GamificationWidget: React.FC = () => {
  <div className="text-xs font-bold uppercase tracking-wider opacity-80">{t('gamification.achievementUnlocked')}</div>
  <div className="font-bold text-xs truncate">{t(`gamification.achievement.${toast}`)}</div>
  </div>
- <button onClick={() => setToast(null)} className="ml-1 p-2 hover:bg-white/20 rounded-full transition-colors flex-shrink-0 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-amber-500" aria-label="Chiudi">
+ <button onClick={() => setToast(null)} className="ml-1 p-2 hover:bg-on-accent/20 rounded-full transition-colors flex-shrink-0 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-amber-500" aria-label="Chiudi">
  <X size={12} />
  </button>
  </div>

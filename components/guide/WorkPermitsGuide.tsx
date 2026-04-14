@@ -311,7 +311,7 @@ const WorkPermitsGuide: React.FC = () => {
  {/* Header */}
  <div className="bg-gradient-to-br from-info-strong via-success-strong to-warm-600 rounded-3xl p-5 sm:p-8 text-on-accent shadow-2xl">
  <div className="flex items-center gap-4 mb-4">
- <div className="p-3 bg-white/15 rounded-2xl">
+ <div className="p-3 bg-on-accent/15 rounded-2xl">
  <Shield size={32} />
  </div>
  <div>
@@ -339,8 +339,8 @@ const WorkPermitsGuide: React.FC = () => {
  >
  <div className="text-2xl mb-1">{p.icon}</div>
  <div className="font-bold text-lg">{p.name}</div>
- <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/90' : 'text-muted'}`}>{p.fullName}</div>
- <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-muted'}`}>{p.duration}</div>
+ <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-on-accent/90' : 'text-muted'}`}>{p.fullName}</div>
+ <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-on-accent/70' : 'text-muted'}`}>{p.duration}</div>
  </button>
  ))}
  </div>
@@ -353,24 +353,24 @@ const WorkPermitsGuide: React.FC = () => {
  <span className="text-4xl">{permit.icon}</span>
  <div>
  <h2 className="text-2xl font-bold">{permit.name} — {permit.fullName}</h2>
- <p className="text-white/90 text-sm mt-1">{permit.forWhom}</p>
+ <p className="text-on-accent/90 text-sm mt-1">{permit.forWhom}</p>
  </div>
  </div>
- <p className="text-white/90 text-sm leading-relaxed">{permit.description}</p>
+ <p className="text-on-accent/90 text-sm leading-relaxed">{permit.description}</p>
  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
- <div className="bg-white/10 rounded-xl p-3">
- <Clock size={14} className="text-white/70 mb-1" />
- <div className="text-xs text-white/70">{t('permits.duration')}</div>
+ <div className="bg-on-accent/10 rounded-xl p-3">
+ <Clock size={14} className="text-on-accent/70 mb-1" />
+ <div className="text-xs text-on-accent/70">{t('permits.duration')}</div>
  <div className="font-bold text-sm">{permit.duration}</div>
  </div>
- <div className="bg-white/10 rounded-xl p-3">
- <Calendar size={14} className="text-white/70 mb-1" />
- <div className="text-xs text-white/70">{t('permits.processingTime')}</div>
+ <div className="bg-on-accent/10 rounded-xl p-3">
+ <Calendar size={14} className="text-on-accent/70 mb-1" />
+ <div className="text-xs text-on-accent/70">{t('permits.processingTime')}</div>
  <div className="font-bold text-sm">{permit.processingTime}</div>
  </div>
- <div className="bg-white/10 rounded-xl p-3">
- <Building2 size={14} className="text-white/70 mb-1" />
- <div className="text-xs text-white/70">{t('permits.cost')}</div>
+ <div className="bg-on-accent/10 rounded-xl p-3">
+ <Building2 size={14} className="text-on-accent/70 mb-1" />
+ <div className="text-xs text-on-accent/70">{t('permits.cost')}</div>
  <div className="font-bold text-sm">{permit.cost}</div>
  </div>
  </div>

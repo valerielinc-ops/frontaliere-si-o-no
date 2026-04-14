@@ -412,13 +412,13 @@ const NewsletterPopup: React.FC = () => {
  <div className="bg-gradient-to-r from-info-strong to-success-strong p-4 sm:p-6 text-on-accent shrink-0">
  <button
  onClick={handleDismiss}
- className="absolute top-3 right-3 p-1.5 text-white/70 hover:text-on-accent hover:bg-white/20 rounded-lg transition-colors"
+ className="absolute top-3 right-3 p-1.5 text-on-accent/70 hover:text-on-accent hover:bg-on-accent/20 rounded-lg transition-colors"
  aria-label={t('newsletter.popup.close')}
  >
  <X className="w-5 h-5" />
  </button>
  <div className="flex items-center gap-3 mb-2">
- <div className="p-2 bg-white/20 rounded-xl">
+ <div className="p-2 bg-on-accent/20 rounded-xl">
  <Bell className="w-6 h-6" />
  </div>
  <h2 className="text-xl font-bold">
