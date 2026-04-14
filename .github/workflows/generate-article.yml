@@ -15,12 +15,9 @@ on:
         type: string
 
 concurrency:
-  # Use a unique group per run so GitHub never cancels queued runs.
-  # The check-in-progress gate job already prevents parallel execution —
-  # it skips if another run is in progress, so we don't need concurrency
-  # grouping for mutual exclusion. This avoids the "Canceling since a
-  # higher priority waiting request" problem.
-  group: article-generation-${{ github.run_id }}
+  # Shared group: only 1 run active at a time, next run queues (not skipped).
+  # GitHub keeps at most 1 pending — if a 3rd arrives, it replaces the pending one.
+  group: article-generation
   cancel-in-progress: false
 
 permissions:
@@ -28,34 +25,8 @@ permissions:
   actions: read
 
 jobs:
-  # Gate job: skip entirely if an article-generation run is already in_progress
-  check-in-progress:
-    runs-on: ubuntu-latest
-    outputs:
-      should_run: ${{ steps.check.outputs.should_run }}
-    steps:
-      - name: Check for in-progress article-generation runs
-        id: check
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # Count in_progress runs of this workflow (exclude the current run)
-          IN_PROGRESS=$(gh api \
-            "repos/${{ github.repository }}/actions/workflows/generate-article.yml/runs?status=in_progress" \
-            --jq "[.workflow_runs[] | select(.id != ${{ github.run_id }})] | length")
-          echo "In-progress runs (excluding self): $IN_PROGRESS"
-          if [ "$IN_PROGRESS" -gt 0 ]; then
-            echo "⏭️ Skipping — another article generation is already running"
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          fi
-
   generate:
-    needs: check-in-progress
-    if: |
-      needs.check-in-progress.outputs.should_run == 'true' &&
-      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
