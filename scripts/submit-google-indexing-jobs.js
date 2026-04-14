@@ -218,14 +218,23 @@ function loadJobs() {
   return Array.isArray(jobs) ? jobs : [];
 }
 
+const JOB_BOARD_PREFIX = {
+  it: '/cerca-lavoro-ticino/',
+  en: '/en/find-jobs-ticino/',
+  de: '/de/jobs-im-tessin/',
+  fr: '/fr/trouver-emploi-tessin/',
+};
+
 function buildJobUrls(jobs) {
   const urls = [];
   for (const job of jobs) {
-    const slug = job?.slugByLocale?.it || job?.slug;
-    if (!slug) continue;
-    const url = `${SITE_URL}/cerca-lavoro-ticino/${slug}/`;
     const date = job?.postedDate || job?.crawledAt || '';
-    urls.push({ url, date });
+    for (const [locale, prefix] of Object.entries(JOB_BOARD_PREFIX)) {
+      const slug = job?.slugByLocale?.[locale] || job?.slugByLocale?.it || job?.slug;
+      if (!slug) continue;
+      const url = `${SITE_URL}${prefix}${slug}/`;
+      urls.push({ url, date });
+    }
   }
   return urls;
 }

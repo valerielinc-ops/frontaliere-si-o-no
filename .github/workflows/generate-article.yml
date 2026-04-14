@@ -451,9 +451,9 @@ jobs:
             }
             const urls = [
               \`\${BASE}/articoli-frontaliere/\${slugs.it}/\`,
-              \`\${BASE}/en/articoli-frontaliere/\${slugs.en}/\`,
-              \`\${BASE}/de/articoli-frontaliere/\${slugs.de}/\`,
-              \`\${BASE}/fr/articoli-frontaliere/\${slugs.fr}/\`,
+              \`\${BASE}/en/cross-border-articles/\${slugs.en}/\`,
+              \`\${BASE}/de/grenzgaenger-artikel/\${slugs.de}/\`,
+              \`\${BASE}/fr/articles-frontalier/\${slugs.fr}/\`,
             ];
             await notifyGoogleIndexing(urls);
           "

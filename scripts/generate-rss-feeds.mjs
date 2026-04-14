@@ -31,9 +31,9 @@ const MAX_ITEMS = 50;
 
 const LOCALE_META = {
   it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: '/articoli-frontaliere/' },
-  en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: '/en/articoli-frontaliere/' },
-  de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: '/de/articoli-frontaliere/' },
-  fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: '/fr/articoli-frontaliere/' },
+  en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: '/en/cross-border-articles/' },
+  de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: '/de/grenzgaenger-artikel/' },
+  fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: '/fr/articles-frontalier/' },
 };
 
 // ── Parse seo-blog.ts files for article metadata ──────────────────────
@@ -235,7 +235,7 @@ function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExce
     const title = localizedTitles.get(articleId) || article.headline;
     const excerpt = localizedExcerpts.get(articleId) || article.excerpt || article.description;
     const imageUrl = resolveImageUrl(article.imageFile, articleId);
-    const fullBody = blogBodies.get(articleId) || '';
+    const fullBody = localizedBodies.get(articleId) || '';
 
     items.push({
       title,
