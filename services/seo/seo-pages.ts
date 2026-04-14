@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 759,
+        "numberOfItems": 760,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4448,7 +4448,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 756, "name": "Bibo: l’app che calcola le tariffe dei mezzi pu...", "url": `${BASE_URL}/articoli-frontaliere/bibo-app-mezzi-pubblici-2026` },
           { "@type": "ListItem", "position": 757, "name": "Varese: 7mila posti vacanti nel 2026. Ecco cosa...", "url": `${BASE_URL}/articoli-frontaliere/varese-frontalieri-7000-postivacanti-2026` },
           { "@type": "ListItem", "position": 758, "name": "Iniziative cassa malati: Lega e PS insoddisfatt...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps` },
-          { "@type": "ListItem", "position": 759, "name": "Fermo treni Gallarate-Sesto: cosa cambia per i ...", "url": `${BASE_URL}/articoli-frontaliere/fermo-treni-gallarate-sesto-aprile-2026` }
+          { "@type": "ListItem", "position": 759, "name": "Fermo treni Gallarate-Sesto: cosa cambia per i ...", "url": `${BASE_URL}/articoli-frontaliere/fermo-treni-gallarate-sesto-aprile-2026` },
+          { "@type": "ListItem", "position": 760, "name": "Bibo: il biglietto digitale che si attiva da so...", "url": `${BASE_URL}/articoli-frontaliere/bibo-sistema-biglietti-digitali-mezzi-2026` }
         ]
       }
     ]

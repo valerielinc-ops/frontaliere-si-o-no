@@ -2124,6 +2124,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.title': 'Trains Gallarate-Sesto halted: what changes for cross-border workers heading to Ticino',
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.excerpt': 'Saturday 19 and Sunday 20 April 2026: full stop between Gallarate and Sesto Calende. Replacement buses with mandatory booking, no bikes or animals allowed. EuroCity trains Milan-Domodossola cancelled.',
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.imageAlt': 'Empty tracks at Gallarate railway station during the April 2026 train shutdown',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.title': 'Bibo: the digital ticket that activates automatically on Ticino’s public transport',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.excerpt': 'Starting 30 April 2026, Switzerland will launch a trial of Bibo, which automatically bills journeys without requiring passengers to check in. Here’s how it works for Ticino commuters',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.imageAlt': 'A commuter boarding a Swiss train in Lugano with a smartphone, testing the new Bibo digital ticketing system',
 };
 
 export default blogMetaEn;

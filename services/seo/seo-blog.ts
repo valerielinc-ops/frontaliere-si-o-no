@@ -7424,6 +7424,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bibo-sistema-biglietti-digitali-mezzi-2026': {
+    title: 'Bibo: il biglietto digitale che si | Frontaliere Ticino',
+    description: 'Dal 30 aprile 2026 in Svizzera parte il test di Bibo, che fattura i viaggi in automatico senza bisogno di check-in. Ecco come funziona per i pendolari ticinesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, bibo, biglietto, digitale, attiva',
+    ogTitle: 'Bibo: il biglietto digitale che si attiva da solo sui mez',
+    ogDescription: 'Dal 30 aprile 2026 in Svizzera parte il test di Bibo, che fattura i viaggi in automatico senza bisogno di check-in. Ecco come funziona per i pendolari ticinesi',
+    canonicalPath: '/articoli-frontaliere/bibo-sistema-biglietti-digitali-mezzi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bibo: il biglietto digitale che si attiva da solo sui mez",
+      "description": "Dal 30 aprile 2026 in Svizzera parte il test di Bibo, che fattura i viaggi in automatico senza bisogno di check-in. Ecco come funziona per i pendolari ticinesi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bibo-sistema-biglietti-digitali-mezzi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un pendolare ticinese sale su un treno a Lugano con lo smartphone in mano, pronto a testare il nuovo sistema Bibo"
+      },
+      "datePublished": "2026-04-14T08:16:38+00:00",
+      "dateModified": "2026-04-14T08:16:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bibo-sistema-biglietti-digitali-mezzi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

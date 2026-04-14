@@ -2124,6 +2124,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.title': 'Arrêt des trains Gallarate-Sesto : quelles conséquences pour les frontaliers en direction du Tessin',
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.excerpt': 'Samedi 19 et dimanche 20 avril 2026, arrêt total entre Gallarate et Sesto Calende. Bus de remplacement avec réservation obligatoire et sans vélos/animaux. EuroCity Milan-Domodossola annulés.',
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.imageAlt': 'Voies ferrées désertes à la gare de Gallarate pendant l\'arrêt des trains en avril 2026',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.title': 'Bibo: le billet numérique qui s’active automatiquement dans les transports tessinois',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.excerpt': 'Dès le 30 avril 2026, la Suisse lancera le test de Bibo, un système qui facture automatiquement les trajets sans nécessiter de validation. Voici comment ce dispositif fonctionnera pour les pendulaires tessinois.',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.imageAlt': 'Un frontalier montant dans un train à Lugano avec son smartphone, testant le nouveau système de billetterie Bibo',
 };
 
 export default blogMetaFr;

@@ -2124,6 +2124,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.title': 'Fermo treni Gallarate-Sesto: cosa cambia per i frontalieri verso Ticino',
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.excerpt': 'Sabato 19 e domenica 20 aprile 2026 stop totale tra Gallarate e Sesto Calende. Bus sostitutivi con prenotazione obbligatoria e without bici/animali. Eurocity cancellati Milano-Domodossola.',
     'blog.article.fermo-treni-gallarate-sesto-aprile-2026.imageAlt': 'Stazione di Gallarate con binari vuoti durante il fine settimana di fermo dei treni',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.title': 'Bibo: il biglietto digitale che si attiva da solo sui mezzi ticinesi',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.excerpt': 'Dal 30 aprile 2026 in Svizzera parte il test di Bibo, che fattura i viaggi in automatico senza bisogno di check-in. Ecco come funziona per i pendolari ticinesi',
+    'blog.article.bibo-sistema-biglietti-digitali-mezzi-2026.imageAlt': 'Un pendolare ticinese sale su un treno a Lugano con lo smartphone in mano, pronto a testare il nuovo sistema Bibo',
 };
 
 export default blogMetaIt;

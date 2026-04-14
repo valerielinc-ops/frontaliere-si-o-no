@@ -5941,4 +5941,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/fermo-treni-gallarate-sesto-aprile-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bibo-sistema-biglietti-digitali-mezzi-2026',
+    category: 'pratico',
+    date: '2026-04-14T08:16:38.640Z',
+    image: '/images/blog/bibo-sistema-biglietti-digitali-mezzi-2026.jpg',
+    hasCalculator: true,
+  },
 ];
