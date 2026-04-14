@@ -37,8 +37,10 @@ permissions:
   id-token: write
 
 concurrency:
-  group: deploy-github-pages-live
-  cancel-in-progress: false
+  # Push deploys share a group (cancel each other). Dispatch deploys get unique
+  # groups (never cancelled — protects post-deploy social media posting).
+  group: deploy-${{ github.event_name == 'workflow_dispatch' && github.run_id || 'push-to-main' }}
+  cancel-in-progress: true
 
 env:
   PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
@@ -131,9 +133,7 @@ jobs:
         run: node scripts/cleanup-news-sitemap.mjs
 
       - name: Build
-        env:
-          NODE_OPTIONS: '--max-old-space-size=7168'
-        run: npm run build:prod
+        run: npm run build:ci
 
       - name: Merge previous CSS/JS assets for Clarity recordings
         continue-on-error: true
@@ -146,27 +146,6 @@ jobs:
 
       - name: Replace flat redirect files with content copies
         run: node scripts/flat-content-replace.mjs
-
-      - name: Validate sampled JobPosting rich results (blocking)
-        run: npm run validate:jobs-rich-results
-
-      - name: Validate job data quality (blocking)
-        run: npm run validate:jobs-quality
-
-      - name: Validate sitemap links exist in dist (blocking)
-        run: npm run validate:sitemap-links
-
-      - name: Validate soft-404 indicators in static pages (blocking)
-        run: node scripts/validate-soft404.mjs
-
-      - name: Validate sitemap canonical tags (blocking)
-        run: node scripts/validate-canonical.mjs
-
-      - name: Validate sitemap content quality (blocking)
-        run: node scripts/validate-content-quality.mjs
-
-      - name: Validate structured data completeness (blocking)
-        run: node scripts/validate-structured-data-completeness.mjs
 
       - name: Cache Playwright browsers
         id: playwright-cache
@@ -182,6 +161,35 @@ jobs:
       - name: Install Playwright system dependencies (cache hit)
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
+
+      - name: Validate SEO quality (7 file validators in parallel)
+        run: |
+          npm run validate:jobs-rich-results > /tmp/v1.log 2>&1 &
+          PID1=$!
+          npm run validate:jobs-quality > /tmp/v2.log 2>&1 &
+          PID2=$!
+          npm run validate:sitemap-links > /tmp/v3.log 2>&1 &
+          PID3=$!
+          node scripts/validate-soft404.mjs > /tmp/v4.log 2>&1 &
+          PID4=$!
+          node scripts/validate-canonical.mjs > /tmp/v5.log 2>&1 &
+          PID5=$!
+          node scripts/validate-content-quality.mjs > /tmp/v6.log 2>&1 &
+          PID6=$!
+          node scripts/validate-structured-data-completeness.mjs > /tmp/v7.log 2>&1 &
+          PID7=$!
+
+          FAIL=0
+          wait $PID1 || { echo "::error::jobs-rich-results failed"; cat /tmp/v1.log; FAIL=1; }
+          wait $PID2 || { echo "::error::jobs-quality failed"; cat /tmp/v2.log; FAIL=1; }
+          wait $PID3 || { echo "::error::sitemap-links failed"; cat /tmp/v3.log; FAIL=1; }
+          wait $PID4 || { echo "::error::soft-404 failed"; cat /tmp/v4.log; FAIL=1; }
+          wait $PID5 || { echo "::error::canonical failed"; cat /tmp/v5.log; FAIL=1; }
+          wait $PID6 || { echo "::error::content-quality failed"; cat /tmp/v6.log; FAIL=1; }
+          wait $PID7 || { echo "::error::structured-data failed"; cat /tmp/v7.log; FAIL=1; }
+
+          if [ $FAIL -ne 0 ]; then exit 1; fi
+          echo "✅ All 7 file validators passed"
 
       - name: Validate SPA render — canonical, schema, robots (blocking)
         timeout-minutes: 5
