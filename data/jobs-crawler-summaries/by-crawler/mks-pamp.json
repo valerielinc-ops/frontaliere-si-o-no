@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-13T22:10:50.571Z",
+  "generatedAt": "2026-04-14T10:24:40.122Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 20295,
-  "avgDurationMs": 20295,
+  "durationMs": 25749,
+  "avgDurationMs": 25749,
   "durationHistory": [
-    20295
+    25749
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "id": "mks-pamp-7eeb6ae36a39",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,6 +79,7 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "id": "mks-pamp-3b2040222bc6",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -117,6 +119,7 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "id": "mks-pamp-09a0aa686483",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -153,6 +156,7 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "id": "mks-pamp-9aa99d99b95f",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
