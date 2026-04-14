@@ -1,58 +1,19 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-13T20:58:04.592Z",
+  "generatedAt": "2026-04-14T09:11:45.998Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2671,
-  "avgDurationMs": 2671,
+  "unchangedCount": 0,
+  "durationMs": 2859,
+  "avgDurationMs": 2859,
   "durationHistory": [
-    2671
+    2859
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Real Estate Project Manager",
-      "slug": "real-estate-project-manager-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "real-estate",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "a-group-cf1b4e6d7133",
-      "salaryMin": 73000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "title": "Consulente Legal Jr.",
       "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
@@ -73,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -81,6 +42,7 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
+      "firstSeenAt": "2026-04-13T20:58:04.592Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -109,7 +71,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -117,6 +79,7 @@
       "salaryMax": 75500,
       "currency": "CHF",
       "id": "a-group-95bf228f7209",
+      "firstSeenAt": "2026-04-13T20:58:04.592Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,6 +87,45 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Real Estate Project Manager",
+      "slug": "real-estate-project-manager-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "real-estate",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "a-group-cf1b4e6d7133",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-13T20:58:04.592Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 25
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
