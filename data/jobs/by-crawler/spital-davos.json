@@ -1,12 +1,12 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-04-14T10:39:49.231Z",
+  "assembledAt": "2026-04-14T22:25:11.195Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
-      "slug": "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
+      "slug": "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
       "slugByLocale": {
-        "it": "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
+        "it": "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
         "en": "surgery-orthopaedics-assistant-100-spital-davos-davos",
         "de": "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
         "fr": "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos"
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:46.443Z",
+      "crawledAt": "2026-04-14T22:25:08.658Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -71,14 +71,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch"
+        "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
+        "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch"
+          "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -123,7 +126,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:45.435Z",
+      "crawledAt": "2026-04-14T22:25:07.654Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -184,6 +187,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -228,7 +232,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:44.431Z",
+      "crawledAt": "2026-04-14T22:25:06.654Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -277,6 +281,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -321,7 +326,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/389/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:43.436Z",
+      "crawledAt": "2026-04-14T22:25:05.655Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -367,6 +372,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:49.991Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -411,7 +417,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/595/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:42.442Z",
+      "crawledAt": "2026-04-14T22:25:04.643Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -457,6 +463,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:48.935Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -501,7 +508,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/655/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:41.445Z",
+      "crawledAt": "2026-04-14T22:25:03.663Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -547,6 +554,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:47.954Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -591,7 +599,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/654/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:40.435Z",
+      "crawledAt": "2026-04-14T22:25:02.635Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -649,6 +657,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:46.947Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -693,7 +702,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:39.422Z",
+      "crawledAt": "2026-04-14T22:25:01.620Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -745,6 +754,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -789,7 +799,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/637/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:38.395Z",
+      "crawledAt": "2026-04-14T22:25:00.654Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -835,6 +845,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:44.905Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -879,7 +890,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/666/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:37.418Z",
+      "crawledAt": "2026-04-14T22:24:59.622Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -937,6 +948,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:43.891Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -981,7 +993,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/597/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:36.396Z",
+      "crawledAt": "2026-04-14T22:24:58.637Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1039,6 +1051,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:42.872Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1083,7 +1096,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:35.403Z",
+      "crawledAt": "2026-04-14T22:24:57.845Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1141,6 +1154,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:41.884Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1185,7 +1199,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/679/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:34.369Z",
+      "crawledAt": "2026-04-14T22:24:56.889Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1243,6 +1257,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:40.837Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1287,7 +1302,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/669/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:33.374Z",
+      "crawledAt": "2026-04-14T22:24:55.872Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1339,6 +1354,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:39.820Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1383,7 +1399,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/690/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:32.366Z",
+      "crawledAt": "2026-04-14T22:24:54.886Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1429,6 +1445,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:38.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1473,7 +1490,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/691/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:31.383Z",
+      "crawledAt": "2026-04-14T22:24:53.909Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1527,6 +1544,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:37.795Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1571,7 +1589,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:30.339Z",
+      "crawledAt": "2026-04-14T22:24:52.910Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1620,6 +1638,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:37.003Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1664,7 +1683,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:29.321Z",
+      "crawledAt": "2026-04-14T22:24:51.903Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1713,6 +1732,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:35.989Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1757,7 +1777,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/698/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:28.264Z",
+      "crawledAt": "2026-04-14T22:24:50.894Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1818,6 +1838,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:34.944Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1862,7 +1883,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/700/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:27.265Z",
+      "crawledAt": "2026-04-14T22:24:49.884Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1917,6 +1938,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1953,7 +1975,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura della persona EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for the Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement des soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -1961,7 +1983,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/568/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:26.242Z",
+      "crawledAt": "2026-04-14T22:24:48.872Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2010,8 +2032,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-17d74846af14",
@@ -2044,7 +2065,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:24.992Z",
+      "crawledAt": "2026-04-14T22:24:47.570Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2102,6 +2123,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2146,7 +2168,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:23.971Z",
+      "crawledAt": "2026-04-14T22:24:46.558Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2204,6 +2226,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2248,7 +2271,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:22.954Z",
+      "crawledAt": "2026-04-14T22:24:45.573Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2306,6 +2329,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:31.121Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2350,7 +2374,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T10:39:21.928Z",
+      "crawledAt": "2026-04-14T22:24:44.586Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2400,6 +2424,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
