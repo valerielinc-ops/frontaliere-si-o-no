@@ -7,6 +7,7 @@ import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSE
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { SegmentControl as SharedSegmentControl } from '@/components/shared/SegmentControl';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { reportCaughtError } from '@/services/errorReporter';
 // exchangeRateService is lazy-loaded to reduce main bundle size
@@ -130,21 +131,24 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
  </div>
 );
 
-const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor ="text-muted", tooltip }: any) => (
+const SegmentField = ({ options, value, onChange, label, icon: Icon, iconColor = "text-muted", tooltip }: {
+ options: { label: string; value: string }[];
+ value: string;
+ onChange: (v: string) => void;
+ label?: string;
+ icon?: React.ComponentType<{ size: number; className?: string }>;
+ iconColor?: string;
+ tooltip?: string;
+}) => (
  <div className="space-y-2">
  {label && <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
- <div className="flex bg-segment-container-bg p-1 rounded-xl relative h-11" role="group">
- {options.map((opt: any) => (
- <button
- key={opt.value}
- onClick={() => onChange(opt.value)}
- aria-pressed={value === opt.value}
- className={`flex-1 flex items-center justify-center text-xs font-bold rounded-lg transition-[color,background-color,box-shadow,transform] duration-300 relative z-10 ${value === opt.value ? 'text-section-calculator bg-segment-active-bg shadow-sm scale-[0.98]' : 'text-subtle hover:text-strong'}`}
- >
- {opt.label}
- </button>
- ))}
- </div>
+ <SharedSegmentControl
+ options={options.map(o => ({ key: o.value, label: o.label }))}
+ value={value}
+ onChange={onChange}
+ activeTextClass="text-section-calculator"
+ size="sm"
+ />
  </div>
 );
 
@@ -767,14 +771,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {inputs.frontierWorkerType === 'NEW' && (
  <div className="pt-2 animate-fade-in">
- <SegmentControl 
- label={t('input.borderZone')} 
+ <SegmentField
+ label={t('input.borderZone')}
  icon={Ruler}
  iconColor="text-warning"
  tooltip={t('input.borderZoneTooltip')}
- options={[{label: t('input.within20km'), value: 'WITHIN_20KM'}, {label: t('input.over20km'), value: 'OVER_20KM'}]} 
- value={inputs.distanceZone} 
- onChange={(v: any) => handleChange('distanceZone', v)} 
+ options={[{label: t('input.within20km'), value: 'WITHIN_20KM'}, {label: t('input.over20km'), value: 'OVER_20KM'}]}
+ value={inputs.distanceZone}
+ onChange={(v) => handleChange('distanceZone', v)}
  />
  </div>
  )}
