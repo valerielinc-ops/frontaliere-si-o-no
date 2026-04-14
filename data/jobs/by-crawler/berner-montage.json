@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berner-montage",
-  "assembledAt": "2026-04-14T09:27:15.484Z",
+  "assembledAt": "2026-04-14T21:12:29.951Z",
   "jobs": [
     {
       "id": "berner-montage-4936690da784",
@@ -33,7 +33,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:13.413Z",
+      "crawledAt": "2026-04-14T21:12:28.010Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -61,6 +61,7 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -105,7 +106,7 @@
       "url": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:12.193Z",
+      "crawledAt": "2026-04-14T21:12:27.090Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -134,6 +135,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -178,7 +180,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:11.205Z",
+      "crawledAt": "2026-04-14T21:12:26.098Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -206,6 +208,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -250,7 +253,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Mitte",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:10.100Z",
+      "crawledAt": "2026-04-14T21:12:25.135Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -275,6 +278,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -319,7 +323,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:09.012Z",
+      "crawledAt": "2026-04-14T21:12:24.147Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -347,6 +351,7 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-basel-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -391,7 +396,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Emmental",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:07.963Z",
+      "crawledAt": "2026-04-14T21:12:23.218Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -419,6 +424,7 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-emmental-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -463,7 +469,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:06.924Z",
+      "crawledAt": "2026-04-14T21:12:22.272Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -491,6 +497,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -535,7 +542,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:05.910Z",
+      "crawledAt": "2026-04-14T21:12:21.339Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -563,6 +570,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -607,7 +615,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:04.892Z",
+      "crawledAt": "2026-04-14T21:12:20.450Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -635,6 +643,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -671,7 +680,7 @@
       "descriptionByLocale": {
         "it": "Gruppi di lavoro - Gestione e coaching di un team di 12 dipendenti - Garantire il raggiungimento degli obiettivi di vendita, vendita e redditività Più di 36.000 articoli per la costruzione e i veicoli a motore. Consulenza professionale e servizio individuale con oltre 50 anni di esperienza. In breve, una società di distribuzione multicanale leader. - No. Tanto per i fatti puri. Ma dietro il marchio BERNER c'è qualcosa di ancora più prezioso: un'azienda familiare con tanto cuore quanto mente. ## Contatto - Attendiamo con ansia la vostra applicazione dettagliata (vita, lettera di motivazione e certificati di lavoro) con la vostra presentazione del salario. Sei pronto ad andare con noi un nuovo modo? Allora non perdere tempo e coinvolgerti. Migliore per e-mail, specificando le vostre idee e la prima data di entrata possibile. Per maggiori informazioni, chiamaci. 0800 820 807 - Pia-Maria Burkhardt - HR Generalist",
         "en": "Working Groups - Management and coaching of a team of 12 employees - Ensuring the achievement of sales, sales and profitability objectives More than 36,000 articles for construction and motor vehicles. Professional advice and individual service with over 50 years of experience. In short, a leading multi-channel distribution company. - So much to the pure facts. But behind the brand BERNER there is something even more valuable: a family company with as much heart as mind. ## Contact - We look forward to your detailed application (lifetime, letter of motivation and work certificates) with your wage presentation. Are you ready to go with us a new way? Then don't lose time and get involved. Best by e-mail, specifying your ideas and the earliest possible entry date. For more information, just call us. 0800 820 807 - Pia-Maria Burkhardt - HR Generalist",
-        "de": "## Was dich erwartet\n\n- Führung und Coaching eines Teams von 12 Aussendienstmitarbeitenden\n- Einarbeitung neuer Teammitglieder und Durchführung von Schulungen und Trainings\n- Regelmässige Mitreisen sowie Durchführung von Feedbackgesprächen und Zielvereinbarungen\n- Sicherstellung der Erreichung von Umsatz-, Absatz- und Profitabilitätszielen\n- Umsetzung strategischer Vertriebsmassnahmen sowie Analyse relevanter Kennzahlen\n- Planung und erfolgreiche Durchführung zielgruppenorientierter Verkaufsaktionen\n- Regelmäßiger Austausch mit der Geschäftsleitung und anderen Abteilungen\n- Sicherstellung eines transparenten Informationsflusses im Team und zwischen den Hierarchieebenen\n- Unterstützung des Teams bei anspruchsvollen Verkaufsverhandlungen oder Schlüsselgesprächen mit wichtigen Kunden\n- Analyse von Markttrends und Wettbewerbsaktivitäten sowie Identifikation von Potenzialen und Erarbeitung von Massnahmen zur Kundengewinnung und -bindung\n\n## Was dich auszeichnet\n\n- Abgeschlossene kaufmännische oder handwerkliche Ausbildung\n- Mehrjährige Erfahrung im Verkaufsaussendienst, idealerweise Branchenkenntnisse im Bau-Handwerk\n- Erste Führungserfahrung von Vorteil\n- Verhandlungssichere Sprachkenntnisse in Deutsch\n- Sicherer Umgang mit gängigen IT-Tools wie beispielsweise MS-Office\n- Kommunikationsstärke, Verhandlungsgeschick sowie hohe Einsatzbereitschaft und Erfolgsorientierung\n\n## Was wir bieten\n\n- Eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem europaweit erfolgreichen Unternehmen\n- Die Werte und Nachhaltigkeit eines langjährig erfolgreichen Familienunternehmens mit besonderem Fokus auf Kundenzufriedenheit und Digitalisierung\n- Flache Hierarchien und ein modernes, kollegiales Arbeitsumfeld\n- Ein attraktives Entlohnungspaket mit Fixum und Leistungsprämien\n- Einen Firmenwagen (auch zur privaten Nutzung)\n- Modernste digitale Arbeitsausstattung\n- Attraktive Sozialleistungen\n- Karrieremöglichkeiten innerhalb eines führenden Vertriebsunternehmens\n\n## Wer wir sind\n\n- 165 Mitarbeiter und Mitarbeiterinnen schweizweit. Über 36.000 Artikel für das Bau- und Kfz-Handwerk. Professionelle Beratung und individueller Service mit über 50 Jahren Erfahrung. Kurzum: ein führendes Multikanalvertriebsunternehmen.\n- So viel zu den reinen Fakten. Aber hinter der Marke BERNER steckt etwas noch viel Wertvolleres: ein Familienunternehmen mit ebenso viel Herz wie Verstand.\n\n## Kontakt\n\n- Wir freuen uns auf deine detaillierte Bewerbung (Lebenslauf, Motivationsschreiben und Arbeitszeugnisse) mit deiner Lohnvorstellung.\n- Bist du bereit, mit uns einen neuen Weg zu gehen? Dann verliere keine Zeit und bewirb dich jetzt. Am besten per E-Mail unter Angabe deiner Vorstellungen und des frühestmöglichen Eintrittstermins. Für weitere Informationen rufst du uns einfach an. 0800 820 807\n- Pia-Maria Burkhardt\n- HR Generalistin",
+        "de": "Was dich erwartet Führung und Coaching eines Teams von 12 Aussendienstmitarbeitenden Einarbeitung neuer Teammitglieder und Durchführung von Schulungen und Trainings Regelmässige Mitreisen sowie Durchführung von Feedbackgesprächen und Zielvereinbarungen Sicherstellung der Erreichung von Umsatz-, Absatz- und Profitabilitätszielen Umsetzung strategischer Vertriebsmassnahmen sowie Analyse relevanter Kennzahlen Planung und erfolgreiche Durchführung zielgruppenorientierter Verkaufsaktionen Regelmäßiger Austausch mit der Geschäftsleitung und anderen Abteilungen Sicherstellung eines transparenten Informationsflusses im Team und zwischen den Hierarchieebenen Unterstützung des Teams bei anspruchsvollen Verkaufsverhandlungen oder Schlüsselgesprächen mit wichtigen Kunden Analyse von Markttrends und Wettbewerbsaktivitäten sowie Identifikation von Potenzialen und Erarbeitung von Massnahmen zur Kundengewinnung und -bindung Was dich auszeichnet Abgeschlossene kaufmännische oder handwerkliche Ausbildung Mehrjährige Erfahrung im Verkaufsaussendienst, idealerweise Branchenkenntnisse im Bau-Handwerk Erste Führungserfahrung von Vorteil Verhandlungssichere Sprachkenntnisse in Deutsch Sicherer Umgang mit gängigen IT-Tools wie beispielsweise MS-Office Kommunikationsstärke, Verhandlungsgeschick sowie hohe Einsatzbereitschaft und Erfolgsorientierung Was wir bieten Eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem europaweit erfolgreichen Unternehmen Die Werte und Nachhaltigkeit eines langjährig erfolgreichen Familienunternehmens mit besonderem Fokus auf Kundenzufriedenheit und Digitalisierung Flache Hierarchien und ein modernes, kollegiales Arbeitsumfeld Ein attraktives Entlohnungspaket mit Fixum und Leistungsprämien Einen Firmenwagen (auch zur privaten Nutzung) Modernste digitale Arbeitsausstattung Attraktive Sozialleistungen Karrieremöglichkeiten innerhalb eines führenden Vertriebsunternehmens Wer wir sind 165 Mitarbeiter und Mitarbeiterinnen schweizweit. Über 36.000 Artikel für das Bau- und Kfz-Handwerk. Professionelle Beratung und individueller Service mit über 50 Jahren Erfahrung. Kurzum: ein führendes Multikanalvertriebsunternehmen. So viel zu den reinen Fakten. Aber hinter der Marke BERNER steckt etwas noch viel Wertvolleres: ein Familienunternehmen mit ebenso viel Herz wie Verstand. Wir freuen uns auf deine detaillierte Bewerbung (Lebenslauf, Motivationsschreiben und Arbeitszeugnisse) mit deiner Lohnvorstellung. BERNER - pushing the limits Bist du bereit, mit uns einen neuen Weg zu gehen? Dann verliere keine Zeit und bewirb dich jetzt. Am besten per E-Mail unter Angabe deiner Vorstellungen und des frühestmöglichen Eintrittstermins. Für weitere Informationen rufst du uns einfach an. 0800 820 807 Bist du bereit, mit uns einen neuen Weg zu gehen? Dann verliere keine Zeit und bewirb dich jetzt. Am besten per E-Mail unter Angabe deiner Vorstellungen und des frühestmöglichen Eintrittstermins. Für weitere Informationen rufst du uns einfach an. 0800 820 807 Pia-Maria Burkhardt HR Generalistin",
         "fr": "Groupes de travail - Gestion et encadrement d'une équipe de 12 employés - Assurer la réalisation des objectifs de vente, de vente et de rentabilité Plus de 36 000 articles pour la construction et les véhicules automobiles. Conseil professionnel et service individuel avec plus de 50 ans d'expérience. Bref, une entreprise de distribution multicanaux de premier plan. - Oui. Tellement aux faits purs. Mais derrière la marque BERNER il y a quelque chose de plus précieux : une entreprise familiale avec autant de cœur que d'esprit. ## Contact - Nous attendons avec impatience votre candidature détaillée (vie, lettre de motivation et certificat de travail) avec votre présentation salariale. Êtes-vous prêt à aller avec nous un nouveau chemin ? Alors ne perdez pas de temps. Le meilleur par e-mail, en spécifiant vos idées et la date d'entrée la plus tôt possible. Pour plus d'informations, appelez-nous. 0800 820 807 - Pia-Maria Burkhardt - Généraliste RH"
       },
       "location": "Visp",
@@ -679,7 +688,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-BE-NW",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:03.852Z",
+      "crawledAt": "2026-04-14T21:12:19.521Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -719,8 +728,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "berner-montage-ff0962713571",
@@ -753,7 +761,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-SR",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-14T09:27:02.836Z",
+      "crawledAt": "2026-04-14T21:12:18.629Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -781,6 +789,7 @@
         "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -825,7 +834,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-14T09:27:01.797Z",
+      "crawledAt": "2026-04-14T21:12:17.612Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -853,6 +862,7 @@
         "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage-"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -897,7 +907,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:27:00.585Z",
+      "crawledAt": "2026-04-14T21:12:16.614Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -925,6 +935,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
