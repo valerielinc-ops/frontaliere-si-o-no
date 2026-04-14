@@ -1,32 +1,31 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-04-13T21:51:49.623Z",
+  "generatedAt": "2026-04-14T10:05:46.403Z",
   "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "newCount": 1,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 39271,
-  "avgDurationMs": 39271,
+  "durationMs": 49622,
+  "avgDurationMs": 49622,
   "durationHistory": [
-    39271
+    49622
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "Electrical Engineer – Standards Compliance Expert for Dry Transformers 80 – 100% (f/m/d)",
       "slug": "electrical-engineer-standards-compliance-expert-for-dry-transformers-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-175209",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-187728",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Molinazzo-di-Monteggio-Ticino-Switzerland/Electrical-Engineer---Standards-Compliance-Expert-for-Dry-Transformers-80---100---f-m-d-_R0110758/apply",
       "company": "Hitachi Energy",
       "companyKey": "hitachi-energy",
       "companyDomain": "hitachienergy.com",
       "location": "Molinazzo di Monteggio, Switzerland",
       "addressLocality": "Molinazzo di Monteggio",
-      "addressRegion": "",
+      "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "",
+      "canton": "TI",
       "country": "CH",
       "category": "engineering",
       "sector": "Ingegneria Energetica",
@@ -36,20 +35,16 @@
       "employmentType": "full-time",
       "contractType": "regular",
       "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Lucino 53",
-      "postalCode": "6900",
-      "id": "hitachi-energy-be43d38cc056",
-      "_qualityScore": 95,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
+        "translation": 16,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "R&D electrical engineer",
       "slug": "r-d-electrical-engineer-hitachi-energy-molinazzo-di-monteggio-switzerland",
@@ -60,9 +55,9 @@
       "companyDomain": "hitachienergy.com",
       "location": "Molinazzo di Monteggio, Switzerland",
       "addressLocality": "Molinazzo di Monteggio",
-      "addressRegion": "",
+      "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "",
+      "canton": "TI",
       "country": "CH",
       "category": "engineering",
       "sector": "Ingegneria Energetica",
@@ -78,6 +73,7 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "id": "hitachi-energy-f242c8663e9f",
+      "firstSeenAt": "2026-04-13T21:51:49.622Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -96,9 +92,9 @@
       "companyDomain": "hitachienergy.com",
       "location": "Molinazzo di Monteggio, Switzerland",
       "addressLocality": "Molinazzo di Monteggio",
-      "addressRegion": "",
+      "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "",
+      "canton": "TI",
       "country": "CH",
       "category": "engineering",
       "sector": "Ingegneria Energetica",
@@ -114,6 +110,7 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "id": "hitachi-energy-bf37c33b980b",
+      "firstSeenAt": "2026-04-13T21:51:49.622Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,9 +129,9 @@
       "companyDomain": "hitachienergy.com",
       "location": "Molinazzo di Monteggio, Switzerland",
       "addressLocality": "Molinazzo di Monteggio",
-      "addressRegion": "",
+      "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "",
+      "canton": "TI",
       "country": "CH",
       "category": "safety",
       "sector": "IT & Telecomunicazioni",
@@ -150,6 +147,7 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "id": "hitachi-energy-ca4f56a76257",
+      "firstSeenAt": "2026-04-13T21:51:49.622Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,6 +184,7 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "id": "hitachi-energy-1bd9263b9813",
+      "firstSeenAt": "2026-04-13T21:51:49.622Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
