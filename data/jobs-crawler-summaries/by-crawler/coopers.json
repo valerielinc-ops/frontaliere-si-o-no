@@ -1,16 +1,16 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-14T09:44:21.637Z",
+  "generatedAt": "2026-04-14T21:29:41.588Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5968,
-  "avgDurationMs": 5968,
+  "durationMs": 6042,
+  "avgDurationMs": 6042,
   "durationHistory": [
-    5968
+    6042
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T09:44:17.743Z",
+      "crawledAt": "2026-04-14T21:29:38.033Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:19.115Z",
+      "crawledAt": "2026-04-14T21:29:39.312Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -85,45 +85,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "coopers-fa72ad63c809",
-      "slug": "responsabile-gestione-applicazioni-m-w-d-coopers-group-ag-wallis",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Application Manager (m/w/d)",
-      "location": "Wallis",
-      "canton": "VS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:30:46.401Z",
-      "addressLocality": "Wallis",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
-      "firstSeenAt": "2026-04-13T10:22:21.922Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "postalCode": "1950",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
