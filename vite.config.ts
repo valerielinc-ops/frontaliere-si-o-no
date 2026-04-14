@@ -28,10 +28,10 @@ import { affiliateRedirectPlugin } from './build-plugins/affiliateRedirectPlugin
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/* ── Fast build mode ─────────────────────────────────────────────
- * FAST_BUILD=1 npm run build   → esbuild minifier, no sourcemaps
- * npm run build:fast            → same via package.json shortcut
- * npm run build                 → full production build (terser)
+/* ── Build modes ─────────────────────────────────────────────────
+ * npm run build       → FAST_BUILD=1, esbuild, skip SEO plugins (~30-45s, dev)
+ * npm run build:ci    → esbuild + ALL plugins + 8GB heap       (~3-4 min, prepush)
+ * npm run build:prod  → terser  + ALL plugins + 8GB heap       (~5-6 min, deploy)
  * ─────────────────────────────────────────────────────────────── */
 const isFastBuild = !!process.env.FAST_BUILD;
 
@@ -47,25 +47,27 @@ export default defineConfig(({ mode }) => {
         host: '0.0.0.0',
       },
       plugins: [
+        // ── Core plugins (always run, including FAST_BUILD) ──────────
         react(),
         prepareOutDirPlugin(__dirname),
         buildIdPlugin(__dirname),
         asyncCssPlugin(),
         preloadLocalePlugin(__dirname),
-        ogPagesPlugin(__dirname),
-        jobsSeoPagesPlugin(__dirname),
-        staticPagesPlugin(__dirname),
         sitemapAliasPlugin(__dirname),
-        legacyRedirectsPlugin(__dirname),
-        llmsTxtPlugin(__dirname),
         adminDataPlugin(__dirname),
         crawlerRegistryPlugin(__dirname),
-        localeJobsSplitPlugin(__dirname),
-        webpPlugin(__dirname),
-        pdfWhitepapersPlugin(__dirname),
+        localeJobsSplitPlugin(__dirname),   // SPA reads per-locale job JSONs at runtime
         affiliateRedirectPlugin(__dirname),
-        // flatContentPlugin removed — all plugins now write real content to flat .html
-        // files directly, eliminating the need for a post-build walk of 55k+ files.
+        // ── SEO plugins (skipped when FAST_BUILD=1) ──────────────────
+        ...(isFastBuild ? [] : [
+          ogPagesPlugin(__dirname),
+          jobsSeoPagesPlugin(__dirname),
+          staticPagesPlugin(__dirname),
+          legacyRedirectsPlugin(__dirname),
+          llmsTxtPlugin(__dirname),
+          webpPlugin(__dirname),
+          pdfWhitepapersPlugin(__dirname),
+        ]),
       ],
       define: {
         // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime

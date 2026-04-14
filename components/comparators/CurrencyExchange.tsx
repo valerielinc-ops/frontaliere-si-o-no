@@ -3,6 +3,7 @@ import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, In
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 import DataFreshness from '@/components/shared/DataFreshness';
+import { SegmentControl } from '@/components/shared/SegmentControl';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -437,30 +438,15 @@ const CurrencyExchange: React.FC = () => {
       </div>
 
       {/* Sub-tab navigation */}
-      <div className="flex gap-2 bg-surface rounded-2xl p-2 border border-edge shadow-sm">
-        <button
-          onClick={() => { setExchangeSubTab('overview'); Analytics.trackCurrencyExchange('provider_view', 'overview'); }}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-[color,background-color,border-color,box-shadow] ${
-            exchangeSubTab === 'overview'
-              ? 'bg-emerald-700 text-white shadow-lg'
-              : 'text-subtle hover:bg-slate-100 dark:hover:bg-slate-700'
-          }`}
-        >
-          <ArrowLeftRight size={16} />
-          {t('currency.tab_compare')}
-        </button>
-        <button
-          onClick={() => { setExchangeSubTab('statistics'); Analytics.trackCurrencyExchange('provider_view', 'statistics'); }}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-[color,background-color,border-color,box-shadow] ${
-            exchangeSubTab === 'statistics'
-              ? 'bg-emerald-700 text-white shadow-lg'
-              : 'text-subtle hover:bg-slate-100 dark:hover:bg-slate-700'
-          }`}
-        >
-          <ChartBar size={16} />
-          {t('currency.tab_statistics')}
-        </button>
-      </div>
+      <SegmentControl
+        options={[
+          { key: 'overview', label: t('currency.tab_compare'), icon: ArrowLeftRight },
+          { key: 'statistics', label: t('currency.tab_statistics'), icon: ChartBar },
+        ]}
+        value={exchangeSubTab}
+        onChange={(key) => { setExchangeSubTab(key as typeof exchangeSubTab); Analytics.trackCurrencyExchange('provider_view', key); }}
+        activeTextClass="text-section-confronti"
+      />
 
       {exchangeSubTab === 'overview' ? (
       <>

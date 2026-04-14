@@ -120,6 +120,8 @@ import { SimulationInputs, SimulationResult } from '@/types';
 import { decodeSimulationParams, hasSimulationParams, cleanSimulationParams } from '@/services/urlStateService';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
+import { SubTabNav } from '@/components/navigation/SubTabNav';
+import type { SubTabItem } from '@/components/navigation/SubTabNav';
 import {
   useAuth,
   getUserPhotoURL,
@@ -2419,12 +2421,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }}
                   onMouseEnter={() => prefetchTab('calculator')}
                   aria-label={t('nav.simulator')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
                 >
                   <Calculator size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.simulator')}</span>
                   {activeTab === 'calculator' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2433,12 +2435,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }}
                   onMouseEnter={() => prefetchTab('confronti')}
                   aria-label={t('nav.confronti')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
                 >
                   <Layers size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.confronti')}</span>
                   {activeTab === 'confronti' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2447,12 +2449,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }}
                   onMouseEnter={() => prefetchTab('fisco')}
                   aria-label={t('nav.fisco')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
                 >
                   <PiggyBank size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.fisco')}</span>
                   {activeTab === 'fisco' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2461,12 +2463,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }}
                   onMouseEnter={() => prefetchTab('guida')}
                   aria-label={t('nav.guida')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
                 >
                   <BookOpen size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.guida')}</span>
                   {activeTab === 'guida' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2475,12 +2477,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }}
                   onMouseEnter={() => prefetchTab('vita')}
                   aria-label={t('nav.vita')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
                 >
                   <Home size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.vita')}</span>
                   {activeTab === 'vita' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2489,12 +2491,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }}
                   onMouseEnter={() => prefetchTab('stats')}
                   aria-label={t('nav.stats')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
                 >
                   <BarChart2 size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.stats')}</span>
                   {activeTab === 'stats' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
                   )}
                 </a>
               </div>
@@ -2668,224 +2670,128 @@ const App: React.FC = () => {
 
         {/* Sub-navigation for Calcolatore */}
         {activeTab === 'calculator' && (
-          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 md:py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0 py-0.5">
-                {([
-                  { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
-                  { key: 'whatif' as const, icon: Sparkles, label: t('simulator.whatif') },
-                  { key: 'payslip' as const, icon: FileText, label: t('strumenti.payslip') },
-                  { key: 'ral' as const, icon: ClipboardList, label: t('comparators.ral') },
-                  { key: 'bonus' as const, icon: Gift, label: t('comparators.bonus') },
-                  { key: 'parental-leave' as const, icon: Baby, label: t('comparators.parentalLeave') },
-                  { key: 'residency' as const, icon: Home, label: t('comparators.residency') },
-                  { key: 'salary-quiz' as const, icon: TrendingUp, label: t('salaryQuiz.navLabel') },
-                ] as const).map(({ key, icon: Icon, label }) => (
-                  <button
-                    key={key}
-                    data-subtab-active={calcolatoreSubTab === key ? "true" : undefined}
-                    onClick={() => {
-                      setCalcolatoreSubTab(key);
-                      Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
-                    }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
-                      calcolatoreSubTab === key
-                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
-                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SubTabNav
+            items={[
+              { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
+              { key: 'whatif' as const, icon: Sparkles, label: t('simulator.whatif') },
+              { key: 'payslip' as const, icon: FileText, label: t('strumenti.payslip') },
+              { key: 'ral' as const, icon: ClipboardList, label: t('comparators.ral') },
+              { key: 'bonus' as const, icon: Gift, label: t('comparators.bonus') },
+              { key: 'parental-leave' as const, icon: Baby, label: t('comparators.parentalLeave') },
+              { key: 'residency' as const, icon: Home, label: t('comparators.residency') },
+              { key: 'salary-quiz' as const, icon: TrendingUp, label: t('salaryQuiz.navLabel') },
+            ] satisfies SubTabItem<CalcolatoreSubTab>[]}
+            activeKey={calcolatoreSubTab}
+            onSelect={(key) => {
+              setCalcolatoreSubTab(key);
+              Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
+            }}
+          />
         )}
 
         {/* Sub-navigation for Confronti */}
         {activeTab === 'confronti' && (
-          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
-                {([
-                  { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
-                  { key: 'banks' as const, icon: Building2, label: t('comparators.banks') },
-                  { key: 'health' as const, icon: Heart, label: t('comparators.health') },
-                  { key: 'mobile' as const, icon: Phone, label: t('comparators.mobile') },
-                  { key: 'shopping' as const, icon: ShoppingCart, label: t('comparators.shopping') },
-                  { key: 'cost-of-living' as const, icon: Euro, label: t('comparators.costOfLiving') },
-                  { key: 'jobs' as const, icon: Briefcase, label: t('comparators.jobs') },
-                  { key: 'renovation' as const, icon: Hammer, label: t('comparators.renovation') },
-                ] as const).map(({ key, icon: Icon, label }) => (
-                  <button
-                    key={key}
-                    data-subtab-active={confrontiSubTab === key ? "true" : undefined}
-                    onClick={() => {
-                      setConfrontiSubTab(key);
-                      Analytics.trackComparatorView(key as any);
-                    }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
-                      confrontiSubTab === key
-                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
-                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SubTabNav
+            items={[
+              { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
+              { key: 'banks' as const, icon: Building2, label: t('comparators.banks') },
+              { key: 'health' as const, icon: Heart, label: t('comparators.health') },
+              { key: 'mobile' as const, icon: Phone, label: t('comparators.mobile') },
+              { key: 'shopping' as const, icon: ShoppingCart, label: t('comparators.shopping') },
+              { key: 'cost-of-living' as const, icon: Euro, label: t('comparators.costOfLiving') },
+              { key: 'jobs' as const, icon: Briefcase, label: t('comparators.jobs') },
+              { key: 'renovation' as const, icon: Hammer, label: t('comparators.renovation') },
+            ] satisfies SubTabItem<ConfrontiSubTab>[]}
+            activeKey={confrontiSubTab}
+            onSelect={(key) => {
+              setConfrontiSubTab(key);
+              Analytics.trackComparatorView(key as any);
+            }}
+          />
         )}
 
         {/* Sub-navigation for Fisco & Previdenza */}
         {activeTab === 'fisco' && (
-          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
-                {([
-                  { key: 'tax-return' as const, icon: FileText, label: t('comparators.taxReturn') },
-                  { key: 'withholding-rates' as const, icon: Banknote, label: t('withholdingRates.navLabel') },
-                  { key: 'calendar' as const, icon: Calendar, label: t('guide.tabs.calendar') },
-                  { key: 'holidays' as const, icon: Heart, label: t('guide.tabs.holidays') },
-                  { key: 'ristorni' as const, icon: BarChart2, label: t('guide.tabs.ristorni') },
-                  { key: 'pension' as const, icon: PiggyBank, label: t('nav.pension') },
-                  { key: 'pillar3' as const, icon: TrendingUp, label: t('pension.pillar3') },
-                  { key: 'tax-credit' as const, icon: Receipt, label: t('taxCredit.navLabel') },
-                ] as const).map(({ key, icon: Icon, label }) => (
-                  <button
-                    key={key}
-                    data-subtab-active={fiscoSubTab === key ? "true" : undefined}
-                    onClick={() => {
-                      setFiscoSubTab(key);
-                      Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
-                    }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
-                      fiscoSubTab === key
-                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
-                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SubTabNav
+            items={[
+              { key: 'tax-return' as const, icon: FileText, label: t('comparators.taxReturn') },
+              { key: 'withholding-rates' as const, icon: Banknote, label: t('withholdingRates.navLabel') },
+              { key: 'calendar' as const, icon: Calendar, label: t('guide.tabs.calendar') },
+              { key: 'holidays' as const, icon: Heart, label: t('guide.tabs.holidays') },
+              { key: 'ristorni' as const, icon: BarChart2, label: t('guide.tabs.ristorni') },
+              { key: 'pension' as const, icon: PiggyBank, label: t('nav.pension') },
+              { key: 'pillar3' as const, icon: TrendingUp, label: t('pension.pillar3') },
+              { key: 'tax-credit' as const, icon: Receipt, label: t('taxCredit.navLabel') },
+            ] satisfies SubTabItem<FiscoSubTab>[]}
+            activeKey={fiscoSubTab}
+            onSelect={(key) => {
+              setFiscoSubTab(key);
+              Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
+            }}
+          />
         )}
 
         {/* Sub-navigation for Guida Pratica */}
         {activeTab === 'guida' && (
-          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
-                {([
-                  { key: 'first-day' as const, icon: Rocket, label: t('guide.tabs.firstDay') },
-                  { key: 'permits' as const, icon: Shield, label: t('guide.tabs.permits') },
-                  { key: 'border' as const, icon: Timer, label: t('guide.tabs.border') },
-                  { key: 'unemployment' as const, icon: LifeBuoy, label: t('guide.tabs.unemployment') },
-                  { key: 'car-transfer' as const, icon: Car, label: t('guide.tabs.carTransfer') },
-                  { key: 'car-cost' as const, icon: Car, label: t('strumenti.carCost') },
-                  { key: 'permit-compare' as const, icon: Users, label: t('strumenti.permitCompare') },
-                  { key: 'border-map' as const, icon: Map, label: t('comparators.borderMap') },
-                ] as const).map(({ key, icon: Icon, label }) => (
-                  <button
-                    key={key}
-                    data-subtab-active={guidaSubTab === key ? "true" : undefined}
-                    onClick={() => {
-                      setGuidaSubTab(key);
-                      Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
-                    }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
-                      guidaSubTab === key
-                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
-                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SubTabNav
+            items={[
+              { key: 'first-day' as const, icon: Rocket, label: t('guide.tabs.firstDay') },
+              { key: 'permits' as const, icon: Shield, label: t('guide.tabs.permits') },
+              { key: 'border' as const, icon: Timer, label: t('guide.tabs.border') },
+              { key: 'unemployment' as const, icon: LifeBuoy, label: t('guide.tabs.unemployment') },
+              { key: 'car-transfer' as const, icon: Car, label: t('guide.tabs.carTransfer') },
+              { key: 'car-cost' as const, icon: Car, label: t('strumenti.carCost') },
+              { key: 'permit-compare' as const, icon: Users, label: t('strumenti.permitCompare') },
+              { key: 'border-map' as const, icon: Map, label: t('comparators.borderMap') },
+            ] satisfies SubTabItem<GuidaSubTab>[]}
+            activeKey={guidaSubTab}
+            onSelect={(key) => {
+              setGuidaSubTab(key);
+              Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
+            }}
+          />
         )}
 
         {/* Sub-navigation for Vita in Ticino */}
         {activeTab === 'vita' && (
-          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
-                {([
-                  { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
-                  { key: 'living-it' as const, icon: Users, label: t('guide.tabs.livingIT') },
-                  { key: 'companies' as const, icon: Building2, label: t('guide.tabs.companies', getCantonI18nParams()) },
-                  { key: 'schools' as const, icon: GraduationCap, label: t('guide.tabs.schools') },
-                  { key: 'nursery' as const, icon: School, label: t('comparators.nursery') },
-                  { key: 'places' as const, icon: Mountain, label: t('guide.tabs.places') },
-                  { key: 'transport' as const, icon: Car, label: t('comparators.transport') },
-                  { key: 'municipalities' as const, icon: MapPin, label: t('guide.tabs.municipalities') },
-                ] as const).map(({ key, icon: Icon, label }) => (
-                  <button
-                    key={key}
-                    data-subtab-active={vitaSubTab === key ? "true" : undefined}
-                    onClick={() => {
-                      setVitaSubTab(key);
-                      Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
-                    }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
-                      vitaSubTab === key
-                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
-                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SubTabNav
+            items={[
+              { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
+              { key: 'living-it' as const, icon: Users, label: t('guide.tabs.livingIT') },
+              { key: 'companies' as const, icon: Building2, label: t('guide.tabs.companies', getCantonI18nParams()) },
+              { key: 'schools' as const, icon: GraduationCap, label: t('guide.tabs.schools') },
+              { key: 'nursery' as const, icon: School, label: t('comparators.nursery') },
+              { key: 'places' as const, icon: Mountain, label: t('guide.tabs.places') },
+              { key: 'transport' as const, icon: Car, label: t('comparators.transport') },
+              { key: 'municipalities' as const, icon: MapPin, label: t('guide.tabs.municipalities') },
+            ] satisfies SubTabItem<VitaSubTab>[]}
+            activeKey={vitaSubTab}
+            onSelect={(key) => {
+              setVitaSubTab(key);
+              Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
+            }}
+          />
         )}
 
         {/* Sub-navigation for Stats */}
         {activeTab === 'stats' && (
-          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0 max-w-6xl mx-auto">
-                {([
-                  { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
-                  { key: 'livability' as const, icon: MapPin, label: t('strumenti.livability') },
-                  { key: 'jobs-observatory' as const, icon: Briefcase, label: t('stats.tabJobsObservatory') },
-                  { key: 'salary-compare' as const, icon: TrendingUp, label: t('strumenti.salaryCompare') },
-                  { key: 'traffic-history' as const, icon: Clock, label: t('stats.trafficHistory') },
-                  { key: 'unemployment' as const, icon: BarChart3, label: t('stats.tabUnemployment') },
-                  { key: 'mortgage' as const, icon: Home, label: t('stats.tabMortgage') },
-                  { key: 'fuel-prices' as const, icon: Fuel, label: t('stats.tabFuelPrices') },
-                ] as const).map(({ key, icon: Icon, label }) => (
-                  <button
-                    key={key}
-                    data-subtab-active={statsSubTab === key ? "true" : undefined}
-                    onClick={() => {
-                      setStatsSubTab(key);
-                      Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
-                    }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
-                      statsSubTab === key
-                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
-                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SubTabNav
+            items={[
+              { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
+              { key: 'livability' as const, icon: MapPin, label: t('strumenti.livability') },
+              { key: 'jobs-observatory' as const, icon: Briefcase, label: t('stats.tabJobsObservatory') },
+              { key: 'salary-compare' as const, icon: TrendingUp, label: t('strumenti.salaryCompare') },
+              { key: 'traffic-history' as const, icon: Clock, label: t('stats.trafficHistory') },
+              { key: 'unemployment' as const, icon: BarChart3, label: t('stats.tabUnemployment') },
+              { key: 'mortgage' as const, icon: Home, label: t('stats.tabMortgage') },
+              { key: 'fuel-prices' as const, icon: Fuel, label: t('stats.tabFuelPrices') },
+            ] satisfies SubTabItem<StatsSubTab>[]}
+            activeKey={statsSubTab}
+            onSelect={(key) => {
+              setStatsSubTab(key);
+              Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
+            }}
+          />
         )}
 
         {/* Main Content */}
@@ -3654,27 +3560,27 @@ const App: React.FC = () => {
         <nav aria-label="Navigazione mobile" className="adsbygoogle-auto-ads-ignore fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom,0px)]">
           <div className="grid grid-cols-6 h-14">
             {([
-              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'vita' as const, icon: Home, label: t('nav.vita.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-            ] as const).map(({ tab, icon: Icon, label, activeClass, barClass }) => {
+              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },
+              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti.mobile') },
+              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco.mobile') },
+              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida.mobile') },
+              { tab: 'vita' as const, icon: Home, label: t('nav.vita.mobile') },
+              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats.mobile') },
+            ] as const).map(({ tab, icon: Icon, label }) => {
               const isActive = activeTab === tab;
               return (
                 <a
                   key={tab}
                   href={buildPath({ activeTab: tab })}
                   onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
-                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-1 ${
-                    isActive ? activeClass : 'text-slate-500 dark:text-slate-400'
+                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
+                    isActive ? 'text-accent' : 'text-tab-inactive-text'
                   }`}
                 >
                   <Icon size={20} />
                   <span className="text-xs font-semibold leading-tight text-center w-full line-clamp-1">{label}</span>
                   {isActive && (
-                    <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 ${barClass} rounded-full`} />
+                    <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-accent rounded-full" />
                   )}
                 </a>
               );

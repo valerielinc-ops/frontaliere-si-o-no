@@ -9,6 +9,7 @@
 
 import type { Plugin } from 'vite';
 import { BASE_URL, GTAG_SNIPPET } from './constants';
+import { WriteCollector } from './batchWrite';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { translateFaqPage } from '../services/seo/faq-translations';
@@ -354,19 +355,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
       const distDir  = np.resolve(rootDir, 'dist');
 
-      /* ── Buffered write system ── */
-      const _pw: { p: string; c: string }[] = [];
-      const _dirs = new Set<string>();
+      /* ── Buffered write system via shared WriteCollector ── */
+      const collector = new WriteCollector({ distDir });
       function _qw(filePath: string, content: string) {
-        const dir = np.dirname(filePath);
-        if (!_dirs.has(dir)) { fs.mkdirSync(dir, { recursive: true }); _dirs.add(dir); }
-        _pw.push({ p: filePath, c: content });
-      }
-      async function _flush() {
-        const B = 300;
-        for (let i = 0; i < _pw.length; i += B) {
-          await Promise.all(_pw.slice(i, i + B).map(w => fs.promises.writeFile(w.p, w.c, 'utf-8')));
-        }
+        collector.add(filePath, content);
       }
 
       /* ── 0pre. Build set of blog article paths owned by ogPagesPlugin ── */
@@ -2472,8 +2464,10 @@ ${hrefTags}
       }
 
       const t0 = Date.now();
-      await _flush();
-      console.log(`[static-pages] Flushed ${_pw.length} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+      const written = await collector.flush();
+      const hashSkipped = collector.skippedByHash;
+      console.log(`[static-pages] Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
+        (hashSkipped > 0 ? ` (${hashSkipped} skipped by content hash)` : ''));
       console.log(`\x1b[36m[static-pages]\x1b[0m Generated ${count} static pages (${skipped} skipped — already exist or no SEO data)`);
 
       /* ── Auto-update sitemap index lastmod dates to today ─────── */

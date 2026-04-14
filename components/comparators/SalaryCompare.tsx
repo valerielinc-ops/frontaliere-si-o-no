@@ -5,6 +5,7 @@ import {
   Briefcase, ChevronDown, ChevronUp, Search, BookOpen, Info,
 } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
+import { SegmentControl } from '@/components/shared/SegmentControl';
 import {
   SALARY_DATA, getSectorMedian, TOTAL_PROFESSIONS, TOTAL_SECTORS,
   SECTOR_METADATA,
@@ -194,9 +195,9 @@ export default function SalaryCompare() {
   const tabConfig: {
     id: InternalTab; label: string; icon: React.ReactNode; cls: string;
   }[] = [
-    { id: 'sectors', label: t('salaryCompare.tabSectors'), icon: <BarChart3 size={16} />, cls: 'text-amber-700 dark:text-amber-400' },
-    { id: 'professions', label: t('salaryCompare.tabProfessions'), icon: <Briefcase size={16} />, cls: 'text-stripe-700 dark:text-stripe-400' },
-    { id: 'survey', label: t('salary.title'), icon: <Users size={16} />, cls: 'text-teal-700 dark:text-teal-400' },
+    { id: 'sectors', label: t('salaryCompare.tabSectors'), icon: <BarChart3 size={16} />, cls: '' },
+    { id: 'professions', label: t('salaryCompare.tabProfessions'), icon: <Briefcase size={16} />, cls: '' },
+    { id: 'survey', label: t('salary.title'), icon: <Users size={16} />, cls: '' },
   ];
 
   return (
@@ -233,23 +234,13 @@ export default function SalaryCompare() {
         </div>
 
         {/* Sub-tabs */}
-        <div className="flex gap-1 bg-surface-raised rounded-lg p-1 mt-4">
-          {tabConfig.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={
-                'flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition ' +
-                (activeTab === tab.id
-                  ? 'bg-white dark:bg-slate-600 ' + tab.cls + ' shadow'
-                  : 'text-subtle hover:text-slate-800 dark:hover:text-white')
-              }
-              aria-label={tab.label}
-            >
-              {tab.icon}
-              <span className="hidden sm:inline">{tab.label}</span>
-            </button>
-          ))}
+        <div className="mt-4">
+          <SegmentControl
+            options={tabConfig.map(t => ({ key: t.id, label: t.label, icon: t.icon }))}
+            value={activeTab}
+            onChange={(key) => setActiveTab(key as InternalTab)}
+            activeTextClass="text-section-stats"
+          />
         </div>
       </div>
 

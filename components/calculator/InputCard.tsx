@@ -133,14 +133,14 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
 
 const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor = "text-muted", tooltip }: any) => (
   <div className="space-y-2">
-    {label && <label className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
-    <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl relative h-11" role="group">
+    {label && <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+    <div className="flex bg-segment-container-bg p-1 rounded-xl relative h-11" role="group">
       {options.map((opt: any) => (
         <button
           key={opt.value}
           onClick={() => onChange(opt.value)}
           aria-pressed={value === opt.value}
-          className={`flex-1 flex items-center justify-center text-xs font-bold rounded-lg transition-[color,background-color,box-shadow,transform] duration-300 relative z-10 ${value === opt.value ? 'text-stripe-600 dark:text-stripe-300 bg-surface shadow-sm scale-[0.98]' : 'text-subtle hover:text-slate-700'}`}
+          className={`flex-1 flex items-center justify-center text-xs font-bold rounded-lg transition-[color,background-color,box-shadow,transform] duration-300 relative z-10 ${value === opt.value ? 'text-section-calculator bg-segment-active-bg shadow-sm scale-[0.98]' : 'text-subtle hover:text-strong'}`}
         >
           {opt.label}
         </button>

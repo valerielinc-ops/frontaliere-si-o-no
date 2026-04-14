@@ -8,6 +8,7 @@ import { BarChart3, PieChart as PieIcon, TrendingUp, Wallet, Percent, ArrowUpRig
 import { calculateSimulation } from '../../services/calculationService';
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
+import { SegmentControl } from '../shared/SegmentControl';
 
 interface Props {
   result: SimulationResult;
@@ -242,27 +243,17 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
 
       {/* Main Chart Container */}
       <div className="bg-surface rounded-3xl p-1 shadow-sm border border-slate-100 dark:border-slate-700">
-         <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-1 bg-surface-alt/50 rounded-2xl">
-            {[
-              { id: 'overview', label: t('chart.tab_comparison'), icon: BarChart3 },
-              { id: 'breakdown', label: t('chart.tab_details'), icon: PieIcon },
-              { id: 'projection', label: t('chart.tab_projection'), icon: TrendingUp },
-              { id: 'breakeven', label: t('chart.tab_salary_analysis'), icon: LineIcon },
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabChange(tab.id as any)}
-                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-xs font-bold uppercase tracking-wide transition-[color,background-color,border-color,box-shadow,transform] ${
-                  activeTab === tab.id 
-                  ? 'bg-surface text-stripe-600 dark:text-stripe-400 shadow-sm scale-[0.98]' 
-                  : 'text-muted hover:text-slate-600 dark:hover:text-slate-300'
-                }`}
-              >
-                <tab.icon size={16} className={activeTab === tab.id ? 'stroke-[2.5px]' : ''} />
-                <span className="truncate">{tab.label}</span>
-              </button>
-            ))}
-         </div>
+         <SegmentControl
+            options={[
+              { key: 'overview', label: t('chart.tab_comparison'), icon: BarChart3 },
+              { key: 'breakdown', label: t('chart.tab_details'), icon: PieIcon },
+              { key: 'projection', label: t('chart.tab_projection'), icon: TrendingUp },
+              { key: 'breakeven', label: t('chart.tab_salary_analysis'), icon: LineIcon },
+            ]}
+            value={activeTab}
+            onChange={(key) => handleTabChange(key as any)}
+            activeTextClass="text-section-calculator"
+         />
 
          {/* Chart Area */}
          <div className="p-4 sm:p-6 min-h-[320px] bg-surface rounded-b-3xl relative">

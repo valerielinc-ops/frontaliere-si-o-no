@@ -31,6 +31,22 @@ html.dark { color-scheme: dark; }
   --_success: #059669;
   --_warning: #d97706;
   --_danger: #dc2626;
+  /* Navigation — subtab bar */
+  --_tab-active-bg: #ede9fe;
+  --_tab-active-text: #4529e6;
+  --_tab-active-border: #a78bfa;
+  --_tab-inactive-text: #64748b;
+  --_tab-hover-bg: #f1f5f9;
+  /* Navigation — segment control */
+  --_segment-active-bg: #ffffff;
+  --_segment-container-bg: #f1f5f9;
+  /* Section accent colors */
+  --_section-calculator: #533afd;
+  --_section-confronti: #059669;
+  --_section-fisco: #059669;
+  --_section-guida: #533afd;
+  --_section-vita: #d97706;
+  --_section-stats: #533afd;
 }
 html.dark {
   --_surface: #1e293b;       /* slate-800 */
@@ -48,6 +64,22 @@ html.dark {
   --_success: #34d399;
   --_warning: #fbbf24;
   --_danger: #f87171;
+  /* Navigation — subtab bar */
+  --_tab-active-bg: rgba(46, 26, 158, 0.3);
+  --_tab-active-text: #c4b5fd;
+  --_tab-active-border: #4529e6;
+  --_tab-inactive-text: #94a3b8;
+  --_tab-hover-bg: #1e293b;
+  /* Navigation — segment control */
+  --_segment-active-bg: #334155;
+  --_segment-container-bg: #0f172a;
+  /* Section accent colors */
+  --_section-calculator: #a78bfa;
+  --_section-confronti: #34d399;
+  --_section-fisco: #34d399;
+  --_section-guida: #a78bfa;
+  --_section-vita: #fbbf24;
+  --_section-stats: #a78bfa;
 }
 
 /* Eliminate 300ms tap delay on all interactive elements (mobile) */
@@ -243,6 +275,25 @@ input[type=number] { -moz-appearance: textfield; }
   --color-success: var(--_success);
   --color-warning: var(--_warning);
   --color-danger: var(--_danger);
+
+  /* Navigation — subtab bar */
+  --color-tab-active-bg: var(--_tab-active-bg);
+  --color-tab-active-text: var(--_tab-active-text);
+  --color-tab-active-border: var(--_tab-active-border);
+  --color-tab-inactive-text: var(--_tab-inactive-text);
+  --color-tab-hover-bg: var(--_tab-hover-bg);
+
+  /* Navigation — segment control */
+  --color-segment-active-bg: var(--_segment-active-bg);
+  --color-segment-container-bg: var(--_segment-container-bg);
+
+  /* Section accent colors — per-section identity */
+  --color-section-calculator: var(--_section-calculator);
+  --color-section-confronti: var(--_section-confronti);
+  --color-section-fisco: var(--_section-fisco);
+  --color-section-guida: var(--_section-guida);
+  --color-section-vita: var(--_section-vita);
+  --color-section-stats: var(--_section-stats);
 
   --animate-slide-up: slide-up 0.3s ease-out both;
 

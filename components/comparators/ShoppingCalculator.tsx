@@ -192,7 +192,7 @@ const ShoppingCalculator: React.FC = () => {
               onClick={() => { setActiveTab(tab.id); Analytics.trackUIInteraction('guida', 'spesa', 'tab', 'click', tab.id); }}
               className={'flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition ' +
                 (activeTab === tab.id
-                  ? 'bg-surface text-orange-700 dark:text-orange-300 shadow'
+                  ? 'bg-surface text-section-confronti shadow'
                   : 'text-white/90 hover:text-white hover:bg-white/10')}
               aria-label={tab.label}
             >

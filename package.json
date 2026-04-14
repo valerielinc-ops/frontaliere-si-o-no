@@ -8,7 +8,8 @@
     "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
     "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/prebuild-webp.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
     "build": "FAST_BUILD=1 vite build",
-    "build:prod": "vite build",
+    "build:ci": "NODE_OPTIONS='--max-old-space-size=8192' vite build --minify esbuild",
+    "build:prod": "NODE_OPTIONS='--max-old-space-size=8192' vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:articles": "vitest run tests/article-seo-fallback.test.ts tests/static-pages-blog-skip.test.ts tests/article-duplicate-detection.test.ts tests/related-articles.test.ts tests/whats-new.test.tsx",
@@ -213,7 +214,7 @@
     "jobs:update:hilcona": "node scripts/update-hilcona-jobs.mjs",
     "jobs:update:cedes": "node scripts/update-cedes-jobs.mjs",
     "jobs:update:davos-klosters-bergbahnen": "node scripts/update-davos-klosters-bergbahnen-jobs.mjs",
-    "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
+    "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build:ci && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.44.0",

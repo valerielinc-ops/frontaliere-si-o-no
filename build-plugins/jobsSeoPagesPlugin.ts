@@ -11,6 +11,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildSimplePage } from './htmlTemplate';
+import { WriteCollector } from './batchWrite';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import {
@@ -74,8 +75,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         'AI': '9050', 'UR': '6460',
       };
 
-      /* ── Buffered write system: collect all writes, flush in parallel at the end ── */
-      const _pendingWrites: { p: string; c: string }[] = [];
+      /* ── Buffered write system via shared WriteCollector ── */
+      const collector = new WriteCollector({ distDir });
       const _ensuredDirs = new Set<string>();
       function _md(dir: string) {
         if (_ensuredDirs.has(dir)) return;
@@ -84,54 +85,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       }
       const _writtenPaths = new Set<string>();
       function _qw(filePath: string, content: string) {
-        _md(np.dirname(filePath));
         _writtenPaths.add(filePath);
-        _pendingWrites.push({ p: filePath, c: content });
-      }
-      async function _flushAllWrites() {
-        const BATCH = 200;
-        let failed = 0;
-        for (let i = 0; i < _pendingWrites.length; i += BATCH) {
-          const batch = _pendingWrites.slice(i, i + BATCH);
-          const results = await Promise.allSettled(
-            batch.map(async w => {
-              try {
-                await fs.promises.writeFile(w.p, w.c, 'utf-8');
-              } catch {
-                fs.mkdirSync(np.dirname(w.p), { recursive: true });
-                await fs.promises.writeFile(w.p, w.c, 'utf-8');
-              }
-            })
-          );
-          for (let k = 0; k < results.length; k++) {
-            if (results[k].status === 'rejected') {
-              failed++;
-              console.error(`[jobs-seo-pages] Write failed: ${batch[k].p}`, (results[k] as PromiseRejectedResult).reason);
-            }
-          }
-        }
-        if (failed > 0) {
-          console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m ⚠ ${failed}/${_pendingWrites.length} writes failed during flush`);
-        }
-
-        // Sync repair pass: fix any 0-byte files left by O_TRUNC + failed write
-        let repaired = 0;
-        for (const w of _pendingWrites) {
-          try {
-            const stat = fs.statSync(w.p);
-            if (stat.size === 0 && w.c.length > 0) {
-              fs.writeFileSync(w.p, w.c, 'utf-8');
-              repaired++;
-            }
-          } catch {
-            fs.mkdirSync(np.dirname(w.p), { recursive: true });
-            fs.writeFileSync(w.p, w.c, 'utf-8');
-            repaired++;
-          }
-        }
-        if (repaired > 0) {
-          console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Repaired ${repaired} 0-byte/missing files via sync fallback`);
-        }
+        collector.add(filePath, content);
       }
 
       /* ── Find SPA entry bundle so job pages hydrate into the full app ── */
@@ -5056,8 +5011,10 @@ ${hreflangLinks}
 
       /* ── Flush all buffered writes in parallel batches ── */
       const t0 = Date.now();
-      await _flushAllWrites();
-      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${_pendingWrites.length} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+      const written = await collector.flush();
+      const skipped = collector.skippedByHash;
+      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
+        (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
     },
   };
 }

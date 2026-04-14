@@ -5,6 +5,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '@/services/i18n';
 import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import { SegmentControl } from '@/components/shared/SegmentControl';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
@@ -835,21 +836,16 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
         {/* Tab switcher — only show if no initialTab forced */}
         {!initialTab && (
-          <div className="flex gap-2 mt-4 bg-stone-200/50 dark:bg-stone-800/50 rounded-xl p-1">
-            <button
-              onClick={() => handleTabChange('fiscal')}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'fiscal' ? 'bg-white dark:bg-stone-700 text-amber-700 dark:text-amber-400 shadow-lg' : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'}`}
-            >
-              <Calendar size={16} />
-              {t('calendar.tabFiscal')}
-            </button>
-            <button
-              onClick={() => handleTabChange('holidays')}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'holidays' ? 'bg-white dark:bg-stone-700 text-amber-700 dark:text-amber-400 shadow-lg' : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'}`}
-            >
-              <Star size={16} />
-              {t('calendar.tabHolidays')}
-            </button>
+          <div className="mt-4">
+            <SegmentControl
+              options={[
+                { key: 'fiscal', label: t('calendar.tabFiscal'), icon: Calendar },
+                { key: 'holidays', label: t('calendar.tabHolidays'), icon: Star },
+              ]}
+              value={activeTab}
+              onChange={(key) => handleTabChange(key as typeof activeTab)}
+              activeTextClass="text-section-fisco"
+            />
           </div>
         )}
 

@@ -49,7 +49,7 @@ jobs:
       - name: Build to generate full sitemaps
         run: npx vite build --logLevel warn
         env:
-          NODE_OPTIONS: '--max-old-space-size=4096'
+          NODE_OPTIONS: '--max-old-space-size=8192'
 
       - name: Submit IndexNow batch
         run: |
