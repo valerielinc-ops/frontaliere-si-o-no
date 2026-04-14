@@ -55,6 +55,7 @@ import {
  SlidersHorizontal,
  Sparkles,
  Star,
+ ArrowRight,
  Tag,
  UserCheck,
  Users,
@@ -706,7 +707,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
  const flushBullets = () => {
  if (bulletBuffer.length === 0) return;
  blocks.push(
- <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-stripe-500 dark:marker:text-stripe-400">
+ <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-accent">
  {bulletBuffer.map((b, i) => (
  <li key={i} className="text-sm leading-relaxed text-body">{b}</li>
  ))}
@@ -744,7 +745,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
  );
  if (items.length > 0) {
  blocks.push(
- <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-stripe-500 dark:marker:text-stripe-400">
+ <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-accent">
  {items.map((item, i) => (
  <li key={i} className="text-sm leading-relaxed text-body">{item}</li>
  ))}
@@ -1061,7 +1062,7 @@ function renderContactRichText(
  <a
  key={`email-${start}-${email}`}
  href={buildContactMailto(email, job, locale, jobUrl)}
- className="font-semibold text-stripe-700 underline decoration-stripe-300 underline-offset-2 hover:text-accent dark:decoration-stripe-700 dark:hover:text-stripe-200"
+ className="font-semibold text-stripe-700 underline decoration-stripe-300 underline-offset-2 hover:text-accent "
  >
  {email}
  </a>
@@ -1071,7 +1072,7 @@ function renderContactRichText(
  <a
  key={`phone-${start}-${raw}`}
  href={`tel:${normalizeContactPhone(raw)}`}
- className="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-success dark:decoration-emerald-700 dark:hover:text-emerald-200"
+ className="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-success "
  >
  {raw}
  </a>
@@ -4377,7 +4378,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <a
  href={salaryCalcHref}
  onClick={goToCalc}
- className="block rounded-lg bg-warning-subtle border border-warning-border/50 p-3 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors cursor-pointer"
+ className="block rounded-lg bg-warning-subtle border border-warning-border/50 p-3 hover:bg-amber-100 transition-colors cursor-pointer"
  >
  <div className="text-xs font-semibold text-warning mb-1">
  {t('jobBoard.salaryEstimate.frontaliere')}
@@ -4392,7 +4393,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <a
  href={salaryCalcHref}
  onClick={goToCalc}
- className="block rounded-lg bg-success-subtle border border-success-border/50 p-3 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors cursor-pointer"
+ className="block rounded-lg bg-success-subtle border border-success-border/50 p-3 hover:bg-success-subtle transition-colors cursor-pointer"
  >
  <div className="text-xs font-semibold text-success mb-1">
  {t('jobBoard.salaryEstimate.resident')}
@@ -4457,7 +4458,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
  </div>
  </div>
- <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 rounded-stripe text-muted hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
+ <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 rounded-stripe text-muted hover:text-slate-600 " aria-label={t('common.close')}>
  <X size={18} />
  </button>
  </div>
@@ -4616,7 +4617,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialJobTodayLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -4682,7 +4683,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(citySlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{city.name}</span>
  <span className="text-sm font-bold text-accent">{city.count}</span>
@@ -4708,7 +4709,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialOfficialGazetteLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -4819,7 +4820,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialNursesHubLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -4857,7 +4858,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -4921,7 +4922,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const parentSlug = editorialCareVariantLanding.parentHubHref.split('/').filter(Boolean).pop() || '';
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -4971,7 +4972,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -5011,7 +5012,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialLocationLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5049,7 +5050,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -5077,7 +5078,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -5118,7 +5119,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const parentSlug = editorialLocationTypeLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationTypeLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5167,7 +5168,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -5208,7 +5209,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const parentSlug = editorialLocationSectorLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationSectorLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5257,7 +5258,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -5297,7 +5298,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialSectorRegionLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5347,7 +5348,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(targetSlug);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
  >
  <span className="font-semibold text-strong">{link.label}</span>
  <span className="text-sm font-bold text-accent">{link.count}</span>
@@ -5430,9 +5431,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = String(
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
  ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220);
+ const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
+ const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
 
  return (
- <div className="space-y-5">
+ <div className="space-y-5" data-no-auto-ads="inside">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
@@ -5502,7 +5505,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {descriptionPreview}...
  </p>
- <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-white dark:via-slate-800/70 dark:to-slate-800" />
+ <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/70 to-surface" />
  </div>
  )}
 
@@ -5656,6 +5659,85 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="mt-2"
  />
  )}
+
+ {/* Company banner — gate view */}
+ <a
+ href={gateCompanyHref}
+ onClick={(e) => {
+ e.preventDefault();
+ setSearchQuery('');
+ const canonicalCompanyPath = gateCompanyHref.split('?')[0];
+ const currentPathWithSearch = `${window.location.pathname}${window.location.search}`;
+ if (currentPathWithSearch !== canonicalCompanyPath) {
+ window.history.pushState(
+ { route: { activeTab: 'job-board', jobSlug: gateCompanySlug } },
+ '',
+ canonicalCompanyPath
+ );
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ }
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ }}
+ className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
+ >
+ <div className="flex items-start gap-3">
+ <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
+ {logoUrl ? (
+ <img
+ src={logoUrl}
+ alt={`Logo ${companyName}`}
+ className="w-7 h-7 object-contain"
+ width={28}
+ height={28}
+ loading="lazy"
+ onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
+ />
+ ) : (
+ <Building2 className="w-4 h-4 text-muted" />
+ )}
+ </div>
+ <div className="min-w-0">
+ <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3>
+ <p className="text-sm text-slate-600 mt-1">
+ {companyName} · {jobLocation} ({selectedJob.canton})
+ </p>
+ <p className="text-sm text-muted mt-2">
+ Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.
+ </p>
+ </div>
+ </div>
+ </a>
+
+ {/* Similar jobs — gate view (compact list) */}
+ {relatedJobs.length > 0 && (
+ <section className="rounded-2xl border border-edge bg-surface p-5">
+ <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2>
+ <ul className="space-y-1.5">
+ {relatedJobs.map((job) => {
+ const jobHref = buildJobPath(job);
+ return (
+ <li key={job.id}>
+ <a
+ href={jobHref}
+ onClick={(e) => {
+ e.preventDefault();
+ openDetail(job);
+ }}
+ className="flex items-center gap-2 rounded-lg border border-edge bg-surface px-3 py-2 text-sm hover:border-accent-border transition-colors"
+ >
+ <span className="flex-1 font-medium text-strong truncate">
+ {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ </span>
+ <span className="text-muted text-xs shrink-0">{job.company}</span>
+ <ArrowRight className="w-3 h-3 text-muted shrink-0" aria-hidden="true" />
+ </a>
+ </li>
+ );
+ })}
+ </ul>
+ </section>
+ )}
  </div>
  );
  }
@@ -5776,7 +5858,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (hybridLayoutEnabled) {
  return (
- <div className="space-y-6 hybrid-ab-wrap">
+ <div className="space-y-6 hybrid-ab-wrap" data-no-auto-ads="inside">
  <style>{`
  .hybrid-ab-wrap { max-width: 1120px; }
  .hybrid-ab-root { border: 1px solid #d8e4f4; background: #fff; border-radius: 20px; padding: 12px; overflow: hidden; }
@@ -5883,7 +5965,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return (
- <div className="space-y-6">
+ <div className="space-y-6" data-no-auto-ads="inside">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
@@ -5896,7 +5978,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  <article className="lg:col-span-8 space-y-4 sm:space-y-5">
- <header className="rounded-3xl border border-stripe-100 border-edge bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-teal-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
+ <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
  <div className="flex items-start gap-3 sm:gap-4">
  <a
  href={applyUrl}
@@ -5904,7 +5986,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rel="noopener noreferrer"
  onClick={() => Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`)}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
- className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-stripe-100 border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  >
  {logo ? (
  <img
@@ -5991,7 +6073,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {canonicalHighlights.map((item, i) => (
  <span
  key={i}
- className="text-xs px-2.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800"
+ className="text-xs px-2.5 py-1 rounded-full bg-info-subtle text-info border border-info-border"
  >
  {item}
  </span>
@@ -6036,7 +6118,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  ))}
  {section.bullets.length > 0 && (
- <ul className="space-y-1.5 pl-4 list-disc marker:text-stripe-500 dark:marker:text-stripe-400">
+ <ul className="space-y-1.5 pl-4 list-disc marker:text-accent">
  {section.bullets.map((item, i) => (
  <li
  key={i}
@@ -6104,7 +6186,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-slate-600 mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-slate-50 hover:bg-surface-raised/50 dark:hover:bg-slate-900 text-body transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 dark:marker:text-cyan-400"> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Search size={15} className="text-fuchsia-600 dark:text-fuchsia-300" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-stripe-300 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-slate-600 mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-slate-50 hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Calendar size={15} className="text-info" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Search size={15} className="text-accent" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-stripe-300 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}
@@ -6201,13 +6283,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return (
  <div className="space-y-6">
  {searchSlugFilter && (
- <div className="rounded-xl border border-fuchsia-200 dark:border-fuchsia-800 bg-fuchsia-50/60 dark:bg-fuchsia-950/20 p-3 text-sm text-fuchsia-800 dark:text-fuchsia-200 flex items-center justify-between gap-3">
+ <div className="rounded-xl border border-accent-border bg-accent-subtle p-3 text-sm text-accent flex items-center justify-between gap-3">
  <span className="font-semibold">
  {t('jobBoard.filter.activeSearch', { query: searchSlugFilter })}
  </span>
  <button
  onClick={() => onJobRouteChange?.(undefined)}
- className="px-2 py-1 rounded-md border border-fuchsia-300 dark:border-fuchsia-700 hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 text-xs font-bold"
+ className="px-2 py-1 rounded-md border border-accent-border hover:bg-accent-subtle text-xs font-bold"
  >
  {t('jobBoard.filter.remove')}
  </button>
@@ -6251,8 +6333,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Hero search bar */}
  <div className="relative group">
  <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" />
- <div className="relative flex items-center bg-surface rounded-2xl border-2 border-edge group-focus-within:border-stripe-500 dark:group-focus-within:border-stripe-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-stripe-500/10 transition-[color,background-color,border-color,box-shadow] duration-200">
- <Search className="ml-4 w-5 h-5 text-muted group-focus-within:text-stripe-500 dark:group-focus-within:text-stripe-400 transition-colors shrink-0" />
+ <div className="relative flex items-center bg-surface rounded-2xl border-2 border-edge group-focus-within:border-accent shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-stripe-500/10 transition-[color,background-color,border-color,box-shadow] duration-200">
+ <Search className="ml-4 w-5 h-5 text-muted group-focus-within:text-accent transition-colors shrink-0" />
  <input
  ref={searchInputRef}
  type="text"
@@ -6266,7 +6348,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => setSearchQuery('')}
- className="p-2 mr-1 rounded-full text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-surface-raised transition-colors"
+ className="p-2 mr-1 rounded-full text-muted hover:text-body hover:bg-surface-raised transition-colors"
  aria-label="Clear search"
  >
  <X className="w-4 h-4" />
@@ -6291,7 +6373,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={s}
  type="button"
  onClick={() => setSearchQuery(s)}
- className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition-colors"
+ className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {s}
  </button>
@@ -6321,7 +6403,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
  chip.active
  ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-stripe-300 dark:hover:border-stripe-600'
+ : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
  }`}
  aria-pressed={chip.active}
  >
@@ -6347,7 +6429,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
  chip.active
  ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-stripe-300 dark:hover:border-stripe-600'
+ : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
  }`}
  aria-pressed={chip.active}
  >
@@ -6412,7 +6494,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={resetAllFilters}
- className="ml-auto inline-flex items-center gap-1 px-3 py-2 text-xs font-semibold text-danger hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors"
+ className="ml-auto inline-flex items-center gap-1 px-3 py-2 text-xs font-semibold text-danger hover:text-danger hover:bg-red-50 rounded-lg transition-colors"
  aria-label={t('jobBoard.filter.resetAll') || 'Reset all filters'}
  >
  <X className="w-3.5 h-3.5" />
@@ -6695,7 +6777,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authGateModalJsx}
 
- <div className="bg-gradient-to-br from-teal-50 to-stripe-50 dark:from-teal-950/30 dark:to-stripe-950/20 rounded-2xl p-6 border border-info-border">
+ <div className="bg-gradient-to-br from-info-subtle to-accent-subtle rounded-2xl p-6 border border-info-border">
  <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
  <div className="flex-shrink-0 p-3 bg-info-subtle rounded-xl">
  <Building2 className="w-8 h-8 text-info" />
