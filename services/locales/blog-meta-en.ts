@@ -2121,6 +2121,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Health insurance initiatives: Lega and PS disappointed after meeting with Ticino government',
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'The two popular initiatives approved on 28 September 2025 face opposition from the State Council. Disappointed expectations for the promoters: no direct implementation announced by the government',
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Exterior of Palazzo delle Orsoline in Bellinzona, seat of the Ticino Cantonal Government',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.title': 'Trains Gallarate-Sesto halted: what changes for cross-border workers heading to Ticino',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.excerpt': 'Saturday 19 and Sunday 20 April 2026: full stop between Gallarate and Sesto Calende. Replacement buses with mandatory booking, no bikes or animals allowed. EuroCity trains Milan-Domodossola cancelled.',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.imageAlt': 'Empty tracks at Gallarate railway station during the April 2026 train shutdown',
 };
 
 export default blogMetaEn;

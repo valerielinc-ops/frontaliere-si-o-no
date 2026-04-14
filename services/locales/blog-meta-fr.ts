@@ -2121,6 +2121,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Initiatives des caisses-maladie : la Ligue et le PS déçus après l’entretien avec le gouvernement tessinois',
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'Les deux initiatives populaires acceptées le 28 septembre 2025 se heurtent à l’opposition du Conseil d’État. Une attente déçue pour les promoteurs : aucune mise en œuvre directe n’a été annoncée par le gouvernement.',
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Extérieur du Palazzo delle Orsoline à Bellinzone, siège du Conseil d\'État tessinois',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.title': 'Arrêt des trains Gallarate-Sesto : quelles conséquences pour les frontaliers en direction du Tessin',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.excerpt': 'Samedi 19 et dimanche 20 avril 2026, arrêt total entre Gallarate et Sesto Calende. Bus de remplacement avec réservation obligatoire et sans vélos/animaux. EuroCity Milan-Domodossola annulés.',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.imageAlt': 'Voies ferrées désertes à la gare de Gallarate pendant l\'arrêt des trains en avril 2026',
 };
 
 export default blogMetaFr;

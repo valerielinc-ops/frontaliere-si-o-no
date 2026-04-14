@@ -2121,6 +2121,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Iniziative cassa malati: Lega e PS insoddisfatti dopo l’incontro col Governo ticinese',
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'Le due iniziative popolari approvate il 28 settembre 2025 incontrano l’opposizione del Consiglio di Stato. Aspettativa delusa per i promotori: nessuna implementazione diretta annunciata dal Governo',
     'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Esterno del Palazzo delle Orsoline a Bellinzona, sede del Consiglio di Stato ticinese',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.title': 'Fermo treni Gallarate-Sesto: cosa cambia per i frontalieri verso Ticino',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.excerpt': 'Sabato 19 e domenica 20 aprile 2026 stop totale tra Gallarate e Sesto Calende. Bus sostitutivi con prenotazione obbligatoria e without bici/animali. Eurocity cancellati Milano-Domodossola.',
+    'blog.article.fermo-treni-gallarate-sesto-aprile-2026.imageAlt': 'Stazione di Gallarate con binari vuoti durante il fine settimana di fermo dei treni',
 };
 
 export default blogMetaIt;

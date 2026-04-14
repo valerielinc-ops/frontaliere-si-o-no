@@ -7395,6 +7395,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fermo-treni-gallarate-sesto-aprile-2026': {
+    title: 'Fermo treni Gallarate-Sesto: cosa | Frontaliere Ticino',
+    description: 'Sabato 19 e domenica 20 aprile 2026 stop totale tra Gallarate e Sesto Calende. Bus sostitutivi con prenotazione obbligatoria e without bici/animali. Eurocity ca',
+    keywords: 'frontalieri, ticino, svizzera, italia, fermo, treni, gallarate-sesto, cosa',
+    ogTitle: 'Fermo treni Gallarate-Sesto: cosa cambia per i frontalier',
+    ogDescription: 'Sabato 19 e domenica 20 aprile 2026 stop totale tra Gallarate e Sesto Calende. Bus sostitutivi con prenotazione obbligatoria e without bici/animali. Eurocity ca',
+    canonicalPath: '/articoli-frontaliere/fermo-treni-gallarate-sesto-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fermo treni Gallarate-Sesto: cosa cambia per i frontalier",
+      "description": "Sabato 19 e domenica 20 aprile 2026 stop totale tra Gallarate e Sesto Calende. Bus sostitutivi con prenotazione obbligatoria e without bici/animali. Eurocity ca",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fermo-treni-gallarate-sesto-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Gallarate con binari vuoti durante il fine settimana di fermo dei treni"
+      },
+      "datePublished": "2026-04-14T00:25:43+00:00",
+      "dateModified": "2026-04-14T00:25:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fermo-treni-gallarate-sesto-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

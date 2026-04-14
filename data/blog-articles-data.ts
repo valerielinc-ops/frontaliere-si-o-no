@@ -5934,4 +5934,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fermo-treni-gallarate-sesto-aprile-2026',
+    category: 'pratico',
+    date: '2026-04-14T00:25:43.063Z',
+    image: '/images/blog/fermo-treni-gallarate-sesto-aprile-2026.jpg',
+    hasCalculator: true,
+  },
 ];
