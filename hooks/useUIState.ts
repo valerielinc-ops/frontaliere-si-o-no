@@ -11,15 +11,12 @@
  * - SPA pageview tracking (pushState/replaceState/popstate/hashchange)
  */
 import { useState, useEffect, useCallback } from 'react';
-import { useTranslation, initLocale, isTranslationsReady, itReady, loadTabTranslations } from '@/services/i18n';
-import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
+import { initLocale, isTranslationsReady, itReady, loadTabTranslations } from '@/services/i18n';
+import { onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import type { ActiveTab } from '@/services/router';
+import { enableRuntimeSeo } from '@/hooks/seoHelpers';
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
-
-// SEO service is lazy-loaded to reduce critical path.
-let runtimeSeoEnabled = false;
-export const enableRuntimeSeo = () => { runtimeSeoEnabled = true; };
 
 export interface UIState {
  isDarkMode: boolean;
@@ -31,11 +28,9 @@ export interface UIState {
  setIsFocusMode: (v: boolean) => void;
 }
 
-
-
 export function useUIState(activeTab: ActiveTab): UIState {
  const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);
- const [isDarkMode, setIsDarkMode] = useState(false);
+ const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
  const [isFocusMode, setIsFocusMode] = useState(false);
  const [showBlobs, setShowBlobs] = useState(false);
  const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
@@ -51,7 +46,7 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const chunk = tabChunkMap[activeTab];
  if (chunk) await loadTabTranslations(chunk);
  setTranslationsReady(true);
- });
+ }).catch(() => {});
  }
  }, [translationsReady]);
 
@@ -61,7 +56,7 @@ export function useUIState(activeTab: ActiveTab): UIState {
  vita: 'vita', stats: 'stats', blog: 'stats',
  };
  const chunk = tabChunkMap[activeTab];
- if (chunk) loadTabTranslations(chunk);
+ if (chunk) loadTabTranslations(chunk).catch(() => {});
  }, [activeTab]);
 
  // Initialize theme and Analytics
@@ -78,7 +73,10 @@ export function useUIState(activeTab: ActiveTab): UIState {
  document.documentElement.classList.remove('dark');
  }
 
- // Analytics Init
+ // Analytics Init:
+ // - immediate if analytics consent already granted
+ // - on consent update when user accepts from banner
+ // - fallback on first real interaction
  let analyticsReady = false;
  const analyticsEvents: Array<keyof WindowEventMap> = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
  const listenerOptions: AddEventListenerOptions = { passive: true };
@@ -92,11 +90,21 @@ export function useUIState(activeTab: ActiveTab): UIState {
  analyticsReady = true;
  enableRuntimeSeo();
  cleanupAnalyticsListeners();
+ // FRO-329: defer heavy analytics/tracking init to idle callback
+ // so it doesn't block the main thread during page interaction.
+ const run = () => {
  Analytics.init();
  Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
  Analytics.trackFunnelStep('entry', { source: document.referrer ? 'referral' : 'direct' });
  Analytics.initGlobalErrorTracking();
  import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
+ import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
+ };
+ if ('requestIdleCallback' in window) {
+ (window as any).requestIdleCallback(run, { timeout: 3000 });
+ } else {
+ run();
+ }
  };
  analyticsEvents.forEach((eventName) => {
  window.addEventListener(eventName, initAnalytics, listenerOptions);
@@ -182,12 +190,12 @@ export function useUIState(activeTab: ActiveTab): UIState {
  };
  }, []);
 
+ // toggleTheme uses functional setter to avoid stale closure
  const toggleTheme = useCallback(() => {
- const newMode = !isDarkMode;
- setIsDarkMode(newMode);
+ setIsDarkMode(prev => {
+ const newMode = !prev;
  Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
  if (newMode) unlockAchievement('dark_mode_fan');
-
  if (newMode) {
  document.documentElement.classList.add('dark');
  localStorage.theme = 'dark';
@@ -195,7 +203,9 @@ export function useUIState(activeTab: ActiveTab): UIState {
  document.documentElement.classList.remove('dark');
  localStorage.theme = 'light';
  }
- }, [isDarkMode]);
+ return newMode;
+ });
+ }, []);
 
  return {
  isDarkMode,
@@ -207,5 +217,3 @@ export function useUIState(activeTab: ActiveTab): UIState {
  setIsFocusMode,
  };
 }
-
-export { Analytics };

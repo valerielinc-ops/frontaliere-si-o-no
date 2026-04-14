@@ -29,8 +29,18 @@ vi.mock('@/services/analyticsProxy', () => ({
   unlockAchievement: vi.fn(),
 }));
 
+vi.mock('@/hooks/seoHelpers', () => ({
+  enableRuntimeSeo: vi.fn(),
+  updateMetaTags: vi.fn(),
+  trackSectionView: vi.fn(),
+}));
+
 vi.mock('@/services/webVitals', () => ({
   initWebVitals: vi.fn(),
+}));
+
+vi.mock('@/services/clarity', () => ({
+  initClarity: vi.fn(),
 }));
 
 import { useUIState } from '@/hooks/useUIState';
@@ -40,6 +50,8 @@ describe('useUIState', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     localStorage.clear();
+    // Clean up both the property and the class
+    delete (localStorage as any).theme;
     document.documentElement.classList.remove('dark');
   });
 
@@ -56,18 +68,13 @@ describe('useUIState', () => {
   });
 
   it('initializes dark mode from localStorage', () => {
-    localStorage.setItem('theme', 'dark');
-    // Need to set localStorage.theme directly (our mock uses getItem/setItem)
-    Object.defineProperty(localStorage, 'theme', { value: 'dark', writable: true, configurable: true });
+    // The hook reads localStorage.theme as a property (not getItem)
+    (localStorage as any).theme = 'dark';
 
     const { result } = renderHook(() => useUIState('calculator'));
 
     expect(result.current.isDarkMode).toBe(true);
     expect(document.documentElement.classList.contains('dark')).toBe(true);
-
-    // Cleanup
-    delete (localStorage as any).theme;
-    document.documentElement.classList.remove('dark');
   });
 
   describe('toggleTheme', () => {
@@ -85,11 +92,11 @@ describe('useUIState', () => {
       expect(unlockAchievement).toHaveBeenCalledWith('dark_mode_fan');
     });
 
-    it('disables dark mode when currently dark', () => {
-      // Start in dark mode
-      Object.defineProperty(localStorage, 'theme', { value: 'dark', writable: true, configurable: true });
+    it('disables dark mode when currently dark (functional setter)', () => {
       const { result } = renderHook(() => useUIState('calculator'));
 
+      // Toggle to dark
+      act(() => { result.current.toggleTheme(); });
       expect(result.current.isDarkMode).toBe(true);
 
       // Toggle back to light
@@ -98,9 +105,6 @@ describe('useUIState', () => {
       expect(result.current.isDarkMode).toBe(false);
       expect(document.documentElement.classList.contains('dark')).toBe(false);
       expect((localStorage as any).theme).toBe('light');
-
-      // Cleanup
-      delete (localStorage as any).theme;
     });
   });
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense } fr
 import { lazyRetry } from '@/services/lazyRetry';
 // Analytics proxy: lazy, fire-and-forget, deferred to user interaction (FRO-367)
 import { Analytics } from '@/services/analyticsProxy';
+import { useUIState } from '@/hooks/useUIState';
 // TabContentContext: passes app-level state to lazy tab content components (FRO-367)
 import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
@@ -74,7 +75,7 @@ const StatsTabContent = lazyRetry(() => import('@/components/tabs/StatsTabConten
 
 // calculationService is lazy-loaded — only needed when user clicks Calculate
 const lazyCalculate = () => import('@/services/calculationService');
-import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
+import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { initPostHog } from '@/services/posthog';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts)
@@ -82,35 +83,14 @@ import { initPostHog } from '@/services/posthog';
 setDefaultConsent();
 // Initialize PostHog EU Cloud analytics (async, non-blocking)
 initPostHog();
-// SEO service is lazy-loaded to reduce critical path.
-// Runtime SEO updates are enabled only after first interaction/navigation.
-let runtimeSeoEnabled = false;
-const enableRuntimeSeo = () => { runtimeSeoEnabled = true; };
-// For blog pages, ensure blog-meta translations are loaded before writing SEO tags.
-const updateMetaTags = (section: string) => {
- if (!runtimeSeoEnabled) return;
- const { locale: pathLocale } = parsePath(window.location.pathname);
- setLocale(pathLocale);
- const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section));
- if (section === 'blog' || section.startsWith('blog-')) {
- import('@/services/i18n')
- .then(m => m.loadBlogMeta())
- .catch(() => undefined)
- .finally(runUpdate);
- return;
- }
- runUpdate();
-};
-const trackSectionView = (section: string) => {
- if (!runtimeSeoEnabled) return;
- import('@/services/seoService').then(m => m.trackSectionView(section));
-};
+// SEO helpers live in hooks/seoHelpers.ts — shared between App.tsx and extracted hooks.
+import { enableRuntimeSeo, updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 // Apply noindex SEO for 404 pages — NOT gated by runtimeSeoEnabled because
 // soft-404 noindex must be set immediately on initial load before any user interaction.
 const applyNotFoundSeo = (path: string) => {
  import('@/services/seoService').then(m => m.applyNotFoundSeo(path));
 };
-import { useTranslation, initLocale, setLocale, onLocaleChange, itReady, isTranslationsReady, loadTabTranslations, getCantonI18nParams } from '@/services/i18n';
+import { useTranslation, setLocale, onLocaleChange, getCantonI18nParams } from '@/services/i18n';
 import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug, getLocalizedJobSlug } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
@@ -166,9 +146,6 @@ const LazyFallback = () => <SkeletonFallback />;
 const ADMIN_EMAIL_WHITELIST = ['luigisag@gmail.com', 'valerielinc@gmail.com'];
 
 const App: React.FC = () => {
- // Wait for Italian translations to load before rendering the full UI
- const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);
-
  const { t, locale } = useTranslation();
  const {
  user: authUser,
@@ -179,9 +156,6 @@ const App: React.FC = () => {
  } = useAuth();
  const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
  const [result, setResult] = useState<SimulationResult | null>(null);
- const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
- const [isFocusMode, setIsFocusMode] = useState(false);
- const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
 
  // Read initial route from URL path (or migrate legacy hash)
  const [initialRoute] = useState(() => {
@@ -190,6 +164,10 @@ const App: React.FC = () => {
  return { route: parsed.route, locale: parsed.locale };
  });
  const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
+
+ // UI state: dark mode, translations, deferred widgets, analytics init
+ const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+
  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
  const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
  const [confrontiSubTab, setConfrontiSubTab] = useState<ConfrontiSubTab>(initialRoute.route.confrontiSubTab || 'exchange');
@@ -339,30 +317,6 @@ const App: React.FC = () => {
  } catch {
  return false;
  }
- }, [activeTab]);
-
- // Load per-page IT translations: initial tab + on tab switch
- useEffect(() => {
- if (!translationsReady) {
- itReady.then(async () => {
- const tabChunkMap: Record<string, string> = {
- confronti: 'comparatori', fisco: 'fisco', guida: 'guide',
- vita: 'vita', stats: 'stats', blog: 'stats',
- };
- const chunk = tabChunkMap[activeTab];
- if (chunk) await loadTabTranslations(chunk);
- setTranslationsReady(true);
- }).catch(() => {});
- }
- }, [translationsReady]);
-
- useEffect(() => {
- const tabChunkMap: Record<string, string> = {
- confronti: 'comparatori', fisco: 'fisco', guida: 'guide',
- vita: 'vita', stats: 'stats', blog: 'stats',
- };
- const chunk = tabChunkMap[activeTab];
- if (chunk) loadTabTranslations(chunk).catch(() => {});
  }, [activeTab]);
 
  // Track if URL contained simulation params (skip profile prefill if so)
@@ -1183,147 +1137,8 @@ const App: React.FC = () => {
  }
  }, []);
 
- // Initialize theme and Analytics
- useEffect(() => {
- // i18n Init
- initLocale();
-
- // Theme Init
- if (localStorage.theme === 'dark') {
- setIsDarkMode(true);
- document.documentElement.classList.add('dark');
- } else {
- setIsDarkMode(false);
- document.documentElement.classList.remove('dark');
- }
-
- // Analytics Init:
- // - immediate if analytics consent already granted
- // - on consent update when user accepts from banner
- // - fallback on first real interaction
- let analyticsReady = false;
- const analyticsEvents: Array<keyof WindowEventMap> = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
- const listenerOptions: AddEventListenerOptions = { passive: true };
- const cleanupAnalyticsListeners = () => {
- analyticsEvents.forEach((eventName) => {
- window.removeEventListener(eventName, initAnalytics, listenerOptions);
- });
- };
- const initAnalytics = () => {
- if (analyticsReady || !isAnalyticsGranted()) return;
- analyticsReady = true;
- enableRuntimeSeo();
- cleanupAnalyticsListeners();
- // FRO-329: defer heavy analytics/tracking init to idle callback
- // so it doesn't block the main thread during page interaction.
- const run = () => {
- Analytics.init();
- Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
- Analytics.trackFunnelStep('entry', { source: document.referrer ? 'referral' : 'direct' });
- // Init global error tracking (window.onerror, unhandledrejection, SW stale cache recovery)
- Analytics.initGlobalErrorTracking();
- // Init Web Vitals telemetry (reports CWV to GA4)
- import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
- // Init Microsoft Clarity (free heatmaps & session recordings)
- import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
- };
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 3000 });
- } else {
- run();
- }
- };
- analyticsEvents.forEach((eventName) => {
- window.addEventListener(eventName, initAnalytics, listenerOptions);
- });
-
- // If user already consented in a previous session, track first pageview immediately.
- if (isAnalyticsGranted()) {
- initAnalytics();
- }
-
- // If user grants consent from cookie banner in this session, start tracking immediately.
- const unsubscribeConsent = onConsentChange((state) => {
- if (state.analytics) initAnalytics();
- });
-
- return () => {
- unsubscribeConsent();
- cleanupAnalyticsListeners();
- };
- }, []);
-
- useEffect(() => {
- // Centralized SPA pageview tracking for all route changes.
- const trackCurrentLocation = () => {
- Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
- };
-
- const originalPushState = history.pushState;
- const originalReplaceState = history.replaceState;
-
- history.pushState = function (...args) {
- const ret = originalPushState.apply(this, args as any);
- trackCurrentLocation();
- return ret;
- } as History['pushState'];
-
- history.replaceState = function (...args) {
- const ret = originalReplaceState.apply(this, args as any);
- trackCurrentLocation();
- return ret;
- } as History['replaceState'];
-
- window.addEventListener('popstate', trackCurrentLocation);
- window.addEventListener('hashchange', trackCurrentLocation);
-
- return () => {
- history.pushState = originalPushState;
- history.replaceState = originalReplaceState;
- window.removeEventListener('popstate', trackCurrentLocation);
- window.removeEventListener('hashchange', trackCurrentLocation);
- };
- }, []);
-
-
- // Defer non-essential widgets to improve first paint on mobile.
- useEffect(() => {
- let done = false;
- const complete = () => {
- if (done) return;
- done = true;
- setShowDeferredHomeWidgets(true);
- events.forEach((eventName) => window.removeEventListener(eventName, complete, listenerOptions));
- clearTimeout(timer);
- };
- const events: Array<keyof WindowEventMap> = ['pointerdown', 'keydown', 'touchstart'];
- const listenerOptions: AddEventListenerOptions = { passive: true };
- events.forEach((eventName) => window.addEventListener(eventName, complete, listenerOptions));
- const timer = window.setTimeout(complete, 7000);
- if (typeof requestIdleCallback === 'function') {
- requestIdleCallback(complete, { timeout: 7000 });
- }
- return () => {
- events.forEach((eventName) => window.removeEventListener(eventName, complete, listenerOptions));
- clearTimeout(timer);
- };
- }, []);
-
- const toggleTheme = useCallback(() => {
- setIsDarkMode(prev => {
- const newMode = !prev;
- Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
- if (newMode) unlockAchievement('dark_mode_fan');
- if (newMode) {
- document.documentElement.classList.add('dark');
- localStorage.theme = 'dark';
- } else {
- document.documentElement.classList.remove('dark');
- localStorage.theme = 'light';
- }
- return newMode;
- });
- }, []);
+ // Theme init, analytics init, SPA pageview tracking, deferred widgets,
+ // and toggleTheme are all managed by useUIState (hooks/useUIState.ts).
 
  const handleTabChange = useCallback((tab: ActiveTab) => {
  enableRuntimeSeo();
