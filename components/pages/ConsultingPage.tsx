@@ -135,7 +135,7 @@ const ConsultingPage: React.FC = () => {
  } ${isSelected ? 'ring-2 ring-accent ring-offset-2 ring-offset-surface-alt scale-[1.02]' : 'hover:border-edge'}`}
  >
  {tier.popular && (
- <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-warning text-warning text-xs font-bold rounded-full">
+ <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-warning text-on-accent text-xs font-bold rounded-full">
  {t('consulting.popular')}
  </div>
  )}

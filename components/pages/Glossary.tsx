@@ -163,7 +163,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  <h1 className="text-2xl font-bold">{t('glossary.title')}</h1>
  )}
  </div>
- <p className="text-accent text-sm">{t('glossary.subtitle')}</p>
+ <p className="text-on-accent/80 text-sm">{t('glossary.subtitle')}</p>
  <DataFreshness lastUpdated="2026-04" source={t('freshness.source.redazione')} variant="badge" />
  </div>
 
