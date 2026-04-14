@@ -90,7 +90,7 @@ const CarTransferGuide: React.FC = () => {
  ].map((item, i) => (
  <div key={i} className="flex gap-4">
  <div className="flex flex-col items-center">
- <div className="w-8 h-8 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-sm font-bold">{item.step}</div>
+ <div className="w-8 h-8 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-xs font-bold">{item.step}</div>
  {i < 4 && <div className="w-0.5 h-full bg-accent-subtle mt-1" />}
  </div>
  <div className="flex-1 pb-4">
@@ -154,12 +154,12 @@ const CarTransferGuide: React.FC = () => {
  <div className="bg-surface rounded-lg p-3 border border-accent-border">
  <div className="text-xs text-link font-semibold">{t('carTransfer.customs.ivaLabel')}</div>
  <div className="text-xl font-bold text-strong">8.1%</div>
- <div className="text-sm text-muted">{t('carTransfer.customs.ivaNote')}</div>
+ <div className="text-xs text-muted">{t('carTransfer.customs.ivaNote')}</div>
  </div>
  <div className="bg-surface rounded-lg p-3 border border-accent-border">
  <div className="text-xs text-link font-semibold">{t('carTransfer.customs.dutyLabel')}</div>
  <div className="text-xl font-bold text-strong">0 CHF</div>
- <div className="text-sm text-muted">{t('carTransfer.customs.dutyNote')}</div>
+ <div className="text-xs text-muted">{t('carTransfer.customs.dutyNote')}</div>
  </div>
  </div>
  </div>
@@ -220,7 +220,7 @@ const CarTransferGuide: React.FC = () => {
  <AlertCircle size={16} />
  {t('carTransfer.registration.tiTitle')}
  </h4>
- <p className="text-sm text-warning">{t('carTransfer.registration.tiDesc')}</p>
+ <p className="text-xs text-warning">{t('carTransfer.registration.tiDesc')}</p>
  <a
  href="https://www4.ti.ch/di/sc/veicoli/immatricolazione"
  target="_blank"
@@ -300,7 +300,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="mt-4 bg-accent-subtle rounded-xl p-4">
  <div className="flex items-start gap-2">
  <Info size={16} className="mt-0.5 shrink-0 text-accent" />
- <p className="text-sm text-accent">{t('carTransfer.plates.italianNote')}</p>
+ <p className="text-xs text-accent">{t('carTransfer.plates.italianNote')}</p>
  </div>
  </div>
  </div>
@@ -385,16 +385,16 @@ const CarTransferGuide: React.FC = () => {
  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
  <div className="bg-danger-subtle rounded-xl p-4 border border-danger-border">
  <h4 className="font-bold text-danger mb-2">{t('carTransfer.insurance.rcTitle')}</h4>
- <p className="text-sm text-danger">{t('carTransfer.insurance.rcDesc')}</p>
+ <p className="text-xs text-danger">{t('carTransfer.insurance.rcDesc')}</p>
  <div className="mt-2 text-xs text-danger">{t('carTransfer.insurance.rcNote')}</div>
  </div>
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
  <h4 className="font-bold text-warning mb-2">{t('carTransfer.insurance.cascoTitle')}</h4>
- <p className="text-sm text-warning">{t('carTransfer.insurance.cascoDesc')}</p>
+ <p className="text-xs text-warning">{t('carTransfer.insurance.cascoDesc')}</p>
  </div>
  <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
  <h4 className="font-bold text-accent mb-2">{t('carTransfer.insurance.assistTitle')}</h4>
- <p className="text-sm text-link">{t('carTransfer.insurance.assistDesc')}</p>
+ <p className="text-xs text-link">{t('carTransfer.insurance.assistDesc')}</p>
  </div>
  </div>
 

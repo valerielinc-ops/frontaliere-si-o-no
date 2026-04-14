@@ -436,7 +436,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  }`}
  >
  <div className="flex items-center gap-3 mb-3">
- <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-on-accent font-bold text-sm shadow-md`}>
+ <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-on-accent font-bold text-xs shadow-md`}>
  {effectiveWait(traffic)}
  </div>
  <div className="flex-1 min-w-0">

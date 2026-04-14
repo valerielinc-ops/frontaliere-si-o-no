@@ -374,7 +374,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Disclaimer */}
  <div className="bg-warning-subtle rounded-xl p-3 border border-warning-border flex items-start gap-2">
  <AlertTriangle className="w-4 h-4 text-warning shrink-0 mt-0.5" />
- <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
+ <p className="text-xs text-warning">{t('bordermap.disclaimer')}</p>
  </div>
  </div>
  )}
@@ -570,7 +570,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Info box */}
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
  <AlertTriangle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
- <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
+ <p className="text-xs text-warning">{t('bordermap.disclaimer')}</p>
  </div>
  </div>
 

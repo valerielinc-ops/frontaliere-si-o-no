@@ -457,7 +457,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </div>
  </div>
 
- <div className="bg-warning-subtle rounded-xl p-4 text-sm">
+ <div className="bg-warning-subtle rounded-xl p-4 text-xs">
  <div className="flex items-start gap-2">
  <Zap size={16} className="text-warning mt-0.5 flex-shrink-0" />
  <div className="text-body space-y-1">

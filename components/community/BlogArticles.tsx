@@ -2442,7 +2442,7 @@ function BlogArticles({
  <button
  key={cat}
  onClick={() => handleCategoryChange(cat)}
- className={`px-4 py-2 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
+ className={`px-4 py-2 rounded-full text-xs font-medium transition-[color,background-color,border-color,box-shadow] ${
  selectedCategory === cat
  ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface text-body border border-edge hover:border-accent-border'

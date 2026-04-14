@@ -118,7 +118,7 @@ export default function SiteMapPage() {
  return (
  <div className="space-y-6">
  <div className="text-center">
- <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent-subtle rounded-full text-sm text-accent font-medium mb-3">
+ <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent-subtle rounded-full text-xs text-accent font-medium mb-3">
  <Map className="w-4 h-4" />
  {t('sitemap.badge')}
  </div>

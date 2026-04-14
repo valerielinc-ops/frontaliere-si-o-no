@@ -418,12 +418,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  </div>
 
  {status === 'error' && (
- <div className="flex items-center gap-2 p-3 bg-danger-subtle rounded-xl text-danger text-sm">
+ <div className="flex items-center gap-2 p-3 bg-danger-subtle rounded-xl text-danger text-xs">
  <AlertCircle size={16} /> {errorMessage}
  </div>
  )}
  {status === 'exists' && (
- <div className="flex items-center gap-2 p-3 bg-warning-subtle rounded-xl text-warning text-sm">
+ <div className="flex items-center gap-2 p-3 bg-warning-subtle rounded-xl text-warning text-xs">
  <AlertCircle size={16} /> {t('newsletter.alreadySubscribedFull')}
  </div>
  )}

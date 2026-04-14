@@ -123,7 +123,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  return (
  <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
  <Info size={12} className="text-muted hover:text-info transition-colors" />
- <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-on-accent text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
+ <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-body text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
@@ -300,7 +300,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  <div className="space-y-6">
  {/* Header */}
  <div className="text-center">
- <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning-subtle text-warning text-sm font-semibold mb-3">
+ <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning-subtle text-warning text-xs font-semibold mb-3">
  <FileText size={16} />
  {t('strumenti.payslip')}
  </div>

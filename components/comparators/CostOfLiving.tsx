@@ -427,7 +427,7 @@ const CostOfLiving: React.FC = () => {
  </a>
  ))}
  </div>
- <p className="text-sm text-muted mt-2">{t('costOfLiving.disclaimer')}</p>
+ <p className="text-xs text-muted mt-2">{t('costOfLiving.disclaimer')}</p>
  </div>
  <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
  </div>

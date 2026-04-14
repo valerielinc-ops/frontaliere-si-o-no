@@ -296,7 +296,7 @@ export default function MortgageComparison() {
  <div className="space-y-6 animate-fade-in">
  {/* Header */}
  <div className="text-center space-y-2">
- <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-subtle text-accent text-sm font-medium">
+ <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-subtle text-accent text-xs font-medium">
  <Home size={16} />
  {t('mortgage.badge')}
  </div>

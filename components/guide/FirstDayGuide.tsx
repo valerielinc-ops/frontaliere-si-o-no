@@ -261,7 +261,7 @@ const FirstDayGuide: React.FC = () => {
  >
  <div className="p-4 flex items-center gap-3">
  {/* Step number */}
- <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
+ <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
  isCompleted
  ? 'bg-success-strong text-on-accent'
  : 'bg-surface-raised text-body'
@@ -313,7 +313,7 @@ const FirstDayGuide: React.FC = () => {
  {profileHints[step.id] && (
  <div className="flex items-start gap-2 p-3 bg-accent-subtle rounded-lg border border-accent-border">
  <User className="w-4 h-4 text-accent shrink-0 mt-0.5" />
- <p className="text-sm text-accent font-medium">{profileHints[step.id]}</p>
+ <p className="text-xs text-accent font-medium">{profileHints[step.id]}</p>
  </div>
  )}
 

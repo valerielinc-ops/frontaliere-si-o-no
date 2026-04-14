@@ -222,7 +222,7 @@ const TaxCreditCalculator: React.FC = () => {
  <div className="bg-accent-subtle border border-accent-border rounded-xl p-4 mb-6">
  <div className="flex gap-2">
  <Info size={18} className="text-accent mt-0.5 shrink-0" />
- <p className="text-sm text-accent">{t('taxCredit.info')}</p>
+ <p className="text-xs text-accent">{t('taxCredit.info')}</p>
  </div>
  </div>
 

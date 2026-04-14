@@ -1267,7 +1267,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="text-center py-12 text-muted">
  <Calendar size={48} className="mx-auto mb-3 opacity-30" />
  <p className="font-bold">{t('calendar.noDeadlinesFound')}</p>
- <p className="text-sm">{t('calendar.noDeadlinesHint')}</p>
+ <p className="text-xs">{t('calendar.noDeadlinesHint')}</p>
  </div>
  )}
  </div>

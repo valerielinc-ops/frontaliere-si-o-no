@@ -354,7 +354,7 @@ const HealthInsurance: React.FC = () => {
  : 'border-edge hover:border-edge'}`}>
  <div className="p-4 cursor-pointer" role="button" tabIndex={0} onClick={() => { setExpandedCard(isExpanded ? null : result.insurer.id); if (!isExpanded) Analytics.trackHealthInsurance('view_provider', result.insurer.id); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpandedCard(isExpanded ? null : result.insurer.id); if (!isExpanded) Analytics.trackHealthInsurance('view_provider', result.insurer.id); } }} aria-expanded={isExpanded} aria-label={`${result.insurer.name} — ${isExpanded ? 'chiudi' : 'apri'} dettagli`}>
  <div className="flex items-center gap-4">
- <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+ <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${
  result.rank === 1 ? 'bg-success-subtle text-success'
  : result.rank <= 3 ? 'bg-accent-subtle text-accent'
  : 'bg-surface-raised text-muted'}`}>

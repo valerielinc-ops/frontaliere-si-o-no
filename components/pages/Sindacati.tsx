@@ -161,7 +161,7 @@ export default function Sindacati() {
  <div className="space-y-8">
  {/* Header */}
  <div className="text-center">
- <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-subtle text-accent text-sm font-semibold mb-3">
+ <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-subtle text-accent text-xs font-semibold mb-3">
  <Scale size={16} />
  Sindacati per Frontalieri
  </div>

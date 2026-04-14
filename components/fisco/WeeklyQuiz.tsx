@@ -457,7 +457,7 @@ const WeeklyQuiz: React.FC = () => {
  className={`w-full text-left p-4 rounded-xl border-2 transition-colors ${optionClass}`}
  >
  <div className="flex items-center gap-3">
- <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
+ <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
  showResult && isCorrect ? 'bg-success-strong text-on-accent' :
  showResult && isSelected ? 'bg-danger-strong text-on-accent' :
  'bg-surface-raised text-subtle'

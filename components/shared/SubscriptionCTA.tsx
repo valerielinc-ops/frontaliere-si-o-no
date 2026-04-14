@@ -188,8 +188,8 @@ const SubscriptionCTA: React.FC = () => {
  <>
  <Mail className="w-10 h-10 text-warning mx-auto mb-2" />
  <p className="font-bold text-strong">{t('newsletter.doubleOptIn.title')}</p>
- <p className="text-sm text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
- <p className="text-sm text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
+ <p className="text-xs text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
+ <p className="text-xs text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
 
  {/* FRO-23: Email provider button */}
  {email && (() => {

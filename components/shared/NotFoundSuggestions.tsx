@@ -159,7 +159,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  {t('notFound.subtitle')}
  </p>
  {contextMessage && (
- <p className="mt-2 text-sm text-warning bg-warning-subtle rounded-lg px-3 py-1.5 inline-block">
+ <p className="mt-2 text-xs text-warning bg-warning-subtle rounded-lg px-3 py-1.5 inline-block">
  {contextMessage}
  </p>
  )}

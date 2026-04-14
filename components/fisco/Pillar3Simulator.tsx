@@ -354,7 +354,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="flex items-center gap-1.5 text-danger"><XCircle size={12} /> {t('pillar3.noRealGrowth')}</div>
  </div>
  <div className="pt-2 border-t border-edge">
- <p className="text-sm text-muted italic">{t('pillar3.exampleBanks')}</p>
+ <p className="text-xs text-muted italic">{t('pillar3.exampleBanks')}</p>
  </div>
  </div>
 
@@ -380,7 +380,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="flex items-center gap-1.5 text-danger"><XCircle size={12} /> {t('pillar3.shortTermLosses')}</div>
  </div>
  <div className="pt-2 border-t border-edge">
- <p className="text-sm text-muted italic">{t('pillar3.exampleFunds')}</p>
+ <p className="text-xs text-muted italic">{t('pillar3.exampleFunds')}</p>
  </div>
  </div>
 
@@ -407,7 +407,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="flex items-center gap-1.5 text-danger"><XCircle size={12} /> {t('pillar3.earlyPenalties')}</div>
  </div>
  <div className="pt-2 border-t border-edge">
- <p className="text-sm text-muted italic">{t('pillar3.exampleInsurance')}</p>
+ <p className="text-xs text-muted italic">{t('pillar3.exampleInsurance')}</p>
  </div>
  </div>
  </div>

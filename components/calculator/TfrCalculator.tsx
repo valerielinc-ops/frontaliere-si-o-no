@@ -112,7 +112,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  return (
  <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
  <Info size={14} className="text-muted hover:text-info transition-colors" />
- <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-surface-raised text-on-accent text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-edge ${open ? 'block' : 'hidden group-hover:block'}`}>
+ <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-surface-raised text-body text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-edge ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>

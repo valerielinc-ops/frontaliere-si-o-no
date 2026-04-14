@@ -306,7 +306,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <Calendar className="w-5 h-5" />
  {t('leave.frontaliereTitle')}
  </h4>
- <p className="text-sm text-info mb-3">{t('leave.frontaliereDesc')}</p>
+ <p className="text-xs text-info mb-3">{t('leave.frontaliereDesc')}</p>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
  <div className="bg-surface/60 rounded-lg p-3">
  <p className="text-muted">{t('leave.chIPG')}</p>

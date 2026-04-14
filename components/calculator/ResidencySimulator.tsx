@@ -532,7 +532,7 @@ const ResidencySimulator: React.FC = () => {
  {result.taxNote && (
  <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border flex items-start gap-3">
  <Briefcase className="w-5 h-5 text-accent shrink-0 mt-0.5" />
- <p className="text-sm text-accent">{t(result.taxNote)}</p>
+ <p className="text-xs text-accent">{t(result.taxNote)}</p>
  </div>
  )}
 
@@ -542,7 +542,7 @@ const ResidencySimulator: React.FC = () => {
  {/* Disclaimer */}
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
  <AlertCircle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
- <p className="text-sm text-warning">{t('residency.disclaimer')}</p>
+ <p className="text-xs text-warning">{t('residency.disclaimer')}</p>
  </div>
  </div>
  );

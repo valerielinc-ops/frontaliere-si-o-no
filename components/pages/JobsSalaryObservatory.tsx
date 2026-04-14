@@ -253,11 +253,11 @@ function LeaderBlock(props: {
  </div>
 
  <div className="rounded-3xl border border-warning-border bg-warning-subtle p-5">
- <h3 className="mb-2 flex items-center gap-2 text-sm font-bold text-warning">
+ <h3 className="mb-2 flex items-center gap-2 text-xs font-bold text-warning">
  <Wallet className="h-4 w-4" />
  {copy.disclaimerTitle}
  </h3>
- <p className="text-sm leading-7 text-warning">{copy.disclaimer}</p>
+ <p className="text-xs leading-7 text-warning">{copy.disclaimer}</p>
  </div>
 
  <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">

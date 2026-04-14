@@ -227,7 +227,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  )}
 
  {/* Orange banner */}
- <div className="rounded-xl bg-warning-subtle border border-warning-border px-4 py-3 text-sm text-warning">
+ <div className="rounded-xl bg-warning-subtle border border-warning-border px-4 py-3 text-xs text-warning">
  {BANNER_COPY[locale] ?? BANNER_COPY.it}
  </div>
 

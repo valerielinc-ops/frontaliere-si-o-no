@@ -171,12 +171,12 @@ const SwissTaxReturn: React.FC = () => {
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  <div className="bg-surface rounded-lg p-3 border border-warning-border">
- <h5 className="font-bold text-sm text-warning mb-1">{t('swissTaxReturn.overview.oldFrontalier')}</h5>
- <p className="text-sm text-warning">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
+ <h5 className="font-bold text-xs text-warning mb-1">{t('swissTaxReturn.overview.oldFrontalier')}</h5>
+ <p className="text-xs text-warning">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
  </div>
  <div className="bg-surface rounded-lg p-3 border border-warning-border">
- <h5 className="font-bold text-sm text-warning mb-1">{t('swissTaxReturn.overview.newFrontalier')}</h5>
- <p className="text-sm text-warning">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
+ <h5 className="font-bold text-xs text-warning mb-1">{t('swissTaxReturn.overview.newFrontalier')}</h5>
+ <p className="text-xs text-warning">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
  </div>
  </div>
  </div>
@@ -245,17 +245,17 @@ const SwissTaxReturn: React.FC = () => {
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
  <div className="flex items-center gap-2 mb-2">
  <AlertTriangle size={16} className="text-warning" />
- <h4 className="font-bold text-warning text-sm">{t('swissTaxReturn.quellensteuer.newAgreement')}</h4>
+ <h4 className="font-bold text-warning text-xs">{t('swissTaxReturn.quellensteuer.newAgreement')}</h4>
  </div>
- <p className="text-sm text-warning mb-3">{t('swissTaxReturn.quellensteuer.newAgreementDesc')}</p>
+ <p className="text-xs text-warning mb-3">{t('swissTaxReturn.quellensteuer.newAgreementDesc')}</p>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
  <div className="bg-surface rounded-lg p-2 border border-warning-border">
  <span className="text-xs font-bold text-warning">{t('swissTaxReturn.quellensteuer.newAgrOld')}</span>
- <p className="text-sm text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
+ <p className="text-xs text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
  </div>
  <div className="bg-surface rounded-lg p-2 border border-warning-border">
  <span className="text-xs font-bold text-warning">{t('swissTaxReturn.quellensteuer.newAgrNew')}</span>
- <p className="text-sm text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
+ <p className="text-xs text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
  </div>
  </div>
  </div>

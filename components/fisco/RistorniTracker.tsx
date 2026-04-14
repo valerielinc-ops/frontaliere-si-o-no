@@ -98,7 +98,7 @@ const RistorniTracker: React.FC = () => {
  <p className="text-xs text-neutral">{t('ristorni.oldAgreementDesc')}</p>
  </div>
  <div className="bg-warning-subtle rounded-xl p-3">
- <h4 className="font-bold text-sm text-warning mb-1">{t('ristorni.newAgreement')}</h4>
+ <h4 className="font-bold text-xs text-warning mb-1">{t('ristorni.newAgreement')}</h4>
  <p className="text-xs text-warning">{t('ristorni.newAgreementDesc')}</p>
  </div>
  </div>

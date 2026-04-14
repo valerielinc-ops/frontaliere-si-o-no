@@ -252,7 +252,7 @@ export default function CarCostCalculator() {
  </button>
 
  {showSdoganamento && (
- <div className="bg-warning-subtle rounded-lg p-4 text-sm">
+ <div className="bg-warning-subtle rounded-lg p-4 text-xs">
  <p className="font-semibold text-warning mb-2">{t('carCost.sdoganamento')}</p>
  <p className="text-body mb-2">{t('carCost.sdoganamentoDesc')}</p>
  <div className="flex items-center gap-2">

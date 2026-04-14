@@ -473,14 +473,14 @@ const WorkPermitsGuide: React.FC = () => {
  </div>
  <div className="mt-3 flex items-start gap-2 bg-warning-subtle rounded-lg p-3">
  <AlertTriangle size={16} className="text-warning flex-shrink-0 mt-0.5" />
- <p className="text-sm text-warning font-medium">{t('permits.g.switchWarning')}</p>
+ <p className="text-xs text-warning font-medium">{t('permits.g.switchWarning')}</p>
  </div>
  </div>
 
  {/* Sources */}
  <div className="bg-neutral-subtle rounded-xl p-5 flex items-start gap-3">
  <FileText size={16} className="text-muted flex-shrink-0 mt-0.5" />
- <p className="text-sm text-subtle">{t('permits.g.switchNote')}</p>
+ <p className="text-xs text-subtle">{t('permits.g.switchNote')}</p>
  </div>
  </div>
  </Section>

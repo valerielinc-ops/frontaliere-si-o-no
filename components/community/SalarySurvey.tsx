@@ -218,7 +218,7 @@ const SalarySurvey: React.FC = () => {
  {/* Privacy notice */}
  <div className="bg-success-subtle rounded-xl p-4 border border-success-border flex items-start gap-3">
  <Lock className="w-5 h-5 text-success shrink-0 mt-0.5" />
- <p className="text-sm text-success">{t('salary.privacy')}</p>
+ <p className="text-xs text-success">{t('salary.privacy')}</p>
  </div>
 
  {/* Survey Form or Thank You */}

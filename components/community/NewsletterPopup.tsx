@@ -443,7 +443,7 @@ const NewsletterPopup: React.FC = () => {
  <p className="text-sm text-subtle">
  {reminderMode ? t('newsletter.pendingReminder.description') : t('newsletter.doubleOptIn.description')}
  </p>
- <p className="text-sm text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
+ <p className="text-xs text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
 
  {/* FRO-23: Email provider button */}
  {email && (() => {

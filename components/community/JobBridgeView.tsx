@@ -252,7 +252,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  )}
 
  {/* Blue banner */}
- <div className="rounded-xl bg-accent-subtle border border-accent-border px-4 py-3 text-sm text-accent">
+ <div className="rounded-xl bg-accent-subtle border border-accent-border px-4 py-3 text-xs text-accent">
  {BANNER_COPY[locale] ?? BANNER_COPY.it}
  </div>
 

@@ -4606,8 +4606,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="min-w-0">
  <p className="text-sm font-bold text-warning">{t('newsletter.doubleOptIn.title')}</p>
- <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.description')}</p>
- <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
+ <p className="mt-1 text-xs text-warning">{t('newsletter.doubleOptIn.description')}</p>
+ <p className="mt-1 text-xs text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
  <p className="mt-2 text-xs font-medium text-warning">{authNotice.email}</p>
  </div>
  </div>
@@ -6346,7 +6346,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  )}
  <div className="text-center space-y-3">
- <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-sm font-medium">
+ <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-xs font-medium">
  <Briefcase className="w-4 h-4" />
  {t('jobBoard.badge')}
  </div>
@@ -6782,7 +6782,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="text-center py-12 text-muted">
  <Briefcase className="w-10 h-10 mx-auto mb-3 opacity-30" />
  <p className="font-medium">{t('jobBoard.noResults')}</p>
- <p className="text-sm mt-1">{t('jobBoard.noResultsHint')}</p>
+ <p className="text-xs mt-1">{t('jobBoard.noResultsHint')}</p>
  </div>
  )}
  </div>

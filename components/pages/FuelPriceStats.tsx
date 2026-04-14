@@ -479,7 +479,7 @@ export default function FuelPriceStats() {
  </div>
 
  {personalizedRecommendation.savingsEur != null && (
- <div className="rounded-2xl border border-warning-border bg-warning-subtle px-4 py-3 text-sm font-semibold text-warning">
+ <div className="rounded-2xl border border-warning-border bg-warning-subtle px-4 py-3 text-xs font-semibold text-warning">
  {tt('fuelPrices.personalizedSavingPrefix', 'Risparmio stimato rispetto all alternativa')}: {formatMoney(personalizedRecommendation.savingsEur, 'EUR', locale, 2)}
  </div>
  )}
@@ -494,7 +494,7 @@ export default function FuelPriceStats() {
  <div className="flex flex-col gap-4">
  <div className="flex flex-col gap-2">
  <h2 className="text-lg font-bold text-heading sm:text-xl">{tt('fuelPrices.compareByMunicipality', 'Confronto per comune')}</h2>
- <p className="text-sm text-muted">{tt('fuelPrices.compareHint', 'Tocca un comune per aprire subito sotto il dettaglio completo, anche da mobile.')}</p>
+ <p className="text-xs text-muted">{tt('fuelPrices.compareHint', 'Tocca un comune per aprire subito sotto il dettaglio completo, anche da mobile.')}</p>
  </div>
 
  <div className="grid gap-3 lg:grid-cols-[1fr,auto,auto]">

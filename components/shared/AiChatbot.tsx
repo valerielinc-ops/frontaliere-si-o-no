@@ -714,7 +714,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  </div>
  <h3 className="text-base font-semibold text-heading mb-2">{t('chatbot.title')}</h3>
  <p className="text-sm text-subtle mb-3 leading-relaxed">{t('chatbot.authRequiredToSend')}</p>
- <p className="text-sm text-muted">{t('chatbot.preAuthHint')}</p>
+ <p className="text-xs text-muted">{t('chatbot.preAuthHint')}</p>
  <div className="mt-4 w-full max-w-xs space-y-2">
  {[
  t('chatbot.suggestion1'),
@@ -849,7 +849,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  onClick={handleSend}
  disabled={loading || !input.trim()}
- className="p-2.5 rounded-xl bg-accent hover:bg-accent-hover disabled:bg-surface-raised text-on-accent transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ className="p-2.5 rounded-xl bg-accent hover:bg-accent-hover disabled:bg-surface-raised text-on-accent disabled:text-muted transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  aria-label={t('chatbot.sendLabel')}
  >
  <Send size={16} />

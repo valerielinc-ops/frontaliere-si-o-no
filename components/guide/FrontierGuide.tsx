@@ -1570,7 +1570,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <strong className="text-success">{t('guide.livingIT.healthOpt2')}</strong>
  <div className="text-xs mt-1">{t('guide.livingIT.healthOpt2Desc')}</div>
  </div>
- <div className="p-3 bg-accent-subtle rounded-lg text-sm text-accent">
+ <div className="p-3 bg-accent-subtle rounded-lg text-xs text-accent">
  💡 {t('guide.livingIT.healthTip')}
  </div>
  </div>
@@ -1630,7 +1630,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="bg-gradient-to-br from-info-subtle to-success-subtle rounded-2xl border-2 border-info-border p-6">
  <div className="flex items-start gap-3">
  <Info size={24} className="text-info flex-shrink-0" />
- <div className="space-y-3 text-sm text-info">
+ <div className="space-y-3 text-xs text-info">
  <p className="font-bold">📋 {t('guide.livingIT.checklistTitle')}</p>
  <div className="grid sm:grid-cols-2 gap-2 text-xs">
  <div className="flex items-center gap-2">
@@ -2321,7 +2321,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Introduction */}
  <InfoCard icon={AlertCircle} title={t('guide.unemployment.intro.title')} color="orange">
  <p className="text-subtle text-sm leading-relaxed mb-3">{t('guide.unemployment.intro.text')}</p>
- <div className="bg-warning-subtle border border-warning-border rounded-xl p-3 text-sm">
+ <div className="bg-warning-subtle border border-warning-border rounded-xl p-3 text-xs">
  <strong className="text-warning">⚠️ {t('guide.unemployment.intro.important')}</strong>
  </div>
  </InfoCard>
