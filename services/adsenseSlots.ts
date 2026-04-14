@@ -185,4 +185,32 @@ export const AD_SLOTS = {
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
+  /** Job detail: auth gate — shown below sign-in form for unauthenticated users */
+  JOBDETAIL_AUTH_GATE: {
+    slot: '3205029282',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Job detail: auth gate — desktop left rail */
+  AUTHGATE_RAIL_LEFT: {
+    slot: '2190721703',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Job detail: auth gate — desktop right rail */
+  AUTHGATE_RAIL_RIGHT: {
+    slot: '7139796055',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Job detail: auth gate — end multiplex below content */
+  AUTHGATE_END_MULTIPLEX: {
+    slot: '5826714385',
+    format: 'autorelaxed',
+    fullWidthResponsive: false,
+    placeholderMinHeight: 400,
+  },
 } as const;

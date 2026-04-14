@@ -9,6 +9,25 @@ import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useSt
 const JobAlertForm = lazy(() => import('@/components/community/JobAlertForm'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
+import { normalizeSearchText } from '@/services/textUtils';
+import {
+  type BehaviorData,
+  getBehaviorData,
+  trackJobViewBehavior,
+  trackSearch as trackSearchBehavior,
+  trackFilterUsage,
+  getLastVisitTimestamp,
+  updateLastVisit,
+} from '@/services/behaviorTracker';
+import {
+  computePersonalScore,
+  computeNewJobsCount,
+  getTrendingByLocation,
+  computeTrendingBoost,
+} from '@/services/personalizationScoring';
+import NewJobsCounter from '@/components/community/NewJobsCounter';
+import TrendingSection from '@/components/community/TrendingSection';
+import popularityData from '@/data/job-popularity.json';
 import { calculateSimulation } from '@/services/calculationService';
 import { DEFAULT_INPUTS } from '@/constants';
 import {
@@ -37,6 +56,7 @@ import {
   Sparkles,
   Star,
   Tag,
+  UserCheck,
   Users,
   X,
 } from 'lucide-react';
@@ -332,6 +352,10 @@ interface JobBoardProps {
   onGoogleAuthRequired?: () => Promise<any | null>;
   onFacebookAuthRequired?: () => Promise<any | null>;
   onRequireAuth?: () => void;
+  /** Personalization feature flag (from Firebase Remote Config) */
+  enablePersonalization?: boolean;
+  /** User profile data for personalization scoring */
+  userProfile?: import('@/components/pages/UserProfile').UserProfileData | null;
 }
 
 const CATEGORY_EMOJI: Record<JobCategory, string> = {
@@ -2236,15 +2260,7 @@ function isValidRelatedSearchTerm(value: string): boolean {
   return true;
 }
 
-function normalizeSearchText(value: string): string {
-  return String(value || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
+// normalizeSearchText extracted to services/textUtils.ts for reuse by personalizationScoring
 
 function normalizeUrlForDedup(raw: string): string {
   const value = String(raw || '').trim();
@@ -2431,6 +2447,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   onGoogleAuthRequired,
   onFacebookAuthRequired,
   onRequireAuth,
+  enablePersonalization = false,
+  userProfile = null,
 }) => {
   const { t } = useTranslation();
   const [locale] = useLocale();
@@ -2467,6 +2485,60 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const authUnlockCandidateRef = useRef<string | null>(null);
   const wasLoggedInRef = useRef(isLoggedIn);
 
+  // ── Personalization: behavior data + derived state ──
+  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
+  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
+  const popularity = popularityData as Record<string, number>;
+
+  // Load behavior data on mount and update last visit
+  useEffect(() => {
+    if (!enablePersonalization) return;
+    const data = getBehaviorData();
+    setBehaviorData(data);
+    updateLastVisit();
+  }, [enablePersonalization]);
+
+  // Track filter usage changes
+  useEffect(() => {
+    if (!enablePersonalization) return;
+    if (selectedCategory !== 'all') trackFilterUsage('category', selectedCategory);
+  }, [enablePersonalization, selectedCategory]);
+  useEffect(() => {
+    if (!enablePersonalization) return;
+    if (selectedLocation !== 'all') trackFilterUsage('location', selectedLocation);
+  }, [enablePersonalization, selectedLocation]);
+  useEffect(() => {
+    if (!enablePersonalization) return;
+    if (selectedContract !== 'all') trackFilterUsage('contract', selectedContract);
+  }, [enablePersonalization, selectedContract]);
+
+  // Track search queries (debounced via deferredSearchQuery)
+  useEffect(() => {
+    if (!enablePersonalization || !deferredSearchQuery.trim()) return;
+    trackSearchBehavior(deferredSearchQuery.trim(), 0);
+    setBehaviorData(getBehaviorData());
+  }, [enablePersonalization, deferredSearchQuery]);
+
+  // New jobs counter
+  const newJobsInfo = useMemo(() => {
+    if (!enablePersonalization || !behaviorData) return { total: 0, matching: 0 };
+    const lastVisit = getLastVisitTimestamp();
+    return computeNewJobsCount(jobs, lastVisit, behaviorData, userProfile ?? null);
+  }, [enablePersonalization, behaviorData, jobs, userProfile]);
+
+  // Trending jobs for user's location
+  const userLocation = userProfile?.municipality ?? null;
+  const trendingJobs = useMemo(() => {
+    if (!enablePersonalization) return [];
+    return getTrendingByLocation(jobs, popularity, userLocation);
+  }, [enablePersonalization, jobs, popularity, userLocation]);
+
+  // Whether personalization is actively changing sort order (any job scored > 0)
+  const isPersonalizationActive = useMemo(() => {
+    if (!enablePersonalization || !behaviorData) return false;
+    return jobs.some((j) => computePersonalScore(j, behaviorData, userProfile ?? null).score > 0);
+  }, [enablePersonalization, behaviorData, jobs, userProfile]);
+
   // Apply filter params from SiteSearch navigation (location, search query)
   useEffect(() => {
     if (!initialFilterParams) return;
@@ -2483,6 +2555,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
   const isMobile = useMediaQuery('(max-width: 767px)');      // md breakpoint
   const isDesktopLg = useMediaQuery('(min-width: 1024px)');   // lg breakpoint
+  const isDesktopXl = useMediaQuery('(min-width: 1280px)');   // xl breakpoint
 
   // --- List state preservation across detail navigation ---
   const savedListState = useRef<{ page: number; scrollY: number } | null>(null);
@@ -2866,14 +2939,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const sortedJobs = useMemo(() => {
     // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
-    // These are NOT Swiss positions and should never appear on the job board.
     const swissJobs = jobs.filter(j => {
       const loc = j.addressLocality || j.location || '';
       return !isForeignLocation(loc);
     });
 
-    // Step 2: Canton priority for remaining Swiss jobs.
-    // TARGET_CANTONS_ORDERED first (TI, GR, VS), non-target Swiss cantons after.
+    // Step 2: Canton priority + personalization scoring
     const cantonRank = (job: JobListing) => {
       if (job.addressLocality && isNonTargetSwissCity(job.addressLocality)) {
         return TARGET_CANTONS_ORDERED.length;
@@ -2885,19 +2956,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const t = new Date(d || 0);
       return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
     };
+
+    const shouldPersonalize = enablePersonalization && behaviorData;
+
     const withMeta = swissJobs.map(j => ({
       job: j,
       rank: cantonRank(j),
       day: dayTs(j.crawledAt || j.postedDate),
       qs: j.qualityScore ?? 0,
+      personal: shouldPersonalize
+        ? computePersonalScore(j, behaviorData, userProfile ?? null)
+        : { score: 0, topSignal: '' },
     }));
     withMeta.sort((a, b) =>
-      (a.rank - b.rank)
+      (b.personal.score - a.personal.score)
+      || (a.rank - b.rank)
       || (b.day - a.day)
       || (b.qs - a.qs)
     );
     return withMeta.map(({ job }) => job);
-  }, [jobs]);
+  }, [jobs, enablePersonalization, behaviorData, userProfile]);
 
   // Pre-built search index: caches normalised haystack per job so
   // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
@@ -3725,7 +3803,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
   useEffect(() => {
     if (!selectedJob?.slug) return;
     trackJobView(selectedJob.slug);
-  }, [selectedJob?.slug]);
+    // Personalization: track behavior for scoring
+    if (enablePersonalization && selectedJob) {
+      trackJobViewBehavior({
+        slug: selectedJob.slug,
+        category: selectedJob.category || 'other',
+        company: selectedJob.company || '',
+        location: selectedJob.addressLocality || selectedJob.location || '',
+      });
+      setBehaviorData(getBehaviorData());
+    }
+  }, [selectedJob?.slug, enablePersonalization]);
 
   useEffect(() => {
     if (!authResolved || !authGateOpen || hasAccess) return;
@@ -5339,6 +5427,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
           {authPendingNoticeJsx}
 
+          {/* 3-column grid: left rail | content | right rail (desktop xl only) */}
+          <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
+
+            {/* ── Left Rail (desktop xl only) ── */}
+            <aside className="hidden xl:block">
+              <div className="sticky top-6 space-y-3">
+                {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_LEFT.slot && (
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.AUTHGATE_RAIL_LEFT.slot}
+                    adFormat={AD_SLOTS.AUTHGATE_RAIL_LEFT.format}
+                    fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_LEFT.fullWidthResponsive}
+                  />
+                )}
+              </div>
+            </aside>
+
+            {/* ── Center content ── */}
+            <div className="space-y-4">
+
           {/* Job header — always visible */}
           <div className="rounded-stripe border border-edge bg-surface p-5">
             <div className="flex items-start gap-4">
@@ -5499,6 +5606,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
               {authError && <p className="text-sm text-red-600 dark:text-red-300 mt-2">{authError}</p>}
             </div>
           </div>
+
+          {/* AdSense — below auth gate form */}
+          {AD_SLOTS.JOBDETAIL_AUTH_GATE.slot && (
+            <AdSenseBanner
+              adSlot={AD_SLOTS.JOBDETAIL_AUTH_GATE.slot}
+              adFormat={AD_SLOTS.JOBDETAIL_AUTH_GATE.format}
+              fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
+            />
+          )}
+            </div>
+
+            {/* ── Right Rail (desktop xl only) ── */}
+            <aside className="hidden xl:block">
+              <div className="sticky top-6 space-y-3">
+                {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot && (
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot}
+                    adFormat={AD_SLOTS.AUTHGATE_RAIL_RIGHT.format}
+                    fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_RIGHT.fullWidthResponsive}
+                  />
+                )}
+              </div>
+            </aside>
+
+          </div>
+
+          {/* AdSense — end multiplex below 3-column layout */}
+          {AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot && (
+            <AdSenseBanner
+              adSlot={AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot}
+              adFormat={AD_SLOTS.AUTHGATE_END_MULTIPLEX.format}
+              className="mt-2"
+            />
+          )}
         </div>
       );
     }
@@ -6425,6 +6566,37 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
       </div>
 
+      {/* ── Personalization: NewJobsCounter + Personalizzato pill + TrendingSection ── */}
+      {enablePersonalization && (
+        <div className="space-y-3">
+          {!newJobsDismissed && newJobsInfo.total > 0 && (
+            <NewJobsCounter
+              newJobsCount={newJobsInfo.total}
+              matchingCount={newJobsInfo.matching}
+              onDismiss={() => setNewJobsDismissed(true)}
+            />
+          )}
+          {isPersonalizationActive && (
+            <div
+              role="status"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-stripe-50 dark:bg-stripe-950/30 border border-stripe-200/60 dark:border-stripe-800/40 text-xs font-medium text-stripe-600 dark:text-stripe-400 transition-opacity duration-300 ease-in motion-reduce:transition-none"
+            >
+              <UserCheck className="w-3.5 h-3.5" />
+              Personalizzato per te
+            </div>
+          )}
+          {trendingJobs.length >= 3 && (
+            <TrendingSection
+              trendingJobs={trendingJobs}
+              popularity={popularity}
+              onJobClick={(slug) => {
+                const job = jobs.find((j) => j.slug === slug);
+                if (job) openDetail(job);
+              }}
+            />
+          )}
+        </div>
+      )}
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 min-h-[28px]">
         <p className="text-xs sm:text-sm text-muted">
