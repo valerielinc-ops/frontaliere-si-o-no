@@ -6358,13 +6358,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', getCantonI18nParams())}</p>
  </div>
 
- {/* ─── Hub intro paragraph — SEO anchor text for broad queries ─── */}
- {!companySlugFilter && !searchSlugFilter && (
- <p className="text-sm leading-relaxed text-subtle max-w-3xl mx-auto text-center">
- {t('jobBoard.hubIntro', getCantonI18nParams())}
- </p>
- )}
-
  {/* ─── Search & Filters ─── */}
  <div className="space-y-3">
  {/* Hero search bar */}
