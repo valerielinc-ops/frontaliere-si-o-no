@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-04-13T21:32:55.604Z",
+  "assembledAt": "2026-04-14T09:46:35.685Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-9884a452c7d6",
@@ -39,11 +39,11 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-IT_j_3809206",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:53.481Z",
+      "crawledAt": "2026-04-14T09:46:33.593Z",
       "previousSlugs": [
         "mitarbeiter-in-it-davos-klosters-bergbahnen-ag-davos",
         "collaboratore-it-davos-klosters-bergbahnen-ag-davos"
@@ -118,11 +118,11 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Gruppen-Events_j_2433221",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:53.193Z",
+      "crawledAt": "2026-04-14T09:46:33.317Z",
       "previousSlugs": [
         "collaboratore-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos",
         "associate-gruppen-events-davos-klosters-bergbahnen-ag-davos",
@@ -207,11 +207,11 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:52.907Z",
+      "crawledAt": "2026-04-14T09:46:33.031Z",
       "previousSlugs": [
         "associate-front-office-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-front-office-davos-klosters-bergbahnen-ag-davos"
@@ -286,11 +286,11 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:52.653Z",
+      "crawledAt": "2026-04-14T09:46:32.750Z",
       "previousSlugs": [
         "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
         "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
@@ -355,11 +355,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Service-Club-Hotel_j_3702688",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:52.368Z",
+      "crawledAt": "2026-04-14T09:46:32.470Z",
+      "firstSeenAt": "2026-04-13T21:32:55.604Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -372,8 +374,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "firstSeenAt": "2026-04-13T21:32:55.604Z"
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-04875753134f",
@@ -412,11 +413,11 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3024838",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:52.131Z",
+      "crawledAt": "2026-04-14T09:46:32.188Z",
       "previousSlugs": [
         "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos",
         "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos"
@@ -429,6 +430,8 @@
           "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos"
         ]
       },
+      "firstSeenAt": "2026-04-13T21:32:55.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -441,8 +444,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "firstSeenAt": "2026-04-13T21:32:55.604Z"
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-e19f7f290e00",
@@ -481,11 +483,11 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:51.839Z",
+      "crawledAt": "2026-04-14T09:46:31.908Z",
       "previousSlugs": [
         "betriebselektriker-in-davos-klosters-bergbahnen-ag-davos"
       ],
@@ -541,7 +543,7 @@
       "descriptionByLocale": {
         "it": "Mansioni - Allrounder 100% ## Il Ristorante Il ristorante Jatzmeder si trova a un'altitudine di 2'054 metri sul livello del mare in una splendida zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, inclusa una grande terrazza soleggiata. La vita.",
         "en": "Mansioni - Allrounder 100% ## Il Ristorante Il ristorante Jatzmeder si trova a un'altitudine di 2'054 metri sul livello del mare in una bellissima zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, inclusa una grande terrazza soleggiata. prairie.",
-        "de": "## Mansioni\n\n- Allrounder 100%\n\n## Il Ristorante\n\nIl ristorante Jatzmeder si trova a un'altitudine di 2'054 metri sul livello del mare in una bellissima zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, inclusa una grande terrazza soleggiata.\n\n## Compiti\n\n- Ordinare correttamente il piatto sporco, posate, bicchieri e utensili da cucina\n- Servire e caricare la lavastoviglie in modo ordinato\n- Eseguire le pulizie e il riordino quotidiane\n- Eseguire i lavori di pulizia generali nel ristorante di montagna e nell'hotel ghost\n- Sostenere il team di cucina nella cucina fredda\n\n## Profilo\n\n- Capacità di apprendimento rapido, lavoro autonomo, affidabile e flessibile\n- Lavoro di squadra: lavora volentieri in squadra e pronto a collaborare in altri settori\n- Impiego: mantiene la calma in situazioni caotiche, disponibile per il lavoro nei fine settimana\n- Lingue: buone conoscenze della lingua tedesca e inglese, sia in scrittura che in parlato, comprensione del dialetto\n\n## Cosa Offriamo\n\n- Squadra motivata con un'atmosfera di lavoro flessibile e positiva\n- Orari di lavoro prevalentemente regolari con turni diurni\n- Carta stagionale delle Davos Klosters Bergbahnen\n- Possibilità di alloggio o camera in affitto\n- Palestra a condizioni speciali\n- Benefici attraenti per le offerte e i servizi interni\n\n## Contatto\n\nInviaci la tua candidatura se interessato.",
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne- Superior Hotel. Für die kommende Sommersaison 2026 suchen wir für das Bergrestaurant Jatzmeder eine Person als: Allrounder 100% Das Restaurant Das Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterrasse. Deine Aufgaben Korrektes Sortieren von schmutzigem Geschirr, Besteck, Gläsern und Küchenutensilien Ordnungsgemässes Bedienen und Bestücken der Spülmaschine Durchführung täglicher Reinigungs- und Aufräumarbeiten Allgemeine Reinigungsarbeiten im Bergrestaurant und Berghostel Unterstützung des Küchenteams in der kalten Küche Dein Profil Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und flexibel Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen mitzuhelfen Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind für dich in Ordnung Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und Sprache und verstehst Dialekt Wir bieten Aufgestelltes Team mit flexiblem und positivem Arbeitsklima Vorwiegend geregelte Arbeitszeiten mit Tagdiensten Saisonkarte der Davos Klosters Bergbahnen Vermittlung von Personalwohnungen- oder zimmern Fitnessraum zu Spezialkonditionen Attraktive Benefits für interne Angebote und Leistungen Bei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
         "fr": "Mansioni - Allrounder 100% ## Il Ristorante Il ristoante Jatzmeder si trova a un'altitudine di 2'054 metri sul liverllo del mare in una bellissima zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, y compris una grande terrazza soleggiata. Prairies."
       },
       "requirements": [],
@@ -555,11 +557,14 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3004218",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:51.554Z",
+      "crawledAt": "2026-04-14T09:46:31.626Z",
+      "previousSlugs": [
+        "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
@@ -568,9 +573,8 @@
           "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
         ]
       },
-      "previousSlugs": [
-        "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:32:55.604Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -583,10 +587,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "firstSeenAt": "2026-04-13T21:32:55.604Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-7fd2202b6ea7",
@@ -625,11 +626,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:32:51.269Z",
+      "crawledAt": "2026-04-14T09:46:31.340Z",
+      "firstSeenAt": "2026-04-13T21:32:55.604Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -642,8 +645,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "firstSeenAt": "2026-04-13T21:32:55.604Z"
+      "postalCode": "7270"
     }
   ]
 }
