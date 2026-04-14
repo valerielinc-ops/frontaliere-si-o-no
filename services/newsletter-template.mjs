@@ -347,6 +347,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
   const jobCount = totalJobs || matchedJobs.length;
   const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
     const initial = (job.company || '?')[0].toUpperCase();
+    const truncatedTitle = job.title && job.title.length > 55 ? job.title.slice(0, 55).trimEnd() + '…' : job.title;
     const tags = [];
     if (i === 0) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
@@ -361,7 +362,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
                 <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>
               </td>
               <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
-                <div class="job-title" style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escapeHtml(job.title)}</div>
+                <div class="job-title" style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;line-height:1.3;">${escapeHtml(truncatedTitle)}</div>
                 <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${escapeHtml(job.company)}${job.location ? ' \u00b7 ' + escapeHtml(job.location) : ''}</div>
                 ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
               </td>

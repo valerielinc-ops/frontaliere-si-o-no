@@ -457,7 +457,8 @@ const JOB_CTA = {
 function renderJobSection({ jobs, campaign, locale }) {
   if (!jobs || jobs.length === 0) return '';
   const rows = jobs.slice(0, 5).map((j) => {
-    const title = esc(String(j.title || '').slice(0, 80));
+    const rawTitle = String(j.title || '');
+    const title = esc(rawTitle.length > 55 ? rawTitle.slice(0, 55).trimEnd() + '…' : rawTitle);
     const company = esc(String(j.company || ''));
     const location = esc(String(j.location || ''));
     const jobUrl = utmUrl(j.url || `/cerca-lavoro-ticino/${j.slug}/`, campaign);
