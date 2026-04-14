@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { isValidElement, createElement, type ReactNode } from 'react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface SegmentOption {
@@ -37,9 +37,9 @@ export function SegmentControl({
  : 'text-muted hover:text-strong'
  }`}
  >
- {IconEl && (typeof IconEl === 'function'
- ? <IconEl size={16} />
- : IconEl
+ {IconEl && (isValidElement(IconEl)
+ ? IconEl
+ : createElement(IconEl as LucideIcon, { size: 16 })
  )}
  <span className="hidden sm:inline">{opt.label}</span>
  </button>
