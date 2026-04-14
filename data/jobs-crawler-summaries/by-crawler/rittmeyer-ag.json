@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-04-13T22:18:55.902Z",
+  "generatedAt": "2026-04-14T10:32:42.468Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2286,
-  "avgDurationMs": 2286,
+  "durationMs": 3370,
+  "avgDurationMs": 3370,
   "durationHistory": [
-    2286
+    3370
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -42,6 +42,7 @@
       "streetAddress": "Inwilerriedstrasse 57",
       "postalCode": "6340",
       "id": "rittmeyer-ag-e474959dc11f",
+      "firstSeenAt": "2026-04-13T22:18:55.902Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
