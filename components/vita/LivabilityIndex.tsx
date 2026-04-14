@@ -114,7 +114,7 @@ export default function LivabilityIndex() {
  </div>
 
  {/* Controls */}
- <div className="bg-olive-50 dark:bg-olive-950 rounded-xl shadow p-5 border border-olive-200 dark:border-olive-800">
+ <div className="bg-neutral-subtle rounded-xl shadow p-5 border border-neutral-border">
  <div className="flex flex-wrap gap-4 items-end">
  {/* Province filter */}
  <div className="flex-1 min-w-[160px]">
@@ -159,7 +159,7 @@ export default function LivabilityIndex() {
  <div className="flex gap-1 bg-surface-raised rounded-lg p-1">
  <button
  onClick={() => setViewMode('table')}
- className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
+ className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
  viewMode === 'table'
  ? 'bg-surface text-warning shadow'
  : 'text-subtle hover:text-strong'
@@ -170,7 +170,7 @@ export default function LivabilityIndex() {
  </button>
  <button
  onClick={() => setViewMode('map')}
- className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
+ className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
  viewMode === 'map'
  ? 'bg-surface text-warning shadow'
  : 'text-subtle hover:text-strong'

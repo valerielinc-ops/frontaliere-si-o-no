@@ -329,7 +329,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 12: Contact */}
- <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/20 rounded-[6px] border border-accent-border p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-[6px] border border-accent-border p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Contattaci

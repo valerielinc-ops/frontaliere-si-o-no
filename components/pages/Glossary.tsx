@@ -241,7 +241,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  >
  <button
  onClick={() => { setExpandedEntry(isExpanded ? null : entry.key); if (!isExpanded) Analytics.trackGuideSection(`glossary_${entry.key}`, 'expand'); }}
- className="w-full flex items-center justify-between p-4 text-left focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 focus-visible:rounded-xl"
+ className="w-full flex items-center justify-between p-4 text-left focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2 focus-visible:rounded-xl"
  >
  <div className="flex items-center gap-3">
  <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.bg} ${colors.text}`}>

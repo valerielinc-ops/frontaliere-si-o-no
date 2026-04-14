@@ -201,7 +201,7 @@ const FirstDayGuide: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-4 sm:p-6 border border-warning-border">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl p-4 sm:p-6 border border-warning-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-warning-subtle rounded-xl">
  <Flag className="w-6 h-6 text-warning" />
@@ -297,7 +297,7 @@ const FirstDayGuide: React.FC = () => {
  </span>
  <button
  onClick={() => setExpandedStep(isExpanded ? null : step.id)}
- className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
+ className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-body"
  aria-label={isExpanded ? 'Comprimi' : 'Espandi'}
  aria-expanded={isExpanded}
  >

@@ -42,7 +42,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  <Info size={12} className="text-muted hover:text-teal-600 transition-colors" />
  <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
- <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+ <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
  </button>
  );
@@ -52,7 +52,7 @@ const iconBgMap: Record<string, string> = {
  'text-stripe-600': 'bg-accent-subtle text-stripe-600',
  'text-stripe-500': 'bg-accent-subtle text-stripe-500',
  'text-gray-500': 'bg-surface-raised/30 text-muted',
- 'text-orange-500': 'bg-orange-100 dark:bg-orange-900/30 text-orange-500',
+ 'text-orange-500': 'bg-warning-subtle text-warning',
  'text-amber-700': 'bg-warning-subtle text-amber-700',
 };
 
@@ -64,10 +64,10 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
  aria-expanded={isOpen}
  aria-controls={sectionId}
  onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
- className={`w-full flex items-center justify-between p-4 rounded-xl transition-[color,background-color,box-shadow] duration-300 group cursor-pointer ${isOpen ? 'bg-surface shadow-sm' : 'hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
+ className={`w-full flex items-center justify-between p-4 rounded-xl transition-[color,background-color,box-shadow] duration-300 group cursor-pointer ${isOpen ? 'bg-surface shadow-sm' : 'hover:bg-white/50 /50'}`}
  >
  <div className="flex items-center gap-3">
- <div className={`p-2 rounded-lg transition-colors ${isOpen ? (iconBgMap[iconColor] ?? `bg-surface-raised ${iconColor}`) : 'bg-surface-raised text-subtle group-hover:bg-white dark:group-hover:bg-slate-700'}`}>
+ <div className={`p-2 rounded-lg transition-colors ${isOpen ? (iconBgMap[iconColor] ?? `bg-surface-raised ${iconColor}`) : 'bg-surface-raised text-subtle group-hover:bg-surface'}`}>
  <Icon size={18} />
  </div>
  <div className="text-left">
@@ -422,7 +422,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  </div>
  {!isFocusMode && (
- <button onClick={handleReset} className="p-2 text-muted hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
+ <button onClick={handleReset} className="p-2 text-muted hover:text-red-500 hover:bg-danger-subtle rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
  <RotateCcw size={18} />
  </button>
  )}
@@ -552,7 +552,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* Teaser preview — shows a quick result summary when result is available */}
  {result && inputs.annualIncomeCHF > 0 && (
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-success-border p-4 space-y-3">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-4 space-y-3">
  <div className="text-xs font-bold text-success uppercase tracking-widest">{t('input.compact.preview')}</div>
  <div className="grid grid-cols-2 gap-3">
  <div className="bg-surface/70 rounded-xl p-3 border border-success-border/50">
@@ -615,7 +615,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-[color,background-color,border-color,box-shadow] ${
  activePreset === preset.id
  ? 'bg-orange-500 text-white border-orange-500 shadow-sm'
- : 'bg-surface border-edge text-subtle hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400'
+ : 'bg-surface border-edge text-subtle hover:border-orange-400 hover:text-warning'
  }`}
  >
  <Zap size={12} />
@@ -997,7 +997,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* SECTION 5: EXPERIMENTAL FEATURES - Only visible for OLD frontier workers */}
  {inputs.frontierWorkerType === 'OLD' && (
- <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-900/40 rounded-2xl border border-warning-border overflow-hidden shadow-md">
+ <div className="bg-gradient-to-br from-warning-subtle via-warning-subtle to-warning-subtle rounded-2xl border border-warning-border overflow-hidden shadow-md">
  <SectionHeader 
  title={t('input.experimentalFeatures')} 
  icon={Joystick} 

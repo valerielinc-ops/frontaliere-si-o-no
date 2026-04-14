@@ -205,7 +205,7 @@ const SalarySurvey: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-2xl p-4 sm:p-6 border border-info-border">
+ <div className="bg-gradient-to-br from-info-subtle to-info-subtle rounded-2xl p-4 sm:p-6 border border-info-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-info-subtle rounded-xl">
  <BarChart3 className="w-6 h-6 text-info" />
@@ -401,7 +401,7 @@ const SalarySurvey: React.FC = () => {
  {/* Simple bar chart */}
  <div className="mt-4 h-8 bg-surface-raised rounded-full overflow-hidden relative">
  <div
- className="absolute inset-y-0 left-0 bg-gradient-to-r from-teal-200 to-teal-400 dark:from-teal-800 dark:to-teal-600 rounded-full"
+ className="absolute inset-y-0 left-0 bg-gradient-to-r from-info/40 to-info rounded-full"
  style={{
  left: `${(agg.p25 / agg.p75) * 30}%`,
  width: `${Math.max(20, ((agg.p75 - agg.p25) / agg.p75) * 100)}%`,

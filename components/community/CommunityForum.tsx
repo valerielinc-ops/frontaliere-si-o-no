@@ -37,14 +37,14 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
- fiscalita: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
+ fiscalita: 'bg-success-subtle text-success',
  permessi: 'bg-accent-subtle text-accent',
  assicurazioni: 'bg-danger-subtle text-danger',
  pensione: 'bg-warning-subtle text-warning',
- trasporti: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400',
+ trasporti: 'bg-warning-subtle text-warning',
  residenza: 'bg-accent-subtle text-accent',
- lavoro: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400',
- famiglia: 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-400',
+ lavoro: 'bg-info-subtle text-info',
+ famiglia: 'bg-danger-subtle text-danger',
  generale: 'bg-surface-raised text-body',
 };
 
@@ -241,7 +241,7 @@ const CommunityForum: React.FC = () => {
  {/* Back button */}
  <button
  onClick={() => { setSelectedQuestion(null); setAnswers([]); }}
- className="flex items-center gap-2 text-sm font-bold text-muted hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+ className="flex items-center gap-2 text-sm font-bold text-muted hover:text-body transition-colors"
  >
  <ArrowLeft className="w-4 h-4" />
  {t('forum.backToList') || 'Torna alle domande'}
@@ -258,8 +258,8 @@ const CommunityForum: React.FC = () => {
  disabled={!user}
  className={`p-1.5 rounded-lg transition-colors ${
  user && selectedQuestion.upvotedBy.includes(user.uid)
- ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
- : 'text-slate-500 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
+ ? 'bg-success-subtle text-success'
+ : 'text-slate-500 hover:text-emerald-500 hover:bg-success-subtle'
  } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
  aria-label="Vota positivo"
  >
@@ -319,7 +319,7 @@ const CommunityForum: React.FC = () => {
  <div className="space-y-3">
  {answers.map(answer => (
  <div key={answer.id} className={`bg-surface rounded-xl border p-4 ${
- answer.accepted ? 'border-success-border bg-emerald-50/50 dark:bg-emerald-950/10' : 'border-edge'
+ answer.accepted ? 'border-success-border bg-success-subtle' : 'border-edge'
  }`}>
  <div className="flex items-start gap-3">
  <div className="flex flex-col items-center gap-1">
@@ -328,7 +328,7 @@ const CommunityForum: React.FC = () => {
  disabled={!user}
  className={`p-1 rounded-lg transition-colors ${
  user && answer.upvotedBy.includes(user.uid)
- ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+ ? 'bg-success-subtle text-success'
  : 'text-muted hover:text-emerald-500'
  } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
  aria-label="Vota positivo"
@@ -398,7 +398,7 @@ const CommunityForum: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl p-4 sm:p-6 border border-success-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-success-subtle rounded-xl">
  <MessageSquare className="w-6 h-6 text-success" />

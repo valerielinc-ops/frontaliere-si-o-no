@@ -275,8 +275,8 @@ const NewFrontierOver20KmHub: React.FC = () => {
 
  return (
  <section className="mb-6 rounded-[28px] border border-edge bg-surface shadow-sm overflow-hidden">
- <div className="px-5 py-6 sm:px-7 sm:py-8 bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.14),_transparent_38%),linear-gradient(180deg,rgba(248,250,252,1),rgba(255,255,255,0.92))] dark:bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.16),_transparent_32%),linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))]">
- <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-3 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300">
+ <div className="px-5 py-6 sm:px-7 sm:py-8 bg-hero-info">
+ <div className="inline-flex items-center gap-2 rounded-full border border-info-border bg-info-subtle px-3 py-1 text-xs font-semibold text-info">
  <Sparkles className="w-3.5 h-3.5" />
  {copy.badge}
  </div>
@@ -304,7 +304,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
  <div className="px-5 py-6 sm:px-7 sm:py-8 space-y-8">
  <div>
  <div className="flex items-center gap-2 text-sm font-bold text-heading">
- <Calculator className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+ <Calculator className="w-4 h-4 text-info" />
  {copy.casesTitle}
  </div>
  <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -333,7 +333,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
  </div>
  <div className="flex items-center justify-between gap-3">
  <span className="text-subtle">{copy.labelNetMonthly}</span>
- <span className="font-bold text-sky-700 dark:text-sky-300">{money(result.itResident.netIncomeMonthly, locale, 'CHF')}</span>
+ <span className="font-bold text-info">{money(result.itResident.netIncomeMonthly, locale, 'CHF')}</span>
  </div>
  <div className="flex items-center justify-between gap-3">
  <span className="text-subtle">{copy.labelEffRate}</span>
@@ -342,7 +342,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
  </div>
  <a
  href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: income === 60000 ? 'salary-60000-over20km' : income === 80000 ? 'salary-80000-over20km' : 'salary-100000-over20km' }, locale)}
- className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 dark:text-sky-300 no-underline hover:underline"
+ className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-info no-underline hover:underline"
  >
  {copy.links[0].label}
  <ArrowRight className="w-4 h-4" />
@@ -390,11 +390,11 @@ const NewFrontierOver20KmHub: React.FC = () => {
  <a
  key={link.label}
  href={buildPath(link.route, locale)}
- className="group rounded-2xl border border-edge bg-surface p-4 no-underline hover:border-sky-300 dark:hover:border-sky-600 transition-colors"
+ className="group rounded-2xl border border-edge bg-surface p-4 no-underline hover:border-info-border transition-colors"
  >
  <div className="flex items-center justify-between gap-3">
  <span className="text-sm font-semibold text-heading">{link.label}</span>
- <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors" />
+ <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-info transition-colors" />
  </div>
  </a>
  ))}

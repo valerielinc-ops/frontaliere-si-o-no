@@ -290,7 +290,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
  {nav && (
  <button
  onClick={() => { nav.setActiveTab('vita' as any); nav.setVitaSubTab('schools' as any); }}
- className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-accent-subtle border border-accent-border rounded-xl text-sm font-medium text-accent hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition"
+ className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-accent-subtle border border-accent-border rounded-xl text-sm font-medium text-accent hover:bg-accent-subtle transition"
  aria-label={t('guide.schools.title')}
  >
  <ArrowRight size={16} />

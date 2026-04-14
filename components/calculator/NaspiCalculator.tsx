@@ -96,7 +96,7 @@ export default function NaspiCalculator() {
  v.toLocaleString('it-CH', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
  return (
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-success-border p-5 space-y-5">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-5 space-y-5">
  {/* Header */}
  <div className="flex items-center gap-3">
  <div className="p-2.5 bg-success-subtle rounded-xl">
@@ -273,7 +273,7 @@ export default function NaspiCalculator() {
  {/* Detailed table (collapsed by default) */}
  <button
  onClick={() => setShowTable(!showTable)}
- className="flex items-center gap-2 text-sm font-medium text-success hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+ className="flex items-center gap-2 text-sm font-medium text-success hover:text-success transition-colors"
  aria-label={showTable ? t('naspi.calc.hideTable') : t('naspi.calc.showTable')}
  >
  {showTable ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -293,7 +293,7 @@ export default function NaspiCalculator() {
  </thead>
  <tbody className="divide-y divide-edge">
  {result.rows.map((r) => (
- <tr key={r.month} className={r.decalagePercent > 0 ? 'bg-orange-50/50 dark:bg-orange-950/10' : ''}>
+ <tr key={r.month} className={r.decalagePercent > 0 ? 'bg-warning-subtle/70' : ''}>
  <td className="p-2 font-medium text-body">{r.month}</td>
  <td className="p-2 text-right text-strong">{formatEUR2(r.gross)}</td>
  <td className="p-2 text-right text-warning">

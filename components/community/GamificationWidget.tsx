@@ -200,12 +200,12 @@ const GamificationWidget: React.FC = () => {
  setIsOpen(nextOpen);
  Analytics.trackUIInteraction('gamification', 'widget', 'toggle', isOpen ? 'close' : 'open');
  }}
- className={`relative p-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
+ className={`relative p-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
  hasUnreadAchievements
  ? 'bg-warning-subtle text-warning'
  : isOpen
  ? 'bg-surface-raised text-body'
- : 'text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-surface-raised'
+ : 'text-slate-500 hover:text-body hover:bg-surface-raised'
  }`}
  title={`${levelTitle} — ${state.xp} XP`}
  aria-label={`Gamification: ${levelTitle}, ${state.xp} XP`}
@@ -217,7 +217,7 @@ const GamificationWidget: React.FC = () => {
  {isOpen && (
  <div className="fixed sm:absolute inset-x-2 sm:inset-x-auto sm:right-0 top-16 sm:top-full sm:mt-2 sm:w-[340px] bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden z-[80] animate-slide-up max-h-[calc(100vh-5rem)] overflow-y-auto">
  {/* Header — level info */}
- <div className="px-4 py-3 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-b border-edge">
+ <div className="px-4 py-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border-b border-edge">
  <div className="flex items-center gap-3">
  <div className="relative flex-shrink-0">
  <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
@@ -295,7 +295,7 @@ const GamificationWidget: React.FC = () => {
  <div className="px-3 pb-3">
  <button
  onClick={() => { setIsOpen(false); nav.navigateTo('gamification'); }}
- className="w-full py-2.5 text-xs font-bold text-warning bg-warning-subtle hover:bg-amber-100 dark:hover:bg-amber-900/40 rounded-xl transition-colors border border-warning-border focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+ className="w-full py-2.5 text-xs font-bold text-warning bg-warning-subtle hover:bg-amber-100 rounded-xl transition-colors border border-warning-border focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 "
  >
  {t('gamification.viewAll') || 'Vedi tutti gli achievement →'}
  </button>

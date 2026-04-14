@@ -385,7 +385,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Left column: settings & info */}
  <div className="space-y-4">
  {/* Header */}
- <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-2xl p-6 border border-info-border">
+ <div className="bg-gradient-to-br from-info-subtle to-info-subtle rounded-2xl p-6 border border-info-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-info-subtle rounded-xl">
  <MapPin className="w-6 h-6 text-info" />
@@ -461,7 +461,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
 
  {/* ─── Tax Impact Section ─────────────────────────────── */}
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border border-warning-border">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl p-6 border border-warning-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-warning-subtle rounded-xl">
  <DollarSign className="w-6 h-6 text-warning" />
@@ -711,7 +711,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <span className="text-xs px-1.5 py-0.5 rounded bg-surface-raised text-subtle font-bold">{m.province}</span>
  <span className={`text-xs px-1.5 py-0.5 rounded font-bold ${
  m.fascia === '2'
- ? 'bg-orange-100 dark:bg-orange-900/30 text-warning'
+ ? 'bg-warning-subtle text-warning'
  : 'bg-info-subtle text-info'
  }`}>
  {t('bordermap.fascia')} {m.fascia}

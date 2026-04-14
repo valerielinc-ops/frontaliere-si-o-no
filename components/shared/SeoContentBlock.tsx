@@ -54,7 +54,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
 }> = {
  calculator: {
  Icon: Calculator,
- gradient: 'from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/30',
+ gradient: 'from-accent-subtle to-accent-subtle',
  collapsedBg: 'bg-accent-subtle/60',
  iconBg: 'bg-accent-subtle',
  iconText: 'text-link',
@@ -63,7 +63,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
  },
  confronti: {
  Icon: Scale,
- gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30',
+ gradient: 'from-success-subtle to-info-subtle',
  collapsedBg: 'bg-success-subtle/60',
  iconBg: 'bg-success-subtle',
  iconText: 'text-success',
@@ -72,7 +72,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
  },
  fisco: {
  Icon: Landmark,
- gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30',
+ gradient: 'from-success-subtle to-info-subtle',
  collapsedBg: 'bg-success-subtle/60',
  iconBg: 'bg-success-subtle',
  iconText: 'text-success',
@@ -81,7 +81,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
  },
  guida: {
  Icon: BookOpen,
- gradient: 'from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30',
+ gradient: 'from-warning-subtle to-warning-subtle',
  collapsedBg: 'bg-warning-subtle/60',
  iconBg: 'bg-warning-subtle',
  iconText: 'text-warning',
@@ -90,7 +90,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
  },
  vita: {
  Icon: Users,
- gradient: 'from-amber-50 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/30',
+ gradient: 'from-warning-subtle to-warning-subtle',
  collapsedBg: 'bg-warning-subtle/60',
  iconBg: 'bg-warning-subtle',
  iconText: 'text-warning',
@@ -99,7 +99,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
  },
  stats: {
  Icon: Target,
- gradient: 'from-teal-50 to-stripe-50 dark:from-teal-950/30 dark:to-stripe-950/30',
+ gradient: 'from-info-subtle to-accent-subtle',
  collapsedBg: 'bg-info-subtle',
  iconBg: 'bg-info-subtle',
  iconText: 'text-info',
@@ -220,7 +220,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  {t('seoContent.trust.free')}
  </span>
  </div>
- <Info className="w-3.5 h-3.5 text-muted shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" aria-hidden="true" />
+ <Info className="w-3.5 h-3.5 text-muted shrink-0 group-hover:text-body transition-colors" aria-hidden="true" />
  {expanded
  ? <ChevronUp className="w-4 h-4 text-muted shrink-0" aria-hidden="true" />
  : <ChevronDown className="w-4 h-4 text-muted shrink-0" aria-hidden="true" />
@@ -278,7 +278,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  >
  <ArrowRight className={`w-3.5 h-3.5 shrink-0 ${config.iconText} group-hover/card:translate-x-0.5 transition-transform`} aria-hidden="true" />
  <div className="min-w-0">
- <p className="text-sm font-medium text-body group-hover/card:text-stripe-600 dark:group-hover/card:text-stripe-400 transition-colors">
+ <p className="text-sm font-medium text-body group-hover/card:text-accent transition-colors">
  {t(`${feature.i18nKey}.title`)}
  </p>
  <p className="text-sm text-muted mt-0.5 line-clamp-1">

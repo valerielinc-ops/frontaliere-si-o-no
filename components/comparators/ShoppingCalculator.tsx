@@ -267,7 +267,7 @@ const ShoppingCalculator: React.FC = () => {
  <input type="checkbox" checked={showOnlySavings} onChange={e => setShowOnlySavings(e.target.checked)} className="w-4 h-4" aria-label={t('shopping.onlySavings')} />
  <span className="font-bold text-body">{t('shopping.onlySavings')}</span>
  </label>
- <button onClick={selectAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-800" aria-label={t('shopping.selectAll')}>
+ <button onClick={selectAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-accent-subtle text-accent hover:bg-accent-subtle" aria-label={t('shopping.selectAll')}>
  {t('shopping.selectAll')}
  </button>
  <button onClick={clearAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle hover:bg-surface-raised" aria-label={t('shopping.clearAll')}>
@@ -323,9 +323,9 @@ const ShoppingCalculator: React.FC = () => {
  </div>
  {isSelected && (
  <div className="mt-3 flex items-center justify-center gap-3 border-t border-edge pt-3" onClick={e => e.stopPropagation()}>
- <button onClick={() => updateQuantity(product.id, qty - 1)} className="w-8 h-8 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-red-200 dark:hover:bg-red-800 text-heading" aria-label="Decrease quantity">-</button>
+ <button onClick={() => updateQuantity(product.id, qty - 1)} className="w-8 h-8 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-danger-subtle text-heading" aria-label="Decrease quantity">-</button>
  <span className="text-lg font-bold w-8 text-center text-heading">{qty}</span>
- <button onClick={() => updateQuantity(product.id, qty + 1)} className="w-8 h-8 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-emerald-200 dark:hover:bg-emerald-800 text-heading" aria-label="Increase quantity">+</button>
+ <button onClick={() => updateQuantity(product.id, qty + 1)} className="w-8 h-8 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-success-subtle text-heading" aria-label="Increase quantity">+</button>
  </div>
  )}
  </div>
@@ -335,7 +335,7 @@ const ShoppingCalculator: React.FC = () => {
 
  {/* Cart Summary */}
  {stats.selectedCount > 0 && (
- <div className="bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-br from-surface-inverted to-surface-inverted rounded-2xl p-4 sm:p-6 text-white">
  <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
  <ShoppingCart size={20} /> {t('shopping.cartSummary')}
  </h4>
@@ -472,7 +472,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="flex items-start justify-between gap-3 mb-4">
  <div>
  <div className="flex items-center gap-2">
- {idx === 0 && <span className="text-xs px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-warning rounded-full font-bold">{t('shopping.bestZone')}</span>}
+ {idx === 0 && <span className="text-xs px-2 py-0.5 bg-warning-subtle text-warning rounded-full font-bold">{t('shopping.bestZone')}</span>}
  <h4 className="font-bold text-heading">{zone?.label || zc.zoneId}</h4>
  </div>
  <div className="flex flex-wrap gap-2 mt-2">
@@ -595,7 +595,7 @@ const ShoppingCalculator: React.FC = () => {
  { name: 'Denner', url: 'https://www.denner.ch', flag: '\uD83C\uDDE8\uD83C\uDDED' },
  ].map(store => (
  <a key={store.name} href={store.url} target="_blank" rel="noopener noreferrer"
- className="px-3 py-1.5 bg-surface-raised rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors font-bold text-body">
+ className="px-3 py-1.5 bg-surface-raised rounded-lg hover:bg-warning-subtle transition-colors font-bold text-body">
  {store.flag} {store.name}
  </a>
  ))}

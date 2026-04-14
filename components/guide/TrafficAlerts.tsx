@@ -23,9 +23,9 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 const STATUS_BG_CLASSES: Record<string, string> = {
- green: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
+ green: 'bg-success-subtle text-success',
  yellow: 'bg-warning-subtle text-warning',
- red: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
+ red: 'bg-danger-subtle text-danger',
 };
 
 const STATUS_DOT_CLASSES: Record<string, string> = {
@@ -287,7 +287,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {/* Quick stats */}
  {fastest && slowest && (
  <div className="grid grid-cols-2 gap-4">
- <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 rounded-xl border border-success-border p-4">
+ <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-xl border border-success-border p-4">
  <div className="flex items-center gap-2 mb-1">
  <TrendingUp size={18} className="text-emerald-700" />
  <span className="text-xs font-bold text-success">{t('traffic.fastest')}</span>
@@ -295,7 +295,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <p className="text-lg font-bold text-strong">{fastest.crossingName}</p>
  <p className="text-2xl font-bold text-emerald-700">{effectiveWait(fastest)} min</p>
  </div>
- <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 rounded-xl border border-danger-border p-4">
+ <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-xl border border-danger-border p-4">
  <div className="flex items-center gap-2 mb-1">
  <AlertTriangle size={18} className="text-red-600" />
  <span className="text-xs font-bold text-danger">{t('traffic.slowest')}</span>
@@ -487,7 +487,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  )}
 
  {/* Tips */}
- <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/30 rounded-2xl border border-accent-border p-6">
+ <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl border border-accent-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
  <Navigation size={24} className="text-stripe-600" />
  {t('traffic.tipsTitle')}

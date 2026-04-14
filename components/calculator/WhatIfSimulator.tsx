@@ -273,16 +273,16 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  <Sparkles size={32} className="text-warning" />
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-3 flex-wrap">
- <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('whatif.title')}</h1>
+ <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">{t('whatif.title')}</h1>
  <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-warning-subtle text-warning border border-warning-border rounded-full">
  ✨ {t('whatif.experimentalBadge')}
  </span>
  </div>
- <p className="text-stone-500 dark:text-stone-400 mt-1 text-sm">{t('whatif.subtitle')}</p>
+ <p className="text-muted mt-1 text-sm">{t('whatif.subtitle')}</p>
  </div>
  </div>
  {/* Fun hint bar */}
- <div className="mt-4 bg-warning-subtle rounded-xl p-3 text-sm text-stone-500 dark:text-stone-400">
+ <div className="mt-4 bg-warning-subtle rounded-xl p-3 text-sm text-muted">
  <div className="flex items-center gap-2">
  <Sliders size={14} className="text-warning" />
  <span>{t('whatif.terminalHint')}</span>
@@ -428,7 +428,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  <div className="flex justify-end">
  <button
  onClick={handleShare}
- className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-warning bg-warning-subtle hover:bg-amber-200 dark:hover:bg-amber-900/50 rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-warning bg-warning-subtle hover:bg-warning-subtle rounded-xl transition-colors"
  aria-label={t('whatif.share.button')}
  >
  {shareState === 'copied' ? <Check size={16} /> : <Share2 size={16} />}
@@ -610,7 +610,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  )}
 
  {!hasChanges && (
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-dashed border-warning-border p-5 sm:p-8 text-center">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border-2 border-dashed border-warning-border p-5 sm:p-8 text-center">
  <div className="relative inline-block">
  <Sparkles size={48} className="text-amber-400 mx-auto mb-4" />
  </div>

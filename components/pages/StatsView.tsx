@@ -259,7 +259,7 @@ const StatsViewInner: React.FC = () => {
  target="_blank"
  rel="noreferrer"
  onClick={() => Analytics.trackExternalLink(SOURCE_LINK, 'stats_source_bfs')}
- className="flex items-center gap-2 px-4 py-2 bg-surface hover:bg-stripe-50 dark:hover:bg-stripe-900/30 text-accent text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
+ className="flex items-center gap-2 px-4 py-2 bg-surface hover:bg-accent-subtle text-accent text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
  >
  {t('stats.sourceBFS')} <ExternalLink size={12} />
  </a>

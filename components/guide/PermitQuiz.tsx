@@ -194,9 +194,9 @@ const PermitQuiz: React.FC = () => {
  if (showResults) {
  const { bPercent, gPercent, recommendation } = results;
 
- const recColor = recommendation === 'b'
- ? 'blue' : recommendation === 'g'
- ? 'emerald' : 'amber';
+ const recSemantic = recommendation === 'b'
+ ? 'info' : recommendation === 'g'
+ ? 'success' : 'warning';
 
  return (
  <div className="max-w-2xl mx-auto">
@@ -249,10 +249,10 @@ const PermitQuiz: React.FC = () => {
  </div>
 
  {/* Recommendation */}
- <div className={`bg-${recColor}-50 dark:bg-${recColor}-900/20 border border-${recColor}-200 dark:border-${recColor}-800 rounded-2xl p-4 sm:p-6 mb-6`}>
+ <div className={`bg-${recSemantic}-subtle border border-${recSemantic}-border rounded-2xl p-4 sm:p-6 mb-6`}>
  <div className="flex items-start gap-4">
- <div className={`w-12 h-12 rounded-xl bg-${recColor}-100 dark:bg-${recColor}-800 flex items-center justify-center shrink-0`}>
- <CheckCircle2 size={24} className={`text-${recColor}-600 dark:text-${recColor}-400`} />
+ <div className={`w-12 h-12 rounded-xl bg-${recSemantic}-subtle flex items-center justify-center shrink-0`}>
+ <CheckCircle2 size={24} className={`text-${recSemantic}`} />
  </div>
  <div>
  <h3 className="font-bold text-lg text-strong">
@@ -285,7 +285,7 @@ const PermitQuiz: React.FC = () => {
  </span>
  <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
  dominant === 'B' ? 'bg-accent-subtle text-accent' :
- dominant === 'G' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300' :
+ dominant === 'G' ? 'bg-success-subtle text-success' :
  'bg-warning-subtle text-warning'
  }`}>
  {dominant === '=' ? '≈' : `→ ${dominant}`}
@@ -392,7 +392,7 @@ const PermitQuiz: React.FC = () => {
  className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
  isSelected
  ? 'border-warning bg-warning-subtle border-warning-border ring-2 ring-warning-border'
- : 'border-edge hover:border-amber-300 dark:hover:border-amber-700 hover:bg-amber-50/50 dark:hover:bg-amber-900/10'
+ : 'border-edge hover:border-warning-border hover:bg-warning-subtle'
  }`}
  aria-label={t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
  >

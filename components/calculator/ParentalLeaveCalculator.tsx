@@ -145,7 +145,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-amber-50 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/30 rounded-2xl p-4 sm:p-6 border border-warning-border">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl p-4 sm:p-6 border border-warning-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-warning-subtle rounded-xl">
  <Baby className="w-6 h-6 text-warning" />
@@ -301,7 +301,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  </div>
 
  {/* Frontaliere Summary */}
- <div className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30 rounded-2xl p-5 border border-info-border">
+ <div className="bg-gradient-to-r from-info-subtle to-success-subtle rounded-2xl p-5 border border-info-border">
  <h4 className="font-bold text-info mb-3 flex items-center gap-2">
  <Calendar className="w-5 h-5" />
  {t('leave.frontaliereTitle')}
@@ -358,7 +358,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  {/* Documents Checklist */}
  <button
  onClick={() => setShowDocs(!showDocs)}
- className="flex items-center gap-2 text-sm font-bold text-muted hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+ className="flex items-center gap-2 text-sm font-bold text-muted hover:text-body transition-colors"
  >
  <FileText size={16} />
  {showDocs ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -373,7 +373,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <CheckCircle2 className="w-4 h-4 text-edge shrink-0" />
  <span className="text-sm text-body flex-1">{t(doc.key)}</span>
  <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
- doc.country === 'CH' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
+ doc.country === 'CH' ? 'bg-danger-subtle text-danger' :
  doc.country === 'IT' ? 'bg-success-subtle text-success' :
  'bg-accent-subtle text-accent'
  }`}>

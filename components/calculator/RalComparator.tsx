@@ -202,7 +202,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
+ <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl p-4 sm:p-6 border border-success-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-success-subtle rounded-xl">
  <ArrowLeftRight className="w-6 h-6 text-success" />
@@ -461,7 +461,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  setShowDetails(next);
  Analytics.trackUIInteraction('ral_comparator', 'details', 'toggle', next ? 'open' : 'close');
  }}
- className="flex items-center gap-2 text-sm font-bold text-muted hover:text-slate-700 dark:hover:text-slate-300 transition-colors mx-auto"
+ className="flex items-center gap-2 text-sm font-bold text-muted hover:text-body transition-colors mx-auto"
  >
  {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
  {t('ral.showDetails')}

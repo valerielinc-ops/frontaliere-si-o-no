@@ -386,9 +386,9 @@ const MobileOperators: React.FC = () => {
  <div className="bg-warning-subtle/80 rounded-2xl p-5 sm:p-8 border border-warning-border">
  <div className="flex items-center gap-3 mb-4">
  <Smartphone size={32} className="text-warning" />
- <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('mobile.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold text-heading">{t('mobile.title')}</h2>
  </div>
- <p className="text-stone-500 dark:text-stone-400 text-lg">
+ <p className="text-muted text-lg">
  {t('mobile.subtitle')}
  </p>
  <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Operatori ufficiali" variant="badge" /></div>
@@ -463,7 +463,7 @@ const MobileOperators: React.FC = () => {
  </div>
 
  {/* Best Options Summary */}
- <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 rounded-2xl border border-success-border p-6">
+ <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl border border-success-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
  <CheckCircle2 size={20} className="text-emerald-700" />
  {t('mobile.bestOptions')}
@@ -676,7 +676,7 @@ const MobileOperators: React.FC = () => {
  </div>
 
  {/* Educational Section */}
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border border-warning-border p-6">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-stripe-600" />
  {t('mobile.tipsTitle')}

@@ -293,7 +293,7 @@ const MorningDashboard: React.FC = () => {
  <div className="space-y-6">
  {/* Welcome Back Banner for signed-in users */}
  {user && (
- <div className="bg-gradient-to-r from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20 border border-accent-border rounded-2xl p-4 sm:p-6">
+ <div className="bg-gradient-to-r from-accent-subtle to-accent-subtle border border-accent-border rounded-2xl p-4 sm:p-6">
  <div className="flex items-center gap-3">
  <div className="text-2xl">👋</div>
  <div>
@@ -464,7 +464,7 @@ const MorningDashboard: React.FC = () => {
  </div>
 
  {/* Quick Tips */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-success-border/40 p-3 sm:p-5 space-y-3">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border/40 p-3 sm:p-5 space-y-3">
  <h3 className="font-bold text-success flex items-center gap-2">
  <Eye className="w-4 h-4" />
  {t('morning.tips.title')}
@@ -501,7 +501,7 @@ const MorningDashboard: React.FC = () => {
  {(weather.lugano || weather.como) && (
  <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-4">
  <h3 className="font-bold text-heading flex items-center gap-2 text-sm sm:text-base">
- <Cloud className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+ <Cloud className="w-4 h-4 text-info" />
  {t('morning.forecast.title')}
  </h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

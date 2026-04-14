@@ -125,7 +125,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  <Info size={12} className="text-muted hover:text-teal-600 transition-colors" />
  <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
- <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+ <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
  </button>
  );
@@ -241,7 +241,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  <div className={`bg-surface rounded-2xl border border-edge shadow-sm overflow-hidden ${extraClassName}`}>
  <button
  onClick={() => setShowInfo(!showInfo)}
- className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50"
+ className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-white/50 /50"
  aria-label={t('payslip.lppAgeRates')}
  >
  <div className="flex items-center gap-3">
@@ -395,7 +395,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  <h3 className="text-lg font-bold text-strong">{t('payslip.resultTitle')}</h3>
  <button
  onClick={handleExportPdf}
- className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning-subtle text-warning text-sm font-semibold hover:bg-amber-200 dark:hover:bg-amber-900/50 transition-colors"
+ className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning-subtle text-warning text-sm font-semibold hover:bg-warning-subtle transition-colors"
  aria-label={t('payslip.exportPdf')}
  >
  <Download size={14} />

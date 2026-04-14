@@ -93,8 +93,8 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  onClick={() => handleCountryChange('italia')}
  className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
  countryTab === 'italia'
- ? 'bg-gradient-to-br from-emerald-600 to-green-700 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/40 ring-2 ring-emerald-400 dark:ring-emerald-500 scale-[1.02]'
- : 'bg-surface text-subtle hover:bg-emerald-50 dark:hover:bg-slate-700 border-2 border-edge hover:border-emerald-300 dark:hover:border-emerald-700'
+ ? 'bg-gradient-to-br from-success to-success text-white shadow-lg shadow-success-border ring-2 ring-success-border scale-[1.02]'
+ : 'bg-surface text-subtle hover:bg-emerald-50 border-2 border-edge hover:border-success-border'
  }`}
  aria-label={t('taxReturn.countryTab.italia')}
  >
@@ -120,8 +120,8 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  onClick={() => handleCountryChange('svizzera')}
  className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
  countryTab === 'svizzera'
- ? 'bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg shadow-red-200 dark:shadow-red-900/40 ring-2 ring-red-400 dark:ring-red-500 scale-[1.02]'
- : 'bg-surface text-subtle hover:bg-red-50 dark:hover:bg-slate-700 border-2 border-edge hover:border-red-300 dark:hover:border-red-700'
+ ? 'bg-gradient-to-br from-danger to-danger text-white shadow-lg shadow-danger-border ring-2 ring-danger-border scale-[1.02]'
+ : 'bg-surface text-subtle hover:bg-red-50 border-2 border-edge hover:border-danger-border'
  }`}
  aria-label={t('taxReturn.countryTab.svizzera')}
  >
@@ -147,7 +147,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
 
  {/* Country-specific header banner */}
  {countryTab === 'italia' ? (
- <div className="bg-gradient-to-r from-emerald-600 to-green-700 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-success to-success rounded-2xl p-4 sm:p-6 text-white">
  <div className="flex items-center gap-3 mb-2">
  <FileText size={28} />
  <h2 className="text-2xl font-bold">{t('taxReturn.title.italia')}</h2>
@@ -155,7 +155,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <p className="text-emerald-100 text-sm">{t('taxReturn.subtitle.italia')}</p>
  </div>
  ) : (
- <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-danger to-danger rounded-2xl p-4 sm:p-6 text-white">
  <div className="flex items-center gap-3 mb-2">
  <FileText size={28} />
  <h2 className="text-2xl font-bold">{t('taxReturn.title.svizzera')}</h2>

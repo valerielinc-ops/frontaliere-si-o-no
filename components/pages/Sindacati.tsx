@@ -174,7 +174,7 @@ export default function Sindacati() {
  </div>
 
  {/* Why join a union */}
- <div className="rounded-2xl bg-gradient-to-br from-teal-50 to-stripe-50 dark:from-teal-950/30 dark:to-stripe-950/20 border border-info-border p-6">
+ <div className="rounded-2xl bg-gradient-to-br from-info-subtle to-accent-subtle border border-info-border p-6">
  <div className="flex items-center gap-3 mb-4">
  <div className="p-2 bg-info-subtle rounded-xl">
  <Shield className="w-5 h-5 text-info" />
@@ -247,10 +247,10 @@ export default function Sindacati() {
  <a href="/guida-frontaliere/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-stripe-600 text-white font-semibold hover:bg-stripe-700 transition-colors">
  Guida Frontaliere <ChevronRight size={14} />
  </a>
- <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+ <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-surface-raised transition-colors">
  Contratti di Lavoro <ChevronRight size={14} />
  </a>
- <a href="/tasse-e-pensione/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+ <a href="/tasse-e-pensione/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-surface-raised transition-colors">
  Fisco e Previdenza <ChevronRight size={14} />
  </a>
  </div>

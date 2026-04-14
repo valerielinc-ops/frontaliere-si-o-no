@@ -350,7 +350,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  className={`font-semibold underline underline-offset-2 cursor-pointer ${
  darkVariant
  ? 'text-amber-100 hover:text-white'
- : 'text-warning hover:text-amber-900 dark:hover:text-amber-200'
+ : 'text-warning hover:text-warning'
  }`}
  >
  {typoSuggestion}

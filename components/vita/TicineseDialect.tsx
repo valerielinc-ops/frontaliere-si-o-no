@@ -319,7 +319,7 @@ const TicineseDialect: React.FC = () => {
 
  return (
  <div className="space-y-6">
- <div className="bg-orange-600 dark:bg-orange-700 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-warning rounded-2xl p-4 sm:p-6 text-white">
  <div className="flex items-center gap-3 mb-2">
  <Languages size={28} />
  <h2 className="text-2xl font-bold">{tt('dialect.title', 'Dialetto Ticinese')}</h2>
@@ -328,7 +328,7 @@ const TicineseDialect: React.FC = () => {
  </div>
 
  {!phraseOfDayDismissed && (
- <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border border-warning-border rounded-xl p-4">
+ <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl p-4">
  <div className="flex items-start justify-between gap-3">
  <div className="flex items-start gap-3">
  <Sparkles size={20} className="text-warning mt-0.5 shrink-0" />
@@ -380,9 +380,9 @@ const TicineseDialect: React.FC = () => {
  }}
  className={`w-full text-left px-2.5 py-2 rounded-lg border text-xs font-medium transition-colors
  ${isCorrect
- ? 'border-emerald-400 bg-emerald-50 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-200'
+ ? 'border-success bg-success-subtle text-success'
  : isSelected
- ? 'border-red-400 bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-200'
+ ? 'border-danger bg-danger-subtle text-danger'
  : 'border-edge bg-surface text-body hover:bg-surface-alt focus:bg-surface-alt'}
  `}
  >
@@ -573,7 +573,7 @@ const TicineseDialect: React.FC = () => {
  )}
  </div>
 
- <div className="rounded-xl border border-success-border bg-emerald-50/70 dark:bg-emerald-950/30 p-4 text-xs text-success">
+ <div className="rounded-xl border border-success-border bg-success-subtle p-4 text-xs text-success">
  <div className="font-semibold flex items-center gap-2 mb-1"><Plus size={14} /> {tt('dialect.newPhrasesTitle', 'Nuove frasi aggiunte')}</div>
  <p>{tt('dialect.newPhrasesText', 'Aggiunte espressioni d’uso comune recuperate da repertori e articoli locali: “Tacàt al tram”, “Sbàssa la crèsta”, “Capì na màzza”, “Sü da cò”.')}</p>
  </div>

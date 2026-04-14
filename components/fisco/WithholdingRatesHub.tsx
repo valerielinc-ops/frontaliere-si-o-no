@@ -537,7 +537,7 @@ export default function WithholdingRatesHub() {
  <a
  key={cta.title}
  href={buildPath(cta.route, locale)}
- className="inline-flex items-center gap-2 rounded-2xl bg-surface px-4 py-3 text-sm font-bold text-success no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50 dark:hover:bg-slate-700"
+ className="inline-flex items-center gap-2 rounded-2xl bg-surface px-4 py-3 text-sm font-bold text-success no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50 "
  >
  {cta.title}
  <ArrowRight className="h-4 w-4" />
@@ -558,7 +558,7 @@ export default function WithholdingRatesHub() {
  key={scenario.code}
  className="rounded-3xl border border-edge bg-surface p-5 shadow-sm"
  >
- <div className="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+ <div className="inline-flex rounded-full bg-success-subtle px-3 py-1 text-xs font-bold text-success">
  {scenario.badge}
  </div>
  <h3 className="mt-4 text-lg font-bold text-heading">{item.title}</h3>
@@ -604,7 +604,7 @@ export default function WithholdingRatesHub() {
  </div>
  </section>
 
- <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/40">
+ <section className="rounded-3xl border border-success-border bg-success-subtle p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <ExternalLink className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.officialSourcesTitle}</h2>
@@ -617,7 +617,7 @@ export default function WithholdingRatesHub() {
  href={link.url}
  target="_blank"
  rel="noopener noreferrer"
- className="group rounded-2xl border border-emerald-200 bg-surface p-4 no-underline transition hover:-translate-y-0.5 hover:border-success-border dark:hover:border-emerald-600"
+ className="group rounded-2xl border border-emerald-200 bg-surface p-4 no-underline transition hover:-translate-y-0.5 hover:border-success-border "
  >
  <div className="flex items-center gap-2">
  <span className="text-sm font-bold text-success">{link.label}</span>
@@ -640,7 +640,7 @@ export default function WithholdingRatesHub() {
  {SCENARIOS.map((scenario) => (
  <div key={scenario.code} className="rounded-2xl border border-edge p-4">
  <div className="flex items-center gap-3">
- <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+ <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-success-subtle text-xs font-bold text-success">
  {scenario.code}
  </div>
  <div>
@@ -679,7 +679,7 @@ export default function WithholdingRatesHub() {
  <a
  key={cta.title}
  href={buildPath(cta.route, locale)}
- className="group rounded-3xl border border-edge p-5 no-underline transition hover:-translate-y-0.5 hover:border-emerald-300 dark:hover:border-emerald-700"
+ className="group rounded-3xl border border-edge p-5 no-underline transition hover:-translate-y-0.5 hover:border-success-border"
  >
  <h3 className="text-base font-bold text-heading">{cta.title}</h3>
  <p className="mt-2 text-sm leading-7 text-subtle">{cta.body}</p>

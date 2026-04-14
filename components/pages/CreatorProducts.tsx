@@ -89,7 +89,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
  amazon.it
  </span>
  )}
- <span className="text-xs font-medium text-accent group-hover:text-stripe-600 dark:group-hover:text-stripe-300 flex items-center gap-0.5">
+ <span className="text-xs font-medium text-accent group-hover:text-accent flex items-center gap-0.5">
  Vedi <ExternalLink size={10} />
  </span>
  </div>

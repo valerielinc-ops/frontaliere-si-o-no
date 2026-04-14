@@ -9,7 +9,7 @@ import { Trash2, Shield, CheckCircle2 } from 'lucide-react';
 
 export const DataDeletion: React.FC = () => {
  return (
- <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 flex items-center justify-center px-4 py-12">
+ <div className="min-h-screen bg-gradient-to-br from-surface-alt via-surface to-surface-alt flex items-center justify-center px-4 py-12">
  <div className="max-w-2xl w-full">
  
  {/* Header */}

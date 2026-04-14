@@ -99,7 +99,7 @@ const SwissTaxReturn: React.FC = () => {
  onClick={() => setActiveStep(key)}
  className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${
  activeStep === key
- ? 'bg-danger-subtle text-danger ring-1 ring-red-300 dark:ring-red-700'
+ ? 'bg-danger-subtle text-danger ring-1 ring-danger-border'
  : 'bg-surface text-subtle hover:bg-surface-raised border border-edge'
  }`}
  >
@@ -195,11 +195,11 @@ const SwissTaxReturn: React.FC = () => {
  href={link.url}
  target="_blank"
  rel="noopener noreferrer"
- className="flex items-start gap-3 p-3 rounded-xl border border-edge hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group"
+ className="flex items-start gap-3 p-3 rounded-xl border border-edge hover:border-danger-border hover:bg-danger-subtle transition-colors group"
  >
  <ExternalLink size={14} className="text-danger mt-0.5 shrink-0" />
  <div>
- <span className="font-semibold text-sm text-strong group-hover:text-red-700 dark:group-hover:text-red-300">{t(`swissTaxReturn.overview.link.${link.key}`)}</span>
+ <span className="font-semibold text-sm text-strong group-hover:text-danger">{t(`swissTaxReturn.overview.link.${link.key}`)}</span>
  <p className="text-sm text-muted mt-0.5">{t(`swissTaxReturn.overview.linkDesc.${link.key}`)}</p>
  </div>
  </a>

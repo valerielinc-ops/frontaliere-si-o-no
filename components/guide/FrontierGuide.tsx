@@ -333,7 +333,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-2 flex-wrap">
  <h5 className="font-bold text-sm text-strong">{school.name}</h5>
- <span className={`px-1.5 py-0.5 rounded text-xs font-bold uppercase ${school.nature === 'pubblica' ? 'bg-success-subtle text-success' : 'bg-orange-100 dark:bg-orange-900/30 text-warning'}`}>
+ <span className={`px-1.5 py-0.5 rounded text-xs font-bold uppercase ${school.nature === 'pubblica' ? 'bg-success-subtle text-success' : 'bg-warning-subtle text-warning'}`}>
  {school.nature}
  </span>
  </div>
@@ -355,7 +355,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  </div>
  )}
  {school.website && (
- <a href={school.website} target="_blank" rel="noopener noreferrer" className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-800/30 transition-colors" aria-label={`${school.name} website`}>
+ <a href={school.website} target="_blank" rel="noopener noreferrer" className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg bg-accent-subtle text-accent hover:bg-accent-subtle/30 transition-colors" aria-label={`${school.name} website`}>
  <ExternalLink size={12} />
  </a>
  )}
@@ -773,7 +773,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  role="button"
  tabIndex={0}
  aria-expanded={isSelected}
- className={`bg-gradient-to-br ${m.type === 'new' ? 'from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/30 border-accent-border' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-warning-border'} rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer select-none ${isSelected ? 'ring-2 ring-accent ring-offset-2 shadow-lg' : ''}`}
+ className={`bg-gradient-to-br ${m.type === 'new' ? 'from-accent-subtle to-accent-subtle border-accent-border' : 'from-warning-subtle to-danger-subtle border-warning-border'} rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer select-none ${isSelected ? 'ring-2 ring-accent ring-offset-2 shadow-lg' : ''}`}
  >
  <div className="flex items-start justify-between gap-4">
  <div className="flex-1">
@@ -948,7 +948,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.traffic !== 'closed').length;
  Analytics.trackBorderFilter('all', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'all' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'all' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
  >
  🔍 {t('guide.all')} ({borderCrossings.filter(b => b.traffic !== 'closed').length})
  </button>
@@ -958,7 +958,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.traffic === 'low').length;
  Analytics.trackBorderFilter('low-traffic', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'low-traffic' ? 'bg-emerald-700 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'low-traffic' ? 'bg-emerald-700 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
  >
  ✅ {t('guide.border.lowTraffic')} ({borderCrossings.filter(b => b.traffic === 'low').length})
  </button>
@@ -968,7 +968,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.hours === '24h').length;
  Analytics.trackBorderFilter('24h', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === '24h' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === '24h' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
  >
  ⏰ {t('guide.border.open24h')} ({borderCrossings.filter(b => b.hours === '24h').length})
  </button>
@@ -981,7 +981,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  }).length;
  Analytics.trackBorderFilter('morning', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
  >
  🌅 {t('guide.border.fastMorning')}
  </button>
@@ -994,14 +994,14 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  }).length;
  Analytics.trackBorderFilter('evening', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
  >
  🌆 {t('guide.border.fastEvening')}
  </button>
  </div>
 
  {/* Time selector */}
- <div className="mt-4 p-4 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-xl border border-info-border">
+ <div className="mt-4 p-4 bg-gradient-to-r from-info-subtle to-success-subtle rounded-xl border border-info-border">
  <div className="text-sm font-bold text-body mb-2">
  💡 {t('guide.border.timeAdvice')}:
  </div>
@@ -1395,7 +1395,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
  
  {/* Ticino progressive brackets table */}
- <div className="mt-3 p-3 bg-surface/50 rounded-lg border border-orange-100 dark:border-orange-900">
+ <div className="mt-3 p-3 bg-surface/50 rounded-lg border border-warning-border">
  <p className="text-xs font-bold text-warning mb-2">{t('guide.livingCH.wealthTaxBrackets')}</p>
  <div className="grid grid-cols-2 gap-1 text-xs">
  <span className="font-semibold text-body">{t('guide.livingCH.wealthBracketRange')}</span>
@@ -1627,7 +1627,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </InfoCard>
  </div>
 
- <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30 rounded-2xl border-2 border-info-border p-6">
+ <div className="bg-gradient-to-br from-info-subtle to-success-subtle rounded-2xl border-2 border-info-border p-6">
  <div className="flex items-start gap-3">
  <Info size={24} className="text-teal-600 flex-shrink-0" />
  <div className="space-y-3 text-sm text-info">
@@ -1930,7 +1930,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
 
  {/* Consiglio per frontalieri */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border-2 border-success-border p-6">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border-2 border-success-border p-6">
  <div className="flex items-start gap-3">
  <Info size={24} className="text-emerald-700 flex-shrink-0" />
  <div className="space-y-3 text-sm text-success">
@@ -1956,7 +1956,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  />
 
  {/* Panoramica sistema scolastico */}
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-warning-border p-6">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border-2 border-warning-border p-6">
  <div className="flex items-start gap-3">
  <Info size={24} className="text-amber-700 flex-shrink-0" />
  <div className="text-sm text-warning">
@@ -2285,7 +2285,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
 
  {/* Consigli per frontalieri */}
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-warning-border p-6">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border-2 border-warning-border p-6">
  <div className="flex items-start gap-3">
  <AlertCircle size={24} className="text-amber-700 flex-shrink-0" />
  <div className="space-y-3 text-sm text-warning">

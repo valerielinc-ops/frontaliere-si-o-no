@@ -225,7 +225,7 @@ const CarTransferGuide: React.FC = () => {
  href="https://www4.ti.ch/di/sc/veicoli/immatricolazione"
  target="_blank"
  rel="noopener noreferrer"
- className="inline-flex items-center gap-1 mt-2 text-sm text-warning underline hover:text-amber-900 dark:hover:text-amber-200"
+ className="inline-flex items-center gap-1 mt-2 text-sm text-warning underline hover:text-warning"
  >
  {t('carTransfer.registration.tiLink')}
  <ExternalLink size={12} />
@@ -507,7 +507,7 @@ const CarTransferGuide: React.FC = () => {
  },
  ].map((phase, pi) => (
  <div key={pi}>
- <h4 className={`font-bold text-${phase.color === 'blue' ? 'blue' : phase.color === 'amber' ? 'amber' : 'green'}-700 dark:text-${phase.color === 'blue' ? 'blue' : phase.color === 'amber' ? 'amber' : 'green'}-300 mb-3`}>
+ <h4 className={`font-bold mb-3 ${phase.color === 'blue' ? 'text-info' : phase.color === 'amber' ? 'text-warning' : 'text-success'}`}>
  {phase.phase}
  </h4>
  <div className="space-y-2">
@@ -563,7 +563,7 @@ const CarTransferGuide: React.FC = () => {
  href={link.url}
  target="_blank"
  rel="noopener noreferrer"
- className="flex items-center gap-2 p-3 bg-surface rounded-xl border border-edge hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors text-sm text-accent font-medium"
+ className="flex items-center gap-2 p-3 bg-surface rounded-xl border border-edge hover:border-accent transition-colors text-sm text-accent font-medium"
  >
  <ExternalLink size={14} />
  {link.label}

@@ -188,7 +188,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  {/* Collapsed trigger */}
  <button
  onClick={() => setExpanded(!expanded)}
- className="flex items-center gap-2 text-sm text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors"
+ className="flex items-center gap-2 text-sm text-accent hover:text-accent transition-colors"
  >
  <BellRing className="w-4 h-4" />
  <span>{t('jobAlert.trigger') || 'Avvisami per nuovi lavori'}</span>

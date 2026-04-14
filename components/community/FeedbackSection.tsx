@@ -241,7 +241,7 @@ export const FeedbackSection: React.FC = () => {
  id="feedback-title"
  value={formData.title}
  onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
- className="w-full bg-surface-alt border border-edge px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-stripe-50 dark:focus-visible:ring-stripe-900/20 focus-visible:border-stripe-500 transition-[color,background-color,border-color,box-shadow] text-sm"
+ className="w-full bg-surface-alt border border-edge px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-accent-subtle focus-visible:border-stripe-500 transition-[color,background-color,border-color,box-shadow] text-sm"
  placeholder={t('feedback.titlePlaceholder')}
  />
  </div>
@@ -253,7 +253,7 @@ export const FeedbackSection: React.FC = () => {
  value={formData.description}
  onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
  rows={5}
- className="w-full bg-surface-alt border border-edge px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-stripe-50 dark:focus-visible:ring-stripe-900/20 focus-visible:border-stripe-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
+ className="w-full bg-surface-alt border border-edge px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-accent-subtle focus-visible:border-stripe-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
  placeholder={t('feedback.detailsPlaceholder')}
  />
  <button 
@@ -312,7 +312,7 @@ export const FeedbackSection: React.FC = () => {
  href={item.url}
  target="_blank"
  rel="noreferrer"
- className="block bg-surface border border-edge p-4 rounded-2xl shadow-sm hover:shadow-md transition-[color,background-color,border-color,box-shadow] group hover:border-stripe-200 dark:hover:border-stripe-900"
+ className="block bg-surface border border-edge p-4 rounded-2xl shadow-sm hover:shadow-md transition-[color,background-color,border-color,box-shadow] group hover:border-stripe-200 "
  onClick={() => Analytics.trackSelectContent('issue', String(item.id))}
  >
  <div className="flex items-start justify-between gap-3">
@@ -321,12 +321,12 @@ export const FeedbackSection: React.FC = () => {
  {item.type === 'BUG' ? <Bug size={16} /> : <Lightbulb size={16} />}
  </div>
  <div>
- <h4 className="text-sm font-bold text-strong line-clamp-1 group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors">{item.title}</h4>
+ <h4 className="text-sm font-bold text-strong line-clamp-1 group-hover:text-accent transition-colors">{item.title}</h4>
  <p className="text-sm text-subtle line-clamp-2 mt-1 leading-relaxed">
  {item.description}
  </p>
  <div className="flex items-center gap-3 mt-3">
- <span className={`text-xs font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-surface-raised text-muted'}`}>
+ <span className={`text-xs font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>
  {item.status === 'OPEN' ? <Clock size={10} /> : <CheckCircle size={10} />}
  {item.status}
  </span>

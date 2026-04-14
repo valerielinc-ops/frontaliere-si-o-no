@@ -71,7 +71,7 @@ export const EmailConfirmed: React.FC = () => {
  <a
  key={feature.id}
  href={feature.href}
- className="flex items-center gap-4 rounded-xl border border-edge p-4 hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] group"
+ className="flex items-center gap-4 rounded-xl border border-edge p-4 hover:border-accent hover:shadow-md transition-[color,background-color,border-color,box-shadow] group"
  >
  <div className={`p-2.5 bg-gradient-to-br ${feature.colorClass} rounded-xl shadow-md flex-shrink-0`}>
  <feature.icon className="text-white" size={22} />
@@ -84,7 +84,7 @@ export const EmailConfirmed: React.FC = () => {
  {t(feature.descKey, getCantonI18nParams())}
  </div>
  </div>
- <ArrowRight className="text-muted group-hover:text-stripe-500 dark:group-hover:text-stripe-400 transition-colors flex-shrink-0" size={18} />
+ <ArrowRight className="text-muted group-hover:text-accent transition-colors flex-shrink-0" size={18} />
  </a>
  ))}
  </div>

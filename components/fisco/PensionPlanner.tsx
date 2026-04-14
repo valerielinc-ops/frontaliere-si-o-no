@@ -49,7 +49,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  <Info size={14} className="text-muted hover:text-teal-600 transition-colors" />
  <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-surface-raised text-white text-sm leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
- <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+ <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
  </button>
  );
@@ -585,7 +585,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  )}
 
  <div className="border-t-2 border-emerald-500 pt-3 mt-3">
- <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl">
+ <div className="flex items-center justify-between p-4 bg-gradient-to-r from-success-subtle to-info-subtle rounded-xl">
  <span className="text-base font-bold text-strong">{t('pension.monthlyTotal')}</span>
  <span className="text-2xl font-bold text-emerald-700">
  CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}

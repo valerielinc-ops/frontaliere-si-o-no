@@ -369,8 +369,8 @@ const MobileCalcLayout: React.FC<Props> = ({
  {result && (
  <div className={`rounded-2xl shadow-lg border overflow-hidden transition-colors duration-300 ${
  isBetterIT
- ? 'bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/60 dark:to-slate-900 border-success-border'
- : 'bg-gradient-to-br from-stripe-50 to-white dark:from-stripe-950/60 dark:to-slate-900 border-accent-border'
+ ? 'bg-gradient-to-br from-success-subtle to-surface border-success-border'
+ : 'bg-gradient-to-br from-accent-subtle to-surface border-accent-border'
  }`}>
  {/* Verdict banner */}
  <div className={`px-4 py-3 flex items-center gap-3 ${
@@ -404,7 +404,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  className={`w-full text-left p-3 rounded-xl transition-[color,background-color,transform] active:scale-[0.99] ${
  !isBetterIT
  ? 'bg-accent-subtle ring-2 ring-accent'
- : 'bg-surface/60 hover:bg-stripe-50/70 dark:hover:bg-stripe-900/20'
+ : 'bg-surface/60 hover:bg-accent-subtle'
  }`}
  aria-label={`${t('mobileCalc.viewFullAnalysis')} (${t('mobileCalc.liveInCH')})`}
  >
@@ -429,8 +429,8 @@ const MobileCalcLayout: React.FC<Props> = ({
  onClick={() => openFullAnalysisFocused('IT')}
  className={`w-full text-left p-3 rounded-xl transition-[color,background-color,transform] active:scale-[0.99] ${
  isBetterIT
- ? 'bg-emerald-100/50 dark:bg-emerald-900/30 ring-2 ring-emerald-300 dark:ring-emerald-700'
- : 'bg-surface/60 hover:bg-emerald-50/70 dark:hover:bg-emerald-900/20'
+ ? 'bg-success-subtle ring-2 ring-success-border'
+ : 'bg-surface/60 hover:bg-success-subtle'
  }`}
  aria-label={`${t('mobileCalc.viewFullAnalysis')} (${t('mobileCalc.crossBorderIT')})`}
  >
@@ -479,7 +479,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {result && !showFullResults && !sheetOpen && (
  <button
  onClick={openSheet}
- className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-slate-700 dark:hover:text-slate-400 transition-colors"
+ className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-slate-700 transition-colors"
  >
  <Settings2 size={12} />
  {t('mobileCalc.adjustParams')}
@@ -595,7 +595,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  )}
  <button
  onClick={dismissGate}
- className="w-full text-center text-xs text-muted hover:text-slate-700 dark:hover:text-slate-300 py-1"
+ className="w-full text-center text-xs text-muted hover:text-body py-1"
  >
  {t('newsletterGate.skip')}
  </button>

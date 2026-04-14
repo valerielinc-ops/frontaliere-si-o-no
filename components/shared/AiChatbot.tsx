@@ -327,7 +327,7 @@ function formatInline(text: string): React.ReactNode {
  pushRoute(route);
  window.dispatchEvent(new PopStateEvent('popstate'));
  }}
- className="font-medium text-link underline underline-offset-2 decoration-stripe-300 dark:decoration-stripe-600 hover:decoration-stripe-600 dark:hover:decoration-stripe-400 transition-colors cursor-pointer"
+ className="font-medium text-link underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors cursor-pointer"
  >
  {label}
  </a>
@@ -350,7 +350,7 @@ function formatInline(text: string): React.ReactNode {
  }}
  target={isInternal ? undefined : '_blank'}
  rel={isInternal ? undefined : 'noopener noreferrer'}
- className="font-medium text-link underline underline-offset-2 decoration-stripe-300 dark:decoration-stripe-600 hover:decoration-stripe-600 dark:hover:decoration-stripe-400 transition-colors cursor-pointer"
+ className="font-medium text-link underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors cursor-pointer"
  >
  {label}
  </a>
@@ -739,7 +739,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  has_pending_question: true,
  });
  }}
- className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors"
+ className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-slate-100 transition-colors"
  >
  {suggestion}
  </button>
@@ -761,7 +761,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  key={i}
  onClick={() => { setInput(suggestion); }}
- className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors"
+ className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-slate-100 transition-colors"
  >
  {suggestion}
  </button>
@@ -841,7 +841,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  spellCheck={true}
  onKeyDown={handleKeyDown}
  placeholder={t('chatbot.placeholder')}
- className="flex-1 px-3 py-2 rounded-xl border border-edge bg-surface text-base md:text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent dark:focus-visible:ring-stripe-700"
+ className="flex-1 px-3 py-2 rounded-xl border border-edge bg-surface text-base md:text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent "
  style={{ fontSize: '16px' }}
  disabled={loading}
  aria-label={t('chatbot.inputLabel')}
@@ -849,7 +849,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  onClick={handleSend}
  disabled={loading || !input.trim()}
- className="p-2.5 rounded-xl bg-accent hover:bg-accent-hover disabled:bg-slate-300 dark:disabled:bg-slate-600 text-white transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ className="p-2.5 rounded-xl bg-accent hover:bg-accent-hover disabled:bg-surface-raised text-white transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  aria-label={t('chatbot.sendLabel')}
  >
  <Send size={16} />

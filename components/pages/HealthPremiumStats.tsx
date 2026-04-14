@@ -275,7 +275,7 @@ const HealthPremiumStats: React.FC = () => {
  {filtered.length > 50 && !showAll && (
  <button
  onClick={() => setShowAll(true)}
- className="w-full mt-4 py-2 text-xs font-bold text-danger hover:bg-rose-50 dark:hover:bg-rose-950/20 rounded-lg transition-colors"
+ className="w-full mt-4 py-2 text-xs font-bold text-danger hover:bg-danger-subtle rounded-lg transition-colors"
  >
  Mostra tutti i {filtered.length} comuni
  </button>

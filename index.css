@@ -50,6 +50,8 @@ html.dark { color-scheme: dark; }
   --_neutral: #57534e;           /* stone-600 */
   --_neutral-subtle: #fafaf9;    /* stone-50 */
   --_neutral-border: #e7e5e4;    /* stone-200 */
+  /* Surface inverted — intentionally dark sections (headers, stat boxes) */
+  --_surface-inverted: #1e293b;  /* slate-800 */
   /* Navigation — subtab bar */
   --_tab-active-bg: #ede9fe;
   --_tab-active-text: #4529e6;
@@ -99,6 +101,8 @@ html.dark {
   --_neutral: #a8a29e;           /* stone-400 */
   --_neutral-subtle: rgba(87, 83, 78, 0.15);
   --_neutral-border: #44403c;    /* stone-800 */
+  /* Surface inverted */
+  --_surface-inverted: #334155;  /* slate-700 */
   /* Navigation — subtab bar */
   --_tab-active-bg: rgba(46, 26, 158, 0.3);
   --_tab-active-text: #c4b5fd;
@@ -115,6 +119,13 @@ html.dark {
   --_section-guida: #a78bfa;
   --_section-vita: #fbbf24;
   --_section-stats: #a78bfa;
+}
+
+/* Hero gradient — decorative radial glow using semantic info + surface tokens */
+.bg-hero-info {
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-info) 14%, transparent), transparent 38%),
+    linear-gradient(180deg, var(--color-surface-alt), var(--color-surface));
 }
 
 /* Eliminate 300ms tap delay on all interactive elements (mobile) */
@@ -324,6 +335,7 @@ input[type=number] { -moz-appearance: textfield; }
   --color-neutral: var(--_neutral);
   --color-neutral-subtle: var(--_neutral-subtle);
   --color-neutral-border: var(--_neutral-border);
+  --color-surface-inverted: var(--_surface-inverted);
 
   /* Navigation — subtab bar */
   --color-tab-active-bg: var(--_tab-active-bg);

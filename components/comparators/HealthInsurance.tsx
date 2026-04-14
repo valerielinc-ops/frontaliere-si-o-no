@@ -511,7 +511,7 @@ const HealthInsurance: React.FC = () => {
  )}
 
  {/* CMU vs LAMal comparison for French border workers */}
- <div className="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30 rounded-2xl border border-danger-border p-6">
+ <div className="bg-gradient-to-br from-danger-subtle to-danger-subtle rounded-2xl border border-danger-border p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
  <Globe size={20} className="text-rose-700" />
  CMU francese vs LAMal
@@ -546,7 +546,7 @@ const HealthInsurance: React.FC = () => {
  </div>
  </div>
 
- <div className="bg-gradient-to-br from-rose-50 to-amber-50 dark:from-rose-950/30 dark:to-amber-950/30 rounded-2xl border border-danger-border p-6">
+ <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-stripe-600" />
  LAMal svizzera vs SSN italiano
@@ -623,7 +623,7 @@ const HealthInsurance: React.FC = () => {
  <h4 className="text-xs font-bold text-danger uppercase mb-3">Top 10 più cari</h4>
  <div className="space-y-1.5">
  {data.rankings.mostExpensive.slice(0, 10).map((c, i) => (
- <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-red-50/50 dark:bg-red-950/20">
+ <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-danger-subtle">
  <span className="flex items-center gap-2">
  <span className="w-5 h-5 rounded-full bg-danger-subtle text-danger flex items-center justify-center text-xs font-bold">{i + 1}</span>
  <span className="text-body">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-500">({c.canton})</span></span>

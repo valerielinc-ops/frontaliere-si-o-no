@@ -462,7 +462,7 @@ const CurrencyExchange: React.FC = () => {
  <button
  onClick={refresh}
  disabled={loading}
- className="flex items-center gap-2 px-3 py-2 bg-success-subtle text-success rounded-xl text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-[color,background-color,border-color,opacity] disabled:opacity-50"
+ className="flex items-center gap-2 px-3 py-2 bg-success-subtle text-success rounded-xl text-xs font-bold hover:bg-success-subtle transition-[color,background-color,border-color,opacity] disabled:opacity-50"
  >
  <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
  {t('currency.refresh_rate')}
@@ -613,7 +613,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
 
- <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 rounded-2xl border border-warning-border p-4">
+ <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-4">
  <div className="flex items-start gap-3">
  <DollarSign size={24} className="text-amber-700 flex-shrink-0 mt-0.5" />
  <div className="text-sm text-body">
@@ -752,7 +752,7 @@ const CurrencyExchange: React.FC = () => {
  {/* Moved to Statistics subtab */}
 
  {/* Educational Section */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-success-border p-6">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-6">
  <h2 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-stripe-600" />
  {t('currency.how_hidden_spread_works')}

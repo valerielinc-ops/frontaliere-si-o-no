@@ -141,7 +141,7 @@ export default function SiteMapPage() {
  <a
  href={href}
  onClick={nav(link.route)}
- className="text-sm text-accent hover:text-stripe-900 dark:hover:text-stripe-300 hover:underline"
+ className="text-sm text-accent hover:text-accent hover:underline"
  >
  {link.label}
  </a>

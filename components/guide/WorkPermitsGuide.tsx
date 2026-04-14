@@ -311,7 +311,7 @@ const WorkPermitsGuide: React.FC = () => {
  {/* Header */}
  <div className="bg-gradient-to-br from-teal-600 via-emerald-500 to-warm-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
  <div className="flex items-center gap-4 mb-4">
- <div className="p-3 bg-white/20 dark:bg-white/8 rounded-2xl">
+ <div className="p-3 bg-white/15 rounded-2xl">
  <Shield size={32} />
  </div>
  <div>
@@ -358,17 +358,17 @@ const WorkPermitsGuide: React.FC = () => {
  </div>
  <p className="text-white/90 text-sm leading-relaxed">{permit.description}</p>
  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
- <div className="bg-white/15 dark:bg-white/5 rounded-xl p-3">
+ <div className="bg-white/10 rounded-xl p-3">
  <Clock size={14} className="text-white/70 mb-1" />
  <div className="text-xs text-white/70">{t('permits.duration')}</div>
  <div className="font-bold text-sm">{permit.duration}</div>
  </div>
- <div className="bg-white/15 dark:bg-white/5 rounded-xl p-3">
+ <div className="bg-white/10 rounded-xl p-3">
  <Calendar size={14} className="text-white/70 mb-1" />
  <div className="text-xs text-white/70">{t('permits.processingTime')}</div>
  <div className="font-bold text-sm">{permit.processingTime}</div>
  </div>
- <div className="bg-white/15 dark:bg-white/5 rounded-xl p-3">
+ <div className="bg-white/10 rounded-xl p-3">
  <Building2 size={14} className="text-white/70 mb-1" />
  <div className="text-xs text-white/70">{t('permits.cost')}</div>
  <div className="font-bold text-sm">{permit.cost}</div>
@@ -509,7 +509,7 @@ const WorkPermitsGuide: React.FC = () => {
  {t('permits.comparisonTitle')}
  </h3>
  <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
- <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white dark:from-slate-900 sm:hidden z-10" />
+ <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-surface sm:hidden z-10" />
  <table className="w-full text-sm min-w-[600px] sm:min-w-0">
  <thead>
  <tr className="border-b-2 border-edge">

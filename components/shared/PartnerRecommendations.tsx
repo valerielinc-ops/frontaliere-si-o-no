@@ -54,7 +54,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
  </p>
  </div>
 
- <ExternalLink className="w-3.5 h-3.5 text-muted group-hover:text-slate-600 dark:group-hover:text-slate-300 flex-shrink-0 mt-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" />
+ <ExternalLink className="w-3.5 h-3.5 text-muted group-hover:text-body flex-shrink-0 mt-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" />
  </a>
  );
 };

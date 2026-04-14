@@ -50,8 +50,8 @@ function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
 
 function getTempColor(temp: number): string {
  if (temp <= -5) return 'text-accent';
- if (temp <= 0) return 'text-cyan-700 dark:text-cyan-400';
- if (temp <= 10) return 'text-sky-700 dark:text-sky-400';
+ if (temp <= 0) return 'text-info';
+ if (temp <= 10) return 'text-info';
  if (temp <= 20) return 'text-success';
  if (temp <= 30) return 'text-warning';
  return 'text-danger';
@@ -59,7 +59,7 @@ function getTempColor(temp: number): string {
 
 function getTempBg(temp: number): string {
  if (temp <= 0) return 'bg-accent-subtle border-accent-border';
- if (temp <= 10) return 'bg-sky-50 dark:bg-sky-950/30 border-sky-200/50 dark:border-sky-800/50';
+ if (temp <= 10) return 'bg-info-subtle border-info-border';
  if (temp <= 20) return 'bg-success-subtle border-success-border';
  if (temp <= 30) return 'bg-warning-subtle border-warning-border';
  return 'bg-danger-subtle border-danger-border';

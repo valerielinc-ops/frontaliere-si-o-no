@@ -301,7 +301,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  />
  <button
  onClick={() => { setRateOverride(null); refreshRate(); }}
- className="px-2 py-2 rounded-lg border border-edge bg-surface-alt hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors"
+ className="px-2 py-2 rounded-lg border border-edge bg-surface-alt hover:bg-surface-raised transition-colors"
  aria-label={t('bonus.refreshRate')}
  title={t('bonus.refreshRate')}
  >

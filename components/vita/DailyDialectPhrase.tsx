@@ -26,7 +26,7 @@ const DailyDialectPhrase: React.FC = () => {
  nav.navigateTo('dialetto');
  }
  }}
- className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-orange-200/60 dark:border-orange-800/30 px-3 text-xs hover:border-orange-300/80 dark:hover:border-orange-700/50 transition-colors"
+ className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-warning-border px-3 text-xs hover:border-warning-border transition-colors"
  aria-label={t('dialect.openPage')}
  >
  <Sparkles size={13} className="text-warning flex-shrink-0" />

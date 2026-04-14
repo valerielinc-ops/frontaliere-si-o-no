@@ -70,7 +70,7 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  className="flex-shrink-0 w-[260px] sm:w-[280px] rounded-[6px] border border-edge bg-surface/50 p-3 hover:border-stripe-300 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
  <div className="flex items-start gap-2.5">
- <div className="w-8 h-8 rounded-[4px] bg-surface-raised border border-edge border-edge flex items-center justify-center overflow-hidden shrink-0">
+ <div className="w-8 h-8 rounded-[4px] bg-surface-raised border border-edge flex items-center justify-center overflow-hidden shrink-0">
  {job.companyDomain ? (
  <img
  src={`/images/logos/${job.companyDomain}.webp`}
@@ -109,7 +109,7 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  {/* DESIGN-6: Gradient fade on right edge signals more content */}
  {showFade && (
  <div
- className="absolute right-0 top-0 bottom-2 w-8 pointer-events-none bg-gradient-to-l from-white dark:from-slate-900 to-transparent"
+ className="absolute right-0 top-0 bottom-2 w-8 pointer-events-none bg-gradient-to-l from-surface to-transparent"
  aria-hidden="true"
  />
  )}

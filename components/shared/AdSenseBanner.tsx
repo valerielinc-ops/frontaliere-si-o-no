@@ -113,6 +113,8 @@ export default function AdSenseBanner({
  script.setAttribute('data-adsense-client', CLIENT_ID);
  // Force anchor/overlay ads to bottom only — prevents covering navbar on mobile
  script.setAttribute('data-overlays', 'bottom');
+ // Reduce vignette/interstitial frequency — SPA triggers on every pushState
+ script.setAttribute('data-ad-frequency-hint', '120s');
  script.addEventListener('load', () => {
  script.setAttribute('data-loaded', '1');
  setScriptReady(true);

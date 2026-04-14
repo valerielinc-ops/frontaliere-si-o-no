@@ -1278,7 +1278,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  {/* Search trigger — compact icon button */}
  <button
  onClick={() => setIsOpen(true)}
- className="p-2 rounded-xl text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-surface-raised transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ className="p-2 rounded-xl text-muted hover:text-body hover:bg-surface-raised transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
  aria-label={t('search.placeholder') || 'Cerca'}
  >
@@ -1309,7 +1309,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  {query && (
  <button
  onClick={() => setQuery('')}
- className="p-2 -m-0.5 text-muted hover:text-slate-600 dark:hover:text-slate-300 rounded"
+ className="p-2 -m-0.5 text-muted hover:text-body rounded"
  aria-label={t('search.clear') || 'Cancella ricerca'}
  >
  <X size={14} />

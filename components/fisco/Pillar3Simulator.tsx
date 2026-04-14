@@ -96,8 +96,8 @@ const Pillar3Simulator: React.FC = () => {
  <div className="flex items-center gap-4 mb-4">
  <Landmark size={32} className="text-success" />
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('pillar3.title')}</h1>
- <p className="text-stone-500 dark:text-stone-400 mt-1">{t('pillar3.subtitle')}</p>
+ <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">{t('pillar3.title')}</h1>
+ <p className="text-muted mt-1">{t('pillar3.subtitle')}</p>
  </div>
  </div>
  </div>
@@ -150,7 +150,7 @@ const Pillar3Simulator: React.FC = () => {
  <label htmlFor="p3-contribution" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
  <input id="p3-contribution" type="number" inputMode="numeric" value={inputs.annualContribution}
  onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
- className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
  {inputs.type === '3a' && <p className="text-xs text-teal-600 mt-1">Max 2026: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
  </div>
@@ -159,7 +159,7 @@ const Pillar3Simulator: React.FC = () => {
  <label htmlFor="p3-capital" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
  <input id="p3-capital" type="number" inputMode="numeric" value={inputs.currentCapital}
  onChange={(e) => handleChange('currentCapital', Number(e.target.value))}
- className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  min={0} step={1000} />
  </div>
 
@@ -197,7 +197,7 @@ const Pillar3Simulator: React.FC = () => {
  <label htmlFor="p3-age" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.currentAge')}</label>
  <input id="p3-age" type="number" inputMode="numeric" value={inputs.age}
  onChange={(e) => handleChange('age', Number(e.target.value))}
- className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  min={18} max={65} />
  </div>
  </div>

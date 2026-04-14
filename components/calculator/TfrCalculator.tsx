@@ -114,7 +114,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  <Info size={14} className="text-muted hover:text-teal-600 transition-colors" />
  <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-surface-raised text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
- <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+ <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
  </button>
  );
@@ -611,7 +611,7 @@ const TfrCalculator: React.FC = () => {
  </div>
 
  {/* ── Related tools CTA ── */}
- <div className="bg-gradient-to-r from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20 border border-accent-border rounded-2xl p-5 space-y-3">
+ <div className="bg-gradient-to-r from-accent-subtle to-accent-subtle border border-accent-border rounded-2xl p-5 space-y-3">
  <h3 className="font-bold text-sm text-heading">{t('tfr.relatedTitle')}</h3>
  <div className="flex flex-wrap gap-2">
  <a

@@ -213,20 +213,20 @@ const RelatedTools: React.FC<RelatedToolsProps> = ({ context, onNavigate }) => {
  key={tool.href}
  href={tool.href}
  onClick={(e) => handleClick(e, tool)}
- className="group flex items-center gap-3 p-3 bg-surface border border-edge rounded-xl hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow]"
+ className="group flex items-center gap-3 p-3 bg-surface border border-edge rounded-xl hover:border-accent hover:shadow-md transition-[color,background-color,border-color,box-shadow]"
  >
- <div className="p-2 bg-accent-subtle rounded-lg shrink-0 group-hover:bg-stripe-100 dark:group-hover:bg-stripe-900/50 transition-colors">
+ <div className="p-2 bg-accent-subtle rounded-lg shrink-0 group-hover:bg-accent-subtle transition-colors">
  <tool.Icon className="w-4 h-4 text-accent" />
  </div>
  <div className="min-w-0 flex-1">
- <p className="text-sm font-semibold text-strong group-hover:text-stripe-700 dark:group-hover:text-stripe-300 transition-colors">
+ <p className="text-sm font-semibold text-strong group-hover:text-accent transition-colors">
  {t(tool.titleKey, getCantonI18nParams())}
  </p>
  <p className="text-sm text-muted mt-0.5 line-clamp-2">
  {t(tool.descKey, getCantonI18nParams())}
  </p>
  </div>
- <ArrowRight className="w-4 h-4 text-edge group-hover:text-stripe-500 dark:group-hover:text-stripe-400 shrink-0 group-hover:translate-x-0.5 transition-[color,background-color,border-color,transform]" />
+ <ArrowRight className="w-4 h-4 text-edge group-hover:text-accent shrink-0 group-hover:translate-x-0.5 transition-[color,background-color,border-color,transform]" />
  </a>
  ))}
  </div>

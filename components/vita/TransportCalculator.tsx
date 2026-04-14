@@ -329,7 +329,7 @@ const TransportCalculator: React.FC = () => {
 
  {/* Summary Cards */}
  <div className="grid md:grid-cols-2 gap-6">
- <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 rounded-2xl border border-success-border p-6">
+ <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl border border-success-border p-6">
  <div className="flex items-center gap-3 mb-3">
  <div className="p-3 bg-emerald-700 rounded-xl text-white">
  <TrendingDown size={24} />
@@ -347,7 +347,7 @@ const TransportCalculator: React.FC = () => {
  </p>
  </div>
 
- <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 rounded-2xl border border-danger-border p-6">
+ <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
  <div className="flex items-center gap-3 mb-3">
  <div className="p-3 bg-red-500 rounded-xl text-white">
  <TrendingUp size={24} />
@@ -450,8 +450,8 @@ const TransportCalculator: React.FC = () => {
  )}
 
  {result.type === 'ebike' && (
- <div className="mt-4 p-3 bg-olive-50 dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800">
- <p className="text-xs text-olive-800 dark:text-olive-300">
+ <div className="mt-4 p-3 bg-neutral-subtle rounded-lg border border-neutral-border">
+ <p className="text-xs text-neutral">
  💡 {t('transport.ebikeTip')}
  </p>
  </div>
@@ -461,7 +461,7 @@ const TransportCalculator: React.FC = () => {
  </div>
 
  {/* Tips Section */}
- <div className="bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 rounded-2xl border border-warning-border p-6">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
  <AlertCircle size={20} className="text-amber-700" />
  {t('transport.savingTips')}

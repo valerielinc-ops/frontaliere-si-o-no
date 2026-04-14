@@ -1585,7 +1585,7 @@ export default function AdminPanel() {
  : { column, direction: column === 'title' ? 'asc' : 'desc' }
  ));
  }}
- className={`inline-flex w-full items-center gap-1 ${justifyClass} ${options?.className || ''} hover:text-slate-900 dark:hover:text-slate-200`}
+ className={`inline-flex w-full items-center gap-1 ${justifyClass} ${options?.className || ''} hover:text-slate-900 `}
  >
  <span>{label}</span>
  <Icon size={11} className={isActive ? 'opacity-100' : 'opacity-25'} />
@@ -1753,9 +1753,9 @@ export default function AdminPanel() {
 
  return (
  <Fragment key={row.key}>
- <tr className={`border-b border-edge hover:bg-slate-50/70 dark:hover:bg-slate-800/40 ${
+ <tr className={`border-b border-edge hover:bg-slate-50/70 /40 ${
  row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-accent-subtle/50'
- : isFailure ? 'bg-red-50/30 dark:bg-red-900/10' : ''
+ : isFailure ? 'bg-danger-subtle/50' : ''
  }`}>
  {/* Crawler name */}
  <td className="py-2 px-3" title={row.description}>
@@ -2448,12 +2448,12 @@ export default function AdminPanel() {
 
  // Status border color
  const borderColor = isFailure
- ? 'border-l-red-500 dark:border-l-red-400'
+ ? 'border-l-danger'
  : isSuccess
- ? 'border-l-emerald-500 dark:border-l-emerald-400'
+ ? 'border-l-success'
  : isRunning
- ? 'border-l-stripe-500 dark:border-l-stripe-400'
- : 'border-l-slate-300 dark:border-l-slate-600';
+ ? 'border-l-accent'
+ : 'border-l-edge';
 
  return (
  <div key={wf.id} className={`rounded-lg border border-edge border-l-4 ${borderColor} bg-surface/40 p-4 space-y-3`}>
@@ -2734,7 +2734,7 @@ export default function AdminPanel() {
  className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg transition-colors ${
  activeSection === tab.id
  ? 'bg-surface text-accent border border-b-0 border-edge'
- : 'text-muted hover:text-slate-700 dark:hover:text-slate-300'
+ : 'text-muted hover:text-body'
  }`}
  aria-label={tab.label}
  >
@@ -2742,11 +2742,11 @@ export default function AdminPanel() {
  <span className="hidden sm:inline">{tab.label}</span>
  {summary && (
  <span className="ml-1 inline-flex items-center gap-1">
- <span className="inline-flex min-w-5 justify-center rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
+ <span className="inline-flex min-w-5 justify-center rounded-full bg-success-subtle px-1.5 py-0.5 text-[10px] font-bold text-success">
  {summary.ok}
  </span>
  {summary.error > 0 && (
- <span className="inline-flex min-w-5 justify-center rounded-full bg-red-100 px-1.5 py-0.5 text-[10px] font-bold text-red-700 dark:bg-red-900/30 dark:text-red-300">
+ <span className="inline-flex min-w-5 justify-center rounded-full bg-danger-subtle px-1.5 py-0.5 text-[10px] font-bold text-danger">
  {summary.error}
  </span>
  )}
@@ -2859,7 +2859,7 @@ export default function AdminPanel() {
  href="/sitemap.xml"
  target="_blank"
  rel="noreferrer"
- className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
+ className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent hover:bg-accent-subtle transition-colors"
  >
  <ExternalLink size={12} />
  Apri sitemap.xml
@@ -2868,7 +2868,7 @@ export default function AdminPanel() {
  href="/robots.txt"
  target="_blank"
  rel="noreferrer"
- className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
+ className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent hover:bg-accent-subtle transition-colors"
  >
  <ExternalLink size={12} />
  Apri robots.txt

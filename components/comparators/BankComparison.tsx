@@ -211,12 +211,12 @@ const BankComparison: React.FC = () => {
 
  return (
  <div className="space-y-6 pb-8">
- <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
+ <div className="bg-neutral-subtle rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
  <div className="flex items-center gap-3 mb-4">
  <Building2 size={32} className="text-warning" />
- <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('banks.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold text-heading">{t('banks.title')}</h2>
  </div>
- <p className="text-stone-500 dark:text-stone-400 text-lg">{t('banks.subtitle')}</p>
+ <p className="text-muted text-lg">{t('banks.subtitle')}</p>
  <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
  </div>
 

@@ -39,6 +39,12 @@ interface CategoryConfig {
  icon: React.FC<any>;
 }
 
+/** Map raw Tailwind color → semantic token name for badge/event classes */
+const SEMANTIC: Record<string, string> = {
+ green: 'success', red: 'danger', blue: 'info', purple: 'accent',
+ amber: 'warning', rose: 'danger', sky: 'info',
+};
+
 function getCategoryConfig(t: (key: string) => string): Record<string, CategoryConfig> {
  return {
  irpef: { label: t('calendar.cat.irpef'), color: 'green', icon: Euro },
@@ -776,7 +782,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  }`}
  >
  <div className="flex items-center gap-2 flex-wrap mb-1">
- <span className={`px-1.5 py-0.5 rounded text-xs font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
+ <span className={`px-1.5 py-0.5 rounded text-xs font-bold uppercase bg-${SEMANTIC[cfg.color] || 'warning'}-subtle text-${SEMANTIC[cfg.color] || 'warning'}`}>
  {cfg.label}
  </span>
  {!compact && d.who.map(w => (
@@ -825,12 +831,12 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  return (
  <div className="space-y-6 animate-fade-in">
  {/* Header */}
- <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
+ <div className="bg-neutral-subtle rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
  <div className="flex items-center gap-4 mb-4">
  {activeTab === 'fiscal' ? <Calendar size={32} className="text-warning" /> : <Star size={32} className="text-warning" />}
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
- <p className="text-stone-500 dark:text-stone-400 mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
+ <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
+ <p className="text-muted mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
  </div>
  </div>
 
@@ -858,8 +864,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </div>
  <div className="flex items-center justify-between flex-wrap gap-3">
  <div>
- <div className="font-bold text-xl text-stone-800 dark:text-stone-100">{nextDeadline.title}</div>
- <div className="text-stone-500 dark:text-stone-400 text-sm">{formatDate(nextDeadline.date)}</div>
+ <div className="font-bold text-xl text-heading">{nextDeadline.title}</div>
+ <div className="text-muted text-sm">{formatDate(nextDeadline.date)}</div>
  </div>
  <div className="px-4 py-2 bg-warning-subtle text-warning rounded-xl font-bold text-2xl">
  {getDaysUntil(nextDeadline.date)} {t('calendar.days')}
@@ -902,7 +908,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  type="button"
  onClick={handleGoogleReminderSignup}
  disabled={reminderSignupLoading}
- className="w-full grid grid-cols-[20px_1fr_20px] items-center py-2 px-3 border border-edge rounded-lg text-xs font-semibold text-strong bg-surface hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors disabled:opacity-50"
+ className="w-full grid grid-cols-[20px_1fr_20px] items-center py-2 px-3 border border-edge rounded-lg text-xs font-semibold text-strong bg-surface hover:bg-slate-100 transition-colors disabled:opacity-50"
  >
  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -1080,7 +1086,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-[color,background-color,box-shadow,transform] ${
  currentMonth === i
  ? 'bg-gradient-to-br from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-500/25 scale-105'
- : 'text-subtle hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-700 dark:hover:text-amber-300'
+ : 'text-subtle hover:bg-amber-50 hover:text-amber-700 '
  }`}
  >
  {name.substring(0, 3)}
@@ -1177,7 +1183,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  }
  }}
  className={`border-b border-r border-edge/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-[color,background-color,opacity,box-shadow] relative
- ${hasEvents ? 'cursor-pointer hover:bg-amber-50/80 dark:hover:bg-amber-950/30' : ''}
+ ${hasEvents ? 'cursor-pointer hover:bg-amber-50/80 ' : ''}
  ${isSelected ? 'bg-warning-subtle ring-2 ring-amber-500 ring-inset shadow-inner' : ''}
  ${isPast && !hasEvents ? 'opacity-40' : ''}
  `}
@@ -1197,7 +1203,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  return (
  <div
  key={i}
- className={`px-1.5 py-1 rounded-lg text-xs font-bold leading-snug bg-${cfg?.color || 'amber'}-100 dark:bg-${cfg?.color || 'amber'}-900/40 text-${cfg?.color || 'amber'}-800 dark:text-${cfg?.color || 'amber'}-200 border border-${cfg?.color || 'amber'}-300 dark:border-${cfg?.color || 'amber'}-700 shadow-sm`}
+ className={`px-1.5 py-1 rounded-lg text-xs font-bold leading-snug bg-${SEMANTIC[cfg?.color || 'amber'] || 'warning'}-subtle text-${SEMANTIC[cfg?.color || 'amber'] || 'warning'} border border-${SEMANTIC[cfg?.color || 'amber'] || 'warning'}-border shadow-sm`}
  title={e.title}
  >
  <span className="line-clamp-2">{e.title}</span>
@@ -1223,7 +1229,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  📅 {formatDate(selectedDate)}
  </div>
  <div className="flex-grow h-px bg-surface-raised"></div>
- <button onClick={() => setSelectedDate(null)} className="text-xs text-muted hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+ <button onClick={() => setSelectedDate(null)} className="text-xs text-muted hover:text-body transition-colors">
  ✕ {t('calendar.close') || 'Chiudi'}
  </button>
  </div>

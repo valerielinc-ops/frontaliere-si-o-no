@@ -155,9 +155,9 @@ export function countRealCrossings(realData: Record<string, AggregatedTraffic>):
 
 function getColorClass(minutes: number): string {
  if (minutes <= 2) return 'bg-success-subtle text-success';
- if (minutes <= 5) return 'bg-emerald-200 dark:bg-emerald-800/40 text-success';
+ if (minutes <= 5) return 'bg-success-subtle text-success';
  if (minutes <= 10) return 'bg-warning-subtle text-warning';
- if (minutes <= 18) return 'bg-orange-200 dark:bg-orange-800/40 text-warning';
+ if (minutes <= 18) return 'bg-warning-subtle text-warning';
  if (minutes <= 25) return 'bg-danger-subtle text-danger';
  return 'bg-danger text-white';
 }
@@ -313,7 +313,7 @@ export default function TrafficHistory() {
 
  <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
  {/* Scroll hint gradient for mobile */}
- <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white dark:from-slate-800 sm:hidden z-10" />
+ <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-surface sm:hidden z-10" />
  <div className="min-w-[600px] sm:min-w-0">
  {/* Hour headers */}
  <div className="flex items-center mb-1">
@@ -350,7 +350,7 @@ export default function TrafficHistory() {
  <span>{t('trafficHistory.legend')}:</span>
  <span className="px-2 py-0.5 rounded bg-success-subtle text-success">0-5'</span>
  <span className="px-2 py-0.5 rounded bg-warning-subtle text-warning">5-10'</span>
- <span className="px-2 py-0.5 rounded bg-orange-200 dark:bg-orange-800/40 text-warning">10-18'</span>
+ <span className="px-2 py-0.5 rounded bg-warning-subtle text-warning">10-18'</span>
  <span className="px-2 py-0.5 rounded bg-danger-subtle text-danger">18-25'</span>
  <span className="px-2 py-0.5 rounded bg-danger text-white">25'+</span>
  </div>

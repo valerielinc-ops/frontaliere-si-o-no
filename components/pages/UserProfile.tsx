@@ -229,7 +229,7 @@ export const ProfileLoginCTA: React.FC<{
  const [dismissed, setDismissed] = React.useState(false);
  if (dismissed) return null;
  return (
- <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/40 dark:to-emerald-950/40 rounded-xl border border-info-border">
+ <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-info-subtle to-success-subtle rounded-xl border border-info-border">
  <Sparkles size={18} className="text-teal-500 flex-shrink-0" />
  <p className="text-xs text-body flex-1">{t('profile.cta.title')}</p>
  <button
@@ -241,7 +241,7 @@ export const ProfileLoginCTA: React.FC<{
  {onDismiss && (
  <button
  onClick={() => { setDismissed(true); onDismiss(); }}
- className="text-xs text-muted hover:text-slate-700 dark:hover:text-slate-300"
+ className="text-xs text-muted hover:text-body"
  aria-label={t('profile.cta.dismiss')}
  >
  ✕
@@ -412,7 +412,7 @@ const FamilyMemberRow: React.FC<{
  {!disabled && (
  <button
  onClick={onRemove}
- className="p-1 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors"
+ className="p-1 text-red-400 hover:text-red-600 hover:bg-danger-subtle rounded-lg transition-colors"
  aria-label={t('profile.family.remove')}
  >
  <Trash2 size={14} />
@@ -825,7 +825,7 @@ const UserProfile: React.FC = () => {
  {!gisButtonRendered && (
  <button
  onClick={handleGoogleSignIn}
- className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-surface border-2 border-edge rounded-2xl hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-lg transition-[border-color,box-shadow] group"
+ className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-surface border-2 border-edge rounded-2xl hover:border-accent hover:shadow-lg transition-[border-color,box-shadow] group"
  >
  <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -833,7 +833,7 @@ const UserProfile: React.FC = () => {
  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
  </svg>
- <span className="font-semibold text-body group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors">
+ <span className="font-semibold text-body group-hover:text-accent transition-colors">
  {t('profile.signInWithGoogle')}
  </span>
  </button>
@@ -971,7 +971,7 @@ const UserProfile: React.FC = () => {
  onClick={() => {
  window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: a.tab, ...(a.subTab ? { subTab: a.subTab } : {}) } }));
  }}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-teal-600 dark:hover:text-teal-400 transition-[color,border-color] whitespace-nowrap"
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-info transition-[color,border-color] whitespace-nowrap"
  >
  <a.icon size={13} />
  {a.label}
@@ -982,7 +982,7 @@ const UserProfile: React.FC = () => {
 
  {/* ─── Sidebar Widget: key metrics ─── */}
  {(quickSimResult || fxRate) && (
- <div className="px-6 py-4 bg-gradient-to-r from-teal-50/50 to-emerald-50/50 dark:from-teal-950/20 dark:to-emerald-950/20 border-b border-edge">
+ <div className="px-6 py-4 bg-gradient-to-r from-info-subtle to-success-subtle border-b border-edge">
  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
  {/* Net salary (CH) */}
  {quickSimResult && (
@@ -1028,7 +1028,7 @@ const UserProfile: React.FC = () => {
  <button
  onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'morning' } }))}
  aria-label={t('profile.widget.morning')}
- className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-orange-300 dark:hover:border-orange-600 transition-[border-color] cursor-pointer"
+ className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-warning transition-[border-color] cursor-pointer"
  >
  <span className="text-xs font-bold text-muted uppercase">
  {preferredCrossing ? preferredCrossing.name : t('profile.widget.morning')}
@@ -1380,7 +1380,7 @@ const UserProfile: React.FC = () => {
  ))}
  <button
  onClick={addFamilyMember}
- className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-accent hover:bg-stripe-50 dark:hover:bg-stripe-900/30 rounded-xl transition-colors w-full justify-center border border-dashed border-accent-border"
+ className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-accent hover:bg-accent-subtle rounded-xl transition-colors w-full justify-center border border-dashed border-accent-border"
  >
  <Plus size={14} />
  {t('profile.family.addMember')}
@@ -1485,7 +1485,7 @@ const UserProfile: React.FC = () => {
  <span className="px-2 py-0.5 bg-accent-subtle text-accent text-xs font-bold rounded-md">
  🌅 {t('profile.doganaMorning')}: {bc.avgWaitMorning}
  </span>
- <span className="px-2 py-0.5 bg-orange-50 dark:bg-orange-900/30 text-warning text-xs font-bold rounded-md">
+ <span className="px-2 py-0.5 bg-warning-subtle text-warning text-xs font-bold rounded-md">
  🌆 {t('profile.doganaEvening')}: {bc.avgWaitEvening}
  </span>
  <span className="px-2 py-0.5 bg-accent-subtle text-accent text-xs font-bold rounded-md">
@@ -1504,7 +1504,7 @@ const UserProfile: React.FC = () => {
 
  {/* Contextual CTA card */}
  {completeness < 100 && (
- <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border border-warning-border p-4">
+ <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-4">
  <div className="flex items-start gap-3">
  <Award size={20} className="text-warning flex-shrink-0 mt-0.5" />
  <div>
@@ -1562,11 +1562,11 @@ const UserProfile: React.FC = () => {
 
  {/* Account Deletion */}
  {user && (
- <div className="px-4 py-3 bg-danger-subtle rounded-xl border border-red-200 dark:border-red-900/50">
+ <div className="px-4 py-3 bg-danger-subtle rounded-xl border border-danger-border">
  {!showDeleteConfirm ? (
  <button
  onClick={() => setShowDeleteConfirm(true)}
- className="flex items-center gap-2 text-sm text-danger font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors"
+ className="flex items-center gap-2 text-sm text-danger font-medium hover:text-danger transition-colors"
  aria-label={t('profile.deleteAccount')}
  >
  <Trash2 size={14} className="flex-shrink-0" />
@@ -1591,7 +1591,7 @@ const UserProfile: React.FC = () => {
  </button>
  <button
  onClick={() => setShowDeleteConfirm(false)}
- className="px-3 py-1.5 bg-surface-raised text-body text-xs font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
+ className="px-3 py-1.5 bg-surface-raised text-body text-xs font-bold uppercase rounded-lg transition-colors hover:bg-surface-raised"
  >
  {t('profile.deleteAccountCancel')}
  </button>

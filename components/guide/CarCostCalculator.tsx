@@ -354,7 +354,7 @@ export default function CarCostCalculator() {
  </div>
 
  {/* Verdict */}
- <div className={`mt-5 rounded-lg p-4 flex items-start gap-3 ${diff > 0 ? 'bg-success-subtle' : 'bg-orange-50 dark:bg-orange-900/30'}`}>
+ <div className={`mt-5 rounded-lg p-4 flex items-start gap-3 ${diff > 0 ? 'bg-success-subtle' : 'bg-warning-subtle'}`}>
  {diff > 0 ? (
  <CheckCircle className="text-success flex-shrink-0 mt-0.5" size={20} />
  ) : (

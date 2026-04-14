@@ -66,37 +66,37 @@ const VARIANT_ICONS: Record<LeadMagnetVariant, typeof FileText> = {
 
 const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: string; iconText: string; border: string }> = {
  tax_checklist: {
- gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20',
- iconBg: 'bg-emerald-100 dark:bg-emerald-800',
+ gradient: 'from-success-subtle to-info-subtle',
+ iconBg: 'bg-success-subtle',
  iconText: 'text-success',
  border: 'border-success-border',
  },
  salary_guide: {
- gradient: 'from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20',
+ gradient: 'from-accent-subtle to-accent-subtle',
  iconBg: 'bg-accent-subtle',
  iconText: 'text-accent',
  border: 'border-accent-border',
  },
  relocation: {
- gradient: 'from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20',
+ gradient: 'from-warning-subtle to-warning-subtle',
  iconBg: 'bg-warning-subtle',
  iconText: 'text-warning',
  border: 'border-warning-border',
  },
  insurance: {
- gradient: 'from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20',
+ gradient: 'from-info-subtle to-success-subtle',
  iconBg: 'bg-info-subtle',
  iconText: 'text-info',
  border: 'border-info-border',
  },
  pension: {
- gradient: 'from-teal-50 to-stripe-50 dark:from-teal-900/20 dark:to-stripe-900/20',
+ gradient: 'from-info-subtle to-accent-subtle',
  iconBg: 'bg-info-subtle',
  iconText: 'text-info',
  border: 'border-info-border',
  },
  generic: {
- gradient: 'from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-rose-900/20',
+ gradient: 'from-warning-subtle via-warning-subtle to-danger-subtle',
  iconBg: 'bg-warning-subtle',
  iconText: 'text-warning',
  border: 'border-warning-border',
@@ -876,7 +876,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  // ─── Success state ─────────────────────────────────────────────────
  if (status === 'success') {
  return (
- <div className={`mt-6 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border border-success-border rounded-2xl text-center`}>
+ <div className={`mt-6 p-5 bg-gradient-to-r from-success-subtle to-info-subtle border border-success-border rounded-2xl text-center`}>
  <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
  <p className="font-bold text-strong">{t('leadMagnet.success.title')}</p>
  <p className="text-sm text-subtle mt-1">{t('leadMagnet.success.desc')}</p>
@@ -897,7 +897,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
  <button
  onClick={handleDismiss}
- className="absolute top-2 right-2 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors"
+ className="absolute top-2 right-2 p-1 text-slate-500 hover:text-body rounded-lg transition-colors"
  aria-label={t('leadMagnet.dismiss')}
  >
  <X className="w-3.5 h-3.5" />
@@ -920,7 +920,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  value={email}
  onChange={(val) => { setEmail(val); setStatus('idle'); }}
  placeholder={t('newsletter.emailPlaceholder')}
- className="w-full px-3 py-2 bg-surface border border-edge rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-strong text-sm"
+ className="w-full px-3 py-2 bg-surface border border-edge rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-info text-strong text-sm"
  />
  </div>
  <button
@@ -974,7 +974,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
  <button
  onClick={handleDismiss}
- className="absolute top-3 right-3 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
+ className="absolute top-3 right-3 p-1 text-slate-500 hover:text-body rounded-lg transition-colors z-10"
  aria-label={t('leadMagnet.dismiss')}
  >
  <X className="w-4 h-4" />
@@ -1027,7 +1027,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  value={email}
  onChange={(val) => { setEmail(val); setStatus('idle'); }}
  placeholder={t('newsletter.emailPlaceholder')}
- className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-strong text-sm"
+ className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-info text-strong text-sm"
  />
  </div>
  <button

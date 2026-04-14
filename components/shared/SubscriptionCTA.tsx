@@ -181,8 +181,8 @@ const SubscriptionCTA: React.FC = () => {
  return (
  <div className={`mt-6 p-5 rounded-2xl text-center border ${
  status === 'pending'
- ? 'bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-warning-border'
- : 'bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-success-border'
+ ? 'bg-gradient-to-r from-warning-subtle to-warning-subtle border-warning-border'
+ : 'bg-gradient-to-r from-success-subtle to-info-subtle border-success-border'
  }`}>
  {status === 'pending' ? (
  <>
@@ -243,11 +243,11 @@ const SubscriptionCTA: React.FC = () => {
  }
 
  return (
- <div className="mt-6 relative bg-gradient-to-r from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-rose-900/20 border border-warning-border rounded-2xl overflow-hidden">
+ <div className="mt-6 relative bg-gradient-to-r from-warning-subtle via-warning-subtle to-danger-subtle border border-warning-border rounded-2xl overflow-hidden">
  {/* Dismiss button */}
  <button
  onClick={handleDismiss}
- className="absolute top-1 right-1 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
+ className="absolute top-1 right-1 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-body rounded-lg transition-colors z-10"
  aria-label={t('newsletter.cta.postCalc.dismiss')}
  >
  <X className="w-4 h-4" />
@@ -306,7 +306,7 @@ const SubscriptionCTA: React.FC = () => {
  value={email}
  onChange={(val) => { setEmail(val); setStatus('idle'); }}
  placeholder={t('newsletter.emailPlaceholder')}
- className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-strong text-sm"
+ className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-info text-strong text-sm"
  />
  </div>
  <button

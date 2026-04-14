@@ -180,7 +180,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  if (!stats) return null;
  
  return (
- <div className="bg-gradient-to-br from-slate-50 to-stripe-50 dark:from-slate-900/50 dark:to-stripe-950/30 rounded-2xl border border-edge p-4 sm:p-6 space-y-6">
+ <div className="bg-gradient-to-br from-surface-alt to-accent-subtle rounded-2xl border border-edge p-4 sm:p-6 space-y-6">
  <div className="flex items-center gap-3">
  <div className="p-2 bg-surface-raised rounded-xl">
  <ChartBar size={24} className="text-subtle" />
@@ -290,7 +290,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  )}
  
  {stats.yearsCount >= 2 && (
- <div className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/20 dark:to-emerald-950/20 rounded-xl p-4 border border-info-border">
+ <div className="bg-gradient-to-r from-info-subtle to-success-subtle rounded-xl p-4 border border-info-border">
  <h3 className="font-bold text-sm text-info mb-3 flex items-center gap-2">
  🗓️ {t('currency.seasonal_patterns')}
  </h3>
@@ -348,7 +348,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  const monthMax = Math.max(...timing.monthOfYear.map(m => m.avgRate));
 
  return (
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-2xl border-2 border-dashed border-warning-border p-4 sm:p-6 space-y-5">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border-2 border-dashed border-warning-border p-4 sm:p-6 space-y-5">
  <div className="flex items-center gap-3">
  <div className="p-2 bg-warning-subtle rounded-xl">
  <FlaskConical size={24} className="text-warning" />
@@ -513,7 +513,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </div>
  <div className="h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-emerald-400 rounded-full relative">
  <div
- className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-800 dark:border-white rounded-full shadow-lg"
+ className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-heading rounded-full shadow-lg"
  style={{ left: `calc(${Math.max(2, Math.min(98, volatility.percentile))}% - 8px)` }}
  />
  </div>
@@ -525,7 +525,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </div>
  )}
 
- <div className="bg-gradient-to-br from-emerald-50 to-stripe-50 dark:from-emerald-950/20 dark:to-stripe-950/20 rounded-xl p-5 border border-success-border space-y-3">
+ <div className="bg-gradient-to-br from-success-subtle to-accent-subtle rounded-xl p-5 border border-success-border space-y-3">
  <h3 className="font-bold text-sm text-success flex items-center gap-2">
  🎯 {t('currency.life_hacks_title')}
  </h3>
@@ -638,7 +638,7 @@ const WeightedAverageStats: React.FC<{
  const periodLabel = period === '5y' ? t('currency.period_5y') : period === '1y' ? t('currency.period_1y') : period === '6m' ? t('currency.period_6m') : period === '3m' ? t('currency.period_3m') : t('currency.period_1m');
 
  return (
- <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-stripe-950/20 dark:to-stripe-900/20 rounded-2xl border border-accent-border p-4 sm:p-6 space-y-5">
+ <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl border border-accent-border p-4 sm:p-6 space-y-5">
  <div className="flex items-center gap-3">
  <div className="p-2 bg-accent-subtle rounded-xl">
  <BarChart3 size={24} className="text-link" />

@@ -1976,7 +1976,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  <a
  href={href}
  onClick={(e) => handleLinkClick(e, item.link!)}
- className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-surface-raised/50 active:bg-slate-100 dark:active:bg-slate-700 transition-colors text-left no-underline"
+ className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-surface-raised/50 active:bg-surface-raised transition-colors text-left no-underline"
  aria-label={`${t(item.titleKey)} — ${t('whatsNew.goTo')}`}
  >
  {cardContent}

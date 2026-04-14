@@ -248,10 +248,10 @@ export default function SalaryQuiz() {
  <button
  key={key}
  onClick={() => handleSectorSelect(key)}
- className="flex items-center gap-3 p-4 rounded-xl border-2 border-edge hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors text-left group"
+ className="flex items-center gap-3 p-4 rounded-xl border-2 border-edge hover:border-success hover:bg-success-subtle transition-colors text-left group"
  >
  <span className="text-2xl">{icon}</span>
- <span className="text-sm font-medium text-body group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
+ <span className="text-sm font-medium text-body group-hover:text-success">
  {t(`salaryQuiz.sector.${key}`)}
  </span>
  </button>
@@ -272,9 +272,9 @@ export default function SalaryQuiz() {
  <button
  key={level}
  onClick={() => handleExperienceSelect(level)}
- className="flex items-center justify-between p-4 rounded-xl border-2 border-edge hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
+ className="flex items-center justify-between p-4 rounded-xl border-2 border-edge hover:border-success hover:bg-success-subtle transition-colors group"
  >
- <span className="text-sm font-medium text-body group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
+ <span className="text-sm font-medium text-body group-hover:text-success">
  {t(`salaryQuiz.experience.${level}`)}
  </span>
  <ChevronRight size={18} className="text-muted group-hover:text-emerald-500" />
@@ -296,10 +296,10 @@ export default function SalaryQuiz() {
  <button
  key={prov}
  onClick={() => handleProvinceSelect(prov)}
- className="flex items-center gap-2 p-4 rounded-xl border-2 border-edge hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
+ className="flex items-center gap-2 p-4 rounded-xl border-2 border-edge hover:border-success hover:bg-success-subtle transition-colors group"
  >
  <MapPin size={16} className="text-muted group-hover:text-emerald-500" />
- <span className="text-sm font-medium text-body group-hover:text-emerald-700 dark:group-hover:text-emerald-300 capitalize">
+ <span className="text-sm font-medium text-body group-hover:text-success capitalize">
  {t(`salaryQuiz.province.${prov}`)}
  </span>
  </button>
@@ -373,7 +373,7 @@ export default function SalaryQuiz() {
  </button>
  <button
  onClick={() => handleShare('copy')}
- className="flex items-center gap-2 px-5 py-3 bg-surface-raised hover:bg-slate-300 dark:hover:bg-slate-600 text-body rounded-xl font-semibold text-sm transition-colors"
+ className="flex items-center gap-2 px-5 py-3 bg-surface-raised hover:bg-surface-raised text-body rounded-xl font-semibold text-sm transition-colors"
  >
  📋 {shared ? t('salaryQuiz.copied') : t('salaryQuiz.copyLink')}
  </button>

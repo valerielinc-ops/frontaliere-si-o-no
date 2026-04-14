@@ -203,7 +203,7 @@ const GamificationPage: React.FC = () => {
  key={lvl}
  className={`p-3 rounded-xl text-center transition-[color,background-color,border-color,box-shadow] ${
  isCurrent
- ? 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border-2 border-warning-border shadow-sm'
+ ? 'bg-gradient-to-br from-warning-subtle to-warning-subtle border-2 border-warning-border shadow-sm'
  : isReached
  ? 'bg-success-subtle border border-success-border'
  : 'bg-surface-alt/50 border border-edge opacity-50'

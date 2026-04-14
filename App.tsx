@@ -2597,7 +2597,7 @@ const App: React.FC = () => {
  onClick={() => handleTabChange('admin')}
  className={`hidden md:flex p-2 rounded-xl transition-colors shrink-0 items-center justify-center ${
  activeTab === 'admin'
- ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
+ ? 'bg-danger-subtle text-danger'
  : 'text-slate-500 hover:bg-surface-raised'
  }`}
  aria-label="Apri pannello amministrazione"
@@ -2675,7 +2675,7 @@ const App: React.FC = () => {
  {isPrivilegedAdmin && (
  <button
  onClick={() => handleTabChange('admin')}
- className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-danger hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left"
+ className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-danger hover:bg-danger-subtle transition-colors w-full text-left"
  >
  <Shield size={18} />
  <span className="text-sm font-medium">Pannello amministrazione</span>
@@ -2814,7 +2814,7 @@ const App: React.FC = () => {
  )}
 
  {/* Main Content */}
- <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
+ <main id="main-content" data-no-auto-ads="inside" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
  }`}>
  <Suspense fallback={<LazyFallback />}>
@@ -3134,7 +3134,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'api-status' })}
  onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-body transition-colors no-underline"
  >
  {t('footer.apiStatus')}
  </a>
@@ -3142,7 +3142,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'partners' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-success transition-colors no-underline"
  >
  {t('partners.footerLink')}
  </a>
@@ -3166,7 +3166,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })}
  onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
  >
  <Fuel className="w-3.5 h-3.5" />
  {t('footer.fuelPrices')}
@@ -3175,7 +3175,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'morning' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
  >
  <Sunrise className="w-3.5 h-3.5" />
  {t('footer.morningDashboard')}
@@ -3202,7 +3202,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'glossario' })}
  onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-teal-600 dark:hover:text-teal-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-info transition-colors no-underline"
  >
  <BookA className="w-3.5 h-3.5" />
  {t('glossary.title')}
@@ -3211,7 +3211,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'dialetto' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
  >
  <Languages className="w-3.5 h-3.5" />
  {t('dialect.title')}
@@ -3220,7 +3220,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'sitemap' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-body transition-colors no-underline"
  >
  {t('sitemap.title')}
  </a>
@@ -3246,7 +3246,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'tfr-calculator' })}
  onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
  >
  <Banknote className="w-3.5 h-3.5" />
  {t('tfr.footerLink')}
@@ -3255,7 +3255,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'tredicesima' })}
  onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }}
- className="inline-flex items-center gap-1 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
  >
  <Gift className="w-3.5 h-3.5" />
  {t('tredicesima.footerLink')}
@@ -3297,7 +3297,7 @@ const App: React.FC = () => {
  <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
  <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
  <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline">{t('footer.apiStatus')}</a>
- <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-emerald-700 dark:hover:text-emerald-400 py-1.5 no-underline">{t('partners.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 no-underline">{t('partners.footerLink')}</a>
  </div>
  </details>
  {/* Strumenti */}
@@ -3308,10 +3308,10 @@ const App: React.FC = () => {
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
  <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
- <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
- <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
- <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
- <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
+ <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
+ <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
  <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
  <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
  <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline">{t('consulting.footerLink')}</a>
@@ -3327,9 +3327,9 @@ const App: React.FC = () => {
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
  <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
- <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-teal-600 dark:hover:text-teal-400 py-1.5 no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
- <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
- <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-slate-700 dark:hover:text-slate-300 py-1.5 no-underline">{t('sitemap.title')}</a>
+ <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-info py-1.5 no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
+ <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
+ <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-body py-1.5 no-underline">{t('sitemap.title')}</a>
  </div>
  </details>
  {/* Social */}
@@ -3373,7 +3373,7 @@ const App: React.FC = () => {
  <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-success no-underline hover:underline">{t('nav.fisco')}</a>
  <ul className="mt-1 space-y-0.5 list-none p-0">
  {(['tax-return', 'withholding-rates', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'tax-credit'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-muted hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
+ <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-muted hover:text-success no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
  ))}
  </ul>
  </div>
@@ -3389,7 +3389,7 @@ const App: React.FC = () => {
  <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-warning no-underline hover:underline">{t('nav.vita')}</a>
  <ul className="mt-1 space-y-0.5 list-none p-0">
  {(['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-muted hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
+ <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-muted hover:text-warning no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
  ))}
  </ul>
  </div>
@@ -3476,7 +3476,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })}
  onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }}
- className="block text-xs text-muted hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
+ className="block text-xs text-muted hover:text-success no-underline hover:underline leading-relaxed py-1"
  >{label}</a>
  </li>
  ))}
@@ -3524,7 +3524,7 @@ const App: React.FC = () => {
  <a
  href={buildPath({ activeTab: 'vita', vitaSubTab: sub })}
  onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }}
- className="block text-xs text-muted hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1"
+ className="block text-xs text-muted hover:text-warning no-underline hover:underline leading-relaxed py-1"
  >{label}</a>
  </li>
  ))}
@@ -3556,18 +3556,18 @@ const App: React.FC = () => {
  {/* Articoli / Blog */}
  <div>
  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="text-xs font-bold text-danger no-underline hover:underline">{t('nav.blog')}</a>
- <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-muted hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
+ <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-muted hover:text-danger no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
  </div>
  </div>
  </nav>
 
  {/* English E-E-A-T alias links — plain <a> tags for crawler discoverability */}
  <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-edge">
- <a href="/about/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">About</a>
+ <a href="/about/" className="hover:text-subtle no-underline">About</a>
  <span>·</span>
- <a href="/contact/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">Contact</a>
+ <a href="/contact/" className="hover:text-subtle no-underline">Contact</a>
  <span>·</span>
- <a href="/privacy-policy/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">Privacy Policy</a>
+ <a href="/privacy-policy/" className="hover:text-subtle no-underline">Privacy Policy</a>
  </div>
 
  <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-success font-medium">

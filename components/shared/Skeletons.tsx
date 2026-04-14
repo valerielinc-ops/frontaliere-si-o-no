@@ -73,7 +73,7 @@ export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows
 export const SkeletonComparator: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
- <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+ <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl p-6">
  <h2 className="text-2xl font-bold text-heading">Confronta Servizi per Frontalieri</h2>
  <p className="text-sm text-subtle mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
  </div>
@@ -95,7 +95,7 @@ export const SkeletonComparator: React.FC = () => (
 export const SkeletonGuide: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
- <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+ <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl p-6">
  <h2 className="text-2xl font-bold text-heading">Guida Completa per Frontalieri</h2>
  <p className="text-sm text-subtle mt-1">Tutto quello che devi sapere per lavorare in Svizzera dall'Italia</p>
  </div>
@@ -334,7 +334,7 @@ export const SkeletonJobDetail: React.FC = () => (
 export const SkeletonJobBoard: React.FC = () => (
  <div className="space-y-4 min-h-[80vh]">
  {/* Header */}
- <div className="bg-gradient-to-br from-teal-50 to-stripe-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+ <div className="bg-gradient-to-br from-info-subtle to-accent-subtle rounded-2xl p-6">
  <h2 className="text-2xl font-bold text-heading">Offerte di Lavoro Ticino</h2>
  <p className="text-sm text-subtle mt-1">Trova lavoro in Svizzera come frontaliere</p>
  </div>
@@ -455,7 +455,7 @@ export const SkeletonPageShell: React.FC = () => {
  return (
  <div className="min-h-screen relative flex flex-col font-sans text-strong overflow-hidden">
  {/* Background gradient — matches real layout + loading shell */}
- <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-slate-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }} />
+ <div className="absolute inset-0 bg-gradient-to-br from-info-subtle via-surface-alt to-success-subtle -z-20" style={{ contain: 'strict' }} />
 
  {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
  <nav className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm">

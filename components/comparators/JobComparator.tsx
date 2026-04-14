@@ -144,9 +144,9 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="pb-6 border-b-2 border-warning-border">
  <div className="flex items-center gap-3 mb-3">
  <Briefcase size={28} className="text-warning" />
- <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-800 dark:text-stone-100">{t('jobs.title')}</h1>
+ <h1 className="text-3xl sm:text-4xl font-extrabold text-heading">{t('jobs.title')}</h1>
  </div>
- <p className="text-lg text-stone-500 dark:text-stone-400">{t('jobs.subtitle')}</p>
+ <p className="text-lg text-muted">{t('jobs.subtitle')}</p>
  </div>
 
  {/* Offers Input */}
@@ -163,7 +163,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  aria-label="Nome azienda"
  />
  {offers.length > 2 && (
- <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
+ <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-danger-subtle rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
  <Trash2 size={16} />
  </button>
  )}
@@ -331,7 +331,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  </div>
 
  {!isBest && bestResult && (
- <div className="mt-3 p-3 bg-orange-50 dark:bg-orange-950/30 rounded-xl text-sm">
+ <div className="mt-3 p-3 bg-warning-subtle rounded-xl text-sm">
  <span className="text-orange-600 font-bold">
  {t('jobs.difference')}: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/{t('common.monthly').toLowerCase()}
  </span>

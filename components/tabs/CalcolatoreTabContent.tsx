@@ -105,7 +105,7 @@ export default function CalcolatoreTabContent() {
  <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
  <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" /></div>
  </div>
- <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-slate-300 to-slate-200 dark:from-slate-700 dark:to-slate-600 animate-pulse" /></div>
+ <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-surface-raised to-edge animate-pulse" /></div>
  </div>
  )}
 
@@ -219,7 +219,7 @@ export default function CalcolatoreTabContent() {
 
  {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
  <details className="mt-6 group">
- <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
+ <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-accent transition-colors">
  <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
  {t('calc.table.caption')}
  </summary>

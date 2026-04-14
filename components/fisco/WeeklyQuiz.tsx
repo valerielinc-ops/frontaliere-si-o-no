@@ -211,9 +211,9 @@ const CATEGORY_STYLES: Record<string, { emoji: string; color: string }> = {
 };
 
 const DIFFICULTY_LABELS: Record<string, { key: string; color: string }> = {
- easy: { key: 'quiz.difficulty.facile', color: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' },
+ easy: { key: 'quiz.difficulty.facile', color: 'bg-success-subtle text-success' },
  medium: { key: 'quiz.difficulty.medio', color: 'bg-warning-subtle text-warning' },
- hard: { key: 'quiz.difficulty.difficile', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' },
+ hard: { key: 'quiz.difficulty.difficile', color: 'bg-danger-subtle text-danger' },
 };
 
 // ─── Component ───────────────────────────────────────────────
@@ -308,7 +308,7 @@ const WeeklyQuiz: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl p-4 sm:p-6 border border-success-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-success-subtle rounded-xl">
  <Brain className="w-6 h-6 text-success" />
@@ -391,7 +391,7 @@ const WeeklyQuiz: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl p-4 sm:p-6 border border-success-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-success-subtle rounded-xl">
  <Brain className="w-6 h-6 text-success" />

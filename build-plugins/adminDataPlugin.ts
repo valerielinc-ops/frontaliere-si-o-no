@@ -13,68 +13,68 @@ import type { Plugin } from 'vite';
 
 /** Files to copy from data/ → dist/data/ (relative to project root). */
 const ADMIN_DATA_FILES = [
-  'data/jobs-crawler-config.json',
-  'data/jobs-crawler-audit.json',
-  'data/jobs-crawler-summaries.json',
-  'data/ticino-companies-extra.json',
-  'data/jobs-crawler-adapters/registry.json',
-  // jobs-crawler-parser-proposals.json — copied when it exists
-  'data/jobs-crawler-parser-proposals.json',
+ 'data/jobs-crawler-config.json',
+ 'data/jobs-crawler-audit.json',
+ 'data/jobs-crawler-summaries.json',
+ 'data/ticino-companies-extra.json',
+ 'data/jobs-crawler-adapters/registry.json',
+ // jobs-crawler-parser-proposals.json — copied when it exists
+ 'data/jobs-crawler-parser-proposals.json',
 ];
 
 export function adminDataPlugin(root: string): Plugin {
-  const routeToSource = new Map(
-    ADMIN_DATA_FILES.map((relPath) => [`/${relPath.replace(/^data\//, 'data/')}`, path.resolve(root, relPath)])
-  );
+ const routeToSource = new Map(
+ ADMIN_DATA_FILES.map((relPath) => [`/${relPath.replace(/^data\//, 'data/')}`, path.resolve(root, relPath)])
+ );
 
-  return {
-    name: 'admin-data-plugin',
-    configureServer(server) {
-      server.middlewares.use((req, res, next) => {
-        const pathname = (req.url || '').split('?')[0];
-        const src = routeToSource.get(pathname);
-        if (!src || !fs.existsSync(src)) {
-          next();
-          return;
-        }
+ return {
+ name: 'admin-data-plugin',
+ configureServer(server) {
+ server.middlewares.use((req, res, next) => {
+ const pathname = (req.url || '').split('?')[0];
+ const src = routeToSource.get(pathname);
+ if (!src || !fs.existsSync(src)) {
+ next();
+ return;
+ }
 
-        res.setHeader('Content-Type', 'application/json');
-        res.end(fs.readFileSync(src, 'utf8'));
-      });
-    },
-    closeBundle() {
-      const distDir = path.resolve(root, 'dist');
-      let copied = 0;
+ res.setHeader('Content-Type', 'application/json');
+ res.end(fs.readFileSync(src, 'utf8'));
+ });
+ },
+ closeBundle() {
+ const distDir = path.resolve(root, 'dist');
+ let copied = 0;
 
-      for (const relPath of ADMIN_DATA_FILES) {
-        const src = path.resolve(root, relPath);
-        // Preserve the data/ prefix in dist (e.g. dist/data/jobs-crawler-config.json)
-        const dest = path.resolve(distDir, relPath);
+ for (const relPath of ADMIN_DATA_FILES) {
+ const src = path.resolve(root, relPath);
+ // Preserve the data/ prefix in dist (e.g. dist/data/jobs-crawler-config.json)
+ const dest = path.resolve(distDir, relPath);
 
-        if (!fs.existsSync(src)) {
-          // Non-blocking: file may not exist yet (e.g. parser-proposals)
-          continue;
-        }
+ if (!fs.existsSync(src)) {
+ // Non-blocking: file may not exist yet (e.g. parser-proposals)
+ continue;
+ }
 
-        fs.mkdirSync(path.dirname(dest), { recursive: true });
-        fs.copyFileSync(src, dest);
-        copied++;
-      }
+ fs.mkdirSync(path.dirname(dest), { recursive: true });
+ fs.copyFileSync(src, dest);
+ copied++;
+ }
 
-      console.log(`  📋 Admin data: copied ${copied} files to dist/data/`);
+ console.log(` 📋 Admin data: copied ${copied} files to dist/data/`);
 
-      // Generate static HTML shell for the admin route so GitHub Pages serves it
-      // directly (fresh chunk hashes) without the 404→redirect dance that causes
-      // browsers with stale cached index.html to request non-existent old chunks.
-      // The slug is intentionally obfuscated; it must stay in sync with router.ts.
-      const ADMIN_SLUG = 'gestione-contenuti-xk9mp2q';
-      const indexHtml = path.resolve(distDir, 'index.html');
-      if (fs.existsSync(indexHtml)) {
-        const adminDir = path.resolve(distDir, ADMIN_SLUG);
-        fs.mkdirSync(adminDir, { recursive: true });
-        fs.copyFileSync(indexHtml, path.resolve(adminDir, 'index.html'));
-        console.log(`  🔐 Admin route: generated dist/${ADMIN_SLUG}/index.html`);
-      }
-    },
-  };
+ // Generate static HTML shell for the admin route so GitHub Pages serves it
+ // directly (fresh chunk hashes) without the 404→redirect dance that causes
+ // browsers with stale cached index.html to request non-existent old chunks.
+ // The slug is intentionally obfuscated; it must stay in sync with router.ts.
+ const ADMIN_SLUG = 'gestione-contenuti-xk9mp2q';
+ const indexHtml = path.resolve(distDir, 'index.html');
+ if (fs.existsSync(indexHtml)) {
+ const adminDir = path.resolve(distDir, ADMIN_SLUG);
+ fs.mkdirSync(adminDir, { recursive: true });
+ fs.copyFileSync(indexHtml, path.resolve(adminDir, 'index.html'));
+ console.log(` 🔐 Admin route: generated dist/${ADMIN_SLUG}/index.html`);
+ }
+ },
+ };
 }

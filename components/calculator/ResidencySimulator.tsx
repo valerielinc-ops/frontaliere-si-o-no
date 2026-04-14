@@ -212,7 +212,7 @@ function LocationAutocomplete({
  {value && !isOpen && (
  <button
  onClick={() => { setQuery(''); inputRef.current?.focus(); setIsOpen(true); }}
- className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted hover:text-slate-600 dark:hover:text-slate-300"
+ className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted hover:text-body"
  aria-label="Cambia"
  >
  <ChevronDown size={14} />
@@ -240,7 +240,7 @@ function LocationAutocomplete({
  id={`location-option-${i}`}
  data-option
  onClick={() => selectLocation(loc)}
- className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-stripe-50 dark:hover:bg-stripe-900/30 transition-colors ${
+ className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-accent-subtle transition-colors ${
  highlightIndex === i ? 'bg-accent-subtle' : ''
  } ${value?.id === loc.id ? 'text-accent font-bold' : 'text-body'}`}
  role="option"
@@ -265,7 +265,7 @@ function LocationAutocomplete({
  id={`location-option-${itFiltered.length + j}`}
  data-option
  onClick={() => selectLocation(loc)}
- className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-stripe-50 dark:hover:bg-stripe-900/30 transition-colors ${
+ className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-accent-subtle transition-colors ${
  highlightIndex === itFiltered.length + j ? 'bg-accent-subtle' : ''
  } ${value?.id === loc.id ? 'text-accent font-bold' : 'text-body'}`}
  role="option"
@@ -377,7 +377,7 @@ const ResidencySimulator: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-accent-border">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl p-4 sm:p-6 border border-accent-border">
  <div className="flex items-center gap-3 mb-2">
  <div className="p-2 bg-accent-subtle rounded-xl">
  <Home className="w-6 h-6 text-accent" />
@@ -401,7 +401,7 @@ const ResidencySimulator: React.FC = () => {
  {/* Swap button */}
  <button
  onClick={swapLocations}
- className="p-2.5 rounded-xl bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors self-end"
+ className="p-2.5 rounded-xl bg-accent-subtle text-accent hover:bg-accent-subtle transition-colors self-end"
  aria-label={t('residency.swap') || 'Inverti'}
  >
  <ArrowLeftRight className="w-5 h-5" />
@@ -612,7 +612,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  const hasActiveFilters = searchQuery || filterProvince || filterFascia;
 
  return (
- <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-2xl p-4 sm:p-6 border border-accent-border space-y-4">
+ <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl p-4 sm:p-6 border border-accent-border space-y-4">
  <div className="flex items-center justify-between">
  <div className="flex items-center gap-3">
  <Star className="w-6 h-6 text-accent" />
@@ -708,7 +708,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  {hasActiveFilters && (
  <button
  onClick={() => { setSearchQuery(''); setFilterProvince(''); setFilterFascia(''); }}
- className="self-end px-3 py-1.5 text-xs font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-200 transition-colors"
+ className="self-end px-3 py-1.5 text-xs font-medium text-accent hover:text-accent transition-colors"
  >
  {t('residency.bestMunicipality.clearFilters') || 'Rimuovi filtri'}
  </button>
@@ -793,7 +793,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  {!hasActiveFilters && filteredRankings.length > 10 && (
  <button
  onClick={() => setShowAll(!showAll)}
- className="w-full py-2.5 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-200 bg-surface/60 rounded-lg border border-accent-border transition-colors flex items-center justify-center gap-1.5"
+ className="w-full py-2.5 text-sm font-medium text-accent hover:text-accent bg-surface/60 rounded-lg border border-accent-border transition-colors flex items-center justify-center gap-1.5"
  >
  {showAll ? (
  <><ChevronUp size={14} /> {t('residency.bestMunicipality.showLess') || `Mostra top 10`}</>

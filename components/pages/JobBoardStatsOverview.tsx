@@ -216,7 +216,7 @@ function navigateLeader(e: React.MouseEvent, item: JobBoardLeader, locale: Local
 function renderLinkPills(items: JobBoardLeader[], tone: 'indigo' | 'emerald', locale: Locale): React.ReactNode {
  const toneClass =
  tone === 'emerald'
- ? 'border-emerald-200/80 bg-emerald-50 text-emerald-800 hover:border-success-border dark:bg-emerald-950/30 dark:text-emerald-200 dark:hover:border-emerald-700'
+ ? 'border-success-border bg-success-subtle text-success hover:border-success-border'
  : 'border-accent-border bg-accent-subtle text-accent hover:border-accent bg-accent-subtle text-accent hover:border-accent-border';
 
  return items.map((item) => (
@@ -269,7 +269,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
  <a
  key={`${item.key}-${item.url}`}
  href={leaderHref(item, props.locale)}
- className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-3 py-2 no-underline hover:border-stripe-300 dark:hover:border-stripe-500 transition-colors"
+ className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-3 py-2 no-underline hover:border-accent transition-colors"
  onClick={(e) => navigateLeader(e, item, props.locale)}
  >
  <div className="min-w-0">
@@ -457,7 +457,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  void load(true);
  }}
  disabled={refreshing}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-edge text-xs font-bold text-body hover:border-stripe-300 dark:hover:border-stripe-500"
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-edge text-xs font-bold text-body hover:border-accent"
  title={copy.refresh}
  >
  <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
