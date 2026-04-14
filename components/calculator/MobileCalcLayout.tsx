@@ -282,8 +282,8 @@ const MobileCalcLayout: React.FC<Props> = ({
               type="button"
             >+</button>
           </div>
-          {/* Quick salary pills */}
-          <div className="flex gap-1.5 mt-2.5 overflow-x-auto scrollbar-none pb-0.5">
+          {/* Quick salary pills — flex-wrap + overflow-hidden shows only what fits in one row */}
+          <div className="flex flex-wrap gap-1.5 mt-2.5 pb-0.5 max-h-[28px] overflow-hidden">
             {SALARY_PRESETS.map(s => (
               <button
                 key={s}

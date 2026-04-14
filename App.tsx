@@ -2668,8 +2668,8 @@ const App: React.FC = () => {
         {/* Sub-navigation for Calcolatore */}
         {activeTab === 'calculator' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 md:py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0 py-0.5">
                 {([
                   { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
                   { key: 'whatif' as const, icon: Sparkles, label: t('simulator.whatif') },
@@ -2687,7 +2687,7 @@ const App: React.FC = () => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       calcolatoreSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
