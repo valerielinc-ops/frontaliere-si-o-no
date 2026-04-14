@@ -4330,7 +4330,7 @@ function modifySeoService(data) {
   },`;
 
   // Insert before the closing }; ... export default BLOG_SEO_METADATA;
-  const blogEndRe = /(  \},)\s*(\n};)\s*(\nexport default BLOG_SEO_METADATA;)/;
+  const blogEndRe = /(\s*\},)\s*(\n};)\s*(\nexport default BLOG_SEO_METADATA;)/;
   if (!blogEndRe.test(blogSrc)) {
     throw new Error(`Cannot find end of BLOG_SEO_METADATA in ${blogSeoFile}`);
   }
