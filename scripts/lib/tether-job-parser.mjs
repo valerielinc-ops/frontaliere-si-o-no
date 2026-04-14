@@ -15,10 +15,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -206,13 +206,32 @@ export async function fetchAllTetherJobs() {
 
     // Extract location — remote company, default to Lugano HQ
     const firstLoc = offer.locations?.[0] || {};
-    const city = normalizeSpace(firstLoc.city || HQ.city);
+    const rawCity = normalizeSpace(firstLoc.city || '');
+    const city = rawCity || HQ.city;
     const state = normalizeSpace(firstLoc.state || 'Ticino');
     const location = `${city}, ${state}`;
 
-    // Infer actual canton from job city — don't hardcode HQ canton for foreign locations
+    // Location classification: BFS Swiss municipalities → foreign keyword check → Nominatim
     const inferredCanton = inferAnyCanton(city) || inferAnyCanton(location);
-    const isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
+    let isForeignCity = false;
+    if (!inferredCanton && rawCity) {
+      // City provided but not in any Swiss canton — check if it's foreign
+      isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
+      if (!isForeignCity && !isKnownSwissMunicipality(city)) {
+        // Not in BFS data and not in static foreign list — verify via Nominatim
+        const countryCode = await geocodeCountry(city);
+        if (countryCode && countryCode !== 'ch') {
+          isForeignCity = true;
+          console.log(`  🌍 ${city} → ${countryCode.toUpperCase()} (verified via geocoding)`);
+        } else if (!countryCode) {
+          // Nominatim failed — if not in BFS, assume foreign (safe default for remote company)
+          isForeignCity = true;
+          console.log(`  ⚠️ ${city} → unknown country, treating as foreign`);
+        }
+        // Rate limit: 1 req/sec for Nominatim
+        await new Promise((r) => setTimeout(r, 1100));
+      }
+    }
     const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
     const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);
 

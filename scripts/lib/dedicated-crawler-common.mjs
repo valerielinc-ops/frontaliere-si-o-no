@@ -4281,14 +4281,29 @@ export function isLocationExplicitlyForeign(locationField) {
     'russia', 'ukraine', 'turkey',
   ];
   const foreignCities = [
+    // Italian cities
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
     'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
+    // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'berlin', 'munich', 'münchen',
     'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
+    'lisbon', 'dublin', 'helsinki', 'athens',
+    // Eastern Europe
+    'warsaw', 'prague', 'budapest', 'bucharest', 'sofia', 'belgrade',
+    'tallinn', 'zagreb', 'nicosia', 'yerevan', 'tbilisi',
+    // Asia & Middle East
     'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
-    'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
+    'dubai', 'abu dhabi', 'riyadh', 'tel aviv', 'istanbul', 'istambul',
+    'bangalore', 'delhi', 'islamabad', 'osaka', 'cairo', 'lagos',
+    // Americas
+    'new york', 'los angeles', 'san francisco', 'toronto', 'mexico city',
+    'buenos aires', 'sao paulo', 'são paulo', 'rio de janeiro',
+    'bogota', 'bogotá', 'medellin', 'medellín', 'montevideo',
+    // Oceania & Africa
+    'sydney', 'melbourne', 'cape town', 'johannesburg',
+    // Liechtenstein & micro-states
     'ruggell', 'barberà del vallès', 'barbera del valles',
   ];
   return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));

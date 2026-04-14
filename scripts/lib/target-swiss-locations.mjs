@@ -246,5 +246,32 @@ export function isTargetSwissLocation(text = '', { includeGrigioni = true } = {}
   return false;
 }
 
+// ─── Swiss municipality existence check ──────────────────────────────────
+// Fast offline check: is a city name present in any of the 2,110 BFS
+// municipalities or their aliases, across all 26 cantons?
+
+const _allSwissCityTokens = (() => {
+  const tokens = new Set();
+  for (const code of Object.keys(SWISS_CANTONS)) {
+    for (const t of getCantonCityTokens(code)) tokens.add(t);
+  }
+  // Also add canton names themselves (e.g. "Ticino", "Graubünden")
+  for (const canton of Object.values(SWISS_CANTONS)) {
+    for (const name of canton.names || []) tokens.add(normalizeToken(name));
+  }
+  return tokens;
+})();
+
+/**
+ * Check if a city name matches any known Swiss municipality (BFS data)
+ * or canton name. Returns true only for exact city-level matches,
+ * not substring matching — to avoid false positives.
+ */
+export function isKnownSwissMunicipality(cityName = '') {
+  const token = normalizeToken(cityName);
+  if (!token || token.length < 2) return false;
+  return _allSwissCityTokens.has(token);
+}
+
 // Re-export for convenience
 export { TARGET_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
