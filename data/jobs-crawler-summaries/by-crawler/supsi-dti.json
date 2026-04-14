@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-04-14T10:45:06.867Z",
-  "total": 11,
-  "newCount": 11,
+  "generatedAt": "2026-04-14T22:30:40.113Z",
+  "total": 10,
+  "newCount": 10,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 82898,
-  "avgDurationMs": 82898,
+  "durationMs": 93569,
+  "avgDurationMs": 93569,
   "durationHistory": [
-    82898
+    93569
   ],
   "newJobs": [
     {
@@ -375,48 +375,6 @@
       "sourceLang": "it",
       "salaryMin": 109000,
       "salaryMax": 147000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T22:30:40.794Z",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4wp0m",
-      "slug": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
-      "company": "SUPSI / DTI",
-      "title": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
-      "location": "Ticino",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://www.supsi.ch/bando26_9001",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-31T21:47:14.853Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 55500,
-      "salaryMax": 75500,
       "streetAddress": "Via Cantonale 2C",
       "postalCode": "6928",
       "addressLocality": "Manno",
