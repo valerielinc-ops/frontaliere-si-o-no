@@ -43,6 +43,7 @@ import {
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -643,6 +644,32 @@ function assembleJobs() {
   const foreignCount = beforeForeignFilter - foreignFiltered.length;
   if (foreignCount > 0) {
     console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${foreignFiltered.length} remaining)`);
+  }
+
+  // ── Canton validation — fix mismatches using BFS data ──────────────
+  // Some crawlers assign HQ canton instead of the actual city's canton.
+  // Use inferAnyCanton (backed by 2,110 BFS municipalities) to correct.
+  let cantonFixes = 0;
+  let lowercaseFixes = 0;
+  for (const job of foreignFiltered) {
+    // Fix lowercase canton codes
+    if (job.canton && job.canton !== job.canton.toUpperCase()) {
+      job.canton = job.canton.toUpperCase();
+      lowercaseFixes++;
+    }
+    const city = String(job.addressLocality || job.location || '').trim();
+    if (!city || city.length < 2 || city === 'CH') continue;
+    const inferred = inferAnyCanton(city);
+    if (inferred && job.canton && job.canton !== inferred) {
+      job.canton = inferred;
+      if (job.addressRegion && job.addressRegion.length === 2) {
+        job.addressRegion = inferred;
+      }
+      cantonFixes++;
+    }
+  }
+  if (cantonFixes > 0 || lowercaseFixes > 0) {
+    console.log(`  🏔️  Canton validation: fixed ${cantonFixes} mismatches, ${lowercaseFixes} lowercase codes`);
   }
 
   // ── Backfill empty description from descriptionByLocale ────────────

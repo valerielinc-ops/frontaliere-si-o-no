@@ -12,6 +12,7 @@ const SLIM_INDEX_FIELDS = new Set([
   'title',
   'company', 'companyKey', 'companyDomain', 'url',
   'location', 'canton',
+  'addressLocality', 'sector',
   'category', 'contract', 'department',
   'salaryMin', 'salaryMax', 'currency',
   'postedDate', 'crawledAt',
