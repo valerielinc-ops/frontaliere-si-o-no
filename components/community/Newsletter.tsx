@@ -310,9 +310,9 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       </div>
 
       {(status === 'success' || status === 'pending') ? (
-        <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-5 sm:p-8 text-center">
+        <div className="bg-warning-subtle rounded-2xl border border-warning-border p-5 sm:p-8 text-center">
           <Mail size={48} className="text-amber-500 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{t('newsletter.doubleOptIn.title')}</h3>
+          <h3 className="text-xl font-bold text-strong mb-2">{t('newsletter.doubleOptIn.title')}</h3>
           <p className="text-subtle mb-3">
             {t('newsletter.doubleOptIn.description')}
           </p>
@@ -409,7 +409,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                     className="mt-1 w-4 h-4 rounded text-teal-600 focus-visible:ring-teal-500"
                     aria-label={pref.label} />
                   <div>
-                    <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
+                    <div className="font-bold text-sm text-strong">{pref.label}</div>
                     <div className="text-sm text-muted">{pref.desc}</div>
                   </div>
                 </label>
@@ -418,12 +418,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           </div>
 
           {status === 'error' && (
-            <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-950/30 rounded-xl text-red-600 text-sm">
+            <div className="flex items-center gap-2 p-3 bg-danger-subtle rounded-xl text-red-600 text-sm">
               <AlertCircle size={16} /> {errorMessage}
             </div>
           )}
           {status === 'exists' && (
-            <div className="flex items-center gap-2 p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl text-amber-600 text-sm">
+            <div className="flex items-center gap-2 p-3 bg-warning-subtle rounded-xl text-amber-600 text-sm">
               <AlertCircle size={16} /> {t('newsletter.alreadySubscribedFull')}
             </div>
           )}

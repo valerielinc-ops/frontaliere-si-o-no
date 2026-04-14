@@ -31,13 +31,13 @@ const IRPEF_BRACKETS = [
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
 const EDIT_FIELD_CLASS =
-  'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-stripe-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-500';
+  'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-strong outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,background-color,border-color,box-shadow] placeholder-muted';
 
 const STEPPER_SHELL_CLASS =
-  'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-stripe-500/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]';
+  'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]';
 
 const STEP_BTN_CLASS =
-  'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
+  'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
 
 type NumberStepperProps = {
   id: string;
@@ -52,7 +52,7 @@ const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onCh
   <div className={STEPPER_SHELL_CLASS}>
     <button
       type="button"
-      className={`${STEP_BTN_CLASS} border-r border-slate-100 dark:border-slate-800`}
+      className={`${STEP_BTN_CLASS} border-r border-edge`}
       onClick={() => onChange(Math.max(min, value - 1))}
       aria-label={`${ariaLabel}: diminuisci`}
     >
@@ -72,13 +72,13 @@ const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onCh
           next = Math.max(min, Math.min(max, next));
           onChange(next);
         }}
-        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 appearance-none px-1 py-3"
+        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-body outline-none focus-visible:ring-2 focus-visible:ring-accent appearance-none px-1 py-3"
         aria-label={ariaLabel}
       />
     </div>
     <button
       type="button"
-      className={`${STEP_BTN_CLASS} border-l border-slate-100 dark:border-slate-800`}
+      className={`${STEP_BTN_CLASS} border-l border-edge`}
       onClick={() => onChange(Math.min(max, value + 1))}
       aria-label={`${ariaLabel}: aumenta`}
     >
@@ -209,33 +209,33 @@ const TaxCreditCalculator: React.FC = () => {
       {/* Header */}
       <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-900/30">
-            <Receipt size={24} className="text-emerald-700 dark:text-emerald-300" />
+          <div className="p-2 rounded-xl bg-success-subtle">
+            <Receipt size={24} className="text-success" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('taxCredit.title')}</h2>
+            <h2 className="text-lg font-bold text-heading">{t('taxCredit.title')}</h2>
             <p className="text-sm text-subtle">{t('taxCredit.subtitle')}</p>
           </div>
         </div>
 
         {/* Info box */}
-        <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 mb-6">
+        <div className="bg-accent-subtle border border-accent-border rounded-xl p-4 mb-6">
           <div className="flex gap-2">
-            <Info size={18} className="text-stripe-700 dark:text-stripe-300 mt-0.5 shrink-0" />
-            <p className="text-sm text-stripe-700 dark:text-stripe-300">{t('taxCredit.info')}</p>
+            <Info size={18} className="text-accent mt-0.5 shrink-0" />
+            <p className="text-sm text-accent">{t('taxCredit.info')}</p>
           </div>
         </div>
 
         {/* Live exchange rate badge */}
         <div className="flex items-center gap-2 mb-4 bg-surface-alt/50 rounded-lg px-3 py-2">
           <span className="text-sm text-subtle">{t('taxCredit.exchangeRate')}:</span>
-          <span className="text-sm font-semibold text-slate-900 dark:text-white">
+          <span className="text-sm font-semibold text-heading">
             1 CHF = {exchangeRate.toFixed(4)} EUR
           </span>
           <button
             onClick={refreshRate}
             disabled={rateLoading}
-            className="ml-auto p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            className="ml-auto p-1 rounded-md hover:bg-surface-raised transition-colors"
             aria-label={t('taxCredit.refreshRate')}
           >
             <RefreshCw size={14} className={`text-muted ${rateLoading ? 'animate-spin' : ''}`} />
@@ -322,7 +322,7 @@ const TaxCreditCalculator: React.FC = () => {
                     onChange={(e) => setSpouseWorks(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-stripe-300 dark:peer-focus-visible:ring-stripe-800 rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-transform dark:after:border-slate-500 peer-checked:bg-stripe-600"></div>
+                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-accent dark:peer-focus-visible:ring-stripe-800 rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-transform dark:after:border-slate-500 peer-checked:bg-stripe-600"></div>
                 </div>
                 <span className="text-sm font-medium text-body">{t('taxCredit.spouseWorks')}</span>
               </label>
@@ -387,28 +387,28 @@ const TaxCreditCalculator: React.FC = () => {
 
       {/* Results — always visible, updates automatically */}
       <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{t('taxCredit.results')}</h3>
+        <h3 className="text-lg font-bold text-heading mb-4">{t('taxCredit.results')}</h3>
 
         {/* Summary cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800">
-            <p className="text-xs font-medium text-emerald-700 dark:text-emerald-300 mb-1">{t('taxCredit.creditAmount')}</p>
-            <p className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">€{fmt(result.taxCredit)}</p>
+          <div className="bg-success-subtle rounded-xl p-4 border border-success-border">
+            <p className="text-xs font-medium text-success mb-1">{t('taxCredit.creditAmount')}</p>
+            <p className="text-2xl font-bold text-success">€{fmt(result.taxCredit)}</p>
           </div>
-          <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4 border border-stripe-200 dark:border-stripe-800">
-            <p className="text-xs font-medium text-stripe-700 dark:text-stripe-300 mb-1">{t('taxCredit.netItalianTax')}</p>
-            <p className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">€{fmt(result.netItalianTax)}</p>
+          <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
+            <p className="text-xs font-medium text-accent mb-1">{t('taxCredit.netItalianTax')}</p>
+            <p className="text-2xl font-bold text-accent">€{fmt(result.netItalianTax)}</p>
           </div>
-          <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4 border border-stripe-200 dark:border-stripe-800">
-            <p className="text-xs font-medium text-stripe-700 dark:text-stripe-300 mb-1">{t('taxCredit.effectiveRate')}</p>
-            <p className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">{result.effectiveRate}%</p>
+          <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
+            <p className="text-xs font-medium text-accent mb-1">{t('taxCredit.effectiveRate')}</p>
+            <p className="text-2xl font-bold text-accent">{result.effectiveRate}%</p>
           </div>
         </div>
 
         {/* Details toggle */}
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center gap-2 text-sm font-medium text-link hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
+          className="flex items-center gap-2 text-sm font-medium text-link hover:text-accent transition-colors"
         >
           {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           {t('taxCredit.showDetails')}
@@ -435,20 +435,20 @@ const TaxCreditCalculator: React.FC = () => {
               ].map(([label, value], i) => (
                 <div key={i} className="flex justify-between text-sm">
                   <span className="text-subtle">{label}</span>
-                  <span className="font-medium text-slate-900 dark:text-white">{value}</span>
+                  <span className="font-medium text-heading">{value}</span>
                 </div>
               ))}
               <div className="border-t border-edge pt-2 mt-2">
                 <div className="flex justify-between text-sm font-bold">
-                  <span className="text-emerald-700 dark:text-emerald-300">{t('taxCredit.creditAmount')}</span>
-                  <span className="text-emerald-700 dark:text-emerald-300">€{fmt(result.taxCredit)}</span>
+                  <span className="text-success">{t('taxCredit.creditAmount')}</span>
+                  <span className="text-success">€{fmt(result.taxCredit)}</span>
                 </div>
               </div>
             </div>
 
             {/* Explanation */}
-            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
-              <p className="text-sm text-amber-700 dark:text-amber-300">
+            <div className="bg-warning-subtle border border-warning-border rounded-xl p-4">
+              <p className="text-sm text-warning">
                 {t('taxCredit.explanation')}
               </p>
             </div>

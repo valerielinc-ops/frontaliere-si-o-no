@@ -216,8 +216,8 @@ function navigateLeader(e: React.MouseEvent, item: JobBoardLeader, locale: Local
 function renderLinkPills(items: JobBoardLeader[], tone: 'indigo' | 'emerald', locale: Locale): React.ReactNode {
   const toneClass =
     tone === 'emerald'
-      ? 'border-emerald-200/80 bg-emerald-50 text-emerald-800 hover:border-emerald-300 dark:border-emerald-900/60 dark:bg-emerald-950/30 dark:text-emerald-200 dark:hover:border-emerald-700'
-      : 'border-stripe-200/80 bg-stripe-50 text-stripe-800 hover:border-stripe-300 dark:border-stripe-900/60 dark:bg-stripe-950/30 dark:text-stripe-200 dark:hover:border-stripe-700';
+      ? 'border-emerald-200/80 bg-emerald-50 text-emerald-800 hover:border-success-border dark:bg-emerald-950/30 dark:text-emerald-200 dark:hover:border-emerald-700'
+      : 'border-stripe-200/80 bg-stripe-50 text-stripe-800 hover:border-accent-border dark:bg-stripe-950/30 dark:text-stripe-200 dark:hover:border-stripe-700';
 
   return items.map((item) => (
     <a
@@ -247,15 +247,15 @@ function KpiCard(props: { label: string; value: number; accent: string }) {
   return (
     <div className="inline-flex items-baseline gap-1">
       <span className="text-muted">{props.label}:</span>
-      <span className="font-semibold text-slate-900 dark:text-white">{props.value.toLocaleString('it-IT')}</span>
+      <span className="font-semibold text-heading">{props.value.toLocaleString('it-IT')}</span>
     </div>
   );
 }
 
 function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoardLeader[]; valueKey: 'count' | 'added'; emptyText: string; locale: Locale }) {
   return (
-    <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
-      <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+    <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
+      <h3 className="text-sm font-bold text-body mb-4 flex items-center gap-2">
         {props.icon}
         {props.title}
       </h3>
@@ -269,14 +269,14 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
             <a
               key={`${item.key}-${item.url}`}
               href={leaderHref(item, props.locale)}
-              className="flex items-center justify-between gap-3 rounded-2xl border border-slate-100 dark:border-slate-700 px-3 py-2 no-underline hover:border-stripe-300 dark:hover:border-stripe-500 transition-colors"
+              className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-3 py-2 no-underline hover:border-stripe-300 dark:hover:border-stripe-500 transition-colors"
               onClick={(e) => navigateLeader(e, item, props.locale)}
             >
               <div className="min-w-0">
                 <div className="text-xs font-bold text-muted">#{index + 1}</div>
-                <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 line-clamp-2">{item.name}</div>
+                <div className="text-sm font-semibold text-strong line-clamp-2">{item.name}</div>
               </div>
-              <div className="shrink-0 text-sm font-bold text-stripe-600 dark:text-stripe-300">
+              <div className="shrink-0 text-sm font-bold text-accent">
                 {Number(item[props.valueKey] || 0).toLocaleString('it-IT')}
               </div>
             </a>
@@ -331,7 +331,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
   if (loading) {
     return (
-      <div className="bg-surface p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-center">
+      <div className="bg-surface p-6 rounded-3xl border border-edge shadow-sm flex items-center justify-center">
         <Loader2 className="h-5 w-5 animate-spin text-stripe-600" />
       </div>
     );
@@ -339,7 +339,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
   if (!data) {
     return (
-      <div className="bg-surface p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm text-sm text-slate-600 dark:text-slate-300">
+      <div className="bg-surface p-6 rounded-3xl border border-edge shadow-sm text-sm text-subtle">
         {error || copy.empty}
       </div>
     );
@@ -347,25 +347,25 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
   return (
     <div className="space-y-6">
-      <div className="bg-surface p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
+      <div className="bg-surface p-6 rounded-3xl border border-edge shadow-sm">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-4xl">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <h3 className="text-lg font-bold text-heading flex items-center gap-2">
               <Briefcase className="w-5 h-5 text-stripe-600" />
               {copy.title}
             </h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+            <p className="mt-3 text-sm leading-7 text-subtle">
               {copy.intro1}
             </p>
 
             <div className="mt-5 space-y-4">
               <div className="rounded-2xl border border-stripe-100 bg-stripe-50/60 p-4 dark:border-stripe-900/50 dark:bg-stripe-950/20">
-                <div className="text-xs font-bold uppercase tracking-[0.16em] text-stripe-700 dark:text-stripe-300">
+                <div className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
                   {copy.intro2Prefix}
                 </div>
                 <a
                   href={buildPath({ activeTab: 'job-board' })}
-                  className="mt-2 inline-flex items-center text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                  className="mt-2 inline-flex items-center text-sm font-bold text-accent no-underline hover:underline"
                   onClick={(e) => {
                     e.preventDefault();
                     const route = { activeTab: 'job-board' as const };
@@ -377,12 +377,12 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
                   {copy.allJobs}
                 </a>
                 <div className="mt-4 border-t border-stripe-200/70 pt-4 dark:border-stripe-800/60">
-                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-stripe-700 dark:text-stripe-300">
+                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
                     {copy.todayLandingEyebrow}
                   </div>
                   <a
                     href={jobTodayHref(locale)}
-                    className="mt-2 inline-flex items-center text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                    className="mt-2 inline-flex items-center text-sm font-bold text-accent no-underline hover:underline"
                     onClick={(e) => {
                       e.preventDefault();
                       const route = { activeTab: 'job-board' as const, jobSlug: JOB_TODAY_SLUG[locale] };
@@ -396,12 +396,12 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
                 </div>
 
                 <div className="mt-4 border-t border-stripe-200/70 pt-4 dark:border-stripe-800/60">
-                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-stripe-700 dark:text-stripe-300">
+                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
                     {copy.observatoryEyebrow}
                   </div>
                   <a
                     href={jobsObservatoryHref(locale)}
-                    className="mt-2 inline-flex items-center text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                    className="mt-2 inline-flex items-center text-sm font-bold text-accent no-underline hover:underline"
                     onClick={(e) => {
                       e.preventDefault();
                       const route = { activeTab: 'stats' as const, statsSubTab: 'jobs-observatory' as const };
@@ -447,7 +447,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
             <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">
               {copy.updatedAt}
             </div>
-            <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 whitespace-nowrap">
+            <div className="text-sm font-semibold text-strong whitespace-nowrap">
               {formatDate(data.generatedAt, locale)}
             </div>
             <button
@@ -457,7 +457,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
                 void load(true);
               }}
               disabled={refreshing}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-edge text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-stripe-300 dark:hover:border-stripe-500"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-edge text-xs font-bold text-body hover:border-stripe-300 dark:hover:border-stripe-500"
               title={copy.refresh}
             >
               <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
@@ -475,8 +475,8 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
         <KpiCard label={copy.activeCompanies} value={data.totals.activeCompanies} accent="" />
       </div>
 
-      <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
-        <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
+      <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
+        <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
           <TrendingUp size={16} className="text-stripe-600" />
           {copy.chartTitle}
         </h3>

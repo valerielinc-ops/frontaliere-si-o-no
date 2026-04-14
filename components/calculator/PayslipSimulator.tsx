@@ -123,7 +123,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
   return (
     <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
       <Info size={12} className="text-muted hover:text-teal-600 transition-colors" />
-      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
         {text}
         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
       </div>
@@ -134,10 +134,10 @@ const InfoTooltip = ({ text }: { text: string }) => {
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-muted", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
     {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
-    <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-stripe-500/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]">
+    <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-edge"
         aria-label={`${ariaLabel || label || 'Valore'}: diminuisci`}
         type="button"
       >
@@ -158,13 +158,13 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
           }}
           min={min}
           max={max}
-          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 appearance-none px-2 py-3"
+          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-body outline-none focus-visible:ring-2 focus-visible:ring-accent appearance-none px-2 py-3"
           aria-label={ariaLabel || label || 'Valore numerico'}
         />
       </div>
       <button
         onClick={() => onChange(max ? Math.min(max, value + 1) : value + 1)}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,transform] border-l border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,transform] border-l border-edge"
         aria-label={`${ariaLabel || label || 'Valore'}: aumenta`}
         type="button"
       >
@@ -238,7 +238,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
   const pct = (n: number) => (n * 100).toFixed(1) + '%';
 
   const renderAliquoteCard = (extraClassName = '') => (
-    <div className={`bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden ${extraClassName}`}>
+    <div className={`bg-surface rounded-2xl border border-edge shadow-sm overflow-hidden ${extraClassName}`}>
       <button
         onClick={() => setShowInfo(!showInfo)}
         className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50"
@@ -248,7 +248,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <div className={`p-2 rounded-lg transition-colors ${showInfo ? 'bg-amber-100 text-amber-600' : 'bg-surface-raised text-muted'}`}>
             <Info size={18} />
           </div>
-          <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-slate-800 dark:text-slate-100' : 'text-subtle'}`}>
+          <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-strong' : 'text-subtle'}`}>
             {t('payslip.lppAgeRates')}
           </span>
         </div>
@@ -257,9 +257,9 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
         </div>
       </button>
       {showInfo && (
-        <div className="px-5 pb-4 text-xs text-subtle bg-amber-50/50 dark:bg-amber-900/10 border-t border-slate-50 dark:border-slate-800/50 space-y-1 pt-3">
+        <div className="px-5 pb-4 text-xs text-subtle bg-warning-subtle/50 border-t border-edge space-y-1 pt-3">
           {LPP_RATES.map(r => (
-            <div key={r.minAge} className={`flex items-center justify-between py-1 px-2 rounded-lg ${age >= r.minAge && age <= r.maxAge ? 'font-bold text-amber-700 dark:text-amber-300 bg-amber-100/50 dark:bg-amber-900/30' : ''}`}>
+            <div key={r.minAge} className={`flex items-center justify-between py-1 px-2 rounded-lg ${age >= r.minAge && age <= r.maxAge ? 'font-bold text-warning bg-amber-100/50 dark:bg-amber-900/30' : ''}`}>
               <span>{r.minAge}-{r.maxAge} {t('payslip.age').toLowerCase()}</span>
               <span>{(r.rate * 100).toFixed(1)}%</span>
             </div>
@@ -300,11 +300,11 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-semibold mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning-subtle text-warning text-sm font-semibold mb-3">
           <FileText size={16} />
           {t('strumenti.payslip')}
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">{t('payslip.title')}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-strong">{t('payslip.title')}</h2>
         <p className="text-subtle mt-2 max-w-2xl mx-auto">{t('payslip.subtitle')}</p>
       </div>
 
@@ -312,7 +312,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
         {/* Input Panel — styled like InputCard */}
         <div className="lg:col-span-2 space-y-3">
           {/* Section 1: Income & Demographics */}
-          <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-6">
+          <div className="bg-surface rounded-2xl border border-edge shadow-sm p-5 space-y-6">
             {/* Income Input — Prominent (matching InputCard) */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-1.5">
@@ -331,13 +331,13 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     const val = parseNumber(e.target.value);
                     handleSalaryChange(Math.max(SALARY_MIN, Math.min(SALARY_MAX, val)));
                   }}
-                  className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-stripe-500 focus-visible:ring-stripe-500/10'}`}
+                  className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-edge focus-visible:border-stripe-500 focus-visible:ring-accent/10'}`}
                   placeholder="0"
                   aria-label="Stipendio lordo annuale in CHF"
                 />
               </div>
               {salaryError && (
-                <p className="text-sm text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
+                <p className="text-sm text-danger font-semibold mt-1 flex items-center gap-1">
                   <AlertTriangle size={12} /> {salaryError}
                 </p>
               )}
@@ -356,7 +356,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     id="payslip-status"
                     value={maritalStatus}
                     onChange={e => setMaritalStatus(e.target.value as 'single' | 'married')}
-                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-stripe-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
+                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-body"
                   >
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>
@@ -368,7 +368,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           </div>
 
           {/* Section 2: Family */}
-          <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
+          <div className="bg-surface rounded-2xl border border-edge shadow-sm p-5 space-y-5">
             <h3 className="text-xs font-bold text-muted uppercase tracking-widest flex items-center gap-2">
               <Baby size={14} className="text-pink-500"/> {t('payslip.children')}
             </h3>
@@ -392,10 +392,10 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
         {/* Results Panel */}
         <div className="lg:col-span-3 bg-surface rounded-2xl border border-edge p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('payslip.resultTitle')}</h3>
+            <h3 className="text-lg font-bold text-strong">{t('payslip.resultTitle')}</h3>
             <button
               onClick={handleExportPdf}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-semibold hover:bg-amber-200 dark:hover:bg-amber-900/50 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning-subtle text-warning text-sm font-semibold hover:bg-amber-200 dark:hover:bg-amber-900/50 transition-colors"
               aria-label={t('payslip.exportPdf')}
             >
               <Download size={14} />
@@ -404,24 +404,24 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           </div>
 
           {/* Gross salary header */}
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 mb-4">
+          <div className="bg-surface-alt rounded-xl p-4 mb-4">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-semibold text-slate-600 dark:text-slate-300">{t('payslip.grossMonthly')}</span>
-              <span className="text-xl font-bold text-slate-800 dark:text-slate-100 tabular-nums">CHF {fmt(result.grossMonthly)}</span>
+              <span className="text-sm font-semibold text-subtle">{t('payslip.grossMonthly')}</span>
+              <span className="text-xl font-bold text-strong tabular-nums">CHF {fmt(result.grossMonthly)}</span>
             </div>
           </div>
 
           {/* Deductions table */}
           <div className="space-y-2">
             {deductions.map(d => (
-              <div key={d.key} className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
+              <div key={d.key} className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-raised/30 transition-colors group">
                 <div className="flex-1">
-                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{d.label}</div>
+                  <div className="text-sm font-semibold text-body">{d.label}</div>
                   <div className="text-xs text-muted">{d.desc}</div>
                 </div>
                 <div className="text-right tabular-nums">
                   <div className="text-xs text-muted">{pct(d.rate)}</div>
-                  <div className="text-sm font-semibold text-red-600 dark:text-red-400">-{fmt(d.amount)}</div>
+                  <div className="text-sm font-semibold text-danger">-{fmt(d.amount)}</div>
                 </div>
               </div>
             ))}
@@ -432,18 +432,18 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
 
           {/* Total deductions */}
           <div className="flex items-center justify-between py-2 px-3">
-            <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('payslip.totalDeductions')}</span>
-            <span className="text-lg font-bold text-red-600 dark:text-red-400 tabular-nums">-CHF {fmt(result.totalDeductions)}</span>
+            <span className="text-sm font-bold text-body">{t('payslip.totalDeductions')}</span>
+            <span className="text-lg font-bold text-danger tabular-nums">-CHF {fmt(result.totalDeductions)}</span>
           </div>
 
           {/* Net salary */}
-          <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 mt-3">
+          <div className="bg-success-subtle rounded-xl p-4 mt-3">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{t('payslip.netSalary')}</div>
-                <div className="text-sm text-emerald-700 dark:text-emerald-400 tabular-nums">{t('payslip.netAnnual')}: CHF {fmt(result.netMonthly * 12)}</div>
+                <div className="text-sm font-bold text-success">{t('payslip.netSalary')}</div>
+                <div className="text-sm text-success tabular-nums">{t('payslip.netAnnual')}: CHF {fmt(result.netMonthly * 12)}</div>
               </div>
-              <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300 tabular-nums">CHF {fmt(result.netMonthly)}</span>
+              <span className="text-2xl font-bold text-success tabular-nums">CHF {fmt(result.netMonthly)}</span>
             </div>
           </div>
 
@@ -456,7 +456,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                   <span className="text-sm text-subtle w-32 sm:w-36 leading-tight">{d.label}</span>
                   <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
                     <div
-                      className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-transform duration-500 origin-left"
+                      className="h-full bg-danger rounded-full transition-transform duration-500 origin-left"
                       style={{ transform: `scaleX(${Math.max(widthPct, 1) / 100})` }}
                     />
                   </div>
@@ -465,14 +465,14 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               );
             })}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-32 sm:w-36 leading-tight">{t('payslip.netSalary')}</span>
+              <span className="text-xs font-bold text-success w-32 sm:w-36 leading-tight">{t('payslip.netSalary')}</span>
               <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
                 <div
-                  className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-transform duration-500 origin-left"
+                  className="h-full bg-success rounded-full transition-transform duration-500 origin-left"
                   style={{ transform: `scaleX(${result.netMonthly / result.grossMonthly})` }}
                 />
               </div>
-              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-12 text-right">{((result.netMonthly / result.grossMonthly) * 100).toFixed(1)}%</span>
+              <span className="text-xs font-bold text-success w-12 text-right">{((result.netMonthly / result.grossMonthly) * 100).toFixed(1)}%</span>
             </div>
           </div>
 
@@ -483,7 +483,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <p className="text-xs text-muted mt-4 leading-relaxed">
             ⚠️ {t('payslip.disclaimer')}
           </p>
-          <div className="flex items-center gap-1.5 mt-2 text-sm text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 mt-2 text-sm text-success">
             <Shield size={12} className="flex-shrink-0" />
             <span>{t('payslip.dataPrivacy')}</span>
           </div>

@@ -124,11 +124,11 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
 ];
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
-  documents: { bg: 'bg-stripe-100 dark:bg-stripe-900/30', text: 'text-stripe-700 dark:text-stripe-300', border: 'border-stripe-200 dark:border-stripe-800' },
-  work: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-700 dark:text-amber-300', border: 'border-amber-200 dark:border-amber-800' },
-  finance: { bg: 'bg-emerald-100 dark:bg-emerald-900/30', text: 'text-emerald-700 dark:text-emerald-300', border: 'border-emerald-200 dark:border-emerald-800' },
+  documents: { bg: 'bg-accent-subtle', text: 'text-accent', border: 'border-accent-border' },
+  work: { bg: 'bg-warning-subtle', text: 'text-warning', border: 'border-warning-border' },
+  finance: { bg: 'bg-success-subtle', text: 'text-success', border: 'border-success-border' },
   health: { bg: 'bg-rose-100 dark:bg-rose-900/30', text: 'text-rose-700 dark:text-rose-300', border: 'border-rose-200 dark:border-rose-800' },
-  life: { bg: 'bg-stripe-100 dark:bg-stripe-900/30', text: 'text-stripe-700 dark:text-stripe-300', border: 'border-stripe-200 dark:border-stripe-800' },
+  life: { bg: 'bg-accent-subtle', text: 'text-accent', border: 'border-accent-border' },
 };
 
 const STORAGE_KEY = 'frontaliere_firstday_checklist';
@@ -201,14 +201,14 @@ const FirstDayGuide: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-4 sm:p-6 border border-amber-200 dark:border-amber-800">
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-4 sm:p-6 border border-warning-border">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-xl">
-            <Flag className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+          <div className="p-2 bg-warning-subtle rounded-xl">
+            <Flag className="w-6 h-6 text-warning" />
           </div>
-          <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100">{t('firstday.title')}</h2>
+          <h2 className="text-2xl font-bold text-warning">{t('firstday.title')}</h2>
         </div>
-        <p className="text-amber-700 dark:text-amber-300 text-sm">{t('firstday.subtitle')}</p>
+        <p className="text-warning text-sm">{t('firstday.subtitle')}</p>
       </div>
 
       {/* Progress Bar */}
@@ -220,14 +220,14 @@ const FirstDayGuide: React.FC = () => {
           </div>
           <span className="text-sm font-bold text-muted">{completedCount}/{CHECKLIST_STEPS.length}</span>
         </div>
-        <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+        <div className="w-full h-3 bg-surface-raised rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-transform duration-500 ease-out origin-left"
             style={{ transform: `scaleX(${progress / 100})` }}
           />
         </div>
         {completedCount === CHECKLIST_STEPS.length && (
-          <div className="mt-3 flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+          <div className="mt-3 flex items-center gap-2 text-success">
             <Sparkles className="w-5 h-5" />
             <span className="font-bold">{t('firstday.complete')}</span>
           </div>
@@ -255,7 +255,7 @@ const FirstDayGuide: React.FC = () => {
               key={step.id}
               className={`rounded-xl border transition-colors duration-200 ${
                 isCompleted
-                  ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800'
+                  ? 'bg-success-subtle/50 border-success-border'
                   : `bg-surface ${colors.border}`
               }`}
             >
@@ -264,7 +264,7 @@ const FirstDayGuide: React.FC = () => {
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
                   isCompleted
                     ? 'bg-emerald-700 text-white'
-                    : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-400'
+                    : 'bg-surface-raised text-slate-700 dark:text-slate-400'
                 }`}>
                   {isCompleted ? '✓' : index + 1}
                 </div>
@@ -276,12 +276,12 @@ const FirstDayGuide: React.FC = () => {
                 >
                   {isCompleted
                     ? <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-                    : <Circle className="w-5 h-5 text-slate-300 dark:text-slate-600 shrink-0" />
+                    : <Circle className="w-5 h-5 text-edge shrink-0" />
                   }
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">{step.icon}</span>
-                      <span className={`font-bold text-sm ${isCompleted ? 'text-emerald-700 dark:text-emerald-300 line-through' : 'text-strong'}`}>
+                      <span className={`font-bold text-sm ${isCompleted ? 'text-success line-through' : 'text-strong'}`}>
                         {t(`firstday.step.${step.id}`)}
                       </span>
                     </div>
@@ -308,12 +308,12 @@ const FirstDayGuide: React.FC = () => {
 
               {/* Expanded Details */}
               {isExpanded && (
-                <div className="px-4 pb-4 ml-11 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-3">
+                <div className="px-4 pb-4 ml-11 space-y-3 border-t border-edge pt-3">
                   {/* Profile hint */}
                   {profileHints[step.id] && (
-                    <div className="flex items-start gap-2 p-3 bg-stripe-50 dark:bg-stripe-950/30 rounded-lg border border-stripe-200 dark:border-stripe-800">
+                    <div className="flex items-start gap-2 p-3 bg-accent-subtle rounded-lg border border-accent-border">
                       <User className="w-4 h-4 text-stripe-500 shrink-0 mt-0.5" />
-                      <p className="text-sm text-stripe-700 dark:text-stripe-300 font-medium">{profileHints[step.id]}</p>
+                      <p className="text-sm text-accent font-medium">{profileHints[step.id]}</p>
                     </div>
                   )}
 
@@ -340,7 +340,7 @@ const FirstDayGuide: React.FC = () => {
                           nav.navigateTo('job-board');
                           Analytics.trackUIInteraction('first_day_guide', 'job_board_cta', 'click', 'find_job_step');
                         }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 dark:bg-stripe-600 dark:hover:bg-stripe-500 text-white rounded-lg text-xs font-bold transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover dark:bg-stripe-600 dark:hover:bg-stripe-500 text-white rounded-lg text-xs font-bold transition-colors"
                       >
                         <Briefcase className="w-3.5 h-3.5" />
                         {t('firstday.jobBoard.cta')}

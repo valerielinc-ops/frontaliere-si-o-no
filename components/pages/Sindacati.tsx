@@ -117,7 +117,7 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
     <div className="rounded-xl border border-edge bg-surface p-4 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h3 className="font-bold text-slate-900 dark:text-white text-sm">
+          <h3 className="font-bold text-heading text-sm">
             {flag} {union.name}
           </h3>
           <p className="text-xs text-muted mt-0.5">{union.sectors}</p>
@@ -126,7 +126,7 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
           href={union.website}
           target="_blank"
           rel="noreferrer"
-          className="flex-shrink-0 p-1.5 rounded-lg bg-surface-raised text-slate-500 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors"
+          className="flex-shrink-0 p-1.5 rounded-lg bg-surface-raised text-slate-500 hover:text-accent transition-colors"
           aria-label={`Visita ${union.acronym}`}
         >
           <ExternalLink size={14} />
@@ -141,11 +141,11 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
         ))}
       </div>
       <div className="flex flex-wrap gap-2 text-xs">
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-subtle text-success">
           💰 {union.monthlyFee}
         </span>
         {union.ticinoContact && (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-subtle text-accent">
             📍 {union.ticinoContact.split('—')[0].trim()}
           </span>
         )}
@@ -161,11 +161,11 @@ export default function Sindacati() {
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 text-sm font-semibold mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-subtle text-accent text-sm font-semibold mb-3">
           <Scale size={16} />
           Sindacati per Frontalieri
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">
           Sindacati Svizzera e Italia per Frontalieri
         </h1>
         <p className="mt-2 text-subtle max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ export default function Sindacati() {
           <div className="p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
             <Shield className="w-5 h-5 text-teal-700 dark:text-teal-400" />
           </div>
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white">Perché iscriversi a un sindacato?</h2>
+          <h2 className="text-lg font-bold text-heading">Perché iscriversi a un sindacato?</h2>
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
@@ -188,8 +188,8 @@ export default function Sindacati() {
             { icon: Phone, text: 'Consulenza gratuita su busta paga, contributi AVS/LPP, assicurazioni e fisco' },
             { icon: Mail, text: 'Supporto per pratiche burocratiche: permessi, disoccupazione NASpI, dichiarazione redditi' },
           ].map(({ icon: Icon, text }, i) => (
-            <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/60 dark:bg-slate-900/40">
-              <Icon size={18} className="text-stripe-600 dark:text-stripe-400 flex-shrink-0 mt-0.5" />
+            <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-surface/60">
+              <Icon size={18} className="text-accent flex-shrink-0 mt-0.5" />
               <span className="text-sm text-body">{text}</span>
             </div>
           ))}
@@ -198,7 +198,7 @@ export default function Sindacati() {
 
       {/* Swiss Unions */}
       <div>
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+        <h2 className="text-xl font-bold text-heading mb-4 flex items-center gap-2">
           🇨🇭 Sindacati Svizzeri
         </h2>
         <div className="grid sm:grid-cols-2 gap-4">
@@ -210,7 +210,7 @@ export default function Sindacati() {
 
       {/* Italian Unions */}
       <div>
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+        <h2 className="text-xl font-bold text-heading mb-4 flex items-center gap-2">
           🇮🇹 Sindacati Italiani
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -222,7 +222,7 @@ export default function Sindacati() {
 
       {/* Frontalier-specific rights */}
       <div className="rounded-2xl border border-edge bg-surface p-6">
-        <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-heading mb-4 flex items-center gap-2">
           <Building2 size={20} className="text-amber-600" />
           Diritti specifici del frontaliere
         </h2>
@@ -247,10 +247,10 @@ export default function Sindacati() {
         <a href="/guida-frontaliere/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-stripe-600 text-white font-semibold hover:bg-stripe-700 transition-colors">
           Guida Frontaliere <ChevronRight size={14} />
         </a>
-        <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+        <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
           Contratti di Lavoro <ChevronRight size={14} />
         </a>
-        <a href="/tasse-e-pensione/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+        <a href="/tasse-e-pensione/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
           Fisco e Previdenza <ChevronRight size={14} />
         </a>
       </div>

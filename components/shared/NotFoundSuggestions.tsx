@@ -152,14 +152,14 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-raised mb-4">
           <SearchX size={32} className="text-muted" />
         </div>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+        <h1 className="text-2xl font-bold text-heading mb-2">
           {t('notFound.title')}
         </h1>
         <p className="text-subtle text-sm max-w-md mx-auto">
           {t('notFound.subtitle')}
         </p>
         {contextMessage && (
-          <p className="mt-2 text-sm text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 rounded-lg px-3 py-1.5 inline-block">
+          <p className="mt-2 text-sm text-warning bg-warning-subtle rounded-lg px-3 py-1.5 inline-block">
             {contextMessage}
           </p>
         )}
@@ -168,7 +168,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
       {/* Suggestions */}
       {suggestions.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-lg font-semibold text-heading mb-4">
             {t('notFound.suggestionsTitle')}
           </h2>
           <div className="space-y-3">
@@ -178,11 +178,11 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
                 onClick={() => onNavigate(s.tab, s.subTab)}
                 className="w-full flex items-center gap-4 p-4 bg-surface border border-edge rounded-xl hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] text-left group"
               >
-                <div className={`shrink-0 w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-700 flex items-center justify-center ${s.color}`}>
+                <div className={`shrink-0 w-10 h-10 rounded-lg bg-surface-alt flex items-center justify-center ${s.color}`}>
                   <s.icon size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-slate-900 dark:text-white line-clamp-2">
+                  <p className="font-medium text-heading line-clamp-2">
                     {s.title}
                   </p>
                   {s.description && (
@@ -213,7 +213,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
             <button
               key={item.tab}
               onClick={() => onNavigate(item.tab, item.subTab)}
-              className="flex items-center gap-2 px-3 py-2.5 text-sm text-body bg-surface-alt border border-edge rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+              className="flex items-center gap-2 px-3 py-2.5 text-sm text-body bg-surface-alt border border-edge rounded-lg hover:bg-surface-raised transition-colors"
             >
               <item.icon size={16} className="text-muted" />
               <span className="truncate">{item.label}</span>
@@ -226,7 +226,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
       <div className="text-center">
         <button
           onClick={() => onNavigate('calculator')}
-          className="inline-flex items-center gap-2 text-sm text-link hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-link hover:text-accent transition-colors"
         >
           <Home size={16} />
           {t('notFound.backHome')}

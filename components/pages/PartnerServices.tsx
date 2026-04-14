@@ -33,13 +33,13 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
       target="_blank"
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
-      className="group relative flex flex-col p-5 bg-surface rounded-2xl border border-edge hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
+      className="group relative flex flex-col p-5 bg-surface rounded-2xl border border-edge hover:border-edge hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <span className="text-3xl">{partner.emoji}</span>
           <div>
-            <h3 className="font-bold text-slate-800 dark:text-slate-100 text-base">
+            <h3 className="font-bold text-strong text-base">
               {partner.name}
             </h3>
             <p className="text-xs text-muted">
@@ -83,10 +83,10 @@ const PartnerServices: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
       {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-stripe-100 dark:bg-stripe-900/30 mb-4">
-          <Sparkles className="w-7 h-7 text-stripe-600 dark:text-stripe-400" />
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-4">
+          <Sparkles className="w-7 h-7 text-accent" />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-strong mb-2">
           {t('partners.title')}
         </h1>
         <p className="text-subtle max-w-lg mx-auto">

@@ -204,9 +204,9 @@ function saveQuizState(state: QuizState): void {
 
 const CATEGORY_STYLES: Record<string, { emoji: string; color: string }> = {
   tax: { emoji: '📊', color: 'text-link' },
-  pension: { emoji: '🏦', color: 'text-emerald-700 dark:text-emerald-400' },
+  pension: { emoji: '🏦', color: 'text-success' },
   insurance: { emoji: '🏥', color: 'text-rose-600 dark:text-rose-400' },
-  permits: { emoji: '🪪', color: 'text-amber-600 dark:text-amber-400' },
+  permits: { emoji: '🪪', color: 'text-warning' },
   general: { emoji: '📋', color: 'text-teal-600 dark:text-teal-400' },
 };
 
@@ -308,14 +308,14 @@ const WeeklyQuiz: React.FC = () => {
     return (
       <div className="space-y-6">
         {/* Header */}
-        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800">
+        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
           <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
-              <Brain className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            <div className="p-2 bg-success-subtle rounded-xl">
+              <Brain className="w-6 h-6 text-success" />
             </div>
-            <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{t('quiz.title')}</h2>
+            <h2 className="text-2xl font-bold text-success">{t('quiz.title')}</h2>
           </div>
-          <p className="text-emerald-700 dark:text-emerald-300 text-sm flex items-center gap-2">
+          <p className="text-success text-sm flex items-center gap-2">
             <Clock className="w-4 h-4" />
             {t('quiz.weekLabel', { week: String(weekNumber) })}
           </p>
@@ -332,7 +332,7 @@ const WeeklyQuiz: React.FC = () => {
           </p>
 
           {/* Score bar */}
-          <div className="w-full max-w-xs mx-auto h-4 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-6">
+          <div className="w-full max-w-xs mx-auto h-4 bg-surface-raised rounded-full overflow-hidden mb-6">
             <div
               className={`h-full rounded-full transition-transform duration-1000 origin-left ${
                 percentage === 100 ? 'bg-gradient-to-r from-amber-400 to-yellow-500' :
@@ -351,8 +351,8 @@ const WeeklyQuiz: React.FC = () => {
               return (
                 <div key={q.id} className={`flex items-center gap-3 p-3 rounded-xl ${
                   isCorrect
-                    ? 'bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800'
-                    : 'bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800'
+                    ? 'bg-success-subtle border border-success-border'
+                    : 'bg-danger-subtle border border-danger-border'
                 }`}>
                   {isCorrect
                     ? <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
@@ -391,14 +391,14 @@ const WeeklyQuiz: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
-            <Brain className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-2 bg-success-subtle rounded-xl">
+            <Brain className="w-6 h-6 text-success" />
           </div>
-          <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{t('quiz.title')}</h2>
+          <h2 className="text-2xl font-bold text-success">{t('quiz.title')}</h2>
         </div>
-        <p className="text-emerald-700 dark:text-emerald-300 text-sm flex items-center gap-2">
+        <p className="text-success text-sm flex items-center gap-2">
           <Clock className="w-4 h-4" />
           {t('quiz.weekLabel', { week: String(weekNumber) })}
         </p>
@@ -419,7 +419,7 @@ const WeeklyQuiz: React.FC = () => {
             </span>
           </div>
         </div>
-        <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-surface-raised rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-transform duration-300 origin-left"
             style={{ transform: `scaleX(${(currentIndex + 1) / questions.length})` }}
@@ -440,11 +440,11 @@ const WeeklyQuiz: React.FC = () => {
             const isCorrect = i === currentQuestion.correctIndex;
             const showResult = selectedAnswer !== null;
 
-            let optionClass = 'bg-surface-alt border-edge hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
+            let optionClass = 'bg-surface-alt border-edge hover:bg-surface-raised cursor-pointer';
             if (showResult && isCorrect) {
-              optionClass = 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-700 ring-2 ring-emerald-400';
+              optionClass = 'bg-success-subtle border-success-border ring-2 ring-emerald-400';
             } else if (showResult && isSelected && !isCorrect) {
-              optionClass = 'bg-red-50 dark:bg-red-950/30 border-red-300 dark:border-red-700 ring-2 ring-red-400';
+              optionClass = 'bg-danger-subtle border-danger-border ring-2 ring-red-400';
             } else if (showResult) {
               optionClass = 'bg-surface-alt border-edge opacity-60';
             }
@@ -460,7 +460,7 @@ const WeeklyQuiz: React.FC = () => {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
                     showResult && isCorrect ? 'bg-emerald-500 text-white' :
                     showResult && isSelected ? 'bg-red-500 text-white' :
-                    'bg-slate-200 dark:bg-slate-700 text-subtle'
+                    'bg-surface-raised text-subtle'
                   }`}>
                     {showResult && isCorrect ? '✓' :
                      showResult && isSelected ? '✗' :
@@ -477,10 +477,10 @@ const WeeklyQuiz: React.FC = () => {
 
         {/* Explanation */}
         {showExplanation && (
-          <div className="mt-6 p-4 bg-stripe-50 dark:bg-stripe-950/20 rounded-xl border border-stripe-200 dark:border-stripe-800">
+          <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border">
             <div className="flex items-start gap-2">
               <Sparkles className="w-5 h-5 text-stripe-500 shrink-0 mt-0.5" />
-              <p className="text-sm text-stripe-700 dark:text-stripe-300">
+              <p className="text-sm text-accent">
                 {t(currentQuestion.explanationKey)}
               </p>
             </div>

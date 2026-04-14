@@ -118,11 +118,11 @@ export default function SiteMapPage() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-stripe-50 dark:bg-stripe-900/30 rounded-full text-sm text-stripe-700 dark:text-stripe-300 font-medium mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent-subtle rounded-full text-sm text-accent font-medium mb-3">
           <Map className="w-4 h-4" />
           {t('sitemap.badge')}
         </div>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{t('sitemap.title')}</h1>
+        <h1 className="text-2xl font-bold text-heading">{t('sitemap.title')}</h1>
         <p className="text-sm text-subtle mt-1 max-w-xl mx-auto">{t('sitemap.subtitle')}</p>
       </div>
 
@@ -131,7 +131,7 @@ export default function SiteMapPage() {
           <div key={section.title} className="bg-surface rounded-xl border border-edge p-5">
             <div className="flex items-center gap-2 mb-3">
               {section.icon}
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.title}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.title}</h2>
             </div>
             <ul className="space-y-1.5">
               {section.links.map((link) => {
@@ -141,7 +141,7 @@ export default function SiteMapPage() {
                     <a
                       href={href}
                       onClick={nav(link.route)}
-                      className="text-sm text-stripe-700 dark:text-stripe-400 hover:text-stripe-900 dark:hover:text-stripe-300 hover:underline"
+                      className="text-sm text-accent hover:text-stripe-900 dark:hover:text-stripe-300 hover:underline"
                     >
                       {link.label}
                     </a>

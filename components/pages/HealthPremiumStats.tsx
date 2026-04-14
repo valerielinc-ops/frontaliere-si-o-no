@@ -158,36 +158,36 @@ const HealthPremiumStats: React.FC = () => {
 
       {/* Top cheapest / most expensive */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl p-5 border border-emerald-200 dark:border-emerald-800">
-          <h3 className="text-sm font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+        <div className="bg-success-subtle rounded-2xl p-5 border border-success-border">
+          <h3 className="text-sm font-bold text-success uppercase tracking-wider mb-3 flex items-center gap-2">
             <TrendingDown size={16} /> 10 comuni più economici
           </h3>
           <div className="space-y-2">
             {data.rankings.cheapest.slice(0, 10).map((c, i) => (
               <div key={c.municipality} className="flex items-center justify-between text-sm">
                 <span className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
+                  <span className="w-6 h-6 rounded-full bg-success-subtle text-success flex items-center justify-center text-xs font-bold">{i + 1}</span>
                   <span className="text-body">{c.municipality.replace(/^\d+-/, '')}</span>
                   <span className="text-muted text-xs">({c.canton})</span>
                 </span>
-                <span className="font-bold text-emerald-700 dark:text-emerald-400">{c.avgPremium.toFixed(0)} CHF</span>
+                <span className="font-bold text-success">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-red-50 dark:bg-red-950/30 rounded-2xl p-5 border border-red-200 dark:border-red-800">
-          <h3 className="text-sm font-bold text-red-700 dark:text-red-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+        <div className="bg-danger-subtle rounded-2xl p-5 border border-danger-border">
+          <h3 className="text-sm font-bold text-danger uppercase tracking-wider mb-3 flex items-center gap-2">
             <TrendingUp size={16} /> 10 comuni più cari
           </h3>
           <div className="space-y-2">
             {data.rankings.mostExpensive.slice(0, 10).map((c, i) => (
               <div key={c.municipality} className="flex items-center justify-between text-sm">
                 <span className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
+                  <span className="w-6 h-6 rounded-full bg-danger-subtle text-danger flex items-center justify-center text-xs font-bold">{i + 1}</span>
                   <span className="text-body">{c.municipality.replace(/^\d+-/, '')}</span>
                   <span className="text-muted text-xs">({c.canton})</span>
                 </span>
-                <span className="font-bold text-red-700 dark:text-red-400">{c.avgPremium.toFixed(0)} CHF</span>
+                <span className="font-bold text-danger">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
             ))}
           </div>
@@ -205,7 +205,7 @@ const HealthPremiumStats: React.FC = () => {
             <select
               value={cantonFilter}
               onChange={(e) => setCantonFilter(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 text-xs"
+              className="px-3 py-1.5 rounded-lg border border-edge bg-surface-alt text-strong text-xs"
               aria-label="Filtra per cantone"
             >
               <option value="all">Tutti i cantoni</option>
@@ -250,7 +250,7 @@ const HealthPremiumStats: React.FC = () => {
               {displayed.map((c, i) => {
                 const globalRank = filtered.indexOf(c) + 1;
                 return (
-                  <tr key={c.municipality} className="border-b border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-700/30">
+                  <tr key={c.municipality} className="border-b border-edge/50 hover:bg-surface-raised/30">
                     <td className="py-2 px-2 text-muted font-mono">{globalRank}</td>
                     <td className="py-2 px-2 text-body font-medium">
                       {c.municipality.replace(/^\d+-/, '')}
@@ -258,8 +258,8 @@ const HealthPremiumStats: React.FC = () => {
                     </td>
                     <td className="py-2 px-2 text-center text-muted">{c.canton}</td>
                     <td className={`py-2 px-2 text-right font-bold ${
-                      globalRank <= 10 ? 'text-emerald-700 dark:text-emerald-400' :
-                      globalRank > filtered.length - 10 ? 'text-red-700 dark:text-red-400' :
+                      globalRank <= 10 ? 'text-success' :
+                      globalRank > filtered.length - 10 ? 'text-danger' :
                       'text-body'
                     }`}>
                       {c.avgPremium.toFixed(0)} CHF

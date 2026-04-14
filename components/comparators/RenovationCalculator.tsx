@@ -217,8 +217,8 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 onClick={() => setPropertyType('prima_casa')}
                 className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   propertyType === 'prima_casa'
-                    ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-2 border-orange-400 dark:border-orange-600'
-                    : 'bg-slate-50 dark:bg-slate-700 text-subtle border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
+                    ? 'bg-orange-100 dark:bg-orange-900/30 text-warning border-2 border-orange-400 dark:border-orange-600'
+                    : 'bg-surface-alt text-subtle border-2 border-transparent hover:border-edge'
                 }`}
               >
                 🏠 {t('renovation.primaCasa')}
@@ -227,24 +227,24 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 onClick={() => setPropertyType('seconda_casa')}
                 className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   propertyType === 'seconda_casa'
-                    ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-2 border-orange-400 dark:border-orange-600'
-                    : 'bg-slate-50 dark:bg-slate-700 text-subtle border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
-                }`} > 🏡 {t('renovation.secondaCasa')} </button> </div> {propertyType === 'seconda_casa' && rawBonus.secondaCasa && ( <p className="text-xs text-amber-600 dark:text-amber-400 mt-1.5 flex items-center gap-1"> <AlertTriangle size={12} /> {t('renovation.secondaCasaNote')} </p> )} </div> )} {/* Gross salary input — for standalone IRPEF/capienza calculation */} {countryOfProperty === 'IT' && ( <div> <label htmlFor="stipendio-lordo" className="block text-xs font-semibold text-subtle mb-1"> {t('capienza.grossSalary')} (CHF) </label> <input id="stipendio-lordo" type="number" inputMode="numeric" min={0} step={1000} value={stipendioLordo || ''} onChange={e => setStipendioLordo(Math.max(0, Number(e.target.value)))} className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong" placeholder="100000" /> {stipendioLordo > 0 && redditoImponibile > 0 && ( <p className="text-sm text-emerald-700 dark:text-emerald-400 mt-1 font-medium"> {t('capienza.derivedBase', { base: redditoImponibile.toLocaleString() })} </p> )} <p className="text-sm text-muted mt-1"> {hasSimulation ? t('capienza.autoPopulated') : t('capienza.grossSalaryHelp') } </p> </div> )} </div> {/* Result */} <div className="bg-surface rounded-2xl border border-edge overflow-hidden"> <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4"> <h3 className="font-bold text-strong flex items-center gap-2"> <Euro size={18} className="text-emerald-700" /> {t('renovation.result')} </h3> {openSections.has('result') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />} </button> {openSections.has('result') && ( <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in"> <div className="grid grid-cols-2 sm:grid-cols-4 gap-3"> <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 text-center"> <p className="text-xs text-link font-semibold">{t('renovation.totalCostLabel')}</p> <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">{result.currency} {totalCost.toLocaleString()}</p> </div> <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center"> <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold">{t('renovation.totalDeduction')}</p> <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">{result.currency} {result.totalDeduction.toLocaleString()}</p> </div> <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 text-center"> <p className="text-xs text-stripe-600 dark:text-stripe-400 font-semibold">{t('renovation.yearlyDeduction')}</p> <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">{result.currency} {result.yearlyDeduction.toLocaleString()}/{t('renovation.year')}</p> </div> <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3 text-center"> <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold">{t('renovation.netCost')}</p> <p className="text-lg font-bold text-amber-700 dark:text-amber-300">{result.currency} {result.netCost.toLocaleString()}</p> </div> </div> {countryOfProperty === 'IT' && ( <> <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3 text-xs text-muted"> <p> <CheckCircle2 size={14} className="inline mr-1 text-emerald-500" /> {t('renovation.deductionInfo', { percent: String(result.percent), years: String(result.years) })} </p> </div> {/* Capienza fiscale — dynamic simulation section */} <div className="bg-surface rounded-xl border border-edge overflow-hidden"> <button onClick={() => toggleSection('capienza')} className="w-full flex items-center justify-between p-4"> <h3 className="font-bold text-strong flex items-center gap-2"> <BarChart3 size={16} className="text-stripe-600 dark:text-stripe-400" /> {t('capienza.title')} </h3> {openSections.has('capienza') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />} </button> {openSections.has('capienza') && ( <div className="px-4 pb-4 space-y-3"> {stipendioLordo > 0 && redditoImponibile > 0 ? (() => { const grossTax = computedIrpef; const yearlyDed = result.yearlyDeduction; const surplus = grossTax - yearlyDed; const coveragePct = grossTax > 0 ? Math.min(Math.round((grossTax / yearlyDed) * 100), 100) : 0; const isFullyCovered = surplus >= 0; const deficit = isFullyCovered ? 0 : Math.abs(surplus); const statusColor = isFullyCovered ? 'emerald' : (coveragePct >= 60 ? 'amber' : 'red'); return ( <> {/* IRPEF breakdown card */} <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 space-y-2"> <p className="text-xs font-semibold text-slate-600 flex items-center gap-1.5"> <FileText size={13} className="text-stripe-500" /> {t('capienza.irpefBreakdown')} </p> <div className="grid grid-cols-2 gap-2 text-xs"> <div className="flex justify-between"> <span className="text-muted">{t('capienza.taxableBase')}</span> <span className="font-medium text-body dark:text-slate-200">€{redditoImponibile.toLocaleString()}</span> </div> <div className="flex justify-between"> <span className="text-muted">{t('capienza.grossIrpef')}</span> <span className="font-medium text-slate-700 dark:text-slate-200">€{Math.round(taxResult?.irpefGross ?? 0).toLocaleString()}</span> </div> {taxResult && ( <> <div className="flex justify-between"> <span className="text-muted">{t('capienza.addizionali')}</span> <span className="font-medium text-slate-700 dark:text-slate-200">€{Math.round(taxResult.totalAddizionali).toLocaleString()}</span> </div> <div className="flex justify-between"> <span className="text-muted">{t('capienza.swissCredit')}</span> <span className="font-medium text-slate-700 dark:text-slate-200">−€{Math.round(taxResult.swissTaxCredit).toLocaleString()}</span> </div> <div className="flex justify-between col-span-2 pt-1 border-t border-edge"> <span className="text-slate-600 dark:text-slate-300 font-semibold">{t('capienza.netTax')}</span> <span className="font-bold text-slate-800 dark:text-slate-100">€{Math.round(taxResult.finalItalianTaxEUR).toLocaleString()}</span> </div> </> )} </div> </div> {/* Capienza vs Deduction card */} <div className={`rounded-lg p-3 border ${
-                              statusColor === 'emerald' ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800' :
-                              statusColor === 'amber' ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800' :
-                              'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800'
+                    ? 'bg-orange-100 dark:bg-orange-900/30 text-warning border-2 border-orange-400 dark:border-orange-600'
+                    : 'bg-surface-alt text-subtle border-2 border-transparent hover:border-edge'
+                }`} > 🏡 {t('renovation.secondaCasa')} </button> </div> {propertyType === 'seconda_casa' && rawBonus.secondaCasa && ( <p className="text-xs text-warning mt-1.5 flex items-center gap-1"> <AlertTriangle size={12} /> {t('renovation.secondaCasaNote')} </p> )} </div> )} {/* Gross salary input — for standalone IRPEF/capienza calculation */} {countryOfProperty === 'IT' && ( <div> <label htmlFor="stipendio-lordo" className="block text-xs font-semibold text-subtle mb-1"> {t('capienza.grossSalary')} (CHF) </label> <input id="stipendio-lordo" type="number" inputMode="numeric" min={0} step={1000} value={stipendioLordo || ''} onChange={e => setStipendioLordo(Math.max(0, Number(e.target.value)))} className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong" placeholder="100000" /> {stipendioLordo > 0 && redditoImponibile > 0 && ( <p className="text-sm text-success mt-1 font-medium"> {t('capienza.derivedBase', { base: redditoImponibile.toLocaleString() })} </p> )} <p className="text-sm text-muted mt-1"> {hasSimulation ? t('capienza.autoPopulated') : t('capienza.grossSalaryHelp') } </p> </div> )} </div> {/* Result */} <div className="bg-surface rounded-2xl border border-edge overflow-hidden"> <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4"> <h3 className="font-bold text-strong flex items-center gap-2"> <Euro size={18} className="text-emerald-700" /> {t('renovation.result')} </h3> {openSections.has('result') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />} </button> {openSections.has('result') && ( <div className="px-4 pb-4 space-y-4 border-t border-edge pt-4 animate-fade-in"> <div className="grid grid-cols-2 sm:grid-cols-4 gap-3"> <div className="bg-accent-subtle rounded-xl p-3 text-center"> <p className="text-xs text-link font-semibold">{t('renovation.totalCostLabel')}</p> <p className="text-lg font-bold text-accent">{result.currency} {totalCost.toLocaleString()}</p> </div> <div className="bg-success-subtle rounded-xl p-3 text-center"> <p className="text-sm text-success font-semibold">{t('renovation.totalDeduction')}</p> <p className="text-lg font-bold text-success">{result.currency} {result.totalDeduction.toLocaleString()}</p> </div> <div className="bg-accent-subtle rounded-xl p-3 text-center"> <p className="text-xs text-accent font-semibold">{t('renovation.yearlyDeduction')}</p> <p className="text-lg font-bold text-accent">{result.currency} {result.yearlyDeduction.toLocaleString()}/{t('renovation.year')}</p> </div> <div className="bg-warning-subtle rounded-xl p-3 text-center"> <p className="text-xs text-warning font-semibold">{t('renovation.netCost')}</p> <p className="text-lg font-bold text-warning">{result.currency} {result.netCost.toLocaleString()}</p> </div> </div> {countryOfProperty === 'IT' && ( <> <div className="bg-surface-alt rounded-xl p-3 text-xs text-muted"> <p> <CheckCircle2 size={14} className="inline mr-1 text-emerald-500" /> {t('renovation.deductionInfo', { percent: String(result.percent), years: String(result.years) })} </p> </div> {/* Capienza fiscale — dynamic simulation section */} <div className="bg-surface rounded-xl border border-edge overflow-hidden"> <button onClick={() => toggleSection('capienza')} className="w-full flex items-center justify-between p-4"> <h3 className="font-bold text-strong flex items-center gap-2"> <BarChart3 size={16} className="text-accent" /> {t('capienza.title')} </h3> {openSections.has('capienza') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />} </button> {openSections.has('capienza') && ( <div className="px-4 pb-4 space-y-3"> {stipendioLordo > 0 && redditoImponibile > 0 ? (() => { const grossTax = computedIrpef; const yearlyDed = result.yearlyDeduction; const surplus = grossTax - yearlyDed; const coveragePct = grossTax > 0 ? Math.min(Math.round((grossTax / yearlyDed) * 100), 100) : 0; const isFullyCovered = surplus >= 0; const deficit = isFullyCovered ? 0 : Math.abs(surplus); const statusColor = isFullyCovered ? 'emerald' : (coveragePct >= 60 ? 'amber' : 'red'); return ( <> {/* IRPEF breakdown card */} <div className="bg-surface-alt rounded-lg p-3 space-y-2"> <p className="text-xs font-semibold text-slate-600 flex items-center gap-1.5"> <FileText size={13} className="text-stripe-500" /> {t('capienza.irpefBreakdown')} </p> <div className="grid grid-cols-2 gap-2 text-xs"> <div className="flex justify-between"> <span className="text-muted">{t('capienza.taxableBase')}</span> <span className="font-medium text-body dark:text-slate-200">€{redditoImponibile.toLocaleString()}</span> </div> <div className="flex justify-between"> <span className="text-muted">{t('capienza.grossIrpef')}</span> <span className="font-medium text-body">€{Math.round(taxResult?.irpefGross ?? 0).toLocaleString()}</span> </div> {taxResult && ( <> <div className="flex justify-between"> <span className="text-muted">{t('capienza.addizionali')}</span> <span className="font-medium text-body">€{Math.round(taxResult.totalAddizionali).toLocaleString()}</span> </div> <div className="flex justify-between"> <span className="text-muted">{t('capienza.swissCredit')}</span> <span className="font-medium text-body">−€{Math.round(taxResult.swissTaxCredit).toLocaleString()}</span> </div> <div className="flex justify-between col-span-2 pt-1 border-t border-edge"> <span className="text-subtle font-semibold">{t('capienza.netTax')}</span> <span className="font-bold text-strong">€{Math.round(taxResult.finalItalianTaxEUR).toLocaleString()}</span> </div> </> )} </div> </div> {/* Capienza vs Deduction card */} <div className={`rounded-lg p-3 border ${
+                              statusColor === 'emerald' ? 'bg-success-subtle border-success-border' :
+                              statusColor === 'amber' ? 'bg-warning-subtle border-warning-border' :
+                              'bg-danger-subtle border-danger-border'
                             }`}>
                               <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2">
                                   <TrendingUp size={14} className={
-                                    statusColor === 'emerald' ? 'text-emerald-700 dark:text-emerald-400' :
-                                    statusColor === 'amber' ? 'text-amber-600 dark:text-amber-400' :
-                                    'text-red-600 dark:text-red-400'
+                                    statusColor === 'emerald' ? 'text-success' :
+                                    statusColor === 'amber' ? 'text-warning' :
+                                    'text-danger'
                                   } />
                                   <span className={`text-xs font-semibold ${
-                                    statusColor === 'emerald' ? 'text-emerald-700 dark:text-emerald-300' :
-                                    statusColor === 'amber' ? 'text-amber-700 dark:text-amber-300' :
-                                    'text-red-700 dark:text-red-300'
+                                    statusColor === 'emerald' ? 'text-success' :
+                                    statusColor === 'amber' ? 'text-warning' :
+                                    'text-danger'
                                   }`}>{t('capienza.vsDeduction')}</span>
                                 </div>
                                 <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
@@ -259,16 +259,16 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                               <div className="grid grid-cols-2 gap-2 text-xs mb-2">
                                 <div>
                                   <p className="text-muted">{t('capienza.yourCapienza')}</p>
-                                  <p className="font-bold text-slate-700 dark:text-slate-200">€{Math.round(grossTax).toLocaleString()}/{t('capienza.year')}</p>
+                                  <p className="font-bold text-body">€{Math.round(grossTax).toLocaleString()}/{t('capienza.year')}</p>
                                 </div>
                                 <div>
                                   <p className="text-muted">{t('capienza.yearlyQuota')}</p>
-                                  <p className="font-bold text-slate-700 dark:text-slate-200">€{yearlyDed.toLocaleString()}/{t('capienza.year')}</p>
+                                  <p className="font-bold text-body">€{yearlyDed.toLocaleString()}/{t('capienza.year')}</p>
                                 </div>
                               </div>
 
                               {/* Progress bar */}
-                              <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2 overflow-hidden">
+                              <div className="w-full bg-surface-raised rounded-full h-2 overflow-hidden">
                                 <div
                                   className={`h-2 rounded-full transition-transform origin-left ${
                                     statusColor === 'emerald' ? 'bg-emerald-700' :
@@ -281,9 +281,9 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
                               {/* Verdict */}
                               <p className={`text-xs mt-2 leading-relaxed ${
-                                statusColor === 'emerald' ? 'text-emerald-700 dark:text-emerald-300' :
-                                statusColor === 'amber' ? 'text-amber-700 dark:text-amber-300' :
-                                'text-red-700 dark:text-red-300'
+                                statusColor === 'emerald' ? 'text-success' :
+                                statusColor === 'amber' ? 'text-warning' :
+                                'text-danger'
                               }`}>
                                 {isFullyCovered
                                   ? t('capienza.verdictOk', { irpef: Math.round(grossTax).toLocaleString(), deduction: yearlyDed.toLocaleString() })
@@ -294,8 +294,8 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
                             {/* Year-by-year table when deficit */}
                             {!isFullyCovered && (
-                              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 space-y-2">
-                                <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+                              <div className="bg-surface-alt rounded-lg p-3 space-y-2">
+                                <p className="text-xs font-semibold text-subtle flex items-center gap-1.5">
                                   <Clock size={13} className="text-amber-500" /> {t('capienza.yearByYear')}
                                 </p>
                                 <div className="overflow-x-auto">
@@ -313,19 +313,19 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                                         const absorbed = Math.min(yearlyDed, Math.round(grossTax));
                                         const lost = yearlyDed - absorbed;
                                         return (
-                                          <tr key={i} className="border-b border-slate-100 dark:border-slate-600/50">
+                                          <tr key={i} className="border-b border-edge">
                                             <td className="py-1 text-body">{i + 1}</td>
                                             <td className="py-1 text-right text-body">€{yearlyDed.toLocaleString()}</td>
-                                            <td className="py-1 text-right text-emerald-700 dark:text-emerald-400">€{absorbed.toLocaleString()}</td>
-                                            <td className="py-1 text-right text-red-600 dark:text-red-400">{lost > 0 ? `€${lost.toLocaleString()}` : '—'}</td>
+                                            <td className="py-1 text-right text-success">€{absorbed.toLocaleString()}</td>
+                                            <td className="py-1 text-right text-danger">{lost > 0 ? `€${lost.toLocaleString()}` : '—'}</td>
                                           </tr>
                                         );
                                       })}
                                       <tr className="font-semibold">
                                         <td className="py-1 text-body">{t('capienza.total')}</td>
                                         <td className="py-1 text-right text-body">€{result.totalDeduction.toLocaleString()}</td>
-                                        <td className="py-1 text-right text-emerald-700 dark:text-emerald-400">€{(Math.min(yearlyDed, Math.round(grossTax)) * result.years).toLocaleString()}</td>
-                                        <td className="py-1 text-right text-red-600 dark:text-red-400">€{(Math.max(0, yearlyDed - Math.round(grossTax)) * result.years).toLocaleString()}</td>
+                                        <td className="py-1 text-right text-success">€{(Math.min(yearlyDed, Math.round(grossTax)) * result.years).toLocaleString()}</td>
+                                        <td className="py-1 text-right text-danger">€{(Math.max(0, yearlyDed - Math.round(grossTax)) * result.years).toLocaleString()}</td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -335,13 +335,13 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
                             {/* Tip cards */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-lg p-2.5 border border-stripe-100 dark:border-stripe-800">
-                                <p className="text-sm text-stripe-700 dark:text-stripe-300 flex items-center gap-1">
+                              <div className="bg-accent-subtle rounded-lg p-2.5 border border-accent-border">
+                                <p className="text-sm text-accent flex items-center gap-1">
                                   <CreditCard size={12} /> {t('capienza.tipOtherIncome')}
                                 </p>
                               </div>
-                              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-lg p-2.5 border border-stripe-100 dark:border-stripe-800">
-                                <p className="text-xs text-stripe-700 dark:text-stripe-300 flex items-center gap-1">
+                              <div className="bg-accent-subtle rounded-lg p-2.5 border border-accent-border">
+                                <p className="text-xs text-accent flex items-center gap-1">
                                   <FileText size={12} /> {t('capienza.tipSplitYears')}
                                 </p>
                               </div>
@@ -376,7 +376,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             {openSections.has('bonuses') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
           </button>
           {openSections.has('bonuses') && (
-            <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+            <div className="px-4 pb-4 space-y-3 border-t border-edge pt-4 animate-fade-in">
               {IT_BONUSES.map(b => {
                 const effective = propertyType === 'seconda_casa' && b.secondaCasa
                   ? { percent: b.secondaCasa.percent, maxAmount: b.secondaCasa.maxAmount }
@@ -386,8 +386,8 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     key={b.key}
                     className={`rounded-xl p-3 border ${
                       selectedITBonus === b.key
-                        ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                        : 'bg-slate-50 dark:bg-slate-700/50 border-edge'
+                        ? 'bg-success-subtle border-success-border'
+                        : 'bg-surface-alt border-edge'
                     } cursor-pointer transition-colors`}
                     onClick={() => setSelectedITBonus(b.key)}
                     role="button"
@@ -398,11 +398,11 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       <h4 className="font-semibold text-sm text-strong">{t(`renovation.bonus.${b.key}`)}</h4>
                       <div className="flex items-center gap-1.5">
                         {b.secondaCasa && propertyType === 'seconda_casa' && (
-                          <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded-full font-medium">
+                          <span className="text-xs bg-warning-subtle text-warning px-1.5 py-0.5 rounded-full font-medium">
                             {t('renovation.secondaCasa')}
                           </span>
                         )}
-                        <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{effective.percent}%</span>
+                        <span className="text-sm font-bold text-success">{effective.percent}%</span>
                       </div>
                     </div>
                     <p className="text-sm text-muted mt-1">
@@ -426,7 +426,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             {openSections.has('categories') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
           </button>
           {openSections.has('categories') && (
-            <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+            <div className="px-4 pb-4 space-y-3 border-t border-edge pt-4 animate-fade-in">
               {RENOVATION_CATEGORIES.map(cat => {
                 const Icon = cat.icon;
                 return (
@@ -434,8 +434,8 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     key={cat.key}
                     className={`rounded-xl p-3 border ${
                       selectedCategory === cat.key
-                        ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                        : 'bg-slate-50 dark:bg-slate-700/50 border-edge'
+                        ? 'bg-success-subtle border-success-border'
+                        : 'bg-surface-alt border-edge'
                     } cursor-pointer transition-colors`}
                     onClick={() => setSelectedCategory(cat.key)}
                     role="button"
@@ -447,8 +447,8 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       <h4 className="font-semibold text-sm text-strong">{t(`renovation.cat.${cat.key}`)}</h4>
                       <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         cat.deductible
-                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
-                          : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
+                          ? 'bg-success-subtle text-success'
+                          : 'bg-danger-subtle text-danger'
                       }`}>
                         {cat.deductible ? t('renovation.deductible') : t('renovation.notDeductible')}
                       </span>
@@ -472,7 +472,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             {openSections.has('faq') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
           </button>
           {openSections.has('faq') && (
-            <div className="px-4 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+            <div className="px-4 pb-4 space-y-2 border-t border-edge pt-4 animate-fade-in">
               {FAQ_KEYS.map(fk => (
                 <div key={fk} className="rounded-xl border border-edge overflow-hidden">
                   <button
@@ -485,7 +485,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       : <ChevronDown size={16} className="text-muted shrink-0" />}
                   </button>
                   {expandedFaq === fk && (
-                    <div className="px-3 pb-3 text-xs text-subtle leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-2">
+                    <div className="px-3 pb-3 text-xs text-subtle leading-relaxed border-t border-edge pt-2">
                       {t(`renovation.faq.${fk}.a`)}
                     </div>
                   )}

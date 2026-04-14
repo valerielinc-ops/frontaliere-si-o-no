@@ -188,12 +188,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
       {/* Collapsed trigger */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex items-center gap-2 text-sm text-stripe-600 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors"
+        className="flex items-center gap-2 text-sm text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors"
       >
         <BellRing className="w-4 h-4" />
         <span>{t('jobAlert.trigger') || 'Avvisami per nuovi lavori'}</span>
         {alerts.length > 0 && (
-          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-stripe-100 dark:bg-stripe-900 text-xs font-semibold text-stripe-700 dark:text-stripe-300">
+          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-accent-subtle text-xs font-semibold text-accent">
             {alerts.length}
           </span>
         )}
@@ -202,7 +202,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
       {/* Expanded form */}
       {expanded && (
-        <div className="mt-3 p-4 bg-stripe-50 dark:bg-stripe-950/30 rounded-xl border border-stripe-200 dark:border-stripe-800 space-y-3">
+        <div className="mt-3 p-4 bg-accent-subtle rounded-xl border border-accent-border space-y-3">
           {/* Keyword */}
           <div>
             <label className="block text-sm font-medium text-subtle mb-1">
@@ -214,7 +214,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
               onChange={(e) => setKeyword(e.target.value)}
               placeholder={t('jobAlert.keywordPlaceholder') || 'es. developer, ingegnere, contabile'}
               aria-label={t('jobAlert.keyword') || 'Parole chiave'}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-surface focus-visible:ring-2 focus-visible:ring-stripe-400 outline-none"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-edge bg-surface focus-visible:ring-2 focus-visible:ring-accent outline-none"
             />
           </div>
 
@@ -231,7 +231,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                   className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                     selectedLocations.includes(loc.value)
                       ? 'bg-stripe-600 text-white border-stripe-600'
-                      : 'bg-surface text-subtle border-slate-300 dark:border-slate-600 hover:border-stripe-400'
+                      : 'bg-surface text-subtle border-edge hover:border-stripe-400'
                   }`}
                 >
                   {loc.label}
@@ -253,7 +253,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                   className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                     selectedContracts.includes(ct.value)
                       ? 'bg-stripe-600 text-white border-stripe-600'
-                      : 'bg-surface text-subtle border-slate-300 dark:border-slate-600 hover:border-stripe-400'
+                      : 'bg-surface text-subtle border-edge hover:border-stripe-400'
                   }`}
                 >
                   {t(ct.labelKey) || ct.value}
@@ -275,7 +275,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                   className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                     selectedSectors.includes(s.value)
                       ? 'bg-stripe-600 text-white border-stripe-600'
-                      : 'bg-surface text-subtle border-slate-300 dark:border-slate-600 hover:border-stripe-400'
+                      : 'bg-surface text-subtle border-edge hover:border-stripe-400'
                   }`}
                 >
                   {s.label}
@@ -293,7 +293,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
               value={frequency}
               onChange={(e) => setFrequency(e.target.value as 'daily' | 'weekly')}
               aria-label={t('jobAlert.frequency') || 'Frequenza'}
-              className="px-2 py-1 text-xs rounded-lg border border-slate-300 dark:border-slate-600 bg-surface"
+              className="px-2 py-1 text-xs rounded-lg border border-edge bg-surface"
             >
               <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
               <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>
@@ -318,7 +318,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
           {/* Existing alerts */}
           {alerts.length > 0 && (
-            <div className="border-t border-stripe-200 dark:border-stripe-800 pt-3 mt-3">
+            <div className="border-t border-accent-border pt-3 mt-3">
               <h4 className="text-xs font-semibold text-subtle mb-2">
                 {t('jobAlert.yourAlerts') || 'Le tue alert'} ({alerts.length}/3)
               </h4>
@@ -363,7 +363,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                         <select
                           value={alert.frequency}
                           onChange={(e) => handleUpdateFrequency(alert.id, e.target.value as 'daily' | 'weekly')}
-                          className="px-2 py-0.5 text-xs rounded border border-slate-300 dark:border-slate-600 bg-surface"
+                          className="px-2 py-0.5 text-xs rounded border border-edge bg-surface"
                         >
                           <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
                           <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>

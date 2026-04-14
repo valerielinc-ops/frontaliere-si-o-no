@@ -191,7 +191,7 @@ function ActionLink(props: { label: string; route: Parameters<typeof buildPath>[
   return (
     <a
       href={buildPath(props.route, props.locale)}
-      className="inline-flex items-center rounded-full border border-stripe-200 bg-stripe-50 px-3 py-1.5 text-xs font-bold text-stripe-700 no-underline hover:border-stripe-300 dark:border-stripe-900/60 dark:bg-stripe-950/30 dark:text-stripe-200 dark:hover:border-stripe-700"
+      className="inline-flex items-center rounded-full border border-stripe-200 bg-stripe-50 px-3 py-1.5 text-xs font-bold text-stripe-700 no-underline hover:border-accent-border dark:bg-stripe-950/30 dark:text-stripe-200 dark:hover:border-stripe-700"
       onClick={(event) => {
         event.preventDefault();
         navigateTo(props.route, props.locale);
@@ -206,7 +206,7 @@ function Kpi(props: { label: string; value: string; accent: string }) {
   return (
     <div className={`rounded-2xl border p-4 ${props.accent}`}>
       <div className="text-xs font-bold uppercase tracking-wide text-muted">{props.label}</div>
-      <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{props.value}</div>
+      <div className="mt-2 text-2xl font-bold text-heading">{props.value}</div>
     </div>
   );
 }
@@ -221,7 +221,7 @@ function LeaderBlock(props: {
 }) {
   return (
     <div className="rounded-3xl border border-slate-100 bg-surface p-5 shadow-sm dark:border-slate-700">
-      <h3 className="mb-4 flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-200">
+      <h3 className="mb-4 flex items-center gap-2 text-sm font-bold text-body">
         {props.icon}
         {props.title}
       </h3>
@@ -233,7 +233,7 @@ function LeaderBlock(props: {
         <div className="space-y-3">
           {props.items.map((item, index) => (
             <a
-              key={`${item.key}-${item.url}`} href={leaderHref(item, props.locale)} className="flex items-center justify-between gap-3 rounded-2xl border border-slate-100 px-3 py-2 no-underline transition-colors hover:border-stripe-300 dark:border-slate-700 dark:hover:border-stripe-500" onClick={(event) => { event.preventDefault(); navigateTo({ activeTab: 'job-board', jobSlug: localizeLeaderSlug(item.url, props.locale) }, props.locale); }} > <div className="min-w-0"> <div className="text-xs font-bold text-muted">#{index + 1}</div> <div className="line-clamp-2 text-sm font-semibold text-strong dark:text-slate-100">{item.name}</div> </div> <div className="shrink-0 text-right text-sm font-bold text-stripe-600 dark:text-stripe-300"> {props.valueRenderer(item)} </div> </a> ))} </div> )} </div> ); } export const JobsSalaryObservatory: React.FC = () => { const { locale } = useTranslation(); const copy = COPY[locale] || COPY.it; const [data, setData] = useState<JobBoardStatsData | null>(null); const [loading, setLoading] = useState(true); const [refreshing, setRefreshing] = useState(false); const [error, setError] = useState<string | null>(null); const load = async (forceRefresh = false) => { try { setError(null); if (forceRefresh) setRefreshing(true); else setLoading(true); const result = await fetchJobBoardStats(forceRefresh); setData(result); } catch (err: any) { setError(err?.message || copy.empty); } finally { setLoading(false); setRefreshing(false); } }; useEffect(() => { Analytics.trackPageView(buildPath({ activeTab: 'stats', statsSubTab: 'jobs-observatory' }, locale), copy.title); void load(false); }, [locale, copy.title]); if (loading) { return ( <div className="rounded-3xl border border-slate-100 bg-surface p-6 shadow-sm dark:border-slate-700 flex items-center justify-center"> <Loader2 className="h-5 w-5 animate-spin text-stripe-600" /> </div> ); } if (!data) { return ( <div className="rounded-3xl border border-slate-100 bg-surface p-6 text-sm text-slate-600 shadow-sm dark:border-slate-700 dark:text-slate-300"> {error || copy.empty} </div> ); } const salary = data.salary?.coverage; const salaryLeaders = data.salary?.leaders; return ( <div className="space-y-6"> <div className="rounded-3xl border border-slate-100 bg-surface p-6 shadow-sm dark:border-slate-700"> <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between"> <div className="max-w-4xl"> <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white"> <Wallet className="h-5 w-5 text-stripe-600" /> {copy.title} </h2> <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.intro}</p> <p className="mt-3 text-sm leading-7 text-muted">{copy.methodology}</p> <div className="mt-5 flex flex-wrap gap-2"> <ActionLink label={copy.allJobs} route={{ activeTab: 'job-board' }} locale={locale} /> <ActionLink label={copy.jobsToday} route={{ activeTab: 'job-board', jobSlug: locale === 'it' ? 'offerte-di-lavoro-ticino-oggi' : locale === 'en' ? 'ticino-jobs-today' : locale === 'de' ? 'jobs-tessin-heute' : 'offres-emploi-tessin-aujourdhui' }} locale={locale} /> <ActionLink label={copy.salaryCompare} route={{ activeTab: 'stats', statsSubTab: 'salary-compare' }} locale={locale} /> <ActionLink label={copy.overview} route={{ activeTab: 'stats', statsSubTab: 'overview' }} locale={locale} /> </div> </div> <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-900/40"> <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">{copy.updated}</div> <div className="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-100">{formatDate(data.generatedAt, locale)}</div> <button type="button" onClick={() => void load(true)} disabled={refreshing} className="mt-4 inline-flex items-center gap-2 rounded-xl border border-edge px-3 py-2 text-xs font-bold text-slate-700 hover:border-stripe-300 dark:hover:border-stripe-500" > <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+              key={`${item.key}-${item.url}`} href={leaderHref(item, props.locale)} className="flex items-center justify-between gap-3 rounded-2xl border border-slate-100 px-3 py-2 no-underline transition-colors hover:border-stripe-300 dark:border-slate-700 dark:hover:border-stripe-500" onClick={(event) => { event.preventDefault(); navigateTo({ activeTab: 'job-board', jobSlug: localizeLeaderSlug(item.url, props.locale) }, props.locale); }} > <div className="min-w-0"> <div className="text-xs font-bold text-muted">#{index + 1}</div> <div className="line-clamp-2 text-sm font-semibold text-strong dark:text-slate-100">{item.name}</div> </div> <div className="shrink-0 text-right text-sm font-bold text-accent"> {props.valueRenderer(item)} </div> </a> ))} </div> )} </div> ); } export const JobsSalaryObservatory: React.FC = () => { const { locale } = useTranslation(); const copy = COPY[locale] || COPY.it; const [data, setData] = useState<JobBoardStatsData | null>(null); const [loading, setLoading] = useState(true); const [refreshing, setRefreshing] = useState(false); const [error, setError] = useState<string | null>(null); const load = async (forceRefresh = false) => { try { setError(null); if (forceRefresh) setRefreshing(true); else setLoading(true); const result = await fetchJobBoardStats(forceRefresh); setData(result); } catch (err: any) { setError(err?.message || copy.empty); } finally { setLoading(false); setRefreshing(false); } }; useEffect(() => { Analytics.trackPageView(buildPath({ activeTab: 'stats', statsSubTab: 'jobs-observatory' }, locale), copy.title); void load(false); }, [locale, copy.title]); if (loading) { return ( <div className="rounded-3xl border border-slate-100 bg-surface p-6 shadow-sm dark:border-slate-700 flex items-center justify-center"> <Loader2 className="h-5 w-5 animate-spin text-stripe-600" /> </div> ); } if (!data) { return ( <div className="rounded-3xl border border-slate-100 bg-surface p-6 text-sm text-slate-600 shadow-sm dark:border-slate-700 dark:text-slate-300"> {error || copy.empty} </div> ); } const salary = data.salary?.coverage; const salaryLeaders = data.salary?.leaders; return ( <div className="space-y-6"> <div className="rounded-3xl border border-slate-100 bg-surface p-6 shadow-sm dark:border-slate-700"> <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between"> <div className="max-w-4xl"> <h2 className="flex items-center gap-2 text-lg font-bold text-heading"> <Wallet className="h-5 w-5 text-stripe-600" /> {copy.title} </h2> <p className="mt-3 text-sm leading-7 text-subtle">{copy.intro}</p> <p className="mt-3 text-sm leading-7 text-muted">{copy.methodology}</p> <div className="mt-5 flex flex-wrap gap-2"> <ActionLink label={copy.allJobs} route={{ activeTab: 'job-board' }} locale={locale} /> <ActionLink label={copy.jobsToday} route={{ activeTab: 'job-board', jobSlug: locale === 'it' ? 'offerte-di-lavoro-ticino-oggi' : locale === 'en' ? 'ticino-jobs-today' : locale === 'de' ? 'jobs-tessin-heute' : 'offres-emploi-tessin-aujourdhui' }} locale={locale} /> <ActionLink label={copy.salaryCompare} route={{ activeTab: 'stats', statsSubTab: 'salary-compare' }} locale={locale} /> <ActionLink label={copy.overview} route={{ activeTab: 'stats', statsSubTab: 'overview' }} locale={locale} /> </div> </div> <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-900/40"> <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">{copy.updated}</div> <div className="mt-2 text-sm font-semibold text-strong">{formatDate(data.generatedAt, locale)}</div> <button type="button" onClick={() => void load(true)} disabled={refreshing} className="mt-4 inline-flex items-center gap-2 rounded-xl border border-edge px-3 py-2 text-xs font-bold text-slate-700 hover:border-stripe-300 dark:hover:border-stripe-500" > <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
               {copy.refresh}
             </button>
           </div>
@@ -248,16 +248,16 @@ function LeaderBlock(props: {
       </div>
 
       <div className="rounded-3xl border border-slate-100 bg-surface p-5 shadow-sm dark:border-slate-700">
-        <h3 className="mb-3 text-sm font-bold text-slate-700 dark:text-slate-200">{copy.noteTitle}</h3>
-        <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.noteBody}</p>
+        <h3 className="mb-3 text-sm font-bold text-body">{copy.noteTitle}</h3>
+        <p className="text-sm leading-7 text-subtle">{copy.noteBody}</p>
       </div>
 
       <div className="rounded-3xl border border-amber-200/80 bg-amber-50/60 p-5 dark:border-amber-900/40 dark:bg-amber-950/20">
-        <h3 className="mb-2 flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-200">
+        <h3 className="mb-2 flex items-center gap-2 text-sm font-bold text-warning">
           <Wallet className="h-4 w-4" />
           {copy.disclaimerTitle}
         </h3>
-        <p className="text-sm leading-7 text-amber-700 dark:text-amber-300">{copy.disclaimer}</p>
+        <p className="text-sm leading-7 text-warning">{copy.disclaimer}</p>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">

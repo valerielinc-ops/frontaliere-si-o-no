@@ -25,8 +25,8 @@ const DonationBanner: React.FC<DonationBannerProps> = ({ variant = 'inline' }) =
 
   if (variant === 'inline') {
     return (
-      <div className="flex items-center gap-3 p-3 bg-amber-50/50 dark:bg-amber-950/20 rounded-xl border border-amber-200/50 dark:border-amber-800/30">
-        <Coffee className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0" />
+      <div className="flex items-center gap-3 p-3 bg-warning-subtle/50 rounded-xl border border-amber-200/50 dark:border-amber-800/30">
+        <Coffee className="w-5 h-5 text-warning flex-shrink-0" />
         <div className="flex-1 min-w-0">
           <p className="text-xs text-body">
             {t('donation.message')}
@@ -37,7 +37,7 @@ const DonationBanner: React.FC<DonationBannerProps> = ({ variant = 'inline' }) =
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleClick}
-          className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 hover:bg-amber-200 dark:hover:bg-amber-900/60 rounded-lg transition-colors border border-amber-200/50 dark:border-amber-700/50"
+          className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-warning bg-warning-subtle hover:bg-amber-200 dark:hover:bg-amber-900/60 rounded-lg transition-colors border border-amber-200/50 dark:border-amber-700/50"
         >
           <Heart className="w-3 h-3" />
           {t('donation.button')}

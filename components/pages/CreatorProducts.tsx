@@ -39,8 +39,8 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
   if (!products.length) return null;
 
   return (
-    <div className={`overflow-visible rounded-xl border border-edge bg-white/90 dark:bg-slate-800/90 p-3 space-y-2.5 ${className}`}>
-      <div className="flex items-center gap-1.5 text-xs font-semibold tracking-normal text-slate-600 dark:text-slate-300">
+    <div className={`overflow-visible rounded-xl border border-edge bg-surface/90 p-3 space-y-2.5 ${className}`}>
+      <div className="flex items-center gap-1.5 text-xs font-semibold tracking-normal text-subtle">
         <Sparkles size={13} className="text-amber-500" />
         <span>{t('creatorPicks.title')}</span>
       </div>
@@ -66,7 +66,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
                   alt={p.title}
                   width={96}
                   height={96}
-                  className="rounded-lg object-contain bg-white dark:bg-slate-700 shadow-sm"
+                  className="rounded-lg object-contain bg-surface shadow-sm"
                   loading="lazy"
                   onLoad={handleImgLoad(p.id)}
                   onError={handleImgError(p.id)}
@@ -76,12 +76,12 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
             {!showImage && (
               <span className="text-2xl leading-none mb-1 block">{p.emoji}</span>
             )}
-            <div className="text-sm font-semibold text-slate-700 dark:text-slate-200 leading-snug">
+            <div className="text-sm font-semibold text-body leading-snug">
               {p.title}
             </div>
             <div className="flex items-center justify-between mt-1.5">
               {p.price ? (
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <span className="text-xs font-bold text-success">
                   {p.price}
                 </span>
               ) : (
@@ -89,7 +89,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
                   amazon.it
                 </span>
               )}
-              <span className="text-xs font-medium text-stripe-500 dark:text-stripe-400 group-hover:text-stripe-600 dark:group-hover:text-stripe-300 flex items-center gap-0.5">
+              <span className="text-xs font-medium text-accent group-hover:text-stripe-600 dark:group-hover:text-stripe-300 flex items-center gap-0.5">
                 Vedi <ExternalLink size={10} />
               </span>
             </div>

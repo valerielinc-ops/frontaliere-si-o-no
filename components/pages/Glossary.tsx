@@ -169,7 +169,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
 
       {/* H1 for individual term pages */}
       {initialEntry && (
-        <h1 className="text-2xl font-bold text-slate-800 dark:text-white">
+        <h1 className="text-2xl font-bold text-heading">
           {t(`glossary.terms.${initialEntry}.title`)}
         </h1>
       )}
@@ -192,8 +192,8 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
             onClick={() => { setSelectedCategory('all'); Analytics.trackGuideSection('glossary', 'view'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
               selectedCategory === 'all'
-                ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
-                : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'
+                ? 'bg-surface-raised text-white dark:text-slate-800'
+                : 'bg-surface-raised text-subtle hover:bg-surface-raised'
             }`}
           >
             {t('glossary.all')}
@@ -207,7 +207,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
                   selectedCategory === cat
                     ? `${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`
-                    : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'
+                    : 'bg-surface-raised text-subtle hover:bg-surface-raised'
                 }`}
               >
                 {t(`glossary.category.${cat}`)}
@@ -254,10 +254,10 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                   {isExpanded ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
                 </button>
                 {isExpanded && (
-                  <div className="px-4 pb-4 text-sm text-subtle animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">
+                  <div className="px-4 pb-4 text-sm text-subtle animate-fade-in border-t border-edge pt-3">
                     <p>{t(`glossary.terms.${entry.key}.desc`)}</p>
                     {t(`glossary.terms.${entry.key}.example`) !== `glossary.terms.${entry.key}.example` && (
-                      <div className="mt-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 text-xs">
+                      <div className="mt-2 bg-surface-alt rounded-lg p-3 text-xs">
                         <span className="font-semibold text-body">{t('glossary.example')}: </span>
                         {t(`glossary.terms.${entry.key}.example`)}
                       </div>

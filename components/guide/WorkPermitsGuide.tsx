@@ -289,16 +289,16 @@ const WorkPermitsGuide: React.FC = () => {
               toggleSection(id);
             }
           }}
-          className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          className="flex items-center justify-between p-4 cursor-pointer hover:bg-surface-raised transition-colors"
         >
           <div className="flex items-center gap-3">
             <Icon size={20} className="text-muted" />
-            <h4 className="font-bold text-slate-800 dark:text-slate-100">{title}</h4>
+            <h4 className="font-bold text-strong">{title}</h4>
           </div>
           {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
         </div>
         {isOpen && (
-          <div className="p-4 pt-0 animate-fade-in border-t border-slate-100 dark:border-slate-700">
+          <div className="p-4 pt-0 animate-fade-in border-t border-edge">
             {children}
           </div>
         )}
@@ -334,7 +334,7 @@ const WorkPermitsGuide: React.FC = () => {
             className={`p-4 rounded-2xl border-2 transition-[color,background-color,border-color,box-shadow] text-left ${
               selectedPermit === p.id
                 ? `border-transparent bg-gradient-to-br ${p.color} text-white shadow-lg scale-[1.02]`
-                : 'border-edge bg-surface hover:border-slate-300 dark:hover:border-slate-600'
+                : 'border-edge bg-surface hover:border-edge'
             }`}
           >
             <div className="text-2xl mb-1">{p.icon}</div>
@@ -437,8 +437,8 @@ const WorkPermitsGuide: React.FC = () => {
               <p className="text-sm text-body">{t('permits.g.statusIntro')}</p>
 
               {/* Vecchio definition */}
-              <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-5">
-                <h5 className="font-bold text-stripe-700 dark:text-stripe-400 text-sm flex items-center gap-2 mb-2">
+              <div className="bg-accent-subtle border border-accent-border rounded-xl p-5">
+                <h5 className="font-bold text-accent text-sm flex items-center gap-2 mb-2">
                   <Shield size={16} />
                   {t('permits.g.oldLabel')}
                 </h5>
@@ -449,31 +449,31 @@ const WorkPermitsGuide: React.FC = () => {
               </div>
 
               {/* Nuovo definition */}
-              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
-                <h5 className="font-bold text-amber-700 dark:text-amber-400 text-sm flex items-center gap-2 mb-2">
+              <div className="bg-warning-subtle border border-warning-border rounded-xl p-5">
+                <h5 className="font-bold text-warning text-sm flex items-center gap-2 mb-2">
                   <AlertCircle size={16} />
                   {t('permits.g.newLabel')}
                 </h5>
                 <p className="text-sm text-body mb-2">{t('permits.g.newDefinition')}</p>
                 <div className="bg-surface rounded-lg p-3 text-xs text-subtle">
-                  <span className="font-bold text-amber-600 dark:text-amber-400">{t('permits.g.regimeLabel')}:</span> {t('permits.g.newRegime')}
+                  <span className="font-bold text-warning">{t('permits.g.regimeLabel')}:</span> {t('permits.g.newRegime')}
                 </div>
               </div>
 
               {/* G → B → G scenario */}
-              <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-5">
-                <h5 className="font-bold text-stripe-700 dark:text-stripe-400 text-sm flex items-center gap-2 mb-2">
+              <div className="bg-accent-subtle border border-accent-border rounded-xl p-5">
+                <h5 className="font-bold text-accent text-sm flex items-center gap-2 mb-2">
                   <Scale size={16} />
                   {t('permits.g.switchTitle')}
                 </h5>
                 <p className="text-sm text-body mb-3">{t('permits.g.switchQuestion')}</p>
                 <div className="bg-surface rounded-lg p-3 space-y-2">
-                  <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{t('permits.g.switchAnswer')}</p>
+                  <p className="text-sm font-bold text-success">{t('permits.g.switchAnswer')}</p>
                   <p className="text-sm text-body">{t('permits.g.switchExplanation')}</p>
                 </div>
-                <div className="mt-3 flex items-start gap-2 bg-amber-50 dark:bg-amber-900/30 rounded-lg p-3">
-                  <AlertTriangle size={16} className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-amber-700 dark:text-amber-400 font-medium">{t('permits.g.switchWarning')}</p>
+                <div className="mt-3 flex items-start gap-2 bg-warning-subtle rounded-lg p-3">
+                  <AlertTriangle size={16} className="text-warning flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-warning font-medium">{t('permits.g.switchWarning')}</p>
                 </div>
               </div>
 
@@ -504,7 +504,7 @@ const WorkPermitsGuide: React.FC = () => {
 
       {/* Comparison table */}
       <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
           <Globe size={20} className="text-stripe-600" />
           {t('permits.comparisonTitle')}
         </h3>
@@ -532,7 +532,7 @@ const WorkPermitsGuide: React.FC = () => {
               { label: t('permits.cmp.selfEmployed'), values: [t('permits.cmp.limited'), '✅', '✅', '❌'] },
               { label: t('permits.cmp.pillar3'), values: ['❌', '✅', '✅', '❌'] },
             ].map((row, i) => (
-              <tr key={i} className="border-b border-slate-100 dark:border-slate-700">
+              <tr key={i} className="border-b border-edge">
                 <td className="py-2.5 font-medium">{row.label}</td>
                 {row.values.map((v, j) => (
                   <td key={j} className="text-center py-2.5">{v}</td>

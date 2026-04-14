@@ -75,9 +75,9 @@ const StatsViewInner: React.FC = () => {
   return (
     <div className="bg-surface rounded-2xl shadow-sm border border-edge flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
        {/* Header */}
-       <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 z-10 bg-surface rounded-t-2xl">
+       <div className="p-6 border-b border-edge flex justify-between items-center sticky top-0 z-10 bg-surface rounded-t-2xl">
           <div>
-            <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
+            <h2 className="text-xl font-bold text-strong tracking-tight flex items-center gap-2">
               <Database size={20} className="text-stripe-600"/> {t('stats.title')}
             </h2>
             <p className="text-muted text-xs mt-1">
@@ -92,7 +92,7 @@ const StatsViewInner: React.FC = () => {
                   fetchBFSData(true);
                 }}
                 disabled={loading}
-                className="p-2 bg-surface rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-500 hover:text-stripe-600 transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
+                className="p-2 bg-surface rounded-xl shadow-sm border border-edge text-slate-500 hover:text-stripe-600 transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
                 title={t('stats.refreshData')}
             >
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
@@ -103,9 +103,9 @@ const StatsViewInner: React.FC = () => {
       <div className="p-3 sm:p-6 space-y-6 sm:space-y-8">
         {/* BFS SEO intro — always visible on desktop, collapsible on mobile */}
         <div className="hidden sm:block">
-          <div className="bg-stripe-50/40 dark:bg-stripe-900/20 p-5 rounded-2xl border border-stripe-100 dark:border-stripe-800">
-            <h3 className="text-sm font-bold text-stripe-700 dark:text-stripe-300 mb-2 flex items-center gap-2">
-              <Database size={16} className="text-stripe-600 dark:text-stripe-400" /> {t('stats.bfsSectionTitle')}
+          <div className="bg-accent-subtle/40 p-5 rounded-2xl border border-accent-border">
+            <h3 className="text-sm font-bold text-accent mb-2 flex items-center gap-2">
+              <Database size={16} className="text-accent" /> {t('stats.bfsSectionTitle')}
             </h3>
             <p className="text-sm text-subtle leading-relaxed">{t('stats.bfsIntro')}</p>
           </div>
@@ -113,15 +113,15 @@ const StatsViewInner: React.FC = () => {
         <div className="sm:hidden">
           <button
             onClick={() => setShowBfsIntro(!showBfsIntro)}
-            className="w-full flex items-center justify-between bg-stripe-50/40 dark:bg-stripe-900/20 px-4 py-3 rounded-2xl border border-stripe-100 dark:border-stripe-800 text-left"
+            className="w-full flex items-center justify-between bg-accent-subtle/40 px-4 py-3 rounded-2xl border border-accent-border text-left"
           >
-            <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300 flex items-center gap-2">
-              <Database size={16} className="text-stripe-600 dark:text-stripe-400" /> {t('stats.bfsSectionTitle')}
+            <span className="text-sm font-bold text-accent flex items-center gap-2">
+              <Database size={16} className="text-accent" /> {t('stats.bfsSectionTitle')}
             </span>
             {showBfsIntro ? <ChevronUp size={16} className="text-stripe-500" /> : <ChevronDown size={16} className="text-stripe-500" />}
           </button>
           {showBfsIntro && (
-            <div className="bg-stripe-50/40 dark:bg-stripe-900/20 px-4 pb-4 -mt-2 pt-2 rounded-b-2xl border border-t-0 border-stripe-100 dark:border-stripe-800">
+            <div className="bg-accent-subtle/40 px-4 pb-4 -mt-2 pt-2 rounded-b-2xl border border-t-0 border-accent-border">
               <p className="text-sm text-subtle leading-relaxed">{t('stats.bfsIntro')}</p>
             </div>
           )}
@@ -129,20 +129,20 @@ const StatsViewInner: React.FC = () => {
 
         {/* KPI Strip */}
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-body">
-          <span><span className="font-semibold text-stripe-700 dark:text-stripe-400">{loading ? '…' : (latestValue / 1000).toFixed(1) + 'k'}</span> {t('stats.totalFrontierWorkers')}</span>
-          <span className="text-slate-300 dark:text-slate-600">·</span>
-          <span>{t('stats.quarterlyTrend')}: <span className={`font-semibold ${Number(qoqPercent) >= 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}>{qoqPercent}%</span> {Number(qoqPercent) >= 0 ? <TrendingUp size={14} className="inline text-emerald-600"/> : <TrendingUp size={14} className="inline text-red-500 rotate-180"/>}</span>
-          <span className="text-slate-300 dark:text-slate-600">·</span>
+          <span><span className="font-semibold text-accent">{loading ? '…' : (latestValue / 1000).toFixed(1) + 'k'}</span> {t('stats.totalFrontierWorkers')}</span>
+          <span className="text-edge">·</span>
+          <span>{t('stats.quarterlyTrend')}: <span className={`font-semibold ${Number(qoqPercent) >= 0 ? 'text-success' : 'text-danger'}`}>{qoqPercent}%</span> {Number(qoqPercent) >= 0 ? <TrendingUp size={14} className="inline text-emerald-600"/> : <TrendingUp size={14} className="inline text-red-500 rotate-180"/>}</span>
+          <span className="text-edge">·</span>
           <span>{t('stats.permitsEstimated')}: <span className="font-semibold">{t('stats.permitG')}</span></span>
-          <span className="text-slate-300 dark:text-slate-600">·</span>
+          <span className="text-edge">·</span>
           <span>{t('stats.genderRatio')}: <span className="font-semibold">{malePercent}% M</span></span>
         </div>
 
         {/* Chart Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Chart 1: Historical Trend */}
-            <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm col-span-1 lg:col-span-2">
-               <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
+            <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm col-span-1 lg:col-span-2">
+               <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
                  <TrendingUp size={16} className="text-stripe-500"/> {t('stats.historicalTrend')}
                </h3>
                <div className="h-[300px] w-full">
@@ -172,8 +172,8 @@ const StatsViewInner: React.FC = () => {
             </div>
 
             {/* Chart 2: Age Distribution */}
-            <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
-               <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
+            <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
+               <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
                  <BarChart2 size={16} className="text-emerald-500"/> {t('stats.ageDistribution')}
                </h3>
                <div className="h-[250px] w-full">
@@ -200,8 +200,8 @@ const StatsViewInner: React.FC = () => {
             </div>
 
             {/* Chart 3: Gender Trend (Replacing Broken Sectors) */}
-            <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
-               <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
+            <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
+               <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
                  <PersonStanding size={16} className="text-stripe-600"/> {t('stats.genderTrend')}
                </h3>
                <div className="h-[250px] w-full">
@@ -237,15 +237,15 @@ const StatsViewInner: React.FC = () => {
 
       {/* Footer Info */}
       <div className="px-6">
-        <div className="bg-surface-alt/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-100 dark:border-slate-700">
+        <div className="bg-surface-alt/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-edge">
             <div className="flex items-center gap-3">
-                <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-stripe-600 shadow-sm hidden sm:block">
+                <div className="bg-surface p-2 rounded-xl text-stripe-600 shadow-sm hidden sm:block">
                     <Info size={20} />
                 </div>
                 <div className="text-xs text-muted leading-relaxed text-center sm:text-left">
                     {t('stats.extractedFrom')}
                     {usingRealData ? (
-                        <span className="text-emerald-700 dark:text-emerald-400 font-bold ml-1">
+                        <span className="text-success font-bold ml-1">
                             {t('stats.lastUpdate')}: {lastUpdated?.toLocaleDateString()}
                         </span>
                     ) : (
@@ -259,7 +259,7 @@ const StatsViewInner: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => Analytics.trackExternalLink(SOURCE_LINK, 'stats_source_bfs')}
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-stripe-50 dark:hover:bg-stripe-900/30 text-stripe-600 dark:text-stripe-300 text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-surface hover:bg-stripe-50 dark:hover:bg-stripe-900/30 text-accent text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
               >
                 {t('stats.sourceBFS')} <ExternalLink size={12} />
               </a>

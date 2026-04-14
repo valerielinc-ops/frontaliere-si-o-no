@@ -76,11 +76,11 @@ const FiscoLanding: React.FC = () => {
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-warm-50 via-warm-100 to-warm-50 dark:from-warm-950/40 dark:via-warm-900/30 dark:to-warm-950/20 border border-warm-200/60 dark:border-warm-800/40">
         <div className="relative px-5 py-6 sm:px-8 sm:py-8">
           <div className="flex items-start gap-4">
-            <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
-              <Landmark className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-600 dark:text-emerald-400" />
+            <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-success-subtle flex items-center justify-center">
+              <Landmark className="w-6 h-6 sm:w-7 sm:h-7 text-success" />
             </div>
             <div className="min-w-0 flex-1">
-              <h1 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-tight">
+              <h1 className="text-xl sm:text-2xl font-bold text-strong leading-tight">
                 {t('fisco.landing.title')}
               </h1>
               <p className="mt-1.5 text-sm sm:text-base text-subtle leading-relaxed max-w-2xl">
@@ -91,15 +91,15 @@ const FiscoLanding: React.FC = () => {
 
           {/* Trust signals */}
           <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-medium text-muted">
-            <span className="inline-flex items-center gap-1 bg-white/70 dark:bg-slate-800/60 px-2.5 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1 bg-surface/70 px-2.5 py-1 rounded-full">
               <Shield className="w-3.5 h-3.5 text-emerald-500" />
               {t('fisco.landing.trust.updated')}
             </span>
-            <span className="inline-flex items-center gap-1 bg-white/70 dark:bg-slate-800/60 px-2.5 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1 bg-surface/70 px-2.5 py-1 rounded-full">
               <Clock className="w-3.5 h-3.5 text-stripe-500" />
               {t('fisco.landing.trust.free')}
             </span>
-            <span className="inline-flex items-center gap-1 bg-white/70 dark:bg-slate-800/60 px-2.5 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1 bg-surface/70 px-2.5 py-1 rounded-full">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               {t('fisco.landing.trust.tools')}
             </span>
@@ -109,10 +109,10 @@ const FiscoLanding: React.FC = () => {
 
       {/* ─── AI-Extractable Intro ────────────────────────────────────── */}
       <div className="max-w-2xl mx-auto text-center px-4 mt-3 mb-6">
-        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm text-subtle leading-relaxed">
           {t('fisco.landing.intro.p1')}
         </p>
-        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
+        <p className="text-sm text-subtle leading-relaxed mt-3">
           {t('fisco.landing.intro.p2')}
         </p>
       </div>
@@ -134,8 +134,8 @@ const FiscoLanding: React.FC = () => {
                 {badge === 'popular' ? '⭐' : '🆕'}
               </span>
             )}
-            <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-colors">
-              <Icon className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
+            <div className="w-9 h-9 rounded-lg bg-success-subtle flex items-center justify-center group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-colors">
+              <Icon className="w-4.5 h-4.5 text-success" />
             </div>
             <div>
               <h3 className="text-sm font-semibold text-strong group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
@@ -145,7 +145,7 @@ const FiscoLanding: React.FC = () => {
                 {t(descKey)}
               </p>
             </div>
-            <div className="mt-auto pt-1 flex items-center gap-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="mt-auto pt-1 flex items-center gap-1 text-xs font-medium text-success opacity-0 group-hover:opacity-100 transition-opacity">
               {t('fisco.landing.explore')}
               <ArrowRight className="w-3 h-3" />
             </div>

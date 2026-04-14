@@ -746,7 +746,7 @@ const TicinoCompanies: React.FC = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('companies.search') || 'Cerca azienda, città, settore...'}
               aria-label={t('companies.search') || 'Cerca azienda, città, settore'}
-              className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+              className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             />
           </div>
 
@@ -756,7 +756,7 @@ const TicinoCompanies: React.FC = () => {
               value={selectedSector}
               onChange={(e) => setSelectedSector(e.target.value)}
               aria-label="Filtra per settore"
-              className="appearance-none pl-3 pr-8 py-2 bg-surface-alt border border-edge rounded-lg text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 cursor-pointer"
+              className="appearance-none pl-3 pr-8 py-2 bg-surface-alt border border-edge rounded-lg text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-accent cursor-pointer"
             >
               {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
@@ -777,8 +777,8 @@ const TicinoCompanies: React.FC = () => {
             }}
             className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg border text-sm font-semibold transition-colors ${
               onlyWithPublishedJobs
-                ? 'bg-stripe-50 dark:bg-stripe-900/30 border-stripe-300 dark:border-stripe-700 text-stripe-700 dark:text-stripe-300'
-                : 'bg-surface-alt border-edge text-subtle hover:bg-slate-100 dark:hover:bg-slate-800'
+                ? 'bg-accent-subtle border-accent-border text-accent'
+                : 'bg-surface-alt border-edge text-subtle hover:bg-surface-raised'
             }`}
             aria-pressed={onlyWithPublishedJobs}
             aria-label={t('companies.filterPublishedJobs')}
@@ -803,12 +803,12 @@ const TicinoCompanies: React.FC = () => {
             <ArrowUpDown size={14} className="text-muted" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
               aria-label={t('companies.sortBy') || 'Ordina per'}
-              className="appearance-none px-3 py-1.5 bg-surface-alt border border-edge rounded-lg text-xs font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500">
+              className="appearance-none px-3 py-1.5 bg-surface-alt border border-edge rounded-lg text-xs font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">
               <option value="employees">{t('companies.totalEmployees')}</option>
               <option value="name">{t('companies.sortName')}</option>
               <option value="city">{t('companies.sortCity')}</option>
             </select>
-            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-subtle hover:bg-surface-raised transition-colors">
               {sortDesc ? '↓' : '↑'}
             </button>
           </div>
@@ -831,7 +831,7 @@ const TicinoCompanies: React.FC = () => {
                 key={company.name}
                 className={`bg-surface rounded-xl border p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] min-w-0 overflow-hidden cursor-pointer ${
                   hoveredCompany === company.name
-                    ? 'border-stripe-400 dark:border-stripe-500 shadow-md ring-2 ring-stripe-200 dark:ring-stripe-800'
+                    ? 'border-accent-border shadow-md ring-2 ring-stripe-200 dark:ring-stripe-800'
                     : 'border-edge'
                 }`}
                 onMouseEnter={() => setHoveredCompany(company.name)}
@@ -846,7 +846,7 @@ const TicinoCompanies: React.FC = () => {
                     <div className="text-xl flex-shrink-0">{SECTOR_ICONS[company.sector] || '🏢'}</div>
                   )}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">{company.name}</h3>
+                    <h3 className="font-bold text-sm text-strong truncate">{company.name}</h3>
                     <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${SECTOR_COLORS[company.sector]}15`, color: SECTOR_COLORS[company.sector] }}>
                       {company.sector}
                     </span>
@@ -864,7 +864,7 @@ const TicinoCompanies: React.FC = () => {
                   </div>
                   {company.website && (
                     <a href={company.website} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-stripe-600 dark:text-stripe-400 hover:text-stripe-700 dark:hover:text-stripe-300 font-semibold no-underline">
+                      className="flex items-center gap-1 text-accent hover:text-accent font-semibold no-underline">
                       <Globe size={12} />
                       <span className="hidden sm:inline">Web</span>
                     </a>
@@ -927,7 +927,7 @@ const TicinoCompanies: React.FC = () => {
                         <a
                           href={companyJobsHref(company.name)}
                           onClick={() => Analytics.trackSelectContent('companies_map_open_jobs_by_company', company.name)}
-                          className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-stripe-50 dark:bg-stripe-900/30 border border-stripe-200 dark:border-stripe-700 text-stripe-700 dark:text-stripe-300 text-xs font-bold no-underline"
+                          className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-accent-subtle border border-accent-border text-accent text-xs font-bold no-underline"
                         >
                           <Briefcase size={12} />
                           <span>
@@ -953,7 +953,7 @@ const TicinoCompanies: React.FC = () => {
             <div className="flex items-center justify-center gap-2 py-2.5 bg-surface text-xs text-muted flex-wrap px-3">
               {Object.entries(SECTOR_ICONS).slice(0, 6).map(([sector, icon]) => (
                 <button key={sector} onClick={() => setSelectedSector(sector === selectedSector ? 'Tutti' : sector)}
-                  className={`flex items-center gap-1 px-2 py-1 rounded-md transition-colors ${selectedSector === sector ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 font-bold' : 'hover:bg-slate-100 dark:hover:bg-slate-700'}`}>
+                  className={`flex items-center gap-1 px-2 py-1 rounded-md transition-colors ${selectedSector === sector ? 'bg-accent-subtle text-accent font-bold' : 'hover:bg-surface-raised'}`}>
                   <span>{icon}</span> {sector.split(' ')[0]}
                 </button>
               ))}

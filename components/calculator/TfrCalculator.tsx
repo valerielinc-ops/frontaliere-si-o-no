@@ -112,7 +112,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
   return (
     <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
       <Info size={14} className="text-muted hover:text-teal-600 transition-colors" />
-      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-surface-raised text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
         {text}
         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
       </div>
@@ -229,10 +229,10 @@ const TfrCalculator: React.FC = () => {
     <div className="space-y-6">
       {/* ── Header ── */}
       <div className="text-center space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-full">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-warning-subtle text-warning rounded-full">
           <Calculator size={14} /> {t('tfr.badge')}
         </span>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{t('tfr.title')}</h1>
+        <h1 className="text-2xl font-bold text-heading">{t('tfr.title')}</h1>
         <p className="text-sm text-subtle max-w-2xl mx-auto">{t('tfr.subtitle')}</p>
       </div>
 
@@ -240,7 +240,7 @@ const TfrCalculator: React.FC = () => {
       <button
         type="button"
         onClick={() => setShowInfoCards(p => !p)}
-        className="sm:hidden w-full flex items-center justify-between px-4 py-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl text-sm font-semibold text-amber-700 dark:text-amber-300"
+        className="sm:hidden w-full flex items-center justify-between px-4 py-3 bg-warning-subtle border border-warning-border rounded-xl text-sm font-semibold text-warning"
         aria-label={t('tfr.noTfrTitle')}
       >
         <span className="flex items-center gap-2">
@@ -252,11 +252,11 @@ const TfrCalculator: React.FC = () => {
 
       <div className={`space-y-6 ${showInfoCards ? '' : 'hidden sm:block'}`}>
       {/* ── Key info card: TFR doesn't exist in Switzerland ── */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl p-5 space-y-3">
+      <div className="bg-warning-subtle border border-warning-border rounded-2xl p-5 space-y-3">
         <div className="flex items-start gap-3">
-          <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+          <AlertTriangle className="w-5 h-5 text-warning flex-shrink-0 mt-0.5" />
           <div className="space-y-2">
-            <h2 className="font-bold text-slate-900 dark:text-white text-sm">{t('tfr.noTfrTitle')}</h2>
+            <h2 className="font-bold text-heading text-sm">{t('tfr.noTfrTitle')}</h2>
             <p className="text-sm text-body leading-relaxed">{t('tfr.noTfrText')}</p>
           </div>
         </div>
@@ -264,15 +264,15 @@ const TfrCalculator: React.FC = () => {
 
       {/* ── Explanation: What replaces TFR in Switzerland ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
-        <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+        <h2 className="font-bold text-heading text-lg flex items-center gap-2">
           <PiggyBank className="w-5 h-5 text-link" />
           {t('tfr.whatReplacesTitle')}
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-4">
           {/* TFR side */}
-          <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-red-700 dark:text-red-300 text-sm flex items-center gap-2">
+          <div className="bg-danger-subtle border border-danger-border rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-danger text-sm flex items-center gap-2">
               🇮🇹 {t('tfr.tfrLabel')}
             </h3>
             <ul className="text-xs text-body space-y-1.5">
@@ -284,8 +284,8 @@ const TfrCalculator: React.FC = () => {
           </div>
 
           {/* LPP side */}
-          <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-stripe-700 dark:text-stripe-300 text-sm flex items-center gap-2">
+          <div className="bg-accent-subtle border border-accent-border rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-accent text-sm flex items-center gap-2">
               🇨🇭 {t('tfr.lppLabel')}
             </h3>
             <ul className="text-xs text-body space-y-1.5">
@@ -301,8 +301,8 @@ const TfrCalculator: React.FC = () => {
 
       {/* ── Simulator inputs ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
-        <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <Calculator className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+          <Calculator className="w-5 h-5 text-success" />
           {t('tfr.simulatorTitle')}
         </h2>
 
@@ -321,7 +321,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={inputs.grossSalaryCHF}
                 onChange={(e) => handleChange('grossSalaryCHF', Number(e.target.value))}
-                className="w-full pl-12 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
+                className="w-full pl-12 pr-3 py-2 border border-edge rounded-lg bg-surface text-heading text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
                 min={20000}
                 max={300000}
                 step={5000}
@@ -343,7 +343,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={inputs.grossSalaryEUR}
                 onChange={(e) => handleChange('grossSalaryEUR', Number(e.target.value))}
-                className="w-full pl-8 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
+                className="w-full pl-8 pr-3 py-2 border border-edge rounded-lg bg-surface text-heading text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
                 min={15000}
                 max={280000}
                 step={5000}
@@ -362,7 +362,7 @@ const TfrCalculator: React.FC = () => {
               inputMode="numeric"
               value={inputs.currentAge}
               onChange={(e) => handleChange('currentAge', Number(e.target.value))}
-              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
+              className="w-full px-3 py-2 border border-edge rounded-lg bg-surface text-heading text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
               min={18}
               max={60}
             />
@@ -380,7 +380,7 @@ const TfrCalculator: React.FC = () => {
               inputMode="numeric"
               value={inputs.yearsToSimulate}
               onChange={(e) => handleChange('yearsToSimulate', Math.min(45, Math.max(1, Number(e.target.value))))}
-              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
+              className="w-full px-3 py-2 border border-edge rounded-lg bg-surface text-heading text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
               min={1}
               max={45}
             />
@@ -399,7 +399,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="decimal"
                 value={inputs.inflationRate}
                 onChange={(e) => handleChange('inflationRate', Number(e.target.value))}
-                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
+                className="w-full px-3 py-2 pr-8 border border-edge rounded-lg bg-surface text-heading text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
                 min={0}
                 max={10}
                 step={0.1}
@@ -421,7 +421,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="decimal"
                 value={inputs.lppInterestRate}
                 onChange={(e) => handleChange('lppInterestRate', Number(e.target.value))}
-                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
+                className="w-full px-3 py-2 pr-8 border border-edge rounded-lg bg-surface text-heading text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
                 min={0}
                 max={5}
                 step={0.25}
@@ -434,8 +434,8 @@ const TfrCalculator: React.FC = () => {
 
       {/* ── Results ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
-        <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <Scale className="w-5 h-5 text-stripe-600 dark:text-stripe-400" />
+        <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+          <Scale className="w-5 h-5 text-accent" />
           {t('tfr.resultsTitle')}
           <span className="text-xs font-normal text-muted">
             ({inputs.yearsToSimulate} {t('tfr.years')})
@@ -444,27 +444,27 @@ const TfrCalculator: React.FC = () => {
 
         <div className="grid sm:grid-cols-3 gap-4">
           {/* TFR Total */}
-          <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 text-center space-y-1">
-            <p className="text-xs font-medium text-red-600 dark:text-red-400">🇮🇹 {t('tfr.tfrAccumulated')}</p>
-            <p className="text-xl font-bold text-red-700 dark:text-red-300">{fmtEur(result.tfrTotal)}</p>
+          <div className="bg-danger-subtle border border-danger-border rounded-xl p-4 text-center space-y-1">
+            <p className="text-xs font-medium text-danger">🇮🇹 {t('tfr.tfrAccumulated')}</p>
+            <p className="text-xl font-bold text-danger">{fmtEur(result.tfrTotal)}</p>
             <p className="text-xs text-muted">
               {t('tfr.monthlyEquivalent')}: {fmtEur(result.tfrMonthlyEquivalent)}/mese
             </p>
           </div>
 
           {/* LPP Total (in EUR) */}
-          <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 text-center space-y-1">
+          <div className="bg-accent-subtle border border-accent-border rounded-xl p-4 text-center space-y-1">
             <p className="text-xs font-medium text-link">🇨🇭 {t('tfr.lppAccumulated')}</p>
-            <p className="text-xl font-bold text-stripe-700 dark:text-stripe-300">{fmtEur(result.lppTotal)}</p>
+            <p className="text-xl font-bold text-accent">{fmtEur(result.lppTotal)}</p>
             <p className="text-xs text-muted">
               {t('tfr.lppPension')}: {fmtChf(result.lppMonthlyPension)}/mese
             </p>
           </div>
 
           {/* Difference */}
-          <div className={`${result.difference >= 0 ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800' : 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800'} border rounded-xl p-4 text-center space-y-1`}>
+          <div className={`${result.difference >= 0 ? 'bg-success-subtle border-success-border' : 'bg-warning-subtle border-warning-border'} border rounded-xl p-4 text-center space-y-1`}>
             <p className="text-xs font-medium text-subtle">{t('tfr.difference')}</p>
-            <p className={`text-xl font-bold ${result.difference >= 0 ? 'text-emerald-700 dark:text-emerald-300' : 'text-amber-700 dark:text-amber-300'}`}>
+            <p className={`text-xl font-bold ${result.difference >= 0 ? 'text-success' : 'text-warning'}`}>
               {result.difference >= 0 ? '+' : ''}{fmtEur(result.difference)}
             </p>
             <p className="text-xs text-muted">
@@ -477,7 +477,7 @@ const TfrCalculator: React.FC = () => {
         <div className="flex justify-end">
           <button
             onClick={handleShare}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-subtle bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-subtle bg-surface-raised hover:bg-surface-raised rounded-lg transition-colors"
             aria-label={t('tfr.shareResult')}
           >
             {copied ? <Check size={14} className="text-emerald-500" /> : <Share2 size={14} />}
@@ -493,7 +493,7 @@ const TfrCalculator: React.FC = () => {
           className="w-full flex items-center justify-between text-left"
           aria-expanded={showTable}
         >
-          <h2 className="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+          <h2 className="font-bold text-heading text-sm flex items-center gap-2">
             <Clock className="w-4 h-4 text-subtle" />
             {t('tfr.yearlyBreakdown')}
           </h2>
@@ -504,28 +504,28 @@ const TfrCalculator: React.FC = () => {
           <div className="overflow-x-auto -mx-2">
             <table className="w-full text-xs">
               <thead>
-                <tr className="bg-slate-50 dark:bg-slate-700/50">
+                <tr className="bg-surface-alt">
                   <th className="px-2 py-2 text-left font-semibold text-body">{t('tfr.tableYear')}</th>
                   <th className="px-2 py-2 text-left font-semibold text-body">{t('tfr.tableAge')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-red-600 dark:text-red-400">{t('tfr.tableTfrAccrual')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-red-600 dark:text-red-400">{t('tfr.tableTfrReval')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-red-700 dark:text-red-300">{t('tfr.tableTfrTotal')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-danger">{t('tfr.tableTfrAccrual')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-danger">{t('tfr.tableTfrReval')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-danger">{t('tfr.tableTfrTotal')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-link">{t('tfr.tableLppContrib')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-link">{t('tfr.tableLppInterest')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-stripe-700 dark:text-stripe-300">{t('tfr.tableLppTotal')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-accent">{t('tfr.tableLppTotal')}</th>
                 </tr>
               </thead>
               <tbody>
                 {result.rows.map((row) => (
-                  <tr key={row.year} className="border-t border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/30">
+                  <tr key={row.year} className="border-t border-edge hover:bg-surface-raised/30">
                     <td className="px-2 py-1.5 text-body">{row.year}</td>
                     <td className="px-2 py-1.5 text-body">{row.age}</td>
-                    <td className="px-2 py-1.5 text-right text-red-600 dark:text-red-400">{fmtEur(row.tfrAccrual)}</td>
-                    <td className="px-2 py-1.5 text-right text-red-600 dark:text-red-400">{fmtEur(row.tfrRevaluation)}</td>
-                    <td className="px-2 py-1.5 text-right font-semibold text-red-700 dark:text-red-300">{fmtEur(row.tfrCumulative)}</td>
+                    <td className="px-2 py-1.5 text-right text-danger">{fmtEur(row.tfrAccrual)}</td>
+                    <td className="px-2 py-1.5 text-right text-danger">{fmtEur(row.tfrRevaluation)}</td>
+                    <td className="px-2 py-1.5 text-right font-semibold text-danger">{fmtEur(row.tfrCumulative)}</td>
                     <td className="px-2 py-1.5 text-right text-link">{fmtChf(row.lppContribution)}</td>
                     <td className="px-2 py-1.5 text-right text-link">{fmtChf(row.lppInterest)}</td>
-                    <td className="px-2 py-1.5 text-right font-semibold text-stripe-700 dark:text-stripe-300">{fmtChf(row.lppCumulative)}</td>
+                    <td className="px-2 py-1.5 text-right font-semibold text-accent">{fmtChf(row.lppCumulative)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -536,48 +536,48 @@ const TfrCalculator: React.FC = () => {
 
       {/* ── Key differences explained ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
-        <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <HelpCircle className="w-5 h-5 text-stripe-600 dark:text-stripe-400" />
+        <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+          <HelpCircle className="w-5 h-5 text-accent" />
           {t('tfr.keyDifferencesTitle')}
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-4">
           {/* Access to funds */}
-          <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="bg-surface-alt rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-sm text-heading flex items-center gap-2">
               <Banknote size={16} className="text-emerald-600" /> {t('tfr.diffAccessTitle')}
             </h3>
             <div className="space-y-1">
-              <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffAccessTfr')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-danger">🇮🇹 TFR:</span> {t('tfr.diffAccessTfr')}</p>
               <p className="text-xs text-body"><span className="font-medium text-link">🇨🇭 LPP:</span> {t('tfr.diffAccessLpp')}</p>
             </div>
           </div>
 
           {/* Taxation */}
-          <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="bg-surface-alt rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-sm text-heading flex items-center gap-2">
               <Euro size={16} className="text-amber-600" /> {t('tfr.diffTaxTitle')}
             </h3>
             <div className="space-y-1">
-              <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffTaxTfr')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-danger">🇮🇹 TFR:</span> {t('tfr.diffTaxTfr')}</p>
               <p className="text-xs text-body"><span className="font-medium text-link">🇨🇭 LPP:</span> {t('tfr.diffTaxLpp')}</p>
             </div>
           </div>
 
           {/* Revaluation / returns */}
-          <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="bg-surface-alt rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-sm text-heading flex items-center gap-2">
               <TrendingUp size={16} className="text-stripe-600" /> {t('tfr.diffReturnTitle')}
             </h3>
             <div className="space-y-1">
-              <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffReturnTfr')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-danger">🇮🇹 TFR:</span> {t('tfr.diffReturnTfr')}</p>
               <p className="text-xs text-body"><span className="font-medium text-link">🇨🇭 LPP:</span> {t('tfr.diffReturnLpp')}</p>
             </div>
           </div>
 
           {/* Frontaliere specifics */}
-          <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="bg-surface-alt rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-sm text-heading flex items-center gap-2">
               <ArrowRight size={16} className="text-stripe-600" /> {t('tfr.diffFrontaliereTitle')}
             </h3>
             <div className="space-y-1.5">
@@ -590,15 +590,15 @@ const TfrCalculator: React.FC = () => {
 
       {/* ── FAQ section ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
-        <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <HelpCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+          <HelpCircle className="w-5 h-5 text-success" />
           {t('tfr.faqTitle')}
         </h2>
 
         <div className="space-y-3">
           {[1, 2, 3, 4, 5].map(i => (
-            <details key={i} className="group bg-slate-50 dark:bg-slate-700/30 rounded-xl overflow-hidden">
-              <summary className="px-4 py-3 cursor-pointer text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors list-none flex items-center justify-between">
+            <details key={i} className="group bg-surface-alt rounded-xl overflow-hidden">
+              <summary className="px-4 py-3 cursor-pointer text-sm font-medium text-heading hover:bg-surface-raised/50 transition-colors list-none flex items-center justify-between">
                 {t(`tfr.faq${i}Q`)}
                 <ChevronDown size={14} className="text-muted group-open:rotate-180 transition-transform" />
               </summary>
@@ -611,18 +611,18 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Related tools CTA ── */}
-      <div className="bg-gradient-to-r from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20 border border-stripe-200 dark:border-stripe-800 rounded-2xl p-5 space-y-3">
-        <h3 className="font-bold text-sm text-slate-900 dark:text-white">{t('tfr.relatedTitle')}</h3>
+      <div className="bg-gradient-to-r from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20 border border-accent-border rounded-2xl p-5 space-y-3">
+        <h3 className="font-bold text-sm text-heading">{t('tfr.relatedTitle')}</h3>
         <div className="flex flex-wrap gap-2">
           <a
             href={buildPath({ activeTab: 'fisco', fiscoSubTab: 'pension' })}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors no-underline"
           >
             <PiggyBank size={14} /> {t('tfr.linkPension')}
           </a>
           <a
             href={buildPath({ activeTab: 'fisco', fiscoSubTab: 'pillar3' })}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors no-underline"
           >
             <TrendingUp size={14} /> {t('tfr.linkPillar3')}
           </a>

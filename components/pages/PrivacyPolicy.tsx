@@ -9,7 +9,7 @@ export const PrivacyPolicy: React.FC = () => {
       {/* Back Button */}
       <button
         onClick={() => nav.navigateTo('calculator')}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-stripe-600 dark:text-stripe-400 hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent transition-colors"
       >
         <ArrowLeft size={16} />
         Torna alla Home
@@ -18,8 +18,8 @@ export const PrivacyPolicy: React.FC = () => {
       {/* Header */}
       <div className="bg-surface rounded-[6px] border border-edge p-5 sm:p-8 shadow-stripe-lg mb-6">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-stripe-100 dark:bg-stripe-900/30 rounded-[6px]">
-            <Shield className="text-stripe-600 dark:text-stripe-400" size={32} />
+          <div className="p-3 bg-accent-subtle rounded-[6px]">
+            <Shield className="text-accent" size={32} />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-light font-display text-heading">Privacy Policy</h1>
@@ -62,7 +62,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 2: Analytics */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <BarChart3 className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <BarChart3 className="text-accent flex-shrink-0" size={22} />
             Analisi Anonima del Traffico
           </h2>
           <div className="space-y-3 text-subtle">
@@ -102,7 +102,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 3: Affiliate & Partner Links */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <ExternalLink className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <ExternalLink className="text-accent flex-shrink-0" size={22} />
             Link Affiliati e Partner
           </h2>
           <div className="space-y-3 text-subtle">
@@ -125,7 +125,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 4: Newsletter & Communications */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Database className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <Database className="text-accent flex-shrink-0" size={22} />
             Newsletter e Comunicazioni
           </h2>
           <div className="space-y-3 text-subtle">
@@ -164,7 +164,7 @@ export const PrivacyPolicy: React.FC = () => {
                 all'indirizzo e-mail e al nome visualizzato associati all'account Google dell'utente, nel limite
                 strettamente necessario all'espletamento delle funzionalità richieste (iscrizione newsletter,
                 accesso alla community e alla dashboard personale). Tali dati sono trattati conformemente alla
-                presente informativa e alla policy di Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-stripe-600 dark:text-stripe-400 underline">policies.google.com/privacy</a>).
+                presente informativa e alla policy di Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent underline">policies.google.com/privacy</a>).
               </p>
             </div>
           </div>
@@ -173,7 +173,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 5: Client-Side Processing */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Lock className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <Lock className="text-accent flex-shrink-0" size={22} />
             Elaborazione Lato Client
           </h2>
           <div className="space-y-3 text-subtle">
@@ -192,7 +192,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 6: Cookies */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Database className="text-amber-600 dark:text-amber-400 flex-shrink-0" size={22} />
+            <Database className="text-warning flex-shrink-0" size={22} />
             Cookie e Storage Locale
           </h2>
           <div className="space-y-3 text-subtle">
@@ -229,7 +229,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 7: Third-Party Services */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Shield className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <Shield className="text-accent flex-shrink-0" size={22} />
             Servizi di Terze Parti
           </h2>
           <div className="space-y-3 text-subtle">
@@ -251,7 +251,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 8: Data Security */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Lock className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <Lock className="text-accent flex-shrink-0" size={22} />
             Sicurezza
           </h2>
           <div className="space-y-3 text-subtle">
@@ -269,7 +269,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 9: Your Rights */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <CheckCircle2 className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <CheckCircle2 className="text-accent flex-shrink-0" size={22} />
             I Tuoi Diritti (GDPR)
           </h2>
           <div className="space-y-3 text-subtle">
@@ -299,7 +299,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 10: Children Privacy */}
         <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Shield className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <Shield className="text-accent flex-shrink-0" size={22} />
             Privacy dei Minori
           </h2>
           <div className="space-y-3 text-subtle">
@@ -329,9 +329,9 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 12: Contact */}
-        <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/20 rounded-[6px] border border-stripe-200 dark:border-stripe-800 p-4 sm:p-6 shadow-stripe-sm">
+        <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/20 rounded-[6px] border border-accent-border p-4 sm:p-6 shadow-stripe-sm">
           <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
-            <Shield className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" size={22} />
+            <Shield className="text-accent flex-shrink-0" size={22} />
             Contattaci
           </h2>
           <div className="space-y-3 text-subtle">
@@ -343,7 +343,7 @@ export const PrivacyPolicy: React.FC = () => {
                 href="https://www.facebook.com/profile.php?id=61588174947294"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 text-white font-semibold rounded-[6px] transition-colors shadow-stripe-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white font-semibold rounded-[6px] transition-colors shadow-stripe-sm"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -360,7 +360,7 @@ export const PrivacyPolicy: React.FC = () => {
       <div className="mt-8 text-center">
         <button
           onClick={() => nav.navigateTo('calculator')}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-stripe-600 hover:bg-stripe-700 text-white font-bold rounded-[6px] transition-[color,background-color,border-color,box-shadow] shadow-stripe hover:shadow-stripe-md"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-[6px] transition-[color,background-color,border-color,box-shadow] shadow-stripe hover:shadow-stripe-md"
         >
           <ArrowLeft size={18} />
           Torna al Simulatore

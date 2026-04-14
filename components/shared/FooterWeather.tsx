@@ -36,33 +36,33 @@ function getWeatherEmoji(code: number, isDay: boolean): string {
 }
 
 function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
-  if (code === 0 || code === 1) return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
+  if (code === 0 || code === 1) return <Sun style={{ width: size, height: size }} className="text-warning" />;
   if (code === 2) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
   if (code === 3) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
   if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size }} className="text-muted" />;
-  if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-stripe-400 dark:text-stripe-300" />;
-  if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-stripe-500 dark:text-stripe-400" />;
-  if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-stripe-300 dark:text-stripe-200" />;
+  if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-accent" />;
+  if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-accent" />;
+  if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-accent" />;
   if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size }} className="text-link" />;
-  if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size }} className="text-amber-400 dark:text-amber-300" />;
-  return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
+  if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size }} className="text-warning" />;
+  return <Sun style={{ width: size, height: size }} className="text-warning" />;
 }
 
 function getTempColor(temp: number): string {
-  if (temp <= -5) return 'text-stripe-700 dark:text-stripe-400';
+  if (temp <= -5) return 'text-accent';
   if (temp <= 0) return 'text-cyan-700 dark:text-cyan-400';
   if (temp <= 10) return 'text-sky-700 dark:text-sky-400';
-  if (temp <= 20) return 'text-emerald-700 dark:text-emerald-400';
-  if (temp <= 30) return 'text-orange-700 dark:text-orange-400';
-  return 'text-red-700 dark:text-red-400';
+  if (temp <= 20) return 'text-success';
+  if (temp <= 30) return 'text-warning';
+  return 'text-danger';
 }
 
 function getTempBg(temp: number): string {
-  if (temp <= 0) return 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200/50 dark:border-stripe-800/50';
+  if (temp <= 0) return 'bg-accent-subtle border-accent-border';
   if (temp <= 10) return 'bg-sky-50 dark:bg-sky-950/30 border-sky-200/50 dark:border-sky-800/50';
-  if (temp <= 20) return 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200/50 dark:border-emerald-800/50';
-  if (temp <= 30) return 'bg-amber-50 dark:bg-amber-950/30 border-amber-200/50 dark:border-amber-800/50';
-  return 'bg-red-50 dark:bg-red-950/30 border-red-200/50 dark:border-red-800/50';
+  if (temp <= 20) return 'bg-success-subtle border-success-border';
+  if (temp <= 30) return 'bg-warning-subtle border-amber-200/50 dark:border-amber-800/50';
+  return 'bg-danger-subtle border-red-200/50 dark:border-red-800/50';
 }
 
 async function fetchMini(lat: number, lng: number): Promise<MiniWeather | null> {

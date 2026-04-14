@@ -1662,18 +1662,18 @@ export const STORAGE_KEY = 'frontaliere_whats_new_last_seen';
 const TYPE_CONFIG: Record<ReleaseItemType, { icon: typeof Sparkles; color: string; bg: string }> = {
   feature: {
     icon: Sparkles,
-    color: 'text-stripe-700 dark:text-stripe-400',
-    bg: 'bg-stripe-100 dark:bg-stripe-900/40',
+    color: 'text-accent',
+    bg: 'bg-accent-subtle',
   },
   improvement: {
     icon: Zap,
-    color: 'text-stripe-700 dark:text-stripe-400',
-    bg: 'bg-stripe-100 dark:bg-stripe-900/40',
+    color: 'text-accent',
+    bg: 'bg-accent-subtle',
   },
   fix: {
     icon: Bug,
-    color: 'text-emerald-700 dark:text-emerald-400',
-    bg: 'bg-emerald-100 dark:bg-emerald-900/40',
+    color: 'text-success',
+    bg: 'bg-success-subtle',
   },
 };
 
@@ -1764,7 +1764,7 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
         onClick();
         setUnread(0);
       }}
-      className="relative p-2 rounded-lg transition-colors text-subtle hover:bg-slate-100 dark:hover:bg-slate-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
+      className="relative p-2 rounded-lg transition-colors text-subtle hover:bg-surface-raised min-w-[44px] min-h-[44px] flex items-center justify-center"
       aria-label={t('whatsNew.title')}
       title={t('whatsNew.title')}
     >
@@ -1797,7 +1797,7 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
     <div className="border-t border-edge bg-surface-alt/50">
       <button
         onClick={() => { onClose(); nav?.navigateTo('gamification'); }}
-        className="w-full px-6 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors text-left group"
+        className="w-full px-6 py-3 flex items-center gap-3 hover:bg-surface-raised/50 transition-colors text-left group"
         aria-label={`${levelTitle} — ${state.xp} XP`}
       >
         {/* Trophy badge */}
@@ -1805,14 +1805,14 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
           <div className="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
             <Trophy size={16} className="text-white" />
           </div>
-          <span className="absolute -top-1 -right-1 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
+          <span className="absolute -top-1 -right-1 bg-surface-raised text-white dark:text-slate-800 text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
             {levelInfo.level}
           </span>
         </div>
         {/* Level + XP info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">{levelTitle}</span>
+            <span className="text-sm font-bold text-strong truncate">{levelTitle}</span>
             {state.streak > 0 && (
               <span className="flex items-center gap-0.5 text-xs text-muted">
                 <Flame size={12} className="text-orange-400" />
@@ -1826,7 +1826,7 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
           </div>
           {/* XP progress bar */}
           <div className="flex items-center gap-2 mt-0.5">
-            <div className="flex-1 bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+            <div className="flex-1 bg-surface-raised rounded-full h-1.5 overflow-hidden">
               <div
                 className="bg-amber-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
                 style={{ transform: `scaleX(${xpProgressPct / 100})` }}
@@ -1909,14 +1909,14 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-edge">
           <div className="flex items-center gap-2">
-            <PartyPopper size={22} className="text-stripe-600 dark:text-stripe-400" />
-            <h2 className="text-lg font-bold text-slate-800 dark:text-white">
+            <PartyPopper size={22} className="text-accent" />
+            <h2 className="text-lg font-bold text-heading">
               {t('whatsNew.title')}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-muted hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            className="p-1.5 rounded-lg text-muted hover:bg-surface-raised transition-colors"
             aria-label={t('whatsNew.close')}
           >
             <X size={18} />
@@ -1934,14 +1934,14 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
               <div key={release.version}>
                 {/* Version Header */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-mono font-semibold text-stripe-600 dark:text-stripe-400 bg-stripe-100 dark:bg-stripe-900/40 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-mono font-semibold text-accent bg-accent-subtle px-2 py-0.5 rounded-full">
                     v{release.version}
                   </span>
                   <span className="text-sm text-muted">
                     {formatDate(release.date)}
                   </span>
                 </div>
-                <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                <h3 className="text-sm font-semibold text-body mb-2">
                   {t(release.titleKey)}
                 </h3>
 
@@ -1959,7 +1959,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                           <Icon size={14} className={cfg.color} />
                         </span>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                          <p className="text-sm font-medium text-body">
                             {t(item.titleKey)}
                           </p>
                           <p className="text-sm text-muted mt-0.5">
@@ -1967,7 +1967,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                           </p>
                         </div>
                         {isClickable && (
-                          <ChevronRight size={16} className="mt-1 shrink-0 text-stripe-500 dark:text-stripe-400 transition-transform group-hover:translate-x-0.5" />
+                          <ChevronRight size={16} className="mt-1 shrink-0 text-accent transition-transform group-hover:translate-x-0.5" />
                         )}
                       </>
                     );
@@ -1976,7 +1976,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                         <a
                           href={href}
                           onClick={(e) => handleLinkClick(e, item.link!)}
-                          className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/50 active:bg-slate-100 dark:active:bg-slate-700 transition-colors text-left no-underline"
+                          className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-surface-raised/50 active:bg-slate-100 dark:active:bg-slate-700 transition-colors text-left no-underline"
                           aria-label={`${t(item.titleKey)} — ${t('whatsNew.goTo')}`}
                         >
                           {cardContent}

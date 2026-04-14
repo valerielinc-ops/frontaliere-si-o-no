@@ -141,9 +141,9 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="pb-6 border-b-2 border-amber-200 dark:border-amber-800">
+      <div className="pb-6 border-b-2 border-warning-border">
         <div className="flex items-center gap-3 mb-3">
-          <Briefcase size={28} className="text-amber-700 dark:text-amber-400" />
+          <Briefcase size={28} className="text-warning" />
           <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-800 dark:text-stone-100">{t('jobs.title')}</h1>
         </div>
         <p className="text-lg text-stone-500 dark:text-stone-400">{t('jobs.subtitle')}</p>
@@ -158,12 +158,12 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 type="text"
                 value={offer.companyName}
                 onChange={(e) => updateOffer(offer.id, 'companyName', e.target.value)}
-                className="text-lg font-bold text-slate-800 dark:text-slate-100 bg-transparent border-none outline-none focus-visible:ring-2 focus-visible:ring-amber-500 w-full"
+                className="text-lg font-bold text-strong bg-transparent border-none outline-none focus-visible:ring-2 focus-visible:ring-amber-500 w-full"
                 placeholder={t('jobs.companyName')}
                 aria-label="Nome azienda"
               />
               {offers.length > 2 && (
-                <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
+                <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
                   <Trash2 size={16} />
                 </button>
               )}
@@ -185,7 +185,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                     className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold transition-colors ${
                       offer.country === 'CH'
                         ? 'bg-red-600 text-white'
-                        : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                        : 'bg-surface-raised text-subtle hover:bg-surface-raised'
                     }`}
                   >
                     🇨🇭 Svizzera
@@ -195,7 +195,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                     className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold transition-colors ${
                       offer.country === 'IT'
                         ? 'bg-green-600 text-white'
-                        : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                        : 'bg-surface-raised text-subtle hover:bg-surface-raised'
                     }`}
                   >
                     🇮🇹 Italia
@@ -254,7 +254,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         {offers.length < 4 && (
           <button
             onClick={addOffer}
-            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-muted hover:text-amber-600 hover:border-amber-400 transition-colors min-h-[200px]"
+            className="rounded-2xl border-2 border-dashed border-edge p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-muted hover:text-amber-600 hover:border-amber-400 transition-colors min-h-[200px]"
           >
             <Plus size={32} />
             <span className="font-bold">{t('jobs.addOffer')}</span>
@@ -264,7 +264,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
       {/* Results */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-strong flex items-center gap-2">
           <Trophy size={24} className="text-amber-500" />
           {t('jobs.ranking')}
         </h2>
@@ -287,12 +287,12 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
+                  <h3 className="text-xl font-bold text-strong">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
                   <p className="text-sm text-muted">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
                 </div>
                 <div className="text-right">
                   <div className="text-xs font-bold text-muted uppercase">{t('jobs.effectiveNet')}</div>
-                  <div className={`text-3xl font-bold ${isBest ? 'text-emerald-700' : 'text-slate-800 dark:text-slate-100'}`}>
+                  <div className={`text-3xl font-bold ${isBest ? 'text-emerald-700' : 'text-strong'}`}>
                     € {Math.round(r.effectiveNetMonthly).toLocaleString('it-IT')}
                   </div>
                   <div className="text-xs text-muted">/mese</div>
@@ -305,23 +305,23 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                     <DollarSign size={12} />
                     {t('jobs.netTaxes')}
                   </div>
-                  <div className="font-bold text-slate-800 dark:text-slate-100">€ {Math.round(r.netMonthlyIT).toLocaleString('it-IT')}</div>
+                  <div className="font-bold text-strong">€ {Math.round(r.netMonthlyIT).toLocaleString('it-IT')}</div>
                 </div>
-                <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-xl">
+                <div className="p-3 bg-danger-subtle rounded-xl">
                   <div className="flex items-center gap-1.5 text-sm text-red-600 mb-1">
                     <Car size={12} />
                     {t('jobs.transport')}
                   </div>
                   <div className="font-bold text-red-600">-€ {Math.round(r.transportCostMonthly).toLocaleString('it-IT')}</div>
                 </div>
-                <div className="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl">
+                <div className="p-3 bg-warning-subtle rounded-xl">
                   <div className="flex items-center gap-1.5 text-sm text-amber-700 mb-1">
                     <Clock size={12} />
                     {t('jobs.timeValue')}
                   </div>
                   <div className="font-bold text-amber-700">-€ {Math.round(r.timeCostMonthly).toLocaleString('it-IT')}</div>
                 </div>
-                <div className="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl">
+                <div className="p-3 bg-success-subtle rounded-xl">
                   <div className="flex items-center gap-1.5 text-sm text-emerald-700 mb-1">
                     <Coffee size={12} />
                     {t('jobs.benefits')}

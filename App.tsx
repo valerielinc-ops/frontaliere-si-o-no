@@ -2344,7 +2344,7 @@ const App: React.FC = () => {
         {showNewsletterWelcome && (
           <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
             <div className="bg-surface rounded-2xl shadow-2xl p-8 max-w-lg mx-4 text-center border border-edge">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/50 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle mb-4">
                 <svg className="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
               </div>
               <h2 className="text-2xl font-bold text-heading mb-2">{t('newsletter.welcome.title')}</h2>
@@ -2406,7 +2406,7 @@ const App: React.FC = () => {
               <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-stripe-600 to-stripe-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
-                  <div className="relative bg-surface p-2 rounded-xl text-stripe-600 dark:text-stripe-500 ring-1 ring-edge">
+                  <div className="relative bg-surface p-2 rounded-xl text-accent ring-1 ring-edge">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
                       <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
                       <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
@@ -2572,7 +2572,7 @@ const App: React.FC = () => {
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <div className="w-[30px] h-[30px] rounded-lg bg-stripe-100 dark:bg-stripe-900 flex items-center justify-center">
+                        <div className="w-[30px] h-[30px] rounded-lg bg-accent-subtle flex items-center justify-center">
                           <UserIcon size={16} className="text-accent" />
                         </div>
                       )}
@@ -3285,7 +3285,7 @@ const App: React.FC = () => {
             {/* Mobile footer accordion — grouped links for scanability */}
             <div className="md:hidden space-y-1 mt-2">
               {/* Info & Legal */}
-              <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
+              <details className="group border-b border-edge/50">
                 <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Informazioni</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
@@ -3301,7 +3301,7 @@ const App: React.FC = () => {
                 </div>
               </details>
               {/* Strumenti */}
-              <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
+              <details className="group border-b border-edge/50">
                 <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Strumenti</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
@@ -3319,7 +3319,7 @@ const App: React.FC = () => {
                 </div>
               </details>
               {/* Contenuti */}
-              <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
+              <details className="group border-b border-edge/50">
                 <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Contenuti</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
@@ -3346,7 +3346,7 @@ const App: React.FC = () => {
                 </a>
               </div>
               {/* Mobile sitemap accordion */}
-              <details className="group border-t border-slate-200/50 dark:border-slate-700/50">
+              <details className="group border-t border-edge/50">
                 <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Mappa del sito</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
@@ -3370,7 +3370,7 @@ const App: React.FC = () => {
                       </ul>
                     </div>
                     <div>
-                      <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
+                      <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-success no-underline hover:underline">{t('nav.fisco')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['tax-return', 'withholding-rates', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'tax-credit'] as const).map((sub) => (
                           <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-muted hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
@@ -3386,7 +3386,7 @@ const App: React.FC = () => {
                       </ul>
                     </div>
                     <div>
-                      <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
+                      <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-warning no-underline hover:underline">{t('nav.vita')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'] as const).map((sub) => (
                           <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-muted hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
@@ -3458,7 +3458,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Fisco */}
                 <div>
-                  <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
+                  <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-success no-underline hover:underline">{t('nav.fisco')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'tax-return' as const, label: t('comparators.taxReturn') },
@@ -3508,7 +3508,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Vita */}
                 <div>
-                  <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
+                  <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-warning no-underline hover:underline">{t('nav.vita')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'living-ch' as const, label: t('guide.tabs.livingCH') },
@@ -3570,7 +3570,7 @@ const App: React.FC = () => {
               <a href="/privacy-policy/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">Privacy Policy</a>
             </div>
 
-            <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+            <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-success font-medium">
               <Shield className="w-3 h-3" />
               <span>{t('footer.securityBadge')}</span>
             </div>

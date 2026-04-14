@@ -202,10 +202,10 @@ const GamificationWidget: React.FC = () => {
           }}
           className={`relative p-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
             hasUnreadAchievements
-              ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
+              ? 'bg-warning-subtle text-warning'
               : isOpen
                 ? 'bg-surface-raised text-body'
-                : 'text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-surface-raised'
           }`}
           title={`${levelTitle} — ${state.xp} XP`}
           aria-label={`Gamification: ${levelTitle}, ${state.xp} XP`}
@@ -217,18 +217,18 @@ const GamificationWidget: React.FC = () => {
         {isOpen && (
           <div className="fixed sm:absolute inset-x-2 sm:inset-x-auto sm:right-0 top-16 sm:top-full sm:mt-2 sm:w-[340px] bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden z-[80] animate-slide-up max-h-[calc(100vh-5rem)] overflow-y-auto">
             {/* Header — level info */}
-            <div className="px-4 py-3 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-b border-slate-200/60 dark:border-slate-700/50">
+            <div className="px-4 py-3 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-b border-edge">
               <div className="flex items-center gap-3">
                 <div className="relative flex-shrink-0">
                   <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
                     <Trophy size={18} className="text-white" />
                   </div>
-                  <span className="absolute -top-1 -right-1 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+                  <span className="absolute -top-1 -right-1 bg-surface-raised text-white dark:text-slate-800 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
                     {levelInfo.level}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-sm font-bold text-slate-800 dark:text-slate-100">{levelTitle}</div>
+                  <div className="text-sm font-bold text-strong">{levelTitle}</div>
                   <div className="text-sm text-muted">{state.xp} XP</div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
@@ -246,7 +246,7 @@ const GamificationWidget: React.FC = () => {
               </div>
               {/* XP progress bar */}
               <div className="mt-2">
-                <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+                <div className="w-full bg-surface-raised rounded-full h-1.5 overflow-hidden">
                   <div
                     className="bg-amber-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
                     style={{ transform: `scaleX(${xpProgressPct / 100})` }}
@@ -273,12 +273,12 @@ const GamificationWidget: React.FC = () => {
                   {recentAchievements.map(achievement => (
                     <div
                       key={achievement.id}
-                      className="flex items-center gap-2.5 p-2 rounded-lg bg-amber-50/80 dark:bg-amber-900/10 border border-amber-200/60 dark:border-amber-800/40"
+                      className="flex items-center gap-2.5 p-2 rounded-lg bg-amber-50/80 dark:bg-amber-900/10 border border-warning-border"
                     >
                       <span className="text-lg flex-shrink-0">{achievement.icon}</span>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1">
-                          <span className="text-xs font-bold truncate text-amber-700 dark:text-amber-400">
+                          <span className="text-xs font-bold truncate text-warning">
                             {t(`gamification.achievement.${achievement.id}`)}
                           </span>
                           <CheckCircle2 size={10} className="text-emerald-500 flex-shrink-0" />
@@ -295,7 +295,7 @@ const GamificationWidget: React.FC = () => {
               <div className="px-3 pb-3">
                 <button
                   onClick={() => { setIsOpen(false); nav.navigateTo('gamification'); }}
-                  className="w-full py-2.5 text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/40 rounded-xl transition-colors border border-amber-200/60 dark:border-amber-800/40 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                  className="w-full py-2.5 text-xs font-bold text-warning bg-warning-subtle hover:bg-amber-100 dark:hover:bg-amber-900/40 rounded-xl transition-colors border border-warning-border focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
                 >
                   {t('gamification.viewAll') || 'Vedi tutti gli achievement →'}
                 </button>

@@ -265,12 +265,12 @@ const CommunityForum: React.FC = () => {
                 >
                   <ThumbsUp className="w-5 h-5" />
                 </button>
-                <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{selectedQuestion.upvotes}</span>
+                <span className="text-sm font-bold text-subtle">{selectedQuestion.upvotes}</span>
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+                <h2 className="text-xl font-bold text-strong mb-2">
                   {selectedQuestion.title}
                 </h2>
                 <p className="text-sm text-subtle whitespace-pre-wrap leading-relaxed">
@@ -302,7 +302,7 @@ const CommunityForum: React.FC = () => {
 
         {/* Answers */}
         <div>
-          <h3 className="font-bold text-sm text-slate-600 dark:text-slate-300 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-sm text-subtle mb-3 flex items-center gap-2">
             <MessageCircle className="w-4 h-4" />
             {selectedQuestion.answerCount} {t('forum.answers') || 'Risposte'}
           </h3>
@@ -319,7 +319,7 @@ const CommunityForum: React.FC = () => {
             <div className="space-y-3">
               {answers.map(answer => (
                 <div key={answer.id} className={`bg-surface rounded-xl border p-4 ${
-                  answer.accepted ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50/50 dark:bg-emerald-950/10' : 'border-edge'
+                  answer.accepted ? 'border-success-border bg-emerald-50/50 dark:bg-emerald-950/10' : 'border-edge'
                 }`}>
                   <div className="flex items-start gap-3">
                     <div className="flex flex-col items-center gap-1">
@@ -398,14 +398,14 @@ const CommunityForum: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-success-border">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
-            <MessageSquare className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-2 bg-success-subtle rounded-xl">
+            <MessageSquare className="w-6 h-6 text-success" />
           </div>
-          <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{t('forum.title')}</h2>
+          <h2 className="text-2xl font-bold text-success">{t('forum.title')}</h2>
         </div>
-        <p className="text-emerald-700 dark:text-emerald-300 text-sm">{t('forum.subtitle')}</p>
+        <p className="text-success text-sm">{t('forum.subtitle')}</p>
       </div>
 
       {/* Controls */}
@@ -460,7 +460,7 @@ const CommunityForum: React.FC = () => {
         ) : (
           <button
             onClick={signIn}
-            className="flex items-center gap-2 px-4 py-2.5 bg-surface-raised text-body rounded-xl text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 bg-surface-raised text-body rounded-xl text-sm font-bold hover:bg-surface-raised transition-colors"
           >
             <LogIn className="w-4 h-4" />
             {t('forum.loginToAsk') || 'Accedi per chiedere'}
@@ -470,7 +470,7 @@ const CommunityForum: React.FC = () => {
 
       {/* New question form */}
       {showNewForm && user && (
-        <div className="bg-surface rounded-xl border border-stripe-200 dark:border-stripe-800 p-5 space-y-3">
+        <div className="bg-surface rounded-xl border border-accent-border p-5 space-y-3">
           <input
             type="text"
             value={newTitle}

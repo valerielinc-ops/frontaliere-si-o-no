@@ -111,9 +111,9 @@ const ApiStatus: React.FC = () => {
       case 'success':
         return <CheckCircle2 className="text-green-600 dark:text-green-400" size={24} />;
       case 'warning':
-        return <AlertTriangle className="text-amber-600 dark:text-amber-400" size={24} />;
+        return <AlertTriangle className="text-warning" size={24} />;
       case 'error':
-        return <XCircle className="text-red-600 dark:text-red-400" size={24} />;
+        return <XCircle className="text-danger" size={24} />;
       default:
         return <AlertTriangle className="text-muted" size={24} />;
     }
@@ -141,10 +141,10 @@ const ApiStatus: React.FC = () => {
       {/* Summary Stats */}
       <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
         <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-green-700 dark:text-green-400">{successCount}</span> Configurate</span>
-        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-amber-700 dark:text-amber-400">{warningCount}</span> Non Configurate</span>
-        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-red-700 dark:text-red-400">{errorCount}</span> Errori</span>
+        <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-warning">{warningCount}</span> Non Configurate</span>
+        <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-danger">{errorCount}</span> Errori</span>
       </div>
 
       {/* Refresh Button */}
@@ -173,8 +173,8 @@ const ApiStatus: React.FC = () => {
               check.status === 'success'
                 ? 'border-green-200 dark:border-green-800'
                 : check.status === 'warning'
-                ? 'border-amber-200 dark:border-amber-800'
-                : 'border-red-200 dark:border-red-800'
+                ? 'border-warning-border'
+                : 'border-danger-border'
             }`}
           >
             <div className="flex items-start gap-4">
@@ -191,8 +191,8 @@ const ApiStatus: React.FC = () => {
                     check.status === 'success'
                       ? 'text-green-700 dark:text-green-400'
                       : check.status === 'warning'
-                      ? 'text-amber-700 dark:text-amber-400'
-                      : 'text-red-700 dark:text-red-400'
+                      ? 'text-warning'
+                      : 'text-danger'
                   }`}>
                     {check.value}
                   </p>

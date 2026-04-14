@@ -80,7 +80,7 @@ const CookieBanner: React.FC = () => {
               {t('consent.description')}{' '}
               <a
                 href={privacyHref}
-                className="text-link underline hover:text-stripe-700 dark:hover:text-stripe-300"
+                className="text-link underline hover:text-accent"
               >
                 {t('consent.privacyLink')}
               </a>
@@ -96,7 +96,7 @@ const CookieBanner: React.FC = () => {
               <span className="text-xs text-body font-medium">
                 {t('consent.essential')}
               </span>
-              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+              <span className="text-xs text-success font-medium">
                 {t('consent.alwaysOn')}
               </span>
             </label>
@@ -113,7 +113,7 @@ const CookieBanner: React.FC = () => {
                 aria-label={t('consent.analytics')}
                 onClick={() => setAnalyticsOn(!analyticsOn)}
                 className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
-                  analyticsOn ? 'bg-stripe-600' : 'bg-slate-300 dark:bg-slate-600'
+                  analyticsOn ? 'bg-stripe-600' : 'bg-surface-raised'
                 }`}
               >
                 <span
@@ -136,7 +136,7 @@ const CookieBanner: React.FC = () => {
                 aria-label={t('consent.advertising')}
                 onClick={() => setAdvertisingOn(!advertisingOn)}
                 className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
-                  advertisingOn ? 'bg-stripe-600' : 'bg-slate-300 dark:bg-slate-600'
+                  advertisingOn ? 'bg-stripe-600' : 'bg-surface-raised'
                 }`}
               >
                 <span
@@ -149,7 +149,7 @@ const CookieBanner: React.FC = () => {
 
             <button
               onClick={handleSaveCustom}
-              className="w-full text-xs font-medium py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white transition-colors"
+              className="w-full text-xs font-medium py-2 rounded-lg bg-accent hover:bg-accent-hover text-white transition-colors"
             >
               {t('consent.savePreferences')}
             </button>
@@ -160,20 +160,20 @@ const CookieBanner: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-2">
           <button
             onClick={handleAcceptAll}
-            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white transition-colors"
+            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-accent hover:bg-accent-hover text-white transition-colors"
           >
             {t('consent.acceptAll')}
           </button>
           <button
             onClick={handleRejectAll}
-            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-surface-raised text-body hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-surface-raised text-body hover:bg-surface-raised transition-colors"
           >
             {t('consent.rejectAll')}
           </button>
           {!showDetails && (
             <button
               onClick={() => setShowDetails(true)}
-              className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg border border-slate-300 dark:border-slate-600 text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors inline-flex items-center justify-center gap-1"
+              className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg border border-edge text-subtle hover:bg-surface-raised transition-colors inline-flex items-center justify-center gap-1"
               aria-label={t('consent.customize')}
             >
               <Settings className="w-3.5 h-3.5" />

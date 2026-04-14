@@ -42,7 +42,7 @@ const LanguageSelector: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 px-2 py-1.5 rounded-xl text-sm text-muted hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        className="flex items-center gap-1 px-2 py-1.5 rounded-xl text-sm text-muted hover:bg-surface-raised transition-colors"
         title="Lingua / Language" aria-expanded={isOpen}
       >
         <span className="hidden sm:inline text-xs font-bold uppercase">{current.toUpperCase()}</span>
@@ -57,8 +57,8 @@ const LanguageSelector: React.FC = () => {
               onClick={() => handleSelect(locale)}
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                 current === locale
-                  ? 'bg-stripe-50 dark:bg-stripe-900/30 text-stripe-600 dark:text-stripe-400 font-bold'
-                  : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'
+                  ? 'bg-accent-subtle text-accent font-bold'
+                  : 'text-body hover:bg-surface-raised'
               }`}
             >
               <span className="text-lg">{label.flag}</span>

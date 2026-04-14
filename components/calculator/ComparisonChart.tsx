@@ -84,7 +84,7 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
 
 // KPI Card Component
 const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
-  <div className="bg-surface-alt/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
+  <div className="bg-surface-alt/50 rounded-2xl p-4 border border-edge flex items-start justify-between group hover:border-edge transition-colors">
      <div>
        <p className="text-xs font-bold uppercase text-muted tracking-wider mb-1">{title}</p>
        <p className={`text-xl font-mono font-bold ${colorClass}`}>{value}</p>
@@ -223,26 +223,26 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
             value={`${effectiveTaxRateIT}%`} 
             subtext={t('chart.tax_incidence')}
             icon={Percent} 
-            colorClass="text-red-600 dark:text-red-400"
+            colorClass="text-danger"
          />
          <KpiCard 
             title={t('chart.net_difference')} 
             value={`${diffPercent}%`} 
             subtext={t('chart.purchasing_power_delta')}
             icon={ArrowUpRight} 
-            colorClass="text-emerald-700 dark:text-emerald-400"
+            colorClass="text-success"
          />
          <KpiCard 
             title={t('chart.accumulation_5y')} 
             value={`${(Math.abs(savingsCHF) * 5 / 1000).toFixed(1)}k`} 
             subtext={t('chart.potential_savings')}
             icon={Wallet} 
-            colorClass="text-stripe-600 dark:text-stripe-400"
+            colorClass="text-accent"
          />
       </div>
 
       {/* Main Chart Container */}
-      <div className="bg-surface rounded-3xl p-1 shadow-sm border border-slate-100 dark:border-slate-700">
+      <div className="bg-surface rounded-3xl p-1 shadow-sm border border-edge">
          <SegmentControl
             options={[
               { key: 'overview', label: t('chart.tab_comparison'), icon: BarChart3 },
@@ -258,9 +258,9 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
          {/* Chart Area */}
          <div className="p-4 sm:p-6 min-h-[320px] bg-surface rounded-b-3xl relative">
             {activeTab === 'projection' && (
-                <div className="mb-6 bg-stripe-50/50 dark:bg-stripe-900/20 p-4 rounded-xl border border-stripe-100 dark:border-stripe-800/50 flex gap-3 animate-fade-in">
+                <div className="mb-6 bg-accent-subtle/50 p-4 rounded-xl border border-accent-border/50 flex gap-3 animate-fade-in">
                     <Info size={18} className="text-stripe-500 shrink-0 mt-0.5" />
-                    <div className="text-xs text-stripe-900 dark:text-stripe-300 leading-relaxed">
+                    <div className="text-xs text-accent leading-relaxed">
                         <strong className="block mb-1 font-bold">{t('chart.projection_title')}</strong>
                         {t('chart.projection_description')}
                     </div>
@@ -270,27 +270,27 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
             {activeTab === 'breakeven' && (
                 <div className="mb-4 animate-fade-in">
                     <div className="flex justify-between items-center mb-4">
-                       <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                       <h3 className="text-sm font-bold text-body">
                           {analysisMode === 'NET' ? t('chart.net_income_comparison') : t('chart.tax_burden_comparison')}
                        </h3>
                        
                        {/* Toggle for Net/Tax Analysis */}
-                       <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-lg">
+                       <div className="flex bg-surface-raised p-1 rounded-lg">
                           <button 
                             onClick={() => setAnalysisMode('NET')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-muted hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-surface text-emerald-700 shadow-sm' : 'text-muted hover:text-slate-600'}`}
                           >
                             {t('chart.net')}
                           </button>
                           <button 
                             onClick={() => setAnalysisMode('TAX')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-muted hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-surface text-red-500 shadow-sm' : 'text-muted hover:text-slate-600'}`}
                           >
                             {t('chart.taxes_charges')}
                           </button>
                        </div>
                     </div>
-                    <div className="bg-surface-alt/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs text-muted mb-4">
+                    <div className="bg-surface-alt/50 p-3 rounded-xl border border-edge text-xs text-muted mb-4">
                        {t('chart.salary_simulation_desc')}
                        {analysisMode === 'NET' ? ` ${t('chart.shows_net_residual')}` : ` ${t('chart.shows_total_taxes')}`}
                     </div>
@@ -316,7 +316,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
                         </div>
                       </div>
                   </div>
-                  <div className="flex-1 flex flex-col items-center relative border-t md:border-t-0 md:border-l border-dashed border-slate-100 dark:border-slate-700 pt-4 md:pt-0">
+                  <div className="flex-1 flex flex-col items-center relative border-t md:border-t-0 md:border-l border-dashed border-edge pt-4 md:pt-0">
                       <h4 className="text-xs font-bold uppercase text-muted mb-2">{t('chart.frontier_worker')}</h4>
                        <div className="w-full h-full relative">
                           <ResponsiveContainer>

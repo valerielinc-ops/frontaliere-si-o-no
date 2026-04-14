@@ -96,14 +96,14 @@ export default function NaspiCalculator() {
     v.toLocaleString('it-CH', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-5 space-y-5">
+    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-success-border p-5 space-y-5">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <div className="p-2.5 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
-          <Calculator size={22} className="text-emerald-600 dark:text-emerald-400" />
+        <div className="p-2.5 bg-success-subtle rounded-xl">
+          <Calculator size={22} className="text-success" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">
+          <h3 className="text-lg font-bold text-strong">
             {t('naspi.calc.title')}
           </h3>
           <p className="text-sm text-subtle">
@@ -113,9 +113,9 @@ export default function NaspiCalculator() {
       </div>
 
       {/* Info banner */}
-      <div className="flex items-start gap-2.5 bg-stripe-50 dark:bg-stripe-950/30 rounded-xl p-3 border border-stripe-200 dark:border-stripe-800">
+      <div className="flex items-start gap-2.5 bg-accent-subtle rounded-xl p-3 border border-accent-border">
         <Info size={16} className="text-stripe-500 mt-0.5 shrink-0" />
-        <p className="text-sm text-stripe-700 dark:text-stripe-300">
+        <p className="text-sm text-accent">
           {t('naspi.calc.disclaimer')}
         </p>
       </div>
@@ -137,7 +137,7 @@ export default function NaspiCalculator() {
               step={100}
               value={salary}
               onChange={(e) => setSalary(Number(e.target.value) || 0)}
-              className="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-surface px-3 py-2 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+              className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
             />
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted">CHF</span>
           </div>
@@ -158,7 +158,7 @@ export default function NaspiCalculator() {
             step={1}
             value={monthsWorked}
             onChange={(e) => setMonthsWorked(Math.min(48, Math.max(3, Number(e.target.value) || 3)))}
-            className="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-surface px-3 py-2 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+            className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
           />
           <p className="text-xs text-muted mt-1">{t('naspi.calc.monthsHint')}</p>
         </div>
@@ -177,7 +177,7 @@ export default function NaspiCalculator() {
             step={1}
             value={age}
             onChange={(e) => setAge(Number(e.target.value) || 35)}
-            className="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-surface px-3 py-2 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+            className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
           />
           <p className="text-xs text-muted mt-1">
             {t('naspi.calc.ageHint')}
@@ -198,7 +198,7 @@ export default function NaspiCalculator() {
             step={0.01}
             value={exchangeRate}
             onChange={(e) => setExchangeRate(Number(e.target.value) || FALLBACK_EXCHANGE_RATE)}
-            className="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-surface px-3 py-2 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+            className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
           />
           <p className="text-xs text-muted mt-1">{t('naspi.calc.rateHint')}</p>
         </div>
@@ -208,7 +208,7 @@ export default function NaspiCalculator() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div className="bg-surface rounded-xl p-3 border border-edge text-center">
           <Euro size={18} className="text-emerald-500 mx-auto mb-1" />
-          <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">{formatEUR(result.monthlyInitial)}</div>
+          <div className="text-lg font-bold text-success">{formatEUR(result.monthlyInitial)}</div>
           <div className="text-xs text-subtle">{t('naspi.calc.monthlyAmount')}</div>
         </div>
         <div className="bg-surface rounded-xl p-3 border border-edge text-center">
@@ -218,14 +218,14 @@ export default function NaspiCalculator() {
         </div>
         <div className="bg-surface rounded-xl p-3 border border-edge text-center">
           <TrendingDown size={18} className="text-orange-500 mx-auto mb-1" />
-          <div className="text-lg font-bold text-orange-600 dark:text-orange-400">
+          <div className="text-lg font-bold text-warning">
             {result.rows.length > 0 ? formatEUR(result.rows[result.rows.length - 1].gross) : '—'}
           </div>
           <div className="text-xs text-subtle">{t('naspi.calc.lastMonth')}</div>
         </div>
         <div className="bg-surface rounded-xl p-3 border border-edge text-center">
           <Calculator size={18} className="text-stripe-500 mx-auto mb-1" />
-          <div className="text-lg font-bold text-stripe-600 dark:text-stripe-400">{formatEUR(result.totalGross)}</div>
+          <div className="text-lg font-bold text-accent">{formatEUR(result.totalGross)}</div>
           <div className="text-xs text-subtle">{t('naspi.calc.totalGross')}</div>
         </div>
       </div>
@@ -233,7 +233,7 @@ export default function NaspiCalculator() {
       {/* Chart */}
       {result.rows.length > 0 && (
         <div className="bg-surface rounded-xl border border-edge p-4">
-          <h4 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-3">{t('naspi.calc.chartTitle')}</h4>
+          <h4 className="text-sm font-bold text-body mb-3">{t('naspi.calc.chartTitle')}</h4>
           <ResponsiveContainer width="100%" height={220}>
             <LineChart data={result.rows} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
@@ -273,7 +273,7 @@ export default function NaspiCalculator() {
       {/* Detailed table (collapsed by default) */}
       <button
         onClick={() => setShowTable(!showTable)}
-        className="flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+        className="flex items-center gap-2 text-sm font-medium text-success hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
         aria-label={showTable ? t('naspi.calc.hideTable') : t('naspi.calc.showTable')}
       >
         {showTable ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -284,19 +284,19 @@ export default function NaspiCalculator() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-emerald-100 dark:bg-emerald-900/40">
+              <tr className="bg-success-subtle">
                 <th className="p-2 text-left rounded-tl-lg">{t('naspi.calc.tableMonth')}</th>
                 <th className="p-2 text-right">{t('naspi.calc.tableGross')}</th>
                 <th className="p-2 text-right">{t('naspi.calc.tableDecalage')}</th>
                 <th className="p-2 text-right rounded-tr-lg">{t('naspi.calc.tableCumulative')}</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
+            <tbody className="divide-y divide-edge">
               {result.rows.map((r) => (
                 <tr key={r.month} className={r.decalagePercent > 0 ? 'bg-orange-50/50 dark:bg-orange-950/10' : ''}>
                   <td className="p-2 font-medium text-body">{r.month}</td>
                   <td className="p-2 text-right text-strong">{formatEUR2(r.gross)}</td>
-                  <td className="p-2 text-right text-orange-600 dark:text-orange-400">
+                  <td className="p-2 text-right text-warning">
                     {r.decalagePercent > 0 ? `-${r.decalagePercent}%` : '—'}
                   </td>
                   <td className="p-2 text-right text-subtle">{formatEUR(r.cumulative)}</td>
@@ -309,7 +309,7 @@ export default function NaspiCalculator() {
 
       {/* Formula explanation */}
       <div className="bg-surface-alt/50 rounded-xl p-4 border border-edge">
-        <h4 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-2">{t('naspi.calc.howTitle')}</h4>
+        <h4 className="text-sm font-bold text-body mb-2">{t('naspi.calc.howTitle')}</h4>
         <ul className="text-xs text-subtle space-y-1.5">
           <li>• <strong>{t('naspi.calc.howAmount')}</strong>: {t('naspi.calc.howAmountDesc')}</li>
           <li>• <strong>{t('naspi.calc.howCap')}</strong>: {t('naspi.calc.howCapDesc')}</li>

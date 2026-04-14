@@ -93,9 +93,9 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
 
   const waitListLabel = (wl: string) => {
     const colors: Record<string, string> = {
-      short: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300',
-      medium: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300',
-      long: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300',
+      short: 'bg-success-subtle text-success',
+      medium: 'bg-warning-subtle text-warning',
+      long: 'bg-danger-subtle text-danger',
     };
     return colors[wl] || colors.medium;
   };
@@ -124,7 +124,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
           {showCalculator ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {showCalculator && (
-          <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4">
+          <div className="px-4 pb-4 space-y-4 border-t border-edge pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
                 <label htmlFor="nursery-salary" className="block text-xs font-semibold text-subtle mb-1">
@@ -170,17 +170,17 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
             </div>
             {/* Summary cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
-                <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold">{t('nursery.monthlyBenefit')}</p>
-                <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">CHF {monthlyBenefitCH}</p>
+              <div className="bg-success-subtle rounded-xl p-3 text-center">
+                <p className="text-sm text-success font-semibold">{t('nursery.monthlyBenefit')}</p>
+                <p className="text-lg font-bold text-success">CHF {monthlyBenefitCH}</p>
               </div>
               <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3 text-center border border-warm-200 dark:border-warm-800">
                 <p className="text-xs text-warm-700 dark:text-warm-400 font-semibold">{t('nursery.itDeduction')}</p>
                 <p className="text-lg font-bold text-warm-700 dark:text-warm-300">€{IT_NURSERY_DEDUCTION_MAX}/anno</p>
               </div>
-              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-stripe-600 dark:text-stripe-400 font-semibold">{t('nursery.bonusNido')}</p>
-                <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">€{IT_BONUS_NIDO_MAX.toLocaleString()}/anno</p>
+              <div className="bg-accent-subtle rounded-xl p-3 text-center">
+                <p className="text-xs text-accent font-semibold">{t('nursery.bonusNido')}</p>
+                <p className="text-lg font-bold text-accent">€{IT_BONUS_NIDO_MAX.toLocaleString()}/anno</p>
               </div>
             </div>
           </div>
@@ -243,9 +243,9 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                       <h4 className="font-bold text-sm text-strong">{nursery.name}</h4>
                       <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         nursery.type === 'public'
-                          ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
+                          ? 'bg-accent-subtle text-accent'
                           : nursery.type === 'aziendali'
-                          ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
+                          ? 'bg-accent-subtle text-accent'
                           : 'bg-surface-raised text-subtle'
                       }`}>
                         {t(`nursery.type${nursery.type.charAt(0).toUpperCase() + nursery.type.slice(1)}`)}
@@ -258,7 +258,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                     </div>
                   </div>
                   <div className="text-right shrink-0">
-                    <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
+                    <p className="text-lg font-bold text-success">
                       CHF {estimatedCost.toLocaleString()}
                     </p>
                     <p className="text-sm text-muted">{t('nursery.perMonth')}</p>
@@ -269,7 +269,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                     {t(`nursery.waitList.${nursery.waitList}`)}
                   </span>
                   {nursery.subsidized && (
-                    <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                    <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-success-subtle text-success">
                       {t('nursery.subsidized')}
                     </span>
                   )}
@@ -281,16 +281,16 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
       </div>
 
       {/* Info about Italian bonus nido */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
-        <h4 className="font-bold text-sm text-amber-700 dark:text-amber-300 mb-2">{t('nursery.bonusNidoInfo')}</h4>
-        <p className="text-xs text-amber-600 dark:text-amber-400">{t('nursery.bonusNidoDesc')}</p>
+      <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
+        <h4 className="font-bold text-sm text-warning mb-2">{t('nursery.bonusNidoInfo')}</h4>
+        <p className="text-xs text-warning">{t('nursery.bonusNidoDesc')}</p>
       </div>
 
       {/* Cross-link to full school directory */}
       {nav && (
         <button
           onClick={() => { nav.setActiveTab('vita' as any); nav.setVitaSubTab('schools' as any); }}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition"
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-accent-subtle border border-accent-border rounded-xl text-sm font-medium text-accent hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition"
           aria-label={t('guide.schools.title')}
         >
           <ArrowRight size={16} />

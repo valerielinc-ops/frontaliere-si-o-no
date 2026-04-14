@@ -162,8 +162,8 @@ export default function CarCostCalculator() {
       {/* Header */}
       <div className="bg-surface rounded-xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-2">
-          <Car className="text-amber-600 dark:text-amber-400" size={28} />
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('carCost.title')}</h2>
+          <Car className="text-warning" size={28} />
+          <h2 className="text-2xl font-bold text-heading">{t('carCost.title')}</h2>
         </div>
         <p className="text-subtle">{t('carCost.subtitle')}</p>
       </div>
@@ -181,7 +181,7 @@ export default function CarCostCalculator() {
                 id="cc-vtype"
                 value={vehicleType}
                 onChange={(e) => setVehicleType(e.target.value as VehicleType)}
-                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
+                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
               >
                 <option value="small">{t('carCost.smallCar')}</option>
                 <option value="medium">{t('carCost.mediumCar')}</option>
@@ -193,7 +193,7 @@ export default function CarCostCalculator() {
             {/* Vehicle Age */}
             <div>
               <label htmlFor="cc-age" className="block text-sm font-medium text-body mb-1">
-                {t('carCost.vehicleAge')}: <span className="font-bold text-amber-600 dark:text-amber-400">{vehicleAge}</span>
+                {t('carCost.vehicleAge')}: <span className="font-bold text-warning">{vehicleAge}</span>
               </label>
               <input
                 id="cc-age"
@@ -209,7 +209,7 @@ export default function CarCostCalculator() {
             {/* Annual Km */}
             <div>
               <label htmlFor="cc-km" className="block text-sm font-medium text-body mb-1">
-                {t('carCost.annualKm')}: <span className="font-bold text-amber-600 dark:text-amber-400">{annualKm.toLocaleString()}</span>
+                {t('carCost.annualKm')}: <span className="font-bold text-warning">{annualKm.toLocaleString()}</span>
               </label>
               <input
                 id="cc-km"
@@ -233,7 +233,7 @@ export default function CarCostCalculator() {
                   id="cc-fuel"
                   value={fuelType}
                   onChange={(e) => setFuelType(e.target.value as FuelType)}
-                  className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
                 >
                   <option value="petrol">{t('carCost.petrol')}</option>
                   <option value="diesel">{t('carCost.diesel')}</option>
@@ -244,7 +244,7 @@ export default function CarCostCalculator() {
             {/* Sdoganamento toggle */}
             <button
               onClick={() => setShowSdoganamento(!showSdoganamento)}
-              className="flex items-center gap-2 text-sm font-medium text-amber-700 dark:text-amber-400 hover:underline"
+              className="flex items-center gap-2 text-sm font-medium text-warning hover:underline"
               aria-label={t('carCost.sdoganamento')}
             >
               <Info size={16} />
@@ -252,11 +252,11 @@ export default function CarCostCalculator() {
             </button>
 
             {showSdoganamento && (
-              <div className="bg-amber-50 dark:bg-amber-900/30 rounded-lg p-4 text-sm">
-                <p className="font-semibold text-amber-800 dark:text-amber-300 mb-2">{t('carCost.sdoganamento')}</p>
+              <div className="bg-warning-subtle rounded-lg p-4 text-sm">
+                <p className="font-semibold text-warning mb-2">{t('carCost.sdoganamento')}</p>
                 <p className="text-body mb-2">{t('carCost.sdoganamentoDesc')}</p>
                 <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-amber-700 dark:text-amber-300">
+                  <span className="text-lg font-bold text-warning">
                     CHF {result.sdoganamento.toLocaleString()}
                   </span>
                   <span className="text-muted text-xs">
@@ -265,7 +265,7 @@ export default function CarCostCalculator() {
                 </div>
                 <button
                   onClick={() => { nav.setActiveTab('guida' as any); nav.setGuidaSubTab('car-transfer' as any); }}
-                  className="mt-3 flex items-center gap-1.5 text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:underline"
+                  className="mt-3 flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
                   aria-label={t('carTransfer.title')}
                 >
                   <ArrowRight size={14} />
@@ -280,7 +280,7 @@ export default function CarCostCalculator() {
         <div className="lg:col-span-3 space-y-4">
           <div className="bg-surface rounded-xl shadow p-5">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('carCost.resultTitle')}</h3>
+              <h3 className="text-lg font-bold text-heading">{t('carCost.resultTitle')}</h3>
               <button
                 onClick={handleExportPDF}
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 text-white text-sm rounded-lg hover:bg-amber-700 transition"
@@ -302,7 +302,7 @@ export default function CarCostCalculator() {
                 </thead>
                 <tbody>
                   {costRows.map((row) => (
-                    <tr key={row.label} className="border-b border-slate-100 dark:border-slate-700/50">
+                    <tr key={row.label} className="border-b border-edge/50">
                       <td className="py-2.5 pr-4 text-body">{row.label}</td>
                       <td className="py-2.5 px-4 text-right font-mono text-strong">
                         {row.unit[0]} {row.it.toLocaleString()}
@@ -315,11 +315,11 @@ export default function CarCostCalculator() {
                 </tbody>
                 <tfoot>
                   <tr className="font-bold text-base">
-                    <td className="py-3 pr-4 text-slate-800 dark:text-white">{t('carCost.total')}</td>
-                    <td className="py-3 px-4 text-right text-slate-800 dark:text-white">
+                    <td className="py-3 pr-4 text-heading">{t('carCost.total')}</td>
+                    <td className="py-3 px-4 text-right text-heading">
                       € {result.italy.total.toLocaleString()}
                     </td>
-                    <td className="py-3 pl-4 text-right text-slate-800 dark:text-white">
+                    <td className="py-3 pl-4 text-right text-heading">
                       CHF {result.switzerland.total.toLocaleString()}
                     </td>
                   </tr>
@@ -354,14 +354,14 @@ export default function CarCostCalculator() {
             </div>
 
             {/* Verdict */}
-            <div className={`mt-5 rounded-lg p-4 flex items-start gap-3 ${diff > 0 ? 'bg-emerald-50 dark:bg-emerald-900/30' : 'bg-orange-50 dark:bg-orange-900/30'}`}>
+            <div className={`mt-5 rounded-lg p-4 flex items-start gap-3 ${diff > 0 ? 'bg-success-subtle' : 'bg-orange-50 dark:bg-orange-900/30'}`}>
               {diff > 0 ? (
-                <CheckCircle className="text-emerald-700 dark:text-emerald-400 flex-shrink-0 mt-0.5" size={20} />
+                <CheckCircle className="text-success flex-shrink-0 mt-0.5" size={20} />
               ) : (
-                <AlertTriangle className="text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" size={20} />
+                <AlertTriangle className="text-warning flex-shrink-0 mt-0.5" size={20} />
               )}
               <div>
-                <p className="font-semibold text-slate-800 dark:text-white">{t('carCost.switchPlates')}</p>
+                <p className="font-semibold text-heading">{t('carCost.switchPlates')}</p>
                 <p className="text-sm text-subtle mt-1">
                   {diff > 0
                     ? `${t('carCost.savings')}: € ${Math.abs(diff).toLocaleString()}/anno con targhe IT`

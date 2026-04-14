@@ -46,10 +46,10 @@ function formatDate(value: string | null, locale: string) {
 }
 
 function recommendationTone(row: MunicipalityFuelRow) {
-  if (row.comparison.cheaperCountry === 'IT') return 'text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-700';
-  if (row.comparison.cheaperCountry === 'CH') return 'text-stripe-700 dark:text-stripe-300 bg-stripe-50 dark:bg-stripe-900/40 border-stripe-200 dark:border-stripe-700';
-  if (row.comparison.cheaperCountry === 'SAME') return 'text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/40 border-amber-200 dark:border-amber-700';
-  return 'text-slate-600 dark:text-slate-300 bg-surface-alt/50 border-edge';
+  if (row.comparison.cheaperCountry === 'IT') return 'text-success bg-success-subtle border-success-border';
+  if (row.comparison.cheaperCountry === 'CH') return 'text-accent bg-accent-subtle border-accent-border';
+  if (row.comparison.cheaperCountry === 'SAME') return 'text-warning bg-amber-50 dark:bg-amber-900/40 border-warning-border';
+  return 'text-subtle bg-surface-alt/50 border-edge';
 }
 
 function recommendationLabel(code: string) {
@@ -209,7 +209,7 @@ function DetailSection({
       </div>
 
       <div className="grid gap-4 xl:grid-cols-2">
-        <div className="rounded-2xl border border-edge bg-slate-50/80 dark:bg-slate-900/50 p-4">
+        <div className="rounded-2xl border border-edge bg-surface-alt/80 p-4">
           <h4 className="text-sm font-bold text-heading">{tt('fuelPrices.detailItalyStations', 'Stazioni italiane rilevate')}</h4>
           <div className="mt-3 space-y-3">
             {row.italy.stations.slice(0, 12).map((station) => (
@@ -227,14 +227,14 @@ function DetailSection({
               </div>
             ))}
             {!row.italy.stations.length && (
-              <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-surface px-4 py-6 text-center text-sm text-muted">
+              <div className="rounded-2xl border border-dashed border-edge bg-surface px-4 py-6 text-center text-sm text-muted">
                 {tt('fuelPrices.noItalyStations', 'Nessuna stazione italiana trovata per questo comune.')}
               </div>
             )}
           </div>
         </div>
 
-        <div className="rounded-2xl border border-edge bg-slate-50/80 dark:bg-slate-900/50 p-4">
+        <div className="rounded-2xl border border-edge bg-surface-alt/80 p-4">
           <h4 className="text-sm font-bold text-heading">{tt('fuelPrices.detailSwissStations', 'Migliori opzioni svizzere vicine')}</h4>
           <div className="mt-3 space-y-3">
             {row.swiss.nearbyStations.slice(0, 12).map((station) => (
@@ -255,7 +255,7 @@ function DetailSection({
               </div>
             ))}
             {!row.swiss.nearbyStations.length && (
-              <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-surface px-4 py-6 text-center text-sm text-muted">
+              <div className="rounded-2xl border border-dashed border-edge bg-surface px-4 py-6 text-center text-sm text-muted">
                 {tt('fuelPrices.noSwissStations', 'Nessuna stazione svizzera utile nel raggio di confronto.')}
               </div>
             )}
@@ -326,15 +326,15 @@ export default function FuelPriceStats() {
     const list = (data?.municipalities || []).filter((row) => {
       if (province !== 'ALL' && row.province !== province) return false;
       if (!q) return true;
-      return `${row.municipality} ${row.province}`.toLowerCase().includes(q); }); return [...list].sort((a, b) => { if (sortKey === 'name') return municipalityLabel(a).localeCompare(municipalityLabel(b)); if (sortKey === 'italy') return (a.italy.minPriceEur ?? 99) - (b.italy.minPriceEur ?? 99); if (sortKey === 'swiss') return (a.swiss.minPriceEur ?? 99) - (b.swiss.minPriceEur ?? 99); if (sortKey === 'delta') return Math.abs(b.comparison.priceDeltaEur ?? 0) - Math.abs(a.comparison.priceDeltaEur ?? 0); return (b.comparison.saving50LEur ?? -1) - (a.comparison.saving50LEur ?? -1); }); }, [data, province, search, sortKey]); const selected = useMemo(() => { if (!selectedKey) return null; return rows.find((row) => municipalityKey(row) === selectedKey) || null; }, [rows, selectedKey]); const homeMunicipality = useMemo(() => { return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null; }, [data, homeMunicipalityKey]); const personalizedRecommendation = useMemo(() => { if (!homeMunicipality) return null; return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur); }, [costPerKmEur, homeMunicipality, tankLiters]); if (loading) { return ( <div className="rounded-3xl border border-edge dark:border-slate-800 bg-surface/80 p-8 flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300"> <Loader2 className="animate-spin" size={20} /> <span>{tt('fuelPrices.loading', 'Caricamento prezzi carburanti...')}</span> </div> ); } if (error || !data) { return ( <div className="rounded-3xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-6 text-red-800 dark:text-red-300"> <h2 className="font-bold text-lg">{tt('fuelPrices.errorTitle', 'Impossibile caricare i dati carburanti')}</h2> <p className="text-sm mt-2">{error || tt('fuelPrices.errorBody', 'Il dataset non e disponibile al momento.')}</p> </div> ); } return ( <div className="space-y-6"> <section className="rounded-[2rem] border border-orange-200/70 dark:border-orange-800/40 bg-gradient-to-br from-orange-50 via-white to-stripe-50 dark:from-orange-950/40 dark:via-slate-900 dark:to-stripe-950/40 p-5 sm:p-8"> <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between"> <div className="max-w-3xl"> <div className="inline-flex items-center gap-2 rounded-full bg-surface/80 px-3 py-1 text-xs font-semibold text-orange-700 dark:text-orange-300 ring-1 ring-orange-200 dark:ring-orange-700"> <Fuel size={14} /> {tt('fuelPrices.badge', 'Osservatorio carburanti')} </div> <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"> {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')} </h1> <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base"> {tt('fuelPrices.subtitle', 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.')} </p> </div> <div className="grid grid-cols-1 gap-3 sm:grid-cols-2"> <div className="rounded-2xl border border-white bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.italySnapshot', 'Snapshot Italia')}</div> <div className="mt-1 font-bold text-heading">{formatDate(data.sources.italy.priceSnapshotDate, locale)}</div> </div> <div className="rounded-2xl border border-white dark:border-slate-700 bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.exchangeRate', 'Cambio CHF/EUR')}</div> <div className="mt-1 font-bold text-heading">1 CHF = {formatMoney(data.sources.exchangeRate.eurPerChf, 'EUR', locale, 4)}</div> </div> </div> </div> </section> <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle"> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</span> {tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</span> <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-link">{data.summary.cheaperSwissCount}</span> {tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</span> <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{data.summary.cheapestItalyMunicipality ? `${data.summary.cheapestItalyMunicipality.municipality}` : '—'}</span> {tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')} {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : ''}</span>
-        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+      return `${row.municipality} ${row.province}`.toLowerCase().includes(q); }); return [...list].sort((a, b) => { if (sortKey === 'name') return municipalityLabel(a).localeCompare(municipalityLabel(b)); if (sortKey === 'italy') return (a.italy.minPriceEur ?? 99) - (b.italy.minPriceEur ?? 99); if (sortKey === 'swiss') return (a.swiss.minPriceEur ?? 99) - (b.swiss.minPriceEur ?? 99); if (sortKey === 'delta') return Math.abs(b.comparison.priceDeltaEur ?? 0) - Math.abs(a.comparison.priceDeltaEur ?? 0); return (b.comparison.saving50LEur ?? -1) - (a.comparison.saving50LEur ?? -1); }); }, [data, province, search, sortKey]); const selected = useMemo(() => { if (!selectedKey) return null; return rows.find((row) => municipalityKey(row) === selectedKey) || null; }, [rows, selectedKey]); const homeMunicipality = useMemo(() => { return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null; }, [data, homeMunicipalityKey]); const personalizedRecommendation = useMemo(() => { if (!homeMunicipality) return null; return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur); }, [costPerKmEur, homeMunicipality, tankLiters]); if (loading) { return ( <div className="rounded-3xl border border-edge dark:border-slate-800 bg-surface/80 p-8 flex items-center justify-center gap-3 text-subtle"> <Loader2 className="animate-spin" size={20} /> <span>{tt('fuelPrices.loading', 'Caricamento prezzi carburanti...')}</span> </div> ); } if (error || !data) { return ( <div className="rounded-3xl border border-danger-border bg-danger-subtle p-6 text-danger"> <h2 className="font-bold text-lg">{tt('fuelPrices.errorTitle', 'Impossibile caricare i dati carburanti')}</h2> <p className="text-sm mt-2">{error || tt('fuelPrices.errorBody', 'Il dataset non e disponibile al momento.')}</p> </div> ); } return ( <div className="space-y-6"> <section className="rounded-[2rem] border border-orange-200/70 dark:border-orange-800/40 bg-gradient-to-br from-orange-50 via-white to-stripe-50 dark:from-orange-950/40 dark:via-slate-900 dark:to-stripe-950/40 p-5 sm:p-8"> <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between"> <div className="max-w-3xl"> <div className="inline-flex items-center gap-2 rounded-full bg-surface/80 px-3 py-1 text-xs font-semibold text-warning ring-1 ring-orange-200 dark:ring-orange-700"> <Fuel size={14} /> {tt('fuelPrices.badge', 'Osservatorio carburanti')} </div> <h1 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"> {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')} </h1> <p className="mt-3 max-w-2xl text-sm leading-6 text-subtle sm:text-base"> {tt('fuelPrices.subtitle', 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.')} </p> </div> <div className="grid grid-cols-1 gap-3 sm:grid-cols-2"> <div className="rounded-2xl border border-white bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.italySnapshot', 'Snapshot Italia')}</div> <div className="mt-1 font-bold text-heading">{formatDate(data.sources.italy.priceSnapshotDate, locale)}</div> </div> <div className="rounded-2xl border border-white dark:border-slate-700 bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.exchangeRate', 'Cambio CHF/EUR')}</div> <div className="mt-1 font-bold text-heading">1 CHF = {formatMoney(data.sources.exchangeRate.eurPerChf, 'EUR', locale, 4)}</div> </div> </div> </div> </section> <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle"> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-success">{data.summary.cheaperItalyCount}</span> {tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</span> <span className="hidden sm:inline text-edge" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-link">{data.summary.cheaperSwissCount}</span> {tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</span> <span className="hidden sm:inline text-edge" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{data.summary.cheapestItalyMunicipality ? `${data.summary.cheapestItalyMunicipality.municipality}` : '—'}</span> {tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')} {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : ''}</span>
+        <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
         <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{data.summary.cheapestSwissStation ? data.summary.cheapestSwissStation.name : '—'}</span> {tt('fuelPrices.bestSwissToday', 'Miglior prezzo Svizzera')} {data.summary.cheapestSwissStation ? `${formatMoney(data.summary.cheapestSwissStation.sp95PriceChf, 'CHF', locale)}` : ''}</span>
       </div>
 
       <section className="rounded-[2rem] border border-edge bg-surface p-5 sm:p-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-slate-700 dark:text-slate-200">
+            <div className="inline-flex items-center gap-2 rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-body">
               <Route size={14} />
               {tt('fuelPrices.personalizedBadge', 'Confronto dal tuo comune')}
             </div>
@@ -348,7 +348,7 @@ export default function FuelPriceStats() {
             <button
               type="button"
               onClick={() => setHomeMunicipalityKey(municipalityKey(selected))}
-              className="inline-flex items-center justify-center rounded-2xl border border-edge px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"
+              className="inline-flex items-center justify-center rounded-2xl border border-edge px-4 py-2 text-sm font-semibold text-body hover:bg-surface-raised"
             >
               {tt('fuelPrices.useSelectedMunicipality', 'Usa il comune aperto nella lista')}
             </button>
@@ -413,7 +413,7 @@ export default function FuelPriceStats() {
 
           <div className="rounded-3xl border border-edge bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 p-4 sm:p-5">
             {!homeMunicipality || !personalizedRecommendation?.best ? (
-              <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 px-5 py-10 text-center text-sm text-muted">
+              <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-edge px-5 py-10 text-center text-sm text-muted">
                 {tt('fuelPrices.personalizedEmpty', 'Seleziona un comune censito per ricevere il consiglio personalizzato su dove conviene fare benzina tenendo conto anche dei chilometri.')}
               </div>
             ) : (
@@ -437,7 +437,7 @@ export default function FuelPriceStats() {
                       <div className="mt-2 text-lg font-bold text-heading">{personalizedRecommendation.best.stationName}</div>
                       <div className="mt-1 text-sm text-muted">{personalizedRecommendation.best.stationMeta}</div>
                     </div>
-                    <div className={`inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${personalizedRecommendation.best.type === 'IT' ? 'border-emerald-200 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : 'border-stripe-200 dark:border-stripe-700 bg-stripe-50 dark:bg-stripe-900/40 text-stripe-700 dark:text-stripe-300'}`}>
+                    <div className={`inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${personalizedRecommendation.best.type === 'IT' ? 'border-success-border bg-success-subtle text-success' : 'border-accent-border bg-accent-subtle text-accent'}`}>
                       {personalizedRecommendation.best.label}
                     </div>
                   </div>
@@ -479,7 +479,7 @@ export default function FuelPriceStats() {
                 </div>
 
                 {personalizedRecommendation.savingsEur != null && (
-                  <div className="rounded-2xl border border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-900/30 px-4 py-3 text-sm font-semibold text-orange-800 dark:text-orange-300">
+                  <div className="rounded-2xl border border-warning-border bg-orange-50 dark:bg-orange-900/30 px-4 py-3 text-sm font-semibold text-warning">
                     {tt('fuelPrices.personalizedSavingPrefix', 'Risparmio stimato rispetto all alternativa')}: {formatMoney(personalizedRecommendation.savingsEur, 'EUR', locale, 2)}
                   </div>
                 )}
@@ -539,7 +539,7 @@ export default function FuelPriceStats() {
             {rows.slice(0, 120).map((row) => {
               const isSelected = municipalityKey(row) === municipalityKey(selected || row) && municipalityKey(row) === selectedKey;
               return (
-                <div key={municipalityKey(row)} className="rounded-[1.5rem] border border-edge bg-slate-50/70 dark:bg-slate-900/50">
+                <div key={municipalityKey(row)} className="rounded-[1.5rem] border border-edge bg-surface-alt/70">
                   <button
                     type="button"
                     onClick={() => {
@@ -586,7 +586,7 @@ export default function FuelPriceStats() {
                           <div className="mt-1 font-bold text-heading">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
                         </div>
                         <div className="flex items-center justify-end lg:justify-start">
-                          <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          <span className="inline-flex items-center gap-2 text-sm font-semibold text-body">
                             {isSelected ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                             {isSelected ? tt('fuelPrices.hideDetails', 'Nascondi') : tt('fuelPrices.showDetails', 'Apri dettaglio')}
                           </span>
@@ -605,7 +605,7 @@ export default function FuelPriceStats() {
             })}
 
             {!rows.length && (
-              <div className="rounded-3xl border border-dashed border-slate-300 dark:border-slate-600 bg-surface-alt/50 px-5 py-10 text-center text-sm text-muted">
+              <div className="rounded-3xl border border-dashed border-edge bg-surface-alt/50 px-5 py-10 text-center text-sm text-muted">
                 {tt('fuelPrices.noMatches', 'Nessun comune trovato con i filtri attuali.')}
               </div>
             )}
@@ -617,7 +617,7 @@ export default function FuelPriceStats() {
             <h2 className="text-lg font-bold text-heading">{tt('fuelPrices.bestDeals', 'Dove si risparmia di piu')}</h2>
             <div className="mt-4 space-y-3">
               {data.rankings.bestCrossBorderSavings.slice(0, 6).map((item) => (
-                <div key={`${item.municipality}-${item.province}`} className="rounded-2xl border border-slate-100 dark:border-slate-700/50 bg-surface-alt/50 px-4 py-3">
+                <div key={`${item.municipality}-${item.province}`} className="rounded-2xl border border-edge/50 bg-surface-alt/50 px-4 py-3">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="font-semibold text-heading">{item.municipality} ({item.province})</div>
@@ -641,18 +641,18 @@ export default function FuelPriceStats() {
 
           <div className="rounded-[2rem] border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-heading">{tt('fuelPrices.sourceNotes', 'Fonti e metodo')}</h2>
-            <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <ul className="mt-4 space-y-3 text-sm text-subtle">
               <li>{tt('fuelPrices.noteItaly', 'Italia: dati ufficiali MIMIT del file prezzi alle 8 e anagrafica impianti attivi.')}</li>
               <li>{tt('fuelPrices.noteSwiss', 'Svizzera: dati SP95 ricavati dal feed pubblico TCS delle stazioni nell area di frontiera.')}</li>
               <li>{tt('fuelPrices.noteExchange', 'Il confronto IT-CH converte i prezzi svizzeri in EUR usando il tasso ECB del giorno del dataset.')}</li>
               <li>{tt('fuelPrices.noteDistance', 'Nel consiglio personalizzato il totale include un costo chilometrico andata e ritorno impostato da te.')}</li>
             </ul>
             <div className="mt-4 flex flex-wrap gap-3">
-              <a href={data.sources.italy.pricesUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-edge px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 no-underline">
+              <a href={data.sources.italy.pricesUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-edge px-3 py-2 text-xs font-semibold text-body hover:bg-surface-raised no-underline">
                 {tt('fuelPrices.sourceItalyLink', 'Fonte Italia')}
                 <ExternalLink size={14} />
               </a>
-              <a href={data.sources.switzerland.providerUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-edge px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 no-underline">
+              <a href={data.sources.switzerland.providerUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-edge px-3 py-2 text-xs font-semibold text-body hover:bg-surface-raised no-underline">
                 {tt('fuelPrices.sourceSwissLink', 'Fonte Svizzera')}
                 <ExternalLink size={14} />
               </a>

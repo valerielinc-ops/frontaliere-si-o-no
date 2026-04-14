@@ -202,7 +202,7 @@ const PermitQuiz: React.FC = () => {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center justify-center gap-3">
+          <h2 className="text-2xl font-bold text-strong flex items-center justify-center gap-3">
             <Sparkles size={24} className="text-amber-500" />
             {t('permitQuiz.results.title')}
           </h2>
@@ -217,7 +217,7 @@ const PermitQuiz: React.FC = () => {
             {/* Permit B */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-semibold text-slate-700 dark:text-slate-200">
+                <span className="font-semibold text-body">
                   {t('permitQuiz.results.permitB')}
                 </span>
                 <span className="text-lg font-bold text-link">{bPercent}%</span>
@@ -233,10 +233,10 @@ const PermitQuiz: React.FC = () => {
             {/* Permit G */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-semibold text-slate-700 dark:text-slate-200">
+                <span className="font-semibold text-body">
                   {t('permitQuiz.results.permitG')}
                 </span>
-                <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">{gPercent}%</span>
+                <span className="text-lg font-bold text-success">{gPercent}%</span>
               </div>
               <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
                 <div
@@ -255,7 +255,7 @@ const PermitQuiz: React.FC = () => {
               <CheckCircle2 size={24} className={`text-${recColor}-600 dark:text-${recColor}-400`} />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">
+              <h3 className="font-bold text-lg text-strong">
                 {t(`permitQuiz.results.rec.${recommendation}`)}
               </h3>
               <p className="text-subtle mt-1 text-sm">
@@ -267,7 +267,7 @@ const PermitQuiz: React.FC = () => {
 
         {/* Key Factors */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 mb-6">
-          <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+          <h3 className="font-bold text-strong mb-4 flex items-center gap-2">
             <FileText size={18} className="text-amber-500" />
             {t('permitQuiz.results.factors')}
           </h3>
@@ -275,7 +275,7 @@ const PermitQuiz: React.FC = () => {
             {answers.map(a => {
               const dominant = a.bScore > a.gScore ? 'B' : a.gScore > a.bScore ? 'G' : '=';
               return (
-                <div key={a.questionId} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
+                <div key={a.questionId} className="flex items-center justify-between py-2 border-b border-edge last:border-0">
                   <span className="text-sm text-subtle">
                     {t(`permitQuiz.q.${a.questionId}.title`)}
                   </span>
@@ -320,7 +320,7 @@ const PermitQuiz: React.FC = () => {
         <div className="text-center mt-6">
           <button
             onClick={restart}
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-strong transition-colors"
             aria-label={t('permitQuiz.restart')}
           >
             <RotateCcw size={14} />
@@ -344,7 +344,7 @@ const PermitQuiz: React.FC = () => {
         <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <HelpCircle size={24} className="text-white" />
         </div>
-        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+        <h2 className="text-2xl font-bold text-strong">
           {t('permitQuiz.title')}
         </h2>
         <p className="text-subtle mt-2 text-sm">
@@ -369,10 +369,10 @@ const PermitQuiz: React.FC = () => {
       {/* Question */}
       <div className="bg-surface rounded-2xl border border-edge p-6">
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-            <Icon size={20} className="text-amber-600 dark:text-amber-300" />
+          <div className="w-10 h-10 rounded-xl bg-warning-subtle flex items-center justify-center">
+            <Icon size={20} className="text-warning" />
           </div>
-          <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">
+          <h3 className="font-bold text-lg text-strong">
             {t(`permitQuiz.q.${question.id}.title`)}
           </h3>
         </div>
@@ -391,18 +391,18 @@ const PermitQuiz: React.FC = () => {
                 onClick={() => handleAnswer(question.id, opt)}
                 className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
                   isSelected
-                    ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/30 dark:border-amber-600 ring-2 ring-amber-200 dark:ring-amber-800'
+                    ? 'border-amber-500 bg-warning-subtle dark:border-amber-600 ring-2 ring-amber-200 dark:ring-amber-800'
                     : 'border-edge hover:border-amber-300 dark:hover:border-amber-700 hover:bg-amber-50/50 dark:hover:bg-amber-900/10'
                 }`}
                 aria-label={t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
               >
                 <div className="flex items-center gap-3">
                   <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    isSelected ? 'border-amber-500 bg-amber-500' : 'border-slate-300 dark:border-slate-500'
+                    isSelected ? 'border-amber-500 bg-amber-500' : 'border-edge'
                   }`}>
                     {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
                   </div>
-                  <span className={`text-sm ${isSelected ? 'font-semibold text-amber-700 dark:text-amber-300' : 'text-slate-700 dark:text-slate-200'}`}>
+                  <span className={`text-sm ${isSelected ? 'font-semibold text-warning' : 'text-body'}`}>
                     {t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
                   </span>
                 </div>
@@ -417,7 +417,7 @@ const PermitQuiz: React.FC = () => {
         <button
           onClick={goBack}
           disabled={currentStep === 0}
-          className="flex items-center gap-2 text-sm text-muted hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 text-sm text-muted hover:text-strong disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           aria-label={t('permitQuiz.back')}
         >
           <ArrowLeft size={16} />

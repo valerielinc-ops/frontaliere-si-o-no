@@ -211,23 +211,23 @@ const BankComparison: React.FC = () => {
 
   return (
     <div className="space-y-6 pb-8">
-      <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-amber-600 dark:border-amber-500">
+      <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
         <div className="flex items-center gap-3 mb-4">
-          <Building2 size={32} className="text-amber-700 dark:text-amber-400" />
+          <Building2 size={32} className="text-warning" />
           <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('banks.title')}</h2>
         </div>
         <p className="text-stone-500 dark:text-stone-400 text-lg">{t('banks.subtitle')}</p>
         <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
       </div>
 
-      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      <p className="text-sm text-subtle leading-relaxed">
         {t('comparatori.bank.intro.p1')}
       </p>
 
-      <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
+      <div className="bg-warning-subtle border-l-4 border-amber-500 p-4 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
-          <div className="text-sm text-amber-900 dark:text-amber-200">
+          <div className="text-sm text-warning">
             <p className="font-bold mb-1">{t('banks.strategyTitle')}</p>
             <p dangerouslySetInnerHTML={{ __html: t('banks.strategyText') }} />
           </div>
@@ -243,7 +243,7 @@ const BankComparison: React.FC = () => {
                 <button
                   key={c}
                   onClick={() => { setFilterCountry(c as any); Analytics.trackBankComparison('filter', undefined, c); }}
-                  className={`px-4 py-2 rounded-lg text-sm font-bold ${filterCountry === c ? 'bg-amber-700 text-white' : 'bg-surface-raised text-slate-600 dark:text-slate-300'}`}
+                  className={`px-4 py-2 rounded-lg text-sm font-bold ${filterCountry === c ? 'bg-amber-700 text-white' : 'bg-surface-raised text-subtle'}`}
                 >
                   {c === 'all' ? t('banks.all') : c === 'CH' ? '🇨🇭 CH' : '🇮🇹 IT'}
                 </button>
@@ -290,13 +290,13 @@ const BankComparison: React.FC = () => {
                     <Building2 size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{bank.name}</h3>
+                    <h3 className="text-xl font-bold text-strong">{bank.name}</h3>
                     <p className="text-sm text-muted">{bank.country === 'CH' ? `🇨🇭 ${t('banks.switzerland')}` : `🇮🇹 ${t('banks.italy')}`}</p>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     {bank.accountFee === 0 ? t('banks.free') : `${bank.accountFee} ${bank.country === 'CH' ? 'CHF' : '€'}`}
                   </div>
                   <div className="text-xs text-muted">{t('banks.monthlyFee')}</div>
@@ -306,29 +306,29 @@ const BankComparison: React.FC = () => {
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm">
                   <span className="text-subtle">{t('banks.transfers')}</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-100">{bank.transactionFees}</span>
+                  <span className="font-bold text-strong">{bank.transactionFees}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-subtle">{t('banks.atmWithdrawals')}</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-100">{bank.atmFees}</span>
+                  <span className="font-bold text-strong">{bank.atmFees}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-subtle">{t('banks.card')}</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-100">{bank.cardType}</span>
+                  <span className="font-bold text-strong">{bank.cardType}</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-lg">
-                  <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400 mb-1">✓ {t('banks.pros')}</p>
+                <div className="p-3 bg-success-subtle rounded-lg">
+                  <p className="text-xs font-bold text-success mb-1">✓ {t('banks.pros')}</p>
                   <ul className="space-y-1">
                     {bank.pros.slice(0, 2).map((p, i) => (
                       <li key={i} className="text-xs text-body">• {p}</li>
                     ))}
                   </ul>
                 </div>
-                <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
-                  <p className="text-xs font-bold text-red-700 dark:text-red-400 mb-1">✗ {t('banks.cons')}</p>
+                <div className="p-3 bg-danger-subtle rounded-lg">
+                  <p className="text-xs font-bold text-danger mb-1">✗ {t('banks.cons')}</p>
                   <ul className="space-y-1">
                     {bank.cons.slice(0, 2).map((c, i) => (
                       <li key={i} className="text-xs text-body">• {c}</li>

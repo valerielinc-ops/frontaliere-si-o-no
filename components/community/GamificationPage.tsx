@@ -83,7 +83,7 @@ const GamificationPage: React.FC = () => {
             <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-white">{unlockedCount}<span className="text-sm text-amber-200">/{totalCount}</span></span> {progressPercent}% {t('gamification.completed') || 'completato'}</span>
           </div>
           <div className="w-full max-w-xs bg-white/20 rounded-full h-1.5 mt-3">
-            <div className="bg-white dark:bg-slate-600 rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
+            <div className="bg-surface rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
           </div>
           <div className="text-xs text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
         </div>
@@ -104,12 +104,12 @@ const GamificationPage: React.FC = () => {
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-bold whitespace-nowrap rounded-xl transition-[color,background-color,border-color,box-shadow] ${
                 selectedCategory === cat
                   ? `bg-gradient-to-r ${categoryColors[cat]} text-white shadow-md`
-                  : 'bg-surface text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-edge'
+                  : 'bg-surface text-subtle hover:bg-surface-raised border border-edge'
               }`}
             >
               {categoryIcons[cat]}
               <span>{t(`gamification.category.${cat}`)}</span>
-              <span className={`text-xs px-1.5 py-0.5 rounded-full ${selectedCategory === cat ? 'bg-white/30' : 'bg-slate-200 dark:bg-slate-700'}`}>
+              <span className={`text-xs px-1.5 py-0.5 rounded-full ${selectedCategory === cat ? 'bg-white/30' : 'bg-surface-raised'}`}>
                 {catUnlocked}/{catCount}
               </span>
             </button>
@@ -131,14 +131,14 @@ const GamificationPage: React.FC = () => {
               key={achievement.id}
               className={`relative flex items-start gap-4 p-4 rounded-2xl transition-[color,background-color,border-color,box-shadow] ${
                 isUnlocked
-                  ? 'bg-surface border-2 border-amber-300 dark:border-amber-700 shadow-md'
+                  ? 'bg-surface border-2 border-warning-border shadow-md'
                   : 'bg-surface/60 border border-edge opacity-70'
               }`}
             >
               {/* Icon */}
               <div className={`text-3xl flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
                 isUnlocked
-                  ? 'bg-amber-50 dark:bg-amber-900/20'
+                  ? 'bg-warning-subtle'
                   : 'bg-surface-raised grayscale'
               }`}>
                 {isUnlocked ? achievement.icon : <Lock size={20} className="text-muted" />}
@@ -147,7 +147,7 @@ const GamificationPage: React.FC = () => {
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <h3 className={`text-sm font-bold ${isUnlocked ? 'text-amber-700 dark:text-amber-400' : 'text-muted'}`}>
+                  <h3 className={`text-sm font-bold ${isUnlocked ? 'text-warning' : 'text-muted'}`}>
                     {t(`gamification.achievement.${achievement.id}`)}
                   </h3>
                   {isUnlocked && <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />}
@@ -159,7 +159,7 @@ const GamificationPage: React.FC = () => {
                 {/* Progress bar for locked multi-count achievements */}
                 {!isUnlocked && achievement.requiredCount > 1 && (
                   <div className="flex items-center gap-2 mt-2">
-                    <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
+                    <div className="flex-1 bg-surface-raised rounded-full h-1.5">
                       <div className="bg-amber-500 rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
                     </div>
                     <span className="text-sm text-muted font-bold">{count}/{achievement.requiredCount}</span>
@@ -177,7 +177,7 @@ const GamificationPage: React.FC = () => {
                 {/* XP reward */}
                 <div className="flex items-center gap-1 mt-1.5">
                   <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-muted'} />
-                  <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-muted'}`}>
+                  <span className={`text-xs font-bold ${isUnlocked ? 'text-warning' : 'text-muted'}`}>
                     +50 XP
                   </span>
                 </div>
@@ -189,7 +189,7 @@ const GamificationPage: React.FC = () => {
 
       {/* Level progression guide */}
       <div className="bg-surface rounded-2xl border border-edge p-6">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
           <Trophy size={20} className="text-amber-500" />
           {t('gamification.levelGuide') || 'Livelli'}
         </h3>
@@ -203,16 +203,16 @@ const GamificationPage: React.FC = () => {
                 key={lvl}
                 className={`p-3 rounded-xl text-center transition-[color,background-color,border-color,box-shadow] ${
                   isCurrent
-                    ? 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border-2 border-amber-400 dark:border-amber-700 shadow-sm'
+                    ? 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border-2 border-warning-border shadow-sm'
                     : isReached
-                      ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800'
+                      ? 'bg-success-subtle border border-success-border'
                       : 'bg-surface-alt/50 border border-edge opacity-50'
                 }`}
               >
                 <div className={`text-lg font-bold ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-700' : 'text-muted'}`}>
                   {lvl}
                 </div>
-                <div className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-0.5">{title}</div>
+                <div className="text-xs font-bold text-subtle mt-0.5">{title}</div>
               </div>
             );
           })}

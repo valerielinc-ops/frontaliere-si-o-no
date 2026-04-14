@@ -107,8 +107,8 @@ export default function LivabilityIndex() {
       {/* Header */}
       <div className="bg-surface rounded-xl shadow-lg p-5">
         <div className="flex items-center gap-3 mb-2">
-          <MapPin className="text-amber-600 dark:text-amber-400" size={28} />
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('livability.title')}</h2>
+          <MapPin className="text-warning" size={28} />
+          <h2 className="text-2xl font-bold text-heading">{t('livability.title')}</h2>
         </div>
         <p className="text-subtle">{t('livability.subtitle')}</p>
       </div>
@@ -126,7 +126,7 @@ export default function LivabilityIndex() {
               value={filterProvince}
               onChange={(e) => setFilterProvince(e.target.value)}
               aria-label={t('livability.filterProvince') || 'Filtra per provincia'}
-              className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
+              className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
             >
               <option value="">{t('livability.allProvinces')}</option>
               {provinces.map((p) => (
@@ -145,7 +145,7 @@ export default function LivabilityIndex() {
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortKey)}
               aria-label={t('livability.sortBy') || 'Ordina per'}
-              className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
+              className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
             >
               <option value="score">{t('livability.sortScore')}</option>
               <option value="distance">{t('livability.sortDistance')}</option>
@@ -161,8 +161,8 @@ export default function LivabilityIndex() {
               onClick={() => setViewMode('table')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
                 viewMode === 'table'
-                  ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                  : 'text-subtle hover:text-slate-800 dark:hover:text-white'
+                  ? 'bg-surface text-warning shadow'
+                  : 'text-subtle hover:text-strong'
               }`}
               aria-label={t('livability.table')}
             >
@@ -172,8 +172,8 @@ export default function LivabilityIndex() {
               onClick={() => setViewMode('map')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
                 viewMode === 'map'
-                  ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                  : 'text-subtle hover:text-slate-800 dark:hover:text-white'
+                  ? 'bg-surface text-warning shadow'
+                  : 'text-subtle hover:text-strong'
               }`}
               aria-label={t('livability.map')}
             >
@@ -196,24 +196,24 @@ export default function LivabilityIndex() {
       {viewMode === 'table' ? (
         <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' }}>          <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-slate-50 dark:bg-slate-700">
+              <thead className="bg-surface-alt">
                 <tr>
-                  <th className="py-3 px-4 text-left text-slate-600 dark:text-slate-300">#</th>
-                  <th className="py-3 px-4 text-left text-slate-600 dark:text-slate-300">{t('livability.municipality')}</th>
-                  <th className="py-3 px-3 text-center text-slate-600 dark:text-slate-300">{t('livability.province')}</th>
-                  <th className="py-3 px-3 text-right text-slate-600 dark:text-slate-300">{t('livability.score')}</th>
-                  <th className="py-3 px-3 text-right text-slate-600 dark:text-slate-300">{t('livability.distance')}</th>
-                  <th className="py-3 px-3 text-right text-slate-600 dark:text-slate-300">{t('livability.rent')}</th>
-                  <th className="py-3 px-3 text-right text-slate-600 dark:text-slate-300">{t('livability.irpef')}</th>
-                  <th className="py-3 px-3 text-right text-slate-600 dark:text-slate-300">{t('livability.population')}</th>
-                  <th className="py-3 px-3 text-center text-slate-600 dark:text-slate-300">{t('livability.fascia')}</th>
+                  <th className="py-3 px-4 text-left text-subtle">#</th>
+                  <th className="py-3 px-4 text-left text-subtle">{t('livability.municipality')}</th>
+                  <th className="py-3 px-3 text-center text-subtle">{t('livability.province')}</th>
+                  <th className="py-3 px-3 text-right text-subtle">{t('livability.score')}</th>
+                  <th className="py-3 px-3 text-right text-subtle">{t('livability.distance')}</th>
+                  <th className="py-3 px-3 text-right text-subtle">{t('livability.rent')}</th>
+                  <th className="py-3 px-3 text-right text-subtle">{t('livability.irpef')}</th>
+                  <th className="py-3 px-3 text-right text-subtle">{t('livability.population')}</th>
+                  <th className="py-3 px-3 text-center text-subtle">{t('livability.fascia')}</th>
                 </tr>
               </thead>
               <tbody>
                 {filtered.map((m, idx) => (
                   <tr
                     key={m.name}
-                    className={`border-b border-slate-100 dark:border-slate-700/50 ${idx < 3 ? 'bg-amber-50/30 dark:bg-amber-900/10' : ''}`}
+                    className={`border-b border-edge/50 ${idx < 3 ? 'bg-amber-50/30 dark:bg-amber-900/10' : ''}`}
                   >
                     <td className="py-2.5 px-4">
                       {m.rank <= 3 ? (
@@ -222,14 +222,14 @@ export default function LivabilityIndex() {
                         <span className="text-muted font-mono">{m.rank}</span>
                       )}
                     </td>
-                    <td className="py-2.5 px-4 font-medium text-slate-800 dark:text-white">{m.name}</td>
+                    <td className="py-2.5 px-4 font-medium text-heading">{m.name}</td>
                     <td className="py-2.5 px-3 text-center text-subtle">{m.province}</td>
                     <td className="py-2.5 px-3 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <div className="w-16 bg-surface-raised rounded-full h-2 overflow-hidden">
                           <div className={`h-full rounded-full ${scoreBarColor(m.score)}`} style={{ width: `${m.score * 100}%` }} />
                         </div>
-                        <span className="font-mono font-bold text-slate-800 dark:text-white w-10 text-right">
+                        <span className="font-mono font-bold text-heading w-10 text-right">
                           {(m.score * 100).toFixed(0)}
                         </span>
                       </div>

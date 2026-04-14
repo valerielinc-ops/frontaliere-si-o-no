@@ -226,9 +226,9 @@ const CostOfLiving: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="pb-6 border-b-2 border-amber-200 dark:border-amber-800">
+      <div className="pb-6 border-b-2 border-warning-border">
         <div className="flex items-center gap-3 mb-3">
-          <BarChart3 size={28} className="text-amber-700 dark:text-amber-400" />
+          <BarChart3 size={28} className="text-warning" />
           <h3 className="text-3xl sm:text-4xl font-bold text-stone-800 dark:text-stone-100">{t('costOfLiving.title')}</h3>
         </div>
         <p className="text-lg text-stone-500 dark:text-stone-400">{t('costOfLiving.subtitle')}</p>
@@ -295,13 +295,13 @@ const CostOfLiving: React.FC = () => {
         <div className="bg-surface rounded-xl border border-edge p-1 inline-flex">
           <button
             onClick={() => setShowAnnual(false)}
-            className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${!showAnnual ? 'bg-amber-700 text-white' : 'text-muted hover:bg-slate-100 dark:hover:bg-slate-700'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${!showAnnual ? 'bg-amber-700 text-white' : 'text-muted hover:bg-surface-raised'}`}
           >
             {t('costOfLiving.monthly')}
           </button>
           <button
             onClick={() => setShowAnnual(true)}
-            className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${showAnnual ? 'bg-amber-700 text-white' : 'text-muted hover:bg-slate-100 dark:hover:bg-slate-700'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${showAnnual ? 'bg-amber-700 text-white' : 'text-muted hover:bg-surface-raised'}`}
           >
             {t('costOfLiving.annual')}
           </button>
@@ -310,19 +310,19 @@ const CostOfLiving: React.FC = () => {
 
       {/* Summary Stats */}
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-        <div><span className="text-muted">🇨🇭 {cityCH.name}:</span>{' '}<span className="font-semibold text-slate-900 dark:text-white">€ {totalCH_EUR.toFixed(0)}</span>{' '}<span className="text-muted">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</span></div>
-        <div><span className="text-muted">🇮🇹 {cityIT.name}:</span>{' '}<span className="font-semibold text-slate-900 dark:text-white">€ {totalIT_EUR.toFixed(0)}</span>{' '}<span className="text-muted">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</span></div>
+        <div><span className="text-muted">🇨🇭 {cityCH.name}:</span>{' '}<span className="font-semibold text-heading">€ {totalCH_EUR.toFixed(0)}</span>{' '}<span className="text-muted">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</span></div>
+        <div><span className="text-muted">🇮🇹 {cityIT.name}:</span>{' '}<span className="font-semibold text-heading">€ {totalIT_EUR.toFixed(0)}</span>{' '}<span className="text-muted">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</span></div>
         <div className="flex items-center gap-1">
           <span className="text-muted">{t('costOfLiving.savings')}:</span>{' '}
-          {totalSavings > 0 ? <TrendingDown size={16} className="text-emerald-600 dark:text-emerald-400" /> : <TrendingUp size={16} className="text-red-600 dark:text-red-400" />}
-          <span className={`font-semibold ${totalSavings > 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>€ {Math.abs(totalSavings).toFixed(0)}</span>{' '}
+          {totalSavings > 0 ? <TrendingDown size={16} className="text-success" /> : <TrendingUp size={16} className="text-danger" />}
+          <span className={`font-semibold ${totalSavings > 0 ? 'text-success' : 'text-danger'}`}>€ {Math.abs(totalSavings).toFixed(0)}</span>{' '}
           <span className="text-muted">({savingsPercent.toFixed(0)}% {totalSavings > 0 ? t('costOfLiving.cheaperInItaly') : t('costOfLiving.cheaperInSwitzerland')})</span>
         </div>
       </div>
 
       {/* Detailed Comparison */}
       <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
-        <div className="p-4 bg-slate-50 dark:bg-slate-750 border-b border-edge">
+        <div className="p-4 bg-surface-alt border-b border-edge">
           <div className="hidden sm:grid grid-cols-4 text-xs font-bold text-muted uppercase tracking-wider">
             <div>{t('costOfLiving.category')}</div>
             <div className="text-center">🇨🇭 {cityCH.name}</div>
@@ -341,7 +341,7 @@ const CostOfLiving: React.FC = () => {
           const maxVal = Math.max(valCH_EUR, valIT_EUR);
 
           return (
-            <div key={cat.key} className="p-4 border-b border-slate-100 dark:border-slate-700/50 last:border-b-0 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+            <div key={cat.key} className="p-4 border-b border-edge/50 last:border-b-0 hover:bg-surface-raised transition-colors">
               <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-2">
                 <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                   <span className="text-amber-600">{cat.icon}</span>
@@ -360,7 +360,7 @@ const CostOfLiving: React.FC = () => {
                 <div className="text-right">
                   {diff !== 0 ? (
                     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${
-                      diff > 0 ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400' : 'bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400'
+                      diff > 0 ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'
                     }`}>
                       {diff > 0 ? <TrendingDown size={12} /> : <TrendingUp size={12} />}
                       {Math.abs(diffPercent).toFixed(0)}%
@@ -398,10 +398,10 @@ const CostOfLiving: React.FC = () => {
       </div>
 
       {/* Frontaliere Tip */}
-      <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
+      <div className="bg-warning-subtle border-l-4 border-amber-500 p-4 rounded-lg">
         <div className="flex items-start gap-3">
           <DollarSign className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
-          <div className="text-sm text-amber-900 dark:text-amber-200">
+          <div className="text-sm text-warning">
             <p className="font-bold mb-1">{t('costOfLiving.frontaliereTipTitle')}</p>
             <p>{t('costOfLiving.frontaliereTip')}</p>
           </div>
@@ -422,7 +422,7 @@ const CostOfLiving: React.FC = () => {
             { name: 'Numbeo', url: 'https://www.numbeo.com', flag: '🌍' },
           ].map(source => (
             <a key={source.name} href={source.url} target="_blank" rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-surface-raised rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors font-bold text-body flex items-center gap-1">
+              className="px-3 py-1.5 bg-surface-raised rounded-lg hover:bg-warning-subtle transition-colors font-bold text-body flex items-center gap-1">
               {source.flag} {source.name} <ExternalLink size={10} />
             </a>
           ))}

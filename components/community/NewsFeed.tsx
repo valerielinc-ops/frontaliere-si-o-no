@@ -66,12 +66,12 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
     <div className="flex items-center gap-2 h-[34px] bg-surface rounded-xl border border-edge px-3 text-xs overflow-hidden">
       {/* Icon + label */}
       <div className="flex items-center gap-1.5 flex-shrink-0">
-        <Newspaper size={13} className="text-red-500 dark:text-red-400" />
+        <Newspaper size={13} className="text-danger" />
         <span className="font-bold text-muted hidden sm:inline">{t('newsfeed.title')}</span>
       </div>
 
       {/* Divider */}
-      <div className="w-px h-4 bg-slate-200 dark:bg-slate-600 flex-shrink-0" />
+      <div className="w-px h-4 bg-surface-raised flex-shrink-0" />
 
       {/* Rotating headline with horizontal slide */}
       <div className="flex-1 min-w-0 relative h-5 overflow-hidden">
@@ -87,7 +87,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
                 Analytics.trackSelectContent('news_article', art.id);
                 Analytics.trackUIInteraction('newsfeed', 'ticker', 'headline', 'open_article', art.id);
               }}
-              className="absolute inset-0 flex items-center font-medium text-slate-700 dark:text-slate-200 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors duration-300 ease-out"
+              className="absolute inset-0 flex items-center font-medium text-body hover:text-accent transition-colors duration-300 ease-out"
               style={{
                 transform: `translateX(${(i - idx) * 100}%)`,
                 opacity: i === idx ? 1 : 0,
@@ -109,7 +109,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
             prev();
             Analytics.trackUIInteraction('newsfeed', 'ticker', 'navigation', 'prev');
           }}
-          className="p-0.5 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          className="p-0.5 rounded hover:bg-surface-raised text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
           aria-label="Previous"
         >
           <ChevronLeft size={14} />
@@ -120,7 +120,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
             next();
             Analytics.trackUIInteraction('newsfeed', 'ticker', 'navigation', 'next');
           }}
-          className="p-0.5 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          className="p-0.5 rounded hover:bg-surface-raised text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
           aria-label="Next"
         >
           <ChevronRight size={14} />

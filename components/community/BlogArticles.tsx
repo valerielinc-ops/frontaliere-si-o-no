@@ -224,7 +224,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
             key={`l${key++}`}
             href={href}
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); handler(); }}
-            className={`inline text-stripe-600 dark:text-stripe-400 ${isBoldLink ? 'font-bold' : 'font-medium'} underline underline-offset-2 decoration-stripe-300 dark:decoration-stripe-600 hover:decoration-stripe-600 dark:hover:decoration-stripe-400 transition-colors cursor-pointer`}
+            className={`inline text-accent ${isBoldLink ? 'font-bold' : 'font-medium'} underline underline-offset-2 decoration-stripe-300 dark:decoration-stripe-600 hover:decoration-stripe-600 dark:hover:decoration-stripe-400 transition-colors cursor-pointer`}
           >
             {linkText}
           </a>
@@ -240,7 +240,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
           href={match[6]}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline text-stripe-600 dark:text-stripe-400 font-medium underline underline-offset-2 decoration-stripe-300 dark:decoration-stripe-600 hover:decoration-stripe-600 dark:hover:decoration-stripe-400 transition-colors"
+          className="inline text-accent font-medium underline underline-offset-2 decoration-stripe-300 dark:decoration-stripe-600 hover:decoration-stripe-600 dark:hover:decoration-stripe-400 transition-colors"
         >
           {match[5]}
         </a>
@@ -276,7 +276,7 @@ function tryRenderMdTable(text: string, keyPrefix: string, navigators?: Navigato
         <thead>
           <tr>
             {headers.map((h, hi) => (
-              <th key={hi} className="border border-slate-300 dark:border-slate-600 bg-surface-raised px-3 py-2 text-left font-semibold text-strong">
+              <th key={hi} className="border border-edge bg-surface-raised px-3 py-2 text-left font-semibold text-strong">
                 {renderInlineFormatting(h, navigators)}
               </th>
             ))}
@@ -286,7 +286,7 @@ function tryRenderMdTable(text: string, keyPrefix: string, navigators?: Navigato
           {bodyLines.map((row, ri) => (
             <tr key={ri} className={ri % 2 === 1 ? 'bg-surface-alt/50' : ''}>
               {parseCells(row).map((cell, ci) => (
-                <td key={ci} className="border border-slate-300 dark:border-slate-600 px-3 py-2 text-body">
+                <td key={ci} className="border border-edge px-3 py-2 text-body">
                   {renderInlineFormatting(cell, navigators)}
                 </td>
               ))}
@@ -396,14 +396,14 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
         }
 
         renderedBlocks.push(
-          <div key={`tools-${idx}`} className="bg-stripe-50/70 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 flex gap-3">
-            <Coins size={20} className="text-stripe-600 dark:text-stripe-400 shrink-0 mt-0.5" />
+          <div key={`tools-${idx}`} className="bg-stripe-50/70 dark:bg-stripe-900/20 border border-accent-border rounded-xl p-4 flex gap-3">
+            <Coins size={20} className="text-accent shrink-0 mt-0.5" />
             <div className="space-y-1.5">
-              <p className="text-stripe-900 dark:text-stripe-100 text-sm font-semibold leading-relaxed">
+              <p className="text-accent text-sm font-semibold leading-relaxed">
                 {renderInlineFormatting(heading, navigators)}
               </p>
               {toolBody && (
-                <p className="text-stripe-800 dark:text-stripe-200 text-sm leading-relaxed">
+                <p className="text-accent text-sm leading-relaxed">
                   {renderInlineFormatting(toolBody, navigators)}
                 </p>
               )}
@@ -416,7 +416,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       const h2TableEl = inlineBody ? tryRenderMdTable(inlineBody, `h2tbl-${idx}`, navigators) : null;
       renderedBlocks.push(
         <div key={`heading-${idx}`} className="space-y-2">
-          <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-slate-900 dark:text-white border-l-4 border-stripe-500 pl-3 mt-6 mb-2 scroll-mt-20">
+          <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-heading border-l-4 border-stripe-500 pl-3 mt-6 mb-2 scroll-mt-20">
             {renderInlineFormatting(heading, navigators)}
           </h2>
           {h2TableEl || (inlineBody && (
@@ -440,9 +440,9 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
     // Data box: 📊 prefix
     if (trimmed.startsWith('📊')) {
       renderedBlocks.push(
-        <div key={`data-${idx}`} className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 flex gap-3">
+        <div key={`data-${idx}`} className="bg-accent-subtle border border-accent-border rounded-xl p-4 flex gap-3">
           <BarChart3 size={20} className="text-link shrink-0 mt-0.5" />
-          <p className="text-stripe-800 dark:text-stripe-200 leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
+          <p className="text-accent leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
         </div>
       );
       continue;
@@ -451,9 +451,9 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
     // Tip box: 💡 prefix
     if (trimmed.startsWith('💡')) {
       renderedBlocks.push(
-        <div key={`tip-${idx}`} className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 flex gap-3">
-          <Lightbulb size={20} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-          <p className="text-amber-800 dark:text-amber-200 leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
+        <div key={`tip-${idx}`} className="bg-warning-subtle border border-warning-border rounded-xl p-4 flex gap-3">
+          <Lightbulb size={20} className="text-warning shrink-0 mt-0.5" />
+          <p className="text-warning leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
         </div>
       );
       continue;
@@ -463,9 +463,9 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
     if (trimmed.startsWith('⚠️') || trimmed.startsWith('⚠')) {
       const content = trimmed.replace(/^⚠️?\s*/, '');
       renderedBlocks.push(
-        <div key={`warn-${idx}`} className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 flex gap-3">
-          <AlertTriangle size={20} className="text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
-          <p className="text-red-800 dark:text-red-200 leading-relaxed">{renderInlineFormatting(content, navigators)}</p>
+        <div key={`warn-${idx}`} className="bg-danger-subtle border border-danger-border rounded-xl p-4 flex gap-3">
+          <AlertTriangle size={20} className="text-danger shrink-0 mt-0.5" />
+          <p className="text-danger leading-relaxed">{renderInlineFormatting(content, navigators)}</p>
         </div>
       );
       continue;
@@ -477,7 +477,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       if (blockquoteCount < 2) {
         blockquoteCount += 1;
         renderedBlocks.push(
-          <blockquote key={`quote-${idx}`} className="bg-stripe-50 dark:bg-stripe-900/20 border-l-4 border-stripe-500 p-4 rounded-r-lg italic text-stripe-800 dark:text-stripe-200">
+          <blockquote key={`quote-${idx}`} className="bg-accent-subtle border-l-4 border-stripe-500 p-4 rounded-r-lg italic text-accent">
             {renderInlineFormatting(quote, navigators)}
           </blockquote>
         );
@@ -900,38 +900,38 @@ const NAV_ACTION_CTA_MAP: Partial<Record<NavAction, { icon: LucideIcon; i18nPref
 };
 
 const CTA_COLORS = {
-  indigo: 'bg-stripe-50 dark:bg-stripe-900/20 border-stripe-200 dark:border-stripe-800',
-  emerald: 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800',
-  amber: 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800',
-  blue: 'bg-stripe-50 dark:bg-stripe-900/20 border-stripe-200 dark:border-stripe-800',
-  violet: 'bg-stripe-50 dark:bg-stripe-900/20 border-stripe-200 dark:border-stripe-800',
+  indigo: 'bg-accent-subtle border-accent-border',
+  emerald: 'bg-success-subtle border-success-border',
+  amber: 'bg-warning-subtle border-warning-border',
+  blue: 'bg-accent-subtle border-accent-border',
+  violet: 'bg-accent-subtle border-accent-border',
   rose: 'bg-rose-50 dark:bg-rose-900/20 border-rose-200 dark:border-rose-800',
 };
 
 const CTA_ICON_COLORS = {
-  indigo: 'text-stripe-600 dark:text-stripe-400',
-  emerald: 'text-emerald-700 dark:text-emerald-400',
-  amber: 'text-amber-600 dark:text-amber-400',
+  indigo: 'text-accent',
+  emerald: 'text-success',
+  amber: 'text-warning',
   blue: 'text-link',
-  violet: 'text-stripe-600 dark:text-stripe-400',
+  violet: 'text-accent',
   rose: 'text-rose-600 dark:text-rose-400',
 };
 
 const CTA_TEXT_COLORS = {
-  indigo: { title: 'text-stripe-700 dark:text-stripe-300', desc: 'text-stripe-600 dark:text-stripe-400' },
-  emerald: { title: 'text-emerald-700 dark:text-emerald-300', desc: 'text-emerald-700 dark:text-emerald-400' },
-  amber: { title: 'text-amber-700 dark:text-amber-300', desc: 'text-amber-600 dark:text-amber-400' },
-  blue: { title: 'text-stripe-700 dark:text-stripe-300', desc: 'text-link' },
-  violet: { title: 'text-stripe-700 dark:text-stripe-300', desc: 'text-stripe-600 dark:text-stripe-400' },
+  indigo: { title: 'text-accent', desc: 'text-accent' },
+  emerald: { title: 'text-success', desc: 'text-success' },
+  amber: { title: 'text-warning', desc: 'text-warning' },
+  blue: { title: 'text-accent', desc: 'text-link' },
+  violet: { title: 'text-accent', desc: 'text-accent' },
   rose: { title: 'text-rose-700 dark:text-rose-300', desc: 'text-rose-600 dark:text-rose-400' },
 };
 
 const CTA_BTN_COLORS = {
-  indigo: 'bg-stripe-600 hover:bg-stripe-700',
+  indigo: 'bg-accent hover:bg-accent-hover',
   emerald: 'bg-emerald-700 hover:bg-emerald-700',
   amber: 'bg-amber-600 hover:bg-amber-700',
-  blue: 'bg-stripe-600 hover:bg-stripe-700',
-  violet: 'bg-stripe-600 hover:bg-stripe-700',
+  blue: 'bg-accent hover:bg-accent-hover',
+  violet: 'bg-accent hover:bg-accent-hover',
   rose: 'bg-rose-600 hover:bg-rose-700',
 };
 
@@ -1419,10 +1419,10 @@ function BlogArticles({
 
   const getCategoryColor = (cat: string) => {
     switch (cat) {
-      case 'fiscale': return 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300';
-      case 'pratico': return 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300';
-      case 'novita': return 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300';
-      case 'pensione': return 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300';
+      case 'fiscale': return 'bg-accent-subtle text-accent';
+      case 'pratico': return 'bg-success-subtle text-success';
+      case 'novita': return 'bg-accent-subtle text-accent';
+      case 'pensione': return 'bg-warning-subtle text-warning';
       default: return 'bg-surface-raised text-body';
     }
   };
@@ -1549,11 +1549,11 @@ function BlogArticles({
     return (
       <div className="min-h-[80vh] space-y-6 p-4">
         {/* Skeleton hero card */}
-        <div className="rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 animate-pulse h-64 sm:h-80" />
+        <div className="rounded-2xl overflow-hidden bg-surface-raised animate-pulse h-64 sm:h-80" />
         {/* Skeleton article grid — matches real layout: 6 cards with image h-40 + content ~120px */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[1,2,3,4,5,6].map(i => (
-            <div key={i} className="rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse h-[280px]" />
+            <div key={i} className="rounded-xl bg-surface-raised animate-pulse h-[280px]" />
           ))}
         </div>
       </div>
@@ -1571,12 +1571,12 @@ function BlogArticles({
     if (!bodyReady) {
       return (
         <div className="max-w-3xl xl:max-w-6xl mx-auto min-h-[80vh] p-4 space-y-4">
-          <div className="rounded-2xl bg-slate-200 dark:bg-slate-700 animate-pulse h-48 sm:h-64 md:h-80" />
+          <div className="rounded-2xl bg-surface-raised animate-pulse h-48 sm:h-64 md:h-80" />
           <div className="space-y-3">
-            <div className="h-6 bg-slate-200 dark:bg-slate-700 rounded animate-pulse w-3/4" />
-            <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded animate-pulse w-full" />
-            <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded animate-pulse w-5/6" />
-            <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded animate-pulse w-2/3" />
+            <div className="h-6 bg-surface-raised rounded animate-pulse w-3/4" />
+            <div className="h-4 bg-surface-raised rounded animate-pulse w-full" />
+            <div className="h-4 bg-surface-raised rounded animate-pulse w-5/6" />
+            <div className="h-4 bg-surface-raised rounded animate-pulse w-2/3" />
           </div>
         </div>
       );
@@ -1616,10 +1616,10 @@ function BlogArticles({
           target="_blank"
           rel="noopener noreferrer sponsored"
           onClick={handleAffClick}
-          className="group block p-3 bg-surface/70 rounded-xl border border-edge/60 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
+          className="group block p-3 bg-surface/70 rounded-xl border border-edge/60 hover:border-edge hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
         >
           <span className="text-xl block mb-1">{partner.emoji}</span>
-          <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 block leading-tight">{partner.name}</span>
+          <span className="text-xs font-semibold text-body block leading-tight">{partner.name}</span>
           {partner.badgeKey && (
             <span className={`mt-1 inline-block text-xs font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
               {t(partner.badgeKey)}
@@ -1650,7 +1650,7 @@ function BlogArticles({
         {/* Back button — prominent */}
         <button
           onClick={handleBackToList}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-surface border border-edge rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm"
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-surface border border-edge rounded-xl text-sm font-semibold text-body hover:bg-surface-raised transition-colors shadow-sm"
           aria-label={t('blog.backToList')}
         >
           <ArrowLeft size={16} />
@@ -1751,17 +1751,17 @@ function BlogArticles({
 
           {/* Meta bar */}
           <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-surface-alt/50 border-b border-edge text-sm text-subtle">
-            <span className="flex items-center gap-1 font-medium text-stripe-700 dark:text-stripe-400">
+            <span className="flex items-center gap-1 font-medium text-accent">
               <PenLine size={14} />
               {t('blog.byline')}
             </span>
-            <span className="text-slate-300 dark:text-slate-600">|</span>
+            <span className="text-edge">|</span>
             <span className="flex items-center gap-1">
               <Calendar size={14} />
               {formatDate(article.date)}
             </span>
             {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
-              <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
+              <span className="flex items-center gap-1 text-success">
                 <RefreshCw size={12} />
                 {t('blog.updatedOn')} {formatDate(article.updatedAt)}
               </span>
@@ -1774,7 +1774,7 @@ function BlogArticles({
               {/* Copy link */}
               <button
                 onClick={() => handleCopyLink(article.id)}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium transition-colors"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-surface-raised hover:bg-surface-raised text-xs font-medium transition-colors"
                 aria-label={t('blog.copyLink')}
               >
                 {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} />}
@@ -1792,7 +1792,7 @@ function BlogArticles({
               {/* Twitter/X */}
               <button
                 onClick={() => handleTwitterShare(article.id)}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors"
                 aria-label={t('blog.shareTwitter')}
                 title={t('blog.shareTwitter')}
               >
@@ -1828,7 +1828,7 @@ function BlogArticles({
               {/* Email */}
               <button
                 onClick={() => handleEmailShare(article.id)}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors"
                 aria-label={t('blog.shareEmail')}
                 title={t('blog.shareEmail')}
               >
@@ -1838,21 +1838,21 @@ function BlogArticles({
               {typeof navigator !== 'undefined' && 'share' in navigator && (
                 <button
                   onClick={() => handleNativeShare(article.id)}
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-stripe-100 dark:bg-stripe-900/30 hover:bg-stripe-200 dark:hover:bg-stripe-800/50 text-stripe-700 dark:text-stripe-300 transition-colors"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-accent-subtle hover:bg-stripe-200 dark:hover:bg-stripe-800/50 text-accent transition-colors"
                   aria-label={t('blog.shareNative')}
                   title={t('blog.shareNative')}
                 >
                   <Share2 size={14} />
                 </button>
               )}
-              <span className="text-slate-300 dark:text-slate-600">|</span>
+              <span className="text-edge">|</span>
               {/* Bookmark */}
               <button
                 onClick={() => toggleBookmark(article.id)}
                 className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${
                   savedArticles.has(article.id)
-                    ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'
-                    : 'bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body'
+                    ? 'bg-warning-subtle text-warning'
+                    : 'bg-surface-raised hover:bg-surface-raised text-body'
                 }`}
                 aria-label={savedArticles.has(article.id) ? t('blog.bookmarkRemove') : t('blog.bookmarkAdd')}
                 title={savedArticles.has(article.id) ? t('blog.bookmarkRemove') : t('blog.bookmarkAdd')}
@@ -1862,7 +1862,7 @@ function BlogArticles({
               {/* Print */}
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body transition-colors print:hidden"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors print:hidden"
                 aria-label={t('blog.print')}
                 title={t('blog.print')}
               >
@@ -1873,11 +1873,11 @@ function BlogArticles({
 
           {/* Contextual banner for news articles */}
           {article.category === 'novita' && (
-            <div className="mx-4 sm:mx-6 mt-4 px-4 py-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/40 flex items-start gap-3">
-              <Newspaper size={18} className="text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+            <div className="mx-4 sm:mx-6 mt-4 px-4 py-3 rounded-xl bg-warning-subtle border border-warning-border/40 flex items-start gap-3">
+              <Newspaper size={18} className="text-warning mt-0.5 shrink-0" />
               <div>
-                <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">{t('blog.newsBanner.title')}</p>
-                <p className="text-sm text-amber-700 dark:text-amber-400 mt-0.5">{t('blog.newsBanner.desc')}</p>
+                <p className="text-sm font-semibold text-warning">{t('blog.newsBanner.title')}</p>
+                <p className="text-sm text-warning mt-0.5">{t('blog.newsBanner.desc')}</p>
               </div>
             </div>
           )}
@@ -1890,10 +1890,10 @@ function BlogArticles({
 
             {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}
             {showToc && (
-              <div className="xl:hidden rounded-xl border border-edge bg-slate-50/80 dark:bg-slate-900/50 overflow-hidden">
+              <div className="xl:hidden rounded-xl border border-edge bg-surface-alt/80 overflow-hidden">
                 <button
                   onClick={() => setTocOpen(prev => !prev)}
-                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-body"
                   aria-expanded={tocOpen}
                   aria-controls="mobile-toc"
                 >
@@ -1910,8 +1910,8 @@ function BlogArticles({
                         key={h.id}
                         onClick={() => handleTocClick(h.id)}
                         className={`block w-full text-left text-sm py-2.5 transition-colors rounded-md px-2 ${
-                          h.level === 3 ? 'pl-5 text-muted' : 'text-slate-600 dark:text-slate-300 font-medium'
-                        } hover:text-stripe-600 dark:hover:text-stripe-400 hover:bg-stripe-50 dark:hover:bg-stripe-900/20`}
+                          h.level === 3 ? 'pl-5 text-muted' : 'text-subtle font-medium'
+                        } hover:text-accent hover:bg-accent-subtle`}
                       >
                         {h.text}
                       </button>
@@ -2026,13 +2026,13 @@ function BlogArticles({
                                 key={job.id}
                                 href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
                                 onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
-                                className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-colors group"
+                                className="flex items-center gap-3 p-2.5 bg-surface/70 rounded-lg hover:bg-surface/50 transition-colors group"
                               >
-                                <div className="w-8 h-8 rounded-lg bg-stripe-100 dark:bg-stripe-900/50 flex items-center justify-center shrink-0 overflow-hidden">
-                                  {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Building2 size={14} className="text-stripe-600 dark:text-stripe-400" />}
+                                <div className="w-8 h-8 rounded-lg bg-accent-subtle flex items-center justify-center shrink-0 overflow-hidden">
+                                  {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Building2 size={14} className="text-accent" />}
                                 </div>
                                 <div className="min-w-0 flex-1">
-                                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-stripe-700 dark:group-hover:text-stripe-300 transition-colors">
+                                  <p className="text-sm font-semibold text-body truncate group-hover:text-stripe-700 dark:group-hover:text-stripe-300 transition-colors">
                                     {job.titleByLocale?.[locale] ?? job.title}
                                   </p>
                                   <p className="text-sm text-muted truncate">
@@ -2078,7 +2078,7 @@ function BlogArticles({
                 const validPairs = faqPairs.filter((p: { q?: string; a?: string }) => p.q && p.a && p.q.length > 5 && p.a.length > 10).slice(0, 8);
                 if (validPairs.length < 2) return null;
                 return (
-                  <div className="mt-8 border border-amber-200 dark:border-amber-800/40 bg-amber-50/50 dark:bg-amber-950/20 rounded-xl overflow-hidden">
+                  <div className="mt-8 border border-warning-border/40 bg-warning-subtle/50 rounded-xl overflow-hidden">
                     <button
                       onClick={() => {
                         const el = document.getElementById('article-faq-content');
@@ -2090,15 +2090,15 @@ function BlogArticles({
                       aria-expanded="false"
                       aria-controls="article-faq-content"
                     >
-                      <span className="flex items-center gap-2 text-base font-bold text-amber-900 dark:text-amber-200">
-                        <HelpCircle size={20} className="text-amber-600 dark:text-amber-400" />
+                      <span className="flex items-center gap-2 text-base font-bold text-warning">
+                        <HelpCircle size={20} className="text-warning" />
                         {locale === 'en' ? 'Frequently Asked Questions' : locale === 'de' ? 'Häufig gestellte Fragen' : locale === 'fr' ? 'Questions fréquentes' : 'Domande frequenti'}
                       </span>
-                      <ChevronDown id="article-faq-toggle" size={18} className="text-amber-600 dark:text-amber-400 transition-transform duration-200" />
+                      <ChevronDown id="article-faq-toggle" size={18} className="text-warning transition-transform duration-200" />
                     </button>
                     <div id="article-faq-content" className="hidden px-4 sm:px-5 pb-4 sm:pb-5 space-y-3">
                       {validPairs.map((pair: { q: string; a: string }, i: number) => (
-                        <div key={i} className="border-t border-amber-200/60 dark:border-amber-800/30 pt-3">
+                        <div key={i} className="border-t border-warning-border pt-3">
                           <p className="font-semibold text-sm text-strong">{pair.q}</p>
                           <p className="text-sm text-subtle mt-1 leading-relaxed">{pair.a}</p>
                         </div>
@@ -2148,7 +2148,7 @@ function BlogArticles({
                   onClick={() => handleFeedback(article.id, 'useful')}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     articleFeedback[article.id] === 'useful'
-                      ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-300 dark:ring-emerald-700'
+                      ? 'bg-success-subtle text-success ring-1 ring-emerald-300 dark:ring-emerald-700'
                       : 'bg-surface-raised text-subtle hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
                   }`}
                   aria-label={t('blog.feedback.useful')}
@@ -2159,9 +2159,9 @@ function BlogArticles({
                   onClick={() => handleFeedback(article.id, 'not-useful')}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     articleFeedback[article.id] === 'not-useful'
-                      ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 ring-1 ring-red-300 dark:ring-red-700'
+                      ? 'bg-danger-subtle text-danger ring-1 ring-red-300 dark:ring-red-700'
                       : 'bg-surface-raised text-subtle hover:bg-red-50 dark:hover:bg-red-900/20'
-                  }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-stripe-100 dark:bg-stripe-900 flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-strong dark:text-white">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-stripe-50 dark:bg-stripe-900/20 rounded-xl border border-stripe-200 dark:border-stripe-800/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-stripe-600 dark:text-stripe-400 shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-stripe-800 dark:text-stripe-300">{t('blog.discussInForum')}</p> <p className="text-sm text-stripe-700 dark:text-stripe-400 mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-stripe-500 shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-slate-700 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+                  }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-strong dark:text-white">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-stripe-500 shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-slate-700 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
                       </div>
                     </a>
                   ) : <div />}
@@ -2169,14 +2169,14 @@ function BlogArticles({
                     <a
                       href={buildPath({ activeTab: 'blog', blogArticle: nextArticle.id })}
                       onClick={(e) => { e.preventDefault(); handleArticleClick(nextArticle.id); }}
-                      className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-right group"
+                      className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-right group"
                     >
                       <div className="min-w-0 flex-1">
                         <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
-                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-stripe-500 shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-strong dark:text-slate-100 mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold text-slate-700 line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-strong dark:text-slate-100 mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-orange-500" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 border border-orange-200/60 dark:border-orange-800/40 rounded-xl hover:from-orange-100 hover:to-amber-100 dark:hover:from-orange-900/40 dark:hover:to-amber-900/30 transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold text-slate-700 line-clamp-2 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors"> {t(`blog.article.${tr.id}.title`)}
+                        <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-stripe-500 shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-strong dark:text-slate-100 mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold text-slate-700 line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-strong dark:text-slate-100 mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-orange-500" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 border border-orange-200/60 dark:border-orange-800/40 rounded-xl hover:from-orange-100 hover:to-amber-100 dark:hover:from-orange-900/40 dark:hover:to-amber-900/30 transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold text-slate-700 line-clamp-2 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors"> {t(`blog.article.${tr.id}.title`)}
                             </p>
                             <div className="flex items-center gap-2 mt-1">
-                              <span className="text-xs text-orange-700 dark:text-orange-400 font-medium">
+                              <span className="text-xs text-warning font-medium">
                                 {views} {t('blog.trendingThisWeek.views')}
                               </span>
                               <span className="text-sm text-muted">·</span>
@@ -2198,14 +2198,14 @@ function BlogArticles({
             {relatedJobs.length > 0 ? (
               <div className="border-t border-edge pt-6 mt-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                  <h3 className="text-lg font-bold text-strong flex items-center gap-2">
                     <Briefcase size={18} className="text-stripe-500" />
                     {t('blog.relatedJobs')}
                   </h3>
                   <a
                     href={buildPath({ activeTab: 'job-board' })}
                     onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); }}
-                    className="text-xs font-semibold text-stripe-600 dark:text-stripe-400 hover:underline flex items-center gap-1"
+                    className="text-xs font-semibold text-accent hover:underline flex items-center gap-1"
                   >
                     {t('blog.relatedJobs.viewAll')} <ArrowRight size={12} />
                   </a>
@@ -2219,13 +2219,13 @@ function BlogArticles({
                         key={job.id}
                         href={buildPath({ activeTab: 'job-board', jobSlug })}
                         onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
-                        className="flex items-start gap-3 p-3 bg-stripe-50/60 dark:bg-stripe-950/20 rounded-xl hover:bg-stripe-100 dark:hover:bg-stripe-900/30 transition-colors text-left border border-stripe-100 dark:border-stripe-900/40"
+                        className="flex items-start gap-3 p-3 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors text-left border border-accent-border"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-edge shrink-0 overflow-hidden">
+                        <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-edge shrink-0 overflow-hidden">
                           {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Briefcase size={16} className="text-stripe-500" />}
                         </div>
                         <div className="min-w-0">
-                          <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
+                          <p className="text-sm font-semibold text-body line-clamp-2">
                             {job.titleByLocale?.[locale] ?? job.title}
                           </p>
                           <p className="text-sm text-subtle mt-0.5">{job.company} · {job.location}</p>
@@ -2240,13 +2240,13 @@ function BlogArticles({
                 <a
                   href={buildPath({ activeTab: 'job-board' })}
                   onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); }}
-                  className="flex items-center gap-3 p-4 bg-stripe-50/60 dark:bg-stripe-950/20 rounded-xl hover:bg-stripe-100 dark:hover:bg-stripe-900/30 transition-colors border border-stripe-100 dark:border-stripe-900/40"
+                  className="flex items-center gap-3 p-4 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors border border-accent-border"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-edge shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-edge shrink-0">
                     <Search size={18} className="text-stripe-500" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{t('blog.cta.jobBoard.title', getCantonI18nParams())}</p>
+                    <p className="text-sm font-semibold text-body">{t('blog.cta.jobBoard.title', getCantonI18nParams())}</p>
                     <p className="text-sm text-subtle mt-0.5">{t('blog.cta.jobBoard.desc', getCantonI18nParams())}</p>
                   </div>
                   <ArrowRight size={16} className="text-stripe-500 shrink-0" />
@@ -2287,8 +2287,8 @@ function BlogArticles({
                             h.level === 3 ? 'pl-3' : ''
                           } ${
                             activeHeadingId === h.id
-                              ? 'text-stripe-600 dark:text-stripe-400 font-medium border-l-2 border-stripe-500 pl-2'
-                              : `text-subtle hover:text-stripe-600 dark:hover:text-stripe-400 ${h.level === 3 ? 'font-normal' : 'font-medium'}`
+                              ? 'text-accent font-medium border-l-2 border-stripe-500 pl-2'
+                              : `text-subtle hover:text-accent ${h.level === 3 ? 'font-normal' : 'font-medium'}`
                           }`}
                         >
                           {h.text}
@@ -2337,8 +2337,8 @@ function BlogArticles({
               </Suspense>
 
               {/* Donation mini-card */}
-              <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50/80 dark:bg-amber-900/20 p-3 text-center space-y-2">
-                <Coffee size={18} className="mx-auto text-amber-600 dark:text-amber-400" />
+              <div className="rounded-xl border border-warning-border/50 bg-amber-50/80 dark:bg-amber-900/20 p-3 text-center space-y-2">
+                <Coffee size={18} className="mx-auto text-warning" />
                 <p className="text-xs leading-snug text-subtle">
                   {t('donation.message').slice(0, 80)}…
                 </p>
@@ -2346,7 +2346,7 @@ function BlogArticles({
                   href="https://www.buymeacoffee.com/frontaliereticino"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full text-xs font-semibold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 hover:bg-amber-200 dark:hover:bg-amber-800/50 rounded-lg py-1.5 transition-colors"
+                  className="inline-block w-full text-xs font-semibold text-warning bg-warning-subtle hover:bg-amber-200 dark:hover:bg-amber-800/50 rounded-lg py-1.5 transition-colors"
                 >
                   ☕ {t('donation.button')}
                 </a>
@@ -2364,7 +2364,7 @@ function BlogArticles({
         <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-surface/95 border-t border-edge px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
           <button
             onClick={handleBackToList}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-body"
             aria-label={t('blog.backToList')}
           >
             <ArrowLeft size={16} />
@@ -2381,7 +2381,7 @@ function BlogArticles({
             {typeof navigator !== 'undefined' && 'share' in navigator ? (
               <button
                 onClick={() => handleNativeShare(selectedArticle)}
-                className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300"
+                className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent"
                 aria-label={t('blog.shareNative')}
               >
                 <Share2 size={20} />
@@ -2409,7 +2409,7 @@ function BlogArticles({
     <div className="max-w-5xl mx-auto space-y-6">
       {/* Header with stats hook */}
       <div className="text-center mb-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-strong mb-2 flex items-center justify-center gap-2">
           <BookOpen size={28} className="text-stripe-600" />
           {t('blog.title')}
         </h1>
@@ -2419,16 +2419,16 @@ function BlogArticles({
       {/* Stats bar — gives immediate sense of depth and freshness */}
       {articles.length > 0 && (
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-sm">
-          <span className="inline-flex items-center gap-1.5 font-semibold text-stripe-700 dark:text-stripe-300">
+          <span className="inline-flex items-center gap-1.5 font-semibold text-accent">
             <FileText size={15} />
             {articles.length} {t('blog.statsArticles')}
           </span>
-          <span className="text-slate-300 dark:text-slate-600">|</span>
+          <span className="text-edge">|</span>
           <span className="inline-flex items-center gap-1.5 text-subtle">
             <Newspaper size={15} />
             {categoryStats['novita'] || 0} {t('blog.statsNews')}
           </span>
-          <span className="text-slate-300 dark:text-slate-600">|</span>
+          <span className="text-edge">|</span>
           <span className="inline-flex items-center gap-1.5 text-subtle">
             <TrendingUp size={15} />
             {t('blog.statsUpdated')}
@@ -2592,7 +2592,7 @@ function BlogArticles({
                   <span className={`px-1.5 py-0.5 rounded-full text-xs font-semibold ${
                     article.category === 'novita'
                       ? 'bg-orange-500/90 text-white'
-                      : 'bg-surface text-slate-600 dark:text-slate-300'
+                      : 'bg-surface text-subtle'
                   }`}>
                     {article.category === 'novita'
                       ? t('blog.contentType.news')
@@ -2603,10 +2603,10 @@ function BlogArticles({
 
               {/* Card content */}
               <div className="p-4 flex flex-col flex-1">
-                <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors line-clamp-2 mb-1.5 leading-snug">
+                <h3 className="text-base font-bold text-strong group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors line-clamp-2 mb-1.5 leading-snug">
                   {t(`blog.article.${article.id}.title`)}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-3 leading-relaxed">
+                <p className="text-sm text-subtle line-clamp-2 mb-3 leading-relaxed">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
                 <div className="flex flex-wrap items-center gap-1.5 mb-3">
@@ -2617,25 +2617,25 @@ function BlogArticles({
                     </span>
                   )}
                   {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-success-subtle text-success">
                       <RefreshCw size={9} />
                       {t('blog.updatedOn')} {formatDate(article.updatedAt)}
                     </span>
                   )}
                 </div>
                 <div className="mt-auto flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="flex items-center gap-2 text-xs text-muted">
                     <span className="flex items-center gap-1">
                       <Calendar size={11} />
                       {formatDate(article.date)}
                     </span>
-                    <span className="text-slate-300 dark:text-slate-600">·</span>
+                    <span className="text-edge">·</span>
                     <span className="flex items-center gap-1">
                       <Clock size={11} />
                       {estimateReadingMinutes(article.id, t)} min
                     </span>
                   </div>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-stripe-600 dark:text-stripe-400 group-hover:text-stripe-700 dark:group-hover:text-stripe-300 transition-colors">
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent group-hover:text-stripe-700 dark:group-hover:text-stripe-300 transition-colors">
                     {t('blog.readMore')} <ArrowRight size={12} />
                   </span>
                 </div>
@@ -2651,7 +2651,7 @@ function BlogArticles({
         <div className="flex justify-center mt-2">
           <button
             onClick={() => setGridRevealCount(pageArticles.length - 1)}
-            className="px-4 py-2 rounded-lg text-sm font-semibold bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="px-4 py-2 rounded-lg text-sm font-semibold bg-surface border border-edge text-body hover:bg-surface-raised transition-colors"
           >
             {t('blog.readMore')}
           </button>
@@ -2672,7 +2672,7 @@ function BlogArticles({
           <button
             onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === 1}
-            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-body hover:bg-surface-raised transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={t('blog.pagination.prev')}
           >
             <ChevronLeft size={16} />
@@ -2703,7 +2703,7 @@ function BlogArticles({
                     className={`w-11 h-11 rounded-lg text-sm font-medium transition-colors ${
                       page === currentPage
                         ? 'bg-stripe-600 text-white shadow-md'
-                        : 'bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700'
+                        : 'bg-surface border border-edge text-body hover:bg-surface-raised'
                     }`}
                     aria-label={`${t('blog.pagination.page')} ${page}`}
                     aria-current={page === currentPage ? 'page' : undefined}
@@ -2717,7 +2717,7 @@ function BlogArticles({
           <button
             onClick={() => { setCurrentPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === totalPages}
-            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-body hover:bg-surface-raised transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={t('blog.pagination.next')}
           >
             <span className="hidden sm:inline">{t('blog.pagination.next')}</span>
@@ -2728,7 +2728,7 @@ function BlogArticles({
 
       {/* SEO content block */}
       <div className="bg-surface-alt/50 rounded-xl p-4 sm:p-6 border border-edge">
-        <h3 className="font-semibold text-slate-700 dark:text-slate-200 mb-3">{t('blog.seoTitle')}</h3>
+        <h3 className="font-semibold text-body mb-3">{t('blog.seoTitle')}</h3>
         <p className="text-sm text-subtle leading-relaxed">
           {t('blog.seoContent')}
         </p>

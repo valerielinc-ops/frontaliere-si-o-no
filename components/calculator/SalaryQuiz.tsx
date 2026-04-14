@@ -220,7 +220,7 @@ export default function SalaryQuiz() {
           <TrendingUp size={16} />
           {t('salaryQuiz.badge')}
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-strong mb-2">
           {t('salaryQuiz.title')}
         </h2>
         <p className="text-subtle">
@@ -229,7 +229,7 @@ export default function SalaryQuiz() {
       </div>
 
       {/* Progress bar */}
-      <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full mb-8 overflow-hidden">
+      <div className="h-2 bg-surface-raised rounded-full mb-8 overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-transform duration-500 origin-left"
           style={{ transform: `scaleX(${progressWidth === '25%' ? 0.25 : progressWidth === '50%' ? 0.5 : progressWidth === '75%' ? 0.75 : 1})` }}
@@ -239,7 +239,7 @@ export default function SalaryQuiz() {
       {/* Step 1: Sector */}
       {step === 'sector' && (
         <div className="animate-fade-in">
-          <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
             <Briefcase size={20} className="text-emerald-700" />
             {t('salaryQuiz.step1')}
           </h3>
@@ -263,7 +263,7 @@ export default function SalaryQuiz() {
       {/* Step 2: Experience */}
       {step === 'experience' && (
         <div className="animate-fade-in">
-          <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
             <Award size={20} className="text-emerald-700" />
             {t('salaryQuiz.step2')}
           </h3>
@@ -287,7 +287,7 @@ export default function SalaryQuiz() {
       {/* Step 3: Province */}
       {step === 'province' && (
         <div className="animate-fade-in">
-          <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
             <MapPin size={20} className="text-emerald-700" />
             {t('salaryQuiz.step3')}
           </h3>
@@ -312,7 +312,7 @@ export default function SalaryQuiz() {
       {step === 'result' && result && (
         <div className="animate-fade-in space-y-6">
           {/* Result card */}
-          <div className="bg-emerald-600 dark:bg-emerald-700 rounded-2xl p-4 sm:p-6 text-white shadow-xl">
+          <div className="bg-success rounded-2xl p-4 sm:p-6 text-white shadow-xl">
             <div className="text-center mb-6">
               <p className="text-emerald-100 text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
               <div className="text-4xl sm:text-5xl font-bold mb-1">
@@ -354,7 +354,7 @@ export default function SalaryQuiz() {
 
           {/* Share buttons */}
           <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
-            <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+            <p className="text-sm font-semibold text-body mb-4 flex items-center gap-2">
               <Share2 size={16} />
               {t('salaryQuiz.shareTitle')}
             </p>
@@ -373,7 +373,7 @@ export default function SalaryQuiz() {
               </button>
               <button
                 onClick={() => handleShare('copy')}
-                className="flex items-center gap-2 px-5 py-3 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl font-semibold text-sm transition-colors"
+                className="flex items-center gap-2 px-5 py-3 bg-surface-raised hover:bg-slate-300 dark:hover:bg-slate-600 text-body rounded-xl font-semibold text-sm transition-colors"
               >
                 📋 {shared ? t('salaryQuiz.copied') : t('salaryQuiz.copyLink')}
               </button>
@@ -381,8 +381,8 @@ export default function SalaryQuiz() {
           </div>
 
           {/* Info box */}
-          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
-            <p className="text-sm text-amber-700 dark:text-amber-400">
+          <div className="bg-warning-subtle border border-warning-border rounded-xl p-4">
+            <p className="text-sm text-warning">
               {t('salaryQuiz.disclaimer')}
             </p>
           </div>
@@ -390,7 +390,7 @@ export default function SalaryQuiz() {
           {/* Reset button */}
           <button
             onClick={reset}
-            className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-subtle font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-surface-raised hover:bg-surface-raised text-subtle font-semibold text-sm transition-colors"
           >
             <RotateCcw size={16} />
             {t('salaryQuiz.tryAgain')}

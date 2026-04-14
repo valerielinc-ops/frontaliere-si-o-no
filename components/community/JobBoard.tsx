@@ -1061,7 +1061,7 @@ function renderContactRichText(
         <a
           key={`email-${start}-${email}`}
           href={buildContactMailto(email, job, locale, jobUrl)}
-          className="font-semibold text-stripe-700 underline decoration-stripe-300 underline-offset-2 hover:text-stripe-800 dark:text-stripe-300 dark:decoration-stripe-700 dark:hover:text-stripe-200"
+          className="font-semibold text-stripe-700 underline decoration-stripe-300 underline-offset-2 hover:text-accent dark:decoration-stripe-700 dark:hover:text-stripe-200"
         >
           {email}
         </a>
@@ -1071,7 +1071,7 @@ function renderContactRichText(
         <a
           key={`phone-${start}-${raw}`}
           href={`tel:${normalizeContactPhone(raw)}`}
-          className="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-800 dark:text-emerald-300 dark:decoration-emerald-700 dark:hover:text-emerald-200"
+          className="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-success dark:decoration-emerald-700 dark:hover:text-emerald-200"
         >
           {raw}
         </a>
@@ -2377,7 +2377,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
     key={job.id}
     className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
       job.featured
-        ? 'border-amber-300 dark:border-amber-600 bg-amber-50/30 dark:bg-amber-950/10 hover:border-amber-400 dark:hover:border-amber-500'
+        ? 'border-warning-border bg-amber-50/30 dark:bg-amber-950/10 hover:border-amber-400 dark:hover:border-amber-500'
         : 'border-edge bg-surface/50 hover:border-stripe-300 dark:hover:border-stripe-700'
     }`}
   >
@@ -2399,7 +2399,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
             {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
             {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-amber-500 fill-amber-500" />}
             {isNew && (
-              <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-success">
+              <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-success-subtle text-success">
                 <Sparkles className="w-2.5 h-2.5" />
                 {t('jobBoard.badge.new')}
               </span>
@@ -4379,10 +4379,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           onClick={goToCalc}
           className="block rounded-lg bg-warning-subtle border border-warning-border/50 p-3 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors cursor-pointer"
         >
-          <div className="text-xs font-semibold text-amber-800 dark:text-amber-200 mb-1">
+          <div className="text-xs font-semibold text-warning mb-1">
             {t('jobBoard.salaryEstimate.frontaliere')}
           </div>
-          <div className="text-lg font-bold text-amber-900 dark:text-amber-100">
+          <div className="text-lg font-bold text-warning">
             {salaryEstimates.frontaliere.max
               ? t('jobBoard.salaryEstimate.monthly', { min: fmtNet(salaryEstimates.frontaliere.min), max: fmtNet(salaryEstimates.frontaliere.max) })
               : t('jobBoard.salaryEstimate.monthlySingle', { value: fmtNet(salaryEstimates.frontaliere.min) })}
@@ -4394,10 +4394,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           onClick={goToCalc}
           className="block rounded-lg bg-success-subtle border border-success-border/50 p-3 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors cursor-pointer"
         >
-          <div className="text-xs font-semibold text-emerald-800 dark:text-emerald-200 mb-1">
+          <div className="text-xs font-semibold text-success mb-1">
             {t('jobBoard.salaryEstimate.resident')}
           </div>
-          <div className="text-lg font-bold text-emerald-900 dark:text-emerald-100">
+          <div className="text-lg font-bold text-success">
             {salaryEstimates.resident.max
               ? t('jobBoard.salaryEstimate.monthly', { min: fmtNet(salaryEstimates.resident.min), max: fmtNet(salaryEstimates.resident.max) })
               : t('jobBoard.salaryEstimate.monthlySingle', { value: fmtNet(salaryEstimates.resident.min) })}
@@ -4604,8 +4604,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <Mail className="h-4 w-4" />
         </div>
         <div className="min-w-0">
-          <p className="text-sm font-bold text-amber-900 dark:text-amber-100">{t('newsletter.doubleOptIn.title')}</p>
-          <p className="mt-1 text-sm text-amber-800 dark:text-amber-200">{t('newsletter.doubleOptIn.description')}</p>
+          <p className="text-sm font-bold text-warning">{t('newsletter.doubleOptIn.title')}</p>
+          <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.description')}</p>
           <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
           <p className="mt-2 text-xs font-medium text-warning">{authNotice.email}</p>
         </div>
@@ -5471,7 +5471,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   alt={companyName}
                   width={48}
                   height={48}
-                  className="w-12 h-12 rounded-lg object-contain bg-slate-50 dark:bg-slate-700 flex-shrink-0"
+                  className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
                   loading="lazy"
                   onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
                 />
@@ -5484,7 +5484,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   {jobCategory && jobCategory !== 'other' && (
                     <span className="inline-flex items-center gap-1"><Briefcase size={14} />{t(categoryTranslationKey(selectedJob))}</span>
                   )}
-                  {gateSalary && <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400"><Euro size={14} />{gateSalary}</span>}
+                  {gateSalary && <span className="inline-flex items-center gap-1 font-semibold text-success"><Euro size={14} />{gateSalary}</span>}
                   <span className="inline-flex items-center gap-1"><Clock size={14} />{gateContract}</span>
                   <span className={`inline-flex items-center gap-1${gateIsNew ? ' font-semibold text-accent' : ''}`}><Calendar size={14} />{gatePosted}</span>
                 </div>
@@ -5507,9 +5507,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
 
             {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
-            <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-stripe-50 dark:bg-stripe-950/20 p-5 sm:p-6">
+            <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-5 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="flex-shrink-0 p-2 bg-stripe-100 dark:bg-stripe-900/50 rounded-stripe">
+                <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
                   <Eye className="w-5 h-5 text-accent" />
                 </div>
                 <div>
@@ -5589,9 +5589,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   </button>
                 )}
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+                  <div className="flex-1 h-px bg-surface-raised/50" />
                   <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
-                  <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+                  <div className="flex-1 h-px bg-surface-raised/50" />
                 </div>
                 <form
                   onSubmit={(e) => {
@@ -5904,7 +5904,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   rel="noopener noreferrer"
                   onClick={() => Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`)}
                   aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
-                  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-white/90 dark:bg-slate-800/80 flex items-center justify-center overflow-hidden border border-stripe-100 dark:border-slate-700 shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+                  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-stripe-100 dark:border-slate-700 shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
                 >
                   {logo ? (
                     <img
@@ -5946,11 +5946,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <span className="px-2 py-1 rounded-full bg-accent-subtle text-accent">
                   {t(contractTranslationKey(selectedJob))}
                 </span>
-                <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-success">
+                <span className="px-2 py-1 rounded-full bg-success-subtle text-success">
                   {daysSincePosted(selectedJob.postedDate)}
                 </span>
                 {isNewJob(selectedJob) && (
-                  <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-success inline-flex items-center gap-1">
+                  <span className="px-2 py-1 rounded-full bg-success-subtle text-success inline-flex items-center gap-1">
                     <Sparkles className="w-3 h-3" />
                     {t('jobBoard.badge.new')}
                   </span>
@@ -6022,7 +6022,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               </>
             ) : timelineSections.length > 0 ? (
               <div className="timeline relative pl-6 space-y-3">
-                <div className="absolute left-[9px] top-1 bottom-1 border-l-2 border-dashed border-stripe-300 dark:border-stripe-700" />
+                <div className="absolute left-[9px] top-1 bottom-1 border-l-2 border-dashed border-accent-border" />
                 {timelineSections.map((section, index) => (
                   <div key={`${section.id}-${index}`} className="timeline-step relative">
                     <span className="absolute -left-[23px] top-2 w-3 h-3 rounded-full bg-stripe-500 dark:bg-stripe-400 ring-2 ring-white dark:ring-slate-800" />
@@ -6104,7 +6104,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       width={28}
                       height={28}
                       loading="lazy"
-                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-slate-600 mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-edge text-body dark:text-slate-200 rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-slate-50 hover:bg-surface-raised/50 dark:hover:bg-slate-900 text-body transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 dark:marker:text-cyan-400"> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Search size={15} className="text-fuchsia-600 dark:text-fuchsia-300" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-stripe-300 dark:border-stripe-700 text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-stripe-300 dark:hover:border-stripe-700 hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-slate-600 mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-edge text-body dark:text-slate-200 rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-slate-50 hover:bg-surface-raised/50 dark:hover:bg-slate-900 text-body transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 dark:marker:text-cyan-400"> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Search size={15} className="text-fuchsia-600 dark:text-fuchsia-300" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-stripe-300 dark:hover:border-stripe-700 hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
                         ) : (
                           <Building2 className="w-5 h-5 text-muted" />
                         )}
@@ -6155,7 +6155,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   key={article.id}
                   href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
                   onClick={(e) => { e.preventDefault(); nav.navigateTo('blog', article.id); }}
-                  className="text-left rounded-xl border border-emerald-100 dark:border-emerald-900/40 p-3 bg-emerald-50/60 dark:bg-emerald-950/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors"
+                  className="text-left rounded-xl border border-success-border p-3 bg-success-subtle/60 hover:bg-success-subtle transition-colors"
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0">
@@ -6214,13 +6214,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
       )}
       {companySlugFilter && (
-        <div className="rounded-xl border border-accent-border bg-stripe-50/60 dark:bg-stripe-950/20 p-3 text-sm text-stripe-800 dark:text-stripe-200 flex items-center justify-between gap-3">
+        <div className="rounded-xl border border-accent-border bg-accent-subtle/60 p-3 text-sm text-accent flex items-center justify-between gap-3">
           <span className="font-semibold">
             {t('jobBoard.filter.activeCompany')}
           </span>
           <button
             onClick={() => onJobRouteChange?.(undefined)}
-            className="px-2 py-1 rounded-md border border-stripe-300 dark:border-stripe-700 hover:bg-accent-subtle text-xs font-bold"
+            className="px-2 py-1 rounded-md border border-accent-border hover:bg-accent-subtle text-xs font-bold"
           >
             {t('jobBoard.filter.remove')}
           </button>
@@ -6376,7 +6376,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             onClick={() => setFiltersExpanded(!filtersExpanded)}
             className={`inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl border transition-colors ${
               filtersExpanded || activeFilterCount > 0
-                ? 'bg-accent-subtle border-stripe-300 dark:border-stripe-700 text-accent'
+                ? 'bg-accent-subtle border-accent-border text-accent'
                 : 'bg-surface border-edge text-subtle hover:bg-surface-raised'
             }`}
             aria-expanded={filtersExpanded}
@@ -6431,7 +6431,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onChange={(e) => setSelectedLocation(e.target.value)}
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
                     selectedLocation !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      ? 'border-accent-border bg-accent-subtle text-accent'
                       : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.location')}
@@ -6452,7 +6452,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onChange={(e) => setSelectedSector(e.target.value)}
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
                     selectedSector !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      ? 'border-accent-border bg-accent-subtle text-accent'
                       : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.sector')}
@@ -6473,7 +6473,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onChange={(e) => setSelectedCategory(e.target.value as JobCategory | 'all')}
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
                     selectedCategory !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      ? 'border-accent-border bg-accent-subtle text-accent'
                       : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.category')}
@@ -6493,7 +6493,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onChange={(e) => setSelectedContract(e.target.value as ContractType | 'all')}
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
                     selectedContract !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      ? 'border-accent-border bg-accent-subtle text-accent'
                       : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.contract')}
@@ -6513,7 +6513,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onChange={(e) => setSelectedCompany(e.target.value)}
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
                     selectedCompany !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      ? 'border-accent-border bg-accent-subtle text-accent'
                       : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.company')}
@@ -6534,7 +6534,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onChange={(e) => setSelectedDateRange(e.target.value as DateRange)}
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
                     selectedDateRange !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      ? 'border-accent-border bg-accent-subtle text-accent'
                       : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.dateRange')}
@@ -6595,7 +6595,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {isPersonalizationActive && (
             <div
               role="status"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-subtle border border-stripe-200/60 dark:border-stripe-800/40 text-xs font-medium text-accent transition-opacity duration-300 ease-in motion-reduce:transition-none"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-subtle border border-accent-border text-xs font-medium text-accent transition-opacity duration-300 ease-in motion-reduce:transition-none"
             >
               <UserCheck className="w-3.5 h-3.5" />
               Personalizzato per te

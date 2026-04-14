@@ -165,7 +165,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       )}
 
       {countryTab === 'svizzera' ? (
-        <Suspense fallback={<div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded-2xl h-96" />}>
+        <Suspense fallback={<div className="animate-pulse bg-surface-raised rounded-2xl h-96" />}>
           <SwissTaxReturn />
         </Suspense>
       ) : (
@@ -178,8 +178,8 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
             onClick={() => setActiveStep(key)}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeStep === key
-                ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
-                : 'bg-surface text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 border border-edge'
+                ? 'bg-accent-subtle text-accent ring-1 ring-accent dark:ring-stripe-700'
+                : 'bg-surface text-subtle hover:bg-surface-raised border border-edge'
             }`}
           >
             <Icon size={16} />
@@ -202,16 +202,16 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                   </h4>
                   <p className="text-warm-700 dark:text-warm-400">{t('taxReturn.overview.newAgreementDesc')}</p>
                 </div>
-                <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
-                  <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-2 flex items-center gap-2">
+                <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
+                  <h4 className="font-bold text-warning mb-2 flex items-center gap-2">
                     <AlertCircle size={16} /> {t('taxReturn.overview.oldAgreement')}
                   </h4>
-                  <p className="text-amber-700 dark:text-amber-400">{t('taxReturn.overview.oldAgreementDesc')}</p>
+                  <p className="text-warning">{t('taxReturn.overview.oldAgreementDesc')}</p>
                 </div>
               </div>
-              <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800">
-                <h4 className="font-bold text-emerald-700 dark:text-emerald-300 mb-2">{t('taxReturn.overview.whoMustFile')}</h4>
-                <ul className="list-disc list-inside space-y-1 text-emerald-700 dark:text-emerald-400">
+              <div className="bg-success-subtle rounded-xl p-4 border border-success-border">
+                <h4 className="font-bold text-success mb-2">{t('taxReturn.overview.whoMustFile')}</h4>
+                <ul className="list-disc list-inside space-y-1 text-success">
                   <li>{t('taxReturn.overview.whoMustFile1')}</li>
                   <li>{t('taxReturn.overview.whoMustFile2')}</li>
                   <li>{t('taxReturn.overview.whoMustFile3')}</li>
@@ -232,7 +232,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                 {checkedDocs.size}/{DOCUMENTS_CHECKLIST.length} {t('taxReturn.documents.completed')}
               </span>
             </div>
-            <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-6 overflow-hidden">
+            <div className="w-full bg-surface-raised rounded-full h-2 mb-6 overflow-hidden">
               <div
                 className="bg-emerald-700 h-2 rounded-full transition-transform duration-300 origin-left"
                 style={{ transform: `scaleX(${checkedDocs.size / DOCUMENTS_CHECKLIST.length})` }}
@@ -244,15 +244,15 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                   key={doc.key}
                   className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
                     checkedDocs.has(doc.key)
-                      ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                      : 'bg-surface border-edge hover:border-slate-300 dark:hover:border-slate-600'
+                      ? 'bg-success-subtle border-success-border'
+                      : 'bg-surface border-edge hover:border-edge'
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={checkedDocs.has(doc.key)}
                     onChange={() => toggleDoc(doc.key)}
-                    className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-slate-300 dark:border-slate-600 focus-visible:ring-emerald-500"
+                    className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-edge focus-visible:ring-emerald-500"
                     aria-label={t(`taxReturn.documents.${doc.key}`)}
                   />
                   <div className="flex-1">
@@ -261,7 +261,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                         {t(`taxReturn.documents.${doc.key}`)}
                       </span>
                       {doc.required && (
-                        <span className="text-xs font-bold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-1.5 py-0.5 rounded-full">
+                        <span className="text-xs font-bold bg-danger-subtle text-danger px-1.5 py-0.5 rounded-full">
                           {t('taxReturn.documents.required')}
                         </span>
                       )}
@@ -294,7 +294,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                       {t(`taxReturn.deductions.${ded.key}`)}
                     </h4>
                     {ded.maxCHF && (
-                      <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-success bg-success-subtle px-2 py-0.5 rounded-full">
                         max CHF {ded.maxCHF.toLocaleString()}
                       </span>
                     )}
@@ -315,7 +315,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
           <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
             <h3 className="text-lg font-bold text-strong mb-6">{t('taxReturn.timeline.title')}</h3>
             <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-600" />
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-surface-raised" />
               <div className="space-y-6">
                 {TIMELINE_2026.map((event, i) => {
                   const eventDate = new Date(event.date);
@@ -325,17 +325,17 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                       <div className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
                         isPast
                           ? 'bg-emerald-700 text-white'
-                          : 'bg-white dark:bg-slate-700 border-2 border-stripe-500 text-stripe-500'
+                          : 'bg-surface border-2 border-stripe-500 text-stripe-500'
                       }`}>
                         {isPast ? <CheckCircle2 size={14} /> : <Clock size={14} />}
                       </div>
                       <div className="pb-2">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`text-xs font-bold ${isPast ? 'text-emerald-700 dark:text-emerald-400' : 'text-link'}`}>
+                          <span className={`text-xs font-bold ${isPast ? 'text-success' : 'text-link'}`}>
                             {eventDate.toLocaleDateString('it-IT', { day: '2-digit', month: 'long', year: 'numeric' })}
                           </span>
                           {isPast && (
-                            <span className="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded-full font-bold">
+                            <span className="text-xs bg-success-subtle text-success px-1.5 py-0.5 rounded-full font-bold">
                               {t('taxReturn.timeline.completed')}
                             </span>
                           )}

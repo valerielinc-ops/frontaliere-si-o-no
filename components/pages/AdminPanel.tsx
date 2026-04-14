@@ -243,7 +243,7 @@ function CopyButton({ text, label }: { text: string; label?: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors font-mono"
+      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-surface-raised hover:bg-surface-raised transition-colors font-mono"
       title={`Copia: ${text}`}
       aria-label={`Copia ${label || text}`}
     >
@@ -257,8 +257,8 @@ function HealthBadge({ ok, label }: { ok: boolean; label: string }) {
   return (
     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${
       ok
-        ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400'
-        : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+        ? 'bg-success-subtle text-success'
+        : 'bg-danger-subtle text-danger'
     }`}>
       {ok ? <CheckCircle2 size={12} /> : <AlertTriangle size={12} />}
       {label}
@@ -858,8 +858,8 @@ export default function AdminPanel() {
       {jobsCrawlerConfigMessage && (
         <div className={`rounded-lg px-3 py-2 text-xs ${
           jobsCrawlerConfigMessage.toLowerCase().includes('errore')
-            ? 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
-            : 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+            ? 'bg-danger-subtle border border-danger-border text-danger'
+            : 'bg-success-subtle border border-success-border text-success'
         }`}>
           {jobsCrawlerConfigMessage}
         </div>
@@ -867,8 +867,8 @@ export default function AdminPanel() {
       {crawlerDispatchMessage && (
         <div className={`rounded-lg px-3 py-2 text-xs ${
           crawlerDispatchMessage.startsWith('✅')
-            ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
-            : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
+            ? 'bg-success-subtle border border-success-border text-success'
+            : 'bg-danger-subtle border border-danger-border text-danger'
         }`}>
           {crawlerDispatchMessage}
         </div>
@@ -876,16 +876,16 @@ export default function AdminPanel() {
       {parserDispatchMessage && (
         <div className={`rounded-lg px-3 py-2 text-xs ${
           parserDispatchMessage.startsWith('✅')
-            ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
-            : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
+            ? 'bg-success-subtle border border-success-border text-success'
+            : 'bg-danger-subtle border border-danger-border text-danger'
         }`}>
           {parserDispatchMessage}
         </div>
       )}
       <details className="group rounded-xl border border-edge bg-surface">
         <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-          <Shield size={14} className="text-stripe-600 dark:text-stripe-400" />
-          <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Configurazione crawler</span>
+          <Shield size={14} className="text-accent" />
+          <span className="text-sm font-semibold text-strong">Configurazione crawler</span>
           <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
           <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
         </summary>
@@ -904,7 +904,7 @@ export default function AdminPanel() {
                   onChange={(e) => setParserCompanyName(e.target.value)}
                   placeholder="es. VF International"
                   aria-label="Nome azienda"
-                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface text-strong"
                 />
               </label>
               <label className="text-sm text-subtle">
@@ -915,7 +915,7 @@ export default function AdminPanel() {
                   onChange={(e) => setParserCompanyWebsite(e.target.value)}
                   placeholder="https://azienda.ch"
                   aria-label="URL sito azienda"
-                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface text-strong"
                 />
               </label>
               <label className="text-sm text-subtle">
@@ -926,7 +926,7 @@ export default function AdminPanel() {
                   onChange={(e) => setParserCompanyKey(e.target.value)}
                   placeholder="es. vf-international"
                   aria-label="Company key"
-                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface text-strong"
                 />
               </label>
             </div>
@@ -936,8 +936,8 @@ export default function AdminPanel() {
                 onClick={() => setParserApplyConfig((v) => !v)}
                 className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors ${
                   parserApplyConfig
-                    ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
-                    : 'border-slate-300 dark:border-slate-600 bg-surface text-body'
+                    ? 'border-warning-border bg-warning-subtle text-warning'
+                    : 'border-edge bg-surface text-body'
                 }`}
               >
                 {parserApplyConfig ? <ToggleRight size={13} /> : <ToggleLeft size={13} />}
@@ -946,7 +946,7 @@ export default function AdminPanel() {
               <button
                 onClick={runGenerateParserNow}
                 disabled={parserDispatchLoading}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-xs font-semibold transition-colors"
               >
                 <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
                 {parserDispatchLoading ? 'Generazione…' : 'Genera parser AI'}
@@ -957,8 +957,8 @@ export default function AdminPanel() {
           {/* ── Section 1: Quality Gates ── */}
           <details className="group rounded-lg border border-edge bg-surface/50" open>
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-              <Shield size={14} className="text-amber-600 dark:text-amber-400" />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtri qualità</span>
+              <Shield size={14} className="text-warning" />
+              <span className="text-sm font-semibold text-strong">Filtri qualità</span>
               <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
               <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
@@ -969,13 +969,13 @@ export default function AdminPanel() {
                   <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-muted">(4–10)</span></span>
                   <input type="number" inputMode="numeric" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
                     aria-label="Punteggio qualità minimo"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
                 </label>
                 <label className="text-sm text-subtle">
                   <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-muted">(80–600 car.)</span></span>
                   <input type="number" inputMode="numeric" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
                     aria-label="Lunghezza descrizione minima"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
                 </label>
               </div>
             </div>
@@ -984,9 +984,9 @@ export default function AdminPanel() {
           {/* ── Section 2: AI Localization ── */}
           <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-              <Activity size={14} className="text-stripe-600 dark:text-stripe-400" />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Traduzione AI</span>
-              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-surface-raised text-muted'}`}>
+              <Activity size={14} className="text-accent" />
+              <span className="text-sm font-semibold text-strong">Traduzione AI</span>
+              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>
                 {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
               </span>
               <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
@@ -1000,8 +1000,8 @@ export default function AdminPanel() {
                   <button type="button" onClick={() => setAiLocalizationEnabledInput(v => !v)}
                     className={`mt-1 w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-colors text-sm font-medium ${
                       aiLocalizationEnabledInput
-                        ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
-                        : 'border-slate-300 dark:border-slate-600 bg-surface-alt text-body'
+                        ? 'border-success-border bg-success-subtle text-success'
+                        : 'border-edge bg-surface-alt text-body'
                     }`}>
                     {aiLocalizationEnabledInput ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
                     {aiLocalizationEnabledInput ? 'Attivo' : 'Disattivo'}
@@ -1011,7 +1011,7 @@ export default function AdminPanel() {
                   <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-muted">(0–100)</span></span>
                   <input type="number" inputMode="numeric" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
                     aria-label="Max job tradotti per run"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
                 </label>
               </div>
             </div>
@@ -1021,8 +1021,8 @@ export default function AdminPanel() {
           <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Copy size={14} className="text-link" />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Riuso traduzioni</span>
-              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-surface-raised text-muted'}`}>
+              <span className="text-sm font-semibold text-strong">Riuso traduzioni</span>
+              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>
                 {contentReuseEnabledInput ? 'ON' : 'OFF'}
               </span>
               <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
@@ -1036,8 +1036,8 @@ export default function AdminPanel() {
                   <button type="button" onClick={() => setContentReuseEnabledInput(v => !v)}
                     className={`mt-1 w-full inline-flex items-center justify-center gap-1 px-2 py-2 rounded-lg border text-sm font-medium transition-colors ${
                       contentReuseEnabledInput
-                        ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
-                        : 'border-slate-300 dark:border-slate-600 bg-surface-alt text-body'
+                        ? 'border-success-border bg-success-subtle text-success'
+                        : 'border-edge bg-surface-alt text-body'
                     }`}>
                     {contentReuseEnabledInput ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
                     {contentReuseEnabledInput ? 'ON' : 'OFF'}
@@ -1047,19 +1047,19 @@ export default function AdminPanel() {
                   <span>Similarità min <span className="text-[10px] text-muted">(0.70–1.00)</span></span>
                   <input type="number" inputMode="decimal" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
                     aria-label="Soglia similarità minima"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
                 </label>
                 <label className="text-sm text-subtle">
                   <span>Char sorgente min <span className="text-[10px] text-muted">(120–8000)</span></span>
                   <input type="number" inputMode="numeric" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
                     aria-label="Caratteri sorgente minimi"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
                 </label>
                 <label className="text-sm text-subtle">
                   <span>Delta lunghezza max <span className="text-[10px] text-muted">(0.02–1.00)</span></span>
                   <input type="number" inputMode="decimal" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
                     aria-label="Delta lunghezza massimo"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
                 </label>
               </div>
             </div>
@@ -1069,7 +1069,7 @@ export default function AdminPanel() {
           <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Shield size={14} className="text-subtle" />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtro domini</span>
+              <span className="text-sm font-semibold text-strong">Filtro domini</span>
               <span className="ml-2 text-[10px] text-muted">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
               <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
               <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
@@ -1081,13 +1081,13 @@ export default function AdminPanel() {
                   Domain Whitelist <span className="text-[10px] text-muted">(1 host per riga)</span>
                   <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
                     aria-label="Domain Whitelist"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong font-mono text-xs" />
                 </label>
                 <label className="text-sm text-subtle">
                   Domain Blacklist <span className="text-[10px] text-muted">(1 host per riga)</span>
                   <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
                     aria-label="Domain Blacklist"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong font-mono text-xs" />
                 </label>
               </div>
             </div>
@@ -1096,8 +1096,8 @@ export default function AdminPanel() {
           {/* ── Section 5: Company Priority & Seeds ── */}
           <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-              <Database size={14} className="text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Priorità aziende &amp; seed URL</span>
+              <Database size={14} className="text-success" />
+              <span className="text-sm font-semibold text-strong">Priorità aziende &amp; seed URL</span>
               <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
               <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
@@ -1108,13 +1108,13 @@ export default function AdminPanel() {
                   Priorità per dominio <span className="text-[10px] text-muted">(JSON: {`{"host": score}`})</span>
                   <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
                     aria-label="Priorità per dominio"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong font-mono text-xs" />
                 </label>
                 <label className="text-sm text-subtle">
                   Priorità per nome <span className="text-[10px] text-muted">(JSON: {`{"name": score}`})</span>
                   <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
                     aria-label="Priorità per nome"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong font-mono text-xs" />
                 </label>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1122,13 +1122,13 @@ export default function AdminPanel() {
                   Seed URL per dominio <span className="text-[10px] text-muted">(JSON: {`{"host": ["url1","url2"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
                     aria-label="Seed URL per dominio"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong font-mono text-xs" />
                 </label>
                 <label className="text-sm text-subtle">
                   Seed URL per nome azienda <span className="text-[10px] text-muted">(JSON: {`{"name": ["url1"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
                     aria-label="Seed URL per nome azienda"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong font-mono text-xs" />
                 </label>
               </div>
             </div>
@@ -1154,7 +1154,7 @@ export default function AdminPanel() {
                 sourceSeedsByNameText,
               )}
               disabled={jobsCrawlerConfigSaving || jobsCrawlerConfigLoading}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-sm font-semibold transition-colors"
             >
               {jobsCrawlerConfigSaving ? <RefreshCw size={14} className="animate-spin" /> : <Database size={14} />}
               Salva configurazione
@@ -1331,8 +1331,8 @@ export default function AdminPanel() {
     return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-          <ListChecks size={20} className="text-stripe-600 dark:text-stripe-400" />
+        <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+          <ListChecks size={20} className="text-accent" />
           {meta.label}
         </h2>
         <div className="flex items-center gap-2">
@@ -1348,14 +1348,14 @@ export default function AdminPanel() {
           )}
           <button
             onClick={refreshWorkflowSnapshots}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium transition-colors"
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-sm font-medium transition-colors"
           >
             <ListChecks size={14} />
             Aggiorna stati workflow
           </button>
           <button
             onClick={loadJobsCrawlerAdminConfig}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised text-body text-sm font-medium hover:bg-surface-raised transition-colors"
           >
             <RefreshCw size={14} />
             Ricarica
@@ -1511,10 +1511,10 @@ export default function AdminPanel() {
               const renderExpandedJobs = (jobs: CrawlerSummaryLinkRow[], type: 'new' | 'updated' | 'removed' | 'unchanged' | 'active') => {
                 if (jobs.length === 0) return <div className="text-[11px] text-muted py-1">Nessun elemento.</div>;
                 const styleMap = {
-                  new: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-900/20',
-                  updated: 'border-stripe-200 dark:border-stripe-800 bg-stripe-50/50 dark:bg-stripe-900/20',
-                  removed: 'border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/20',
-                  unchanged: 'border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/20',
+                  new: 'border-success-border bg-success-subtle/50',
+                  updated: 'border-accent-border bg-accent-subtle/50',
+                  removed: 'border-danger-border bg-danger-subtle/50',
+                  unchanged: 'border-warning-border bg-amber-50/50 dark:bg-amber-900/20',
                   active: 'border-edge bg-surface',
                 } as const;
                 const jobSiteUrl = (slug: string) => slug ? `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
@@ -1529,10 +1529,10 @@ export default function AdminPanel() {
                       const qs = job._qualityScore;
                       const qsBadge = qs != null ? (() => {
                         const color = qs >= 75
-                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
+                          ? 'bg-success-subtle text-success'
                           : qs >= 50
-                            ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300'
-                            : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300';
+                            ? 'bg-warning-subtle text-warning'
+                            : 'bg-danger-subtle text-danger';
                         const bd = job._qualityBreakdown;
                         const tip = bd
                           ? `Pulizia: ${bd.cleanliness}/25\nRicchezza: ${bd.richness}/25\nTraduzione: ${bd.translation}/25\nCompletezza: ${bd.completeness}/25`
@@ -1546,7 +1546,7 @@ export default function AdminPanel() {
                       return (
                         <div key={`${job.slug || idx}`} className={`rounded-md border px-2 py-1.5 ${rowStyle} ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
                           <div className="flex items-center gap-1.5">
-                            <span className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</span>
+                            <span className="text-xs font-medium text-strong">{job.title || 'Job senza titolo'}</span>
                             {qsBadge}
                           </div>
                           <div className="text-[11px] text-muted">
@@ -1557,7 +1557,7 @@ export default function AdminPanel() {
                             {siteUrl && (type === 'removed' ? (
                               <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-muted hover:underline">🏚 Sito (archiviato)</a>
                             ) : (
-                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-stripe-600 dark:text-stripe-400 hover:underline">🏠 Sito</a>
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-accent hover:underline">🏠 Sito</a>
                             ))}
                           </div>
                         </div>
@@ -1619,7 +1619,7 @@ export default function AdminPanel() {
                       {/* Source badge: makes clear these numbers are per-crawler last-run diffs,
                           NOT the daily job-board delta from jobs-stats.json (todayAdded/todayUpdated/todayRemoved). */}
                       <span
-                        className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 font-semibold text-[10px] uppercase tracking-wide"
+                        className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-warning-subtle text-warning font-semibold text-[10px] uppercase tracking-wide"
                         title="Aggiunti / Aggiornati / Rimossi / Invariati mostrano il diff dell'ultima singola esecuzione di ogni crawler. Sono metriche distinte dal delta giornaliero del job board (jobs-stats.json) che confronta l'intero board con il commit HEAD della giornata."
                       >
                         Δ ultima run
@@ -1634,14 +1634,14 @@ export default function AdminPanel() {
                       )}
                       <span className="text-slate-500 dark:text-slate-600">|</span>
                       <span className="font-semibold text-subtle">{totals.active} annunci attivi</span>
-                      {totals.newCount > 0 && <span className="text-emerald-700 dark:text-emerald-400 font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
-                      {totals.updated > 0 && <span className="text-stripe-700 dark:text-stripe-400 font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
-                      {totals.removed > 0 && <span className="text-red-700 dark:text-red-400 font-bold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
+                      {totals.newCount > 0 && <span className="text-success font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
+                      {totals.updated > 0 && <span className="text-accent font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
+                      {totals.removed > 0 && <span className="text-danger font-bold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
                       {totals.unchanged > 0 && <span className="text-muted" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
                       {failedCrawlers.length > 0 && (
                         <>
                           <span className="text-slate-500 dark:text-slate-600">|</span>
-                          <span className="text-red-700 dark:text-red-400 font-bold">{failedCrawlers.length} falliti</span>
+                          <span className="text-danger font-bold">{failedCrawlers.length} falliti</span>
                         </>
                       )}
                       {failedCrawlers.length > 0 && (
@@ -1666,7 +1666,7 @@ export default function AdminPanel() {
                           <button
                             onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '20', dry_run: 'false' })}
                             disabled={orchRunning}
-                            className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-[11px] font-semibold transition-colors`}
+                            className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-[11px] font-semibold transition-colors`}
                             aria-label="Avvia orchestratore crawler"
                           >
                             {orchRunning ? (
@@ -1679,7 +1679,7 @@ export default function AdminPanel() {
                       })()}
                     </div>
                     {retryFailedProgress?.running && (
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-xs text-amber-800 dark:text-amber-300">
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-warning-subtle border border-warning-border text-xs text-warning">
                         <Loader2 size={12} className="animate-spin" />
                         <span>Rilancio {retryFailedProgress.current}/{retryFailedProgress.total}: <strong>{retryFailedProgress.currentLabel}</strong></span>
                       </div>
@@ -1693,14 +1693,14 @@ export default function AdminPanel() {
                           value={crawlerNameFilter}
                           onChange={e => setCrawlerNameFilter(e.target.value)}
                           placeholder="Filtra crawler…"
-                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-stripe-500"
+                          className="pl-7 pr-2 py-1.5 rounded-md border border-edge bg-surface text-xs text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
                           aria-label="Filtra per nome crawler"
                         />
                       </div>
                       <select
                         value={crawlerChangeFilter}
                         onChange={e => setCrawlerChangeFilter(e.target.value as typeof crawlerChangeFilter)}
-                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-stripe-500"
+                        className="px-2 py-1.5 rounded-md border border-edge bg-surface text-xs text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
                         aria-label="Filtra per tipo variazione"
                       >
                         <option value="all">Tutte le variazioni</option>
@@ -1728,11 +1728,11 @@ export default function AdminPanel() {
                           <th className="text-left py-2 px-3 font-semibold">{renderCrawlerSortHeader('title', 'Crawler')}</th>
                           <th className="text-center py-2 px-2 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('schedule', '⏰ Pianif.', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('lastRun', 'Ultimo', { align: 'center' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-emerald-700 dark:text-emerald-400 whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-emerald-700 dark:text-emerald-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-stripe-700 dark:text-stripe-400 whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-stripe-700 dark:text-stripe-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-red-700 dark:text-red-400 whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-red-700 dark:text-red-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-success whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-success' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-accent whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-accent' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-danger whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-danger' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-muted' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-stripe-700 dark:text-stripe-400 whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-stripe-700 dark:text-stripe-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-accent whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-accent' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-muted' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', '📊 Qualità', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
@@ -1754,12 +1754,12 @@ export default function AdminPanel() {
                           return (
                             <Fragment key={row.key}>
                               <tr className={`border-b border-edge hover:bg-slate-50/70 dark:hover:bg-slate-800/40 ${
-                                row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-stripe-50/50 dark:bg-stripe-900/10'
+                                row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-accent-subtle/50'
                                 : isFailure ? 'bg-red-50/30 dark:bg-red-900/10' : ''
                               }`}>
                                 {/* Crawler name */}
                                 <td className="py-2 px-3" title={row.description}>
-                                  <span className={`font-semibold ${row.wf?.id === 'orchestrate-crawlers.yml' ? 'text-stripe-700 dark:text-stripe-300' : 'text-slate-800 dark:text-slate-100'}`}>{row.title}</span>
+                                  <span className={`font-semibold ${row.wf?.id === 'orchestrate-crawlers.yml' ? 'text-accent' : 'text-strong'}`}>{row.title}</span>
                                 </td>
                                 {/* Schedule */}
                                 <td className="text-center py-2 px-2 font-mono text-[11px] text-subtle whitespace-nowrap">
@@ -1773,7 +1773,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.newCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'new')}
-                                      className={`inline-flex items-center gap-0.5 text-emerald-700 dark:text-emerald-400 font-bold hover:underline cursor-pointer ${expanded === 'new' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-success font-bold hover:underline cursor-pointer ${expanded === 'new' ? 'underline' : ''}`}>
                                       {expanded === 'new' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       +{s.newCount}
                                     </button>
@@ -1785,7 +1785,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.updatedCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'updated')}
-                                      className={`inline-flex items-center gap-0.5 text-stripe-700 dark:text-stripe-400 font-bold hover:underline cursor-pointer ${expanded === 'updated' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-accent font-bold hover:underline cursor-pointer ${expanded === 'updated' ? 'underline' : ''}`}>
                                       {expanded === 'updated' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       ~{s.updatedCount}
                                     </button>
@@ -1797,7 +1797,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.removedCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'removed')}
-                                      className={`inline-flex items-center gap-0.5 text-red-700 dark:text-red-400 font-bold hover:underline cursor-pointer ${expanded === 'removed' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-danger font-bold hover:underline cursor-pointer ${expanded === 'removed' ? 'underline' : ''}`}>
                                       {expanded === 'removed' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       -{s.removedCount}
                                     </button>
@@ -1809,7 +1809,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.unchangedCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'unchanged')}
-                                      className={`inline-flex items-center gap-0.5 text-amber-700 dark:text-amber-400 font-bold hover:underline cursor-pointer ${expanded === 'unchanged' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-warning font-bold hover:underline cursor-pointer ${expanded === 'unchanged' ? 'underline' : ''}`}>
                                       {expanded === 'unchanged' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       {s.unchangedCount}
                                     </button>
@@ -1821,7 +1821,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.activeJobCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'active')}
-                                      className={`inline-flex items-center gap-0.5 text-stripe-700 dark:text-stripe-400 font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-accent font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
                                       {expanded === 'active' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       {s.activeJobCount}
                                     </button>
@@ -1846,10 +1846,10 @@ export default function AdminPanel() {
                                     const qs = s.qualityScore;
                                     const avg = qs.avgScore;
                                     const badgeColor = avg >= 75
-                                      ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
+                                      ? 'bg-success-subtle text-success'
                                       : avg >= 50
-                                        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300'
-                                        : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300';
+                                        ? 'bg-warning-subtle text-warning'
+                                        : 'bg-danger-subtle text-danger';
                                     const tooltipLines = [
                                       `Pulizia: ${qs.breakdown.cleanliness}/25`,
                                       `Ricchezza: ${qs.breakdown.richness}/25`,
@@ -1875,9 +1875,9 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-2">
                                   {wfState ? (
                                     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${
-                                      isSuccess ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
-                                        : isFailure ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-                                        : isRunning ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
+                                      isSuccess ? 'bg-success-subtle text-success'
+                                        : isFailure ? 'bg-danger-subtle text-danger'
+                                        : isRunning ? 'bg-accent-subtle text-accent'
                                         : 'bg-surface-raised text-subtle'
                                     }`}>
                                       {isRunning ? (<><Loader2 size={10} className="animate-spin" /> Run</>)
@@ -1896,7 +1896,7 @@ export default function AdminPanel() {
                                       <button
                                         onClick={() => void runWorkflowAction(row.wf!.id)}
                                         disabled={!!isRunning}
-                                        className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-[10px] font-semibold transition-colors"
+                                        className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-[10px] font-semibold transition-colors"
                                         aria-label={`Avvia ${row.title}`}
                                       >
                                         <Play size={10} />
@@ -1904,7 +1904,7 @@ export default function AdminPanel() {
                                       </button>
                                       {wfState?.htmlUrl && (
                                         <a href={wfState.htmlUrl} target="_blank" rel="noreferrer"
-                                           className="inline-flex items-center px-1.5 py-1 rounded-md border border-slate-300 dark:border-slate-600 text-muted text-[10px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                                           className="inline-flex items-center px-1.5 py-1 rounded-md border border-edge text-muted text-[10px] hover:bg-surface-raised transition-colors"
                                            aria-label={`GitHub ${row.title}`}>
                                           <ExternalLink size={10} />
                                         </a>
@@ -1922,11 +1922,11 @@ export default function AdminPanel() {
                               {expanded && s && (
                                 <tr>
                                   <td colSpan={10} className={`px-3 py-2 border-b border-edge ${
-                                    expanded === 'new' ? 'bg-emerald-50/50 dark:bg-emerald-900/10'
-                                      : expanded === 'updated' ? 'bg-stripe-50/50 dark:bg-stripe-900/10'
-                                      : expanded === 'unchanged' ? 'bg-amber-50/50 dark:bg-amber-900/10'
-                                      : expanded === 'active' ? 'bg-stripe-50/50 dark:bg-stripe-900/10'
-                                      : 'bg-red-50/50 dark:bg-red-900/10'
+                                    expanded === 'new' ? 'bg-success-subtle/50'
+                                      : expanded === 'updated' ? 'bg-accent-subtle/50'
+                                      : expanded === 'unchanged' ? 'bg-warning-subtle/50'
+                                      : expanded === 'active' ? 'bg-accent-subtle/50'
+                                      : 'bg-danger-subtle/50'
                                   }`}>
                                     <div className="text-[11px] font-semibold text-body mb-1.5">
                                       {expanded === 'new' ? `Aggiunti (${s.newCount})`
@@ -1953,16 +1953,16 @@ export default function AdminPanel() {
                               {/* Error detail row */}
                               {isFailure && (wfState?.error || failedSteps.length > 0 || wfState?.logExcerpt) && (
                                 <tr>
-                                  <td colSpan={10} className="px-3 py-2 bg-red-50/50 dark:bg-red-900/10 border-b border-red-200 dark:border-red-800">
+                                  <td colSpan={10} className="px-3 py-2 bg-danger-subtle/50 border-b border-danger-border">
                                     <div className="space-y-1">
                                       {wfState.error && (
-                                        <div className="flex items-start gap-2 text-xs text-red-700 dark:text-red-300">
+                                        <div className="flex items-start gap-2 text-xs text-danger">
                                           <AlertTriangle size={12} className="mt-0.5 shrink-0" />
                                           <span className="font-semibold">{wfState.error}</span>
                                         </div>
                                       )}
                                       {failedSteps.length > 0 && (
-                                        <div className="text-[11px] text-red-600 dark:text-red-400 pl-5">
+                                        <div className="text-[11px] text-danger pl-5">
                                           Step falliti: {failedSteps.slice(0, 4).join(' · ')}
                                           {failedSteps.length > 4 && <span className="text-red-400"> (+{failedSteps.length - 4})</span>}
                                         </div>
@@ -2461,7 +2461,7 @@ export default function AdminPanel() {
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">{wf.title}</h4>
+              <h4 className="text-sm font-bold text-strong truncate">{wf.title}</h4>
               {lastRunAgo && (
                 <span className="text-[10px] text-muted font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
                   {lastRunAgo}
@@ -2472,11 +2472,11 @@ export default function AdminPanel() {
           </div>
           <span className={`shrink-0 inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${
             isSuccess
-              ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
+              ? 'bg-success-subtle text-success'
               : isFailure
-                ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
+                ? 'bg-danger-subtle text-danger'
                 : isRunning
-                  ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
+                  ? 'bg-accent-subtle text-accent'
                   : 'bg-surface-raised text-subtle'
           }`}>
             {isRunning ? (
@@ -2493,18 +2493,18 @@ export default function AdminPanel() {
 
         {/* ── Error banner (always visible when there's an error) ── */}
         {isFailure && (wfState.error || failedSteps.length > 0) && (
-          <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 px-3 py-2.5 space-y-1.5">
+          <div className="rounded-lg bg-danger-subtle border border-danger-border px-3 py-2.5 space-y-1.5">
             {wfState.error && (
-              <div className="flex items-start gap-2 text-xs font-semibold text-red-700 dark:text-red-300">
+              <div className="flex items-start gap-2 text-xs font-semibold text-danger">
                 <AlertTriangle size={13} className="mt-0.5 shrink-0" />
                 <span>{wfState.error}</span>
               </div>
             )}
             {failedSteps.length > 0 && (
-              <div className="text-[11px] text-red-600 dark:text-red-400 pl-5">
+              <div className="text-[11px] text-danger pl-5">
                 <span className="font-semibold">Step falliti:</span>{' '}
                 {failedSteps.slice(0, 6).join(' · ')}
-                {failedSteps.length > 6 && <span className="text-red-400 dark:text-red-500"> (+{failedSteps.length - 6})</span>}
+                {failedSteps.length > 6 && <span className="text-danger"> (+{failedSteps.length - 6})</span>}
               </div>
             )}
           </div>
@@ -2512,7 +2512,7 @@ export default function AdminPanel() {
 
         {/* ── Status message (non-error) ── */}
         {!isFailure && wfState.message && (
-          <div className="rounded-lg px-3 py-2 text-[11px] bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 text-stripe-700 dark:text-stripe-300">
+          <div className="rounded-lg px-3 py-2 text-[11px] bg-accent-subtle border border-accent-border text-accent">
             {wfState.message}
           </div>
         )}
@@ -2522,7 +2522,7 @@ export default function AdminPanel() {
           <button
             onClick={() => void runWorkflowAction(wf.id)}
             disabled={isRunning}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-xs font-semibold transition-colors"
           >
             <Play size={11} />
             {isRunning ? 'In corso…' : 'Avvia'}
@@ -2532,7 +2532,7 @@ export default function AdminPanel() {
               href={wfState.htmlUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-600 text-subtle text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-edge text-subtle text-xs font-semibold hover:bg-surface-raised transition-colors"
             >
               <ExternalLink size={11} />
               GitHub
@@ -2567,7 +2567,7 @@ export default function AdminPanel() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-[11px]">
               <div>Run <span className="font-mono font-semibold">#{wfState.runNumber || '—'}</span></div>
               <div>Stato: <span className="font-semibold">{wfState.status || 'idle'}</span></div>
-              <div>Esito: <span className={`font-semibold ${wfState.conclusion === 'success' ? 'text-emerald-600 dark:text-emerald-400' : wfState.conclusion === 'failure' ? 'text-red-600 dark:text-red-400' : ''}`}>{wfState.conclusion || '—'}</span></div>
+              <div>Esito: <span className={`font-semibold ${wfState.conclusion === 'success' ? 'text-success' : wfState.conclusion === 'failure' ? 'text-danger' : ''}`}>{wfState.conclusion || '—'}</span></div>
               <div>Durata: <span className="font-semibold">{formatDuration(wfState.durationSeconds)}</span></div>
               <div>Ultimo: <span className="font-mono">{lastRunAgo || 'n/d'}</span></div>
               <div>ID: <span className="font-mono text-[10px]">{wfState.runId || 'n/d'}</span></div>
@@ -2585,9 +2585,9 @@ export default function AdminPanel() {
                   </thead>
                   <tbody>
                     {wfState.jobs.map((job) => (
-                      <tr key={`${wf.id}-${job.id}`} className={`border-t border-edge ${String(job.conclusion) === 'failure' ? 'bg-red-50/50 dark:bg-red-900/10' : ''}`}>
+                      <tr key={`${wf.id}-${job.id}`} className={`border-t border-edge ${String(job.conclusion) === 'failure' ? 'bg-danger-subtle/50' : ''}`}>
                         <td className="py-1 px-2 font-medium">{job.name}</td>
-                        <td className={`py-1 px-2 font-semibold ${String(job.conclusion) === 'failure' ? 'text-red-600 dark:text-red-400' : String(job.conclusion) === 'success' ? 'text-emerald-600 dark:text-emerald-400' : ''}`}>
+                        <td className={`py-1 px-2 font-semibold ${String(job.conclusion) === 'failure' ? 'text-danger' : String(job.conclusion) === 'success' ? 'text-success' : ''}`}>
                           {job.conclusion || job.status || '—'}
                         </td>
                         <td className="py-1 px-2 text-right font-mono">{job.completedSteps}/{job.totalSteps}</td>
@@ -2733,7 +2733,7 @@ export default function AdminPanel() {
               onClick={() => setActiveSection(tab.id as typeof activeSection)}
               className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg transition-colors ${
                 activeSection === tab.id
-                  ? 'bg-surface text-stripe-700 dark:text-stripe-400 border border-b-0 border-edge'
+                  ? 'bg-surface text-accent border border-b-0 border-edge'
                   : 'text-muted hover:text-slate-700 dark:hover:text-slate-300'
               }`}
               aria-label={tab.label}
@@ -2766,13 +2766,13 @@ export default function AdminPanel() {
       {activeSection === 'owner' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Database size={20} className="text-stripe-600 dark:text-stripe-400" />
+            <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+              <Database size={20} className="text-accent" />
               Owner Tools
             </h2>
             <button
               onClick={refreshOwnerStats}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-sm font-medium transition-colors"
             >
               <RefreshCw size={14} />
               Aggiorna
@@ -2780,7 +2780,7 @@ export default function AdminPanel() {
           </div>
 
           {ownerStats.error && (
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg px-3 py-2 text-sm text-red-700 dark:text-red-300">
+            <div className="bg-danger-subtle border border-danger-border rounded-lg px-3 py-2 text-sm text-danger">
               Errore lettura dati owner: {ownerStats.error}
             </div>
           )}
@@ -2793,8 +2793,8 @@ export default function AdminPanel() {
             <>
               <div className={`rounded-xl border p-4 ${
                 serpDiagnostics.hasRemoteOverride
-                  ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-700'
-                  : 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-700'
+                  ? 'bg-warning-subtle border-warning-border'
+                  : 'bg-success-subtle border-success-border'
               }`}>
                 <div className="flex items-center gap-2 text-sm font-semibold">
                   {serpDiagnostics.hasRemoteOverride ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
@@ -2814,32 +2814,32 @@ export default function AdminPanel() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-surface rounded-xl border border-edge p-4">
                   <div className="text-xs text-muted mb-1">Social proof (counters/simulations)</div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     {ownerStats.loading ? '…' : (ownerStats.socialProofTotal ?? '—')}
                   </div>
                 </div>
                 <div className="bg-surface rounded-xl border border-edge p-4">
                   <div className="text-xs text-muted mb-1">Simulazioni cloud (collection)</div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     {ownerStats.loading ? '…' : (ownerStats.simulationDocs ?? '—')}
                   </div>
                 </div>
                 <div className="bg-surface rounded-xl border border-edge p-4">
                   <div className="text-xs text-muted mb-1">Domande forum</div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     {ownerStats.loading ? '…' : (ownerStats.forumQuestions ?? '—')}
                   </div>
                 </div>
                 <div className="bg-surface rounded-xl border border-edge p-4">
                   <div className="text-xs text-muted mb-1">Newsletter attivi</div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     {ownerStats.loading ? '…' : (ownerStats.newsletterActive ?? '—')}
                   </div>
                 </div>
               </div>
 
               <div className="bg-surface rounded-xl border border-edge p-4 space-y-3">
-                <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">File Pubblici Critici</h3>
+                <h3 className="text-sm font-bold text-strong">File Pubblici Critici</h3>
                 <div className="space-y-2">
                   {(Object.entries(ownerStats.publicFiles) as [string, boolean][]).map(([file, ok]) => (
                     <div key={file} className="flex items-center justify-between text-sm">
@@ -2851,7 +2851,7 @@ export default function AdminPanel() {
               </div>
 
               <div className="bg-surface rounded-xl border border-edge p-4 space-y-3">
-                <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Azioni Rapide Owner</h3>
+                <h3 className="text-sm font-bold text-strong">Azioni Rapide Owner</h3>
                 <div className="flex flex-wrap gap-2">
                   <CopyButton text="npm run build && npm run validate:structured-data && npm test" label="pipeline locale" />
                   <CopyButton text="node scripts/send-newsletter.mjs --preview > /tmp/newsletter.html && open /tmp/newsletter.html" label="preview newsletter" />
@@ -2859,7 +2859,7 @@ export default function AdminPanel() {
                     href="/sitemap.xml"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
                   >
                     <ExternalLink size={12} />
                     Apri sitemap.xml
@@ -2868,7 +2868,7 @@ export default function AdminPanel() {
                     href="/robots.txt"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
                   >
                     <ExternalLink size={12} />
                     Apri robots.txt
@@ -2877,18 +2877,18 @@ export default function AdminPanel() {
               </div>
 
               {/* TODO / Da Implementare */}
-              <div className="bg-surface rounded-xl border border-amber-200 dark:border-amber-700/50 p-4 space-y-3">
-                <h3 className="text-sm font-bold text-amber-700 dark:text-amber-400 flex items-center gap-2">
+              <div className="bg-surface rounded-xl border border-warning-border/50 p-4 space-y-3">
+                <h3 className="text-sm font-bold text-warning flex items-center gap-2">
                   <ListChecks size={16} />
                   TODO — Da Implementare
                 </h3>
                 <ul className="space-y-2 text-xs">
-                  <li className="flex items-start gap-2 p-2 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/40">
-                    <span className="shrink-0 mt-0.5 w-4 h-4 rounded border-2 border-amber-400 dark:border-amber-500" />
+                  <li className="flex items-start gap-2 p-2 rounded-lg bg-warning-subtle border border-warning-border/40">
+                    <span className="shrink-0 mt-0.5 w-4 h-4 rounded border-2 border-warning-border" />
                     <div>
                       <a
                         href="/digest-settimanale"
-                        className="font-semibold text-amber-800 dark:text-amber-300 hover:underline"
+                        className="font-semibold text-warning hover:underline"
                       >
                         Weekly Digest — Pagina Digest Settimanale
                       </a>
@@ -2912,7 +2912,7 @@ export default function AdminPanel() {
       {/* Newsletter section */}
       {activeSection === 'newsletter' && (
         <div className="space-y-4">
-          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 text-sm text-amber-800 dark:text-amber-200">
+          <div className="bg-warning-subtle border border-warning-border rounded-xl p-4 text-sm text-warning">
             <strong>Preview reale:</strong> l'anteprima usa dati veri. Il test invia una sola email all'admin loggato tramite workflow protetto.
           </div>
 
@@ -2923,7 +2923,7 @@ export default function AdminPanel() {
                 <Users size={16} />
                 Iscritti attivi
               </div>
-              <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+              <div className="text-2xl font-bold text-strong">
                 {nlLoading ? '…' : nlSubscriberCount ?? '—'}
               </div>
             </div>
@@ -2932,7 +2932,7 @@ export default function AdminPanel() {
                 <Calendar size={16} />
                 Ultimo invio
               </div>
-              <div className="text-sm font-medium text-slate-800 dark:text-slate-100 mt-1">
+              <div className="text-sm font-medium text-strong mt-1">
                 {nlLoading ? '…' : nlLastSend ?? 'Nessun invio'}
               </div>
             </div>
@@ -2951,10 +2951,10 @@ export default function AdminPanel() {
 
           <div className="bg-surface rounded-xl border border-edge p-6 space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Insight Cambio (settimana/mese)</h3>
+              <h3 className="text-sm font-bold text-strong">Insight Cambio (settimana/mese)</h3>
               <button
                 onClick={fetchNewsletterInsights}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-medium"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-surface-raised text-xs font-medium"
               >
                 <RefreshCw size={13} />
                 Aggiorna
@@ -2967,19 +2967,19 @@ export default function AdminPanel() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
                   <div className="rounded-lg bg-surface-alt p-3">
                     <div className="text-muted text-xs mb-1">Settimana vs precedente</div>
-                    <div className="font-semibold text-slate-800 dark:text-slate-100">
+                    <div className="font-semibold text-strong">
                       {nlInsights.weeklyDeltaPct >= 0 ? '+' : ''}{nlInsights.weeklyDeltaPct.toFixed(2)}%
                     </div>
                   </div>
                   <div className="rounded-lg bg-surface-alt p-3">
                     <div className="text-muted text-xs mb-1">Mese corrente vs precedente</div>
-                    <div className="font-semibold text-slate-800 dark:text-slate-100">
+                    <div className="font-semibold text-strong">
                       {nlInsights.monthDeltaPct >= 0 ? '+' : ''}{nlInsights.monthDeltaPct.toFixed(2)}%
                     </div>
                   </div>
                   <div className="rounded-lg bg-surface-alt p-3">
                     <div className="text-muted text-xs mb-1">Giorno medio migliore</div>
-                    <div className="font-semibold text-slate-800 dark:text-slate-100">{nlInsights.bestWeekday}</div>
+                    <div className="font-semibold text-strong">{nlInsights.bestWeekday}</div>
                   </div>
                 </div>
                 <div className="text-sm text-body">{nlInsights.recommendation}</div>
@@ -2989,7 +2989,7 @@ export default function AdminPanel() {
                     {nlInsights.providerRanking.map((p) => (
                       <div key={p.name} className="flex items-center justify-between text-sm">
                         <span className="text-body">{p.name}</span>
-                        <span className="font-semibold text-slate-800 dark:text-slate-100">{p.netEur.toFixed(2)} EUR</span>
+                        <span className="font-semibold text-strong">{p.netEur.toFixed(2)} EUR</span>
                       </div>
                     ))}
                   </div>
@@ -3010,8 +3010,8 @@ export default function AdminPanel() {
 
           {/* Content toggles + subject */}
           <div className="bg-surface rounded-xl border border-edge p-6 space-y-4">
-            <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Mail size={20} className="text-stripe-600 dark:text-stripe-400" />
+            <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+              <Mail size={20} className="text-accent" />
               Configura Newsletter
             </h2>
 
@@ -3022,13 +3022,13 @@ export default function AdminPanel() {
                 type="text"
                 value={nlSubject}
                 onChange={e => setNlSubject(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface text-slate-800 dark:text-slate-100 text-sm focus-visible:ring-2 focus-visible:ring-stripe-500"
+                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface text-strong text-sm focus-visible:ring-2 focus-visible:ring-accent"
                 aria-label="Oggetto email newsletter"
               />
             </div>
 
             <div className="rounded-lg border border-edge bg-surface-alt p-4">
-              <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">Newsletter v2 — AI Personalizzata</p>
+              <p className="text-sm font-semibold text-strong mb-2">Newsletter v2 — AI Personalizzata</p>
               <p className="text-xs text-subtle leading-relaxed">
                 Ogni iscritto riceve un&apos;email unica: briefing AI personalizzato, job matching per zona/settore, oggetto generato dall&apos;AI.
                 Non ci sono più varianti (jobs/tax/general) né sezioni configurabili. Il template è fisso e minimale.
@@ -3040,7 +3040,7 @@ export default function AdminPanel() {
               <button
                 onClick={generatePreview}
                 disabled={nlPreviewLoading}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-sm font-medium transition-colors"
                 aria-label="Genera anteprima newsletter"
               >
                 <RefreshCw size={16} />
@@ -3049,7 +3049,7 @@ export default function AdminPanel() {
               <button
                 onClick={sendTestNewsletter}
                 disabled={nlSending || !nlPreviewHtml || !user?.email}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
                 aria-label="Invia test newsletter all'admin loggato"
               >
                 <Send size={16} />
@@ -3060,8 +3060,8 @@ export default function AdminPanel() {
             {nlSendResult && (
               <div className={`text-sm px-3 py-2 rounded-lg ${
                 nlSendResult.startsWith('✓')
-                  ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400'
-                  : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400'
+                  ? 'bg-success-subtle text-success'
+                  : 'bg-danger-subtle text-danger'
               }`}>
                 {nlSendResult}
               </div>
@@ -3072,8 +3072,8 @@ export default function AdminPanel() {
           {nlPreviewHtml && (
             <div className="bg-surface rounded-xl border border-edge overflow-hidden">
               <div className="px-4 py-3 border-b border-edge flex items-center gap-2">
-                <Eye size={16} className="text-stripe-600 dark:text-stripe-400" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Anteprima Newsletter</span>
+                <Eye size={16} className="text-accent" />
+                <span className="text-sm font-semibold text-strong">Anteprima Newsletter</span>
               </div>
               <iframe
                 srcDoc={nlPreviewHtml}
@@ -3088,15 +3088,15 @@ export default function AdminPanel() {
           {/* Double Opt-In — Confirmation Email Preview */}
           <div className="bg-surface rounded-xl border border-edge overflow-hidden">
             <div className="px-4 py-3 border-b border-edge flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-amber-600 dark:text-amber-400" />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Double Opt-In — Anteprima Email di Conferma</span>
-              <span className="ml-auto text-xs bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded-full font-medium">DRY RUN</span>
+              <CheckCircle2 size={16} className="text-warning" />
+              <span className="text-sm font-semibold text-strong">Double Opt-In — Anteprima Email di Conferma</span>
+              <span className="ml-auto text-xs bg-warning-subtle text-warning px-2 py-0.5 rounded-full font-medium">DRY RUN</span>
             </div>
             <div className="p-4 space-y-3">
               <p className="text-xs text-subtle">
                 Quando il sistema sarà attivo, i nuovi iscritti riceveranno questa email di conferma.
                 L'invio sarà gestito tramite GitHub Actions workflow dispatch.
-                Per ora i subscriber vengono salvati con <code className="text-xs bg-slate-100 dark:bg-slate-900 px-1 py-0.5 rounded">status: 'pending'</code>.
+                Per ora i subscriber vengono salvati con <code className="text-xs bg-surface-raised px-1 py-0.5 rounded">status: 'pending'</code>.
               </p>
               <iframe
                 srcDoc={`<!DOCTYPE html>
@@ -3183,8 +3183,8 @@ export default function AdminPanel() {
 
           {/* CLI Commands */}
           <div className="bg-surface rounded-xl border border-edge p-6 space-y-3">
-            <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Terminal size={16} className="text-stripe-600 dark:text-stripe-400" />
+            <h3 className="text-sm font-bold text-strong flex items-center gap-2">
+              <Terminal size={16} className="text-accent" />
               Comandi Newsletter
             </h3>
             {[
@@ -3204,9 +3204,9 @@ export default function AdminPanel() {
       )}
 
       {/* Footer note */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 flex gap-3">
-        <AlertTriangle size={20} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-        <p className="text-amber-800 dark:text-amber-200 text-sm">
+      <div className="bg-warning-subtle border border-warning-border rounded-xl p-4 flex gap-3">
+        <AlertTriangle size={20} className="text-warning shrink-0 mt-0.5" />
+        <p className="text-warning text-sm">
           <strong>Nota:</strong> Questo pannello copre solo strumenti owner/crawler/newsletter.
           Le attività editoriali restano fuori da questa dashboard.
         </p>

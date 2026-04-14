@@ -280,20 +280,20 @@ const NewFrontierOver20KmHub: React.FC = () => {
           <Sparkles className="w-3.5 h-3.5" />
           {copy.badge}
         </div>
-        <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-heading">
           {copy.title}
         </h2>
-        <p className="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-slate-600 dark:text-slate-300">
+        <p className="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-subtle">
           {copy.subtitle}
         </p>
-        <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-300">
+        <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
           {copy.intro}
         </p>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
           {copy.bullets.map((bullet) => (
             <div
               key={bullet}
-              className="rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-surface/90 p-4 text-sm leading-6 text-slate-700 dark:text-slate-200"
+              className="rounded-2xl border border-edge bg-surface/90 p-4 text-sm leading-6 text-body"
             >
               {bullet}
             </div>
@@ -303,7 +303,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
 
       <div className="px-5 py-6 sm:px-7 sm:py-8 space-y-8">
         <div>
-          <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
+          <div className="flex items-center gap-2 text-sm font-bold text-heading">
             <Calculator className="w-4 h-4 text-sky-600 dark:text-sky-400" />
             {copy.casesTitle}
           </div>
@@ -313,31 +313,31 @@ const NewFrontierOver20KmHub: React.FC = () => {
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   {summary}
                 </div>
-                <h3 className="mt-2 text-lg font-bold text-slate-900 dark:text-white">{title}</h3>
+                <h3 className="mt-2 text-lg font-bold text-heading">{title}</h3>
                 <div className="mt-4 space-y-2 text-sm">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-slate-600 dark:text-slate-300">{copy.labelGross}</span>
-                    <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.grossIncome, locale, 'CHF')}</span>
+                    <span className="text-subtle">{copy.labelGross}</span>
+                    <span className="font-bold text-heading">{money(result.itResident.grossIncome, locale, 'CHF')}</span>
                   </div>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-slate-600 dark:text-slate-300">{copy.labelSocial}</span>
-                    <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.socialContributions, locale, 'CHF')}</span>
+                    <span className="text-subtle">{copy.labelSocial}</span>
+                    <span className="font-bold text-heading">{money(result.itResident.socialContributions, locale, 'CHF')}</span>
                   </div>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-slate-600 dark:text-slate-300">{copy.labelTaxes}</span>
-                    <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.taxes, locale, 'CHF')}</span>
+                    <span className="text-subtle">{copy.labelTaxes}</span>
+                    <span className="font-bold text-heading">{money(result.itResident.taxes, locale, 'CHF')}</span>
                   </div>
                   <div className="mt-2 pt-2 border-t border-edge flex items-center justify-between gap-3">
-                    <span className="text-slate-600 dark:text-slate-300">{copy.labelNetAnnual}</span>
-                    <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.netIncomeAnnual, locale, 'CHF')}</span>
+                    <span className="text-subtle">{copy.labelNetAnnual}</span>
+                    <span className="font-bold text-heading">{money(result.itResident.netIncomeAnnual, locale, 'CHF')}</span>
                   </div>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-slate-600 dark:text-slate-300">{copy.labelNetMonthly}</span>
+                    <span className="text-subtle">{copy.labelNetMonthly}</span>
                     <span className="font-bold text-sky-700 dark:text-sky-300">{money(result.itResident.netIncomeMonthly, locale, 'CHF')}</span>
                   </div>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-slate-600 dark:text-slate-300">{copy.labelEffRate}</span>
-                    <span className="font-bold text-slate-900 dark:text-white">{result.itResident.details.effectiveRate.toFixed(1)}%</span>
+                    <span className="text-subtle">{copy.labelEffRate}</span>
+                    <span className="font-bold text-heading">{result.itResident.details.effectiveRate.toFixed(1)}%</span>
                   </div>
                 </div>
                 <a
@@ -353,21 +353,21 @@ const NewFrontierOver20KmHub: React.FC = () => {
         </div>
 
         <div className="rounded-3xl border border-warm-200 dark:border-warm-800 bg-warm-50 dark:bg-warm-950 p-5">
-          <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
+          <div className="flex items-center gap-2 text-sm font-bold text-heading">
             <Scale className="w-4 h-4 text-warm-600 dark:text-warm-400" />
             {copy.compareTitle}
           </div>
-          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.compareBody}</p>
+          <p className="mt-3 text-sm leading-7 text-subtle">{copy.compareBody}</p>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="rounded-2xl bg-surface border border-edge p-4">
               <div className="text-sm text-muted">{copy.compareOver}</div>
-              <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
+              <div className="mt-2 text-xl font-bold text-heading">
                 {money(comparison.over20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
             <div className="rounded-2xl bg-surface border border-edge p-4">
               <div className="text-sm text-muted">{copy.compareWithin}</div>
-              <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
+              <div className="mt-2 text-xl font-bold text-heading">
                 {money(comparison.within20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
@@ -381,8 +381,8 @@ const NewFrontierOver20KmHub: React.FC = () => {
         </div>
 
         <div>
-          <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
-            <MapPinned className="w-4 h-4 text-emerald-600 dark:text-emerald-300" />
+          <div className="flex items-center gap-2 text-sm font-bold text-heading">
+            <MapPinned className="w-4 h-4 text-success" />
             {copy.linksTitle}
           </div>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -393,7 +393,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
                 className="group rounded-2xl border border-edge bg-surface p-4 no-underline hover:border-sky-300 dark:hover:border-sky-600 transition-colors"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-sm font-semibold text-slate-900 dark:text-white">{link.label}</span>
+                  <span className="text-sm font-semibold text-heading">{link.label}</span>
                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors" />
                 </div>
               </a>
@@ -402,12 +402,12 @@ const NewFrontierOver20KmHub: React.FC = () => {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white">{copy.faqTitle}</h3>
+          <h3 className="text-sm font-bold text-heading">{copy.faqTitle}</h3>
           <div className="mt-4 space-y-3">
             {copy.faq.map((item) => (
               <div key={item.q} className="rounded-2xl border border-edge bg-surface p-4">
-                <div className="text-sm font-semibold text-slate-900 dark:text-white">{item.q}</div>
-                <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.a}</p>
+                <div className="text-sm font-semibold text-heading">{item.q}</div>
+                <p className="mt-2 text-sm leading-7 text-subtle">{item.a}</p>
               </div>
             ))}
           </div>

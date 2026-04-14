@@ -124,7 +124,7 @@ const FaqSection: React.FC = () => {
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
             selectedCategory === 'all'
               ? 'bg-stripe-600 text-white'
-              : 'bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700'
+              : 'bg-surface text-subtle border border-edge hover:bg-surface-raised'
           }`}
         >
           {t('faq.allCategories')}
@@ -139,7 +139,7 @@ const FaqSection: React.FC = () => {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === cat.key
                 ? 'bg-stripe-600 text-white'
-                : 'bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700'
+                : 'bg-surface text-subtle border border-edge hover:bg-surface-raised'
             }`}
           >
             {cat.icon} {t(`faq.categories.${cat.key}`)}
@@ -182,7 +182,7 @@ const FaqSection: React.FC = () => {
                   {isExpanded ? <ChevronUp size={16} className="text-muted shrink-0 mt-0.5" /> : <ChevronDown size={16} className="text-muted shrink-0 mt-0.5" />}
                 </button>
                 {isExpanded && (
-                  <div className="px-4 pb-4 ml-10 text-sm text-subtle animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">
+                  <div className="px-4 pb-4 ml-10 text-sm text-subtle animate-fade-in border-t border-edge pt-3">
                     {q.answer}
                   </div>
                 )}

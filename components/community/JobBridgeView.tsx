@@ -201,7 +201,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
       {onBack && (
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-slate-900 dark:hover:text-slate-100"
+          className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-heading"
         >
           <ArrowLeft size={14} />
           {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}
@@ -209,7 +209,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
       )}
 
       {/* Blue banner */}
-      <div className="rounded-xl bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-700 px-4 py-3 text-sm text-stripe-800 dark:text-stripe-300">
+      <div className="rounded-xl bg-accent-subtle border border-accent-border px-4 py-3 text-sm text-accent">
         {BANNER_COPY[locale] ?? BANNER_COPY.it}
       </div>
 
@@ -218,7 +218,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
         <p className="text-sm text-muted">{redirectCopy}</p>
         <a
           href={targetPath}
-          className="inline-flex items-center gap-1.5 font-semibold text-stripe-600 dark:text-stripe-400 hover:underline text-sm"
+          className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline text-sm"
         >
           <ArrowRight size={14} />
           {GO_NOW_COPY[locale] ?? GO_NOW_COPY.it}
@@ -228,7 +228,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
       {/* Job header */}
       {localizedTitle && (
         <div>
-          <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">{localizedTitle}</h1>
+          <h1 className="text-xl font-bold text-strong leading-snug">{localizedTitle}</h1>
           <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
             {jobData?.company && (
               <span className="flex items-center gap-1">
@@ -248,20 +248,20 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
       {/* Sign-in block — hidden when user is already authenticated */}
       {!alreadySignedIn && (
-      <div role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-stripe-200 dark:border-stripe-800 bg-stripe-50 dark:bg-stripe-950/20 p-5 space-y-3">
-        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+      <div role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-accent-border bg-accent-subtle p-5 space-y-3">
+        <p className="text-sm font-semibold text-strong">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
         </p>
         {/* Trust signals */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
-          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
-          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
+          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
         </div>
         <div ref={googleButtonRef} className="flex justify-center" />
         {!googleButtonReady && (
           <a
             href={`/?redirect=${encodeURIComponent(listingPath)}`}
-            className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-stripe border border-edge bg-surface text-sm font-semibold text-slate-800 hover:bg-surface-raised transition-colors"
           >
             {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
           </a>
@@ -284,36 +284,36 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
           </button>
         )}
         <div className="flex items-center gap-3">
-          <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+          <div className="flex-1 h-px bg-surface-raised/50" />
           <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
-          <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+          <div className="flex-1 h-px bg-surface-raised/50" />
         </div>
         <form onSubmit={handleEmailSubmit} className="space-y-2">
           <EmailInput
             value={emailInput}
             onChange={setEmailInput}
             placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
-            className="w-full px-3 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm text-heading dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+            className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading dark:text-white placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
           <button
             type="submit"
             disabled={emailBusy || !emailInput.trim()}
-            className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+            className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-sm font-semibold transition-colors"
           >
             {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
             {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
           </button>
         </form>
-        {emailError && <p className="text-sm text-red-600 dark:text-red-300">{emailError}</p>}
+        {emailError && <p className="text-sm text-danger">{emailError}</p>}
       </div>
-      )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" /> {/* Related active jobs */} {relatedJobs.length > 0 && ( <div className="space-y-2"> <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2> <ul className="space-y-1.5"> {relatedJobs.slice(0, 6).map((rj) => { const rjSlug = rj.slug; const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug; const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
+      )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" /> {/* Related active jobs */} {relatedJobs.length > 0 && ( <div className="space-y-2"> <h2 className="text-base font-semibold text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2> <ul className="space-y-1.5"> {relatedJobs.slice(0, 6).map((rj) => { const rjSlug = rj.slug; const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug; const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
               return (
                 <li key={rjSlug}>
                   <a
                     href={rjPath}
                     className="flex items-center gap-2 rounded-lg border border-edge bg-surface px-3 py-2 text-sm hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="flex-1 font-medium text-slate-800 dark:text-slate-100 truncate">{rjTitle}</span>
+                    <span className="flex-1 font-medium text-strong truncate">{rjTitle}</span>
                     {rj.company && <span className="text-muted text-xs shrink-0">{rj.company}</span>}
                     <ArrowRight size={12} className="text-muted shrink-0" />
                   </a>
@@ -327,7 +327,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
       {/* CTA */}
       <a
         href={listingPath}
-        className="inline-flex items-center gap-1.5 font-semibold text-stripe-600 dark:text-stripe-400 hover:underline text-sm"
+        className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline text-sm"
       >
         <ArrowRight size={14} />
         {CTA_COPY[locale] ?? CTA_COPY.it}

@@ -328,24 +328,24 @@ const TicineseDialect: React.FC = () => {
       </div>
 
       {!phraseOfDayDismissed && (
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border border-warning-border rounded-xl p-4">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-start gap-3">
-              <Sparkles size={20} className="text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+              <Sparkles size={20} className="text-warning mt-0.5 shrink-0" />
               <div>
-                <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 mb-1">{tt('dialect.phraseOfDay', 'Frase del giorno')}</p>
-                <p className="text-lg font-bold text-slate-800 dark:text-slate-100 italic">"{termField(phraseOfDay, 'phrase')}"</p>
+                <p className="text-xs font-semibold text-warning mb-1">{tt('dialect.phraseOfDay', 'Frase del giorno')}</p>
+                <p className="text-lg font-bold text-strong italic">"{termField(phraseOfDay, 'phrase')}"</p>
                 <p className="text-sm text-subtle mt-1">{termField(phraseOfDay, 'italian')}</p>
               </div>
             </div>
             <div className="flex items-center gap-1">
-              <button onClick={() => pronounce(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30" aria-label={tt('dialect.playAudio', 'Ascolta')}>
-                <Volume2 size={16} className={playingKey === phraseOfDay.key ? 'text-emerald-600 animate-pulse' : 'text-amber-600 dark:text-amber-400'} />
+              <button onClick={() => pronounce(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.playAudio', 'Ascolta')}>
+                <Volume2 size={16} className={playingKey === phraseOfDay.key ? 'text-emerald-600 animate-pulse' : 'text-warning'} />
               </button>
-              <button onClick={() => handleShare(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30" aria-label={tt('dialect.share', 'Condividi')}>
-                {copied ? <Check size={16} className="text-emerald-600" /> : <Share2 size={16} className="text-amber-600 dark:text-amber-400" />}
+              <button onClick={() => handleShare(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.share', 'Condividi')}>
+                {copied ? <Check size={16} className="text-emerald-600" /> : <Share2 size={16} className="text-warning" />}
               </button>
-              <button onClick={() => setPhraseOfDayDismissed(true)} className="p-2.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 text-amber-500" aria-label={tt('common.close', 'Chiudi')}>×</button>
+              <button onClick={() => setPhraseOfDayDismissed(true)} className="p-2.5 rounded-lg hover:bg-warning-subtle text-amber-500" aria-label={tt('common.close', 'Chiudi')}>×</button>
             </div>
           </div>
         </div>
@@ -355,19 +355,19 @@ const TicineseDialect: React.FC = () => {
         <div className="lg:col-span-2 bg-surface border border-edge rounded-xl p-4">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb size={18} className="text-stripe-500" />
-            <h3 className="font-semibold text-slate-800 dark:text-slate-100">{tt('dialect.historyTitle', 'Storia del dialetto')}</h3>
+            <h3 className="font-semibold text-strong">{tt('dialect.historyTitle', 'Storia del dialetto')}</h3>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-300">{tt('dialect.historyText', 'Il dialetto ticinese appartiene al gruppo lombardo occidentale, con influenze alpine, italiane e svizzere. Nella vita quotidiana convive con l’italiano standard, soprattutto nei contesti di lavoro frontaliero.')}</p>
+          <p className="text-sm text-subtle">{tt('dialect.historyText', 'Il dialetto ticinese appartiene al gruppo lombardo occidentale, con influenze alpine, italiane e svizzere. Nella vita quotidiana convive con l’italiano standard, soprattutto nei contesti di lavoro frontaliero.')}</p>
         </div>
 
         <div className="bg-surface border border-edge rounded-xl p-4">
           <div className="flex items-center gap-2 mb-2">
             <GraduationCap size={18} className="text-stripe-500" />
-            <h3 className="font-semibold text-slate-800 dark:text-slate-100">{tt('dialect.quizTitle', 'Quiz')}</h3>
+            <h3 className="font-semibold text-strong">{tt('dialect.quizTitle', 'Quiz')}</h3>
           </div>
           {quizState && (
             <div className="space-y-2">
-              <p className="text-sm text-slate-700 dark:text-slate-200">{tt('dialect.quizPrompt', 'Indovina il significato di')}: <span className="font-bold italic">"{termField({ key: quizState.promptKey, category: 'espressioni' }, 'phrase')}"</span></p>
+              <p className="text-sm text-body">{tt('dialect.quizPrompt', 'Indovina il significato di')}: <span className="font-bold italic">"{termField({ key: quizState.promptKey, category: 'espressioni' }, 'phrase')}"</span></p>
               {quizState.options.map((opt) => {
                 const isSelected = quizState.selected === opt;
                 const isCorrect = quizState.selected && opt === quizState.correct;
@@ -398,7 +398,7 @@ const TicineseDialect: React.FC = () => {
                       : `${tt('dialect.quizWrong', 'Non esatto')}: ${termField({ key: quizState.correct, category: 'espressioni' }, 'italian')}`
                     : tt('dialect.quizHint', 'Scegli una risposta')}
                 </span>
-                <button onClick={generateQuiz} className="inline-flex items-center gap-1 text-xs text-stripe-600 dark:text-stripe-300 hover:underline">
+                <button onClick={generateQuiz} className="inline-flex items-center gap-1 text-xs text-accent hover:underline">
                   <RotateCcw size={12} /> {tt('dialect.quizNext', 'Nuova domanda')}
                 </button>
               </div>
@@ -434,8 +434,8 @@ const TicineseDialect: React.FC = () => {
             }}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === 'all'
-                ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
-                : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'
+                ? 'bg-surface-raised text-white dark:text-slate-800'
+                : 'bg-surface-raised text-subtle hover:bg-surface-raised'
             }`}
           >
             {tt('dialect.allCategories', 'Tutte')}
@@ -452,7 +452,7 @@ const TicineseDialect: React.FC = () => {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                   selectedCategory === cat
                     ? `${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`
-                    : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'
+                    : 'bg-surface-raised text-subtle hover:bg-surface-raised'
                 }`}
               >
                 {CATEGORY_ICONS[cat]} {tt(`dialect.category.${cat}`, cat)}
@@ -489,21 +489,21 @@ const TicineseDialect: React.FC = () => {
                       <span className="text-sm text-muted block truncate">{italian}</span>
                     </div>
                   </div>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-300 shrink-0" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-300 shrink-0" />}
+                  {isExpanded ? <ChevronUp size={16} className="text-muted shrink-0" /> : <ChevronDown size={16} className="text-muted shrink-0" />}
                 </button>
 
                 {isExpanded && (
-                  <div className="px-4 pb-4 text-sm text-subtle animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3 space-y-3">
+                  <div className="px-4 pb-4 text-sm text-subtle animate-fade-in border-t border-edge pt-3 space-y-3">
                     <p>{termField(entry, 'meaning')}</p>
                     {!!termField(entry, 'example') && (
-                      <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 text-xs">
+                      <div className="bg-surface-alt rounded-lg p-3 text-xs">
                         <span className="font-semibold text-body">{tt('dialect.example', 'Esempio')}: </span>
                         <span className="italic">{termField(entry, 'example')}</span>
                       </div>
                     )}
                     {!!termField(entry, 'etymology') && (
-                      <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3 text-xs">
-                        <span className="font-semibold text-stripe-700 dark:text-stripe-300">{tt('dialect.etymology', 'Etimologia')}: </span>
+                      <div className="bg-accent-subtle rounded-lg p-3 text-xs">
+                        <span className="font-semibold text-accent">{tt('dialect.etymology', 'Etimologia')}: </span>
                         <span>{termField(entry, 'etymology')}</span>
                       </div>
                     )}
@@ -511,7 +511,7 @@ const TicineseDialect: React.FC = () => {
                       <button onClick={() => pronounce(entry)} className="inline-flex items-center gap-1.5 text-xs text-teal-700 dark:text-teal-300 hover:underline">
                         <Volume2 size={14} className={playingKey === entry.key ? 'animate-pulse' : ''} /> {tt('dialect.playAudio', 'Ascolta')}
                       </button>
-                      <button onClick={() => handleShare(entry)} className="inline-flex items-center gap-1.5 text-xs text-orange-600 dark:text-orange-400 hover:underline">
+                      <button onClick={() => handleShare(entry)} className="inline-flex items-center gap-1.5 text-xs text-warning hover:underline">
                         {copied ? <Check size={14} /> : <Share2 size={14} />} {tt('dialect.share', 'Condividi')}
                       </button>
                     </div>
@@ -526,7 +526,7 @@ const TicineseDialect: React.FC = () => {
       <div className="bg-surface rounded-xl border border-edge p-4">
         <div className="flex items-center gap-2 mb-3">
           <PlayCircle size={18} className="text-fuchsia-500" />
-          <h3 className="font-semibold text-slate-800 dark:text-slate-100">{tt('dialect.userSectionTitle', 'Frasi proposte dagli utenti')}</h3>
+          <h3 className="font-semibold text-strong">{tt('dialect.userSectionTitle', 'Frasi proposte dagli utenti')}</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-3">
@@ -564,8 +564,8 @@ const TicineseDialect: React.FC = () => {
           <div className="mt-4 space-y-2">
             {userPhrases.map((p) => (
               <div key={p.id} className="rounded-lg border border-edge p-2.5">
-                <p className="text-sm font-semibold italic text-slate-800 dark:text-slate-100">{p.phrase}</p>
-                <p className="text-sm text-slate-600 dark:text-slate-300">{p.italian}</p>
+                <p className="text-sm font-semibold italic text-strong">{p.phrase}</p>
+                <p className="text-sm text-subtle">{p.italian}</p>
                 <p className="text-sm text-muted">{p.meaning}</p>
               </div>
             ))}
@@ -573,7 +573,7 @@ const TicineseDialect: React.FC = () => {
         )}
       </div>
 
-      <div className="rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/30 p-4 text-xs text-emerald-800 dark:text-emerald-300">
+      <div className="rounded-xl border border-success-border bg-emerald-50/70 dark:bg-emerald-950/30 p-4 text-xs text-success">
         <div className="font-semibold flex items-center gap-2 mb-1"><Plus size={14} /> {tt('dialect.newPhrasesTitle', 'Nuove frasi aggiunte')}</div>
         <p>{tt('dialect.newPhrasesText', 'Aggiunte espressioni d’uso comune recuperate da repertori e articoli locali: “Tacàt al tram”, “Sbàssa la crèsta”, “Capì na màzza”, “Sü da cò”.')}</p>
       </div>

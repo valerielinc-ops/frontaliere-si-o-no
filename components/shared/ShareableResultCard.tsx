@@ -59,11 +59,11 @@ const ACCENT_HEX: Record<string, [string, string]> = {
 };
 
 const ROW_COLORS: Record<string, string> = {
-  emerald: 'text-emerald-700 dark:text-emerald-400',
-  blue: 'text-stripe-700 dark:text-stripe-400',
-  amber: 'text-amber-700 dark:text-amber-400',
-  red: 'text-red-700 dark:text-red-400',
-  violet: 'text-stripe-700 dark:text-stripe-400',
+  emerald: 'text-success',
+  blue: 'text-accent',
+  amber: 'text-warning',
+  red: 'text-danger',
+  violet: 'text-accent',
 };
 
 /** Hex values for Canvas row value colors */
@@ -378,7 +378,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
         <button
           onClick={() => { setShowCard(true); generateAndDownload(); }}
           disabled={isGenerating}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-surface border border-edge rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50 transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-surface border border-edge rounded-xl text-sm font-medium text-body hover:bg-surface-raised disabled:opacity-50 transition-colors"
           aria-label={t('shareCard.createCard')}
         >
           {isGenerating ? <Loader2 size={16} className="animate-spin text-stripe-500" /> : <Camera size={16} className="text-stripe-500" />}
@@ -423,7 +423,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
                 <div
                   key={i}
                   className={`flex items-center justify-between py-2 ${
-                    row.highlight ? 'border-b-2 border-edge' : 'border-b border-slate-100 dark:border-slate-700'
+                    row.highlight ? 'border-b-2 border-edge' : 'border-b border-edge'
                   }`}
                 >
                   <span className={`text-sm ${row.highlight ? 'font-semibold text-strong' : 'text-subtle'}`}>
@@ -439,7 +439,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-3 bg-slate-50 dark:bg-slate-700/50 flex items-center justify-between">
+            <div className="px-6 py-3 bg-surface-alt flex items-center justify-between">
               <span className="text-sm text-muted">
                 {footer || t('shareCard.generatedBy')}
               </span>

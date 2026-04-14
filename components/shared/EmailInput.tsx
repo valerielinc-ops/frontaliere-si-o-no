@@ -341,7 +341,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
         <div className={`mt-1 px-3 py-2 text-sm rounded-lg flex items-center gap-1.5 ${
           darkVariant
             ? 'bg-amber-900/40 text-amber-200'
-            : 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800'
+            : 'bg-warning-subtle text-warning border border-warning-border'
         }`}>
           <span>{t('email.didYouMean')}</span>
           <button
@@ -350,7 +350,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
             className={`font-semibold underline underline-offset-2 cursor-pointer ${
               darkVariant
                 ? 'text-amber-100 hover:text-white'
-                : 'text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200'
+                : 'text-warning hover:text-amber-900 dark:hover:text-amber-200'
             }`}
           >
             {typoSuggestion}
@@ -361,7 +361,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
             onClick={() => setTypoSuggestion(null)}
             aria-label={t('common.close')}
             className={`ml-auto text-xs opacity-60 hover:opacity-100 ${
-              darkVariant ? 'text-amber-200' : 'text-amber-600 dark:text-amber-500'
+              darkVariant ? 'text-amber-200' : 'text-warning'
             }`}
           >
             ✕
@@ -394,15 +394,15 @@ const EmailInput: React.FC<EmailInputProps> = ({
                   i === selectedIndex
                     ? darkVariant
                       ? 'bg-stripe-700 text-white'
-                      : 'bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300'
+                      : 'bg-accent-subtle text-accent'
                     : darkVariant
                       ? 'text-stripe-100 hover:bg-stripe-700'
-                      : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'
+                      : 'text-body hover:bg-surface-raised'
                 }`}
               >
                 <span>{localDisplay}</span>
                 <span className={`font-medium ${
-                  darkVariant ? 'text-white' : 'text-stripe-600 dark:text-stripe-400'
+                  darkVariant ? 'text-white' : 'text-accent'
                 }`}>{domainHighlight}</span>
               </li>
             );

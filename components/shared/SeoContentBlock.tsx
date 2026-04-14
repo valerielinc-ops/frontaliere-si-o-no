@@ -55,8 +55,8 @@ const CONTEXT_CONFIG: Record<SeoContext, {
   calculator: {
     Icon: Calculator,
     gradient: 'from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/30',
-    collapsedBg: 'bg-stripe-50/60 dark:bg-stripe-950/20',
-    iconBg: 'bg-stripe-100 dark:bg-stripe-900/40',
+    collapsedBg: 'bg-accent-subtle/60',
+    iconBg: 'bg-accent-subtle',
     iconText: 'text-link',
     features: 4,
     checklist: 5,
@@ -64,36 +64,36 @@ const CONTEXT_CONFIG: Record<SeoContext, {
   confronti: {
     Icon: Scale,
     gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30',
-    collapsedBg: 'bg-emerald-50/60 dark:bg-emerald-950/20',
-    iconBg: 'bg-emerald-100 dark:bg-emerald-900/40',
-    iconText: 'text-emerald-600 dark:text-emerald-400',
+    collapsedBg: 'bg-success-subtle/60',
+    iconBg: 'bg-success-subtle',
+    iconText: 'text-success',
     features: 4,
     checklist: 5,
   },
   fisco: {
     Icon: Landmark,
     gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30',
-    collapsedBg: 'bg-emerald-50/60 dark:bg-emerald-950/20',
-    iconBg: 'bg-emerald-100 dark:bg-emerald-900/40',
-    iconText: 'text-emerald-600 dark:text-emerald-400',
+    collapsedBg: 'bg-success-subtle/60',
+    iconBg: 'bg-success-subtle',
+    iconText: 'text-success',
     features: 4,
     checklist: 5,
   },
   guida: {
     Icon: BookOpen,
     gradient: 'from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30',
-    collapsedBg: 'bg-amber-50/60 dark:bg-amber-950/20',
-    iconBg: 'bg-amber-100 dark:bg-amber-900/40',
-    iconText: 'text-amber-600 dark:text-amber-400',
+    collapsedBg: 'bg-warning-subtle/60',
+    iconBg: 'bg-warning-subtle',
+    iconText: 'text-warning',
     features: 4,
     checklist: 5,
   },
   vita: {
     Icon: Users,
     gradient: 'from-amber-50 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/30',
-    collapsedBg: 'bg-amber-50/60 dark:bg-amber-950/20',
-    iconBg: 'bg-amber-100 dark:bg-amber-900/40',
-    iconText: 'text-amber-600 dark:text-amber-400',
+    collapsedBg: 'bg-warning-subtle/60',
+    iconBg: 'bg-warning-subtle',
+    iconText: 'text-warning',
     features: 4,
     checklist: 5,
   },
@@ -193,7 +193,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
   return (
     <section
-      className={`mb-4 rounded-xl border border-slate-200/60 dark:border-slate-700/60 overflow-hidden transition-colors ${
+      className={`mb-4 rounded-xl border border-edge overflow-hidden transition-colors ${
         expanded
           ? `bg-gradient-to-br ${config.gradient}`
           : config.collapsedBg
@@ -207,7 +207,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
         aria-expanded={expanded}
       >
         <config.Icon className={`w-4 h-4 ${config.iconText} shrink-0`} aria-hidden="true" />
-        <h2 className="text-sm font-semibold text-slate-700 dark:text-slate-200 flex-1 line-clamp-2">
+        <h2 className="text-sm font-semibold text-body flex-1 line-clamp-2">
           {t(`seoContent.${context}.title`)}
         </h2>
         <div className="hidden sm:flex items-center gap-2 mr-2">
@@ -237,9 +237,9 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
           {/* Expert quote — authority signal for AI citation (+30% visibility) */}
           {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
-            <blockquote className="border-l-3 border-stripe-400 dark:border-stripe-500 pl-3 mb-3 py-1.5" data-speakable="true">
+            <blockquote className="border-l-3 border-accent-border pl-3 mb-3 py-1.5" data-speakable="true">
               <p className="text-sm italic text-subtle">
-                <Quote className="inline w-3.5 h-3.5 mr-1 text-stripe-400 dark:text-stripe-500 -mt-0.5" aria-hidden="true" />
+                <Quote className="inline w-3.5 h-3.5 mr-1 text-accent -mt-0.5" aria-hidden="true" />
                 {t(`seoContent.${context}.expertQuote`)}
               </p>
               <cite className="text-xs text-muted not-italic font-medium">
@@ -274,11 +274,11 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
                   setExpanded(false);
                   nav?.navigateTo(feature.tab, feature.subTab);
                 }}
-                className="flex items-center gap-2 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg text-left hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] cursor-pointer group/card"
+                className="flex items-center gap-2 p-2.5 bg-surface/70 rounded-lg text-left hover:bg-surface hover:shadow-sm transition-[color,background-color,border-color,box-shadow] cursor-pointer group/card"
               >
                 <ArrowRight className={`w-3.5 h-3.5 shrink-0 ${config.iconText} group-hover/card:translate-x-0.5 transition-transform`} aria-hidden="true" />
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/card:text-stripe-600 dark:group-hover/card:text-stripe-400 transition-colors">
+                  <p className="text-sm font-medium text-body group-hover/card:text-stripe-600 dark:group-hover/card:text-stripe-400 transition-colors">
                     {t(`${feature.i18nKey}.title`)}
                   </p>
                   <p className="text-sm text-muted mt-0.5 line-clamp-1">

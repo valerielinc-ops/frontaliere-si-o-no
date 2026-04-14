@@ -201,7 +201,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-emerald-600 dark:bg-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-success rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-2">
           <Gift size={28} />
           <h2 className="text-2xl font-bold">{t('bonus.title')}</h2>
@@ -216,7 +216,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="bonus-salary" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+            <label htmlFor="bonus-salary" className="block text-xs font-semibold text-subtle mb-1">
               {t('bonus.monthlySalary')} (CHF)
             </label>
             <input
@@ -229,7 +229,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             />
           </div>
           <div>
-            <label htmlFor="bonus-amount" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+            <label htmlFor="bonus-amount" className="block text-xs font-semibold text-subtle mb-1">
               {t('bonus.amount')} (CHF)
             </label>
             <input
@@ -242,7 +242,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             />
           </div>
           <div>
-            <label htmlFor="bonus-type" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+            <label htmlFor="bonus-type" className="block text-xs font-semibold text-subtle mb-1">
               {t('bonus.type')}
             </label>
             <select
@@ -257,7 +257,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             </select>
           </div>
           <div>
-            <label htmlFor="bonus-married" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+            <label htmlFor="bonus-married" className="block text-xs font-semibold text-subtle mb-1">
               {t('bonus.maritalStatus')}
             </label>
             <select
@@ -271,7 +271,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             </select>
           </div>
           <div>
-            <label htmlFor="bonus-children" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+            <label htmlFor="bonus-children" className="block text-xs font-semibold text-subtle mb-1">
               {t('bonus.children')}
             </label>
             <input
@@ -286,7 +286,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             />
           </div>
           <div>
-            <label htmlFor="bonus-exchange" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+            <label htmlFor="bonus-exchange" className="block text-xs font-semibold text-subtle mb-1">
               {t('bonus.exchangeRate')} (CHF→EUR)
             </label>
             <div className="flex gap-1">
@@ -309,7 +309,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               </button>
             </div>
             {rateOverride !== null && (
-              <p className="text-xs text-amber-600 dark:text-amber-400 mt-0.5">{t('bonus.manualRate')}</p>
+              <p className="text-xs text-warning mt-0.5">{t('bonus.manualRate')}</p>
             )}
           </div>
         </div>
@@ -324,7 +324,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           {expandedSection === 'result' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'result' && (
-          <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+          <div className="px-4 pb-4 space-y-4 border-t border-edge pt-4 animate-fade-in">
             {/* Swiss breakdown */}
             <div className="space-y-2">
               <h4 className="text-sm font-bold text-body">🇨🇭 {t('bonus.swissBreakdown')}</h4>
@@ -345,9 +345,9 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               </div>
             </div>
             {/* Effective rate */}
-            <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-              <p className="text-xs text-slate-500 dark:text-slate-300 mb-1">{t('bonus.effectiveRate')}</p>
-              <p className={`text-3xl font-bold ${result.effectiveTaxRate > 40 ? 'text-red-600 dark:text-red-400' : result.effectiveTaxRate > 25 ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
+            <div className="bg-surface-alt rounded-xl p-4 text-center">
+              <p className="text-xs text-muted mb-1">{t('bonus.effectiveRate')}</p>
+              <p className={`text-3xl font-bold ${result.effectiveTaxRate > 40 ? 'text-danger' : result.effectiveTaxRate > 25 ? 'text-warning' : 'text-success'}`}>
                 {result.effectiveTaxRate}%
               </p>
             </div>
@@ -364,41 +364,41 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           {expandedSection === 'taxImpact' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'taxImpact' && (
-          <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
-            <p className="text-xs text-slate-500 dark:text-slate-300">{t('bonus.taxImpactDesc')}</p>
+          <div className="px-4 pb-4 space-y-4 border-t border-edge pt-4 animate-fade-in">
+            <p className="text-xs text-muted">{t('bonus.taxImpactDesc')}</p>
 
             {/* Comparison table */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
               {/* Header row */}
               <div className="font-semibold text-subtle" />
-              <div className="font-bold text-body text-center bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{t('bonus.withoutBonus')}</div>
-              <div className="font-bold text-body text-center bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">{t('bonus.withBonus')}</div>
+              <div className="font-bold text-body text-center bg-surface-alt rounded-lg p-2">{t('bonus.withoutBonus')}</div>
+              <div className="font-bold text-body text-center bg-warning-subtle rounded-lg p-2">{t('bonus.withBonus')}</div>
 
               {/* Annual income */}
               <div className="text-subtle flex items-center">{t('bonus.annualIncome')}</div>
-              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">CHF {annualGross.toLocaleString()}</div>
-              <div className="text-center font-semibold text-body bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">CHF {(annualGross + bonusAmountCHF).toLocaleString()}</div>
+              <div className="text-center font-semibold text-body bg-surface-alt rounded-lg p-2">CHF {annualGross.toLocaleString()}</div>
+              <div className="text-center font-semibold text-body bg-warning-subtle rounded-lg p-2">CHF {(annualGross + bonusAmountCHF).toLocaleString()}</div>
 
               {/* Swiss withholding rate */}
               <div className="text-subtle flex items-center">{t('bonus.swissRate')}</div>
-              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseSwissRate * 100).toFixed(1)}%</div>
-              <div className={`text-center font-semibold rounded-lg p-2 ${result.swissRateDelta > 0 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-body bg-orange-50 dark:bg-orange-900/20'}`}>
+              <div className="text-center font-semibold text-body bg-surface-alt rounded-lg p-2">{(result.baseSwissRate * 100).toFixed(1)}%</div>
+              <div className={`text-center font-semibold rounded-lg p-2 ${result.swissRateDelta > 0 ? 'text-danger bg-danger-subtle' : 'text-body bg-warning-subtle'}`}>
                 {(result.withBonusSwissRate * 100).toFixed(1)}%
                 {result.swissRateDelta > 0 && <span className="ml-1 text-xs">+{(result.swissRateDelta * 100).toFixed(1)}%</span>}
               </div>
 
               {/* IRPEF bracket */}
               <div className="text-subtle flex items-center">{t('bonus.irpefBracket')}</div>
-              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{result.baseBracketLabel}</div>
-              <div className={`text-center font-semibold rounded-lg p-2 ${result.bracketJumped ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-body bg-orange-50 dark:bg-orange-900/20'}`}>
+              <div className="text-center font-semibold text-body bg-surface-alt rounded-lg p-2">{result.baseBracketLabel}</div>
+              <div className={`text-center font-semibold rounded-lg p-2 ${result.bracketJumped ? 'text-danger bg-danger-subtle' : 'text-body bg-warning-subtle'}`}>
                 {result.withBonusBracketLabel}
                 {result.bracketJumped && <ArrowUpRight size={12} className="inline ml-1" />}
               </div>
 
               {/* IRPEF effective */}
               <div className="text-subtle flex items-center">{t('bonus.irpefEffective')}</div>
-              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseEffectiveIrpef * 100).toFixed(1)}%</div>
-              <div className={`text-center font-semibold rounded-lg p-2 ${result.irpefRateDelta > 0.005 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-body bg-orange-50 dark:bg-orange-900/20'}`}>
+              <div className="text-center font-semibold text-body bg-surface-alt rounded-lg p-2">{(result.baseEffectiveIrpef * 100).toFixed(1)}%</div>
+              <div className={`text-center font-semibold rounded-lg p-2 ${result.irpefRateDelta > 0.005 ? 'text-danger bg-danger-subtle' : 'text-body bg-warning-subtle'}`}>
                 {(result.withBonusEffectiveIrpef * 100).toFixed(1)}%
                 {result.irpefRateDelta > 0.005 && <span className="ml-1 text-xs">+{(result.irpefRateDelta * 100).toFixed(1)}%</span>}
               </div>
@@ -407,33 +407,33 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             {/* Impact summary cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {result.swissRateDelta > 0 && (
-                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-3">
-                  <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-1">{t('bonus.extraSwissTax')}</p>
-                  <p className="text-lg font-bold text-amber-700 dark:text-amber-400">+ CHF {result.extraSwissTax.toLocaleString()}</p>
-                  <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">{t('bonus.extraSwissTaxDesc')}</p>
+                <div className="bg-warning-subtle border border-warning-border rounded-xl p-3">
+                  <p className="text-xs font-bold text-warning mb-1">{t('bonus.extraSwissTax')}</p>
+                  <p className="text-lg font-bold text-warning">+ CHF {result.extraSwissTax.toLocaleString()}</p>
+                  <p className="text-xs text-warning mt-1">{t('bonus.extraSwissTaxDesc')}</p>
                 </div>
               )}
               {result.bracketJumped && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3">
-                  <p className="text-xs font-bold text-red-800 dark:text-red-300 mb-1 flex items-center gap-1">
+                <div className="bg-danger-subtle border border-danger-border rounded-xl p-3">
+                  <p className="text-xs font-bold text-danger mb-1 flex items-center gap-1">
                     <ArrowUpRight size={14} /> {t('bonus.bracketJump')}
                   </p>
-                  <p className="text-lg font-bold text-red-700 dark:text-red-400">{result.baseBracketLabel} → {result.withBonusBracketLabel}</p>
-                  <p className="text-sm text-red-600 dark:text-red-400 mt-1">{t('bonus.bracketJumpDesc')}</p>
+                  <p className="text-lg font-bold text-danger">{result.baseBracketLabel} → {result.withBonusBracketLabel}</p>
+                  <p className="text-sm text-danger mt-1">{t('bonus.bracketJumpDesc')}</p>
                 </div>
               )}
               {result.swissRateDelta === 0 && !result.bracketJumped && (
-                <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-3 sm:col-span-2">
-                  <p className="text-xs font-bold text-emerald-800 dark:text-emerald-300 mb-1">{t('bonus.noImpact')}</p>
-                  <p className="text-sm text-emerald-700 dark:text-emerald-400">{t('bonus.noImpactDesc')}</p>
+                <div className="bg-success-subtle border border-success-border rounded-xl p-3 sm:col-span-2">
+                  <p className="text-xs font-bold text-success mb-1">{t('bonus.noImpact')}</p>
+                  <p className="text-sm text-success">{t('bonus.noImpactDesc')}</p>
                 </div>
               )}
             </div>
 
             {/* Effective rate on bonus only */}
-            <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-              <p className="text-xs text-slate-500 dark:text-slate-300 mb-1">{t('bonus.effectiveBonusRate')}</p>
-              <p className={`text-2xl font-bold ${result.effectiveTaxRate > 40 ? 'text-red-600 dark:text-red-400' : result.effectiveTaxRate > 25 ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
+            <div className="bg-surface-alt rounded-xl p-4 text-center">
+              <p className="text-xs text-muted mb-1">{t('bonus.effectiveBonusRate')}</p>
+              <p className={`text-2xl font-bold ${result.effectiveTaxRate > 40 ? 'text-danger' : result.effectiveTaxRate > 25 ? 'text-warning' : 'text-success'}`}>
                 {result.effectiveTaxRate}%
               </p>
               <p className="text-xs text-muted mt-1">{t('bonus.effectiveBonusRateDesc')}</p>
@@ -451,18 +451,18 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           {expandedSection === 'info' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'info' && (
-          <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+          <div className="px-4 pb-4 space-y-3 border-t border-edge pt-4 animate-fade-in">
             {BONUS_TYPES.map(bt => (
-              <div key={bt.key} className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
+              <div key={bt.key} className="bg-surface-alt rounded-xl p-3">
                 <div className="flex items-center gap-2 mb-1">
                   <h4 className="font-semibold text-sm text-strong">{t(`bonus.types.${bt.key}`)}</h4>
                   {bt.inKind && (
-                    <span className="text-xs font-bold bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-bold bg-accent-subtle text-accent px-1.5 py-0.5 rounded-full">
                       {t('bonus.inKind')}
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-300">{t(`bonus.typesDesc.${bt.key}`)}</p>
+                <p className="text-xs text-muted">{t(`bonus.typesDesc.${bt.key}`)}</p>
               </div>
             ))}
           </div>
@@ -477,8 +477,8 @@ const ResultRow: React.FC<{ label: string; value: string; negative?: boolean; hi
   <>
     <span className="text-sm text-subtle">{label}</span>
     <span className={`text-sm font-bold text-right ${
-      highlight ? 'text-emerald-700 dark:text-emerald-300' :
-      negative ? 'text-red-600 dark:text-red-400' :
+      highlight ? 'text-success' :
+      negative ? 'text-danger' :
       'text-strong'
     }`}>
       {value}

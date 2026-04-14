@@ -132,11 +132,11 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
             <span className="text-lg">{tool.icon}</span>
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 font-medium mb-0.5">
+            <div className="flex items-center gap-1 text-xs text-warning font-medium mb-0.5">
               <Star size={12} />
               {t('toolOfWeek.badge')}
             </div>
-            <h4 className="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">
+            <h4 className="font-bold text-sm text-strong truncate">
               {toolTitle}
             </h4>
           </div>
@@ -147,7 +147,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
         <div className="flex items-center gap-2">
             <button
               onClick={handleNavigate}
-              className="flex-1 flex items-center justify-center gap-1 text-xs font-medium px-3 py-1.5 bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors"
+              className="flex-1 flex items-center justify-center gap-1 text-xs font-medium px-3 py-1.5 bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors"
               aria-label={t('toolOfWeek.tryIt')}
             >
               {t('toolOfWeek.tryIt')}
@@ -181,7 +181,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
         <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <Sparkles size={24} className="text-white" />
         </div>
-        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+        <h2 className="text-2xl font-bold text-strong">
           {t('toolOfWeek.title')}
         </h2>
         <p className="text-subtle mt-2 text-sm">
@@ -218,7 +218,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
           {/* CTA */}
             <button
               onClick={handleNavigate}
-              className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-stripe-600 hover:bg-stripe-700 text-white font-semibold rounded-xl transition-colors"
+              className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl transition-colors"
               aria-label={t('toolOfWeek.tryIt')}
             >
               {t('toolOfWeek.tryIt')}
@@ -234,7 +234,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
           className="w-full flex items-center justify-between"
           aria-label={t('toolOfWeek.shareTitle')}
         >
-          <h3 className="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+          <h3 className="font-bold text-strong flex items-center gap-2">
             <Share2 size={18} className="text-stripe-500" />
             {t('toolOfWeek.shareTitle')}
           </h3>
@@ -244,7 +244,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
         {showShareOptions && (
           <div className="mt-4 space-y-3">
             {/* Pre-formatted share text */}
-            <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4">
+            <div className="bg-surface-alt rounded-xl p-4">
               <p className="text-sm text-subtle whitespace-pre-line">
                 {shareText}
               </p>
@@ -270,7 +270,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
               </button>
               <button
                 onClick={shareFacebook}
-                className="flex items-center gap-2 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium rounded-xl transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-medium rounded-xl transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={16} />

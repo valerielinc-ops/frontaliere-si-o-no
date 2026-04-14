@@ -429,17 +429,17 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
   const verdictColors = result.verdict === 'g'
     ? 'bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
     : result.verdict === 'b'
-    ? 'bg-stripe-50 dark:bg-stripe-900/30 text-stripe-800 dark:text-stripe-300'
-    : 'bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-300';
+    ? 'bg-accent-subtle text-accent'
+    : 'bg-surface-alt text-slate-800 dark:text-slate-300';
 
   return (
     <div className="space-y-6">
       {/* Easter egg toast */}
       {easterEgg && easterEggVisible && (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
-          <div className="bg-amber-100 dark:bg-amber-900/80 border border-amber-400 dark:border-amber-500 rounded-2xl shadow-xl px-6 py-3 flex items-center gap-3 max-w-md">
+          <div className="bg-amber-100 dark:bg-amber-900/80 border border-warning-border rounded-2xl shadow-xl px-6 py-3 flex items-center gap-3 max-w-md">
             <span className="text-2xl">{easterEgg.emoji}</span>
-            <p className="text-sm font-semibold text-amber-800 dark:text-amber-200">{easterEgg.message}</p>
+            <p className="text-sm font-semibold text-warning">{easterEgg.message}</p>
           </div>
         </div>
       )}
@@ -447,11 +447,11 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
       {/* Header */}
       <div className="bg-surface rounded-xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-2">
-          <Users className="text-amber-600 dark:text-amber-400" size={28} />
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('permitCompare.title')}</h2>
+          <Users className="text-warning" size={28} />
+          <h2 className="text-2xl font-bold text-heading">{t('permitCompare.title')}</h2>
         </div>
         <p className="text-subtle">{t('permitCompare.subtitle')}</p>
-        <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+        <p className="text-sm text-subtle mt-3 leading-relaxed">
           {t('guide.permitCompare.intro.p1')}
         </p>
       </div>
@@ -461,8 +461,8 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
         <div className="lg:col-span-2 space-y-4">
           <div className="bg-surface rounded-xl shadow p-5 space-y-4">
             <div className="flex items-center gap-2">
-              <Sparkles size={18} className="text-amber-600 dark:text-amber-400" />
-              <h3 className="text-base font-bold text-slate-800 dark:text-white">{t('permitCompare.wizard.title')}</h3>
+              <Sparkles size={18} className="text-warning" />
+              <h3 className="text-base font-bold text-heading">{t('permitCompare.wizard.title')}</h3>
             </div>
             <p className="text-sm text-subtle">{t('permitCompare.wizard.subtitle')}</p>
 
@@ -474,7 +474,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                   className={`w-7 h-7 rounded-full border font-semibold ${
                     wizardStep >= step
                       ? 'bg-amber-500 border-amber-500 text-white'
-                      : 'border-slate-300 dark:border-slate-600 text-muted'
+                      : 'border-edge text-muted'
                   }`}
                 >
                   {step}
@@ -496,7 +496,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       onClick={() => setWizardState((prev) => ({ ...prev, profile: opt.value }))}
                       className={`w-full rounded-lg border px-3 py-2 text-left text-sm ${
                         wizardState.profile === opt.value
-                          ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
+                          ? 'border-amber-500 bg-warning-subtle dark:border-amber-400'
                           : 'border-edge'
                       }`}
                     >
@@ -521,7 +521,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       onClick={() => setWizardState((prev) => ({ ...prev, residenceGoal: opt.value }))}
                       className={`w-full rounded-lg border px-3 py-2 text-left text-sm ${
                         wizardState.residenceGoal === opt.value
-                          ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
+                          ? 'border-amber-500 bg-warning-subtle dark:border-amber-400'
                           : 'border-edge'
                       }`}
                     >
@@ -546,7 +546,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                         onClick={() => setWizardState((prev) => ({ ...prev, horizon: opt.value }))}
                         className={`rounded-lg border px-3 py-2 text-sm ${
                           wizardState.horizon === opt.value
-                            ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
+                            ? 'border-amber-500 bg-warning-subtle dark:border-amber-400'
                             : 'border-edge'
                         }`}
                       >
@@ -568,7 +568,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                         onClick={() => setWizardState((prev) => ({ ...prev, priority: opt.value }))}
                         className={`rounded-lg border px-3 py-2 text-sm text-left ${
                           wizardState.priority === opt.value
-                            ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
+                            ? 'border-amber-500 bg-warning-subtle dark:border-amber-400'
                             : 'border-edge'
                         }`}
                       >
@@ -582,11 +582,11 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {wizardStep === 4 && (
               <div className="space-y-3">
-                <div className="rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-700 px-3 py-3">
-                  <p className="text-xs uppercase tracking-wide text-amber-700 dark:text-amber-300 font-semibold">
+                <div className="rounded-lg border border-amber-200 bg-warning-subtle dark:border-amber-700 px-3 py-3">
+                  <p className="text-xs uppercase tracking-wide text-warning font-semibold">
                     {t('permitCompare.wizard.recommendation')}
                   </p>
-                  <p className="text-lg font-bold text-slate-800 dark:text-white mt-1">
+                  <p className="text-lg font-bold text-heading mt-1">
                     {wizardDecision.recommendation === 'g'
                       ? t('permitCompare.permitG')
                       : wizardDecision.recommendation === 'b'
@@ -607,13 +607,13 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             <div className="flex items-center justify-between">
               <button
                 onClick={() => setWizardStep((prev) => Math.max(1, prev - 1))}
-                className="text-xs px-2 py-1 rounded border border-edge text-slate-600 dark:text-slate-300"
+                className="text-xs px-2 py-1 rounded border border-edge text-subtle"
               >
                 {t('common.back')}
               </button>
               <button
                 onClick={() => setWizardStep((prev) => Math.min(4, prev + 1))}
-                className="text-xs px-2 py-1 rounded border border-edge text-slate-600 dark:text-slate-300"
+                className="text-xs px-2 py-1 rounded border border-edge text-subtle"
               >
                 {t('common.next')}
               </button>
@@ -624,7 +624,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             {/* Gross Salary */}
             <div>
               <label htmlFor="pc-salary" className="block text-sm font-medium text-body mb-1">
-                {t('permitCompare.grossSalary')}: <span className="font-bold text-amber-600 dark:text-amber-400">CHF {grossSalary.toLocaleString()}</span>
+                {t('permitCompare.grossSalary')}: <span className="font-bold text-warning">CHF {grossSalary.toLocaleString()}</span>
               </label>
               <input
                 id="pc-salary"
@@ -647,7 +647,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                 id="pc-muni"
                 value={municipalityIdx}
                 onChange={(e) => setMunicipalityIdx(Number(e.target.value))}
-                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
+                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
               >
                 {MUNICIPALITIES.map((m, i) => (
                   <option key={m.name} value={i}>
@@ -666,7 +666,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                 id="pc-swiss"
                 value={swissCityIdx}
                 onChange={(e) => setSwissCityIdx(Number(e.target.value))}
-                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
+                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
               >
                 {SWISS_CITIES.map((c, i) => (
                   <option key={c.name} value={i}>{c.name}</option>
@@ -706,8 +706,8 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                     onClick={() => handleGTypeClick(opt.value)}
                     className={`w-full text-left rounded-lg border p-3 transition ${
                       gType === opt.value
-                        ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
-                        : 'border-edge hover:border-slate-300 dark:hover:border-slate-500'
+                        ? 'border-amber-500 bg-warning-subtle dark:border-amber-400'
+                        : 'border-edge hover:border-edge'
                     }`}
                     aria-label={opt.label}
                   >
@@ -715,11 +715,11 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       <div className={`w-3 h-3 rounded-full border-2 flex-shrink-0 ${
                         gType === opt.value
                           ? 'border-amber-500 bg-amber-500'
-                          : 'border-slate-400 dark:border-slate-500'
+                          : 'border-edge'
                       }`} />
                       <span className={`text-sm font-semibold ${
                         gType === opt.value
-                          ? 'text-amber-700 dark:text-amber-400'
+                          ? 'text-warning'
                           : 'text-body'
                       }`}>{opt.label}</span>
                     </div>
@@ -743,7 +743,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
         <div className="lg:col-span-3 space-y-4">
           <div className="bg-surface rounded-xl shadow p-5">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('permitCompare.comparison')}</h3>
+              <h3 className="text-lg font-bold text-heading">{t('permitCompare.comparison')}</h3>
               <button
                 onClick={handlePDF}
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 text-white text-sm rounded-lg hover:bg-amber-700 transition"
@@ -774,7 +774,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                 </thead>
                 <tbody>
                   {rows.map((r) => (
-                    <tr key={r.label} className="border-b border-slate-100 dark:border-slate-700/50">
+                    <tr key={r.label} className="border-b border-edge/50">
                       <td className="py-2.5 pr-4 text-body">{r.label}</td>
                       <td className="py-2.5 px-3 text-right font-mono text-strong">
                         € {r.gVal.toLocaleString()}
@@ -786,12 +786,12 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                   ))}
                 </tbody>
                 <tfoot>
-                  <tr className="font-bold text-base border-t-2 border-slate-300 dark:border-slate-600">
-                    <td className="py-3 pr-4 text-slate-800 dark:text-white">{t('permitCompare.totalNet')}</td>
-                    <td className={`py-3 px-3 text-right ${result.verdict === 'g' ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-800 dark:text-white'}`}>
+                  <tr className="font-bold text-base border-t-2 border-edge">
+                    <td className="py-3 pr-4 text-heading">{t('permitCompare.totalNet')}</td>
+                    <td className={`py-3 px-3 text-right ${result.verdict === 'g' ? 'text-success' : 'text-heading'}`}>
                       € {result.g.net.toLocaleString()}
                     </td>
-                    <td className={`py-3 pl-3 text-right ${result.verdict === 'b' ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-800 dark:text-white'}`}>
+                    <td className={`py-3 pl-3 text-right ${result.verdict === 'b' ? 'text-success' : 'text-heading'}`}>
                       € {result.b.net.toLocaleString()}
                     </td>
                   </tr>
@@ -802,7 +802,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             {/* Breakeven */}
             <div className="mt-4 bg-warm-50 dark:bg-warm-950 rounded-lg p-4 border border-warm-200 dark:border-warm-800">
               <p className="text-sm font-semibold text-body">{t('permitCompare.breakeven')}</p>
-              <p className="text-2xl font-bold text-amber-600 dark:text-amber-400 mt-1">
+              <p className="text-2xl font-bold text-warning mt-1">
                 CHF {result.breakeven.toLocaleString()} / anno
               </p>
               <p className="text-sm text-muted mt-1">{t('permitCompare.breakevenDesc')}</p>
@@ -831,8 +831,8 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
           <div className="bg-surface rounded-xl shadow p-5 space-y-4">
             <div className="flex items-center gap-2">
-              <CheckSquare size={18} className="text-amber-600 dark:text-amber-400" />
-              <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('permitCompare.docs.title')}</h3>
+              <CheckSquare size={18} className="text-warning" />
+              <h3 className="text-lg font-bold text-heading">{t('permitCompare.docs.title')}</h3>
             </div>
             <p className="text-sm text-subtle">{t('permitCompare.docs.subtitle')}</p>
 
@@ -844,7 +844,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                   className="text-left rounded-lg border border-edge px-3 py-3 hover:border-amber-400 dark:hover:border-amber-500 transition"
                 >
                   <div className="flex items-center gap-2 mb-1">
-                    <FileText size={14} className="text-amber-600 dark:text-amber-400" />
+                    <FileText size={14} className="text-warning" />
                     <span className="font-semibold text-strong text-sm">{template.title}</span>
                   </div>
                   <p className="text-sm text-muted">{template.description}</p>
@@ -861,7 +861,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       href={resource.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-stripe-700 dark:text-stripe-300 hover:underline"
+                      className="inline-flex items-center gap-1 text-sm text-accent hover:underline"
                     >
                       {resource.label}
                       <ExternalLink size={12} />

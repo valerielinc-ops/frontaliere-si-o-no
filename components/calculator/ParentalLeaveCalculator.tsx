@@ -145,14 +145,14 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-amber-50 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/30 rounded-2xl p-4 sm:p-6 border border-amber-200 dark:border-amber-800">
+      <div className="bg-gradient-to-br from-amber-50 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/30 rounded-2xl p-4 sm:p-6 border border-warning-border">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-xl">
-            <Baby className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+          <div className="p-2 bg-warning-subtle rounded-xl">
+            <Baby className="w-6 h-6 text-warning" />
           </div>
-          <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100">{t('leave.title')}</h2>
+          <h2 className="text-2xl font-bold text-warning">{t('leave.title')}</h2>
         </div>
-        <p className="text-amber-700 dark:text-amber-300 text-sm">{t('leave.subtitle')}</p>
+        <p className="text-warning text-sm">{t('leave.subtitle')}</p>
       </div>
 
       {/* Type Selector */}
@@ -160,7 +160,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <button
           onClick={() => setLeaveType('maternity')}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-lg transition-colors ${
-            leaveType === 'maternity' ? 'bg-pink-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+            leaveType === 'maternity' ? 'bg-pink-600 text-white shadow-sm' : 'text-subtle hover:bg-surface-raised'
           }`}
         >
           <Baby size={16} />
@@ -169,7 +169,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <button
           onClick={() => setLeaveType('paternity')}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-lg transition-colors ${
-            leaveType === 'paternity' ? 'bg-stripe-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+            leaveType === 'paternity' ? 'bg-stripe-600 text-white shadow-sm' : 'text-subtle hover:bg-surface-raised'
           }`}
         >
           <Baby size={16} />
@@ -240,7 +240,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
               <hr className="border-edge" />
               <div className="flex justify-between">
                 <span className="font-bold">{t('leave.totalAllowance')}</span>
-                <span className="font-bold text-lg text-emerald-700 dark:text-emerald-400">{fmt(chResult.totalAllowance, 'CHF')}</span>
+                <span className="font-bold text-lg text-success">{fmt(chResult.totalAllowance, 'CHF')}</span>
               </div>
               <div className="flex justify-between text-muted">
                 <span>{t('leave.inEUR')}</span>
@@ -284,7 +284,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
               <hr className="border-edge" />
               <div className="flex justify-between">
                 <span className="font-bold">{t('leave.totalAllowance')}</span>
-                <span className="font-bold text-lg text-emerald-700 dark:text-emerald-400">{fmt(itResult.totalAllowance)}</span>
+                <span className="font-bold text-lg text-success">{fmt(itResult.totalAllowance)}</span>
               </div>
             </div>
 
@@ -315,7 +315,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
           </div>
           <div className="bg-surface/60 rounded-lg p-3">
             <p className="text-muted">{t('leave.monthlySalaryLoss')}</p>
-            <p className="font-bold text-lg text-amber-600 dark:text-amber-400">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
+            <p className="font-bold text-lg text-warning">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
             <p className="text-xs text-muted">{t('leave.vsFullSalary')}</p>
           </div>
         </div>
@@ -326,7 +326,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <>
           <button
             onClick={() => setShowParental(!showParental)}
-            className="flex items-center gap-2 text-sm font-bold text-stripe-600 dark:text-stripe-400 hover:text-stripe-800 transition-colors"
+            className="flex items-center gap-2 text-sm font-bold text-accent hover:text-stripe-800 transition-colors"
           >
             {showParental ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             {t('leave.parentalTitle')}
@@ -337,17 +337,17 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
               <h4 className="font-bold text-strong">{t('leave.parentalTitle')}</h4>
               <p className="text-sm text-muted">{t('leave.parentalDesc')}</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
-                <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                <div className="bg-surface-alt rounded-lg p-3">
                   <p className="text-muted">{t('leave.duration')}</p>
                   <p className="font-bold">6 {t('leave.months')}</p>
                 </div>
-                <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                <div className="bg-surface-alt rounded-lg p-3">
                   <p className="text-muted">{t('leave.rate')}</p>
                   <p className="font-bold">30% {t('leave.ofSalary')}</p>
                 </div>
-                <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                <div className="bg-surface-alt rounded-lg p-3">
                   <p className="text-muted">{t('leave.total')}</p>
-                  <p className="font-bold text-emerald-700 dark:text-emerald-400">{fmt(parentalTotalEUR)}</p>
+                  <p className="font-bold text-success">{fmt(parentalTotalEUR)}</p>
                 </div>
               </div>
             </div>
@@ -369,8 +369,8 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <div className="bg-surface rounded-2xl border border-edge p-5">
           <div className="space-y-2">
             {docs.map((doc, i) => (
-              <div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                <CheckCircle2 className="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0" />
+              <div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-raised/50 transition-colors">
+                <CheckCircle2 className="w-4 h-4 text-edge shrink-0" />
                 <span className="text-sm text-body flex-1">{t(doc.key)}</span>
                 <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                   doc.country === 'CH' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
@@ -395,15 +395,15 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
           {t('leave.lppImpactDesc')}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
-          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3">
+          <div className="bg-accent-subtle rounded-lg p-3">
             <p className="text-xs text-link font-bold uppercase">AVS/AHV</p>
             <p className="text-body">{t('leave.lppAvs')}</p>
           </div>
-          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3">
+          <div className="bg-accent-subtle rounded-lg p-3">
             <p className="text-xs text-link font-bold uppercase">LPP/BVG</p>
             <p className="text-body">{t('leave.lppBvg')}</p>
           </div>
-          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3">
+          <div className="bg-accent-subtle rounded-lg p-3">
             <p className="text-xs text-link font-bold uppercase">INPS</p>
             <p className="text-body">{t('leave.lppInps')}</p>
           </div>
@@ -434,8 +434,8 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
       )}
 
       {/* Disclaimer */}
-      <div className="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
-        <p className="text-sm text-amber-700 dark:text-amber-300">
+      <div className="p-3 bg-warning-subtle rounded-xl border border-warning-border">
+        <p className="text-sm text-warning">
           <Info className="inline w-3 h-3 mr-1" />
           {t('leave.disclaimer')}
         </p>

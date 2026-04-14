@@ -33,14 +33,14 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
       target="_blank"
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
-      className="group flex items-start gap-3 p-4 bg-surface/60 rounded-[6px] border border-edge/50 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-stripe-sm transition-[color,background-color,border-color,box-shadow] duration-200"
+      className="group flex items-start gap-3 p-4 bg-surface/60 rounded-[6px] border border-edge/50 hover:border-edge hover:shadow-stripe-sm transition-[color,background-color,border-color,box-shadow] duration-200"
     >
       {/* Emoji icon */}
       <span className="text-2xl flex-shrink-0 mt-0.5">{partner.emoji}</span>
       
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
-          <span className="font-semibold text-sm text-slate-800 dark:text-slate-100">
+          <span className="font-semibold text-sm text-strong">
             {partner.name}
           </span>
           {partner.badgeKey && (

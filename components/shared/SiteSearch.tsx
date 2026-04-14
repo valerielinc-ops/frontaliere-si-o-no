@@ -1278,7 +1278,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2"
+        className="p-2 rounded-xl text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-surface-raised transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
         aria-label={t('search.placeholder') || 'Cerca'}
       >
@@ -1304,7 +1304,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                 spellCheck={false}
                 placeholder={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità...'}
                 aria-label={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità'}
-                className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-500 outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 text-base sm:text-sm"
+                className="flex-1 bg-transparent text-strong placeholder-muted outline-none focus-visible:ring-2 focus-visible:ring-accent text-base sm:text-sm"
               />
               {query && (
                 <button
@@ -1338,7 +1338,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                           Analytics.trackUIInteraction('search', 'popular', 'click', 'query', item.label);
                           onNavigate(item.tab, item.subTab);
                         }}
-                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface text-subtle border border-edge hover:bg-surface-raised transition-colors"
                         aria-label={item.label}
                         title={item.label}
                       >
@@ -1351,7 +1351,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                 <div className="px-4 py-5 space-y-5">
                   {/* No results message */}
                   <div className="text-center">
-                    <Search size={28} className="mx-auto text-slate-300 dark:text-slate-600 mb-2" />
+                    <Search size={28} className="mx-auto text-edge mb-2" />
                     <p className="text-sm font-semibold text-body">
                       {t('search.noResults.title', { query }) || `Nessun risultato per «${query}»`}
                     </p>
@@ -1373,13 +1373,13 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             <button
                               key={item.id}
                               onClick={() => handleSelect(item)}
-                              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left hover:bg-surface-raised/50 transition-colors"
                             >
                               <div className={`p-1.5 rounded-lg bg-surface-raised ${item.color} flex-shrink-0`}>
                                 <Icon size={14} />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate block">{item.title}</span>
+                                <span className="text-sm font-semibold text-strong truncate block">{item.title}</span>
                                 <span className="text-sm text-muted truncate block">{item.description}</span>
                               </div>
                               <ArrowRight size={12} className="text-muted flex-shrink-0" />
@@ -1402,7 +1402,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                           <button
                             key={cat.tab}
                             onClick={() => { setIsOpen(false); onNavigate(cat.tab, cat.subTab); }}
-                            className="flex flex-col items-center gap-1.5 px-2 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                            className="flex flex-col items-center gap-1.5 px-2 py-2.5 rounded-xl hover:bg-surface-raised/50 transition-colors"
                           >
                             <div className={`p-2 rounded-lg bg-surface-raised ${cat.color}`}>
                               <CatIcon size={16} />
@@ -1424,8 +1424,8 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                         onClick={() => handleSelect(result)}
                         className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
                           index === selectedIndex
-                            ? 'bg-stripe-50 dark:bg-stripe-950/30'
-                            : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                            ? 'bg-accent-subtle'
+                            : 'hover:bg-surface-raised/50'
                         }`}
                       >
                         <div className={`p-1.5 rounded-lg bg-surface-raised ${result.color} flex-shrink-0`}>
@@ -1433,7 +1433,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
+                            <span className="text-sm font-semibold text-strong truncate">
                               {result.title}
                             </span>
                             <span className="text-xs uppercase tracking-wider text-muted bg-surface-raised px-1.5 py-0.5 rounded flex-shrink-0">
@@ -1453,7 +1453,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-muted">
+            <div className="px-4 py-2 border-t border-edge flex items-center justify-between text-xs text-muted">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
                   <kbd className="px-1 py-0.5 bg-surface-raised rounded text-xs">↑↓</kbd>

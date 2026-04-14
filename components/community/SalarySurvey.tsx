@@ -216,9 +216,9 @@ const SalarySurvey: React.FC = () => {
       </div>
 
       {/* Privacy notice */}
-      <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800 flex items-start gap-3">
-        <Lock className="w-5 h-5 text-emerald-700 dark:text-emerald-400 shrink-0 mt-0.5" />
-        <p className="text-sm text-emerald-700 dark:text-emerald-300">{t('salary.privacy')}</p>
+      <div className="bg-success-subtle rounded-xl p-4 border border-success-border flex items-start gap-3">
+        <Lock className="w-5 h-5 text-success shrink-0 mt-0.5" />
+        <p className="text-sm text-success">{t('salary.privacy')}</p>
       </div>
 
       {/* Survey Form or Thank You */}
@@ -312,17 +312,17 @@ const SalarySurvey: React.FC = () => {
           </button>
         </div>
       ) : (
-        <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800 text-center">
+        <div className="bg-success-subtle rounded-2xl p-4 sm:p-6 border border-success-border text-center">
           <div className="text-4xl mb-3">🙏</div>
-          <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-2">{t('salary.thankYou')}</h3>
-          <p className="text-sm text-emerald-700 dark:text-emerald-300">{t('salary.thankYouDesc')}</p>
+          <h3 className="text-xl font-bold text-success mb-2">{t('salary.thankYou')}</h3>
+          <p className="text-sm text-success">{t('salary.thankYouDesc')}</p>
         </div>
       )}
 
       {/* View Results */}
       <button
         onClick={handleShowResults}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-surface border-2 border-edge hover:bg-slate-50 dark:hover:bg-slate-700 text-body rounded-xl font-bold transition-colors"
+        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-surface border-2 border-edge hover:bg-surface-raised text-body rounded-xl font-bold transition-colors"
       >
         <Eye className="w-4 h-4" />
         {showResults ? t('salary.hideResults') : t('salary.viewResults')}
@@ -375,7 +375,7 @@ const SalarySurvey: React.FC = () => {
                   </button>
 
                   {expandedSector === agg.sector && (
-                    <div className="px-5 pb-5 border-t border-slate-100 dark:border-slate-700 pt-4">
+                    <div className="px-5 pb-5 border-t border-edge pt-4">
                       {/* Salary range visualization */}
                       <div className="space-y-3">
                         <div className="flex justify-between text-sm">

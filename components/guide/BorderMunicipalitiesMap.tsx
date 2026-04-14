@@ -163,7 +163,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
                 colorMode === mode
                   ? 'bg-teal-600 text-white'
-                  : 'bg-surface-raised text-slate-600 dark:text-slate-300'
+                  : 'bg-surface-raised text-subtle'
               }`}
             >
               {label}
@@ -174,7 +174,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             id="province-filter-mobile"
             value={filterProvince}
             onChange={(e) => setFilterProvince(e.target.value)}
-            className="px-2.5 py-1 rounded-lg text-xs font-bold bg-surface-raised text-slate-600 dark:text-slate-300 border-0"
+            className="px-2.5 py-1 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
           >
             {provinces.map(p => (
               <option key={p} value={p}>{p === 'all' ? t('bordermap.allProvinces') : p}</option>
@@ -183,7 +183,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
         </div>
 
         {/* Compact legend */}
-        <div className="flex flex-wrap gap-3 text-xs text-slate-600 dark:text-slate-300">
+        <div className="flex flex-wrap gap-3 text-xs text-subtle">
           <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" /> {colorMode === 'irpef' ? '≤0.5%' : colorMode === 'distance' ? '≤5km' : '≤€500'}</span>
           <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" /> {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15km' : '€500–650'}</span>
           <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" /> {colorMode === 'irpef' ? '>0.65%' : colorMode === 'distance' ? '>15km' : '>€650'}</span>
@@ -270,7 +270,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
         <button
           type="button"
           onClick={() => setMobileSettingsOpen(v => !v)}
-          className="w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-stripe-50 dark:bg-stripe-950/30 border border-stripe-200 dark:border-stripe-800 text-sm font-bold text-stripe-700 dark:text-stripe-300"
+          className="w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-accent-subtle border border-accent-border text-sm font-bold text-accent"
           aria-expanded={mobileSettingsOpen}
         >
           <span className="flex items-center gap-2">
@@ -319,7 +319,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             </div>
 
             {/* Comparison */}
-            <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200 dark:border-stripe-800' : 'bg-surface-alt/50 border-edge'}`}>
+            <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-accent-subtle border-accent-border' : 'bg-surface-alt/50 border-edge'}`}>
               <div className="mb-3">
                 <label htmlFor="compare-select-mobile" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
                   <Building2 className="w-4 h-4" />
@@ -340,11 +340,11 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               {compareWith && compareTaxResult && (
                 <>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm font-bold text-stripe-800 dark:text-stripe-200">
+                    <span className="text-sm font-bold text-accent">
                       {t('bordermap.comparison', { municipality: compareWith.name })}
                     </span>
                     {userMunicipality?.name === compareWith.name && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-stripe-200 dark:bg-stripe-800 text-stripe-700 dark:text-stripe-300 font-bold">
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-bold">
                         {t('bordermap.yourMunicipality')}
                       </span>
                     )}
@@ -352,7 +352,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   <div className="grid grid-cols-2 gap-3 text-center">
                     <div className="p-2 bg-surface rounded-lg">
                       <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                      <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
+                      <p className="text-lg font-bold text-accent">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
                     </div>
                     <div className="p-2 bg-surface rounded-lg">
                       <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
@@ -372,9 +372,9 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             </div>
 
             {/* Disclaimer */}
-            <div className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-3 border border-amber-200 dark:border-amber-800 flex items-start gap-2">
+            <div className="bg-warning-subtle rounded-xl p-3 border border-warning-border flex items-start gap-2">
               <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-              <p className="text-sm text-amber-700 dark:text-amber-300">{t('bordermap.disclaimer')}</p>
+              <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
             </div>
           </div>
         )}
@@ -399,7 +399,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           <div className="bg-surface rounded-xl p-4 border border-edge flex flex-wrap gap-3 items-center">
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-muted" />
-              <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{t('bordermap.colorBy')}:</span>
+              <span className="text-sm font-bold text-subtle">{t('bordermap.colorBy')}:</span>
             </div>
             {([
               { mode: 'irpef' as const, label: t('bordermap.mode.irpef') },
@@ -412,21 +412,21 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                   colorMode === mode
                     ? 'bg-teal-600 text-white'
-                    : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                    : 'bg-surface-raised text-subtle hover:bg-surface-raised'
                 }`}
               >
                 {label}
               </button>
             ))}
 
-            <span className="text-slate-300 dark:text-slate-600">|</span>
+            <span className="text-edge">|</span>
 
             <label htmlFor="province-filter" className="sr-only">{t('bordermap.allProvinces')}</label>
             <select
               id="province-filter"
               value={filterProvince}
               onChange={(e) => setFilterProvince(e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-slate-600 dark:text-slate-300 border-0"
+              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
             >
               {provinces.map(p => (
                 <option key={p} value={p}>{p === 'all' ? t('bordermap.allProvinces') : p}</option>
@@ -438,19 +438,19 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           <div className="flex flex-wrap gap-4 text-xs">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="text-slate-600 dark:text-slate-300">
+              <span className="text-subtle">
                 {colorMode === 'irpef' ? '≤ 0.5%' : colorMode === 'distance' ? '≤ 5 km' : '≤ €500'}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <span className="text-slate-600 dark:text-slate-300">
+              <span className="text-subtle">
                 {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15 km' : '€500–650'}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500" />
-              <span className="text-slate-600 dark:text-slate-300">
+              <span className="text-subtle">
                 {colorMode === 'irpef' ? '> 0.65%' : colorMode === 'distance' ? '> 15 km' : '> €650'}
               </span>
             </div>
@@ -461,14 +461,14 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           </div>
 
           {/* ─── Tax Impact Section ─────────────────────────────── */}
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border border-amber-200 dark:border-amber-800">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border border-warning-border">
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-xl">
-                <DollarSign className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+              <div className="p-2 bg-warning-subtle rounded-xl">
+                <DollarSign className="w-6 h-6 text-warning" />
               </div>
-              <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100">{t('bordermap.taxImpact')}</h2>
+              <h2 className="text-2xl font-bold text-warning">{t('bordermap.taxImpact')}</h2>
             </div>
-            <p className="text-amber-700 dark:text-amber-300 text-sm">{t('bordermap.taxImpactDesc')}</p>
+            <p className="text-warning text-sm">{t('bordermap.taxImpactDesc')}</p>
           </div>
 
           {/* Salary input */}
@@ -515,7 +515,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           </div>
 
           {/* Comparison banner */}
-          <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200 dark:border-stripe-800' : 'bg-surface-alt/50 border-edge'}`}>
+          <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-accent-subtle border-accent-border' : 'bg-surface-alt/50 border-edge'}`}>
             <div className="mb-3">
               <label htmlFor="compare-select" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
                 <Building2 className="w-4 h-4" />
@@ -536,11 +536,11 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             {compareWith && compareTaxResult && (
               <>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-bold text-stripe-800 dark:text-stripe-200">
+                  <span className="text-sm font-bold text-accent">
                     {t('bordermap.comparison', { municipality: compareWith.name })}
                   </span>
                   {userMunicipality?.name === compareWith.name && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-stripe-200 dark:bg-stripe-800 text-stripe-700 dark:text-stripe-300 font-bold">
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-bold">
                       {t('bordermap.yourMunicipality')}
                     </span>
                   )}
@@ -548,7 +548,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 <div className="grid grid-cols-2 gap-3 text-center">
                   <div className="p-2 bg-surface rounded-lg">
                     <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                    <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
+                    <p className="text-lg font-bold text-accent">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
                   </div>
                   <div className="p-2 bg-surface rounded-lg">
                     <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
@@ -568,9 +568,9 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           </div>
 
           {/* Info box */}
-          <div className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-4 border border-amber-200 dark:border-amber-800 flex items-start gap-3">
+          <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-700 dark:text-amber-300">{t('bordermap.disclaimer')}</p>
+            <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
           </div>
         </div>
 
@@ -661,7 +661,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2 flex-wrap">
           <ArrowUpDown className="w-4 h-4 text-muted" />
-          <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{t('bordermap.sortBy')}:</span>
+          <span className="text-sm font-bold text-subtle">{t('bordermap.sortBy')}:</span>
           {([
             { field: 'name' as const, label: t('bordermap.sortName') },
             { field: 'tax' as const, label: t('bordermap.sortTax') },
@@ -674,7 +674,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 ${
                 sortField === field
                   ? 'bg-stripe-600 text-white'
-                  : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
               }`}
             >
               {label}
@@ -699,7 +699,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 isCheapest
                   ? 'border-green-300 dark:border-green-700 ring-1 ring-green-200 dark:ring-green-800'
                   : compareWith?.name === m.name
-                    ? 'border-stripe-300 dark:border-stripe-700 ring-1 ring-stripe-200 dark:ring-stripe-800'
+                    ? 'border-accent-border ring-1 ring-stripe-200 dark:ring-stripe-800'
                     : 'border-edge'
               }`}
             >
@@ -711,7 +711,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                     <span className="text-xs px-1.5 py-0.5 rounded bg-surface-raised text-subtle font-bold">{m.province}</span>
                     <span className={`text-xs px-1.5 py-0.5 rounded font-bold ${
                       m.fascia === '2'
-                        ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'
+                        ? 'bg-orange-100 dark:bg-orange-900/30 text-warning'
                         : 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300'
                     }`}>
                       {t('bordermap.fascia')} {m.fascia}
@@ -724,7 +724,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">€{formatEUR(m.taxResult.finalItalianTaxEUR)}</p>
+                  <p className="text-2xl font-bold text-accent">€{formatEUR(m.taxResult.finalItalianTaxEUR)}</p>
                   <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
                 </div>
               </div>
@@ -762,7 +762,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   delta < 0
                     ? 'bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-300'
                     : delta > 0
-                      ? 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-300'
+                      ? 'bg-danger-subtle text-danger'
                       : 'bg-surface-alt text-subtle'
                 }`}>
                   {delta < 0 ? (
@@ -776,7 +776,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 </div>
               )}
               {compareWith?.name === m.name && (
-                <div className="flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300">
+                <div className="flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 bg-accent-subtle text-accent">
                   <Building2 className="w-4 h-4" /> {t('bordermap.yourMunicipality')}
                 </div>
               )}

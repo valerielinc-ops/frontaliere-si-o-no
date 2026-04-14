@@ -218,11 +218,11 @@ const ContractsGuide = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stripe-50 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 text-xs font-semibold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-subtle text-accent text-xs font-semibold">
           <Scale size={14} />
           {t('contracts.badge')}
         </div>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+        <h1 className="text-2xl font-bold text-heading">
           {t('contracts.title')}
         </h1>
         <p className="text-sm text-subtle max-w-2xl mx-auto">
@@ -243,8 +243,8 @@ const ContractsGuide = () => {
 
       {/* Sectors */}
       <div className="space-y-3">
-        <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <FileText size={20} className="text-stripe-600 dark:text-stripe-400" />
+        <h2 className="text-lg font-bold text-heading flex items-center gap-2">
+          <FileText size={20} className="text-accent" />
           {t('contracts.sectorsTitle')}
         </h2>
 
@@ -257,16 +257,16 @@ const ContractsGuide = () => {
               {/* Sector header */}
               <button
                 onClick={() => toggleSector(sector.id)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-surface-raised transition-colors"
                 aria-expanded={isExpanded}
                 aria-label={t(`${sector.keyPrefix}.name`)}
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-stripe-50 dark:bg-stripe-900/30">
-                    <Icon size={20} className="text-stripe-600 dark:text-stripe-400" />
+                  <div className="p-2 rounded-lg bg-accent-subtle">
+                    <Icon size={20} className="text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white">
+                    <h3 className="font-bold text-heading">
                       {t(`${sector.keyPrefix}.name`)}
                     </h3>
                     <p className="text-sm text-muted">
@@ -275,9 +275,9 @@ const ContractsGuide = () => {
                   </div>
                 </div>
                 {isExpanded ? (
-                  <ChevronUp size={20} className="text-slate-500 dark:text-slate-300" />
+                  <ChevronUp size={20} className="text-muted" />
                 ) : (
-                  <ChevronDown size={20} className="text-slate-500 dark:text-slate-300" />
+                  <ChevronDown size={20} className="text-muted" />
                 )}
               </button>
 
@@ -292,7 +292,7 @@ const ContractsGuide = () => {
                           <th className="text-left py-2 px-2 text-xs font-semibold text-muted w-1/3">
                             {t('contracts.table.aspect')}
                           </th>
-                          <th className="text-center py-2 px-2 text-xs font-semibold text-red-700 dark:text-red-400 w-1/3">
+                          <th className="text-center py-2 px-2 text-xs font-semibold text-danger w-1/3">
                             🇨🇭 {t('contracts.table.switzerland')}
                           </th>
                           <th className="text-center py-2 px-2 text-xs font-semibold text-green-700 dark:text-green-400 w-1/3">
@@ -302,25 +302,25 @@ const ContractsGuide = () => {
                       </thead>
                       <tbody>
                         {/* Weekly hours */}
-                        <tr className="border-b border-slate-100 dark:border-slate-700">
+                        <tr className="border-b border-edge">
                           <td className="py-2 px-2 text-body flex items-center gap-1.5">
                             <Clock size={14} className="text-muted shrink-0" />
                             {t('contracts.table.weeklyHours')}
                           </td>
-                          <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center font-semibold text-heading">
                             {sector.ch.weeklyHours}h
                           </td>
-                          <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center font-semibold text-heading">
                             {sector.it.weeklyHours}h
                           </td>
                         </tr>
                         {/* Vacation */}
-                        <tr className="border-b border-slate-100 dark:border-slate-700">
+                        <tr className="border-b border-edge">
                           <td className="py-2 px-2 text-body flex items-center gap-1.5">
                             <Palmtree size={14} className="text-muted shrink-0" />
                             {t('contracts.table.vacation')}
                           </td>
-                          <td className="py-2 px-2 text-center text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center text-heading">
                             <span className="font-semibold">{sector.ch.vacationWeeks}</span>
                             <span className="text-sm text-muted"> {t('contracts.table.weeks')}</span>
                             {sector.ch.vacationWeeksYoung > sector.ch.vacationWeeks && (
@@ -329,53 +329,53 @@ const ContractsGuide = () => {
                               </div>
                             )}
                           </td>
-                          <td className="py-2 px-2 text-center text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center text-heading">
                             <span className="font-semibold">{sector.it.vacationWeeks}</span>
                             <span className="text-sm text-muted"> {t('contracts.table.weeks')}</span>
                           </td>
                         </tr>
                         {/* 13th month */}
-                        <tr className="border-b border-slate-100 dark:border-slate-700">
+                        <tr className="border-b border-edge">
                           <td className="py-2 px-2 text-body flex items-center gap-1.5">
                             <Gift size={14} className="text-muted shrink-0" />
                             {t('contracts.table.thirteenthMonth')}
                           </td>
                           <td className="py-2 px-2 text-center">
                             {sector.ch.thirteenthMonth ? (
-                              <span className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center justify-center gap-1">
+                              <span className="text-success font-semibold flex items-center justify-center gap-1">
                                 <CheckCircle2 size={14} /> {t('contracts.table.yes')}
                               </span>
                             ) : (
-                              <span className="text-red-600 dark:text-red-400">—</span>
+                              <span className="text-danger">—</span>
                             )}
                           </td>
                           <td className="py-2 px-2 text-center">
                             {sector.it.thirteenthMonth ? (
-                              <span className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center justify-center gap-1">
+                              <span className="text-success font-semibold flex items-center justify-center gap-1">
                                 <CheckCircle2 size={14} /> {t('contracts.table.yes')}
                               </span>
                             ) : (
-                              <span className="text-red-600 dark:text-red-400">—</span>
+                              <span className="text-danger">—</span>
                             )}
                             {sector.it.fourteenthMonth && (
-                              <div className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-0.5">
+                              <div className="text-xs text-warning font-medium mt-0.5">
                                 + {t('contracts.table.fourteenthMonth')}
                               </div>
                             )}
                           </td>
                         </tr>
                         {/* Notice period */}
-                        <tr className="border-b border-slate-100 dark:border-slate-700">
+                        <tr className="border-b border-edge">
                           <td className="py-2 px-2 text-body flex items-center gap-1.5">
                             <Bell size={14} className="text-muted shrink-0" />
                             {t('contracts.table.noticePeriod')}
                           </td>
-                          <td className="py-2 px-2 text-center text-xs text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center text-xs text-heading">
                             <div>{sector.ch.noticePeriodMonths} {t('contracts.table.months')} <span className="text-muted">(&lt;5a)</span></div>
                             <div>{sector.ch.noticePeriodMonths5} {t('contracts.table.months')} <span className="text-muted">(5-9a)</span></div>
                             <div>{sector.ch.noticePeriodMonths10} {t('contracts.table.months')} <span className="text-muted">(≥10a)</span></div>
                           </td>
-                          <td className="py-2 px-2 text-center text-xs text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center text-xs text-heading">
                             <div>{sector.it.noticePeriodDaysMin}–{sector.it.noticePeriodDaysMax} {t('contracts.table.days')}</div>
                             <div className="text-sm text-muted">
                               ({t('contracts.table.byLevel')})
@@ -383,31 +383,31 @@ const ContractsGuide = () => {
                           </td>
                         </tr>
                         {/* Probation */}
-                        <tr className="border-b border-slate-100 dark:border-slate-700">
+                        <tr className="border-b border-edge">
                           <td className="py-2 px-2 text-body flex items-center gap-1.5">
                             <Shield size={14} className="text-muted shrink-0" />
                             {t('contracts.table.probation')}
                           </td>
-                          <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center font-semibold text-heading">
                             {sector.ch.probationMonths} {t('contracts.table.months')}
                           </td>
-                          <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
+                          <td className="py-2 px-2 text-center font-semibold text-heading">
                             {sector.it.probationDays} {t('contracts.table.days')}
                           </td>
                         </tr>
                         {/* Minimum wage */}
                         {(sector.ch.minWageCHF || sector.it.minWageEUR) && (
-                          <tr className="border-b border-slate-100 dark:border-slate-700">
+                          <tr className="border-b border-edge">
                             <td className="py-2 px-2 text-body flex items-center gap-1.5">
                               <ArrowRightLeft size={14} className="text-muted shrink-0" />
                               {t('contracts.table.minWage')}
                             </td>
-                            <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
+                            <td className="py-2 px-2 text-center font-semibold text-heading">
                               {sector.ch.minWageCHF
                                 ? `CHF ${sector.ch.minWageCHF.toLocaleString('de-CH')}/m`
                                 : '—'}
                             </td>
-                            <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
+                            <td className="py-2 px-2 text-center font-semibold text-heading">
                               {sector.it.minWageEUR
                                 ? `€ ${sector.it.minWageEUR.toLocaleString('it-IT')}/m`
                                 : t('contracts.table.noMinWage')}
@@ -421,11 +421,11 @@ const ContractsGuide = () => {
                   {/* Notes */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {sector.ch.specialNotes && (
-                      <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800/50 rounded-lg p-3">
-                        <p className="text-xs font-semibold text-red-700 dark:text-red-400 mb-1">
+                      <div className="bg-danger-subtle border border-danger-border/50 rounded-lg p-3">
+                        <p className="text-xs font-semibold text-danger mb-1">
                           🇨🇭 {t('contracts.notesLabel')}
                         </p>
-                        <p className="text-xs text-red-800 dark:text-red-300">
+                        <p className="text-xs text-danger">
                           {t(sector.ch.specialNotes)}
                         </p>
                       </div>
@@ -452,22 +452,22 @@ const ContractsGuide = () => {
       <div className="bg-surface rounded-xl border border-edge overflow-hidden">
         <button
           onClick={() => setShowRights(!showRights)}
-          className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          className="w-full flex items-center justify-between p-4 text-left hover:bg-surface-raised transition-colors"
           aria-expanded={showRights}
           aria-label={t('contracts.rights.title')}
         >
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/30">
-              <Scale size={20} className="text-emerald-600 dark:text-emerald-400" />
+            <div className="p-2 rounded-lg bg-success-subtle">
+              <Scale size={20} className="text-success" />
             </div>
-            <h2 className="font-bold text-slate-900 dark:text-white">
+            <h2 className="font-bold text-heading">
               {t('contracts.rights.title')}
             </h2>
           </div>
           {showRights ? (
-            <ChevronUp size={20} className="text-slate-500 dark:text-slate-300" />
+            <ChevronUp size={20} className="text-muted" />
           ) : (
-            <ChevronDown size={20} className="text-slate-500 dark:text-slate-300" />
+            <ChevronDown size={20} className="text-muted" />
           )}
         </button>
 
@@ -477,7 +477,7 @@ const ContractsGuide = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Sick leave */}
               <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 border border-warm-200 dark:border-warm-800">
-                <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
+                <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
                   <Heart size={14} className="text-red-500" />
                   {t('contracts.rights.sickLeave')}
                 </h4>
@@ -493,7 +493,7 @@ const ContractsGuide = () => {
 
               {/* Maternity / Paternity */}
               <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 border border-warm-200 dark:border-warm-800">
-                <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
+                <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
                   <Gift size={14} className="text-stripe-500" />
                   {t('contracts.rights.parentalLeave')}
                 </h4>
@@ -507,8 +507,8 @@ const ContractsGuide = () => {
               </div>
 
               {/* Public holidays */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
-                <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
+              <div className="bg-surface-alt rounded-lg p-3">
+                <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
                   <Palmtree size={14} className="text-amber-500" />
                   {t('contracts.rights.publicHolidays')}
                 </h4>
@@ -521,8 +521,8 @@ const ContractsGuide = () => {
               </div>
 
               {/* Overtime */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
-                <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
+              <div className="bg-surface-alt rounded-lg p-3">
+                <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
                   <Clock size={14} className="text-stripe-500" />
                   {t('contracts.rights.overtime')}
                 </h4>
@@ -536,23 +536,23 @@ const ContractsGuide = () => {
             </div>
 
             {/* Protection against dismissal */}
-            <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
-              <h4 className="text-sm font-semibold text-amber-800 dark:text-amber-300 mb-1.5 flex items-center gap-1.5">
+            <div className="bg-amber-50 dark:bg-amber-900/10 border border-warning-border/50 rounded-lg p-3">
+              <h4 className="text-sm font-semibold text-warning mb-1.5 flex items-center gap-1.5">
                 <Shield size={14} />
                 {t('contracts.rights.dismissalProtection')}
               </h4>
-              <p className="text-sm text-amber-700 dark:text-amber-300/80">
+              <p className="text-sm text-warning/80">
                 {t('contracts.rights.dismissalProtectionText')}
               </p>
             </div>
 
             {/* Frontaliere-specific rights */}
-            <div className="bg-stripe-50 dark:bg-stripe-900/10 border border-stripe-200 dark:border-stripe-800/50 rounded-lg p-3">
-              <h4 className="text-sm font-semibold text-stripe-800 dark:text-stripe-300 mb-1.5 flex items-center gap-1.5">
+            <div className="bg-stripe-50 dark:bg-stripe-900/10 border border-accent-border/50 rounded-lg p-3">
+              <h4 className="text-sm font-semibold text-accent mb-1.5 flex items-center gap-1.5">
                 <AlertTriangle size={14} />
                 {t('contracts.rights.frontaliereTitle')}
               </h4>
-              <ul className="space-y-1.5 text-sm text-stripe-700 dark:text-stripe-300/80">
+              <ul className="space-y-1.5 text-sm text-accent/80">
                 <li>• {t('contracts.rights.frontaliere1')}</li>
                 <li>• {t('contracts.rights.frontaliere2')}</li>
                 <li>• {t('contracts.rights.frontaliere3')}</li>
@@ -565,13 +565,13 @@ const ContractsGuide = () => {
 
       {/* Key differences summary */}
       <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-xl border border-teal-200 dark:border-teal-800/50 p-4">
-        <h3 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-heading mb-3 flex items-center gap-2">
           <ArrowRightLeft size={18} className="text-teal-600 dark:text-teal-400" />
           {t('contracts.keyDifferences.title')}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div className="bg-white/70 dark:bg-slate-800/50 rounded-lg p-3">
-            <p className="font-semibold text-red-700 dark:text-red-400 mb-1.5">🇨🇭 {t('contracts.keyDifferences.chTitle')}</p>
+          <div className="bg-surface/70 rounded-lg p-3">
+            <p className="font-semibold text-danger mb-1.5">🇨🇭 {t('contracts.keyDifferences.chTitle')}</p>
             <ul className="space-y-1 text-body">
               <li>• {t('contracts.keyDifferences.ch1')}</li>
               <li>• {t('contracts.keyDifferences.ch2')}</li>
@@ -580,7 +580,7 @@ const ContractsGuide = () => {
               <li>• {t('contracts.keyDifferences.ch5')}</li>
             </ul>
           </div>
-          <div className="bg-white/70 dark:bg-slate-800/50 rounded-lg p-3">
+          <div className="bg-surface/70 rounded-lg p-3">
             <p className="font-semibold text-green-700 dark:text-green-400 mb-1.5">🇮🇹 {t('contracts.keyDifferences.itTitle')}</p>
             <ul className="space-y-1 text-body">
               <li>• {t('contracts.keyDifferences.it1')}</li>

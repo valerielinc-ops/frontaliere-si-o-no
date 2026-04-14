@@ -31,6 +31,17 @@ html.dark { color-scheme: dark; }
   --_success: #059669;
   --_warning: #d97706;
   --_danger: #dc2626;
+  /* Status — subtle backgrounds */
+  --_success-subtle: #ecfdf5;    /* emerald-50 */
+  --_warning-subtle: #fffbeb;    /* amber-50 */
+  --_danger-subtle: #fef2f2;     /* red-50 */
+  /* Status — borders */
+  --_success-border: #a7f3d0;    /* emerald-200 */
+  --_warning-border: #fde68a;    /* amber-200 */
+  --_danger-border: #fecaca;     /* red-200 */
+  /* Accent — subtle background & border */
+  --_accent-subtle: #f5f3ff;     /* stripe-50 */
+  --_accent-border: #ddd6fe;     /* stripe-200 */
   /* Navigation — subtab bar */
   --_tab-active-bg: #ede9fe;
   --_tab-active-text: #4529e6;
@@ -64,6 +75,14 @@ html.dark {
   --_success: #34d399;
   --_warning: #fbbf24;
   --_danger: #f87171;
+  --_success-subtle: rgba(5, 150, 105, 0.15);   /* emerald-900/15 */
+  --_warning-subtle: rgba(217, 119, 6, 0.15);   /* amber-900/15 */
+  --_danger-subtle: rgba(220, 38, 38, 0.15);    /* red-900/15 */
+  --_success-border: #065f46;    /* emerald-800 */
+  --_warning-border: #92400e;    /* amber-800 */
+  --_danger-border: #991b1b;     /* red-800 */
+  --_accent-subtle: rgba(46, 26, 158, 0.15);    /* stripe-900/15 */
+  --_accent-border: #3b1fc7;     /* stripe-800 */
   /* Navigation — subtab bar */
   --_tab-active-bg: rgba(46, 26, 158, 0.3);
   --_tab-active-text: #c4b5fd;
@@ -275,6 +294,14 @@ input[type=number] { -moz-appearance: textfield; }
   --color-success: var(--_success);
   --color-warning: var(--_warning);
   --color-danger: var(--_danger);
+  --color-success-subtle: var(--_success-subtle);
+  --color-warning-subtle: var(--_warning-subtle);
+  --color-danger-subtle: var(--_danger-subtle);
+  --color-success-border: var(--_success-border);
+  --color-warning-border: var(--_warning-border);
+  --color-danger-border: var(--_danger-border);
+  --color-accent-subtle: var(--_accent-subtle);
+  --color-accent-border: var(--_accent-border);
 
   /* Navigation — subtab bar */
   --color-tab-active-bg: var(--_tab-active-bg);

@@ -51,12 +51,12 @@ export default function CalcolatoreTabContent() {
     return (
       <div className="space-y-6">
         {seoLanding === 'new-frontier-over20km' ? (
-          <Suspense fallback={<div className="h-64 rounded-3xl bg-slate-200 dark:bg-slate-800 animate-pulse mb-6" />}>
+          <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
             <NewFrontierOver20KmHub />
           </Suspense>
         ) : (
           <>
-            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-heading tracking-tight mb-1">
               {t('seoContent.calculator.title')}
             </h1>
             <p className="text-sm text-muted mb-4">
@@ -103,7 +103,7 @@ export default function CalcolatoreTabContent() {
               <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
                 <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
                   <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
-                  <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
+                  <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" /></div>
                 </div>
                 <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-slate-300 to-slate-200 dark:from-slate-700 dark:to-slate-600 animate-pulse" /></div>
               </div>
@@ -189,8 +189,8 @@ export default function CalcolatoreTabContent() {
                 <div aria-hidden="true" className="space-y-2">
                   <SkeletonNewsTicker />
                   <SkeletonWeeklyFact />
-                  <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
-                  <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
+                  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+                  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
                 </div>
               )}
             </div>
@@ -219,7 +219,7 @@ export default function CalcolatoreTabContent() {
 
             {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
             <details className="mt-6 group">
-              <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
+              <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
                 <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 {t('calc.table.caption')}
               </summary>

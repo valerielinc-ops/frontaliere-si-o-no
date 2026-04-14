@@ -63,7 +63,7 @@ const getBreakdownColor = (label: string): string => {
   if (l.includes('tax') || l.includes('source') || l.includes('irpef') || l.includes('ssn')) return 'bg-slate-500'; 
   if (l.includes('expense')) return 'bg-orange-400';
   if (l.includes('income') || l.includes('allowance')) return 'bg-stripe-500'; 
-  return 'bg-slate-200 dark:bg-slate-700';
+  return 'bg-surface-raised';
 };
 
 const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; showEUR?: boolean; exchangeRate?: number }> = ({ data, currency, showEUR, exchangeRate }) => {
@@ -111,7 +111,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
             e.stopPropagation();
             setMobileTooltipIdx((prev) => (prev === idx ? null : idx));
           }}
-          className={`flex items-center justify-between py-3 border-b border-dashed border-slate-100 dark:border-slate-800 last:border-0 hover:bg-slate-50/80 dark:hover:bg-slate-800/80 px-3 rounded-lg transition-colors group cursor-default relative ${isNet ? 'bg-emerald-50/50 dark:bg-emerald-900/10 mt-2 rounded-xl border-none' : ''}`}
+          className={`flex items-center justify-between py-3 border-b border-dashed border-edge last:border-0 hover:bg-slate-50/80 dark:hover:bg-slate-800/80 px-3 rounded-lg transition-colors group cursor-default relative ${isNet ? 'bg-success-subtle/50 mt-2 rounded-xl border-none' : ''}`}
         >
           {/* Label Section */}
           <div className="flex-1 pr-3 flex items-center gap-2 min-w-0">
@@ -124,7 +124,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
               {!isTotal && item.description && (
                 <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
                   <Info size={12} className="text-muted cursor-help group-hover/tooltip:text-stripe-500 transition-colors" />
-                  <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-xs font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
+                  <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-surface-alt text-white text-xs font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
                     {translateKey(item.description)}
                     <div className="absolute top-full left-2 -translate-x-1/2 border-8 border-transparent border-t-slate-900 dark:border-t-slate-800"></div>
                   </div>
@@ -143,7 +143,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
              <div className="flex flex-col items-end w-[110px]">
                 {showEUR && currency === 'CHF' ? (
                   <>
-                    <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
+                    <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-success' : (isNegative ? 'text-danger' : 'text-strong')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amountEUR !== undefined && item.amountEUR !== 0 ? Math.abs(item.amountEUR) : (exchangeRate ? Math.abs(item.amount) * exchangeRate : Math.abs(item.amount))} currency="EUR" />
                     </div>
                     <div className="text-xs font-mono text-muted font-medium whitespace-nowrap tabular-nums h-4">
@@ -152,7 +152,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                   </>
                 ) : (
                   <>
-                    <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
+                    <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-success' : (isNegative ? 'text-danger' : 'text-strong')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                     </div>
                     {showEUR && (
@@ -254,7 +254,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
     }> = [];
 
     // Tag 1: Age
-    tags.push({ label: `${inputs.age} ${t('common.years')}`, icon: User, color: 'text-stripe-700 dark:text-stripe-400', bg: 'bg-stripe-50 dark:bg-stripe-900/20', field: 'age' });
+    tags.push({ label: `${inputs.age} ${t('common.years')}`, icon: User, color: 'text-accent', bg: 'bg-accent-subtle', field: 'age' });
 
     // Tag 2: Marital Status & Spouse
     let statusLabel = '';
@@ -275,10 +275,10 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
     const workLabel = inputs.frontierWorkerType === 'NEW' 
         ? `${t('input.newFrontShort')} (${inputs.distanceZone === 'WITHIN_20KM' ? '<20km' : '>20km'})` 
         : t('input.oldFrontShort');
-    tags.push({ label: workLabel, icon: TrainFront, color: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' });
+    tags.push({ label: workLabel, icon: TrainFront, color: 'text-success', bg: 'bg-success-subtle' });
 
     // Tag 5: Income
-    tags.push({ label: `RAL: CHF ${formatCurrency(inputs.annualIncomeCHF)}`, icon: Coins, color: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-900/20' });
+    tags.push({ label: `RAL: CHF ${formatCurrency(inputs.annualIncomeCHF)}`, icon: Coins, color: 'text-warning', bg: 'bg-warning-subtle' });
 
     return tags;
   };
@@ -436,24 +436,24 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
 
   return (
     <div className="bg-surface rounded-2xl shadow-sm border border-edge overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
-      <div className="p-5 bg-surface border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 gap-4 flex-col sm:flex-row">
+      <div className="p-5 bg-surface border-b border-edge flex justify-between items-start sm:items-center sticky top-0 z-10 gap-4 flex-col sm:flex-row">
         <div className="flex-1 w-full">
            <div className="flex justify-between items-center mb-2">
-             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('results.comparativeAnalysis')}</h2>
+             <h2 className="text-lg font-bold text-strong">{t('results.comparativeAnalysis')}</h2>
              {/* Action buttons - aligned together */}
              <div className="flex items-center gap-1">
                {/* CHF / EUR toggle switch */}
                <div className="flex items-center bg-surface-raised rounded-xl p-0.5 gap-0.5">
                  <button
                    onClick={() => setShowEUR(false)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-white dark:bg-slate-700 text-stripe-700 dark:text-stripe-300 shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-surface text-accent shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showCHF')}
                  >
                    CHF
                  </button>
                  <button
                    onClick={() => setShowEUR(true)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${showEUR ? 'bg-white dark:bg-slate-700 text-amber-700 dark:text-amber-300 shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${showEUR ? 'bg-surface text-warning shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showEUR')}
                  >
                    EUR
@@ -462,7 +462,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                {nav && (
                  <button
                    onClick={() => { const newFocus = !isFocusMode; nav.setIsFocusMode(newFocus); Analytics.trackFocusMode(newFocus); }}
-                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-stripe-50 dark:bg-stripe-900/20 text-link' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-accent-subtle text-link' : 'text-slate-500 hover:bg-surface-raised'}`}
                    title={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                    aria-label={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                  >
@@ -480,7 +480,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                </button>
                <button
                  onClick={handleShare}
-                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors flex-shrink-0 text-xs font-bold ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors flex-shrink-0 text-xs font-bold ${shareState === 'copied' ? 'text-emerald-700 bg-success-subtle' : 'text-subtle hover:bg-surface-raised'}`}
                  title={shareState === 'copied' ? t('results.share.copied') : t('results.share.button')}
                  aria-label={t('results.share.button')}
                >
@@ -489,7 +489,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                </button>
                <button
                  onClick={handleSaveForLater}
-                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors flex-shrink-0 text-xs font-bold ${saveState === 'saved' ? 'text-amber-700 bg-amber-50 dark:bg-amber-900/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors flex-shrink-0 text-xs font-bold ${saveState === 'saved' ? 'text-amber-700 bg-warning-subtle' : 'text-subtle hover:bg-surface-raised'}`}
                  title={saveState === 'saved' ? t('results.save.saved') : t('results.save.button')}
                  aria-label={t('results.save.button')}
                >
@@ -524,7 +524,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
         </div>
       </div>
 
-      <div className="p-4 sm:p-6 flex-grow overflow-y-auto custom-scrollbar bg-slate-50/30 dark:bg-slate-950/30">
+      <div className="p-4 sm:p-6 flex-grow overflow-y-auto custom-scrollbar bg-surface-alt/30">
         {/* Banner with Fun Animation */}
         <div className={`p-4 sm:p-6 rounded-3xl text-white shadow-lg mb-8 relative overflow-hidden transition-colors duration-500 group ${
             isBetterFrontaliere 
@@ -574,29 +574,29 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
             ref={chSectionRef}
             className={`bg-surface rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'CH'
-                ? 'border-stripe-400 dark:border-stripe-500 ring-2 ring-stripe-200/80 dark:ring-stripe-900/60'
-                : 'border-slate-100 dark:border-slate-700'
+                ? 'border-accent-border ring-2 ring-stripe-200/80 dark:ring-stripe-900/60'
+                : 'border-edge'
             }`}
           >
             <div className="absolute top-0 left-0 w-1 h-full bg-stripe-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-xs font-bold text-stripe-700 dark:text-stripe-400 uppercase tracking-widest mb-1 bg-stripe-50 dark:bg-stripe-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
-                 <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
+                 <div className="text-xs font-bold text-accent uppercase tracking-widest mb-1 bg-accent-subtle px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
+                 <div className="text-xl font-bold text-strong">{t('results.switzerland')}</div>
                </div>
                <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} loading="lazy" />
             </div>
 
             <div className="space-y-4">
-              <div className="bg-stripe-50/50 dark:bg-stripe-900/20 p-4 rounded-2xl border border-stripe-100 dark:border-stripe-800/50">
-                <div className="text-sm text-stripe-700 dark:text-stripe-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+              <div className="bg-accent-subtle/50 p-4 rounded-2xl border border-accent-border/50">
+                <div className="text-sm text-accent font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="flex items-center gap-2 flex-wrap">
                   {showEUR ? (
-                    <div className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">
+                    <div className="text-2xl font-bold text-accent">
                       <CurrencyValue value={Math.round(chResident.netIncomeMonthly * exchangeRate)} currency="EUR" />
                     </div>
                   ) : (
-                    <div className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">
+                    <div className="text-2xl font-bold text-accent">
                       <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
                     </div>
                   )}
@@ -612,7 +612,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                 <>
                   <BreakdownTable data={chResident.breakdown} currency="CHF" showEUR={showEUR} exchangeRate={exchangeRate} />
                   {chResident.details.notes.length > 0 && (
-                    <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+                    <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-edge">
                         <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-muted list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
@@ -630,9 +630,9 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
             ref={itSectionRef}
             className={`bg-surface rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'IT'
-                ? 'border-emerald-400 dark:border-emerald-500 ring-2 ring-emerald-200/80 dark:ring-emerald-900/60'
-                : 'border-slate-100 dark:border-slate-700'
-            }`} > <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div> <div className="flex justify-between items-start mb-6"> <div> <div className="text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div> <div className="text-xl font-bold text-strong dark:text-slate-100">{t('results.italy')}</div> </div> <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} loading="lazy" /> </div> <div className="space-y-4"> <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50"> <div className="text-xs text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div> <div className="flex items-center gap-2 flex-wrap"> {showEUR ? ( <div className="text-2xl font-bold text-red-700 dark:text-red-300"> <CurrencyValue value={Math.round(itResident.netIncomeMonthly * exchangeRate)} currency="EUR" /> </div> ) : ( <div className="text-2xl font-bold text-red-700 dark:text-red-300"> <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" /> </div> )} {itDelta.key > 0 && <InlineNetDeltaBadge key={itDelta.key} delta={itDelta.delta} />} </div> {showEUR && ( <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5 tabular-nums"> ≈ CHF {formatCurrency(itResident.netIncomeMonthly)} </div> )} </div> {!isFocusMode && ( <> <BreakdownTable data={itResident.breakdown} currency="CHF" showEUR exchangeRate={exchangeRate} /> {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */} {itResident.swissNetIncomeMonthlyCHF && ( <div className="bg-surface-alt/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden"> <div className="text-xs text-muted font-bold uppercase mb-1 relative z-10"> {t('results.swissPayslipNet')} </div> <div className="text-xl font-bold text-slate-700 relative z-10"> <CurrencyValue value={itResident.swissNetIncomeMonthlyCHF} currency="CHF" /> </div> <ul className="mt-3 space-y-1.5 relative z-10"> {itResident.details.regime === "calc.regime.newFrontier" ? ( <> <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-stripe-500"></div> {t('results.concurrentTax')}</li> {itResident.details.franchigiaEUR ? ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li> ) : null} </> ) : ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li> )} </ul> </div> )} {itResident.details.notes.length > 0 && ( <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800"> <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p> <ul className="text-xs text-muted list-disc list-inside"> {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)} </ul> </div> )} </> )} </div> </div> </div> {!isFocusMode && ( <> {/* WHY CHOOSE ONE OR THE OTHER? */} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-6 flex items-center gap-2"> <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')} </h3> <div className="grid grid-cols-1 lg:grid-cols-2 gap-6"> {/* Pros Svizzera */} <div className="bg-gradient-to-br from-stripe-50 to-white dark:from-stripe-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-stripe-100 dark:border-stripe-800 shadow-sm"> <h4 className="flex items-center gap-2 text-stripe-700 dark:text-stripe-400 font-bold mb-4"> <ShieldCheck size={18} className="text-stripe-500" /> {t('results.chooseSwissIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.purchasing.title')}</b> {t('results.ch.purchasing')}</span></li> </ul> </div> {/* Pros Italia */} <div className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-emerald-100 dark:border-emerald-800 shadow-sm"> <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4"> <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.tax.title')}</b> {t('results.it.tax')}</span></li> </ul> </div> </div> {/* Critical Warning */} <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex gap-3"> <AlertCircle size={20} className="text-amber-500 shrink-0" /> <div className="text-sm text-amber-700 dark:text-amber-400 leading-relaxed font-medium"> <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')} </div> </div> </div> </> )} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-4 flex items-center gap-2"> <Calculator size={14} className="text-stripe-500" /> {t('results.monthlyReservesChart')} </h3> <Suspense fallback={<div className="h-64 bg-surface-raised rounded-xl animate-pulse" />}> <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} /> </Suspense> </div> {/* Shareable result card */} <Suspense fallback={null}> <ShareableResultCard title={t('results.shareTitle') || 'Simulazione Stipendio Netto'} subtitle={`${inputs.annualIncomeCHF?.toLocaleString('it-IT') || '0'} CHF/anno`}
+                ? 'border-success-border ring-2 ring-emerald-200/80 dark:ring-emerald-900/60'
+                : 'border-edge'
+            }`} > <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div> <div className="flex justify-between items-start mb-6"> <div> <div className="text-xs font-bold text-danger uppercase tracking-widest mb-1 bg-danger-subtle px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div> <div className="text-xl font-bold text-strong dark:text-slate-100">{t('results.italy')}</div> </div> <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} loading="lazy" /> </div> <div className="space-y-4"> <div className="bg-danger-subtle/50 p-4 rounded-2xl border border-danger-border/50"> <div className="text-xs text-danger font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div> <div className="flex items-center gap-2 flex-wrap"> {showEUR ? ( <div className="text-2xl font-bold text-danger"> <CurrencyValue value={Math.round(itResident.netIncomeMonthly * exchangeRate)} currency="EUR" /> </div> ) : ( <div className="text-2xl font-bold text-danger"> <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" /> </div> )} {itDelta.key > 0 && <InlineNetDeltaBadge key={itDelta.key} delta={itDelta.delta} />} </div> {showEUR && ( <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5 tabular-nums"> ≈ CHF {formatCurrency(itResident.netIncomeMonthly)} </div> )} </div> {!isFocusMode && ( <> <BreakdownTable data={itResident.breakdown} currency="CHF" showEUR exchangeRate={exchangeRate} /> {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */} {itResident.swissNetIncomeMonthlyCHF && ( <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge mt-2 relative overflow-hidden"> <div className="text-xs text-muted font-bold uppercase mb-1 relative z-10"> {t('results.swissPayslipNet')} </div> <div className="text-xl font-bold text-slate-700 relative z-10"> <CurrencyValue value={itResident.swissNetIncomeMonthlyCHF} currency="CHF" /> </div> <ul className="mt-3 space-y-1.5 relative z-10"> {itResident.details.regime === "calc.regime.newFrontier" ? ( <> <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-stripe-500"></div> {t('results.concurrentTax')}</li> {itResident.details.franchigiaEUR ? ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li> ) : null} </> ) : ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li> )} </ul> </div> )} {itResident.details.notes.length > 0 && ( <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-edge"> <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p> <ul className="text-xs text-muted list-disc list-inside"> {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)} </ul> </div> )} </> )} </div> </div> </div> {!isFocusMode && ( <> {/* WHY CHOOSE ONE OR THE OTHER? */} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-6 flex items-center gap-2"> <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')} </h3> <div className="grid grid-cols-1 lg:grid-cols-2 gap-6"> {/* Pros Svizzera */} <div className="bg-gradient-to-br from-stripe-50 to-white dark:from-stripe-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-accent-border shadow-sm"> <h4 className="flex items-center gap-2 text-accent font-bold mb-4"> <ShieldCheck size={18} className="text-stripe-500" /> {t('results.chooseSwissIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.purchasing.title')}</b> {t('results.ch.purchasing')}</span></li> </ul> </div> {/* Pros Italia */} <div className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-success-border shadow-sm"> <h4 className="flex items-center gap-2 text-success font-bold mb-4"> <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.tax.title')}</b> {t('results.it.tax')}</span></li> </ul> </div> </div> {/* Critical Warning */} <div className="mt-6 p-4 bg-warning-subtle border border-warning-border rounded-2xl flex gap-3"> <AlertCircle size={20} className="text-amber-500 shrink-0" /> <div className="text-sm text-warning leading-relaxed font-medium"> <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')} </div> </div> </div> </> )} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-4 flex items-center gap-2"> <Calculator size={14} className="text-stripe-500" /> {t('results.monthlyReservesChart')} </h3> <Suspense fallback={<div className="h-64 bg-surface-raised rounded-xl animate-pulse" />}> <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} /> </Suspense> </div> {/* Shareable result card */} <Suspense fallback={null}> <ShareableResultCard title={t('results.shareTitle') || 'Simulazione Stipendio Netto'} subtitle={`${inputs.annualIncomeCHF?.toLocaleString('it-IT') || '0'} CHF/anno`}
             rows={[
               { label: t('results.net.chf') || 'Netto CH (CHF)', value: `CHF ${formatCurrency(chResident.netIncomeAnnual)}`, highlight: true, color: 'blue' },
               { label: t('results.net.eur') || 'Netto IT (EUR)', value: `€ ${formatCurrency(Math.round(itResident.netIncomeAnnual * exchangeRate))}`, highlight: true, color: 'emerald' },
@@ -672,7 +672,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   </div>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-subtle border-t border-stripe-100 dark:border-stripe-900/40 pt-2.5">
+              <p className="mt-3 text-xs text-subtle border-t border-accent-border pt-2.5">
                 {t('results.compareCta.hint')}
               </p>
             </button>

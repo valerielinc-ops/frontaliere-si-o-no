@@ -97,9 +97,9 @@ const RistorniTracker: React.FC = () => {
             <h4 className="font-bold text-xs text-warm-700 dark:text-warm-300 mb-1">{t('ristorni.oldAgreement')}</h4>
             <p className="text-xs text-warm-700 dark:text-warm-400">{t('ristorni.oldAgreementDesc')}</p>
           </div>
-          <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3">
-            <h4 className="font-bold text-sm text-amber-700 dark:text-amber-300 mb-1">{t('ristorni.newAgreement')}</h4>
-            <p className="text-xs text-amber-600 dark:text-amber-400">{t('ristorni.newAgreementDesc')}</p>
+          <div className="bg-warning-subtle rounded-xl p-3">
+            <h4 className="font-bold text-sm text-warning mb-1">{t('ristorni.newAgreement')}</h4>
+            <p className="text-xs text-warning">{t('ristorni.newAgreementDesc')}</p>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@ const RistorniTracker: React.FC = () => {
           {expandedSection === 'calculator' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'calculator' && (
-          <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+          <div className="px-4 pb-4 space-y-4 border-t border-edge pt-4 animate-fade-in">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="ristorni-salary" className="block text-xs font-semibold text-subtle mb-1">
@@ -145,20 +145,20 @@ const RistorniTracker: React.FC = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 text-center">
+              <div className="bg-accent-subtle rounded-xl p-3 text-center">
                 <p className="text-xs text-link font-semibold">{t('ristorni.annualSwissTax')}</p>
-                <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">CHF {estimate.annualSwissTax.toLocaleString()}</p>
+                <p className="text-lg font-bold text-accent">CHF {estimate.annualSwissTax.toLocaleString()}</p>
               </div>
               <div className="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-3 text-center">
                 <p className="text-xs text-teal-600 dark:text-teal-400 font-semibold">{t('ristorni.ristorniToMunicipality')}</p>
                 <p className="text-lg font-bold text-teal-700 dark:text-teal-300">CHF {estimate.ristorniToItaly.toLocaleString()}</p>
               </div>
-              <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
-                <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold">{t('ristorni.monthlyEquivalent')}</p>
-                <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">CHF {estimate.monthlyEquivalent.toLocaleString()}/{t('ristorni.month')}</p>
+              <div className="bg-success-subtle rounded-xl p-3 text-center">
+                <p className="text-sm text-success font-semibold">{t('ristorni.monthlyEquivalent')}</p>
+                <p className="text-lg font-bold text-success">CHF {estimate.monthlyEquivalent.toLocaleString()}/{t('ristorni.month')}</p>
               </div>
             </div>
-            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3 text-xs text-amber-600 dark:text-amber-400 flex items-start gap-2">
+            <div className="bg-warning-subtle rounded-xl p-3 text-xs text-warning flex items-start gap-2">
               <AlertCircle size={14} className="shrink-0 mt-0.5" />
               <p>{t('ristorni.disclaimer')}</p>
             </div>
@@ -175,7 +175,7 @@ const RistorniTracker: React.FC = () => {
           {expandedSection === 'ranking' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'ranking' && (
-          <div className="px-4 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+          <div className="px-4 pb-4 space-y-2 border-t border-edge pt-4 animate-fade-in">
             {TOP_MUNICIPALITIES
               .sort((a, b) => b.estimatedRistorni - a.estimatedRistorni)
               .map((m, i) => (
@@ -184,7 +184,7 @@ const RistorniTracker: React.FC = () => {
                 className={`flex items-center gap-3 p-3 rounded-xl ${
                   m.name === municipality
                     ? 'bg-teal-50 dark:bg-teal-900/20 border border-teal-300 dark:border-teal-700'
-                    : 'bg-slate-50 dark:bg-slate-700/50'
+                    : 'bg-surface-alt'
                 }`}
               >
                 <span className="text-sm font-bold text-muted w-6 text-center">{i + 1}</span>
@@ -199,7 +199,7 @@ const RistorniTracker: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
+                  <p className="text-sm font-bold text-success">
                     €{(m.estimatedRistorni / 1000000).toFixed(1)}M
                   </p>
                   <p className="text-sm text-muted">/{t('ristorni.year')}</p>
@@ -219,7 +219,7 @@ const RistorniTracker: React.FC = () => {
           {expandedSection === 'history' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'history' && (
-          <div className="px-4 pb-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
+          <div className="px-4 pb-4 border-t border-edge pt-4 animate-fade-in">
             <div className="space-y-2">
               {HISTORICAL_RATES.map(rate => (
                 <div key={rate.year} className="flex items-center gap-3">

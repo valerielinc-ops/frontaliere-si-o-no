@@ -154,12 +154,12 @@ export function countRealCrossings(realData: Record<string, AggregatedTraffic>):
 }
 
 function getColorClass(minutes: number): string {
-  if (minutes <= 2) return 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200';
-  if (minutes <= 5) return 'bg-emerald-200 dark:bg-emerald-800/40 text-emerald-900 dark:text-emerald-100';
+  if (minutes <= 2) return 'bg-success-subtle text-success';
+  if (minutes <= 5) return 'bg-emerald-200 dark:bg-emerald-800/40 text-success';
   if (minutes <= 10) return 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200';
-  if (minutes <= 18) return 'bg-orange-200 dark:bg-orange-800/40 text-orange-900 dark:text-orange-100';
-  if (minutes <= 25) return 'bg-red-200 dark:bg-red-800/40 text-red-900 dark:text-red-100';
-  return 'bg-red-400 dark:bg-red-700/60 text-white';
+  if (minutes <= 18) return 'bg-orange-200 dark:bg-orange-800/40 text-warning';
+  if (minutes <= 25) return 'bg-danger-subtle text-danger';
+  return 'bg-danger text-white';
 }
 
 function getTrendIcon(current: number, previous: number) {
@@ -232,22 +232,22 @@ export default function TrafficHistory() {
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Header */}
       <div className="text-center mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-strong mb-2 flex items-center justify-center gap-2">
           <Clock size={28} className="text-stripe-600" />
           {t('trafficHistory.title')}
         </h2>
         <p className="text-subtle">{t('trafficHistory.subtitle')}</p>
         {/* Data source badge */}
         {loading ? (
-          <span className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full text-xs font-medium bg-surface-raised text-slate-600 dark:text-slate-300">
+          <span className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full text-xs font-medium bg-surface-raised text-subtle">
             <Loader2 size={12} className="animate-spin" />
             {t('trafficHistory.loading')}
           </span>
         ) : (
           <span className={`inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full text-xs font-medium ${
             dataSource === 'firestore'
-              ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
-              : 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300'
+              ? 'bg-success-subtle text-success'
+              : 'bg-warning-subtle text-warning'
           }`}>
             {dataSource === 'firestore' ? <Database size={12} /> : <Cpu size={12} />}
             {dataSource === 'firestore' ? t('trafficHistory.sourceReal') : t('trafficHistory.sourceModel')}
@@ -275,27 +275,27 @@ export default function TrafficHistory() {
 
       {/* Quick insights */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
-          <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold mb-1">{t('trafficHistory.bestTime')}</p>
-          <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
+        <div className="bg-success-subtle border border-success-border rounded-xl p-4">
+          <p className="text-sm text-success font-semibold mb-1">{t('trafficHistory.bestTime')}</p>
+          <p className="text-lg font-bold text-success">
             {DAY_NAMES_IT[analysis.bestDay]} {analysis.bestHour}:00
           </p>
-          <p className="text-sm text-emerald-700 dark:text-emerald-400">{analysis.bestWait} min</p>
+          <p className="text-sm text-success">{analysis.bestWait} min</p>
         </div>
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
-          <p className="text-sm text-red-600 dark:text-red-400 font-semibold mb-1">{t('trafficHistory.worstTime')}</p>
-          <p className="text-lg font-bold text-red-700 dark:text-red-300">
+        <div className="bg-danger-subtle border border-danger-border rounded-xl p-4">
+          <p className="text-sm text-danger font-semibold mb-1">{t('trafficHistory.worstTime')}</p>
+          <p className="text-lg font-bold text-danger">
             {DAY_NAMES_IT[analysis.worstDay]} {analysis.worstHour}:00
           </p>
-          <p className="text-sm text-red-600 dark:text-red-400">{analysis.worstWait} min</p>
+          <p className="text-sm text-danger">{analysis.worstWait} min</p>
         </div>
-        <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4">
+        <div className="bg-accent-subtle border border-accent-border rounded-xl p-4">
           <p className="text-xs text-link font-semibold mb-1">{t('trafficHistory.dailyAvg')}</p>
           <div className="flex gap-1 mt-1">
             {analysis.dayAverages.map(d => (
               <div key={d.day} className="flex-1 text-center">
-                <p className="text-xs text-stripe-500 dark:text-stripe-400">{d.name}</p>
-                <p className={`text-xs font-bold rounded px-1 py-0.5 ${d.avg > 15 ? 'text-red-700 dark:text-red-400' : d.avg > 8 ? 'text-orange-700 dark:text-orange-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
+                <p className="text-xs text-accent">{d.name}</p>
+                <p className={`text-xs font-bold rounded px-1 py-0.5 ${d.avg > 15 ? 'text-danger' : d.avg > 8 ? 'text-warning' : 'text-success'}`}>
                   {d.avg}'
                 </p>
               </div>
@@ -306,7 +306,7 @@ export default function TrafficHistory() {
 
       {/* Heatmap */}
       <div className="bg-surface rounded-2xl border border-edge p-4">
-        <h3 className="text-base font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+        <h3 className="text-base font-semibold text-body mb-4 flex items-center gap-2">
           <AlertTriangle size={16} className="text-amber-500" />
           {t('trafficHistory.heatmapTitle')}
         </h3>
@@ -348,17 +348,17 @@ export default function TrafficHistory() {
         {/* Legend */}
         <div className="flex items-center gap-2 mt-4 text-xs text-muted">
           <span>{t('trafficHistory.legend')}:</span>
-          <span className="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200">0-5'</span>
+          <span className="px-2 py-0.5 rounded bg-success-subtle text-success">0-5'</span>
           <span className="px-2 py-0.5 rounded bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200">5-10'</span>
-          <span className="px-2 py-0.5 rounded bg-orange-200 dark:bg-orange-800/40 text-orange-900 dark:text-orange-100">10-18'</span>
-          <span className="px-2 py-0.5 rounded bg-red-200 dark:bg-red-800/40 text-red-900 dark:text-red-100">18-25'</span>
-          <span className="px-2 py-0.5 rounded bg-red-400 dark:bg-red-700/60 text-white">25'+</span>
+          <span className="px-2 py-0.5 rounded bg-orange-200 dark:bg-orange-800/40 text-warning">10-18'</span>
+          <span className="px-2 py-0.5 rounded bg-danger-subtle text-danger">18-25'</span>
+          <span className="px-2 py-0.5 rounded bg-danger text-white">25'+</span>
         </div>
       </div>
 
       {/* Daily comparison */}
       <div className="bg-surface rounded-2xl border border-edge p-4">
-        <h3 className="text-base font-semibold text-slate-700 dark:text-slate-200 mb-4">
+        <h3 className="text-base font-semibold text-body mb-4">
           {t('trafficHistory.morningRush')} (7:00–9:00)
         </h3>
         <div className="space-y-2">
@@ -382,7 +382,7 @@ export default function TrafficHistory() {
 
       {/* Info notice */}
       <div className="bg-surface-alt/50 border border-edge rounded-xl p-4 flex items-start gap-3">
-        <Info size={18} className="text-slate-500 dark:text-slate-300 shrink-0 mt-0.5" />
+        <Info size={18} className="text-muted shrink-0 mt-0.5" />
         <p className="text-sm text-muted">
           {dataSource === 'firestore' ? t('trafficHistory.dataNoteReal') : t('trafficHistory.dataNote')}
         </p>

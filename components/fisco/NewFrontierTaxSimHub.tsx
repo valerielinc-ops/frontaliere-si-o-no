@@ -412,28 +412,28 @@ export default function NewFrontierTaxSimHub() {
     <article className="max-w-4xl mx-auto px-4 py-6 space-y-10">
       {/* Badge + Title */}
       <header className="space-y-3">
-        <span className="inline-block rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs font-bold px-3 py-1 uppercase tracking-wide">
+        <span className="inline-block rounded-full bg-success-subtle text-success text-xs font-bold px-3 py-1 uppercase tracking-wide">
           {c.badge}
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">{c.title}</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-heading leading-tight">{c.title}</h1>
         <p className="text-base sm:text-lg text-subtle leading-relaxed max-w-3xl">{c.intro}</p>
         <p className="text-sm text-muted italic">{c.disclaimer}</p>
       </header>
 
       {/* Regime explanation cards */}
       <section className="space-y-4" data-speakable>
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{c.regimeTitle}</h2>
+        <h2 className="text-2xl font-bold text-heading">{c.regimeTitle}</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {c.regimeCards.map((card) => {
             const Icon = ICON_MAP[card.icon];
             return (
               <div key={card.title} className="rounded-2xl border border-edge p-5 bg-surface">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
+                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-success-subtle flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-success" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{card.title}</h3>
+                    <h3 className="font-semibold text-heading text-sm">{card.title}</h3>
                     <p className="mt-1 text-sm text-subtle leading-relaxed">{card.body}</p>
                   </div>
                 </div>
@@ -445,11 +445,11 @@ export default function NewFrontierTaxSimHub() {
 
       {/* How to calculate steps */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{c.howTitle}</h2>
+        <h2 className="text-2xl font-bold text-heading">{c.howTitle}</h2>
         <ol className="space-y-3 pl-0 list-none">
           {c.howSteps.map((step, i) => (
             <li key={i} className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center justify-center mt-0.5">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-success-subtle text-success text-xs font-bold flex items-center justify-center mt-0.5">
                 {i + 1}
               </span>
               <span className="text-sm text-body leading-relaxed">{step}</span>
@@ -460,7 +460,7 @@ export default function NewFrontierTaxSimHub() {
 
       {/* Example table */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{c.exampleTitle}</h2>
+        <h2 className="text-2xl font-bold text-heading">{c.exampleTitle}</h2>
         <p className="text-sm text-subtle">{c.exampleIntro}</p>
         <div className="rounded-2xl border border-edge overflow-hidden">
           <table className="w-full text-sm">
@@ -468,7 +468,7 @@ export default function NewFrontierTaxSimHub() {
               {c.exampleRows.map((row, i) => (
                 <tr key={i} className={i % 2 === 0 ? 'bg-surface-alt/50' : 'bg-surface'}>
                   <td className="px-4 py-2.5 text-body font-medium">{row.label}</td>
-                  <td className="px-4 py-2.5 text-right text-slate-900 dark:text-white font-semibold tabular-nums">{row.value}</td>
+                  <td className="px-4 py-2.5 text-right text-heading font-semibold tabular-nums">{row.value}</td>
                 </tr>
               ))}
             </tbody>
@@ -479,7 +479,7 @@ export default function NewFrontierTaxSimHub() {
 
       {/* CTA deep links */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{c.deepLinksTitle}</h2>
+        <h2 className="text-2xl font-bold text-heading">{c.deepLinksTitle}</h2>
         <p className="text-sm text-subtle">{c.deepLinksIntro}</p>
         <div className="grid gap-3 sm:grid-cols-3">
           {c.ctas.map((cta) => (
@@ -488,7 +488,7 @@ export default function NewFrontierTaxSimHub() {
               href={buildPath(cta.route)}
               className="group rounded-2xl border border-edge p-5 bg-surface hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors no-underline"
             >
-              <h3 className="font-semibold text-emerald-700 dark:text-emerald-300 text-sm flex items-center gap-1.5">
+              <h3 className="font-semibold text-success text-sm flex items-center gap-1.5">
                 {cta.title}
                 <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
@@ -500,16 +500,16 @@ export default function NewFrontierTaxSimHub() {
 
       {/* FAQ */}
       <section className="space-y-4" data-speakable>
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <HelpCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <h2 className="text-2xl font-bold text-heading flex items-center gap-2">
+          <HelpCircle className="w-5 h-5 text-success" />
           {c.faqTitle}
         </h2>
         <div className="space-y-3">
           {c.faq.map((item) => (
             <details key={item.question} className="group rounded-2xl border border-edge bg-surface overflow-hidden">
-              <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-slate-900 dark:text-white select-none list-none flex items-center justify-between">
+              <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-heading select-none list-none flex items-center justify-between">
                 {item.question}
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 opacity-0 group-open:opacity-100 transition-opacity flex-shrink-0 ml-2" />
+                <CheckCircle2 className="w-4 h-4 text-success opacity-0 group-open:opacity-100 transition-opacity flex-shrink-0 ml-2" />
               </summary>
               <div className="px-5 pb-4 text-sm text-subtle leading-relaxed faq-answer">{item.answer}</div>
             </details>

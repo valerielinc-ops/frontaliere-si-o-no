@@ -43,7 +43,7 @@ export const EmailConfirmed: React.FC = () => {
               <CheckCircle2 className="text-white" size={40} />
             </div>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100 mb-2">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-strong mb-2">
             {t('emailConfirmed.title')}
           </h1>
           <p className="text-subtle text-sm sm:text-base">
@@ -52,10 +52,10 @@ export const EmailConfirmed: React.FC = () => {
         </div>
 
         {/* Welcome Message */}
-        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-5 sm:p-6">
+        <div className="bg-success-subtle border border-success-border rounded-2xl p-5 sm:p-6">
           <div className="flex items-start gap-3">
-            <Star className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" size={20} />
-            <p className="text-emerald-800 dark:text-emerald-300 text-sm leading-relaxed">
+            <Star className="text-success flex-shrink-0 mt-0.5" size={20} />
+            <p className="text-success text-sm leading-relaxed">
               {t('emailConfirmed.welcome')}
             </p>
           </div>
@@ -63,7 +63,7 @@ export const EmailConfirmed: React.FC = () => {
 
         {/* Feature CTAs */}
         <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-lg space-y-4">
-          <h2 className="text-base font-bold text-slate-800 dark:text-slate-100">
+          <h2 className="text-base font-bold text-strong">
             {t('emailConfirmed.exploreTitle')}
           </h2>
           <div className="space-y-3">
@@ -77,7 +77,7 @@ export const EmailConfirmed: React.FC = () => {
                   <feature.icon className="text-white" size={22} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-slate-800 dark:text-slate-100 text-sm">
+                  <div className="font-semibold text-strong text-sm">
                     {t(feature.titleKey, getCantonI18nParams())}
                   </div>
                   <div className="text-xs text-subtle mt-0.5">
@@ -94,7 +94,7 @@ export const EmailConfirmed: React.FC = () => {
         <div className="text-center">
           <a
             href="/"
-            className="text-sm text-subtle hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors"
+            className="text-sm text-subtle hover:text-accent transition-colors"
           >
             {t('emailConfirmed.backHome')}
           </a>

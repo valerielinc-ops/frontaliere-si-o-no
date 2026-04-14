@@ -30,7 +30,7 @@ export default function FiscoTabContent() {
   return (
     <div className="max-w-7xl mx-auto">
       <div data-speakable>
-        <h1 className="text-base sm:text-2xl font-bold text-slate-800 dark:text-white mb-2 sm:mb-4">{t('seoContent.fisco.title')}</h1>
+        <h1 className="text-base sm:text-2xl font-bold text-heading mb-2 sm:mb-4">{t('seoContent.fisco.title')}</h1>
       </div>
       <DataFreshness lastUpdated="2026-04" source={t('freshness.source.cantonTicino')} sourceUrl="https://www4.ti.ch/dfe/dc" variant="badge" />
       <Suspense fallback={<div className="min-h-[44px]" />}>
@@ -61,7 +61,7 @@ export default function FiscoTabContent() {
       {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
       {!fiscoSubTab && (
         <details className="mt-6 group">
-          <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
+          <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
             <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             {t('fisco.table.caption')}
           </summary>

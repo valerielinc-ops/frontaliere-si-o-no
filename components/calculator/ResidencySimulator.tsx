@@ -201,7 +201,7 @@ function LocationAutocomplete({
           onChange={(e) => { setQuery(e.target.value); setIsOpen(true); setHighlightIndex(-1); }}
           onFocus={() => { setIsOpen(true); setQuery(''); }}
           placeholder={displayValue || label}
-          className="w-full pl-9 pr-8 py-2.5 rounded-lg bg-surface-alt border border-edge text-sm font-bold focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:border-transparent outline-none"
+          className="w-full pl-9 pr-8 py-2.5 rounded-lg bg-surface-alt border border-edge text-sm font-bold focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none"
           onKeyDown={handleKeyDown}
           role="combobox"
           aria-expanded={isOpen}
@@ -241,8 +241,8 @@ function LocationAutocomplete({
                   data-option
                   onClick={() => selectLocation(loc)}
                   className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-stripe-50 dark:hover:bg-stripe-900/30 transition-colors ${
-                    highlightIndex === i ? 'bg-stripe-50 dark:bg-stripe-900/30' : ''
-                  } ${value?.id === loc.id ? 'text-stripe-600 dark:text-stripe-400 font-bold' : 'text-body'}`}
+                    highlightIndex === i ? 'bg-accent-subtle' : ''
+                  } ${value?.id === loc.id ? 'text-accent font-bold' : 'text-body'}`}
                   role="option"
                   aria-selected={value?.id === loc.id}
                 >
@@ -266,8 +266,8 @@ function LocationAutocomplete({
                   data-option
                   onClick={() => selectLocation(loc)}
                   className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-stripe-50 dark:hover:bg-stripe-900/30 transition-colors ${
-                    highlightIndex === itFiltered.length + j ? 'bg-stripe-50 dark:bg-stripe-900/30' : ''
-                  } ${value?.id === loc.id ? 'text-stripe-600 dark:text-stripe-400 font-bold' : 'text-body'}`}
+                    highlightIndex === itFiltered.length + j ? 'bg-accent-subtle' : ''
+                  } ${value?.id === loc.id ? 'text-accent font-bold' : 'text-body'}`}
                   role="option"
                   aria-selected={value?.id === loc.id}
                 >
@@ -377,14 +377,14 @@ const ResidencySimulator: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-stripe-200 dark:border-stripe-800">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-accent-border">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-stripe-100 dark:bg-stripe-900/50 rounded-xl">
-            <Home className="w-6 h-6 text-stripe-600 dark:text-stripe-400" />
+          <div className="p-2 bg-accent-subtle rounded-xl">
+            <Home className="w-6 h-6 text-accent" />
           </div>
-          <h2 className="text-2xl font-bold text-stripe-900 dark:text-stripe-100">{t('residency.title')}</h2>
+          <h2 className="text-2xl font-bold text-accent">{t('residency.title')}</h2>
         </div>
-        <p className="text-stripe-700 dark:text-stripe-300 text-sm">{t('residency.subtitle')}</p>
+        <p className="text-accent text-sm">{t('residency.subtitle')}</p>
       </div>
 
       {/* Inputs */}
@@ -401,7 +401,7 @@ const ResidencySimulator: React.FC = () => {
           {/* Swap button */}
           <button
             onClick={swapLocations}
-            className="p-2.5 rounded-xl bg-stripe-100 dark:bg-stripe-900/30 text-stripe-600 dark:text-stripe-400 hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors self-end"
+            className="p-2.5 rounded-xl bg-accent-subtle text-accent hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors self-end"
             aria-label={t('residency.swap') || 'Inverti'}
           >
             <ArrowLeftRight className="w-5 h-5" />
@@ -464,17 +464,17 @@ const ResidencySimulator: React.FC = () => {
         {/* Difference card */}
         <div className={`rounded-xl p-5 border-2 flex flex-col items-center justify-center ${
           result.monthlyDiff > 0
-            ? 'bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800'
-            : 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800'
+            ? 'bg-danger-subtle border-danger-border'
+            : 'bg-success-subtle border-success-border'
         }`}>
           <TrendingUp className={`w-6 h-6 mb-2 ${result.monthlyDiff > 0 ? 'text-red-500 rotate-0' : 'text-emerald-500 rotate-180'}`} />
-          <p className={`text-3xl font-bold ${result.monthlyDiff > 0 ? 'text-red-600 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
+          <p className={`text-3xl font-bold ${result.monthlyDiff > 0 ? 'text-danger' : 'text-success'}`}>
             {result.monthlyDiff > 0 ? '+' : ''}€{Math.round(result.monthlyDiff).toLocaleString('it-IT')}
           </p>
           <p className="text-xs text-muted mt-1">{t('residency.monthlyDiff')}</p>
 
           {result.breakEvenMonths && (
-            <div className="mt-3 flex items-center gap-1 text-sm text-emerald-700 dark:text-emerald-400">
+            <div className="mt-3 flex items-center gap-1 text-sm text-success">
               <Clock className="w-3 h-3" />
               <span>{t('residency.breakEven', { months: result.breakEvenMonths.toString() })}</span>
             </div>
@@ -509,7 +509,7 @@ const ResidencySimulator: React.FC = () => {
             <h3 className="font-bold text-strong">{t('residency.oneTimeCosts')}</h3>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-amber-600 dark:text-amber-400">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
+            <span className="text-lg font-bold text-warning">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
             {showDetails ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
           </div>
         </button>
@@ -517,8 +517,8 @@ const ResidencySimulator: React.FC = () => {
         {showDetails && (
           <div className="mt-4 space-y-2">
             {result.oneTimeCosts.map((cost, i) => (
-              <div key={i} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
-                <span className="text-sm text-slate-600 dark:text-slate-300">{t(cost.label)}</span>
+              <div key={i} className="flex items-center justify-between py-2 border-b border-edge last:border-0">
+                <span className="text-sm text-subtle">{t(cost.label)}</span>
                 <span className="text-sm font-bold text-strong">
                   {cost.currency === 'CHF' ? 'CHF' : '€'}{cost.amount.toLocaleString('it-IT')}
                 </span>
@@ -530,9 +530,9 @@ const ResidencySimulator: React.FC = () => {
 
       {/* Tax note */}
       {result.taxNote && (
-        <div className="bg-stripe-50 dark:bg-stripe-950/20 rounded-xl p-4 border border-stripe-200 dark:border-stripe-800 flex items-start gap-3">
+        <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border flex items-start gap-3">
           <Briefcase className="w-5 h-5 text-stripe-500 shrink-0 mt-0.5" />
-          <p className="text-sm text-stripe-700 dark:text-stripe-300">{t(result.taxNote)}</p>
+          <p className="text-sm text-accent">{t(result.taxNote)}</p>
         </div>
       )}
 
@@ -540,9 +540,9 @@ const ResidencySimulator: React.FC = () => {
       <BestMunicipalitySection grossMonthlyCHF={grossMonthlyCHF} chfEurRate={chfEurRate} />
 
       {/* Disclaimer */}
-      <div className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-4 border border-amber-200 dark:border-amber-800 flex items-start gap-3">
+      <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
         <AlertCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-        <p className="text-sm text-amber-700 dark:text-amber-300">{t('residency.disclaimer')}</p>
+        <p className="text-sm text-warning">{t('residency.disclaimer')}</p>
       </div>
     </div>
   );
@@ -612,13 +612,13 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
   const hasActiveFilters = searchQuery || filterProvince || filterFascia;
 
   return (
-    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-2xl p-4 sm:p-6 border border-stripe-200 dark:border-stripe-800 space-y-4">
+    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-2xl p-4 sm:p-6 border border-accent-border space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Star className="w-6 h-6 text-stripe-600 dark:text-stripe-400" />
-          <h3 className="text-lg font-bold text-stripe-900 dark:text-stripe-100">{t('residency.bestMunicipality.title')}</h3>
+          <Star className="w-6 h-6 text-accent" />
+          <h3 className="text-lg font-bold text-accent">{t('residency.bestMunicipality.title')}</h3>
         </div>
-        <span className="text-xs text-stripe-600 dark:text-stripe-400 font-medium bg-stripe-100 dark:bg-stripe-900/40 px-2.5 py-1 rounded-full">
+        <span className="text-xs text-accent font-medium bg-accent-subtle px-2.5 py-1 rounded-full">
           {IT_LOCATIONS.length} {t('residency.bestMunicipality.municipalities') || 'comuni'}
         </span>
       </div>
@@ -651,7 +651,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune...'}
-              className="w-full pl-9 pr-8 py-2 rounded-lg bg-surface border border-edge text-sm focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:border-transparent outline-none"
+              className="w-full pl-9 pr-8 py-2 rounded-lg bg-surface border border-edge text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none"
               aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
             />
             {searchQuery && (
@@ -664,8 +664,8 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             onClick={() => setShowFilters(!showFilters)}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
               showFilters || hasActiveFilters
-                ? 'bg-stripe-100 dark:bg-stripe-900/40 border-stripe-300 dark:border-stripe-700 text-stripe-700 dark:text-stripe-300'
-                : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:border-stripe-400'
+                ? 'bg-accent-subtle border-accent-border text-accent'
+                : 'bg-surface border-edge text-subtle hover:border-stripe-400'
             }`}
             aria-label={t('residency.bestMunicipality.filters') || 'Filtri'}
           >
@@ -708,7 +708,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             {hasActiveFilters && (
               <button
                 onClick={() => { setSearchQuery(''); setFilterProvince(''); setFilterFascia(''); }}
-                className="self-end px-3 py-1.5 text-xs font-medium text-stripe-600 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-200 transition-colors"
+                className="self-end px-3 py-1.5 text-xs font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-200 transition-colors"
               >
                 {t('residency.bestMunicipality.clearFilters') || 'Rimuovi filtri'}
               </button>
@@ -719,11 +719,11 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
 
       {/* Winner */}
       {best && (
-        <div className="bg-surface rounded-xl p-4 border-2 border-stripe-300 dark:border-stripe-700 shadow-lg">
+        <div className="bg-surface rounded-xl p-4 border-2 border-accent-border shadow-lg">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-2xl">{'\uD83C\uDFC6'}</span>
             <div>
-              <p className="text-xs text-stripe-600 dark:text-stripe-400 font-semibold">{t('residency.bestMunicipality.winner')}</p>
+              <p className="text-xs text-accent font-semibold">{t('residency.bestMunicipality.winner')}</p>
               <p className="text-xl font-bold text-strong">{best.name}{best.province ? ` (${best.province})` : ''}</p>
             </div>
           </div>
@@ -750,7 +750,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
 
       {/* Results count */}
       {hasActiveFilters && (
-        <p className="text-xs text-stripe-600 dark:text-stripe-400 font-medium">
+        <p className="text-xs text-accent font-medium">
           {filteredRankings.length} {filteredRankings.length === 1 ? 'risultato' : 'risultati'}
           {filterProvince && ` in ${filterProvince}`}
           {filterFascia && ` (Fascia ${filterFascia})`}
@@ -769,7 +769,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-body truncate">
                 {loc.name} {loc.province ? <span className="text-muted font-normal">({loc.province})</span> : ''}
-                {loc.fascia && <span className="ml-1.5 text-xs px-1.5 py-0.5 bg-stripe-100 dark:bg-stripe-900/30 text-stripe-600 dark:text-stripe-400 rounded-full font-medium">F{loc.fascia}</span>}
+                {loc.fascia && <span className="ml-1.5 text-xs px-1.5 py-0.5 bg-accent-subtle text-accent rounded-full font-medium">F{loc.fascia}</span>}
               </p>
               <div className="flex items-center gap-3 text-xs text-muted">
                 <span className="flex items-center gap-0.5"><Navigation size={8} /> {loc.nearestCrossing}</span>
@@ -793,7 +793,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       {!hasActiveFilters && filteredRankings.length > 10 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="w-full py-2.5 text-sm font-medium text-stripe-600 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-200 bg-surface/60 rounded-lg border border-stripe-200 dark:border-stripe-700 transition-colors flex items-center justify-center gap-1.5"
+          className="w-full py-2.5 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-200 bg-surface/60 rounded-lg border border-accent-border transition-colors flex items-center justify-center gap-1.5"
         >
           {showAll ? (
             <><ChevronUp size={14} /> {t('residency.bestMunicipality.showLess') || `Mostra top 10`}</>

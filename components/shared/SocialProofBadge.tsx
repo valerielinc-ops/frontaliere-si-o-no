@@ -45,7 +45,7 @@ const SocialProofBadge: React.FC<SocialProofBadgeProps> = ({ fullWidth = false }
 
   return (
     <div
-      className={`inline-flex items-center gap-2 h-[34px] px-3 rounded-xl bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-200/70 dark:border-emerald-800/40 text-xs font-semibold text-emerald-700 dark:text-emerald-300 ${
+      className={`inline-flex items-center gap-2 h-[34px] px-3 rounded-xl bg-emerald-50/80 dark:bg-emerald-900/20 border border-success-border text-xs font-semibold text-success ${
         fullWidth ? 'w-full justify-center' : 'whitespace-nowrap'
       }`}
     >

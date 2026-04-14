@@ -2,7 +2,7 @@ import React from 'react';
 
 // ---- Skeleton Primitives ----
 
-const pulse = 'animate-pulse bg-slate-200 dark:bg-slate-700 rounded-lg';
+const pulse = 'animate-pulse bg-surface-raised rounded-lg';
 
 export const SkeletonLine: React.FC<{ width?: string; height?: string; className?: string }> = ({ 
   width = 'w-full', height = 'h-4', className = '' 
@@ -19,7 +19,7 @@ export const SkeletonCircle: React.FC<{ size?: string; className?: string }> = (
 // ---- Skeleton Cards ----
 
 export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
-  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 space-y-4">
     <div className="flex items-center gap-3">
       <SkeletonCircle size="w-8 h-8" />
       <SkeletonLine width="w-40" height="h-5" />
@@ -31,7 +31,7 @@ export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
 );
 
 export const SkeletonChart: React.FC = () => (
-  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 space-y-4">
     <div className="flex items-center gap-3 mb-6">
       <SkeletonCircle size="w-8 h-8" />
       <SkeletonLine width="w-48" height="h-5" />
@@ -50,16 +50,16 @@ export const SkeletonChart: React.FC = () => (
 );
 
 export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows = 4, cols = 4 }) => (
-  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
     {/* Header */}
-    <div className="flex gap-4 p-4 border-b border-slate-100 dark:border-slate-700 bg-surface-alt">
+    <div className="flex gap-4 p-4 border-b border-edge bg-surface-alt">
       {Array.from({ length: cols }).map((_, i) => (
         <SkeletonLine key={i} width="flex-1" height="h-4" />
       ))}
     </div>
     {/* Rows */}
     {Array.from({ length: rows }).map((_, r) => (
-      <div key={r} className="flex gap-4 p-4 border-b border-slate-50 dark:border-slate-800 last:border-0">
+      <div key={r} className="flex gap-4 p-4 border-b border-edge last:border-0">
         {Array.from({ length: cols }).map((_, c) => (
           <SkeletonLine key={c} width="flex-1" height="h-3" />
         ))}
@@ -233,7 +233,7 @@ export const SkeletonWeeklyFact: React.FC = () => (
 
 /** Matches InputCard approximate height — tall form with 8+ fields */
 export const SkeletonInputCard: React.FC = () => (
-  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 space-y-4">
     {/* Real H1 text to serve as LCP: large text element renders before lazy InputCard chunk loads */}
     <h1 className="text-[30px] font-extrabold text-heading leading-tight">
       Calcola Stipendio Netto Frontaliere
@@ -264,7 +264,7 @@ export const SkeletonInputCard: React.FC = () => (
 /** Mobile calc layout skeleton — matches MobileCalcLayout compact input card */
 export const SkeletonMobileCalc: React.FC = () => (
   <div className="space-y-4 pb-3">
-    <div className="bg-surface rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 p-4 space-y-3">
+    <div className="bg-surface rounded-2xl shadow-lg border border-edge p-4 space-y-3">
       {/* Salary label + stepper */}
       <SkeletonLine width="w-20" height="h-3" />
       <div className="flex items-stretch gap-2">
@@ -453,17 +453,17 @@ export const SkeletonPageShell: React.FC = () => {
   const isCalcPage = CALC_SLUGS.has(firstSegment);
 
   return (
-    <div className="min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 overflow-hidden">
+    <div className="min-h-screen relative flex flex-col font-sans text-strong overflow-hidden">
       {/* Background gradient — matches real layout + loading shell */}
       <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-slate-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }} />
 
       {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
-      <nav className="sticky top-0 z-50 bg-surface/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm">
         <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
           <div className="flex justify-between h-20 items-center">
             {/* Logo placeholder */}
             <div className="flex items-center gap-3">
-              <div className="w-[38px] h-[38px] bg-surface rounded-xl ring-1 ring-slate-200 dark:ring-slate-800" />
+              <div className="w-[38px] h-[38px] bg-surface rounded-xl ring-1 ring-edge" />
               <div className="hidden sm:block space-y-1">
                 <div className="w-[140px] h-[18px] bg-surface-raised rounded" />
                 <div className="w-[100px] h-[10px] bg-surface-raised rounded" />
@@ -478,7 +478,7 @@ export const SkeletonPageShell: React.FC = () => {
               ))}
             </div>
             {/* Action button placeholders — hidden mobile, flex md+ */}
-            <div className="hidden md:flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800 shrink-0">
+            <div className="hidden md:flex items-center gap-2 pl-4 border-l border-edge shrink-0">
               <div className="w-[76px] h-9" aria-hidden="true" />
               <div className="w-[34px] h-[34px] bg-surface-raised rounded-xl" />
               <div className="w-[34px] h-[34px] bg-surface-raised rounded-xl" />
@@ -506,14 +506,14 @@ export const SkeletonPageShell: React.FC = () => {
         {isCalcPage && (
           <div className="hidden md:flex flex-col gap-2 mb-4">
             <div className={`${pulse} h-[34px] rounded-xl`} />
-            <div className={`${pulse} h-[34px] rounded-xl bg-amber-100 dark:bg-amber-900/30`} />
+            <div className={`${pulse} h-[34px] rounded-xl bg-warning-subtle`} />
           </div>
         )}
         <SkeletonFallback />
       </main>
 
       {/* Mobile bottom nav — matches loading shell fixed h-14, hidden md+ */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 border-t border-slate-200/50 dark:border-slate-800/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 border-t border-edge/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="flex flex-col items-center gap-0.5">
             <div className="w-5 h-5 bg-surface-raised rounded" />

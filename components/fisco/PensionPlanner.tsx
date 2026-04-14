@@ -47,7 +47,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
   return (
     <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
       <Info size={14} className="text-muted hover:text-teal-600 transition-colors" />
-      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-sm leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-surface-raised text-white text-sm leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
         {text}
         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
       </div>
@@ -163,7 +163,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
     <div className="space-y-6 pb-12">
       {/* Header */}
       <div className="text-center space-y-3 mb-8">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 flex items-center justify-center gap-3">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-success flex items-center justify-center gap-3">
           <PiggyBank size={28} className="text-emerald-500" />
           {t('pension.title')}
         </h1>
@@ -207,7 +207,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Users className="text-emerald-700" size={20} />
-              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.personalData')}</h2>
+              <h2 className="text-lg font-bold text-strong">{t('pension.personalData')}</h2>
             </div>
 
             <div className="space-y-4">
@@ -245,8 +245,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 />
               </div>
 
-              <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+              <div className="p-3 bg-success-subtle rounded-lg">
+                <div className="flex items-center gap-2 text-success">
                   <Clock size={16} />
                   <span className="text-sm font-bold">
                     {yearsUntilRetirement} {t('pension.yearsToRetirement')}
@@ -260,7 +260,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Calendar className="text-stripe-600" size={20} />
-              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.workHistory')}</h2>
+              <h2 className="text-lg font-bold text-strong">{t('pension.workHistory')}</h2>
             </div>
 
             <div className="space-y-4">
@@ -275,7 +275,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.yearsWorkedCH}
                   onChange={(e) => handleChange('yearsWorkedCH', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   min="0"
                   max="50"
                 />
@@ -292,7 +292,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.plannedYearsCH}
                   onChange={(e) => handleChange('plannedYearsCH', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   min="0"
                   max="50"
                 />
@@ -304,7 +304,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     type="checkbox"
                     checked={inputs.hasItalianContributions}
                     onChange={(e) => handleChange('hasItalianContributions', e.target.checked)}
-                    className="mr-2 w-4 h-4 text-stripe-600 rounded focus-visible:ring-2 focus-visible:ring-stripe-500"
+                    className="mr-2 w-4 h-4 text-stripe-600 rounded focus-visible:ring-2 focus-visible:ring-accent"
                     aria-label={t('pension.hasItalianContributions') || 'Contributi italiani'}
                   />
                   {t('pension.hasItalianContributions')}
@@ -324,7 +324,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     inputMode="numeric"
                     value={inputs.yearsWorkedIT}
                     onChange={(e) => handleChange('yearsWorkedIT', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                    className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                     min="0"
                     max="50"
                   />
@@ -337,7 +337,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Banknote className="text-stripe-600" size={20} />
-              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.financialData')}</h2>
+              <h2 className="text-lg font-bold text-strong">{t('pension.financialData')}</h2>
             </div>
 
             <div className="space-y-4">
@@ -352,7 +352,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentSalaryCHF}
                   onChange={(e) => handleChange('currentSalaryCHF', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   min="0"
                   step="1000"
                 />
@@ -369,7 +369,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentLPPCapital}
                   onChange={(e) => handleChange('currentLPPCapital', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   min="0"
                   step="5000"
                 />
@@ -386,7 +386,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="decimal"
                   value={inputs.expectedReturnRate}
                   onChange={(e) => handleChange('expectedReturnRate', parseFloat(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   min="0"
                   max="5"
                   step="0.1"
@@ -399,7 +399,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Globe className="text-orange-600" size={20} />
-              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.repatriationPlan')}</h2>
+              <h2 className="text-lg font-bold text-strong">{t('pension.repatriationPlan')}</h2>
             </div>
 
             <div className="space-y-3">
@@ -414,8 +414,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   onClick={() => handleChange('repatriationPlan', option)}
                   className={`w-full p-4 rounded-xl border-2 transition-colors text-left ${
                     inputs.repatriationPlan === option
-                      ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
-                      : 'border-edge hover:border-slate-300 dark:hover:border-slate-600'
+                      ? 'border-emerald-500 bg-success-subtle'
+                      : 'border-edge hover:border-edge'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -423,7 +423,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                       <CheckCircle2 size={20} className="text-emerald-700 flex-shrink-0" />
                     )}
                     <div className="flex-1">
-                      <div className="font-bold text-slate-800 dark:text-slate-100">
+                      <div className="font-bold text-strong">
                         {option === 'stay_ch' && `🇨🇭 ${t('pension.stayCH')}`}
                         {option === 'return_it' && `🇮🇹 ${t('pension.returnIT')}`}
                         {option === 'undecided' && `🤔 ${t('pension.undecided')}`}
@@ -471,19 +471,19 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             {/* LPP Capital */}
             <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-lg">
+                <div className="p-2 bg-accent-subtle rounded-lg">
                   <PiggyBank className="text-stripe-600" size={20} />
                 </div>
                 <div>
                   <div className="text-xs text-muted font-semibold uppercase tracking-wide">
                     {t('pension.lppCapital')}
                   </div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     CHF {Math.round(result.lppAccumulated).toLocaleString('it-IT')}
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+              <div className="flex items-center justify-between pt-3 border-t border-edge">
                 <span className="text-sm text-subtle">{t('pension.monthlyAnnuity')}:</span>
                 <span className="text-lg font-bold text-stripe-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
@@ -498,14 +498,14 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             {/* AVS Pension */}
             <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
+                <div className="p-2 bg-danger-subtle rounded-lg">
                   <Home className="text-red-600" size={20} />
                 </div>
                 <div>
                   <div className="text-xs text-muted font-semibold uppercase tracking-wide">
                     {t('pension.avsPension')}
                   </div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-strong">
                     CHF {Math.round(result.avsPensionCHF).toLocaleString('it-IT')}
                   </div>
                 </div>
@@ -535,7 +535,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     <div className="text-xs text-muted font-semibold uppercase tracking-wide">
                       {t('pension.inpsPension')}
                     </div>
-                    <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                    <div className="text-2xl font-bold text-strong">
                       € {Math.round(result.italianPensionEUR).toLocaleString('it-IT')}
                     </div>
                   </div>
@@ -555,7 +555,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
 
           {/* Breakdown Table */}
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+            <h2 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <Calculator size={20} className="text-emerald-700" />
               {t('pension.monthlyBreakdown')}
             </h2>
@@ -586,7 +586,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
 
               <div className="border-t-2 border-emerald-500 pt-3 mt-3">
                 <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl">
-                  <span className="text-base font-bold text-slate-800 dark:text-slate-100">{t('pension.monthlyTotal')}</span>
+                  <span className="text-base font-bold text-strong">{t('pension.monthlyTotal')}</span>
                   <span className="text-2xl font-bold text-emerald-700">
                     CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}
                   </span>
@@ -599,8 +599,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           {inputs.repatriationPlan !== 'undecided' && (
             <div className={`rounded-2xl border-2 p-5 sm:p-6 ${
               inputs.repatriationPlan === 'stay_ch'
-                ? 'bg-stripe-50 dark:bg-stripe-900/20 border-stripe-200 dark:border-stripe-800'
-                : 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800'
+                ? 'bg-accent-subtle border-accent-border'
+                : 'bg-warning-subtle border-warning-border'
             }`}>
               <div className="flex items-start gap-3 mb-3">
                 <AlertCircle 
@@ -608,7 +608,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   className={inputs.repatriationPlan === 'stay_ch' ? 'text-stripe-600' : 'text-orange-600'} 
                 />
                 <div>
-                  <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">
+                  <h3 className="font-bold text-strong mb-2">
                     {inputs.repatriationPlan === 'stay_ch' ? `🇨🇭 ${t('pension.scenarioStayCH')}` : `🇮🇹 ${t('pension.scenarioReturnIT')}`}
                   </h3>
                   <ul className="text-sm space-y-1 text-subtle">
@@ -634,10 +634,10 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           )}
 
           {/* Important Notes */}
-          <div className="bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-200 dark:border-amber-800 rounded-2xl p-6">
+          <div className="bg-warning-subtle border-2 border-warning-border rounded-2xl p-6">
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-amber-700 flex-shrink-0 mt-0.5" />
-              <div className="space-y-2 text-sm text-amber-800 dark:text-amber-200">
+              <div className="space-y-2 text-sm text-warning">
                 <p className="font-bold">⚠️ {t('pension.disclaimer')}</p>
                 <ul className="space-y-1 text-sm">
                   <li>• {t('pension.disclaimer1')}</li>
@@ -647,7 +647,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <li>• {t('pension.disclaimer5')}</li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1.5 mt-3 text-sm text-emerald-700 dark:text-emerald-400">
+              <div className="flex items-center gap-1.5 mt-3 text-sm text-success">
                 <Shield size={12} className="flex-shrink-0" />
                 <span>{t('pension.dataPrivacy')}</span>
               </div>

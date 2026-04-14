@@ -19,7 +19,7 @@ export const DataDeletion: React.FC = () => {
               <Trash2 className="text-white" size={32} />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100">Data Deletion</h1>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-strong">Data Deletion</h1>
               <p className="text-sm text-muted mt-1">Facebook App Data Deletion Callback</p>
             </div>
           </div>
@@ -48,7 +48,7 @@ export const DataDeletion: React.FC = () => {
             <div className="flex items-start gap-3">
               <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
               <div>
-                <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Client-Side Application</h3>
+                <h3 className="font-bold text-strong mb-1">Client-Side Application</h3>
                 <p className="text-sm">
                   All calculations and data processing happen entirely in your browser. No data is transmitted to our servers.
                 </p>
@@ -58,7 +58,7 @@ export const DataDeletion: React.FC = () => {
             <div className="flex items-start gap-3">
               <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
               <div>
-                <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Facebook Login</h3>
+                <h3 className="font-bold text-strong mb-1">Facebook Login</h3>
                 <p className="text-sm">
                   Our application uses Facebook Login for authentication only. We access your name and email address to create your account. We do not post to your timeline, access your friends list, or collect any other Facebook data.
                 </p>
@@ -68,9 +68,9 @@ export const DataDeletion: React.FC = () => {
             <div className="flex items-start gap-3">
               <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
               <div>
-                <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">How to Delete Your Data</h3>
+                <h3 className="font-bold text-strong mb-1">How to Delete Your Data</h3>
                 <p className="text-sm">
-                  If you have an account, go to your <a href="/profilo-utente" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Profile page</a> and use the "Delete Account" button. This will permanently remove your Firebase Auth account, Firestore profile data, newsletter subscription, and all associated data. You can also revoke access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Facebook App Settings</a>.
+                  If you have an account, go to your <a href="/profilo-utente" className="text-accent hover:underline font-semibold">Profile page</a> and use the "Delete Account" button. This will permanently remove your Firebase Auth account, Firestore profile data, newsletter subscription, and all associated data. You can also revoke access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">Facebook App Settings</a>.
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export const DataDeletion: React.FC = () => {
 
           {/* What We Do Collect */}
           <div>
-            <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">What We Do Collect:</h3>
+            <h3 className="font-bold text-strong mb-3">What We Do Collect:</h3>
             <ul className="space-y-2 text-sm text-subtle">
               <li className="flex items-start gap-2">
                 <span className="text-muted">•</span>
@@ -107,30 +107,30 @@ export const DataDeletion: React.FC = () => {
 
           {/* Data Deletion Request */}
           <div className="bg-surface-alt/50 rounded-xl p-4 sm:p-6 border border-edge">
-            <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">Data Deletion Request</h3>
+            <h3 className="font-bold text-strong mb-3">Data Deletion Request</h3>
             <p className="text-sm text-subtle mb-4">
               To delete all data associated with your account:
             </p>
             <ol className="text-sm text-subtle space-y-2 list-decimal list-inside mb-4">
-              <li>Go to your <a href="/profilo-utente" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Profile page</a></li>
+              <li>Go to your <a href="/profilo-utente" className="text-accent hover:underline font-semibold">Profile page</a></li>
               <li>Click the <strong>"Delete Account"</strong> button</li>
               <li>Confirm the deletion when prompted</li>
             </ol>
             <p className="text-sm text-subtle">
-              This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Facebook App Settings</a>.
+              This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">Facebook App Settings</a>.
             </p>
             <p className="text-sm text-subtle mt-3">
-              For further questions, refer to our <a href="/privacy" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
+              For further questions, refer to our <a href="/privacy" className="text-accent hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
             </p>
           </div>
 
           {/* Confirmation Code (for Facebook) */}
-          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-xl p-4 sm:p-6 border border-stripe-200 dark:border-stripe-800">
-            <h3 className="font-bold text-stripe-800 dark:text-stripe-300 mb-2">Confirmation</h3>
-            <p className="text-sm text-stripe-700 dark:text-stripe-400">
+          <div className="bg-accent-subtle rounded-xl p-4 sm:p-6 border border-accent-border">
+            <h3 className="font-bold text-accent mb-2">Confirmation</h3>
+            <p className="text-sm text-accent">
               For Facebook App Review purposes: This page serves as the Data Deletion Callback URL as required by Facebook's Platform Policy.
             </p>
-            <div className="mt-4 p-3 bg-surface rounded-lg border border-stripe-200 dark:border-stripe-700">
+            <div className="mt-4 p-3 bg-surface rounded-lg border border-accent-border">
               <code className="text-xs text-body font-mono">
                 Status: DATA_DELETABLE<br/>
                 Method: Self-service via Profile page "Delete Account" button<br/>
@@ -149,7 +149,7 @@ export const DataDeletion: React.FC = () => {
               href="https://www.facebook.com/profile.php?id=61588174947294" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold"
+              className="text-accent hover:underline font-semibold"
             >
               Facebook
             </a>
