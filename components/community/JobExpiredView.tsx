@@ -1,18 +1,22 @@
 /**
  * JobExpiredView — view for jobs found in /data/expired-jobs.json.
  *
- * Layout: orange banner → job header → truncated description →
- * Google Sign-In block → AdSense unit → related active jobs → CTA
+ * Renders with the same layout as active job auth-gate pages:
+ * 3-column ad grid, blurred description teaser, full auth gate with
+ * social proof, and an orange expired banner at the top.
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Building2, Calendar, CheckCircle2, Clock, Euro, Loader2, Mail, MapPin, Shield } from 'lucide-react';
-import { useLocale } from '@/services/i18n';
+import { ArrowLeft, ArrowRight, Building2, Calendar, CheckCircle2, Clock, Euro, Eye, Loader2, Mail, MapPin, Shield } from 'lucide-react';
+import { useLocale, t } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
+import { AD_SLOTS } from '@/services/adsenseSlots';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
@@ -41,6 +45,8 @@ interface JobExpiredViewProps {
  onBack?: () => void;
  /** When true the user is already authenticated — hide the sign-in block. */
  hasAccess?: boolean;
+ /** Total active jobs count for social proof in auth gate. */
+ totalActiveJobs?: number;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -92,12 +98,6 @@ const BANNER_COPY: Record<string, string> = {
  de: 'Diese Stelle ist nicht mehr aktiv.',
  fr: 'Ce poste n\'est plus actif.',
 };
-const SIGNUP_COPY: Record<string, string> = {
- it: 'Accedi per vedere le ultime offerte simili e ricevere alert',
- en: 'Sign in to see the latest similar jobs and receive alerts',
- de: 'Anmelden für ähnliche Stellenangebote und Benachrichtigungen',
- fr: 'Connectez-vous pour voir les offres similaires et recevoir des alertes',
-};
 const RELATED_COPY: Record<string, string> = {
  it: 'Offerte simili attive',
  en: 'Similar active jobs',
@@ -116,29 +116,12 @@ const EXPIRED_AT_COPY: Record<string, string> = {
  de: 'Abgelaufen am',
  fr: 'Expirée le',
 };
-const EMAIL_OR_COPY: Record<string, string> = {
- it: 'oppure con email',
- en: 'or with email',
- de: 'oder mit E-Mail',
- fr: 'ou par email',
-};
-const EMAIL_PLACEHOLDER_COPY: Record<string, string> = {
- it: 'La tua email',
- en: 'Your email',
- de: 'Ihre E-Mail',
- fr: 'Votre email',
-};
-const EMAIL_CTA_COPY: Record<string, string> = {
- it: 'Continua con email',
- en: 'Continue with email',
- de: 'Weiter mit E-Mail',
- fr: 'Continuer avec email',
-};
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
-export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp }: JobExpiredViewProps) {
+export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs }: JobExpiredViewProps) {
  const [locale] = useLocale();
+ const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
@@ -156,11 +139,20 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
  const description = job.descriptionByLocale?.[locale] ?? '';
- const descriptionPreview = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 400);
+ const descriptionPlain = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+ const descriptionPreview = descriptionPlain.slice(0, 220);
 
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
  : null;
+
+ const logoUrl = resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey });
+ const jobLocation = job.addressLocality ?? job.location ?? '';
+
+ const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
+ const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
+ const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
+ const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
  useEffect(() => {
  if (alreadySignedIn) return;
@@ -218,153 +210,85 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  }
  };
 
- return (
- <div className="space-y-5 max-w-2xl mx-auto">
- {onBack && (
+ // ── Shared elements ──
+
+ const backButton = onBack && (
  <button
  onClick={onBack}
- className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-heading"
+ className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
  >
  <ArrowLeft size={14} />
- {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}
+ {t('jobBoard.backToList')}
  </button>
- )}
+ );
 
- {/* Orange banner */}
+ const expiredBanner = (
  <div className="rounded-xl bg-warning-subtle border border-warning-border px-4 py-3 text-xs text-warning">
  {BANNER_COPY[locale] ?? BANNER_COPY.it}
  </div>
+ );
 
- {/* Job header */}
- <div>
- <h1 className="text-2xl font-bold font-display text-heading leading-snug">{localizedTitle}</h1>
- <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
- {job.company && (() => {
- const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}`;
- const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
- return (
+ const jobHeader = (
+ <div className="flex items-start gap-4">
+ {logoUrl && (
+ <img
+ src={logoUrl}
+ alt={job.company}
+ width={48}
+ height={48}
+ className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
+ loading="lazy"
+ onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
+ />
+ )}
+ <div className="flex-1 min-w-0">
+ <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
+ <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
+ {job.company && companyHref && (
  <a
  href={companyHref}
- className="flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <Building2 size={14} />
  {job.company}
  </a>
- );
- })()}
- {(job.addressLocality ?? job.location) && (() => {
- const loc = job.addressLocality ?? job.location ?? '';
- const locationSlug = `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(loc)}`;
- const locationHref = `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/');
- return (
+ )}
+ {jobLocation && locationHref && (
  <a
  href={locationHref}
- className="flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <MapPin size={14} />
- {loc}
+ {jobLocation}
  </a>
- );
- })()}
+ )}
  {expiredDate && (
- <span className="flex items-center gap-1">
+ <span className="inline-flex items-center gap-1">
  <Calendar size={14} />
  {EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}
  </span>
  )}
  </div>
  </div>
-
- {/* Description excerpt */}
- {descriptionPreview && (
- <p className="text-sm text-body leading-relaxed line-clamp-4">
- {descriptionPreview}{description.length > 400 ? '…' : ''}
- </p>
- )}
-
- {/* Sign-in block — hidden when user is already authenticated */}
- {!alreadySignedIn && (
- <div role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-accent-border bg-accent-subtle p-5 space-y-3">
- <p className="text-sm font-semibold text-strong">
- {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
- </p>
- {/* Trust signals */}
- <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
- <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
  </div>
- <div ref={googleButtonRef} className="flex justify-center" />
- {!googleButtonReady && (
- <a
- href={`/?redirect=${encodeURIComponent(window.location.pathname)}`}
- className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-stripe border border-edge bg-surface text-sm font-semibold text-strong hover:bg-surface-raised transition-colors"
- >
- {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
- </a>
- )}
- {linkedInAvailable && (
- <button
- type="button"
- disabled={linkedInBusy}
- onClick={() => {
- setLinkedInBusy(true);
- saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location || job.addressLocality, category: job.sector });
- signInWithLinkedIn().catch(() => setLinkedInBusy(false));
- }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-[#0A66C2] hover:bg-[#004182] disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
- >
- {linkedInBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : (
- <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
- )}
- {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
- </button>
- )}
- <div className="flex items-center gap-3">
- <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
- <div className="flex-1 h-px bg-surface-raised/50" />
- </div>
- <form onSubmit={handleEmailSubmit} className="space-y-2">
- <EmailInput
- value={emailInput}
- onChange={setEmailInput}
- placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
- />
- <button
- type="submit"
- disabled={emailBusy || !emailInput.trim()}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
- >
- {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
- {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
- </button>
- </form>
- {emailError && <p className="text-sm text-danger">{emailError}</p>}
- </div>
- )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />
+ );
 
- {/* Company banner */}
- {job.company && (() => {
- const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}`;
- const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
- const companyLogo = resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey });
- return (
+ const companyBanner = job.company && companyHref && (
  <a
  href={companyHref}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
- {companyLogo ? (
- <img src={companyLogo} alt={`Logo ${job.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ {logoUrl ? (
+ <img src={logoUrl} alt={`Logo ${job.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
  ) : (
  <Building2 className="w-4 h-4 text-muted" />
  )}
  </div>
  <div className="min-w-0">
- <h3 className="text-sm font-bold text-heading">{locale === 'it' ? 'Azienda' : locale === 'de' ? 'Unternehmen' : locale === 'fr' ? 'Entreprise' : 'Company'}</h3>
- <p className="text-sm text-subtle mt-1">{job.company} · {job.addressLocality ?? job.location}</p>
+ <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3>
+ <p className="text-sm text-subtle mt-1">{job.company} · {jobLocation}</p>
  <p className="text-sm text-muted mt-2">
  {locale === 'it' ? 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.' : locale === 'de' ? 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.' : locale === 'fr' ? 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' : 'Frontaliere Ticino discovered this opportunity through company monitoring.'}
  </p>
@@ -372,10 +296,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </a>
  );
- })()}
 
- {/* Related active jobs — listing-style cards */}
- {relatedJobs.length > 0 && (
+ const relatedJobsSection = relatedJobs.length > 0 && (
  <div className="space-y-2">
  <h2 className="text-base font-semibold font-display text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
  <div className="space-y-2">
@@ -432,9 +354,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  })}
  </div>
  </div>
- )}
+ );
 
- {/* CTA */}
+ const ctaLink = (
  <a
  href={listingPath}
  className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline text-sm"
@@ -442,6 +364,201 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <ArrowRight size={14} />
  {CTA_COPY[locale] ?? CTA_COPY.it}
  </a>
+ );
+
+ // ── Logged-in view: show full description + ads ──
+
+ if (alreadySignedIn) {
+ return (
+ <div className="space-y-5 max-w-2xl mx-auto">
+ {backButton}
+ {expiredBanner}
+
+ <div className="rounded-stripe border border-edge bg-surface p-5">
+ {jobHeader}
+ </div>
+
+ {descriptionPlain && (
+ <div className="prose prose-sm max-w-none text-body" dangerouslySetInnerHTML={{ __html: description }} />
+ )}
+
+ <AdSenseUnit slot="5196931137" className="my-2" />
+
+ {companyBanner}
+ {relatedJobsSection}
+ {ctaLink}
+ </div>
+ );
+ }
+
+ // ── Auth gate view: matches active job layout ──
+
+ return (
+ <div className="space-y-5" data-no-auto-ads="inside">
+ {backButton}
+ {expiredBanner}
+
+ {/* 3-column grid: left rail | content | right rail (desktop xl only) */}
+ <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
+
+ {/* ── Left Rail (desktop xl only) ── */}
+ <aside className="hidden xl:block">
+ <div className="sticky top-6 space-y-3">
+ {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_LEFT.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.AUTHGATE_RAIL_LEFT.slot}
+ adFormat={AD_SLOTS.AUTHGATE_RAIL_LEFT.format}
+ fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_LEFT.fullWidthResponsive}
+ />
+ )}
+ </div>
+ </aside>
+
+ {/* ── Center content ── */}
+ <div className="space-y-4">
+
+ {/* Job header card */}
+ <div className="rounded-stripe border border-edge bg-surface p-5">
+ {jobHeader}
+
+ {/* Blurred description teaser */}
+ {descriptionPreview && (
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 72px)' }}>
+ <p
+ className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
+ aria-hidden="true"
+ >
+ {descriptionPreview}...
+ </p>
+ <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/70 to-surface" />
+ </div>
+ )}
+
+ {/* Auth gate — same as active job pages */}
+ <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-5 sm:p-6">
+ <div className="flex items-center gap-3 mb-3">
+ <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
+ <Eye className="w-5 h-5 text-accent" />
+ </div>
+ <div>
+ <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
+ <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
+ </div>
+ </div>
+
+ {/* Trust signals */}
+ <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
+ <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
+ </div>
+
+ {/* Social proof */}
+ {totalActiveJobs != null && totalActiveJobs > 0 && (
+ <p className="mb-3 text-xs font-medium text-accent">
+ {totalActiveJobs.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
+ </p>
+ )}
+
+ <div className="space-y-3">
+ <div className="space-y-2">
+ <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {!googleButtonReady && (
+ <a
+ href={`/?redirect=${encodeURIComponent(window.location.pathname)}`}
+ className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised text-strong text-sm font-semibold shadow-sm transition-colors"
+ >
+ {t('newsletter.popup.googleSignIn')}
+ </a>
+ )}
+ </div>
+ {linkedInAvailable && (
+ <button
+ type="button"
+ disabled={linkedInBusy}
+ onClick={() => {
+ setLinkedInBusy(true);
+ saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location || job.addressLocality, category: job.sector });
+ signInWithLinkedIn().catch(() => setLinkedInBusy(false));
+ }}
+ className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-[#0A66C2] hover:bg-[#004182] disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ >
+ {linkedInBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : (
+ <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+ )}
+ {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
+ </button>
+ )}
+ <div className="flex items-center gap-3">
+ <div className="flex-1 h-px bg-surface-raised/50" />
+ <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
+ <div className="flex-1 h-px bg-surface-raised/50" />
+ </div>
+ <form onSubmit={handleEmailSubmit} className="space-y-2">
+ <EmailInput
+ value={emailInput}
+ onChange={setEmailInput}
+ placeholder={t('jobBoard.authGateEmailPlaceholder')}
+ className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ />
+ <button
+ type="submit"
+ disabled={emailBusy || !emailInput.trim()}
+ className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ >
+ {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+ {t('jobBoard.gate.emailCta')}
+ </button>
+ </form>
+ </div>
+
+ {emailError && <p className="text-sm text-danger mt-2">{emailError}</p>}
+ </div>
+ </div>
+
+ {/* AdSense — below auth gate */}
+ {AD_SLOTS.JOBDETAIL_AUTH_GATE.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_AUTH_GATE.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_AUTH_GATE.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
+ />
+ )}
+ </div>
+
+ {/* ── Right Rail (desktop xl only) ── */}
+ <aside className="hidden xl:block">
+ <div className="sticky top-6 space-y-3">
+ {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot}
+ adFormat={AD_SLOTS.AUTHGATE_RAIL_RIGHT.format}
+ fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_RIGHT.fullWidthResponsive}
+ />
+ )}
+ </div>
+ </aside>
+
+ </div>
+
+ {/* AdSense — end multiplex below 3-column layout */}
+ {AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.AUTHGATE_END_MULTIPLEX.format}
+ className="mt-2"
+ />
+ )}
+
+ {/* Company banner */}
+ {companyBanner}
+
+ {/* Related active jobs */}
+ {relatedJobsSection}
+
+ {/* CTA */}
+ {ctaLink}
  </div>
  );
 }

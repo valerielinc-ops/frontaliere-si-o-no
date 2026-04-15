@@ -5458,6 +5458,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  relatedJobs={relatedJobsForNotFound}
  onBack={backToList}
  hasAccess={hasAccess}
+ totalActiveJobs={jobs.length}
  />
  );
  }
