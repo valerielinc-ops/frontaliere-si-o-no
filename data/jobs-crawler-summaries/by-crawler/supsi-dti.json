@@ -1,21 +1,21 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-04-15T10:46:04.861Z",
+  "generatedAt": "2026-04-15T22:25:12.091Z",
   "total": 11,
   "newCount": 11,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 78936,
-  "avgDurationMs": 78936,
+  "durationMs": 54680,
+  "avgDurationMs": 54680,
   "durationHistory": [
-    78936
+    54680
   ],
   "newJobs": [
     {
       "id": "company-l4ti32",
-      "slug": "direttrice-direttore-della-formazione-di-base-supsi-dti-direzione-supsi",
+      "slug": "direttrice-direttore-della-formazione-di-base-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Direttrice / Direttore della Formazione di Base",
       "location": "Direzione SUPSI",
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-15T10:45:06.975Z",
       "firstSeenAt": "2026-04-15T10:45:06.975Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 68000,
@@ -47,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -57,7 +57,7 @@
     },
     {
       "id": "company-l4wp0m",
-      "slug": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
+      "slug": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
       "location": "Ticino",
@@ -78,7 +78,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-15T10:45:06.975Z",
       "firstSeenAt": "2026-04-15T10:45:06.975Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 46000,
@@ -89,6 +88,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
