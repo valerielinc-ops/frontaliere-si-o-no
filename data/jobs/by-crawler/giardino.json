@@ -233,10 +233,10 @@
     },
     {
       "id": "giardino-e7f4937bce90",
-      "slug": "assistant-accounting-50-giardino-group-champfer",
+      "slug": "assistente-contabile-50-giardino-group-champfer",
       "slugByLocale": {
         "de": "assistant-accounting-50-giardino-group-champfer",
-        "it": "assistant-accounting-50-giardino-group-champfer",
+        "it": "assistente-contabile-50-giardino-group-champfer",
         "en": "assistant-accounting-50-giardino-group-champfer",
         "fr": "assistant-accounting-50-giardino-group-champfer"
       },
@@ -293,7 +293,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T21:43:42.933Z"
+      "firstSeenAt": "2026-04-14T21:43:42.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-accounting-50-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-accounting-50-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-43818e6901c7",

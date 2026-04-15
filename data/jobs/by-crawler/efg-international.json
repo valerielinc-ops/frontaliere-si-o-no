@@ -3304,8 +3304,8 @@
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
         "en": "commercial-apprentice-afc-bank-efg-international-ag-lugano",
-        "de": "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-        "fr": "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
+        "de": "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
+        "fr": "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -3328,11 +3328,15 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
-          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
+          "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano"
+        ],
+        "fr": [
+          "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
+        "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+        "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z"
     },

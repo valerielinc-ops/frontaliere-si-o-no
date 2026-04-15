@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-3e703150e9df",
-      "slug": "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan",
+      "slug": "responsabile-key-account-foodservice-regione-zurigo-sud-e-svizzera-centrale-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
-        "it": "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan",
+        "it": "responsabile-key-account-foodservice-regione-zurigo-sud-e-svizzera-centrale-hilcona-ag-schaan",
         "en": "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
-        "fr": "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan"
+        "fr": "responsable-key-account-foodservice-region-zurich-sud-et-suisse-centrale-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -48,11 +48,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
+          "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan"
+        ],
+        "fr": [
           "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan"
         ]
       },
       "previousSlugs": [
-        "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan"
+        "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
+        "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan"
       ],
       "salaryMin": 98000,
       "salaryMax": 132000,

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-52ee67c151d8",
-      "slug": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
+      "slug": "consulente-di-vendita-del-negozio-sanitario-al-100-f-h-d-bms-building-materials-martigny",
       "slugByLocale": {
         "fr": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
-        "it": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
-        "en": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
-        "de": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch"
+        "it": "consulente-di-vendita-del-negozio-sanitario-al-100-f-h-d-bms-building-materials-martigny",
+        "en": "100-sanitary-shop-sales-advisor-f-h-d-bms-building-materials-martigny",
+        "de": "100-sanitar-shop-verkaufsberater-f-h-d-bms-building-materials-martigny"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -97,7 +97,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T21:13:27.040Z"
+      "firstSeenAt": "2026-04-14T21:13:27.040Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch"
+        ],
+        "en": [
+          "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-5f607004df2b",

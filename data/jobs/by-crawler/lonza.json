@@ -2804,12 +2804,12 @@
     },
     {
       "id": "lonza-0e382dcea6e9",
-      "slug": "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch",
+      "slug": "dipl-carriera-assistente-di-salvataggio-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch",
-        "it": "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch",
-        "en": "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch",
-        "fr": "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
+        "it": "dipl-carriera-assistente-di-salvataggio-m-w-d-lonza-ch",
+        "en": "dipl-career-rescue-assistant-m-w-d-lonza-ch",
+        "fr": "dipl-assistant-de-carriere-et-de-sauvetage-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2865,7 +2865,21 @@
         }
       },
       "firstSeenAt": "2026-04-14T22:03:28.936Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-f6e2401cd22c",

@@ -1246,12 +1246,12 @@
     },
     {
       "id": "marriott-148b517f5b27",
-      "slug": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "staigiaire-cibo-e-bevande-marriott-international-geneva",
       "slugByLocale": {
         "en": "staigiaire-food-beverage-marriott-geneva",
-        "it": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
+        "it": "staigiaire-cibo-e-bevande-marriott-international-geneva",
         "de": "staigiaire-food-beverage-marriott-international-geneva",
-        "fr": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "staigiaire-alimentation-et-boissons-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1315,7 +1315,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-10c09f889628",
@@ -1644,12 +1655,12 @@
     },
     {
       "id": "marriott-7db808b1e0e4",
-      "slug": "stagiaire-sales-events-marriott-geneva",
+      "slug": "stagiaire-eventi-marriott-international-geneva",
       "slugByLocale": {
         "en": "stagiaire-sales-events-marriott-geneva",
-        "it": "stagiaire-sales-events-marriott-geneva",
-        "de": "stagiaire-sales-events-marriott-geneva",
-        "fr": "stagiaire-sales-events-marriott-geneva"
+        "it": "stagiaire-eventi-marriott-international-geneva",
+        "de": "stagiaire-verkaufsveranstaltungen-marriott-international-geneva",
+        "fr": "evenements-de-vente-stagiaire-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1713,15 +1724,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-sales-events-marriott-geneva"
+        ],
+        "de": [
+          "stagiaire-sales-events-marriott-geneva"
+        ],
+        "fr": [
+          "stagiaire-sales-events-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-sales-events-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-ab0c64ee708c",
-      "slug": "stagiaire-ressources-humaines-marriott-geneva",
+      "slug": "stagiaire-risorse-umane-marriott-international-geneva",
       "slugByLocale": {
         "en": "stagiaire-ressources-humaines-marriott-geneva",
-        "it": "stagiaire-ressources-humaines-marriott-geneva",
-        "de": "stagiaire-ressources-humaines-marriott-geneva",
+        "it": "stagiaire-risorse-umane-marriott-international-geneva",
+        "de": "auszubildende-personal-marriott-international-geneva",
         "fr": "stagiaire-ressources-humaines-marriott-geneva"
       },
       "company": "Marriott International",
@@ -1786,7 +1811,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-ressources-humaines-marriott-geneva"
+        ],
+        "de": [
+          "stagiaire-ressources-humaines-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ressources-humaines-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-19feab2c2379",
@@ -1948,11 +1984,11 @@
     },
     {
       "id": "marriott-18c18551bea9",
-      "slug": "stagiaire-housekeeping-marriott-geneva",
+      "slug": "addestramento-di-pulizia-marriott-international-geneva",
       "slugByLocale": {
         "en": "stagiaire-housekeeping-marriott-geneva",
-        "it": "stagiaire-housekeeping-marriott-geneva",
-        "de": "stagiaire-housekeeping-marriott-geneva",
+        "it": "addestramento-di-pulizia-marriott-international-geneva",
+        "de": "personalberatung-marriott-international-geneva",
         "fr": "stagiaire-housekeeping-marriott-geneva"
       },
       "company": "Marriott International",
@@ -2017,7 +2053,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-housekeeping-marriott-geneva"
+        ],
+        "de": [
+          "stagiaire-housekeeping-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-housekeeping-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-aaf6af9eb94c",
@@ -2237,11 +2284,11 @@
     },
     {
       "id": "marriott-91ff24d04c8d",
-      "slug": "stagiaire-cuisine-marriott-geneva",
+      "slug": "cucina-interna-marriott-international-geneva",
       "slugByLocale": {
         "en": "stagiaire-cuisine-marriott-geneva",
-        "it": "stagiaire-cuisine-marriott-geneva",
-        "de": "stagiaire-cuisine-marriott-geneva",
+        "it": "cucina-interna-marriott-international-geneva",
+        "de": "interne-marriott-international-geneva",
         "fr": "stagiaire-cuisine-marriott-geneva"
       },
       "company": "Marriott International",
@@ -2306,7 +2353,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-cuisine-marriott-geneva"
+        ],
+        "de": [
+          "stagiaire-cuisine-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-cuisine-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-f5368494b5aa",
@@ -2420,12 +2478,12 @@
     },
     {
       "id": "marriott-b88e0551e81a",
-      "slug": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
-        "it": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+        "it": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2489,7 +2547,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-762ec5c0b6d1",
@@ -2596,12 +2665,12 @@
     },
     {
       "id": "marriott-88712a24e938",
-      "slug": "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
-        "it": "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
-        "de": "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
+        "it": "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
+        "de": "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier",
+        "fr": "patisserie-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2665,7 +2734,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-8806a869c3bf",
@@ -2850,12 +2933,12 @@
     },
     {
       "id": "marriott-63f929045d10",
-      "slug": "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
+      "slug": "mixologo-inverno-2026-2027-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
-        "it": "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
+        "it": "mixologo-inverno-2026-2027-w-verbier-marriott-international-verbier",
         "de": "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
-        "fr": "mixologist-winter-2026-2027-w-verbier-marriott-verbier"
+        "fr": "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2919,7 +3002,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z"
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mixologist-winter-2026-2027-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "mixologist-winter-2026-2027-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "mixologist-winter-2026-2027-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-c3fb01ca7105",
@@ -3937,11 +4031,11 @@
     },
     {
       "id": "marriott-57ac055833a4",
-      "slug": "direttore-della-gestione-del-ricavo-marriott-international-geneva",
+      "slug": "capo-del-partito-patisserie-marriott-international-zurich",
       "slugByLocale": {
         "en": "chef-de-partie-patisserie-marriott-zurich",
-        "it": "direttore-della-gestione-del-ricavo-marriott-international-geneva",
-        "de": "direktor-revenue-management-marriott-international-geneva",
+        "it": "capo-del-partito-patisserie-marriott-international-zurich",
+        "de": "leiter-der-party-patisserie-marriott-international-zurich",
         "fr": "chef-de-partie-patisserie-marriott-international-zurich"
       },
       "company": "Marriott International",
@@ -3997,10 +4091,18 @@
       "previousSlugsByLocale": {
         "fr": [
           "director-of-revenue-management-marriott-geneva"
+        ],
+        "it": [
+          "direttore-della-gestione-del-ricavo-marriott-international-geneva"
+        ],
+        "de": [
+          "direktor-revenue-management-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
-        "director-of-revenue-management-marriott-geneva"
+        "director-of-revenue-management-marriott-geneva",
+        "direttore-della-gestione-del-ricavo-marriott-international-geneva",
+        "direktor-revenue-management-marriott-international-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4128,10 +4230,10 @@
     },
     {
       "id": "marriott-39a0a55810f7",
-      "slug": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
+      "slug": "chef-de-partie-soggiorno-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
-        "it": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
+        "it": "chef-de-partie-soggiorno-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
         "de": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
         "fr": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier"
       },
@@ -4199,12 +4301,13 @@
       },
       "firstSeenAt": "2026-04-14T22:04:53.489Z",
       "previousSlugs": [
-        "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
-        "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier"
+        "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
+        "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier"
+          "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
+          "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier"
         ]
       }
     },

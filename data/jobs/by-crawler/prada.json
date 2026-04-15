@@ -9,7 +9,7 @@
         "en": "prada-outlet-sales-assistant-m-f-d-32h-parttime-prada-group-mendrisio",
         "it": "prada-outlet-sales-assistant-m-f-d-32h-parttime-prada-group-mendrisio",
         "de": "prada-outlet-sales-assistant-m-f-d-32h-parttime-prada-group-mendrisio",
-        "fr": "prada-outlet-sales-assistant-m-f-d-32h-parttime-prada-group-mendrisio"
+        "fr": "assistant-aux-ventes-m-f-j-temps-partiel-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -245,7 +245,7 @@
         "en": "church-s-senior-client-advisor-regent-street-prada-group-mendrisio",
         "it": "church-s-senior-client-advisor-regent-street-prada-group-mendrisio",
         "de": "church-s-senior-client-advisor-regent-street-prada-group-mendrisio",
-        "fr": "church-s-senior-client-advisor-regent-street-prada-group-mendrisio"
+        "fr": "conseiller-principal-aupres-de-la-clientele-regent-street-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -299,12 +299,12 @@
     },
     {
       "id": "prada-52ab8097d824",
-      "slug": "prada-department-manager-prada-group-mendrisio",
+      "slug": "direttore-del-dipartimento-di-prada-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-department-manager-prada-group-mendrisio",
-        "it": "prada-department-manager-prada-group-mendrisio",
+        "it": "direttore-del-dipartimento-di-prada-prada-group-mendrisio",
         "de": "prada-department-manager-prada-group-mendrisio",
-        "fr": "prada-department-manager-prada-group-mendrisio"
+        "fr": "gestionnaire-du-departement-prada-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -354,7 +354,18 @@
         }
       },
       "postalCode": "6850",
-      "firstSeenAt": "2026-04-14T22:14:57.604Z"
+      "firstSeenAt": "2026-04-14T22:14:57.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-department-manager-prada-group-mendrisio"
+        ],
+        "fr": [
+          "prada-department-manager-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "prada-department-manager-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
