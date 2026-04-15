@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-04-15T09:57:17.356Z",
+  "assembledAt": "2026-04-15T21:37:07.818Z",
   "jobs": [
     {
       "id": "fondation-domus-3f48b967c067",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T09:57:15.402Z",
+      "crawledAt": "2026-04-15T21:37:05.473Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -95,6 +95,7 @@
         ]
       },
       "firstSeenAt": "2026-04-12T21:23:16.723Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c4257984-f5a8-4a54-94a5-74d1f26ec8a9/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T09:57:15.086Z",
+      "crawledAt": "2026-04-15T21:37:05.158Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -170,6 +171,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T09:56:17.776Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -214,7 +216,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/01f1e22d-e099-4ad8-b881-16ab79b10263/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T09:57:14.770Z",
+      "crawledAt": "2026-04-15T21:37:04.845Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -289,7 +291,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/51367527-eb1c-4896-ad0f-ae9645325e8e/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T09:57:14.449Z",
+      "crawledAt": "2026-04-15T21:37:04.525Z",
       "addressLocality": "La Tzoumaz",
       "postalCode": "1918",
       "addressCountry": "CH",
