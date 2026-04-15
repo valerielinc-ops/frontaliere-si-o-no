@@ -1,16 +1,58 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-04-14T21:11:23.257Z",
-  "total": 0,
+  "generatedAt": "2026-04-15T09:27:22.148Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 12995,
+  "avgDurationMs": 12995,
+  "durationHistory": [
+    12995
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "International Sales Manager",
+      "slug": "international-sales-manager-baronie-caslano",
+      "url": "https://www.baronie.com/en/jobs/international-sales-manager-caslano",
+      "applyUrl": "https://www.baronie.com/en/jobs/international-sales-manager-caslano",
+      "company": "Chocolat Alprose SA / Baronie Switzerland SA",
+      "companyKey": "baronie",
+      "companyDomain": "baronie.com",
+      "location": "Caslano",
+      "addressLocality": "Caslano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Alimentare / Cioccolato",
+      "source": "baronie-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-15",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "salaryMin": 66000,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6613",
+      "id": "baronie-796d576b4aa4",
+      "firstSeenAt": "2026-04-14T09:26:14.208Z",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
