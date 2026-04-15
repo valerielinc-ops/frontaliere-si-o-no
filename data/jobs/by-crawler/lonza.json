@@ -2572,7 +2572,7 @@
       "slugByLocale": {
         "de": "produktionsspezialist-biotechnologie-bioconjugates-100-m-w-d-lonza-ch",
         "it": "produktionsspezialist-biotechnologie-bioconjugates-100-m-w-d-lonza-ch",
-        "en": "produktionsspezialist-biotechnologie-bioconjugates-100-m-w-d-lonza-ch",
+        "en": "production-specialist-biotechnology-bioconjugates-100-m-w-d-lonza-ch",
         "fr": "produktionsspezialist-biotechnologie-bioconjugates-100-m-w-d-lonza-ch"
       },
       "company": "Lonza",
@@ -2631,12 +2631,12 @@
     },
     {
       "id": "lonza-1ec4b24d32d6",
-      "slug": "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch",
+      "slug": "business-plant-master-in-industria-farmaceutica-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch",
-        "it": "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch",
-        "en": "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch",
-        "fr": "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+        "it": "business-plant-master-in-industria-farmaceutica-80-100-m-w-d-lonza-ch",
+        "en": "business-plant-master-in-pharmaceutical-industry-80-100-m-w-d-lonza-ch",
+        "fr": "maitrise-d-entreprise-plante-dans-l-industrie-pharmaceutique-80-100-m-p-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2692,7 +2692,21 @@
         }
       },
       "firstSeenAt": "2026-04-15T10:18:55.268Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-428f519801a1",
@@ -2701,7 +2715,7 @@
         "de": "senior-scientist-qc-80-100-m-f-d-lonza-ch",
         "it": "senior-scientist-qc-80-100-m-f-d-lonza-ch",
         "en": "senior-scientist-qc-80-100-m-f-d-lonza-ch",
-        "fr": "senior-scientist-qc-80-100-m-f-d-lonza-ch"
+        "fr": "chercheur-principal-qc-80-a-100-m-f-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2764,7 +2778,7 @@
         "de": "biotechnologist-m-f-d-lonza-ch",
         "it": "biotechnologist-m-f-d-lonza-ch",
         "en": "biotechnologist-m-f-d-lonza-ch",
-        "fr": "biotechnologist-m-f-d-lonza-ch"
+        "fr": "biotechnologiste-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",

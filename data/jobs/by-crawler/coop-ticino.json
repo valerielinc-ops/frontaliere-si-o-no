@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-gi0zgi",
-      "slug": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni",
+      "slug": "autista-cat-c-transgourmet-schweiz-ag-brunegg",
       "company": "Transgourmet Schweiz AG",
       "title": "Chauffeuse / Chauffeur Kat. C",
       "location": "Brunegg",
@@ -41,10 +41,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi",
-        "en": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi",
+        "it": "autista-cat-c-transgourmet-schweiz-ag-brunegg",
+        "en": "driver-cat-c-transgourmet-schweiz-ag-brunegg",
         "de": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi",
-        "fr": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi"
+        "fr": "chauffeuse-chauffeur-cat-c-transgourmet-schweiz-ag-brunegg"
       },
       "addressLocality": "Brunegg",
       "sourceLang": "de",
@@ -59,11 +59,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi",
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni"
+        ],
+        "en": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi"
+        ],
+        "fr": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni-gi0zgi",
+        "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni"
+      ]
     },
     {
       "id": "company-q31cty",
-      "slug": "kochin-koch-w-m-d-coop-chur-graubunden",
+      "slug": "chef-cuoco-w-m-d-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Chur",
@@ -109,10 +125,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-w-m-d-coop-chur-graubunden-q31cty",
-        "en": "kochin-koch-w-m-d-coop-chur-graubunden-q31cty",
+        "it": "chef-cuoco-w-m-d-coop-genossenschaft-chur",
+        "en": "chef-cook-w-m-d-coop-genossenschaft-chur",
         "de": "kochin-koch-w-m-d-coop-chur-graubunden-q31cty",
-        "fr": "kochin-koch-w-m-d-coop-chur-graubunden-q31cty"
+        "fr": "chef-cuisinier-w-m-d-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -127,7 +143,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-w-m-d-coop-chur-graubunden-q31cty",
+          "kochin-koch-w-m-d-coop-chur-graubunden"
+        ],
+        "en": [
+          "kochin-koch-w-m-d-coop-chur-graubunden-q31cty"
+        ],
+        "fr": [
+          "kochin-koch-w-m-d-coop-chur-graubunden-q31cty"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-w-m-d-coop-chur-graubunden-q31cty",
+        "kochin-koch-w-m-d-coop-chur-graubunden"
+      ]
     },
     {
       "id": "company-3br90q",
@@ -212,7 +244,6 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
         "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
         "direttore-direttrice-christ-uhren-schmuck-ag-chur",
         "store-manager-christ-uhren-schmuck-ag-chur",
@@ -305,7 +336,6 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
         "venditore-a-christ-uhren-schmuck-ag-chur",
         "sales-advisor-christ-uhren-schmuck-ag-chur",

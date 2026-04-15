@@ -573,12 +573,12 @@
     },
     {
       "id": "denner-e33c6fc5204c",
-      "slug": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
+      "slug": "venditore-in-salario-orario-denner-einsiedeln",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
-        "en": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
+        "it": "venditore-in-salario-orario-denner-einsiedeln",
+        "en": "seller-in-in-hourly-wage-denner-einsiedeln",
         "de": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
-        "fr": "verkaufer-in-im-stundenlohn-denner-einsiedeln"
+        "fr": "vendeur-en-salaire-horaire-denner-einsiedeln"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -637,20 +637,24 @@
       "crawledAt": "2026-04-15T09:48:52.404Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-einsiedeln"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-einsiedeln"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-einsiedeln"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-einsiedeln",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -758,12 +762,12 @@
     },
     {
       "id": "denner-d580a86775a3",
-      "slug": "filialleiter-in-in-ausbildung-denner-wollerau",
+      "slug": "responsabile-di-filiale-in-formazione-denner-wollerau",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-wollerau",
-        "en": "filialleiter-in-in-ausbildung-denner-wollerau",
+        "it": "responsabile-di-filiale-in-formazione-denner-wollerau",
+        "en": "trainee-store-manager-denner-wollerau",
         "de": "filialleiter-in-in-ausbildung-denner-wollerau",
-        "fr": "filialleiter-in-in-ausbildung-denner-wollerau"
+        "fr": "responsable-de-filiale-en-formation-denner-wollerau"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -822,20 +826,24 @@
       "crawledAt": "2026-04-15T09:48:51.628Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-wollerau"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-wollerau"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-wollerau"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-wollerau",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -854,12 +862,12 @@
     },
     {
       "id": "denner-9bfcab5fe0ec",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-alla-direzione-di-filiale-denner-ebikon",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-alla-direzione-di-filiale-denner-ebikon",
+        "en": "assistant-store-manager-denner-ebikon",
         "de": "assistent-in-filialleitung-denner-ebikon",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-e-de-direction-de-succursale-denner-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -919,10 +927,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

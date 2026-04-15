@@ -473,12 +473,12 @@
     },
     {
       "id": "spital-davos-e72119e3765f",
-      "slug": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
+      "slug": "salute-professionale-80-100-inverno-2026-27-spital-davos-davos",
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
-        "it": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
+        "it": "salute-professionale-80-100-inverno-2026-27-spital-davos-davos",
         "en": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
-        "fr": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+        "fr": "sante-professionnelle-80-100-hiver-2026-27-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -537,16 +537,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z"
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-e17fbb3d927d",
-      "slug": "fachperson-gesundheit-80-100-spital-davos-ch",
+      "slug": "salute-specialistica-80-100-spital-davos-davos",
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-spital-davos-ch",
-        "it": "fachperson-gesundheit-80-100-spital-davos-ch",
-        "en": "fachperson-gesundheit-80-100-spital-davos-ch",
-        "fr": "fachperson-gesundheit-80-100-spital-davos-ch"
+        "it": "salute-specialistica-80-100-spital-davos-davos",
+        "en": "specialist-health-80-100-spital-davos-davos",
+        "fr": "sante-specialisee-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -605,7 +616,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z"
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-spital-davos-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-spital-davos-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-29ac7209082d",
@@ -681,7 +706,7 @@
       "slugByLocale": {
         "de": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
         "it": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
-        "en": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+        "en": "rescue-rescue-in-summer-season-2027-50-100-spital-davos-davos",
         "fr": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
       },
       "company": "Spital Davos",
@@ -745,12 +770,12 @@
     },
     {
       "id": "spital-davos-de7548da7f47",
-      "slug": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
+      "slug": "analizzatore-di-salvataggio-nella-stagione-invernale-2026-27-50-100-spital-davos-davos",
       "slugByLocale": {
         "de": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
-        "it": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
-        "en": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
-        "fr": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
+        "it": "analizzatore-di-salvataggio-nella-stagione-invernale-2026-27-50-100-spital-davos-davos",
+        "en": "rescue-rescue-in-winter-season-2026-27-50-100-spital-davos-davos",
+        "fr": "analyseur-de-sauvetage-en-hiver-2026-27-50-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -809,7 +834,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z"
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
+        ],
+        "en": [
+          "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
+        ],
+        "fr": [
+          "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-325847ee938c",
@@ -916,7 +955,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "it": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
-        "en": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
+        "en": "employees-in-stock-management-based-on-hours-unregular-operations-spital-davos-davos",
         "fr": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
       },
       "company": "Spital Davos",
@@ -964,6 +1003,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
+        ],
+        "en": [
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
         ]
       },

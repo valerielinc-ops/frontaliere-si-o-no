@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fielmann-5773ac6aab7f",
-      "slug": "specialist-it-indoor-sales-fielmann-ch",
+      "slug": "specialista-it-indoor-sales-fielmann-group-basel",
       "slugByLocale": {
         "de": "specialist-it-indoor-sales-fielmann-ch",
-        "it": "specialist-it-indoor-sales-fielmann-ch",
+        "it": "specialista-it-indoor-sales-fielmann-group-basel",
         "en": "specialist-it-indoor-sales-fielmann-ch",
-        "fr": "specialist-it-indoor-sales-fielmann-ch"
+        "fr": "specialiste-it-indoor-sales-fielmann-group-basel"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -67,7 +67,18 @@
         }
       },
       "firstSeenAt": "2026-04-15T09:56:21.196Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-it-indoor-sales-fielmann-ch"
+        ],
+        "fr": [
+          "specialist-it-indoor-sales-fielmann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-it-indoor-sales-fielmann-ch"
+      ]
     }
   ]
 }
