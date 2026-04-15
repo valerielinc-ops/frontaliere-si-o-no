@@ -2184,6 +2184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.irania-nazionale-italia-riqualifica-2026.title': 'Iran dashes Italy\'s hopes of World Cup 2026 reprieve',
     'blog.article.irania-nazionale-italia-riqualifica-2026.excerpt': 'Iranian national team head coach Amir Ghalenoei has ruled out the possibility of his side withdrawing from the tournament: \'We will be there.\' FIFA is now exploring alternative options to fill any potential gaps in the competition.',
     'blog.article.irania-nazionale-italia-riqualifica-2026.imageAlt': 'Lugano stadium with Ticino and Italian flags during a football match',
+    'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.title': 'Webuild and Salini: collaboration needed for a competitive Ticino',
+    'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.excerpt': 'The CEO of Webuild calls for an alliance between institutions and businesses to drive infrastructure projects in Ticino and Italy. The global construction market is projected to reach $5.18 trillion by 2030.',
+    'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.imageAlt': 'Lugano skyline with San Salvatore mountain during sunset',
 };
 
 export default blogMetaEn;

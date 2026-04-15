@@ -6081,4 +6081,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/irania-nazionale-italia-riqualifica-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'collaborazione-imprese-istituzioni-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-15T23:15:38.545Z',
+ image: '/images/blog/collaborazione-imprese-istituzioni-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

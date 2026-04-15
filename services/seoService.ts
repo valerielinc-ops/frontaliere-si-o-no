@@ -1983,6 +1983,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-cassano-magnago-frontalieri-ticinesi': { name: 'Incidente a Cassano Magnago', path: '/articoli-frontaliere/incidente-cassano-magnago-frontalieri-ticinesi', parent: 'blog' },
     'blog-wirt-sorpreso-einbrecher-marokkaner-ticino': { name: 'Ristoratore ticinese sorprende ladro', path: '/articoli-frontaliere/wirt-sorpreso-einbrecher-marokkaner-ticino', parent: 'blog' },
     'blog-irania-nazionale-italia-riqualifica-2026': { name: 'Novità sportive', path: '/articoli-frontaliere/irania-nazionale-italia-riqualifica-2026', parent: 'blog' },
+    'blog-collaborazione-imprese-istituzioni-frontalieri-ticino': { name: 'Webuild e Salini', path: '/articoli-frontaliere/collaborazione-imprese-istituzioni-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
