@@ -6011,4 +6011,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cannabis-medica-rimborsi-casse-malati-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'asili-nido-pubblici-ticino-iniziativa-popolare-2026',
+ category: 'pratico',
+ date: '2026-04-15T08:15:37.727Z',
+ image: '/images/blog/asili-nido-pubblici-ticino-iniziativa-popolare-2026.jpg',
+ hasCalculator: true,
+ },
 ];

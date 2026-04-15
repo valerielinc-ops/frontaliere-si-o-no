@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 769,
+ "numberOfItems": 770,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4458,7 +4458,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 766, "name": "Bike sharing a Como: 80 bici dal 30 aprile. Dov...", "url": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-riapre-30-aprile` },
           { "@type": "ListItem", "position": 767, "name": "Progetto Ticosa: Acinque accelera la riqualific...", "url": `${BASE_URL}/articoli-frontaliere/progetto-ticosa-parcheggi-acinque-frontalieri` },
           { "@type": "ListItem", "position": 768, "name": "Bellinzona lancia raccolta firme per asili nido...", "url": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-iniziativa-firme-2026` },
-          { "@type": "ListItem", "position": 769, "name": "Cannabis medica: casse malati bloccano i rimbor...", "url": `${BASE_URL}/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino` }
+          { "@type": "ListItem", "position": 769, "name": "Cannabis medica: casse malati bloccano i rimbor...", "url": `${BASE_URL}/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino` },
+          { "@type": "ListItem", "position": 770, "name": "Asili nido pubblici in Ticino: da Bellinzona pa...", "url": `${BASE_URL}/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026` }
  ]
  }
  ]

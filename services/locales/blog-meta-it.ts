@@ -2154,6 +2154,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Cannabis medica: casse malati bloccano i rimborsi in Ticino',
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Pazienti ticinesi con terapie approvate perdono la copertura delle casse malati. Solo l’11% dei trattamenti segnalati è rimborsato, secondo dati federali.',
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Vista notturna del lungolago di Lugano con montagne sullo sfondo',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Asili nido pubblici in Ticino: parte la raccolta firme per l’iniziativa popolare',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'Partita la raccolta firme per asili nido pubblici in Ticino. Otto partiti e associazioni lanciano l’iniziativa dopo il no del Consiglio comunale di Bellinzona.',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Piazza a Bellinzona con famiglie e bambini, in una mattina di sole',
 };
 
 export default blogMetaIt;

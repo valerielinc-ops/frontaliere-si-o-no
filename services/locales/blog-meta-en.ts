@@ -2154,6 +2154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Medical cannabis: health insurers block reimbursements in Ticino',
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Ticino patients undergoing approved therapies lose health insurance coverage. Only 11% of reported treatments are reimbursed, according to federal data.',
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Night view of Lugano lakeside with mountains in the background',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Public daycare centres in Ticino: signature collection begins for the popular initiative',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'Signature collection has begun for public daycare centres in Ticino. Eight parties and associations have launched the initiative following the rejection by the Bellinzona municipal council.',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Bellinzona square with families and children in a sunny morning',
 };
 
 export default blogMetaEn;

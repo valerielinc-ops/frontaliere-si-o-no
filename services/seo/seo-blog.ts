@@ -7714,6 +7714,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asili-nido-pubblici-ticino-iniziativa-popolare-2026': {
+    title: 'Asili nido pubblici in Ticino: parte la | Frontaliere Ticino',
+    description: 'Scopri come sostenere l’iniziativa per asili nido pubblici in Ticino, raccolta firme fino al 15 ottobre 2026. Procedura, costi e impatto per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asili, nido, pubblici, parte',
+    ogTitle: 'Asili nido pubblici in Ticino: come firmare l’iniziativa',
+    ogDescription: 'Guida pratica per sostenere l’iniziativa popolare che chiede asili nido pubblici in Ticino. Raccolta firme fino al 15 ottobre 2026.',
+    canonicalPath: '/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asili nido pubblici in Ticino: da Bellinzona parte la raccolta firme per un servizio pubblico a",
+      "description": "Scopri come sostenere l’iniziativa per asili nido pubblici in Ticino, raccolta firme fino al 15 ottobre 2026. Procedura, costi e impatto per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asili-nido-pubblici-ticino-iniziativa-popolare-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza a Bellinzona con famiglie e bambini, in una mattina di sole"
+      },
+      "datePublished": "2026-04-15T08:15:37+00:00",
+      "dateModified": "2026-04-15T08:15:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

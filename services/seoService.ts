@@ -1973,6 +1973,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-progetto-ticosa-parcheggi-acinque-frontalieri': { name: 'Progetto Ticosa', path: '/articoli-frontaliere/progetto-ticosa-parcheggi-acinque-frontalieri', parent: 'blog' },
     'blog-asili-nido-bellinzona-iniziativa-firme-2026': { name: 'Asili nido pubblici', path: '/articoli-frontaliere/asili-nido-bellinzona-iniziativa-firme-2026', parent: 'blog' },
     'blog-cannabis-medica-rimborsi-casse-malati-ticino': { name: 'Cannabis terapeutica', path: '/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino', parent: 'blog' },
+    'blog-asili-nido-pubblici-ticino-iniziativa-popolare-2026': { name: 'Asili nido Ticino', path: '/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

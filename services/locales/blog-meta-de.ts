@@ -2154,6 +2154,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Medizinisches Cannabis: Krankenkassen blockieren Rückerstattungen im Tessin',
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Tessinische Patientinnen und Patienten mit zugelassenen Therapien verlieren die Kostenübernahme durch die Krankenkassen. Gemäss Bundesdaten werden nur 11 % der gemeldeten Behandlungen erstattet.',
     'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Nachtansicht des Luganer Seeufers mit Bergen im Hintergrund',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Öffentliche Kinderkrippen im Tessin: Unterschriftenaktion für Volksinitiative gestartet',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'Die Unterschriftenaktion für eine Volksinitiative zugunsten öffentlicher Kinderkrippen im Tessin ist angelaufen. Acht Parteien und Verbände haben das Projekt nach der Ablehnung durch den Stadtrat von Bellinzona lanciert.',
+    'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Bellinzona Platz mit Familien und Kindern an einem sonnigen Morgen',
 };
 
 export default blogMetaDe;
