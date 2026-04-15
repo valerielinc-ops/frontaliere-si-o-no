@@ -576,6 +576,7 @@ const enCore: Record<string, string> = {
  'jobBoard.filter.remove': 'Remove filter',
  'jobBoard.title': 'Jobs in {canton} — Find Work in Swiss Italy',
  'jobBoard.companyPageTitle': '{company} Job Openings in {canton}',
+ 'jobBoard.locationPageTitle': 'Jobs in {location} ({canton})',
  'jobBoard.subtitle': 'Updated daily from 100+ companies in {canton}. Filter by sector, location and contract type.',
  'jobBoard.seoTitle': 'Jobs in {canton} 2026 \u2014 Find Work in Italian Switzerland',
  'jobBoard.seoDescription': 'Looking for a job in {canton}? Browse 1500+ daily-updated openings from 100+ companies. Banking, IT, pharma, healthcare. Apply free.',

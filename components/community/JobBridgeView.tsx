@@ -63,7 +63,11 @@ const SECTION_BY_LOCALE: Record<string, string> = {
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 
 const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
+const LOCATION_ROUTE_PREFIX: Record<string, string> = { it: 'localita', en: 'location', de: 'standort', fr: 'localite' };
 function slugifyCompanyName(name: string): string {
+ return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+function slugifyLocationName(name: string): string {
  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
@@ -273,18 +277,26 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  <div>
  <h1 className="text-xl font-bold font-display text-strong leading-snug">{localizedTitle}</h1>
  <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
- {jobData?.company && (
- <span className="flex items-center gap-1">
+ {jobData?.company && (() => {
+ const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
+ const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
+ return (
+ <a href={companyHref} className="flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors">
  <Building2 size={14} />
  {jobData.company}
- </span>
- )}
- {jobData?.location && (
- <span className="flex items-center gap-1">
+ </a>
+ );
+ })()}
+ {jobData?.location && (() => {
+ const locationSlug = `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobData.location)}`;
+ const locationHref = `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/');
+ return (
+ <a href={locationHref} className="flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors">
  <MapPin size={14} />
  {jobData.location}
- </span>
- )}
+ </a>
+ );
+ })()}
  </div>
  </div>
  )}

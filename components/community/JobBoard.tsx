@@ -2142,6 +2142,37 @@ function parseCompanySlugFilter(initialJobSlug?: string): string | null {
  return slug || null;
 }
 
+function getJobBoardLocationRoutePrefix(locale: Locale): string {
+ switch (locale) {
+ case 'en': return 'location';
+ case 'de': return 'standort';
+ case 'fr': return 'localite';
+ default: return 'localita';
+ }
+}
+
+function slugifyLocation(location: string): string {
+ return String(location || '')
+ .toLowerCase()
+ .normalize('NFD')
+ .replace(/[\u0300-\u036f]/g, '')
+ .replace(/[^a-z0-9]+/g, '-')
+ .replace(/^-+|-+$/g, '');
+}
+
+export function buildLocationSearchSlug(location: string, locale: Locale): string {
+ return `${getJobBoardLocationRoutePrefix(locale)}-${slugifyLocation(location)}`;
+}
+
+function parseLocationSlugFilter(initialJobSlug?: string): string | null {
+ if (!initialJobSlug) return null;
+ const prefixes = ['localita-', 'location-', 'standort-', 'localite-'];
+ const hit = prefixes.find((p) => initialJobSlug.startsWith(p));
+ if (!hit) return null;
+ const slug = initialJobSlug.slice(hit.length).trim();
+ return slug || null;
+}
+
 function getSearchSlugPrefix(locale: Locale): string {
  if (locale === 'en') return 'search';
  if (locale === 'de') return 'suche';
@@ -2168,6 +2199,7 @@ export function shouldRestoreJobBoardListState(previousSlug?: string, nextSlug?:
  previousSlug
  && !parseCompanySlugFilter(previousSlug)
  && !parseSearchSlugFilter(previousSlug)
+ && !parseLocationSlugFilter(previousSlug)
  );
  const isBackToPlainList = !nextSlug;
  return wasOnDetail && isBackToPlainList;
@@ -2654,6 +2686,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
  const companySlugFilter = useMemo(() => parseCompanySlugFilter(initialJobSlug), [initialJobSlug]);
+ const locationSlugFilter = useMemo(() => parseLocationSlugFilter(initialJobSlug), [initialJobSlug]);
  const searchSlugFilter = useMemo(() => parseSearchSlugFilter(initialJobSlug), [initialJobSlug]);
 
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs
@@ -2791,12 +2824,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
 
  const selectedJob = useMemo(() => {
- if (companySlugFilter || searchSlugFilter || editorialLandingDescriptor) return null;
+ if (companySlugFilter || locationSlugFilter || searchSlugFilter || editorialLandingDescriptor) return null;
  if (!initialJobSlug) return null;
  // When navigating via a previousSlug (bridge), use the current slug for job lookup
  const lookupSlug = bridgeTargetSlug || initialJobSlug;
  return jobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
- }, [jobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+ }, [jobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
 
  // FRO-detail-split: Lazily enrich slim job with per-job detail data (~15KB)
  // instead of fetching the full locale file (~11MB). Merges detail fields into
@@ -3054,6 +3087,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const slugCandidates = companyRouteSlugCandidates(job.company, job.companyKey);
  if (!slugCandidates.has(companySlugFilter)) return false;
  }
+ if (locationSlugFilter) {
+ const jobLocSlug = slugifyLocation(job.addressLocality || job.location || '');
+ if (jobLocSlug !== locationSlugFilter) return false;
+ }
  if (selectedCategory !== 'all' && job.category !== selectedCategory) return false;
  if (selectedContract !== 'all' && job.contract !== selectedContract) return false;
  if (selectedCompany !== 'all' && job.company.toLowerCase() !== selectedCompany) return false;
@@ -3072,7 +3109,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  return true;
  });
- }, [sortedJobs, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, deferredSearchQuery, indexedQueryMatch, companySlugFilter]);
+ }, [sortedJobs, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, deferredSearchQuery, indexedQueryMatch, companySlugFilter, locationSlugFilter]);
 
  // Resolve the display name of the company when a company slug filter is active
  const companyDisplayName = useMemo(() => {
@@ -3080,6 +3117,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firstMatch = filteredJobs[0];
  return firstMatch?.company ?? null;
  }, [companySlugFilter, filteredJobs]);
+
+ // Resolve the display name of the location when a location slug filter is active
+ const locationDisplayName = useMemo(() => {
+ if (!locationSlugFilter) return null;
+ const firstMatch = filteredJobs[0];
+ return firstMatch?.addressLocality || firstMatch?.location || null;
+ }, [locationSlugFilter, filteredJobs]);
 
  const relatedSearchSuggestions = useMemo(() => {
  const baseQuery = deferredSearchQuery.trim();
@@ -3393,7 +3437,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // eagerly — even while jobs.json is still loading — so the hook can return the
  // seeded data synchronously and we render JobExpiredView instead of a spinner.
  const seeded = useMemo(() => hasSeededExpiredData(), []);
- const notFoundSlug = initialJobSlug && !companySlugFilter && !searchSlugFilter && !bridgeTargetSlug
+ const notFoundSlug = initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !bridgeTargetSlug
  && (seeded || (!jobsLoading && !selectedJob))
  ? initialJobSlug
  : undefined;
@@ -3692,7 +3736,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // matched yet), preserve the static HTML metadata that the build plugin
  // already injected. Without this guard the canonical/title/OG tags would
  // momentarily revert to the generic listing-page values.
- if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter && !editorialLandingDescriptor) {
+ if (initialJobSlug && !selectedJob && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !editorialLandingDescriptor) {
  return;
  }
 
@@ -3729,7 +3773,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Use the URL slug as canonical source instead of null.
  const canonicalSlugSource = selectedJob
  ? selectedJob
- : (companySlugFilter || searchSlugFilter || editorialLandingDescriptor) && initialJobSlug
+ : (companySlugFilter || locationSlugFilter || searchSlugFilter || editorialLandingDescriptor) && initialJobSlug
  ? initialJobSlug
  : initialJobSlug || selectedJob;
  const canonicalHref = `${window.location.origin}${buildJobPath(canonicalSlugSource)}`;
@@ -3802,6 +3846,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
+ // Location page: canonical already set to self-referencing URL via canonicalSlugSource above
+ if (locationSlugFilter && initialJobSlug) {
+ const ogUrl = document.querySelector('meta[property="og:url"]');
+ if (ogUrl) ogUrl.setAttribute('content', canonicalHref);
+ return;
+ }
+
  const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialSectorRegionLanding || editorialNursesHubLanding || editorialPartTimeLanding || editorialCareVariantLanding;
  if (editorialLandingModel) {
  const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
@@ -3815,7 +3866,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const ogUrl = document.querySelector('meta[property="og:url"]');
  if (ogUrl) ogUrl.setAttribute('content', editorialCanonicalHref);
  }
- }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
+ }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
 
  // Track job page views in Firestore (for newsletter popularity ranking)
  useEffect(() => {
@@ -4584,7 +4635,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Expired job pages with seeded data: render the expired view immediately
  // instead of a spinner. Google's WRS executes JS and would otherwise see
  // a blank loading state, making all 4k+ soft-landing pages useless for SEO.
- if (expiredJob && initialJobSlug && !companySlugFilter && !searchSlugFilter) {
+ if (expiredJob && initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter) {
  return (
  <JobExpiredView
  job={expiredJob}
@@ -5391,7 +5442,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Bridge pages (previousSlugs) now serve full content — selectedJob resolves
  // via bridgeTargetSlug above. No redirect or interstitial needed.
 
- if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter) {
+ if (initialJobSlug && !selectedJob && !companySlugFilter && !locationSlugFilter && !searchSlugFilter) {
  // Ensure expired/orphan job pages are indexable — remove any stale noindex
  // that may have been set by a previous navigation or SPA hydration race.
  const robotsMeta = document.querySelector('meta[name="robots"]');
@@ -5436,6 +5487,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220);
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
+ const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
+ const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
 
  return (
  <div className="space-y-5" data-no-auto-ads="inside">
@@ -5485,8 +5538,33 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex-1 min-w-0">
  <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
- <span className="inline-flex items-center gap-1"><Building2 size={14} />{companyName}</span>
- {jobLocation && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
+ <a
+ href={gateCompanyHref}
+ onClick={(e) => {
+ e.preventDefault();
+ setSearchQuery('');
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ }}
+ className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ ><Building2 size={14} />{companyName}</a>
+ {jobLocation && gateLocationHref && (
+ <a
+ href={gateLocationHref}
+ onClick={(e) => {
+ e.preventDefault();
+ setSearchQuery('');
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateLocationSlug } }, '', gateLocationHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_location_filter_open', jobLocation);
+ }}
+ className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ ><MapPin size={14} />{jobLocation}</a>
+ )}
+ {jobLocation && !gateLocationHref && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
  {jobCategory && jobCategory !== 'other' && (
  <span className="inline-flex items-center gap-1"><Briefcase size={14} />{t(categoryTranslationKey(selectedJob))}</span>
  )}
@@ -5859,6 +5937,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
+ const detailLocationSlug = buildLocationSearchSlug(selectedJob.addressLocality || selectedJob.location || '', locale);
+ const detailLocationHref = detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '';
  const parserCoverage = (() => {
  const assigned =
  canonicalSummary.length +
@@ -6056,7 +6136,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
  <p className="mt-1 text-sm text-body">
- {selectedJob.company} · {selectedJob.location} ({selectedJob.canton})
+ <a
+ href={companySearchHref}
+ onClick={(e) => {
+ e.preventDefault();
+ setSearchQuery('');
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ }}
+ className="hover:text-accent hover:underline underline-offset-2 transition-colors"
+ >{selectedJob.company}</a>
+ {' · '}
+ {detailLocationHref ? (
+ <a
+ href={detailLocationHref}
+ onClick={(e) => {
+ e.preventDefault();
+ setSearchQuery('');
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: detailLocationSlug } }, '', detailLocationHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_location_filter_open', selectedJob.location);
+ }}
+ className="hover:text-accent hover:underline underline-offset-2 transition-colors"
+ >{selectedJob.location} ({selectedJob.canton})</a>
+ ) : (
+ <>{selectedJob.location} ({selectedJob.canton})</>
+ )}
  </p>
  </div>
  </div>
@@ -6348,6 +6456,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  </div>
  )}
+ {locationSlugFilter && (
+ <div className="rounded-xl border border-accent-border bg-accent-subtle/60 p-3 text-sm text-accent flex items-center justify-between gap-3">
+ <span className="font-semibold inline-flex items-center gap-1.5">
+ <MapPin size={14} />
+ {locationDisplayName || locationSlugFilter}
+ </span>
+ <button
+ onClick={() => onJobRouteChange?.(undefined)}
+ className="px-2 py-1 rounded-md border border-accent-border hover:bg-accent-subtle text-xs font-bold"
+ >
+ {t('jobBoard.filter.remove')}
+ </button>
+ </div>
+ )}
  <div className="text-center space-y-3">
  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-xs font-medium">
  <Briefcase className="w-4 h-4" />
@@ -6356,6 +6478,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading">
  {companyDisplayName
  ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...getCantonI18nParams() })
+ : locationDisplayName
+ ? t('jobBoard.locationPageTitle', { location: locationDisplayName, ...getCantonI18nParams() })
  : t('jobBoard.title', getCantonI18nParams())}
  </h1>
  <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', getCantonI18nParams())}</p>

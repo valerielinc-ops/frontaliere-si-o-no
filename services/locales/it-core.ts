@@ -615,6 +615,7 @@ const translations: Record<string, string> = {
  'jobBoard.filter.remove': 'Rimuovi filtro',
  'jobBoard.title': 'Offerte di Lavoro in {canton}',
  'jobBoard.companyPageTitle': '{company} - offerte di lavoro in {canton}',
+ 'jobBoard.locationPageTitle': 'Offerte di lavoro a {location} ({canton})',
  'jobBoard.subtitle': 'Aggiornate ogni giorno da oltre 100 aziende in {canton}. Filtra per settore, località e contratto.',
  'jobBoard.seoTitle': 'Offerte di Lavoro {canton} \u2014 Cerca Lavoro in Svizzera Italiana',
  'jobBoard.seoDescription': 'Cerchi lavoro in {canton}? Oltre 1500 offerte aggiornate ogni giorno da 100+ aziende. Banche, IT, pharma, sanit\u00e0. Candidati gratis.',

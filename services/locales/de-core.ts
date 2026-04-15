@@ -576,6 +576,7 @@ const deCore: Record<string, string> = {
  'jobBoard.filter.remove': 'Filter entfernen',
  'jobBoard.title': 'Stellenangebote {cantonPrep} — Jobs f\u00fcr Grenzg\u00e4nger',
  'jobBoard.companyPageTitle': '{company} Stellenangebote {cantonPrep}',
+ 'jobBoard.locationPageTitle': 'Stellenangebote in {location} ({canton})',
  'jobBoard.subtitle': 'T\u00e4glich aktualisiert von \u00fcber 100 Unternehmen {cantonPrep}. Filtern nach Branche, Standort und Vertragsart.',
  'jobBoard.seoTitle': 'Stellenangebote {cantonPrep} 2026 \u2014 Arbeit f\u00fcr Grenzg\u00e4nger',
  'jobBoard.seoDescription': 'Jobs {cantonPrep} gesucht? \u00dcber 1500 t\u00e4glich aktualisierte Stellenangebote von 100+ Unternehmen. Banken, IT, Pharma, Gesundheit. Kostenlos bewerben.',
