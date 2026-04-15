@@ -1122,7 +1122,6 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <h4 className="text-xs font-bold uppercase text-subtle">{t('input.italy')}</h4>
  <div className="grid grid-cols-2 gap-3">
  <TechInput label={t('input.itSurchargeRate')} value={inputs.itAddizionaleRate} onChange={(v) => handleChange('itAddizionaleRate', v)} isPercentage step="0.1" />
- <TechInput label={t('input.itWorkDeduction')} value={inputs.itWorkDeduction} onChange={(v) => handleChange('itWorkDeduction', v)} step="10" />
  </div>
  </div>
  </div>

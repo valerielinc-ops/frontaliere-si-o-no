@@ -45,6 +45,7 @@ export interface TaxBreakdownItem {
  amountEUR?: number;
  percentage: number;
  description?: string;
+ subItems?: { label: string; amountEUR: number }[];
 }
 
 export interface TaxResult {
@@ -71,6 +72,7 @@ export interface TaxResult {
  taxableBaseEUR: number;
  grossTaxEUR: number;
  deductionsEUR: number;
+ workDeductionEUR: number;
  addizionaliEUR: number;
  creditSwissTaxEUR: number;
  finalNetTaxEUR: number;

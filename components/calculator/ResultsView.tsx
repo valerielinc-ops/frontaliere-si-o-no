@@ -69,6 +69,7 @@ const getBreakdownColor = (label: string): string => {
 const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; showEUR?: boolean; exchangeRate?: number }> = ({ data, currency, showEUR, exchangeRate }) => {
  const { t } = useTranslation();
  const [mobileTooltipIdx, setMobileTooltipIdx] = useState<number | null>(null);
+ const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
  const translateKey = (key: string): string => {
  if (!key) return '';
  // Handle double-pipe-separated multi-key descriptions:"key1||key2||key3"
@@ -97,11 +98,18 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
  const isNegative = item.amount < 0;
  const dotColor = getBreakdownColor(item.label);
  const showMobileTooltip = mobileTooltipIdx === idx;
- 
+ const hasSubItems = item.subItems && item.subItems.length > 0;
+ const isExpanded = expandedIdx === idx;
+
  return (
+ <React.Fragment key={idx}>
  <div
- key={idx}
  onClick={(e) => {
+ if (hasSubItems) {
+ e.stopPropagation();
+ setExpandedIdx(prev => prev === idx ? null : idx);
+ return;
+ }
  if (!item.description) return;
  if (typeof window === 'undefined') return;
  const isTouchLike =
@@ -111,7 +119,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
  e.stopPropagation();
  setMobileTooltipIdx((prev) => (prev === idx ? null : idx));
  }}
- className={`flex items-center justify-between py-3 border-b border-dashed border-edge last:border-0 hover:bg-surface-raised px-3 rounded-lg transition-colors group cursor-default relative ${isNet ? 'bg-success-subtle/50 mt-2 rounded-xl border-none' : ''}`}
+ className={`flex items-center justify-between py-3 border-b border-dashed border-edge last:border-0 hover:bg-surface-raised px-3 rounded-lg transition-colors group relative ${isNet ? 'bg-success-subtle/50 mt-2 rounded-xl border-none' : ''} ${hasSubItems ? 'cursor-pointer' : 'cursor-default'}`}
  >
  {/* Label Section */}
  <div className="flex-1 pr-3 flex items-center gap-2 min-w-0">
@@ -120,8 +128,12 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
  <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-heading' : 'font-medium text-subtle group-hover:text-heading'}`}>
  {translateKey(item.label)}
  </div>
- 
- {!isTotal && item.description && (
+
+ {hasSubItems && (
+ <ChevronRight size={14} className={`text-muted flex-shrink-0 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} />
+ )}
+
+ {!isTotal && !hasSubItems && item.description && (
  <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
  <Info size={12} className="text-muted cursor-help group-hover/tooltip:text-accent transition-colors" />
  <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-surface-alt text-body text-xs font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-edge`}>
@@ -132,7 +144,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
  )}
  </div>
  </div>
- 
+
  {/* Value Section */}
  <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
  {item.percentage !== 0 && !isNet && (
@@ -165,6 +177,23 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
  </div>
  </div>
  </div>
+ {/* Expandable IRPEF sub-items */}
+ {hasSubItems && isExpanded && (
+ <div className="ml-7 mr-3 mb-1 bg-surface-alt/40 rounded-xl border border-edge/50 overflow-hidden animate-fade-in">
+ {item.subItems!.map((sub, si) => {
+ const subNeg = sub.amountEUR < 0;
+ return (
+ <div key={si} className="flex items-center justify-between px-3 py-2 border-b border-dashed border-edge/30 last:border-0 text-xs">
+ <span className="text-subtle font-medium">{translateKey(sub.label)}</span>
+ <span className={`font-mono font-bold tabular-nums ${subNeg ? 'text-success' : 'text-danger'}`}>
+ {subNeg ? '-' : '+'} € {formatCurrency(Math.abs(sub.amountEUR))}
+ </span>
+ </div>
+ );
+ })}
+ </div>
+ )}
+ </React.Fragment>
  );
  })}
  </div>

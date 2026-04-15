@@ -209,23 +209,31 @@ describe('calculateSimulation', () => {
       expect(highIncome.itResident.details.irpefDetails!.deductionsEUR).toBeLessThan(1910);
     });
 
-    it('itWorkDeduction input is used in the calculation', () => {
-      const withDeduction = calculateSimulation(makeInputs({
+    it('lower income gets higher work deduction', () => {
+      const low = calculateSimulation(makeInputs({
         frontierWorkerType: 'NEW',
         distanceZone: 'WITHIN_20KM',
-        annualIncomeCHF: 60000,
-        itWorkDeduction: 1500,
+        annualIncomeCHF: 30000,
       }));
-      const withoutDeduction = calculateSimulation(makeInputs({
+      const high = calculateSimulation(makeInputs({
         frontierWorkerType: 'NEW',
         distanceZone: 'WITHIN_20KM',
-        annualIncomeCHF: 60000,
-        itWorkDeduction: 0,
+        annualIncomeCHF: 100000,
       }));
-      // Higher work deduction → lower IRPEF → higher net income
-      expect(withDeduction.itResident.details.irpefDetails!.deductionsEUR).toBe(1500);
-      expect(withoutDeduction.itResident.details.irpefDetails!.deductionsEUR).toBe(0);
-      expect(withDeduction.itResident.netIncomeAnnual).toBeGreaterThan(withoutDeduction.itResident.netIncomeAnnual);
+      expect(low.itResident.details.irpefDetails!.deductionsEUR).toBeGreaterThan(
+        high.itResident.details.irpefDetails!.deductionsEUR
+      );
+    });
+
+    it('irpefDetails includes workDeductionEUR breakdown', () => {
+      const result = calculateSimulation(makeInputs({
+        frontierWorkerType: 'NEW',
+        distanceZone: 'WITHIN_20KM',
+        annualIncomeCHF: 30000,
+      }));
+      const irpef = result.itResident.details.irpefDetails!;
+      expect(irpef.workDeductionEUR).toBeGreaterThan(0);
+      expect(irpef.workDeductionEUR).toBeLessThanOrEqual(irpef.deductionsEUR);
     });
   });
 

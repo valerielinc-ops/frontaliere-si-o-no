@@ -215,7 +215,8 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  else if (italianTaxableBaseEUR <= 50000) irpefGross = (28000 * 0.23) + ((italianTaxableBaseEUR - 28000) * 0.35);
  else irpefGross = (28000 * 0.23) + (22000 * 0.35) + ((italianTaxableBaseEUR - 50000) * 0.43);
 
- const itDeductions = itWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
+ const progressiveWorkDeduction = calculateProgressiveWorkDeduction(italianTaxableBaseEUR);
+ const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
  const addizionali = italianTaxableBaseEUR * itAddizionaleRate;
  const itLiability = Math.max(0, irpefGross + addizionali - itDeductions);
  // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
@@ -223,15 +224,25 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  finalItTaxEUR = Math.max(0, itLiability - usableTaxCredit);
  const finalItTaxCHF = finalItTaxEUR / EXCHANGE_RATE;
 
- irpefDetails = { taxableBaseEUR: italianTaxableBaseEUR, grossTaxEUR: irpefGross, deductionsEUR: itDeductions, addizionaliEUR: addizionali, creditSwissTaxEUR: usableTaxCredit, finalNetTaxEUR: finalItTaxEUR };
+ irpefDetails = { taxableBaseEUR: italianTaxableBaseEUR, grossTaxEUR: irpefGross, deductionsEUR: itDeductions, workDeductionEUR: progressiveWorkDeduction, addizionaliEUR: addizionali, creditSwissTaxEUR: usableTaxCredit, finalNetTaxEUR: finalItTaxEUR };
  notesIT = ["calc.regime.newFrontier", "calc.notes.concurrentTax", "calc.notes.franchiseApplied"];
- 
+
+ // Build IRPEF sub-items for expandable breakdown
+ const irpefSubItems = [
+ { label: 'calc.irpefGross', amountEUR: irpefGross },
+ { label: 'calc.irpefAddizionali', amountEUR: addizionali },
+ { label: 'calc.irpefWorkDeduction', amountEUR: -progressiveWorkDeduction },
+ ...(maritalStatus === 'MARRIED' && !spouseWorks ? [{ label: 'calc.irpefSpouseDeduction', amountEUR: -690 }] : []),
+ ...(children > 0 ? [{ label: 'calc.irpefChildrenDeduction', amountEUR: -(children * 950) }] : []),
+ { label: 'calc.irpefSwissCredit', amountEUR: -usableTaxCredit },
+ ];
+
  itBreakdown = [
  { label: 'calc.grossIncome', amount: annualIncomeCHF, amountEUR: grossIncomeEUR, percentage: (annualIncomeCHF/grossTotalCH)*100, description: 'calc.grossIncomeDesc' },
  { label: 'calc.familyAllowanceCH', amount: annualFamilyAllowanceCHF, amountEUR: allowanceEUR, percentage: (annualFamilyAllowanceCHF/grossTotalCH)*100, description: 'calc.familyAllowanceCHDesc2' },
  { label: 'calc.socialContributionsCH', amount: -totalSocialDeductions, amountEUR: -socialEUR, percentage: (totalSocialDeductions/grossTotalCH)*100, description: 'calc.socialContributionsCHDeductibleDesc' },
  { label: `calc.sourceCHPartial|${Math.round(chTaxShare * 100)}`, amount: -taxWithheldInCH_CHF, amountEUR: -paidSourceTaxEUR, percentage: (taxWithheldInCH_CHF/grossTotalCH)*100, description: 'calc.sourceCHPartialDesc' },
- { label: 'calc.irpefBalance', amount: -finalItTaxCHF, amountEUR: -finalItTaxEUR, percentage: (finalItTaxCHF/grossTotalCH)*100, description: 'calc.irpefBalanceDesc' },
+ { label: 'calc.irpefBalance', amount: -finalItTaxCHF, amountEUR: -finalItTaxEUR, percentage: (finalItTaxCHF/grossTotalCH)*100, description: 'calc.irpefBalanceDesc', subItems: irpefSubItems },
  { label: 'calc.personalExpensesIT', amount: -expensesTotalIT_CHF, amountEUR: -expensesTotalIT, percentage: (expensesTotalIT_CHF/grossTotalCH)*100, description: 'calc.personalExpensesITDesc' },
  ];
  }
