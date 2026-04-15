@@ -33,7 +33,7 @@ const PROVIDERS = [
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
   // mailjet: disabled until account is activated (401 Unauthorized). Re-enable when unblocked.
   // { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
-  { id: 'mailtrap', dailyLimit: 30,  monthlyLimit: 1000  },
+  { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
 ];
 
@@ -123,9 +123,24 @@ async function fetchMailtrapDailyUsage() {
   const token = process.env.MAILTRAP_API_TOKEN;
   if (!token) return 0;
   try {
-    // Mailtrap doesn't expose a simple daily usage endpoint on the free tier.
-    // Return 0 (safe: in-memory counter tracks actual sends during this run).
-    return 0;
+    // Get account ID first
+    const accRes = await fetch('https://mailtrap.io/api/accounts', {
+      headers: { 'Api-Token': token },
+    });
+    if (!accRes.ok) return 0;
+    const accounts = await accRes.json();
+    const accountId = accounts[0]?.id;
+    if (!accountId) return 0;
+
+    // Fetch today's stats
+    const today = getTodayUTC();
+    const statsRes = await fetch(
+      `https://mailtrap.io/api/accounts/${accountId}/stats?start_date=${today}&end_date=${today}`,
+      { headers: { 'Api-Token': token } },
+    );
+    if (!statsRes.ok) return 0;
+    const stats = await statsRes.json();
+    return (stats.delivery_count || 0) + (stats.bounce_count || 0);
   } catch { return 0; }
 }
 
@@ -167,7 +182,7 @@ async function syncQuotasFromAPIs() {
   _counters.resend = resend;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/30, unosend=${unosend}/200, resend=${resend}/100`);
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, unosend=${unosend}/200, resend=${resend}/100`);
 }
 
 // ── Provider availability check ──────────────────────────────
