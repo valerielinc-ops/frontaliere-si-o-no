@@ -1,19 +1,18 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-04-14T21:49:17.925Z",
+  "generatedAt": "2026-04-15T10:04:49.051Z",
   "total": 17,
-  "newCount": 0,
-  "updatedCount": 17,
+  "newCount": 3,
+  "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15921,
-  "avgDurationMs": 15921,
+  "durationMs": 14760,
+  "avgDurationMs": 14760,
   "durationHistory": [
-    15921
+    14760
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "heineken-ch-3eed28850a6f",
       "slug": "bezeichnung-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width",
@@ -40,13 +39,12 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1383484533/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:04.766Z",
-      "firstSeenAt": "2026-04-14T10:03:48.476Z",
-      "_qualityScore": 88,
+      "crawledAt": "2026-04-15T10:04:36.610Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 20
       }
     },
@@ -76,16 +74,52 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1383258233/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:05.578Z",
-      "firstSeenAt": "2026-04-14T10:03:48.476Z",
-      "_qualityScore": 88,
+      "crawledAt": "2026-04-15T10:04:37.358Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 20
       }
     },
+    {
+      "id": "heineken-ch-4f6eb0ce9007",
+      "slug": "title-truck-driver-heineken-ch-content-width-device-width",
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Title: Truck Driver",
+      "location": "\" content=\"width=device-width",
+      "canton": "GR",
+      "addressLocality": "\" content=\"width=device-width",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3937",
+      "streetAddress": "\" content=\"width=device-width, Graubünden",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://careers.theheinekencompany.com/Switzerland/job/Baltschieder-Truck-Driver-3937/1382246633/",
+      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382246633/?locale=en_GB",
+      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-15T10:04:40.430Z",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "heineken-ch-1d2199c04e1f",
       "slug": "title-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width",
@@ -112,7 +146,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1383306433/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:06.221Z",
+      "crawledAt": "2026-04-15T10:04:37.965Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -148,7 +182,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1292599001/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:06.856Z",
+      "crawledAt": "2026-04-15T10:04:38.585Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -184,7 +218,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382487733/?locale=fr_FR",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:07.513Z",
+      "crawledAt": "2026-04-15T10:04:39.213Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -220,43 +254,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382085733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:08.178Z",
-      "firstSeenAt": "2026-04-14T10:03:48.476Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "heineken-ch-4f6eb0ce9007",
-      "slug": "title-truck-driver-heineken-ch-content-width-device-width",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Title: Truck Driver",
-      "location": "\" content=\"width=device-width",
-      "canton": "GR",
-      "addressLocality": "\" content=\"width=device-width",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3937",
-      "streetAddress": "\" content=\"width=device-width, Graubünden",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://careers.theheinekencompany.com/Switzerland/job/Baltschieder-Truck-Driver-3937/1382246633/",
-      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382246633/?locale=en_GB",
-      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:08.831Z",
+      "crawledAt": "2026-04-15T10:04:39.826Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -292,7 +290,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1371560033/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:09.463Z",
+      "crawledAt": "2026-04-15T10:04:41.081Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -328,7 +326,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1283406601/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:10.110Z",
+      "crawledAt": "2026-04-15T10:04:41.701Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -364,7 +362,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1276312701/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:10.770Z",
+      "crawledAt": "2026-04-15T10:04:42.334Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -400,7 +398,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1277563801/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:11.419Z",
+      "crawledAt": "2026-04-15T10:04:42.957Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -436,7 +434,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1378113133/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:12.049Z",
+      "crawledAt": "2026-04-15T10:04:43.552Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -472,7 +470,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366711633/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:12.701Z",
+      "crawledAt": "2026-04-15T10:04:44.131Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -508,7 +506,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1376584133/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:13.367Z",
+      "crawledAt": "2026-04-15T10:04:44.755Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -544,7 +542,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366138833/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:14.037Z",
+      "crawledAt": "2026-04-15T10:04:45.382Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -580,7 +578,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366146033/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:14.685Z",
+      "crawledAt": "2026-04-15T10:04:46.002Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -616,7 +614,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1375618733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-14T21:49:15.331Z",
+      "crawledAt": "2026-04-15T10:04:46.627Z",
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
