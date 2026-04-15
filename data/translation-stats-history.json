@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-06T13:39:54.040Z",
-    "label": "before",
-    "total": 1523,
-    "needsRetranslation": 265,
-    "incomplete": 166,
-    "complete": 1357,
-    "missingByLocale": {
-      "it": 82,
-      "en": 55,
-      "de": 57,
-      "fr": 67
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 49
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 26
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-06T13:40:36.569Z",
-    "label": "after",
-    "total": 1523,
-    "needsRetranslation": 164,
-    "incomplete": 79,
-    "complete": 1444,
-    "missingByLocale": {
-      "it": 33,
-      "en": 25,
-      "de": 25,
-      "fr": 35
-    },
-    "topPending": [
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 3
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-06T21:54:17.479Z",
     "label": "before",
     "total": 1521,
@@ -8010,6 +7898,102 @@
       },
       {
         "company": "Hôpital du Valais",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T02:35:58.240Z",
+    "label": "before",
+    "total": 2921,
+    "needsRetranslation": 55,
+    "incomplete": 26,
+    "complete": 2895,
+    "missingByLocale": {
+      "it": 16,
+      "en": 6,
+      "de": 17,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 8
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Colin&Cie Wealth Management",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Bitfinex",
+        "pending": 1
+      },
+      {
+        "company": "Bracco Suisse S.A.",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T03:08:55.448Z",
+    "label": "after",
+    "total": 2921,
+    "needsRetranslation": 50,
+    "incomplete": 18,
+    "complete": 2903,
+    "missingByLocale": {
+      "it": 13,
+      "en": 0,
+      "de": 13,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 8
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Bitfinex",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]

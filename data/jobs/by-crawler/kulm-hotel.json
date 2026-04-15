@@ -283,7 +283,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -295,8 +294,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "kulm-hotel-b94b20f04f54",
@@ -2115,7 +2113,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
