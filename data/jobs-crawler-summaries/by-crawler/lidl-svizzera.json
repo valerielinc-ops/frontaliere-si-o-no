@@ -1,18 +1,91 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-15T10:16:39.224Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-04-15T21:56:02.278Z",
+  "total": 14,
+  "newCount": 2,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 22792,
-  "avgDurationMs": 22792,
+  "durationMs": 10543,
+  "avgDurationMs": 10543,
   "durationHistory": [
-    22792
+    10543
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-xsgkjj",
+      "slug": "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino",
+      "company": "Lidl Svizzera",
+      "title": "361_Venditore / Venditrice (m/f/d) 20-40%",
+      "location": "Riazzino",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Riazzino",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-04-15T21:56:01.905Z",
+      "firstSeenAt": "2026-04-15T21:56:01.905Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "postalCode": "6595",
+      "streetAddress": "Via Stradonino 1",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "company-nuf61k",
+      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
+      "company": "Lidl Svizzera",
+      "title": "Venditore / Venditrice (m/f/d) 40%",
+      "location": "Locarno",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Locarno",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-04-15T21:56:01.905Z",
+      "firstSeenAt": "2026-04-15T21:56:01.905Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "postalCode": "6600",
+      "streetAddress": "Via Vallemaggia 15",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-2kaqoq",
