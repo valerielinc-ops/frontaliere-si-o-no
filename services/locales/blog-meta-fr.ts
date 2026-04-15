@@ -2151,6 +2151,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzone : lancement de la récolte de signatures pour des crèches publiques',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'La Municipalité rejette la demande d’une crèche publique. Le Parti socialiste, les Verts et d’autres forces politiques lancent l’initiative ‘Plus de crèches publiques’ avec un objectif de 3 000 signatures à recueillir d’ici juillet 2026.',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Extérieur d\'une crèche publique à Bellinzone avec des parents et des enfants qui entrent, bâtiments en briques rouges avec de grandes fenêtres',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Cannabis médical: les caisses-maladie bloquent les remboursements au Tessin',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Les patients tessinois sous thérapies approuvées perdent la prise en charge par les caisses-maladie. Selon les données fédérales, seulement 11 % des traitements déclarés sont remboursés.',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Vue nocturne du bord du lac de Lugano avec montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

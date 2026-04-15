@@ -6004,4 +6004,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/asili-nido-bellinzona-iniziativa-firme-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cannabis-medica-rimborsi-casse-malati-ticino',
+ category: 'pratico',
+ date: '2026-04-15T05:41:07.056Z',
+ image: '/images/blog/cannabis-medica-rimborsi-casse-malati-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

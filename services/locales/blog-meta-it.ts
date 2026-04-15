@@ -2151,6 +2151,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzona: via alla raccolta firme per asili nido pubblici',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'Il Comune boccia la richiesta di un asilo nido pubblico. Partito Socialista, Verdi e altre forze lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con 3’000 firme da raccogliere entro luglio 2026.',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Esterno di un asilo nido a Bellinzona con genitori e bambini che entrano, edifici in mattoni rossi e finestre ampie',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Cannabis medica: casse malati bloccano i rimborsi in Ticino',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Pazienti ticinesi con terapie approvate perdono la copertura delle casse malati. Solo l’11% dei trattamenti segnalati è rimborsato, secondo dati federali.',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Vista notturna del lungolago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

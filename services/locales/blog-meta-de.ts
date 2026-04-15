@@ -2151,6 +2151,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzona: Sammeln von Unterschriften für öffentliche Kinderkrippen beginnt',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'Die Stadtverwaltung lehnt den Antrag für eine öffentliche Kinderkrippe ab. Die SP, die Grünen und weitere Kräfte starten die Initiative \'Mehr öffentliche Kinderkrippen\' und sammeln innerhalb von drei Jahren 3’000 Unterschriften – bis Juli 2026.',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Äusseres eines öffentlichen Kinderkrippengebäudes in Bellinzona mit Eltern und Kindern, die eintreten, Gebäude aus rotem Backstein mit grossen Fenstern',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Medizinisches Cannabis: Krankenkassen blockieren Rückerstattungen im Tessin',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Tessinische Patientinnen und Patienten mit zugelassenen Therapien verlieren die Kostenübernahme durch die Krankenkassen. Gemäss Bundesdaten werden nur 11 % der gemeldeten Behandlungen erstattet.',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Nachtansicht des Luganer Seeufers mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

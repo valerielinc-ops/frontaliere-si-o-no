@@ -7685,6 +7685,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cannabis-medica-rimborsi-casse-malati-ticino': {
+    title: 'Cannabis medica: casse malati bloccano | Frontaliere Ticino',
+    description: 'Pazienti ticinesi perdono la copertura delle cure con cannabis terapeutica. Solo l’11% dei trattamenti segnalati è rimborsato a livello federale. Scopri come',
+    keywords: 'frontalieri, ticino, svizzera, italia, cannabis, medica, casse, malati',
+    ogTitle: 'Cannabis medica: casse malati bloccano i rimborsi in Ticino',
+    ogDescription: 'Pazienti ticinesi perdono la copertura delle cure con cannabis terapeutica. Solo l’11% dei trattamenti segnalati è rimborsato.',
+    canonicalPath: '/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cannabis medica: casse malati bloccano i rimborsi in Ticino",
+      "description": "Pazienti ticinesi perdono la copertura delle cure con cannabis terapeutica. Solo l’11% dei trattamenti segnalati è rimborsato a livello federale. Scopri come",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cannabis-medica-rimborsi-casse-malati-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista notturna del lungolago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-15T05:41:07+00:00",
+      "dateModified": "2026-04-15T05:41:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

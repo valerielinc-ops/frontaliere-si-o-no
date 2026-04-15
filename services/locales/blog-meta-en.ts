@@ -2151,6 +2151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzona: signature collection launched for public daycare centres',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'The Municipality rejects the request for a public daycare centre. The Socialist Party, Greens and other political forces launch the initiative ‘More public daycare centres’ with a target of 3,000 signatures to be collected by July 2026.',
     'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Exterior of a public nursery in Bellinzona with parents and children entering, red brick buildings with large windows',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.title': 'Medical cannabis: health insurers block reimbursements in Ticino',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.excerpt': 'Ticino patients undergoing approved therapies lose health insurance coverage. Only 11% of reported treatments are reimbursed, according to federal data.',
+    'blog.article.cannabis-medica-rimborsi-casse-malati-ticino.imageAlt': 'Night view of Lugano lakeside with mountains in the background',
 };
 
 export default blogMetaEn;
