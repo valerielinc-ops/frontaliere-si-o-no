@@ -33,7 +33,7 @@ export const DataDeletion: React.FC = () => {
  <div className="flex items-start gap-3">
  <CheckCircle2 className="text-success flex-shrink-0 mt-1" size={24} />
  <div>
- <h2 className="text-lg font-bold text-success mb-2">
+ <h2 className="text-lg font-bold font-display text-success mb-2">
  No Data to Delete
  </h2>
  <p className="text-sm text-success leading-relaxed">

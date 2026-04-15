@@ -105,7 +105,7 @@ export default function NaspiCalculator() {
  <Calculator size={22} className="text-success" />
  </div>
  <div>
- <h3 className="text-lg font-bold text-strong">
+ <h3 className="text-lg font-bold font-display text-strong">
  {t('naspi.calc.title')}
  </h3>
  <p className="text-sm text-subtle">

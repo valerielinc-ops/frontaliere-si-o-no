@@ -206,7 +206,7 @@ const UnemploymentStats: React.FC = () => {
  <div className="bg-surface rounded-2xl shadow-sm border border-edge flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
  {/* Header */}
  <div className="p-6 border-b border-edge sticky top-0 z-10 bg-surface rounded-t-2xl">
- <h2 className="text-xl font-bold text-strong tracking-tight flex items-center gap-2">
+ <h2 className="text-xl font-bold font-display text-strong tracking-tight flex items-center gap-2">
  <BarChart3 size={20} className="text-warning" /> {localeLabels.title}
  </h2>
  <p className="text-muted text-xs mt-1">

@@ -1910,7 +1910,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  <div className="flex items-center justify-between px-6 py-4 border-b border-edge">
  <div className="flex items-center gap-2">
  <PartyPopper size={22} className="text-accent" />
- <h2 className="text-lg font-bold text-heading">
+ <h2 className="text-lg font-bold font-display text-heading">
  {t('whatsNew.title')}
  </h2>
  </div>

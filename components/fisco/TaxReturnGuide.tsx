@@ -1,10 +1,11 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { FileText, CheckCircle2, AlertCircle, Calendar, Euro, Building2, ArrowRight, Download, Info, Clock } from 'lucide-react';
 import { getHashSection, pushRoute } from '@/services/router';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const SwissTaxReturn = lazy(() => import('@/components/fisco/SwissTaxReturn'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const SwissTaxReturn = lazyRetry(() => import('@/components/fisco/SwissTaxReturn'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 type CountryTab = 'italia' | 'svizzera';
 type TaxStep = 'overview' | 'documents' | 'deductions' | 'timeline' | 'faq';
@@ -101,7 +102,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <div className="flex items-center gap-3 mb-2">
  <span className="text-3xl">🇮🇹</span>
  <div>
- <h3 className={`text-lg font-bold ${countryTab === 'italia' ? 'text-on-accent' : 'text-strong'}`}>
+ <h3 className={`text-lg font-bold font-display ${countryTab === 'italia' ? 'text-on-accent' : 'text-strong'}`}>
  {t('taxReturn.countryTab.italia')}
  </h3>
  <p className={`text-xs ${countryTab === 'italia' ? 'text-on-accent/70' : 'text-muted'}`}>
@@ -128,7 +129,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <div className="flex items-center gap-3 mb-2">
  <span className="text-3xl">🇨🇭</span>
  <div>
- <h3 className={`text-lg font-bold ${countryTab === 'svizzera' ? 'text-on-accent' : 'text-strong'}`}>
+ <h3 className={`text-lg font-bold font-display ${countryTab === 'svizzera' ? 'text-on-accent' : 'text-strong'}`}>
  {t('taxReturn.countryTab.svizzera')}
  </h3>
  <p className={`text-xs ${countryTab === 'svizzera' ? 'text-on-accent/70' : 'text-muted'}`}>
@@ -150,7 +151,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <div className="bg-gradient-to-r from-success to-success rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <FileText size={28} />
- <h2 className="text-2xl font-bold">{t('taxReturn.title.italia')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('taxReturn.title.italia')}</h2>
  </div>
  <p className="text-on-accent/70 text-sm">{t('taxReturn.subtitle.italia')}</p>
  </div>
@@ -158,7 +159,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <div className="bg-gradient-to-r from-danger to-danger rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <FileText size={28} />
- <h2 className="text-2xl font-bold">{t('taxReturn.title.svizzera')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('taxReturn.title.svizzera')}</h2>
  </div>
  <p className="text-on-accent/70 text-sm">{t('taxReturn.subtitle.svizzera')}</p>
  </div>
@@ -192,7 +193,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  {activeStep === 'overview' && (
  <div className="space-y-6 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('taxReturn.overview.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('taxReturn.overview.title')}</h3>
  <div className="space-y-4 text-sm text-subtle">
  <p>{t('taxReturn.overview.intro')}</p>
  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -227,7 +228,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-strong">{t('taxReturn.documents.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{t('taxReturn.documents.title')}</h3>
  <span className="text-sm text-muted">
  {checkedDocs.size}/{DOCUMENTS_CHECKLIST.length} {t('taxReturn.documents.completed')}
  </span>
@@ -281,7 +282,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  {activeStep === 'deductions' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('taxReturn.deductions.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('taxReturn.deductions.title')}</h3>
  <p className="text-sm text-muted mb-6">{t('taxReturn.deductions.intro')}</p>
  <div className="space-y-3">
  {DEDUCTIONS.map(ded => (
@@ -313,7 +314,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  {activeStep === 'timeline' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-6">{t('taxReturn.timeline.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-6">{t('taxReturn.timeline.title')}</h3>
  <div className="relative">
  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-surface-raised" />
  <div className="space-y-6">

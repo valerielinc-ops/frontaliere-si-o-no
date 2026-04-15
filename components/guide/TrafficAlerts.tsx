@@ -206,7 +206,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div className="bg-gradient-to-br from-warning-strong to-danger-strong-hover rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-4">
  <Car size={32} />
- <h2 className="text-2xl sm:text-3xl font-bold">{t('traffic.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display">{t('traffic.title')}</h2>
  </div>
  <p className="text-on-accent text-lg">
  {t('traffic.subtitle')}
@@ -488,7 +488,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  {/* Tips */}
  <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl border border-accent-border p-6">
- <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Navigation size={24} className="text-accent" />
  {t('traffic.tipsTitle')}
  </h3>

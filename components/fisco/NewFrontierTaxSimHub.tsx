@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import {
  ArrowRight,
  Calculator,
@@ -9,8 +9,9 @@ import {
  Shield,
  Users,
 } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { buildPath } from '@/services/router';
 import { useLocale, type Locale } from '@/services/i18n';
 
@@ -422,7 +423,7 @@ export default function NewFrontierTaxSimHub() {
 
  {/* Regime explanation cards */}
  <section className="space-y-4" data-speakable>
- <h2 className="text-2xl font-bold text-heading">{c.regimeTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{c.regimeTitle}</h2>
  <div className="grid gap-4 sm:grid-cols-2">
  {c.regimeCards.map((card) => {
  const Icon = ICON_MAP[card.icon];
@@ -445,7 +446,7 @@ export default function NewFrontierTaxSimHub() {
 
  {/* How to calculate steps */}
  <section className="space-y-4">
- <h2 className="text-2xl font-bold text-heading">{c.howTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{c.howTitle}</h2>
  <ol className="space-y-3 pl-0 list-none">
  {c.howSteps.map((step, i) => (
  <li key={i} className="flex items-start gap-3">
@@ -460,7 +461,7 @@ export default function NewFrontierTaxSimHub() {
 
  {/* Example table */}
  <section className="space-y-4">
- <h2 className="text-2xl font-bold text-heading">{c.exampleTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{c.exampleTitle}</h2>
  <p className="text-sm text-subtle">{c.exampleIntro}</p>
  <div className="rounded-2xl border border-edge overflow-hidden">
  <table className="w-full text-sm">
@@ -479,7 +480,7 @@ export default function NewFrontierTaxSimHub() {
 
  {/* CTA deep links */}
  <section className="space-y-4">
- <h2 className="text-2xl font-bold text-heading">{c.deepLinksTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{c.deepLinksTitle}</h2>
  <p className="text-sm text-subtle">{c.deepLinksIntro}</p>
  <div className="grid gap-3 sm:grid-cols-3">
  {c.ctas.map((cta) => (
@@ -500,7 +501,7 @@ export default function NewFrontierTaxSimHub() {
 
  {/* FAQ */}
  <section className="space-y-4" data-speakable>
- <h2 className="text-2xl font-bold text-heading flex items-center gap-2">
+ <h2 className="text-2xl font-bold font-display text-heading flex items-center gap-2">
  <HelpCircle className="w-5 h-5 text-success" />
  {c.faqTitle}
  </h2>

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { Shield, TrendingUp, Calculator, Info, AlertCircle, Landmark, PiggyBank, Percent, Clock, Star, Building, Banknote, BarChart3, CheckCircle2, XCircle } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from 'recharts';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
@@ -109,7 +110,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="space-y-4">
  {/* Type Selection */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Shield size={20} className="text-info" />
  {t('pillar3.pillarType')}
  </h3>
@@ -143,7 +144,7 @@ const Pillar3Simulator: React.FC = () => {
 
  {/* Parameters */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-4">
- <h3 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Calculator size={20} className="text-info" />
  {t('pillar3.parameters')}
  </h3>
@@ -220,7 +221,7 @@ const Pillar3Simulator: React.FC = () => {
 
  {/* Chart */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <TrendingUp size={20} className="text-info" />
  {t('pillar3.growthProjection')}
  </h3>
@@ -325,7 +326,7 @@ const Pillar3Simulator: React.FC = () => {
 
  {/* Investment Options Comparison */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <BarChart3 size={20} className="text-warning" />
  {t('pillar3.investmentComparison')}
  </h3>

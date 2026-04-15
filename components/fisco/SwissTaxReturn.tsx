@@ -113,7 +113,7 @@ const SwissTaxReturn: React.FC = () => {
  {activeStep === 'overview' && (
  <div className="space-y-6 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.overview.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('swissTaxReturn.overview.title')}</h3>
  <div className="space-y-4 text-sm text-subtle">
  <p>{t('swissTaxReturn.overview.intro')}</p>
  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -185,7 +185,7 @@ const SwissTaxReturn: React.FC = () => {
 
  {/* Official Links */}
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <ExternalLink size={20} /> {t('swissTaxReturn.overview.officialLinks')}
  </h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -213,7 +213,7 @@ const SwissTaxReturn: React.FC = () => {
  {activeStep === 'quellensteuer' && (
  <div className="space-y-6 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.quellensteuer.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('swissTaxReturn.quellensteuer.title')}</h3>
  <p className="text-sm text-subtle mb-4">{t('swissTaxReturn.quellensteuer.intro')}</p>
  
  <div className="space-y-4">
@@ -292,7 +292,7 @@ const SwissTaxReturn: React.FC = () => {
  {activeStep === 'correction' && (
  <div className="space-y-6 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.correction.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('swissTaxReturn.correction.title')}</h3>
  <p className="text-sm text-subtle mb-4">{t('swissTaxReturn.correction.intro')}</p>
 
  <div className="space-y-4">
@@ -397,7 +397,7 @@ const SwissTaxReturn: React.FC = () => {
  {activeStep === 'tdr' && (
  <div className="space-y-6 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.tdr.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('swissTaxReturn.tdr.title')}</h3>
  <p className="text-sm text-subtle mb-4">{t('swissTaxReturn.tdr.intro')}</p>
 
  <div className="space-y-4">
@@ -486,7 +486,7 @@ const SwissTaxReturn: React.FC = () => {
  {activeStep === 'deductions' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.deductions.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('swissTaxReturn.deductions.title')}</h3>
  <p className="text-sm text-muted mb-6">{t('swissTaxReturn.deductions.intro')}</p>
  <div className="space-y-3">
  {SWISS_DEDUCTIONS.map(ded => (
@@ -519,7 +519,7 @@ const SwissTaxReturn: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-strong">{t('swissTaxReturn.documents.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{t('swissTaxReturn.documents.title')}</h3>
  <span className="text-sm text-muted">
  {checkedDocs.size}/{SWISS_DOCUMENTS.length} {t('swissTaxReturn.documents.completed')}
  </span>
@@ -573,7 +573,7 @@ const SwissTaxReturn: React.FC = () => {
  {activeStep === 'deadlines' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-strong mb-6">{t('swissTaxReturn.deadlines.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-6">{t('swissTaxReturn.deadlines.title')}</h3>
  <div className="relative">
  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-surface-raised" />
  <div className="space-y-6">

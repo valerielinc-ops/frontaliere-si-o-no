@@ -181,7 +181,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  <div className="w-14 h-14 bg-gradient-to-br from-warning to-warning-strong rounded-2xl flex items-center justify-center mx-auto mb-4">
  <Sparkles size={24} className="text-on-accent" />
  </div>
- <h2 className="text-2xl font-bold text-strong">
+ <h2 className="text-2xl font-bold font-display text-strong">
  {t('toolOfWeek.title')}
  </h2>
  <p className="text-subtle mt-2 text-sm">
@@ -204,7 +204,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  {t('toolOfWeek.badge')}
  </span>
  </div>
- <h3 className="font-bold text-on-accent text-xl">{toolTitle}</h3>
+ <h3 className="font-bold font-display text-on-accent text-xl">{toolTitle}</h3>
  </div>
  </div>
  </div>

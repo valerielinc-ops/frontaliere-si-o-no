@@ -315,7 +315,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  {/* Active jobs cards (extracted from static HTML) */}
  {activeJobLinks.length > 0 && (
  <div className="space-y-3">
- <h2 className="text-base font-semibold text-strong">
+ <h2 className="text-base font-semibold font-display text-strong">
  {locale === 'it' ? 'Posizioni attive simili' : locale === 'de' ? 'Ähnliche offene Stellen' : locale === 'fr' ? 'Postes similaires ouverts' : 'Similar active jobs'}
  </h2>
  <ul className="space-y-2">

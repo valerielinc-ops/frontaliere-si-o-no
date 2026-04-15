@@ -304,7 +304,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  <FileText size={16} />
  {t('strumenti.payslip')}
  </div>
- <h2 className="text-2xl sm:text-3xl font-bold text-strong">{t('payslip.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('payslip.title')}</h2>
  <p className="text-subtle mt-2 max-w-2xl mx-auto">{t('payslip.subtitle')}</p>
  </div>
 
@@ -392,7 +392,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  {/* Results Panel */}
  <div className="lg:col-span-3 bg-surface rounded-2xl border border-edge p-6">
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-strong">{t('payslip.resultTitle')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{t('payslip.resultTitle')}</h3>
  <button
  onClick={handleExportPdf}
  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning-subtle text-warning text-sm font-semibold hover:bg-warning-subtle transition-colors"

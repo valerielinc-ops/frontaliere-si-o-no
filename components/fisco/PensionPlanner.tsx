@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { Analytics } from '@/services/analytics';
 import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, Users, Home, Banknote, Calculator, Clock, Globe, Percent, Shield, Share2, Check } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import DataFreshness from '@/components/shared/DataFreshness';
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+import { lazyRetry } from '@/services/lazyRetry';
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 interface PensionInputs {
  currentAge: number;
@@ -207,7 +208,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <Users className="text-success" size={20} />
- <h2 className="text-lg font-bold text-strong">{t('pension.personalData')}</h2>
+ <h2 className="text-lg font-bold font-display text-strong">{t('pension.personalData')}</h2>
  </div>
 
  <div className="space-y-4">
@@ -260,7 +261,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <Calendar className="text-accent" size={20} />
- <h2 className="text-lg font-bold text-strong">{t('pension.workHistory')}</h2>
+ <h2 className="text-lg font-bold font-display text-strong">{t('pension.workHistory')}</h2>
  </div>
 
  <div className="space-y-4">
@@ -337,7 +338,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <Banknote className="text-accent" size={20} />
- <h2 className="text-lg font-bold text-strong">{t('pension.financialData')}</h2>
+ <h2 className="text-lg font-bold font-display text-strong">{t('pension.financialData')}</h2>
  </div>
 
  <div className="space-y-4">
@@ -399,7 +400,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <Globe className="text-warning" size={20} />
- <h2 className="text-lg font-bold text-strong">{t('pension.repatriationPlan')}</h2>
+ <h2 className="text-lg font-bold font-display text-strong">{t('pension.repatriationPlan')}</h2>
  </div>
 
  <div className="space-y-3">
@@ -555,7 +556,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
 
  {/* Breakdown Table */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
- <h2 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Calculator size={20} className="text-success" />
  {t('pension.monthlyBreakdown')}
  </h2>

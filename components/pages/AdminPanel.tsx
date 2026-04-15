@@ -1331,7 +1331,7 @@ export default function AdminPanel() {
  return (
  <div className="space-y-4">
  <div className="flex items-center justify-between">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <ListChecks size={20} className="text-accent" />
  {meta.label}
  </h2>
@@ -2766,7 +2766,7 @@ export default function AdminPanel() {
  {activeSection === 'owner' && (
  <div className="space-y-4">
  <div className="flex items-center justify-between">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Database size={20} className="text-accent" />
  Owner Tools
  </h2>
@@ -3010,7 +3010,7 @@ export default function AdminPanel() {
 
  {/* Content toggles + subject */}
  <div className="bg-surface rounded-xl border border-edge p-6 space-y-4">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Mail size={20} className="text-accent" />
  Configura Newsletter
  </h2>

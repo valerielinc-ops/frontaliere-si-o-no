@@ -74,7 +74,7 @@ export const SkeletonComparator: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
  <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl p-6">
- <h2 className="text-2xl font-bold text-heading">Confronta Servizi per Frontalieri</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Confronta Servizi per Frontalieri</h2>
  <p className="text-sm text-subtle mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
  </div>
  {/* Controls */}
@@ -96,7 +96,7 @@ export const SkeletonGuide: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl p-6">
- <h2 className="text-2xl font-bold text-heading">Guida Completa per Frontalieri</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Guida Completa per Frontalieri</h2>
  <p className="text-sm text-subtle mt-1">Tutto quello che devi sapere per lavorare in Svizzera dall'Italia</p>
  </div>
  <div className="space-y-4">
@@ -122,7 +122,7 @@ export const SkeletonDashboard: React.FC = () => (
 export const SkeletonFisco: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
- <h2 className="text-2xl font-bold text-heading">Fisco e Previdenza Frontalieri</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Fisco e Previdenza Frontalieri</h2>
  <p className="text-sm text-subtle">Tasse, pensioni e pianificazione finanziaria per lavoratori transfrontalieri</p>
  {/* Sub-tab pills */}
  <div className="flex gap-2 overflow-x-auto">
@@ -140,7 +140,7 @@ export const SkeletonFisco: React.FC = () => (
 export const SkeletonStats: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
- <h2 className="text-2xl font-bold text-heading">Statistiche Frontalieri</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Statistiche Frontalieri</h2>
  <p className="text-sm text-subtle">Dati aggiornati su flussi, stipendi e tendenze del lavoro transfrontaliero</p>
  <div className={`${pulse} h-24 rounded-2xl`} />
  <div className="grid md:grid-cols-2 gap-4">
@@ -193,7 +193,7 @@ export const SkeletonBlog: React.FC = () => {
  // Blog listing skeleton
  return (
  <div className="min-h-[80vh] space-y-6">
- <h2 className="text-2xl font-bold text-heading">Articoli e Notizie per Frontalieri</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Articoli e Notizie per Frontalieri</h2>
  <p className="text-sm text-subtle">Approfondimenti su tassazione, permessi, vita quotidiana e normative 2026</p>
  <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -208,7 +208,7 @@ export const SkeletonBlog: React.FC = () => {
 export const SkeletonVita: React.FC = () => (
  <div className="min-h-[80vh] space-y-6">
  {/* Real heading for early LCP */}
- <h2 className="text-2xl font-bold text-heading">Vivere in Ticino</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Vivere in Ticino</h2>
  <p className="text-sm text-subtle">Costo della vita, alloggi, trasporti e qualità della vita nel Canton Ticino</p>
  <div className={`${pulse} h-28 rounded-2xl`} />
  <div className="grid md:grid-cols-2 gap-4">
@@ -335,7 +335,7 @@ export const SkeletonJobBoard: React.FC = () => (
  <div className="space-y-4 min-h-[80vh]">
  {/* Header */}
  <div className="bg-gradient-to-br from-info-subtle to-accent-subtle rounded-2xl p-6">
- <h2 className="text-2xl font-bold text-heading">Offerte di Lavoro Ticino</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">Offerte di Lavoro Ticino</h2>
  <p className="text-sm text-subtle mt-1">Trova lavoro in Svizzera come frontaliere</p>
  </div>
  {/* Search + filters bar */}

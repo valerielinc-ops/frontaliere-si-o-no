@@ -313,7 +313,7 @@ const WeeklyQuiz: React.FC = () => {
  <div className="p-2 bg-success-subtle rounded-xl">
  <Brain className="w-6 h-6 text-success" />
  </div>
- <h2 className="text-2xl font-bold text-success">{t('quiz.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-success">{t('quiz.title')}</h2>
  </div>
  <p className="text-success text-sm flex items-center gap-2">
  <Clock className="w-4 h-4" />
@@ -324,7 +324,7 @@ const WeeklyQuiz: React.FC = () => {
  {/* Results Card */}
  <div className="bg-surface rounded-2xl p-5 sm:p-8 border border-edge text-center">
  <div className="text-6xl mb-4">{emoji}</div>
- <h3 className="text-2xl font-bold text-heading mb-2">
+ <h3 className="text-2xl font-bold font-display text-heading mb-2">
  {t('quiz.completed')}
  </h3>
  <p className="text-lg text-subtle mb-6">
@@ -396,7 +396,7 @@ const WeeklyQuiz: React.FC = () => {
  <div className="p-2 bg-success-subtle rounded-xl">
  <Brain className="w-6 h-6 text-success" />
  </div>
- <h2 className="text-2xl font-bold text-success">{t('quiz.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-success">{t('quiz.title')}</h2>
  </div>
  <p className="text-success text-sm flex items-center gap-2">
  <Clock className="w-4 h-4" />
@@ -429,7 +429,7 @@ const WeeklyQuiz: React.FC = () => {
 
  {/* Question Card */}
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-lg font-bold text-heading mb-6">
+ <h3 className="text-lg font-bold font-display text-heading mb-6">
  {t(currentQuestion.questionKey)}
  </h3>
 

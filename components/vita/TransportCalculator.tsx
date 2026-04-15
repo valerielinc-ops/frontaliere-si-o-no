@@ -1,7 +1,8 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { Car, Train, Bike, TrendingDown, TrendingUp, AlertCircle, Calculator, Euro, Fuel, Clock, Zap } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
@@ -191,7 +192,7 @@ const TransportCalculator: React.FC = () => {
  <div className="bg-success rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-4">
  <Car size={32} />
- <h2 className="text-2xl sm:text-3xl font-bold">{t('transport.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display">{t('transport.title')}</h2>
  </div>
  <p className="text-on-accent/80 text-lg">
  {t('transport.subtitle')}
@@ -200,7 +201,7 @@ const TransportCalculator: React.FC = () => {
 
  {/* Input Section */}
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
- <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Calculator size={20} />
  {t('transport.travelData')}
  </h3>
@@ -336,7 +337,7 @@ const TransportCalculator: React.FC = () => {
  </div>
  <div>
  <p className="text-sm font-bold text-success">{t('transport.cheapestOption')}</p>
- <h3 className="text-2xl font-bold text-strong">{cheapest.name}</h3>
+ <h3 className="text-2xl font-bold font-display text-strong">{cheapest.name}</h3>
  </div>
  </div>
  <div className="text-2xl sm:text-3xl font-bold text-success mb-2">
@@ -354,7 +355,7 @@ const TransportCalculator: React.FC = () => {
  </div>
  <div>
  <p className="text-sm font-bold text-danger">{t('transport.mostExpensive')}</p>
- <h3 className="text-2xl font-bold text-strong">{mostExpensive.name}</h3>
+ <h3 className="text-2xl font-bold font-display text-strong">{mostExpensive.name}</h3>
  </div>
  </div>
  <div className="text-2xl sm:text-3xl font-bold text-danger mb-2">
@@ -389,7 +390,7 @@ const TransportCalculator: React.FC = () => {
  {result.icon}
  </div>
  <div>
- <h3 className="text-lg font-bold text-strong">{result.name}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{result.name}</h3>
  <p className="text-sm text-muted">
  {result.type.includes('car') ? `${kmPerYear.toLocaleString()} km/${t('transport.year')}` : t('transport.publicTransport')}
  </p>
@@ -462,7 +463,7 @@ const TransportCalculator: React.FC = () => {
 
  {/* Tips Section */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-6">
- <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
  <AlertCircle size={20} className="text-warning" />
  {t('transport.savingTips')}
  </h3>

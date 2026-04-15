@@ -358,7 +358,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {/* Related active jobs — listing-style cards */}
  {relatedJobs.length > 0 && (
  <div className="space-y-2">
- <h2 className="text-base font-semibold text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
+ <h2 className="text-base font-semibold font-display text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
  <div className="space-y-2">
  {relatedJobs.slice(0, 6).map((rj) => {
  const rjSlug = rj.slug;

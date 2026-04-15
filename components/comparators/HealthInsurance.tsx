@@ -209,7 +209,7 @@ const HealthInsurance: React.FC = () => {
  <div className="bg-gradient-to-br from-danger-strong to-danger-strong-hover rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Heart size={28} />
- <h2 className="text-2xl sm:text-3xl font-bold">{t('health.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display">{t('health.title')}</h2>
  </div>
  <p className="text-on-accent text-base sm:text-lg">
  {'Confronta i premi di ' + (data?.insurers.length || '...') + ' assicurazioni LAMal svizzere in ' + (data ? Object.keys(data.premiums).length : '...') + ' località. Inserisci i tuoi dati per trovare l\'offerta migliore.'}
@@ -510,7 +510,7 @@ const HealthInsurance: React.FC = () => {
 
  {/* CMU vs LAMal comparison for French border workers */}
  <div className="bg-gradient-to-br from-danger-subtle to-danger-subtle rounded-2xl border border-danger-border p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Globe size={20} className="text-danger" />
  CMU francese vs LAMal
  </h3>
@@ -545,7 +545,7 @@ const HealthInsurance: React.FC = () => {
  </div>
 
  <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-accent" />
  LAMal svizzera vs SSN italiano
  </h3>

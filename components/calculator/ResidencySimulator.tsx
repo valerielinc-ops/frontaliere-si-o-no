@@ -382,7 +382,7 @@ const ResidencySimulator: React.FC = () => {
  <div className="p-2 bg-accent-subtle rounded-xl">
  <Home className="w-6 h-6 text-accent" />
  </div>
- <h2 className="text-2xl font-bold text-strong">{t('residency.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-strong">{t('residency.title')}</h2>
  </div>
  <p className="text-body text-sm">{t('residency.subtitle')}</p>
  </div>
@@ -616,7 +616,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  <div className="flex items-center justify-between">
  <div className="flex items-center gap-3">
  <Star className="w-6 h-6 text-accent" />
- <h3 className="text-lg font-bold text-accent">{t('residency.bestMunicipality.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-accent">{t('residency.bestMunicipality.title')}</h3>
  </div>
  <span className="text-xs text-accent font-medium bg-accent-subtle px-2.5 py-1 rounded-full">
  {IT_LOCATIONS.length} {t('residency.bestMunicipality.municipalities') || 'comuni'}

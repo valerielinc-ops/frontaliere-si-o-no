@@ -179,7 +179,7 @@ export default function Sindacati() {
  <div className="p-2 bg-info-subtle rounded-xl">
  <Shield className="w-5 h-5 text-info" />
  </div>
- <h2 className="text-lg font-bold text-heading">Perché iscriversi a un sindacato?</h2>
+ <h2 className="text-lg font-bold font-display text-heading">Perché iscriversi a un sindacato?</h2>
  </div>
  <div className="grid sm:grid-cols-2 gap-3">
  {[
@@ -198,7 +198,7 @@ export default function Sindacati() {
 
  {/* Swiss Unions */}
  <div>
- <h2 className="text-xl font-bold text-heading mb-4 flex items-center gap-2">
+ <h2 className="text-xl font-bold font-display text-heading mb-4 flex items-center gap-2">
  🇨🇭 Sindacati Svizzeri
  </h2>
  <div className="grid sm:grid-cols-2 gap-4">
@@ -210,7 +210,7 @@ export default function Sindacati() {
 
  {/* Italian Unions */}
  <div>
- <h2 className="text-xl font-bold text-heading mb-4 flex items-center gap-2">
+ <h2 className="text-xl font-bold font-display text-heading mb-4 flex items-center gap-2">
  🇮🇹 Sindacati Italiani
  </h2>
  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -222,7 +222,7 @@ export default function Sindacati() {
 
  {/* Frontalier-specific rights */}
  <div className="rounded-2xl border border-edge bg-surface p-6">
- <h2 className="text-lg font-bold text-heading mb-4 flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2">
  <Building2 size={20} className="text-warning" />
  Diritti specifici del frontaliere
  </h2>

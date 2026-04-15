@@ -264,7 +264,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
  {/* Results */}
  <div className="space-y-4">
- <h2 className="text-2xl font-bold text-strong flex items-center gap-2">
+ <h2 className="text-2xl font-bold font-display text-strong flex items-center gap-2">
  <Trophy size={24} className="text-warning" />
  {t('jobs.ranking')}
  </h2>
@@ -287,7 +287,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
  <div className="flex items-start justify-between gap-4 mb-4">
  <div>
- <h3 className="text-xl font-bold text-strong">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
+ <h3 className="text-xl font-bold font-display text-strong">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
  <p className="text-sm text-muted">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
  </div>
  <div className="text-right">

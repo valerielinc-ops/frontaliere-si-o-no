@@ -89,7 +89,7 @@ const FaqSection: React.FC = () => {
  <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <HelpCircle size={28} />
- <h2 className="text-2xl font-bold">{t('faq.title')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('faq.title')}</h2>
  </div>
  <p className="text-on-accent text-sm">{t('faq.subtitle')}</p>
  </div>

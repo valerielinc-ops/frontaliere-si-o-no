@@ -5,8 +5,9 @@
  * - Detail: dedicated SEO-friendly page per job (slug route), with sidebar widgets and related jobs.
  */
 
-import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
-const JobAlertForm = lazy(() => import('@/components/community/JobAlertForm'));
+import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
+import { lazyRetry } from '@/services/lazyRetry';
+const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { normalizeSearchText } from '@/services/textUtils';
@@ -2396,7 +2397,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  )}
  </div>
  <div className="min-w-0 flex-1">
- <h2 className="text-sm sm:text-base font-bold text-heading leading-tight">
+ <h2 className="text-sm sm:text-base font-bold font-display text-heading leading-tight">
  {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
  {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" />}
  {isNew && (
@@ -4455,7 +4456,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center gap-3">
  <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="flex-shrink-0 rounded-stripe" loading="lazy" />
  <div>
- <h2 className="text-lg font-bold text-heading">{t('jobBoard.gate.title')}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
  <p className="text-xs font-medium text-accent">frontaliereticino.ch</p>
  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
  </div>
@@ -4660,7 +4661,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -4697,7 +4698,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading mb-4">{section.label}</h2>
  <div className="space-y-3">
  {section.jobs.map((job) => renderJobCard(job))}
  </div>
@@ -4773,7 +4774,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <section className="grid gap-3 lg:grid-cols-3">
  {editorialOfficialGazetteLanding.explainerCards.map((card) => (
  <article key={card.title} className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading">{card.title}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{card.title}</h2>
  <p className="mt-3 text-sm leading-7 text-subtle">{card.body}</p>
  </article>
  ))}
@@ -4782,7 +4783,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -4802,7 +4803,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ))}
 
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
  </h2>
  <div className="space-y-3">
@@ -4847,7 +4848,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialNursesHubLanding.variants.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">{editorialNursesHubLanding.variantTitle}</h2>
+ <h2 className="text-lg font-bold font-display text-heading mb-4">{editorialNursesHubLanding.variantTitle}</h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
  {editorialNursesHubLanding.variants.map((link) => {
  const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
@@ -4874,7 +4875,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <section className="grid gap-3 lg:grid-cols-3">
  {editorialNursesHubLanding.explainerCards.map((card) => (
  <article key={card.title} className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading">{card.title}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{card.title}</h2>
  <p className="mt-3 text-sm leading-7 text-subtle">{card.body}</p>
  </article>
  ))}
@@ -4883,7 +4884,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -4903,7 +4904,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ))}
 
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
  </h2>
  <div className="space-y-3">
@@ -4959,7 +4960,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialCareVariantLanding.siblingLinks.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante'}
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
@@ -4988,7 +4989,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -5037,7 +5038,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialLocationLanding.relatedTypeLinks.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? `Tipi di lavoro a ${editorialLocationLanding.location}` : locale === 'en' ? `Job types in ${editorialLocationLanding.location}` : locale === 'de' ? `Jobtypen in ${editorialLocationLanding.location}` : `Types d'emploi a ${editorialLocationLanding.location}`}
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5065,7 +5066,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialLocationLanding.relatedSectorLinks.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? `Settori a ${editorialLocationLanding.location}` : locale === 'en' ? `Sectors in ${editorialLocationLanding.location}` : locale === 'de' ? `Branchen in ${editorialLocationLanding.location}` : `Secteurs a ${editorialLocationLanding.location}`}
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5094,7 +5095,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -5155,7 +5156,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialLocationTypeLanding.siblingTypeLinks.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? `Altri tipi di lavoro a ${editorialLocationTypeLanding.location}` : locale === 'en' ? `Other job types in ${editorialLocationTypeLanding.location}` : locale === 'de' ? `Weitere Jobtypen in ${editorialLocationTypeLanding.location}` : `Autres types d'emploi a ${editorialLocationTypeLanding.location}`}
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5184,7 +5185,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -5245,7 +5246,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialLocationSectorLanding.siblingSectorLinks.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? `Altri settori a ${editorialLocationSectorLanding.location}` : locale === 'en' ? `Other sectors in ${editorialLocationSectorLanding.location}` : locale === 'de' ? `Weitere Branchen in ${editorialLocationSectorLanding.location}` : `Autres secteurs a ${editorialLocationSectorLanding.location}`}
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5274,7 +5275,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -5334,7 +5335,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
  {locale === 'it' ? 'Altri settori in Ticino' : locale === 'en' ? 'Other sectors in Ticino' : locale === 'de' ? 'Weitere Branchen im Tessin' : 'Autres secteurs au Tessin'}
  </h2>
@@ -5364,7 +5365,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {editorialLandingSections.map((section) => (
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between gap-4 mb-4">
- <h2 className="text-lg font-bold text-heading">{section.label}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
  href={buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
@@ -5518,7 +5519,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Eye className="w-5 h-5 text-accent" />
  </div>
  <div>
- <h2 className="text-lg font-bold text-heading">{t('jobBoard.gate.title')}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
  </div>
  </div>
@@ -5714,7 +5715,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Similar jobs — gate view (listing-style cards) */}
  {relatedJobs.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
- <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2>
+ <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2>
  <div className="space-y-2">
  {relatedJobs.map((job) => {
  const jobHref = buildJobPath(job);
@@ -6225,7 +6226,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Calendar size={15} className="text-info" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Search size={15} className="text-accent" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold font-display text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold font-display text-heading"> <Calendar size={15} className="text-info" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold font-display text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold font-display text-heading"> <Search size={15} className="text-accent" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold font-display text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}
@@ -6258,7 +6259,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {relatedArticles.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between mb-4">
- <h2 className="text-lg font-bold text-heading flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-heading flex items-center gap-2">
  <BookOpen className="w-5 h-5 text-success" />
  {t('jobBoard.relatedArticlesTitle')}
  </h2>
@@ -6815,7 +6816,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Building2 className="w-8 h-8 text-info" />
  </div>
  <div className="flex-1">
- <h3 className="font-bold text-heading text-lg">{t('jobBoard.cta.title', getCantonI18nParams())}</h3>
+ <h3 className="font-bold font-display text-heading text-lg">{t('jobBoard.cta.title', getCantonI18nParams())}</h3>
  <p className="text-sm text-subtle mt-1">{t('jobBoard.cta.description')}</p>
  </div>
  <button

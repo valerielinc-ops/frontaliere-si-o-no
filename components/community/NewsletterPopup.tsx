@@ -421,7 +421,7 @@ const NewsletterPopup: React.FC = () => {
  <div className="p-2 bg-on-accent/20 rounded-xl">
  <Bell className="w-6 h-6" />
  </div>
- <h2 className="text-xl font-bold">
+ <h2 className="text-xl font-bold font-display">
  {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.title') : t('newsletter.popup.title')}
  </h2>
  </div>

@@ -147,7 +147,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="p-1.5 bg-info-subtle rounded-lg">
  <MapPin className="w-5 h-5 text-info" />
  </div>
- <h2 className="text-lg font-bold text-info">{t('bordermap.title')}</h2>
+ <h2 className="text-lg font-bold font-display text-info">{t('bordermap.title')}</h2>
  </div>
 
  {/* Inline filter pills + province dropdown */}
@@ -390,7 +390,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="p-2 bg-info-subtle rounded-xl">
  <MapPin className="w-6 h-6 text-info" />
  </div>
- <h2 className="text-2xl font-bold text-info">{t('bordermap.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-info">{t('bordermap.title')}</h2>
  </div>
  <p className="text-info text-sm">{t('bordermap.subtitle')}</p>
  </div>
@@ -466,7 +466,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="p-2 bg-warning-subtle rounded-xl">
  <DollarSign className="w-6 h-6 text-warning" />
  </div>
- <h2 className="text-2xl font-bold text-warning">{t('bordermap.taxImpact')}</h2>
+ <h2 className="text-2xl font-bold font-display text-warning">{t('bordermap.taxImpact')}</h2>
  </div>
  <p className="text-warning text-sm">{t('bordermap.taxImpactDesc')}</p>
  </div>
@@ -627,7 +627,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {selectedMunicipality && (
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <div className="flex items-center justify-between mb-3">
- <h3 className="text-lg font-bold text-strong">{selectedMunicipality.name}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{selectedMunicipality.name}</h3>
  <span className="text-xs px-2 py-1 rounded-full bg-info-subtle text-info font-bold">
  {t('bordermap.fascia')} {selectedMunicipality.fascia}
  </span>

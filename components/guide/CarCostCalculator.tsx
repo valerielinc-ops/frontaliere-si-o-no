@@ -163,7 +163,7 @@ export default function CarCostCalculator() {
  <div className="bg-surface rounded-xl shadow-lg p-6">
  <div className="flex items-center gap-3 mb-2">
  <Car className="text-warning" size={28} />
- <h2 className="text-2xl font-bold text-heading">{t('carCost.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{t('carCost.title')}</h2>
  </div>
  <p className="text-subtle">{t('carCost.subtitle')}</p>
  </div>
@@ -280,7 +280,7 @@ export default function CarCostCalculator() {
  <div className="lg:col-span-3 space-y-4">
  <div className="bg-surface rounded-xl shadow p-5">
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-heading">{t('carCost.resultTitle')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading">{t('carCost.resultTitle')}</h3>
  <button
  onClick={handleExportPDF}
  className="flex items-center gap-1.5 px-3 py-1.5 bg-warning-strong text-on-accent text-sm rounded-lg hover:bg-warning-strong-hover transition"

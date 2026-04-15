@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement } from 'react';
+import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
@@ -15,11 +16,11 @@ import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
-const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 
 /* ─── Article view counter (Firestore) ─── */
 
@@ -358,7 +359,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  const tableEl = inlineBody ? tryRenderMdTable(inlineBody, `h3tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`h3-${idx}`} className="space-y-1.5">
- <h3 id={headingId} className="text-lg font-semibold text-strong mt-4 mb-1 scroll-mt-20">
+ <h3 id={headingId} className="text-lg font-semibold font-display text-strong mt-4 mb-1 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h3>
  {tableEl || (inlineBody && (
@@ -416,7 +417,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  const h2TableEl = inlineBody ? tryRenderMdTable(inlineBody, `h2tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`heading-${idx}`} className="space-y-2">
- <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-heading border-l-4 border-accent pl-3 mt-6 mb-2 scroll-mt-20">
+ <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold font-display text-heading border-l-4 border-accent pl-3 mt-6 mb-2 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h2>
  {h2TableEl || (inlineBody && (
@@ -2174,7 +2175,7 @@ function BlogArticles({
  >
  <div className="min-w-0 flex-1">
  <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
- <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
+ <p className="text-sm font-semibold font-display text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold font-display text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold font-display px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold font-display text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
  </p>
  <div className="flex items-center gap-2 mt-1">
  <span className="text-xs text-warning font-medium">
@@ -2199,7 +2200,7 @@ function BlogArticles({
  {relatedJobs.length > 0 ? (
  <div className="border-t border-edge pt-6 mt-6">
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Briefcase size={18} className="text-accent" />
  {t('blog.relatedJobs')}
  </h3>
@@ -2517,7 +2518,7 @@ function BlogArticles({
  </span>
  )}
  </div>
- <h2 className="text-xl sm:text-2xl font-bold text-on-accent mb-2 leading-tight">
+ <h2 className="text-xl sm:text-2xl font-bold font-display text-on-accent mb-2 leading-tight">
  {t(`blog.article.${pageArticles[0].id}.title`)}
  </h2>
  <p className="text-on-accent/90 text-sm line-clamp-2 max-w-2xl leading-relaxed">

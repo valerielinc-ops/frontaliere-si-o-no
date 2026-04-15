@@ -18,7 +18,7 @@ export default function FaqAccordion({ title, items, className = '' }: FaqAccord
  return (
  <div className={`${className}`} data-speakable>
  {title && (
- <h2 className="text-lg font-bold text-heading mb-4 flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2">
  <HelpCircle size={20} className="text-link" />
  {title}
  </h2>

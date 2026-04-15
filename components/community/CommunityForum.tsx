@@ -270,7 +270,7 @@ const CommunityForum: React.FC = () => {
 
  {/* Content */}
  <div className="flex-1 min-w-0">
- <h2 className="text-xl font-bold text-strong mb-2">
+ <h2 className="text-xl font-bold font-display text-strong mb-2">
  {selectedQuestion.title}
  </h2>
  <p className="text-sm text-subtle whitespace-pre-wrap leading-relaxed">
@@ -403,7 +403,7 @@ const CommunityForum: React.FC = () => {
  <div className="p-2 bg-success-subtle rounded-xl">
  <MessageSquare className="w-6 h-6 text-success" />
  </div>
- <h2 className="text-2xl font-bold text-success">{t('forum.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-success">{t('forum.title')}</h2>
  </div>
  <p className="text-success text-sm">{t('forum.subtitle')}</p>
  </div>

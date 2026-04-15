@@ -387,7 +387,7 @@ const MobileOperators: React.FC = () => {
  <div className="bg-warning-subtle/80 rounded-2xl p-5 sm:p-8 border border-warning-border">
  <div className="flex items-center gap-3 mb-4">
  <Smartphone size={32} className="text-warning" />
- <h2 className="text-2xl sm:text-3xl font-bold text-heading">{t('mobile.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-heading">{t('mobile.title')}</h2>
  </div>
  <p className="text-muted text-lg">
  {t('mobile.subtitle')}
@@ -460,7 +460,7 @@ const MobileOperators: React.FC = () => {
 
  {/* Best Options Summary */}
  <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl border border-success-border p-6">
- <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
  <CheckCircle2 size={20} className="text-success" />
  {t('mobile.bestOptions')}
  </h3>
@@ -530,7 +530,7 @@ const MobileOperators: React.FC = () => {
  {operator.logo}
  </div>
  <div>
- <h3 className="text-xl font-bold text-strong">{operator.name}</h3>
+ <h3 className="text-xl font-bold font-display text-strong">{operator.name}</h3>
  <p className="text-sm text-muted">
  {operator.country === 'IT' ? '🇮🇹 Italia' : '🇨🇭 Svizzera'} • {operator.contractType}
  </p>
@@ -673,7 +673,7 @@ const MobileOperators: React.FC = () => {
 
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-6">
- <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-accent" />
  {t('mobile.tipsTitle')}
  </h3>

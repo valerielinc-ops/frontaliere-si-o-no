@@ -352,7 +352,7 @@ const WorkPermitsGuide: React.FC = () => {
  <div className="flex items-center gap-3 mb-3">
  <span className="text-4xl">{permit.icon}</span>
  <div>
- <h2 className="text-2xl font-bold">{permit.name} — {permit.fullName}</h2>
+ <h2 className="text-2xl font-bold font-display">{permit.name} — {permit.fullName}</h2>
  <p className="text-on-accent/90 text-sm mt-1">{permit.forWhom}</p>
  </div>
  </div>
@@ -504,7 +504,7 @@ const WorkPermitsGuide: React.FC = () => {
 
  {/* Comparison table */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Globe size={20} className="text-accent" />
  {t('permits.comparisonTitle')}
  </h3>

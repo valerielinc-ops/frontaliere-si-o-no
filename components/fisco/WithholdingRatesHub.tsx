@@ -548,7 +548,7 @@ export default function WithholdingRatesHub() {
 
  <section className="space-y-4">
  <div>
- <h2 className="text-2xl font-bold text-heading">{copy.cardsTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.cardsTitle}</h2>
  </div>
  <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
  {SCENARIOS.map((scenario) => {
@@ -561,7 +561,7 @@ export default function WithholdingRatesHub() {
  <div className="inline-flex rounded-full bg-success-subtle px-3 py-1 text-xs font-bold text-success">
  {scenario.badge}
  </div>
- <h3 className="mt-4 text-lg font-bold text-heading">{item.title}</h3>
+ <h3 className="mt-4 text-lg font-bold font-display text-heading">{item.title}</h3>
  <p className="mt-2 text-sm font-semibold text-body">{item.who}</p>
  <p className="mt-3 text-sm leading-7 text-subtle">{item.detail}</p>
  </article>
@@ -573,7 +573,7 @@ export default function WithholdingRatesHub() {
  <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <Receipt className="h-5 w-5 text-success" />
- <h2 className="text-2xl font-bold text-heading">{copy.matrixTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.matrixTitle}</h2>
  </div>
  <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">{copy.matrixIntro}</p>
  <div className="mt-5 overflow-x-auto">
@@ -607,7 +607,7 @@ export default function WithholdingRatesHub() {
  <section className="rounded-2xl border border-success-border bg-success-subtle p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <ExternalLink className="h-5 w-5 text-success" />
- <h2 className="text-2xl font-bold text-heading">{copy.officialSourcesTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.officialSourcesTitle}</h2>
  </div>
  <p className="mt-3 max-w-4xl text-sm leading-7 text-body">{copy.officialSourcesIntro}</p>
  <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -633,7 +633,7 @@ export default function WithholdingRatesHub() {
  <article className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <HelpCircle className="h-5 w-5 text-success" />
- <h2 className="text-2xl font-bold text-heading">{copy.fitTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.fitTitle}</h2>
  </div>
  <p className="mt-3 text-sm leading-7 text-subtle">{copy.fitIntro}</p>
  <div className="mt-5 space-y-3">
@@ -656,7 +656,7 @@ export default function WithholdingRatesHub() {
  <article className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <CheckCircle2 className="h-5 w-5 text-success" />
- <h2 className="text-2xl font-bold text-heading">{copy.notesTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.notesTitle}</h2>
  </div>
  <ul className="mt-5 space-y-3">
  {copy.notes.map((note) => (
@@ -671,7 +671,7 @@ export default function WithholdingRatesHub() {
  <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <Calculator className="h-5 w-5 text-success" />
- <h2 className="text-2xl font-bold text-heading">{copy.deepLinksTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.deepLinksTitle}</h2>
  </div>
  <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">{copy.deepLinksIntro}</p>
  <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -695,7 +695,7 @@ export default function WithholdingRatesHub() {
  <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <FileText className="h-5 w-5 text-success" />
- <h2 className="text-2xl font-bold text-heading">{copy.faqTitle}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{copy.faqTitle}</h2>
  </div>
  <div className="mt-5 grid gap-4">
  {copy.faq.map((item) => (

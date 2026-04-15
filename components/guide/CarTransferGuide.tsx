@@ -41,7 +41,7 @@ const CarTransferGuide: React.FC = () => {
  <Car size={28} />
  </div>
  <div>
- <h2 className="text-2xl font-bold">{t('carTransfer.title')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('carTransfer.title')}</h2>
  <p className="text-on-accent/70 text-sm mt-1">{t('carTransfer.subtitle')}</p>
  </div>
  </div>
@@ -75,7 +75,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'overview' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4">{t('carTransfer.overview.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('carTransfer.overview.title')}</h3>
  <p className="text-subtle mb-6">{t('carTransfer.overview.intro')}</p>
  
  {/* Timeline */}
@@ -125,7 +125,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'customs' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Landmark size={20} className="text-accent" />
  {t('carTransfer.customs.title')}
  </h3>
@@ -185,7 +185,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'registration' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <FileText size={20} className="text-accent" />
  {t('carTransfer.registration.title')}
  </h3>
@@ -240,7 +240,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'plates' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <MapPin size={20} className="text-accent" />
  {t('carTransfer.plates.title')}
  </h3>
@@ -311,7 +311,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'license' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <CreditCard size={20} className="text-accent" />
  {t('carTransfer.license.title')}
  </h3>
@@ -375,7 +375,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'insurance' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Shield size={20} className="text-accent" />
  {t('carTransfer.insurance.title')}
  </h3>
@@ -418,7 +418,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'costs' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <CreditCard size={20} className="text-accent" />
  {t('carTransfer.costs.title')}
  </h3>
@@ -468,7 +468,7 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'checklist' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <CheckCircle2 size={20} className="text-success" />
  {t('carTransfer.checklist.title')}
  </h3>
@@ -527,7 +527,7 @@ const CarTransferGuide: React.FC = () => {
 
  {/* FAQ */}
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4">{t('carTransfer.faq.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('carTransfer.faq.title')}</h3>
  <div className="space-y-2">
  {faqItems.map((item, i) => (
  <div key={i} className="border border-edge rounded-xl overflow-hidden">
@@ -550,7 +550,7 @@ const CarTransferGuide: React.FC = () => {
 
  {/* Useful Links */}
  <div className="bg-surface-alt rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold text-strong mb-4">{t('carTransfer.links.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong mb-4">{t('carTransfer.links.title')}</h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  {[
  { label: t('carTransfer.links.bazg'), url: 'https://www.bazg.admin.ch/bazg/it/home.html' },

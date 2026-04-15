@@ -187,7 +187,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  <ChartBar size={24} className="text-subtle" />
  </div>
  <div>
- <h2 className="text-xl font-bold text-strong">{t('currency.historical_extremes')}</h2>
+ <h2 className="text-xl font-bold font-display text-strong">{t('currency.historical_extremes')}</h2>
  <p className="text-sm text-subtle">
  {historyData.length} {t('currency.data_points')}
  </p>
@@ -357,7 +357,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </div>
  <div>
  <div className="flex items-center gap-2">
- <h2 className="text-xl font-bold text-strong">{t('currency.when_to_exchange')}</h2>
+ <h2 className="text-xl font-bold font-display text-strong">{t('currency.when_to_exchange')}</h2>
  <span className="px-2 py-0.5 bg-warning-subtle text-warning text-xs font-bold uppercase rounded-full tracking-wider">{t('currency.experimental')}</span>
  </div>
  <p className="text-sm text-subtle mt-0.5">
@@ -647,7 +647,7 @@ const WeightedAverageStats: React.FC<{
  <BarChart3 size={24} className="text-link" />
  </div>
  <div>
- <h2 className="text-xl font-bold text-strong">📊 {t('currency.weighted_avg_stats')}</h2>
+ <h2 className="text-xl font-bold font-display text-strong">📊 {t('currency.weighted_avg_stats')}</h2>
  <p className="text-sm text-subtle">
  {t('currency.weighted_avg_desc', { period: periodLabel })}
  </p>

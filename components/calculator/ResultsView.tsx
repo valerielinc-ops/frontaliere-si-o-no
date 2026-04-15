@@ -439,7 +439,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  <div className="p-5 bg-surface border-b border-edge flex justify-between items-start sm:items-center sticky top-0 z-10 gap-4 flex-col sm:flex-row">
  <div className="flex-1 w-full">
  <div className="flex justify-between items-center mb-2">
- <h2 className="text-lg font-bold text-strong">{t('results.comparativeAnalysis')}</h2>
+ <h2 className="text-lg font-bold font-display text-strong">{t('results.comparativeAnalysis')}</h2>
  {/* Action buttons - aligned together */}
  <div className="flex items-center gap-1">
  {/* CHF / EUR toggle switch */}
@@ -540,7 +540,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  <div className="min-w-0">
  <div className="flex items-center gap-2 mb-1">
  {/* Improved Wording */}
- <h3 className="text-xl sm:text-2xl font-bold tracking-tight truncate">
+ <h3 className="text-xl sm:text-2xl font-bold font-display tracking-tight truncate">
  {isBetterFrontaliere ? t('results.frontierBetter') : t('results.swissBetter')}
  </h3>
  {isBetterFrontaliere && <PartyPopper size={24} className="animate-spin [animation-duration:1s] [animation-iteration-count:1] text-on-accent" />}

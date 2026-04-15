@@ -145,7 +145,7 @@ const InfoCard = ({ icon: Icon, title, children, color ="blue" }: any) => {
  <div className={`p-2.5 bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} rounded-xl`}>
  <Icon className="text-on-accent" size={20} />
  </div>
- <h3 className="text-lg font-bold text-strong">{title}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{title}</h3>
  </div>
  <div className="space-y-3 text-sm text-subtle">
  {children}
@@ -160,7 +160,7 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
  <Icon className="text-on-accent" size={28} />
  </div>
  <div>
- <h2 className="text-2xl sm:text-3xl font-bold text-strong">{title}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong">{title}</h2>
  {subtitle && <p className="text-sm text-muted mt-1">{subtitle}</p>}
  </div>
  </div>
@@ -257,7 +257,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  <div className="flex items-center gap-3">
  <BookOpen size={24} />
  <div>
- <h3 className="text-lg font-bold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
+ <h3 className="text-lg font-bold font-display">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
  <p className="text-on-accent/80 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
  </div>
  </div>
@@ -383,7 +383,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  <div className="bg-surface rounded-2xl border-2 border-accent-border p-5 sm:p-6 shadow-lg animate-fade-in">
  <div className="flex items-start justify-between gap-4 mb-5">
  <div>
- <h3 className="text-xl font-bold text-strong">{municipality.name}</h3>
+ <h3 className="text-xl font-bold font-display text-strong">{municipality.name}</h3>
  <p className="text-sm text-muted mt-0.5">
  {municipality.province} · {
  municipality.type === 'both'
@@ -778,7 +778,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="flex items-start justify-between gap-4">
  <div className="flex-1">
  <div className="flex items-center gap-3 mb-2 flex-wrap">
- <h3 className="text-xl font-bold text-strong">{m.name}</h3>
+ <h3 className="text-xl font-bold font-display text-strong">{m.name}</h3>
  {m.type === 'both' ? (
  <>
  <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-accent-strong text-on-accent">
@@ -840,7 +840,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="p-2 bg-gradient-to-br from-success-strong to-info-strong rounded-xl">
  <MapPin className="text-on-accent" size={20} />
  </div>
- <h3 className="text-xl font-bold text-strong">{t('guide.municipalities.mapTitle')}</h3>
+ <h3 className="text-xl font-bold font-display text-strong">{t('guide.municipalities.mapTitle')}</h3>
  </div>
  {/* Legenda */}
  <div className="flex gap-4 mb-4 flex-wrap text-sm">
@@ -1148,7 +1148,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <Navigation className="text-on-accent" size={18} />
  </div>
  <div className="flex-1">
- <h3 className="text-lg font-bold text-strong">{border.name}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{border.name}</h3>
  <p className="text-sm text-muted">📍 {border.italianSide}</p>
  </div>
  </div>

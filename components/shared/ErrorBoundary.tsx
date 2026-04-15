@@ -59,10 +59,10 @@ export class ErrorBoundary extends Component<Props, State> {
  if (match) crashedComponent = match[1];
  }
 
- // Chunk errors are handled by lazyRetry (clear caches + retry import).
- // If we reach ErrorBoundary, lazyRetry already exhausted its retry.
- // Do NOT auto-reload — it creates a double-retry loop.
- // Just show the error UI with a manual refresh button.
+ // Chunk errors: lazyRetry clears caches, retries twice, then auto-reloads
+ // the page (once per session via sessionStorage guard). If we reach
+ // ErrorBoundary, the auto-reload already happened or was blocked by the
+ // guard. Show error UI with a manual refresh button.
  const msg = error?.message || '';
  const isChunkError =
  msg.includes('dynamically imported module') ||
@@ -108,7 +108,7 @@ export class ErrorBoundary extends Component<Props, State> {
  <div className="bg-danger-subtle p-4 rounded-full mb-4">
  <AlertTriangle size={48} className="text-danger" />
  </div>
- <h2 className="text-2xl font-bold text-strong mb-2">{t('error.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-strong mb-2">{t('error.title')}</h2>
  <p className="text-muted max-w-md mb-6">
  {t('error.message')}
  </p>

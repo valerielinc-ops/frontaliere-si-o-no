@@ -150,7 +150,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <div className="p-2 bg-warning-subtle rounded-xl">
  <Baby className="w-6 h-6 text-warning" />
  </div>
- <h2 className="text-2xl font-bold text-warning">{t('leave.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-warning">{t('leave.title')}</h2>
  </div>
  <p className="text-warning text-sm">{t('leave.subtitle')}</p>
  </div>

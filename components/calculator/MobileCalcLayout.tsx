@@ -523,7 +523,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  <div role="dialog" aria-modal="true" aria-label={t('newsletterGate.title') || 'Iscriviti alla newsletter'} className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[71] bg-surface rounded-2xl shadow-2xl max-w-sm mx-auto overflow-hidden animate-fade-in">
  <div className="bg-gradient-to-r from-info-strong to-success-strong px-5 py-4 text-center">
  <Mail size={28} className="text-on-accent mx-auto mb-2" />
- <h3 className="text-on-accent font-bold text-lg">{t('newsletterGate.title')}</h3>
+ <h3 className="text-on-accent font-bold font-display text-lg">{t('newsletterGate.title')}</h3>
  <p className="text-on-accent/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
  </div>
  <div className="p-5 space-y-3">

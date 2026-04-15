@@ -40,7 +40,7 @@ export const TermsOfService: React.FC = () => {
  <div className="p-2 bg-accent-subtle rounded-xl">
  <Globe className="text-link" size={24} />
  </div>
- <h2 className="text-xl font-bold text-strong">1. Natura del Servizio</h2>
+ <h2 className="text-xl font-bold font-display text-strong">1. Natura del Servizio</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <p>
@@ -60,7 +60,7 @@ export const TermsOfService: React.FC = () => {
  <div className="p-2 bg-warning-subtle rounded-xl">
  <AlertTriangle className="text-warning" size={24} />
  </div>
- <h2 className="text-xl font-bold text-strong">2. Esclusione di Responsabilità</h2>
+ <h2 className="text-xl font-bold font-display text-strong">2. Esclusione di Responsabilità</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <div className="bg-warning-subtle p-4 rounded-xl border border-warning-border">
@@ -86,7 +86,7 @@ export const TermsOfService: React.FC = () => {
  <div className="p-2 bg-accent-subtle rounded-xl">
  <Scale className="text-accent" size={24} />
  </div>
- <h2 className="text-xl font-bold text-strong">3. Proprietà Intellettuale</h2>
+ <h2 className="text-xl font-bold font-display text-strong">3. Proprietà Intellettuale</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <p>
@@ -106,7 +106,7 @@ export const TermsOfService: React.FC = () => {
  <div className="p-2 bg-success-subtle rounded-xl">
  <FileText className="text-success" size={24} />
  </div>
- <h2 className="text-xl font-bold text-strong">4. Utilizzo Accettabile</h2>
+ <h2 className="text-xl font-bold font-display text-strong">4. Utilizzo Accettabile</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <p>L'utente si impegna a:</p>
@@ -125,7 +125,7 @@ export const TermsOfService: React.FC = () => {
  <div className="p-2 bg-surface-raised rounded-xl">
  <FileText className="text-subtle" size={24} />
  </div>
- <h2 className="text-xl font-bold text-strong">5. Modifiche ai Termini</h2>
+ <h2 className="text-xl font-bold font-display text-strong">5. Modifiche ai Termini</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <p>
@@ -139,7 +139,7 @@ export const TermsOfService: React.FC = () => {
  {/* Section 6: Contatti */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="space-y-3 text-subtle">
- <h2 className="text-xl font-bold text-strong">6. Contatti</h2>
+ <h2 className="text-xl font-bold font-display text-strong">6. Contatti</h2>
  <p>
  Per domande o chiarimenti sui presenti termini di servizio, puoi contattarci tramite
  la <button onClick={() => nav.navigateTo('contact')} className="text-accent hover:underline font-semibold">pagina contatti</button> o

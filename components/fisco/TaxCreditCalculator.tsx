@@ -8,10 +8,11 @@
  * Italian income.
  */
 
-import React, { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { Info, ChevronDown, ChevronUp, HelpCircle, Receipt, RefreshCw, Users, Plus, Minus } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
@@ -213,7 +214,7 @@ const TaxCreditCalculator: React.FC = () => {
  <Receipt size={24} className="text-success" />
  </div>
  <div>
- <h2 className="text-lg font-bold text-heading">{t('taxCredit.title')}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{t('taxCredit.title')}</h2>
  <p className="text-sm text-subtle">{t('taxCredit.subtitle')}</p>
  </div>
  </div>
@@ -387,7 +388,7 @@ const TaxCreditCalculator: React.FC = () => {
 
  {/* Results — always visible, updates automatically */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
- <h3 className="text-lg font-bold text-heading mb-4">{t('taxCredit.results')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading mb-4">{t('taxCredit.results')}</h3>
 
  {/* Summary cards */}
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">

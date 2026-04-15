@@ -256,7 +256,7 @@ const TfrCalculator: React.FC = () => {
  <div className="flex items-start gap-3">
  <AlertTriangle className="w-5 h-5 text-warning flex-shrink-0 mt-0.5" />
  <div className="space-y-2">
- <h2 className="font-bold text-heading text-sm">{t('tfr.noTfrTitle')}</h2>
+ <h2 className="font-bold font-display text-heading text-sm">{t('tfr.noTfrTitle')}</h2>
  <p className="text-sm text-body leading-relaxed">{t('tfr.noTfrText')}</p>
  </div>
  </div>
@@ -264,7 +264,7 @@ const TfrCalculator: React.FC = () => {
 
  {/* ── Explanation: What replaces TFR in Switzerland ── */}
  <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
- <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+ <h2 className="font-bold font-display text-heading text-lg flex items-center gap-2">
  <PiggyBank className="w-5 h-5 text-link" />
  {t('tfr.whatReplacesTitle')}
  </h2>
@@ -301,7 +301,7 @@ const TfrCalculator: React.FC = () => {
 
  {/* ── Simulator inputs ── */}
  <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
- <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+ <h2 className="font-bold font-display text-heading text-lg flex items-center gap-2">
  <Calculator className="w-5 h-5 text-success" />
  {t('tfr.simulatorTitle')}
  </h2>
@@ -434,7 +434,7 @@ const TfrCalculator: React.FC = () => {
 
  {/* ── Results ── */}
  <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
- <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+ <h2 className="font-bold font-display text-heading text-lg flex items-center gap-2">
  <Scale className="w-5 h-5 text-accent" />
  {t('tfr.resultsTitle')}
  <span className="text-xs font-normal text-muted">
@@ -493,7 +493,7 @@ const TfrCalculator: React.FC = () => {
  className="w-full flex items-center justify-between text-left"
  aria-expanded={showTable}
  >
- <h2 className="font-bold text-heading text-sm flex items-center gap-2">
+ <h2 className="font-bold font-display text-heading text-sm flex items-center gap-2">
  <Clock className="w-4 h-4 text-subtle" />
  {t('tfr.yearlyBreakdown')}
  </h2>
@@ -536,7 +536,7 @@ const TfrCalculator: React.FC = () => {
 
  {/* ── Key differences explained ── */}
  <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
- <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+ <h2 className="font-bold font-display text-heading text-lg flex items-center gap-2">
  <HelpCircle className="w-5 h-5 text-accent" />
  {t('tfr.keyDifferencesTitle')}
  </h2>
@@ -590,7 +590,7 @@ const TfrCalculator: React.FC = () => {
 
  {/* ── FAQ section ── */}
  <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
- <h2 className="font-bold text-heading text-lg flex items-center gap-2">
+ <h2 className="font-bold font-display text-heading text-lg flex items-center gap-2">
  <HelpCircle className="w-5 h-5 text-success" />
  {t('tfr.faqTitle')}
  </h2>

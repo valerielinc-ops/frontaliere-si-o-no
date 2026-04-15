@@ -206,7 +206,7 @@ export default function SalaryCompare() {
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-3 mb-2">
  <TrendingUp className="text-warning" size={28} />
- <h2 className="text-2xl font-bold text-heading">
+ <h2 className="text-2xl font-bold font-display text-heading">
  {t('salaryCompare.title')}
  </h2>
  </div>
@@ -644,7 +644,7 @@ export default function SalaryCompare() {
  className="text-warning"
  size={20}
  />
- <h3 className="text-lg font-bold text-heading">
+ <h3 className="text-lg font-bold font-display text-heading">
  {t('salaryCompare.netCH')} vs {t('salaryCompare.netIT')}
  </h3>
  </div>
@@ -854,7 +854,7 @@ export default function SalaryCompare() {
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-3">
  <BookOpen className="text-subtle" size={20} />
- <h3 className="text-lg font-bold text-heading">
+ <h3 className="text-lg font-bold font-display text-heading">
  {t('salaryCompare.methodology')}
  </h3>
  </div>
@@ -869,7 +869,7 @@ export default function SalaryCompare() {
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-4">
  <Info className="text-link" size={20} />
- <h3 className="text-lg font-bold text-heading">
+ <h3 className="text-lg font-bold font-display text-heading">
  {t('salaryCompare.faqTitle')}
  </h3>
  </div>

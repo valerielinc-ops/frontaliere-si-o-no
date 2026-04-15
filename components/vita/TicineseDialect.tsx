@@ -322,7 +322,7 @@ const TicineseDialect: React.FC = () => {
  <div className="bg-warning rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Languages size={28} />
- <h2 className="text-2xl font-bold">{tt('dialect.title', 'Dialetto Ticinese')}</h2>
+ <h2 className="text-2xl font-bold font-display">{tt('dialect.title', 'Dialetto Ticinese')}</h2>
  </div>
  <p className="text-on-accent text-sm">{tt('dialect.subtitle', 'Scopri il dialetto del territorio di frontiera')}</p>
  </div>

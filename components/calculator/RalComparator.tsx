@@ -207,7 +207,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="p-2 bg-success-subtle rounded-xl">
  <ArrowLeftRight className="w-6 h-6 text-success" />
  </div>
- <h2 className="text-2xl font-bold text-success">{t('ral.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-success">{t('ral.title')}</h2>
  </div>
  <p className="text-success text-sm">{t('ral.subtitle')}</p>
  </div>
@@ -359,7 +359,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="p-5 space-y-4">
  <div className="flex items-center gap-2">
  <span className="text-2xl">🇮🇹</span>
- <h3 className="text-lg font-bold text-strong">{t('ral.italyTitle')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{t('ral.italyTitle')}</h3>
  </div>
 
  <div className="space-y-2">
@@ -405,7 +405,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="p-5 space-y-4">
  <div className="flex items-center gap-2">
  <span className="text-2xl">🇨🇭</span>
- <h3 className="text-lg font-bold text-strong">{t('ral.swissTitle')}</h3>
+ <h3 className="text-lg font-bold font-display text-strong">{t('ral.swissTitle')}</h3>
  </div>
 
  <div className="space-y-2">

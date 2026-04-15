@@ -202,7 +202,7 @@ const PermitQuiz: React.FC = () => {
  <div className="max-w-2xl mx-auto">
  {/* Header */}
  <div className="text-center mb-8">
- <h2 className="text-2xl font-bold text-strong flex items-center justify-center gap-3">
+ <h2 className="text-2xl font-bold font-display text-strong flex items-center justify-center gap-3">
  <Sparkles size={24} className="text-warning" />
  {t('permitQuiz.results.title')}
  </h2>
@@ -255,7 +255,7 @@ const PermitQuiz: React.FC = () => {
  <CheckCircle2 size={24} className={`text-${recSemantic}`} />
  </div>
  <div>
- <h3 className="font-bold text-lg text-strong">
+ <h3 className="font-bold font-display text-lg text-strong">
  {t(`permitQuiz.results.rec.${recommendation}`)}
  </h3>
  <p className="text-subtle mt-1 text-sm">
@@ -344,7 +344,7 @@ const PermitQuiz: React.FC = () => {
  <div className="w-14 h-14 bg-gradient-to-br from-warning-strong to-warning-strong rounded-2xl flex items-center justify-center mx-auto mb-4">
  <HelpCircle size={24} className="text-on-accent" />
  </div>
- <h2 className="text-2xl font-bold text-strong">
+ <h2 className="text-2xl font-bold font-display text-strong">
  {t('permitQuiz.title')}
  </h2>
  <p className="text-subtle mt-2 text-sm">
@@ -372,7 +372,7 @@ const PermitQuiz: React.FC = () => {
  <div className="w-10 h-10 rounded-xl bg-warning-subtle flex items-center justify-center">
  <Icon size={20} className="text-warning" />
  </div>
- <h3 className="font-bold text-lg text-strong">
+ <h3 className="font-bold font-display text-lg text-strong">
  {t(`permitQuiz.q.${question.id}.title`)}
  </h3>
  </div>

@@ -131,7 +131,7 @@ export default function SiteMapPage() {
  <div key={section.title} className="bg-surface rounded-xl border border-edge p-5">
  <div className="flex items-center gap-2 mb-3">
  {section.icon}
- <h2 className="text-lg font-bold text-heading">{section.title}</h2>
+ <h2 className="text-lg font-bold font-display text-heading">{section.title}</h2>
  </div>
  <ul className="space-y-1.5">
  {section.links.map((link) => {

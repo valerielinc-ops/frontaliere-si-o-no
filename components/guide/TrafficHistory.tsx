@@ -232,7 +232,7 @@ export default function TrafficHistory() {
  <div className="max-w-4xl mx-auto space-y-6">
  {/* Header */}
  <div className="text-center mb-6">
- <h2 className="text-2xl sm:text-3xl font-bold text-strong mb-2 flex items-center justify-center gap-2">
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2 flex items-center justify-center gap-2">
  <Clock size={28} className="text-accent" />
  {t('trafficHistory.title')}
  </h2>

@@ -316,7 +316,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  {/* Controls */}
  <div className={`rounded-2xl border-2 ${colors.border} p-4 sm:p-6 ${colors.light}`}>
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  {currentScenario.icon}
  {currentScenario.title}
  </h3>
@@ -487,7 +487,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  {/* Detailed Comparison */}
  {hasChanges && (
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm animate-fade-in">
- <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-warning" />
  {t('whatif.impactDetail')}
  </h3>

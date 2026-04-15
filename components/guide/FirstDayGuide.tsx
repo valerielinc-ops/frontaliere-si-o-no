@@ -206,7 +206,7 @@ const FirstDayGuide: React.FC = () => {
  <div className="p-2 bg-warning-subtle rounded-xl">
  <Flag className="w-6 h-6 text-warning" />
  </div>
- <h2 className="text-2xl font-bold text-warning">{t('firstday.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-warning">{t('firstday.title')}</h2>
  </div>
  <p className="text-warning text-sm">{t('firstday.subtitle')}</p>
  </div>

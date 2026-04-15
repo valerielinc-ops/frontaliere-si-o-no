@@ -129,7 +129,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
  <CheckCircle className="w-8 h-8 text-success" />
  </div>
- <h2 className="text-2xl font-bold text-strong">
+ <h2 className="text-2xl font-bold font-display text-strong">
  {t('contact.successTitle')}
  </h2>
  <p className="text-subtle max-w-md mx-auto">

@@ -158,7 +158,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  <div className="flex items-center gap-3 mb-2">
  <BookOpen size={28} />
  {initialEntry ? (
- <h2 className="text-2xl font-bold">{t('glossary.title')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('glossary.title')}</h2>
  ) : (
  <h1 className="text-2xl font-bold font-display">{t('glossary.title')}</h1>
  )}

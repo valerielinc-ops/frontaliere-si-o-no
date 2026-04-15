@@ -316,7 +316,7 @@ export default function MortgageComparison() {
 
  {/* Input Panel */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 space-y-5 shadow-sm">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Calculator size={20} className="text-accent" />
  {t('mortgage.parameters')}
  </h2>
@@ -614,7 +614,7 @@ export default function MortgageComparison() {
 
  {/* Tax Benefits Comparison */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2 mb-4">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2 mb-4">
  <Receipt size={20} className="text-accent" />
  {t('mortgage.taxBenefits')}
  </h2>
@@ -677,7 +677,7 @@ export default function MortgageComparison() {
 
  {/* Interest vs Principal Chart (Yearly) */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2 mb-4">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2 mb-4">
  <TrendingUp size={20} className="text-accent" />
  {t('mortgage.interestChart')}
  </h2>
@@ -704,7 +704,7 @@ export default function MortgageComparison() {
 
  {/* Remaining Balance Chart */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2 mb-4">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2 mb-4">
  <BadgePercent size={20} className="text-accent" />
  {t('mortgage.balanceChart')}
  </h2>
@@ -729,7 +729,7 @@ export default function MortgageComparison() {
 
  {/* Detailed Summary Table */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2 mb-4">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2 mb-4">
  <Landmark size={20} className="text-accent" />
  {t('mortgage.summaryTable')}
  </h2>
@@ -795,7 +795,7 @@ export default function MortgageComparison() {
  aria-expanded={showAmortization}
  aria-label={t('mortgage.amortizationTable')}
  >
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Building2 size={20} className="text-accent" />
  {t('mortgage.amortizationTable')}
  </h2>
@@ -849,7 +849,7 @@ export default function MortgageComparison() {
  aria-expanded={showRules}
  aria-label={t('mortgage.rulesTitle')}
  >
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Info size={20} className="text-accent" />
  {t('mortgage.rulesTitle')}
  </h2>

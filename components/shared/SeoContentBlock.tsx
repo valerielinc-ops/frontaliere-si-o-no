@@ -207,7 +207,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  aria-expanded={expanded}
  >
  <config.Icon className={`w-4 h-4 ${config.iconText} shrink-0`} aria-hidden="true" />
- <h2 className="text-sm font-semibold text-body flex-1 line-clamp-2">
+ <h2 className="text-sm font-semibold font-display text-body flex-1 line-clamp-2">
  {t(`seoContent.${context}.title`)}
  </h2>
  <div className="hidden sm:flex items-center gap-2 mr-2">

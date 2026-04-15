@@ -97,7 +97,7 @@ const PartnerServices: React.FC = () => {
  {/* Categories */}
  {partnersByCategory.map(({ cat, partners: categoryPartners }) => (
  <div key={cat.key}>
- <h2 className="text-sm font-bold text-subtle uppercase tracking-wider mb-3 flex items-center gap-2">
+ <h2 className="text-sm font-bold font-display text-subtle uppercase tracking-wider mb-3 flex items-center gap-2">
  <span>{cat.emoji}</span>
  {t(cat.labelKey)}
  </h2>

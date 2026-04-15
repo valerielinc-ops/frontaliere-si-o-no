@@ -80,7 +80,7 @@ const StatsViewInner: React.FC = () => {
  {/* Header */}
  <div className="p-6 border-b border-edge flex justify-between items-center sticky top-0 z-10 bg-surface rounded-t-2xl">
  <div>
- <h2 className="text-xl font-bold text-strong tracking-tight flex items-center gap-2">
+ <h2 className="text-xl font-bold font-display text-strong tracking-tight flex items-center gap-2">
  <Database size={20} className="text-accent"/> {t('stats.title')}
  </h2>
  <p className="text-muted text-xs mt-1">

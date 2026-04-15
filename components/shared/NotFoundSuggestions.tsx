@@ -168,7 +168,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  {/* Suggestions */}
  {suggestions.length > 0 && (
  <div className="mb-8">
- <h2 className="text-lg font-semibold text-heading mb-4">
+ <h2 className="text-lg font-semibold font-display text-heading mb-4">
  {t('notFound.suggestionsTitle')}
  </h2>
  <div className="space-y-3">
@@ -200,7 +200,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
 
  {/* Popular pages */}
  <div className="mb-6">
- <h2 className="text-sm font-semibold text-muted uppercase tracking-wider mb-3">
+ <h2 className="text-sm font-semibold font-display text-muted uppercase tracking-wider mb-3">
  {t('notFound.popularPages')}
  </h2>
  <div className="grid grid-cols-2 gap-2">

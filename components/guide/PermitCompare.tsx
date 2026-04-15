@@ -448,7 +448,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  <div className="bg-surface rounded-xl shadow-lg p-6">
  <div className="flex items-center gap-3 mb-2">
  <Users className="text-warning" size={28} />
- <h2 className="text-2xl font-bold text-heading">{t('permitCompare.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{t('permitCompare.title')}</h2>
  </div>
  <p className="text-subtle">{t('permitCompare.subtitle')}</p>
  <p className="text-sm text-subtle mt-3 leading-relaxed">
@@ -743,7 +743,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  <div className="lg:col-span-3 space-y-4">
  <div className="bg-surface rounded-xl shadow p-5">
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-lg font-bold text-heading">{t('permitCompare.comparison')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading">{t('permitCompare.comparison')}</h3>
  <button
  onClick={handlePDF}
  className="flex items-center gap-1.5 px-3 py-1.5 bg-warning-strong text-on-accent text-sm rounded-lg hover:bg-warning-strong-hover transition"
@@ -832,7 +832,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  <div className="bg-surface rounded-xl shadow p-5 space-y-4">
  <div className="flex items-center gap-2">
  <CheckSquare size={18} className="text-warning" />
- <h3 className="text-lg font-bold text-heading">{t('permitCompare.docs.title')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading">{t('permitCompare.docs.title')}</h3>
  </div>
  <p className="text-sm text-subtle">{t('permitCompare.docs.subtitle')}</p>
 

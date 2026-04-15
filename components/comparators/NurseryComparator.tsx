@@ -106,7 +106,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
  <div className="bg-gradient-to-r from-warning-strong to-warning-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Baby size={28} />
- <h2 className="text-2xl font-bold">{t('nursery.title')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('nursery.title')}</h2>
  </div>
  <p className="text-on-accent/70 text-sm">{t('nursery.subtitle')}</p>
  </div>

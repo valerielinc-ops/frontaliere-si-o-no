@@ -280,7 +280,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
  <Sparkles className="w-3.5 h-3.5" />
  {copy.badge}
  </div>
- <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-heading">
+ <h2 className="mt-3 text-2xl sm:text-3xl font-bold font-display tracking-tight text-heading">
  {copy.title}
  </h2>
  <p className="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-subtle">
@@ -313,7 +313,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
  {summary}
  </div>
- <h3 className="mt-2 text-lg font-bold text-heading">{title}</h3>
+ <h3 className="mt-2 text-lg font-bold font-display text-heading">{title}</h3>
  <div className="mt-4 space-y-2 text-sm">
  <div className="flex items-center justify-between gap-3">
  <span className="text-subtle">{copy.labelGross}</span>

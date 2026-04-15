@@ -297,7 +297,7 @@ const MorningDashboard: React.FC = () => {
  <div className="flex items-center gap-3">
  <div className="text-2xl">👋</div>
  <div>
- <h2 className="text-lg font-bold text-heading">
+ <h2 className="text-lg font-bold font-display text-heading">
  {t('morning.welcomeBack', { name: displayName })}
  </h2>
  <p className="text-sm text-subtle">{t('morning.welcomeSubtitle')}</p>

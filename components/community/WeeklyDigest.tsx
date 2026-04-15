@@ -162,7 +162,7 @@ const WeeklyDigest: React.FC = () => {
  <div className="max-w-2xl mx-auto">
  {/* Header */}
  <div className="text-center mb-6">
- <h2 className="text-2xl font-bold text-strong flex items-center justify-center gap-3">
+ <h2 className="text-2xl font-bold font-display text-strong flex items-center justify-center gap-3">
  <Newspaper size={24} className="text-accent" />
  {t('weeklyDigest.title')}
  </h2>
@@ -193,7 +193,7 @@ const WeeklyDigest: React.FC = () => {
  <Bell size={16} className="text-on-accent/90" />
  <span className="text-on-accent/90 text-xs">{t('weeklyDigest.preview.header')}</span>
  </div>
- <h3 className="font-bold text-on-accent text-lg">
+ <h3 className="font-bold font-display text-on-accent text-lg">
  {t('weeklyDigest.preview.title', { week: String(weekNum) })}
  </h3>
  <p className="text-on-accent/70 text-sm">{dateStr}</p>

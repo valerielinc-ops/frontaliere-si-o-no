@@ -215,7 +215,7 @@ const BankComparison: React.FC = () => {
  <div className="bg-neutral-subtle rounded-md p-5 sm:p-8 border-l-2 border-warning-border">
  <div className="flex items-center gap-3 mb-4">
  <Building2 size={32} className="text-warning" />
- <h2 className="text-2xl sm:text-3xl font-bold text-heading">{t('banks.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-heading">{t('banks.title')}</h2>
  </div>
  <p className="text-muted text-lg">{t('banks.subtitle')}</p>
  <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
@@ -288,7 +288,7 @@ const BankComparison: React.FC = () => {
  <Building2 size={24} />
  </div>
  <div>
- <h3 className="text-xl font-bold text-strong">{bank.name}</h3>
+ <h3 className="text-xl font-bold font-display text-strong">{bank.name}</h3>
  <p className="text-sm text-muted">{bank.country === 'CH' ? `🇨🇭 ${t('banks.switzerland')}` : `🇮🇹 ${t('banks.italy')}`}</p>
  </div>
  </div>

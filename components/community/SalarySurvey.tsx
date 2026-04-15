@@ -210,7 +210,7 @@ const SalarySurvey: React.FC = () => {
  <div className="p-2 bg-info-subtle rounded-xl">
  <BarChart3 className="w-6 h-6 text-info" />
  </div>
- <h2 className="text-2xl font-bold text-info">{t('salary.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-info">{t('salary.title')}</h2>
  </div>
  <p className="text-info text-sm">{t('salary.subtitle', getCantonI18nParams())}</p>
  </div>
@@ -224,7 +224,7 @@ const SalarySurvey: React.FC = () => {
  {/* Survey Form or Thank You */}
  {!submitted ? (
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge space-y-5">
- <h3 className="font-bold text-lg text-heading">{t('salary.formTitle')}</h3>
+ <h3 className="font-bold font-display text-lg text-heading">{t('salary.formTitle')}</h3>
 
  {/* Sector */}
  <div>
@@ -314,7 +314,7 @@ const SalarySurvey: React.FC = () => {
  ) : (
  <div className="bg-success-subtle rounded-2xl p-4 sm:p-6 border border-success-border text-center">
  <div className="text-4xl mb-3">🙏</div>
- <h3 className="text-xl font-bold text-success mb-2">{t('salary.thankYou')}</h3>
+ <h3 className="text-xl font-bold font-display text-success mb-2">{t('salary.thankYou')}</h3>
  <p className="text-sm text-success">{t('salary.thankYouDesc')}</p>
  </div>
  )}

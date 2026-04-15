@@ -411,7 +411,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  <ImageIcon size={20} className="text-on-accent" />
  </div>
  <div>
- <h3 className="font-bold text-on-accent text-lg">{title}</h3>
+ <h3 className="font-bold font-display text-on-accent text-lg">{title}</h3>
  {subtitle && <p className="text-on-accent/90 text-sm">{subtitle}</p>}
  </div>
  </div>

@@ -158,7 +158,7 @@ export const ChiSiamo: React.FC = () => {
 
  {/* Contact */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
- <h2 className="text-lg font-bold text-strong mb-3">Contatti</h2>
+ <h2 className="text-lg font-bold font-display text-strong mb-3">Contatti</h2>
  <p className="text-sm text-subtle">
  Per segnalazioni, correzioni o collaborazioni editoriali:
  </p>
@@ -181,7 +181,7 @@ function Section({ icon: Icon, title, children }: { icon: React.FC<{ size?: numb
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <Icon size={20} className="text-accent" />
- <h2 className="text-lg font-bold text-strong">{title}</h2>
+ <h2 className="text-lg font-bold font-display text-strong">{title}</h2>
  </div>
  <div className="text-sm text-subtle leading-relaxed">
  {children}

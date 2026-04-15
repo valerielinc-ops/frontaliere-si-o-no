@@ -151,7 +151,7 @@ const ConsultingPage: React.FC = () => {
  {tier.icon}
  </div>
  <div>
- <h3 className="font-bold text-lg text-heading">
+ <h3 className="font-bold font-display text-lg text-heading">
  {t(`consulting.${tier.id}.name`)}
  </h3>
  <span className="text-sm text-muted inline-flex items-center gap-1">
@@ -207,7 +207,7 @@ const ConsultingPage: React.FC = () => {
 
  {/* How it works */}
  <div className="max-w-3xl mx-auto">
- <h2 className="text-xl font-bold text-heading text-center mb-6">
+ <h2 className="text-xl font-bold font-display text-heading text-center mb-6">
  {t('consulting.howItWorks')}
  </h2>
  <div className="grid sm:grid-cols-3 gap-4">
@@ -236,7 +236,7 @@ const ConsultingPage: React.FC = () => {
 
  {/* Topics */}
  <div className="max-w-3xl mx-auto bg-surface-alt/30 rounded-2xl p-4 sm:p-6 space-y-4">
- <h2 className="text-lg font-bold text-heading">
+ <h2 className="text-lg font-bold font-display text-heading">
  {t('consulting.topicsTitle')}
  </h2>
  <div className="grid sm:grid-cols-2 gap-3">
@@ -253,7 +253,7 @@ const ConsultingPage: React.FC = () => {
  {selectedTier && (
  <div ref={calendlyRef} className="max-w-3xl mx-auto space-y-4">
  <div className="flex items-center justify-between">
- <h2 className="text-xl font-bold text-heading flex items-center gap-2">
+ <h2 className="text-xl font-bold font-display text-heading flex items-center gap-2">
  <Calendar className="w-5 h-5 text-link" />
  {t(`consulting.${selectedTier}.name`)} — {t('consulting.book')}
  </h2>

@@ -352,7 +352,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  <div className="bg-surface p-6 rounded-3xl border border-edge shadow-sm">
  <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
  <div className="max-w-4xl">
- <h3 className="text-lg font-bold text-heading flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-heading flex items-center gap-2">
  <Briefcase className="w-5 h-5 text-accent" />
  {copy.title}
  </h3>

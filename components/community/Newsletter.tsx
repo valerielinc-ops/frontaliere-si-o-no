@@ -201,7 +201,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Bell size={20} />
- <h3 className="font-bold text-lg">{t('newsletter.title')}</h3>
+ <h3 className="font-bold font-display text-lg">{t('newsletter.title')}</h3>
  </div>
  <p className="text-on-accent/80 text-sm mb-4">
  {t('newsletter.compactDescription')}
@@ -312,7 +312,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  {(status === 'success' || status === 'pending') ? (
  <div className="bg-warning-subtle rounded-2xl border border-warning-border p-5 sm:p-8 text-center">
  <Mail size={48} className="text-warning mx-auto mb-4" />
- <h3 className="text-xl font-bold text-strong mb-2">{t('newsletter.doubleOptIn.title')}</h3>
+ <h3 className="text-xl font-bold font-display text-strong mb-2">{t('newsletter.doubleOptIn.title')}</h3>
  <p className="text-subtle mb-3">
  {t('newsletter.doubleOptIn.description')}
  </p>

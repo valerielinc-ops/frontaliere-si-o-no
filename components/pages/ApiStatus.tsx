@@ -131,7 +131,7 @@ const ApiStatus: React.FC = () => {
  <div className="bg-gradient-to-br from-surface-inverted to-surface-inverted rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-4">
  <Key size={32} />
- <h2 className="text-2xl sm:text-3xl font-bold">Diagnostica API</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display">Diagnostica API</h2>
  </div>
  <p className="text-body text-lg">
  Verifica lo stato di configurazione delle API esterne
@@ -181,7 +181,7 @@ const ApiStatus: React.FC = () => {
  {getStatusIcon(check.status)}
  <div className="flex-1">
  <div className="flex items-start justify-between mb-2">
- <h3 className="font-bold text-lg text-heading">
+ <h3 className="font-bold font-display text-lg text-heading">
  {check.name}
  </h3>
  </div>

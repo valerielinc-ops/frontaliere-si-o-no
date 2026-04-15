@@ -166,7 +166,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="bg-gradient-to-br from-warning-strong to-danger-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <ShoppingCart size={28} />
- <h2 className="text-2xl font-bold">{t('shopping.title')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('shopping.title')}</h2>
  </div>
  <p className="text-on-accent">{t('shopping.subtitle')}</p>
 
@@ -424,7 +424,7 @@ const ShoppingCalculator: React.FC = () => {
 
  {/* Supermarket list */}
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
- <h3 className="text-lg font-bold text-heading mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2">
  <MapPin className="text-warning" size={20} />
  {t('shopping.mapTitle')}
  </h3>
@@ -455,7 +455,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-3 mb-2">
  <BarChart3 className="text-warning" size={24} />
- <h3 className="text-lg font-bold text-heading">{t('shopping.zoneIndex')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading">{t('shopping.zoneIndex')}</h3>
  </div>
  <p className="text-sm text-subtle mb-6">{t('shopping.zoneIndexDesc')}</p>
 
@@ -544,7 +544,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-3">
  <BookOpen className="text-subtle" size={20} />
- <h3 className="text-lg font-bold text-heading">{t('shopping.methodology')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading">{t('shopping.methodology')}</h3>
  </div>
  <div className="text-sm text-subtle space-y-3">
  <p>{t('shopping.methodologyText1')}</p>
@@ -556,7 +556,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-4">
  <Info className="text-link" size={20} />
- <h3 className="text-lg font-bold text-heading">{t('shopping.faqTitle')}</h3>
+ <h3 className="text-lg font-bold font-display text-heading">{t('shopping.faqTitle')}</h3>
  </div>
  <div className="space-y-4">
  {[1, 2, 3, 4, 5].map(n => (

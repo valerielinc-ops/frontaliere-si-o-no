@@ -243,7 +243,7 @@ const ContractsGuide = () => {
 
  {/* Sectors */}
  <div className="space-y-3">
- <h2 className="text-lg font-bold text-heading flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-heading flex items-center gap-2">
  <FileText size={20} className="text-accent" />
  {t('contracts.sectorsTitle')}
  </h2>
@@ -460,7 +460,7 @@ const ContractsGuide = () => {
  <div className="p-2 rounded-lg bg-success-subtle">
  <Scale size={20} className="text-success" />
  </div>
- <h2 className="font-bold text-heading">
+ <h2 className="font-bold font-display text-heading">
  {t('contracts.rights.title')}
  </h2>
  </div>

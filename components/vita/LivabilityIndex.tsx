@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation } from '@/services/i18n';
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import { MapPin, List, Map, AlertTriangle, Trophy, Medal } from 'lucide-react';
@@ -58,7 +59,7 @@ function scoreMunicipalities(municipalities: Municipality[]): ScoredMunicipality
 }
 
 // Lazy-load Leaflet map
-const LeafletMap = React.lazy(() => import('./LivabilityMap'));
+const LeafletMap = lazyRetry(() => import('./LivabilityMap'));
 
 export default function LivabilityIndex() {
  const { t } = useTranslation();
@@ -108,7 +109,7 @@ export default function LivabilityIndex() {
  <div className="bg-surface rounded-xl shadow-lg p-5">
  <div className="flex items-center gap-3 mb-2">
  <MapPin className="text-warning" size={28} />
- <h2 className="text-2xl font-bold text-heading">{t('livability.title')}</h2>
+ <h2 className="text-2xl font-bold font-display text-heading">{t('livability.title')}</h2>
  </div>
  <p className="text-subtle">{t('livability.subtitle')}</p>
  </div>

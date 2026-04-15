@@ -914,7 +914,7 @@ const UserProfile: React.FC = () => {
  )}
  </div>
  <div className="flex-1 min-w-0">
- <h2 className="text-xl font-bold truncate">{displayName}</h2>
+ <h2 className="text-xl font-bold font-display truncate">{displayName}</h2>
  {getAuthEmail(user) ? (
  <p className="text-on-accent/70 text-sm truncate">{getAuthEmail(user)}</p>
  ) : getLinkedProviders(user).includes('facebook.com') ? (
@@ -1116,7 +1116,7 @@ const UserProfile: React.FC = () => {
  {/* Profile data form */}
  <div className="p-6 space-y-5">
  <div className="flex items-center justify-between">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Edit3 size={18} className="text-accent" />
  {t('profile.personalInfo')}
  </h2>
@@ -1392,7 +1392,7 @@ const UserProfile: React.FC = () => {
 
  {/* ─── Work Info Section ─────────────────────────── */}
  <div className="border-t border-edge pt-5">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2 mb-4">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2 mb-4">
  <Briefcase size={18} className="text-success" />
  {t('profile.workInfo')}
  </h2>

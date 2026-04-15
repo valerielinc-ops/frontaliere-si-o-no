@@ -220,7 +220,7 @@ export default function SalaryQuiz() {
  <TrendingUp size={16} />
  {t('salaryQuiz.badge')}
  </div>
- <h2 className="text-2xl sm:text-3xl font-bold text-strong mb-2">
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2">
  {t('salaryQuiz.title')}
  </h2>
  <p className="text-subtle">
@@ -239,7 +239,7 @@ export default function SalaryQuiz() {
  {/* Step 1: Sector */}
  {step === 'sector' && (
  <div className="animate-fade-in">
- <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-semibold font-display text-body mb-4 flex items-center gap-2">
  <Briefcase size={20} className="text-success" />
  {t('salaryQuiz.step1')}
  </h3>
@@ -263,7 +263,7 @@ export default function SalaryQuiz() {
  {/* Step 2: Experience */}
  {step === 'experience' && (
  <div className="animate-fade-in">
- <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-semibold font-display text-body mb-4 flex items-center gap-2">
  <Award size={20} className="text-success" />
  {t('salaryQuiz.step2')}
  </h3>
@@ -287,7 +287,7 @@ export default function SalaryQuiz() {
  {/* Step 3: Province */}
  {step === 'province' && (
  <div className="animate-fade-in">
- <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
+ <h3 className="text-lg font-semibold font-display text-body mb-4 flex items-center gap-2">
  <MapPin size={20} className="text-success" />
  {t('salaryQuiz.step3')}
  </h3>

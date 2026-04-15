@@ -1,8 +1,9 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Coins, MapPin, TrendingUp, Info, Calculator, ChevronDown, ChevronUp, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 // Ristorni rates by province and year (% of Swiss tax returned to Italy)
 interface RistorniRate {
@@ -81,7 +82,7 @@ const RistorniTracker: React.FC = () => {
  <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Coins size={28} />
- <h2 className="text-2xl font-bold">{t('ristorni.title')}</h2>
+ <h2 className="text-2xl font-bold font-display">{t('ristorni.title')}</h2>
  </div>
  <p className="text-on-accent/80 text-sm">{t('ristorni.subtitle')}</p>
  </div>

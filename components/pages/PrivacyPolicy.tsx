@@ -37,7 +37,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 1: No Data Collection from Simulator */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Database className="text-success flex-shrink-0" size={22} />
  Raccolta e Utilizzo dei Dati
  </h2>
@@ -61,7 +61,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 2: Analytics */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <BarChart3 className="text-accent flex-shrink-0" size={22} />
  Analisi Anonima del Traffico
  </h2>
@@ -101,7 +101,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 3: Affiliate & Partner Links */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <ExternalLink className="text-accent flex-shrink-0" size={22} />
  Link Affiliati e Partner
  </h2>
@@ -124,7 +124,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 4: Newsletter & Communications */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Database className="text-accent flex-shrink-0" size={22} />
  Newsletter e Comunicazioni
  </h2>
@@ -172,7 +172,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 5: Client-Side Processing */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Lock className="text-accent flex-shrink-0" size={22} />
  Elaborazione Lato Client
  </h2>
@@ -191,7 +191,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 6: Cookies */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Database className="text-warning flex-shrink-0" size={22} />
  Cookie e Storage Locale
  </h2>
@@ -228,7 +228,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 7: Third-Party Services */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Servizi di Terze Parti
  </h2>
@@ -250,7 +250,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 8: Data Security */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Lock className="text-accent flex-shrink-0" size={22} />
  Sicurezza
  </h2>
@@ -268,7 +268,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 9: Your Rights */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <CheckCircle2 className="text-accent flex-shrink-0" size={22} />
  I Tuoi Diritti (GDPR)
  </h2>
@@ -298,7 +298,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 10: Children Privacy */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Privacy dei Minori
  </h2>
@@ -312,7 +312,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 11: Changes */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Eye className="text-subtle flex-shrink-0" size={22} />
  Modifiche alla Privacy Policy
  </h2>
@@ -330,7 +330,7 @@ export const PrivacyPolicy: React.FC = () => {
 
  {/* Section 12: Contact */}
  <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl border border-accent-border p-4 sm:p-6 shadow-stripe-sm">
- <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
+ <h2 className="text-xl font-medium font-display text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Contattaci
  </h2>

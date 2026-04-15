@@ -878,7 +878,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  {/* Personalized checklist + reminders + PDF export */}
  <div className="bg-surface rounded-2xl border border-edge p-4 shadow-sm space-y-3">
  <div className="flex items-center justify-between gap-2 flex-wrap">
- <h2 className="text-sm font-bold text-strong">Checklist fiscale personalizzata</h2>
+ <h2 className="text-sm font-bold font-display text-strong">Checklist fiscale personalizzata</h2>
  <div className="flex items-center gap-2">
  <button
  onClick={handleReminderToggle}

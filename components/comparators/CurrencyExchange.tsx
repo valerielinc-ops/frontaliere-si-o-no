@@ -455,7 +455,7 @@ const CurrencyExchange: React.FC = () => {
  {/* Calculator */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center justify-between mb-4">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Calculator size={20} className="text-success" />
  {t('currency.calculate_exchange')}
  </h2>
@@ -523,7 +523,7 @@ const CurrencyExchange: React.FC = () => {
  {/* History Chart */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
- <h2 className="text-lg font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <BarChart3 size={20} className="text-success" />
  {t('currency.history_title')}
  </h2>
@@ -625,7 +625,7 @@ const CurrencyExchange: React.FC = () => {
  {/* Comparison Table */}
  <div>
  <div className="flex items-center justify-between mb-4">
- <h2 className="text-lg sm:text-2xl font-bold text-strong flex items-center gap-2">
+ <h2 className="text-lg sm:text-2xl font-bold font-display text-strong flex items-center gap-2">
  <Percent size={20} className="text-success sm:w-6 sm:h-6" />
  {t('currency.detailed_comparison')}
  </h2>
@@ -673,7 +673,7 @@ const CurrencyExchange: React.FC = () => {
  {result.provider.logo}
  </div>
  <div className="min-w-0">
- <h3 className="text-base sm:text-xl font-bold text-strong">{result.provider.name}</h3>
+ <h3 className="text-base sm:text-xl font-bold font-display text-strong">{result.provider.name}</h3>
  <p className="text-xs sm:text-sm text-muted">{t(`currency.${result.provider.transferTimeKey}`)}</p>
  </div>
  </div>
@@ -753,7 +753,7 @@ const CurrencyExchange: React.FC = () => {
 
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-6">
- <h2 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
+ <h2 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
  <Info size={20} className="text-accent" />
  {t('currency.how_hidden_spread_works')}
  </h2>
