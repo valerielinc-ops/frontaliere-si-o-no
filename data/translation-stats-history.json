@@ -1,101 +1,5 @@
 [
   {
-    "timestamp": "2026-04-07T03:33:18.975Z",
-    "label": "before",
-    "total": 1521,
-    "needsRetranslation": 141,
-    "incomplete": 49,
-    "complete": 1472,
-    "missingByLocale": {
-      "it": 13,
-      "en": 16,
-      "de": 10,
-      "fr": 18
-    },
-    "topPending": [
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 3
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 3
-      },
-      {
-        "company": "Manor AG",
-        "pending": 3
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-07T03:36:36.843Z",
-    "label": "after",
-    "total": 1521,
-    "needsRetranslation": 80,
-    "incomplete": 12,
-    "complete": 1509,
-    "missingByLocale": {
-      "it": 9,
-      "en": 6,
-      "de": 4,
-      "fr": 8
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-07T05:21:39.349Z",
     "label": "before",
     "total": 1521,
@@ -7893,6 +7797,78 @@
     "needsRetranslation": 35,
     "incomplete": 17,
     "complete": 2904,
+    "missingByLocale": {
+      "it": 13,
+      "en": 0,
+      "de": 13,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 8
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Bitfinex",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T08:14:55.449Z",
+    "label": "before",
+    "total": 2865,
+    "needsRetranslation": 36,
+    "incomplete": 17,
+    "complete": 2848,
+    "missingByLocale": {
+      "it": 13,
+      "en": 0,
+      "de": 13,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 8
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Bitfinex",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T08:27:57.497Z",
+    "label": "after",
+    "total": 2865,
+    "needsRetranslation": 42,
+    "incomplete": 17,
+    "complete": 2848,
     "missingByLocale": {
       "it": 13,
       "en": 0,
