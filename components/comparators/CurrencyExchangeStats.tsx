@@ -9,6 +9,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { TrendingDown, TrendingUp, BarChart3, Clock, Calendar, FlaskConical, Zap, ChartBar, ArrowLeftRight, Bell, Mail } from 'lucide-react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
 import { useTranslation } from '@/services/i18n';
+import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 
 // ── Constants ────────────────────────────────────────────────
 const DAY_KEYS = ['day_mon', 'day_tue', 'day_wed', 'day_thu', 'day_fri', 'day_sat', 'day_sun'];
@@ -337,6 +338,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
  return () => obs.disconnect();
  }, []);
+ const chart = useChartColors(isDark);
  const timing = useMemo(() => analyzeTimingPatterns(historyData), [historyData]);
  const volatility = useMemo(() => analyzeVolatility(historyData), [historyData]);
 
@@ -414,17 +416,17 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <div className="h-[180px]">
  <ResponsiveContainer width="100%" height="100%">
  <BarChart data={timing.dayOfWeek.filter(d => d.sampleCount > 0)} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
- <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
- <XAxis dataKey="day" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: string) => t(`currency.${v}`)} />
- <YAxis domain={[dayMin * 0.999, dayMax * 1.001]} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(4)} />
+ <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
+ <XAxis dataKey="day" tick={{ fontSize: 12, fill: chart.tick }} tickFormatter={(v: string) => t(`currency.${v}`)} />
+ <YAxis domain={[dayMin * 0.999, dayMax * 1.001]} tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: number) => v.toFixed(4)} />
  <Tooltip
  formatter={(v: number) => [v.toFixed(5), t('currency.average')]}
  labelFormatter={(label: string) => t(`currency.${label}`)}
- contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }}
+ contentStyle={{ ...chart.tooltipStyle }}
  />
  <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
  {timing.dayOfWeek.filter(d => d.sampleCount > 0).map((entry) => (
- <Cell key={entry.day} fill={entry.day === timing.bestDay ? '#10b981' : entry.day === timing.worstDay ? '#ef4444' : '#8b5cf6'} />
+ <Cell key={entry.day} fill={entry.day === timing.bestDay ? CHART_DATA_COLORS.positive : entry.day === timing.worstDay ? CHART_DATA_COLORS.negative : CHART_DATA_COLORS.violet} />
  ))}
  </Bar>
  </BarChart>
@@ -439,17 +441,17 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <div className="h-[200px]">
  <ResponsiveContainer width="100%" height="100%">
  <BarChart data={timing.monthOfYear} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
- <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
- <XAxis dataKey="month" tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: string) => t(`currency.${v}`)} />
- <YAxis domain={[monthMin * 0.998, monthMax * 1.002]} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(4)} />
+ <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
+ <XAxis dataKey="month" tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: string) => t(`currency.${v}`)} />
+ <YAxis domain={[monthMin * 0.998, monthMax * 1.002]} tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: number) => v.toFixed(4)} />
  <Tooltip
  formatter={(v: number) => [v.toFixed(5), t('currency.average')]}
  labelFormatter={(label: string) => t(`currency.${label}`)}
- contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }}
+ contentStyle={{ ...chart.tooltipStyle }}
  />
  <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
  {timing.monthOfYear.map((entry) => (
- <Cell key={entry.month} fill={entry.month === timing.bestMonth ? '#10b981' : entry.month === timing.worstMonth ? '#ef4444' : '#6366f1'} />
+ <Cell key={entry.month} fill={entry.month === timing.bestMonth ? CHART_DATA_COLORS.positive : entry.month === timing.worstMonth ? CHART_DATA_COLORS.negative : CHART_DATA_COLORS.indigo} />
  ))}
  </Bar>
  </BarChart>
@@ -577,6 +579,7 @@ const WeightedAverageStats: React.FC<{
  obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
  return () => obs.disconnect();
  }, []);
+ const chart = useChartColors(isDark);
  const stats = useMemo(() => {
  if (historyData.length < 5) return null;
 
@@ -684,16 +687,16 @@ const WeightedAverageStats: React.FC<{
  <div className="h-[200px]">
  <ResponsiveContainer width="100%" height="100%">
  <BarChart data={stats.yearlyAvgs} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
- <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
- <XAxis dataKey="year" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} />
+ <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
+ <XAxis dataKey="year" tick={{ fontSize: 12, fill: chart.tick }} />
  <YAxis domain={[
  Math.min(...stats.yearlyAvgs.map(d => d.avg)) * 0.998,
  Math.max(...stats.yearlyAvgs.map(d => d.avg)) * 1.002
- ]} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(3)} />
- <Tooltip formatter={(v: number) => [v.toFixed(5), t('currency.average')]} contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }} />
+ ]} tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: number) => v.toFixed(3)} />
+ <Tooltip formatter={(v: number) => [v.toFixed(5), t('currency.average')]} contentStyle={{ ...chart.tooltipStyle }} />
  <Bar dataKey="avg" radius={[8, 8, 0, 0]}>
  {stats.yearlyAvgs.map((entry, i) => (
- <Cell key={entry.year} fill={i === stats.yearlyAvgs.length - 1 ? '#6366f1' : '#94a3b8'} />
+ <Cell key={entry.year} fill={i === stats.yearlyAvgs.length - 1 ? CHART_DATA_COLORS.indigo : CHART_DATA_COLORS.slateLight} />
  ))}
  </Bar>
  </BarChart>

@@ -83,6 +83,12 @@ html.dark { color-scheme: dark; }
   --_section-guida: #533afd;
   --_section-vita: #d97706;
   --_section-stats: #533afd;
+  /* Chart chrome — axis, grid, tooltip (auto-switches in dark mode) */
+  --_chart-grid: #e2e8f0;
+  --_chart-tick: #64748b;
+  --_chart-tooltip-bg: #ffffff;
+  --_chart-tooltip-text: #1e293b;
+  --_chart-tooltip-border: #e2e8f0;
 }
 html.dark {
   --_surface: #1e293b;       /* slate-800 */
@@ -147,6 +153,12 @@ html.dark {
   --_section-guida: #a78bfa;
   --_section-vita: #fbbf24;
   --_section-stats: #a78bfa;
+  /* Chart chrome */
+  --_chart-grid: #334155;
+  --_chart-tick: #94a3b8;
+  --_chart-tooltip-bg: #1e293b;
+  --_chart-tooltip-text: #e2e8f0;
+  --_chart-tooltip-border: #334155;
 }
 
 /* Hero gradient — decorative radial glow using semantic info + surface tokens */
@@ -396,6 +408,12 @@ input[type=number] { -moz-appearance: textfield; }
   --color-section-guida: var(--_section-guida);
   --color-section-vita: var(--_section-vita);
   --color-section-stats: var(--_section-stats);
+  /* Chart chrome */
+  --color-chart-grid: var(--_chart-grid);
+  --color-chart-tick: var(--_chart-tick);
+  --color-chart-tooltip-bg: var(--_chart-tooltip-bg);
+  --color-chart-tooltip-text: var(--_chart-tooltip-text);
+  --color-chart-tooltip-border: var(--_chart-tooltip-border);
 
   --animate-slide-up: slide-up 0.3s ease-out both;
 

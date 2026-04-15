@@ -9,6 +9,7 @@ import { calculateSimulation } from '../../services/calculationService';
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { SegmentControl } from '../shared/SegmentControl';
+import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 
 interface Props {
  result: SimulationResult;
@@ -17,28 +18,23 @@ interface Props {
  isFocusMode?: boolean;
 }
 
-/** Centralized Recharts color palette — hex values required by Recharts (cannot use Tailwind classes) */
+/** Centralized Recharts color palette — data series colors (mode-independent) */
 const CHART_COLORS = {
  // Pie / breakdown categories
- default: '#cbd5e1', // slate-300
- social: '#8b5cf6', // stripe-500
- pension: '#a78bfa', // stripe-400
- tax: '#64748b', // slate-500
- health: '#f43f5e', // rose-500
- expense: '#f59e0b', // amber-500
- netResidual: '#10b981', // emerald-500
+ default: CHART_DATA_COLORS.slateMuted,
+ social: CHART_DATA_COLORS.violet,
+ pension: CHART_DATA_COLORS.violetLight,
+ tax: CHART_DATA_COLORS.slate,
+ health: CHART_DATA_COLORS.rose,
+ expense: CHART_DATA_COLORS.warning,
+ netResidual: CHART_DATA_COLORS.positive,
  // Line chart series
- residentCH: '#3b82f6', // stripe-500
- newLess20km: '#6366f1', // stripe-500
- newMore20km: '#f97316', // orange-500
- oldFrontier: '#10b981', // emerald-500
+ residentCH: CHART_DATA_COLORS.blue,
+ newLess20km: CHART_DATA_COLORS.indigo,
+ newMore20km: CHART_DATA_COLORS.orange,
+ oldFrontier: CHART_DATA_COLORS.positive,
  // Area chart
- savings: '#10b981', // emerald-500
- // Grid & axes
- gridDark: '#334155', // slate-700
- gridLight: '#f1f5f9', // slate-50
- tickDark: '#94a3b8', // slate-400
- tickLight: '#64748b', // slate-500
+ savings: CHART_DATA_COLORS.positive,
 } as const;
 
 // Custom Tooltip for Charts
@@ -98,6 +94,7 @@ const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
 
 const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFocusMode }) => {
  const { t } = useTranslation();
+ const chart = useChartColors(isDarkMode ?? false);
  const [activeTab, setActiveTab] = useState<'overview' | 'breakdown' | 'projection' | 'breakeven'>('overview');
  const [analysisMode, setAnalysisMode] = useState<'NET' | 'TAX'>('NET');
 
@@ -344,8 +341,8 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  <stop offset="95%" stopColor={CHART_COLORS.savings} stopOpacity={0}/>
  </linearGradient>
  </defs>
- <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? CHART_COLORS.gridDark : CHART_COLORS.gridLight} />
- <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fill: isDarkMode ? CHART_COLORS.tickDark : CHART_COLORS.tickLight, fontSize: 12, fontWeight: 700}} />
+ <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chart.grid} />
+ <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fill: chart.tick, fontSize: 12, fontWeight: 700}} />
  <YAxis hide />
  <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} />
  <Area
@@ -362,8 +359,8 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  ) : (
  // ADVANCED BREAK-EVEN CHART (Multi-Line)
  <LineChart data={breakEvenData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
- <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? CHART_COLORS.gridDark : CHART_COLORS.gridLight} />
- <XAxis dataKey="ral" axisLine={false} tickLine={false} tick={{fill: isDarkMode ? CHART_COLORS.tickDark : CHART_COLORS.tickLight, fontSize: 10, fontWeight: 700}} />
+ <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chart.grid} />
+ <XAxis dataKey="ral" axisLine={false} tickLine={false} tick={{fill: chart.tick, fontSize: 10, fontWeight: 700}} />
  <YAxis hide domain={['auto', 'auto']} />
  <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} />
 

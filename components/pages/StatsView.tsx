@@ -5,6 +5,7 @@ import {
 } from 'recharts';
 import { TrendingUp, Info, ExternalLink, Loader2, Database, PersonStanding, RefreshCw, BarChart2, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import { fetchStats, SOURCE_LINK, type TrendPoint, type AgePoint, type GenderTrendPoint, type GenderSnapshot, type StatsSource } from '@/services/statsService';
 import { Analytics } from '@/services/analytics';
 import JobBoardStatsOverview from './JobBoardStatsOverview';
@@ -30,6 +31,8 @@ const StatsViewInner: React.FC = () => {
  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
  return () => observer.disconnect();
  }, []);
+
+ const chart = useChartColors(isDark);
 
  const fetchBFSData = async (forceRefresh = false) => {
  try {
@@ -154,18 +157,18 @@ const StatsViewInner: React.FC = () => {
  >
  <defs>
  <linearGradient id="colorFront" x1="0" y1="0" x2="0" y2="1">
- <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
- <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
+ <stop offset="5%" stopColor={CHART_DATA_COLORS.warning} stopOpacity={0.3}/>
+ <stop offset="95%" stopColor={CHART_DATA_COLORS.warning} stopOpacity={0}/>
  </linearGradient>
  </defs>
- <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
- <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600}} dy={10} minTickGap={30} />
- <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600}} domain={['dataMin - 2000', 'auto']} width={50} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+ <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chart.grid} strokeOpacity={0.3} />
+ <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 11, fill: chart.tick, fontWeight: 600}} dy={10} minTickGap={30} />
+ <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fill: chart.tick, fontWeight: 600}} domain={['dataMin - 2000', 'auto']} width={50} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
  <Tooltip
- contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b'}}
+ contentStyle={{...chart.tooltipStyle, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}}
  formatter={(value: any) => [Number(value).toLocaleString('it-IT'), t('stats.workers')]}
  />
- <Area type="monotone" dataKey="frontalieri" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={800} />
+ <Area type="monotone" dataKey="frontalieri" stroke={CHART_DATA_COLORS.warning} strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={800} />
  </AreaChart>
  </ResponsiveContainer>
  </div>
@@ -185,13 +188,13 @@ const StatsViewInner: React.FC = () => {
  barSize={12}
  onClick={() => Analytics.trackChartInteraction('stats_age_distribution', 'click')}
  >
- <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
+ <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke={chart.grid} strokeOpacity={0.3} />
  <XAxis type="number" hide />
- <YAxis dataKey="name" type="category" width={60} tick={{fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600}} axisLine={false} tickLine={false} />
- <Tooltip cursor={{fill: 'transparent'}} contentStyle={{borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none'}} />
- <Bar dataKey="value" radius={[0, 4, 4, 0]} fill="#10b981" name="Lavoratori">
+ <YAxis dataKey="name" type="category" width={60} tick={{fontSize: 10, fill: chart.tick, fontWeight: 600}} axisLine={false} tickLine={false} />
+ <Tooltip cursor={{fill: 'transparent'}} contentStyle={chart.tooltipStyle} />
+ <Bar dataKey="value" radius={[0, 4, 4, 0]} fill={CHART_DATA_COLORS.positive} name="Lavoratori">
  {ageData.map((entry, index) => (
- <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#10b981' : '#34d399'} />
+ <Cell key={`cell-${index}`} fill={index % 2 === 0 ? CHART_DATA_COLORS.positive : CHART_DATA_COLORS.positiveAlt} />
  ))}
  </Bar>
  </BarChart>
@@ -212,13 +215,13 @@ const StatsViewInner: React.FC = () => {
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
  onClick={() => Analytics.trackChartInteraction('stats_gender_trend', 'click')}
  >
- <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.2} />
- <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b'}} dy={10} minTickGap={30} />
- <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b'}} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
- <Tooltip contentStyle={{borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none'}} />
+ <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chart.grid} strokeOpacity={0.2} />
+ <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: chart.tick}} dy={10} minTickGap={30} />
+ <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: chart.tick}} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+ <Tooltip contentStyle={chart.tooltipStyle} />
  <Legend iconType="circle" wrapperStyle={{fontSize: '10px', paddingTop: '10px'}}/>
- <Line type="monotone" dataKey="Uomini" stroke="#f59e0b" strokeWidth={2} dot={false} activeDot={{r: 4}} />
- <Line type="monotone" dataKey="Donne" stroke="#f43f5e" strokeWidth={2} dot={false} activeDot={{r: 4}} />
+ <Line type="monotone" dataKey="Uomini" stroke={CHART_DATA_COLORS.warning} strokeWidth={2} dot={false} activeDot={{r: 4}} />
+ <Line type="monotone" dataKey="Donne" stroke={CHART_DATA_COLORS.rose} strokeWidth={2} dot={false} activeDot={{r: 4}} />
  </LineChart>
  </ResponsiveContainer>
  ) : (
