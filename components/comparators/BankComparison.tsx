@@ -1,11 +1,12 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import Callout from '@/components/shared/Callout';
 import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
+import { lazyRetry } from '@/services/lazyRetry';
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 import DataFreshness from '@/components/shared/DataFreshness';
 
 interface Bank {

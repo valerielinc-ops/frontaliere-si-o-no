@@ -1,8 +1,9 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import Callout from '@/components/shared/Callout';
 import { Home, TrendingDown, TrendingUp, MapPin, Train, Zap, Wifi, Utensils, Heart, DollarSign, BarChart3, ArrowRight, ExternalLink, Info, RefreshCw } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { useExchangeRate } from '@/services/exchangeRateService';

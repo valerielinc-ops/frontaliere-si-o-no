@@ -6,7 +6,7 @@
  * Target keyword:"calcolo tredicesima frontaliere" (~200/mo)
  */
 
-import React, { useState, useMemo, lazy, Suspense, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, Suspense, useCallback, useEffect } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -14,10 +14,11 @@ import {
  Gift, Calculator, Info, Euro, ChevronDown, ChevronUp,
  Calendar, Building2, HelpCircle, TrendingUp, Award
 } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
-const ShareableResultCard = lazy(() => import('@/components/shared/ShareableResultCard'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 // ─── Types ──────────────────────────────────────────────────────────────
 

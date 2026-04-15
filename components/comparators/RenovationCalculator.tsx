@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { SimulationInputs, SimulationResult } from '@/types';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { calculateMunicipalityTaxImpact } from '@/services/calculationService';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Hammer, Euro, Calculator, Info, CheckCircle2, Home, Leaf, Zap, ChevronDown, ChevronUp, AlertTriangle, HelpCircle, TrendingUp, BarChart3, FileText, CreditCard, Clock } from 'lucide-react';

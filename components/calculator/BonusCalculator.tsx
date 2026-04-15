@@ -1,9 +1,10 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Gift, Euro, Calculator, Info, TrendingUp, ChevronDown, ChevronUp, ArrowUpRight, RefreshCw } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
 import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';

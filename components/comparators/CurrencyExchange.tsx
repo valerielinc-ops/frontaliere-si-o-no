@@ -7,6 +7,7 @@ import { SegmentControl } from '@/components/shared/SegmentControl';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { lazyRetry } from '@/services/lazyRetry';
 
 function appendUtm(url: string, providerName: string): string {
  const sep = url.includes('?') ? '&' : '?';
@@ -14,7 +15,7 @@ function appendUtm(url: string, providerName: string): string {
 }
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
-const LazyExchangeChart = React.lazy(() =>
+const LazyExchangeChart = lazyRetry(() =>
  import('recharts').then(({ AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer }) => ({
  default: ({ data }: { data: Array<{ date: string; rate: number }> }) => {
  const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
@@ -43,9 +44,9 @@ const LazyExchangeChart = React.lazy(() =>
  }))
 );
 
-const LazyCurrencyExchangeStats = React.lazy(() => import('@/components/comparators/CurrencyExchangeStats'));
-const LeadMagnetCTA = React.lazy(() => import('@/components/shared/LeadMagnetCTA'));
-const RelatedTools = React.lazy(() => import('@/components/shared/RelatedTools'));
+const LazyCurrencyExchangeStats = lazyRetry(() => import('@/components/comparators/CurrencyExchangeStats'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 interface ExchangeProvider {
  name: string;

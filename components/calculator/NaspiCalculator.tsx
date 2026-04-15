@@ -1,11 +1,12 @@
-import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Calculator, TrendingDown, Euro, Clock, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { useTranslation } from '@/services/i18n';
 import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 
 // ── NASPI 2026 constants (INPS circular) ─────────────────────
 const NASPI_THRESHOLD = 1_352.19; // € — soglia retribuzione mensile

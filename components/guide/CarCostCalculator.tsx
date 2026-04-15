@@ -1,8 +1,9 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Car, Download, Info, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useNavigation } from '@/services/NavigationContext';
 
 type VehicleType = 'small' | 'medium' | 'large' | 'electric';

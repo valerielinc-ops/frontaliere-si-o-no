@@ -15,11 +15,12 @@
  * - Numbeo (Mar 2026): CH 20yr fixed 2.13% avg
  */
 
-import { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react';
+import { useState, useMemo, useCallback, useEffect, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import {
  Home,

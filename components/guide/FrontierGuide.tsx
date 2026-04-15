@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useTranslation } from '../../services/i18n';
+import { lazyRetry } from '@/services/lazyRetry';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import NaspiCalculator from '@/components/calculator/NaspiCalculator';
 // Leaflet/react-leaflet are lazy-loaded only when needed (municipalities/border tabs)
@@ -44,14 +45,14 @@ const LazyLeafletMap = ({ children }: { children: (leaflet: { MapContainer: any,
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket, X, SmilePlus, Backpack } from 'lucide-react';
 import { Analytics } from '../../services/analytics';
 
-const TaxCalendar = lazy(() => import('@/components/fisco/TaxCalendar'));
-const WorkPermitsGuide = lazy(() => import('./WorkPermitsGuide'));
-const TicinoCompanies = lazy(() => import('@/components/vita/TicinoCompanies'));
-const FirstDayGuide = lazy(() => import('./FirstDayGuide'));
-const CarTransferGuide = lazy(() => import('./CarTransferGuide'));
-const WeeklyQuiz = lazy(() => import('@/components/fisco/WeeklyQuiz'));
-const Glossary = lazy(() => import('@/components/pages/Glossary'));
-const FaqSection = lazy(() => import('@/components/pages/FaqSection'));
+const TaxCalendar = lazyRetry(() => import('@/components/fisco/TaxCalendar'));
+const WorkPermitsGuide = lazyRetry(() => import('./WorkPermitsGuide'));
+const TicinoCompanies = lazyRetry(() => import('@/components/vita/TicinoCompanies'));
+const FirstDayGuide = lazyRetry(() => import('./FirstDayGuide'));
+const CarTransferGuide = lazyRetry(() => import('./CarTransferGuide'));
+const WeeklyQuiz = lazyRetry(() => import('@/components/fisco/WeeklyQuiz'));
+const Glossary = lazyRetry(() => import('@/components/pages/Glossary'));
+const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
 
 
 import { borderCrossings as centralizedBorderCrossings } from '../../data/borderCrossings';

@@ -2,14 +2,17 @@ import React, { lazy } from 'react';
 
 /**
  * Retry wrapper for React.lazy dynamic imports.
- * When a chunk fails to load (e.g., stale SW cache serving old HTML with wrong
- * hash, or network blip), this utility:
+ * When a chunk fails to load (e.g., deploy replaced hashed chunks while user
+ * had old entry module cached), this utility:
  * 1. Clears all Service Worker caches
- * 2. Retries the import once from the network
- * 3. If retry also fails, throws to let ErrorBoundary show error UI
+ * 2. Retries the import twice (immediate + 2s delay)
+ * 3. If retries fail, reloads the page ONCE to fetch the new entry module
+ *    (which references new chunk hashes that exist on the server)
+ * 4. If reload already happened this session, throws to ErrorBoundary
  *
- * IMPORTANT: This function NEVER calls window.location.reload().
- * Reload responsibility belongs solely to ErrorBoundary (max 1 per session).
+ * The reload is the key fix: retrying the same dead URL can't work after a
+ * deploy because the old chunk hash no longer exists. Only a full page reload
+ * gets the new index.html → new App-*.js → new chunk references.
  */
 export function lazyRetry<T extends React.ComponentType<any>>(
  factory: () => Promise<{ default: T }>,
@@ -28,6 +31,7 @@ export function lazyRetry<T extends React.ComponentType<any>>(
 
  const retryKey = '_chunkRetry';
  if (sessionStorage.getItem(retryKey)) {
+ // Already retried + reloaded this session — let ErrorBoundary handle it
  import('@/services/analytics').then(m => m.Analytics.trackChunkRetry({
  outcome: 'failure',
  errorMessage: `Guard blocked: ${err?.message || 'unknown'}`,
@@ -63,7 +67,20 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  setTimeout(() => {
  factory()
  .then(result => { trackRetry('success', err?.message || ''); resolve(result); })
- .catch(() => { trackRetry('failure', err?.message || 'unknown'); reject(err); });
+ .catch(() => {
+ // All retries failed — the old chunk hash is gone.
+ // Reload the page to get the new entry module with new chunk refs.
+ trackRetry('failure', err?.message || 'unknown');
+ import('@/services/analytics').then(m => m.Analytics.trackForceReload({
+ source: 'lazyRetry',
+ reason: 'chunk_retries_exhausted',
+ pagePath: window.location.pathname + window.location.search,
+ blocked: false,
+ })).catch(() => {});
+ window.location.reload();
+ // Reject to satisfy the type, though reload will prevent this from running
+ reject(err);
+ });
  }, 2000);
  })
  );

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import {
  TrendingUp, AlertTriangle, Download, BarChart3, Users,
@@ -11,9 +11,10 @@ import {
  SECTOR_METADATA,
  type SalaryLevel,
 } from '@/data/salaryData';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const SalarySurvey = lazy(() => import('@/components/community/SalarySurvey'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const SalarySurvey = lazyRetry(() => import('@/components/community/SalarySurvey'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 // ── Net calculation helpers ──────────────────────────────────────────────────
 

@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { Briefcase, Plus, Trash2, Trophy, Car, Clock, DollarSign, TrendingUp, Home, Coffee, ParkingCircle, Info, Calculator, MapPin } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { DEFAULT_INPUTS } from '@/constants';

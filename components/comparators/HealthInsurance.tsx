@@ -1,11 +1,12 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import Callout from '@/components/shared/Callout';
 import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe, MapPin, Trophy, FileText } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+import { lazyRetry } from '@/services/lazyRetry';
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 import DataFreshness from '@/components/shared/DataFreshness';
 

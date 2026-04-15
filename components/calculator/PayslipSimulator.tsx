@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { FileText, Download, Info, ChevronDown, ChevronUp, Shield, Coins, User, Heart, Baby, Plus, Minus, AlertTriangle } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 

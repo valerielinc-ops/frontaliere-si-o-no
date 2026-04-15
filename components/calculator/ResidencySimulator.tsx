@@ -1,11 +1,12 @@
-import React, { useState, useMemo, useRef, useEffect, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { ArrowLeftRight, MapPin, TrendingUp, AlertCircle, ChevronDown, ChevronUp, Clock, Euro, Home, Briefcase, RefreshCw, Star, Navigation, Car, Search, X, Filter, SlidersHorizontal } from 'lucide-react';
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 // ─── Simulation Engine ───────────────────────────────────────
 

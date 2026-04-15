@@ -1,9 +1,10 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useTranslation } from '@/services/i18n';
 import { Baby, MapPin, Euro, Clock, Phone, Globe, Star, Filter, Search, ChevronDown, ChevronUp, ExternalLink, ArrowRight } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useNavigationOptional } from '@/services/NavigationContext';
 
 interface Nursery {

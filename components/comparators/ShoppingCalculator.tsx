@@ -1,4 +1,4 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import Callout from '@/components/shared/Callout';
 import {
  ShoppingCart, TrendingDown, AlertCircle, Info, Euro, ArrowRight,
@@ -14,10 +14,11 @@ import {
  TOTAL_SUPERMARKETS, TOTAL_CH, TOTAL_IT,
  getChains, filterSupermarkets, type Supermarket,
 } from '@/data/supermarketData';
+import { lazyRetry } from '@/services/lazyRetry';
 
 // Lazy-load Leaflet map to avoid loading ~200KB on initial render
-const SupermarketMap = lazy(() => import('@/components/vita/SupermarketMap'));
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const SupermarketMap = lazyRetry(() => import('@/components/vita/SupermarketMap'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 // ── Product data ─────────────────────────────────────────────
 

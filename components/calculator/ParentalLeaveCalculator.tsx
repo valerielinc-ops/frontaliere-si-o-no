@@ -1,9 +1,10 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Baby, Info, Calendar, ChevronDown, ChevronUp, FileText, CheckCircle2, RefreshCw } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 
 // ─── Swiss IPG (Maternity/Paternity Insurance) ──────────────────────────

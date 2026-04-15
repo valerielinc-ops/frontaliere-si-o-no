@@ -8,7 +8,7 @@
  * Target keyword:"meglio permesso b o g svizzera" (~600/mo)
  */
 
-import React, { useState, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useCallback, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import {
@@ -16,9 +16,10 @@ import {
  Heart, Clock, TrendingUp, Shield, Wallet, Users, FileText, RotateCcw,
  ChevronRight, Sparkles
 } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
-const ShareableResultCard = lazy(() => import('@/components/shared/ShareableResultCard'));
+const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
 
 // ─── Types ──────────────────────────────────────────────────────────────
 

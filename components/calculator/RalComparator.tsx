@@ -1,9 +1,10 @@
-import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { calculateProgressiveWorkDeduction } from '@/services/calculationService';

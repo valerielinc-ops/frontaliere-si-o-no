@@ -1093,7 +1093,7 @@ export const Analytics = {
  * - Multiple reloads per session → guard failure (should NEVER happen)
  */
  trackForceReload: (info: {
- source: 'index_html_script' | 'index_html_import' | 'error_boundary' | 'user_click';
+ source: 'index_html_script' | 'index_html_import' | 'error_boundary' | 'user_click' | 'lazyRetry';
  reason: string;
  resourceUrl?: string;
  reloadCount?: number;

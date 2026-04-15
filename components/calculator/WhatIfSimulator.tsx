@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useCallback, Suspense } from 'react';
 import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, HeartCrack, RotateCcw, Zap, Info, ArrowLeftRight, Sparkles, AlertTriangle, Clock, Share2, Check, Copy, MessageCircle } from 'lucide-react';
+import { lazyRetry } from '@/services/lazyRetry';
 
-const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { SimulationInputs, SimulationResult } from '@/types';
