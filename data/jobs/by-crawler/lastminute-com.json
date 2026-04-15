@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-04-15T10:16:03.613Z",
+  "assembledAt": "2026-04-15T21:55:38.978Z",
   "jobs": [
     {
       "id": "company-s60y08",
@@ -68,14 +68,14 @@
         "ingegnere-del-software-senior-chiasso",
         "ingenieur-frontend-senior-chiasso",
         "senior-frontend-software-engineer-chiasso",
+        "senior-frontend-software-ingenieur-chiasso",
         "ingegnere-del-software-senior-lastminute-com-chiasso",
         "senior-frontend-software-ingegnere-lastminute-com-chiasso",
         "software-ingegnere-etls-microservices-lastminute-com-chiasso",
         "software-ingenieur-etls-microservices-lastminute-com-chiasso",
         "softwareentwickler-etls-microservices-lastminute-com-chiasso",
         "senior-frontend-software-engineer-lastminute-com-chiasso",
-        "software-engineer-etls-microservices-lastminute-com-chiasso",
-        "senior-frontend-software-ingenieur-chiasso"
+        "software-engineer-etls-microservices-lastminute-com-chiasso"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -115,7 +115,8 @@
           "senior-frontend-software-ingenieur-chiasso"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:01:19.001Z"
+      "firstSeenAt": "2026-04-13T22:01:19.001Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-us91lh",
@@ -212,7 +213,8 @@
           "client-affiliation-partner-lastminute-com-chiasso-us91lh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:01:19.001Z"
+      "firstSeenAt": "2026-04-13T22:01:19.001Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2oxpfe",
@@ -275,16 +277,16 @@
       "sourceLang": "en",
       "previousSlugs": [
         "global-payroll-ressources-humaines-systems-responsable-chiasso",
+        "responsable-globale-paie-et-systemes-rh-chiasso",
         "global-payroll-personalwesen-systems-manager-lastminute-com-chiasso",
         "global-payroll-risorse-umane-systems-manager-lastminute-com-chiasso",
         "global-payroll-hr-systems-manager-chiasso",
+        "responsabile-globale-payroll-e-sistemi-hr-chiasso",
+        "global-payroll-hr-systemmanager-chiasso",
         "global-payroll-hr-systems-manager-lastminute-com-chiasso",
         "responsabile-globale-di-payroll-e-sistemi-hr-lastminute-com-chiasso",
         "responsabile-globale-payroll-e-sistemi-hr-lastminute-com-chiasso",
-        "gestore-globale-delle-retribuzioni-e-sistemi-hr-lastminute-com-chiasso",
-        "responsabile-globale-payroll-e-sistemi-hr-chiasso",
-        "global-payroll-hr-systemmanager-chiasso",
-        "responsable-globale-paie-et-systemes-rh-chiasso"
+        "gestore-globale-delle-retribuzioni-e-sistemi-hr-lastminute-com-chiasso"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -320,7 +322,8 @@
           "global-payroll-hr-systemmanager-chiasso"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:01:19.001Z"
+      "firstSeenAt": "2026-04-13T22:01:19.001Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-o2ikw3",
@@ -385,6 +388,8 @@
         "head-of-data-platform-engineering-lastminute-com-switzerland",
         "responsabile-data-platform-engineering-lastminute-com-chiasso",
         "head-of-data-platform-engineering-chiasso",
+        "responsabile-infrastruttura-data-chiasso",
+        "responsable-de-l-ingenierie-de-la-plateforme-de-donnees-chiasso",
         "data-engineer-lastminute-com-chiasso",
         "data-ingegnere-lastminute-com-chiasso",
         "dateningenieur-lastminute-com-chiasso",
@@ -393,9 +398,7 @@
         "responsabile-infrastruttura-data-lastminute-com-chiasso",
         "responsabile-ingegneria-piattaforma-dati-lastminute-com-chiasso",
         "responsable-data-platform-engineering-lastminute-com-chiasso",
-        "head-of-data-platform-engineering-lastminute-com-chiasso",
-        "responsabile-infrastruttura-data-chiasso",
-        "responsable-de-l-ingenierie-de-la-plateforme-de-donnees-chiasso"
+        "head-of-data-platform-engineering-lastminute-com-chiasso"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -432,7 +435,8 @@
           "responsable-de-l-ingenierie-de-la-plateforme-de-donnees-chiasso"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:01:19.001Z"
+      "firstSeenAt": "2026-04-13T22:01:19.001Z",
+      "needsRetranslation": true
     }
   ]
 }
