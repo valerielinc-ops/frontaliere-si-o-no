@@ -6,6 +6,7 @@ import {
 import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.js';
 import { handleMailjetWebhookRequest } from './src/newsletterMailjetWebhookCore.js';
 import { handleUnosendWebhookRequest } from './src/newsletterUnosendWebhookCore.js';
+import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
@@ -149,6 +150,38 @@ export const newsletterUnosendWebhook = onRequest(
  const message = error instanceof Error ? error.message : String(error || 'unknown_error');
  const status = /signature/i.test(message) ? 401 : 500;
  console.error('[newsletterUnosendWebhook] Error:', message);
+ res.status(status).json({ ok: false, error: message });
+ }
+ },
+);
+
+// Mailtrap delivery event webhooks
+export const newsletterMailtrapWebhook = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 60,
+ cors: false,
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).json({ ok: false, error: 'method_not_allowed' });
+ return;
+ }
+
+ try {
+ const webhookSecret = await getRemoteConfigValue('MAILTRAP_WEBHOOK_SECRET');
+ const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+ const result = await handleMailtrapWebhookRequest({
+ body,
+ query: req.query,
+ webhookSecret,
+ });
+ res.status(200).json({ ok: true, result });
+ } catch (error) {
+ const message = error instanceof Error ? error.message : String(error || 'unknown_error');
+ const status = /secret/i.test(message) ? 401 : 500;
+ console.error('[newsletterMailtrapWebhook] Error:', message);
  res.status(status).json({ ok: false, error: message });
  }
  },
