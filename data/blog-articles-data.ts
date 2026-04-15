@@ -6032,4 +6032,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/riforma-cassa-malati-ticino-2029.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'slowup-strade-trasporti-limiti-2026',
+ category: 'pratico',
+ date: '2026-04-15T13:01:49.887Z',
+ image: '/images/blog/slowup-strade-trasporti-limiti-2026.jpg',
+ hasCalculator: true,
+ },
 ];

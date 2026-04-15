@@ -2163,6 +2163,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-cassa-malati-ticino-2029.title': 'Primes d’assurance-maladie : réforme complète dès 2029, première étape en 2027',
     'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'Le Conseil d’État tessinois présente le programme de mise en œuvre des deux initiatives populaires sur les primes d’assurance-maladie. Coût annuel de 61,4 millions de francs à partir de 2027, financé par des économies et des recettes. Application progressive jusqu’en 2029.',
     'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Conférence de presse du Conseil d\'État tessinois sur la réforme de l\'assurance maladie à Bellinzone',
+    'blog.article.slowup-strade-trasporti-limiti-2026.title': 'SlowUp 2026 : fermetures de routes et transports limités entre Bellinzone et Locarno',
+    'blog.article.slowup-strade-trasporti-limiti-2026.excerpt': 'Le dimanche 19 avril 2026, cinq quartiers de Bellinzone seront fermés à la circulation pour le SlowUp. Les transports publics seront modifiés : les lignes 3, 62.213 et 62.311 subiront des suppressions et des déviations entre 7h et 18h30.',
+    'blog.article.slowup-strade-trasporti-limiti-2026.imageAlt': 'Routes fermée à Bellinzone pour le SlowUp 2026 : panneaux officiels et voitures garées hors du parcours',
 };
 
 export default blogMetaFr;

@@ -2163,6 +2163,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-cassa-malati-ticino-2029.title': 'Krankenkassenprämien: Komplette Reform ab 2029, erster Schritt 2027',
     'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'Der Tessiner Staatsrat stellt das Programm für die Umsetzung der beiden Volksinitiativen zu den Krankenkassenprämien vor. Ab 2027 entstehen jährliche Kosten von 61,4 Millionen Franken, die durch Einsparungen und Mehreinnahmen finanziert werden. Die schrittweise Einführung erfolgt bis 2029.',
     'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Pressekonferenz des Tessiner Staatsrats zur Krankenkassenreform in Bellinzona',
+    'blog.article.slowup-strade-trasporti-limiti-2026.title': 'SlowUp 2026: Straßen gesperrt und öffentliche Verkehrsmittel eingeschränkt zwischen Bellinzona und Locarno',
+    'blog.article.slowup-strade-trasporti-limiti-2026.excerpt': 'Am Sonntag, 19. April 2026, werden in fünf Stadtteilen von Bellinzona Straßen für den SlowUp gesperrt. Die öffentlichen Verkehrsmittel sind betroffen: Die Linien 3, 62.213 und 62.311 verkehren zwischen 7 und 18.30 Uhr mit Ausfällen und Umleitungen.',
+    'blog.article.slowup-strade-trasporti-limiti-2026.imageAlt': 'Gesperrte Straßen in Bellinzona für SlowUp 2026: Schilder und parkende Autos außerhalb der Route',
 };
 
 export default blogMetaDe;

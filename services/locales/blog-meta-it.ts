@@ -2163,6 +2163,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-cassa-malati-ticino-2029.title': 'Premi cassa malati: riforma completa dal 2029, prima tappa nel 2027',
     'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'Il Consiglio di Stato ticinese presenta il programma per l’attuazione delle due iniziative popolari sui premi di cassa malati. Costo annuo di 61.4 milioni dal 2027, finanziato con risparmi ed entrate. Applicazione graduale fino al 2029.',
     'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Conferenza stampa del Consiglio di Stato ticinese su riforma cassa malati a Bellinzona',
+    'blog.article.slowup-strade-trasporti-limiti-2026.title': 'SlowUp 2026: strade chiuse e trasporti limitati tra Bellinzona e Locarno',
+    'blog.article.slowup-strade-trasporti-limiti-2026.excerpt': 'Domenica 19 aprile 2026, strade chiuse in 5 quartieri di Bellinzona per SlowUp. Trasporti pubblici modificati: linee 3, 62.213 e 62.311 subiscono cancellazioni e deviazioni tra le 7 e le 18.30.',
+    'blog.article.slowup-strade-trasporti-limiti-2026.imageAlt': 'Strade chiuse a Bellinzona per SlowUp 2026: cartelli e auto parcheggiate fuori dal tracciato ufficiale',
 };
 
 export default blogMetaIt;

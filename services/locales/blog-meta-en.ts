@@ -2163,6 +2163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-cassa-malati-ticino-2029.title': 'Health insurance premiums: full reform by 2029, first phase in 2027',
     'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'The Ticino Cantonal Government presents the programme for implementing the two popular initiatives on health insurance premiums. An annual cost of CHF 61.4 million from 2027, funded through savings and revenue. Gradual rollout until 2029.',
     'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Ticino State Council press conference on health insurance reform in Bellinzona',
+    'blog.article.slowup-strade-trasporti-limiti-2026.title': 'SlowUp 2026: Road Closures and Limited Transport Between Bellinzona and Locarno',
+    'blog.article.slowup-strade-trasporti-limiti-2026.excerpt': 'On Sunday, 19 April 2026, five districts in Bellinzona will close their streets for SlowUp. Public transport will be disrupted: lines 3, 62.213 and 62.311 will face cancellations and detours between 7:00 and 18:30.',
+    'blog.article.slowup-strade-trasporti-limiti-2026.imageAlt': 'Bellinzona roads closed for SlowUp 2026: official signs and parked cars outside the route',
 };
 
 export default blogMetaEn;

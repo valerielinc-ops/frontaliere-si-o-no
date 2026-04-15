@@ -7801,6 +7801,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-slowup-strade-trasporti-limiti-2026': {
+    title: 'SlowUp 2026: strade chiuse e trasporti | Frontaliere Ticino',
+    description: 'Domenica 19 aprile 2026 strade chiuse e trasporti pubblici modificati per SlowUp. Scopri le restrizioni e le alternative per frontalieri e pendolari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, slowup, strade, chiuse, trasporti',
+    ogTitle: 'SlowUp 2026: strade chiuse e trasporti limitati a Bellinzona',
+    ogDescription: 'Domenica 19 aprile 2026 strade e trasporti pubblici limitati per SlowUp. Scopri le restrizioni e le alternative per frontalieri e pendolari tra Bellinzona e',
+    canonicalPath: '/articoli-frontaliere/slowup-strade-trasporti-limiti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Domenica 19 aprile 2026 le strade tra Bellinzona e Locarno saranno chiuse per SlowUp. Trasporti",
+      "description": "Domenica 19 aprile 2026 strade chiuse e trasporti pubblici modificati per SlowUp. Scopri le restrizioni e le alternative per frontalieri e pendolari.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/slowup-strade-trasporti-limiti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strade chiuse a Bellinzona per SlowUp 2026: cartelli e auto parcheggiate fuori dal tracciato ufficiale"
+      },
+      "datePublished": "2026-04-15T13:01:49+00:00",
+      "dateModified": "2026-04-15T13:01:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/slowup-strade-trasporti-limiti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

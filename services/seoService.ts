@@ -1976,6 +1976,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-asili-nido-pubblici-ticino-iniziativa-popolare-2026': { name: 'Asili nido Ticino', path: '/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026', parent: 'blog' },
     'blog-berna-limita-acquisto-immobili-stranieri-2026': { name: 'Novità fiscali', path: '/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026', parent: 'blog' },
     'blog-riforma-cassa-malati-ticino-2029': { name: 'Premi cassa malati', path: '/articoli-frontaliere/riforma-cassa-malati-ticino-2029', parent: 'blog' },
+    'blog-slowup-strade-trasporti-limiti-2026': { name: 'SlowUp 2026', path: '/articoli-frontaliere/slowup-strade-trasporti-limiti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
