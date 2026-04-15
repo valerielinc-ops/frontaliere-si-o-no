@@ -59,7 +59,11 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding"
+        "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding",
+        "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-massagno",
+        "praktikant-finanzplanung-nebeneintritt-unbefristet-convit-holding-gmbh-massagno",
+        "financial-planning-trainee-side-entry-indefinite-convit-holding-gmbh-massagno",
+        "stagiaire-planification-financiere-entree-laterale-duree-indeterminee-convit-holding-gmbh-massagno"
       ],
       "id": "convit-da67ce0ec9b8",
       "previousSlugsByLocale": {
@@ -67,13 +71,16 @@
           "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding"
         ],
         "en": [
-          "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding"
+          "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding",
+          "financial-planning-trainee-side-entry-indefinite-convit-holding-gmbh-massagno"
         ],
         "de": [
-          "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding"
+          "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding",
+          "praktikant-finanzplanung-nebeneintritt-unbefristet-convit-holding-gmbh-massagno"
         ],
         "fr": [
-          "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding"
+          "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding",
+          "stagiaire-planification-financiere-entree-laterale-duree-indeterminee-convit-holding-gmbh-massagno"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -135,7 +142,25 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "id": "convit-1a46a7b90f10",
-      "firstSeenAt": "2026-04-13T21:29:18.465Z"
+      "firstSeenAt": "2026-04-13T21:29:18.465Z",
+      "previousSlugs": [
+        "tirocinante-consulenza-previdenziale-formazione-pagata-homeoffice-possibile-convit-holding-gmbh-agno",
+        "tirocinante-social-security-advice-paid-training-homeoffice-possible-convit-holding-gmbh-a",
+        "praktikant-vorsorgeberatung-bezahlte-ausbildung-homeoffice-moglich-convit-holding-gmbh-agno",
+        "trainee-social-security-consultancy-paid-training-home-office-possible-convit-holding-gmbh-agno",
+        "stagiaire-conseil-en-prevoyance-formation-payee-homeoffice-possible-convit-holding-gmbh-agno"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "trainee-social-security-consultancy-paid-training-home-office-possible-convit-holding-gmbh-agno"
+        ],
+        "de": [
+          "praktikant-vorsorgeberatung-bezahlte-ausbildung-homeoffice-moglich-convit-holding-gmbh-agno"
+        ],
+        "fr": [
+          "stagiaire-conseil-en-prevoyance-formation-payee-homeoffice-possible-convit-holding-gmbh-agno"
+        ]
+      }
     },
     {
       "title": "Sales Finanza/Previdenza (entrata laterale) fisso + bonus",
@@ -194,21 +219,27 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco"
+        "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco",
+        "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+        "umsatz-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+        "ventes-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
       ],
       "id": "convit-9d5454d91e22",
       "previousSlugsByLocale": {
         "it": [
-          "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco"
+          "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco",
+          "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ],
         "en": [
           "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco"
         ],
         "de": [
-          "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco"
+          "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco",
+          "umsatz-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ],
         "fr": [
-          "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco"
+          "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco",
+          "ventes-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -272,11 +303,32 @@
       "id": "convit-88cd58677a41",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-arbedo-castione"
+          "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-arbedo-castione",
+          "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
+        ],
+        "en": [
+          "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
         ]
       },
       "previousSlugs": [
-        "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-arbedo-castione"
+        "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-arbedo-castione",
+        "consulente-commerciale-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-castione",
+        "sales-berater-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-castio",
+        "sales-consulente-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-cas",
+        "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-cas",
+        "verkaufsberater-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-castione",
+        "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-castione",
+        "conseiller-commercial-previdenza-finanza-entrata-laterale-ibrido-convit-holding-gmbh-arbedo-castione",
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
+        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       ],
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
       "retranslationAttempts": 2
@@ -341,7 +393,15 @@
         "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
         "einstiegsposition-finanzberatung-bezahlte-schulung-convit-holding-gmbh-mendrisio-borgo",
         "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-massagno",
-        "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
+        "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno",
+        "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-mendris",
+        "einstiegsposition-finanzberatung-bezahlte-ausbildung-convit-holding-gmbh-mendrisio-borgo",
+        "paid-training-financial-advice-entry-position-convit-holding-gmbh-mendrisio-borgo",
+        "poste-d-entree-conseil-financier-formation-payee-convit-holding-gmbh-mendrisio-borgo",
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
+        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       ],
       "id": "convit-ab4bf77c3453",
       "previousSlugsByLocale": {
@@ -349,25 +409,29 @@
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
           "einstiegsposition-finanzberatung-bezahlte-schulung-convit-holding-gmbh-mendrisio-borgo",
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-massagno",
-          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
+          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno",
+          "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
         ],
         "en": [
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
           "einstiegsposition-finanzberatung-bezahlte-schulung-convit-holding-gmbh-mendrisio-borgo",
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-massagno",
-          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
+          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno",
+          "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca"
         ],
         "de": [
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
           "einstiegsposition-finanzberatung-bezahlte-schulung-convit-holding-gmbh-mendrisio-borgo",
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-massagno",
-          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
+          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno",
+          "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca"
         ],
         "fr": [
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
           "einstiegsposition-finanzberatung-bezahlte-schulung-convit-holding-gmbh-mendrisio-borgo",
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-massagno",
-          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
+          "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno",
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -510,7 +574,8 @@
       "postalCode": "6900",
       "previousSlugs": [
         "regional-financial-planner-junior-hybrid-convit-holding-gmbh-magadino-29vs6a",
-        "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a"
+        "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a",
+        "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino"
       ],
       "id": "convit-9c91a77ebe97",
       "previousSlugsByLocale": {
@@ -660,25 +725,37 @@
       "postalCode": "6900",
       "previousSlugs": [
         "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
-        "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
+        "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
+        "entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-car",
+        "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte",
+        "ingresso-consulenza-finanziaria-3a-3b-orari-flexibler-convit-holding-gmbh-giubiasco-monte-carasso",
+        "ingresso-consulenza-finanziaria-3a-3b-orari-flexibili-convit-holding-gmbh-giubiasco-monte-carasso",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       ],
       "id": "convit-cb94b1dded29",
       "previousSlugsByLocale": {
         "it": [
           "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
-          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
+          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
         ],
         "en": [
           "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
-          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
+          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
         ],
         "de": [
           "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
-          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
+          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
         ],
         "fr": [
           "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
-          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
+          "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -744,7 +821,11 @@
       "previousSlugs": [
         "employee-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
         "angestellte-r-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
-        "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy"
+        "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
+        "impiegato-a-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano",
+        "employe-e-de-finance-entree-laterale-prevoyance-finance-convit-holding-gmbh-novazzano",
+        "finance-clerk-side-entry-pension-finance-convit-holding-gmbh-novazzano",
+        "finanzangestellte-r-nebeneintritt-vorsorge-finanzen-convit-holding-gmbh-novazzano"
       ],
       "id": "convit-96d436504753",
       "previousSlugsByLocale": {
@@ -756,17 +837,20 @@
         "en": [
           "employee-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
           "angestellte-r-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
-          "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy"
+          "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
+          "finance-clerk-side-entry-pension-finance-convit-holding-gmbh-novazzano"
         ],
         "de": [
           "employee-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
           "angestellte-r-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
-          "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy"
+          "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
+          "finanzangestellte-r-nebeneintritt-vorsorge-finanzen-convit-holding-gmbh-novazzano"
         ],
         "fr": [
           "employee-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
           "angestellte-r-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
-          "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy"
+          "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
+          "employe-e-de-finance-entree-laterale-prevoyance-finance-convit-holding-gmbh-novazzano"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -815,7 +899,8 @@
       "previousSlugs": [
         "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
         "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-l",
-        "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
+        "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -852,7 +937,8 @@
         "fr": [
           "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
           "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-l",
-          "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
+          "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+          "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -900,7 +986,8 @@
       },
       "previousSlugs": [
         "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
-        "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
+        "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -933,7 +1020,8 @@
         ],
         "fr": [
           "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
-          "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
+          "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+          "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -997,11 +1085,27 @@
       "id": "convit-e629adda55fe",
       "previousSlugsByLocale": {
         "it": [
-          "consultant-patrimonio-junior-part-time-o-100-convit-agra"
+          "consultant-patrimonio-junior-part-time-o-100-convit-agra",
+          "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
+        ],
+        "en": [
+          "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone"
+        ],
+        "de": [
+          "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone"
+        ],
+        "fr": [
+          "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
         ]
       },
       "previousSlugs": [
-        "consultant-patrimonio-junior-part-time-o-100-convit-agra"
+        "consultant-patrimonio-junior-part-time-o-100-convit-agra",
+        "consultant-patrimonio-junior-part-time-o-100-convit-holding-gmbh-agra",
+        "consultant-patrimonio-junior-a-temps-partiel-o-100-convit-holding-gmbh-agra",
+        "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       ],
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
       "retranslationAttempts": 2
@@ -1050,7 +1154,13 @@
       "previousSlugs": [
         "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
         "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
-        "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+        "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+        "vorsorgeberatung-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+        "conseil-en-prevoyance-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+        "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+        "sales-finanza-previdenza-entrata-laterale-fisso-bonus-convit-giubiasco",
+        "umsatz-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+        "ventes-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1072,22 +1182,26 @@
         "it": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
           "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
-          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+          "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ],
         "en": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
           "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
-          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+          "sales-finanza-previdenza-entrata-laterale-fisso-bonus-convit-giubiasco"
         ],
         "de": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
           "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
-          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+          "umsatz-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ],
         "fr": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
           "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
-          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+          "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+          "ventes-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -1154,7 +1268,10 @@
         "investment-advice-social-security-side-entrance-indefinite-time-convit-holding-gmbh-bellinzona",
         "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
         "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona",
-        "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb"
+        "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb",
+        "anlage-vorsorgeberatung-nebeneintritt-unbefristet-convit-holding-gmbh-bellinzona",
+        "conseil-investissement-prevoyance-entree-laterale-duree-indeterminee-convit-holding-gmbh-bellinzona",
+        "investment-pension-consultancy-lateral-entry-open-ended-convit-holding-gmbh-bellinzona"
       ],
       "id": "convit-25aa3fcb51d7",
       "previousSlugsByLocale": {
@@ -1168,19 +1285,22 @@
           "investment-advice-social-security-side-entrance-indefinite-time-convit-holding-gmbh-bellinzona",
           "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
           "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona",
-          "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb"
+          "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb",
+          "investment-pension-consultancy-lateral-entry-open-ended-convit-holding-gmbh-bellinzona"
         ],
         "de": [
           "investment-advice-social-security-side-entrance-indefinite-time-convit-holding-gmbh-bellinzona",
           "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
           "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona",
-          "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb"
+          "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb",
+          "anlage-vorsorgeberatung-nebeneintritt-unbefristet-convit-holding-gmbh-bellinzona"
         ],
         "fr": [
           "investment-advice-social-security-side-entrance-indefinite-time-convit-holding-gmbh-bellinzona",
           "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
           "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona",
-          "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb"
+          "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmb",
+          "conseil-investissement-prevoyance-entree-laterale-duree-indeterminee-convit-holding-gmbh-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -1245,7 +1365,9 @@
         "regional-financial-consultancy-ticino-convit-holding-gmbh-tesserete-trcvhc",
         "regionale-finanzberatung-tessin-convit-holding-gmbh-tesserete-trcvhc",
         "consulenza-finanziaria-regionale-ticino-convit-holding-gmbh-tesserete",
-        "ticino-regional-financial-advice-convit-holding-gmbh-tesserete"
+        "ticino-regional-financial-advice-convit-holding-gmbh-tesserete",
+        "regionale-finanzberatung-tessin-convit-holding-gmbh-tesserete",
+        "regional-financial-advice-ticino-convit-holding-gmbh-tesserete"
       ],
       "id": "convit-ef212fd7ee39",
       "previousSlugsByLocale": {
@@ -1259,13 +1381,15 @@
           "regional-financial-consultancy-ticino-convit-holding-gmbh-tesserete-trcvhc",
           "regionale-finanzberatung-tessin-convit-holding-gmbh-tesserete-trcvhc",
           "consulenza-finanziaria-regionale-ticino-convit-holding-gmbh-tesserete",
-          "ticino-regional-financial-advice-convit-holding-gmbh-tesserete"
+          "ticino-regional-financial-advice-convit-holding-gmbh-tesserete",
+          "regional-financial-advice-ticino-convit-holding-gmbh-tesserete"
         ],
         "de": [
           "regional-financial-consultancy-ticino-convit-holding-gmbh-tesserete-trcvhc",
           "regionale-finanzberatung-tessin-convit-holding-gmbh-tesserete-trcvhc",
           "consulenza-finanziaria-regionale-ticino-convit-holding-gmbh-tesserete",
-          "ticino-regional-financial-advice-convit-holding-gmbh-tesserete"
+          "ticino-regional-financial-advice-convit-holding-gmbh-tesserete",
+          "regionale-finanzberatung-tessin-convit-holding-gmbh-tesserete"
         ],
         "fr": [
           "regional-financial-consultancy-ticino-convit-holding-gmbh-tesserete-trcvhc",
@@ -1335,29 +1459,39 @@
       "previousSlugs": [
         "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
         "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
-        "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
+        "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione",
+        "online-financial-advice-side-entry-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
+        "conseil-financier-en-ligne-entree-laterale-hybride-homeoffice-convit-holding-gmbh-arbedo-castione",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       ],
       "id": "convit-2323c0b40462",
       "previousSlugsByLocale": {
         "it": [
           "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
-          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
+          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione",
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
         ],
         "en": [
           "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
-          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
+          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
         ],
         "de": [
           "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
-          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
+          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione",
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
         ],
         "fr": [
           "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
-          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
+          "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione",
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -1406,7 +1540,16 @@
         "fr": "consulenza-finanziaria-entrata-laterale-part-time-lavoro-secondario-convit-holding-gmbh-quinto"
       },
       "previousSlugs": [
-        "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
+        "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto",
+        "consulenza-finanziaria-entrata-laterale-part-time-lavoro-secondario-convit-holding-gmbh-qu",
+        "consulenza-finanziaria-entrata-laterale-teilzeit-lavoro-secondario-convit-holding-gmbh-qui",
+        "consulenza-finanziaria-ingresso-laterale-servizio-part-time-secondario-convit-holding-gmbh-quinto",
+        "consulenza-finanziaria-entta-laterale-part-time-lavoro-secondario-convit-holding-gmbh-quinto",
+        "financial-advice-lateral-entry-part-time-secondary-service-convit-holding-gmbh-quinto",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -1426,16 +1569,20 @@
       "id": "convit-04586044c827",
       "previousSlugsByLocale": {
         "it": [
-          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
+          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto",
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
         ],
         "en": [
-          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
+          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
         ],
         "de": [
-          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
+          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto",
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
         ],
         "fr": [
-          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
+          "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto",
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -1485,7 +1632,10 @@
       },
       "previousSlugs": [
         "consulenza-finanziaria-entrata-laterale-fisso-bonus-temps-partiel-o-100-convit-holding-gmbh-losone-hohte6",
-        "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone"
+        "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entra-laterale-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -1506,11 +1656,13 @@
       "previousSlugsByLocale": {
         "it": [
           "consulenza-finanziaria-entrata-laterale-fisso-bonus-temps-partiel-o-100-convit-holding-gmbh-losone-hohte6",
-          "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone"
+          "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone",
+          "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
         ],
         "en": [
           "consulenza-finanziaria-entrata-laterale-fisso-bonus-temps-partiel-o-100-convit-holding-gmbh-losone-hohte6",
-          "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone"
+          "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone",
+          "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone"
         ],
         "de": [
           "consulenza-finanziaria-entrata-laterale-fisso-bonus-temps-partiel-o-100-convit-holding-gmbh-losone-hohte6",
@@ -1639,12 +1791,29 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "consultant-financial-solutions-junior-convit-holding-gmbh-biasca-sud"
+        "consultant-financial-solutions-junior-convit-holding-gmbh-biasca-sud",
+        "berater-finanzlosungen-junior-convit-holding-gmbh-biasca-sud",
+        "financial-solutions-consultant-junior-convit-holding-gmbh-biasca-sud",
+        "consultant-solutions-financieres-junior-convit-holding-gmbh-biasca-sud",
+        "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       ],
       "id": "convit-db067ca6879c",
       "previousSlugsByLocale": {
         "en": [
-          "consultant-financial-solutions-junior-convit-holding-gmbh-biasca-sud"
+          "consultant-financial-solutions-junior-convit-holding-gmbh-biasca-sud",
+          "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone"
+        ],
+        "it": [
+          "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
+        ],
+        "de": [
+          "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone"
+        ],
+        "fr": [
+          "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -1709,7 +1878,27 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-14T09:42:57.235Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
+        ],
+        "en": [
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+      ]
     },
     {
       "title": "Consulente privati pianificazione finanziaria (junior) orari flessibili",
@@ -1768,12 +1957,23 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano"
+        "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano",
+        "consultant-prive-planification-financiere-junior-heures-flexibles-convit-holding-gmbh-coma",
+        "privatberater-finanzplanung-junior-flexible-arbeitszeiten-convit-holding-gmbh-comano",
+        "private-financial-planning-consultant-junior-flexible-hours-convit-holding-gmbh-comano",
+        "consultant-prive-planification-financiere-junior-horaires-flexibles-convit-holding-gmbh-comano"
       ],
       "id": "convit-90992ac8ff25",
       "previousSlugsByLocale": {
         "en": [
-          "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano"
+          "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano",
+          "private-financial-planning-consultant-junior-flexible-hours-convit-holding-gmbh-comano"
+        ],
+        "de": [
+          "privatberater-finanzplanung-junior-flexible-arbeitszeiten-convit-holding-gmbh-comano"
+        ],
+        "fr": [
+          "consultant-prive-planification-financiere-junior-horaires-flexibles-convit-holding-gmbh-comano"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -1835,12 +2035,28 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "consulente-privato-junior-homeoffice-convit-holding-gmbh-origlio"
+        "consulente-privato-junior-homeoffice-convit-holding-gmbh-origlio",
+        "privatberater-junior-homeoffice-convit-holding-gmbh-origlio",
+        "consul-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       ],
       "id": "convit-4ed3cb54692f",
       "previousSlugsByLocale": {
         "en": [
-          "consulente-privato-junior-homeoffice-convit-holding-gmbh-origlio"
+          "consulente-privato-junior-homeoffice-convit-holding-gmbh-origlio",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
+        ],
+        "it": [
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -1907,7 +2123,10 @@
         "adviser-private-finance-side-entrance-convit-holding-gmbh-cresciano",
         "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano",
         "ricerca-consulente-privati-finanza-entrata-laterale-convit-holding-gmbh",
-        "ricerca-consulente-privati-finanza-entrata-laterale-cresciano"
+        "ricerca-consulente-privati-finanza-entrata-laterale-cresciano",
+        "lateral-entry-finance-private-consultant-convit-holding-gmbh-cresciano",
+        "privatberater-finanzen-nebeneingang-convit-holding-gmbh-cresciano",
+        "conseiller-financier-prive-entree-laterale-convit-holding-gmbh-cresciano"
       ],
       "id": "convit-1bd11f3c0c9f",
       "previousSlugsByLocale": {
@@ -1921,19 +2140,22 @@
           "adviser-private-finance-side-entrance-convit-holding-gmbh-cresciano",
           "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano",
           "ricerca-consulente-privati-finanza-entrata-laterale-convit-holding-gmbh",
-          "ricerca-consulente-privati-finanza-entrata-laterale-cresciano"
+          "ricerca-consulente-privati-finanza-entrata-laterale-cresciano",
+          "lateral-entry-finance-private-consultant-convit-holding-gmbh-cresciano"
         ],
         "de": [
           "adviser-private-finance-side-entrance-convit-holding-gmbh-cresciano",
           "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano",
           "ricerca-consulente-privati-finanza-entrata-laterale-convit-holding-gmbh",
-          "ricerca-consulente-privati-finanza-entrata-laterale-cresciano"
+          "ricerca-consulente-privati-finanza-entrata-laterale-cresciano",
+          "privatberater-finanzen-nebeneingang-convit-holding-gmbh-cresciano"
         ],
         "fr": [
           "adviser-private-finance-side-entrance-convit-holding-gmbh-cresciano",
           "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano",
           "ricerca-consulente-privati-finanza-entrata-laterale-convit-holding-gmbh",
-          "ricerca-consulente-privati-finanza-entrata-laterale-cresciano"
+          "ricerca-consulente-privati-finanza-entrata-laterale-cresciano",
+          "conseiller-financier-prive-entree-laterale-convit-holding-gmbh-cresciano"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -1981,7 +2203,14 @@
       },
       "previousSlugs": [
         "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
-        "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
+        "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina",
+        "consulente-privato-3a-3b-ibrido-convit-holding-gmbh-sementina",
+        "privatberater-3a-3b-ibrido-convit-holding-gmbh-sementina",
+        "privati-consultant-3a-3b-ibrido-convit-holding-gmbh-sementina",
+        "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+        "sales-finanza-previdenza-entrata-laterale-fisso-bonus-convit-giubiasco",
+        "umsatz-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+        "ventes-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -2002,19 +2231,23 @@
       "previousSlugsByLocale": {
         "it": [
           "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
-          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
+          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina",
+          "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ],
         "en": [
           "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
-          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
+          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina",
+          "sales-finanza-previdenza-entrata-laterale-fisso-bonus-convit-giubiasco"
         ],
         "de": [
           "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
-          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
+          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina",
+          "umsatz-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ],
         "fr": [
           "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
-          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
+          "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina",
+          "ventes-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -2079,7 +2312,12 @@
       "postalCode": "6900",
       "previousSlugs": [
         "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra",
-        "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-con"
+        "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-con",
+        "consultant-en-securite-sociale-sans-experience-formation-remuneree-convit-holding-gmbh-tenero-contra",
+        "social-security-counsellor-without-experience-paid-training-convit-holding-gmbh-tenero-contra",
+        "vorsorgeberater-ohne-erfahrung-bezahlte-ausbildung-convit-holding-gmbh-tenero-contra",
+        "social-security-consultant-inexperienced-paid-training-convit-holding-gmbh-tenero-contra",
+        "conseiller-en-securite-sociale-sans-experience-formation-remuneree-convit-holding-gmbh-tenero-contra"
       ],
       "id": "convit-61a23c9ee42f",
       "previousSlugsByLocale": {
@@ -2088,13 +2326,16 @@
           "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-con"
         ],
         "en": [
-          "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra"
+          "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra",
+          "social-security-consultant-inexperienced-paid-training-convit-holding-gmbh-tenero-contra"
         ],
         "de": [
-          "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra"
+          "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra",
+          "vorsorgeberater-ohne-erfahrung-bezahlte-ausbildung-convit-holding-gmbh-tenero-contra"
         ],
         "fr": [
-          "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra"
+          "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra",
+          "conseiller-en-securite-sociale-sans-experience-formation-remuneree-convit-holding-gmbh-tenero-contra"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2158,14 +2399,24 @@
       "previousSlugs": [
         "private-consultant-savings-junior-convit-holding-gmbh-lugano",
         "consulente-previdenziale-risparmio-junior-convit-holding-gmbh-lugano",
-        "pension-savings-advisor-junior-convit-holding-gmbh-lugano"
+        "pension-savings-advisor-junior-convit-holding-gmbh-lugano",
+        "vorsorge-sparberater-junior-convit-holding-gmbh-lugano",
+        "social-security-savings-consultant-junior-convit-holding-gmbh-lugano",
+        "conseiller-en-prevoyance-et-epargne-junior-convit-holding-gmbh-lugano"
       ],
       "id": "convit-eae29527916b",
       "previousSlugsByLocale": {
         "en": [
           "private-consultant-savings-junior-convit-holding-gmbh-lugano",
           "consulente-previdenziale-risparmio-junior-convit-holding-gmbh-lugano",
-          "pension-savings-advisor-junior-convit-holding-gmbh-lugano"
+          "pension-savings-advisor-junior-convit-holding-gmbh-lugano",
+          "social-security-savings-consultant-junior-convit-holding-gmbh-lugano"
+        ],
+        "de": [
+          "vorsorge-sparberater-junior-convit-holding-gmbh-lugano"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-et-epargne-junior-convit-holding-gmbh-lugano"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2227,7 +2478,11 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
+        "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola",
+        "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola",
+        "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola",
+        "conseiller-en-retraite-et-planification-hybride-convit-holding-gmbh-montagnola",
+        "social-security-consultant-hybrid-planning-convit-holding-gmbh-montagnola"
       ],
       "id": "convit-705263a4982b",
       "previousSlugsByLocale": {
@@ -2235,13 +2490,16 @@
           "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
         ],
         "en": [
-          "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
+          "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola",
+          "social-security-consultant-hybrid-planning-convit-holding-gmbh-montagnola"
         ],
         "de": [
-          "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
+          "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola",
+          "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola"
         ],
         "fr": [
-          "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
+          "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola",
+          "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2306,24 +2564,34 @@
         "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca-hohte2",
         "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2",
         "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca-hohte2",
-        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca"
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
+        "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca",
+        "conseiller-en-retraite-pour-la-retraite-3a-entree-laterale-permanent-convit-holding-gmbh-b",
+        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "vorsorgeberater-fur-alter-3a-quereinstieg-unbefristet-convit-holding-gmbh-biasca",
+        "pension-consultant-for-old-age-3a-lateral-entry-permanent-convit-holding-gmbh-biasca",
+        "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-permanent-convit-holding-gmbh-biasca"
       ],
       "id": "convit-6f7e38966187",
       "previousSlugsByLocale": {
         "de": [
           "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca-hohte2",
-          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2"
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2",
+          "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca"
         ],
         "en": [
           "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca-hohte2",
-          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2"
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2",
+          "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca"
         ],
         "it": [
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
           "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2"
         ],
         "fr": [
-          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2"
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2",
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2387,7 +2655,11 @@
       "previousSlugs": [
         "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-gmbh-losone",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
-        "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-"
+        "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7500-convit-holding-gmbh-losone",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-chf-7500-convit-holding-gmbh-losone",
+        "sozialversicherungsberater-m-w-d-einstieg-ohne-ausbildung-ote-bis-7500-chf-convit-holding-gmbh-losone",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7500-chf-convit-holding-gmbh-losone"
       ],
       "id": "convit-0d1ad2a6f932",
       "previousSlugsByLocale": {
@@ -2399,17 +2671,20 @@
         "en": [
           "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-gmbh-losone",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
-          "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-"
+          "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7500-convit-holding-gmbh-losone"
         ],
         "de": [
           "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-gmbh-losone",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
-          "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-"
+          "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-",
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-chf-7500-convit-holding-gmbh-losone"
         ],
         "fr": [
           "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-gmbh-losone",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
-          "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-"
+          "social-security-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-",
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7500-chf-convit-holding-gmbh-losone"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2474,7 +2749,11 @@
         "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca-hohte1",
         "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca-hohte1",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
-        "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1"
+        "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "sozialversicherungsberater-m-w-d-einstieg-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       ],
       "id": "convit-1f9f769932df",
       "previousSlugsByLocale": {
@@ -2488,19 +2767,22 @@
           "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca-hohte1",
           "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca-hohte1",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
-          "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1"
+          "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
         ],
         "de": [
           "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca-hohte1",
           "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca-hohte1",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
-          "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1"
+          "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1",
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
         ],
         "fr": [
           "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca-hohte1",
           "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca-hohte1",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
-          "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1"
+          "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1",
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2562,12 +2844,24 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-holding-gmbh-coldrerio"
+        "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-holding-gmbh-coldrerio",
+        "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-holding-gmbh-col",
+        "social-security-counsellor-junior-without-experience-paid-training-convit-holding-gmbh-col",
+        "bezahlte-ausbildung-zum-sozialversicherungsberater-junior-ohne-erfahrung-convit-holding-gmbh-coldrerio",
+        "social-security-consultant-junior-without-experience-paid-training-convit-holding-gmbh-coldrerio",
+        "consultant-en-securite-sociale-junior-sans-experience-formation-remuneree-convit-holding-gmbh-coldrerio"
       ],
       "id": "convit-0c6e61ff60d0",
       "previousSlugsByLocale": {
         "en": [
-          "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-holding-gmbh-coldrerio"
+          "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-holding-gmbh-coldrerio",
+          "social-security-consultant-junior-without-experience-paid-training-convit-holding-gmbh-coldrerio"
+        ],
+        "de": [
+          "bezahlte-ausbildung-zum-sozialversicherungsberater-junior-ohne-erfahrung-convit-holding-gmbh-coldrerio"
+        ],
+        "fr": [
+          "consultant-en-securite-sociale-junior-sans-experience-formation-remuneree-convit-holding-gmbh-coldrerio"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2631,7 +2925,30 @@
       "id": "convit-7ff6bbacdf74",
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
       "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-holding-gmbh-preonzo",
+        "karriereweg-rentenberater-junior-bonus-convit-holding-gmbh-preonzo",
+        "parcours-de-carriere-de-conseiller-en-retraite-junior-prime-convit-holding-gmbh-preonzo",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
+        ],
+        "en": [
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+        ]
+      }
     },
     {
       "title": "Consulente previdenziale (junior) OTE fino a 7500 CHF",
@@ -2693,7 +3010,10 @@
         "consulente-previdenziale-junior-ote-fino-a-7500-chf-convit-holding-gmbh-neggio",
         "privater-berater-junior-ote-bis-7500-chf-convit-holding-gmbh-neggio",
         "consultant-prive-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio",
-        "pension-advisor-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio"
+        "pension-advisor-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio",
+        "vorsorgeberater-junior-ote-bis-7500-chf-convit-holding-gmbh-neggio",
+        "pension-consultant-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio",
+        "conseiller-en-prevoyance-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio"
       ],
       "id": "convit-f4d960a51391",
       "previousSlugsByLocale": {
@@ -2701,7 +3021,14 @@
           "consulente-previdenziale-junior-ote-fino-a-7500-chf-convit-holding-gmbh-neggio",
           "privater-berater-junior-ote-bis-7500-chf-convit-holding-gmbh-neggio",
           "consultant-prive-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio",
-          "pension-advisor-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio"
+          "pension-advisor-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio",
+          "pension-consultant-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio"
+        ],
+        "de": [
+          "vorsorgeberater-junior-ote-bis-7500-chf-convit-holding-gmbh-neggio"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"
@@ -2765,14 +3092,29 @@
       "previousSlugs": [
         "prevident-consultant-junior-lateral-entrance-mentoring-coaching-convit-holding-gmbh-camorino",
         "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
-        "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
+        "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca",
+        "consultant-en-retraite-junior-entree-laterale-mentorat-et-coaching-convit-holding-gmbh-camorino",
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
+        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       ],
       "id": "convit-4afd0f60af04",
       "previousSlugsByLocale": {
         "en": [
           "prevident-consultant-junior-lateral-entrance-mentoring-coaching-convit-holding-gmbh-camorino",
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
-          "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
+          "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca",
+          "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca"
+        ],
+        "it": [
+          "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z",
@@ -2837,7 +3179,27 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-14T09:42:57.235Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
+        ],
+        "en": [
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+      ]
     },
     {
       "title": "Consulente previdenziale (Ibrido) ingresso senza esperienza",
@@ -2898,7 +3260,10 @@
       "previousSlugs": [
         "prevident-adviser-ibrid-entry-without-experience-convit-holding-gmbh-paradiso",
         "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso",
-        "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso"
+        "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
+        "social-security-consultant-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
+        "einstieg-als-sozialversicherungsberater-hybrid-ohne-erfahrung-convit-holding-gmbh-paradiso",
+        "consultant-en-securite-sociale-hybride-entree-sans-experience-convit-holding-gmbh-paradiso"
       ],
       "id": "convit-d2c2825b2e85",
       "previousSlugsByLocale": {
@@ -2910,17 +3275,20 @@
         "en": [
           "prevident-adviser-ibrid-entry-without-experience-convit-holding-gmbh-paradiso",
           "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso",
-          "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso"
+          "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
+          "social-security-consultant-hybrid-entry-without-experience-convit-holding-gmbh-paradiso"
         ],
         "de": [
           "prevident-adviser-ibrid-entry-without-experience-convit-holding-gmbh-paradiso",
           "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso",
-          "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso"
+          "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
+          "einstieg-als-sozialversicherungsberater-hybrid-ohne-erfahrung-convit-holding-gmbh-paradiso"
         ],
         "fr": [
           "prevident-adviser-ibrid-entry-without-experience-convit-holding-gmbh-paradiso",
           "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso",
-          "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso"
+          "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
+          "consultant-en-securite-sociale-hybride-entree-sans-experience-convit-holding-gmbh-paradiso"
         ]
       },
       "firstSeenAt": "2026-04-13T21:29:18.465Z"

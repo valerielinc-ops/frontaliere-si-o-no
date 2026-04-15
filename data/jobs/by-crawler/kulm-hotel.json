@@ -666,7 +666,9 @@
       "pensum": "100%",
       "previousSlugs": [
         "maitre-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "maestro-di-rango-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "maestro-di-rango-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "blumenhandler-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "fleuriste-m-f-x-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -861,7 +863,8 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "front-office-agent-m-w-d-kulm-hotel-st-moritz"
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz",
+        "agent-de-reception-h-f-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1045,7 +1048,9 @@
       "pensum": "100%",
       "previousSlugs": [
         "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz",
-        "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-668"
+        "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-668",
+        "food-and-beverage-assistant-m-p-g-kulm-hotel-st-moritz-st-moritz",
+        "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1265,7 +1270,10 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-breakfast-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-836cc329aaae",
@@ -1931,7 +1939,11 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "chef-de-partie-mitarbeiterrestaurant-personalkoch-m-w-d-kulm-hotel-st-moritz"
+        "chef-de-partie-mitarbeiterrestaurant-personalkoch-m-w-d-kulm-hotel-st-moritz",
+        "chef-de-partie-mitarbeiterrestaurant-personalkoch-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "service-employee-restaurant-staff-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "service-allrounder-festival-da-jazz-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "service-employee-staff-restaurant-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2104,7 +2116,13 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+        "chef-de-partie-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "chef-de-rang-h-f-d-kulm-hotel-st-moritz-st-moritz",
+        "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "chef-de-rang-m-w-kulm-hotel-st-moritz-st-moritz",
+        "barman-chef-de-rang-kulm-altitude-bar-h-f-d-kulm-hotel-st-moritz-st-moritz",
+        "barman-chef-de-rang-kulm-altitude-bar-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2115,7 +2133,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {

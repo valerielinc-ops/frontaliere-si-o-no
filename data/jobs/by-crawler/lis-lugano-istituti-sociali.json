@@ -77,7 +77,14 @@
         "capireparto-lis-lugano-istituti-sociali-pregassona",
         "chapitre-lis-lugano-istituti-sociali-pregassona",
         "aides-soignants-lis-lugano-istituti-sociali-pregassona",
-        "chef-de-service-lis-lugano-istituti-sociali-pregassona"
+        "chef-de-service-lis-lugano-istituti-sociali-pregassona",
+        "abteilungsleiter-lis-lugano-istituti-sociali-lugano",
+        "department-head-lis-lugano-istituti-sociali-lugano",
+        "infirmieres-lis-lugano-istituti-sociali-lugano",
+        "koche-lis-lugano-istituti-sociali-lugano",
+        "krankenpfleger-lis-lugano-istituti-sociali-lugano",
+        "krankenschwestern-lis-lugano-istituti-sociali-lugano",
+        "sozialbetreuer-in-kindheit-lis-lugano-istituti-sociali-lugano"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -335,7 +342,9 @@
         "entreprises-lis-lugano-istituti-sociali-pregassona",
         "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona",
         "social-and-health-workers-lis-lugano-istituti-sociali-pregassona",
-        "sozial-und-gesundheitsarbeiter-lis-lugano-istituti-sociali-pregassona"
+        "sozial-und-gesundheitsarbeiter-lis-lugano-istituti-sociali-pregassona",
+        "social-and-care-workers-childhood-lis-lugano-istituti-sociali-lugano",
+        "sozial-und-pflegearbeiter-kindheit-lis-lugano-istituti-sociali-lugano"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -1480,11 +1489,13 @@
         ],
         "en": [
           "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
-          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona"
+          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona",
+          "capisquadra-chef-di-cucina"
         ],
         "de": [
           "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
-          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona"
+          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona",
+          "capisquadra-chef-di-cucina"
         ]
       },
       "firstSeenAt": "2026-04-13T22:02:43.951Z"
@@ -1702,7 +1713,8 @@
         "haushaltsdienstmitarbeiter-lis-lugano-istituti-sociali-pregassona",
         "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona",
         "erganzungen-zum-haus-lis-lugano-istituti-sociali-pregassona",
-        "travailleurs-des-services-menagers-lis-lugano-istituti-sociali-pregassona"
+        "travailleurs-des-services-menagers-lis-lugano-istituti-sociali-pregassona",
+        "agents-de-services-a-la-maison-lis-lugano-istituti-sociali-lugano"
       ],
       "id": "lis-lugano-istituti-sociali-728912efd55d",
       "previousSlugsByLocale": {

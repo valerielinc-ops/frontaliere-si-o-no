@@ -421,7 +421,21 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "en": [
+          "direttore-amminsitrativo-e-finanziario-cfo-lwp-ledermann-wieting-partners-ticino"
+        ],
+        "it": [
+          "direttore-amminsitrativo-e-finanziario-cfo-lwp-ledermann-wieting-partners-ticino"
+        ],
+        "de": [
+          "direttore-amminsitrativo-e-finanziario-cfo-lwp-ledermann-wieting-partners-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "direttore-amminsitrativo-e-finanziario-cfo-lwp-ledermann-wieting-partners-ticino"
+      ]
     },
     {
       "title": "MARKETING MANAGER SVIZZERA",
@@ -825,20 +839,26 @@
       },
       "id": "lwphr-ddeec64678fb",
       "previousSlugs": [
-        "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+        "ricerca-consulente-vendita-lwp-ledermann-wieting-partners",
+        "consulente-sales-lwp-ledermann-wieting-partners-mendrisio-aqfk97",
+        "consulente-verkauf-lwp-ledermann-wieting-partners-mendrisio-aqfk97",
+        "consulente-vente-lwp-ledermann-wieting-partners-mendrisio-aqfk97"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
         ],
         "en": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners",
+          "consulente-sales-lwp-ledermann-wieting-partners-mendrisio-aqfk97"
         ],
         "de": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners",
+          "consulente-verkauf-lwp-ledermann-wieting-partners-mendrisio-aqfk97"
         ],
         "fr": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners",
+          "consulente-vente-lwp-ledermann-wieting-partners-mendrisio-aqfk97"
         ]
       },
       "firstSeenAt": "2026-04-13T22:04:42.089Z",

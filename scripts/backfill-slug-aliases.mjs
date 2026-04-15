@@ -1,23 +1,27 @@
 #!/usr/bin/env node
 /**
- * One-time backfill: match known 404 job slugs to active jobs and
- * populate previousSlugs for alias resolution.
+ * Backfill: match known 404 job slugs to active jobs and populate
+ * previousSlugs / previousSlugsByLocale for alias resolution.
  *
- * Strategy:
- * 1. Extract job slugs from seo-404-compat-paths.json
- * 2. For each, check if it matches an active job via company+location substring matching
- * 3. If matched and the slug differs from all current slugs, add to previousSlugs
+ * Two passes:
+ * 1. 404-compat pass: Extract slugs from seo-404-compat-paths.json,
+ *    match to active jobs via company+location heuristics, add to previousSlugs.
+ * 2. Registry pass: Scan slug-registry.json (immutable snapshot of original slugs),
+ *    match to active jobs via URL fingerprint, and recover historically lost slugs
+ *    that were overwritten during early pipeline development.
  *
  * Run: node scripts/backfill-slug-aliases.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 const COMPAT_PATHS = path.resolve(ROOT, 'data', 'seo-404-compat-paths.json');
 
 const JOB_PATH_PREFIX = '/cerca-lavoro-ticino/';
@@ -62,14 +66,59 @@ function extractCompanyToken(slug, companyKey) {
   return keyParts.filter((part) => part.length > 3 && slug.includes(part));
 }
 
+/**
+ * Load jobs from per-crawler files (primary) or assembled jobs.json (fallback).
+ * Returns { jobs, sources } where sources maps each job to its origin file for saving.
+ */
+function loadJobs() {
+  const jobs = [];
+  const sources = new Map(); // job → { file, crawlerData }
+
+  if (fs.existsSync(BY_CRAWLER_DIR)) {
+    for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json'))) {
+      const filePath = path.join(BY_CRAWLER_DIR, file);
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const crawlerJobs = data.jobs || [];
+      for (const job of crawlerJobs) {
+        jobs.push(job);
+        sources.set(job, { file: filePath, crawlerData: data });
+      }
+    }
+    if (jobs.length > 0) {
+      console.log(`Loaded ${jobs.length} jobs from ${fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).length} crawler files.`);
+      return { jobs, sources };
+    }
+  }
+
+  // Fallback to assembled jobs.json
+  if (fs.existsSync(DATA_JOBS)) {
+    const assembled = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf8'));
+    const assembledJobs = Array.isArray(assembled) ? assembled : [];
+    for (const job of assembledJobs) jobs.push(job);
+    console.log(`Loaded ${jobs.length} jobs from assembled jobs.json.`);
+  }
+  return { jobs, sources };
+}
+
+/**
+ * Save modified crawler files back to disk.
+ */
+function saveCrawlerFiles(modifiedFiles) {
+  for (const [filePath, data] of modifiedFiles) {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  }
+}
+
 function main() {
-  if (!fs.existsSync(DATA_JOBS) || !fs.existsSync(COMPAT_PATHS)) {
-    console.log('Missing required files.');
+  const { jobs, sources } = loadJobs();
+  if (jobs.length === 0) {
+    console.log('No jobs found.');
     return;
   }
 
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf8'));
-  const compat = JSON.parse(fs.readFileSync(COMPAT_PATHS, 'utf8'));
+  const compat = fs.existsSync(COMPAT_PATHS)
+    ? JSON.parse(fs.readFileSync(COMPAT_PATHS, 'utf8'))
+    : { paths: [] };
   const paths = Array.isArray(compat.paths) ? compat.paths : [];
 
   // Build index: companyKey → jobs
@@ -155,8 +204,7 @@ function main() {
     if (bestMatch && bestOverlap !== Infinity) {
       matched++;
       if (!Array.isArray(bestMatch.previousSlugs)) bestMatch.previousSlugs = [];
-      // Cap at 5 backfill aliases per job to avoid noise
-      if (!bestMatch.previousSlugs.includes(slug) && bestMatch.previousSlugs.length < 5) {
+      if (!bestMatch.previousSlugs.includes(slug)) {
         bestMatch.previousSlugs.push(slug);
         added++;
         console.log(`  ✅ "${slug}" → "${bestMatch.slug}" (${bestMatch.company}, overlap: ${(bestOverlap * 100).toFixed(0)}%)`);
@@ -166,13 +214,101 @@ function main() {
 
   console.log(`\nMatched ${matched} orphan slugs to active jobs (${added} new aliases added).`);
 
-  if (added > 0) {
-    const payload = `${JSON.stringify(jobs, null, 2)}\n`;
-    fs.writeFileSync(DATA_JOBS, payload, 'utf8');
-    if (fs.existsSync(PUBLIC_JOBS)) {
-      fs.writeFileSync(PUBLIC_JOBS, payload, 'utf8');
+  // ── Pass 2: Registry reconciliation ──────────────────────────
+  // The slug-registry.json is an immutable snapshot of each job's original slugs
+  // at creation time. Some of these original slugs were lost during early pipeline
+  // development (e.g., Italian slug written into EN slot, destroying the original
+  // EN slug). This pass recovers them by comparing registry snapshots against
+  // current job data and adding any missing slugs to previousSlugsByLocale.
+  const registry = loadSlugRegistry();
+  const registryEntries = Object.entries(registry);
+  let registryRecovered = 0;
+
+  console.log(`\n── Registry reconciliation (${registryEntries.length} entries) ──`);
+
+  for (const job of jobs) {
+    const fp = fingerprintJob(job);
+    if (!fp || !registry[fp]) continue;
+
+    const registryEntry = registry[fp];
+    const registrySlugs = registryEntry.slugByLocale || {};
+
+    // Collect locale-specific slugs the job currently knows about.
+    // Intentionally excludes flat previousSlugs — those are locale-agnostic and
+    // should not prevent locale-specific recovery into previousSlugsByLocale.
+    const knownByLocale = {};
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const known = new Set();
+      if (job.slug) known.add(normalize(job.slug));
+      if (job.slugByLocale?.[locale]) known.add(normalize(job.slugByLocale[locale]));
+      if (job.previousSlugsByLocale?.[locale]) {
+        for (const s of job.previousSlugsByLocale[locale]) known.add(normalize(s));
+      }
+      knownByLocale[locale] = known;
     }
-    console.log('💾 Saved updated jobs.json with previousSlugs backfill.');
+
+    // Check each registry locale slug — if unknown, recover it
+    for (const [locale, regSlug] of Object.entries(registrySlugs)) {
+      if (!regSlug) continue;
+      const normalizedRegSlug = normalize(regSlug);
+      if (knownByLocale[locale]?.has(normalizedRegSlug)) continue;
+
+      // This registry slug is lost — recover it
+      if (!job.previousSlugsByLocale) job.previousSlugsByLocale = {};
+      if (!Array.isArray(job.previousSlugsByLocale[locale])) job.previousSlugsByLocale[locale] = [];
+      if (!job.previousSlugsByLocale[locale].includes(regSlug)) {
+        job.previousSlugsByLocale[locale].push(regSlug);
+        registryRecovered++;
+        console.log(`  🔄 [${locale}] "${regSlug}" → "${job.slugByLocale?.[locale] || job.slug}" (${job.company})`);
+      }
+
+      // Also add to flat previousSlugs for backwards compatibility
+      if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+      if (!job.previousSlugs.includes(regSlug)) {
+        job.previousSlugs.push(regSlug);
+      }
+    }
+
+    // Also check the registry's canonicalSlug
+    const regCanonical = registryEntry.canonicalSlug;
+    if (regCanonical) {
+      const allKnown = new Set();
+      for (const s of Object.values(knownByLocale)) {
+        for (const v of s) allKnown.add(v);
+      }
+      if (!allKnown.has(normalize(regCanonical))) {
+        if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+        if (!job.previousSlugs.includes(regCanonical)) {
+          job.previousSlugs.push(regCanonical);
+          registryRecovered++;
+          console.log(`  🔄 [canonical] "${regCanonical}" → "${job.slug}" (${job.company})`);
+        }
+      }
+    }
+  }
+
+  console.log(`Registry reconciliation: ${registryRecovered} historically lost slugs recovered.`);
+
+  const totalAdded = added + registryRecovered;
+  if (totalAdded > 0) {
+    // Save to per-crawler files if that's where we loaded from
+    if (sources.size > 0) {
+      const modifiedFiles = new Map();
+      for (const job of jobs) {
+        const src = sources.get(job);
+        if (src) modifiedFiles.set(src.file, src.crawlerData);
+      }
+      saveCrawlerFiles(modifiedFiles);
+      console.log(`\n💾 Saved ${modifiedFiles.size} crawler files (${added} from 404 paths + ${registryRecovered} from registry).`);
+    } else {
+      // Fallback: save to assembled jobs.json
+      const payload = `${JSON.stringify(jobs, null, 2)}\n`;
+      fs.writeFileSync(DATA_JOBS, payload, 'utf8');
+      if (fs.existsSync(PUBLIC_JOBS)) {
+        fs.writeFileSync(PUBLIC_JOBS, payload, 'utf8');
+      }
+      console.log(`\n💾 Saved updated jobs.json (${added} from 404 paths + ${registryRecovered} from registry).`);
+    }
   }
 }
 

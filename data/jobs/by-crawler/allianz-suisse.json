@@ -45,7 +45,8 @@
       },
       "previousSlugs": [
         "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
-        "ricerca-responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona"
+        "ricerca-responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
+        "consulente-previdenziale-nel-servizio-esterno-m-f-d-100-allianz-suisse-bellinzona"
       ],
       "salaryMin": 66000,
       "salaryMax": 89000,
@@ -117,7 +118,8 @@
         "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzona",
         "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
         "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
-        "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
+        "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona",
+        "versicherungsberater-m-w-d-zu-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -224,7 +226,25 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "id": "allianz-suisse-b80e06999adf",
-      "firstSeenAt": "2026-04-13T21:01:46.149Z"
+      "firstSeenAt": "2026-04-13T21:01:46.149Z",
+      "previousSlugs": [
+        "insurance-client-advisor-m-f-d-100-allianz-suisse-lugano",
+        "kundenberater-im-versicherungsbereich-m-w-d-zu-100-allianz-suisse-lugano",
+        "versicherungskundenbetreuer-m-w-d-100-prozent-allianz-suisse-lugano",
+        "customer-advisor-in-the-insurance-field-m-f-d-100-allianz-suisse-lugano",
+        "conseiller-a-la-clientele-dans-le-domaine-de-l-assurance-m-f-j-a-100-allianz-suisse-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "customer-advisor-in-the-insurance-field-m-f-d-100-allianz-suisse-lugano"
+        ],
+        "de": [
+          "versicherungskundenbetreuer-m-w-d-100-prozent-allianz-suisse-lugano"
+        ],
+        "fr": [
+          "conseiller-a-la-clientele-dans-le-domaine-de-l-assurance-m-f-j-a-100-allianz-suisse-lugano"
+        ]
+      }
     },
     {
       "title": "Consulente previdenziale nel servizio esterno (m/f/d), 100%",
@@ -283,7 +303,24 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "id": "allianz-suisse-50253f776f7b",
-      "firstSeenAt": "2026-04-13T21:01:46.149Z"
+      "firstSeenAt": "2026-04-13T21:01:46.149Z",
+      "previousSlugs": [
+        "verkaufsleiter-aussendienst-m-w-d-100-bellinzona-allianz-suisse-bellinzona",
+        "vorsorgeberater-im-aussendienst-m-w-d-100-allianz-suisse-bellinzona",
+        "social-security-consultant-in-the-external-service-m-f-d-100-allianz-suisse-bellinzona",
+        "conseiller-en-prevoyance-dans-le-service-externe-m-f-j-100-allianz-suisse-bellinzona"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-in-the-external-service-m-f-d-100-allianz-suisse-bellinzona"
+        ],
+        "de": [
+          "vorsorgeberater-im-aussendienst-m-w-d-100-allianz-suisse-bellinzona"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-dans-le-service-externe-m-f-j-100-allianz-suisse-bellinzona"
+        ]
+      }
     },
     {
       "title": "Consulente per l’agenzia generale Chur 100%",
@@ -346,14 +383,17 @@
       "previousSlugsByLocale": {
         "en": [
           "external-consultant-for-allianz-general-agency-chur-100-allianz-suisse-sargans",
-          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+          "consulente-per-l-agenzia-generale-chur-100"
         ],
         "de": [
-          "berater-fur-die-allianz-general-agentur-chur-100-allianz-suisse-sargans"
+          "berater-fur-die-allianz-general-agentur-chur-100-allianz-suisse-sargans",
+          "consulente-per-l-agenzia-generale-chur-100"
         ],
         "fr": [
           "conseiller-pour-l-agence-generale-allianz-chur-100-allianz-suisse-sargans",
-          "infirmier-ere-diplome-e-es-spital-davos-davos"
+          "infirmier-ere-diplome-e-es-spital-davos-davos",
+          "consulente-per-l-agenzia-generale-chur-100"
         ],
         "it": [
           "consulente-per-l-agenzia-generale-chur-100",
@@ -427,7 +467,25 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "id": "allianz-suisse-56c69931219d",
-      "firstSeenAt": "2026-04-13T21:01:46.149Z"
+      "firstSeenAt": "2026-04-13T21:01:46.149Z",
+      "previousSlugs": [
+        "consulente-previdenziale-per-l-agenzia-generale-chur-100-allianz-suisse-chur",
+        "consultant-en-prevoyance-pour-l-agence-generale-chur-100-allianz-bewerbermanagement-allianz-suisse-chur",
+        "consultant-en-prevoyance-pour-l-agence-generale-chur-100-allianz-suisse-chur",
+        "social-security-consultant-for-the-general-chur-agency-100-allianz-suisse-chur",
+        "vorsorgeberater-fur-die-generalagentur-chur-100-allianz-suisse-chur"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-for-the-general-chur-agency-100-allianz-suisse-chur"
+        ],
+        "de": [
+          "vorsorgeberater-fur-die-generalagentur-chur-100-allianz-suisse-chur"
+        ],
+        "fr": [
+          "consultant-en-prevoyance-pour-l-agence-generale-chur-100-allianz-suisse-chur"
+        ]
+      }
     },
     {
       "title": "| Allianz | Bewerbermanagement",
@@ -472,7 +530,9 @@
       },
       "previousSlugs": [
         "allianz-gestione-candidati-allianz-suisse-region-graubunden",
-        "allianz-bewerbermanagement"
+        "allianz-bewerbermanagement",
+        "allianz-candidate-management-allianz-suisse-region-graubunden",
+        "allianz-gestion-des-candidats-allianz-suisse-region-graubunden"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -497,7 +557,8 @@
         ],
         "en": [
           "allianz-gestione-candidati-allianz-suisse-region-graubunden",
-          "allianz-bewerbermanagement"
+          "allianz-bewerbermanagement",
+          "allianz-candidate-management-allianz-suisse-region-graubunden"
         ],
         "de": [
           "allianz-gestione-candidati-allianz-suisse-region-graubunden",
@@ -505,7 +566,8 @@
         ],
         "fr": [
           "allianz-gestione-candidati-allianz-suisse-region-graubunden",
-          "allianz-bewerbermanagement"
+          "allianz-bewerbermanagement",
+          "allianz-gestion-des-candidats-allianz-suisse-region-graubunden"
         ]
       },
       "firstSeenAt": "2026-04-13T21:01:46.149Z"

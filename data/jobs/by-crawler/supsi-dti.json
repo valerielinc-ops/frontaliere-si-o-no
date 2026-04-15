@@ -192,7 +192,10 @@
         ]
       },
       "previousSlugs": [
-        "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+        "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
+        "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
+        "apprenti-e-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
+        "apprentice-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno"
       ],
       "country": "CH",
       "sourceLang": "it",
@@ -213,7 +216,18 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+        ],
+        "de": [
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+        ],
+        "fr": [
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+        ]
+      }
     },
     {
       "id": "company-l4u53i",
@@ -636,7 +650,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsabile-supsi-dti-lugano",
-        "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-manager-supsi-dti-manno"
+        "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-manager-supsi-dti-manno",
+        "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -872,7 +887,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "phd-student-in-dynamic-of-advanced-composite-materials-for-drones-supsi-dti-mendrisio-grado-d",
-        "home-supsi-dti-mendrisio-grado-d"
+        "home-supsi-dti-mendrisio-grado-d",
+        "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -898,13 +914,16 @@
           "home-supsi-dti-mendrisio-grado-d"
         ],
         "it": [
-          "home-supsi-dti-mendrisio-grado-d"
+          "home-supsi-dti-mendrisio-grado-d",
+          "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
         ],
         "de": [
-          "home-supsi-dti-mendrisio-grado-d"
+          "home-supsi-dti-mendrisio-grado-d",
+          "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
         ],
         "fr": [
-          "home-supsi-dti-mendrisio-grado-d"
+          "home-supsi-dti-mendrisio-grado-d",
+          "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
         ]
       },
       "firstSeenAt": "2026-03-31T21:47:14.853Z"
@@ -1179,20 +1198,24 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "home-supsi-dti-lugano"
+        "home-supsi-dti-lugano",
+        "dottorando-dottorando-nella-modellistica-molecolare-dei-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-manno",
+        "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "home-supsi-dti-lugano"
         ],
         "en": [
-          "home-supsi-dti-lugano"
+          "home-supsi-dti-lugano",
+          "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f"
         ],
         "de": [
           "home-supsi-dti-lugano"
         ],
         "fr": [
-          "home-supsi-dti-lugano"
+          "home-supsi-dti-lugano",
+          "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f"
         ]
       },
       "firstSeenAt": "2026-04-13T22:30:40.794Z"
@@ -1328,13 +1351,24 @@
       "previousSlugs": [
         "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
         "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
-        "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano"
+        "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
+        "manager-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
+        "responsable-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
           "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
           "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano"
+        ],
+        "en": [
+          "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
+        ],
+        "de": [
+          "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
+        ],
+        "fr": [
+          "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
         ]
       },
       "firstSeenAt": "2026-04-13T22:30:40.794Z"

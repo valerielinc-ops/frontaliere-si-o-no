@@ -45,7 +45,12 @@
       },
       "previousSlugs": [
         "application-ingegnere-critical-power-centiel-lugano",
-        "application-engineer-critical-power-centiel-ticino"
+        "application-engineer-critical-power-centiel-ticino",
+        "application-engineer-critical-power-centiel-cadro-lugano",
+        "application-ingenieur-critical-power-centiel-cadro-lugano",
+        "ingegnere-applicativo-potenza-critica-centiel-cadro-lugano",
+        "ingenieur-d-application-puissance-critique-centiel-lugano",
+        "application-ingenieur-critical-power-centiel-lugano"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -70,6 +75,9 @@
         ],
         "en": [
           "application-engineer-critical-power-centiel-ticino"
+        ],
+        "fr": [
+          "application-ingenieur-critical-power-centiel-lugano"
         ]
       },
       "firstSeenAt": "2026-04-13T21:21:09.576Z"
@@ -120,7 +128,11 @@
         "forschung-development-ingenieur-centiel-lugano",
         "ricerca-development-ingegnere-centiel-lugano",
         "ingegnere-di-ricerca-e-sviluppo-centiel-cadro-lugano",
-        "recherche-development-ingenieur-centiel-lugano"
+        "recherche-development-ingenieur-centiel-lugano",
+        "ingenieur-recherche-et-developpement-centiel-cadro-lugano",
+        "research-development-engineer-centiel-cadro-lugano",
+        "forschungs-und-entwicklungsingenieur-centiel-lugano",
+        "ingenieur-recherche-et-developpement-centiel-lugano"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -216,7 +228,10 @@
       "streetAddress": "Via Luserte 11",
       "postalCode": "6572",
       "previousSlugs": [
-        "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
+        "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
+        "sales-3-phase-ups-channel-partners-manager-centiel-lugano",
+        "ventes-responsable-des-partenaires-de-distribution-ups-triphase-centiel-lugano",
+        "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57"
       ],
       "id": "centiel-0bde96076198",
       "previousSlugsByLocale": {
@@ -225,6 +240,12 @@
         ],
         "it": [
           "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
+        ],
+        "de": [
+          "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57"
+        ],
+        "fr": [
+          "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57"
         ]
       },
       "firstSeenAt": "2026-04-13T21:21:09.576Z"
@@ -272,7 +293,8 @@
       },
       "previousSlugs": [
         "after-sales-technician-centiel-ticino",
-        "after-sales-technicien-centiel-lugano"
+        "after-sales-technicien-centiel-lugano",
+        "technicien-sav-centiel-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

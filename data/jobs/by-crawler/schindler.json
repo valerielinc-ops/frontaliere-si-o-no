@@ -60,7 +60,23 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "montageleiter-m-w-d-80-100-schindler-castione-arbedo",
+        "superviseur-d-installation-h-f-d-80-100-schindler-castione-arbedo",
+        "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo-kbzpxd"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo-kbzpxd"
+        ],
+        "de": [
+          "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo-kbzpxd"
+        ],
+        "fr": [
+          "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo-kbzpxd"
+        ]
+      }
     },
     {
       "id": "schindler-f97349d91827",
@@ -105,7 +121,9 @@
       "sourceLang": "it",
       "crawledAt": "2026-04-15T10:37:18.922Z",
       "previousSlugs": [
-        "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+        "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+        "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
+        "monteur-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -187,6 +205,12 @@
       "previousSlugsByLocale": {
         "it": [
           "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno"
+        ],
+        "de": [
+          "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno"
+        ],
+        "fr": [
+          "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno"
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:15.990Z",
@@ -250,10 +274,26 @@
       "sourceLang": "it",
       "crawledAt": "2026-04-15T10:37:17.836Z",
       "previousSlugs": [
-        "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno-p6i7qg"
+        "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno-p6i7qg",
+        "afc-automation-operator-apprenticeship-for-2026-schindler-locarno",
+        "apprendistato-elettronico-a-afc-per-il-2026-schindler-locarno",
+        "apprenti-operateur-en-automatisation-pour-2026-schindler-locarno",
+        "automation-operator-apprenticeship-afc-2026-schindler-locarno",
+        "ausbildung-als-automatisierungsoperator-afc-2026-schindler-locarno",
+        "apprentice-automation-operator-afc-2026-schindler-locarno",
+        "apprentissage-operateur-d-automatisation-afc-2026-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno-p6i7qg"
+        ],
+        "en": [
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno-p6i7qg"
+        ],
+        "de": [
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno-p6i7qg"
+        ],
+        "fr": [
           "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno-p6i7qg"
         ]
       },
@@ -318,10 +358,18 @@
       "sourceLang": "it",
       "crawledAt": "2026-04-15T10:37:16.969Z",
       "previousSlugs": [
-        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+        "senior-aufzugsmonteur-m-w-d-80-100-schindler-bioggio",
+        "monteur-d-ascenseurs-senior-m-f-d-80-100-schindler-bioggio"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        ],
+        "de": [
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        ],
+        "fr": [
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ]
       },
