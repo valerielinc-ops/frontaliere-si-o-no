@@ -5997,4 +5997,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/progetto-ticosa-parcheggi-acinque-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'asili-nido-bellinzona-iniziativa-firme-2026',
+ category: 'pratico',
+ date: '2026-04-15T03:35:07.764Z',
+ image: '/images/blog/asili-nido-bellinzona-iniziativa-firme-2026.jpg',
+ hasCalculator: true,
+ },
 ];

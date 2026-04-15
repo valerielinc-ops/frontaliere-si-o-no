@@ -2148,6 +2148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa: 1000 parking spaces for cross-border workers, Acinque speeds up project',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque confirms its intention to complete 1000 parking spaces in Ticosa shortly, featuring photovoltaic coverage and urban redevelopment, following the assessment of the 33-page document submitted by the City of Como.',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Night view of Lugano with Ticosa area under redevelopment and parking construction',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzona: signature collection launched for public daycare centres',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'The Municipality rejects the request for a public daycare centre. The Socialist Party, Greens and other political forces launch the initiative ‘More public daycare centres’ with a target of 3,000 signatures to be collected by July 2026.',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Exterior of a public nursery in Bellinzona with parents and children entering, red brick buildings with large windows',
 };
 
 export default blogMetaEn;

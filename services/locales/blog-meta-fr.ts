@@ -2148,6 +2148,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa : 1000 places de parking pour les frontaliers, Acinque accélère le projet',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque confirme sa volonté de réaliser dans les plus brefs délais 1000 places de parking à Ticosa, équipées de couvertures photovoltaïques et accompagnées d’une requalification urbaine, après l’évaluation des 33 pages transmises par la Ville de Côme.',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Vue nocturne de Lugano avec le site Ticosa en rénovation et les parkings en construction',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzone : lancement de la récolte de signatures pour des crèches publiques',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'La Municipalité rejette la demande d’une crèche publique. Le Parti socialiste, les Verts et d’autres forces politiques lancent l’initiative ‘Plus de crèches publiques’ avec un objectif de 3 000 signatures à recueillir d’ici juillet 2026.',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Extérieur d\'une crèche publique à Bellinzone avec des parents et des enfants qui entrent, bâtiments en briques rouges avec de grandes fenêtres',
 };
 
 export default blogMetaFr;

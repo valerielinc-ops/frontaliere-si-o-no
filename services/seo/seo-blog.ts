@@ -7656,6 +7656,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asili-nido-bellinzona-iniziativa-firme-2026': {
+    title: 'Bellinzona: via alla raccolta firme per | Frontaliere Ticino',
+    description: 'Il Comune di Bellinzona respinge la richiesta di un asilo nido pubblico. Partito Socialista e Verdi lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, alla, raccolta, firme',
+    ogTitle: 'Bellinzona: raccolta firme per asili nido pubblici fino a',
+    ogDescription: 'Il Comune di Bellinzona respinge la richiesta di un asilo nido pubblico. Partito Socialista e Verdi lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con',
+    canonicalPath: '/articoli-frontaliere/asili-nido-bellinzona-iniziativa-firme-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona lancia raccolta firme per asili nido pubblici: cosa cambia per le famiglie e i",
+      "description": "Il Comune di Bellinzona respinge la richiesta di un asilo nido pubblico. Partito Socialista e Verdi lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asili-nido-bellinzona-iniziativa-firme-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno di un asilo nido a Bellinzona con genitori e bambini che entrano, edifici in mattoni rossi e finestre ampie"
+      },
+      "datePublished": "2026-04-15T03:35:07+00:00",
+      "dateModified": "2026-04-15T03:35:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-iniziativa-firme-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

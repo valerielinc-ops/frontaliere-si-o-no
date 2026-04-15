@@ -2148,6 +2148,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa: 1000 parcheggi per frontalieri, Acinque accelera il progetto',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque conferma la volontà di realizzare entro breve 1000 parcheggi a Ticosa con copertura fotovoltaica e riqualificazione urbanistica, dopo la valutazione delle 33 pagine inviate dal Comune di Como.',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Veduta notturna di Lugano con area Ticosa in riqualificazione e parcheggi in costruzione',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzona: via alla raccolta firme per asili nido pubblici',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'Il Comune boccia la richiesta di un asilo nido pubblico. Partito Socialista, Verdi e altre forze lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con 3’000 firme da raccogliere entro luglio 2026.',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Esterno di un asilo nido a Bellinzona con genitori e bambini che entrano, edifici in mattoni rossi e finestre ampie',
 };
 
 export default blogMetaIt;

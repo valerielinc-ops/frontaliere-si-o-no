@@ -2148,6 +2148,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa: 1000 Parkplätze für Grenzgänger – Acinque beschleunigt das Projekt',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque bekräftigt den Willen, binnen kürzester Zeit 1000 Parkplätze in Ticosa mit Photovoltaik-Dach und städtebaulicher Aufwertung zu realisieren. Dies nach der Prüfung der 33-seitigen Unterlagen, die die Stadt Como eingereicht hat.',
     'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Nachtansicht von Lugano mit dem sich im Umbau befindenden Ticosa-Areal und Parkplatzbau',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.title': 'Bellinzona: Sammeln von Unterschriften für öffentliche Kinderkrippen beginnt',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.excerpt': 'Die Stadtverwaltung lehnt den Antrag für eine öffentliche Kinderkrippe ab. Die SP, die Grünen und weitere Kräfte starten die Initiative \'Mehr öffentliche Kinderkrippen\' und sammeln innerhalb von drei Jahren 3’000 Unterschriften – bis Juli 2026.',
+    'blog.article.asili-nido-bellinzona-iniziativa-firme-2026.imageAlt': 'Äusseres eines öffentlichen Kinderkrippengebäudes in Bellinzona mit Eltern und Kindern, die eintreten, Gebäude aus rotem Backstein mit grossen Fenstern',
 };
 
 export default blogMetaDe;
