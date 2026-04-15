@@ -1,21 +1,49 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-04-14T22:29:52.610Z",
+  "generatedAt": "2026-04-15T10:45:28.647Z",
   "total": 2,
-  "newCount": 2,
+  "newCount": 3,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26919,
-  "avgDurationMs": 26919,
+  "durationMs": 20315,
+  "avgDurationMs": 20315,
   "durationHistory": [
-    26919
+    20315
   ],
   "newJobs": [
     {
+      "id": "company-7uatwx",
+      "slug": "data-scientist-all-genders-on-site-presence-swiss-timing-ltd-2606-corgemont-apply-for-this-job-share-this-job-offer-main-navigation-swatch-g",
+      "company": "Swiss Timing LTD",
+      "title": "Data Scientist (all genders) - on-site presence",
+      "location": "2606 Corgémont Apply for this job Share this job offer Main navigation Swatch Gr",
+      "canton": "GR",
+      "category": "tech",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://www.swatchgroup.com/en/job/31699",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-04-15T10:45:28.487Z",
+      "firstSeenAt": "2026-04-15T10:45:28.487Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
       "id": "company-7uaq6e",
-      "slug": "sales-assistant-part-time-20-ore-fiordaliso-contratto-temporaneo-the-swatch-group-italia-s-p-a-20089-rozzano-lombardia-italy-company-address",
+      "slug": "sales-assistant-part-time-20-ore-fiordaliso-contratto-temporaneo-the-swatch-group-italia-s-p-a-20089-rozzano-lombardia-italy-company-address-7uaq6e",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time 20 ore - Fiordaliso - contratto temporaneo",
       "location": "20089 Rozzano (Lombardia) Italy Company address The Swatch Group (Italia) S",
@@ -31,19 +59,22 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-04-14T22:29:52.358Z",
       "firstSeenAt": "2026-04-14T22:29:52.358Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 74,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "6500",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
       "id": "company-7uarkf",
-      "slug": "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add",
+      "slug": "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add-7uarkf",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time - Forte dei marmi - contratto temporaneo",
       "location": "55042 Forte dei Marmi (Toscana) Italy Company address The Swatch Group (Italia)",
@@ -59,14 +90,18 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-04-14T22:29:52.358Z",
       "firstSeenAt": "2026-04-14T22:29:52.358Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 75,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "6500",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
