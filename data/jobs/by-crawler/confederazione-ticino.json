@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-04-15T09:40:40.641Z",
+  "assembledAt": "2026-04-15T21:20:23.277Z",
   "jobs": [
     {
       "title": "Inspektor/in",
@@ -45,8 +45,8 @@
       },
       "previousSlugs": [
         "inspektor-in-confederazione-svizzera-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs",
-        "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs",
-        "inspektor-in-confederazione-svizzera-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-a"
+        "inspektor-in-confederazione-svizzera-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-a",
+        "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -284,10 +284,10 @@
       "previousSlugs": [
         "apprendista-kauffrau-cfc-lernender-kaufmann-cfc-confederazione-svizzera-bellinzona",
         "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
+        "apprentie-employee-de-commerce-cfc-apprenti-employe-de-commerce-cfc-confederazione-svizzera-bellinzona",
         "apprenti-e-kauffrau-efz-apprenti-e-kaufmann-efz-confederazione-svizzera-bellinzona",
         "apprentice-kauffrau-efz-apprentice-kaufmann-efz-confederazione-svizzera-bellinzona",
-        "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-svizzera-bellinzona",
-        "apprentie-employee-de-commerce-cfc-apprenti-employe-de-commerce-cfc-confederazione-svizzera-bellinzona"
+        "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-svizzera-bellinzona"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -398,8 +398,8 @@
       },
       "previousSlugs": [
         "netzwerk-spezialist-in-professional-confederazione-locarno",
-        "netzwerk-spezialist-in-professional-confederazione-svizzera-locarno",
-        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
+        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
+        "netzwerk-spezialist-in-professional-confederazione-svizzera-locarno"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
@@ -463,9 +463,9 @@
         "gerichtsschreiberin-gerichtsschreiber-der-strafkammer-confederazione-svizzera-bellinzona",
         "gerichtsschreiberin-gerichtsschreiber-der-strafkammer-confederazione-bellinzona",
         "cancelliere-cancelliera-della-sezione-penale-confederazione-svizzera-bellinzona",
-        "greffiere-greffier-de-la-chambre-penale-confederazione-svizzera-bellinzona",
+        "clerk-of-the-criminal-division-confederazione-svizzera-bellinzona",
         "greffiere-greffier-de-la-chambre-de-premiere-instance-confederazione-svizzera-bellinzona",
-        "clerk-of-the-criminal-division-confederazione-svizzera-bellinzona"
+        "greffiere-greffier-de-la-chambre-penale-confederazione-svizzera-bellinzona"
       ],
       "id": "confederazione-ticino-aa3545729b04",
       "previousSlugsByLocale": {
@@ -563,7 +563,8 @@
         "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       ],
-      "firstSeenAt": "2026-04-13T21:25:51.212Z"
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -639,13 +640,12 @@
       },
       "previousSlugs": [
         "logistiker-in-lager-ambri-andermatt-confederazione-ambri",
-        "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri",
         "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
-        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl"
+        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
+        "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "retranslationAttempts": 1
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -884,10 +884,10 @@
       },
       "previousSlugs": [
         "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-confederazione-rivera",
-        "lernende-r-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-confederazione-svizzera-rivera",
-        "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-confederazione-svizzera-rivera",
         "apprendista-meccatronico-automobilistico-efz-settore-veicoli-personali-swiss-armed-forces-vtg-rivera",
         "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "lernende-r-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-confederazione-svizzera-rivera",
+        "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-confederazione-svizzera-rivera",
         "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z"
@@ -938,8 +938,8 @@
         "interprete-pour-l-asile-confederazione-svizzera-alle-standorte-des-sem-nqa0gn",
         "asyl-dolmetscher-in-confederazione-svizzera-alle-standorte-des-sem-nqa0gn",
         "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem",
-        "traduttore-trice-in-materia-di-asilo-confederazione-svizzera-alle-standorte-des-sem",
         "asyl-dolmetscher-in-confederazione-svizzera-alle-standorte-des-sem",
+        "traduttore-trice-in-materia-di-asilo-confederazione-svizzera-alle-standorte-des-sem",
         "interprete-asile-confederazione-svizzera-alle-standorte-des-sem"
       ],
       "salaryMin": 58000,
