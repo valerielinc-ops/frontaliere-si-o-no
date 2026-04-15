@@ -2157,6 +2157,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Öffentliche Kinderkrippen im Tessin: Unterschriftenaktion für Volksinitiative gestartet',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'Die Unterschriftenaktion für eine Volksinitiative zugunsten öffentlicher Kinderkrippen im Tessin ist angelaufen. Acht Parteien und Verbände haben das Projekt nach der Ablehnung durch den Stadtrat von Bellinzona lanciert.',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Bellinzona Platz mit Familien und Kindern an einem sonnigen Morgen',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Bern begrenzt Immobilienkäufe: Was ändert sich für die Tessiner Grenzgänger',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'Der Bundesrat startet bis zum 15. Juli 2026 eine Konsultation zur Ausweitung der bundesrechtlichen Bewilligungspflicht für den Kauf von Wohn- und Gewerbeimmobilien durch Nicht-EU/EFTA-Bürger.',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Burg Castelgrande in Bellinzona bei Nacht mit einem Schweizer Straßenschild, das eine bundesdeutsche Genehmigung für den Kauf von Immobilien durch Ausländer anzeigt',
 };
 
 export default blogMetaDe;

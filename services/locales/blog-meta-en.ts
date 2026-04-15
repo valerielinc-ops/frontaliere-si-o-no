@@ -2157,6 +2157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Public daycare centres in Ticino: signature collection begins for the popular initiative',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'Signature collection has begun for public daycare centres in Ticino. Eight parties and associations have launched the initiative following the rejection by the Bellinzona municipal council.',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Bellinzona square with families and children in a sunny morning',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Bern limits property purchases: what changes for Ticino cross-border workers',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'The Federal Council has launched a consultation until 15 July 2026 to extend the federal permit requirement for purchasing residential and commercial real estate by non-EU/EFTA citizens.',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Bellinzona\'s Castel Grande at night with a Swiss road sign indicating federal authorization required for foreigners to buy real estate',
 };
 
 export default blogMetaEn;

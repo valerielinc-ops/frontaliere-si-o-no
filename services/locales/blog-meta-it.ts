@@ -2157,6 +2157,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Asili nido pubblici in Ticino: parte la raccolta firme per l’iniziativa popolare',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'Partita la raccolta firme per asili nido pubblici in Ticino. Otto partiti e associazioni lanciano l’iniziativa dopo il no del Consiglio comunale di Bellinzona.',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Piazza a Bellinzona con famiglie e bambini, in una mattina di sole',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Berna limita l’acquisto di immobili: cosa cambia per i frontalieri ticinesi',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'Il Consiglio federale avvia la consultazione fino al 15 luglio 2026 per estendere l’obbligo di autorizzazione federale all’acquisto di immobili residenziali e commerciali da parte di cittadini extra UE/AELS.',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Castel Grande a Bellinzona illuminato di notte con cartello che indica l’obbligo di autorizzazione federale per l’acquisto di immobili da parte di stranieri',
 };
 
 export default blogMetaIt;

@@ -7743,6 +7743,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berna-limita-acquisto-immobili-stranieri-2026': {
+    title: 'Berna limita l’acquisto di immobili | Frontaliere Ticino',
+    description: 'Berna limita l’acquisto di immobili ai cittadini extra UE/AELS. Obbligo di autorizzazione, stop agli investimenti e nuove regole per frontalieri. Scopri come',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, limita, acquisto, immobili',
+    ogTitle: 'Limite acquisto immobili stranieri 2026: le nuove regole per',
+    ogDescription: 'Il Consiglio federale limita l’acquisto di immobili da parte di stranieri. Obbligo di autorizzazione, stop agli investimenti e nuove restrizioni per frontalieri',
+    canonicalPath: '/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino | Berna limita l'acquisto di immobili agli stranieri: le nuove regole per il 2026",
+      "description": "Berna limita l’acquisto di immobili ai cittadini extra UE/AELS. Obbligo di autorizzazione, stop agli investimenti e nuove regole per frontalieri. Scopri come",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/berna-limita-acquisto-immobili-stranieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castel Grande a Bellinzona illuminato di notte con cartello che indica l’obbligo di autorizzazione federale per l’acquisto di immobili da parte di stranieri"
+      },
+      "datePublished": "2026-04-15T09:48:19+00:00",
+      "dateModified": "2026-04-15T09:48:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

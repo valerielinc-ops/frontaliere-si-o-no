@@ -2157,6 +2157,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.title': 'Crèches publiques au Tessin : le lancement de la récolte de signatures pour l’initiative populaire est lancé',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.excerpt': 'La récolte de signatures pour les crèches publiques au Tessin est désormais lancée. Huit partis et associations lancent l’initiative après le refus du Conseil communal de Bellinzone.',
     'blog.article.asili-nido-pubblici-ticino-iniziativa-popolare-2026.imageAlt': 'Place de Bellinzone avec familles et enfants par une matinée ensoleillée',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Berne limite l\'achat d\'immeubles : quels changements pour les travailleurs frontaliers tessinois',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'Le Conseil fédéral lance une consultation jusqu\'au 15 juillet 2026 pour étendre l\'obligation d\'autorisation fédérale à l\'achat d\'immeubles résidentiels et commerciaux par des citoyens hors UE/AELE.',
+    'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Le Castelgrande de Bellinzone illuminé la nuit avec un panneau routier suisse indiquant l\'autorisation fédérale requise pour l\'achat d\'immeubles par des étrangers',
 };
 
 export default blogMetaFr;

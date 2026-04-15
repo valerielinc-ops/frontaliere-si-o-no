@@ -6018,4 +6018,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/asili-nido-pubblici-ticino-iniziativa-popolare-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'berna-limita-acquisto-immobili-stranieri-2026',
+ category: 'novita',
+ date: '2026-04-15T09:48:19.923Z',
+ image: '/images/blog/berna-limita-acquisto-immobili-stranieri-2026.jpg',
+ hasCalculator: true,
+ },
 ];
