@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "prada-4bce561bf386",
-      "slug": "miu-miu-paris-interno-customer-advisor-h-f-prada-group-mendrisio",
+      "slug": "miu-miu-client-consulente-tirocinante-paris-h-f-prada-group-mendrisio",
       "slugByLocale": {
-        "it": "miu-miu-paris-interno-customer-advisor-h-f-prada-group-mendrisio",
+        "it": "miu-miu-client-consulente-tirocinante-paris-h-f-prada-group-mendrisio",
         "en": "miu-miu-client-advisor-intern-paris-h-f-prada-group-mendrisio",
         "de": "miu-miu-client-berater-praktikant-paris-h-f-prada-group-mendrisio",
         "fr": "miu-miu-conseiller-client-paris-interne-h-f-prada-group-mendrisio"
@@ -46,6 +46,7 @@
       "crawledAt": "2026-04-15T22:10:04.377Z",
       "previousSlugs": [
         "miu-miu-client-advisor-intern-paris-h-f-prada-group-mendrisio",
+        "miu-miu-paris-interno-customer-advisor-h-f-prada-group-mendrisio",
         "miu-miu-client-advisor-icon-siam-prada-group-mendrisio",
         "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio",
         "miu-miu-client-advisor-prada-group-mendrisio",
@@ -63,13 +64,13 @@
         "prada-client-advisor-madrid-prada-group-mendrisio",
         "prada-client-advisor-monaco-cdd-h-f-prada-group-mendrisio",
         "prada-client-advisor-prada-group-mendrisio",
-        "prada-client-berater-izmir-prada-group-mendrisio",
-        "prada-client-berater-m-f-d-prada-group-mendrisio"
+        "prada-client-berater-izmir-prada-group-mendrisio"
       ],
       "firstSeenAt": "2026-04-15T10:30:51.764Z",
       "previousSlugsByLocale": {
         "it": [
-          "miu-miu-client-advisor-intern-paris-h-f-prada-group-mendrisio"
+          "miu-miu-client-advisor-intern-paris-h-f-prada-group-mendrisio",
+          "miu-miu-paris-interno-customer-advisor-h-f-prada-group-mendrisio"
         ],
         "de": [
           "miu-miu-client-advisor-intern-paris-h-f-prada-group-mendrisio"
@@ -246,9 +247,9 @@
     },
     {
       "id": "prada-65346ca9eb13",
-      "slug": "prada-paris-airporto-interno-del-customer-h-f-prada-group-mendrisio",
+      "slug": "prada-client-consulente-tirocinante-aeroport-de-paris-h-f-prada-group-mendrisio",
       "slugByLocale": {
-        "it": "prada-paris-airporto-interno-del-customer-h-f-prada-group-mendrisio",
+        "it": "prada-client-consulente-tirocinante-aeroport-de-paris-h-f-prada-group-mendrisio",
         "en": "prada-client-advisor-intern-aeroport-de-paris-h-f-prada-group-mendrisio",
         "de": "prada-client-berater-praktikant-aeroport-de-paris-h-f-prada-group-mendrisio",
         "fr": "prada-conseiller-client-interne-aeroport-de-paris-h-f-prada-group-mendrisio"
@@ -287,11 +288,13 @@
       "sourceLang": "fr",
       "crawledAt": "2026-04-15T22:10:02.943Z",
       "previousSlugs": [
-        "prada-client-advisor-intern-aeroport-de-paris-h-f-prada-group-mendrisio"
+        "prada-client-advisor-intern-aeroport-de-paris-h-f-prada-group-mendrisio",
+        "prada-paris-airporto-interno-del-customer-h-f-prada-group-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prada-client-advisor-intern-aeroport-de-paris-h-f-prada-group-mendrisio"
+          "prada-client-advisor-intern-aeroport-de-paris-h-f-prada-group-mendrisio",
+          "prada-paris-airporto-interno-del-customer-h-f-prada-group-mendrisio"
         ],
         "de": [
           "prada-client-advisor-intern-aeroport-de-paris-h-f-prada-group-mendrisio"
@@ -317,9 +320,9 @@
     },
     {
       "id": "prada-a972f0e5b9d6",
-      "slug": "prada-village-interno-del-customer-h-f-prada-group-mendrisio",
+      "slug": "prada-client-consulente-tirocinante-la-vallee-village-h-f-prada-group-mendrisio",
       "slugByLocale": {
-        "it": "prada-village-interno-del-customer-h-f-prada-group-mendrisio",
+        "it": "prada-client-consulente-tirocinante-la-vallee-village-h-f-prada-group-mendrisio",
         "en": "prada-client-advisor-intern-la-vallee-village-h-f-prada-group-mendrisio",
         "de": "prada-client-berater-praktikant-la-vallee-village-h-f-prada-group-mendrisio",
         "fr": "prada-client-advisor-intern-la-vallee-village-h-f-prada-group-mendrisio"
@@ -359,11 +362,13 @@
       "crawledAt": "2026-04-15T22:10:02.477Z",
       "previousSlugs": [
         "prada-client-advisor-intern-la-vallee-village-h-f-prada-group-mendrisio",
+        "prada-village-interno-del-customer-h-f-prada-group-mendrisio",
         "direttore-del-dipartimento-di-prada-prada-group-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prada-client-advisor-intern-la-vallee-village-h-f-prada-group-mendrisio"
+          "prada-client-advisor-intern-la-vallee-village-h-f-prada-group-mendrisio",
+          "prada-village-interno-del-customer-h-f-prada-group-mendrisio"
         ],
         "de": [
           "prada-client-advisor-intern-la-vallee-village-h-f-prada-group-mendrisio"

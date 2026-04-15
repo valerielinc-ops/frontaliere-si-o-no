@@ -1125,15 +1125,12 @@
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "senior-physician-internal-medicine-80-100-spital-davos-davos",
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
         "de": [
-          "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
           "unterassistent-in-innere-medizin-100-spital-davos-ch"
         ],
         "fr": [
-          "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
           "assistant-en-medecine-interne-100-spital-davos-davos"
         ],
         "it": [
@@ -1141,11 +1138,7 @@
         ]
       },
       "previousSlugs": [
-        "senior-physician-internal-medicine-80-100-spital-davos-davos",
-        "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
-        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
-        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "assistant-en-medecine-interne-100-spital-davos-davos",
         "assistente-di-medicina-interna-100-spital-davos-davos"
@@ -1290,15 +1283,12 @@
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "care-assistant-srk-spitex-50-100-spital-davos-davos",
           "surgery-orthopaedics-assistant-100-spital-davos-davos"
         ],
         "de": [
-          "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
           "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch"
         ],
         "fr": [
-          "assistant-de-soins-srk-spitex-50-100-spital-davos-davos",
           "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos"
         ],
         "it": [
@@ -1306,12 +1296,8 @@
         ]
       },
       "previousSlugs": [
-        "care-assistant-srk-spitex-50-100-spital-davos-davos",
-        "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
-        "assistant-de-soins-srk-spitex-50-100-spital-davos-davos",
         "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
         "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
-        "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
         "spitex-health-care-assistant-50-100-spital-davos-davos",
         "surgery-orthopaedics-assistant-100-spital-davos-davos",
@@ -1326,7 +1312,7 @@
         "de": "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
         "it": "assistente-sanitario-efz-per-la-cura-a-lungo-termine-per-il-turno-di-notte-50-90-spital-davos-davos",
         "en": "healthcare-assistant-efz-for-long-term-care-for-night-shift-50-90-spital-davos-davos",
-        "fr": "assistant-de-sante-efz-pour-la-prise-en-charge-a-long-terme-pour-le-service-de-nuit-50-90-spital-davos-davos"
+        "fr": "sante-professionnelle-efz-soins-de-longue-duree-pour-la-veille-nocturne-50-90-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1387,7 +1373,15 @@
         }
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistant-de-sante-efz-pour-la-prise-en-charge-a-long-terme-pour-le-service-de-nuit-50-90-spital-davos-davos"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-de-sante-efz-pour-la-prise-en-charge-a-long-terme-pour-le-service-de-nuit-50-90-spital-davos-davos"
+      ]
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -1759,15 +1753,12 @@
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
           "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
           "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch"
         ],
         "fr": [
-          "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
           "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos"
         ],
         "it": [
@@ -1775,11 +1766,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
-        "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
-        "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
         "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",

@@ -100,12 +100,12 @@
     },
     {
       "id": "denner-bc6efc597ef2",
-      "slug": "verkaufer-in-im-stundenlohn-denner-effretikon",
+      "slug": "venditore-in-salario-orario-denner-effretikon",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-effretikon",
-        "en": "verkaufer-in-im-stundenlohn-denner-effretikon",
+        "it": "venditore-in-salario-orario-denner-effretikon",
+        "en": "seller-in-in-hourly-wage-denner-effretikon",
         "de": "verkaufer-in-im-stundenlohn-denner-effretikon",
-        "fr": "verkaufer-in-im-stundenlohn-denner-effretikon"
+        "fr": "vendeur-en-salaire-horaire-denner-effretikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -164,20 +164,24 @@
       "crawledAt": "2026-04-15T21:28:22.224Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-effretikon"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-effretikon"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-effretikon"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-effretikon",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -298,9 +302,9 @@
       "slug": "filialleiter-in-denner-emmenbrucke",
       "slugByLocale": {
         "it": "filialleiter-in-denner-emmenbrucke",
-        "en": "filialleiter-in-denner-emmenbrucke",
+        "en": "head-of-branch-in-denner-emmenbrucke",
         "de": "filialleiter-in-denner-emmenbrucke",
-        "fr": "filialleiter-in-denner-emmenbrucke"
+        "fr": "chef-de-branche-denner-emmenbrucke"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -589,9 +593,9 @@
       "slug": "logistiker-in-filiale-denner-schaffhausen",
       "slugByLocale": {
         "it": "logistiker-in-filiale-denner-schaffhausen",
-        "en": "logistiker-in-filiale-denner-schaffhausen",
+        "en": "logistics-branch-denner-schaffhausen",
         "de": "logistiker-in-filiale-denner-schaffhausen",
-        "fr": "logistiker-in-filiale-denner-schaffhausen"
+        "fr": "branche-logistique-denner-schaffhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -672,12 +676,12 @@
     },
     {
       "id": "denner-6793c0b99e27",
-      "slug": "abteilungsleiter-in-wareneingang-magenwil-denner",
+      "slug": "capodipartimento-nelle-merci-in-entrata-magenwil-denner-magenwil",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-wareneingang-magenwil-denner",
-        "en": "abteilungsleiter-in-wareneingang-magenwil-denner",
+        "it": "capodipartimento-nelle-merci-in-entrata-magenwil-denner-magenwil",
+        "en": "head-of-department-in-incoming-goods-magenwil-denner-magenwil",
         "de": "abteilungsleiter-in-wareneingang-magenwil-denner",
-        "fr": "abteilungsleiter-in-wareneingang-magenwil-denner"
+        "fr": "chef-de-departement-dans-les-biens-entrants-magenwil-denner-magenwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -748,7 +752,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T21:28:24.569Z"
+      "firstSeenAt": "2026-04-15T21:28:24.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-wareneingang-magenwil-denner"
+        ],
+        "en": [
+          "abteilungsleiter-in-wareneingang-magenwil-denner"
+        ],
+        "fr": [
+          "abteilungsleiter-in-wareneingang-magenwil-denner"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-wareneingang-magenwil-denner"
+      ]
     },
     {
       "id": "denner-add5d94b9d66",

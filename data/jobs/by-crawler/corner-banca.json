@@ -102,12 +102,12 @@
     },
     {
       "id": "corner-banca-9d77a9660c3e",
-      "slug": "customer-advisor-60-corner-banca-wallisellen",
+      "slug": "consulente-clienti-60-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-60-corner-banca-wallisellen",
+        "it": "consulente-clienti-60-corner-banca-wallisellen",
         "en": "customer-advisor-60-corner-banca-wallisellen",
         "de": "customer-advisor-60-corner-banca-wallisellen",
-        "fr": "customer-advisor-60-corner-banca-wallisellen"
+        "fr": "conseiller-client-60-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -186,7 +186,18 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-15T21:25:24.685Z"
+      "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-advisor-60-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "customer-advisor-60-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "customer-advisor-60-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-422277a6cd4c",

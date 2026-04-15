@@ -2825,12 +2825,12 @@
     },
     {
       "id": "lonza-3cd0c30c185d",
-      "slug": "manufacturing-specialist-m-w-d-lonza-ch",
+      "slug": "projektleiter-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "manufacturing-specialist-m-w-d-lonza-ch",
-        "it": "manufacturing-specialist-m-w-d-lonza-ch",
+        "it": "projektleiter-m-w-d-lonza-ch",
         "en": "manufacturing-specialist-m-w-d-lonza-ch",
-        "fr": "manufacturing-specialist-m-w-d-lonza-ch"
+        "fr": "projektleiter-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2884,16 +2884,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T21:58:29.768Z"
+      "firstSeenAt": "2026-04-15T21:58:29.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-specialist-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "manufacturing-specialist-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-specialist-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a906f7c1da30",
-      "slug": "it-security-compliance-head-lonza-ch",
+      "slug": "responsabile-it-security-compliance-chi-lunedi-mercoledi-d-lonza-ch",
       "slugByLocale": {
         "en": "it-security-compliance-head-chi-m-w-d-lonza-ch",
-        "it": "it-security-compliance-head-lonza-ch",
-        "de": "it-security-compliance-head-lonza-ch",
-        "fr": "it-security-compliance-head-lonza-ch"
+        "it": "responsabile-it-security-compliance-chi-lunedi-mercoledi-d-lonza-ch",
+        "de": "it-sicherheits-und-compliance-leiter-m-w-d-lonza-ch",
+        "fr": "responsable-de-la-securite-et-de-la-conformite-des-ti-chi-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2947,7 +2958,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T21:58:29.768Z"
+      "firstSeenAt": "2026-04-15T21:58:29.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-compliance-head-lonza-ch"
+        ],
+        "de": [
+          "it-security-compliance-head-lonza-ch"
+        ],
+        "fr": [
+          "it-security-compliance-head-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-compliance-head-lonza-ch"
+      ]
     }
   ]
 }

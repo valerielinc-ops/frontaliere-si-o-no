@@ -1320,12 +1320,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-9b9d35d55ba4",
-      "slug": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+      "slug": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-        "it": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-        "en": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        "it": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
+        "en": "senior-consultant-m-w-80-100-hochgebirgsklinik-davos-davos",
+        "fr": "consultant-principal-m-m-80-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1388,7 +1388,21 @@
         }
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-caa9789d6663",
