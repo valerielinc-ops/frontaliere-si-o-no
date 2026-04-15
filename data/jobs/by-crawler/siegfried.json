@@ -1473,7 +1473,9 @@
       },
       "previousSlugs": [
         "mechaniker-m-w-d-siegfried-ch"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "siegfried-0924403ac3ed",
@@ -1549,7 +1551,9 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-04-14T22:22:01.733Z"
+      "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }

@@ -2662,7 +2662,9 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "lonza-4f68833150c8",
@@ -2875,7 +2877,9 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "lonza-f6e2401cd22c",
