@@ -2172,6 +2172,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Feux en plein air au Tessin : l\'interdiction levée à partir du 1er mai 2024',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'À partir du 1er mai 2024, les feux de bois et d\'herbes dans les forêts et prairies tessinoises seront à nouveau autorisés, mais pas sur l\'ensemble du territoire du proche Grigioni italien. Voici ce qui change pour les travailleurs frontaliers et les règles à respecter.',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Feu de camp au sommet du Monte Brè avec vue sur le lac de Lugano au coucher du soleil',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Achats immobiliers depuis l’étranger : le gouvernement suisse durcit les règles',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'Du 15 avril au 15 juillet 2026, consultation publique sur de nouvelles restrictions pour les étrangers non-UE/AELE. Ce qui change pour les maisons, chalets et investissements.',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Chalet alpin au Tessin symbolisant les nouvelles restrictions sur les achats immobiliers par des étrangers',
 };
 
 export default blogMetaFr;

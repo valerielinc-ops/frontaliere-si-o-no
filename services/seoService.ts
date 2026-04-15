@@ -1979,6 +1979,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-slowup-strade-trasporti-limiti-2026': { name: 'SlowUp 2026', path: '/articoli-frontaliere/slowup-strade-trasporti-limiti-2026', parent: 'blog' },
     'blog-petrolio-e-gas-svizzera-approvvigionamento-2026': { name: 'Energia e costi', path: '/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026', parent: 'blog' },
     'blog-fuochi-allaperto-ticino-grazie-normativa-2024': { name: 'Norme fuochi all\'aperto', path: '/articoli-frontaliere/fuochi-allaperto-ticino-grazie-normativa-2024', parent: 'blog' },
+    'blog-governo-limita-acquisti-immobiliari-estero-2026': { name: 'Acquisti immobiliari dall’estero', path: '/articoli-frontaliere/governo-limita-acquisti-immobiliari-estero-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

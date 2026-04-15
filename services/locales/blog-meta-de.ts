@@ -2172,6 +2172,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Freiluftfeuer im Tessin: Verbot ab 1. Mai 2024 aufgehoben',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'Ab dem 1. Mai 2024 sind Feuer in Wäldern und auf Wiesen im Tessin wieder erlaubt – allerdings nicht in allen Gebieten des benachbarten italienischen Graubündens. Erfahren Sie, was sich für Grenzgänger ändert und welche Regeln zu beachten sind.',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Lagerfeuer auf dem Gipfel des Monte Brè mit Sonnenuntergangsblick auf den Luganersee',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Immobilienkäufe aus dem Ausland: Die Schweizer Regierung verschärft die Regeln',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'Vom 15. April bis 15. Juli 2026 läuft die öffentliche Konsultation zu neuen Einschränkungen für Nicht-EU/EFTA-Staatsangehörige. Was ändert sich für Häuser, Chalets und Investitionen?',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Alpenchalet im Tessin als Symbol für neue Beschränkungen für Immobilienkäufe durch Ausländer',
 };
 
 export default blogMetaDe;

@@ -6053,4 +6053,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/fuochi-allaperto-ticino-grazie-normativa-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'governo-limita-acquisti-immobiliari-estero-2026',
+ category: 'pratico',
+ date: '2026-04-15T17:43:22.681Z',
+ image: '/images/blog/governo-limita-acquisti-immobiliari-estero-2026.jpg',
+ hasCalculator: true,
+ },
 ];

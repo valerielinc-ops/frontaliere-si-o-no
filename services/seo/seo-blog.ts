@@ -7888,6 +7888,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-governo-limita-acquisti-immobiliari-estero-2026': {
+    title: 'Acquisti immobiliari dall’estero: il | Frontaliere Ticino',
+    description: 'Dal 15 aprile al 15 luglio 2026 consultazione pubblica su nuove restrizioni per stranieri non UE/AELS. Cosa cambia per case, chalet e investimenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquisti, immobiliari, dall, estero',
+    ogTitle: 'Acquisti immobiliari dall’estero: il Governo svizzero ina',
+    ogDescription: 'Dal 15 aprile al 15 luglio 2026 consultazione pubblica su nuove restrizioni per stranieri non UE/AELS. Cosa cambia per case, chalet e investimenti.',
+    canonicalPath: '/articoli-frontaliere/governo-limita-acquisti-immobiliari-estero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquisti immobiliari dall’estero: il Governo svizzero ina",
+      "description": "Dal 15 aprile al 15 luglio 2026 consultazione pubblica su nuove restrizioni per stranieri non UE/AELS. Cosa cambia per case, chalet e investimenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/governo-limita-acquisti-immobiliari-estero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chalet alpino in Ticino che simboleggia le nuove restrizioni agli acquisti immobiliari da parte di stranieri"
+      },
+      "datePublished": "2026-04-15T17:43:22+00:00",
+      "dateModified": "2026-04-15T17:43:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-limita-acquisti-immobiliari-estero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

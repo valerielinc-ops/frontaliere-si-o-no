@@ -2172,6 +2172,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Fuochi all\'aperto in Ticino: divieto revocato dal 1° maggio 2024',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'Dal 1° maggio 2024 i roghi nei boschi e prati ticinesi sono di nuovo ammessi, ma non in tutte le aree del vicino Grigioni italiano. Ecco cosa cambia per i frontalieri e le regole da rispettare.',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Fuoco all\'aperto sulla cima del Monte Brè con vista sul Lago di Lugano al tramonto',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Acquisti immobiliari dall’estero: il Governo svizzero inasprisce le regole',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'Dal 15 aprile al 15 luglio 2026 consultazione pubblica su nuove restrizioni per stranieri non UE/AELS. Cosa cambia per case, chalet e investimenti.',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Chalet alpino in Ticino che simboleggia le nuove restrizioni agli acquisti immobiliari da parte di stranieri',
 };
 
 export default blogMetaIt;

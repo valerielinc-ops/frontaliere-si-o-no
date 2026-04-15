@@ -2172,6 +2172,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Outdoor fires in Ticino: Ban lifted from 1 May 2024',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'From 1 May 2024, burning fires in Ticino’s forests and meadows is again permitted, though not in all areas of the nearby Italian-speaking Grisons. Here’s what changes for cross-border workers and the rules to follow.',
     'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Campfire on Monte Brè hilltop with sunset view over Lake Lugano',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Property purchases from abroad: Swiss government tightens rules',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'From 15 April to 15 July 2026, a public consultation on new restrictions for non-EU/EFTA foreigners. What’s changing for homes, chalets and investments.',
+    'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Alpine chalet in Ticino symbolizing new restrictions on foreign real estate purchases',
 };
 
 export default blogMetaEn;
