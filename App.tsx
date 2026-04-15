@@ -2251,9 +2251,10 @@ const App: React.FC = () => {
  </a>
  
  {/* Navigation Links — hidden on mobile, shown on md+ */}
- <div className="hidden md:flex items-center gap-1 mx-2 lg:mx-4 whitespace-nowrap flex-1 min-w-0 justify-between overflow-hidden">
- <a 
+ <div role="tablist" aria-label="Navigazione principale" className="hidden md:flex items-center gap-1 mx-2 lg:mx-4 whitespace-nowrap flex-1 min-w-0 justify-between overflow-hidden">
+ <a
  href={buildPath({ activeTab: 'calculator' })}
+ role="tab" aria-selected={activeTab === 'calculator'}
  onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }}
  onMouseEnter={() => prefetchTab('calculator')}
  aria-label={t('nav.simulator')}
@@ -2266,8 +2267,9 @@ const App: React.FC = () => {
  )}
  </a>
 
- <a 
+ <a
  href={buildPath({ activeTab: 'confronti' })}
+ role="tab" aria-selected={activeTab === 'confronti'}
  onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }}
  onMouseEnter={() => prefetchTab('confronti')}
  aria-label={t('nav.confronti')}
@@ -2280,8 +2282,9 @@ const App: React.FC = () => {
  )}
  </a>
 
- <a 
+ <a
  href={buildPath({ activeTab: 'fisco' })}
+ role="tab" aria-selected={activeTab === 'fisco'}
  onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }}
  onMouseEnter={() => prefetchTab('fisco')}
  aria-label={t('nav.fisco')}
@@ -2294,8 +2297,9 @@ const App: React.FC = () => {
  )}
  </a>
 
- <a 
+ <a
  href={buildPath({ activeTab: 'guida' })}
+ role="tab" aria-selected={activeTab === 'guida'}
  onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }}
  onMouseEnter={() => prefetchTab('guida')}
  aria-label={t('nav.guida')}
@@ -2308,8 +2312,9 @@ const App: React.FC = () => {
  )}
  </a>
 
- <a 
+ <a
  href={buildPath({ activeTab: 'vita' })}
+ role="tab" aria-selected={activeTab === 'vita'}
  onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }}
  onMouseEnter={() => prefetchTab('vita')}
  aria-label={t('nav.vita')}
@@ -2322,8 +2327,9 @@ const App: React.FC = () => {
  )}
  </a>
 
- <a 
+ <a
  href={buildPath({ activeTab: 'stats' })}
+ role="tab" aria-selected={activeTab === 'stats'}
  onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }}
  onMouseEnter={() => prefetchTab('stats')}
  aria-label={t('nav.stats')}

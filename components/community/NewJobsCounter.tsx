@@ -27,7 +27,7 @@ function NewJobsCounter({ newJobsCount, matchingCount, onDismiss }: NewJobsCount
  return (
  <div
  role="status"
- className={`flex items-start sm:items-center gap-2 px-3 py-2 rounded-[6px] bg-accent-subtle border border-accent-border/40 text-xs text-body transition-all duration-200 motion-reduce:transition-none ${dismissed ? 'h-0 overflow-hidden opacity-0 py-0 border-0' : ''}`}
+ className={`flex items-start sm:items-center gap-2 px-3 py-2 rounded-[6px] bg-accent-subtle border border-accent-border/40 text-xs text-body transition-[opacity,height,padding,border-width] duration-200 motion-reduce:transition-none ${dismissed ? 'h-0 overflow-hidden opacity-0 py-0 border-0' : ''}`}
  >
  <Sparkles className="w-4 h-4 text-accent shrink-0 mt-0.5 sm:mt-0" />
  <span className="flex-1 min-w-0">
