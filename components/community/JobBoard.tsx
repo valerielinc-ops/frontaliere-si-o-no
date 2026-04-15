@@ -28,7 +28,7 @@ import {
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import popularityData from '@/data/job-popularity.json';
-import { calculateSimulation } from '@/services/calculationService';
+import type { SimulationResult } from '@/types';
 import { DEFAULT_INPUTS } from '@/constants';
 import {
  ArrowLeft,
@@ -4322,33 +4322,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [locale, onJobRouteChange]);
 
  // ── Salary estimate widgets (frontaliere vs CH resident) ───────────────
- const salaryEstimates = useMemo(() => {
- if (!selectedJob) return null;
+ const [salaryEstimates, setSalaryEstimates] = useState<{
+ salaryMin: number; salaryMax: number | null;
+ frontaliere: { min: number; max: number | null };
+ resident: { min: number; max: number | null };
+ } | null>(null);
+ useEffect(() => {
+ if (!selectedJob) { setSalaryEstimates(null); return; }
  const minRaw = Number(selectedJob.salaryMin) || Number(selectedJob.baseSalary?.value?.minValue);
  const maxRaw = Number(selectedJob.salaryMax) || Number(selectedJob.baseSalary?.value?.maxValue);
- if (!minRaw || !Number.isFinite(minRaw)) return null;
+ if (!minRaw || !Number.isFinite(minRaw)) { setSalaryEstimates(null); return; }
  const salaryMin = minRaw;
  const salaryMax = (maxRaw && Number.isFinite(maxRaw) && maxRaw > minRaw) ? maxRaw : null;
- const run = (annual: number) => {
- try {
- return calculateSimulation({ ...DEFAULT_INPUTS, annualIncomeCHF: annual });
- } catch { return null; }
+ let cancelled = false;
+ import('@/services/calculationService').then(({ calculateSimulation }) => {
+ if (cancelled) return;
+ const run = (annual: number): SimulationResult | null => {
+ try { return calculateSimulation({ ...DEFAULT_INPUTS, annualIncomeCHF: annual }); }
+ catch { return null; }
  };
  const resMin = run(salaryMin);
  const resMax = salaryMax ? run(salaryMax) : null;
- if (!resMin) return null;
- return {
- salaryMin,
- salaryMax,
- frontaliere: {
- min: Math.round(resMin.itResident.netIncomeMonthly),
- max: resMax ? Math.round(resMax.itResident.netIncomeMonthly) : null,
- },
- resident: {
- min: Math.round(resMin.chResident.netIncomeMonthly),
- max: resMax ? Math.round(resMax.chResident.netIncomeMonthly) : null,
- },
- };
+ if (!resMin) { setSalaryEstimates(null); return; }
+ setSalaryEstimates({
+ salaryMin, salaryMax,
+ frontaliere: { min: Math.round(resMin.itResident.netIncomeMonthly), max: resMax ? Math.round(resMax.itResident.netIncomeMonthly) : null },
+ resident: { min: Math.round(resMin.chResident.netIncomeMonthly), max: resMax ? Math.round(resMax.chResident.netIncomeMonthly) : null },
+ });
+ }).catch(() => setSalaryEstimates(null));
+ return () => { cancelled = true; };
  }, [selectedJob]);
 
  const fmtNet = (v: number) => `CHF ${v.toLocaleString('de-CH')}`;
