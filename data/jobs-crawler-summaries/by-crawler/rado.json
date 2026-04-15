@@ -1,21 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-04-15T10:45:28.644Z",
+  "generatedAt": "2026-04-15T22:24:46.371Z",
   "total": 1,
-  "newCount": 3,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20315,
-  "avgDurationMs": 20315,
+  "durationMs": 17812,
+  "avgDurationMs": 17812,
   "durationHistory": [
-    20315
+    17812
   ],
   "newJobs": [
     {
       "id": "company-7uatwx",
-      "slug": "data-scientist-all-genders-on-site-presence-swiss-timing-ltd-2606-corgemont-apply-for-this-job-share-this-job-offer-main-navigation-swatch-g",
+      "slug": "data-scientist-all-genders-on-site-presence-swiss-timing-ltd-2606-corgemont-apply-for-this-job-share-this-job-offer-main-navigation-swatch-g-7uatwx",
       "company": "Swiss Timing LTD",
       "title": "Data Scientist (all genders) - on-site presence",
       "location": "2606 Corgémont Apply for this job Share this job offer Main navigation Swatch Gr",
@@ -33,48 +33,26 @@
       "firstSeenAt": "2026-04-15T10:45:28.487Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-7uaq6e",
-      "slug": "sales-assistant-part-time-20-ore-fiordaliso-contratto-temporaneo-the-swatch-group-italia-s-p-a-20089-rozzano-lombardia-italy-company-address-7uaq6e",
-      "company": "The Swatch Group (Italia) S.p.A.",
-      "title": "Sales Assistant - part time 20 ore - Fiordaliso - contratto temporaneo",
-      "location": "20089 Rozzano (Lombardia) Italy Company address The Swatch Group (Italia) S",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "url": "https://www.swatchgroup.com/en/job/31182",
-      "source": "Company Careers Crawler",
-      "companyKey": "swatch-group-assembly",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-04-14T22:29:52.358Z",
-      "firstSeenAt": "2026-04-14T22:29:52.358Z",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Lengnau",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6500",
-      "_qualityScore": 92,
+      "retranslationAttempts": 2,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
       "id": "company-7uarkf",
-      "slug": "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add-7uarkf",
+      "slug": "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-mar",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time - Forte dei marmi - contratto temporaneo",
       "location": "55042 Forte dei Marmi (Toscana) Italy Company address The Swatch Group (Italia)",
