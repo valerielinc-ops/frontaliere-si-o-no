@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-04-15T09:14:00.501Z",
+  "assembledAt": "2026-04-15T20:53:25.133Z",
   "jobs": [
     {
       "id": "company-n6g8lu",
@@ -135,6 +135,7 @@
         "80-100-r-d-hw-ingegnere-abb-svizzera-sede-ticino-quartino",
         "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino-ticino-l7apjs",
         "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino-ticino",
+        "80-100-r-d-hw-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-l7apjs",
         "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
         "quality-technician-80-100-abb-svizzera-sede-ticino-quartino",
         "qualitatsingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
@@ -146,19 +147,7 @@
         "vertragsmanager-abb-svizzera-sede-ticino-ticino-xulm96",
         "vertragsmanager-abb-svizzera-sede-ticino-ticino",
         "responsabile-gestione-appalto-abb-svizzera-sede-ticino-quartino",
-        "responsabile-gestione-appalto-abb-svizzera-sede-ticino-ticino",
-        "contract-manager-abb-svizzera-sede-ticino-quartino",
-        "80-100-ingegnere-hw-ricerca-e-sviluppo-abb-svizzera-sede-ticino-quartino",
-        "ingegnere-certificazione-r-d-abb-svizzera-sede-ticino-quartino",
-        "ingegnere-di-prova-80-100-abb-svizzera-sede-ticino-quartino",
-        "qualita-tecnico-80-100-abb-svizzera-sede-ticino-quartino",
-        "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
-        "responsabile-qualita-cliente-80-100-abb-svizzera-sede-ticino-quartino",
-        "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino",
-        "tecnico-dell-assistenza-tecnica-80-100-abb-svizzera-sede-ticino-quartino",
-        "tecnico-della-qualita-80-100-abb-svizzera-sede-ticino-quartino",
-        "customer-quality-manager-80-100-abb-svizzera-sede-ticino-quartino",
-        "80-100-r-d-hw-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-l7apjs"
+        "responsabile-gestione-appalto-abb-svizzera-sede-ticino-ticino"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -294,7 +283,8 @@
           "80-100-warehouse-internal-logistique-superviseur-abb-svizzera-sede-ticino-quartino-ticino-qkvhc4"
         ]
       },
-      "firstSeenAt": "2026-04-13T20:59:07.197Z"
+      "firstSeenAt": "2026-04-13T20:59:07.197Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2jc587",
@@ -375,7 +365,8 @@
           "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587"
         ]
       },
-      "firstSeenAt": "2026-04-13T20:59:07.197Z"
+      "firstSeenAt": "2026-04-13T20:59:07.197Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-n0py3i",
@@ -561,7 +552,8 @@
           "shift-leader-assemblage-emballage-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
         ]
       },
-      "firstSeenAt": "2026-04-13T20:59:07.197Z"
+      "firstSeenAt": "2026-04-13T20:59:07.197Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-qt8s1o",
@@ -802,13 +794,7 @@
         "specialiste-fulfillment-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "fulfillment-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d",
         "fulfillment-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "inside-vendite-service-specialista-80-100-abb-svizzera-sede-ticino-quartino",
-        "process-qualita-specialista-80-100-abb-svizzera-sede-ticino-quartino",
-        "specialista-di-evasione-ordini-80-100-abb-svizzera-sede-ticino-quartino",
-        "specialista-in-fulfillment-80-100-abb-svizzera-sede-ticino-quartino",
-        "specialista-in-test-engineering-80-100-abb-svizzera-sede-ticino-quartino",
-        "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino",
-        "test-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino"
+        "inside-vendite-service-specialista-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
