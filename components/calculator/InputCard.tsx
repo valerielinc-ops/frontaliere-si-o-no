@@ -426,7 +426,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  </div>
  {!isFocusMode && (
- <button onClick={handleReset} className="p-2 text-muted hover:text-danger hover:bg-danger-subtle rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
+ <button onClick={handleReset} className="min-h-[44px] min-w-[44px] flex items-center justify-center text-muted hover:text-danger hover:bg-danger-subtle rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
  <RotateCcw size={18} />
  </button>
  )}
@@ -1091,7 +1091,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  iconColor="text-info"
  action={
  openSections.rates && (
- <button onClick={handleResetTech} className="text-xs font-bold text-subtle hover:text-danger bg-surface-raised/50 px-2 py-1 rounded transition-colors" title={t('input.resetDefaults')}>
+ <button onClick={handleResetTech} className="text-xs font-bold text-subtle hover:text-danger bg-surface-raised/50 px-2 py-1 min-h-[44px] flex items-center rounded transition-colors" title={t('input.resetDefaults')}>
  Reset
  </button>
  )

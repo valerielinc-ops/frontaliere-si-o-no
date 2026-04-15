@@ -339,13 +339,13 @@ const TicineseDialect: React.FC = () => {
  </div>
  </div>
  <div className="flex items-center gap-1">
- <button onClick={() => pronounce(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.playAudio', 'Ascolta')}>
+ <button onClick={() => pronounce(phraseOfDay)} className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.playAudio', 'Ascolta')}>
  <Volume2 size={16} className={playingKey === phraseOfDay.key ? 'text-success animate-pulse' : 'text-warning'} />
  </button>
- <button onClick={() => handleShare(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.share', 'Condividi')}>
+ <button onClick={() => handleShare(phraseOfDay)} className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.share', 'Condividi')}>
  {copied ? <Check size={16} className="text-success" /> : <Share2 size={16} className="text-warning" />}
  </button>
- <button onClick={() => setPhraseOfDayDismissed(true)} className="p-2.5 rounded-lg hover:bg-warning-subtle text-warning" aria-label={tt('common.close', 'Chiudi')}>×</button>
+ <button onClick={() => setPhraseOfDayDismissed(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-warning-subtle text-warning" aria-label={tt('common.close', 'Chiudi')}>×</button>
  </div>
  </div>
  </div>
