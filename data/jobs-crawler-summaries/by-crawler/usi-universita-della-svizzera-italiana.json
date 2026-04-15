@@ -1,18 +1,50 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-15T10:53:34.219Z",
-  "total": 21,
-  "newCount": 0,
+  "generatedAt": "2026-04-15T22:31:54.880Z",
+  "total": 22,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 124508,
-  "avgDurationMs": 124508,
+  "durationMs": 65313,
+  "avgDurationMs": 65313,
   "durationHistory": [
-    124508
+    65313
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
+      "title": "Posizione di dottorato nell'ambito del progetto del FNS “L'ermeneutica della forma urbana e territoriale di André Corboz: pratiche, concetti e metodologie di ricerca”",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-dottorato-nell-ambito-del-progetto-del-fns-l-ermeneutica-della-forma-urbana-e",
+      "department": "Institute for the History and Theory of Art and Architecture (ISA)",
+      "category": "phd",
+      "datePosted": "2026-04-15",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "usi-universita-della-svizzera-italiana-2cb5230f2b36",
+      "sourceLang": "en",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
