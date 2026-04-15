@@ -2565,7 +2565,6 @@
           "dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T22:03:28.936Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2578,8 +2577,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-f6e2401cd22c",
@@ -2775,7 +2773,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-04-15T10:18:25.722Z",
       "jobReqId": "R71692",
-      "needsRetranslation": true,
       "salaryMin": 66500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -2789,7 +2786,6 @@
         }
       },
       "firstSeenAt": "2026-04-15T10:18:55.268Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"

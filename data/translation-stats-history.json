@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-07T07:53:17.966Z",
-    "label": "before",
-    "total": 1493,
-    "needsRetranslation": 50,
-    "incomplete": 7,
-    "complete": 1486,
-    "missingByLocale": {
-      "it": 6,
-      "en": 5,
-      "de": 3,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-07T07:53:55.512Z",
-    "label": "after",
-    "total": 1493,
-    "needsRetranslation": 50,
-    "incomplete": 7,
-    "complete": 1486,
-    "missingByLocale": {
-      "it": 6,
-      "en": 5,
-      "de": 3,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-07T10:11:44.747Z",
     "label": "before",
     "total": 1528,
@@ -7934,6 +7878,90 @@
       },
       {
         "company": "Otis SA",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T13:58:28.895Z",
+    "label": "before",
+    "total": 2925,
+    "needsRetranslation": 67,
+    "incomplete": 12,
+    "complete": 2913,
+    "missingByLocale": {
+      "it": 6,
+      "en": 8,
+      "de": 5,
+      "fr": 10
+    },
+    "topPending": [
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T14:33:42.433Z",
+    "label": "after",
+    "total": 2925,
+    "needsRetranslation": 58,
+    "incomplete": 3,
+    "complete": 2922,
+    "missingByLocale": {
+      "it": 1,
+      "en": 1,
+      "de": 0,
+      "fr": 3
+    },
+    "topPending": [
+      {
+        "company": "AXA Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
         "pending": 1
       },
       {
