@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-06T21:54:17.479Z",
-    "label": "before",
-    "total": 1521,
-    "needsRetranslation": 729,
-    "incomplete": 232,
-    "complete": 1289,
-    "missingByLocale": {
-      "it": 160,
-      "en": 92,
-      "de": 50,
-      "fr": 94
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 49
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 45
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 16
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 6
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-06T21:54:51.410Z",
-    "label": "after",
-    "total": 1521,
-    "needsRetranslation": 233,
-    "incomplete": 143,
-    "complete": 1378,
-    "missingByLocale": {
-      "it": 74,
-      "en": 46,
-      "de": 43,
-      "fr": 53
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 49
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 16
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 6
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-07T02:29:53.613Z",
     "label": "before",
     "total": 1521,
@@ -7990,6 +7878,82 @@
       },
       {
         "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T03:45:31.758Z",
+    "label": "before",
+    "total": 2921,
+    "needsRetranslation": 50,
+    "incomplete": 18,
+    "complete": 2903,
+    "missingByLocale": {
+      "it": 13,
+      "en": 0,
+      "de": 13,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 8
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Bitfinex",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T04:02:28.860Z",
+    "label": "after",
+    "total": 2921,
+    "needsRetranslation": 31,
+    "incomplete": 17,
+    "complete": 2904,
+    "missingByLocale": {
+      "it": 13,
+      "en": 0,
+      "de": 13,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 8
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 2
+      },
+      {
+        "company": "Bitfinex",
         "pending": 1
       },
       {
