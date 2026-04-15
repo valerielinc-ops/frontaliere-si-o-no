@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-04-14T21:40:34.768Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-04-15T09:56:21.869Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1760,
-  "avgDurationMs": 1760,
+  "durationMs": 2170,
+  "avgDurationMs": 2170,
   "durationHistory": [
-    1760
+    2170
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior IT Business Analyst - Banking",
+      "slug": "senior-it-business-analyst-banking-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/7bihSvn5Tw/Senior-IT-Business-Analyst-Banking",
+      "applyUrl": "https://fincons.applytojob.com/apply/7bihSvn5Tw/Senior-IT-Business-Analyst-Banking",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-15",
+      "validThrough": "2026-07-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260415093243_Z9QNUBP4VHDBRQBR",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Angular / Java - Senior Full-Stack Developer",
