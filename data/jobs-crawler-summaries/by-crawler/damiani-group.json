@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-04-15T09:47:19.135Z",
+  "generatedAt": "2026-04-15T21:27:01.728Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4655,
-  "avgDurationMs": 4655,
+  "unchangedCount": 0,
+  "durationMs": 5870,
+  "avgDurationMs": 5870,
   "durationHistory": [
-    4655
+    5870
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -124,10 +124,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Sales Assistant",
       "slug": "sales-assistant-damiani-group-serravalle-scrivia",
@@ -165,5 +162,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
