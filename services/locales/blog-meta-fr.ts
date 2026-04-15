@@ -2178,6 +2178,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Accident à Cassano Magnago : deux travailleurs frontaliers tessinois blessés',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Deux travailleurs frontaliers tessinois hospitalisés après une violente collision entre voitures à Cassano Magnago (Varèse). Aucun déroutement du trafic sur l’A26 ou l’A8.',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Accident de la route à Cassano Magnago avec voitures endommagées et services d\'urgence sur place',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Un restaurateur tessinois surprend un voleur : un homme de 35 ans interpellé',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'Un restaurateur de Mendrisio a surpris un homme de 35 ans en train de voler dans sa cuisine. L’intrus, de nationalité marocaine, a été maîtrisé puis remis à la police cantonale.',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Intérieur d\'un restaurant tessinois avec éclairage chaleureux, un serveur et une personne en fuite en arrière-plan',
 };
 
 export default blogMetaFr;

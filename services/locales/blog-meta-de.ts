@@ -2178,6 +2178,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Zwischenfall in Cassano Magnago: Zwei Tessiner Grenzgänger verletzt',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Zwei Tessiner Grenzgänger wurden nach einer schweren Kollision zwischen zwei Autos in Cassano Magnago (Varese) ins Krankenhaus eingeliefert. Auf der A26 oder A8 gab es keine Verkehrsbehinderungen.',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Verkehrsunfall in Cassano Magnago mit beschädigten Autos und Rettungskräften vor Ort',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Grenzgänger-Restaurateur überrascht Dieb: 35-Jähriger festgenommen',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'Ein Gastronom aus Mendrisio hat einen 35-jährigen Mann auf frischer Tat ertappt, als dieser in der Küche stahl. Der Eindringling, der die marokkanische Staatsbürgerschaft besitzt, wurde festgehalten und der kantonalen Polizei übergeben.',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Innenraum eines Tessiner Restaurants mit warmem Licht, einem Kellner und einer flüchtenden Person im Hintergrund',
 };
 
 export default blogMetaDe;

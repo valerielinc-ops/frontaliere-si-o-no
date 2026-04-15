@@ -2178,6 +2178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Accident in Cassano Magnago: two Ticino cross-border workers injured',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Two Ticino cross-border workers were hospitalized following a violent car collision in Cassano Magnago (Varese). No diverted traffic on A26 or A8.',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Road accident in Cassano Magnago with damaged cars and emergency services on site',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Ticino restaurateur catches thief by surprise: 35-year-old man arrested',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'A restaurateur in Mendrisio caught a 35-year-old man red-handed while he was stealing in the kitchen. The intruder, of Moroccan nationality, was detained and handed over to the cantonal police.',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Interior of a Ticino restaurant with warm lighting, a waiter, and a fleeing man in the background',
 };
 
 export default blogMetaEn;

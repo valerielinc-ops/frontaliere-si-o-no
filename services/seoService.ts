@@ -1981,6 +1981,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fuochi-allaperto-ticino-grazie-normativa-2024': { name: 'Norme fuochi all\'aperto', path: '/articoli-frontaliere/fuochi-allaperto-ticino-grazie-normativa-2024', parent: 'blog' },
     'blog-governo-limita-acquisti-immobiliari-estero-2026': { name: 'Acquisti immobiliari dall’estero', path: '/articoli-frontaliere/governo-limita-acquisti-immobiliari-estero-2026', parent: 'blog' },
     'blog-incidente-cassano-magnago-frontalieri-ticinesi': { name: 'Incidente a Cassano Magnago', path: '/articoli-frontaliere/incidente-cassano-magnago-frontalieri-ticinesi', parent: 'blog' },
+    'blog-wirt-sorpreso-einbrecher-marokkaner-ticino': { name: 'Ristoratore ticinese sorprende ladro', path: '/articoli-frontaliere/wirt-sorpreso-einbrecher-marokkaner-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

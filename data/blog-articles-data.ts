@@ -6067,4 +6067,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/incidente-cassano-magnago-frontalieri-ticinesi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'wirt-sorpreso-einbrecher-marokkaner-ticino',
+ category: 'pratico',
+ date: '2026-04-15T21:14:15.590Z',
+ image: '/images/blog/wirt-sorpreso-einbrecher-marokkaner-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

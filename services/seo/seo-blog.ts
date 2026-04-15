@@ -7946,6 +7946,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-wirt-sorpreso-einbrecher-marokkaner-ticino': {
+    title: 'Ristoratore ticinese sorprende ladro | Frontaliere Ticino',
+    description: 'Un ristoratore di Mendrisio ha sorpreso un uomo di 35 anni intento a rubare in cucina. L\'intruso, di nazionalità marocchina, è stato bloccato e consegnato alla',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristoratore, ticinese, sorprende, ladro',
+    ogTitle: 'Ristoratore ticinese sorprende ladro: arrestato un uomo d',
+    ogDescription: 'Un ristoratore di Mendrisio ha sorpreso un uomo di 35 anni intento a rubare in cucina. L\'intruso, di nazionalità marocchina, è stato bloccato e consegnato alla',
+    canonicalPath: '/articoli-frontaliere/wirt-sorpreso-einbrecher-marokkaner-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristoratore ticinese sorprende ladro: arrestato un uomo d",
+      "description": "Un ristoratore di Mendrisio ha sorpreso un uomo di 35 anni intento a rubare in cucina. L'intruso, di nazionalità marocchina, è stato bloccato e consegnato alla",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/wirt-sorpreso-einbrecher-marokkaner-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un ristorante ticinese illuminato, con un cameriere e un uomo in fuga"
+      },
+      "datePublished": "2026-04-15T21:14:15+00:00",
+      "dateModified": "2026-04-15T21:14:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/wirt-sorpreso-einbrecher-marokkaner-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

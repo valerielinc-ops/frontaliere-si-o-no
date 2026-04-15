@@ -2178,6 +2178,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Incidente a Cassano Magnago: due frontalieri ticinesi feriti',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Due lavoratori frontalieri ticinesi ricoverati dopo violenta collisione tra auto a Cassano Magnago (Varese). Niente traffico deviante su A26 o A8.',
     'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Incidente stradale a Cassano Magnago con auto danneggiate e soccorritori sul posto',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Ristoratore ticinese sorprende ladro: arrestato un uomo di 35 anni',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'Un ristoratore di Mendrisio ha sorpreso un uomo di 35 anni intento a rubare in cucina. L\'intruso, di nazionalità marocchina, è stato bloccato e consegnato alla polizia cantonale.',
+    'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Interno di un ristorante ticinese illuminato, con un cameriere e un uomo in fuga',
 };
 
 export default blogMetaIt;
