@@ -4,24 +4,33 @@
  * Shown for GSC orphan slugs, legacy URLs, or true 404s that have a static
  * HTML page (from orphan soft-landing generation) but no job data available.
  *
- * Layout: header card with derived title → grey banner → static content in
- * styled card sections → sign-in block → AdSense → CTA button
+ * Unauthenticated: 3-column ad grid (left rail | content | right rail) with
+ * auth gate, Eye icon header, social proof, and AUTHGATE_* ad slots.
+ *
+ * Authenticated: single-column with JOBDETAIL_END_MULTIPLEX + inline mobile ad.
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
-import { useLocale } from '@/services/i18n';
+import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
+import { useLocale, t } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import { AD_SLOTS } from '@/services/adsenseSlots';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import AdSenseUnit from '@/components/shared/AdSenseUnit';
+import AdSenseBanner from '@/components/shared/AdSenseBanner';
 
 interface JobOrphanViewProps {
  slug: string;
  onBack?: () => void;
  /** When true the user is already authenticated — hide the sign-in block. */
  hasAccess?: boolean;
+ totalActiveJobs?: number;
+ onNavigateToCompany?: (companySlug: string) => void;
+ onNavigateToLocation?: (locationSlug: string) => void;
+ onNavigateToJob?: (jobSlug: string) => void;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -58,25 +67,6 @@ const CTA_COPY: Record<string, string> = {
  en: 'Browse all active job openings',
  de: 'Alle aktiven Stellen durchsuchen',
  fr: 'Parcourir toutes les offres actives',
-};
-
-const EMAIL_OR_COPY: Record<string, string> = {
- it: 'oppure con email',
- en: 'or with email',
- de: 'oder mit E-Mail',
- fr: 'ou par email',
-};
-const EMAIL_PLACEHOLDER_COPY: Record<string, string> = {
- it: 'La tua email',
- en: 'Your email',
- de: 'Ihre E-Mail',
- fr: 'Votre email',
-};
-const EMAIL_CTA_COPY: Record<string, string> = {
- it: 'Iscriviti agli alert',
- en: 'Subscribe to alerts',
- de: 'Benachrichtigungen abonnieren',
- fr: 'S\'abonner aux alertes',
 };
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
@@ -167,8 +157,10 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
  return links;
 }
 
-export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
+ const isDesktopXl = useMediaQuery('(min-width: 1280px)');
+ const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
@@ -192,6 +184,37 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  [staticBodyHtml],
  );
 
+ const companySlug = slugParts.company
+ ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`
+ : null;
+ const companyHref = companySlug
+ ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/')
+ : null;
+
+ const locationSlug = slugParts.location
+ ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(slugParts.location)}`
+ : null;
+ const locationHref = locationSlug
+ ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/')
+ : null;
+
+ // ── Analytics ──
+
+ useEffect(() => {
+ Analytics.trackSelectContent('job_orphan_view', slug);
+ }, [slug]);
+
+ useEffect(() => {
+ if (alreadySignedIn) return;
+ Analytics.trackJobAuthFunnel('gate_view', {
+ company: slugParts.company ?? undefined,
+ jobTitle: slugParts.title,
+ location: slugParts.location ?? undefined,
+ });
+ }, [alreadySignedIn, slug, slugParts.company, slugParts.title, slugParts.location]);
+
+ // ── Auth methods ──
+
  useEffect(() => {
  if (alreadySignedIn) return;
  const container = googleButtonRef.current;
@@ -214,10 +237,41 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
  }, [alreadySignedIn]);
 
+ // ── Handlers ──
+
+ const handleCompanyClick = (e: { preventDefault(): void }) => {
+ if (!onNavigateToCompany || !companySlug) return;
+ e.preventDefault();
+ Analytics.trackSelectContent('job_board_company_filter_open', slugParts.company!);
+ onNavigateToCompany(companySlug);
+ };
+
+ const handleLocationClick = (e: { preventDefault(): void }) => {
+ if (!onNavigateToLocation || !locationSlug) return;
+ e.preventDefault();
+ Analytics.trackSelectContent('job_board_location_filter_open', slugParts.location!);
+ onNavigateToLocation(locationSlug);
+ };
+
+ const handleRelatedJobClick = (e: { preventDefault(): void }, linkHref: string) => {
+ if (!onNavigateToJob) return;
+ e.preventDefault();
+ const jobSlug = linkHref.split('/').filter(Boolean).pop() || '';
+ Analytics.trackSelectContent('job_orphan_related_click', jobSlug);
+ onNavigateToJob(jobSlug);
+ };
+
+ const handleCtaClick = (e: { preventDefault(): void }) => {
+ if (!onNavigateToJob) return;
+ e.preventDefault();
+ onNavigateToJob('');
+ };
+
  const handleEmailSubmit = async (e: { preventDefault(): void }) => {
  e.preventDefault();
  const email = emailInput.trim();
  if (!email || !validateEmailStrict(email).valid) return;
+ Analytics.trackJobAuthFunnel('auth_method_click', { method: 'email', company: slugParts.company ?? undefined, jobTitle: slugParts.title });
  setEmailBusy(true);
  setEmailError(null);
  try {
@@ -246,19 +300,19 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  }
  };
 
- return (
- <div className="space-y-6 max-w-2xl mx-auto">
- {onBack && (
+ // ── Shared elements ──
+
+ const backButton = onBack && (
  <button
  onClick={onBack}
  className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-heading"
  >
  <ArrowLeft size={14} />
- {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}
+ {t('jobBoard.backToList')}
  </button>
- )}
+ );
 
- {/* Job header card */}
+ const jobHeaderCard = (
  <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden">
  {/* Amber status bar */}
  <div className="bg-warning-subtle border-b border-warning-border px-5 py-2.5 flex items-center gap-2">
@@ -274,38 +328,36 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  </h1>
  {(slugParts.company || slugParts.location) && (
  <div className="flex flex-wrap gap-3 mt-2.5 text-sm text-subtle">
- {slugParts.company && (() => {
- const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`;
- const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
- return (
- <a href={companyHref} className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors">
+ {slugParts.company && companyHref && (
+ <a
+ href={companyHref}
+ onClick={handleCompanyClick}
+ className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ >
  <Building2 size={14} className="text-muted" />
  {slugParts.company}
  </a>
- );
- })()}
- {slugParts.location && (() => {
- const locationSlug = `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(slugParts.location)}`;
- const locationHref = `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/');
- return (
- <a href={locationHref} className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors">
+ )}
+ {slugParts.location && locationHref && (
+ <a
+ href={locationHref}
+ onClick={handleLocationClick}
+ className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ >
  <MapPin size={14} className="text-muted" />
  {slugParts.location}
  </a>
- );
- })()}
+ )}
  </div>
  )}
  </div>
  </div>
+ );
 
- {/* Company banner */}
- {slugParts.company && (() => {
- const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`;
- const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
- return (
+ const companyBanner = slugParts.company && companyHref && (
  <a
  href={companyHref}
+ onClick={handleCompanyClick}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
@@ -313,7 +365,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  <Building2 className="w-4 h-4 text-muted" />
  </div>
  <div className="min-w-0">
- <h3 className="text-sm font-bold text-heading">{locale === 'it' ? 'Azienda' : locale === 'de' ? 'Unternehmen' : locale === 'fr' ? 'Entreprise' : 'Company'}</h3>
+ <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3>
  <p className="text-sm text-subtle mt-1">{slugParts.company}{slugParts.location ? ` · ${slugParts.location}` : ''}</p>
  <p className="text-sm text-muted mt-2">
  {locale === 'it' ? 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.' : locale === 'de' ? 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.' : locale === 'fr' ? 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' : 'Frontaliere Ticino discovered this opportunity through company monitoring.'}
@@ -322,10 +374,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  </div>
  </a>
  );
- })()}
 
- {/* Active jobs cards (extracted from static HTML) */}
- {activeJobLinks.length > 0 && (
+ const activeJobsSection = activeJobLinks.length > 0 && (
  <div className="space-y-3">
  <h2 className="text-base font-semibold font-display text-strong">
  {locale === 'it' ? 'Posizioni attive simili' : locale === 'de' ? 'Ähnliche offene Stellen' : locale === 'fr' ? 'Postes similaires ouverts' : 'Similar active jobs'}
@@ -335,6 +385,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  <li key={link.href}>
  <a
  href={link.href}
+ onClick={(e) => handleRelatedJobClick(e, link.href)}
  className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-accent hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
  >
  <span className="flex-1 min-w-0">
@@ -349,34 +400,148 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  ))}
  </ul>
  </div>
- )}
+ );
 
- {/* Sign-in / alert block — hidden when user is already authenticated */}
- {!alreadySignedIn && (
- <div role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-accent-border bg-accent-subtle p-5 space-y-3">
- <p className="text-sm font-semibold text-strong">
- {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
- </p>
- {/* Trust signals */}
- <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
- <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
- </div>
- <div ref={googleButtonRef} className="flex justify-center" />
- {!googleButtonReady && (
+ const ctaLink = (
  <a
- href={`/?redirect=${encodeURIComponent(window.location.pathname)}`}
- className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-stripe border border-edge bg-surface text-sm font-semibold text-strong hover:bg-surface-raised transition-colors"
+ href={listingPath}
+ onClick={handleCtaClick}
+ className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-accent hover:bg-accent-hover text-on-accent text-sm font-semibold transition-colors"
  >
- {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
+ <Search size={16} />
+ {CTA_COPY[locale] ?? CTA_COPY.it}
  </a>
+ );
+
+ const staticContentDetails = staticBodyHtml && (
+ <details className="group rounded-xl border border-edge bg-surface/80 overflow-hidden">
+ <summary className="px-5 py-3.5 text-sm font-semibold text-body cursor-pointer select-none hover:bg-surface-raised/60 transition-colors list-none flex items-center gap-2">
+ <Search size={14} className="text-muted" />
+ {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
+ <ArrowRight size={12} className="ml-auto text-muted transition-transform group-open:rotate-90" />
+ </summary>
+ <div
+ className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-subtle [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-body [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-edge [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-accent [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"
+ dangerouslySetInnerHTML={{ __html: staticBodyHtml }}
+ />
+ </details>
+ );
+
+ // ── Logged-in view: single column with ads ──
+
+ if (alreadySignedIn) {
+ return (
+ <div className="space-y-6 max-w-2xl mx-auto">
+ {backButton}
+ {jobHeaderCard}
+
+ {/* Mobile/tablet in-article ad */}
+ {!isDesktopLg && AD_SLOTS.ARTICLE_INLINE_MOBILE.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
+ adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+ />
  )}
 
+ {companyBanner}
+ {activeJobsSection}
+ {staticContentDetails}
+ {ctaLink}
+
+ {/* End multiplex */}
+ {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format}
+ className="mt-2"
+ />
+ )}
+ </div>
+ );
+ }
+
+ // ── Auth gate view: 3-column grid ──
+
+ return (
+ <div className="space-y-5" data-no-auto-ads="inside">
+ {backButton}
+
+ {/* 3-column grid: left rail | content | right rail (desktop xl only) */}
+ <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
+
+ {/* ── Left Rail (desktop xl only) ── */}
+ <aside className="hidden xl:block">
+ <div className="sticky top-6 space-y-3">
+ {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_LEFT.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.AUTHGATE_RAIL_LEFT.slot}
+ adFormat={AD_SLOTS.AUTHGATE_RAIL_LEFT.format}
+ fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_LEFT.fullWidthResponsive}
+ />
+ )}
+ </div>
+ </aside>
+
+ {/* ── Center content ── */}
+ <div className="space-y-4">
+
+ {/* Job header card */}
+ {jobHeaderCard}
+
+ {/* Company banner */}
+ {companyBanner}
+
+ {/* Active jobs */}
+ {activeJobsSection}
+
+ {/* Sign-in / alert block */}
+ <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-5 sm:p-6">
+ <div className="flex items-center gap-3 mb-3">
+ <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
+ <Eye className="w-5 h-5 text-accent" />
+ </div>
+ <div>
+ <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
+ <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
+ </div>
+ </div>
+
+ {/* Trust signals */}
+ <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
+ <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
+ </div>
+
+ {/* Social proof */}
+ {totalActiveJobs != null && totalActiveJobs > 0 && (
+ <p className="mb-3 text-xs font-medium text-accent">
+ {totalActiveJobs.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
+ </p>
+ )}
+
+ <div className="space-y-3">
+ <div className="space-y-2">
+ <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {!googleButtonReady && (
+ <button
+ type="button"
+ onClick={() => {
+ Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', company: slugParts.company ?? undefined, jobTitle: slugParts.title });
+ }}
+ className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised text-strong text-sm font-semibold shadow-sm transition-colors"
+ >
+ {t('newsletter.popup.googleSignIn')}
+ </button>
+ )}
+ </div>
  {linkedInAvailable && (
  <button
  type="button"
  disabled={linkedInBusy}
  onClick={() => {
+ Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', company: slugParts.company ?? undefined, jobTitle: slugParts.title });
  setLinkedInBusy(true);
  saveAuthJobContext({ slug, company: slugParts.company, location: slugParts.location });
  signInWithLinkedIn().catch(() => setLinkedInBusy(false));
@@ -389,17 +554,16 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
  )}
-
  <div className="flex items-center gap-3">
  <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
+ <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
  <div className="flex-1 h-px bg-surface-raised/50" />
  </div>
  <form onSubmit={handleEmailSubmit} className="space-y-2">
  <EmailInput
  value={emailInput}
  onChange={setEmailInput}
- placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
+ placeholder={t('jobBoard.authGateEmailPlaceholder')}
  className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  />
  <button
@@ -408,39 +572,53 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
  >
  {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
- {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
+ {t('jobBoard.gate.emailCta')}
  </button>
  </form>
- {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
- )}
 
- {/* AdSense */}
- <AdSenseUnit slot="5196931137" className="my-2" />
+ {emailError && <p className="text-sm text-danger mt-2">{emailError}</p>}
+ </div>
 
- {/* Informational content from static HTML (SEO-friendly, collapsed) */}
- {staticBodyHtml && (
- <details className="group rounded-xl border border-edge bg-surface/80 overflow-hidden">
- <summary className="px-5 py-3.5 text-sm font-semibold text-body cursor-pointer select-none hover:bg-surface-raised/60 transition-colors list-none flex items-center gap-2">
- <Search size={14} className="text-muted" />
- {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
- <ArrowRight size={12} className="ml-auto text-muted transition-transform group-open:rotate-90" />
- </summary>
- <div
- className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-subtle [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-body [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-edge [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-accent [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"
- dangerouslySetInnerHTML={{ __html: staticBodyHtml }}
+ {/* AdSense — below auth gate */}
+ {AD_SLOTS.JOBDETAIL_AUTH_GATE.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_AUTH_GATE.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_AUTH_GATE.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
  />
- </details>
+ )}
+ </div>
+
+ {/* ── Right Rail (desktop xl only) ── */}
+ <aside className="hidden xl:block">
+ <div className="sticky top-6 space-y-3">
+ {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot}
+ adFormat={AD_SLOTS.AUTHGATE_RAIL_RIGHT.format}
+ fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_RIGHT.fullWidthResponsive}
+ />
+ )}
+ </div>
+ </aside>
+
+ </div>
+
+ {/* AdSense — end multiplex below 3-column layout */}
+ {AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.AUTHGATE_END_MULTIPLEX.format}
+ className="mt-2"
+ />
  )}
 
- {/* CTA button */}
- <a
- href={listingPath}
- className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-accent hover:bg-accent-hover text-on-accent text-sm font-semibold transition-colors"
- >
- <Search size={16} />
- {CTA_COPY[locale] ?? CTA_COPY.it}
- </a>
+ {/* Static content */}
+ {staticContentDetails}
+
+ {/* CTA */}
+ {ctaLink}
  </div>
  );
 }

@@ -3865,6 +3865,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  const ogUrl = document.querySelector('meta[property="og:url"]');
  if (ogUrl) ogUrl.setAttribute('content', editorialCanonicalHref);
+ Analytics.trackSelectContent('editorial_landing_view', editorialLandingDescriptor?.kind ?? 'unknown');
  }
  }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
 
@@ -4755,6 +4756,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  ))}
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -4866,6 +4874,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ))}
  </div>
  </section>
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -4967,6 +4982,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ))}
  </div>
  </section>
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -5058,6 +5080,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  ))}
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -5164,6 +5193,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  ))}
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -5254,6 +5290,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  ))}
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -5344,6 +5387,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  ))}
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -5434,6 +5484,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  ))}
+ {AD_SLOTS.JOBLIST_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ className="mt-4"
+ />
+ )}
  {authGateModalJsx}
  </div>
  );
@@ -5459,11 +5516,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onBack={backToList}
  hasAccess={hasAccess}
  totalActiveJobs={jobs.length}
+ onNavigateToCompany={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
  );
  }
  // Orphan: GSC slug / legacy URL with no data — show derived title + sign-in
- return <JobOrphanView slug={initialJobSlug} onBack={backToList} hasAccess={hasAccess} />;
+ return (
+ <JobOrphanView
+ slug={initialJobSlug}
+ onBack={backToList}
+ hasAccess={hasAccess}
+ totalActiveJobs={jobs.length}
+ onNavigateToCompany={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ />
+ );
  }
 
  if (selectedJob) {

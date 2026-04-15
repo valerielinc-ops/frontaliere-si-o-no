@@ -4,11 +4,15 @@
  * Renders with the same layout as active job auth-gate pages:
  * 3-column ad grid, blurred description teaser, full auth gate with
  * social proof, and an orange expired banner at the top.
+ *
+ * When logged in, renders a 2-column layout (content + sidebar) with
+ * full description and 5 ad slots, matching the active job detail view.
  */
 
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Building2, Calendar, CheckCircle2, Clock, Euro, Eye, Loader2, Mail, MapPin, Shield } from 'lucide-react';
 import { useLocale, t } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
@@ -17,7 +21,6 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
-import AdSenseUnit from '@/components/shared/AdSenseUnit';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
 interface RelatedJob {
@@ -47,6 +50,12 @@ interface JobExpiredViewProps {
  hasAccess?: boolean;
  /** Total active jobs count for social proof in auth gate. */
  totalActiveJobs?: number;
+ /** SPA navigation: navigate to company filter page. */
+ onNavigateToCompany?: (companySlug: string) => void;
+ /** SPA navigation: navigate to location filter page. */
+ onNavigateToLocation?: (locationSlug: string) => void;
+ /** SPA navigation: navigate to a job detail or listing (empty string = listing root). */
+ onNavigateToJob?: (jobSlug: string) => void;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -119,9 +128,10 @@ const EXPIRED_AT_COPY: Record<string, string> = {
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
-export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs }: JobExpiredViewProps) {
+export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobExpiredViewProps) {
  const [locale] = useLocale();
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
+ const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
@@ -154,6 +164,23 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
+ // ── Analytics ──
+
+ useEffect(() => {
+ Analytics.trackSelectContent('job_expired_view', job.slug);
+ }, [job.slug]);
+
+ useEffect(() => {
+ if (alreadySignedIn) return;
+ Analytics.trackJobAuthFunnel('gate_view', {
+ company: job.company,
+ jobTitle: localizedTitle,
+ location: jobLocation,
+ });
+ }, [job.slug, alreadySignedIn]);
+
+ // ── Auth setup ──
+
  useEffect(() => {
  if (alreadySignedIn) return;
  const container = googleButtonRef.current;
@@ -182,6 +209,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  e.preventDefault();
  const email = emailInput.trim();
  if (!email || !validateEmailStrict(email).valid) return;
+ Analytics.trackJobAuthFunnel('auth_method_click', { method: 'email', company: job.company, jobTitle: localizedTitle });
  setEmailBusy(true);
  setEmailError(null);
  try {
@@ -208,6 +236,35 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  } finally {
  setEmailBusy(false);
  }
+ };
+
+ // ── SPA navigation helpers ──
+
+ const handleCompanyClick = (e: { preventDefault(): void }) => {
+ if (!onNavigateToCompany || !companySlug) return;
+ e.preventDefault();
+ Analytics.trackSelectContent('job_board_company_filter_open', job.company);
+ onNavigateToCompany(companySlug);
+ };
+
+ const handleLocationClick = (e: { preventDefault(): void }) => {
+ if (!onNavigateToLocation || !locationSlug) return;
+ e.preventDefault();
+ Analytics.trackSelectContent('job_board_location_filter_open', jobLocation);
+ onNavigateToLocation(locationSlug);
+ };
+
+ const handleRelatedJobClick = (e: { preventDefault(): void }, rjSlug: string) => {
+ if (!onNavigateToJob) return;
+ e.preventDefault();
+ Analytics.trackSelectContent('job_expired_related_click', rjSlug);
+ onNavigateToJob(rjSlug);
+ };
+
+ const handleCtaClick = (e: { preventDefault(): void }) => {
+ if (!onNavigateToJob) return;
+ e.preventDefault();
+ onNavigateToJob('');
  };
 
  // ── Shared elements ──
@@ -247,6 +304,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {job.company && companyHref && (
  <a
  href={companyHref}
+ onClick={handleCompanyClick}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <Building2 size={14} />
@@ -256,6 +314,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {jobLocation && locationHref && (
  <a
  href={locationHref}
+ onClick={handleLocationClick}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <MapPin size={14} />
@@ -276,6 +335,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const companyBanner = job.company && companyHref && (
  <a
  href={companyHref}
+ onClick={handleCompanyClick}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
@@ -316,7 +376,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  rj.featured ? 'border-warning-border bg-warning-subtle hover:border-warning' : 'border-edge bg-surface/50 hover:border-accent-border'
  }`}
  >
- <a href={rjPath} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
+ <a href={rjPath} onClick={(e) => handleRelatedJobClick(e, rjSlug)} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
  {rjLogo ? (
@@ -359,6 +419,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const ctaLink = (
  <a
  href={listingPath}
+ onClick={handleCtaClick}
  className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline text-sm"
  >
  <ArrowRight size={14} />
@@ -366,27 +427,85 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </a>
  );
 
- // ── Logged-in view: show full description + ads ──
+ // ── Logged-in view: 2-column layout with full description + 5 ad slots ──
 
  if (alreadySignedIn) {
  return (
- <div className="space-y-5 max-w-2xl mx-auto">
+ <div className="space-y-5">
  {backButton}
  {expiredBanner}
 
+ <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+ {/* ── Main content (8 cols) ── */}
+ <article className="lg:col-span-8 space-y-5">
  <div className="rounded-stripe border border-edge bg-surface p-5">
  {jobHeader}
  </div>
 
  {descriptionPlain && (
- <div className="prose prose-sm max-w-none text-body" dangerouslySetInnerHTML={{ __html: description }} />
+ <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: description }} />
  )}
 
- <AdSenseUnit slot="5196931137" className="my-2" />
+ {/* Mobile/tablet in-article ad */}
+ {!isDesktopLg && AD_SLOTS.ARTICLE_INLINE_MOBILE.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
+ adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+ />
+ )}
 
  {companyBanner}
+
+ {/* Between-sections ad */}
+ {AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS?.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS.format}
+ />
+ )}
+
  {relatedJobsSection}
  {ctaLink}
+ </article>
+
+ {/* ── Sidebar (4 cols, desktop only) ── */}
+ <aside className="hidden lg:block lg:col-span-4">
+ <div className="sticky top-6 space-y-4">
+ {/* Job snapshot card */}
+ <div className="rounded-stripe border border-edge bg-surface p-4 space-y-2">
+ <h3 className="text-sm font-bold text-heading">{locale === 'it' ? 'Dettagli' : locale === 'de' ? 'Details' : locale === 'fr' ? 'Détails' : 'Details'}</h3>
+ {job.company && <p className="text-xs text-subtle flex items-center gap-1.5"><Building2 size={12} />{job.company}</p>}
+ {jobLocation && <p className="text-xs text-subtle flex items-center gap-1.5"><MapPin size={12} />{jobLocation}</p>}
+ {expiredDate && <p className="text-xs text-subtle flex items-center gap-1.5"><Calendar size={12} />{EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}</p>}
+ </div>
+
+ {AD_SLOTS.JOBDETAIL_SIDEBAR.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_SIDEBAR.fullWidthResponsive}
+ />
+ )}
+
+ {AD_SLOTS.JOBDETAIL_SIDEBAR_2?.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_SIDEBAR_2.fullWidthResponsive}
+ />
+ )}
+ </div>
+ </aside>
+ </div>
+
+ {/* End multiplex */}
+ {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format}
+ className="mt-2"
+ />
+ )}
  </div>
  );
  }
@@ -465,12 +584,15 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="space-y-2">
  <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!googleButtonReady && (
- <a
- href={`/?redirect=${encodeURIComponent(window.location.pathname)}`}
+ <button
+ type="button"
+ onClick={() => {
+ Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', company: job.company, jobTitle: localizedTitle });
+ }}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised text-strong text-sm font-semibold shadow-sm transition-colors"
  >
  {t('newsletter.popup.googleSignIn')}
- </a>
+ </button>
  )}
  </div>
  {linkedInAvailable && (
@@ -478,6 +600,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  type="button"
  disabled={linkedInBusy}
  onClick={() => {
+ Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', company: job.company, jobTitle: localizedTitle });
  setLinkedInBusy(true);
  saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location || job.addressLocality, category: job.sector });
  signInWithLinkedIn().catch(() => setLinkedInBusy(false));
