@@ -270,6 +270,13 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bfür\b/gi, 'per'],
       [/\bdie\b/gi, 'la'],
       [/\bund\b/gi, 'e'],
+      // Guard against common mistranslations (loanwords that must NOT be translated literally)
+      [/\bTechnical Lead\b/gi, 'Technical Lead'],
+      [/\bTech Lead\b/gi, 'Tech Lead'],
+      [/\bLead Developer\b/gi, 'Lead Developer'],
+      [/\bLead Engineer\b/gi, 'Lead Engineer'],
+      [/\bQuereinstieg\b/gi, 'Cambio carriera'],
+      [/\bQuereinsteiger(?:\/in|:in)?\b/gi, 'Candidato/a in riqualificazione'],
       // English-source job titles → Italian (merged from shared-jobs-crawler)
       [/\bInternship Program\b/gi, 'Programma di stage'],
       [/\bIntern\b/gi, 'Tirocinante'],
@@ -326,6 +333,11 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bLogistica\b/gi, 'Logistik'],
       [/\bVendita\b/gi, 'Verkauf'],
       [/\bGestione\b/gi, 'Verwaltung'],
+      // Guard against common mistranslations
+      [/\bTechnical Lead\b/gi, 'Technical Lead'],
+      [/\bTech Lead\b/gi, 'Tech Lead'],
+      [/\bLead Developer\b/gi, 'Lead Developer'],
+      [/\bLead Engineer\b/gi, 'Lead Engineer'],
       // English-source job titles → German
       [/\bInternship Program\b/gi, 'Praktikumsprogramm'],
       [/\bIntern\b/gi, 'Praktikant'],
@@ -405,6 +417,11 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bCDD d'avril à mai\b/gi, 'fixed-term contract from April to May'],
     ],
     fr: [
+      // Guard against common mistranslations
+      [/\bTechnical Lead\b/gi, 'Responsable technique'],
+      [/\bTech Lead\b/gi, 'Responsable technique'],
+      [/\bLead Developer\b/gi, 'Lead Developer'],
+      [/\bLead Engineer\b/gi, 'Lead Engineer'],
       // Italian job titles → French
       [/\bFresatore\b/gi, 'Fraiseur'],
       [/\bTornitore\b/gi, 'Tourneur'],
