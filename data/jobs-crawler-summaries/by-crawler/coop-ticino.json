@@ -1,19 +1,233 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-14T21:30:43.645Z",
+  "generatedAt": "2026-04-15T09:46:54.977Z",
   "total": 167,
-  "newCount": 0,
-  "updatedCount": 4,
+  "newCount": 4,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 163,
-  "durationMs": 182688,
-  "avgDurationMs": 182688,
+  "unchangedCount": 161,
+  "durationMs": 208928,
+  "avgDurationMs": 208928,
   "durationHistory": [
-    182688
+    208928
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-gi0zgi",
+      "slug": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-grigioni",
+      "company": "Transgourmet Schweiz AG",
+      "title": "Chauffeuse / Chauffeur Kat. C",
+      "location": "Brunegg",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/387fe586-6dad-4864-ae29-630cc31a97c6",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-15T09:45:06.722Z",
+      "firstSeenAt": "2026-04-15T09:45:06.722Z",
+      "needsRetranslation": true,
+      "addressLocality": "Brunegg",
+      "sourceLang": "de",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-q31cty",
+      "slug": "kochin-koch-w-m-d-coop-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Köchin / Koch (w/m/d)",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/ccea7fed-6b58-44f7-ab58-b916e63300a5",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-15T09:45:06.722Z",
+      "firstSeenAt": "2026-04-15T09:45:06.722Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-3br90q",
+      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/95a05457-4989-4517-bf6d-904adf48bfee",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-15T09:45:06.722Z",
+      "firstSeenAt": "2026-04-15T09:45:06.722Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-g6dub0",
+      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Verkaufsberater:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/76ed4e44-8f0b-4a54-93ff-43f58aab962c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-15T09:45:06.722Z",
+      "firstSeenAt": "2026-04-15T09:45:06.722Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "id": "company-86y4zp",
+      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/8a422763-3e5f-476b-96b5-1b9ad6f10754",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-09T21:20:49.553Z",
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "firstSeenAt": "2026-04-09T21:20:49.553Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-pztp1c",
+      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
+      "location": "Oberbüren",
+      "canton": "SG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/8139f27d-7bdc-4eb9-ae69-221825f2cddd",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-07T09:22:44.527Z",
+      "addressLocality": "Oberbüren",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-04-07T09:22:44.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-hy7w7d",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -86,81 +300,6 @@
         "completeness": 19
       }
     },
-    {
-      "id": "company-3br90q",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Geschäftsführer:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/95a05457-4989-4517-bf6d-904adf48bfee",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-13T10:21:33.226Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-13T21:31:42.381Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-g6dub0",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Verkaufsberater:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/76ed4e44-8f0b-4a54-93ff-43f58aab962c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-13T10:21:33.226Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-13T21:31:42.381Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "company-qfcqd",
       "slug": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden",
@@ -300,77 +439,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-86y4zp",
-      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/8a422763-3e5f-476b-96b5-1b9ad6f10754",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-09T21:20:49.553Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-qzx86i",
-      "slug": "verkaufsberater-in-garten-hartwaren-jumbo-ilanz-glion-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkaufsberater:in Garten Hartwaren",
-      "location": "Ilanz/Glion",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten-hartwaren/6cc3e900-136e-4067-931f-4d6500a4fff3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-13T21:31:42.381Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -583,41 +651,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-pztp1c",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/8139f27d-7bdc-4eb9-ae69-221825f2cddd",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-07T09:22:44.527Z",
-      "addressLocality": "Oberbüren",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-04-07T09:22:44.527Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
@@ -1194,18 +1227,52 @@
       }
     },
     {
-      "id": "company-46pqaj",
-      "slug": "kochin-koch-w-m-d-coop-chur-graubunden",
+      "id": "company-mm4mox",
+      "slug": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-castione",
+      "company": "Coop Ristorante",
+      "title": "Impiegata / Impiegato di gastronomia standardizzata AFC",
+      "location": "Castione",
+      "canton": "TI",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-25",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-di-gastronomia-standardizzata-afc/3c39c92e-fc67-4902-af13-a79622a06d25",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Castione",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-ndjhs",
+      "slug": "macellaio-a-coop-chur-graubunden",
       "company": "Coop Genossenschaft",
-      "title": "Köchin / Koch (w/m/d)",
+      "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Chur",
       "canton": "GR",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/659d9b1f-595b-40df-8a93-651578a442b3",
+      "postedDate": "2026-03-20",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/d246a6b0-41fc-4ec9-b4af-7e460b286e36",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1219,12 +1286,11 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "firstSeenAt": "2026-04-13T21:31:42.381Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
