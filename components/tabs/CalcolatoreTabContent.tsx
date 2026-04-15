@@ -56,7 +56,7 @@ export default function CalcolatoreTabContent() {
  </Suspense>
  ) : (
  <>
- <h1 className="text-xl sm:text-2xl font-extrabold text-heading tracking-tight mb-1">
+ <h1 className="text-xl sm:text-2xl font-extrabold font-display text-heading tracking-tight mb-1">
  {t('seoContent.calculator.title')}
  </h1>
  <p className="text-sm text-muted mb-4">

@@ -285,7 +285,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  <Mail size={32} />
  </div>
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold">{t('newsletter.weeklyTitle')}</h1>
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display">{t('newsletter.weeklyTitle')}</h1>
  <p className="text-on-accent/80 mt-1">{t('newsletter.weeklySubtitle')}</p>
  </div>
  </div>

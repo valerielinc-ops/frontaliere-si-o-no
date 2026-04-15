@@ -308,7 +308,7 @@ const MorningDashboard: React.FC = () => {
 
  {/* Header — Greeting + Clock */}
  <div className="text-center space-y-2">
- <h1 className="text-3xl sm:text-4xl font-bold text-heading">
+ <h1 className="text-3xl sm:text-4xl font-bold font-display text-heading">
  {timeEmoji} {greeting}
  </h1>
  <div className="flex items-center justify-center gap-3 text-muted">

@@ -43,7 +43,7 @@ export const EmailConfirmed: React.FC = () => {
  <CheckCircle2 className="text-on-accent" size={40} />
  </div>
  </div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-strong mb-2">
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-strong mb-2">
  {t('emailConfirmed.title')}
  </h1>
  <p className="text-subtle text-sm sm:text-base">

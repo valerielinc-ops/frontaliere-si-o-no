@@ -796,7 +796,7 @@ const UserProfile: React.FC = () => {
  <div className="w-20 h-20 mx-auto bg-on-accent/25 rounded-full flex items-center justify-center mb-4">
  <User size={40} className="text-on-accent/90" />
  </div>
- <h1 className="text-2xl font-extrabold">{t('profile.title')}</h1>
+ <h1 className="text-2xl font-extrabold font-display">{t('profile.title')}</h1>
  <p className="text-on-accent/70 text-sm mt-2">{t('profile.subtitle')}</p>
  </div>
 

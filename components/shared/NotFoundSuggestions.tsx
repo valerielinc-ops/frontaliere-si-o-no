@@ -152,7 +152,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-raised mb-4">
  <SearchX size={32} className="text-muted" />
  </div>
- <h1 className="text-2xl font-bold text-heading mb-2">
+ <h1 className="text-2xl font-bold font-display text-heading mb-2">
  {t('notFound.title')}
  </h1>
  <p className="text-subtle text-sm max-w-md mx-auto">

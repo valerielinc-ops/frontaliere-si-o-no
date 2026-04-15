@@ -418,7 +418,7 @@ const CurrencyExchange: React.FC = () => {
  <div className="flex items-center gap-3 sm:gap-4 mb-4">
  <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
  <div>
- <h1 className="text-xl sm:text-3xl font-extrabold">{t('currency.title')}</h1>
+ <h1 className="text-xl sm:text-3xl font-extrabold font-display">{t('currency.title')}</h1>
  <p className="text-on-accent/80 text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
  </div>
  </div>

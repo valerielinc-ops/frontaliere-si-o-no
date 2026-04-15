@@ -233,7 +233,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  {/* Job header */}
  <div>
- <h1 className="text-2xl font-bold text-heading leading-snug">{localizedTitle}</h1>
+ <h1 className="text-2xl font-bold font-display text-heading leading-snug">{localizedTitle}</h1>
  <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
  {job.company && (
  <span className="flex items-center gap-1">

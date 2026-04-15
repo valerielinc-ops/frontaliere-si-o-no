@@ -86,7 +86,7 @@ const PartnerServices: React.FC = () => {
  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-4">
  <Sparkles className="w-7 h-7 text-accent" />
  </div>
- <h1 className="text-2xl sm:text-3xl font-bold text-strong mb-2">
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2">
  {t('partners.title')}
  </h1>
  <p className="text-subtle max-w-lg mx-auto">

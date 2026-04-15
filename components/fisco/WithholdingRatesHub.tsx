@@ -527,7 +527,7 @@ export default function WithholdingRatesHub() {
  <Coins className="h-4 w-4" />
  {copy.badge}
  </div>
- <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl">{copy.title}</h1>
+ <h1 className="mt-4 max-w-4xl text-3xl font-bold font-display leading-tight sm:text-4xl">{copy.title}</h1>
  <p className="mt-4 max-w-4xl text-sm leading-7 text-on-accent sm:text-base">{copy.intro}</p>
  <div className="mt-6 rounded-2xl border border-on-accent/20 bg-on-accent/10 p-4 text-sm leading-7 text-on-accent">
  {copy.disclaimer}

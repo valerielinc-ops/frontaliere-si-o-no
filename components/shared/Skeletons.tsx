@@ -177,7 +177,7 @@ export const SkeletonBlog: React.FC = () => {
  // Article-specific skeleton: H1 from seeded data + article body placeholder
  return (
  <div className="min-h-[80vh] space-y-6 max-w-3xl mx-auto">
- <h1 className="text-2xl font-bold text-heading">{articleTitle}</h1>
+ <h1 className="text-2xl font-bold font-display text-heading">{articleTitle}</h1>
  <div className={`${pulse} h-5 w-48`} />
  <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
  <div className="space-y-3">
@@ -235,7 +235,7 @@ export const SkeletonWeeklyFact: React.FC = () => (
 export const SkeletonInputCard: React.FC = () => (
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 space-y-4">
  {/* Real H1 text to serve as LCP: large text element renders before lazy InputCard chunk loads */}
- <h1 className="text-[30px] font-extrabold text-heading leading-tight">
+ <h1 className="text-[30px] font-extrabold font-display text-heading leading-tight">
  Calcola Stipendio Netto Frontaliere
  <span className="block text-lg font-bold mt-1">Svizzera–Italia (Ticino)</span>
  </h1>

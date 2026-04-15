@@ -160,7 +160,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  {initialEntry ? (
  <h2 className="text-2xl font-bold">{t('glossary.title')}</h2>
  ) : (
- <h1 className="text-2xl font-bold">{t('glossary.title')}</h1>
+ <h1 className="text-2xl font-bold font-display">{t('glossary.title')}</h1>
  )}
  </div>
  <p className="text-on-accent/80 text-sm">{t('glossary.subtitle')}</p>
@@ -169,7 +169,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
 
  {/* H1 for individual term pages */}
  {initialEntry && (
- <h1 className="text-2xl font-bold text-heading">
+ <h1 className="text-2xl font-bold font-display text-heading">
  {t(`glossary.terms.${initialEntry}.title`)}
  </h1>
  )}

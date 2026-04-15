@@ -165,7 +165,7 @@ export default function Sindacati() {
  <Scale size={16} />
  Sindacati per Frontalieri
  </div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-heading">
  Sindacati Svizzera e Italia per Frontalieri
  </h1>
  <p className="mt-2 text-subtle max-w-2xl mx-auto">

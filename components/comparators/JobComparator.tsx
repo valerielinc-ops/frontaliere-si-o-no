@@ -144,7 +144,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="pb-6 border-b-2 border-warning-border">
  <div className="flex items-center gap-3 mb-3">
  <Briefcase size={28} className="text-warning" />
- <h1 className="text-3xl sm:text-4xl font-extrabold text-heading">{t('jobs.title')}</h1>
+ <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-heading">{t('jobs.title')}</h1>
  </div>
  <p className="text-lg text-muted">{t('jobs.subtitle')}</p>
  </div>

@@ -80,7 +80,7 @@ const FiscoLanding: React.FC = () => {
  <Landmark className="w-6 h-6 sm:w-7 sm:h-7 text-success" />
  </div>
  <div className="min-w-0 flex-1">
- <h1 className="text-xl sm:text-2xl font-bold text-strong leading-tight">
+ <h1 className="text-xl sm:text-2xl font-bold font-display text-strong leading-tight">
  {t('fisco.landing.title')}
  </h1>
  <p className="mt-1.5 text-sm sm:text-base text-subtle leading-relaxed max-w-2xl">

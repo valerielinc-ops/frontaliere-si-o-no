@@ -303,7 +303,7 @@ export default function MortgageComparison() {
  <Home size={16} />
  {t('mortgage.badge')}
  </div>
- <h1 className="text-2xl sm:text-3xl font-bold text-strong">
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">
  {t('mortgage.title')}
  </h1>
  <p className="text-sm text-subtle max-w-2xl mx-auto">

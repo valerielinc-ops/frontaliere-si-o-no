@@ -22,7 +22,7 @@ export const TermsOfService: React.FC = () => {
  <FileText className="text-on-accent" size={32} />
  </div>
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-strong">Termini di Servizio</h1>
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-strong">Termini di Servizio</h1>
  <p className="text-sm text-muted mt-1">Ultimo aggiornamento: Marzo 2026</p>
  </div>
  </div>

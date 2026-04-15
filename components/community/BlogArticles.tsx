@@ -1744,7 +1744,7 @@ function BlogArticles({
  : t('blog.contentType.guide')}
  </span>
  </div>
- <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-on-accent leading-tight">
+ <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-on-accent leading-tight">
  {t(`blog.article.${article.id}.title`)}
  </h1>
  </div>
@@ -2410,7 +2410,7 @@ function BlogArticles({
  <div className="max-w-5xl mx-auto space-y-6">
  {/* Header with stats hook */}
  <div className="text-center mb-2">
- <h1 className="text-2xl sm:text-3xl font-bold text-strong mb-2 flex items-center justify-center gap-2">
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2 flex items-center justify-center gap-2">
  <BookOpen size={28} className="text-accent" />
  {t('blog.title')}
  </h1>

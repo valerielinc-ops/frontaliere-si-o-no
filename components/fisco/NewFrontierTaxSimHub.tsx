@@ -415,7 +415,7 @@ export default function NewFrontierTaxSimHub() {
  <span className="inline-block rounded-full bg-success-subtle text-success text-xs font-bold px-3 py-1 uppercase tracking-wide">
  {c.badge}
  </span>
- <h1 className="text-3xl sm:text-4xl font-extrabold text-heading leading-tight">{c.title}</h1>
+ <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-heading leading-tight">{c.title}</h1>
  <p className="text-base sm:text-lg text-subtle leading-relaxed max-w-3xl">{c.intro}</p>
  <p className="text-xs text-muted italic">{c.disclaimer}</p>
  </header>

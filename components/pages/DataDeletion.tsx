@@ -19,7 +19,7 @@ export const DataDeletion: React.FC = () => {
  <Trash2 className="text-on-accent" size={32} />
  </div>
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-strong">Data Deletion</h1>
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-strong">Data Deletion</h1>
  <p className="text-sm text-muted mt-1">Facebook App Data Deletion Callback</p>
  </div>
  </div>

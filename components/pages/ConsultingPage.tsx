@@ -94,7 +94,7 @@ const ConsultingPage: React.FC = () => {
  <Calendar className="w-4 h-4" />
  {t('consulting.badge')}
  </div>
- <h1 className="text-2xl sm:text-3xl font-bold text-heading">
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading">
  {t('consulting.title')}
  </h1>
  <p className="text-subtle max-w-2xl mx-auto text-lg">

@@ -122,7 +122,7 @@ export default function SiteMapPage() {
  <Map className="w-4 h-4" />
  {t('sitemap.badge')}
  </div>
- <h1 className="text-2xl font-bold text-heading">{t('sitemap.title')}</h1>
+ <h1 className="text-2xl font-bold font-display text-heading">{t('sitemap.title')}</h1>
  <p className="text-sm text-subtle mt-1 max-w-xl mx-auto">{t('sitemap.subtitle')}</p>
  </div>
 

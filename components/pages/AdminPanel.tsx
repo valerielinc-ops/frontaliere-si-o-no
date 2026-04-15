@@ -2706,7 +2706,7 @@ export default function AdminPanel() {
  <div className="bg-gradient-to-br from-accent-strong to-accent-strong-hover rounded-2xl p-6 text-on-accent shadow-lg">
  <div className="flex items-center gap-3 mb-2">
  <Shield size={28} />
- <h1 className="text-2xl font-bold">Pannello Amministrazione</h1>
+ <h1 className="text-2xl font-bold font-display">Pannello Amministrazione</h1>
  </div>
  <p className="text-on-accent/70 text-sm">
  Dashboard operativa owner (crawler jobs, segnali SEO runtime e newsletter).

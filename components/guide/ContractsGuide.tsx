@@ -222,7 +222,7 @@ const ContractsGuide = () => {
  <Scale size={14} />
  {t('contracts.badge')}
  </div>
- <h1 className="text-2xl font-bold text-heading">
+ <h1 className="text-2xl font-bold font-display text-heading">
  {t('contracts.title')}
  </h1>
  <p className="text-sm text-subtle max-w-2xl mx-auto">

@@ -232,7 +232,7 @@ const TfrCalculator: React.FC = () => {
  <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-warning-subtle text-warning rounded-full">
  <Calculator size={14} /> {t('tfr.badge')}
  </span>
- <h1 className="text-2xl font-bold text-heading">{t('tfr.title')}</h1>
+ <h1 className="text-2xl font-bold font-display text-heading">{t('tfr.title')}</h1>
  <p className="text-sm text-subtle max-w-2xl mx-auto">{t('tfr.subtitle')}</p>
  </div>
 

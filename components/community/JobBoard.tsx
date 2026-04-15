@@ -4623,7 +4623,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialJobTodayLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4715,7 +4715,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialOfficialGazetteLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4826,7 +4826,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialNursesHubLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4928,7 +4928,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialCareVariantLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5018,7 +5018,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialLocationLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5125,7 +5125,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationTypeLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialLocationTypeLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5215,7 +5215,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationSectorLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialLocationSectorLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5304,7 +5304,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
- <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
+ <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-heading">
  {editorialSectorRegionLanding.heading}
  </h1>
  <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5482,7 +5482,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
  <div className="flex-1 min-w-0">
- <h1 className="text-xl font-bold text-heading leading-tight">{localizedTitle}</h1>
+ <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
  <span className="inline-flex items-center gap-1"><Building2 size={14} />{companyName}</span>
  {jobLocation && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
@@ -6042,7 +6042,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </a>
  <div className="min-w-0">
- <h1 className="text-2xl md:text-3xl font-extrabold text-heading leading-tight">
+ <h1 className="text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight">
  <a
  href={applyUrl}
  target="_blank"
@@ -6352,7 +6352,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Briefcase className="w-4 h-4" />
  {t('jobBoard.badge')}
  </div>
- <h1 className="text-2xl sm:text-3xl font-bold text-heading">
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading">
  {companyDisplayName
  ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...getCantonI18nParams() })
  : t('jobBoard.title', getCantonI18nParams())}

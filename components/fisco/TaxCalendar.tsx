@@ -835,7 +835,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="flex items-center gap-4 mb-4">
  {activeTab === 'fiscal' ? <Calendar size={32} className="text-warning" /> : <Star size={32} className="text-warning" />}
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-heading">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
  <p className="text-muted mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
  </div>
  </div>

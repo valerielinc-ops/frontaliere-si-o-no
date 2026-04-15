@@ -273,7 +273,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  <Sparkles size={32} className="text-warning" />
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-3 flex-wrap">
- <h1 className="text-2xl sm:text-3xl font-extrabold text-heading">{t('whatif.title')}</h1>
+ <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-heading">{t('whatif.title')}</h1>
  <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-warning-subtle text-warning border border-warning-border rounded-full">
  ✨ {t('whatif.experimentalBadge')}
  </span>

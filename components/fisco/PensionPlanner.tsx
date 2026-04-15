@@ -163,7 +163,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="space-y-6 pb-12">
  {/* Header */}
  <div className="text-center space-y-3 mb-8">
- <h1 className="text-3xl sm:text-4xl font-extrabold text-success flex items-center justify-center gap-3">
+ <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-success flex items-center justify-center gap-3">
  <PiggyBank size={28} className="text-success" />
  {t('pension.title')}
  </h1>
