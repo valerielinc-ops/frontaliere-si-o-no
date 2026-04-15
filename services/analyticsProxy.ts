@@ -25,5 +25,5 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  * Fire-and-forget; failures are silently ignored.
  */
 export const unlockAchievement = (id: string): void => {
- import('@/services/gamificationService').then(m => m.unlockAchievement(id));
+ import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
 };

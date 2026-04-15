@@ -4,11 +4,10 @@
  * Handles:
  * - Dark mode (isDarkMode, toggleTheme)
  * - Focus mode
- * - Blob animations (deferred until after LCP)
  * - Deferred home widgets (load on first interaction or fallback timer)
  * - Translations readiness gate
  * - Analytics initialization (consent-aware, interaction-deferred)
- * - SPA pageview tracking (pushState/replaceState/popstate/hashchange)
+ * - SPA pageview tracking (pushState/popstate/hashchange)
  */
 import { useState, useEffect, useCallback } from 'react';
 import { initLocale, isTranslationsReady, itReady, loadTabTranslations } from '@/services/i18n';
@@ -21,7 +20,6 @@ import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 export interface UIState {
  isDarkMode: boolean;
  isFocusMode: boolean;
- showBlobs: boolean;
  showDeferredHomeWidgets: boolean;
  translationsReady: boolean;
  toggleTheme: () => void;
@@ -32,7 +30,6 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);
  const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
  const [isFocusMode, setIsFocusMode] = useState(false);
- const [showBlobs, setShowBlobs] = useState(false);
  const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
 
  // Load per-page IT translations: initial tab + on tab switch
@@ -131,7 +128,6 @@ export function useUIState(activeTab: ActiveTab): UIState {
  };
 
  const originalPushState = history.pushState;
- const originalReplaceState = history.replaceState;
 
  history.pushState = function (...args) {
  const ret = originalPushState.apply(this, args as any);
@@ -139,31 +135,17 @@ export function useUIState(activeTab: ActiveTab): UIState {
  return ret;
  } as History['pushState'];
 
- history.replaceState = function (...args) {
- const ret = originalReplaceState.apply(this, args as any);
- trackCurrentLocation();
- return ret;
- } as History['replaceState'];
+ // NOTE: replaceState is NOT monkey-patched. App.tsx calls replaceState
+ // for URL cleanup (newsletter params, OAuth redirects, legacy paths) —
+ // those are not real navigations and should not fire pageview events.
 
  window.addEventListener('popstate', trackCurrentLocation);
  window.addEventListener('hashchange', trackCurrentLocation);
 
  return () => {
  history.pushState = originalPushState;
- history.replaceState = originalReplaceState;
  window.removeEventListener('popstate', trackCurrentLocation);
  window.removeEventListener('hashchange', trackCurrentLocation);
- };
- }, []);
-
- // Defer expensive blob animations until after LCP
- useEffect(() => {
- const id = typeof requestIdleCallback === 'function'
- ? requestIdleCallback(() => setShowBlobs(true))
- : setTimeout(() => setShowBlobs(true), 1500) as unknown as number;
- return () => {
- if (typeof cancelIdleCallback === 'function') cancelIdleCallback(id);
- else clearTimeout(id);
  };
  }, []);
 
@@ -210,7 +192,6 @@ export function useUIState(activeTab: ActiveTab): UIState {
  return {
  isDarkMode,
  isFocusMode,
- showBlobs,
  showDeferredHomeWidgets,
  translationsReady,
  toggleTheme,

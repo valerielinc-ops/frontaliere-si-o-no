@@ -12,6 +12,9 @@ vi.mock('@/services/router', () => ({
   getSeoSection: vi.fn(() => 'home'),
   updatePathForLocale: vi.fn(),
   scrollToAnchor: vi.fn(() => false),
+  preloadBlogData: vi.fn(() => Promise.resolve()),
+  resolveBlogSlug: vi.fn(() => null),
+  getLocalizedJobSlug: vi.fn((slug: string) => slug),
 }));
 
 vi.mock('@/services/i18n', () => ({
@@ -27,6 +30,10 @@ vi.mock('@/hooks/seoHelpers', () => ({
   enableRuntimeSeo: vi.fn(),
   updateMetaTags: vi.fn(),
   trackSectionView: vi.fn(),
+}));
+
+vi.mock('@/services/seoService', () => ({
+  applyNotFoundSeo: vi.fn(),
 }));
 
 vi.mock('@/services/analyticsProxy', () => ({

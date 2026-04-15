@@ -18,6 +18,7 @@ import { useState, useEffect, useRef, useCallback, type Dispatch, type SetStateA
 import {
  parsePath, parseHashToPath, pushRoute, getSeoSection,
  updatePathForLocale, scrollToAnchor, AppRoute,
+ preloadBlogData, resolveBlogSlug, getLocalizedJobSlug,
 } from '@/services/router';
 import type {
  ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab,
@@ -27,6 +28,12 @@ import type {
 import { setLocale, onLocaleChange } from '@/services/i18n';
 import { prefetchTab } from '@/services/prefetch';
 import { enableRuntimeSeo, updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
+
+// Apply noindex SEO for 404 pages — NOT gated by runtimeSeoEnabled because
+// soft-404 noindex must be set immediately on initial load before any user interaction.
+const applyNotFoundSeo = (path: string) => {
+ import('@/services/seoService').then(m => m.applyNotFoundSeo(path)).catch(() => {});
+};
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
@@ -46,6 +53,8 @@ export interface NavigationState {
  jobSlug: string | null;
  taxReturnCountry: 'italia' | 'svizzera' | undefined;
  showApiStatus: boolean;
+ notFoundPath: string | undefined;
+ jobBoardFilterParams: { location?: string; query?: string } | null;
 
  // Setters
  setActiveTab: Dispatch<SetStateAction<ActiveTab>>;
@@ -68,7 +77,7 @@ export interface NavigationState {
 
  // Handlers
  handleTabChange: (tab: ActiveTab) => void;
- handleSearchNavigate: (tab: string, subTab?: string) => void;
+ handleSearchNavigate: (tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => void;
 }
 
 export function useNavigationState(): NavigationState {
@@ -92,6 +101,8 @@ export function useNavigationState(): NavigationState {
  const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
  const [taxReturnCountry, setTaxReturnCountry] = useState<'italia' | 'svizzera' | undefined>(initialRoute.route.taxReturnCountry);
  const [showApiStatus, setShowApiStatus] = useState(false);
+ const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
+ const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
 
  // Refs
  const isInitialMount = useRef(true);
@@ -109,10 +120,49 @@ export function useNavigationState(): NavigationState {
  }
  }, []);
 
+ // Preload blog slug data and resolve any deferred blog slug from initial URL
+ useEffect(() => {
+ preloadBlogData().then(() => {
+ const slug = initialRoute.route.blogSlug;
+ if (slug && !initialRoute.route.blogArticle) {
+ const resolved = resolveBlogSlug(slug, initialRoute.locale);
+ if (resolved) setBlogArticle(resolved);
+ }
+ }).catch(() => {});
+ }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+ // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection)
+ useEffect(() => {
+ if (notFoundPath) {
+ applyNotFoundSeo(notFoundPath);
+ }
+ }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+ // Auto-scroll active sub-tab chip into view on mobile (YouTube/Spotify peek pattern)
+ const activeSubTab = activeTab === 'calcolatore' ? calcolatoreSubTab
+ : activeTab === 'confronti' ? confrontiSubTab
+ : activeTab === 'fisco' ? fiscoSubTab
+ : activeTab === 'guida' ? guidaSubTab
+ : activeTab === 'vita' ? vitaSubTab
+ : activeTab === 'stats' ? statsSubTab
+ : null;
+
+ useEffect(() => {
+ if (!activeSubTab) return;
+ const timer = setTimeout(() => {
+ const activeBtn = document.querySelector<HTMLElement>('[data-subtab-active="true"]');
+ if (activeBtn?.scrollIntoView) {
+ activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+ }
+ }, 50);
+ return () => clearTimeout(timer);
+ }, [activeSubTab]);
+
  // Shared route application — used by popstate AND global click interceptor
  const applyRoute = useCallback((pathname: string) => {
  enableRuntimeSeo();
- const { route, locale: urlLocale } = parsePath(pathname);
+ const { route, locale: urlLocale, notFoundPath: parsedNotFoundPath } = parsePath(pathname);
+ setNotFoundPath(parsedNotFoundPath);
  setActiveTab(route.activeTab);
  if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
  if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
@@ -122,15 +172,29 @@ export function useNavigationState(): NavigationState {
  if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
  if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
  setBlogArticle(route.blogArticle || null);
+ // If blog data wasn't loaded yet, resolve the deferred slug
+ if (route.blogSlug && !route.blogArticle) {
+ preloadBlogData().then(() => {
+ const resolved = resolveBlogSlug(route.blogSlug!, urlLocale);
+ if (resolved) setBlogArticle(resolved);
+ }).catch(() => {});
+ }
  setSeoLanding(route.seoLanding || null);
  setGlossaryTerm(route.glossaryTerm || null);
  setBorderCrossing(route.borderCrossing || null);
  setJobSlug(route.jobSlug || null);
  setLocale(urlLocale);
+ // Update SEO meta tags — use 404-specific noindex for unrecognized routes
+ if (parsedNotFoundPath) {
+ applyNotFoundSeo(parsedNotFoundPath);
+ } else {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!scrollToAnchor()) {
+ }
+ // Skip auto-scroll when returning to job-board list — JobBoard restores scroll itself
+ const isJobBoardReturn = route.activeTab === 'job-board' && !route.jobSlug;
+ if (!isJobBoardReturn && !scrollToAnchor()) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }, []);
@@ -139,8 +203,15 @@ export function useNavigationState(): NavigationState {
  useEffect(() => {
  const onPopState = () => applyRoute(window.location.pathname);
  window.addEventListener('popstate', onPopState);
+ // When locale changes, rewrite current URL with new locale slugs.
+ // Also sync jobSlug state: if the map is already loaded, update to the
+ // target-locale slug immediately so canonical URLs and state stay consistent.
  const unsubLocale = onLocaleChange((newLocale) => {
  updatePathForLocale(newLocale);
+ setJobSlug(prev => {
+ if (!prev) return prev;
+ return getLocalizedJobSlug(prev, newLocale) || prev;
+ });
  });
  return () => {
  window.removeEventListener('popstate', onPopState);
@@ -279,23 +350,24 @@ export function useNavigationState(): NavigationState {
  }
  }, []);
 
- // handleTabChange
+ // handleTabChange — uses functional setter to capture previousTab without stale closure
  const handleTabChange = useCallback((tab: ActiveTab) => {
  enableRuntimeSeo();
- const previousTab = activeTab;
- setActiveTab(tab);
- if (tab !== 'calculator') setSeoLanding(null);
- if (tab !== 'glossario') setGlossaryTerm(null);
- if (tab !== 'job-board') setJobSlug(null);
- if (tab === 'blog') setBlogArticle(null);
- Analytics.trackTabNavigation(previousTab, tab);
-
- if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: previousTab });
+ setActiveTab(prevTab => {
+ Analytics.trackTabNavigation(prevTab, tab);
+ if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: prevTab });
  if (tab === 'guida') unlockAchievement('guide_reader');
  if (tab === 'feedback') unlockAchievement('feedback_giver');
  if (tab === 'stats') unlockAchievement('stats_checker');
  if (tab === 'fisco') unlockAchievement('pension_planner');
+ return tab;
+ });
+ if (tab !== 'calculator') setSeoLanding(null);
+ if (tab !== 'glossario') setGlossaryTerm(null);
+ if (tab !== 'job-board') setJobSlug(null);
+ if (tab === 'blog') setBlogArticle(null);
 
+ // Build route and push to history
  const route: AppRoute = { activeTab: tab };
  if (tab === 'confronti') route.confrontiSubTab = confrontiSubTab;
  if (tab === 'fisco') {
@@ -312,20 +384,29 @@ export function useNavigationState(): NavigationState {
  if (tab === 'glossario' && glossaryTerm) route.glossaryTerm = glossaryTerm;
  if (tab === 'job-board' && jobSlug) route.jobSlug = jobSlug;
  pushRoute(route);
+ // Always scroll to top on explicit top-nav tab changes
+ window.scrollTo({ top: 0, behavior: 'instant' });
 
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- }, [activeTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, calcolatoreSubTab, statsSubTab, seoLanding, glossaryTerm, jobSlug, taxReturnCountry]);
+ }, [confrontiSubTab, fiscoSubTab, taxReturnCountry, guidaSubTab, vitaSubTab, calcolatoreSubTab, seoLanding, statsSubTab, glossaryTerm, jobSlug]);
 
  // handleSearchNavigate
- const handleSearchNavigate = useCallback((tab: string, subTab?: string) => {
+ const handleSearchNavigate = useCallback((tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => {
  enableRuntimeSeo();
  suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
  setActiveTab(tab as ActiveTab);
  if (tab !== 'calculator') setSeoLanding(null);
  if (tab !== 'glossario') setGlossaryTerm(null);
  if (tab !== 'blog') setBlogArticle(null);
+
+ // Forward filter params to JobBoard when navigating to job-board
+ if (tab === 'job-board' && filterParams) {
+ setJobBoardFilterParams(filterParams);
+ } else if (tab !== 'job-board') {
+ setJobBoardFilterParams(null);
+ }
 
  if (tab === 'calculator' && subTab) setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
  else if (tab === 'confronti' && subTab) setConfrontiSubTab(subTab as ConfrontiSubTab);
@@ -550,6 +631,7 @@ export function useNavigationState(): NavigationState {
  guidaSubTab, vitaSubTab, statsSubTab,
  blogArticle, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, taxReturnCountry, showApiStatus,
+ notFoundPath, jobBoardFilterParams,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,

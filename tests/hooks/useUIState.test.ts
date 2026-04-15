@@ -60,7 +60,6 @@ describe('useUIState', () => {
 
     expect(result.current.isDarkMode).toBe(false);
     expect(result.current.isFocusMode).toBe(false);
-    expect(result.current.showBlobs).toBe(false);
     expect(result.current.showDeferredHomeWidgets).toBe(false);
     expect(result.current.translationsReady).toBe(true); // isTranslationsReady mocked to true
     expect(typeof result.current.toggleTheme).toBe('function');
