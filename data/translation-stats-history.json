@@ -1,73 +1,5 @@
 [
   {
-    "timestamp": "2026-04-07T05:21:39.349Z",
-    "label": "before",
-    "total": 1521,
-    "needsRetranslation": 80,
-    "incomplete": 12,
-    "complete": 1509,
-    "missingByLocale": {
-      "it": 9,
-      "en": 6,
-      "de": 4,
-      "fr": 8
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-07T05:24:57.832Z",
-    "label": "after",
-    "total": 1521,
-    "needsRetranslation": 50,
-    "incomplete": 7,
-    "complete": 1514,
-    "missingByLocale": {
-      "it": 6,
-      "en": 5,
-      "de": 3,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-07T07:53:17.966Z",
     "label": "before",
     "total": 1493,
@@ -7890,6 +7822,118 @@
       },
       {
         "company": "Bitfinex",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T10:57:05.186Z",
+    "label": "before",
+    "total": 2925,
+    "needsRetranslation": 1233,
+    "incomplete": 119,
+    "complete": 2806,
+    "missingByLocale": {
+      "it": 57,
+      "en": 92,
+      "de": 73,
+      "fr": 104
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "AGIE Charmilles SA",
+        "pending": 10
+      },
+      {
+        "company": "Lonza",
+        "pending": 7
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 7
+      },
+      {
+        "company": "Prada Group",
+        "pending": 6
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 4
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-15T12:41:12.346Z",
+    "label": "after",
+    "total": 2925,
+    "needsRetranslation": 68,
+    "incomplete": 13,
+    "complete": 2912,
+    "missingByLocale": {
+      "it": 7,
+      "en": 8,
+      "de": 6,
+      "fr": 11
+    },
+    "topPending": [
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
         "pending": 1
       },
       {
