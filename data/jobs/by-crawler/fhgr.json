@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-04-15T09:55:40.520Z",
+  "assembledAt": "2026-04-15T21:35:19.171Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T09:55:38.097Z",
+      "crawledAt": "2026-04-15T21:35:16.733Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-architekturmodellbauer-in-efz-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -138,7 +139,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/772/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T09:55:37.112Z",
+      "crawledAt": "2026-04-15T21:35:15.725Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -196,6 +197,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:32:27.193Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -240,7 +242,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T09:55:36.167Z",
+      "crawledAt": "2026-04-15T21:35:14.669Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,114 +300,7 @@
         "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "fhgr-7fe23a73a01d",
-      "slug": "tecnico-di-manutenzione-100-fachhochschule-graubunden-chur",
-      "slugByLocale": {
-        "it": "tecnico-di-manutenzione-100-fachhochschule-graubunden-chur",
-        "en": "instandhaltungsfachperson-100-fachhochschule-graubunden-chur",
-        "de": "instandhaltungsfachperson-100-fhgr-ch",
-        "fr": "technicien-ne-de-maintenance-100-fachhochschule-graubunden-chur"
-      },
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Instandhaltungsfachperson (100 %)",
-      "titleByLocale": {
-        "it": "Tecnico di manutenzione (100%)",
-        "en": "Instandhaltungsfachperson (100 %)",
-        "de": "Instandhaltungsfachperson (100 %)",
-        "fr": "Technicien/ne de maintenance (100%)"
-      },
-      "description": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Im Departement «Zentrale Dienste» suchen wir zur Verstärkung unseres Services-Teams per sofort oder nach Vereinbarung eine | In dieser vielseitigen Funktion stellen Sie den reibungslosen Betrieb sowie den technischen Unterhalt unseres neuen, sich im Bau befindlichen Fachhochschulzentrums sicher. Sie führen selbstständig Inspektions-, Wartungs- und Instandhaltungsarbeiten an HLKS-, Photovoltaik- und Sprinkleranlagen sowie weiteren sicherheits- und betriebsrelevanten Systemen durch. Dabei kontrollieren Sie den Zustand der Anlagen, dokumentieren Auffälligkeiten, beheben Störungen und leiten eigenständig geeignete Massnahmen ein. Zudem wirken Sie beim Aufbau und der Weiterentwicklung unseres neuen CAFM-Systems mit und stellen die vollständige sowie korrekte Erfassung sämtlicher Wartungs- und Anlagendaten sicher. Gemeinsam mit Ihrem Team und weiteren Fachpersonen optimieren Sie Unterhaltsprozesse und Instandhaltungsstrategien. Bei Bedarf übernehmen Sie auch Aufgaben an weiteren Standorten der FH Graubünden. | Ihr Profil Technische Berufsausbildung (z.B. Instandhaltungsfachperson, Gebäudetechniker/-in, Elektroinstallateur/-in oder eine vergleichbare Ausbildung) Berufserfahrung in der Inspektion, Wartung und Instandhaltung, idealerweise im Bereich Gebäudetechnik oder infrastrukturellem Betrieb Know-how in Gebäudeleitsystemen sowie Kenntnisse im Umgang mit CAFM-Systemen, von Vorteil Campos Dienstleistungsorientierte Persönlichkeit mit verhandlungssicheren Deutschkenntnissen Bereitschaft, auch ausserhalb der regulären Arbeitszeiten Einsätze zu leisten – etwa bei Störungen oder Veranstaltungen | Wir begeistern Sie mit Einem bestens eingespielten und kollegialen Team Einer spannenden und abwechslungsreichen Tätigkeit Unserer Unterstützung in der persönlichen Weiterentwicklung Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
-      "descriptionByLocale": {
-        "it": "Descrizione Come scuola universitaria professionale, la FH Graubünden punta a un pensiero dinamico e a un’azione proattiva. Sviluppiamo oltre 2400 studenti e studentesse nei percorsi di formazione e perfezionamento, guidandoli verso la responsabilità personale. Nella nostra ricerca inter- e transdisciplinare ci concentriamo su temi come le tecnologie future applicate, lo sviluppo nello spazio alpino e l’agire imprenditoriale. Come datore di lavoro, promuoviamo la parità di opportunità e la diversità. ## Mansioni In questa funzione versatile, garantite il regolare funzionamento e la manutenzione tecnica del nostro nuovo centro universitario professionale in costruzione. Eseguite in modo indipendente ispezioni, lavori di manutenzione e riparazione su impianti HVAC, fotovoltaici, sprinkler e altri sistemi rilevanti per la sicurezza e il funzionamento. Controllate lo stato degli impianti, documentate le anomalie, risolvete i guasti e avviate autonomamente le misure appropriate. Contribuite inoltre alla creazione e allo sviluppo del nostro nuovo sistema CAFM, assicurando la registrazione completa e corretta di tutti i dati di manutenzione e degli impianti. Insieme al vostro team e ad altre figure professionali, ottimizzate i processi di manutenzione e le strategie di manutenzione. Se necessario, svolgete anche compiti presso altre sedi della FH Graubünden. ## Requisiti - Formazione professionale tecnica (ad esempio tecnico di manutenzione, tecnico edile, installatore elettrico o una formazione equivalente) - Esperienza lavorativa nell’ispezione, manutenzione e riparazione, preferibilmente nel settore della tecnica edilizia o della gestione infrastrutturale - Competenze in sistemi di gestione degli edifici e conoscenze nell’utilizzo di sistemi CAFM, titolo preferenziale - Personalità orientata al servizio con competenze linguistiche tedesche sicure - Disponibilità a svolgere interventi anche al di fuori dell’orario lavorativo regolare, ad esempio in caso di guasti o eventi ## Cosa offriamo - Un team ben collaudato e collaborativo - Un’attività lavorativa stimolante e variegata - Supporto allo sviluppo personale - Condizioni di impiego moderne e numerose offerte sportive e culturali ## Contatto (Non specificato)",
-        "en": "Description As a university of applied sciences, the FH Graubünden relies on dynamic thinking and proactive action. We develop over 2,400 students in education and continuing education into responsible personalities. In our inter- and transdisciplinary research, we focus on applied future technologies, development in alpine regions, and entrepreneurial action. As an employer, we promote equal opportunities and diversity. ## Tasks In this versatile role, you will ensure the smooth operation and technical maintenance of our new university of applied sciences center currently under construction. You will independently carry out inspections, maintenance, and repair work on HVAC systems, photovoltaic systems, sprinkler systems, and other safety- and operation-relevant systems. You will check the condition of the systems, document any anomalies, rectify faults, and initiate appropriate measures independently. You will also contribute to the establishment and further development of our new CAFM system, ensuring the complete and accurate recording of all maintenance and system data. Together with your team and other professionals, you will optimize maintenance processes and maintenance strategies. If necessary, you will also carry out tasks at other locations of the FH Graubünden. ## Requirements - Technical vocational training (e.g., maintenance technician, building services technician, electrical installer, or equivalent training) - Professional experience in inspection, maintenance, and repair, preferably in building technology or infrastructure operations - Knowledge of building management systems and experience with CAFM systems, advantageous - Service-oriented personality with fluent German language skills - Willingness to perform duties outside regular working hours, e.g., in case of faults or events ## What we offer - A well-established and collegial team - An exciting and varied job - Support for personal development - Modern employment conditions and numerous sports and cultural offers ## Contact (Not specified)",
-        "de": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Im Departement «Zentrale Dienste» suchen wir zur Verstärkung unseres Services-Teams per sofort oder nach Vereinbarung eine | In dieser vielseitigen Funktion stellen Sie den reibungslosen Betrieb sowie den technischen Unterhalt unseres neuen, sich im Bau befindlichen Fachhochschulzentrums sicher. Sie führen selbstständig Inspektions-, Wartungs- und Instandhaltungsarbeiten an HLKS-, Photovoltaik- und Sprinkleranlagen sowie weiteren sicherheits- und betriebsrelevanten Systemen durch. Dabei kontrollieren Sie den Zustand der Anlagen, dokumentieren Auffälligkeiten, beheben Störungen und leiten eigenständig geeignete Massnahmen ein. Zudem wirken Sie beim Aufbau und der Weiterentwicklung unseres neuen CAFM-Systems mit und stellen die vollständige sowie korrekte Erfassung sämtlicher Wartungs- und Anlagendaten sicher. Gemeinsam mit Ihrem Team und weiteren Fachpersonen optimieren Sie Unterhaltsprozesse und Instandhaltungsstrategien. Bei Bedarf übernehmen Sie auch Aufgaben an weiteren Standorten der FH Graubünden. | Ihr Profil Technische Berufsausbildung (z.B. Instandhaltungsfachperson, Gebäudetechniker/-in, Elektroinstallateur/-in oder eine vergleichbare Ausbildung) Berufserfahrung in der Inspektion, Wartung und Instandhaltung, idealerweise im Bereich Gebäudetechnik oder infrastrukturellem Betrieb Know-how in Gebäudeleitsystemen sowie Kenntnisse im Umgang mit CAFM-Systemen, von Vorteil Campos Dienstleistungsorientierte Persönlichkeit mit verhandlungssicheren Deutschkenntnissen Bereitschaft, auch ausserhalb der regulären Arbeitszeiten Einsätze zu leisten – etwa bei Störungen oder Veranstaltungen | Wir begeistern Sie mit Einem bestens eingespielten und kollegialen Team Einer spannenden und abwechslungsreichen Tätigkeit Unserer Unterstützung in der persönlichen Weiterentwicklung Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
-        "fr": "Description En tant qu’école supérieure spécialisée, la FH Graubünden mise sur une pensée dynamique et une action proactive. Nous formons plus de 2 400 étudiantes et étudiants dans les filières de formation et de perfectionnement, en les guidant vers l’acquisition de responsabilités personnelles. Dans notre recherche inter- et transdisciplinaire, nous nous concentrons sur des thèmes comme les technologies futures appliquées, le développement dans l’espace alpin et l’action entrepreneuriale. En tant qu’employeur, nous promouvons l’égalité des chances et la diversité. ## Missions Dans ce rôle polyvalent, vous assurerez le bon fonctionnement et la maintenance technique de notre nouveau centre de l’école supérieure spécialisée en construction. Vous réaliserez de manière autonome des inspections, des travaux de maintenance et de réparation sur les installations CVC, photovoltaïques, sprinklers et autres systèmes pertinents pour la sécurité et le fonctionnement. Vous contrôlerez l’état des installations, documenterez les anomalies, corrigerez les pannes et mettrez en œuvre de manière autonome les mesures appropriées. Vous contribuerez également à la mise en place et au développement de notre nouveau système CAFM, en garantissant l’enregistrement complet et exact de toutes les données de maintenance et des installations. Avec votre équipe et d’autres professionnels, vous optimiserez les processus de maintenance et les stratégies de maintenance. Si nécessaire, vous effectuerez également des tâches dans d’autres sites de la FH Graubünden. ## Exigences - Formation professionnelle technique (par exemple, technicien/ne de maintenance, technicien/ne en technique du bâtiment, installateur/trice électricien/ne ou formation équivalente) - Expérience professionnelle dans l’inspection, la maintenance et la réparation, de préférence dans le domaine de la technique du bâtiment ou de la gestion des infrastructures - Connaissances des systèmes de gestion technique des bâtiments et expérience avec les systèmes CAFM, un atout - Personnalité orientée service avec des compétences linguistiques allemandes solides - Disponibilité pour effectuer des interventions en dehors des horaires de travail réguliers, par exemple en cas de pannes ou d’événements ## Ce que nous offrons - Une équipe bien rodée et collégiale - Un emploi stimulant et varié - Un soutien au développement personnel - Des conditions de travail modernes et de nombreuses offres sportives et culturelles ## Contact (Non spécifié)"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.fhgr.ch/Vacancies/735/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-15T09:55:35.229Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/735/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione professionale tecnica (es. tecnico di manutenzione, installatore elettrico o equivalente)",
-          "Esperienza in ispezione, manutenzione e riparazione, preferibilmente in tecnica edilizia o gestione infrastrutturale",
-          "Competenze in sistemi di gestione degli edifici e utilizzo di sistemi CAFM (vantaggioso)",
-          "Personalità orientata al servizio con tedesco fluente",
-          "Disponibilità a interventi fuori orario in caso di guasti o eventi",
-          "Capacità di lavorare in modo indipendente e in team",
-          "Conoscenze di base in impianti HVAC, fotovoltaici e sprinkler",
-          "Attitudine a ottimizzare processi e strategie di manutenzione"
-        ],
-        "en": [
-          "Technical vocational training (e.g., maintenance technician, electrical installer, or equivalent)",
-          "Experience in inspection, maintenance, and repair, preferably in building technology or infrastructure operations",
-          "Knowledge of building management systems and CAFM systems (advantageous)",
-          "Service-oriented personality with fluent German language skills",
-          "Willingness to perform duties outside regular working hours (e.g., for faults or events)",
-          "Ability to work independently and in a team",
-          "Basic knowledge of HVAC, photovoltaic, and sprinkler systems",
-          "Attitude to optimize maintenance processes and strategies"
-        ],
-        "fr": [
-          "Formation professionnelle technique (ex. technicien de maintenance, installateur électricien ou équivalent)",
-          "Connaissances des systèmes de gestion technique des bâtiments et des systèmes CAFM (atout)",
-          "Personnalité orientée service avec un allemand courant",
-          "Disponibilité pour des interventions en dehors des horaires de travail (ex. pannes ou événements)",
-          "Capacité à travailler de manière autonome et en équipe",
-          "Connaissances de base des installations CVC, photovoltaïques et sprinklers",
-          "Aptitude à optimiser les processus et stratégies de maintenance"
-        ]
-      },
-      "department": "Services",
-      "contractDuration": "permanent",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "instandhaltungsfachperson-100-fhgr-ch",
-        "sachbearbeiter-instandhaltung-100-fachhochschule-graubunden-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "instandhaltungsfachperson-100-fhgr-ch"
-        ],
-        "de": [
-          "sachbearbeiter-instandhaltung-100-fachhochschule-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:32:25.667Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -450,7 +345,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/774/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T09:55:34.275Z",
+      "crawledAt": "2026-04-15T21:35:13.645Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -511,6 +406,7 @@
         "studienleiter-in-business-administration-studienrichtung-new-business-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:24.670Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
