@@ -1,60 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-04-15T10:30:21.220Z",
-  "total": 1,
+  "generatedAt": "2026-04-15T22:10:08.127Z",
+  "total": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6993,
-  "avgDurationMs": 6993,
-  "durationHistory": [
-    6993
-  ],
+  "unchangedCount": 0,
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
-      "title": "Compliance Officer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "compliance-officer-w-m-d-postfinance",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-04-06",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "id": "postfinance-b561e2e6971a",
-      "firstSeenAt": "2026-04-14T22:14:40.300Z",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 17
-      }
-    }
-  ]
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
