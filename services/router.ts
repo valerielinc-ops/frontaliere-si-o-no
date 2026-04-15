@@ -241,6 +241,17 @@ const SEO_LANDING_REVERSE: Record<Locale, Record<string, SeoLandingId>> = {
  fr: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.fr).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
 };
 
+// ── Salary Hub pattern detection (programmatic SEO pages) ─────
+const SALARY_HUB_PATTERNS = [
+ /^stipendio-netto-\d+-chf/,   // IT
+ /^net-salary-\d+-chf/,        // EN
+ /^nettogehalt-\d+-chf/,       // DE
+ /^salaire-net-\d+-chf/,       // FR
+];
+function isSalaryHubSlug(slug: string): boolean {
+ return SALARY_HUB_PATTERNS.some(rx => rx.test(slug));
+}
+
 // ── Glossary term deep links (indexable URLs) ───────────────
 
 export type GlossaryTermId =
@@ -445,6 +456,8 @@ export interface AppRoute {
  jobSlug?: string;
  /** URL fragment identifier (without #). Used for anchor-linking to page sections. */
  hash?: string;
+ /** Salary Hub slug — pre-computed scenario page loaded from static HTML, routed to calculator tab. */
+ salaryHubSlug?: string;
 }
 
 // ── Internationalized slug maps ──────────────────────────────
@@ -1600,6 +1613,10 @@ export function parsePath(pathname: string): ParseResult {
  const landing = SEO_LANDING_REVERSE[locale][second];
  if (landing) {
  return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: landing }, locale };
+ }
+ // Salary Hub pattern: stipendio-netto-XXXXX-chf-* / net-salary-XXXXX-chf-* / etc.
+ if (isSalaryHubSlug(second)) {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', salaryHubSlug: second }, locale };
  }
  }
  return { route: { activeTab: 'calculator', calcolatoreSubTab: sub as CalcolatoreSubTab }, locale };

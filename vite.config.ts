@@ -23,6 +23,7 @@ import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
 import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
 import { webpPlugin } from './build-plugins/webpPlugin';
 import { pdfWhitepapersPlugin } from './build-plugins/pdfWhitepapersPlugin';
+import { salaryHubPlugin } from './build-plugins/salaryHubPlugin';
 import { affiliateRedirectPlugin } from './build-plugins/affiliateRedirectPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -63,6 +64,7 @@ export default defineConfig(({ mode }) => {
  ogPagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
  staticPagesPlugin(__dirname),
+ salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
