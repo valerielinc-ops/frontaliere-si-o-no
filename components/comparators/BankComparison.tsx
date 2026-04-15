@@ -1,4 +1,5 @@
 import React, { useState, useMemo, lazy, Suspense } from 'react';
+import Callout from '@/components/shared/Callout';
 import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -211,7 +212,7 @@ const BankComparison: React.FC = () => {
 
  return (
  <div className="space-y-6 pb-8">
- <div className="bg-neutral-subtle rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
+ <div className="bg-neutral-subtle rounded-md p-5 sm:p-8 border-l-2 border-warning-border">
  <div className="flex items-center gap-3 mb-4">
  <Building2 size={32} className="text-warning" />
  <h2 className="text-2xl sm:text-3xl font-bold text-heading">{t('banks.title')}</h2>
@@ -224,15 +225,12 @@ const BankComparison: React.FC = () => {
  {t('comparatori.bank.intro.p1')}
  </p>
 
- <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
- <div className="flex items-start gap-3">
- <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
+ <Callout status="warning">
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">{t('banks.strategyTitle')}</p>
  <p dangerouslySetInnerHTML={{ __html: t('banks.strategyText') }} />
  </div>
- </div>
- </div>
+ </Callout>
 
  <div className="bg-surface rounded-xl p-4 border border-edge">
  <div className="flex flex-wrap gap-4 items-center">

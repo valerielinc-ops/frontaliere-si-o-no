@@ -477,7 +477,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  if (blockquoteCount < 2) {
  blockquoteCount += 1;
  renderedBlocks.push(
- <blockquote key={`quote-${idx}`} className="bg-accent-subtle border-l-4 border-accent p-4 rounded-r-lg italic text-accent">
+ <blockquote key={`quote-${idx}`} className="bg-accent-subtle border-l-2 border-accent p-4 rounded-r-lg italic text-accent">
  {renderInlineFormatting(quote, navigators)}
  </blockquote>
  );
@@ -1884,7 +1884,7 @@ function BlogArticles({
 
  {/* Article body */}
  <div className="px-4 sm:px-6 py-6 space-y-5">
- <p className="text-lg text-subtle italic border-l-4 border-accent pl-4">
+ <p className="text-lg text-subtle italic border-l-2 border-accent pl-4">
  {t(`blog.article.${article.id}.excerpt`)}
  </p>
 

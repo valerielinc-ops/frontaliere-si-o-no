@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import Callout from '@/components/shared/Callout';
 import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe, MapPin, Trophy, FileText } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -216,9 +217,7 @@ const HealthInsurance: React.FC = () => {
  <div className="mt-3"><DataFreshness lastUpdated={data?.fetchedAt?.slice(0, 7) || '2026-01'} source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" /></div>
  </div>
 
- <div className="bg-warning-subtle border-l-4 border-warning p-5 rounded-lg">
- <div className="flex items-start gap-3">
- <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
+ <Callout status="warning">
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">Nota per frontalieri</p>
  <p>
@@ -228,8 +227,7 @@ const HealthInsurance: React.FC = () => {
  <a href="https://www.priminfo.admin.ch/it/praemien" target="_blank" rel="noopener noreferrer" className="underline font-bold">priminfo.admin.ch</a>.
  </p>
  </div>
- </div>
- </div>
+ </Callout>
 
  <div className="bg-surface rounded-2xl p-5 border border-edge shadow-sm">
  <h3 className="text-sm font-bold text-subtle uppercase tracking-wider mb-4 flex items-center gap-2">

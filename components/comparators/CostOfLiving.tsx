@@ -1,4 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react';
+import Callout from '@/components/shared/Callout';
 import { Home, TrendingDown, TrendingUp, MapPin, Train, Zap, Wifi, Utensils, Heart, DollarSign, BarChart3, ArrowRight, ExternalLink, Info, RefreshCw } from 'lucide-react';
 
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
@@ -398,15 +399,12 @@ const CostOfLiving: React.FC = () => {
  </div>
 
  {/* Frontaliere Tip */}
- <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
- <div className="flex items-start gap-3">
- <DollarSign className="text-warning flex-shrink-0 mt-0.5" size={20} />
+ <Callout status="warning" icon={<DollarSign size={20} />}>
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">{t('costOfLiving.frontaliereTipTitle')}</p>
  <p>{t('costOfLiving.frontaliereTip')}</p>
  </div>
- </div>
- </div>
+ </Callout>
 
  {/* Sources */}
  <div className="bg-surface rounded-xl p-4 border border-edge">

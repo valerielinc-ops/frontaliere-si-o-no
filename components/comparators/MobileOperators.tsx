@@ -1,5 +1,6 @@
 import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { Smartphone, Wifi, Phone, MessageSquare, AlertCircle, CheckCircle2, Info, Euro, Globe } from 'lucide-react';
+import Callout from '@/components/shared/Callout';
 
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
@@ -395,17 +396,12 @@ const MobileOperators: React.FC = () => {
  </div>
 
  {/* Warning Banner */}
- <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
- <div className="flex items-start gap-3">
- <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
+ <Callout status="warning" icon={<AlertCircle size={20} />}>
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">⚠️ {t('mobile.roamingWarningTitle')}</p>
- <p>
- {t('mobile.roamingWarningDesc')}
- </p>
+ <p>{t('mobile.roamingWarningDesc')}</p>
  </div>
- </div>
- </div>
+ </Callout>
 
  {/* Filters */}
  <div className="bg-surface rounded-xl p-4 border border-edge">

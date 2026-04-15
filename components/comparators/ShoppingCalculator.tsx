@@ -1,4 +1,5 @@
 import React, { useState, useMemo, lazy, Suspense } from 'react';
+import Callout from '@/components/shared/Callout';
 import {
  ShoppingCart, TrendingDown, AlertCircle, Info, Euro, ArrowRight,
  Package, Fuel, Wine, Baby, Pill, Beef, Wheat, Coffee, Milk, Apple,
@@ -233,15 +234,12 @@ const ShoppingCalculator: React.FC = () => {
  </div>
 
  {/* Customs Warning */}
- <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
- <div className="flex items-start gap-3">
- <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
+ <Callout status="warning">
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">{t('shopping.customsTitle')}</p>
  <p>{t('shopping.customsDesc')}</p>
  </div>
- </div>
- </div>
+ </Callout>
 
  {/* Filters */}
  <div className="bg-surface rounded-xl p-4 border border-edge">

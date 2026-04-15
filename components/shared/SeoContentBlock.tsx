@@ -237,7 +237,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
  {/* Expert quote — authority signal for AI citation (+30% visibility) */}
  {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
- <blockquote className="border-l-3 border-accent-border pl-3 mb-3 py-1.5" data-speakable="true">
+ <blockquote className="border-l-2 border-accent-border pl-3 mb-3 py-1.5" data-speakable="true">
  <p className="text-sm italic text-subtle">
  <Quote className="inline w-3.5 h-3.5 mr-1 text-accent -mt-0.5" aria-hidden="true" />
  {t(`seoContent.${context}.expertQuote`)}

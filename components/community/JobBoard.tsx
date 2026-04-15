@@ -4370,7 +4370,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
 
  const salaryEstimateWidget = salaryEstimates ? (
- <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-amber-500">
+ <div className="rounded-xl border border-edge bg-surface p-4 border-l-2 border-l-warning">
  <div className="flex items-center gap-2 text-sm font-bold text-heading mb-3">
  <Calculator size={15} className="text-warning" />
  {t('jobBoard.salaryEstimate.cta')}

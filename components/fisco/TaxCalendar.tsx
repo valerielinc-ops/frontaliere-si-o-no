@@ -831,7 +831,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  return (
  <div className="space-y-6 animate-fade-in">
  {/* Header */}
- <div className="bg-neutral-subtle rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
+ <div className="bg-neutral-subtle rounded-md p-5 sm:p-8 border-l-2 border-warning-border">
  <div className="flex items-center gap-4 mb-4">
  {activeTab === 'fiscal' ? <Calendar size={32} className="text-warning" /> : <Star size={32} className="text-warning" />}
  <div>
