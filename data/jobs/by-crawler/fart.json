@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fart",
-  "assembledAt": "2026-04-14T21:38:09.975Z",
+  "assembledAt": "2026-04-15T21:33:31.932Z",
   "jobs": [
     {
       "title": "1 capo movimento (100% – f/m)",
@@ -95,9 +95,7 @@
         "1-bewegungsleiter-100-w-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "1-operativer-abteilungsleiter-w-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "1-movement-leader-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "1-operational-department-head-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "1-chef-de-mouvement-100-f-h-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "1-chef-de-service-operationnel-f-h-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
+        "1-operational-department-head-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -149,7 +147,8 @@
           "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-n33ctb"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:39:13.641Z"
+      "firstSeenAt": "2026-04-13T21:39:13.641Z",
+      "needsRetranslation": true
     }
   ]
 }
