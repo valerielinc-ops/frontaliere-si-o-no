@@ -6060,4 +6060,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/governo-limita-acquisti-immobiliari-estero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incidente-cassano-magnago-frontalieri-ticinesi',
+ category: 'pratico',
+ date: '2026-04-15T19:54:34.417Z',
+ image: '/images/blog/incidente-cassano-magnago-frontalieri-ticinesi.jpg',
+ hasCalculator: true,
+ },
 ];

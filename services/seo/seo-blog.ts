@@ -7917,6 +7917,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-cassano-magnago-frontalieri-ticinesi': {
+    title: 'Incidente a Cassano Magnago: due | Frontaliere Ticino',
+    description: 'Due lavoratori frontalieri ticinesi ricoverati dopo violenta collisione tra auto a Cassano Magnago (Varese). Niente traffico deviante su A26 o A8.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, cassano, magnago, ticinesi',
+    ogTitle: 'Incidente a Cassano Magnago: due frontalieri ticinesi fer',
+    ogDescription: 'Due lavoratori frontalieri ticinesi ricoverati dopo violenta collisione tra auto a Cassano Magnago (Varese). Niente traffico deviante su A26 o A8.',
+    canonicalPath: '/articoli-frontaliere/incidente-cassano-magnago-frontalieri-ticinesi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Cassano Magnago: due frontalieri ticinesi fer",
+      "description": "Due lavoratori frontalieri ticinesi ricoverati dopo violenta collisione tra auto a Cassano Magnago (Varese). Niente traffico deviante su A26 o A8.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-cassano-magnago-frontalieri-ticinesi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale a Cassano Magnago con auto danneggiate e soccorritori sul posto"
+      },
+      "datePublished": "2026-04-15T19:54:34+00:00",
+      "dateModified": "2026-04-15T19:54:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-cassano-magnago-frontalieri-ticinesi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2175,6 +2175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Property purchases from abroad: Swiss government tightens rules',
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'From 15 April to 15 July 2026, a public consultation on new restrictions for non-EU/EFTA foreigners. What’s changing for homes, chalets and investments.',
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Alpine chalet in Ticino symbolizing new restrictions on foreign real estate purchases',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Accident in Cassano Magnago: two Ticino cross-border workers injured',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Two Ticino cross-border workers were hospitalized following a violent car collision in Cassano Magnago (Varese). No diverted traffic on A26 or A8.',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Road accident in Cassano Magnago with damaged cars and emergency services on site',
 };
 
 export default blogMetaEn;

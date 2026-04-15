@@ -2175,6 +2175,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Achats immobiliers depuis l’étranger : le gouvernement suisse durcit les règles',
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'Du 15 avril au 15 juillet 2026, consultation publique sur de nouvelles restrictions pour les étrangers non-UE/AELE. Ce qui change pour les maisons, chalets et investissements.',
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Chalet alpin au Tessin symbolisant les nouvelles restrictions sur les achats immobiliers par des étrangers',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Accident à Cassano Magnago : deux travailleurs frontaliers tessinois blessés',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Deux travailleurs frontaliers tessinois hospitalisés après une violente collision entre voitures à Cassano Magnago (Varèse). Aucun déroutement du trafic sur l’A26 ou l’A8.',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Accident de la route à Cassano Magnago avec voitures endommagées et services d\'urgence sur place',
 };
 
 export default blogMetaFr;

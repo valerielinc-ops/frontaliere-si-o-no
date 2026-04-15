@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 776,
+ "numberOfItems": 777,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4465,7 +4465,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 773, "name": "Domenica 19 aprile 2026 le strade tra Bellinzon...", "url": `${BASE_URL}/articoli-frontaliere/slowup-strade-trasporti-limiti-2026` },
           { "@type": "ListItem", "position": 774, "name": "Analisi degli approvvigionamenti di petrolio e ...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026` },
           { "@type": "ListItem", "position": 775, "name": "Norme 2024 per fuochi all’aperto in Ticino: cos...", "url": `${BASE_URL}/articoli-frontaliere/fuochi-allaperto-ticino-grazie-normativa-2024` },
-          { "@type": "ListItem", "position": 776, "name": "Acquisti immobiliari dall’estero: il Governo sv...", "url": `${BASE_URL}/articoli-frontaliere/governo-limita-acquisti-immobiliari-estero-2026` }
+          { "@type": "ListItem", "position": 776, "name": "Acquisti immobiliari dall’estero: il Governo sv...", "url": `${BASE_URL}/articoli-frontaliere/governo-limita-acquisti-immobiliari-estero-2026` },
+          { "@type": "ListItem", "position": 777, "name": "Incidente a Cassano Magnago: due frontalieri ti...", "url": `${BASE_URL}/articoli-frontaliere/incidente-cassano-magnago-frontalieri-ticinesi` }
  ]
  }
  ]

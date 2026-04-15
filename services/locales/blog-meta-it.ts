@@ -2175,6 +2175,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.title': 'Acquisti immobiliari dall’estero: il Governo svizzero inasprisce le regole',
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.excerpt': 'Dal 15 aprile al 15 luglio 2026 consultazione pubblica su nuove restrizioni per stranieri non UE/AELS. Cosa cambia per case, chalet e investimenti.',
     'blog.article.governo-limita-acquisti-immobiliari-estero-2026.imageAlt': 'Chalet alpino in Ticino che simboleggia le nuove restrizioni agli acquisti immobiliari da parte di stranieri',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.title': 'Incidente a Cassano Magnago: due frontalieri ticinesi feriti',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.excerpt': 'Due lavoratori frontalieri ticinesi ricoverati dopo violenta collisione tra auto a Cassano Magnago (Varese). Niente traffico deviante su A26 o A8.',
+    'blog.article.incidente-cassano-magnago-frontalieri-ticinesi.imageAlt': 'Incidente stradale a Cassano Magnago con auto danneggiate e soccorritori sul posto',
 };
 
 export default blogMetaIt;
