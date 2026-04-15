@@ -5,6 +5,7 @@ const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from 'recharts';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
+import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 
 interface Pillar3Inputs {
  type: '3a' | '3b';
@@ -27,6 +28,7 @@ const Pillar3Simulator: React.FC = () => {
  obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
  return () => obs.disconnect();
  }, []);
+ const chart = useChartColors(isDark);
  const [inputs, setInputs] = useState<Pillar3Inputs>({
  type: '3a',
  annualContribution: 7258,
@@ -226,22 +228,22 @@ const Pillar3Simulator: React.FC = () => {
  <AreaChart data={results.projections}>
  <defs>
  <linearGradient id="colorPillar" x1="0" y1="0" x2="0" y2="1">
- <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.3}/>
- <stop offset="95%" stopColor="#14b8a6" stopOpacity={0}/>
+ <stop offset="5%" stopColor={CHART_DATA_COLORS.positive} stopOpacity={0.3}/>
+ <stop offset="95%" stopColor={CHART_DATA_COLORS.positive} stopOpacity={0}/>
  </linearGradient>
  <linearGradient id="colorTax" x1="0" y1="0" x2="0" y2="1">
- <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
- <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
+ <stop offset="5%" stopColor={CHART_DATA_COLORS.warning} stopOpacity={0.3}/>
+ <stop offset="95%" stopColor={CHART_DATA_COLORS.warning} stopOpacity={0}/>
  </linearGradient>
  </defs>
- <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
- <XAxis dataKey="age" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} label={{ value: t('pillar3.age'), position: 'insideBottom', offset: -5, fill: isDark ? '#94a3b8' : '#64748b' }} />
- <YAxis tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
- <Tooltip formatter={(value: number) => [`CHF ${value.toLocaleString('it-IT')}`, '']} labelFormatter={(label) => `${t('pillar3.age')}: ${label}`} contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }} />
+ <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
+ <XAxis dataKey="age" tick={{ fontSize: 12, fill: chart.tick }} label={{ value: t('pillar3.age'), position: 'insideBottom', offset: -5, fill: chart.tick }} />
+ <YAxis tick={{ fontSize: 12, fill: chart.tick }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+ <Tooltip formatter={(value: number) => [`CHF ${value.toLocaleString('it-IT')}`, '']} labelFormatter={(label) => `${t('pillar3.age')}: ${label}`} contentStyle={chart.tooltipStyle} />
  <Legend />
- <Area type="monotone" dataKey="withPillar" name={t('pillar3.capitalPillar3')} stroke="#14b8a6" fill="url(#colorPillar)" strokeWidth={2} />
+ <Area type="monotone" dataKey="withPillar" name={t('pillar3.capitalPillar3')} stroke={CHART_DATA_COLORS.positive} fill="url(#colorPillar)" strokeWidth={2} />
  {inputs.type === '3a' && (
- <Area type="monotone" dataKey="taxSaved" name={t('pillar3.cumulativeTaxSaving')} stroke="#f59e0b" fill="url(#colorTax)" strokeWidth={2} />
+ <Area type="monotone" dataKey="taxSaved" name={t('pillar3.cumulativeTaxSaving')} stroke={CHART_DATA_COLORS.warning} fill="url(#colorTax)" strokeWidth={2} />
  )}
  </AreaChart>
  </ResponsiveContainer>

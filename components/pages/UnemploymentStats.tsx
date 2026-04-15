@@ -5,6 +5,7 @@ import {
 } from 'recharts';
 import { TrendingUp, Info, ExternalLink, Loader2, BarChart3, Calendar } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import { fetchSwitzerlandUnemploymentRate, type SwitzerlandUnemploymentRateData } from '@/services/unemploymentRateService';
 import { Analytics } from '@/services/analytics';
 
@@ -30,6 +31,8 @@ const UnemploymentStats: React.FC = () => {
  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
  return () => observer.disconnect();
  }, []);
+
+ const chart = useChartColors(isDark);
 
  const localeLabels = useMemo(() => ({
  title: { it: 'Tasso di Disoccupazione Svizzera', en: 'Switzerland Unemployment Rate', de: 'Arbeitslosenquote Schweiz', fr: 'Taux de Chômage Suisse' }[locale] || 'Tasso di Disoccupazione Svizzera',
@@ -276,32 +279,32 @@ const UnemploymentStats: React.FC = () => {
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
  onClick={() => Analytics.trackChartInteraction('unemployment_10y_trend', 'click')}
  >
- <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
+ <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chart.grid} strokeOpacity={0.3} />
  <XAxis
  dataKey="label"
  axisLine={false}
  tickLine={false}
- tick={{ fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
+ tick={{ fontSize: 10, fill: chart.tick, fontWeight: 600 }}
  dy={8}
  minTickGap={50}
  />
  <YAxis
  axisLine={false}
  tickLine={false}
- tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
+ tick={{ fontSize: 11, fill: chart.tick, fontWeight: 600 }}
  domain={['dataMin - 0.3', 'dataMax + 0.3']}
  width={52}
  tickFormatter={(val) => `${Number(val).toFixed(1)}%`}
  />
  <Tooltip
- contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b' }}
+ contentStyle={{ ...chart.tooltipStyle, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
  labelFormatter={(_label, payload) => {
  const p = payload?.[0]?.payload?.period;
  return p || _label;
  }}
  formatter={(value: any) => [`${Number(value).toFixed(1)}%`, localeLabels.rateLabel]}
  />
- <Line type="monotone" dataKey="rate" stroke="#f59e0b" strokeWidth={2.5} dot={false} activeDot={{ r: 4 }} />
+ <Line type="monotone" dataKey="rate" stroke={CHART_DATA_COLORS.warning} strokeWidth={2.5} dot={false} activeDot={{ r: 4 }} />
  </LineChart>
  </ResponsiveContainer>
  ) : (
@@ -326,31 +329,31 @@ const UnemploymentStats: React.FC = () => {
  barSize={32}
  onClick={() => Analytics.trackChartInteraction('unemployment_yearly_avg', 'click')}
  >
- <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
+ <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chart.grid} strokeOpacity={0.3} />
  <XAxis
  dataKey="year"
  axisLine={false}
  tickLine={false}
- tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
+ tick={{ fontSize: 11, fill: chart.tick, fontWeight: 600 }}
  dy={8}
  />
  <YAxis
  axisLine={false}
  tickLine={false}
- tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
+ tick={{ fontSize: 11, fill: chart.tick, fontWeight: 600 }}
  domain={[0, 'dataMax + 0.5']}
  width={52}
  tickFormatter={(val) => `${Number(val).toFixed(1)}%`}
  />
  <Tooltip
- contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b' }}
+ contentStyle={{ ...chart.tooltipStyle, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
  formatter={(value: any) => [`${Number(value).toFixed(2)}%`, localeLabels.rateLabel]}
  />
  <Bar dataKey="avg" radius={[6, 6, 0, 0]} name={localeLabels.rateLabel}>
  {yearlyData.map((entry, index) => (
  <Cell
  key={`cell-${index}`}
- fill={entry.avg >= 3.0 ? '#ef4444' : entry.avg >= 2.5 ? '#f59e0b' : '#10b981'}
+ fill={entry.avg >= 3.0 ? CHART_DATA_COLORS.negative : entry.avg >= 2.5 ? CHART_DATA_COLORS.warning : CHART_DATA_COLORS.positive}
  />
  ))}
  </Bar>

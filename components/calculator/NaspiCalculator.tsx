@@ -3,6 +3,7 @@ import { useExchangeRate } from '@/services/exchangeRateService';
 import { Calculator, TrendingDown, Euro, Clock, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { useTranslation } from '@/services/i18n';
+import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 
@@ -77,6 +78,7 @@ export default function NaspiCalculator() {
  useEffect(() => { if (_liveRate > 0) setExchangeRate(_liveRate); }, [_liveRate]);
  const [showTable, setShowTable] = useState(false);
  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+ const chart = useChartColors(isDark);
 
  useEffect(() => {
  const observer = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
@@ -236,33 +238,33 @@ export default function NaspiCalculator() {
  <h4 className="text-sm font-bold text-body mb-3">{t('naspi.calc.chartTitle')}</h4>
  <ResponsiveContainer width="100%" height={220}>
  <LineChart data={result.rows} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
- <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
+ <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
  <XAxis
  dataKey="month"
- tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }}
- label={{ value: t('naspi.calc.monthLabel'), position: 'insideBottom', offset: -2, fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }}
+ tick={{ fontSize: 11, fill: chart.tick }}
+ label={{ value: t('naspi.calc.monthLabel'), position: 'insideBottom', offset: -2, fontSize: 11, fill: chart.tick }}
  />
  <YAxis
- tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }}
+ tick={{ fontSize: 11, fill: chart.tick }}
  tickFormatter={(v: number) => `€${v}`}
  />
  <Tooltip
  formatter={(value: number) => [formatEUR2(value), t('naspi.calc.grossAmount')]}
  labelFormatter={(label: number) => `${t('naspi.calc.monthLabel')} ${label}`}
- contentStyle={{ borderRadius: '8px', fontSize: '12px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }}
+ contentStyle={{ borderRadius: '8px', fontSize: '12px', ...chart.tooltipStyle }}
  />
  <ReferenceLine
  y={result.monthlyInitial}
- stroke={isDark ? '#64748b' : '#94a3b8'}
+ stroke={chart.tick}
  strokeDasharray="4 4"
- label={{ value: t('naspi.calc.initialAmount'), position: 'right', fontSize: 10, fill: isDark ? '#64748b' : '#94a3b8' }}
+ label={{ value: t('naspi.calc.initialAmount'), position: 'right', fontSize: 10, fill: chart.tick }}
  />
  <Line
  type="stepAfter"
  dataKey="gross"
- stroke="#10b981"
+ stroke={CHART_DATA_COLORS.positive}
  strokeWidth={2.5}
- dot={{ r: 3, fill: '#10b981' }}
+ dot={{ r: 3, fill: CHART_DATA_COLORS.positive }}
  activeDot={{ r: 5 }}
  />
  </LineChart>
