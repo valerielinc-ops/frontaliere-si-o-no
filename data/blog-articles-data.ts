@@ -6046,4 +6046,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/petrolio-e-gas-svizzera-approvvigionamento-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fuochi-allaperto-ticino-grazie-normativa-2024',
+ category: 'pratico',
+ date: '2026-04-15T16:23:27.766Z',
+ image: '/images/blog/fuochi-allaperto-ticino-grazie-normativa-2024.jpg',
+ hasCalculator: true,
+ },
 ];

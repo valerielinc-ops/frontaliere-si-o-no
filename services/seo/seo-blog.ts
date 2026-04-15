@@ -7859,6 +7859,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuochi-allaperto-ticino-grazie-normativa-2024': {
+    title: 'Fuochi all\'aperto in Ticino: divieto | Frontaliere Ticino',
+    description: 'Dal 1° maggio 2024 in Ticino si possono accendere fuochi all’aperto, ma non nel Grigioni italiano. Scopri regole, sanzioni e cosa cambia per chi vive o lavora',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuochi, aperto, divieto, revocato',
+    ogTitle: 'Divieto fuochi all\'aperto revocato in Ticino: norme e rischi',
+    ogDescription: 'Dal 1° maggio 2024 i fuochi all’aperto tornano legali in Ticino, ma non nel Grigioni italiano. Scopri tutte le regole, le sanzioni e i rischi per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/fuochi-allaperto-ticino-grazie-normativa-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Norme 2024 per fuochi all’aperto in Ticino: cosa cambia per frontalieri e residenti",
+      "description": "Dal 1° maggio 2024 in Ticino si possono accendere fuochi all’aperto, ma non nel Grigioni italiano. Scopri regole, sanzioni e cosa cambia per chi vive o lavora",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuochi-allaperto-ticino-grazie-normativa-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fuoco all'aperto sulla cima del Monte Brè con vista sul Lago di Lugano al tramonto"
+      },
+      "datePublished": "2026-04-15T16:23:27+00:00",
+      "dateModified": "2026-04-15T16:23:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuochi-allaperto-ticino-grazie-normativa-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

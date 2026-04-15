@@ -2169,6 +2169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.title': 'Oil and Gas in Switzerland: Secure Supply by 2026',
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.excerpt': 'Despite tensions in the Middle East, Switzerland guarantees stable supplies of oil and gas. Here’s where they come from and the impact on prices for cross-border workers and Ticinesi.',
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.imageAlt': 'View of Lugano with the lake and city center at sunset',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Outdoor fires in Ticino: Ban lifted from 1 May 2024',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'From 1 May 2024, burning fires in Ticino’s forests and meadows is again permitted, though not in all areas of the nearby Italian-speaking Grisons. Here’s what changes for cross-border workers and the rules to follow.',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Campfire on Monte Brè hilltop with sunset view over Lake Lugano',
 };
 
 export default blogMetaEn;

@@ -2169,6 +2169,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.title': 'Petrolio e gas in Svizzera: approvvigionamento sicuro nel 2026',
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.excerpt': 'Nonostante le tensioni in Medio Oriente, la Svizzera garantisce forniture stabili di petrolio e gas. Ecco da dove arrivano e quali impatti sui prezzi per frontalieri e ticinesi.',
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.imageAlt': 'Veduta di Lugano con il lago e il centro storico di sera',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Fuochi all\'aperto in Ticino: divieto revocato dal 1° maggio 2024',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'Dal 1° maggio 2024 i roghi nei boschi e prati ticinesi sono di nuovo ammessi, ma non in tutte le aree del vicino Grigioni italiano. Ecco cosa cambia per i frontalieri e le regole da rispettare.',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Fuoco all\'aperto sulla cima del Monte Brè con vista sul Lago di Lugano al tramonto',
 };
 
 export default blogMetaIt;

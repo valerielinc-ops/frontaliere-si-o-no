@@ -2169,6 +2169,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.title': 'Pétrole et gaz en Suisse : approvisionnement sécurisé en 2026',
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.excerpt': 'Malgré les tensions au Moyen-Orient, la Suisse garantit des approvisionnements stables en pétrole et en gaz. Voici d’où proviennent ces ressources et quels impacts sur les prix pour les frontaliers et les Tessinois.',
     'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.imageAlt': 'Vue de Lugano avec le lac et la vieille ville au coucher du soleil',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.title': 'Feux en plein air au Tessin : l\'interdiction levée à partir du 1er mai 2024',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.excerpt': 'À partir du 1er mai 2024, les feux de bois et d\'herbes dans les forêts et prairies tessinoises seront à nouveau autorisés, mais pas sur l\'ensemble du territoire du proche Grigioni italien. Voici ce qui change pour les travailleurs frontaliers et les règles à respecter.',
+    'blog.article.fuochi-allaperto-ticino-grazie-normativa-2024.imageAlt': 'Feu de camp au sommet du Monte Brè avec vue sur le lac de Lugano au coucher du soleil',
 };
 
 export default blogMetaFr;
