@@ -8,9 +8,13 @@ const mockCalculateSimulation = vi.fn(() => ({
   deltaPercent: 10,
 }));
 
-vi.mock('@/services/calculationService', () => ({
-  calculateSimulation: (...args: any[]) => mockCalculateSimulation(...args),
-}));
+vi.mock('@/services/calculationService', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/services/calculationService')>();
+  return {
+    ...actual,
+    calculateSimulation: (...args: any[]) => mockCalculateSimulation(...args),
+  };
+});
 
 vi.mock('@/services/urlStateService', () => ({
   hasSimulationParams: vi.fn(() => false),

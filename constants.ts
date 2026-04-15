@@ -26,7 +26,7 @@ export const DEFAULT_TECH_PARAMS = {
  lppRate45_54: 0.075,
  lppRate55_plus: 0.09,
  itAddizionaleRate: 0.02,
- itWorkDeduction: 1910,
+ itWorkDeduction: 0,
 };
 
 // Funzione per calcolare spese in base al numero di componenti

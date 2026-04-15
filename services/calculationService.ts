@@ -215,8 +215,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  else if (italianTaxableBaseEUR <= 50000) irpefGross = (28000 * 0.23) + ((italianTaxableBaseEUR - 28000) * 0.35);
  else irpefGross = (28000 * 0.23) + (22000 * 0.35) + ((italianTaxableBaseEUR - 50000) * 0.43);
 
- const progressiveWorkDeduction = calculateProgressiveWorkDeduction(italianTaxableBaseEUR);
- const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
+ const itDeductions = itWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
  const addizionali = italianTaxableBaseEUR * itAddizionaleRate;
  const itLiability = Math.max(0, irpefGross + addizionali - itDeductions);
  // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017

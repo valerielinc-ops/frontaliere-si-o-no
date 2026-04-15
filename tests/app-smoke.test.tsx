@@ -88,16 +88,20 @@ const mockTaxResult = {
   breakdown: [{ label: 'Quellensteuer', amount: 400, percentage: 5 }],
   details: { regime: 'Quellensteuer', effectiveRate: 10, source: 'Test', notes: [] },
 };
-vi.mock('@/services/calculationService', () => ({
-  calculateSimulation: vi.fn(() => ({
-    chResident: { ...mockTaxResult },
-    itResident: { ...mockTaxResult, currency: 'EUR' as const },
-    savingsCHF: 500,
-    savingsEUR: 460,
-    exchangeRate: 0.92,
-    monthsBasis: 12,
-  })),
-}));
+vi.mock('@/services/calculationService', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/services/calculationService')>();
+  return {
+    ...actual,
+    calculateSimulation: vi.fn(() => ({
+      chResident: { ...mockTaxResult },
+      itResident: { ...mockTaxResult, currency: 'EUR' as const },
+      savingsCHF: 500,
+      savingsEUR: 460,
+      exchangeRate: 0.92,
+      monthsBasis: 12,
+    })),
+  };
+});
 
 // Spy on console.error to detect React warnings
 let consoleErrorSpy: ReturnType<typeof vi.spyOn>;

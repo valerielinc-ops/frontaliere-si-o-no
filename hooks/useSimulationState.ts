@@ -10,10 +10,11 @@
  * - handleCalculate (lazy imports calculationService)
  */
 import { useState, useEffect, useRef, useCallback, useMemo, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
-import { DEFAULT_INPUTS } from '@/constants';
+import { DEFAULT_INPUTS, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { decodeSimulationParams, hasSimulationParams, cleanSimulationParams } from '@/services/urlStateService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { calculateProgressiveWorkDeduction } from '@/services/calculationService';
 import type { SeoLandingId, ActiveTab } from '@/services/router';
 
 const lazyCalculate = () => import('@/services/calculationService');
@@ -136,6 +137,24 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  }
  };
  }, []);
+
+ // Auto-compute progressive work deduction (Art. 13 TUIR) when income-related inputs change
+ useEffect(() => {
+ const { annualIncomeCHF, customExchangeRate, age, frontierWorkerType, children,
+ avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus } = inputs;
+ if (frontierWorkerType === 'OLD') {
+ setInputs(prev => prev.itWorkDeduction === 0 ? prev : { ...prev, itWorkDeduction: 0 });
+ return;
+ }
+ const grossEUR = annualIncomeCHF * customExchangeRate;
+ const lppRate = age < 25 ? 0 : age <= 34 ? lppRate25_34 : age <= 44 ? lppRate35_44 : age <= 54 ? lppRate45_54 : lppRate55_plus;
+ const socialEUR = annualIncomeCHF * (avsRate + Math.min(1, 148200 / annualIncomeCHF) * acRate + laaRate + ijmRate + lppRate) * customExchangeRate;
+ const allowanceEUR = children * 3000 * customExchangeRate;
+ const taxableBaseEUR = Math.max(0, grossEUR + allowanceEUR - socialEUR - FRANCHIGIA_NUOVI_FRONTALIERI);
+ const deduction = Math.round(calculateProgressiveWorkDeduction(taxableBaseEUR));
+ setInputs(prev => prev.itWorkDeduction === deduction ? prev : { ...prev, itWorkDeduction: deduction });
+ }, [inputs.annualIncomeCHF, inputs.customExchangeRate, inputs.age, inputs.frontierWorkerType, inputs.children,
+ inputs.avsRate, inputs.acRate, inputs.laaRate, inputs.ijmRate, inputs.lppRate25_34, inputs.lppRate35_44, inputs.lppRate45_54, inputs.lppRate55_plus]);
 
  // Auto-recalculate when inputs change (skip first mount — handled above)
  useEffect(() => {
