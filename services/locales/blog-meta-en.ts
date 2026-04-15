@@ -2160,6 +2160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Bern limits property purchases: what changes for Ticino cross-border workers',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'The Federal Council has launched a consultation until 15 July 2026 to extend the federal permit requirement for purchasing residential and commercial real estate by non-EU/EFTA citizens.',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Bellinzona\'s Castel Grande at night with a Swiss road sign indicating federal authorization required for foreigners to buy real estate',
+    'blog.article.riforma-cassa-malati-ticino-2029.title': 'Health insurance premiums: full reform by 2029, first phase in 2027',
+    'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'The Ticino Cantonal Government presents the programme for implementing the two popular initiatives on health insurance premiums. An annual cost of CHF 61.4 million from 2027, funded through savings and revenue. Gradual rollout until 2029.',
+    'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Ticino State Council press conference on health insurance reform in Bellinzona',
 };
 
 export default blogMetaEn;

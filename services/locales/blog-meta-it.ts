@@ -2160,6 +2160,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Berna limita l’acquisto di immobili: cosa cambia per i frontalieri ticinesi',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'Il Consiglio federale avvia la consultazione fino al 15 luglio 2026 per estendere l’obbligo di autorizzazione federale all’acquisto di immobili residenziali e commerciali da parte di cittadini extra UE/AELS.',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Castel Grande a Bellinzona illuminato di notte con cartello che indica l’obbligo di autorizzazione federale per l’acquisto di immobili da parte di stranieri',
+    'blog.article.riforma-cassa-malati-ticino-2029.title': 'Premi cassa malati: riforma completa dal 2029, prima tappa nel 2027',
+    'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'Il Consiglio di Stato ticinese presenta il programma per l’attuazione delle due iniziative popolari sui premi di cassa malati. Costo annuo di 61.4 milioni dal 2027, finanziato con risparmi ed entrate. Applicazione graduale fino al 2029.',
+    'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Conferenza stampa del Consiglio di Stato ticinese su riforma cassa malati a Bellinzona',
 };
 
 export default blogMetaIt;

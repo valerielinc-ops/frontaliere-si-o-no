@@ -7772,6 +7772,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-cassa-malati-ticino-2029': {
+    title: 'Premi cassa malati: riforma completa | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato ticinese presenta il programma per l’attuazione delle due iniziative popolari sui premi di cassa malati. Costo annuo di 61.4 milioni dal 2',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, riforma',
+    ogTitle: 'Premi cassa malati: riforma completa dal 2029, prima tapp',
+    ogDescription: 'Il Consiglio di Stato ticinese presenta il programma per l’attuazione delle due iniziative popolari sui premi di cassa malati. Costo annuo di 61.4 milioni dal 2',
+    canonicalPath: '/articoli-frontaliere/riforma-cassa-malati-ticino-2029',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati: riforma completa dal 2029, prima tapp",
+      "description": "Il Consiglio di Stato ticinese presenta il programma per l’attuazione delle due iniziative popolari sui premi di cassa malati. Costo annuo di 61.4 milioni dal 2",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-cassa-malati-ticino-2029.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza stampa del Consiglio di Stato ticinese su riforma cassa malati a Bellinzona"
+      },
+      "datePublished": "2026-04-15T11:14:49+00:00",
+      "dateModified": "2026-04-15T11:14:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-cassa-malati-ticino-2029`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

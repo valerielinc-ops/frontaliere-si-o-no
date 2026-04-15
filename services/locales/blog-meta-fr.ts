@@ -2160,6 +2160,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Berne limite l\'achat d\'immeubles : quels changements pour les travailleurs frontaliers tessinois',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'Le Conseil fédéral lance une consultation jusqu\'au 15 juillet 2026 pour étendre l\'obligation d\'autorisation fédérale à l\'achat d\'immeubles résidentiels et commerciaux par des citoyens hors UE/AELE.',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Le Castelgrande de Bellinzone illuminé la nuit avec un panneau routier suisse indiquant l\'autorisation fédérale requise pour l\'achat d\'immeubles par des étrangers',
+    'blog.article.riforma-cassa-malati-ticino-2029.title': 'Primes d’assurance-maladie : réforme complète dès 2029, première étape en 2027',
+    'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'Le Conseil d’État tessinois présente le programme de mise en œuvre des deux initiatives populaires sur les primes d’assurance-maladie. Coût annuel de 61,4 millions de francs à partir de 2027, financé par des économies et des recettes. Application progressive jusqu’en 2029.',
+    'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Conférence de presse du Conseil d\'État tessinois sur la réforme de l\'assurance maladie à Bellinzone',
 };
 
 export default blogMetaFr;

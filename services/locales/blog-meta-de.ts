@@ -2160,6 +2160,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.title': 'Bern begrenzt Immobilienkäufe: Was ändert sich für die Tessiner Grenzgänger',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.excerpt': 'Der Bundesrat startet bis zum 15. Juli 2026 eine Konsultation zur Ausweitung der bundesrechtlichen Bewilligungspflicht für den Kauf von Wohn- und Gewerbeimmobilien durch Nicht-EU/EFTA-Bürger.',
     'blog.article.berna-limita-acquisto-immobili-stranieri-2026.imageAlt': 'Burg Castelgrande in Bellinzona bei Nacht mit einem Schweizer Straßenschild, das eine bundesdeutsche Genehmigung für den Kauf von Immobilien durch Ausländer anzeigt',
+    'blog.article.riforma-cassa-malati-ticino-2029.title': 'Krankenkassenprämien: Komplette Reform ab 2029, erster Schritt 2027',
+    'blog.article.riforma-cassa-malati-ticino-2029.excerpt': 'Der Tessiner Staatsrat stellt das Programm für die Umsetzung der beiden Volksinitiativen zu den Krankenkassenprämien vor. Ab 2027 entstehen jährliche Kosten von 61,4 Millionen Franken, die durch Einsparungen und Mehreinnahmen finanziert werden. Die schrittweise Einführung erfolgt bis 2029.',
+    'blog.article.riforma-cassa-malati-ticino-2029.imageAlt': 'Pressekonferenz des Tessiner Staatsrats zur Krankenkassenreform in Bellinzona',
 };
 
 export default blogMetaDe;

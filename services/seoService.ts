@@ -1975,6 +1975,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cannabis-medica-rimborsi-casse-malati-ticino': { name: 'Cannabis terapeutica', path: '/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino', parent: 'blog' },
     'blog-asili-nido-pubblici-ticino-iniziativa-popolare-2026': { name: 'Asili nido Ticino', path: '/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026', parent: 'blog' },
     'blog-berna-limita-acquisto-immobili-stranieri-2026': { name: 'Novità fiscali', path: '/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026', parent: 'blog' },
+    'blog-riforma-cassa-malati-ticino-2029': { name: 'Premi cassa malati', path: '/articoli-frontaliere/riforma-cassa-malati-ticino-2029', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6025,4 +6025,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/berna-limita-acquisto-immobili-stranieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riforma-cassa-malati-ticino-2029',
+ category: 'fiscale',
+ date: '2026-04-15T11:14:49.537Z',
+ image: '/images/blog/riforma-cassa-malati-ticino-2029.jpg',
+ hasCalculator: true,
+ },
 ];
