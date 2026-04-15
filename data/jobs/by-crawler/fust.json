@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-04-14T21:42:51.662Z",
+  "assembledAt": "2026-04-15T09:58:40.435Z",
   "jobs": [
     {
       "id": "company-86y4zp",
@@ -30,7 +30,7 @@
       "slugByLocale": {
         "it": "consulente-di-vendita-per-la-casa-elettrica-e-multimediale-fust-chur-graubunden",
         "en": "sales-consultant-in-for-electric-household-and-multimedia-fust-chur-graubunden",
-        "de": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp",
+        "de": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-cadenazzo",
         "fr": "consultant-en-ventes-pour-l-electricite-et-le-multimedia-fust-chur-graubunden"
       },
       "titleByLocale": {
@@ -74,6 +74,9 @@
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
+        ],
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
         ]
       },
       "previousSlugs": [
@@ -83,7 +86,7 @@
     },
     {
       "id": "company-pztp1c",
-      "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-grigioni",
+      "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-cadenazzo",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Grigioni",
@@ -107,10 +110,10 @@
       "crawledAt": "2026-04-14T21:42:50.464Z",
       "firstSeenAt": "2026-04-14T21:42:50.464Z",
       "slugByLocale": {
-        "it": "home-fornitore-negli-elettrodomestici-elettrici-fust-grigioni",
+        "it": "home-fornitore-negli-elettrodomestici-elettrici-fust-cadenazzo",
         "en": "home-supplier-in-electric-household-appliances-fust-grigioni",
-        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c",
-        "fr": "fournisseurs-dans-les-appareils-electromenagers-fust-grigioni"
+        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-cadenazzo",
+        "fr": "fournisseurs-dans-les-appareils-electromenagers-fust-cadenazzo"
       },
       "titleByLocale": {
         "de": "Heimliefermonteur:in von Elektrohaushaltgeräten",
@@ -146,17 +149,25 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+          "home-fornitore-negli-elettrodomestici-elettrici-fust-grigioni"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
         ],
         "fr": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+          "fournisseurs-dans-les-appareils-electromenagers-fust-grigioni"
+        ],
+        "de": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c"
         ]
       },
       "previousSlugs": [
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+        "home-fornitore-negli-elettrodomestici-elettrici-fust-grigioni",
+        "fournisseurs-dans-les-appareils-electromenagers-fust-grigioni",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c"
       ]
     },
     {
