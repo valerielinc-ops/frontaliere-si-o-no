@@ -1916,7 +1916,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  </div>
  <button
  onClick={onClose}
- className="p-1.5 rounded-lg text-muted hover:bg-surface-raised transition-colors"
+ className="p-1.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-muted hover:bg-surface-raised transition-colors"
  aria-label={t('whatsNew.close')}
  >
  <X size={18} />

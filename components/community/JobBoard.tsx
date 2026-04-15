@@ -4460,7 +4460,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
  </div>
  </div>
- <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 rounded-stripe text-muted hover:text-subtle " aria-label={t('common.close')}>
+ <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-stripe text-muted hover:text-subtle" aria-label={t('common.close')}>
  <X size={18} />
  </button>
  </div>
@@ -6380,7 +6380,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => setSearchQuery('')}
- className="p-2 mr-1 rounded-full text-muted hover:text-body hover:bg-surface-raised transition-colors"
+ className="p-2 mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-muted hover:text-body hover:bg-surface-raised transition-colors"
  aria-label="Clear search"
  >
  <X className="w-4 h-4" />

@@ -394,7 +394,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  </div>
  <button
  onClick={(e) => { e.stopPropagation(); onClose(); }}
- className="p-2 rounded-xl hover:bg-surface-raised transition-colors text-muted flex-shrink-0"
+ className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-raised transition-colors text-muted flex-shrink-0"
  aria-label={t('guide.municipalities.detail.close')}
  >
  <X size={20} />
@@ -652,7 +652,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="bg-gradient-to-br from-info-strong to-success-strong text-on-accent rounded-2xl shadow-stripe-md p-4 sm:p-5 border border-info/30 relative animate-fade-in">
  <button
  onClick={dismissBanner}
- className="absolute top-2 right-2 p-2 text-on-accent/70 hover:text-on-accent hover:bg-on-accent/20 rounded-full transition-colors"
+ className="absolute top-2 right-2 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-accent/70 hover:text-on-accent hover:bg-on-accent/20 rounded-full transition-colors"
  aria-label={t('guide.closeBanner')}
  >
  <X size={16} />

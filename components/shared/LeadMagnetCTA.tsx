@@ -897,7 +897,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
  <button
  onClick={handleDismiss}
- className="absolute top-2 right-2 p-1 text-muted hover:text-body rounded-lg transition-colors"
+ className="absolute top-2 right-2 p-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors"
  aria-label={t('leadMagnet.dismiss')}
  >
  <X className="w-3.5 h-3.5" />
@@ -974,7 +974,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
  <button
  onClick={handleDismiss}
- className="absolute top-3 right-3 p-1 text-muted hover:text-body rounded-lg transition-colors z-10"
+ className="absolute top-3 right-3 p-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors z-10"
  aria-label={t('leadMagnet.dismiss')}
  >
  <X className="w-4 h-4" />

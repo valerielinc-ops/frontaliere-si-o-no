@@ -698,7 +698,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  </div>
  <button
  onClick={handleToggle}
- className="p-1 hover:bg-accent-subtle rounded-lg transition-colors"
+ className="p-1 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-accent-subtle rounded-lg transition-colors"
  aria-label={t('chatbot.closeLabel')}
  >
  <X size={18} />
@@ -868,7 +868,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  type="button"
  onClick={handleToggle}
- className="p-1.5 rounded-lg text-muted hover:bg-surface-raised hover:text-strong transition-colors"
+ className="p-1.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-muted hover:bg-surface-raised hover:text-strong transition-colors"
  aria-label={t('chatbot.closeLabel')}
  >
  <X size={16} />

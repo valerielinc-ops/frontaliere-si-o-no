@@ -392,7 +392,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  <div className="flex justify-end">
  <button
  onClick={() => { setShowCard(false); setGeneratedImage(null); }}
- className="text-muted hover:text-body"
+ className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg"
  aria-label={t('shareCard.close')}
  >
  <X size={18} />

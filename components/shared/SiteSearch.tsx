@@ -1309,7 +1309,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  {query && (
  <button
  onClick={() => setQuery('')}
- className="p-2 -m-0.5 text-muted hover:text-body rounded"
+ className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded"
  aria-label={t('search.clear') || 'Cancella ricerca'}
  >
  <X size={14} />

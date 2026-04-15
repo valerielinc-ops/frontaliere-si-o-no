@@ -241,7 +241,7 @@ export const ProfileLoginCTA: React.FC<{
  {onDismiss && (
  <button
  onClick={() => { setDismissed(true); onDismiss(); }}
- className="text-xs text-muted hover:text-body"
+ className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-xs text-muted hover:text-body rounded-lg"
  aria-label={t('profile.cta.dismiss')}
  >
  ✕

@@ -360,7 +360,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  type="button"
  onClick={() => setTypoSuggestion(null)}
  aria-label={t('common.close')}
- className={`ml-auto text-xs opacity-60 hover:opacity-100 ${
+ className={`ml-auto p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-xs opacity-60 hover:opacity-100 rounded-lg ${
  darkVariant ? 'text-warning' : 'text-warning'
  }`}
  >
