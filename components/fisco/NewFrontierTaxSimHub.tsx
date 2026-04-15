@@ -409,7 +409,7 @@ export default function NewFrontierTaxSimHub() {
  const c = COPY_BY_LOCALE[locale] || COPY_BY_LOCALE.it;
 
  return (
- <article className="max-w-4xl mx-auto px-4 py-6 space-y-10">
+ <article className="max-w-4xl mx-auto px-4 py-6 space-y-6">
  {/* Badge + Title */}
  <header className="space-y-3">
  <span className="inline-block rounded-full bg-success-subtle text-success text-xs font-bold px-3 py-1 uppercase tracking-wide">

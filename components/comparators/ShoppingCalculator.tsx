@@ -423,7 +423,7 @@ const ShoppingCalculator: React.FC = () => {
  </div>
 
  {/* Supermarket list */}
- <div className="bg-surface rounded-xl shadow p-5">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <h3 className="text-lg font-bold text-heading mb-4 flex items-center gap-2">
  <MapPin className="text-warning" size={20} />
  {t('shopping.mapTitle')}
@@ -452,7 +452,7 @@ const ShoppingCalculator: React.FC = () => {
  {/* ══════════════ ZONES / CONVENIENCE INDEX TAB ══════════════ */}
  {activeTab === 'zones' && (
  <>
- <div className="bg-surface rounded-xl shadow p-6">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-3 mb-2">
  <BarChart3 className="text-warning" size={24} />
  <h3 className="text-lg font-bold text-heading">{t('shopping.zoneIndex')}</h3>
@@ -541,7 +541,7 @@ const ShoppingCalculator: React.FC = () => {
  )}
 
  {/* ── Methodology (always visible — SEO content) ── */}
- <div className="bg-surface rounded-xl shadow p-6">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-3">
  <BookOpen className="text-subtle" size={20} />
  <h3 className="text-lg font-bold text-heading">{t('shopping.methodology')}</h3>
@@ -553,7 +553,7 @@ const ShoppingCalculator: React.FC = () => {
  </div>
 
  {/* ── FAQ section (SEO content) ── */}
- <div className="bg-surface rounded-xl shadow p-6">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-4">
  <Info className="text-link" size={20} />
  <h3 className="text-lg font-bold text-heading">{t('shopping.faqTitle')}</h3>

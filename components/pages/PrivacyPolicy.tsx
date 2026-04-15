@@ -16,9 +16,9 @@ export const PrivacyPolicy: React.FC = () => {
  </button>
 
  {/* Header */}
- <div className="bg-surface rounded-[6px] border border-edge p-5 sm:p-8 shadow-stripe-lg mb-6">
+ <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-stripe-lg mb-6">
  <div className="flex items-center gap-4 mb-4">
- <div className="p-3 bg-accent-subtle rounded-[6px]">
+ <div className="p-3 bg-accent-subtle rounded-2xl">
  <Shield className="text-accent" size={32} />
  </div>
  <div>
@@ -36,13 +36,13 @@ export const PrivacyPolicy: React.FC = () => {
  <div className="space-y-6">
 
  {/* Section 1: No Data Collection from Simulator */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Database className="text-success flex-shrink-0" size={22} />
  Raccolta e Utilizzo dei Dati
  </h2>
  <div className="space-y-3 text-subtle">
- <div className="flex items-start gap-3 bg-success-subtle p-4 rounded-[6px] border border-success-border">
+ <div className="flex items-start gap-3 bg-success-subtle p-4 rounded-2xl border border-success-border">
  <CheckCircle2 className="text-success flex-shrink-0 mt-0.5" size={20} />
  <div>
  <p className="font-bold text-success mb-1">ZERO Raccolta Dati dal Simulatore Fiscale</p>
@@ -60,7 +60,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 2: Analytics */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <BarChart3 className="text-accent flex-shrink-0" size={22} />
  Analisi Anonima del Traffico
@@ -70,14 +70,14 @@ export const PrivacyPolicy: React.FC = () => {
  Utilizziamo strumenti di analisi per comprendere come gli utenti interagiscono con il sito
  e migliorare il servizio:
  </p>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Google Analytics 4</h3>
  <p className="text-sm">
  Raccoglie statistiche aggregate: pagine visitate, tempo di permanenza, tipo di dispositivo,
  browser utilizzato. Non raccoglie indirizzi IP completi né dati personali.
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">PostHog (EU Cloud)</h3>
  <p className="text-sm">
  Analisi comportamentale anonima con dati ospitati in Europa (Francoforte).
@@ -85,7 +85,7 @@ export const PrivacyPolicy: React.FC = () => {
  Non raccoglie dati personali identificabili (PII) e non effettua profilazione individuale.
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Microsoft Clarity</h3>
  <p className="text-sm">
  Heatmap e registrazioni di sessione anonime per identificare problemi di usabilità.
@@ -100,7 +100,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 3: Affiliate & Partner Links */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <ExternalLink className="text-accent flex-shrink-0" size={22} />
  Link Affiliati e Partner
@@ -123,7 +123,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 4: Newsletter & Communications */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Database className="text-accent flex-shrink-0" size={22} />
  Newsletter e Comunicazioni
@@ -134,7 +134,7 @@ export const PrivacyPolicy: React.FC = () => {
  e conserverà l'indirizzo e-mail fornito ai sensi dell'art. 6, par. 1, lett. a) del Regolamento (UE) 2016/679 (GDPR),
  sulla base del consenso esplicito prestato dall'utente al momento dell'iscrizione.
  </p>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Finalità del trattamento</h3>
  <p className="text-sm">
  L'indirizzo e-mail sarà utilizzato per le seguenti finalità: (i) invio periodico di comunicazioni informative
@@ -146,7 +146,7 @@ export const PrivacyPolicy: React.FC = () => {
  con le comunicazioni ricevute, nel rispetto dei principi di minimizzazione e proporzionalità ex art. 5 GDPR.
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Base giuridica e conservazione</h3>
  <p className="text-sm">
  Il trattamento è fondato sul consenso dell'interessato (art. 6, par. 1, lett. a), GDPR) e, limitatamente
@@ -157,7 +157,7 @@ export const PrivacyPolicy: React.FC = () => {
  basato sul consenso prestato prima della revoca.
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Autenticazione Google</h3>
  <p className="text-sm">
  Qualora l'utente utilizzi l'autenticazione tramite Google Sign-In, la piattaforma potrà accedere
@@ -171,7 +171,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 5: Client-Side Processing */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Lock className="text-accent flex-shrink-0" size={22} />
  Elaborazione Lato Client
@@ -190,33 +190,33 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 6: Cookies */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Database className="text-warning flex-shrink-0" size={22} />
  Cookie e Storage Locale
  </h2>
  <div className="space-y-3 text-subtle">
  <p>Il sito utilizza tecnologie di storage locale per migliorare la tua esperienza:</p>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Cookie Tecnici</h3>
  <p className="text-sm">
  Cookie essenziali per il funzionamento del sito (es. preferenze tema, stato consenso).
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Cookie Analytics</h3>
  <p className="text-sm">
  Cookie di Google Analytics, PostHog e Microsoft Clarity per statistiche anonime
  (vedi sezione"Analisi Anonima del Traffico").
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">Cookie Pubblicitari</h3>
  <p className="text-sm">
  Cookie di Google AdSense per la visualizzazione di annunci.
  </p>
  </div>
- <div className="bg-surface-alt/50 p-4 rounded-[6px] border border-edge">
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
  <h3 className="font-medium text-heading mb-2">LocalStorage</h3>
  <p className="text-sm">
  Utilizziamo il LocalStorage del browser per salvare le tue preferenze (tema scuro/chiaro)
@@ -227,7 +227,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 7: Third-Party Services */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Servizi di Terze Parti
@@ -249,7 +249,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 8: Data Security */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Lock className="text-accent flex-shrink-0" size={22} />
  Sicurezza
@@ -267,7 +267,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 9: Your Rights */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <CheckCircle2 className="text-accent flex-shrink-0" size={22} />
  I Tuoi Diritti (GDPR)
@@ -284,7 +284,7 @@ export const PrivacyPolicy: React.FC = () => {
  <li>Opporti al trattamento</li>
  <li>Portabilità dei dati</li>
  </ul>
- <div className="bg-success-subtle p-4 rounded-[6px] border border-success-border mt-4">
+ <div className="bg-success-subtle p-4 rounded-2xl border border-success-border mt-4">
  <p className="text-sm font-semibold text-success">
  Per il simulatore fiscale NON raccogliamo dati personali. Per la newsletter, puoi cancellarti
  in qualsiasi momento tramite il link presente in ogni email.
@@ -297,7 +297,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 10: Children Privacy */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Privacy dei Minori
@@ -311,7 +311,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 11: Changes */}
- <div className="bg-surface rounded-[6px] border border-edge p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Eye className="text-subtle flex-shrink-0" size={22} />
  Modifiche alla Privacy Policy
@@ -329,7 +329,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
 
  {/* Section 12: Contact */}
- <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-[6px] border border-accent-border p-4 sm:p-6 shadow-stripe-sm">
+ <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl border border-accent-border p-4 sm:p-6 shadow-stripe-sm">
  <h2 className="text-xl font-medium text-heading mb-4 flex items-center gap-3">
  <Shield className="text-accent flex-shrink-0" size={22} />
  Contattaci
@@ -343,7 +343,7 @@ export const PrivacyPolicy: React.FC = () => {
  href="https://www.facebook.com/profile.php?id=61588174947294"
  target="_blank"
  rel="noopener noreferrer"
- className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-on-accent font-semibold rounded-[6px] transition-colors shadow-stripe-sm"
+ className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-on-accent font-semibold rounded-2xl transition-colors shadow-stripe-sm"
  >
  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -360,7 +360,7 @@ export const PrivacyPolicy: React.FC = () => {
  <div className="mt-8 text-center">
  <button
  onClick={() => nav.navigateTo('calculator')}
- className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent font-bold rounded-[6px] transition-[color,background-color,border-color,box-shadow] shadow-stripe hover:shadow-stripe-md"
+ className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent font-bold rounded-2xl transition-[color,background-color,border-color,box-shadow] shadow-stripe hover:shadow-stripe-md"
  >
  <ArrowLeft size={18} />
  Torna al Simulatore

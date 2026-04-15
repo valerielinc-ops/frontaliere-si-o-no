@@ -203,7 +203,7 @@ export default function SalaryCompare() {
  return (
  <div className="space-y-6">
  {/* ── Header ── */}
- <div className="bg-surface rounded-xl shadow-lg p-6">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-3 mb-2">
  <TrendingUp className="text-warning" size={28} />
  <h2 className="text-2xl font-bold text-heading">
@@ -638,7 +638,7 @@ export default function SalaryCompare() {
  </div>
 
  {/* Visual comparison bars */}
- <div className="bg-surface rounded-xl shadow p-5">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-4">
  <BarChart3
  className="text-warning"
@@ -851,7 +851,7 @@ export default function SalaryCompare() {
  )}
 
  {/* ── Methodology section (always visible, SEO content) ── */}
- <div className="bg-surface rounded-xl shadow p-6">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-3">
  <BookOpen className="text-subtle" size={20} />
  <h3 className="text-lg font-bold text-heading">
@@ -866,7 +866,7 @@ export default function SalaryCompare() {
  </div>
 
  {/* ── FAQ section (SEO content) ── */}
- <div className="bg-surface rounded-xl shadow p-6">
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
  <div className="flex items-center gap-2 mb-4">
  <Info className="text-link" size={20} />
  <h3 className="text-lg font-bold text-heading">

@@ -92,7 +92,7 @@ const RistorniTracker: React.FC = () => {
  <Info size={18} className="text-info" /> {t('ristorni.whatAre')}
  </h3>
  <p className="text-sm text-subtle mb-4">{t('ristorni.explanation')}</p>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div className="bg-neutral-subtle rounded-xl p-3 border border-neutral-border">
  <h4 className="font-bold text-xs text-neutral mb-1">{t('ristorni.oldAgreement')}</h4>
  <p className="text-xs text-neutral">{t('ristorni.oldAgreementDesc')}</p>

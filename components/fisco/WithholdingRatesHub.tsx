@@ -521,8 +521,8 @@ export default function WithholdingRatesHub() {
  const copy = COPY_BY_LOCALE[locale];
 
  return (
- <div className="space-y-8">
- <section className="rounded-3xl bg-gradient-to-br from-success-strong via-success-strong-hover to-info-strong p-6 sm:p-8 text-on-accent shadow-xl shadow-success-strong/20">
+ <div className="space-y-6">
+ <section className="rounded-2xl bg-gradient-to-br from-success-strong via-success-strong-hover to-info-strong p-4 sm:p-6 text-on-accent shadow-xl shadow-success-strong/20">
  <div className="inline-flex items-center gap-2 rounded-full bg-on-accent/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]">
  <Coins className="h-4 w-4" />
  {copy.badge}
@@ -556,7 +556,7 @@ export default function WithholdingRatesHub() {
  return (
  <article
  key={scenario.code}
- className="rounded-3xl border border-edge bg-surface p-5 shadow-sm"
+ className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm"
  >
  <div className="inline-flex rounded-full bg-success-subtle px-3 py-1 text-xs font-bold text-success">
  {scenario.badge}
@@ -570,7 +570,7 @@ export default function WithholdingRatesHub() {
  </div>
  </section>
 
- <section className="rounded-3xl border border-edge bg-surface p-6 shadow-sm">
+ <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <Receipt className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.matrixTitle}</h2>
@@ -604,7 +604,7 @@ export default function WithholdingRatesHub() {
  </div>
  </section>
 
- <section className="rounded-3xl border border-success-border bg-success-subtle p-6 shadow-sm">
+ <section className="rounded-2xl border border-success-border bg-success-subtle p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <ExternalLink className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.officialSourcesTitle}</h2>
@@ -630,7 +630,7 @@ export default function WithholdingRatesHub() {
  </section>
 
  <section className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
- <article className="rounded-3xl border border-edge bg-surface p-6 shadow-sm">
+ <article className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <HelpCircle className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.fitTitle}</h2>
@@ -653,7 +653,7 @@ export default function WithholdingRatesHub() {
  </div>
  </article>
 
- <article className="rounded-3xl border border-edge bg-surface p-6 shadow-sm">
+ <article className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <CheckCircle2 className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.notesTitle}</h2>
@@ -668,7 +668,7 @@ export default function WithholdingRatesHub() {
  </article>
  </section>
 
- <section className="rounded-3xl border border-edge bg-surface p-6 shadow-sm">
+ <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <Calculator className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.deepLinksTitle}</h2>
@@ -679,7 +679,7 @@ export default function WithholdingRatesHub() {
  <a
  key={cta.title}
  href={buildPath(cta.route, locale)}
- className="group rounded-3xl border border-edge p-5 no-underline transition hover:-translate-y-0.5 hover:border-success-border"
+ className="group rounded-2xl border border-edge p-4 sm:p-6 no-underline transition hover:-translate-y-0.5 hover:border-success-border"
  >
  <h3 className="text-base font-bold text-heading">{cta.title}</h3>
  <p className="mt-2 text-sm leading-7 text-subtle">{cta.body}</p>
@@ -692,7 +692,7 @@ export default function WithholdingRatesHub() {
  </div>
  </section>
 
- <section className="rounded-3xl border border-edge bg-surface p-6 shadow-sm">
+ <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3">
  <FileText className="h-5 w-5 text-success" />
  <h2 className="text-2xl font-bold text-heading">{copy.faqTitle}</h2>

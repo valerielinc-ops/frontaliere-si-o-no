@@ -467,7 +467,7 @@ const TransportCalculator: React.FC = () => {
  {t('transport.savingTips')}
  </h3>
  
- <div className="grid md:grid-cols-2 gap-4">
+ <div className="grid md:grid-cols-2 gap-6">
  <div className="p-4 bg-surface/50 rounded-xl">
  <p className="font-bold text-warning mb-2">⛽ {t('transport.whereToFuel')}</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
