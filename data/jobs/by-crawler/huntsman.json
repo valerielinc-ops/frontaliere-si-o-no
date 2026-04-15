@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-04-15T10:07:57.722Z",
+  "assembledAt": "2026-04-15T21:47:27.257Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -47,7 +47,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:07:55.143Z",
+      "crawledAt": "2026-04-15T21:47:24.970Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
@@ -148,7 +148,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019429",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:07:54.511Z",
+      "crawledAt": "2026-04-15T21:47:24.440Z",
       "jobReqId": "J-019429",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -159,6 +159,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:47.119Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -249,7 +250,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Technical-Service-Laboratory-Leader_J-019480",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:07:53.859Z",
+      "crawledAt": "2026-04-15T21:47:23.952Z",
       "jobReqId": "J-019480",
       "previousSlugs": [
         "technical-service-laboratory-leader-huntsman-ch",
@@ -261,6 +262,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:46.530Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -351,7 +353,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Team-Lead-Logistics_J-019430",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:07:53.213Z",
+      "crawledAt": "2026-04-15T21:47:23.447Z",
       "jobReqId": "J-019430",
       "previousSlugs": [
         "superviseur-de-la-logistique-et-de-l-entreposage-du-site-huntsman-corporation-monthey",
@@ -364,6 +366,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:46.029Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -454,7 +457,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-de-Conditionnement--en-quipe-de-jour_J-019425",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:07:52.464Z",
+      "crawledAt": "2026-04-15T21:47:22.963Z",
       "jobReqId": "J-019425",
       "previousSlugs": [
         "operateur-de-conditionnement-en-equipe-de-jour-huntsman-ch",
@@ -471,6 +474,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:45.451Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -561,7 +565,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:07:51.866Z",
+      "crawledAt": "2026-04-15T21:47:22.315Z",
       "jobReqId": "J-019602",
       "previousSlugsByLocale": {
         "fr": [
@@ -575,6 +579,7 @@
         "operateur-pilote-huntsman-ch"
       ],
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -665,7 +670,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Shift-Operator--RPL-Retirement---O-250117-_J-019426",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:07:51.228Z",
+      "crawledAt": "2026-04-15T21:47:21.826Z",
       "jobReqId": "J-019426",
       "previousSlugs": [
         "shift-operator-rpl-retirement-o-250117-huntsman-ch",
@@ -681,6 +686,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:44.329Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -690,107 +696,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1870"
-    },
-    {
-      "id": "huntsman-76dc77a0df36",
-      "slug": "junior-project-manager-progetti-di-crescita-regionale-incarico-di-12-mesi-huntsman-corporation-monthey",
-      "slugByLocale": {
-        "it": "junior-project-manager-progetti-di-crescita-regionale-incarico-di-12-mesi-huntsman-corporation-monthey",
-        "en": "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch",
-        "de": "junior-projektmanager-regionale-wachstumsprojekte-12-monatige-anstellung-huntsman-corporation-monthey",
-        "fr": "junior-project-manager-projets-de-croissance-regionale-contrat-de-12-mois-huntsman-corporation-monthey"
-      },
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "Junior Project Manager – Regional Growth Projects (12‑month assignment)",
-      "titleByLocale": {
-        "it": "Junior Project Manager – Progetti di Crescita Regionale",
-        "en": "Junior Project Manager – Regional Growth Projects (12‑month assignment)",
-        "de": "Junior Projektmanager – Regionale Wachstumsprojekte",
-        "fr": "Junior Project Manager – Projets de Croissance Régionale"
-      },
-      "description": "Job Description :\n \n Role Overview :      \n\n Huntsman has an opportunity for a Junior Project Manager – Regional Growth Projects to join our established regional innovation team in the Advanced Material division. The team is actively involved in driving very different types of growth projects, transforming breakthrough ideas into tangible new product developments aligned with the market needs. We support the full journey — from early-stage concept development through scale-up and successful market launch.  \n \n\n Reporting to the Operational Marketing organization in Europe , you will be responsible for driving regional projects, supporting fast-paced growth activities to meet challenging market timelines. \n \n We are looking for someone who is open to working in a hybrid setup , remote and in-presence with flexibility based on the business needs . Primary location for this position is Bad Säckingen , Germany , with an additional option to work also from o ur Technology Center in Basel, Switzerland , from our office in Krakow, Poland and from our production site of Monthey , Switzerland. \n \n We offer 12-months assignment to start with.\n\n   \n\n Do you think you’re the right fit for this opportunity? Apply today!   \n\n \n\n   \n\n Role Responsibilities :   \n\n As an Junior Project Manager – Regional Growth Projects, you will:   \n\n \n\n Lead and manage regional growth projects with a typical duration of 6 to 12 months, ensuring successful execution from initial planning through to final closure. \n\n \n Coordinate and align cross-functional teams — including R&D, product management, process development, and manufacturing — across multiple European sites to drive project success. \n\n \n Translate strategic business opportunities into structured, actionable project plans with clearly defined deliverables, timelines, and milestones. \n\n \n Track and monitor project progress using internal tools and platforms such as Microsoft Planner, OneNote, and Teams, ensuring transparency and accountability throughout the project lifecycle. \n\n \n Ensure timely and effective execution, proactively adapting plans in response to evolving priorities, risks, or market dynamics. \n\n \n Apply project management methodologies, primarily waterfall and occasionally agile, while leveraging best practices and frameworks (PMP certification is preferred). \n\n \n Communicate effectively with stakeholders at different levels of the organization, ensuring alignment, visibility, and engagement throughout the project. \n\n \n Evaluate and report on project outcomes using financial tools such as NPV and ROI to support data-driven decision-making. \n\n \n \n\n Experience and Competencies:     \n\n We are looking for candidates with drive, excellent communication skills and a solution-focused approach.     \n\n     \n\n What we are looking for:   \n\n A Master of Science degree in a STEM field (Science, Technology, Engineering, or Mathematics) is required , with a strong preference for engineering disciplines such as chemical, mechanical, process, or materials engineering. A PhD with initial exposure to business activities is also highly valued and considered a strong asset, particularly for roles involving advanced technical innovation or research. \n\n \n Minimum about 2 years’ experience in project management or innovation roles , or a PhD developed in a project environment close to industrial R&D \n\n \n Proven ability to lead and deliver cross-functional projects independently \n\n \n Prior experience in the chemical industry is considered a nice-to-have \n\n \n Strong communication , organizational, and influencing skills \n\n \n Demonstrated drive and ownership mindset — you know how to push a project forward \n\n \n Familiarity with financial evaluation tools (e.g., NPV, contribution margin) \n\n \n PMP certification or equivalent project management training (preferred but not mandatory) \n\n \n \n\n \n\n What next?   \n\n If you would like to join an innovative, collaborative, and multicultural team, please apply now. Your application will be forwarded to a Talent Acquisition Partner, who will strive to get back to you as soon as they can. We understand that applying for a new job is a big decision and we will work hard to keep you updated and support you along the way.   \n\n     \n\n \n\n About Us :   \n\n At Huntsman, we pride ourselves on being a people-oriented organization. Our family-like atmosphere is cultivated by our diverse groups of team members around the world.   \n\n We welcome the talent, experience and fresh ideas that employees at all stages of their careers, from interns to seasoned professionals, bring to Huntsman.   \n\n In return, we offer you the opportunity to become an integral part of a dynamic, industry-leading company, where safety and ethics always come first. \n\n \n \n \n \n \n Additional Locations: \n \nBasel, Krakow, Monthey\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-      "descriptionByLocale": {
-        "it": "Ruolo Huntsman ha un'opportunità per un Junior Project Manager – Progetti di Crescita Regionale per unirsi al nostro team di innovazione regionale stabilito nella divisione di Materiali Avanzati. Il team è attivamente coinvolto nella gestione di progetti di crescita molto diversi, trasformando idee innovative in sviluppi di nuovi prodotti tangibili allineati con le esigenze del mercato. Sosteniamo l'intero percorso – dalla fase iniziale di sviluppo dei concetti attraverso la scalabilità e il lancio di mercato riuscito. ## Descrizione Rapporto di lavoro: Rapporterai al'Organizzazione di Marketing Operativa in Europa, sarai responsabile della gestione dei progetti regionali, supportando attività di crescita veloci per soddisfare tempi di mercato sfidanti. Lavorerai in un setup ibrido, remoto e in-presenza, con flessibilità basata sulle esigenze aziendali. La sede principale per questo ruolo è Bad Säckingen, Germania, con un'opzione aggiuntiva per lavorare anche dal nostro Centro Tecnologico di Basel, Svizzera, dalla nostra sede di Krakow, Polonia e dal nostro sito di produzione di Monthey, Svizzera. Offriamo un incarico di 12 mesi per iniziare. ## Responsabilità del ruolo Come Junior Project Manager – Progetti di Crescita Regionale, sarai responsabile di: - Guidare e gestire progetti di crescita regionali con una durata tipica di 6 a 12 mesi, assicurando l'esecuzione riuscita dall'elaborazione iniziale alla chiusura finale. - Coordinare e allineare team funzionali incrociati – compresi R&D, gestione dei prodotti, sviluppo dei processi e manifattura – in siti europei multipli per promuovere il successo del progetto. - Tradurre opportunità di business strategiche in piani di progetto strutturati e azionabili con deliverables, tempi e milestone chiaramente definiti. - Tracciare e monitorare il progresso del progetto utilizzando strumenti e piattaforme interne come Microsoft Planner, OneNote e Teams, assicurando trasparenza e responsabilità durante l'intero ciclo di vita del progetto. - Assicurare l'esecuzione tempestiva ed efficace, adattando progetti in modo proattivo in risposta a priorità evolute, rischi o dinamiche di mercato. - Applicare metodologie di gestione dei progetti, principalmente cascata e occasionalmente agile, sfruttando le migliori pratiche e framework (la certificazione PMP è preferita). - Comunicare efficacemente con gli stakeholder a diversi livelli dell'organizzazione, assicurando allineamento, visibilità e impegno durante il progetto. - Valutare e riferire gli esiti del progetto utilizzando strumenti finanziari come NPV e ROI per supportare la decisione guidata dai dati. ## Esperienza e Competenze Stiamo cercando candidati con un approccio di guida, eccellenti abilità di comunicazione e un approccio focalizzato sulla soluzione. - Un Master of Science in un campo STEM (Scienza, Tecnologia, Ingegneria o Matematica) è richiesto, con una forte preferenza per discipline ingegneristiche come ingegneria chimica, meccanica, processi o materiali. Un dottorato con esposizione iniziale a attività di business è altamente apprezzato e considerato un forte asset, in particolare per ruoli che coinvolgono innovazione tecnica avanzata o ricerca. - Minimo 2 anni di esperienza in gestione dei progetti o ruoli di innovazione, o un dottorato sviluppato in un ambiente di progetto vicino all'R&D industriale. - Prova di capacità di guidare e consegnare progetti funzionali indipendentemente. - Esperienza precedente nell'industria chimica è considerata un 'nice-to-have'. - Abilità di comunicazione, organizzativa e di influenza forti. - Dimostrato drive e mentalità di proprietà – sai come spingere un progetto in avanti. - Familiarità con strumenti di valutazione finanziaria (ad esempio, NPV, margine di contribuzione). - Certificazione PMP o formazione equivalente di gestione dei progetti (preferita ma non obbligatoria). ## Contatto Se pensi di essere il candidato giusto per questa opportunità, applica oggi stesso! La tua applicazione sarà inviata a un Partner di Acquisizione di Talent, che si impegnano a rispondere il prima possibile. Sappiamo che l'invio di un'offerta di lavoro è una grande decisione e lavoreremo duramente per tenerti aggiornato e supportarti lungo il percorso. ## A pro di noi A Huntsman, ci orgogliamo di essere un'organizzazione orientata alle persone. L'atmosfera familiare è creata dai nostri gruppi diversi di membri della squadra in tutto il mondo. Accogliamo il talento, l'esperienza e le idee fresche che gli impiegati a tutti i livelli della loro carriera, dai tirocinanti ai professionisti esperti, portano a Huntsman. In cambio, offriamo l'opportunità di diventare un elemento essenziale di una società dinamica e leader di settore, dove la sicurezza e l'etica sempre vengono per prime. ## Luoghi aggiuntivi - Basel - Krakow - Monthey",
-        "en": "Job Description : Role Overview : Huntsman has an opportunity for a Junior Project Manager – Regional Growth Projects to join our established regional innovation team in the Advanced Material division. The team is actively involved in driving very different types of growth projects, transforming breakthrough ideas into tangible new product developments aligned with the market needs. We support the full journey — from early-stage concept development through scale-up and successful market launch. Reporting to the Operational Marketing organization in Europe , you will be responsible for driving regional projects, supporting fast-paced growth activities to meet challenging market timelines. We are looking for someone who is open to working in a hybrid setup , remote and in-presence with flexibility based on the business needs . Primary location for this position is Bad Säckingen , Germany , with an additional option to work also from o ur Technology Center in Basel, Switzerland , from our office in Krakow, Poland and from our production site of Monthey , Switzerland. We offer 12-months assignment to start with. Do you think you’re the right fit for this opportunity? Apply today! Role Responsibilities : As an Junior Project Manager – Regional Growth Projects, you will: Lead and manage regional growth projects with a typical duration of 6 to 12 months, ensuring successful execution from initial planning through to final closure. Coordinate and align cross-functional teams — including R&D, product management, process development, and manufacturing — across multiple European sites to drive project success. Translate strategic business opportunities into structured, actionable project plans with clearly defined deliverables, timelines, and milestones. Track and monitor project progress using internal tools and platforms such as Microsoft Planner, OneNote, and Teams, ensuring transparency and accountability throughout the project lifecycle. Ensure timely and effective execution, proactively adapting plans in response to evolving priorities, risks, or market dynamics. Apply project management methodologies, primarily waterfall and occasionally agile, while leveraging best practices and frameworks (PMP certification is preferred). Communicate effectively with stakeholders at different levels of the organization, ensuring alignment, visibility, and engagement throughout the project. Evaluate and report on project outcomes using financial tools such as NPV and ROI to support data-driven decision-making. Experience and Competencies: We are looking for candidates with drive, excellent communication skills and a solution-focused approach. What we are looking for: A Master of Science degree in a STEM field (Science, Technology, Engineering, or Mathematics) is required , with a strong preference for engineering disciplines such as chemical, mechanical, process, or materials engineering. A PhD with initial exposure to business activities is also highly valued and considered a strong asset, particularly for roles involving advanced technical innovation or research. Minimum about 2 years’ experience in project management or innovation roles , or a PhD developed in a project environment close to industrial R&D Proven ability to lead and deliver cross-functional projects independently Prior experience in the chemical industry is considered a nice-to-have Strong communication , organizational, and influencing skills Demonstrated drive and ownership mindset — you know how to push a project forward Familiarity with financial evaluation tools (e.g., NPV, contribution margin) PMP certification or equivalent project management training (preferred but not mandatory) What next? If you would like to join an innovative, collaborative, and multicultural team, please apply now. Your application will be forwarded to a Talent Acquisition Partner, who will strive to get back to you as soon as they can. We understand that applying for a new job is a big decision and we will work hard to keep you updated and support you along the way. About Us : At Huntsman, we pride ourselves on being a people-oriented organization. Our family-like atmosphere is cultivated by our diverse groups of team members around the world. We welcome the talent, experience and fresh ideas that employees at all stages of their careers, from interns to seasoned professionals, bring to Huntsman. In return, we offer you the opportunity to become an integral part of a dynamic, industry-leading company, where safety and ethics always come first. Additional Locations: Basel, Krakow, Monthey Huntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-        "de": "Aufgaben Huntsman bietet eine Chance für einen Junior Projektmanager – Regionale Wachstumsprojekte, um sich unserem Team für regionale Innovationen in der Abteilung für fortschrittliche Materialien anzuschließen. Das Team ist aktiv an der Verwaltung von sehr unterschiedlichen Wachstumsprojekten beteiligt, indem es innovative Ideen in die Entwicklung von neuen, marktgerechten Produkten umsetzt. Wir unterstützen den gesamten Prozess – von der initialen Konzeptentwicklung bis hin zur erfolgreichen Markteinführung. ## Beschreibung Arbeitsverhältnis: Sie werden der Europäischen Marketing-Operativ-Organisation berichten und für die Verwaltung regionaler Projekte verantwortlich sein, um schnelles Wachstum zu unterstützen und herausfordernde Markttrends zu erfüllen. Sie werden in einem hybriden Setup, mit flexibler Arbeit von zu Hause aus und in Präsenz, arbeiten, basierend auf den Bedürfnissen der Firma. Der Hauptsitz für diese Rolle ist Bad Säckingen, Deutschland, mit einer zusätzlichen Option, auch im Basel Technology Center, Schweiz, in unserer Krakow-Stelle, Polen und in unserem Produktionsstandort in Monthey, Schweiz, zu arbeiten. Wir bieten eine 12-monatige Anstellung an. ## Rolle und Verantwortung Als Junior Projektmanager – Regionale Wachstumsprojekte sind Sie für: - Die Leitung und Verwaltung von regionalen Wachstumsprojekten mit einer typischen Dauer von 6 bis 12 Monaten, um die erfolgreiche Durchführung von der initialen Konzeptentwicklung bis zur Abschlussphase sicherzustellen. - Die Koordination und Abstimmung von funktionalen Teams – einschließlich R&D, Produktmanagement, Prozessentwicklung und Fertigung – in mehreren europäischen Standorten, um den Erfolg des Projekts zu fördern. - Die Umwandlung strategischer Geschäftschancen in strukturierte und umsetzbare Projektpläne mit klar definierten Deliverables, Zeiten und Meilensteinen. - Die Verfolgung und Überwachung des Projektfortschritts mit internen Werkzeugen und Plattformen wie Microsoft Planner, OneNote und Teams, um Transparenz und Verantwortung während des gesamten Projektlebenszyklus sicherzustellen. - Die Gewährleistung einer zeitgereichen und effektiven Durchführung, indem Projekte proaktiv an veränderte Prioritäten, Risiken oder Marktdynamiken angepasst werden. - Die Anwendung von Projektmanagementmethoden, hauptsächlich Wasserfall und gelegentlich Agile, indem die besten Praktiken und Frameworks (PMP-Zertifizierung ist bevorzugt) genutzt werden. - Die effektive Kommunikation mit Stakeholdern auf verschiedenen Ebenen der Organisation, um Allgemeinverständnis, Transparenz und Engagement während des Projekts sicherzustellen. - Die Bewertung und Berichterstattung über die Projektresultate mit finanziellen Werkzeugen wie NPV und ROI, um die Datengetriebene Entscheidungsfindung zu unterstützen. ## Erfahrung und Fähigkeiten Wir suchen Kandidaten mit einem Führungsansatz, ausgezeichneten Kommunikationsfähigkeiten und einem Lösungsorientierten Ansatz. - Ein Master of Science in einem STEM-Feld (Wissenschaft, Technologie, Ingenieurwesen oder Mathematik) ist erforderlich, mit einer starken Vorliebe für Ingenieurwissenschaften wie Chemieingenieurwesen, Mechanik, Prozesse oder Materialwissenschaft. Ein Doktorat mit einer ersten Ausstellung in Geschäftstätigkeiten wird hoch geschätzt und als starkes Asset angesehen, insbesondere für Rollen, die innovative technische Fortschritte oder Forschung umfassen. - Mindestens 2 Jahre Erfahrung in Projektmanagement oder Innovationsrollen, oder ein Doktorat, das in einem Projektumfeld nahe am industriellen R&D entwickelt wurde. - Beweis für die Fähigkeit, Projekte unabhängig zu leiten und abzuschließen. - Vorgeschlagene Erfahrung in der Chemieindustrie. - Starke Kommunikations-, Organisations- und Einflussfähigkeiten. - Gezeigtes Drive und Eigentümermentalität – weißt du, wie man ein Projekt voranbringt. - Bekanntschaft mit finanziellen Bewertungstools (z.B. NPV, Margenbeitrag). - PMP-Zertifizierung oder äquivalente Projektmanagementausbildung (bevorzugt, aber nicht obligatorisch). ## Kontakt Wenn Sie denken, dass Sie der richtige Kandidat für diese Chance sind, senden Sie Ihre Anwendung heute selbst! Ihre Anwendung wird an einen Partner für Talentakquisition gesendet, der sich verpflichtet, so schnell wie möglich zu antworten. Wir wissen, dass das Senden eines Arbeitsangebots eine große Entscheidung ist und werden hart arbeiten, um Sie auf dem Laufenden zu halten und zu unterstützen, während Sie auf den Weg gehen. ## Für uns Bei Huntsman sind wir stolz darauf, eine Menschenorientierte Organisation zu sein. Die familiäre Atmosphäre wird durch unsere verschiedenen Teams von Mitarbeitern auf der ganzen Welt geschaffen. Wir begrüßen Talent, Erfahrung und frische Ideen, die Mitarbeiter auf allen Ebenen ihrer Karriere, von Praktikanten bis zu erfahrenen Fachleuten, zu Huntsman bringen. Im Gegenzug bieten wir die Chance, ein wesentlicher Teil einer dynamischen und führenden Branche zu werden, wo Sicherheit und Ethik immer an erster Stelle stehen. ## Weitere Standorte - Basel - Krakow - Monthey",
-        "fr": "Fonction Huntsman a une opportunité pour un Junior Project Manager – Projets de Croissance Régionale pour rejoindre notre équipe d'innovation régionale établie dans la division des Matériaux Avancés. L'équipe est activement impliquée dans la gestion de projets de croissance très diversifiés, en transformant des idées innovantes en développements de nouveaux produits tangibles alignés sur les besoins du marché. Nous soutenons l'ensemble du processus – de la phase initiale de développement des concepts jusqu'à la mise en œuvre réussie sur le marché. ## Description Rapport de travail: Vous serez rattaché à l'Organisation de Marketing Opérationnel en Europe, et vous serez responsable de la gestion des projets régionaux, en soutenant des activités de croissance rapides pour répondre à des défis de marché. Vous travaillerez dans un setup hybride, en télétravail et en présence, avec une flexibilité basée sur les besoins de l'entreprise. Le siège principal pour ce rôle est Bad Säckingen, Allemagne, avec une option supplémentaire pour travailler également dans notre Centre Technologique de Bâle, Suisse, dans notre siège de Cracovie, Pologne et dans notre site de production de Monthey, Suisse. Nous offrons un engagement de 12 mois pour commencer. ## Responsabilités du rôle En tant que Junior Project Manager – Projets de Croissance Régionale, vous serez responsable de: - Diriger et gérer des projets de croissance régionaux avec une durée typique de 6 à 12 mois, en assurant l'exécution réussie de la phase initiale de développement des concepts jusqu'à la clôture finale. - Coordonner et aligner des équipes fonctionnelles croisées – y compris R&D, gestion des produits, développement des processus et fabrication – dans plusieurs sites européens pour promouvoir le succès du projet. - Traduire des opportunités de business stratégiques en plans de projet structurés et opérationnels avec des deliverables, des temps et des milestones clairement définis. - Suivre et surveiller le progrès du projet en utilisant des outils et des plateformes internes comme Microsoft Planner, OneNote et Teams, en assurant la transparence et la responsabilité pendant l'ensemble du cycle de vie du projet. - Assurer l'exécution rapide et efficace, en adaptant les projets de manière proactive en réponse à des priorités évoluées, des risques ou des dynamiques de marché. - Appliquer des méthodologies de gestion de projet, principalement en cascade et occasionnellement agile, en utilisant les meilleures pratiques et les frameworks (la certification PMP est préférée). - Communiquer efficacement avec les parties prenantes à différents niveaux de l'organisation, en assurant l'allignment, la visibilité et l'engagement pendant le projet. - Évaluer et rapporter les résultats du projet en utilisant des outils financiers comme NPV et ROI pour soutenir la prise de décision guidée par les données. ## Expérience et Compétences Nous recherchons des candidats avec un approche de leadership, des compétences de communication exceptionnelles et un approche centrée sur la solution. - Un Master of Science dans un domaine STEM (Science, Technologie, Ingénierie ou Mathématiques) est requis, avec une forte préférence pour des disciplines ingénierie comme la chimie, la mécanique, les processus ou les matériaux. Un doctorat avec une exposition initiale à des activités commerciales est hautement apprécié et considéré comme un atout fort, en particulier pour des rôles impliquant des innovations techniques avancées ou des recherches. - Au moins 2 ans d'expérience en gestion de projet ou en rôles d'innovation, ou un doctorat développé dans un environnement de projet proche de l'R&D industriel. - Preuve de capacité à diriger et à livrer des projets fonctionnels indépendamment. - Expérience précédente dans l'industrie chimique est considérée comme un 'nice-to-have'. - Compétences de communication, organisation et d'influence fortes. - Démontré drive et mentalité de propriétaire – vous savez comment pousser un projet en avant. - Connaissance des outils de notation financière (par exemple, NPV, marges de contribution). - Certification PMP ou formation équivalente de gestion de projet (préférée mais non obligatoire). ## Contact Si vous pensez être le candidat idéal pour cette opportunité, envoyez votre candidature aujourd'hui même ! Votre candidature sera envoyée à un Partenaire d'Acquisition de Talent, qui s'engage à répondre le plus rapidement possible. Nous savons que l'envoi d'une offre d'emploi est une grande décision et travaillerons dur pour vous tenir informé et soutenir vous pendant le processus. ## À propos de nous À Huntsman, nous sommes fiers d'être une organisation axée sur les personnes. L'atmosphère familiale est créée par nos différents groupes de membres de l'équipe dans le monde entier. Nous accueillons le talent, l'expérience et les idées fraîches que les employés à tous les niveaux de leur carrière, des stagiaires aux professionnels expérimentés, apportent à Huntsman. En échange, nous offrons l'opportunité de devenir un élément essentiel d'une société dynamique et leader de secteur, où la sécurité et l'éthique sont toujours prioritaires. ## Autres lieux - Bâle - Cracovie - Monthey"
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea magistrale in ambito STEM (Scienza, Tecnologia, Ingegneria o Matematica)",
-          "Minimo 2 anni di esperienza in ruoli di project management o innovazione",
-          "Capacità comprovata di guidare progetti interfunzionali in autonomia",
-          "Esperienza pregressa nell'industria chimica (preferibile)",
-          "Forti capacità comunicative, organizzative e di influenza",
-          "Mentalità orientata al raggiungimento degli obiettivi e alla responsabilità",
-          "Familiarità con strumenti di valutazione finanziaria (es. NPV, margine di contribuzione)",
-          "Certificazione PMP o formazione equivalente in project management (preferibile)"
-        ],
-        "de": [
-          "Master-Abschluss in einem MINT-Fach (Mathematik, Informatik, Naturwissenschaft, Technik)",
-          "Mindestens 2 Jahre Erfahrung im Projektmanagement oder in Innovationsrollen",
-          "Nachgewiesene Fähigkeit, funktionsübergreifende Projekte eigenständig zu leiten",
-          "Vorerfahrung in der chemischen Industrie (wünschenswert)",
-          "Starke Kommunikations-, Organisations- und Überzeugungsfähigkeiten",
-          "Ausgeprägter Tatendrang und Eigenverantwortung",
-          "Vertrautheit mit finanziellen Bewertungstools (z. B. NPV, Deckungsbeitrag)",
-          "PMP-Zertifizierung oder gleichwertige Projektmanagement-Ausbildung (bevorzugt)"
-        ],
-        "fr": [
-          "Diplôme de Master dans un domaine STEM (Science, Technologie, Ingénierie ou Mathématiques)",
-          "Minimum d'environ 2 ans d'expérience dans des rôles de gestion de projet ou d'innovation",
-          "Capacité prouvée à diriger et à livrer des projets interfonctionnels de manière indépendante",
-          "Une expérience préalable dans l'industrie chimique est un atout",
-          "Solides compétences en communication, en organisation et en influence",
-          "Esprit d'initiative et sens des responsabilités démontrés",
-          "Familiarité avec les outils d'évaluation financière (ex: VAN, marge de contribution)",
-          "Certification PMP ou formation équivalente en gestion de projet (préférée mais non obligatoire)"
-        ]
-      },
-      "location": "Monthey",
-      "canton": "VS",
-      "addressLocality": "Monthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Germany---Bad-Sackingen/Junior-Project-Manager---Regional-Innovation--12-month-assignment-_J-019662",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Germany---Bad-Sackingen/Junior-Project-Manager---Regional-Innovation--12-month-assignment-_J-019662",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:07:50.540Z",
-      "jobReqId": "J-019662",
-      "previousSlugs": [
-        "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:44:43.790Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
           "unitText": "YEAR"
         }
       },
