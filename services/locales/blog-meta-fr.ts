@@ -2145,6 +2145,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Vélos en libre-service à Côme : 80 vélos à partir du 30 avril. Où les trouver et comment ça fonctionne',
     'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'Le service de vélos en libre-service à Côme reprendra du service le 30 avril 2026 avec 80 vélos personnalisés et 17 points de retrait. Des tarifs préférentiels sont prévus pour la saison estivale.',
     'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Vélo de location en libre-service moderne garé dans une place de ville tessinoise, prêt à l\'emploi',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa : 1000 places de parking pour les frontaliers, Acinque accélère le projet',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque confirme sa volonté de réaliser dans les plus brefs délais 1000 places de parking à Ticosa, équipées de couvertures photovoltaïques et accompagnées d’une requalification urbaine, après l’évaluation des 33 pages transmises par la Ville de Côme.',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Vue nocturne de Lugano avec le site Ticosa en rénovation et les parkings en construction',
 };
 
 export default blogMetaFr;

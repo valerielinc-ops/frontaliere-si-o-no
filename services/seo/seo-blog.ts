@@ -7627,6 +7627,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-progetto-ticosa-parcheggi-acinque-frontalieri': {
+    title: 'Ticosa: 1000 parcheggi per frontalieri | Frontaliere Ticino',
+    description: 'Acinque conferma la volontà di realizzare 1000 parcheggi a Ticosa con copertura fotovoltaica. Scopri tempistiche, impatto per i frontalieri e strumenti per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticosa, 1000, parcheggi, acinque',
+    ogTitle: 'Ticosa: 1000 parcheggi per frontalieri, Acinque accelera il',
+    ogDescription: 'Acinque conferma la volontà di realizzare 1000 parcheggi a Ticosa con copertura fotovoltaica. Scopri tempistiche, impatto per i frontalieri e strumenti per',
+    canonicalPath: '/articoli-frontaliere/progetto-ticosa-parcheggi-acinque-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Progetto Ticosa: Acinque accelera la riqualificazione con 1000 parcheggi per frontalieri",
+      "description": "Acinque conferma la volontà di realizzare 1000 parcheggi a Ticosa con copertura fotovoltaica. Scopri tempistiche, impatto per i frontalieri e strumenti per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/progetto-ticosa-parcheggi-acinque-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta notturna di Lugano con area Ticosa in riqualificazione e parcheggi in costruzione"
+      },
+      "datePublished": "2026-04-14T23:55:08+00:00",
+      "dateModified": "2026-04-14T23:55:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/progetto-ticosa-parcheggi-acinque-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

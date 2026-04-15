@@ -2145,6 +2145,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Bike sharing a Como: 80 bici dal 30 aprile. Dove trovarle e come funziona',
     'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'Il servizio di bike sharing a Como torna operativo il 30 aprile 2026 con 80 bici customizzate e 17 punti di prelievo. Tariffe agevolate in arrivo per la stagione estiva.',
     'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Bici da bike sharing moderna parcheggiata in una città ticinese, pronta per l\'uso',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa: 1000 parcheggi per frontalieri, Acinque accelera il progetto',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque conferma la volontà di realizzare entro breve 1000 parcheggi a Ticosa con copertura fotovoltaica e riqualificazione urbanistica, dopo la valutazione delle 33 pagine inviate dal Comune di Como.',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Veduta notturna di Lugano con area Ticosa in riqualificazione e parcheggi in costruzione',
 };
 
 export default blogMetaIt;

@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 766,
+ "numberOfItems": 767,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4455,7 +4455,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 763, "name": "Chiasso affida ai privati la lotta alla zanzara...", "url": `${BASE_URL}/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026` },
           { "@type": "ListItem", "position": 764, "name": "Lombardia stanzia 7 milioni per dottori di rice...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-7mln-talenti-pmi-frontalieri` },
           { "@type": "ListItem", "position": 765, "name": "slowUp Ticino 2026: 19 aprile per una giornata ...", "url": `${BASE_URL}/articoli-frontaliere/slowup-ticino-2026-giornata-senz-auto` },
-          { "@type": "ListItem", "position": 766, "name": "Bike sharing a Como: 80 bici dal 30 aprile. Dov...", "url": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-riapre-30-aprile` }
+          { "@type": "ListItem", "position": 766, "name": "Bike sharing a Como: 80 bici dal 30 aprile. Dov...", "url": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-riapre-30-aprile` },
+          { "@type": "ListItem", "position": 767, "name": "Progetto Ticosa: Acinque accelera la riqualific...", "url": `${BASE_URL}/articoli-frontaliere/progetto-ticosa-parcheggi-acinque-frontalieri` }
  ]
  }
  ]

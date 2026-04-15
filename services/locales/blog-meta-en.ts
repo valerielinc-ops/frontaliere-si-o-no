@@ -2145,6 +2145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bike-sharing-como-riapre-30-aprile.title': 'Bike sharing in Como: 80 bikes from April 30th. Where to find them and how it works',
     'blog.article.bike-sharing-como-riapre-30-aprile.excerpt': 'The bike sharing service in Como will be operational again on April 30th, 2026, with 80 customised bikes and 17 pickup points. Discounted rates are coming for the summer season.',
     'blog.article.bike-sharing-como-riapre-30-aprile.imageAlt': 'Modern bike-sharing bike parked in a Ticino city square, ready for use',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.title': 'Ticosa: 1000 parking spaces for cross-border workers, Acinque speeds up project',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.excerpt': 'Acinque confirms its intention to complete 1000 parking spaces in Ticosa shortly, featuring photovoltaic coverage and urban redevelopment, following the assessment of the 33-page document submitted by the City of Como.',
+    'blog.article.progetto-ticosa-parcheggi-acinque-frontalieri.imageAlt': 'Night view of Lugano with Ticosa area under redevelopment and parking construction',
 };
 
 export default blogMetaEn;

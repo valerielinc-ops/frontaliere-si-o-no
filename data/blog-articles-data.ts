@@ -5990,4 +5990,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/bike-sharing-como-riapre-30-aprile.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'progetto-ticosa-parcheggi-acinque-frontalieri',
+ category: 'novita',
+ date: '2026-04-14T23:55:08.289Z',
+ image: '/images/blog/progetto-ticosa-parcheggi-acinque-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ];
