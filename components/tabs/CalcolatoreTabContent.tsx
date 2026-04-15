@@ -41,7 +41,7 @@ const LazyFallback = () => <SkeletonWeeklyFact />;
 export default function CalcolatoreTabContent() {
  const { calcolatoreSubTab } = useNavigation();
  const {
- inputs, setInputs, result, handleCalculate,
+ inputs, setInputs, result, isResultStale, handleCalculate,
  showDeferredHomeWidgets, seoLanding, userProfile,
  setActiveTab, setBlogArticle, navigateTo,
  } = useTabContent();
@@ -110,7 +110,7 @@ export default function CalcolatoreTabContent() {
  )}
 
  {/* Mobile: Results-first bottom-sheet layout */}
- <div className="md:hidden">
+ <div className={`md:hidden transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  <Suspense fallback={<SkeletonInputCard />}>
  <MobileCalcLayout
  inputs={inputs}
@@ -146,7 +146,7 @@ export default function CalcolatoreTabContent() {
  <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
  </Suspense>
  </div>
- <div className="md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
+ <div className={`md:col-span-8 lg:col-span-8 xl:col-span-9 h-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  {result && (
  <Suspense fallback={<LazyFallback />}>
  <ResultsView result={result} inputs={inputs} />
@@ -269,7 +269,7 @@ export default function CalcolatoreTabContent() {
  }
  if (calcolatoreSubTab === 'whatif') {
  return (
- <div className="w-full">
+ <div className={`w-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
  {adBottom}
  </div>

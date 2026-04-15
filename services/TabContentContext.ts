@@ -17,6 +17,7 @@ export interface TabContentState {
  inputs: SimulationInputs;
  setInputs: (inputs: SimulationInputs) => void;
  result: SimulationResult | null;
+ isResultStale: boolean;
  handleCalculate: () => void;
  showDeferredHomeWidgets: boolean;
  seoLanding: SeoLandingId | null;

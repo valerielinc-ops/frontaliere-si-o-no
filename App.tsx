@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense, useDeferredValue } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 // Analytics proxy: lazy, fire-and-forget, deferred to user interaction (FRO-367)
 import { Analytics } from '@/services/analyticsProxy';
@@ -156,6 +156,8 @@ const App: React.FC = () => {
  } = useAuth();
  const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
  const [result, setResult] = useState<SimulationResult | null>(null);
+ const deferredResult = useDeferredValue(result);
+ const isResultStale = deferredResult !== result;
 
  // Read initial route from URL path (or migrate legacy hash)
  const [initialRoute] = useState(() => {
@@ -2113,7 +2115,7 @@ const App: React.FC = () => {
 
  // FRO-367: TabContentContext passes app-level state to lazy tab components.
  const tabContentValue = useMemo<TabContentState>(() => ({
- inputs, setInputs, result, handleCalculate,
+ inputs, setInputs, result: deferredResult, isResultStale, handleCalculate,
  showDeferredHomeWidgets, seoLanding, setSeoLanding,
  userProfile, authUser, authLoading, isPrivilegedAdmin,
  googleSignIn, facebookSignIn,
@@ -2124,7 +2126,7 @@ const App: React.FC = () => {
  jobSlug, setJobSlug,
  setActiveTab: setActiveTab as any, navigateTo,
  setContactPrefill, glossaryTerm, setGlossaryTerm,
- }), [inputs, result, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
+ }), [inputs, deferredResult, isResultStale, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
 
  return (
  <ErrorBoundary>
