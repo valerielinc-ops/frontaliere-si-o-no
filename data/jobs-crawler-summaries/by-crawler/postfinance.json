@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-04-14T22:14:40.300Z",
+  "generatedAt": "2026-04-15T10:30:21.220Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7979,
-  "avgDurationMs": 7979,
+  "durationMs": 6993,
+  "avgDurationMs": 6993,
   "durationHistory": [
-    7979
+    6993
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,6 +46,7 @@
       "currency": "CHF",
       "postalCode": "6500",
       "id": "postfinance-b561e2e6971a",
+      "firstSeenAt": "2026-04-14T22:14:40.300Z",
       "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
