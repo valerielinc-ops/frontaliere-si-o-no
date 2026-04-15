@@ -48,13 +48,13 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
-// mailgun/mailjet/unosend = force a specific cascade provider
+// mailgun/mailjet/mailtrap/unosend = force a specific cascade provider
 // resend = Resend only (legacy fallback)
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'unosend'];
+const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'unosend'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
-// cascade/single = 400/day total (mailjet disabled), resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 400;
+// cascade/single = 430/day total (mailjet disabled), resend = 100
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 430;
 
 /**
  * Run async tasks with bounded concurrency.
@@ -778,19 +778,46 @@ async function pickFeaturedArticle() {
   };
 }
 
-function getWeeklyFact() {
+function getWeeklyFact(locale = 'it') {
   const EPOCH = new Date('2025-01-06').getTime();
   const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   const weekIndex = Math.floor((Date.now() - EPOCH) / WEEK_MS) % 52;
-  const FACTS = [
-    { text: 'In Svizzera, il salario mediano \u00e8 di circa 6.665 CHF al mese (2022).', source: 'UST' },
-    { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' },
-    { text: 'La franchigia per i nuovi frontalieri dal 2024 \u00e8 di \u20ac10.000.', source: 'Nuovo Accordo Fiscale' },
-    { text: 'Il tasso di disoccupazione in Ticino \u00e8 circa il 2.3%.', source: 'SECO' },
-    { text: "L'AVS (1\u00b0 pilastro) copre circa il 40% del reddito pre-pensionamento.", source: 'BSV' },
-    { text: 'Il 3\u00b0 pilastro 3a permette di dedurre fino a 7.258 CHF (2026) dalle tasse.', source: 'Admin.ch' },
-  ];
-  return FACTS[weekIndex % FACTS.length];
+  const FACTS = {
+    it: [
+      { text: 'In Svizzera, il salario mediano \u00e8 di circa 6.665 CHF al mese (2022).', source: 'UST' },
+      { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' },
+      { text: 'La franchigia per i nuovi frontalieri dal 2024 \u00e8 di \u20ac10.000.', source: 'Nuovo Accordo Fiscale' },
+      { text: 'Il tasso di disoccupazione in Ticino \u00e8 circa il 2.3%.', source: 'SECO' },
+      { text: "L'AVS (1\u00b0 pilastro) copre circa il 40% del reddito pre-pensionamento.", source: 'BSV' },
+      { text: 'Il 3\u00b0 pilastro 3a permette di dedurre fino a 7.258 CHF (2026) dalle tasse.', source: 'Admin.ch' },
+    ],
+    en: [
+      { text: 'In Switzerland, the median salary is around CHF 6,665 per month (2022).', source: 'FSO' },
+      { text: 'Over 78,000 cross-border workers commute to Canton Ticino.', source: 'USTAT' },
+      { text: 'The tax allowance for new cross-border workers from 2024 is \u20ac10,000.', source: 'New Fiscal Agreement' },
+      { text: 'The unemployment rate in Ticino is around 2.3%.', source: 'SECO' },
+      { text: 'The AVS (1st pillar) covers about 40% of pre-retirement income.', source: 'BSV' },
+      { text: 'Pillar 3a allows you to deduct up to CHF 7,258 (2026) from taxes.', source: 'Admin.ch' },
+    ],
+    de: [
+      { text: 'In der Schweiz liegt der Medianlohn bei rund 6.665 CHF pro Monat (2022).', source: 'BFS' },
+      { text: '\u00dcber 78.000 Grenzg\u00e4nger pendeln in den Kanton Tessin.', source: 'USTAT' },
+      { text: 'Der Freibetrag f\u00fcr neue Grenzg\u00e4nger ab 2024 betr\u00e4gt \u20ac10.000.', source: 'Neues Steuerabkommen' },
+      { text: 'Die Arbeitslosenquote im Tessin liegt bei etwa 2,3%.', source: 'SECO' },
+      { text: 'Die AHV (1. S\u00e4ule) deckt rund 40% des Vorruhestandseinkommens.', source: 'BSV' },
+      { text: 'S\u00e4ule 3a erm\u00f6glicht einen Steuerabzug von bis zu 7.258 CHF (2026).', source: 'Admin.ch' },
+    ],
+    fr: [
+      { text: 'En Suisse, le salaire m\u00e9dian est d\u2019environ 6 665 CHF par mois (2022).', source: 'OFS' },
+      { text: 'Plus de 78 000 frontaliers travaillent dans le canton du Tessin.', source: 'USTAT' },
+      { text: 'L\u2019abattement fiscal pour les nouveaux frontaliers \u00e0 partir de 2024 est de \u20ac10 000.', source: 'Nouvel Accord Fiscal' },
+      { text: 'Le taux de ch\u00f4mage au Tessin est d\u2019environ 2,3%.', source: 'SECO' },
+      { text: 'L\u2019AVS (1er pilier) couvre environ 40% du revenu avant la retraite.', source: 'BSV' },
+      { text: 'Le pilier 3a permet de d\u00e9duire jusqu\u2019\u00e0 7 258 CHF (2026) des imp\u00f4ts.', source: 'Admin.ch' },
+    ],
+  };
+  const localeFacts = FACTS[locale] || FACTS.it;
+  return localeFacts[weekIndex % localeFacts.length];
 }
 
 function loadLocalJobsData() {
@@ -1308,7 +1335,6 @@ async function main() {
   }
 
   const { jobs } = loadLocalJobsData();
-  const weeklyFact = getWeeklyFact();
   const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % FEATURED_TOOLS.length;
   const featuredTool = FEATURED_TOOLS[toolIndex];
   // Campaign ID anchored to the week's Monday so multi-day sends share the same ID
@@ -1334,7 +1360,7 @@ async function main() {
       ? getFallbackBriefing(locale, exchangeRate)
       : (await generateAIBriefing({
           subscriber: { locale, preferences: { jobs: true, taxUpdates: true } },
-          exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact, featuredTool,
+          exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact: getWeeklyFact(locale), featuredTool,
         })) || getFallbackBriefing(locale, exchangeRate);
     // Always inject job links — applies to both AI and fallback briefings
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
@@ -1346,7 +1372,7 @@ async function main() {
       totalJobs: jobs.length,
       article: featuredArticle(locale),
       featuredTool,
-      weeklyFact,
+      weeklyFact: getWeeklyFact(locale),
       metrics: loadDashboardMetrics(),
       locale,
       issueNumber,
@@ -1449,7 +1475,7 @@ async function main() {
           subscriber: cohort.subscriber,
           exchangeRate, exchangeInsight,
           matchedJobs: cohort.matchedJobs,
-          weeklyFact, featuredTool,
+          weeklyFact: getWeeklyFact(cohort.locale), featuredTool,
         });
         return [key, briefing];
       }, AI_CONCURRENCY);
@@ -1529,7 +1555,7 @@ async function main() {
       totalJobs: jobs.length,
       article: featuredArticle(locale),
       featuredTool,
-      weeklyFact,
+      weeklyFact: getWeeklyFact(locale),
       metrics,
       locale,
       issueNumber,

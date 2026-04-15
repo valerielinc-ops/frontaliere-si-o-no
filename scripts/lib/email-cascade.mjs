@@ -2,7 +2,7 @@
 /**
  * email-cascade.mjs — Multi-provider email sending with daily quota tracking.
  *
- * Cascade order: Mailgun → Mailjet → Resend (fallback)
+ * Cascade order: Mailgun → Resend → Mailtrap → Unosend
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
  *
@@ -22,6 +22,7 @@
  *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   UNOSEND_API_KEY          — Unosend API key (6000/mo free tier)
+ *   MAILTRAP_API_TOKEN       — Mailtrap API token (1000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
  */
 
@@ -32,6 +33,7 @@ const PROVIDERS = [
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
   // mailjet: disabled until account is activated (401 Unauthorized). Re-enable when unblocked.
   // { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
+  { id: 'mailtrap', dailyLimit: 30,  monthlyLimit: 1000  },
   { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
 ];
 
@@ -117,6 +119,16 @@ async function fetchUnosendDailyUsage() {
   } catch { return 0; }
 }
 
+async function fetchMailtrapDailyUsage() {
+  const token = process.env.MAILTRAP_API_TOKEN;
+  if (!token) return 0;
+  try {
+    // Mailtrap doesn't expose a simple daily usage endpoint on the free tier.
+    // Return 0 (safe: in-memory counter tracks actual sends during this run).
+    return 0;
+  } catch { return 0; }
+}
+
 async function fetchResendDailyUsage() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return 0;
@@ -139,9 +151,10 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, unosend, resend] = await Promise.all([
+  const [mailgun, mailjet, mailtrap, unosend, resend] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
+    fetchMailtrapDailyUsage(),
     fetchUnosendDailyUsage(),
     fetchResendDailyUsage(),
   ]);
@@ -149,11 +162,12 @@ async function syncQuotasFromAPIs() {
   _counterDate = getTodayUTC();
   _counters.mailgun = mailgun;
   _counters.mailjet = mailjet;
+  _counters.mailtrap = mailtrap;
   _counters.unosend = unosend;
   _counters.resend = resend;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, unosend=${unosend}/200, resend=${resend}/100`);
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/30, unosend=${unosend}/200, resend=${resend}/100`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -162,6 +176,7 @@ function isProviderConfigured(providerId) {
   switch (providerId) {
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
+    case 'mailtrap':   return !!process.env.MAILTRAP_API_TOKEN;
     case 'unosend':    return !!process.env.UNOSEND_API_KEY;
     case 'resend':     return !!process.env.RESEND_API_KEY;
     default: return false;
@@ -291,6 +306,41 @@ async function sendViaUnosend(email) {
   return { messageId: data?.id || `unosend-${Date.now()}`, provider: 'unosend' };
 }
 
+// ── Mailtrap Send API ────────────────────────────────────────
+// Docs: https://api-docs.mailtrap.io/docs/mailtrap-api-docs/
+
+async function sendViaMailtrap(email) {
+  const token = process.env.MAILTRAP_API_TOKEN;
+  const fromParsed = parseEmailAddress(email.from);
+
+  const body = {
+    from: { email: fromParsed.email, name: fromParsed.name || undefined },
+    to: (Array.isArray(email.to) ? email.to : [email.to]).map(addr => ({ email: addr })),
+    subject: email.subject,
+    html: email.html,
+  };
+  if (email.text) body.text = email.text;
+  if (email.tags?.length) body.category = email.tags[0].value;
+  if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
+
+  const res = await fetch('https://send.api.mailtrap.io/api/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const err = await res.text().catch(() => '');
+    throw new Error(`Mailtrap ${res.status}: ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  return { messageId: data?.message_ids?.[0] || `mailtrap-${Date.now()}`, provider: 'mailtrap' };
+}
+
 // ── Resend API (fallback) ────────────────────────────────────
 // Same as existing implementation but single-email
 
@@ -327,6 +377,7 @@ async function sendViaResend(email) {
 const SEND_FNS = {
   mailgun: sendViaMailgun,
   mailjet: sendViaMailjet,
+  mailtrap: sendViaMailtrap,
   unosend: sendViaUnosend,
   resend: sendViaResend,
 };

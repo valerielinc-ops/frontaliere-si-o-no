@@ -66,6 +66,7 @@ on:
           - cascade
           - mailgun
           - mailjet
+          - mailtrap
           - unosend
           - resend
 
