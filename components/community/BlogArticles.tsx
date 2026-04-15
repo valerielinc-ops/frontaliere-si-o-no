@@ -1264,7 +1264,8 @@ function BlogArticles({
  }, []);
 
  // Infinite scroll sentinel for mobile
- const articleSentinelRef = useRef<HTMLDivElement>(null);
+ // Re-create observer after each batch so Safari correctly detects re-intersection
+ const articleSentinelRef = useRef<HTMLButtonElement>(null);
  useEffect(() => {
  if (!isMobile || !hasMoreMobileArticles) return;
  const el = articleSentinelRef.current;
@@ -1275,7 +1276,7 @@ function BlogArticles({
  );
  io.observe(el);
  return () => io.disconnect();
- }, [isMobile, hasMoreMobileArticles, loadMoreArticles]);
+ }, [isMobile, hasMoreMobileArticles, loadMoreArticles, mobileArticleLimit]);
 
  useEffect(() => {
  setCurrentPage(prev => Math.min(prev, totalPages));
@@ -2658,12 +2659,16 @@ function BlogArticles({
  </div>
  )}
 
- {/* Mobile: infinite scroll sentinel */}
+ {/* Mobile: infinite scroll sentinel (tappable as fallback for Safari) */}
  {hasMoreMobileArticles && (
- <div ref={articleSentinelRef} className="flex justify-center items-center py-6 sm:hidden">
+ <button
+ ref={articleSentinelRef}
+ onClick={loadMoreArticles}
+ className="flex justify-center items-center py-6 sm:hidden w-full"
+ >
  <div className="h-5 w-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
  <span className="ml-2 text-sm text-muted">{t('blog.pagination.next')}…</span>
- </div>
+ </button>
  )}
 
  {/* Pagination — desktop only (mobile uses infinite scroll) */}
