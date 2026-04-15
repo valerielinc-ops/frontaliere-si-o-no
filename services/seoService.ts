@@ -1977,6 +1977,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-berna-limita-acquisto-immobili-stranieri-2026': { name: 'Novità fiscali', path: '/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026', parent: 'blog' },
     'blog-riforma-cassa-malati-ticino-2029': { name: 'Premi cassa malati', path: '/articoli-frontaliere/riforma-cassa-malati-ticino-2029', parent: 'blog' },
     'blog-slowup-strade-trasporti-limiti-2026': { name: 'SlowUp 2026', path: '/articoli-frontaliere/slowup-strade-trasporti-limiti-2026', parent: 'blog' },
+    'blog-petrolio-e-gas-svizzera-approvvigionamento-2026': { name: 'Energia e costi', path: '/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 773,
+ "numberOfItems": 774,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4462,7 +4462,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 770, "name": "Asili nido pubblici in Ticino: da Bellinzona pa...", "url": `${BASE_URL}/articoli-frontaliere/asili-nido-pubblici-ticino-iniziativa-popolare-2026` },
           { "@type": "ListItem", "position": 771, "name": "Frontaliere Ticino | Berna limita l'acquisto di...", "url": `${BASE_URL}/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026` },
           { "@type": "ListItem", "position": 772, "name": "Premi cassa malati: riforma completa dal 2029, ...", "url": `${BASE_URL}/articoli-frontaliere/riforma-cassa-malati-ticino-2029` },
-          { "@type": "ListItem", "position": 773, "name": "Domenica 19 aprile 2026 le strade tra Bellinzon...", "url": `${BASE_URL}/articoli-frontaliere/slowup-strade-trasporti-limiti-2026` }
+          { "@type": "ListItem", "position": 773, "name": "Domenica 19 aprile 2026 le strade tra Bellinzon...", "url": `${BASE_URL}/articoli-frontaliere/slowup-strade-trasporti-limiti-2026` },
+          { "@type": "ListItem", "position": 774, "name": "Analisi degli approvvigionamenti di petrolio e ...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026` }
  ]
  }
  ]

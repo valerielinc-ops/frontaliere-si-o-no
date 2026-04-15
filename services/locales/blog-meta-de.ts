@@ -2166,6 +2166,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.slowup-strade-trasporti-limiti-2026.title': 'SlowUp 2026: Straßen gesperrt und öffentliche Verkehrsmittel eingeschränkt zwischen Bellinzona und Locarno',
     'blog.article.slowup-strade-trasporti-limiti-2026.excerpt': 'Am Sonntag, 19. April 2026, werden in fünf Stadtteilen von Bellinzona Straßen für den SlowUp gesperrt. Die öffentlichen Verkehrsmittel sind betroffen: Die Linien 3, 62.213 und 62.311 verkehren zwischen 7 und 18.30 Uhr mit Ausfällen und Umleitungen.',
     'blog.article.slowup-strade-trasporti-limiti-2026.imageAlt': 'Gesperrte Straßen in Bellinzona für SlowUp 2026: Schilder und parkende Autos außerhalb der Route',
+    'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.title': 'Erdöl und Gas in der Schweiz: Sichere Versorgung bis 2026',
+    'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.excerpt': 'Trotz der Spannungen im Nahen Osten garantiert die Schweiz stabile Lieferungen von Erdöl und Gas. Hier erfahren Sie, woher die Energie kommt und welche Auswirkungen dies auf die Preise für Grenzgänger und Tessiner hat.',
+    'blog.article.petrolio-e-gas-svizzera-approvvigionamento-2026.imageAlt': 'Blick auf Lugano mit dem See und der Altstadt bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

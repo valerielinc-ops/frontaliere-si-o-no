@@ -6039,4 +6039,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/slowup-strade-trasporti-limiti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'petrolio-e-gas-svizzera-approvvigionamento-2026',
+ category: 'pratico',
+ date: '2026-04-15T15:05:01.477Z',
+ image: '/images/blog/petrolio-e-gas-svizzera-approvvigionamento-2026.jpg',
+ hasCalculator: true,
+ },
 ];

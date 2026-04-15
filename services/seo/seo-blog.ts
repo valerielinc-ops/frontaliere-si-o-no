@@ -7830,6 +7830,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petrolio-e-gas-svizzera-approvvigionamento-2026': {
+    title: 'Petrolio e gas in Svizzera | Frontaliere Ticino',
+    description: 'Scopri da dove arriva il petrolio e il gas in Svizzera nel 2026, gli aumenti registrati a marzo e come risparmiare per i frontalieri ticinesi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, petrolio, approvvigionamento, sicuro, nonostante',
+    ogTitle: 'Petrolio e gas in Svizzera: forniture stabili nel 2026',
+    ogDescription: 'Analisi degli aumenti di marzo 2026 e impatto per frontalieri e ticinesi. Scopri da dove arriva il petrolio e come contenere i costi.',
+    canonicalPath: '/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Analisi degli approvvigionamenti di petrolio e gas in Svizzera nel 2026, con focus sugli aumenti",
+      "description": "Scopri da dove arriva il petrolio e il gas in Svizzera nel 2026, gli aumenti registrati a marzo e come risparmiare per i frontalieri ticinesi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petrolio-e-gas-svizzera-approvvigionamento-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con il lago e il centro storico di sera"
+      },
+      "datePublished": "2026-04-15T15:05:01+00:00",
+      "dateModified": "2026-04-15T15:05:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
