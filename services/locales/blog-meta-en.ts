@@ -2181,6 +2181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Ticino restaurateur catches thief by surprise: 35-year-old man arrested',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'A restaurateur in Mendrisio caught a 35-year-old man red-handed while he was stealing in the kitchen. The intruder, of Moroccan nationality, was detained and handed over to the cantonal police.',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Interior of a Ticino restaurant with warm lighting, a waiter, and a fleeing man in the background',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.title': 'Iran dashes Italy\'s hopes of World Cup 2026 reprieve',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.excerpt': 'Iranian national team head coach Amir Ghalenoei has ruled out the possibility of his side withdrawing from the tournament: \'We will be there.\' FIFA is now exploring alternative options to fill any potential gaps in the competition.',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.imageAlt': 'Lugano stadium with Ticino and Italian flags during a football match',
 };
 
 export default blogMetaEn;

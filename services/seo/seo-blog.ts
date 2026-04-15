@@ -7975,6 +7975,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-irania-nazionale-italia-riqualifica-2026': {
+    title: 'Iran taglia le speranze di ripescaggio | Frontaliere Ticino',
+    description: 'Le dichiarazioni del ct iraniano Ghalenoei riducono le chance dell\'Italia di partecipare ai Mondiali 2026. Analisi sugli scenari per frontalieri e lavoratori',
+    keywords: 'frontalieri, ticino, svizzera, italia, iran, taglia, speranze, ripescaggio',
+    ogTitle: 'Italia fuori dai Mondiali 2026? L\'Iran spegne le speranze',
+    ogDescription: 'Il ct iraniano esclude il forfait della sua Nazionale. Cosa cambia per frontalieri e tifosi ticinesi?',
+    canonicalPath: '/articoli-frontaliere/irania-nazionale-italia-riqualifica-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'Iran chiude la porta al ripescaggio dell'Italia ai Mondiali 2026. Analisi sugli scenari per",
+      "description": "Le dichiarazioni del ct iraniano Ghalenoei riducono le chance dell'Italia di partecipare ai Mondiali 2026. Analisi sugli scenari per frontalieri e lavoratori",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/irania-nazionale-italia-riqualifica-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di Lugano con bandiere ticinesi e italiane durante una partita di calcio"
+      },
+      "datePublished": "2026-04-15T22:21:31+00:00",
+      "dateModified": "2026-04-15T22:21:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/irania-nazionale-italia-riqualifica-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

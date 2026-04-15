@@ -2181,6 +2181,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Un restaurateur tessinois surprend un voleur : un homme de 35 ans interpellé',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'Un restaurateur de Mendrisio a surpris un homme de 35 ans en train de voler dans sa cuisine. L’intrus, de nationalité marocaine, a été maîtrisé puis remis à la police cantonale.',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Intérieur d\'un restaurant tessinois avec éclairage chaleureux, un serveur et une personne en fuite en arrière-plan',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.title': 'L\'Iran anéantit les espoirs de repêchage de l\'Italie pour la Coupe du monde 2026',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.excerpt': 'Le sélectionneur iranien Amir Ghalenoei a exclu toute forfait de sa sélection nationale : \'Nous serons là.\' La Fifa examine désormais d\'autres options pour combler d\'éventuelles places vacantes.',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.imageAlt': 'Stade de Lugano avec drapeaux tessinois et italiens pendant un match de football',
 };
 
 export default blogMetaFr;

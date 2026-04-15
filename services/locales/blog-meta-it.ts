@@ -2181,6 +2181,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Ristoratore ticinese sorprende ladro: arrestato un uomo di 35 anni',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'Un ristoratore di Mendrisio ha sorpreso un uomo di 35 anni intento a rubare in cucina. L\'intruso, di nazionalità marocchina, è stato bloccato e consegnato alla polizia cantonale.',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Interno di un ristorante ticinese illuminato, con un cameriere e un uomo in fuga',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.title': 'Iran taglia le speranze di ripescaggio dell\'Italia ai Mondiali 2026',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.excerpt': 'Il ct iraniano Amir Ghalenoei ha escluso il forfait della sua Nazionale: \'Ci saremo\'. La Fifa valuta ora altre opzioni per riempire eventuali vuoti.',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.imageAlt': 'Stadio di Lugano con bandiere ticinesi e italiane durante una partita di calcio',
 };
 
 export default blogMetaIt;

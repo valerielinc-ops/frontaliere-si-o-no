@@ -2181,6 +2181,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.title': 'Grenzgänger-Restaurateur überrascht Dieb: 35-Jähriger festgenommen',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.excerpt': 'Ein Gastronom aus Mendrisio hat einen 35-jährigen Mann auf frischer Tat ertappt, als dieser in der Küche stahl. Der Eindringling, der die marokkanische Staatsbürgerschaft besitzt, wurde festgehalten und der kantonalen Polizei übergeben.',
     'blog.article.wirt-sorpreso-einbrecher-marokkaner-ticino.imageAlt': 'Innenraum eines Tessiner Restaurants mit warmem Licht, einem Kellner und einer flüchtenden Person im Hintergrund',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.title': 'Iran dämpft Italiens Hoffnungen auf WM-Teilnahme 2026',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.excerpt': 'Der iranische Nationaltrainer Amir Ghalenoei hat eine Absage seiner Mannschaft ausgeschlossen: \'Wir werden da sein.\' Die Fifa prüft nun alternative Möglichkeiten, um mögliche Lücken im Teilnehmerfeld zu schließen.',
+    'blog.article.irania-nazionale-italia-riqualifica-2026.imageAlt': 'Stadion in Lugano mit Tessiner und italienischen Flaggen während eines Fussballspiels',
 };
 
 export default blogMetaDe;

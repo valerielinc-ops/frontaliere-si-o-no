@@ -6074,4 +6074,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/wirt-sorpreso-einbrecher-marokkaner-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'irania-nazionale-italia-riqualifica-2026',
+ category: 'novita',
+ date: '2026-04-15T22:21:31.948Z',
+ image: '/images/blog/irania-nazionale-italia-riqualifica-2026.jpg',
+ hasCalculator: true,
+ },
 ];
