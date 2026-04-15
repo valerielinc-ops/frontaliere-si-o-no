@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-04-14T21:16:18.928Z",
+  "generatedAt": "2026-04-15T09:32:00.737Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5729,
-  "avgDurationMs": 5729,
+  "unchangedCount": 0,
+  "durationMs": 4594,
+  "avgDurationMs": 4594,
   "durationHistory": [
-    5729
+    4594
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-14",
+      "postedDate": "2026-04-15",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-14T21:16:14.950Z",
+      "crawledAt": "2026-04-15T09:31:57.458Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -46,6 +46,46 @@
       "salaryMin": 82500,
       "salaryMax": 111500,
       "firstSeenAt": "2026-04-13T10:08:39.496Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "bps-suisse-ec1de76eae01",
+      "title": "Collaboratore Trice Gestione Crediti",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "postedDate": "2026-04-15",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-04-15T09:31:58.343Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -75,9 +115,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-14",
+      "postedDate": "2026-04-15",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-14T21:16:16.744Z",
+      "crawledAt": "2026-04-15T09:31:58.746Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -96,46 +136,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "bps-suisse-ec1de76eae01",
-      "title": "Collaboratore Trice Gestione Crediti",
-      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-      "companyKey": "bps-suisse",
-      "companyDomain": "bps-suisse.ch",
-      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giacomo Bentina 5",
-      "employmentType": "FULL_TIME",
-      "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "postedDate": "2026-04-14",
-      "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-14T21:16:16.206Z",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "firstSeenAt": "2026-04-13T10:08:40.551Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
