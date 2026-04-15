@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-04-15T10:40:34.380Z",
+  "assembledAt": "2026-04-15T22:20:10.023Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:31.894Z",
+      "crawledAt": "2026-04-15T22:20:07.193Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:30.989Z",
+      "crawledAt": "2026-04-15T22:20:06.213Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -191,6 +192,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +237,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:30.079Z",
+      "crawledAt": "2026-04-15T22:20:05.288Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -331,7 +334,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:29.189Z",
+      "crawledAt": "2026-04-15T22:20:04.306Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -383,6 +386,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -419,7 +423,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura delle persone EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement pour les soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -427,7 +431,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/568/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:28.228Z",
+      "crawledAt": "2026-04-15T22:20:03.320Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -476,16 +480,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-e72119e3765f",
       "slug": "salute-professionale-80-100-inverno-2026-27-spital-davos-davos",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
         "it": "salute-professionale-80-100-inverno-2026-27-spital-davos-davos",
-        "en": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
+        "en": "professional-health-80-100-winter-2026-27-spital-davos-davos",
+        "de": "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
         "fr": "sante-professionnelle-80-100-hiver-2026-27-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -493,16 +496,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Fachperson Gesundheit 80-100% (Winter 2026/27)",
       "titleByLocale": {
-        "de": "Fachperson Gesundheit 80-100% (Winter 2026/27)",
         "it": "Salute professionale 80-100% (inverno 2026/27)",
         "en": "Professional Health 80-100% (Winter 2026/27)",
+        "de": "Fachperson Gesundheit 80-100% (Winter 2026/27)",
         "fr": "Santé professionnelle 80-100 % (Hiver 2026/27)"
       },
       "description": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten auf der Akutpflegestation, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere interdisziplinäre Akutpflegestation suchen wir für den Winter 2026/27 eine | Professionelle Betreuung unserer Patientinnen und Patienten Selbständiges und patientenorientiertes Arbeiten im Schichtbetrieb des Akutbereichs (Medizin, Chirurgie, Orthopädie und Geburtshilfe) Aktive Mitgestaltung innerhalb des Teams in enger interdisziplinärer Zusammenarbeit | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung Berufserfahrung erwünscht, vorzugsweise mit guten Kenntnissen im Akutbereich/Unfallchirurgie Flexibilität und Belastbarkeit mit hoher Sozialkompetenz und Verantwortung Einfühlungsvermögen und patientenorientiertes Denken und Handeln | Abwechslungsreiche und verantwortungsvolle Aufgabe in kollegialem Team Attraktive Anstellungsbedingungen und Sozialleistungen; Personalhaus vorhanden Persönliche Entwicklung mit interessanten on-the-job Weiterbildungsmöglichkeiten Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
       "descriptionByLocale": {
-        "de": "## Descrizione\nIhr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten auf der Akutpflegestation, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. Für unsere interdisziplinäre Akutpflegestation suchen wir für den Winter 2026/27 eine\n\n## Mansioni\n- Professionelle Betreuung unserer Patientinnen und Patienten\n- Selbständiges und patientenorientiertes Arbeiten im Schichtbetrieb des Akutbereichs (Medizin, Chirurgie, Orthopädie und Geburtshilfe)\n- Aktive Mitgestaltung innerhalb des Teams in enger interdisziplinärer Zusammenarbeit\n\n## Requisiti\n- Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung\n- Berufserfahrung erwünscht, vorzugsweise mit guten Kenntnissen im Akutbereich/Unfallchirurgie\n- Flexibilität und Belastbarkeit mit hoher Sozialkompetenz und Verantwortung\n- Einfühlungsvermögen und patientenorientiertes Denken und Handeln\n\n## Cosa offriamo\n- Abwechslungsreiche und verantwortungsvolle Aufgabe in kollegialem Team\n- Attraktive Anstellungsbedingungen und Sozialleistungen; Personalhaus vorhanden\n- Persönliche Entwicklung mit interessanten on-the-job Weiterbildungsmöglichkeiten\n- Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas\n\n## Contatto\n- Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50\n- wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12\n- oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "it": "Descrizione La vostra esperienza di cura, assistenza competente e pianificazione non sono solo apprezzati dai nostri pazienti presso la stazione di cura acuta, ma anche dal nostro team medico. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavoriamo in un'operazione gestibile ma importante per la regione, manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. Per la nostra unità interdisciplinare di assistenza acuta stiamo cercando un ## Mansioni - Assistenza professionale dei nostri pazienti - Lavoro autonomo e orientato al paziente nel funzionamento a turni dell'area acuta (medicina, chirurgia, ortopedia e aiuto per il tempo libero) - Partecipazione attiva all'interno del team in stretta collaborazione interdisciplinare ## Requisiti - Formazione completa come specialista Health EFZ o formazione equivalente.",
         "en": "Descrizione Your nursing expertise, competent care and planning assistance are not only appreciated by our patients at the acute care station, but also by our medical team. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but important operation for the region, we maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. For our interdisciplinary acute care unit we are looking for a ## Mansioni - Professional care of our patients - Self-employed and patient-oriented work in the shift operation of the acute area (medicine, surgery, orthopaedics and birth aid) - Active participation within the team in close interdisciplinary cooperation ## Requisiti - Complete training as a specialist Health EFZ or equivalent training Personnel house available - Personal development with interesting on-the-job training opportunities - Versatile sports and leisure activities in the highest town of Europe ## Contatto - For further information, please contact Mrs. Bea Heeb, department manager Care, at +41 81 414 82 50 - as well as our HRM recruitment team at number +41 81 414 84 12 - or via e-mail jobs@chspitaldavos.",
+        "de": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten auf der Akutpflegestation, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere interdisziplinäre Akutpflegestation suchen wir für den Winter 2026/27 eine | Professionelle Betreuung unserer Patientinnen und Patienten Selbständiges und patientenorientiertes Arbeiten im Schichtbetrieb des Akutbereichs (Medizin, Chirurgie, Orthopädie und Geburtshilfe) Aktive Mitgestaltung innerhalb des Teams in enger interdisziplinärer Zusammenarbeit | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung Berufserfahrung erwünscht, vorzugsweise mit guten Kenntnissen im Akutbereich/Unfallchirurgie Flexibilität und Belastbarkeit mit hoher Sozialkompetenz und Verantwortung Einfühlungsvermögen und patientenorientiertes Denken und Handeln | Abwechslungsreiche und verantwortungsvolle Aufgabe in kollegialem Team Attraktive Anstellungsbedingungen und Sozialleistungen; Personalhaus vorhanden Persönliche Entwicklung mit interessanten on-the-job Weiterbildungsmöglichkeiten Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "fr": "Descrizione Votre expertise en soins infirmiers, vos soins compétents et votre aide à la planification sont appréciés non seulement par nos patients au poste de soins actifs, mais aussi par notre équipe médicale. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais importante pour la région, nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. Pour notre unité interdisciplinaire de soins aigus, nous recherchons un ## Mansioni - Soins professionnels de nos patients - Travail indépendant et axé sur le patient dans le fonctionnement de la zone aiguë (médecine, chirurgie, orthopédie et aide à la naissance) - Participation active au sein de l'équipe dans une coopération interdisciplinaire étroite ## Requisiti - Formation complète en tant que spécialiste de la santé EFZ ou formation équivalente Maison du personnel disponible - Développement personnel avec des possibilités de formation en cours d'emploi intéressantes - Sports polyvalents et activités de loisirs dans la plus haute ville d'Europe ## Contatto - Pour plus d'informations, veuillez contacter Mme Bea Heeb, chef de département Care, au +41 81 414 82 50 - ainsi que notre équipe de recrutement HRM au numéro +41 81 414 84 12 - ou par e-mail jobs@chspitaldavos."
       },
       "location": "Davos",
@@ -510,7 +513,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:26.639Z",
+      "crawledAt": "2026-04-15T22:20:01.760Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -525,14 +528,30 @@
       "postedDate": "2026-04-15",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/674/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflege",
       "contractDuration": "temporary",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
+        "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
+        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -544,29 +563,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
-        ],
-        "fr": [
-          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
-        "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
-        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
-      ]
+      }
     },
     {
       "id": "spital-davos-e17fbb3d927d",
       "slug": "salute-specialistica-80-100-spital-davos-davos",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-80-100-spital-davos-ch",
         "it": "salute-specialistica-80-100-spital-davos-davos",
         "en": "specialist-health-80-100-spital-davos-davos",
+        "de": "fachperson-gesundheit-80-100-spital-davos-ch",
         "fr": "sante-specialisee-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -574,16 +579,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Fachperson Gesundheit 80-100%",
       "titleByLocale": {
-        "de": "Fachperson Gesundheit 80-100%",
         "it": "Salute specialistica 80-100 %",
         "en": "Specialist Health 80-100 %",
+        "de": "Fachperson Gesundheit 80-100%",
         "fr": "Santé spécialisée 80-100 %"
       },
       "description": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten auf der Akutpflegestation, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere interdisziplinäre Akutpflegestation suchen wir ab August 2026 | Professionelle Betreuung unserer Patientinnen und Patienten Selbständiges und patientenorientiertes Arbeiten im Schichtbetrieb des Akutbereichs (Medizin, Chirurgie, Orthopädie und Geburtshilfe) Aktive Mitgestaltung innerhalb des Teams in enger interdisziplinärer Zusammenarbeit | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung Berufserfahrung erwünscht, vorzugsweise mit guten Kenntnissen im Akutbereich/Unfallchirurgie Flexibilität und Belastbarkeit mit hoher Sozialkompetenz und Verantwortung Einfühlungsvermögen und patientenorientiertes Denken und Handeln | Abwechslungsreiche und verantwortungsvolle Aufgabe in kollegialem Team Attraktive Anstellungsbedingungen und Sozialleistungen; Personalhaus vorhanden Persönliche Entwicklung mit interessanten on-the-job Weiterbildungsmöglichkeiten Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
       "descriptionByLocale": {
-        "de": "## Descrizione\n- Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten auf der Akutpflegestation, sondern auch von unserem ärztlichen Team geschätzt.\n- Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig.\n- Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden.\n- Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n- Für unsere interdisziplinäre Akutpflegestation suchen wir ab August 2026\n\n## Mansioni\n- Professionelle Betreuung unserer Patientinnen und Patienten\n- Selbständiges und patientenorientiertes Arbeiten im Schichtbetrieb des Akutbereichs (Medizin, Chirurgie, Orthopädie und Geburtshilfe)\n- Aktive Mitgestaltung innerhalb des Teams in enger interdisziplinärer Zusammenarbeit\n\n## Requisiti\n- Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung\n- Berufserfahrung erwünscht, vorzugsweise mit guten Kenntnissen im Akutbereich/Unfallchirurgie\n- Flexibilität und Belastbarkeit mit hoher Sozialkompetenz und Verantwortung\n- Einfühlungsvermögen und patientenorientiertes Denken und Handeln\n\n## Cosa offriamo\n- Abwechslungsreiche und verantwortungsvolle Aufgabe in kollegialem Team\n- Attraktive Anstellungsbedingungen und Sozialleistungen; Personalhaus vorhanden\n- Persönliche Entwicklung mit interessanten on-the-job Weiterbildungsmöglichkeiten\n- Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas\n\n## Contatto\n- Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "it": "Descrizione - Le vostre competenze di cura, assistenza competente e di pianificazione non sono solo apprezzate dai nostri pazienti alla stazione di cura acuta, ma anche dal nostro team medico. - No. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. - No. Ci preoccupiamo anche del benessere dei nostri dipendenti. - Con noi lavori in un'operazione gestibile ma importante per la regione, manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura e le numerose opportunità sportive e ricreative di Davos. - Per la nostra unità di assistenza interdisciplinare acuta, stiamo cercando assistenza sanitaria professionale da agosto 2026 ## Mansioni - Assistenza professionale dei nostri pazienti - Lavoro autonomo e orientato al paziente nel funzionamento a turni dell'area acuta (medicina, chirurgia, ortopedia e cura dei bambini) - Partecipazione attiva all'interno del team in stretta collaborazione interdisciplinare ## Requisiti - Formazione completa come specialista Health EFZamo o formazione equivalente.",
         "en": "Descrizione - Your nursing expertise, competent care and planning assistance are not only appreciated by our patients at the acute care station, but also by our medical team. - As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. - We also care about the well-being of our employees. - With us you work in a manageable but important operation for the region, we maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. - For our interdisciplinary acute care unit, we are looking for occupational health care from August 2026 ## Mansioni - Professional care of our patients - Self-employed and patient-oriented work in the shift operation of the acute area (medicine, surgery, orthopaedics and child care) - Active participation within the team in close interdisciplinary cooperation ## Requisiti - Complete training as a specialist Health EFZamo or equivalent training Personnel house available - Personal development with interesting on-the-job training opportunities - Versatile sports and leisure activities in the highest town of Europe ## Contatto - For further information, please contact Mrs. Bea Heeb, department manager Care, at +41 81 414 82 50 as well as our HRM recruitment team at +41 81 414 84 12 or via e-mail jobs@spitaldavos.ch.",
+        "de": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten auf der Akutpflegestation, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere interdisziplinäre Akutpflegestation suchen wir ab August 2026 | Professionelle Betreuung unserer Patientinnen und Patienten Selbständiges und patientenorientiertes Arbeiten im Schichtbetrieb des Akutbereichs (Medizin, Chirurgie, Orthopädie und Geburtshilfe) Aktive Mitgestaltung innerhalb des Teams in enger interdisziplinärer Zusammenarbeit | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung Berufserfahrung erwünscht, vorzugsweise mit guten Kenntnissen im Akutbereich/Unfallchirurgie Flexibilität und Belastbarkeit mit hoher Sozialkompetenz und Verantwortung Einfühlungsvermögen und patientenorientiertes Denken und Handeln | Abwechslungsreiche und verantwortungsvolle Aufgabe in kollegialem Team Attraktive Anstellungsbedingungen und Sozialleistungen; Personalhaus vorhanden Persönliche Entwicklung mit interessanten on-the-job Weiterbildungsmöglichkeiten Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "fr": "Descrizione - Votre expertise en soins infirmiers, vos soins compétents et votre aide à la planification sont appréciés non seulement par nos patients au poste de soins actifs, mais aussi par notre équipe médicale. - Oui. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. - Oui. Nous nous soucions également du bien-être de nos employés. - Avec nous vous travaillez dans une opération gérable mais importante pour la région, nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités sportives et de loisirs de Davos. - Pour notre unité interdisciplinaire de soins aigus, nous recherchons des soins de santé au travail à partir d'août 2026 ## Mansioni - Soins professionnels de nos patients - Travail indépendant et axé sur le patient dans le fonctionnement du poste de travail de la zone aiguë (médecine, chirurgie, orthopédie et garde d'enfants) - Participation active au sein de l'équipe dans une coopération interdisciplinaire étroite ## Requisiti - Formation complète en tant que spécialiste de la santé EFZamo ou formation équivalente Maison du personnel disponible - Développement personnel avec des possibilités de formation en cours d'emploi intéressantes - Activités sportives et de loisirs polyvalentes dans la plus haute ville d'Europe ## Contatto - Pour plus d'informations, veuillez contacter Mme Bea Heeb, responsable de département Care, au +41 81 414 82 50 ainsi que notre équipe de recrutement HRM au +41 81 414 84 12 ou par e-mail jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -591,7 +596,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:25.739Z",
+      "crawledAt": "2026-04-15T22:20:00.790Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -606,27 +611,15 @@
       "postedDate": "2026-04-15",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/702/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflege",
       "contractDuration": "permanent",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-spital-davos-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-80-100-spital-davos-ch"
@@ -638,34 +631,45 @@
           "fachperson-gesundheit-80-100-spital-davos-ch"
         ]
       },
-      "previousSlugs": [
-        "fachperson-gesundheit-80-100-spital-davos-ch"
-      ]
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-davos-29ac7209082d",
-      "slug": "rettungssanitater-in-50-100-spital-davos-ch",
+      "slug": "assistente-di-soccorso-50-100-spital-davos-davos",
       "slugByLocale": {
+        "it": "assistente-di-soccorso-50-100-spital-davos-davos",
+        "en": "rescue-assistant-in-50-100-spital-davos-davos",
         "de": "rettungssanitater-in-50-100-spital-davos-ch",
-        "it": "rettungssanitater-in-50-100-spital-davos-ch",
-        "en": "rettungssanitater-in-50-100-spital-davos-ch",
-        "fr": "rettungssanitater-in-50-100-spital-davos-ch"
+        "fr": "assistant-de-sauvetage-50-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
       "companyDomain": "spitaldavos.ch",
       "title": "Rettungssanitäter:in 50-100%",
       "titleByLocale": {
-        "de": "Rettungssanitäter:in 50-100%",
         "it": "Assistente di soccorso 50-100 %",
         "en": "Rescue Assistant:in 50-100 %",
+        "de": "Rettungssanitäter:in 50-100%",
         "fr": "Assistant de sauvetage 50-100 %"
       },
       "description": "Unser spitalgebundener Rettungsdienst ist IVR-zertifiziert und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Mit den saisonalen Schwankungen ergeben sich abwechslungsreiche Schwerpunkte. In der ruhigeren Zwischensaison pflegen wir unsere Fortbildung und kümmern uns um unseren Qualitätsfortschritt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir nach Vereinbarung eine:n | Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung Organisation in Ressorts aufgeteilt, Mitarbeit in einem Ressort auf Wunsch möglich | Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen Führerausweis der Kategorie B/C1/D1 vorhanden | Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässen) Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Ebenfalls dürfen Sie sich auch beim HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch wenden.",
       "descriptionByLocale": {
-        "de": "## Descrizione\nUnser spitalgebundener Rettungsdienst ist IVR-zertifiziert und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze.\nMit den saisonalen Schwankungen ergeben sich abwechslungsreiche Schwerpunkte.\nIn der ruhigeren Zwischensaison pflegen wir unsere Fortbildung und kümmern uns um unseren Qualitätsfortschritt.\nAls Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig.\nGenauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden.\nBei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb.\nWir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\nZur Verstärkung unseres Rettungsteams suchen wir nach Vereinbarung eine:n\n\n## Mansioni\n- Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung\n- Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen\n- Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes\n- Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung\n- Organisation in Ressorts aufgeteilt, Mitarbeit in einem Ressort auf Wunsch möglich\n\n## Requisiti\n- Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom\n- Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen\n- Führerausweis der Kategorie B/C1/D1 vorhanden\n\n## Cosa offriamo\n- Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination\n- Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässen)\n- Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus\n- Interessante Fort- und Weiterbildungsmöglichkeiten\n\n## Contatto\n- Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung.\n- Ebenfalls dürfen Sie sich auch beim HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch wenden.",
         "it": "Descrizione Il nostro servizio di soccorso è certificato IVR e con i suoi veicoli di soccorso fornisce circa 1.500 usi primari e secondari. Con fluttuazioni stagionali, ci sono una varietà di focus. Nella stagione intermedia più tranquilla manteniamo la nostra formazione e ci prendiamo cura dei nostri progressi di qualità. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavori in un'operazione gestibile ma estremamente importante per la regione. Manteniamo un ambiente di lavoro collegiale e godiamo della vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. Al fine di rafforzare il nostro team di soccorso, stiamo cercando un:n ## Mansioni - Azione competente e garanzia della prima assistenza medica - assistenza paziente secondo le delegazioni di competenza, algoritmi e istruzioni - valutazione del paziente e monitoraggio orientato alla situazione durante l'uso - conformità con le linee guida e la partecipazione di responsabilità per la garanzia della qualità - organizzazione divisa in resort, cooperazione in un reparto su richiesta possibile ## Requisiti - Dipl. Rescue Rescue: in HF o diploma straniero riconosciuto - Engagement and Responsibility con competenze specialistiche e sociali - Leadership ID della categoria B/C1/D1 disponibile ## Cosa offriamo - Team motivato e professionale in una rinomata destinazione turistica internazionale - Un ambiente emozionante con un servizio pensione a vari eventi (tra cui WEF, Spengler Cup, Ligaspiele des HCD e Coppa del Mondo) Per ulteriori informazioni, la nostra co-direzione del servizio di soccorso Marcel Schawalder e Achim Thamm è disponibile sotto il numero di telefono +41 81 414 84 18 e via email dp-reda@spitaldavos.ch. - No. Puoi anche contattare il team di reclutamento HRM al numero +41 81 414 84 12 o via email job@spitaldavos.ch.",
         "en": "Descrizione Our spital-bound rescue service is IVR-certified and with its rescue vehicles provides about 1,500 primary and secondary uses. With seasonal fluctuations, there are a variety of focuses. In the quieter intermediate season we maintain our training and take care of our quality progress. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but extremely important operation for the region. We maintain a collegial working environment and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. In order to strengthen our rescue team, we are looking for a:n ## Mansioni - Competent action and assurance of the first medical care - patient care according to competence delegation, algorithms and instructions - patient assessment and situation-oriented monitoring during use - compliance with the guidelines and participation of responsibility for quality assurance - organization divided into resorts, cooperation in a department on request possible ## Requisiti - Dipl. Rescue Rescue: in HF or recognised foreign diploma - Engagement and Responsibility with specialist and social competencies - Leadership ID of category B/C1/D1 available ## Cosa offriamo - Motivated and professional team in a well-known international holiday destination - An exciting environment with a pension service at various events (including WEF, Spengler Cup, Ligaspiele des HCD and World Cup events) Your own personal house - Interesting possibilities for continuing and continuing training ## Contatto - For further information, our co-direction of the rescue service Marcel Schawalder and Achim Thamm is available under the telephone number +41 81 414 84 18 as well as via email dp-reda@spitaldavos.ch. - You can also contact the HRM recruitment team at +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
+        "de": "Unser spitalgebundener Rettungsdienst ist IVR-zertifiziert und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Mit den saisonalen Schwankungen ergeben sich abwechslungsreiche Schwerpunkte. In der ruhigeren Zwischensaison pflegen wir unsere Fortbildung und kümmern uns um unseren Qualitätsfortschritt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir nach Vereinbarung eine:n | Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung Organisation in Ressorts aufgeteilt, Mitarbeit in einem Ressort auf Wunsch möglich | Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen Führerausweis der Kategorie B/C1/D1 vorhanden | Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässen) Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Ebenfalls dürfen Sie sich auch beim HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch wenden.",
         "fr": "Descrizione Notre service de sauvetage à cracher est certifié IVR et avec ses véhicules de sauvetage fournit environ 1 500 utilisations primaires et secondaires. Avec les fluctuations saisonnières, il y a une variété d'orientations. Dans la saison intermédiaire plus calme, nous maintenons notre entraînement et prenons soin de notre progrès de qualité. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais extrêmement importante pour la région. Nous maintenons un environnement de travail collégial et profitons de la proximité de la nature ainsi que des nombreuses possibilités sportives et de loisirs de Davos. Afin de renforcer notre équipe de secours, nous recherchons:n ## Mansioni - Action compétente et assurance des premiers soins médicaux - soins aux patients selon la délégation de compétences, algorithmes et instructions - évaluation des patients et surveillance de la situation en cours d'utilisation - respect des lignes directrices et participation de la responsabilité pour l'assurance de la qualité - organisation divisée en stations, coopération dans un département sur demande possible ## Requisiti - Dipl. Rescue Rescue: en HF ou diplôme étranger reconnu - Engagement et responsabilité avec des compétences spécialisées et sociales - Leadership ID de catégorie B/C1/D1 disponible ## Cosa offriamo - Équipe motivée et professionnelle dans une destination de vacances internationale bien connue - Un environnement passionnant avec un service de pension lors de divers événements (y compris WEF, Spengler Cup, Ligaspiele des HCD et les événements de Coupe du monde) Votre maison personnelle - Possibilités intéressantes de formation continue et continue ## Contatto - Pour plus d'informations, notre co-direction du service de sauvetage Marcel Schawalder et Achim Thamm est disponible sous le numéro de téléphone +41 81 414 84 18 ainsi que par email dp-reda@spitaldavos.ch. - Oui. Vous pouvez également contacter l'équipe de recrutement HRM au +41 81 414 84 12 ou par email jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -673,7 +677,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/703/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:24.816Z",
+      "crawledAt": "2026-04-15T22:19:59.836Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -688,14 +692,30 @@
       "postedDate": "2026-04-15",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/703/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Rettungsdienst",
       "contractDuration": "permanent",
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
+      "previousSlugs": [
+        "rettungssanitater-in-50-100-spital-davos-ch",
+        "paramedic-50-100-spital-davos-davos",
+        "paramedico-50-100-spital-davos-davos",
+        "samu-50-100-spital-davos-davos"
+      ],
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rettungssanitater-in-50-100-spital-davos-ch"
+        ],
+        "en": [
+          "rettungssanitater-in-50-100-spital-davos-ch"
+        ],
+        "fr": [
+          "rettungssanitater-in-50-100-spital-davos-ch"
+        ]
+      },
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -707,38 +727,32 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "previousSlugs": [
-        "paramedic-50-100-spital-davos-davos",
-        "paramedico-50-100-spital-davos-davos",
-        "samu-50-100-spital-davos-davos"
-      ]
+      }
     },
     {
       "id": "spital-davos-4316d2e9f777",
-      "slug": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+      "slug": "salvataggio-suit-2027-50-100-spital-davos-davos",
       "slugByLocale": {
-        "de": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
-        "it": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+        "it": "salvataggio-suit-2027-50-100-spital-davos-davos",
         "en": "rescue-rescue-in-summer-season-2027-50-100-spital-davos-davos",
-        "fr": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+        "de": "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+        "fr": "suit-de-sauvetage-de-sauvetage-2027-50-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
       "companyDomain": "spitaldavos.ch",
       "title": "Rettungssanitäter:in Sommersaison 2027 (50 - 100%)",
       "titleByLocale": {
-        "de": "Rettungssanitäter:in Sommersaison 2027 (50 - 100%)",
         "it": "Salvataggio Suit 2027 (50 - 100%)",
         "en": "Rescue Rescue:in summer season 2027 (50 - 100%)",
+        "de": "Rettungssanitäter:in Sommersaison 2027 (50 - 100%)",
         "fr": "Suit de sauvetage de sauvetage 2027 (50 - 100%)"
       },
       "description": "Unser spitalgebundener Rettungsdienst ist IVR-zertifiziert und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Unser Sommer ist geprägt durch zahlreiche Events, wir kümmern uns aber auch um Motorradbegeisterte, Reisegäste und Sporttreibende. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Sommersaison 2027 (Mai - Oktober 2027) | Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung Organisation in Resorts aufgeteilt, Mitarbeit in einem Resort auf Wunsch möglich | Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen Führerausweis der Kategorie B/C1/D1 vorhanden | Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Sportevents Persönliche Entwicklung mit interessanten internen Fortbildungsmöglichkeiten Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
       "descriptionByLocale": {
-        "de": "## Descrizione\n\nUnser spitalgebundener Rettungsdienst ist IVR-zertifiziert und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Unser Sommer ist geprägt durch zahlreiche Events, wir kümmern uns aber auch um Motorradbegeisterte, Reisegäste und Sporttreibende. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Sommersaison 2027 (Mai - Oktober 2027) |\n\n## Mansioni\n\n- Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung\n- Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen\n- Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes\n- Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung\n- Organisation in Resorts aufgeteilt, Mitarbeit in einem Resort auf Wunsch möglich\n\n## Requisiti\n\n- Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom\n- Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen\n- Führerausweis der Kategorie B/C1/D1 vorhanden\n\n## Cosa offriamo\n\n- Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination\n- Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Sportevents\n- Persönliche Entwicklung mit interessanten internen Fortbildungsmöglichkeiten\n- Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus\n- Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas\n\n## Contatto\n\n- Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung.\n- Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "it": "Descrizione Il nostro servizio di soccorso è certificato IVR e con i suoi veicoli di soccorso fornisce circa 1.500 usi primari e secondari. La nostra estate è caratterizzata da numerosi eventi, ma ci occupiamo anche di appassionati di moto, viaggiatori e sportivi. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavori in un'operazione gestibile ma estremamente importante per la regione. Manteniamo un ambiente di lavoro collegiale e godiamo della vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. # Per rafforzare il nostro team di soccorso, stiamo cercando la stagione estiva 2027 (maggio - ottobre 2027) | ## Mansioni - Azione competente e garanzia di prima assistenza medica - Assistenza paziente secondo le delegazioni di competenza, algoritmi e istruzioni - Valutazione paziente e monitoraggio orientato alla situazione durante l'uso - conformità con le linee guida e la partecipazione di responsabilità per la garanzia della qualità - organizzazione divisa in resort, possibile cooperazione in un resort Assistenti di soccorso: in HF o diploma straniero riconosciuto - impegno e Un ambiente emozionante con servizi di soccorso a vari eventi sportivi - Sviluppo personale con interessanti opzioni di formazione interna - Condizioni interessanti e vantaggi sociali; propria casa personale - Versatile attività sportive e ricreative nella più alta città d'Europa ## Contatto - Per ulteriori informazioni, la nostra co-direzione del servizio di soccorso Marcel Schawalder e Achim Thamm è disponibile a +41 81 414 84 18 così come via email dp-reda@spitaldavos. - No. Naturalmente, il nostro team di reclutamento HRM risponderà alle vostre domande al numero +41 81 414 84 12 o via email job@spitaldavos.ch.",
         "en": "Descrizione Our spital-bound rescue service is IVR-certified and with its rescue vehicles provides about 1,500 primary and secondary uses. Our summer is characterized by numerous events, but we also take care of motorcycle enthusiasts, travelers and sportsmen. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but extremely important operation for the region. We maintain a collegial working environment and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. | To strengthen our rescue team, we are looking for the summer season 2027 (May - October 2027) | ## Mansioni - Competent action and assurance of first medical care - Patient care according to competence delegation, algorithms and instructions - Patient assessment and situation-oriented monitoring during use - compliance with the guidelines and participation of responsibility for quality assurance - organization divided into resorts, possible cooperation in a resort Rescue Assistants:in HF or recognised foreign diploma - commitment and responsibility with specialist and social competencies - Leadership ID of category B/C1/D1 available ## Cosa offriamo - Motivated and professional team in a well-known international holiday destination - An exciting environment with rescue services to various sports events - Personal development with interesting internal training options - Attractive conditions and social benefits; own personal house - Versatile sports and leisure activities in the highest city of Europe ## Contatto - For further information, our co-direction of the rescue service Marcel Schawalder and Achim Thamm is available at +41 81 414 84 18 as well as by email dp-reda@spitaldavos.ch. - Of course, our HRM recruitment team will answer your questions at +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
+        "de": "Unser spitalgebundener Rettungsdienst ist IVR-zertifiziert und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Unser Sommer ist geprägt durch zahlreiche Events, wir kümmern uns aber auch um Motorradbegeisterte, Reisegäste und Sporttreibende. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Sommersaison 2027 (Mai - Oktober 2027) | Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung Organisation in Resorts aufgeteilt, Mitarbeit in einem Resort auf Wunsch möglich | Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen Führerausweis der Kategorie B/C1/D1 vorhanden | Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Sportevents Persönliche Entwicklung mit interessanten internen Fortbildungsmöglichkeiten Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "fr": "Descrizione Notre service de sauvetage à cracher est certifié IVR et avec ses véhicules de sauvetage fournit environ 1 500 utilisations primaires et secondaires. Notre été se caractérise par de nombreux événements, mais nous prenons également soin des amateurs de moto, des voyageurs et des sportifs. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais extrêmement importante pour la région. Nous maintenons un environnement de travail collégial et profitons de la proximité de la nature ainsi que des nombreuses possibilités sportives et de loisirs de Davos. - Oui. Pour renforcer notre équipe de sauvetage, nous recherchons la saison estivale 2027 (mai - octobre 2027).## Mansioni - Action compétente et assurance des premiers soins médicaux - Soins aux patients selon la délégation de compétence, algorithmes et instructions - Évaluation des patients et suivi de situation en cours d'utilisation - respect des lignes directrices et participation de la responsabilité pour l'assurance de la qualité - organisation divisée en resorts, coopération possible dans un resort Rescue Assistants:en HF ou diplôme étranger reconnu - engagement et responsabilité avec compétences spécialisées et sociales - Leadership ID de catégorie B/C1/D1 disponible ## Cosa offriamo - Équipe motivée et professionnelle dans une destination de vacances internationale bien connue - Un environnement passionnant avec des services de sauvetage à divers événements sportifs - Développement personnel avec des options d'entraînement internes intéressantes - Conditions attractives et avantages sociaux; propre maison personnelle - Activités sportives et de loisirs polyvalents dans la plus haute ville d'Europe ## Contatto - Pour plus d'informations, notre co-direction du service de sauvetage Marcel Schawalder et Achim Thamm est disponible au +41 81 414 84 18 ainsi que par email dp-reda@spitaldavos.ch. - Oui. Bien sûr, notre équipe de recrutement HRM répondra à vos questions au +41 81 414 84 12 ou par email jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -746,7 +760,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:23.906Z",
+      "crawledAt": "2026-04-15T22:19:58.883Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -761,14 +775,25 @@
       "postedDate": "2026-04-15",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/704/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Rettungsdienst",
       "contractDuration": "temporary",
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+        ],
+        "fr": [
+          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -780,16 +805,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z"
+      }
     },
     {
       "id": "spital-davos-de7548da7f47",
       "slug": "analizzatore-di-salvataggio-nella-stagione-invernale-2026-27-50-100-spital-davos-davos",
       "slugByLocale": {
-        "de": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
         "it": "analizzatore-di-salvataggio-nella-stagione-invernale-2026-27-50-100-spital-davos-davos",
         "en": "rescue-rescue-in-winter-season-2026-27-50-100-spital-davos-davos",
+        "de": "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
         "fr": "analyseur-de-sauvetage-en-hiver-2026-27-50-100-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -797,16 +821,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Rettungssanitäter:in Wintersaison 2026-27 (50-100%)",
       "titleByLocale": {
-        "de": "Rettungssanitäter:in Wintersaison 2026-27 (50-100%)",
         "it": "Analizzatore di salvataggio nella stagione invernale 2026-27 (50-100%)",
         "en": "Rescue Rescue:in winter season 2026-27 (50-100%)",
+        "de": "Rettungssanitäter:in Wintersaison 2026-27 (50-100%)",
         "fr": "Analyseur de sauvetage en hiver 2026-27 (50-100%)"
       },
       "description": "Unser spitalgebundener Rettungsdienst ist IVR-anerkannt und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Im Winter liegt der Schwerpunkt bei der Traumatologie und es findet eine enge Zusammenarbeit mit den Pistenrettungsdiensten statt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Wintersaison 2026/27 | Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung Organisation in Resorts aufgeteilt, Mitarbeit in einem Resort auf Wunsch möglich | Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen Führerausweis der Kategorie B/C1/D1 vorhanden | Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässen) Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
       "descriptionByLocale": {
-        "de": "## Descrizione\n- Unser spitalgebundener Rettungsdienst ist IVR-anerkannt und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Im Winter liegt der Schwerpunkt bei der Traumatologie und es findet eine enge Zusammenarbeit mit den Pistenrettungsdiensten statt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n\n## Mansioni\n- Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung\n- Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen\n- Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes\n- Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung\n- Organisation in Resorts aufgeteilt, Mitarbeit in einem Resort auf Wunsch möglich\n\n## Requisiti\n- Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom\n- Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen\n- Führerausweis der Kategorie B/C1/D1 vorhanden\n\n## Cosa offriamo\n- Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination\n- Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässen)\n- Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus\n- Interessante Fort- und Weiterbildungsmöglichkeiten\n\n## Contatto\n- Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung.\n- Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "it": "Descrizione - Il nostro servizio di soccorso è accreditato IVR e con i suoi mezzi di soccorso fornisce circa 1.500 operazioni primarie e secondarie. In inverno, il focus è sulla traumatologia e la stretta collaborazione con i servizi di soccorso pista si svolge. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavori in un'operazione gestibile ma estremamente importante per la regione. Manteniamo un ambiente di lavoro collegiale e godiamo della vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. ## Mansioni - Azione competente e garanzia della prima assistenza medica - Assistenza ai pazienti in base a delega di competenze, algoritmi e istruzioni - Valutazione paziente e monitoraggio orientato alla situazione durante l'uso - conformità alle linee guida e supporto della responsabilità per l'assicurazione della qualità - organizzazione divisa in resort, cooperazione in un resort possibile su richiesta ## Requisiti - Dipl. Rescue Rescue: in HF o diploma straniero riconosciuto - Engagement and Responsibility con competenze specialistiche e sociali - Leadership ID della categoria B/C1/D1 disponibile ## Cosa offriamo - Team motivato e professionale in una rinomata destinazione turistica internazionale - Un ambiente emozionante con un servizio pensione a vari eventi (tra cui WEF, Spengler Cup, Ligaspiele des HCD e Coppa del Mondo) Per ulteriori informazioni, la nostra co-direzione del servizio di soccorso Marcel Schawalder e Achim Thamm è disponibile sotto il numero di telefono +41 81 414 84 18 e via email dp-reda@spitaldavos.ch. - No. Naturalmente, il nostro team di reclutamento HRM risponderà alle vostre domande al numero +41 81 414 84 12 o via email job@spitaldavos.ch.",
         "en": "Descrizione - Our spital-bound rescue service is IVR-accredited and with its rescue vehicles provides around 1'500 primary and secondary operations. In winter, the focus is on traumatology and close cooperation with the piste rescue services takes place. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but extremely important operation for the region. We maintain a collegial working environment and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. ## Mansioni - Competent action and assurance of first medical care - Patient care according to competence delegation, algorithms and instructions - Patient assessment and situation-oriented monitoring during use - compliance with the guidelines and support of responsibility for quality assurance - organization divided into resorts, cooperation in a resort possible on request ## Requisiti - Dipl. Rescue Rescue: in HF or recognised foreign diploma - Engagement and Responsibility with specialist and social competencies - Leadership ID of category B/C1/D1 available ## Cosa offriamo - Motivated and professional team in a well-known international holiday destination - An exciting environment with a pension service at various events (including WEF, Spengler Cup, Ligaspiele des HCD and World Cup events) Your own personal house - Interesting possibilities for continuing and continuing training ## Contatto - For further information, our co-direction of the rescue service Marcel Schawalder and Achim Thamm is available under the telephone number +41 81 414 84 18 as well as via email dp-reda@spitaldavos.ch. - Of course, our HRM recruitment team will answer your questions at +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
+        "de": "Unser spitalgebundener Rettungsdienst ist IVR-anerkannt und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Im Winter liegt der Schwerpunkt bei der Traumatologie und es findet eine enge Zusammenarbeit mit den Pistenrettungsdiensten statt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Wintersaison 2026/27 | Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung Organisation in Resorts aufgeteilt, Mitarbeit in einem Resort auf Wunsch möglich | Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenzen Führerausweis der Kategorie B/C1/D1 vorhanden | Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässen) Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "fr": "Descrizione - Notre service de sauvetage lié à la crache est accrédité IVR et avec ses véhicules de sauvetage fournit environ 1'500 opérations primaires et secondaires. En hiver, l'accent est mis sur la traumatologie et une collaboration étroite avec les services de sauvetage sur piste a lieu. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais extrêmement importante pour la région. Nous maintenons un environnement de travail collégial et profitons de la proximité de la nature ainsi que des nombreuses possibilités sportives et de loisirs de Davos. ## Mansioni - Action compétente et assurance des premiers soins médicaux - Soins aux patients selon la délégation de compétences, les algorithmes et les instructions - Évaluation des patients et surveillance de la situation en cours d'utilisation - respect des lignes directrices et soutien de la responsabilité en matière d'assurance de la qualité - organisation divisée en stations, coopération dans un resort possible sur demande ## Requisiti - Dipl. Rescue Rescue: en HF ou diplôme étranger reconnu - Engagement et responsabilité avec des compétences spécialisées et sociales - Leadership ID de catégorie B/C1/D1 disponible ## Cosa offriamo - Équipe motivée et professionnelle dans une destination de vacances internationale bien connue - Un environnement passionnant avec un service de pension lors de divers événements (y compris WEF, Spengler Cup, Ligaspiele des HCD et les événements de Coupe du monde) Votre maison personnelle - Possibilités intéressantes de formation continue et continue ## Contatto - Pour plus d'informations, notre co-direction du service de sauvetage Marcel Schawalder et Achim Thamm est disponible sous le numéro de téléphone +41 81 414 84 18 ainsi que par email dp-reda@spitaldavos.ch. - Oui. Bien sûr, notre équipe de recrutement HRM répondra à vos questions au +41 81 414 84 12 ou par email jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -814,7 +838,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/705/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:23.206Z",
+      "crawledAt": "2026-04-15T22:19:57.873Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -829,27 +853,15 @@
       "postedDate": "2026-04-15",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/705/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Rettungsdienst",
       "contractDuration": "temporary",
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "previousSlugs": [
+        "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
@@ -861,9 +873,19 @@
           "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
         ]
       },
-      "previousSlugs": [
-        "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch"
-      ]
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-davos-325847ee938c",
@@ -896,7 +918,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/700/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:22.242Z",
+      "crawledAt": "2026-04-15T22:19:56.912Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -951,6 +973,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -968,9 +991,9 @@
       "id": "spital-davos-501ff253ad6d",
       "slug": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
       "slugByLocale": {
-        "de": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "it": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
         "en": "employees-in-stock-management-based-on-hours-unregular-operations-spital-davos-davos",
+        "de": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "fr": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
       },
       "company": "Spital Davos",
@@ -978,16 +1001,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Mitarbeiter:in Lagerbewirtschaftung auf Stundenbasis (unregelmässige Einsätze)",
       "titleByLocale": {
-        "de": "Mitarbeiter:in Lagerbewirtschaftung auf Stundenbasis (unregelmässige Einsätze)",
         "it": "Collaboratore/trice Lagerbewirtschaftung auf Stundenbasis (unregelmässige Einsätze)",
         "en": "Employees:in stock management based on hours (unregular operations)",
+        "de": "Mitarbeiter:in Lagerbewirtschaftung auf Stundenbasis (unregelmässige Einsätze)",
         "fr": "Collaborateur/trice Lagerbewirtschaftung auf Stundenbasis (unregelmässige Einsätze)"
       },
       "description": "Mit Ihrer Erfahrung in Einkauf und Materialbewirtschaftung sorgen Sie für gut organisierte Lagerbestände und leisten damit einen wichtigen Beitrag für das Wohl unserer Patientinnen und Patienten. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per Juli 2026 oder nach Vereinbarung suchen wir eine:n | Wareneingänge in Empfang nehmen, kontrollieren und verbuchen Material für die Stationen zur Abholung bereitstellen oder ausliefern Bestellungen vorbereiten und auslösen, Auftragsbestätigungen kontrollieren Lagerbestände überwachen und nachrüsten Interne und externe Anfragen bearbeiten Mitarbeit bei Stammdatenverwaltung (Artikeldaten, Abteilungen, Lieferanten, Preise) | Abgeschlossene Berufsausbildung im kaufmännischen oder technischen Bereich oder im Gesundheitswesen Erfahrung in Einkauf und Materialbewirtschaftung, Opale-Kenntnisse von grossem Vorteil Ökonomisch und ökologisch denkende Persönlichkeit mit hoher Flexibilität Ausgeprägte Kommunikationsfähigkeit und Dienstleistungsbereitschaft Physische Belastbarkeit | Einsätze hauptsächlich in den Wintermonaten vormittags sowie zusätzlich Vertretungen bei Ferien/Abwesenheiten im Team Verantwortungsvoller Aufgabenbereich in einem kleinen und professionellen Team Sorgfältige Einführung und interdisziplinäre Zusammenarbeit im Spitalumfeld Attraktive Anstellungsbedingungen und Sozialleistungen Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europa | Für weitere Auskünfte steht Ihnen unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 wie auch per Email (jobs@spitaldavos.ch) gerne zur Verfügung.",
       "descriptionByLocale": {
-        "de": "## Descrizione\nMit Ihrer Erfahrung in Einkauf und Materialbewirtschaftung sorgen Sie für gut organisierte Lagerbestände und leisten damit einen wichtigen Beitrag für das Wohl unserer Patientinnen und Patienten. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\nPer Juli 2026 oder nach Vereinbarung suchen wir eine:n\n\n## Mansioni\n- Wareneingänge in Empfang nehmen, kontrollieren und verbuchen\n- Material für die Stationen zur Abholung bereitstellen oder ausliefern\n- Bestellungen vorbereiten und auslösen, Auftragsbestätigungen kontrollieren\n- Lagerbestände überwachen und nachrüsten\n- Interne und externe Anfragen bearbeiten\n- Mitarbeit bei Stammdatenverwaltung (Artikeldaten, Abteilungen, Lieferanten, Preise)\n\n## Requisiti\n- Abgeschlossene Berufsausbildung im kaufmännischen oder technischen Bereich oder im Gesundheitswesen\n- Erfahrung in Einkauf und Materialbewirtschaftung, Opale-Kenntnisse von grossem Vorteil\n- Ökonomisch und ökologisch denkende Persönlichkeit mit hoher Flexibilität\n- Ausgeprägte Kommunikationsfähigkeit und Dienstleistungsbereitschaft\n- Physische Belastbarkeit\n\n## Cosa offriamo\n- Einsätze hauptsächlich in den Wintermonaten vormittags sowie zusätzlich Vertretungen bei Ferien/Abwesenheiten im Team\n- Verantwortungsvoller Aufgabenbereich in einem kleinen und professionellen Team\n- Sorgfältige Einführung und interdisziplinäre Zusammenarbeit im Spitalumfeld\n- Attraktive Anstellungsbedingungen und Sozialleistungen\n- Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europa\n\n## Contatto\n- Für weitere Auskünfte steht Ihnen unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 wie auch per Email (jobs@spitaldavos.ch) gerne zur Verfügung.",
         "it": "Descrizione Con la vostra esperienza nell'acquisto e nella gestione dei materiali, vi assicurerete stock ben organizzati e dare un contributo importante al benessere dei nostri pazienti. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavoriamo in un'operazione gestibile ma importante per la regione, manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. Nel mese di luglio 2026 o d'accordo, stiamo cercando un:n ## Mansioni - per ricevere, controllare e prenotare merci - per fornire o fornire materiali per le stazioni di raccolta - per preparare e avviare gli ordini, per monitorare le conferme d'ordine - per dotare stock e per elaborare indagini interne ed esterne - per collaborare con i dati master, dipartimenti, fornitori, prezzi.",
         "en": "Descrizione With your experience in purchasing and material management, you will ensure well-organized stocks and make an important contribution to the well-being of our patients. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but important operation for the region, we maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. In July 2026 or by agreement, we are looking for a:n ## Mansioni - to receive, control and book goods - to provide or deliver materials for the stations for collection - to prepare and initiate orders, to monitor order confirmations - to equip stock and to process internal and external enquiries - to cooperate with master data, departments, suppliers, prices.",
+        "de": "Mit Ihrer Erfahrung in Einkauf und Materialbewirtschaftung sorgen Sie für gut organisierte Lagerbestände und leisten damit einen wichtigen Beitrag für das Wohl unserer Patientinnen und Patienten. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per Juli 2026 oder nach Vereinbarung suchen wir eine:n | Wareneingänge in Empfang nehmen, kontrollieren und verbuchen Material für die Stationen zur Abholung bereitstellen oder ausliefern Bestellungen vorbereiten und auslösen, Auftragsbestätigungen kontrollieren Lagerbestände überwachen und nachrüsten Interne und externe Anfragen bearbeiten Mitarbeit bei Stammdatenverwaltung (Artikeldaten, Abteilungen, Lieferanten, Preise) | Abgeschlossene Berufsausbildung im kaufmännischen oder technischen Bereich oder im Gesundheitswesen Erfahrung in Einkauf und Materialbewirtschaftung, Opale-Kenntnisse von grossem Vorteil Ökonomisch und ökologisch denkende Persönlichkeit mit hoher Flexibilität Ausgeprägte Kommunikationsfähigkeit und Dienstleistungsbereitschaft Physische Belastbarkeit | Einsätze hauptsächlich in den Wintermonaten vormittags sowie zusätzlich Vertretungen bei Ferien/Abwesenheiten im Team Verantwortungsvoller Aufgabenbereich in einem kleinen und professionellen Team Sorgfältige Einführung und interdisziplinäre Zusammenarbeit im Spitalumfeld Attraktive Anstellungsbedingungen und Sozialleistungen Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europa | Für weitere Auskünfte steht Ihnen unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 wie auch per Email (jobs@spitaldavos.ch) gerne zur Verfügung.",
         "fr": "Descrizione Grâce à votre expérience en matière d'achat et de gestion du matériel, vous assurerez une bonne organisation des stocks et apporterez une contribution importante au bien-être de nos patients. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais importante pour la région, nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. En juillet 2026 ou par accord, nous sommes à la recherche d'un:n ## Mansioni - pour recevoir, contrôler et livrer des marchandises - pour fournir ou livrer des matériaux pour les stations de collecte - pour préparer et lancer des commandes, pour surveiller les confirmations de commande - pour équiper les stocks et pour traiter les demandes internes et externes - pour coopérer avec les données maîtresses, les départements, les fournisseurs, les prix."
       },
       "location": "Davos",
@@ -995,7 +1018,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/701/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:21.346Z",
+      "crawledAt": "2026-04-15T22:19:55.932Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1010,12 +1033,12 @@
       "postedDate": "2026-04-15",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/701/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Logistik",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
@@ -1024,9 +1047,76 @@
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-davos-55d89256903a",
+      "slug": "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
+        "it": "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
+        "en": "senior-physician-internal-medicine-80-100-spital-davos-davos",
+        "fr": "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos"
+      },
+      "company": "Spital Davos",
+      "companyKey": "spital-davos",
+      "companyDomain": "spitaldavos.ch",
+      "title": "Oberärztin/Oberarzt Innere Medizin (80-100%)",
+      "titleByLocale": {
+        "de": "Oberärztin/Oberarzt Innere Medizin (80-100%)",
+        "it": "Oberärztin/Oberarzt Innere Medizin (80-100%)",
+        "en": "Oberärztin/Oberarzt Innere Medizin (80-100%)",
+        "fr": "Oberärztin/Oberarzt Innere Medizin (80-100%)"
+      },
+      "description": "Wollen Sie moderne Innere Medizin in ihrer ganzen Breite und Komplexität erleben? Selbständigkeit erlangen, Verantwortung übernehmen und Know-How perfektionieren? Und dies in einer attraktiven Arbeits-, Tourismus-, und Kongressdestination? Dann sind Sie im jungen Team der Inneren Medizin Davos richtig! Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per 1. August 2026 oder nach Vereinbarung suchen wir eine:n | Sie versorgen evidenzbasiert und auf hohem Niveau stationäre und ambulante Patientinnen und Patienten gemeinsam mit den Assistenz-, und Kaderärztinnen/ -ärzte der Medizin Mitarbeit auf Notfallstation, in der Ultraschalldiagnostik, auf IMC-Station sowie in Spezialbereichen wie der Dialyse Mitwirken in der Aus- und Weiterbildung sowie bei der Weiterentwicklung der Abteilung Teilnahme am internistischen Hintergrunddienst | Facharzttitel Allgemeine Innere Medizin oder kurz vor Abschluss Gute Kenntnisse der Abdomensonographie (ideal Aufbaukurs absolviert) Erfahrung und Interesse an Multimorbidität und komplexen Patienten (A-Spitalerfahrung erwünscht) Freude an Teamarbeit, Führung und Übernahme von Verantwortung | Fundierte Kenntnisse in evidenzbasierter moderner Innerer Medizin sowie Notfallmedizin Supervisiertes und zunehmend selbständiges Arbeiten je nach Ausbildungsstand Ausbildung in Sonographie Abdomen und POCUS bis Erwerb Fähigkeitsausweis Führungserfahrung sowie Ausbildung in Führung, Teaching, Supervision, Feedback Möglichkeit der supervisierten oder selbständigen Praxistätigkeit Weiterbildungsmöglichkeiten intern sowie extern, aktive Teilnahme und Mitwirkung an Kongressen (Mediweek) Leben und Arbeiten in einer attraktiver Region mit umfangreichen Freizeitmöglichkeiten | Für weitere Informationen steht Ihnen Dr. med. Daniel Ribeiro, Chefarzt & Departementsleiter Innere Medizin, unter Tel. +41 81 414 81 56, oder EMail dribeiro@spitaldavos.ch gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "de": "Wollen Sie moderne Innere Medizin in ihrer ganzen Breite und Komplexität erleben? Selbständigkeit erlangen, Verantwortung übernehmen und Know-How perfektionieren? Und dies in einer attraktiven Arbeits-, Tourismus-, und Kongressdestination? Dann sind Sie im jungen Team der Inneren Medizin Davos richtig! Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per 1. August 2026 oder nach Vereinbarung suchen wir eine:n | Sie versorgen evidenzbasiert und auf hohem Niveau stationäre und ambulante Patientinnen und Patienten gemeinsam mit den Assistenz-, und Kaderärztinnen/ -ärzte der Medizin Mitarbeit auf Notfallstation, in der Ultraschalldiagnostik, auf IMC-Station sowie in Spezialbereichen wie der Dialyse Mitwirken in der Aus- und Weiterbildung sowie bei der Weiterentwicklung der Abteilung Teilnahme am internistischen Hintergrunddienst | Facharzttitel Allgemeine Innere Medizin oder kurz vor Abschluss Gute Kenntnisse der Abdomensonographie (ideal Aufbaukurs absolviert) Erfahrung und Interesse an Multimorbidität und komplexen Patienten (A-Spitalerfahrung erwünscht) Freude an Teamarbeit, Führung und Übernahme von Verantwortung | Fundierte Kenntnisse in evidenzbasierter moderner Innerer Medizin sowie Notfallmedizin Supervisiertes und zunehmend selbständiges Arbeiten je nach Ausbildungsstand Ausbildung in Sonographie Abdomen und POCUS bis Erwerb Fähigkeitsausweis Führungserfahrung sowie Ausbildung in Führung, Teaching, Supervision, Feedback Möglichkeit der supervisierten oder selbständigen Praxistätigkeit Weiterbildungsmöglichkeiten intern sowie extern, aktive Teilnahme und Mitwirkung an Kongressen (Mediweek) Leben und Arbeiten in einer attraktiver Region mit umfangreichen Freizeitmöglichkeiten | Für weitere Informationen steht Ihnen Dr. med. Daniel Ribeiro, Chefarzt & Departementsleiter Innere Medizin, unter Tel. +41 81 414 81 56, oder EMail dribeiro@spitaldavos.ch gerne zur Verfügung.",
+        "it": "Wollen Sie moderne Innere Medizin in ihrer ganzen Breite und Komplexität erleben? Selbständigkeit erlangen, Verantwortung übernehmen und Know-How perfektionieren? Und dies in einer attraktiven Arbeits-, Tourismus-, und Kongressdestination? Dann sind Sie im jungen Team der Inneren Medizin Davos richtig! Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per 1. August 2026 oder nach Vereinbarung suchen wir eine:n | Sie versorgen evidenzbasiert und auf hohem Niveau stationäre und ambulante Patientinnen und Patienten gemeinsam mit den Assistenz-, und Kaderärztinnen/ -ärzte der Medizin Mitarbeit auf Notfallstation, in der Ultraschalldiagnostik, auf IMC-Station sowie in Spezialbereichen wie der Dialyse Mitwirken in der Aus- und Weiterbildung sowie bei der Weiterentwicklung der Abteilung Teilnahme am internistischen Hintergrunddienst | Facharzttitel Allgemeine Innere Medizin oder kurz vor Abschluss Gute Kenntnisse der Abdomensonographie (ideal Aufbaukurs absolviert) Erfahrung und Interesse an Multimorbidität und komplexen Patienten (A-Spitalerfahrung erwünscht) Freude an Teamarbeit, Führung und Übernahme von Verantwortung | Fundierte Kenntnisse in evidenzbasierter moderner Innerer Medizin sowie Notfallmedizin Supervisiertes und zunehmend selbständiges Arbeiten je nach Ausbildungsstand Ausbildung in Sonographie Abdomen und POCUS bis Erwerb Fähigkeitsausweis Führungserfahrung sowie Ausbildung in Führung, Teaching, Supervision, Feedback Möglichkeit der supervisierten oder selbständigen Praxistätigkeit Weiterbildungsmöglichkeiten intern sowie extern, aktive Teilnahme und Mitwirkung an Kongressen (Mediweek) Leben und Arbeiten in einer attraktiver Region mit umfangreichen Freizeitmöglichkeiten | Für weitere Informationen steht Ihnen Dr. med. Daniel Ribeiro, Chefarzt & Departementsleiter Innere Medizin, unter Tel. +41 81 414 81 56, oder EMail dribeiro@spitaldavos.ch gerne zur Verfügung.",
+        "en": "Wollen Sie moderne Innere Medizin in ihrer ganzen Breite und Komplexität erleben? Selbständigkeit erlangen, Verantwortung übernehmen und Know-How perfektionieren? Und dies in einer attraktiven Arbeits-, Tourismus-, und Kongressdestination? Dann sind Sie im jungen Team der Inneren Medizin Davos richtig! Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per 1. August 2026 oder nach Vereinbarung suchen wir eine:n | Sie versorgen evidenzbasiert und auf hohem Niveau stationäre und ambulante Patientinnen und Patienten gemeinsam mit den Assistenz-, und Kaderärztinnen/ -ärzte der Medizin Mitarbeit auf Notfallstation, in der Ultraschalldiagnostik, auf IMC-Station sowie in Spezialbereichen wie der Dialyse Mitwirken in der Aus- und Weiterbildung sowie bei der Weiterentwicklung der Abteilung Teilnahme am internistischen Hintergrunddienst | Facharzttitel Allgemeine Innere Medizin oder kurz vor Abschluss Gute Kenntnisse der Abdomensonographie (ideal Aufbaukurs absolviert) Erfahrung und Interesse an Multimorbidität und komplexen Patienten (A-Spitalerfahrung erwünscht) Freude an Teamarbeit, Führung und Übernahme von Verantwortung | Fundierte Kenntnisse in evidenzbasierter moderner Innerer Medizin sowie Notfallmedizin Supervisiertes und zunehmend selbständiges Arbeiten je nach Ausbildungsstand Ausbildung in Sonographie Abdomen und POCUS bis Erwerb Fähigkeitsausweis Führungserfahrung sowie Ausbildung in Führung, Teaching, Supervision, Feedback Möglichkeit der supervisierten oder selbständigen Praxistätigkeit Weiterbildungsmöglichkeiten intern sowie extern, aktive Teilnahme und Mitwirkung an Kongressen (Mediweek) Leben und Arbeiten in einer attraktiver Region mit umfangreichen Freizeitmöglichkeiten | Für weitere Informationen steht Ihnen Dr. med. Daniel Ribeiro, Chefarzt & Departementsleiter Innere Medizin, unter Tel. +41 81 414 81 56, oder EMail dribeiro@spitaldavos.ch gerne zur Verfügung.",
+        "fr": "Wollen Sie moderne Innere Medizin in ihrer ganzen Breite und Komplexität erleben? Selbständigkeit erlangen, Verantwortung übernehmen und Know-How perfektionieren? Und dies in einer attraktiven Arbeits-, Tourismus-, und Kongressdestination? Dann sind Sie im jungen Team der Inneren Medizin Davos richtig! Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per 1. August 2026 oder nach Vereinbarung suchen wir eine:n | Sie versorgen evidenzbasiert und auf hohem Niveau stationäre und ambulante Patientinnen und Patienten gemeinsam mit den Assistenz-, und Kaderärztinnen/ -ärzte der Medizin Mitarbeit auf Notfallstation, in der Ultraschalldiagnostik, auf IMC-Station sowie in Spezialbereichen wie der Dialyse Mitwirken in der Aus- und Weiterbildung sowie bei der Weiterentwicklung der Abteilung Teilnahme am internistischen Hintergrunddienst | Facharzttitel Allgemeine Innere Medizin oder kurz vor Abschluss Gute Kenntnisse der Abdomensonographie (ideal Aufbaukurs absolviert) Erfahrung und Interesse an Multimorbidität und komplexen Patienten (A-Spitalerfahrung erwünscht) Freude an Teamarbeit, Führung und Übernahme von Verantwortung | Fundierte Kenntnisse in evidenzbasierter moderner Innerer Medizin sowie Notfallmedizin Supervisiertes und zunehmend selbständiges Arbeiten je nach Ausbildungsstand Ausbildung in Sonographie Abdomen und POCUS bis Erwerb Fähigkeitsausweis Führungserfahrung sowie Ausbildung in Führung, Teaching, Supervision, Feedback Möglichkeit der supervisierten oder selbständigen Praxistätigkeit Weiterbildungsmöglichkeiten intern sowie extern, aktive Teilnahme und Mitwirkung an Kongressen (Mediweek) Leben und Arbeiten in einer attraktiver Region mit umfangreichen Freizeitmöglichkeiten | Für weitere Informationen steht Ihnen Dr. med. Daniel Ribeiro, Chefarzt & Departementsleiter Innere Medizin, unter Tel. +41 81 414 81 56, oder EMail dribeiro@spitaldavos.ch gerne zur Verfügung."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://recruitingapp-2966.umantis.com/Vacancies/698/Description/1",
+      "source": "Spital Davos Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-15T22:19:54.978Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Assistenza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/698/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "D2 Innere Medizin",
+      "contractDuration": "permanent",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1039,8 +1129,214 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "retranslationAttempts": 2
+      "firstSeenAt": "2026-04-15T22:20:10.023Z"
+    },
+    {
+      "id": "spital-davos-9804891a5da1",
+      "slug": "spitex-assistente-sanitario-50-100-spital-davos-davos",
+      "slugByLocale": {
+        "de": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
+        "it": "spitex-assistente-sanitario-50-100-spital-davos-davos",
+        "en": "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "fr": "spitex-assistant-de-sante-50-100-spital-davos-davos"
+      },
+      "company": "Spital Davos",
+      "companyKey": "spital-davos",
+      "companyDomain": "spitaldavos.ch",
+      "title": "Spitex: Fachperson Gesundheit (50-100%)",
+      "titleByLocale": {
+        "de": "Spitex: Fachperson Gesundheit (50-100%)",
+        "it": "Spitex: Fachperson Gesundheit (50-100%)",
+        "en": "Spitex: Fachperson Gesundheit (50-100%)",
+        "fr": "Spitex: Fachperson Gesundheit (50-100%)"
+      },
+      "description": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+      "descriptionByLocale": {
+        "de": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "it": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "en": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "fr": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
+      "source": "Spital Davos Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-15T22:19:54.035Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Assistenza",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/696/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Spitex",
+      "contractDuration": "permanent",
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "pensum": "50 - 100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-15T22:20:10.023Z"
+    },
+    {
+      "id": "spital-davos-016659b12606",
+      "slug": "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
+      "slugByLocale": {
+        "de": "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
+        "it": "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
+        "en": "care-assistant-srk-spitex-50-100-spital-davos-davos",
+        "fr": "assistant-de-soins-srk-spitex-50-100-spital-davos-davos"
+      },
+      "company": "Spital Davos",
+      "companyKey": "spital-davos",
+      "companyDomain": "spitaldavos.ch",
+      "title": "Pflegehilfe SRK Spitex 50-100%",
+      "titleByLocale": {
+        "de": "Pflegehilfe SRK Spitex 50-100%",
+        "it": "Pflegehilfe SRK Spitex 50-100%",
+        "en": "Pflegehilfe SRK Spitex 50-100%",
+        "fr": "Pflegehilfe SRK Spitex 50-100%"
+      },
+      "description": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Pflege und Betreuung unserer Klientinnen und Klienten zu Hause Begleitung und Unterstützung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten | Zertifikat Pflegehelfer:in SRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Anstellungsbedingungen und spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+      "descriptionByLocale": {
+        "de": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Pflege und Betreuung unserer Klientinnen und Klienten zu Hause Begleitung und Unterstützung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten | Zertifikat Pflegehelfer:in SRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Anstellungsbedingungen und spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "it": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Pflege und Betreuung unserer Klientinnen und Klienten zu Hause Begleitung und Unterstützung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten | Zertifikat Pflegehelfer:in SRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Anstellungsbedingungen und spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "en": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Pflege und Betreuung unserer Klientinnen und Klienten zu Hause Begleitung und Unterstützung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten | Zertifikat Pflegehelfer:in SRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Anstellungsbedingungen und spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "fr": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Pflege und Betreuung unserer Klientinnen und Klienten zu Hause Begleitung und Unterstützung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten | Zertifikat Pflegehelfer:in SRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Anstellungsbedingungen und spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
+      "source": "Spital Davos Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-15T22:19:53.062Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Assistenza",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/695/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Spitex",
+      "contractDuration": "permanent",
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "pensum": "50 - 100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-15T22:20:10.023Z"
+    },
+    {
+      "id": "spital-davos-6d242afb1d65",
+      "slug": "assistente-sanitario-efz-per-la-cura-a-lungo-termine-per-il-turno-di-notte-50-90-spital-davos-davos",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
+        "it": "assistente-sanitario-efz-per-la-cura-a-lungo-termine-per-il-turno-di-notte-50-90-spital-davos-davos",
+        "en": "healthcare-assistant-efz-for-long-term-care-for-night-shift-50-90-spital-davos-davos",
+        "fr": "assistant-de-sante-efz-pour-la-prise-en-charge-a-long-terme-pour-le-service-de-nuit-50-90-spital-davos-davos"
+      },
+      "company": "Spital Davos",
+      "companyKey": "spital-davos",
+      "companyDomain": "spitaldavos.ch",
+      "title": "Fachperson Gesundheit EFZ Langzeitpflege für Nachtwache (50-90%)",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit EFZ Langzeitpflege für Nachtwache (50-90%)",
+        "it": "Fachperson Gesundheit CFC Langzeitpflege per Nachtwache (50-90%)",
+        "en": "Fachperson Gesundheit EFZ Langzeitpflege für Nachtwache (50-90%)",
+        "fr": "Fachperson Gesundheit EFZ Langzeitpflege für Nachtwache (50-90%)"
+      },
+      "description": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern Selbständigkeit, Verantwortungsbewusstsein und Flexibilität Sehr gute mündliche und schriftliche Deutschkenntnisse Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln Ein Herz für ältere Menschen und ihre Geschichten | Selbständigkeit mit viel Eigenveranwortung und Vertrauen Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "de": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern Selbständigkeit, Verantwortungsbewusstsein und Flexibilität Sehr gute mündliche und schriftliche Deutschkenntnisse Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln Ein Herz für ältere Menschen und ihre Geschichten | Selbständigkeit mit viel Eigenveranwortung und Vertrauen Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
+        "it": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern Selbständigkeit, Verantwortungsbewusstsein und Flexibilität Sehr gute mündliche und schriftliche Deutschkenntnisse Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln Ein Herz für ältere Menschen und ihre Geschichten | Selbständigkeit mit viel Eigenveranwortung und Vertrauen Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
+        "en": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern Selbständigkeit, Verantwortungsbewusstsein und Flexibilität Sehr gute mündliche und schriftliche Deutschkenntnisse Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln Ein Herz für ältere Menschen und ihre Geschichten | Selbständigkeit mit viel Eigenveranwortung und Vertrauen Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
+        "fr": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern Selbständigkeit, Verantwortungsbewusstsein und Flexibilität Sehr gute mündliche und schriftliche Deutschkenntnisse Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln Ein Herz für ältere Menschen und ihre Geschichten | Selbständigkeit mit viel Eigenveranwortung und Vertrauen Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://recruitingapp-2966.umantis.com/Vacancies/679/Description/1",
+      "source": "Spital Davos Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-15T22:19:52.105Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Assistenza",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/679/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Pflegeheim",
+      "contractDuration": "permanent",
+      "pensumMin": 50,
+      "pensumMax": 90,
+      "pensum": "50 - 90%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-15T22:20:10.023Z"
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -1073,7 +1369,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:20.423Z",
+      "crawledAt": "2026-04-15T22:19:51.128Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1123,6 +1419,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1167,7 +1464,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:19.512Z",
+      "crawledAt": "2026-04-15T22:19:50.160Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1228,6 +1525,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1272,7 +1570,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T10:40:18.627Z",
+      "crawledAt": "2026-04-15T22:19:49.200Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1330,6 +1628,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1342,6 +1641,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "spital-davos-8569cb344e08",
+      "slug": "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
+        "it": "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
+        "en": "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
+        "fr": "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
+      },
+      "company": "Spital Davos",
+      "companyKey": "spital-davos",
+      "companyDomain": "spitaldavos.ch",
+      "title": "Dipl. Pflegefachperson HF Überwachungsstation 40- 60 %",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF Überwachungsstation 40- 60 %",
+        "it": "Dipl. Pflegefachperson HF Überwachungsstation 40- 60 %",
+        "en": "Dipl. Pflegefachperson HF Überwachungsstation 40- 60 %",
+        "fr": "Dipl. Pflegefachperson HF Überwachungsstation 40- 60 %"
+      },
+      "description": "Sie übernehmen eine sichere und kompetente Pflege und Betreuung von Patientinnen und Patienten auf unserer Überwachungsstation und im Aufwachraum. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Überwachungsstation suchen wir nach Vereinbarung | Betreuung von interdisziplinären Patientinnen und Patienten auf der Überwachungsstation sowie im Aufwachraum Durchführung von ambulanten Schmerztherapien Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen Begleitung der Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen Sorgfältige Dokumentation aller pflegerischen Tätigkeiten Professionelle und enge interdisziplinäre Zusammenarbeit mit verschiedenen Fachbereichen | Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung Nachdiplomzertifikat Überwachungspflege von Vorteil Hohes Verantwortungsbewusstsein und eine ausgeprägte Qualitätsorientierung Exakte und zuverlässige Arbeitsweise Empathische, motivierte und belastbare Persönlichkeit Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil Bereitschaft zur Arbeit in allen Schichten (3-Schicht-Betrieb) | Abwechslungsreiche, verantwortungsvolle Tätigkeit Aufgestelltes, engagiertes, dynamisches und kollegiales Team Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Priska von Gunten, Leitung Überwachungsstation via Mail pvongunten@spitaldavos.ch wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via Mail jobs@spitaldavos.ch gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "de": "Sie übernehmen eine sichere und kompetente Pflege und Betreuung von Patientinnen und Patienten auf unserer Überwachungsstation und im Aufwachraum. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Überwachungsstation suchen wir nach Vereinbarung | Betreuung von interdisziplinären Patientinnen und Patienten auf der Überwachungsstation sowie im Aufwachraum Durchführung von ambulanten Schmerztherapien Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen Begleitung der Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen Sorgfältige Dokumentation aller pflegerischen Tätigkeiten Professionelle und enge interdisziplinäre Zusammenarbeit mit verschiedenen Fachbereichen | Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung Nachdiplomzertifikat Überwachungspflege von Vorteil Hohes Verantwortungsbewusstsein und eine ausgeprägte Qualitätsorientierung Exakte und zuverlässige Arbeitsweise Empathische, motivierte und belastbare Persönlichkeit Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil Bereitschaft zur Arbeit in allen Schichten (3-Schicht-Betrieb) | Abwechslungsreiche, verantwortungsvolle Tätigkeit Aufgestelltes, engagiertes, dynamisches und kollegiales Team Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Priska von Gunten, Leitung Überwachungsstation via Mail pvongunten@spitaldavos.ch wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via Mail jobs@spitaldavos.ch gerne zur Verfügung.",
+        "it": "Sie übernehmen eine sichere und kompetente Pflege und Betreuung von Patientinnen und Patienten auf unserer Überwachungsstation und im Aufwachraum. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Überwachungsstation suchen wir nach Vereinbarung | Betreuung von interdisziplinären Patientinnen und Patienten auf der Überwachungsstation sowie im Aufwachraum Durchführung von ambulanten Schmerztherapien Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen Begleitung der Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen Sorgfältige Dokumentation aller pflegerischen Tätigkeiten Professionelle und enge interdisziplinäre Zusammenarbeit mit verschiedenen Fachbereichen | Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung Nachdiplomzertifikat Überwachungspflege von Vorteil Hohes Verantwortungsbewusstsein und eine ausgeprägte Qualitätsorientierung Exakte und zuverlässige Arbeitsweise Empathische, motivierte und belastbare Persönlichkeit Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil Bereitschaft zur Arbeit in allen Schichten (3-Schicht-Betrieb) | Abwechslungsreiche, verantwortungsvolle Tätigkeit Aufgestelltes, engagiertes, dynamisches und kollegiales Team Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Priska von Gunten, Leitung Überwachungsstation via Mail pvongunten@spitaldavos.ch wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via Mail jobs@spitaldavos.ch gerne zur Verfügung.",
+        "en": "Sie übernehmen eine sichere und kompetente Pflege und Betreuung von Patientinnen und Patienten auf unserer Überwachungsstation und im Aufwachraum. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Überwachungsstation suchen wir nach Vereinbarung | Betreuung von interdisziplinären Patientinnen und Patienten auf der Überwachungsstation sowie im Aufwachraum Durchführung von ambulanten Schmerztherapien Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen Begleitung der Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen Sorgfältige Dokumentation aller pflegerischen Tätigkeiten Professionelle und enge interdisziplinäre Zusammenarbeit mit verschiedenen Fachbereichen | Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung Nachdiplomzertifikat Überwachungspflege von Vorteil Hohes Verantwortungsbewusstsein und eine ausgeprägte Qualitätsorientierung Exakte und zuverlässige Arbeitsweise Empathische, motivierte und belastbare Persönlichkeit Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil Bereitschaft zur Arbeit in allen Schichten (3-Schicht-Betrieb) | Abwechslungsreiche, verantwortungsvolle Tätigkeit Aufgestelltes, engagiertes, dynamisches und kollegiales Team Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Priska von Gunten, Leitung Überwachungsstation via Mail pvongunten@spitaldavos.ch wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via Mail jobs@spitaldavos.ch gerne zur Verfügung.",
+        "fr": "Sie übernehmen eine sichere und kompetente Pflege und Betreuung von Patientinnen und Patienten auf unserer Überwachungsstation und im Aufwachraum. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Überwachungsstation suchen wir nach Vereinbarung | Betreuung von interdisziplinären Patientinnen und Patienten auf der Überwachungsstation sowie im Aufwachraum Durchführung von ambulanten Schmerztherapien Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen Begleitung der Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen Sorgfältige Dokumentation aller pflegerischen Tätigkeiten Professionelle und enge interdisziplinäre Zusammenarbeit mit verschiedenen Fachbereichen | Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung Nachdiplomzertifikat Überwachungspflege von Vorteil Hohes Verantwortungsbewusstsein und eine ausgeprägte Qualitätsorientierung Exakte und zuverlässige Arbeitsweise Empathische, motivierte und belastbare Persönlichkeit Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil Bereitschaft zur Arbeit in allen Schichten (3-Schicht-Betrieb) | Abwechslungsreiche, verantwortungsvolle Tätigkeit Aufgestelltes, engagiertes, dynamisches und kollegiales Team Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Priska von Gunten, Leitung Überwachungsstation via Mail pvongunten@spitaldavos.ch wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via Mail jobs@spitaldavos.ch gerne zur Verfügung."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
+      "source": "Spital Davos Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-15T22:19:48.226Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Assistenza",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/694/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "ÜWS/AWR",
+      "contractDuration": "permanent",
+      "pensumMin": 40,
+      "pensumMax": 60,
+      "pensum": "40 - 60%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-15T22:20:10.023Z"
     }
   ]
 }
