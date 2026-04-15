@@ -1097,13 +1097,14 @@ export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: P
  // so back/forward navigation restores the correct translated slug.
  if (typeof window !== 'undefined' && typeof history !== 'undefined') {
  const currentPath = window.location.pathname;
- const { route } = parsePath(currentPath);
+ const { route, locale: urlLocale } = parsePath(currentPath);
  if (route.activeTab === 'job-board' && route.jobSlug) {
- const locale = getLocale();
- const translated = translateJobSlug(route.jobSlug, locale);
+ // Use the locale parsed from the URL, NOT getLocale() which may
+ // still be 'it' if initLocale() hasn't run yet (race condition).
+ const translated = translateJobSlug(route.jobSlug, urlLocale);
  if (translated && translated !== route.jobSlug) {
  const correctedRoute = { ...route, jobSlug: translated };
- const newPath = buildPath(correctedRoute, locale);
+ const newPath = buildPath(correctedRoute, urlLocale);
  if (currentPath !== newPath) {
  history.replaceState({ route: correctedRoute }, '', newPath);
  }
