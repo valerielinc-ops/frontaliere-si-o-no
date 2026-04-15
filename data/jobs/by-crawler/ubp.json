@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-04-15T10:51:13.229Z",
+  "assembledAt": "2026-04-15T22:30:40.572Z",
   "jobs": [
     {
       "id": "ubp-5f6cbca8cc8d",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/240",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:51:10.608Z",
+      "crawledAt": "2026-04-15T22:30:33.863Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:10.114Z",
+      "crawledAt": "2026-04-15T22:30:33.364Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -140,8 +140,8 @@
       "previousSlugs": [
         "banking-operations-officer-ubp-ch"
       ],
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -153,8 +153,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-a6e1ffea0076",
@@ -187,7 +186,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/265",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:09.610Z",
+      "crawledAt": "2026-04-15T22:30:32.796Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -222,6 +221,7 @@
         "it-business-analyst-risk-management-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:18.243Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -266,7 +266,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:09.108Z",
+      "crawledAt": "2026-04-15T22:30:32.293Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -301,6 +301,7 @@
         "it-business-analyst-credit-it-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:17.703Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -345,7 +346,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/452",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:08.400Z",
+      "crawledAt": "2026-04-15T22:30:31.801Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -424,7 +425,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/514",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:07.916Z",
+      "crawledAt": "2026-04-15T22:30:31.246Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -503,7 +504,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:07.369Z",
+      "crawledAt": "2026-04-15T22:30:30.747Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -538,6 +539,7 @@
         "middle-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:16.025Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -573,7 +575,7 @@
       "description": "Mission \n The Investment Advisor is responsible for delivering tailored investment advice and portfolio strategies to high-net-worth and ultra-high-net-worth individuals. Working closely with Relationship Managers (RMs), the IA ensures client receive comprehensive, risk-appropriate investment solutions aligned with their goals, profile, and the Bank’s values.\n \n Main responsibilities \n Provide customized investment advice based on client objectives, risk appetite and market conditions\n Construct and optimize investment portfolios using a broad range of asset classes\n Present investment strategies clearly and transparently, including expected returns, risks and associated costs\n Conduct regular portfolio reviews and rebalancing recommendations\n Act as the trusted investment contact for existing clients, in partnership with RMs\n Support in deepening client relationships and enhancing retention through proactive investment insight and performance monitoring\n Assist in client meetings, prepare proposals and contribute to the acquisition and onboarding of new clients as well as for business retention\n Stay abreast of macroeconomic trends, financial markets and geopolitical developments\n Work closely with internal teams to align with the Bank’s investment strategy and core values\n Promote and explain investment products to RMs and relevant target advisory client groups\n Ensure full compliance with Swiss regulatory frameworks\n \n\n Your Profile \n University degree in Finance, economics or related field, or a qualification considered equivalent \n CFA, CIIA, CWMA or similar certification is a strong asset \n Strong knowledge of investment products and ability to execute trades for equities, derivatives, fixed income, bonds, warrants and mutual funds \n Min 5 years of experience in a similar position in Private Banking or a Financial Institution \n Strong communication and interpersonal skills, client focus, reliability, flexibility and stress resistant \n Good command of MS Office suite, portfolio analysis tools and banking software \n Perfectly fluent in French and English. Very good knowledge of Russian and any additional language skill would be an added value. \n Adaptability to work in an agile organization \n \n Others \n Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
         "it": "Missione Il Consulente per gli Investimenti è responsabile della fornitura di consulenza di investimento su misura e strategie di portafoglio per gli individui ad alto contenuto di rete e ad altissima qualità. Lavorando a stretto contatto con Relationship Managers (RM), l'IA assicura che il cliente riceva soluzioni di investimento complete e appropriate al rischio allineate con i loro obiettivi, profilo e valori della Banca. ## Responsabilità principali - Fornire consulenza d’investimento personalizzata in base agli obiettivi del cliente, all’appetito del rischio e alle condizioni di mercato - Costruire e ottimizzare i portafogli di investimento utilizzando una vasta gamma di classi di asset - Presente strategie di investimento chiaramente e trasparente, compresi i ritorni attesi, i rischi e i costi associati - Condurre regolari recensioni di portafoglio e raccomandazioni di riequilibrio - Atto come il contatto d’investimento fidato per i clienti esistenti, in collaborazione con RM - Sostegni Molto buona conoscenza del russo e qualsiasi abilità linguistica aggiuntiva sarebbe un valore aggiunto. - Adaptability to work in an agile organizzazione ## Others - Swiss Residence ## Core Competencies - Aderenza ai valori dell'azienda: Dedication, Conviction, Agility e Responsibility - Rispetto alle normative e alle direttive interne",
-        "en": "## Mission\nThe Investment Advisor is responsible for delivering tailored investment advice and portfolio strategies to high-net-worth and ultra-high-net-worth individuals. Working closely with Relationship Managers (RMs), the IA ensures client receive comprehensive, risk-appropriate investment solutions aligned with their goals, profile, and the Bank’s values.\n\n## Main responsibilities\n- Provide customized investment advice based on client objectives, risk appetite and market conditions\n- Construct and optimize investment portfolios using a broad range of asset classes\n- Present investment strategies clearly and transparently, including expected returns, risks and associated costs\n- Conduct regular portfolio reviews and rebalancing recommendations\n- Act as the trusted investment contact for existing clients, in partnership with RMs\n- Support in deepening client relationships and enhancing retention through proactive investment insight and performance monitoring\n- Assist in client meetings, prepare proposals and contribute to the acquisition and onboarding of new clients as well as for business retention\n- Stay abreast of macroeconomic trends, financial markets and geopolitical developments\n- Work closely with internal teams to align with the Bank’s investment strategy and core values\n- Promote and explain investment products to RMs and relevant target advisory client groups\n- Ensure full compliance with Swiss regulatory frameworks\n\n## Your Profile\n- University degree in Finance, economics or related field, or a qualification considered equivalent\n- CFA, CIIA, CWMA or similar certification is a strong asset\n- Strong knowledge of investment products and ability to execute trades for equities, derivatives, fixed income, bonds, warrants and mutual funds\n- Min 5 years of experience in a similar position in Private Banking or a Financial Institution\n- Strong communication and interpersonal skills, client focus, reliability, flexibility and stress resistant\n- Good command of MS Office suite, portfolio analysis tools and banking software\n- Perfectly fluent in French and English. Very good knowledge of Russian and any additional language skill would be an added value.\n- Adaptability to work in an agile organization\n\n## Others\n- Swiss Residence\n\n## Core Competencies\n- Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility\n- Compliance with regulations and internal directives",
+        "en": "Mission The Investment Advisor is responsible for delivering tailored investment advice and portfolio strategies to high-net-worth and ultra-high-net-worth individuals. Working closely with Relationship Managers (RMs), the IA ensures client receive comprehensive, risk-appropriate investment solutions aligned with their goals, profile, and the Bank’s values. Main responsibilities Provide customized investment advice based on client objectives, risk appetite and market conditions Construct and optimize investment portfolios using a broad range of asset classes Present investment strategies clearly and transparently, including expected returns, risks and associated costs Conduct regular portfolio reviews and rebalancing recommendations Act as the trusted investment contact for existing clients, in partnership with RMs Support in deepening client relationships and enhancing retention through proactive investment insight and performance monitoring Assist in client meetings, prepare proposals and contribute to the acquisition and onboarding of new clients as well as for business retention Stay abreast of macroeconomic trends, financial markets and geopolitical developments Work closely with internal teams to align with the Bank’s investment strategy and core values Promote and explain investment products to RMs and relevant target advisory client groups Ensure full compliance with Swiss regulatory frameworks Your Profile University degree in Finance, economics or related field, or a qualification considered equivalent CFA, CIIA, CWMA or similar certification is a strong asset Strong knowledge of investment products and ability to execute trades for equities, derivatives, fixed income, bonds, warrants and mutual funds Min 5 years of experience in a similar position in Private Banking or a Financial Institution Strong communication and interpersonal skills, client focus, reliability, flexibility and stress resistant Good command of MS Office suite, portfolio analysis tools and banking software Perfectly fluent in French and English. Very good knowledge of Russian and any additional language skill would be an added value. Adaptability to work in an agile organization Others Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
         "de": "Mission Der Investment Advisor ist verantwortlich für die Bereitstellung von maßgeschneiderten Investitionsberatungs- und Portfoliostrategien für hochvernetzte und ultrahochvernetzte Personen. In enger Zusammenarbeit mit Relationship Managers (RMs) sorgt die IA dafür, dass Kunden umfassende, risikogerechte Anlagelösungen erhalten, die mit ihren Zielen, Profilen und den Werten der Bank übereinstimmen. Die wichtigsten Aufgaben - Bieten Sie maßgeschneiderte Anlageberatung auf Basis von Kundenzielen, Risikobereitschaft und Marktbedingungen - Konstruieren und optimieren Sie Anlageportfolios mit einer breiten Palette von Asset-Klassen - Derzeitige Anlagestrategien klar und transparent, einschließlich erwartete Renditen, Risiken und damit verbundene Kosten - Führen Sie regelmäßige Portfoliobewertungen und rebalancing Empfehlungen - Aktivieren Sie den vertrauenswürdigen Anlagekontakt für bestehende Kunden, in Garantiepartnerschaft Sehr gute Kenntnisse über Russisch und jede zusätzliche Sprachfertigkeit wäre ein Mehrwert. - Anpassungsfähigkeit an die Arbeit in einer agilen Organisation - Swiss Residence / Core Competencies - Adherence to the company’s Values: Hingabe, Konviktion, Agilität und Verantwortung - Einhaltung von Vorschriften und internen Richtlinien",
         "fr": "Mission Le conseiller en investissement est chargé de fournir des conseils sur mesure en matière d'investissement et des stratégies de portefeuille aux personnes à haute valeur nette et à haute valeur nette. En travaillant en étroite collaboration avec les gestionnaires de relations (GR), l'IV veille à ce que le client reçoive des solutions d'investissement complètes et adaptées aux risques, alignées sur ses objectifs, son profil et les valeurs de la Banque. ## Principales responsabilités - Fournir des conseils sur mesure en matière d'investissement en fonction des objectifs du client, de l'appétit pour les risques et des conditions du marché - Créer et optimiser des portefeuilles d'investissement en utilisant un large éventail de classes d'actifs - Présenter des stratégies d'investissement de façon claire et transparente, y compris les rendements attendus, les risques et les coûts connexes - Effectuer régulièrement des examens du portefeuille et des recommandations de rééquilibrage - Agir en tant que contact de confiance pour les investissements des clients existants, en partenariat avec les RM - Aider à approfondir les relations avec les clients et à accroître la rétention grâce à une analyse proactive des investissements et à un suivi des performances - Aider les clients à tenir des réunions, à préparer des propositions et à contribuer à l'acquisition et à l'embarquement de nouveaux clients ainsi qu'à la rétention des entreprises - Restez au fait des tendances macroéconomiques, des marchés financiers et des développements géopolitiques - Travailler en étroite collaboration avec les équipes internes pour s'aligner sur la stratégie d'investissement et les valeurs de base de la Banque - Promouvoir et expliquer les produits d'investissement aux RM et aux groupes clients cibles pertinents - Assurer le plein respect des cadres réglementaires suisses ## Votre profil - Une très bonne connaissance du russe et de toute autre compétence linguistique serait une valeur ajoutée. - Aptitude au travail dans une organisation agile ## Autres - Résidence Suisse ## Compétences de base - Respect des valeurs de l'entreprise: Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et des directives internes"
       },
@@ -582,7 +584,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/542",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:06.877Z",
+      "crawledAt": "2026-04-15T22:30:30.249Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -616,8 +618,8 @@
       "previousSlugs": [
         "investment-advisor-ubp-ch"
       ],
-      "firstSeenAt": "2026-04-13T11:28:15.483Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T11:28:15.483Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -629,8 +631,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-d2b1b07b8727",
@@ -663,7 +664,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/403",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:06.326Z",
+      "crawledAt": "2026-04-15T22:30:29.746Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -748,7 +749,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:05.781Z",
+      "crawledAt": "2026-04-15T22:30:29.251Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -827,7 +828,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:05.156Z",
+      "crawledAt": "2026-04-15T22:30:28.742Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -914,7 +915,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/575",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:04.665Z",
+      "crawledAt": "2026-04-15T22:30:28.223Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -949,6 +950,7 @@
         "corporate-actions-specialist-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:13.238Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -993,7 +995,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/605",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:04.180Z",
+      "crawledAt": "2026-04-15T22:30:27.721Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1072,7 +1074,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:03.689Z",
+      "crawledAt": "2026-04-15T22:30:27.201Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1151,7 +1153,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/621",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:03.197Z",
+      "crawledAt": "2026-04-15T22:30:26.706Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1230,7 +1232,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/654",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:02.703Z",
+      "crawledAt": "2026-04-15T22:30:26.173Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1309,7 +1311,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/629",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:02.135Z",
+      "crawledAt": "2026-04-15T22:30:25.624Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1341,6 +1343,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:10.624Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1385,7 +1388,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/425",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:01.580Z",
+      "crawledAt": "2026-04-15T22:30:25.116Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1464,7 +1467,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:01.081Z",
+      "crawledAt": "2026-04-15T22:30:24.612Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1513,88 +1516,6 @@
       }
     },
     {
-      "id": "ubp-2fd20487f325",
-      "slug": "tax-specialista-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Tax Specialist",
-      "titleByLocale": {
-        "en": "Tax Specialist",
-        "it": "Tax Specialista",
-        "de": "Tax Spezialist",
-        "fr": "Tax Spécialiste"
-      },
-      "description": "Mission \n We are seeking a motivated and detail-oriented Tax Specialist to join our Client Documentation and Tax Services Department.\nAs part of the Fiscal Reporting team, you will play a key role in ensuring the accuracy and quality of our clients’ tax statements, while collaborating with various departments and external providers.\nThis is a unique opportunity to grow in a fast-paced, stimulating environment and contribute to impactful projects across the bank.\n \n Main responsibilities Tax Statement Review & Validation Review and validate tax statements for over 20 international jurisdictions, including Switzerland, France, Portugal, Mexico, and others.\n Ensure that tax documents comply with local and international regulations before being sent to clients.\n \n Data Quality Assurance Collaborate with our external provider to ensure the quality and accuracy of tax data before statement production.\n Identify and correct anomalies or inconsistencies in the data to ensure reliable reporting.\n \n Client Support & Front Office Interaction Address inquiries and requests from the Front Office regarding tax statements, providing clear and precise explanations.\n Manage tax document orders in coordination with internal teams and external providers.\n \n Cross-Functional Collaboration Work closely with Compliance, Operations, Front Office, and IT teams to ensure smooth management of tax processes.\n Actively participate in cross-functional projects involving process improvements, regulatory updates, or strategic initiatives.\n \n Project Management Contribute to side projects related to tax data, information systems, and operational processes.\n Participate in the continuous improvement of tools and processes in collaboration with IT and other departments.\n \n Regulatory Compliance & Reporting Stay updated on tax regulatory changes across the covered jurisdictions.\n Prepare detailed reports and maintain comprehensive documentation to meet audit and regulatory requirements.\n \n \n \n Your Profile Experience : Minimum 2 years in banking, with a focus on tax services.\n Skills : Strong knowledge of financial instruments (Equities, Bonds, Structured Products, Derivatives – Listed or OTC) and their specific characteristics. Familiarity with European income and gains taxation is a plus. Proficiency in Microsoft Office is essential.\n Languages : Fluency in French and English is required; German, Italian, Spanish, or Portuguese is a plus.\n Mindset : Proactive, solution-oriented, and eager to learn. Strong problem-solving skills, ability to work quickly and efficiently, and a team player who thrives in a fast-paced environment.\n \n \n Why Join Us Be part of a collaborative and innovative team.\n Work in a challenging yet rewarding environment.\n Develop your expertise and grow your career in a leading financial institution.\n\n \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "en": "Mission\n We are seeking a motivated and detail-oriented Tax Specialist to join our Client Documentation and Tax Services Department.\nAs part of the Fiscal Reporting team, you will play a key role in ensuring the accuracy and quality of our clients’ tax statements, while collaborating with various departments and external providers.\nThis is a unique opportunity to grow in a fast-paced, stimulating environment and contribute to impactful projects across the bank.\n\n Main responsibilities Tax Statement Review & Validation Review and validate tax statements for over 20 international jurisdictions, including Switzerland, France, Portugal, Mexico, and others.\n Ensure that tax documents comply with local and international regulations before being sent to clients.\n\n Data Quality Assurance Collaborate with our external provider to ensure the quality and accuracy of tax data before statement production.\n Identify and correct anomalies or inconsistencies in the data to ensure reliable reporting.\n\n Client Support & Front Office Interaction Address inquiries and requests from the Front Office regarding tax statements, providing clear and precise explanations.\n Manage tax document orders in coordination with internal teams and external providers.\n\n Cross-Functional Collaboration Work closely with Compliance, Operations, Front Office, and IT teams to ensure smooth management of tax processes.\n Actively participate in cross-functional projects involving process improvements, regulatory updates, or strategic initiatives.\n\n Project Management Contribute to side projects related to tax data, information systems, and operational processes.\n Participate in the continuous improvement of tools and processes in collaboration with IT and other departments.\n\n Regulatory Compliance & Reporting Stay updated on tax regulatory changes across the covered jurisdictions.\n Prepare detailed reports and maintain comprehensive documentation to meet audit and regulatory requirements.\n\n Your Profile Experience : Minimum 2 years in banking, with a focus on tax services.\n Skills : Strong knowledge of financial instruments (Equities, Bonds, Structured Products, Derivatives – Listed or OTC) and their specific characteristics. Familiarity with European income and gains taxation is a plus. Proficiency in Microsoft Office is essential.\n Languages : Fluency in French and English is required; German, Italian, Spanish, or Portuguese is a plus.\n Mindset : Proactive, solution-oriented, and eager to learn. Strong problem-solving skills, ability to work quickly and efficiently, and a team player who thrives in a fast-paced environment.\n\n Why Join Us Be part of a collaborative and innovative team.\n Work in a challenging yet rewarding environment.\n Develop your expertise and grow your career in a leading financial institution.\n\n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "it": "Missione Siamo alla ricerca di uno specialista fiscale motivato e orientato al dettaglio per aderire al nostro Servizio Clienti Documentazione e Servizi fiscali. Nell’ambito del team Fiscal Reporting, svolgerai un ruolo chiave nel garantire l’accuratezza e la qualità delle dichiarazioni fiscali dei nostri clienti, collaborando con vari dipartimenti e fornitori esterni. Questa è un'opportunità unica per crescere in un ambiente veloce e stimolante e contribuire a progetti impattanti in tutta la banca. Valutazione e convalida delle dichiarazioni fiscali per oltre 20 giurisdizioni internazionali, tra cui Svizzera, Francia, Portogallo, Messico e altri. Assicurarsi che i documenti fiscali siano conformi alle normative locali e internazionali prima di essere inviati ai clienti. Collabora con il nostro fornitore esterno per garantire la qualità e l'accuratezza dei dati fiscali prima della produzione delle dichiarazioni. Identificare e correggere anomalie o incongruenze nei dati per garantire una segnalazione affidabile. Inchieste di indirizzo e richieste dell'Ufficio anteriore relative alle dichiarazioni fiscali, fornendo spiegazioni chiare e precise. Gestire gli ordini dei documenti fiscali in coordinamento con le squadre interne e i fornitori esterni. Lavorare a stretto contatto con i team Compliance, Operations, Front Office e IT per garantire una gestione regolare dei processi fiscali. Partecipa attivamente a progetti interfunzionali che coinvolgono miglioramenti di processo, aggiornamenti normativi o iniziative strategiche. Contribuire a progetti collaterali relativi ai dati fiscali, sistemi informativi e processi operativi. Partecipa al continuo miglioramento di strumenti e processi in collaborazione con IT e altri reparti. Soggiornare aggiornato sulle modifiche normative fiscali nelle giurisdizioni coperte. Preparare report dettagliati e mantenere una documentazione completa per soddisfare i requisiti di audit e regolamentazione. La vostra esperienza di profilo: minimo 2 anni nel settore bancario, con un focus sui servizi fiscali. Competenze: Forte conoscenza degli strumenti finanziari (Equità, Obbligazioni, Prodotti Strutturati, Derivati – Elencati o OTC) e delle loro caratteristiche specifiche. La familiarità con il reddito europeo e i guadagni fiscali è un plus. La competenza in Microsoft Office è essenziale. Lingue: francese e inglese è richiesta la fluidità; tedesco, italiano, spagnolo o portoghese è un plus. Mindset: Proattivo, orientato alla soluzione, e desideroso di imparare. Forte capacità di problem solving, capacità di lavorare in modo rapido ed efficiente, e un giocatore di squadra che prospera in un ambiente veloce. Essere parte di un team collaborativo e innovativo. Lavorare in un ambiente stimolante ma gratificante. Sviluppa la tua esperienza e crescere la tua carriera in un istituto finanziario leader. Competenze fondamentali: Aderenza ai valori dell’azienda: Dedicazione, Convizione, Agility e Responsabilità - Rispetto dei regolamenti e delle direttive interne",
-        "de": "Mission Wir suchen einen motivierten und detailorientierten Steuerspezialisten, der sich unserer Kundendokumentation und Steuerserviceabteilung anschließt. Im Rahmen des Fiscal Reporting Teams spielen Sie eine Schlüsselrolle bei der Sicherstellung der Genauigkeit und Qualität der Steuererklärungen unserer Kunden, während Sie mit verschiedenen Abteilungen und externen Anbietern zusammenarbeiten. Dies ist eine einzigartige Gelegenheit, in einer schnelllebigen, anregenden Umgebung zu wachsen und zu schlagkräftigen Projekten in der gesamten Bank beizutragen. Hauptverantwortlichkeiten Steuererklärung & Validierung Überprüfung und Validierung Steuererklärungen für über 20 internationale Gerichtsbarkeiten, darunter Schweiz, Frankreich, Portugal, Mexiko und andere. Stellen Sie sicher, dass die Steuerdokumente vor der Übermittlung an Kunden lokale und internationale Vorschriften einhalten. Data Quality Assurance Zusammenarbeit mit unserem externen Anbieter, um die Qualität und Genauigkeit von Steuerdaten vor der Statement-Produktion zu gewährleisten. Identifizierung und Korrektur von Anomalien oder Unstimmigkeiten in den Daten, um eine zuverlässige Berichterstattung zu gewährleisten. Client Support & Front Office Interaction Address Anfragen und Anfragen des Front Office in Bezug auf Steuererklärungen, die klare und präzise Erklärungen. Steuerbelegaufträge in Abstimmung mit internen Teams und externen Anbietern verwalten. Cross-Functional Collaboration arbeitet eng mit Compliance-, Operations-, Front Office- und IT-Teams zusammen, um eine reibungslose Steuerung der Steuerprozesse sicherzustellen. Aktive Teilnahme an funktionsübergreifenden Projekten mit Prozessverbesserungen, regulatorischen Updates oder strategischen Initiativen. Projektmanagement Beitrag zu Nebenprojekten im Zusammenhang mit Steuerdaten, Informationssystemen und operativen Prozessen. Erwarten Sie die kontinuierliche Verbesserung von Werkzeugen und Prozessen in Zusammenarbeit mit IT und anderen Abteilungen. Regulatory Compliance & Reporting Bleiben Sie auf den steuerrechtlichen Änderungen in den abgedeckten Zuständigkeiten aktualisiert. Bereiten Sie detaillierte Berichte vor und pflegen Sie umfassende Dokumentationen, um die Prüfungs- und Regulierungsanforderungen zu erfüllen. Ihre Profilerfahrung: Mindestens 2 Jahre im Bankwesen, mit einem Schwerpunkt auf Steuerdienstleistungen. Fähigkeiten : Starkes Wissen über Finanzinstrumente (Equities, Bonds, Structured Products, Derivatives – Listed or OTC) und ihre spezifischen Eigenschaften. Die Vertraulichkeit mit dem europäischen Einkommen und der Gewinnbesteuerung ist ein Plus. Die Effizienz in Microsoft Office ist unerlässlich. Sprachen: Französisch und Englisch sind erforderlich; Deutsch, Italienisch, Spanisch oder Portugiesisch ist ein Plus. Mindset: Proaktiv, lösungsorientiert und eifrig zu lernen. Starke Problemlösungsfähigkeiten, schnell und effizient zu arbeiten, und ein Teamplayer, der in einer schnelllebigen Umgebung lebt. Seien Sie Teil eines kollaborativen und innovativen Teams. Arbeiten Sie in einer anspruchsvollen und dennoch lohnenden Umgebung. Entwickeln Sie Ihr Know-how und wachsen Sie Ihre Karriere in einer führenden Finanzinstitution. Kernkompetenzen : Einhaltung der Werte des Unternehmens: Hingabe, Konviktion, Agilität und Verantwortung - Einhaltung von Vorschriften und internen Richtlinien",
-        "fr": "Mission Nous cherchons un spécialiste de la fiscalité motivé et axé sur les détails pour nous joindre à notre service de documentation à la clientèle et des services fiscaux. Dans le cadre de l'équipe de rapports financiers, vous jouerez un rôle clé pour assurer l'exactitude et la qualité de nos déclarations fiscales, tout en collaborant avec divers ministères et fournisseurs externes. C'est une occasion unique de se développer dans un environnement stimulant et rapide et de contribuer à des projets d'impact à travers la banque. Principales responsabilités Déclaration fiscale Examen et validation Examiner et valider les déclarations fiscales pour plus de 20 juridictions internationales, dont la Suisse, la France, le Portugal, le Mexique et d'autres. Veiller à ce que les documents fiscaux soient conformes aux règlements locaux et internationaux avant d'être envoyés aux clients. Assurance de la qualité des données Collaborez avec notre fournisseur externe pour assurer la qualité et l'exactitude des données fiscales avant la production des déclarations. Identifier et corriger les anomalies ou les incohérences dans les données afin d'assurer la fiabilité des rapports. Soutien à la clientèle et interaction avec le bureau de liaison Adressez les demandes et les demandes du bureau de liaison concernant les déclarations fiscales, en fournissant des explications claires et précises. Gérer les commandes de documents fiscaux en coordination avec les équipes internes et les fournisseurs externes. Collaboration interfonctionnelle Travailler en étroite collaboration avec les équipes de conformité, d'exploitation, de liaison et de TI pour assurer une gestion harmonieuse des processus fiscaux. Participer activement à des projets interfonctionnels comportant des améliorations des processus, des mises à jour réglementaires ou des initiatives stratégiques. Gestion de projet Contribuer aux projets parallèles liés aux données fiscales, aux systèmes d'information et aux processus opérationnels. Participer à l'amélioration continue des outils et des processus en collaboration avec la TI et d'autres ministères. Conformité à la réglementation et rapports Restez au courant des changements apportés à la réglementation fiscale dans les administrations visées. Préparer des rapports détaillés et tenir à jour une documentation exhaustive afin de satisfaire aux exigences en matière de vérification et de réglementation. Votre profil Expérience : Minimum de 2 ans en banque, avec un accent sur les services fiscaux. Compétences : Forte connaissance des instruments financiers (actions, obligations, produits structurés, dérivés – inscrits ou OTC) et de leurs caractéristiques spécifiques. La connaissance du revenu et des gains en Europe est un plus. La compétence en Microsoft Office est essentielle. Langues : La maîtrise du français et de l'anglais est requise ; l'allemand, l'italien, l'espagnol ou le portugais est un plus. Mindset : Proactif, orienté vers la solution et désireux d'apprendre. Fortes compétences de résolution de problèmes, la capacité de travailler rapidement et efficacement, et un joueur d'équipe qui prospère dans un environnement rapide. Pourquoi nous rejoindre Faites partie d'une équipe collaborative et innovante. Travailler dans un environnement stimulant mais gratifiant. Développez votre expertise et développez votre carrière dans une institution financière de premier plan. Compétences de base : Adhérence aux valeurs de l'entreprise : Dédicace, Conviction, Agilité et Responsabilité - Conformité aux règlements et directives internes"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:00.527Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-05",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "tax-specialist-ubp-ch"
-        ],
-        "it": [
-          "tax-specialist-ubp-ch-3"
-        ],
-        "de": [
-          "tax-specialist-ubp-ch-3"
-        ],
-        "fr": [
-          "tax-specialist-ubp-ch-3"
-        ]
-      },
-      "previousSlugs": [
-        "tax-specialist-ubp-ch",
-        "tax-specialist-ubp-ch-3"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-15T10:51:13.229Z"
-    },
-    {
       "id": "ubp-3a33c75fe4ea",
       "slug": "help-desk-officer-1-livello-di-supporto-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -1625,7 +1546,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:51:00.011Z",
+      "crawledAt": "2026-04-15T22:30:23.561Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1704,7 +1625,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/695",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:59.469Z",
+      "crawledAt": "2026-04-15T22:30:23.060Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1736,6 +1657,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:07.856Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1780,7 +1702,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/726",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:58.979Z",
+      "crawledAt": "2026-04-15T22:30:22.537Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1859,7 +1781,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/733",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:58.489Z",
+      "crawledAt": "2026-04-15T22:30:21.985Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1893,8 +1815,8 @@
       "previousSlugs": [
         "head-of-internal-audit-ubp-ch"
       ],
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1906,8 +1828,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-99358eef03d4",
@@ -1940,7 +1861,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/682",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:57.977Z",
+      "crawledAt": "2026-04-15T22:30:21.471Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2019,7 +1940,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T10:50:57.482Z",
+      "crawledAt": "2026-04-15T22:30:20.921Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2048,6 +1969,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:05.762Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2092,7 +2014,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:56.988Z",
+      "crawledAt": "2026-04-15T22:30:20.422Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2171,7 +2093,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/687",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:56.495Z",
+      "crawledAt": "2026-04-15T22:30:19.918Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2200,6 +2122,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:04.161Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2244,7 +2167,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:55.950Z",
+      "crawledAt": "2026-04-15T22:30:19.417Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2323,7 +2246,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:55.461Z",
+      "crawledAt": "2026-04-15T22:30:18.915Z",
       "addressLocality": "Frankfurt am Main, Germany",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2348,8 +2271,8 @@
           "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2361,8 +2284,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-9edc4a537980",
@@ -2395,7 +2317,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/229",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:54.900Z",
+      "crawledAt": "2026-04-15T22:30:18.414Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2474,7 +2396,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/767",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:54.401Z",
+      "crawledAt": "2026-04-15T22:30:17.905Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2553,7 +2475,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/749",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:53.860Z",
+      "crawledAt": "2026-04-15T22:30:17.407Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2585,6 +2507,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:01.144Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2629,7 +2552,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:53.368Z",
+      "crawledAt": "2026-04-15T22:30:16.854Z",
       "addressLocality": "Jersey",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2658,6 +2581,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2702,7 +2626,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/681",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:52.810Z",
+      "crawledAt": "2026-04-15T22:30:16.357Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2781,7 +2705,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/776",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:52.315Z",
+      "crawledAt": "2026-04-15T22:30:15.862Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2809,8 +2733,8 @@
       "previousSlugs": [
         "graduate-programme-london-marketing-coo-2026-ubp-ch"
       ],
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2822,8 +2746,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-09f350a4712c",
@@ -2856,7 +2779,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:51.823Z",
+      "crawledAt": "2026-04-15T22:30:15.302Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2935,7 +2858,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:51.332Z",
+      "crawledAt": "2026-04-15T22:30:14.748Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3014,7 +2937,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:50.788Z",
+      "crawledAt": "2026-04-15T22:30:14.233Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3046,6 +2969,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:27:56.455Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3090,7 +3014,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:50.295Z",
+      "crawledAt": "2026-04-15T22:30:13.676Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3169,7 +3093,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/595",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:49.750Z",
+      "crawledAt": "2026-04-15T22:30:13.167Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3248,7 +3172,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/864",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:49.263Z",
+      "crawledAt": "2026-04-15T22:30:12.663Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3276,8 +3200,8 @@
       "previousSlugs": [
         "investor-protection-ubp-ch"
       ],
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3289,8 +3213,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-00af29d45ac0",
@@ -3323,7 +3246,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:48.768Z",
+      "crawledAt": "2026-04-15T22:30:12.099Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3402,7 +3325,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/847",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:48.277Z",
+      "crawledAt": "2026-04-15T22:30:11.584Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3419,8 +3342,8 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/847",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -3432,8 +3355,7 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-9039bd9f2bce",
@@ -3466,7 +3388,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:47.790Z",
+      "crawledAt": "2026-04-15T22:30:11.000Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3545,7 +3467,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/482",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:47.297Z",
+      "crawledAt": "2026-04-15T22:30:10.483Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3624,7 +3546,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:46.793Z",
+      "crawledAt": "2026-04-15T22:30:09.958Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3652,8 +3574,8 @@
       "previousSlugs": [
         "business-monitoring-officer-ubp-ch"
       ],
-      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-14T22:35:36.981Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3665,8 +3587,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ubp-0b87a0672eac",
@@ -3699,7 +3620,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T10:50:46.224Z",
+      "crawledAt": "2026-04-15T22:30:09.429Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
