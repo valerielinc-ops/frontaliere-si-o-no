@@ -48,8 +48,8 @@ describe('LanguageSelector job-detail locale switch', () => {
   it('loads the job slug map before rewriting the current route for the new locale', async () => {
     render(<LanguageSelector />);
 
-    fireEvent.click(screen.getByRole('button', { name: /IT/ }));
-    fireEvent.click(screen.getByRole('button', { name: /English/ }));
+    fireEvent.click(screen.getByRole('button', { name: /Lingua/ }));
+    fireEvent.click(screen.getByRole('option', { name: /English/ }));
 
     await waitFor(() => {
       expect(ensureJobSlugMapLoadedMock).toHaveBeenCalledTimes(1);

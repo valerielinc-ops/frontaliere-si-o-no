@@ -40,7 +40,7 @@ export const SEO_LANDING_PRESETS: Record<SeoLandingId, Partial<SimulationInputs>
  'salary-60000-within20km': { annualIncomeCHF: 60000, distanceZone: 'WITHIN_20KM' },
  'salary-100000-over20km': { annualIncomeCHF: 100000, distanceZone: 'OVER_20KM' },
  'salary-100000-within20km': { annualIncomeCHF: 100000, distanceZone: 'WITHIN_20KM' },
- 'new-frontier-over20km': { frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM' },
+ 'new-frontier-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
  'net-comparison-2025-2026-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
  'net-comparison-g-vs-b-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
  'net-comparison-2025-2026-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },

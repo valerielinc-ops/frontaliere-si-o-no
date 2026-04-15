@@ -73,8 +73,8 @@ const GuidaTabContent = lazyRetry(() => import('@/components/tabs/GuidaTabConten
 const VitaTabContent = lazyRetry(() => import('@/components/tabs/VitaTabContent'));
 const StatsTabContent = lazyRetry(() => import('@/components/tabs/StatsTabContent'));
 
-// calculationService is lazy-loaded — only needed when user clicks Calculate
-const lazyCalculate = () => import('@/services/calculationService');
+// Simulation state hook: manages inputs, result, handleCalculate, URL hydration, SEO presets
+import { useSimulationState } from '@/hooks/useSimulationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { initPostHog } from '@/services/posthog';
@@ -95,9 +95,6 @@ import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoS
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
-import { DEFAULT_INPUTS } from '@/constants';
-import { SimulationInputs, SimulationResult } from '@/types';
-import { decodeSimulationParams, hasSimulationParams, cleanSimulationParams } from '@/services/urlStateService';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import { SubTabNav } from '@/components/navigation/SubTabNav';
@@ -154,10 +151,6 @@ const App: React.FC = () => {
  signInFacebook: facebookSignIn,
  signInEmail,
  } = useAuth();
- const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
- const [result, setResult] = useState<SimulationResult | null>(null);
- const deferredResult = useDeferredValue(result);
- const isResultStale = deferredResult !== result;
 
  // Read initial route from URL path (or migrate legacy hash)
  const [initialRoute] = useState(() => {
@@ -221,6 +214,9 @@ const App: React.FC = () => {
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
  const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
+ const { inputs, setInputs, result, setResult, handleCalculate, urlHydrated } = useSimulationState(activeTab, seoLanding);
+ const deferredResult = useDeferredValue(result);
+ const isResultStale = deferredResult !== result;
  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
  const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
  const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
@@ -321,9 +317,6 @@ const App: React.FC = () => {
  }
  }, [activeTab]);
 
- // Track if URL contained simulation params (skip profile prefill if so)
- const urlHydrated = useRef(false);
-
  // Skip pushRoute on initial mount — the URL is already correct from parsePath.
  // Pushing it again would strip the hash fragment (e.g. #cambio-stato).
  const isInitialMount = useRef(true);
@@ -341,50 +334,7 @@ const App: React.FC = () => {
  // The subsequent sub-tab useEffect would otherwise push the same URL again.
  const suppressNextRouteSyncForTabRef = useRef<ActiveTab | null>(null);
 
- const SEO_LANDING_PRESETS = useMemo<Record<SeoLandingId, Partial<SimulationInputs>>>(() => ({
- 'salary-60000': { annualIncomeCHF: 60000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
- 'salary-80000': { annualIncomeCHF: 80000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
- 'salary-100000': { annualIncomeCHF: 100000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 40, spouseWorks: false },
- 'salary-120000': { annualIncomeCHF: 120000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 42, spouseWorks: false },
- 'salary-60000-old': { annualIncomeCHF: 60000, frontierWorkerType: 'OLD' },
- 'salary-60000-new': { annualIncomeCHF: 60000, frontierWorkerType: 'NEW' },
- 'salary-80000-old': { annualIncomeCHF: 80000, frontierWorkerType: 'OLD' },
- 'salary-80000-new': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW' },
- 'salary-100000-old': { annualIncomeCHF: 100000, frontierWorkerType: 'OLD' },
- 'salary-100000-new': { annualIncomeCHF: 100000, frontierWorkerType: 'NEW' },
- 'salary-60000-married-2kids': { annualIncomeCHF: 60000, maritalStatus: 'MARRIED', children: 2, familyMembers: 4, spouseWorks: false, age: 38 },
- 'salary-80000-married-2kids': { annualIncomeCHF: 80000, maritalStatus: 'MARRIED', children: 2, familyMembers: 4, spouseWorks: false, age: 40 },
- 'salary-100000-married-2kids': { annualIncomeCHF: 100000, maritalStatus: 'MARRIED', children: 2, familyMembers: 4, spouseWorks: false, age: 42 },
- 'salary-80000-over20km': { annualIncomeCHF: 80000, distanceZone: 'OVER_20KM' },
- 'salary-80000-within20km': { annualIncomeCHF: 80000, distanceZone: 'WITHIN_20KM' },
- 'salary-60000-over20km': { annualIncomeCHF: 60000, distanceZone: 'OVER_20KM' },
- 'salary-60000-within20km': { annualIncomeCHF: 60000, distanceZone: 'WITHIN_20KM' },
- 'salary-100000-over20km': { annualIncomeCHF: 100000, distanceZone: 'OVER_20KM' },
- 'salary-100000-within20km': { annualIncomeCHF: 100000, distanceZone: 'WITHIN_20KM' },
- 'new-frontier-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
- 'net-comparison-2025-2026-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
- 'net-comparison-g-vs-b-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
- 'net-comparison-2025-2026-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
- 'net-comparison-g-vs-b-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
- }), []);
-
- const landingAppliedRef = useRef<SeoLandingId | null>(null);
-
  // (scroll always resets to top on tab change — no preservation)
-
- // Hydrate simulation inputs from URL query params (runs once on mount)
- useEffect(() => {
- if (hasSimulationParams()) {
- const decoded = decodeSimulationParams(window.location.search);
- if (decoded && Object.keys(decoded).length > 0) {
- urlHydrated.current = true;
- setInputs(prev => ({ ...prev, ...decoded }));
- // Clean params from URL to keep it tidy (preserves non-sim params)
- cleanSimulationParams();
- Analytics.trackUIInteraction('calcolatore', 'url-state', 'hydrate', 'auto', Object.keys(decoded).join(','));
- }
- }
- }, []);
 
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
@@ -1047,21 +997,6 @@ const App: React.FC = () => {
  };
  }, []);
 
- // Apply SEO landing presets once per landing (does not touch URL query params)
- useEffect(() => {
- if (activeTab !== 'calculator') return;
- if (!seoLanding) return;
- if (landingAppliedRef.current === seoLanding) return;
- landingAppliedRef.current = seoLanding;
- urlHydrated.current = true;
- const preset = SEO_LANDING_PRESETS[seoLanding];
- if (preset) {
- setInputs(prev => ({ ...prev, ...preset }));
- setResult(null);
- Analytics.trackUIInteraction('seo', 'landing', 'prefill', 'auto', seoLanding);
- }
- }, [activeTab, seoLanding]);
-
  // Handle in-page hash navigation and scroll to anchor on initial load
  useEffect(() => {
  const onHashChange = () => {
@@ -1184,23 +1119,6 @@ const App: React.FC = () => {
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
  }, [confrontiSubTab, fiscoSubTab, taxReturnCountry, guidaSubTab, vitaSubTab, calcolatoreSubTab, seoLanding, statsSubTab, glossaryTerm, jobSlug]);
-
- const handleCalculate = useCallback(async () => {
- const { calculateSimulation } = await lazyCalculate();
- const res = calculateSimulation(inputs);
- setResult(res);
- import('@/services/firestoreService')
- .then(m => m.registerSimulationForSocialProof())
- .catch(() => undefined);
- unlockAchievement('first_simulation');
- unlockAchievement('simulation_pro');
- Analytics.trackCalculation(
- inputs.workerType,
- inputs.grossSalary,
- inputs.hasChildren
- );
- Analytics.trackFunnelStep('calculate', { worker_type: inputs.workerType });
- }, [inputs]);
 
  // Update SEO tags when confronti sub-tab changes
  useEffect(() => {
@@ -2023,52 +1941,6 @@ const App: React.FC = () => {
  }, 2000);
  }
  }, []);
-
- // Track whether initial render is complete to defer first calculation
- const hasHydrated = useRef(false);
- const initialCalcDone = useRef(false);
- 
- // Deferred initial auto-calculation: triggered by first user interaction
- // (real users interact within 1-2s), with a long fallback timeout to keep
- // the expensive calculationService + ResultsView/charts render outside
- // Lighthouse's ~10-15s observation window.
- useEffect(() => {
- const runInitialCalc = () => {
- if (initialCalcDone.current) return;
- initialCalcDone.current = true;
- // Remove listeners since we only need to calculate once on init
- for (const evt of interactionEvents) {
- window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
- }
- handleCalculate();
- };
- const interactionEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'] as const;
- const onInteract = () => {
- // Small delay after interaction so we don't block the user's action
- setTimeout(runInitialCalc, 50);
- };
- // Listen for first interaction to trigger calculation
- for (const evt of interactionEvents) {
- window.addEventListener(evt, onInteract, { capture: true, passive: true, once: true } as AddEventListenerOptions);
- }
- // Fallback: auto-calculate after 30s if no interaction (well past Lighthouse window)
- const fallback = setTimeout(runInitialCalc, 30000);
- return () => {
- clearTimeout(fallback);
- for (const evt of interactionEvents) {
- window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
- }
- };
- }, []);
-
- useEffect(() => {
- if (!hasHydrated.current) {
- hasHydrated.current = true;
- // Skip initial calculation — handled by the interaction-triggered effect above
- return;
- }
- handleCalculate();
- }, [inputs]);
 
  // Navigation context value — shared with child components via useNavigation()
  // navigateTo() is the canonical one-call navigation: sets tab + sub-tab + pushes URL.
