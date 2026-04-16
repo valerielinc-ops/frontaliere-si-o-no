@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-3f82bda20528",
-      "slug": "filialleiter-in-in-ausbildung-denner-netstal",
+      "slug": "capofila-dell-istruzione-denner-netstal",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-netstal",
-        "en": "filialleiter-in-in-ausbildung-denner-netstal",
+        "it": "capofila-dell-istruzione-denner-netstal",
+        "en": "head-of-branch-in-education-denner-netstal",
         "de": "filialleiter-in-in-ausbildung-denner-netstal",
-        "fr": "filialleiter-in-in-ausbildung-denner-netstal"
+        "fr": "chef-de-division-en-education-denner-netstal"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,20 +68,24 @@
       "crawledAt": "2026-04-16T09:49:07.483Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-netstal"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-netstal"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-netstal"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-netstal",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -100,12 +104,12 @@
     },
     {
       "id": "denner-76629a4676a2",
-      "slug": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+      "slug": "venditore-in-salario-orario-denner-spreitenbach",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
-        "en": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+        "it": "venditore-in-salario-orario-denner-spreitenbach",
+        "en": "seller-in-in-hourly-wage-denner-spreitenbach",
         "de": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
-        "fr": "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+        "fr": "vendeur-en-salaire-horaire-denner-spreitenbach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -164,20 +168,24 @@
       "crawledAt": "2026-04-16T09:49:07.481Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-spreitenbach",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -772,7 +780,7 @@
         "it": "student-in-come-ferienaushilfe-denner-frauenfeld",
         "en": "student-in-als-ferienaushilfe-denner-frauenfeld",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -834,6 +842,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [

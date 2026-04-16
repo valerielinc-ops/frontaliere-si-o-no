@@ -735,8 +735,8 @@
       "slugByLocale": {
         "de": "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
         "it": "akademische-r-collaboratore-trice-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-        "en": "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-        "fr": "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
+        "en": "academic-staff-in-special-education-integration-kantonale-verwaltung-graubunden-chur",
+        "fr": "personnel-universitaire-en-education-specialisee-integration-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -789,10 +789,17 @@
         ],
         "de": [
           "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch"
+        ],
+        "en": [
+          "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch"
+        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch",
+        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -810,12 +817,12 @@
     },
     {
       "id": "kanton-gr-1a2f20cf3575",
-      "slug": "betriebsokom-in-kanton-gr-ch",
+      "slug": "eco-in-aziendale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "betriebsokom-in-kantonale-verwaltung-graubunden-chur",
-        "it": "betriebsokom-in-kanton-gr-ch",
-        "en": "betriebsokom-in-kanton-gr-ch",
-        "fr": "betriebsokom-in-kanton-gr-ch"
+        "it": "eco-in-aziendale-kantonale-verwaltung-graubunden-chur",
+        "en": "business-eco-in-kantonale-verwaltung-graubunden-chur",
+        "fr": "eco-in-des-entreprises-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -874,15 +881,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-16T10:12:47.679Z"
+      "firstSeenAt": "2026-04-16T10:12:47.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsokom-in-kanton-gr-ch"
+        ],
+        "en": [
+          "betriebsokom-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "betriebsokom-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsokom-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-d83bca574e63",
-      "slug": "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur",
+      "slug": "capo-in-polizia-di-trasporto-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur",
-        "it": "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur",
-        "en": "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur",
+        "it": "capo-in-polizia-di-trasporto-kantonale-verwaltung-graubunden-chur",
+        "en": "head-in-transport-police-kantonale-verwaltung-graubunden-chur",
         "fr": "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -932,14 +953,19 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-verkehrspolizei-kanton-gr-ch"
+          "chef-in-verkehrspolizei-kanton-gr-ch",
+          "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "chef-in-verkehrspolizei-kanton-gr-ch"
+        ],
+        "en": [
+          "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "chef-in-verkehrspolizei-kanton-gr-ch"
+        "chef-in-verkehrspolizei-kanton-gr-ch",
+        "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -961,8 +987,8 @@
       "slugByLocale": {
         "de": "strassenwart-in-kanton-gr-ch",
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-        "en": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "en": "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+        "fr": "tranche-en-kantonale-verwaltung-graubunden-thusis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1012,6 +1038,12 @@
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch"
+        ],
+        "en": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "strassenwart-in-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
@@ -1033,10 +1065,10 @@
     },
     {
       "id": "kanton-gr-e05f7481fab2",
-      "slug": "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur",
+      "slug": "segretario-scolastico-sottosegretario-scolastico-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur",
-        "it": "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur",
+        "it": "segretario-scolastico-sottosegretario-scolastico-kantonale-verwaltung-graubunden-chur",
         "en": "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur",
         "fr": "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur"
       },
@@ -1087,14 +1119,16 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
-          "schulsekretarin-schulsekretar-kanton-gr-ch"
+          "schulsekretarin-schulsekretar-kanton-gr-ch",
+          "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "schulsekretarin-schulsekretar-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
-        "schulsekretarin-schulsekretar-kanton-gr-ch"
+        "schulsekretarin-schulsekretar-kanton-gr-ch",
+        "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1191,12 +1225,12 @@
     },
     {
       "id": "kanton-gr-990b13d5d814",
-      "slug": "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur",
+      "slug": "project-manager-in-home-case-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur",
-        "it": "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur",
-        "en": "projektleiter-in-heimfalle-kanton-gr-ch",
-        "fr": "projektleiter-in-heimfalle-kanton-gr-ch"
+        "it": "project-manager-in-home-case-kantonale-verwaltung-graubunden-chur",
+        "en": "project-manager-in-home-cases-kantonale-verwaltung-graubunden-chur",
+        "fr": "gestionnaire-de-projet-affaires-internes-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1245,14 +1279,22 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-heimfalle-kanton-gr-ch"
+          "projektleiter-in-heimfalle-kanton-gr-ch",
+          "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
+          "projektleiter-in-heimfalle-kanton-gr-ch"
+        ],
+        "en": [
+          "projektleiter-in-heimfalle-kanton-gr-ch"
+        ],
+        "fr": [
           "projektleiter-in-heimfalle-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-heimfalle-kanton-gr-ch"
+        "projektleiter-in-heimfalle-kanton-gr-ch",
+        "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1270,12 +1312,12 @@
     },
     {
       "id": "kanton-gr-dffba5c7eb6e",
-      "slug": "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur",
+      "slug": "personale-in-registro-commerciale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur",
-        "it": "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur",
-        "en": "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur",
-        "fr": "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur"
+        "it": "personale-in-registro-commerciale-kantonale-verwaltung-graubunden-chur",
+        "en": "personnel-in-commercial-register-kantonale-verwaltung-graubunden-chur",
+        "fr": "personnel-dans-le-registre-commercial-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1324,14 +1366,22 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-handelsregister-kanton-gr-ch"
+          "sachbearbeiter-in-handelsregister-kanton-gr-ch",
+          "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "sachbearbeiter-in-handelsregister-kanton-gr-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-handelsregister-kanton-gr-ch"
+        "sachbearbeiter-in-handelsregister-kanton-gr-ch",
+        "sachbearbeiter-in-handelsregister-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

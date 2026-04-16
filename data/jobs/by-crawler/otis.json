@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "otis-117f30ea8d3b",
-      "slug": "service-technician-otis-oberburen",
+      "slug": "servizio-tecnico-otis-sa-oberburen",
       "slugByLocale": {
         "en": "service-technician-otis-oberburen",
-        "it": "service-technician-otis-oberburen",
+        "it": "servizio-tecnico-otis-sa-oberburen",
         "de": "service-technician-otis-oberburen",
-        "fr": "service-technician-otis-oberburen"
+        "fr": "technicien-des-services-otis-sa-oberburen"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -59,7 +59,18 @@
         }
       },
       "postalCode": "9000",
-      "firstSeenAt": "2026-04-16T10:28:59.950Z"
+      "firstSeenAt": "2026-04-16T10:28:59.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-technician-otis-oberburen"
+        ],
+        "fr": [
+          "service-technician-otis-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "service-technician-otis-oberburen"
+      ]
     },
     {
       "id": "otis-c01bdb073f38",

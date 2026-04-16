@@ -2662,7 +2662,7 @@
         "it": "manufacturing-specialista-m-w-d-lonza-ch",
         "en": "manufacturing-specialist-m-w-d-lonza-ch",
         "de": "manufacturing-specialist-m-w-d-lonza-ch",
-        "fr": "projektleiter-m-m-j-lonza-ch"
+        "fr": "manufacturing-specialiste-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2704,7 +2704,8 @@
       "jobReqId": "R73584",
       "previousSlugs": [
         "manufacturing-specialist-m-w-d-lonza-ch",
-        "projektleiter-m-w-d-lonza-ch"
+        "projektleiter-m-w-d-lonza-ch",
+        "projektleiter-m-m-j-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2712,7 +2713,8 @@
           "projektleiter-m-w-d-lonza-ch"
         ],
         "fr": [
-          "manufacturing-specialist-m-w-d-lonza-ch"
+          "manufacturing-specialist-m-w-d-lonza-ch",
+          "projektleiter-m-m-j-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-04-15T21:58:29.768Z",
@@ -2806,12 +2808,12 @@
     },
     {
       "id": "lonza-f7fb3bbc067d",
-      "slug": "biotechnologist-drug-product-80-100-m-f-d-lonza-ch",
+      "slug": "prodotto-biotecnologico-droga-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "biotechnologist-drug-product-80-100-m-f-d-lonza-ch",
-        "it": "biotechnologist-drug-product-80-100-m-f-d-lonza-ch",
-        "de": "biotechnologist-drug-product-80-100-m-f-d-lonza-ch",
-        "fr": "biotechnologist-drug-product-80-100-m-f-d-lonza-ch"
+        "it": "prodotto-biotecnologico-droga-80-100-m-f-d-lonza-ch",
+        "de": "biotechnologisches-arzneimittel-80-100-m-f-d-lonza-ch",
+        "fr": "produit-pharmaceutique-biotechnologique-80-100-m-f-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2865,16 +2867,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-16T10:19:11.451Z"
+      "firstSeenAt": "2026-04-16T10:19:11.451Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biotechnologist-drug-product-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
+          "biotechnologist-drug-product-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "biotechnologist-drug-product-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "biotechnologist-drug-product-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-41976e914b88",
-      "slug": "manager-msat-process-lead-lonza-ch",
+      "slug": "manager-msat-piombo-di-processo-lonza-ch",
       "slugByLocale": {
         "en": "manager-msat-process-lead-lonza-ch",
-        "it": "manager-msat-process-lead-lonza-ch",
+        "it": "manager-msat-piombo-di-processo-lonza-ch",
         "de": "manager-msat-process-lead-lonza-ch",
-        "fr": "manager-msat-process-lead-lonza-ch"
+        "fr": "gestionnaire-responsable-du-processus-msat-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2928,16 +2944,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-16T10:19:10.816Z"
+      "firstSeenAt": "2026-04-16T10:19:10.816Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-msat-process-lead-lonza-ch"
+        ],
+        "fr": [
+          "manager-msat-process-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-msat-process-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-88790da464e3",
-      "slug": "manufacturing-process-expert-lead-lonza-ch",
+      "slug": "processo-di-produzione-lonza-ch",
       "slugByLocale": {
         "en": "manufacturing-process-expert-lead-lonza-ch",
-        "it": "manufacturing-process-expert-lead-lonza-ch",
+        "it": "processo-di-produzione-lonza-ch",
         "de": "manufacturing-process-expert-lead-lonza-ch",
-        "fr": "manufacturing-process-expert-lead-lonza-ch"
+        "fr": "expert-en-procedes-de-fabrication-plomb-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2991,7 +3018,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-16T10:19:10.149Z"
+      "firstSeenAt": "2026-04-16T10:19:10.149Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-process-expert-lead-lonza-ch"
+        ],
+        "fr": [
+          "manufacturing-process-expert-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-process-expert-lead-lonza-ch"
+      ]
     }
   ]
 }

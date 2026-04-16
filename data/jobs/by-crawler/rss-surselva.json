@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rss-surselva-5d1ebe0be7bd",
-      "slug": "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz",
+      "slug": "infermiere-diplomato-a-hf-con-specializzazione-in-emergenza-o-esperienza-lavorativa-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
-        "it": "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz",
-        "en": "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
-        "fr": "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+        "it": "infermiere-diplomato-a-hf-con-specializzazione-in-emergenza-o-esperienza-lavorativa-regionalspital-surselva-ilanz",
+        "en": "registered-nurse-hf-with-emergency-specialization-or-experience-regionalspital-surselva-ilanz",
+        "fr": "infirmier-ere-diplome-e-hf-specialise-e-en-urgence-ou-avec-experience-professionnelle-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -58,11 +58,19 @@
       "pensumMax": 100,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
+          "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+        "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
+        "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -745,12 +753,12 @@
     },
     {
       "id": "rss-surselva-8c9a647176e5",
-      "slug": "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz",
+      "slug": "assistenza-medica-o-operatore-sanitario-per-il-pronto-soccorso-al-50-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz",
-        "it": "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz",
-        "en": "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz",
-        "fr": "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
+        "it": "assistenza-medica-o-operatore-sanitario-per-il-pronto-soccorso-al-50-regionalspital-surselva-ilanz",
+        "en": "medical-assistant-or-health-professional-for-emergency-department-at-50-regionalspital-surselva-ilanz",
+        "fr": "assistant-medical-ou-professionnel-de-sante-pour-le-service-des-urgences-a-50-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -799,14 +807,23 @@
       "pensumMax": 50,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
+          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch",
+          "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz"
         ],
         "de": [
           "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
+        ],
+        "en": [
+          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch",
+        "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

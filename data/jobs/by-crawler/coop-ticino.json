@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-wr6zkb",
-      "slug": "filialleiter-in-interdiscount-chur-graubunden",
+      "slug": "capo-della-filiale-in-interdiscount-chur",
       "company": "Interdiscount",
       "title": "Filialleiter:in",
       "location": "Chur",
@@ -42,10 +42,10 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "filialleiter-in-interdiscount-chur-graubunden-wr6zkb",
-        "en": "filialleiter-in-interdiscount-chur-graubunden-wr6zkb",
+        "it": "capo-della-filiale-in-interdiscount-chur",
+        "en": "head-of-branch-in-interdiscount-chur",
         "de": "filialleiter-in-interdiscount-chur-graubunden-wr6zkb",
-        "fr": "filialleiter-in-interdiscount-chur-graubunden-wr6zkb"
+        "fr": "tete-de-branche-dans-interdiscount-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -61,11 +61,27 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiter-in-interdiscount-chur-graubunden-wr6zkb",
+          "filialleiter-in-interdiscount-chur-graubunden"
+        ],
+        "en": [
+          "filialleiter-in-interdiscount-chur-graubunden-wr6zkb"
+        ],
+        "fr": [
+          "filialleiter-in-interdiscount-chur-graubunden-wr6zkb"
+        ]
+      },
+      "previousSlugs": [
+        "filialleiter-in-interdiscount-chur-graubunden-wr6zkb",
+        "filialleiter-in-interdiscount-chur-graubunden"
+      ]
     },
     {
       "id": "company-s7h9kk",
-      "slug": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden",
+      "slug": "venditore-in-contanti-servizi-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Klosters-Serneus",
@@ -113,10 +129,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk",
-        "en": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk",
+        "it": "venditore-in-contanti-servizi-coop-genossenschaft-klosters-serneus",
+        "en": "seller-in-cash-services-coop-genossenschaft-klosters-serneus",
         "de": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk",
-        "fr": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk"
+        "fr": "vendeur-en-especes-services-coop-genossenschaft-klosters-serneus"
       },
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
@@ -131,11 +147,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk",
+          "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk",
+        "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden"
+      ]
     },
     {
       "id": "company-6utsgh",
-      "slug": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden",
+      "slug": "scala-di-rayon-in-frutta-verdura-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Früchte / Gemüse",
       "location": "Davos",
@@ -181,10 +213,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh",
-        "en": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh",
+        "it": "scala-di-rayon-in-frutta-verdura-coop-genossenschaft-davos",
+        "en": "rayon-ladder-in-fruits-vegetables-coop-genossenschaft-davos",
         "de": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh",
-        "fr": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh"
+        "fr": "echelle-de-rayon-dans-les-fruits-legumes-coop-genossenschaft-davos"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -199,11 +231,27 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh",
+          "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden"
+        ],
+        "en": [
+          "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh"
+        ],
+        "fr": [
+          "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-6utsgh",
+        "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden"
+      ]
     },
     {
       "id": "company-w5pypw",
-      "slug": "verkaufer-in-food-frische-insel-coop-davos-graubunden",
+      "slug": "venditore-in-food-fresh-island-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Frische-Insel",
       "location": "Davos",
@@ -249,10 +297,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw",
-        "en": "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw",
+        "it": "venditore-in-food-fresh-island-coop-genossenschaft-davos",
+        "en": "seller-in-food-fresh-island-coop-genossenschaft-davos",
         "de": "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw",
-        "fr": "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw"
+        "fr": "vendeur-dans-food-fresh-island-coop-genossenschaft-davos"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -267,11 +315,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw",
+          "verkaufer-in-food-frische-insel-coop-davos-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw"
+        ],
+        "fr": [
+          "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-frische-insel-coop-davos-graubunden-w5pypw",
+        "verkaufer-in-food-frische-insel-coop-davos-graubunden"
+      ]
     },
     {
       "id": "company-rojhmo",
-      "slug": "verkaufer-in-food-coop-sankt-moritz-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-sankt-moritz",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Sankt Moritz",
@@ -317,10 +381,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo",
-        "en": "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo",
+        "it": "venditore-in-food-coop-genossenschaft-sankt-moritz",
+        "en": "seller-in-food-coop-genossenschaft-sankt-moritz",
         "de": "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo",
-        "fr": "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-sankt-moritz"
       },
       "addressLocality": "Sankt Moritz",
       "sourceLang": "de",
@@ -335,11 +399,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo",
+          "verkaufer-in-food-coop-sankt-moritz-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-sankt-moritz-graubunden-rojhmo",
+        "verkaufer-in-food-coop-sankt-moritz-graubunden"
+      ]
     },
     {
       "id": "company-cuy50g",
-      "slug": "verkaufer-in-food-coop-zernez-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-zernez",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zernez",
@@ -385,10 +465,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zernez-graubunden-cuy50g",
-        "en": "verkaufer-in-food-coop-zernez-graubunden-cuy50g",
+        "it": "venditore-in-food-coop-genossenschaft-zernez",
+        "en": "seller-in-food-coop-genossenschaft-zernez",
         "de": "verkaufer-in-food-coop-zernez-graubunden-cuy50g",
-        "fr": "verkaufer-in-food-coop-zernez-graubunden-cuy50g"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zernez"
       },
       "addressLocality": "Zernez",
       "sourceLang": "de",
@@ -403,11 +483,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-zernez-graubunden-cuy50g",
+          "verkaufer-in-food-coop-zernez-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-zernez-graubunden-cuy50g"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-zernez-graubunden-cuy50g"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-zernez-graubunden-cuy50g",
+        "verkaufer-in-food-coop-zernez-graubunden"
+      ]
     },
     {
       "id": "company-hy7w7d",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -433,10 +529,10 @@
       "crawledAt": "2026-04-16T09:45:32.238Z",
       "firstSeenAt": "2026-04-16T09:45:32.238Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -471,11 +567,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ],
+        "fr": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-tyijpe",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -501,10 +613,10 @@
       "crawledAt": "2026-04-16T09:45:32.238Z",
       "firstSeenAt": "2026-04-16T09:45:32.238Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -539,7 +651,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-gi0zgi",
@@ -709,7 +837,7 @@
     },
     {
       "id": "company-3br90q",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -735,10 +863,10 @@
       "crawledAt": "2026-04-15T09:45:06.722Z",
       "firstSeenAt": "2026-04-15T09:45:06.722Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -777,37 +905,37 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ],
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
         "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
         "direttore-direttrice-christ-uhren-schmuck-ag-chur",
         "store-manager-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
         "directeur-directrice-de-magasin-christ-uhren-schmuck-ag-chur",
         "store-manager-christ-orologi-gioielli-chur-graubunden",
-        "directeur-directrice-christ-orologi-gioielli-chur-graubunden",
-        "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
-        "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur"
+        "directeur-directrice-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
       "id": "company-g6dub0",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -833,10 +961,10 @@
       "crawledAt": "2026-04-15T09:45:06.722Z",
       "firstSeenAt": "2026-04-15T09:45:06.722Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -875,32 +1003,32 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ],
         "de": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
         "venditore-a-christ-uhren-schmuck-ag-chur",
         "sales-advisor-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g",
         "conseiller-ere-de-ventes-christ-uhren-schmuck-ag-chur",
         "sales-advisor-christ-orologi-gioielli-chur-graubunden",
-        "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+        "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
