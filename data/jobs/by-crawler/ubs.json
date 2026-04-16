@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-04-16T10:52:13.601Z",
+  "assembledAt": "2026-04-16T22:30:16.340Z",
   "jobs": [
     {
       "id": "ubs-f4d2e0e765b2",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341680&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-16T10:52:11.532Z",
+      "crawledAt": "2026-04-16T22:30:14.080Z",
       "addressLocality": "Crans",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340734&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-16T10:52:11.532Z",
+      "crawledAt": "2026-04-16T22:30:14.080Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,6 +174,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.433Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -218,7 +219,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341103&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-16T10:52:11.532Z",
+      "crawledAt": "2026-04-16T22:30:14.080Z",
       "addressLocality": "Gstaad",
       "addressCountry": "CH",
       "country": "CH",
@@ -282,6 +283,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.433Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -291,83 +293,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ubs-afd1c903b14b",
-      "slug": "consulente-alla-clientela-privata-affluent-gstaad-80-100-ubs-gstaad",
-      "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-affluent-gstaad-80-100-ubs-gstaad",
-        "en": "private-client-advisor-affluent-gstaad-80-100-ubs-gstaad",
-        "de": "privatkundenberater-in-affluent-gstaad-80-100-ubs-gstaad",
-        "fr": "conseiller-ere-a-la-clientele-privee-affluent-gstaad-80-100-ubs-gstaad"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Privatkundenberater/in Affluent Gstaad, 80-100%",
-      "titleByLocale": {
-        "it": "Consulente alla clientela privata Affluent Gstaad, 80-100%",
-        "en": "Private Client Advisor Affluent Gstaad, 80-100%",
-        "de": "Privatkundenberater/in Affluent Gstaad, 80-100%",
-        "fr": "Conseiller/ère à la clientèle privée Affluent Gstaad, 80-100%"
-      },
-      "description": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen für unser Team in Gstaad die/der ein Flair für die Anliegen der internationalen Kundschaft in unserem Touristenort hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben: • Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden. • Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent. • Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen. • Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen. • Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-      "descriptionByLocale": {
-        "it": "Descrizione Sei una personalità intraprendente e socievole che dà il meglio di sé quando consiglia i clienti utilizzando le tecnologie più recenti? Allora mettiti in contatto con noi. Cerchiamo un collega o una collega per il nostro team di Gstaad che abbia una predisposizione per le esigenze della clientela internazionale nella nostra località turistica e che si senta a proprio agio nel mondo digitale. Ecco i tuoi compiti principali: ## Mansioni - Dopo un periodo di formazione completo, gestirai e curerai un tuo portafoglio clienti composto da clienti di investimento e ipotecari. - Identificherai con precisione le diverse esigenze dei nostri clienti e li consiglierai in modo competente. - Possiedi uno spiccato senso per le soluzioni ottimali. In questo modo garantirai relazioni a lungo termine con i clienti e conquisterai nuovi clienti. - Ti rivolgerai attivamente ai tuoi clienti creando una vicinanza che ti permetterà di sfruttare ulteriore potenziale. - Nella tua consulenza punterai anche su strumenti e app innovativi. In questo modo accompagnerai la clientela nel nostro viaggio verso il futuro: li incoraggerai a utilizzare i nostri prodotti digitali e li supporterai in questo processo.",
-        "en": "Description Are you an initiative-driven, outgoing personality who performs at your best when advising clients using the latest technologies? Then please get in touch with us. We are looking for a colleague for our team in Gstaad who has a flair for the needs of the international clientele in our tourist destination and feels comfortable in the digital world. These are your core tasks: ## Responsibilities - After a comprehensive induction period, you will manage and process your own portfolio of investment and mortgage clients. - You will precisely identify the diverse needs of our clients and provide them with competent advice. - You have a keen sense for optimal solutions. This allows you to secure long-term client relationships and win over new clients. - You will actively approach your clients and create a level of closeness that enables you to exploit further potential. - In your advisory work, you will also rely on innovative tools and apps. This is how you take our clients with us on our journey into the future: you encourage them to use our digital products and support them in doing so.",
-        "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen für unser Team in Gstaad die/der ein Flair für die Anliegen der internationalen Kundschaft in unserem Touristenort hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben: • Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden. • Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent. • Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen. • Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen. • Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "fr": "Description Êtes-vous une personnalité proactive et sociable qui donne le meilleur d'elle-même lorsqu'elle conseille ses clients à l'aide des dernières technologies ? Alors contactez-nous. Nous recherchons un(e) collègue pour notre équipe de Gstaad ayant une affinité pour les besoins de la clientèle internationale de notre station touristique et se sentant à l'aise dans le monde numérique. Voici vos missions principales : ## Responsabilités - Après une période d'intégration complète, vous gérez et traitez votre propre portefeuille de clients en matière d'investissement et d'hypothèque. - Vous identifiez avec précision les besoins variés de nos clients et les conseillez de manière compétente. - Vous avez un sens aigu des solutions optimales. Vous assurez ainsi des relations clients à long terme et convainquez de nouveaux clients. - Vous allez activement vers vos clients et créez une proximité qui vous permet d'exploiter tout le potentiel. - Dans vos conseils, vous misez également sur des outils et des applications innovants. C'est ainsi que vous accompagnez la clientèle dans notre voyage vers le futur : vous les encouragez à utiliser nos produits numériques et les soutenez dans cette démarche."
-      },
-      "location": "Gstaad",
-      "canton": "BE",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=338320&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-16T10:52:11.532Z",
-      "addressLocality": "Gstaad",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3780",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-14",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=338320&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_ubsMeta": {
-        "reqId": "338320",
-        "department": "Personal & Corporate Banking",
-        "region": "Schweiz - Mittelland",
-        "cities": "Gstaad",
-        "categoryRaw": "Kundenberatung / Relationship Management",
-        "jobType": ""
-      },
-      "previousSlugs": [
-        "privatkundenberater-in-affluent-gstaad-80-100-ubs-gstaad"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "privatkundenberater-in-affluent-gstaad-80-100-ubs-gstaad"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:28:17.433Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -403,7 +328,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=334400&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-16T10:52:11.532Z",
+      "crawledAt": "2026-04-16T22:30:14.080Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.433Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -511,7 +437,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343139&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-16T10:52:11.531Z",
+      "crawledAt": "2026-04-16T22:30:14.079Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -581,6 +507,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.431Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
