@@ -2190,6 +2190,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.title': 'Monte dei Paschi di Siena: Lovaglio vince l’assemblea, Ticino tra i territori coinvolti',
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.excerpt': 'Luigi Lovaglio torna nel Cda di Mps con il 49,95% dei voti grazie al sostegno di Delfin (17,5%) e Banco Bpm (3,7%). Affluenza al 64,1% del capitale. Cosa cambia per i 7.000 frontalieri ticinesi impiegati nel gruppo bancario.',
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.imageAlt': 'Esterno della filiale ticinese della Banca Monte dei Paschi di Siena a Bellinzona',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Giro d’Italia 2026: Bellinzona-Carì in 113 km per il Ticino',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'Il 26 maggio 2026 la 16ª tappa del Giro d’Italia si correrà interamente in Ticino: 113 km da Bellinzona a Carì con 3.000 metri di dislivello e 5 GPM. Rischio tranello dopo il giorno di riposo.',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzona illuminata di rosa con le Alpi sullo sfondo durante la presentazione della tappa Bellinzona-Carì del Giro d’Italia 2026',
 };
 
 export default blogMetaIt;

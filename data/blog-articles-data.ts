@@ -6095,4 +6095,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ribaltone-mps-lovaglio-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'giro-italia-2026-bellinzona-cari-tappa',
+ category: 'pratico',
+ date: '2026-04-16T04:22:24.609Z',
+ image: '/images/blog/giro-italia-2026-bellinzona-cari-tappa.jpg',
+ hasCalculator: true,
+ },
 ];

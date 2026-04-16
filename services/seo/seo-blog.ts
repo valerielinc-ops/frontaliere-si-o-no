@@ -8062,6 +8062,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giro-italia-2026-bellinzona-cari-tappa': {
+    title: 'Giro d’Italia 2026: Bellinzona-Carì in | Frontaliere Ticino',
+    description: 'Il 26 maggio 2026 la 16ª tappa del Giro d’Italia si correrà interamente in Ticino: 113 km da Bellinzona a Carì con 3.000 metri di dislivello e 5 GPM. Rischio tr',
+    keywords: 'frontalieri, ticino, svizzera, italia, giro, bellinzona-carì, maggio, tappa',
+    ogTitle: 'Giro d’Italia 2026: Bellinzona-Carì in 113 km per il Tici',
+    ogDescription: 'Il 26 maggio 2026 la 16ª tappa del Giro d’Italia si correrà interamente in Ticino: 113 km da Bellinzona a Carì con 3.000 metri di dislivello e 5 GPM. Rischio tr',
+    canonicalPath: '/articoli-frontaliere/giro-italia-2026-bellinzona-cari-tappa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giro d’Italia 2026: Bellinzona-Carì in 113 km per il Tici",
+      "description": "Il 26 maggio 2026 la 16ª tappa del Giro d’Italia si correrà interamente in Ticino: 113 km da Bellinzona a Carì con 3.000 metri di dislivello e 5 GPM. Rischio tr",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giro-italia-2026-bellinzona-cari-tappa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona illuminata di rosa con le Alpi sullo sfondo durante la presentazione della tappa Bellinzona-Carì del Giro d’Italia 2026"
+      },
+      "datePublished": "2026-04-16T04:22:24+00:00",
+      "dateModified": "2026-04-16T04:22:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giro-italia-2026-bellinzona-cari-tappa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

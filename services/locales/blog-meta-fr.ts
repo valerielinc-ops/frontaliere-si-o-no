@@ -2190,6 +2190,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.title': 'Monte dei Paschi di Siena : Lovaglio remporte l’assemblée, le Tessin parmi les territoires concernés',
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.excerpt': 'Luigi Lovaglio fait son retour au conseil d’administration de MPS avec 49,95 % des voix, grâce au soutien de Delfin (17,5 %) et Banco Bpm (3,7 %). Le taux de participation s’élève à 64,1 % du capital. Quelles conséquences pour les 7 000 travailleurs frontaliers tessinois employés au sein du groupe bancaire.',
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.imageAlt': 'Extérieur de l\'agence ticinoise de la Banca Monte dei Paschi di Siena à Bellinzone',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Tour d\'Italie 2026 : Bellinzone-Carì en 113 km pour le Tessin',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'Le 26 mai 2026, la 16e étape du Tour d\'Italie se déroulera entièrement dans le Tessin : 113 km de Bellinzone à Carì, avec 3 000 mètres de dénivelé et 5 cols. Piège possible après le jour de repos.',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzone illuminée en rose avec les Alpes en arrière-plan lors de la présentation de l\'étape Bellinzone-Carì du Giro d\'Italia 2026',
 };
 
 export default blogMetaFr;

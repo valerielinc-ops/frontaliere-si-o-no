@@ -2190,6 +2190,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.title': 'Monte dei Paschi di Siena: Lovaglio wins the board election, Ticino among the affected regions',
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.excerpt': 'Luigi Lovaglio returns to the MPS board with 49.95% of the votes, backed by Delfin (17.5%) and Banco BPM (3.7%). Voter turnout reached 64.1% of the capital. What changes for the 7,000 cross-border workers from Ticino employed by the banking group.',
     'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.imageAlt': 'Exterior of the Ticino branch of Banca Monte dei Paschi di Siena in Bellinzona',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Giro d’Italia 2026: Bellinzona to Carì in 113 km for Ticino',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'On 26 May 2026, stage 16 of the Giro d’Italia will be held entirely in Ticino: 113 km from Bellinzona to Carì, featuring 3,000 metres of elevation gain and five categorised climbs. A potential trap awaits after the rest day.',
+    'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzona lit in pink with the Alps in the background during the Giro d’Italia 2026 Bellinzona-Carì stage presentation',
 };
 
 export default blogMetaEn;
