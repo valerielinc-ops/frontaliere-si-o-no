@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-16T09:52:08.748Z",
+  "generatedAt": "2026-04-16T21:30:51.145Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2969,
-  "avgDurationMs": 2969,
+  "unchangedCount": 1,
+  "durationMs": 3534,
+  "avgDurationMs": 3534,
   "durationHistory": [
-    2969
+    3534
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,39 +39,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-14T09:50:40.182Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "SAP Basis Administrator (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-16",
-      "source": "company-website",
-      "slug": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-dc1a28e8e6ec",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:36:53.361Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
