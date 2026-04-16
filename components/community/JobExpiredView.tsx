@@ -540,16 +540,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="rounded-stripe border border-edge bg-surface p-5">
  {jobHeader}
 
- {/* Blurred description teaser */}
+ {/* Readable description teaser — shows first ~200 chars to create information
+ scent and an "open loop" that motivates signup. Fades out at the bottom. */}
  {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 72px)' }}>
- <p
- className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
- aria-hidden="true"
- >
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
+ <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>
- <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/70 to-surface" />
+ <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
  </div>
  )}
 

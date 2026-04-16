@@ -5645,19 +5645,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  </div>
- {/* Blurred description teaser — height scales with viewport so auth buttons stay visible.
- Uses clamp: 0px below ~600px viewport height, scales up to 100px on tall screens.
- calc(100dvh - 520px) hits 0 at 520px vh, 80px at 600px, 100px at ~620px.
- Reduced from 148px to accommodate trust signals moved above CTAs. */}
+ {/* Readable description teaser — shows first ~200 chars to create information
+ scent and an "open loop" that motivates signup. Fades out at the bottom. */}
  {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 72px)' }}>
- <p
- className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
- aria-hidden="true"
- >
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
+ <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>
- <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/70 to-surface" />
+ <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
  </div>
  )}
 
