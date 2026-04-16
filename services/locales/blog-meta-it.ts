@@ -2211,6 +2211,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'FFS: treni diretti a Rimini e Francia dal 30 maggio 2026',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'Dal 30 maggio al 4 ottobre collegamento diretto Zurigo-Rimini con fermate a Bellinzona, Lugano e Chiasso. Da Losanna e Ginevra treni TGV per Avignone, Aix-en-Provence e Marsiglia fino al 2 novembre.',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'Treno FFS in viaggio verso Rimini e la Francia tra i monti del Ticino durante l\'estate 2026',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso cerca soluzioni per assumere più residenti: cosa cambia per frontalieri e imprese',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Il consigliere comunale Francesco Romano chiede al Municipio di Chiasso quali strumenti concreti possono incentivare le aziende a preferire residenti ticinesi rispetto ai frontalieri.',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'Veduta di una via di Chiasso con edifici commerciali e passanti, simbolo della vivacità economica del territorio',
 };
 
 export default blogMetaIt;

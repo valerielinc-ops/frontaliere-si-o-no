@@ -6144,4 +6144,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ffs-collegamenti-estivi-rimini-francia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'strumenti-comune-chiasso-assunzione-residenti',
+ category: 'novita',
+ date: '2026-04-16T17:11:31.086Z',
+ image: '/images/blog/strumenti-comune-chiasso-assunzione-residenti.jpg',
+ hasCalculator: true,
+ },
 ];

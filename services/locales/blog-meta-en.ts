@@ -2211,6 +2211,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'SBB: Direct trains to Rimini and France from 30 May 2026',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'From 30 May to 4 October, direct connections will run between Zurich and Rimini, with stops in Bellinzona, Lugano and Chiasso. From Lausanne and Geneva, TGV trains will serve Avignon, Aix-en-Provence and Marseille until 2 November.',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'Swiss Federal Railways train heading to Rimini and France through the Ticino mountains in summer 2026',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso seeks solutions to hire more residents: what changes for cross-border workers and businesses',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Chiasso councillor Francesco Romano has asked the Municipal Council to identify concrete tools that can encourage companies to prioritise hiring Ticinese residents over cross-border workers.',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'View of a Chiasso street with commercial buildings and pedestrians, symbolizing the local economic vitality',
 };
 
 export default blogMetaEn;

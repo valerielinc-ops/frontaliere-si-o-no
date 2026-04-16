@@ -8265,6 +8265,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-strumenti-comune-chiasso-assunzione-residenti': {
+    title: 'Chiasso cerca soluzioni per assumere | Frontaliere Ticino',
+    description: 'Il consigliere comunale Francesco Romano chiede al Municipio di Chiasso quali strumenti concreti possono incentivare le aziende a preferire residenti ticinesi r',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, cerca, soluzioni, assumere',
+    ogTitle: 'Chiasso cerca soluzioni per assumere più residenti: cosa',
+    ogDescription: 'Il consigliere comunale Francesco Romano chiede al Municipio di Chiasso quali strumenti concreti possono incentivare le aziende a preferire residenti ticinesi r',
+    canonicalPath: '/articoli-frontaliere/strumenti-comune-chiasso-assunzione-residenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso cerca soluzioni per assumere più residenti: cosa",
+      "description": "Il consigliere comunale Francesco Romano chiede al Municipio di Chiasso quali strumenti concreti possono incentivare le aziende a preferire residenti ticinesi r",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/strumenti-comune-chiasso-assunzione-residenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una via di Chiasso con edifici commerciali e passanti, simbolo della vivacità economica del territorio"
+      },
+      "datePublished": "2026-04-16T17:11:31+00:00",
+      "dateModified": "2026-04-16T17:11:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strumenti-comune-chiasso-assunzione-residenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

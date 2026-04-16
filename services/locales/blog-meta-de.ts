@@ -2211,6 +2211,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'SBB: Direktverbindungen nach Rimini und Frankreich ab 30. Mai 2026',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'Vom 30. Mai bis 4. Oktober 2026 fährt ein Direktzug Zürich–Rimini mit Halten in Bellinzona, Lugano und Chiasso. Ab Lausanne und Genf verkehren TGV-Züge nach Avignon, Aix-en-Provence und Marseille bis zum 2. November 2026.',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'SBB-Zug fährt nach Rimini und Frankreich durch die Tessiner Berge im Sommer 2026',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso sucht Lösungen, um mehr Einwohner einzustellen: Was ändert sich für Grenzgänger und Unternehmen?',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Der Stadtrat Francesco Romano fragt beim Gemeinderat von Chiasso nach, welche konkreten Instrumente Unternehmen dazu anregen können, lieber Tessiner Einwohner als Grenzgänger einzustellen.',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'Ansicht einer Straße in Chiasso mit Gewerbegebäuden und Fußgängern, Symbol für die wirtschaftliche Vitalität der Region',
 };
 
 export default blogMetaDe;

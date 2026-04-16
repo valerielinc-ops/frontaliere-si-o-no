@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 788,
+ "numberOfItems": 789,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4477,7 +4477,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 785, "name": "Pendolare inverso: da Altdorf a Lugano ogni gio...", "url": `${BASE_URL}/articoli-frontaliere/pendolare-inverso-altdorf-lugano-problemi` },
           { "@type": "ListItem", "position": 786, "name": "Risparmio Casa arriva al Centro Breggia di Bale...", "url": `${BASE_URL}/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna` },
           { "@type": "ListItem", "position": 787, "name": "Trafico di droga bloccato a Brogeda: due arrest...", "url": `${BASE_URL}/articoli-frontaliere/blocco-droga-confine-brogeda-2026` },
-          { "@type": "ListItem", "position": 788, "name": "Frontaliere Ticino: Nuovi collegamenti FFS 2026...", "url": `${BASE_URL}/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026` }
+          { "@type": "ListItem", "position": 788, "name": "Frontaliere Ticino: Nuovi collegamenti FFS 2026...", "url": `${BASE_URL}/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026` },
+          { "@type": "ListItem", "position": 789, "name": "Chiasso cerca soluzioni per assumere più reside...", "url": `${BASE_URL}/articoli-frontaliere/strumenti-comune-chiasso-assunzione-residenti` }
  ]
  }
  ]

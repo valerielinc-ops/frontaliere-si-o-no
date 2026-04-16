@@ -2211,6 +2211,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'CFF: trains directs pour Rimini et la France dès le 30 mai 2026',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'Du 30 mai au 4 octobre, liaison directe Zurich-Rimini avec arrêts à Bellinzone, Lugano et Chiasso. Depuis Lausanne et Genève, trains TGV pour Avignon, Aix-en-Provence et Marseille jusqu’au 2 novembre.',
     'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'Train CFF en direction de Rimini et de la France traversant les montagnes tessinoises en été 2026',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso cherche des solutions pour embaucher davantage de résidents : quelles conséquences pour les frontaliers et les entreprises',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Le conseiller communal Francesco Romano demande au Conseil communal de Chiasso quels outils concrets pourraient encourager les entreprises à privilégier l’embauche de résidents tessinois plutôt que de travailleurs frontaliers.',
+    'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'Vue d\'une rue de Chiasso avec des bâtiments commerciaux et des passants, symbole de la vitalité économique du territoire',
 };
 
 export default blogMetaFr;
