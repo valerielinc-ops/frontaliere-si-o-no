@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-16T09:34:23.757Z",
+  "generatedAt": "2026-04-16T21:12:59.945Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19565,
-  "avgDurationMs": 19565,
+  "unchangedCount": 0,
+  "durationMs": 16921,
+  "avgDurationMs": 16921,
   "durationHistory": [
-    19565
+    16921
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,6 +45,47 @@
       "id": "capri-holdings-c2478bfc8995",
       "salaryMin": 59000,
       "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-15T21:13:51.363Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Assistant-Manager-Full-Time---Landquart_R_783736",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Assistant-Manager-Full-Time---Landquart_R_783736",
+      "title": "Assistant Manager Full Time - Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "assistant-manager-full-time-landquart-capri-holdings",
+      "category": "management",
+      "datePosted": "2026-04-15",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "id": "capri-holdings-ac474361024f",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-15T21:13:51.363Z",
       "_qualityScore": 94,
@@ -221,47 +262,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Assistant-Manager-Full-Time---Landquart_R_783736",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Assistant-Manager-Full-Time---Landquart_R_783736",
-      "title": "Assistant Manager Full Time - Landquart",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "assistant-manager-full-time-landquart-capri-holdings",
-      "category": "management",
-      "datePosted": "2026-04-15",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "crawledAt": "",
-      "id": "capri-holdings-ac474361024f",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-15T21:13:51.363Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
