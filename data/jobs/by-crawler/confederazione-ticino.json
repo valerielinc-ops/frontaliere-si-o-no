@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-04-16T09:41:07.070Z",
+  "assembledAt": "2026-04-16T21:19:39.378Z",
   "jobs": [
     {
       "title": "Inspektor/in",
@@ -563,7 +563,8 @@
         "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       ],
-      "firstSeenAt": "2026-04-13T21:25:51.212Z"
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -644,8 +645,7 @@
         "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "retranslationAttempts": 1
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
