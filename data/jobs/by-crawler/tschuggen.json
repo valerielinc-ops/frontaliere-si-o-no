@@ -746,11 +746,11 @@
     },
     {
       "id": "tschuggen-2a0d29006dba",
-      "slug": "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "addetto-alle-pulizie-m-f-d-stagione-estiva-2026-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch",
-        "it": "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch",
-        "en": "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch",
+        "it": "addetto-alle-pulizie-m-f-d-stagione-estiva-2026-tschuggen-collection-arosa",
+        "en": "housekeeping-attendant-m-f-d-summer-season-2026-tschuggen-collection-arosa",
         "fr": "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
@@ -809,7 +809,18 @@
         }
       },
       "firstSeenAt": "2026-04-16T22:29:04.818Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch"
+        ],
+        "en": [
+          "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-attendant-m-w-d-sommersaison-2026-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-58b53acabf42",

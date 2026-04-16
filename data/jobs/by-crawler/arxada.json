@@ -1873,10 +1873,10 @@
     },
     {
       "id": "arxada-399247511cda",
-      "slug": "elettroinstallateur-in-efz-arxada-visp",
+      "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-arxada-visp",
       "slugByLocale": {
-        "it": "elettroinstallateur-in-efz-arxada-visp",
-        "en": "apprenticeship-electroinstallateur-in-efz-arxada-visp",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-arxada-visp",
+        "en": "lehrstelle-electrical-installer-efz-arxada-visp",
         "de": "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
         "fr": "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp"
       },
@@ -1920,15 +1920,17 @@
       "jobReqId": "R52727",
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-arxada-visp"
+        "elettroinstallateur-in-efz-arxada-visp",
+        "apprenticeship-electroinstallateur-in-efz-arxada-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-arxada-visp"
+          "elettroinstallateur-in-efz-arxada-visp"
         ],
         "en": [
-          "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
+          "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
+          "apprenticeship-electroinstallateur-in-efz-arxada-visp"
         ],
         "fr": [
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
@@ -1951,9 +1953,9 @@
     },
     {
       "id": "arxada-0ac9075580d2",
-      "slug": "anlageningenieur-in-arxada-visp",
+      "slug": "metallbauer-in-cfc-arxada-visp",
       "slugByLocale": {
-        "it": "anlageningenieur-in-arxada-visp",
+        "it": "metallbauer-in-cfc-arxada-visp",
         "en": "plant-engineer-arxada-visp",
         "de": "metallbauer-in-efz-arxada-visp",
         "fr": "ingenieur-de-l-usine-arxada-visp"
@@ -2023,12 +2025,14 @@
           "metallbauer-in-efz-arxada-ch"
         ],
         "it": [
-          "anlageningenieur-in-arxada-ch"
+          "anlageningenieur-in-arxada-ch",
+          "anlageningenieur-in-arxada-visp"
         ]
       },
       "previousSlugs": [
         "anlageningenieur-in-arxada-ch",
-        "metallbauer-in-efz-arxada-ch"
+        "metallbauer-in-efz-arxada-ch",
+        "anlageningenieur-in-arxada-visp"
       ],
       "firstSeenAt": "2026-04-13T09:58:58.686Z",
       "salaryMin": 49500,

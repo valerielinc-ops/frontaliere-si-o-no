@@ -876,12 +876,12 @@
     },
     {
       "id": "bcvs-a77e32d049a9",
-      "slug": "bankberater-in-bcvs-zermatt",
+      "slug": "consulente-bancario-banque-cantonale-du-valais-zermatt",
       "slugByLocale": {
         "de": "bankberater-in-banque-cantonale-du-valais-zermatt",
-        "it": "bankberater-in-bcvs-zermatt",
-        "en": "bankberater-in-bcvs-zermatt",
-        "fr": "bankberater-in-bcvs-zermatt"
+        "it": "consulente-bancario-banque-cantonale-du-valais-zermatt",
+        "en": "bank-consultant-banque-cantonale-du-valais-zermatt",
+        "fr": "consultant-bancaire-banque-cantonale-du-valais-zermatt"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -937,7 +937,21 @@
         }
       },
       "postalCode": "3920",
-      "firstSeenAt": "2026-04-16T21:06:21.138Z"
+      "firstSeenAt": "2026-04-16T21:06:21.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bankberater-in-bcvs-zermatt"
+        ],
+        "en": [
+          "bankberater-in-bcvs-zermatt"
+        ],
+        "fr": [
+          "bankberater-in-bcvs-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "bankberater-in-bcvs-zermatt"
+      ]
     }
   ]
 }

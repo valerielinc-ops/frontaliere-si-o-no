@@ -1113,26 +1113,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-physician-internal-medicine-80-100-spital-davos-davos",
-        "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
-        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
-        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "assistant-en-medecine-interne-100-spital-davos-davos",
         "assistente-di-medicina-interna-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "senior-physician-internal-medicine-80-100-spital-davos-davos",
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
         "de": [
-          "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
           "unterassistent-in-innere-medizin-100-spital-davos-ch"
         ],
         "fr": [
-          "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
           "assistant-en-medecine-interne-100-spital-davos-davos"
         ],
         "it": [
@@ -1777,8 +1770,8 @@
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
         "it": "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos",
-        "en": "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
-        "fr": "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
+        "en": "medical-practical-assistant-in-mpa-or-specialist-health-fage-for-daily-clinic-pensum-60-spital-davos-davos",
+        "fr": "medical-assistant-pratique-mpa-ou-specialiste-de-la-sante-fage-pour-la-clinique-quotidienne-pensum-60-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1832,10 +1825,17 @@
         ],
         "de": [
           "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens"
+        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens",
+        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

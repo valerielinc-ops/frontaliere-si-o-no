@@ -1875,9 +1875,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -1926,12 +1926,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -2511,7 +2511,7 @@
       "slug": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
-        "en": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
+        "en": "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai",
         "de": "50-stelle-als-psychologe-psychotherapeut-in-fur-den-dienst-fur-erwachsenenpsychiatrie-und-psychotherapie-im-zentralwalli",
         "fr": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       },
@@ -2560,7 +2560,7 @@
         "en": [
           "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
           "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-of-the-central-valais-hopital-du-vala",
-          "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai"
+          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
         ],
         "it": [
           "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
@@ -2572,8 +2572,7 @@
       "previousSlugs": [
         "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
         "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-of-the-central-valais-hopital-du-vala",
-        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
-        "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai"
+        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -3054,12 +3053,12 @@
     },
     {
       "id": "hopital-du-valais-d7cfc6449869",
-      "slug": "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp",
+      "slug": "assistente-medico-pratico-60-chirurgia-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp",
-        "it": "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp",
-        "en": "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp",
-        "fr": "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp"
+        "it": "assistente-medico-pratico-60-chirurgia-hopital-du-valais-visp",
+        "en": "medical-practical-assistant-60-surgery-hopital-du-valais-visp",
+        "fr": "assistant-medical-pratique-60-chirurgie-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3117,16 +3116,30 @@
         }
       },
       "firstSeenAt": "2026-04-16T21:45:48.857Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-praxisassistent-in-60-chirurgie-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-9ed29c684468",
-      "slug": "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig",
+      "slug": "principale-medico-medico-endocrinologia-diabetologia-60-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig",
-        "it": "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig",
-        "en": "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig",
-        "fr": "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig"
+        "it": "principale-medico-medico-endocrinologia-diabetologia-60-100-hopital-du-valais-brig",
+        "en": "leading-physician-physician-endocrinology-diabetology-60-100-hopital-du-valais-brig",
+        "fr": "medecin-medecin-chef-de-file-endocrinologie-diabeteologie-60-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3184,7 +3197,21 @@
         }
       },
       "firstSeenAt": "2026-04-16T21:45:48.472Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig"
+      ]
     }
   ]
 }

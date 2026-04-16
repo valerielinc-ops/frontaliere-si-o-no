@@ -74,12 +74,12 @@
     },
     {
       "id": "hilcona-d002ba2efbb2",
-      "slug": "elektriker-m-w-d-hilcona-schiltach",
+      "slug": "elettricita-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
       "slugByLocale": {
         "de": "elektriker-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
-        "it": "elektriker-m-w-d-hilcona-schiltach",
-        "en": "elektriker-m-w-d-hilcona-schiltach",
-        "fr": "elektriker-m-w-d-hilcona-schiltach"
+        "it": "elettricita-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
+        "en": "electrician-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
+        "fr": "electricien-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach"
       },
       "company": "Bell Schwarzwälder Schinken GmbH",
       "companyKey": "hilcona",
@@ -129,7 +129,21 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-16T21:45:08.806Z"
+      "firstSeenAt": "2026-04-16T21:45:08.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektriker-m-w-d-hilcona-schiltach"
+        ],
+        "en": [
+          "elektriker-m-w-d-hilcona-schiltach"
+        ],
+        "fr": [
+          "elektriker-m-w-d-hilcona-schiltach"
+        ]
+      },
+      "previousSlugs": [
+        "elektriker-m-w-d-hilcona-schiltach"
+      ]
     },
     {
       "id": "hilcona-dbec66286e58",

@@ -32,9 +32,9 @@
       "firstSeenAt": "2026-04-16T21:55:41.750Z",
       "slugByLocale": {
         "it": "vendite-operatore-di-filiale-part-time-f-m-lidl-svizzera-arbedo-castione-9bjbvk",
-        "en": "vendite-operatore-di-filiale-part-time-f-m-lidl-svizzera-arbedo-castione-9bjbvk",
-        "de": "vendite-operatore-di-filiale-teilzeit-f-m-lidl-svizzera-arbedo-castione-9bjbvk",
-        "fr": "vendite-operatore-di-filiale-temps-partiel-f-m-lidl-svizzera-arbedo-castione-9bjbvk"
+        "en": "sales-part-time-affiliate-operator-f-m-lidl-svizzera-arbedo-castione",
+        "de": "vertriebsmitarbeiter-w-m-lidl-svizzera-arbedo-castione",
+        "fr": "ventes-operateur-affilie-a-temps-partiel-f-m-lidl-svizzera-arbedo-castione"
       },
       "titleByLocale": {
         "it": "Vendite_Operatore di Filiale part-time (f/m)",
@@ -76,7 +76,19 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "vendite-operatore-di-filiale-teilzeit-f-m-lidl-svizzera-arbedo-castione-9bjbvk"
+        ],
+        "fr": [
+          "vendite-operatore-di-filiale-temps-partiel-f-m-lidl-svizzera-arbedo-castione-9bjbvk"
+        ]
+      },
+      "previousSlugs": [
+        "vendite-operatore-di-filiale-teilzeit-f-m-lidl-svizzera-arbedo-castione-9bjbvk",
+        "vendite-operatore-di-filiale-temps-partiel-f-m-lidl-svizzera-arbedo-castione-9bjbvk"
+      ]
     },
     {
       "id": "company-xsgkjj",

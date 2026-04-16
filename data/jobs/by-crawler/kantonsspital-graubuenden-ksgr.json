@@ -23,9 +23,12 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-16T21:53:09.230Z",
-      "slug": "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur",
+      "slug": "medico-assistente-pratico-in-clinica-medica-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur",
+        "it": "medico-assistente-pratico-in-clinica-medica-kantonsspital-graubunden-chur",
+        "en": "medical-practical-assistant-in-medical-clinic-kantonsspital-graubunden-chur",
+        "fr": "medical-assistant-pratique-en-clinique-medicale-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Medizinische Poliklinik",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-16T21:53:09.230Z"
+      "firstSeenAt": "2026-04-16T21:53:09.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9999506",
@@ -5143,8 +5154,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
