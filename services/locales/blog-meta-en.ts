@@ -2214,6 +2214,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso seeks solutions to hire more residents: what changes for cross-border workers and businesses',
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Chiasso councillor Francesco Romano has asked the Municipal Council to identify concrete tools that can encourage companies to prioritise hiring Ticinese residents over cross-border workers.',
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'View of a Chiasso street with commercial buildings and pedestrians, symbolizing the local economic vitality',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.title': 'Statue ‘Return to Nature’ in Chiasso: petition stalled for a year',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.excerpt': 'The petition to remove the statue ‘Return to Nature’ in Chiasso, signed by 433 people in May 2025, is still awaiting an official response from the Municipal Council. Municipal councillor Francesco Romano (HelvEthica Ticino) is calling for clarity.',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.imageAlt': 'The \'Ritorno alla Natura\' statue in Chiasso park during an autumn day with citizens walking by',
 };
 
 export default blogMetaEn;

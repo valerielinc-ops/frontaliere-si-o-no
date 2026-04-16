@@ -2214,6 +2214,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso sucht Lösungen, um mehr Einwohner einzustellen: Was ändert sich für Grenzgänger und Unternehmen?',
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Der Stadtrat Francesco Romano fragt beim Gemeinderat von Chiasso nach, welche konkreten Instrumente Unternehmen dazu anregen können, lieber Tessiner Einwohner als Grenzgänger einzustellen.',
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'Ansicht einer Straße in Chiasso mit Gewerbegebäuden und Fußgängern, Symbol für die wirtschaftliche Vitalität der Region',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.title': 'Statue ‚Rückkehr zur Natur‘ in Chiasso: Petition seit einem Jahr blockiert',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.excerpt': 'Die Petition zur Entfernung der Statue ‚Rückkehr zur Natur‘ in Chiasso, die im Mai 2025 von 433 Personen unterzeichnet wurde, wartet weiterhin auf eine offizielle Antwort des Gemeinderats. Der Gemeinderat Francesco Romano (HelvEthica Ticino) fordert Klarheit ein.',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.imageAlt': 'Die Statue \'Ritorno alla Natura\' im Stadtpark von Chiasso an einem Herbsttag mit spazierenden Bürgern',
 };
 
 export default blogMetaDe;

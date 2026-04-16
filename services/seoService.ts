@@ -1993,6 +1993,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blocco-droga-confine-brogeda-2026': { name: 'Trafico di droga bloccato a Brogeda', path: '/articoli-frontaliere/blocco-droga-confine-brogeda-2026', parent: 'blog' },
     'blog-ffs-collegamenti-estivi-rimini-francia-2026': { name: 'Trasporti 2026', path: '/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026', parent: 'blog' },
     'blog-strumenti-comune-chiasso-assunzione-residenti': { name: 'Chiasso cerca soluzioni per assumere più', path: '/articoli-frontaliere/strumenti-comune-chiasso-assunzione-residenti', parent: 'blog' },
+    'blog-petizione-chiasso-ritorno-alla-natura-2025': { name: 'Statua ‘Ritorno alla natura’ a Chiasso', path: '/articoli-frontaliere/petizione-chiasso-ritorno-alla-natura-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

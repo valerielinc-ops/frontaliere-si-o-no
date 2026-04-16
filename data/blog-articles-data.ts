@@ -6151,4 +6151,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/strumenti-comune-chiasso-assunzione-residenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'petizione-chiasso-ritorno-alla-natura-2025',
+ category: 'novita',
+ date: '2026-04-16T18:25:42.922Z',
+ image: '/images/blog/petizione-chiasso-ritorno-alla-natura-2025.jpg',
+ hasCalculator: true,
+ },
 ];

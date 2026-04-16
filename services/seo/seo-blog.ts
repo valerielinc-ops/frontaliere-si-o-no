@@ -8294,6 +8294,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petizione-chiasso-ritorno-alla-natura-2025': {
+    title: 'Statua ‘Ritorno alla natura’ a Chiasso | Frontaliere Ticino',
+    description: 'La petizione per la rimozione della statua ‘Ritorno alla natura’ a Chiasso, sottoscritta da 433 persone a maggio 2025, attende ancora una risposta ufficiale dal',
+    keywords: 'frontalieri, ticino, svizzera, italia, statua, ritorno, alla, natura',
+    ogTitle: 'Statua ‘Ritorno alla natura’ a Chiasso: petizione ferma d',
+    ogDescription: 'La petizione per la rimozione della statua ‘Ritorno alla natura’ a Chiasso, sottoscritta da 433 persone a maggio 2025, attende ancora una risposta ufficiale dal',
+    canonicalPath: '/articoli-frontaliere/petizione-chiasso-ritorno-alla-natura-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Statua ‘Ritorno alla natura’ a Chiasso: petizione ferma d",
+      "description": "La petizione per la rimozione della statua ‘Ritorno alla natura’ a Chiasso, sottoscritta da 433 persone a maggio 2025, attende ancora una risposta ufficiale dal",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petizione-chiasso-ritorno-alla-natura-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La statua 'Ritorno alla Natura' a Chiasso circondata da un parco cittadino durante una giornata autunnale con cittadini a passeggio"
+      },
+      "datePublished": "2026-04-16T18:25:42+00:00",
+      "dateModified": "2026-04-16T18:25:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petizione-chiasso-ritorno-alla-natura-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

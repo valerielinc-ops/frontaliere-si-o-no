@@ -2214,6 +2214,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.title': 'Chiasso cerca soluzioni per assumere più residenti: cosa cambia per frontalieri e imprese',
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.excerpt': 'Il consigliere comunale Francesco Romano chiede al Municipio di Chiasso quali strumenti concreti possono incentivare le aziende a preferire residenti ticinesi rispetto ai frontalieri.',
     'blog.article.strumenti-comune-chiasso-assunzione-residenti.imageAlt': 'Veduta di una via di Chiasso con edifici commerciali e passanti, simbolo della vivacità economica del territorio',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.title': 'Statua ‘Ritorno alla natura’ a Chiasso: petizione ferma da un anno',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.excerpt': 'La petizione per la rimozione della statua ‘Ritorno alla natura’ a Chiasso, sottoscritta da 433 persone a maggio 2025, attende ancora una risposta ufficiale dal Municipio. Il consigliere comunale Francesco Romano (HelvEthica Ticino) chiede chiarezza.',
+    'blog.article.petizione-chiasso-ritorno-alla-natura-2025.imageAlt': 'La statua \'Ritorno alla Natura\' a Chiasso circondata da un parco cittadino durante una giornata autunnale con cittadini a passeggio',
 };
 
 export default blogMetaIt;
