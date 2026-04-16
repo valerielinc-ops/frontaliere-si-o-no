@@ -30,6 +30,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { isTargetCanton } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -490,6 +491,8 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const url = buildDetailUrl(req.Id);
     const city = extractCity(req.PrimaryLocation || '');
     const canton = detectCanton(req.PrimaryLocation || '');
+    // Skip jobs outside target cantons (TI, GR, VS)
+    if (canton && !isTargetCanton(canton)) continue;
     const rawDesc = descriptions.get(String(req.Id)) || req.ShortDescriptionStr || '';
     const parsedContent = parseEfgOracleDescription(rawDesc);
     const description = parsedContent.description || cleanEfgDescription(rawDesc);
