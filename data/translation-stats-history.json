@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-08T05:22:59.159Z",
-    "label": "before",
-    "total": 1538,
-    "needsRetranslation": 90,
-    "incomplete": 25,
-    "complete": 1513,
-    "missingByLocale": {
-      "it": 10,
-      "en": 14,
-      "de": 13,
-      "fr": 17
-    },
-    "topPending": [
-      {
-        "company": "Lidl Svizzera",
-        "pending": 8
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 5
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-08T05:24:07.757Z",
-    "label": "after",
-    "total": 1538,
-    "needsRetranslation": 57,
-    "incomplete": 10,
-    "complete": 1528,
-    "missingByLocale": {
-      "it": 6,
-      "en": 6,
-      "de": 4,
-      "fr": 8
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 2
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-08T07:56:46.626Z",
     "label": "before",
     "total": 1484,
@@ -7692,6 +7608,118 @@
       "fr": 1
     },
     "topPending": [
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T10:58:15.799Z",
+    "label": "before",
+    "total": 2917,
+    "needsRetranslation": 1262,
+    "incomplete": 119,
+    "complete": 2798,
+    "missingByLocale": {
+      "it": 56,
+      "en": 99,
+      "de": 66,
+      "fr": 106
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 9
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 8
+      },
+      {
+        "company": "Kantonale Verwaltung Graubünden",
+        "pending": 8
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 6
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 4
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "Lonza",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T12:12:53.100Z",
+    "label": "after",
+    "total": 2917,
+    "needsRetranslation": 83,
+    "incomplete": 27,
+    "complete": 2890,
+    "missingByLocale": {
+      "it": 15,
+      "en": 15,
+      "de": 11,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "PwC Switzerland",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 1
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
       {
         "company": "Spital Davos",
         "pending": 1
