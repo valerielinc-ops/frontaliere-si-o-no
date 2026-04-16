@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-04-16T09:17:45.667Z",
+  "generatedAt": "2026-04-16T20:56:18.198Z",
   "total": 2,
-  "newCount": 3,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 3627,
-  "avgDurationMs": 3627,
+  "durationMs": 2860,
+  "avgDurationMs": 2860,
   "durationHistory": [
-    3627
+    2860
   ],
   "newJobs": [
     {
@@ -37,7 +37,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9434&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-16T09:17:43.327Z",
+      "crawledAt": "2026-04-16T20:56:16.263Z",
       "_qualityScore": 53,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -47,17 +47,17 @@
       }
     },
     {
-      "id": "alpiq-8d3d9c76dd2f",
-      "slug": "front-support-structured-product-specialist-all-100-alpiq-olten",
+      "id": "alpiq-90909a66f378",
+      "slug": "coordinateur-maintenance-et-projets-alpiq-martigny",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Front Support Structured Product Specialist (all) 100%",
-      "location": "Olten",
+      "title": "Coordinateur Maintenance et Projets",
+      "location": "Martigny",
       "canton": "",
-      "postalCode": "4600",
+      "postalCode": "",
       "streetAddress": "",
-      "addressLocality": "Olten",
+      "addressLocality": "Martigny",
       "addressRegion": "",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -66,50 +66,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-04-16",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9422",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9422&lang=en_GB",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9440",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9440&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-16T09:17:43.328Z",
-      "_qualityScore": 60,
+      "crawledAt": "2026-04-16T20:56:16.264Z",
+      "_qualityScore": 53,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "alpiq-8830606f1f62",
-      "slug": "quantitative-risk-manager-all-80-100-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Quantitative Risk Manager (all) 80-100%",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9460",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9460&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-16T09:17:43.328Z",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 4,
-        "completeness": 17
+        "completeness": 14
       }
     }
   ],
