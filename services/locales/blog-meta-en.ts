@@ -2196,6 +2196,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Bulgarian cross-border worker dies in workplace accident in Cugnasco',
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'A 50-year-old Bulgarian cross-border worker residing in the Locarno area lost his life after being struck by falling trees during forestry work. Police and rescue teams activated the Care Team to provide psychological support.',
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Emergency services at the scene after the fatal accident in Cugnasco near Locarno',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.title': 'Film Swiss Sabotage: Ticino’s cross-border workers hit Swiss screens nationwide',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.excerpt': 'Following 15,000 viewers in Ticino, the film \'Frontaliers Sabotage\' is now screening in 16 German- and French-speaking Swiss cinemas under its new title \'Swiss Sabotage\'. Screenings will take place in Zurich, Geneva and Lausanne starting Wednesday, April 16.',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.imageAlt': 'Movie theater in Lugano with audience buying tickets for Swiss Sabotage film',
 };
 
 export default blogMetaEn;

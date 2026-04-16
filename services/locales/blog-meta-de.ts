@@ -2196,6 +2196,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Bulgarischer Grenzgänger bei Arbeitsunfall in Cugnasco ums Leben gekommen',
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'Ein 50-jähriger bulgarischer Grenzgänger, der im Locarnese lebte, starb, als er bei forstwirtschaftlichen Arbeiten von Bäumen erdrückt wurde. Polizei und Rettungskräfte aktivierten das Care Team für psychologische Unterstützung.',
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Einsatzkräfte am Unfallort nach dem tödlichen Unfall in Cugnasco bei Locarno',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.title': 'Film Swiss Sabotage: Die Tessiner Grenzgänger erobern die ganze Schweiz',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.excerpt': 'Nach 15’000 Zuschauerinnen und Zuschauern im Tessin ist der Film «Frontaliers Sabotage» unter dem neuen Titel «Swiss Sabotage» in 16 Kinos der Deutsch- und Westschweiz zu sehen. Vorführungen in Zürich, Genf und Lausanne starten am Mittwoch, 16. April.',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.imageAlt': 'Kino in Lugano mit Publikum, das Tickets für den Film Swiss Sabotage kauft',
 };
 
 export default blogMetaDe;

@@ -2196,6 +2196,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Operaio frontaliero bulgaro muore in incidente sul lavoro a Cugnasco',
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'Un 50enne bulgaro residente nel Locarnese perde la vita travolto da alberi durante lavori forestali. Polizia e soccorritori hanno attivato il Care Team per supporto psicologico.',
     'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Emergency services sul posto dopo l\'infortunio a Cugnasco nel Locarnese',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.title': 'Film Swiss Sabotage: i Frontaliers ticinesi sbarcano in tutta la Svizzera',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.excerpt': 'Dopo 15mila spettatori in Ticino, il film \'Frontaliers Sabotage\' approda in 16 sale svizzere tedesche e romande con il nuovo titolo \'Swiss Sabotage\'. Proiezioni a Zurigo, Ginevra e Losanna da mercoledì 16 aprile.',
+    'blog.article.film-swiss-sabotage-frontalieri-ticinesi.imageAlt': 'Sala cinema a Lugano con pubblico che acquista biglietti per il film Swiss Sabotage',
 };
 
 export default blogMetaIt;

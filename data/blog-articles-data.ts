@@ -6109,4 +6109,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/infortunio-locarnese-operaio-frontaliero-decede.jpg',
  hasCalculator: false,
  },
+ {
+ id: 'film-swiss-sabotage-frontalieri-ticinesi',
+ category: 'novita',
+ date: '2026-04-16T08:17:41.427Z',
+ image: '/images/blog/film-swiss-sabotage-frontalieri-ticinesi.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -8120,6 +8120,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-film-swiss-sabotage-frontalieri-ticinesi': {
+    title: 'Film Swiss Sabotage: i Frontaliers | Frontaliere Ticino',
+    description: 'Dopo 15mila spettatori in Ticino, il film \'Frontaliers Sabotage\' approda in 16 sale svizzere tedesche e romande con il nuovo titolo \'Swiss Sabotage\'. Proiezioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, film, swiss, sabotage, frontaliers',
+    ogTitle: 'Film Swiss Sabotage: i Frontaliers ticinesi sbarcano in t',
+    ogDescription: 'Dopo 15mila spettatori in Ticino, il film \'Frontaliers Sabotage\' approda in 16 sale svizzere tedesche e romande con il nuovo titolo \'Swiss Sabotage\'. Proiezioni',
+    canonicalPath: '/articoli-frontaliere/film-swiss-sabotage-frontalieri-ticinesi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Film Swiss Sabotage: i Frontaliers ticinesi sbarcano in t",
+      "description": "Dopo 15mila spettatori in Ticino, il film 'Frontaliers Sabotage' approda in 16 sale svizzere tedesche e romande con il nuovo titolo 'Swiss Sabotage'. Proiezioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/film-swiss-sabotage-frontalieri-ticinesi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala cinema a Lugano con pubblico che acquista biglietti per il film Swiss Sabotage"
+      },
+      "datePublished": "2026-04-16T08:17:41+00:00",
+      "dateModified": "2026-04-16T08:17:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/film-swiss-sabotage-frontalieri-ticinesi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
