@@ -4374,6 +4374,14 @@ ${alternates}
  }
  }
  } catch { /* adapters dir missing */ }
+ // Also include companies from active jobs (covers crawlers without adapters)
+ for (const job of validJobs) {
+ const key = String(job.companyKey || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
+ if (key && !seenCompanySlugs.has(key)) {
+ companySlugMap.push({ slug: key, name: job.company });
+ seenCompanySlugs.add(key);
+ }
+ }
  // Sort by slug length descending for longest-match-first
  companySlugMap.sort((a, b) => b.slug.length - a.slug.length);
 
@@ -4401,13 +4409,16 @@ ${alternates}
  let location = '';
  let postalCode = '';
 
- // 1. Match company (longest slug match first)
+ // 1. Match company (longest slug match first, word-boundary aware)
+ // Use regex with hyphen/start/end boundaries to prevent false positives
+ // e.g. "a-group" must not match inside "prada-group"
  for (const c of companySlugMap) {
- if (remaining.includes(c.slug)) {
+ const escaped = c.slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+ const re = new RegExp(`(?:^|-)${escaped}(?:-|$)`);
+ if (re.test(remaining)) {
  company = c.name;
  companyKey = c.slug;
- // Remove company slug from remaining, handling leading/trailing hyphens
- remaining = remaining.replace(c.slug, '').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-');
+ remaining = remaining.replace(re, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-');
  break;
  }
  }
