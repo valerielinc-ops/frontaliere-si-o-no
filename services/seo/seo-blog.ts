@@ -8033,6 +8033,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ribaltone-mps-lovaglio-frontalieri-ticino': {
+    title: 'Monte dei Paschi di Siena: Lovaglio | Frontaliere Ticino',
+    description: 'Luigi Lovaglio torna nel Cda di Mps con il 49,95% dei voti grazie al sostegno di Delfin (17,5%) e Banco Bpm (3,7%). Affluenza al 64,1% del capitale. Cosa cambia',
+    keywords: 'frontalieri, ticino, svizzera, italia, monte, paschi, siena, lovaglio',
+    ogTitle: 'Monte dei Paschi di Siena: Lovaglio vince l’assemblea, Ti',
+    ogDescription: 'Luigi Lovaglio torna nel Cda di Mps con il 49,95% dei voti grazie al sostegno di Delfin (17,5%) e Banco Bpm (3,7%). Affluenza al 64,1% del capitale. Cosa cambia',
+    canonicalPath: '/articoli-frontaliere/ribaltone-mps-lovaglio-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Monte dei Paschi di Siena: Lovaglio vince l’assemblea, Ti",
+      "description": "Luigi Lovaglio torna nel Cda di Mps con il 49,95% dei voti grazie al sostegno di Delfin (17,5%) e Banco Bpm (3,7%). Affluenza al 64,1% del capitale. Cosa cambia",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ribaltone-mps-lovaglio-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno della filiale ticinese della Banca Monte dei Paschi di Siena a Bellinzona"
+      },
+      "datePublished": "2026-04-15T23:55:30+00:00",
+      "dateModified": "2026-04-15T23:55:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ribaltone-mps-lovaglio-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

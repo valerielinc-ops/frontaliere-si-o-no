@@ -2187,6 +2187,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.title': 'Webuild e Salini: serve collaborazione per un Ticino competitivo',
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.excerpt': 'Amministratore delegato di Webuild chiede alleanza tra istituzioni e imprese per progetti infrastrutturali in Ticino e Italia. Mercato globale delle costruzioni a 5.180 miliardi di dollari entro il 2030.',
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.imageAlt': 'Panorama di Lugano con il Monte San Salvatore sullo sfondo al tramonto',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.title': 'Monte dei Paschi di Siena: Lovaglio vince l’assemblea, Ticino tra i territori coinvolti',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.excerpt': 'Luigi Lovaglio torna nel Cda di Mps con il 49,95% dei voti grazie al sostegno di Delfin (17,5%) e Banco Bpm (3,7%). Affluenza al 64,1% del capitale. Cosa cambia per i 7.000 frontalieri ticinesi impiegati nel gruppo bancario.',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.imageAlt': 'Esterno della filiale ticinese della Banca Monte dei Paschi di Siena a Bellinzona',
 };
 
 export default blogMetaIt;

@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 780,
+ "numberOfItems": 781,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4469,7 +4469,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 777, "name": "Incidente a Cassano Magnago: due frontalieri ti...", "url": `${BASE_URL}/articoli-frontaliere/incidente-cassano-magnago-frontalieri-ticinesi` },
           { "@type": "ListItem", "position": 778, "name": "Ristoratore ticinese sorprende ladro: arrestato...", "url": `${BASE_URL}/articoli-frontaliere/wirt-sorpreso-einbrecher-marokkaner-ticino` },
           { "@type": "ListItem", "position": 779, "name": "L'Iran chiude la porta al ripescaggio dell'Ital...", "url": `${BASE_URL}/articoli-frontaliere/irania-nazionale-italia-riqualifica-2026` },
-          { "@type": "ListItem", "position": 780, "name": "Webuild e Salini: serve collaborazione per un T...", "url": `${BASE_URL}/articoli-frontaliere/collaborazione-imprese-istituzioni-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 780, "name": "Webuild e Salini: serve collaborazione per un T...", "url": `${BASE_URL}/articoli-frontaliere/collaborazione-imprese-istituzioni-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 781, "name": "Monte dei Paschi di Siena: Lovaglio vince l’ass...", "url": `${BASE_URL}/articoli-frontaliere/ribaltone-mps-lovaglio-frontalieri-ticino` }
  ]
  }
  ]

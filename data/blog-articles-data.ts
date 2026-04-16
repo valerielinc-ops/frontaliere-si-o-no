@@ -6088,4 +6088,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/collaborazione-imprese-istituzioni-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ribaltone-mps-lovaglio-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-15T23:55:30.013Z',
+ image: '/images/blog/ribaltone-mps-lovaglio-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

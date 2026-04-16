@@ -2187,6 +2187,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.title': 'Webuild and Salini: collaboration needed for a competitive Ticino',
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.excerpt': 'The CEO of Webuild calls for an alliance between institutions and businesses to drive infrastructure projects in Ticino and Italy. The global construction market is projected to reach $5.18 trillion by 2030.',
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.imageAlt': 'Lugano skyline with San Salvatore mountain during sunset',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.title': 'Monte dei Paschi di Siena: Lovaglio wins the board election, Ticino among the affected regions',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.excerpt': 'Luigi Lovaglio returns to the MPS board with 49.95% of the votes, backed by Delfin (17.5%) and Banco BPM (3.7%). Voter turnout reached 64.1% of the capital. What changes for the 7,000 cross-border workers from Ticino employed by the banking group.',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.imageAlt': 'Exterior of the Ticino branch of Banca Monte dei Paschi di Siena in Bellinzona',
 };
 
 export default blogMetaEn;

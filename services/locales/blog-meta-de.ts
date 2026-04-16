@@ -2187,6 +2187,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.title': 'Webuild und Salini: Zusammenarbeit für einen wettbewerbsfähigen Tessin erforderlich',
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.excerpt': 'Der Geschäftsführer von Webuild fordert ein Bündnis zwischen Institutionen und Unternehmen für Infrastrukturprojekte im Tessin und in Italien. Der globale Baumarkt soll bis 2030 ein Volumen von 5.180 Milliarden Franken erreichen.',
     'blog.article.collaborazione-imprese-istituzioni-frontalieri-ticino.imageAlt': 'Luganer Skyline mit dem San Salvatore Berg bei Sonnenuntergang',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.title': 'Monte dei Paschi di Siena: Lovaglio gewinnt die Versammlung – Tessin unter den betroffenen Gebieten',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.excerpt': 'Luigi Lovaglio kehrt mit 49,95 % der Stimmen in den Verwaltungsrat der MPS zurück, gestützt durch die Unterstützung von Delfin (17,5 %) und Banco Bpm (3,7 %). Die Kapitalbeteiligung lag bei 64,1 %. Welche Auswirkungen hat dies für die 7.000 Grenzgänger aus dem Tessin, die bei der Bankengruppe beschäftigt sind?',
+    'blog.article.ribaltone-mps-lovaglio-frontalieri-ticino.imageAlt': 'Außenansicht der Filiale der Banca Monte dei Paschi di Siena in Bellinzona',
 };
 
 export default blogMetaDe;
