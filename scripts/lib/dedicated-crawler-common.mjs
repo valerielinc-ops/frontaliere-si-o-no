@@ -4324,6 +4324,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'sydney', 'melbourne', 'cape town', 'johannesburg',
     // Liechtenstein & micro-states
     'ruggell', 'barberà del vallès', 'barbera del valles',
+    'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
   return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
 }

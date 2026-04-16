@@ -42,6 +42,8 @@ import {
   slugify, inferEmploymentType,
 } from './lib/prada-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { isLocationExplicitlyForeign, isTargetSwissLocation } from './lib/dedicated-crawler-common.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -130,8 +132,18 @@ async function main() {
     let detailDesc = detail?.description || '';
     const hasRealDescription = detailDesc.length >= 200 && !detailDesc.toLowerCase().includes('prada group careers');
 
-    const loc = raw.location || 'Mendrisio';
-    const dept = raw.department || '';
+    // Use the real job location from the listing/detail page, prefer detail if available
+    const loc = detail?.location || raw.location || 'Mendrisio';
+    const dept = raw.department || detail?.department || '';
+
+    // Skip jobs in explicitly foreign locations (Paris, Monaco, etc.)
+    if (isLocationExplicitlyForeign(loc)) {
+      console.log(`  ⏭️  ${raw.title}: foreign location "${loc}" — skipping`);
+      continue;
+    }
+
+    // Infer canton from actual city, fall back to TI for Mendrisio/unknown
+    const canton = inferAnyCanton(loc) || TARGET_CANTONS[0];
 
     // Build rich locale-specific descriptions (200+ chars each)
     const descByLocale = hasRealDescription
@@ -144,7 +156,7 @@ async function main() {
       continue;
     }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-prada-group-${raw.location}`);
+    const jobSlug = slugify(`${raw.title}-prada-group-${loc}`);
     parsedJobs.push({
       id: `prada-${urlHash}`,
       slug: jobSlug,
@@ -159,7 +171,7 @@ async function main() {
       requirements: [],
       requirementsByLocale: { en: [] },
       location: loc,
-      canton: TARGET_CANTONS[0],
+      canton,
       addressLocality: loc,
       addressCountry: 'CH',
       category: 'fashion',

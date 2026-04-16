@@ -109,11 +109,35 @@ export function parsePradaListingHtml(html) {
     const deptMatch = afterMatch.match(/class="[^"]*colDepartment[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
     const department = deptMatch ? normalizeSpace(stripHtml(deptMatch[1])) : '';
 
+    // Resolve location: prefer colLocation cell, fall back to URL city segment
+    // URL patterns: /job/{City}-{Title}/{id}/ or /job/{City_With_Underscores}-{Title}/{id}/
+    // e.g. /job/Paris-PRADA-STOCK-INTERN/123/ or /job/St_-Moritz-MIU-MIU.../456/
+    let resolvedLocation = location;
+    if (!resolvedLocation) {
+      // Match city from URL, handling underscores (St_-Moritz → St. Moritz)
+      const urlPath = decodeURIComponent(relUrl);
+      const urlCityMatch = urlPath.match(/\/job\/(.+?)\/\d+\/?$/);
+      if (urlCityMatch) {
+        // The first segment before the title is the city. Prada URLs use
+        // {City}-{TITLE-IN-CAPS} so split on the first uppercase word transition.
+        const segments = urlCityMatch[1].split('-');
+        const cityParts = [];
+        for (const seg of segments) {
+          // Stop when we hit an all-uppercase segment (start of title)
+          if (seg === seg.toUpperCase() && seg.length > 1 && /[A-Z]/.test(seg)) break;
+          cityParts.push(seg.replace(/_/g, ' ').trim());
+        }
+        resolvedLocation = cityParts.filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+        // Fix common patterns: "St " → "St."
+        resolvedLocation = resolvedLocation.replace(/\bSt\s/g, 'St. ');
+      }
+    }
+
     jobs.push({
       id: `prada-${jobId}`,
       title: rawTitle,
       url: fullUrl,
-      location: location || 'Mendrisio',
+      location: resolvedLocation || 'Mendrisio',
       canton: HQ.canton,
       department,
       jobId,
