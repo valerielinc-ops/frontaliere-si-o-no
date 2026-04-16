@@ -1483,7 +1483,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "siegfried-0924403ac3ed",
@@ -1565,7 +1567,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }
