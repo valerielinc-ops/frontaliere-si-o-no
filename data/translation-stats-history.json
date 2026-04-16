@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-08T07:56:46.626Z",
-    "label": "before",
-    "total": 1484,
-    "needsRetranslation": 56,
-    "incomplete": 7,
-    "complete": 1477,
-    "missingByLocale": {
-      "it": 6,
-      "en": 5,
-      "de": 3,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-08T07:57:29.601Z",
-    "label": "after",
-    "total": 1484,
-    "needsRetranslation": 55,
-    "incomplete": 7,
-    "complete": 1477,
-    "missingByLocale": {
-      "it": 6,
-      "en": 5,
-      "de": 3,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-08T10:09:34.503Z",
     "label": "before",
     "total": 1533,
@@ -7718,6 +7662,86 @@
       },
       {
         "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T14:07:33.126Z",
+    "label": "before",
+    "total": 2917,
+    "needsRetranslation": 84,
+    "incomplete": 27,
+    "complete": 2890,
+    "missingByLocale": {
+      "it": 15,
+      "en": 15,
+      "de": 11,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "PwC Switzerland",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 1
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T14:55:26.560Z",
+    "label": "after",
+    "total": 2917,
+    "needsRetranslation": 59,
+    "incomplete": 2,
+    "complete": 2915,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Banca Cler",
         "pending": 1
       },
       {

@@ -323,12 +323,13 @@
           "physiotherapeut-in-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "9995709",
@@ -5221,7 +5222,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

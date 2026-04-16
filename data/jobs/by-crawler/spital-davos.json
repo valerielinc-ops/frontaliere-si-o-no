@@ -425,7 +425,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura della persona EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for the Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement des soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -483,7 +483,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "spital-davos-e72119e3765f",
@@ -1113,19 +1113,26 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
+        "senior-physician-internal-medicine-80-100-spital-davos-davos",
+        "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
+        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
+        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "assistant-en-medecine-interne-100-spital-davos-davos",
         "assistente-di-medicina-interna-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "senior-physician-internal-medicine-80-100-spital-davos-davos",
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
         "de": [
+          "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
           "unterassistent-in-innere-medizin-100-spital-davos-ch"
         ],
         "fr": [
+          "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
           "assistant-en-medecine-interne-100-spital-davos-davos"
         ],
         "it": [
@@ -1167,7 +1174,7 @@
       },
       "description": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
       "descriptionByLocale": {
-        "it": "Descrizione Abitare in modo indipendente a casa nonostante malattia, convalescenza o vecchiaia: questo è possibile per i residenti di Davos con il vostro supporto professionale. In qualità di ospedale regionale/ospedale acuto con servizio di soccorso, casa di cura e Spitex, siamo responsabili dell'assistenza medica di base per la popolazione e gli ospiti di Davos. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavori in un'azienda gestibile, ma importante per la regione, manteniamo un clima di lavoro collegiale e apprezziamo la vicinanza alla natura e le numerose attività sportive e ricreative di Davos. ## Mansioni - Esecuzione delle cure di base e di cura - Supporto e accompagnamento dei nostri clienti nelle attività domestiche - Guida con supporto e accompagnamento dei nostri apprendisti durante il loro periodo di formazione ## Requisiti - Formazione come specialista in salute AFC o infermiere:in FASRK - Piacere di svolgere attività di cura, di assistenza e di economia domestica e di trattare con persone bisognose di aiuto - Senso di responsabilità, capacità di lavorare in team, autonomia e flessibilità - Buona conoscenza del tedesco e patente di guida Categoria B ## Cosa offriamo - Un'introduzione accurata a un campo di attività interessante e versatile - Attività responsabile, varia e indipendente in un team motivato e in un ambiente stimolante -",
+        "it": "Descrizione Lavoro autonomo che vive a casa nonostante la malattia, la riconvalcenza o l'età: Questo permette ai residenti di Davos con il loro supporto professionale. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavoriamo in un'operazione gestibile ma importante per la regione, manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. > > > > > Naturalmente, il nostro team di reclutamento HRM risponderà alle vostre domande al numero +41 81 414 84 12 o via email job@spitaldavos.ch.",
         "en": "Descrizione Self-employed living at home despite illness, reconvalescence or age: This allows the residents of Davos with their professional support. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but important operation for the region, we maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > & For further information please contact Mrs. Marlis Zimmermann, Head of Spitex, +41 81 414 85 89 or Mr. Marcus Caduff, Head of Care Spitex of Spital Davos AG, telephone +41 81 414 85 85. Of course, our HRM recruitment team will answer your questions at +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
         "de": "## Descrizione\nSelbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n\n## Mansioni\n- Durchführen der Grund- und Behandlungspflege\n- Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten\n- Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit\n\n## Requisiti\n- Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK\n- Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen\n- Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität\n- Gute Deutschkenntnisse und Führerausweis Kategorie B\n\n## Cosa offriamo\n- Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet\n- Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld\n- Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich)\n- Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe\n\n## Contatto\nFür weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "fr": "Descrizione Travailleur indépendant vivant à la maison malgré maladie, reconvalescence ou âge: Cela permet aux résidents de Davos de bénéficier de leur soutien professionnel. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais importante pour la région, nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Bien sûr, notre équipe de recrutement HRM répondra à vos questions au +41 81 414 84 12 ou par email jobs@spitaldavos.ch."
@@ -1220,7 +1227,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "spital-davos-016659b12606",
@@ -1459,7 +1466,7 @@
         }
       },
       "firstSeenAt": "2026-04-16T10:41:19.705Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "spital-davos-e84ba21560a0",
