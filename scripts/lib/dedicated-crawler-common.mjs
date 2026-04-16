@@ -4282,8 +4282,9 @@ export function isLocationExplicitlyForeign(locationField) {
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   const allTargetCities = [...TICINO_CITIES, ...GRIGIONI_CITIES];
   if (allTargetCities.some((c) => lower.includes(c.toLowerCase()))) return false;
-  // Swiss cities that contain substrings of foreign city names (e.g. Münchenstein contains München)
-  const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie'];
+  // Swiss cities that contain substrings of foreign city/country names
+  // e.g. Münchenstein contains München, Lausanne contains "usa"
+  const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie', 'lausanne'];
   if (SWISS_FALSE_POSITIVE_GUARD.some((s) => lower.includes(s))) return false;
   const foreignCountries = [
     'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
