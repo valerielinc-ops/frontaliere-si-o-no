@@ -9,7 +9,7 @@ import {
   localizeJobContentWithPipeline,
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
-import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, TICINO_CITIES, GRIGIONI_CITIES, inferAnyCanton } from './target-swiss-locations.mjs';
+import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, TICINO_CITIES, GRIGIONI_CITIES, inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -4282,10 +4282,11 @@ export function isLocationExplicitlyForeign(locationField) {
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   const allTargetCities = [...TICINO_CITIES, ...GRIGIONI_CITIES];
   if (allTargetCities.some((c) => lower.includes(c.toLowerCase()))) return false;
-  // Swiss cities that contain substrings of foreign city/country names
-  // e.g. Münchenstein contains München, Lausanne contains "usa"
-  const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie', 'lausanne'];
-  if (SWISS_FALSE_POSITIVE_GUARD.some((s) => lower.includes(s))) return false;
+  // Guard against Swiss cities that contain substrings of foreign names
+  // (e.g. Münchenstein contains München, Lausanne contains "usa").
+  // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
+  // a manual list, so every Swiss city is protected.
+  if (isKnownSwissMunicipality(lower)) return false;
   const foreignCountries = [
     'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
     'austria', 'österreich', 'spain', 'españa', 'portugal',
