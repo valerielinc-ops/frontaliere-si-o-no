@@ -1,18 +1,55 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-16T10:17:18.830Z",
-  "total": 13,
-  "newCount": 0,
-  "updatedCount": 5,
+  "generatedAt": "2026-04-16T21:55:41.927Z",
+  "total": 14,
+  "newCount": 1,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 24662,
-  "avgDurationMs": 24662,
+  "unchangedCount": 7,
+  "durationMs": 21823,
+  "avgDurationMs": 21823,
   "durationHistory": [
-    24662
+    21823
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-9bjbvk",
+      "slug": "vendite-operatore-di-filiale-part-time-f-m-lidl-svizzera-arbedo-castione-9bjbvk",
+      "company": "Lidl Svizzera",
+      "title": "Vendite_Operatore di Filiale part-time (f/m)",
+      "location": "Arbedo-Castione",
+      "canton": "ti",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-16",
+      "url": "https://team.lidl.ch/it/jobs/vendite-operatore-di-filiale-part-time-f-m-arbedo-castione-655516",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Arbedo-Castione",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-04-16T21:55:41.750Z",
+      "firstSeenAt": "2026-04-16T21:55:41.750Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "postalCode": "6532",
+      "streetAddress": "Via San Gottardo 6",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 13,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-xsgkjj",
@@ -48,11 +85,53 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-nuf61k",
+      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
+      "company": "Lidl Svizzera",
+      "title": "Venditore / Venditrice (m/f/d) 40%",
+      "location": "Locarno",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Locarno",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-04-15T21:56:01.905Z",
+      "firstSeenAt": "2026-04-15T21:56:01.905Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "postalCode": "6600",
+      "streetAddress": "Via Vallemaggia 15",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -227,48 +306,6 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "company-nuf61k",
-      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
-      "company": "Lidl Svizzera",
-      "title": "Venditore / Venditrice (m/f/d) 40%",
-      "location": "Locarno",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "url": "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Locarno",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-04-15T21:56:01.905Z",
-      "firstSeenAt": "2026-04-15T21:56:01.905Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "postalCode": "6600",
-      "streetAddress": "Via Vallemaggia 15",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-tyv50x",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
