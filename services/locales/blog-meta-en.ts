@@ -2193,6 +2193,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Giro d’Italia 2026: Bellinzona to Carì in 113 km for Ticino',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'On 26 May 2026, stage 16 of the Giro d’Italia will be held entirely in Ticino: 113 km from Bellinzona to Carì, featuring 3,000 metres of elevation gain and five categorised climbs. A potential trap awaits after the rest day.',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzona lit in pink with the Alps in the background during the Giro d’Italia 2026 Bellinzona-Carì stage presentation',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Bulgarian cross-border worker dies in workplace accident in Cugnasco',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'A 50-year-old Bulgarian cross-border worker residing in the Locarno area lost his life after being struck by falling trees during forestry work. Police and rescue teams activated the Care Team to provide psychological support.',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Emergency services at the scene after the fatal accident in Cugnasco near Locarno',
 };
 
 export default blogMetaEn;

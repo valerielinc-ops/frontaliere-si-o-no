@@ -8091,6 +8091,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortunio-locarnese-operaio-frontaliero-decede': {
+    title: 'Operaio frontaliero bulgaro muore in | Frontaliere Ticino',
+    description: 'Un 50enne bulgaro residente nel Locarnese perde la vita travolto da alberi durante lavori forestali. Polizia e soccorritori hanno attivato il Care Team per supp',
+    keywords: 'frontalieri, ticino, svizzera, italia, operaio, frontaliero, bulgaro, muore',
+    ogTitle: 'Operaio frontaliero bulgaro muore in incidente sul lavoro',
+    ogDescription: 'Un 50enne bulgaro residente nel Locarnese perde la vita travolto da alberi durante lavori forestali. Polizia e soccorritori hanno attivato il Care Team per supp',
+    canonicalPath: '/articoli-frontaliere/infortunio-locarnese-operaio-frontaliero-decede',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operaio frontaliero bulgaro muore in incidente sul lavoro",
+      "description": "Un 50enne bulgaro residente nel Locarnese perde la vita travolto da alberi durante lavori forestali. Polizia e soccorritori hanno attivato il Care Team per supp",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infortunio-locarnese-operaio-frontaliero-decede.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Emergency services sul posto dopo l'infortunio a Cugnasco nel Locarnese"
+      },
+      "datePublished": "2026-04-16T06:13:33+00:00",
+      "dateModified": "2026-04-16T06:13:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortunio-locarnese-operaio-frontaliero-decede`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

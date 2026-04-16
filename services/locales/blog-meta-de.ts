@@ -2193,6 +2193,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Giro d’Italia 2026: Bellinzona–Carì in 113 Kilometern für das Tessin',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'Am 26. Mai 2026 führt die 16. Etappe des Giro d’Italia vollständig durch das Tessin: 113 Kilometer von Bellinzona nach Carì mit 3.000 Höhenmetern und fünf Bergwertungen. Nach dem Ruhetag droht eine Falle.',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzona im Rosa beleuchtet mit den Alpen im Hintergrund während der Präsentation der Giro d’Italia 2026 Etappe Bellinzona-Carì',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Bulgarischer Grenzgänger bei Arbeitsunfall in Cugnasco ums Leben gekommen',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'Ein 50-jähriger bulgarischer Grenzgänger, der im Locarnese lebte, starb, als er bei forstwirtschaftlichen Arbeiten von Bäumen erdrückt wurde. Polizei und Rettungskräfte aktivierten das Care Team für psychologische Unterstützung.',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Einsatzkräfte am Unfallort nach dem tödlichen Unfall in Cugnasco bei Locarno',
 };
 
 export default blogMetaDe;

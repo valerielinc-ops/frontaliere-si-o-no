@@ -6102,4 +6102,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/giro-italia-2026-bellinzona-cari-tappa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'infortunio-locarnese-operaio-frontaliero-decede',
+ category: 'pratico',
+ date: '2026-04-16T06:13:33.777Z',
+ image: '/images/blog/infortunio-locarnese-operaio-frontaliero-decede.jpg',
+ hasCalculator: false,
+ },
 ];

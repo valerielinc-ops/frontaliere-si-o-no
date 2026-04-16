@@ -2193,6 +2193,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Giro d’Italia 2026: Bellinzona-Carì in 113 km per il Ticino',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'Il 26 maggio 2026 la 16ª tappa del Giro d’Italia si correrà interamente in Ticino: 113 km da Bellinzona a Carì con 3.000 metri di dislivello e 5 GPM. Rischio tranello dopo il giorno di riposo.',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzona illuminata di rosa con le Alpi sullo sfondo durante la presentazione della tappa Bellinzona-Carì del Giro d’Italia 2026',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Operaio frontaliero bulgaro muore in incidente sul lavoro a Cugnasco',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'Un 50enne bulgaro residente nel Locarnese perde la vita travolto da alberi durante lavori forestali. Polizia e soccorritori hanno attivato il Care Team per supporto psicologico.',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Emergency services sul posto dopo l\'infortunio a Cugnasco nel Locarnese',
 };
 
 export default blogMetaIt;

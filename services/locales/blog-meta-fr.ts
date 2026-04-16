@@ -2193,6 +2193,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.title': 'Tour d\'Italie 2026 : Bellinzone-Carì en 113 km pour le Tessin',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.excerpt': 'Le 26 mai 2026, la 16e étape du Tour d\'Italie se déroulera entièrement dans le Tessin : 113 km de Bellinzone à Carì, avec 3 000 mètres de dénivelé et 5 cols. Piège possible après le jour de repos.',
     'blog.article.giro-italia-2026-bellinzona-cari-tappa.imageAlt': 'Bellinzone illuminée en rose avec les Alpes en arrière-plan lors de la présentation de l\'étape Bellinzone-Carì du Giro d\'Italia 2026',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.title': 'Un travailleur frontalier bulgare meurt dans un accident du travail à Cugnasco',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.excerpt': 'Un travailleur frontalier bulgare de 50 ans, résidant dans la région de Locarno, a trouvé la mort écrasé par des arbres lors de travaux forestiers. La police et les secours ont activé le Care Team pour offrir un soutien psychologique aux proches et aux témoins.',
+    'blog.article.infortunio-locarnese-operaio-frontaliero-decede.imageAlt': 'Services d\'urgence sur place après l\'accident mortel à Cugnasco près de Locarno',
 };
 
 export default blogMetaFr;

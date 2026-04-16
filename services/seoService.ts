@@ -1986,6 +1986,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-collaborazione-imprese-istituzioni-frontalieri-ticino': { name: 'Webuild e Salini', path: '/articoli-frontaliere/collaborazione-imprese-istituzioni-frontalieri-ticino', parent: 'blog' },
     'blog-ribaltone-mps-lovaglio-frontalieri-ticino': { name: 'Monte dei Paschi di Siena', path: '/articoli-frontaliere/ribaltone-mps-lovaglio-frontalieri-ticino', parent: 'blog' },
     'blog-giro-italia-2026-bellinzona-cari-tappa': { name: 'Giro d’Italia 2026', path: '/articoli-frontaliere/giro-italia-2026-bellinzona-cari-tappa', parent: 'blog' },
+    'blog-infortunio-locarnese-operaio-frontaliero-decede': { name: 'Operaio frontaliero bulgaro muore in inc', path: '/articoli-frontaliere/infortunio-locarnese-operaio-frontaliero-decede', parent: 'blog' },
  };
 
  const info = sectionNames[section];
