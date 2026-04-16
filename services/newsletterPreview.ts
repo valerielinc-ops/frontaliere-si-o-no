@@ -24,18 +24,46 @@ export type NewsletterPreviewResult = {
  subject: string;
 };
 
-function getWeeklyFact() {
+function getWeeklyFact(locale = 'it') {
  const EPOCH = new Date('2025-01-06').getTime();
  const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
  const weekIndex = Math.floor((Date.now() - EPOCH) / WEEK_MS) % 52;
- const FACTS = [
- { text: 'In Svizzera, il salario mediano \u00e8 di circa 6.665 CHF al mese.', source: 'UST' },
- { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' },
- { text: 'La franchigia per i nuovi frontalieri \u00e8 di 10.000 euro.', source: 'Accordo fiscale' },
- { text: 'Il tasso di disoccupazione in Ticino resta tra i pi\u00f9 osservati dai frontalieri.', source: 'SECO' },
- { text: 'Il 3\u00b0 pilastro 3a resta uno dei principali strumenti di ottimizzazione fiscale in Svizzera.', source: 'Admin.ch' },
- ];
- return FACTS[weekIndex % FACTS.length];
+ const FACTS: Record<string, { text: string; source: string }[]> = {
+ it: [
+  { text: 'In Svizzera, il salario mediano \u00e8 di circa 6.665 CHF al mese (2022).', source: 'UST' },
+  { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' },
+  { text: 'La franchigia per i nuovi frontalieri dal 2024 \u00e8 di \u20ac10.000.', source: 'Nuovo Accordo Fiscale' },
+  { text: 'Il tasso di disoccupazione in Ticino \u00e8 circa il 2.3%.', source: 'SECO' },
+  { text: "L'AVS (1\u00b0 pilastro) copre circa il 40% del reddito pre-pensionamento.", source: 'BSV' },
+  { text: 'Il 3\u00b0 pilastro 3a permette di dedurre fino a 7.258 CHF (2026) dalle tasse.', source: 'Admin.ch' },
+ ],
+ en: [
+  { text: 'In Switzerland, the median salary is around CHF 6,665 per month (2022).', source: 'FSO' },
+  { text: 'Over 78,000 cross-border workers commute to Canton Ticino.', source: 'USTAT' },
+  { text: 'The tax allowance for new cross-border workers from 2024 is \u20ac10,000.', source: 'New Fiscal Agreement' },
+  { text: 'The unemployment rate in Ticino is around 2.3%.', source: 'SECO' },
+  { text: 'The AVS (1st pillar) covers about 40% of pre-retirement income.', source: 'BSV' },
+  { text: 'Pillar 3a allows you to deduct up to CHF 7,258 (2026) from taxes.', source: 'Admin.ch' },
+ ],
+ de: [
+  { text: 'In der Schweiz liegt der Medianlohn bei rund 6.665 CHF pro Monat (2022).', source: 'BFS' },
+  { text: '\u00dcber 78.000 Grenzg\u00e4nger pendeln in den Kanton Tessin.', source: 'USTAT' },
+  { text: 'Der Freibetrag f\u00fcr neue Grenzg\u00e4nger ab 2024 betr\u00e4gt \u20ac10.000.', source: 'Neues Steuerabkommen' },
+  { text: 'Die Arbeitslosenquote im Tessin liegt bei etwa 2,3%.', source: 'SECO' },
+  { text: 'Die AHV (1. S\u00e4ule) deckt rund 40% des Vorruhestandseinkommens.', source: 'BSV' },
+  { text: 'S\u00e4ule 3a erm\u00f6glicht einen Steuerabzug von bis zu 7.258 CHF (2026).', source: 'Admin.ch' },
+ ],
+ fr: [
+  { text: 'En Suisse, le salaire m\u00e9dian est d\u2019environ 6 665 CHF par mois (2022).', source: 'OFS' },
+  { text: 'Plus de 78 000 frontaliers travaillent dans le canton du Tessin.', source: 'USTAT' },
+  { text: 'L\u2019abattement fiscal pour les nouveaux frontaliers \u00e0 partir de 2024 est de \u20ac10 000.', source: 'Nouvel Accord Fiscal' },
+  { text: 'Le taux de ch\u00f4mage au Tessin est d\u2019environ 2,3%.', source: 'SECO' },
+  { text: 'L\u2019AVS (1er pilier) couvre environ 40% du revenu avant la retraite.', source: 'BSV' },
+  { text: 'Le pilier 3a permet de d\u00e9duire jusqu\u2019\u00e0 7 258 CHF (2026) des imp\u00f4ts.', source: 'Admin.ch' },
+ ],
+ };
+ const localeFacts = FACTS[locale] || FACTS.it;
+ return localeFacts[weekIndex % localeFacts.length];
 }
 
 async function fetchExchangeRate(db: ReturnType<typeof getFirestore>) {
