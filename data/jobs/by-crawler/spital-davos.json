@@ -305,7 +305,7 @@
       "slug": "assistente-anestesia-100-spital-davos-davos",
       "slugByLocale": {
         "it": "assistente-anestesia-100-spital-davos-davos",
-        "en": "anesthesia-assistant-100-spital-davos-davos",
+        "en": "subassistance-in-anaesthesia-100-spital-davos-davos",
         "de": "unterassistent-in-anasthesie-100-spital-davos-ch",
         "fr": "assistant-en-anesthesie-100-spital-davos-davos"
       },
@@ -375,11 +375,15 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "unterassistent-in-anasthesie-100-spital-davos-ch"
+        "unterassistent-in-anasthesie-100-spital-davos-ch",
+        "anesthesia-assistant-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch"
+        ],
+        "en": [
+          "anesthesia-assistant-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
@@ -1125,15 +1129,12 @@
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "senior-physician-internal-medicine-80-100-spital-davos-davos",
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
         "de": [
-          "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
           "unterassistent-in-innere-medizin-100-spital-davos-ch"
         ],
         "fr": [
-          "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
           "assistant-en-medecine-interne-100-spital-davos-davos"
         ],
         "it": [
@@ -1141,11 +1142,7 @@
         ]
       },
       "previousSlugs": [
-        "senior-physician-internal-medicine-80-100-spital-davos-davos",
-        "oberarztin-oberarzt-innere-medizin-80-100-spital-davos-ch",
-        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
-        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "assistant-en-medecine-interne-100-spital-davos-davos",
         "assistente-di-medicina-interna-100-spital-davos-davos"
@@ -1309,9 +1306,6 @@
         "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
         "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "assistant-de-soins-srk-spitex-50-100-spital-davos-davos",
-        "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
-        "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
       ]
     },
@@ -1778,8 +1772,6 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
-        "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
-        "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
       ]
     }
