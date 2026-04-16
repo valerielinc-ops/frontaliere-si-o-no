@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-04-15T21:25:13.128Z",
+  "assembledAt": "2026-04-16T09:45:52.709Z",
   "jobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:10.684Z",
+      "crawledAt": "2026-04-16T09:45:50.330Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-15T21:25:09.396Z",
+      "crawledAt": "2026-04-16T09:45:49.069Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-08",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "requirements": [
         "Life Sciences - Engineering",
@@ -200,6 +200,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:22:19.373Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
