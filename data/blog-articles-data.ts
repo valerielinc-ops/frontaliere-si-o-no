@@ -6130,4 +6130,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/centro-breggia-risparmio-casa-arriva-balerna.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'blocco-droga-confine-brogeda-2026',
+ category: 'pratico',
+ date: '2026-04-16T13:01:29.265Z',
+ image: '/images/blog/blocco-droga-confine-brogeda-2026.jpg',
+ hasCalculator: true,
+ },
 ];

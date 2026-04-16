@@ -2205,6 +2205,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.title': 'Risparmio Casa arriva al Centro Breggia di Balerna: cosa cambia per i frontalieri',
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.excerpt': 'Il Centro Breggia di Balerna si rinnova con l\'arrivo di Risparmio Casa nel reparto ex Manor. Convenienza e quotidianità per i frontalieri del Mendrisiotto.',
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.imageAlt': 'Veduta aerea del Centro Breggia a Balerna, Ticino, con i nuovi punti vendita tra cui Risparmio Casa',
+    'blog.article.blocco-droga-confine-brogeda-2026.title': 'Trafico di droga bloccato a Brogeda: due arresti e due chili di eroina sequestrati',
+    'blog.article.blocco-droga-confine-brogeda-2026.excerpt': 'Carabinieri sequestrano 1,1 kg di eroina e 800 g di cocaina in auto a noleggio al valico di Como Brogeda. Arrestati due uomini nigeriani di 30 e 33 anni.',
+    'blog.article.blocco-droga-confine-brogeda-2026.imageAlt': 'Confine di Brogeda, sera del 15 aprile 2026: controlli doganali con luci lampeggianti durante l\'operazione antidroga',
 };
 
 export default blogMetaIt;

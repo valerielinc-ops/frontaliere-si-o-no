@@ -2205,6 +2205,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.title': 'Savings House arrives at the Breggia Centre in Balerna: what changes for cross-border workers',
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.excerpt': 'The Breggia Centre in Balerna is getting a makeover with the arrival of Savings House in the former Manor department. Convenience and everyday solutions tailored for cross-border workers in the Mendrisiotto region.',
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.imageAlt': 'Aerial view of Centro Breggia shopping mall in Balerna, Ticino, featuring new retail stores including Risparmio Casa near the Swiss-Italian border',
+    'blog.article.blocco-droga-confine-brogeda-2026.title': 'Drug trafficking halted at Brogeda: two arrested and two kilos of heroin seized',
+    'blog.article.blocco-droga-confine-brogeda-2026.excerpt': 'Carabinieri seize 1.1 kg of heroin and 800 g of cocaine from a rental car at the Como Brogeda border crossing. Two Nigerian men, aged 30 and 33, have been arrested.',
+    'blog.article.blocco-droga-confine-brogeda-2026.imageAlt': 'Brogeda border crossing on April 15, 2026: customs checkpoint with flashing lights during anti-drug operation',
 };
 
 export default blogMetaEn;

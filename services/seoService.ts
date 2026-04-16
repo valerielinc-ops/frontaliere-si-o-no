@@ -1990,6 +1990,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-film-swiss-sabotage-frontalieri-ticinesi': { name: 'Film Swiss Sabotage', path: '/articoli-frontaliere/film-swiss-sabotage-frontalieri-ticinesi', parent: 'blog' },
     'blog-pendolare-inverso-altdorf-lugano-problemi': { name: 'Pendolare inverso', path: '/articoli-frontaliere/pendolare-inverso-altdorf-lugano-problemi', parent: 'blog' },
     'blog-centro-breggia-risparmio-casa-arriva-balerna': { name: 'Risparmio Casa arriva al Centro Breggia', path: '/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna', parent: 'blog' },
+    'blog-blocco-droga-confine-brogeda-2026': { name: 'Trafico di droga bloccato a Brogeda', path: '/articoli-frontaliere/blocco-droga-confine-brogeda-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2205,6 +2205,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.title': 'Sparmodell Casa kommt ins Centro Breggia in Balerna: Was sich für die Grenzgänger im Mendrisiotto ändert',
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.excerpt': 'Das Centro Breggia in Balerna erhält ein Upgrade mit der Ankunft von Sparmodell Casa im ehemaligen Manor-Bereich. Mehr Sparpotenzial und Alltagserleichterungen für die Grenzgänger im Mendrisiotto.',
     'blog.article.centro-breggia-risparmio-casa-arriva-balerna.imageAlt': 'Luftaufnahme des Einkaufszentrums Centro Breggia in Balerna, Tessin, mit neuen Geschäften wie Risparmio Casa nahe der italienisch-schweizerischen Grenze',
+    'blog.article.blocco-droga-confine-brogeda-2026.title': 'Drogenhandel gestoppt in Brogeda: Zwei Festnahmen und zwei Kilogramm Heroin sichergestellt',
+    'blog.article.blocco-droga-confine-brogeda-2026.excerpt': 'Die Carabinieri beschlagnahmten 1,1 kg Heroin und 800 g Kokain in einem Mietwagen am Grenzübergang Como Brogeda. Festgenommen wurden zwei nigerianische Männer im Alter von 30 und 33 Jahren.',
+    'blog.article.blocco-droga-confine-brogeda-2026.imageAlt': 'Grenzübergang Brogeda am 15. April 2026: Zollkontrolle mit Blaulicht bei einer Drogenfahndung',
 };
 
 export default blogMetaDe;
