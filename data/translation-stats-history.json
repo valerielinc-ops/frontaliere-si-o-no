@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-08T10:09:34.503Z",
-    "label": "before",
-    "total": 1533,
-    "needsRetranslation": 611,
-    "incomplete": 107,
-    "complete": 1426,
-    "missingByLocale": {
-      "it": 26,
-      "en": 79,
-      "de": 75,
-      "fr": 85
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 35
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 8
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 2
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-08T10:13:13.426Z",
-    "label": "after",
-    "total": 1533,
-    "needsRetranslation": 83,
-    "incomplete": 37,
-    "complete": 1496,
-    "missingByLocale": {
-      "it": 10,
-      "en": 21,
-      "de": 18,
-      "fr": 24
-    },
-    "topPending": [
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Swisscom (sede Ticino)",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-08T11:29:47.644Z",
     "label": "before",
     "total": 1532,
@@ -7746,6 +7634,114 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T22:36:22.197Z",
+    "label": "before",
+    "total": 2904,
+    "needsRetranslation": 1231,
+    "incomplete": 47,
+    "complete": 2857,
+    "missingByLocale": {
+      "it": 34,
+      "en": 30,
+      "de": 18,
+      "fr": 37
+    },
+    "topPending": [
+      {
+        "company": "AXA Svizzera",
+        "pending": 4
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 4
+      },
+      {
+        "company": "Bell Schwarzwälder Schinken GmbH",
+        "pending": 3
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 2
+      },
+      {
+        "company": "PEMSA",
+        "pending": 2
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 2
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 2
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T23:50:33.833Z",
+    "label": "after",
+    "total": 2904,
+    "needsRetranslation": 70,
+    "incomplete": 11,
+    "complete": 2893,
+    "missingByLocale": {
+      "it": 6,
+      "en": 8,
+      "de": 4,
+      "fr": 10
+    },
+    "topPending": [
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
         "pending": 1
       }
     ]

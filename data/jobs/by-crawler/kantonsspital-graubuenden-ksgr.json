@@ -28,10 +28,16 @@
         "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Medizinische:r Praxisassistent:in Medizinische Poliklinik"
+        "de": "Medizinische:r Praxisassistent:in Medizinische Poliklinik",
+        "it": "Medico: assistente pratico: in clinica medica",
+        "en": "Medical: practical assistant:in medical clinic",
+        "fr": "Médical: assistant pratique:en clinique médicale"
       },
       "descriptionByLocale": {
-        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n- Du empfängst und betreust unsere Patientinnen und Patienten und sorgst für einen reibungslosen Ablauf an der Anmeldung\n- Du organisierst und assistierst bei fachärztlichen Sprechstunden und übernimmst vielfältige administrative Aufgaben im Backoffice\n- Du führst selbstständig Knochendichtemessungen durch und stellst eine sorgfältige Dokumentation sicher\n\nAnforderungen:\n- Du bist Medizinische:r Praxisassistent:in und verfügst über Erfahrung in der Sprechstundenorganisation sowie in der Patientenadministration\n- Du arbeitest selbständig, strukturiert und bringst ein ausgeprägtes Qualitäts- und Dienstleistungsbewusstsein mit\n- Du bist eine aufgeschlossene, sympathische Persönlichkeit mit sehr guten kommunikativen Fähigkeiten und einem sicheren Auftreten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n- Du empfängst und betreust unsere Patientinnen und Patienten und sorgst für einen reibungslosen Ablauf an der Anmeldung\n- Du organisierst und assistierst bei fachärztlichen Sprechstunden und übernimmst vielfältige administrative Aufgaben im Backoffice\n- Du führst selbstständig Knochendichtemessungen durch und stellst eine sorgfältige Dokumentation sicher\n\nAnforderungen:\n- Du bist Medizinische:r Praxisassistent:in und verfügst über Erfahrung in der Sprechstundenorganisation sowie in der Patientenadministration\n- Du arbeitest selbständig, strukturiert und bringst ein ausgeprägtes Qualitäts- und Dienstleistungsbewusstsein mit\n- Du bist eine aufgeschlossene, sympathische Persönlichkeit mit sehr guten kommunikativen Fähigkeiten und einem sicheren Auftreten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Inizia come compiti su appuntamento: - Ricevi e assisti i nostri pazienti e garantisci un processo di registrazione senza intoppi - Organizzi e assisti in consultazioni specialistiche e assumi molteplici compiti amministrativi nel back office - Esegui autonomamente misurazioni della densità ossea e garantisci un'accurata documentazione Requisiti: - Sei un assistente medico/ambulatoriale e hai esperienza nell'organizzazione di consultazioni e nell'amministrazione del paziente - Lavori in modo indipendente, strutturato e porti con te una spiccata consapevolezza della qualità e del servizio - Sei una personalità aperta e simpatica con ottime capacità comunicative e un atteggiamento sicuro Puoi fare qualcosa che gli altri non possono fare? Fai la differenza? Allora sei uno di noi!",
+        "en": "Start by appointment as tasks: - You receive and care for our patients and ensure a smooth registration process - You organize and assist with specialist consultation hours and take on a variety of administrative tasks in the back office - You independently carry out bone density measurements and ensure careful documentation Requirements: - You are a medical practice assistant and have experience in the organization of consultation hours as well as in patient administration - You work independently, in a structured manner and bring a pronounced awareness of quality and service - You are an open-minded, sympathetic personality with very good communicative skills and a confident demeanor You can do something that others cannot? You make the difference? Then you're one of us!",
+        "fr": "Commence par les tâches suivantes sur rendez-vous : - Tu reçois et soignes nos patients et tu veilles au bon déroulement de l'inscription - Tu organises et assistes des consultations médicales spécialisées et assumes diverses tâches administratives dans le back-office - Tu effectues de manière autonome des mesures de la densité osseuse et tu assures une documentation minutieuse Exigences : - Tu es assistant (e) médical (e) et tu as de l'expérience dans l'organisation des consultations ainsi que dans l'administration des patients - Tu travailles de manière indépendante, tu structures et tu apportes une conscience marquée de la qualité et des services - Tu es une personnalité ouverte d'esprit et sympathique avec de très bonnes compétences en communication et une apparence sûre Tu peux faire quelque chose que les autres ne peuvent pas faire ? Tu fais la différence ? Alors tu fais partie de nous !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +50,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -307,7 +312,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -373,12 +377,13 @@
           "physiotherapeut-in-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "9995709",
@@ -2230,7 +2235,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2491,7 +2495,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -4087,7 +4090,6 @@
           "pflegefachfrau-pflegefachmann-neurologie-stroke-unit-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5141,7 +5143,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -5209,7 +5212,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5534,7 +5536,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-o-fachexpertin-fachexperte-onkologiepflege-ambulant-kantonsspital-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5924,7 +5925,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6510,7 +6510,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
