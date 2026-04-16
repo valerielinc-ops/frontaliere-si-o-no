@@ -1683,6 +1683,7 @@ function BlogArticles({
  </Suspense>
  )}
 
+ {isDesktopXl && (
  <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_LEFT_2.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_RAIL_LEFT_2.slot}
@@ -1692,7 +1693,9 @@ function BlogArticles({
  className="mt-2"
  />
  </Suspense>
+ )}
 
+ {isDesktopXl && (
  <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_LEFT_3.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_RAIL_LEFT_3.slot}
@@ -1702,6 +1705,7 @@ function BlogArticles({
  className="mt-2"
  />
  </Suspense>
+ )}
  </div>
  </aside>
 
@@ -2318,6 +2322,7 @@ function BlogArticles({
  />
  </Suspense>
  )}
+ {isDesktopXl && (
  <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_RIGHT_2.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT_2.slot}
@@ -2327,7 +2332,9 @@ function BlogArticles({
  className="mt-2"
  />
  </Suspense>
+ )}
 
+ {isDesktopXl && (
  <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_RIGHT_3.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT_3.slot}
@@ -2337,6 +2344,7 @@ function BlogArticles({
  className="mt-2"
  />
  </Suspense>
+ )}
 
  {/* Donation mini-card */}
  <div className="rounded-xl border border-warning-border/50 bg-warning-subtle p-3 text-center space-y-2">
