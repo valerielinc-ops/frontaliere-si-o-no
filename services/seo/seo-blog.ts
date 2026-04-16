@@ -8149,6 +8149,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pendolare-inverso-altdorf-lugano-problemi': {
+    title: 'Pendolare inverso: da Altdorf a Lugano | Frontaliere Ticino',
+    description: 'Carla Scheidegger viaggia ogni giorno da Kriens ad Altdorf per lavorare al MASI a Lugano. Criticità: treni ogni due ore e vagoni affollati. La sua battaglia per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pendolare, inverso, altdorf, lugano',
+    ogTitle: 'Pendolare inverso: da Altdorf a Lugano ogni giorno. Ma i',
+    ogDescription: 'Carla Scheidegger viaggia ogni giorno da Kriens ad Altdorf per lavorare al MASI a Lugano. Criticità: treni ogni due ore e vagoni affollati. La sua battaglia per',
+    canonicalPath: '/articoli-frontaliere/pendolare-inverso-altdorf-lugano-problemi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pendolare inverso: da Altdorf a Lugano ogni giorno. Ma i",
+      "description": "Carla Scheidegger viaggia ogni giorno da Kriens ad Altdorf per lavorare al MASI a Lugano. Criticità: treni ogni due ore e vagoni affollati. La sua battaglia per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pendolare-inverso-altdorf-lugano-problemi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno in arrivo a Lugano con passeggeri in attesa"
+      },
+      "datePublished": "2026-04-16T10:11:40+00:00",
+      "dateModified": "2026-04-16T10:11:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pendolare-inverso-altdorf-lugano-problemi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

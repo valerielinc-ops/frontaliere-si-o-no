@@ -6116,4 +6116,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/film-swiss-sabotage-frontalieri-ticinesi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pendolare-inverso-altdorf-lugano-problemi',
+ category: 'pratico',
+ date: '2026-04-16T10:11:40.179Z',
+ image: '/images/blog/pendolare-inverso-altdorf-lugano-problemi.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2199,6 +2199,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.title': 'Film Swiss Sabotage: Ticino’s cross-border workers hit Swiss screens nationwide',
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.excerpt': 'Following 15,000 viewers in Ticino, the film \'Frontaliers Sabotage\' is now screening in 16 German- and French-speaking Swiss cinemas under its new title \'Swiss Sabotage\'. Screenings will take place in Zurich, Geneva and Lausanne starting Wednesday, April 16.',
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.imageAlt': 'Movie theater in Lugano with audience buying tickets for Swiss Sabotage film',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.title': 'Reverse commuting: from Altdorf to Lugano every day. But the trains aren\'t enough',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.excerpt': 'Carla Scheidegger travels from Kriens to Altdorf every day to work at the MASI in Lugano. Key issues: trains every two hours and overcrowded carriages. Her fight for sustainable transport.',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.imageAlt': 'Train arriving in Lugano with passengers waiting',
 };
 
 export default blogMetaEn;

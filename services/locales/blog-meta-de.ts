@@ -2199,6 +2199,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.title': 'Film Swiss Sabotage: Die Tessiner Grenzgänger erobern die ganze Schweiz',
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.excerpt': 'Nach 15’000 Zuschauerinnen und Zuschauern im Tessin ist der Film «Frontaliers Sabotage» unter dem neuen Titel «Swiss Sabotage» in 16 Kinos der Deutsch- und Westschweiz zu sehen. Vorführungen in Zürich, Genf und Lausanne starten am Mittwoch, 16. April.',
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.imageAlt': 'Kino in Lugano mit Publikum, das Tickets für den Film Swiss Sabotage kauft',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.title': 'Pendeln in die andere Richtung: Jeden Tag von Altdorf nach Lugano. Doch die Züge reichen nicht',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.excerpt': 'Carla Scheidegger pendelt jeden Tag von Kriens nach Altdorf, um am MASI in Lugano zu arbeiten. Doch die Kritikpunkte bleiben: Züge im Zwei-Stunden-Takt und überfüllte Waggons. Ihr Einsatz für einen nachhaltigen Verkehr.',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.imageAlt': 'Zug kommt in Lugano mit wartenden Passagieren an',
 };
 
 export default blogMetaDe;

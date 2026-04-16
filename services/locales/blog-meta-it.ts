@@ -2199,6 +2199,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.title': 'Film Swiss Sabotage: i Frontaliers ticinesi sbarcano in tutta la Svizzera',
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.excerpt': 'Dopo 15mila spettatori in Ticino, il film \'Frontaliers Sabotage\' approda in 16 sale svizzere tedesche e romande con il nuovo titolo \'Swiss Sabotage\'. Proiezioni a Zurigo, Ginevra e Losanna da mercoledì 16 aprile.',
     'blog.article.film-swiss-sabotage-frontalieri-ticinesi.imageAlt': 'Sala cinema a Lugano con pubblico che acquista biglietti per il film Swiss Sabotage',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.title': 'Pendolare inverso: da Altdorf a Lugano ogni giorno. Ma i treni non bastano',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.excerpt': 'Carla Scheidegger viaggia ogni giorno da Kriens ad Altdorf per lavorare al MASI a Lugano. Criticità: treni ogni due ore e vagoni affollati. La sua battaglia per un trasporto sostenibile.',
+    'blog.article.pendolare-inverso-altdorf-lugano-problemi.imageAlt': 'Treno in arrivo a Lugano con passeggeri in attesa',
 };
 
 export default blogMetaIt;
