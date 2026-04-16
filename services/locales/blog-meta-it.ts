@@ -2208,6 +2208,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocco-droga-confine-brogeda-2026.title': 'Trafico di droga bloccato a Brogeda: due arresti e due chili di eroina sequestrati',
     'blog.article.blocco-droga-confine-brogeda-2026.excerpt': 'Carabinieri sequestrano 1,1 kg di eroina e 800 g di cocaina in auto a noleggio al valico di Como Brogeda. Arrestati due uomini nigeriani di 30 e 33 anni.',
     'blog.article.blocco-droga-confine-brogeda-2026.imageAlt': 'Confine di Brogeda, sera del 15 aprile 2026: controlli doganali con luci lampeggianti durante l\'operazione antidroga',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'FFS: treni diretti a Rimini e Francia dal 30 maggio 2026',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'Dal 30 maggio al 4 ottobre collegamento diretto Zurigo-Rimini con fermate a Bellinzona, Lugano e Chiasso. Da Losanna e Ginevra treni TGV per Avignone, Aix-en-Provence e Marsiglia fino al 2 novembre.',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'Treno FFS in viaggio verso Rimini e la Francia tra i monti del Ticino durante l\'estate 2026',
 };
 
 export default blogMetaIt;

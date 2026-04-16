@@ -6137,4 +6137,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/blocco-droga-confine-brogeda-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ffs-collegamenti-estivi-rimini-francia-2026',
+ category: 'pratico',
+ date: '2026-04-16T15:27:17.081Z',
+ image: '/images/blog/ffs-collegamenti-estivi-rimini-francia-2026.jpg',
+ hasCalculator: true,
+ },
 ];

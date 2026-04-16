@@ -2208,6 +2208,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocco-droga-confine-brogeda-2026.title': 'Trafic de drogue interrompu à Brogeda : deux arrestations et deux kilos d’héroïne saisis',
     'blog.article.blocco-droga-confine-brogeda-2026.excerpt': 'Les carabiniers saisissent 1,1 kg d’héroïne et 800 g de cocaïne dans une voiture de location au poste frontalier de Como Brogeda. Deux hommes nigérians, âgés de 30 et 33 ans, sont placés en état d’arrestation.',
     'blog.article.blocco-droga-confine-brogeda-2026.imageAlt': 'Frontière de Brogeda, soir du 15 avril 2026: contrôles douaniers avec gyrophares lors d\'une opération antidrogue',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'CFF: trains directs pour Rimini et la France dès le 30 mai 2026',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'Du 30 mai au 4 octobre, liaison directe Zurich-Rimini avec arrêts à Bellinzone, Lugano et Chiasso. Depuis Lausanne et Genève, trains TGV pour Avignon, Aix-en-Provence et Marseille jusqu’au 2 novembre.',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'Train CFF en direction de Rimini et de la France traversant les montagnes tessinoises en été 2026',
 };
 
 export default blogMetaFr;

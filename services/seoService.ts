@@ -1991,6 +1991,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pendolare-inverso-altdorf-lugano-problemi': { name: 'Pendolare inverso', path: '/articoli-frontaliere/pendolare-inverso-altdorf-lugano-problemi', parent: 'blog' },
     'blog-centro-breggia-risparmio-casa-arriva-balerna': { name: 'Risparmio Casa arriva al Centro Breggia', path: '/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna', parent: 'blog' },
     'blog-blocco-droga-confine-brogeda-2026': { name: 'Trafico di droga bloccato a Brogeda', path: '/articoli-frontaliere/blocco-droga-confine-brogeda-2026', parent: 'blog' },
+    'blog-ffs-collegamenti-estivi-rimini-francia-2026': { name: 'Trasporti 2026', path: '/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

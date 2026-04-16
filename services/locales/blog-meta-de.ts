@@ -2208,6 +2208,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocco-droga-confine-brogeda-2026.title': 'Drogenhandel gestoppt in Brogeda: Zwei Festnahmen und zwei Kilogramm Heroin sichergestellt',
     'blog.article.blocco-droga-confine-brogeda-2026.excerpt': 'Die Carabinieri beschlagnahmten 1,1 kg Heroin und 800 g Kokain in einem Mietwagen am Grenzübergang Como Brogeda. Festgenommen wurden zwei nigerianische Männer im Alter von 30 und 33 Jahren.',
     'blog.article.blocco-droga-confine-brogeda-2026.imageAlt': 'Grenzübergang Brogeda am 15. April 2026: Zollkontrolle mit Blaulicht bei einer Drogenfahndung',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.title': 'SBB: Direktverbindungen nach Rimini und Frankreich ab 30. Mai 2026',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.excerpt': 'Vom 30. Mai bis 4. Oktober 2026 fährt ein Direktzug Zürich–Rimini mit Halten in Bellinzona, Lugano und Chiasso. Ab Lausanne und Genf verkehren TGV-Züge nach Avignon, Aix-en-Provence und Marseille bis zum 2. November 2026.',
+    'blog.article.ffs-collegamenti-estivi-rimini-francia-2026.imageAlt': 'SBB-Zug fährt nach Rimini und Frankreich durch die Tessiner Berge im Sommer 2026',
 };
 
 export default blogMetaDe;

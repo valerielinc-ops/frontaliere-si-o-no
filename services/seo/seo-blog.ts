@@ -8236,6 +8236,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-collegamenti-estivi-rimini-francia-2026': {
+    title: 'FFS: treni diretti a Rimini e Francia | Frontaliere Ticino',
+    description: 'Dal 30 maggio collegamento diretto Zurigo-Rimini con fermate a Bellinzona, Lugano e Chiasso. Da Losanna e Ginevra TGV per Avignone, Aix e Marsiglia fino al 2',
+    keywords: 'frontalieri, ticino, svizzera, italia, treni, diretti, rimini, francia',
+    ogTitle: 'Nuovi collegamenti FFS 2026: treni diretti a Rimini e',
+    ogDescription: 'Scopri i nuovi collegamenti estivi delle FFS dal 30 maggio 2026: treni diretti Zurigo-Rimini e TGV verso la Francia. Attenzione ai cantieri sul Sempione che',
+    canonicalPath: '/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino: Nuovi collegamenti FFS 2026 verso Rimini e Francia con fermate in Ticino",
+      "description": "Dal 30 maggio collegamento diretto Zurigo-Rimini con fermate a Bellinzona, Lugano e Chiasso. Da Losanna e Ginevra TGV per Avignone, Aix e Marsiglia fino al 2",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ffs-collegamenti-estivi-rimini-francia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno FFS in viaggio verso Rimini e la Francia tra i monti del Ticino durante l'estate 2026"
+      },
+      "datePublished": "2026-04-16T15:27:17+00:00",
+      "dateModified": "2026-04-16T15:27:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
