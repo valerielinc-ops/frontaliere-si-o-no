@@ -8323,6 +8323,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congresso-varese-2026-fisco-lavoro-ticino': {
+    title: 'Varese 2026: Congresso Svizzera Italia | Frontaliere Ticino',
+    description: 'Fisco, criptovalute e immobili: il Congresso Svizzera Italia a Varese analizza le novità per frontalieri e imprese con 1,7 milioni di arrivi turistici nel 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, congresso, fisco, lavoro',
+    ogTitle: 'Varese 2026: Congresso Svizzera Italia su fisco e lavoro',
+    ogDescription: 'Fisco, criptovalute e immobili: il Congresso Svizzera Italia a Varese analizza le novità per frontalieri e imprese con 1,7 milioni di arrivi turistici nel 2025.',
+    canonicalPath: '/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese 2026: Congresso Svizzera Italia su fisco e lavoro",
+      "description": "Fisco, criptovalute e immobili: il Congresso Svizzera Italia a Varese analizza le novità per frontalieri e imprese con 1,7 milioni di arrivi turistici nel 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/congresso-varese-2026-fisco-lavoro-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Congresso Svizzera Italia a Varese con professionisti che discutono di fisco e lavoro transfrontaliero"
+      },
+      "datePublished": "2026-04-16T19:57:09+00:00",
+      "dateModified": "2026-04-16T19:57:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

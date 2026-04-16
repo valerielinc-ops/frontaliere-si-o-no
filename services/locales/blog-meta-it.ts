@@ -2217,6 +2217,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petizione-chiasso-ritorno-alla-natura-2025.title': 'Statua ‘Ritorno alla natura’ a Chiasso: petizione ferma da un anno',
     'blog.article.petizione-chiasso-ritorno-alla-natura-2025.excerpt': 'La petizione per la rimozione della statua ‘Ritorno alla natura’ a Chiasso, sottoscritta da 433 persone a maggio 2025, attende ancora una risposta ufficiale dal Municipio. Il consigliere comunale Francesco Romano (HelvEthica Ticino) chiede chiarezza.',
     'blog.article.petizione-chiasso-ritorno-alla-natura-2025.imageAlt': 'La statua \'Ritorno alla Natura\' a Chiasso circondata da un parco cittadino durante una giornata autunnale con cittadini a passeggio',
+    'blog.article.congresso-varese-2026-fisco-lavoro-ticino.title': 'Varese 2026: Congresso Svizzera Italia su fisco e lavoro transfrontaliero',
+    'blog.article.congresso-varese-2026-fisco-lavoro-ticino.excerpt': 'Fisco, criptovalute e immobili: il Congresso Svizzera Italia a Varese analizza le novità per frontalieri e imprese con 1,7 milioni di arrivi turistici nel 2025.',
+    'blog.article.congresso-varese-2026-fisco-lavoro-ticino.imageAlt': 'Congresso Svizzera Italia a Varese con professionisti che discutono di fisco e lavoro transfrontaliero',
 };
 
 export default blogMetaIt;

@@ -6158,4 +6158,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/petizione-chiasso-ritorno-alla-natura-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'congresso-varese-2026-fisco-lavoro-ticino',
+ category: 'fiscale',
+ date: '2026-04-16T19:57:09.256Z',
+ image: '/images/blog/congresso-varese-2026-fisco-lavoro-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

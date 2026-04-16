@@ -2217,6 +2217,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petizione-chiasso-ritorno-alla-natura-2025.title': 'Statue ‘Return to Nature’ in Chiasso: petition stalled for a year',
     'blog.article.petizione-chiasso-ritorno-alla-natura-2025.excerpt': 'The petition to remove the statue ‘Return to Nature’ in Chiasso, signed by 433 people in May 2025, is still awaiting an official response from the Municipal Council. Municipal councillor Francesco Romano (HelvEthica Ticino) is calling for clarity.',
     'blog.article.petizione-chiasso-ritorno-alla-natura-2025.imageAlt': 'The \'Ritorno alla Natura\' statue in Chiasso park during an autumn day with citizens walking by',
+    'blog.article.congresso-varese-2026-fisco-lavoro-ticino.title': 'Varese 2026: Swiss-Italy Congress on Taxation and Cross-Border Work',
+    'blog.article.congresso-varese-2026-fisco-lavoro-ticino.excerpt': 'Taxation, cryptocurrencies, and real estate: the Swiss-Italy Congress in Varese examines the latest developments for cross-border workers and businesses, with 1.7 million tourist arrivals recorded in 2025.',
+    'blog.article.congresso-varese-2026-fisco-lavoro-ticino.imageAlt': 'Swiss-Italy Congress in Varese with professionals discussing cross-border tax and employment',
 };
 
 export default blogMetaEn;
