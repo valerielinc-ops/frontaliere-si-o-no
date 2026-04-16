@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-07T22:05:21.115Z",
-    "label": "before",
-    "total": 1538,
-    "needsRetranslation": 747,
-    "incomplete": 266,
-    "complete": 1272,
-    "missingByLocale": {
-      "it": 167,
-      "en": 130,
-      "de": 89,
-      "fr": 132
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 50
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 45
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 6
-      },
-      {
-        "company": "Denner",
-        "pending": 5
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-07T22:06:39.306Z",
-    "label": "after",
-    "total": 1538,
-    "needsRetranslation": 253,
-    "incomplete": 177,
-    "complete": 1361,
-    "missingByLocale": {
-      "it": 80,
-      "en": 83,
-      "de": 81,
-      "fr": 89
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 50
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 6
-      },
-      {
-        "company": "Denner",
-        "pending": 5
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-08T02:30:22.650Z",
     "label": "before",
     "total": 1538,
@@ -7888,6 +7776,50 @@
       "fr": 1
     },
     "topPending": [
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T03:50:54.652Z",
+    "label": "before",
+    "total": 2921,
+    "needsRetranslation": 58,
+    "incomplete": 1,
+    "complete": 2920,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-16T04:18:31.556Z",
+    "label": "after",
+    "total": 2921,
+    "needsRetranslation": 35,
+    "incomplete": 2,
+    "complete": 2919,
+    "missingByLocale": {
+      "it": 1,
+      "en": 0,
+      "de": 0,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Hochgebirgsklinik Davos",
+        "pending": 1
+      },
       {
         "company": "Spital Davos",
         "pending": 1
