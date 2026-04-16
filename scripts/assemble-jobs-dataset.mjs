@@ -436,7 +436,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   }
 
   // ── firstSeenAt backfill ──────────────────────────────────────────────
-  // Carry forward firstSeenAt from existing slice; set to now for genuinely new jobs.
+  // Carry forward firstSeenAt from existing slice; fall back to crawledAt
+  // (the original discovery time) for genuinely new jobs.
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
@@ -451,7 +452,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   for (const job of hardened.jobs) {
     if (!job.firstSeenAt) {
       const identity = buildStableJobIdentity(job);
-      job.firstSeenAt = existingFirstSeen.get(identity) || now;
+      job.firstSeenAt = existingFirstSeen.get(identity) || job.crawledAt || now;
     }
   }
 
