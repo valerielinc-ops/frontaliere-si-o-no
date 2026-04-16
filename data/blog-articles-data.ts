@@ -6172,4 +6172,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/psicoterapia-digitale-deprexis-rimborsata-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'deputato-varesino-ferrara-forno-massacro-2026',
+ category: 'novita',
+ date: '2026-04-16T22:01:10.504Z',
+ image: '/images/blog/deputato-varesino-ferrara-forno-massacro-2026.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2223,6 +2223,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.title': 'Deprexis to be reimbursed by health insurers: what changes for cross-border workers and Ticino',
     'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.excerpt': 'From 1 July 2026, the Deprexis app will be prescribable by doctors and reimbursed by health insurers. A digital tool for mild to moderate depression, but with limitations and doubts about its actual effectiveness.',
     'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.imageAlt': 'Person using Deprexis app on smartphone in a Ticino park',
+    'blog.article.deputato-varesino-ferrara-forno-massacro-2026.title': 'Varese MP in Forno di Massa: “Nazi-fascist shame cannot be normalised”',
+    'blog.article.deputato-varesino-ferrara-forno-massacro-2026.excerpt': 'Antonio Ferrara (M5S) sanctioned for blocking a remigration conference featuring far-right groups. On April 10, he commemorated the 1944 massacre in Forno, which claimed 60 lives.',
+    'blog.article.deputato-varesino-ferrara-forno-massacro-2026.imageAlt': 'Night view of Lake Lugano with illuminated Congress Palace and snow-capped mountains in the background',
 };
 
 export default blogMetaEn;

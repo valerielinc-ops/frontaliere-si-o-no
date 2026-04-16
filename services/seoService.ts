@@ -1996,6 +1996,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-petizione-chiasso-ritorno-alla-natura-2025': { name: 'Statua ‘Ritorno alla natura’ a Chiasso', path: '/articoli-frontaliere/petizione-chiasso-ritorno-alla-natura-2025', parent: 'blog' },
     'blog-congresso-varese-2026-fisco-lavoro-ticino': { name: 'Varese 2026', path: '/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino', parent: 'blog' },
     'blog-psicoterapia-digitale-deprexis-rimborsata-2026': { name: 'Deprexis rimborsata da cassa malati', path: '/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026', parent: 'blog' },
+    'blog-deputato-varesino-ferrara-forno-massacro-2026': { name: 'Deputato varesino a Forno di Massa', path: '/articoli-frontaliere/deputato-varesino-ferrara-forno-massacro-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

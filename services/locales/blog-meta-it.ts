@@ -2223,6 +2223,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.title': 'Deprexis rimborsata da cassa malati: cosa cambia per frontalieri e Ticino',
     'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.excerpt': 'Dal 1° luglio 2026 l’app Deprexis sarà prescrivibile dai medici e rimborsata dalle casse malati. Strumento digitale per depressione lieve/moderata, ma con limiti e dubbi sulla reale efficacia.',
     'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.imageAlt': 'Persona che utilizza l\'app Deprexis su uno smartphone in un parco ticinese',
+    'blog.article.deputato-varesino-ferrara-forno-massacro-2026.title': 'Deputato varesino a Forno di Massa: «La vergogna nazifascista non si sdogana»',
+    'blog.article.deputato-varesino-ferrara-forno-massacro-2026.excerpt': 'Antonio Ferrara (M5S) sanzionato per aver bloccato convegno sulla remigrazione con estrema destra. Il 10 aprile ha commemorato la strage del 1944 a Forno con 60 vittime.',
+    'blog.article.deputato-varesino-ferrara-forno-massacro-2026.imageAlt': 'Vista notturna del lago di Lugano con Palazzo dei Congressi illuminato e montagne innevate sullo sfondo',
 };
 
 export default blogMetaIt;

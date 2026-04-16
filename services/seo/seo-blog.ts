@@ -8381,6 +8381,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deputato-varesino-ferrara-forno-massacro-2026': {
+    title: 'Deputato varesino a Forno di Massa: «La | Frontaliere Ticino',
+    description: 'Antonio Ferrara (M5S) sanzionato per aver bloccato convegno sulla remigrazione con estrema destra. Il 10 aprile ha commemorato la strage del 1944 a Forno con 60',
+    keywords: 'frontalieri, ticino, svizzera, italia, deputato, varesino, forno, massa',
+    ogTitle: 'Deputato varesino a Forno di Massa: «La vergogna nazifasc',
+    ogDescription: 'Antonio Ferrara (M5S) sanzionato per aver bloccato convegno sulla remigrazione con estrema destra. Il 10 aprile ha commemorato la strage del 1944 a Forno con 60',
+    canonicalPath: '/articoli-frontaliere/deputato-varesino-ferrara-forno-massacro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deputato varesino a Forno di Massa: «La vergogna nazifasc",
+      "description": "Antonio Ferrara (M5S) sanzionato per aver bloccato convegno sulla remigrazione con estrema destra. Il 10 aprile ha commemorato la strage del 1944 a Forno con 60",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/deputato-varesino-ferrara-forno-massacro-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista notturna del lago di Lugano con Palazzo dei Congressi illuminato e montagne innevate sullo sfondo"
+      },
+      "datePublished": "2026-04-16T22:01:10+00:00",
+      "dateModified": "2026-04-16T22:01:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deputato-varesino-ferrara-forno-massacro-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
