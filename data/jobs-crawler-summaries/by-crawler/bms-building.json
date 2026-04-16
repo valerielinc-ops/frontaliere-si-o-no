@@ -1,53 +1,18 @@
 {
   "key": "bms-building",
   "label": "BMS Building Materials",
-  "generatedAt": "2026-04-15T21:08:51.536Z",
+  "generatedAt": "2026-04-16T09:29:38.390Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6510,
-  "avgDurationMs": 6510,
+  "durationMs": 7226,
+  "avgDurationMs": 7226,
   "durationHistory": [
-    6510
+    7226
   ],
-  "newJobs": [
-    {
-      "id": "bms-building-b04ef5c1e9a6",
-      "slug": "conseiller-de-vente-shop-sanitaire-a-50-f-h-d-bms-building-ch",
-      "company": "BMS Building Materials",
-      "companyKey": "bms-building",
-      "companyDomain": "bmsuisse.ch",
-      "title": "Conseiller de vente shop sanitaire à 50% (f/h/d)",
-      "location": "Martigny",
-      "canton": "VS",
-      "url": "https://jobs.bmsuisse.ch/jobs/detail/151-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
-      "source": "BMS Building Materials Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-04-15T21:08:49.199Z",
-      "addressLocality": "Martigny",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1920",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Materiali da costruzione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/0au1y53z70ip5vlmq1wqdxl58mi007",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "bms-building-0a087c6a807c",
@@ -61,7 +26,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T21:08:46.795Z",
+      "crawledAt": "2026-04-16T09:29:33.485Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,7 +38,7 @@
       "sector": "Edilizia / Materiali da costruzione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-15",
+      "postedDate": "2026-04-16",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/4nmapntq0rwfa43d1moklgv8tzm1jm",
       "firstSeenAt": "2026-04-13T10:06:00.404Z",
       "_qualityScore": 88,
@@ -96,7 +61,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/139-representant-agencement-de-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T21:08:47.973Z",
+      "crawledAt": "2026-04-16T09:29:34.698Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -108,7 +73,7 @@
       "sector": "Edilizia / Materiali da costruzione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-15",
+      "postedDate": "2026-04-16",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/4smvlyohsozzm2agokm46csvwhbcp4",
       "firstSeenAt": "2026-04-13T10:06:02.195Z",
       "_qualityScore": 88,
@@ -118,22 +83,20 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "id": "bms-building-52ee67c151d8",
-      "slug": "consulente-di-vendita-del-negozio-sanitario-al-100-f-h-d-bms-building-materials-martigny",
+      "id": "bms-building-b04ef5c1e9a6",
+      "slug": "conseiller-de-vente-shop-sanitaire-a-50-f-h-d-bms-building-ch",
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
       "companyDomain": "bmsuisse.ch",
-      "title": "Conseiller de vente shop sanitaire à 100% (f/h/d)",
+      "title": "Conseiller de vente shop sanitaire à 50% (f/h/d)",
       "location": "Martigny",
       "canton": "VS",
-      "url": "https://jobs.bmsuisse.ch/jobs/detail/151-conseiller-de-vente-shop-sanitaire-a-100-f/h/d/",
+      "url": "https://jobs.bmsuisse.ch/jobs/detail/151-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-15T09:29:18.585Z",
+      "crawledAt": "2026-04-16T09:29:35.847Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,19 +108,18 @@
       "sector": "Edilizia / Materiali da costruzione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-15",
+      "postedDate": "2026-04-16",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/0au1y53z70ip5vlmq1wqdxl58mi007",
-      "firstSeenAt": "2026-04-14T21:13:27.040Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
+      "firstSeenAt": "2026-04-15T21:08:51.535Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
