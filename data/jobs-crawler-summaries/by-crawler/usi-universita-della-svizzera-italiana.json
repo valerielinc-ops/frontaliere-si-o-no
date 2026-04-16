@@ -1,50 +1,18 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-15T22:31:54.880Z",
-  "total": 22,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 20,
-  "durationMs": 65313,
-  "avgDurationMs": 65313,
+  "generatedAt": "2026-04-16T10:54:03.611Z",
+  "total": 21,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
+  "unchangedCount": 19,
+  "durationMs": 96644,
+  "avgDurationMs": 96644,
   "durationHistory": [
-    65313
+    96644
   ],
-  "newJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
-      "title": "Posizione di dottorato nell'ambito del progetto del FNS “L'ermeneutica della forma urbana e territoriale di André Corboz: pratiche, concetti e metodologie di ricerca”",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-di-dottorato-nell-ambito-del-progetto-del-fns-l-ermeneutica-della-forma-urbana-e",
-      "department": "Institute for the History and Theory of Art and Architecture (ISA)",
-      "category": "phd",
-      "datePosted": "2026-04-15",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-2cb5230f2b36",
-      "sourceLang": "en",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
@@ -85,9 +53,90 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
+      "title": "Posizione di dottorato nell'ambito del progetto del FNS",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-dottorato-nell-ambito-del-progetto-del-fns-usi-mendrisio",
+      "department": "Institute for the History and Theory of Art and Architecture (ISA)",
+      "category": "phd",
+      "datePosted": "2026-04-15",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "usi-universita-della-svizzera-italiana-2cb5230f2b36",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-04-15T22:31:54.876Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-phd-neuroscienze.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-phd-neuroscienze.pdf",
+      "title": "Dottorando di Ricerca in Neuroscienze",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "dottorando-di-ricerca-in-neuroscienze-usi-universita-della-svizzera-italiana-lugano",
+      "department": "",
+      "category": "staff",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "id": "usi-universita-della-svizzera-italiana-087f833e6951",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
@@ -240,46 +289,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-729fc508e5f2",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-phd-neuroscienze.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-phd-neuroscienze.pdf",
-      "title": "Dottorando di Ricerca in Neuroscienze",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "dottorando-di-ricerca-in-neuroscienze-usi-universita-della-svizzera-italiana-lugano",
-      "department": "",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-087f833e6951",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
