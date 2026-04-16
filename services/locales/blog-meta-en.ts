@@ -2202,6 +2202,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.title': 'Reverse commuting: from Altdorf to Lugano every day. But the trains aren\'t enough',
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.excerpt': 'Carla Scheidegger travels from Kriens to Altdorf every day to work at the MASI in Lugano. Key issues: trains every two hours and overcrowded carriages. Her fight for sustainable transport.',
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.imageAlt': 'Train arriving in Lugano with passengers waiting',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.title': 'Savings House arrives at the Breggia Centre in Balerna: what changes for cross-border workers',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.excerpt': 'The Breggia Centre in Balerna is getting a makeover with the arrival of Savings House in the former Manor department. Convenience and everyday solutions tailored for cross-border workers in the Mendrisiotto region.',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.imageAlt': 'Aerial view of Centro Breggia shopping mall in Balerna, Ticino, featuring new retail stores including Risparmio Casa near the Swiss-Italian border',
 };
 
 export default blogMetaEn;

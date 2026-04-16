@@ -2202,6 +2202,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.title': 'Pendolare inverso: da Altdorf a Lugano ogni giorno. Ma i treni non bastano',
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.excerpt': 'Carla Scheidegger viaggia ogni giorno da Kriens ad Altdorf per lavorare al MASI a Lugano. Criticità: treni ogni due ore e vagoni affollati. La sua battaglia per un trasporto sostenibile.',
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.imageAlt': 'Treno in arrivo a Lugano con passeggeri in attesa',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.title': 'Risparmio Casa arriva al Centro Breggia di Balerna: cosa cambia per i frontalieri',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.excerpt': 'Il Centro Breggia di Balerna si rinnova con l\'arrivo di Risparmio Casa nel reparto ex Manor. Convenienza e quotidianità per i frontalieri del Mendrisiotto.',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.imageAlt': 'Veduta aerea del Centro Breggia a Balerna, Ticino, con i nuovi punti vendita tra cui Risparmio Casa',
 };
 
 export default blogMetaIt;

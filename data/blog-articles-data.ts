@@ -6123,4 +6123,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/pendolare-inverso-altdorf-lugano-problemi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'centro-breggia-risparmio-casa-arriva-balerna',
+ category: 'novita',
+ date: '2026-04-16T11:33:57.639Z',
+ image: '/images/blog/centro-breggia-risparmio-casa-arriva-balerna.jpg',
+ hasCalculator: true,
+ },
 ];

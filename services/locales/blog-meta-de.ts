@@ -2202,6 +2202,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.title': 'Pendeln in die andere Richtung: Jeden Tag von Altdorf nach Lugano. Doch die Züge reichen nicht',
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.excerpt': 'Carla Scheidegger pendelt jeden Tag von Kriens nach Altdorf, um am MASI in Lugano zu arbeiten. Doch die Kritikpunkte bleiben: Züge im Zwei-Stunden-Takt und überfüllte Waggons. Ihr Einsatz für einen nachhaltigen Verkehr.',
     'blog.article.pendolare-inverso-altdorf-lugano-problemi.imageAlt': 'Zug kommt in Lugano mit wartenden Passagieren an',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.title': 'Sparmodell Casa kommt ins Centro Breggia in Balerna: Was sich für die Grenzgänger im Mendrisiotto ändert',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.excerpt': 'Das Centro Breggia in Balerna erhält ein Upgrade mit der Ankunft von Sparmodell Casa im ehemaligen Manor-Bereich. Mehr Sparpotenzial und Alltagserleichterungen für die Grenzgänger im Mendrisiotto.',
+    'blog.article.centro-breggia-risparmio-casa-arriva-balerna.imageAlt': 'Luftaufnahme des Einkaufszentrums Centro Breggia in Balerna, Tessin, mit neuen Geschäften wie Risparmio Casa nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;

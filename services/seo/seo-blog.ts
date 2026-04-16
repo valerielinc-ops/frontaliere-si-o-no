@@ -8178,6 +8178,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centro-breggia-risparmio-casa-arriva-balerna': {
+    title: 'Risparmio Casa arriva al Centro Breggia | Frontaliere Ticino',
+    description: 'Il Centro Breggia di Balerna si rinnova con l\'arrivo di Risparmio Casa nel reparto ex Manor. Convenienza e quotidianità per i frontalieri del Mendrisiotto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, risparmio, casa, arriva, centro',
+    ogTitle: 'Risparmio Casa arriva al Centro Breggia di Balerna: cosa',
+    ogDescription: 'Il Centro Breggia di Balerna si rinnova con l\'arrivo di Risparmio Casa nel reparto ex Manor. Convenienza e quotidianità per i frontalieri del Mendrisiotto.',
+    canonicalPath: '/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Risparmio Casa arriva al Centro Breggia di Balerna: cosa",
+      "description": "Il Centro Breggia di Balerna si rinnova con l'arrivo di Risparmio Casa nel reparto ex Manor. Convenienza e quotidianità per i frontalieri del Mendrisiotto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centro-breggia-risparmio-casa-arriva-balerna.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del Centro Breggia a Balerna, Ticino, con i nuovi punti vendita tra cui Risparmio Casa"
+      },
+      "datePublished": "2026-04-16T11:33:57+00:00",
+      "dateModified": "2026-04-16T11:33:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
