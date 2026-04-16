@@ -1,18 +1,19 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-04-15T21:25:24.686Z",
+  "generatedAt": "2026-04-16T09:46:07.134Z",
   "total": 12,
-  "newCount": 2,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2395,
-  "avgDurationMs": 2395,
+  "durationMs": 2516,
+  "avgDurationMs": 2516,
   "durationHistory": [
-    2395
+    2516
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "corner-banca-dcb0710ebad2",
       "slug": "employee-underwriting-e-cash-corner-banca-lugano",
@@ -32,45 +33,17 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.589Z",
-      "_qualityScore": 76,
+      "crawledAt": "2026-04-16T09:46:05.212Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
-    {
-      "id": "corner-banca-9d77a9660c3e",
-      "slug": "customer-advisor-60-corner-banca-wallisellen",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 60%",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "url": "https://jobs.corner.ch/o/customer-advisor-60",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.598Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "id": "corner-banca-97d8d7e51ea2",
       "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
@@ -90,8 +63,7 @@
       "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.591Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-04-16T09:46:05.214Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +92,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.592Z",
+      "crawledAt": "2026-04-16T09:46:05.215Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -149,7 +121,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.593Z",
+      "crawledAt": "2026-04-16T09:46:05.215Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -178,7 +150,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.593Z",
+      "crawledAt": "2026-04-16T09:46:05.217Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +179,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.594Z",
+      "crawledAt": "2026-04-16T09:46:05.218Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +208,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.595Z",
+      "crawledAt": "2026-04-16T09:46:05.219Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,7 +237,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-15T21:25:22.596Z",
+      "crawledAt": "2026-04-16T09:46:05.220Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -294,8 +266,37 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.597Z",
+      "crawledAt": "2026-04-16T09:46:05.221Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "corner-banca-9d77a9660c3e",
+      "slug": "customer-advisor-60-corner-banca-wallisellen",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Advisor 60%",
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "url": "https://jobs.corner.ch/o/customer-advisor-60",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-16T09:46:05.221Z",
+      "firstSeenAt": "2026-04-15T21:25:24.685Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -323,7 +324,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T21:25:22.598Z",
+      "crawledAt": "2026-04-16T09:46:05.222Z",
       "firstSeenAt": "2026-04-13T10:22:37.694Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -352,7 +353,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-15T21:25:22.599Z",
+      "crawledAt": "2026-04-16T09:46:05.223Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
