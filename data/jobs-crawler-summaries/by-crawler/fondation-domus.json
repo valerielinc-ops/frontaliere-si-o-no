@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-04-16T09:57:49.899Z",
+  "generatedAt": "2026-04-16T21:36:16.362Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4684,
-  "avgDurationMs": 4684,
+  "durationMs": 5021,
+  "avgDurationMs": 5021,
   "durationHistory": [
-    4684
+    5021
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/51367527-eb1c-4896-ad0f-ae9645325e8e/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-16T09:57:47.359Z",
+      "crawledAt": "2026-04-16T21:36:13.645Z",
       "addressLocality": "La Tzoumaz",
       "postalCode": "1918",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/01f1e22d-e099-4ad8-b881-16ab79b10263/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-16T09:57:47.676Z",
+      "crawledAt": "2026-04-16T21:36:13.976Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c4257984-f5a8-4a54-94a5-74d1f26ec8a9/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-16T09:57:47.990Z",
+      "crawledAt": "2026-04-16T21:36:14.305Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -120,44 +120,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "fondation-domus-3f48b967c067",
-      "slug": "impiegato-polivalente-100-fondation-domus-ardon",
-      "company": "Fondation Domus",
-      "companyKey": "fondation-domus",
-      "companyDomain": "fondation-domus.ch",
-      "title": "Employé polyvalent (100%)",
-      "location": "Ardon",
-      "canton": "VS",
-      "url": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
-      "source": "Fondation Domus Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-04-15T21:37:05.473Z",
-      "addressLocality": "Ardon",
-      "postalCode": "1957",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Social / Fondation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-17",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
-      "firstSeenAt": "2026-04-12T21:23:16.723Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
