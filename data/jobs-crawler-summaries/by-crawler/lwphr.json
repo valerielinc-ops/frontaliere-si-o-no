@@ -1,16 +1,16 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-04-16T10:20:18.750Z",
-  "total": 14,
+  "generatedAt": "2026-04-16T21:58:25.026Z",
+  "total": 13,
   "newCount": 0,
-  "updatedCount": 14,
-  "removedCount": 0,
+  "updatedCount": 13,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 7066,
-  "avgDurationMs": 7066,
+  "durationMs": 3472,
+  "avgDurationMs": 3472,
   "durationHistory": [
-    7066
+    3472
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -239,38 +239,6 @@
       }
     },
     {
-      "title": "MARKETING MANAGER SVIZZERA",
-      "slug": "marketing-manager-svizzera-lwp-ledermann-wieting-partners-ticino",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/marketing_manager_svizzera.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "location": "Ticino",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "lwphr-47555113b809",
-      "firstSeenAt": "2026-04-13T22:04:42.089Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "title": "IT SECURITY ARCHITECT",
       "slug": "it-security-architect-lwp-ledermann-wieting-partners-lugano",
       "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/it_security_architect.pdf",
@@ -463,6 +431,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "MARKETING MANAGER SVIZZERA",
+      "slug": "marketing-manager-svizzera-lwp-ledermann-wieting-partners-ticino",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/marketing_manager_svizzera.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "location": "Ticino",
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-47555113b809",
+      "firstSeenAt": "2026-04-13T22:04:42.089Z",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 18",
+      "postalCode": "6928",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
