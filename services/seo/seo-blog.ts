@@ -8352,6 +8352,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-psicoterapia-digitale-deprexis-rimborsata-2026': {
+    title: 'Deprexis rimborsata da cassa malati | Frontaliere Ticino',
+    description: 'Dal 1° luglio 2026 l’app Deprexis sarà prescrivibile dai medici e rimborsata dalle casse malati. Strumento digitale per depressione lieve/moderata, ma con limit',
+    keywords: 'frontalieri, ticino, svizzera, italia, deprexis, rimborsata, cassa, malati',
+    ogTitle: 'Deprexis rimborsata da cassa malati: cosa cambia per fron',
+    ogDescription: 'Dal 1° luglio 2026 l’app Deprexis sarà prescrivibile dai medici e rimborsata dalle casse malati. Strumento digitale per depressione lieve/moderata, ma con limit',
+    canonicalPath: '/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deprexis rimborsata da cassa malati: cosa cambia per fron",
+      "description": "Dal 1° luglio 2026 l’app Deprexis sarà prescrivibile dai medici e rimborsata dalle casse malati. Strumento digitale per depressione lieve/moderata, ma con limit",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/psicoterapia-digitale-deprexis-rimborsata-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che utilizza l'app Deprexis su uno smartphone in un parco ticinese"
+      },
+      "datePublished": "2026-04-16T21:06:12+00:00",
+      "dateModified": "2026-04-16T21:06:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

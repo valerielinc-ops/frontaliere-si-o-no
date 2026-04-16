@@ -2220,6 +2220,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congresso-varese-2026-fisco-lavoro-ticino.title': 'Varese 2026: Congresso Svizzera Italia su fisco e lavoro transfrontaliero',
     'blog.article.congresso-varese-2026-fisco-lavoro-ticino.excerpt': 'Fisco, criptovalute e immobili: il Congresso Svizzera Italia a Varese analizza le novità per frontalieri e imprese con 1,7 milioni di arrivi turistici nel 2025.',
     'blog.article.congresso-varese-2026-fisco-lavoro-ticino.imageAlt': 'Congresso Svizzera Italia a Varese con professionisti che discutono di fisco e lavoro transfrontaliero',
+    'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.title': 'Deprexis rimborsata da cassa malati: cosa cambia per frontalieri e Ticino',
+    'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.excerpt': 'Dal 1° luglio 2026 l’app Deprexis sarà prescrivibile dai medici e rimborsata dalle casse malati. Strumento digitale per depressione lieve/moderata, ma con limiti e dubbi sulla reale efficacia.',
+    'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.imageAlt': 'Persona che utilizza l\'app Deprexis su uno smartphone in un parco ticinese',
 };
 
 export default blogMetaIt;

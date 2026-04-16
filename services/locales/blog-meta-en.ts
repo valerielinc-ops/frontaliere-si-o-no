@@ -2220,6 +2220,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congresso-varese-2026-fisco-lavoro-ticino.title': 'Varese 2026: Swiss-Italy Congress on Taxation and Cross-Border Work',
     'blog.article.congresso-varese-2026-fisco-lavoro-ticino.excerpt': 'Taxation, cryptocurrencies, and real estate: the Swiss-Italy Congress in Varese examines the latest developments for cross-border workers and businesses, with 1.7 million tourist arrivals recorded in 2025.',
     'blog.article.congresso-varese-2026-fisco-lavoro-ticino.imageAlt': 'Swiss-Italy Congress in Varese with professionals discussing cross-border tax and employment',
+    'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.title': 'Deprexis to be reimbursed by health insurers: what changes for cross-border workers and Ticino',
+    'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.excerpt': 'From 1 July 2026, the Deprexis app will be prescribable by doctors and reimbursed by health insurers. A digital tool for mild to moderate depression, but with limitations and doubts about its actual effectiveness.',
+    'blog.article.psicoterapia-digitale-deprexis-rimborsata-2026.imageAlt': 'Person using Deprexis app on smartphone in a Ticino park',
 };
 
 export default blogMetaEn;

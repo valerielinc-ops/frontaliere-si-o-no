@@ -6165,4 +6165,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/congresso-varese-2026-fisco-lavoro-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'psicoterapia-digitale-deprexis-rimborsata-2026',
+ category: 'novita',
+ date: '2026-04-16T21:06:12.022Z',
+ image: '/images/blog/psicoterapia-digitale-deprexis-rimborsata-2026.jpg',
+ hasCalculator: true,
+ },
 ];

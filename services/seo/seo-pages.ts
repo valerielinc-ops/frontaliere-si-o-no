@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 791,
+ "numberOfItems": 792,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4480,7 +4480,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 788, "name": "Frontaliere Ticino: Nuovi collegamenti FFS 2026...", "url": `${BASE_URL}/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026` },
           { "@type": "ListItem", "position": 789, "name": "Chiasso cerca soluzioni per assumere più reside...", "url": `${BASE_URL}/articoli-frontaliere/strumenti-comune-chiasso-assunzione-residenti` },
           { "@type": "ListItem", "position": 790, "name": "Statua ‘Ritorno alla natura’ a Chiasso: petizio...", "url": `${BASE_URL}/articoli-frontaliere/petizione-chiasso-ritorno-alla-natura-2025` },
-          { "@type": "ListItem", "position": 791, "name": "Varese 2026: Congresso Svizzera Italia su fisco...", "url": `${BASE_URL}/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino` }
+          { "@type": "ListItem", "position": 791, "name": "Varese 2026: Congresso Svizzera Italia su fisco...", "url": `${BASE_URL}/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino` },
+          { "@type": "ListItem", "position": 792, "name": "Deprexis rimborsata da cassa malati: cosa cambi...", "url": `${BASE_URL}/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026` }
  ]
  }
  ]

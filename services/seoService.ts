@@ -1995,6 +1995,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-strumenti-comune-chiasso-assunzione-residenti': { name: 'Chiasso cerca soluzioni per assumere più', path: '/articoli-frontaliere/strumenti-comune-chiasso-assunzione-residenti', parent: 'blog' },
     'blog-petizione-chiasso-ritorno-alla-natura-2025': { name: 'Statua ‘Ritorno alla natura’ a Chiasso', path: '/articoli-frontaliere/petizione-chiasso-ritorno-alla-natura-2025', parent: 'blog' },
     'blog-congresso-varese-2026-fisco-lavoro-ticino': { name: 'Varese 2026', path: '/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino', parent: 'blog' },
+    'blog-psicoterapia-digitale-deprexis-rimborsata-2026': { name: 'Deprexis rimborsata da cassa malati', path: '/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
