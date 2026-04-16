@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-04-16T10:23:23.083Z",
+  "assembledAt": "2026-04-16T22:01:30.360Z",
   "jobs": [
     {
       "id": "company-752d7f",
@@ -151,7 +151,8 @@
           "enseignant-e-en-allemand-f-h-x-club-ecole-migros-bellinzona-scuola-club-migros-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:46:43.833Z"
+      "firstSeenAt": "2026-04-09T21:46:43.833Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlbz63",
@@ -255,7 +256,8 @@
           "pilates-reformer-und-cadillac-lehrer-f-m-d-scuola-club-bellinzona-scuola-club-migros-belli"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -371,7 +373,8 @@
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -503,7 +506,8 @@
           "enseignant-cardio-h-f-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     }
   ]
 }
