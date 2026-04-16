@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-04-15T21:11:21.203Z",
-  "total": 5,
+  "generatedAt": "2026-04-16T09:31:58.801Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 14024,
-  "avgDurationMs": 14024,
+  "durationMs": 13211,
+  "avgDurationMs": 13211,
   "durationHistory": [
-    14024
+    13211
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -157,10 +157,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Lehrstelle Kauffrau / Kaufmann - REF279222F",
-      "slug": "lehrstelle-kauffrau-kaufmann-ref279222f-bosch-st-niklaus",
+      "slug": "apprendista-di-commercio-ref279222f-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF279222F-lehrstelle-kauffrau-kaufmann-ref279222f",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000114060364-lehrstelle-kauffrau-kaufmann-ref279222f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -195,6 +197,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
