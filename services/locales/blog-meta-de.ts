@@ -2226,6 +2226,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.title': 'Abgeordneter aus Varese in Forno di Massa: «Die nazifaschistische Schande lässt sich nicht verharmlosen»',
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.excerpt': 'Antonio Ferrara (M5S) wurde dafür bestraft, dass er eine Tagung zur Remigration mit der extremen Rechten blockiert hatte. Am 10. April gedachte er der Gräueltat von 1944 in Forno mit 60 Opfern.',
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.imageAlt': 'Nachtansicht des Luganer Sees mit beleuchtetem Kongresspalast und schneebedeckten Bergen im Hintergrund',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.title': 'Tessin: Reformen im Gesundheitswesen statt Steuererhöhungen',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.excerpt': 'Zwei Volksinitiativen zu den Krankenkassen kosten jährlich 25,8 Millionen Franken. Die Tessiner Wirtschaft lehnt neue Abgaben ab: Übergangsmarge auf Substanz, Grundstückssteuern und Spitalkosten.',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.imageAlt': 'Arztpraxis im Tessin mit Schweizer und italienischer Flagge im Hintergrund',
 };
 
 export default blogMetaDe;

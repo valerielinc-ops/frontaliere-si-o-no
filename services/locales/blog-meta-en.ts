@@ -2226,6 +2226,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.title': 'Varese MP in Forno di Massa: “Nazi-fascist shame cannot be normalised”',
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.excerpt': 'Antonio Ferrara (M5S) sanctioned for blocking a remigration conference featuring far-right groups. On April 10, he commemorated the 1944 massacre in Forno, which claimed 60 lives.',
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.imageAlt': 'Night view of Lake Lugano with illuminated Congress Palace and snow-capped mountains in the background',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.title': 'Ticino: healthcare reform needed, not tax hikes',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.excerpt': 'Two popular initiatives on health insurance funds cost CHF 25.8 million annually. Ticino’s economy rejects new levies: temporary substance tax, land taxes, and hospitalisation fees',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.imageAlt': 'Medical consultation room in Ticino with Swiss and Italian flags in the background',
 };
 
 export default blogMetaEn;

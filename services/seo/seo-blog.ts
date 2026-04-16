@@ -8410,6 +8410,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-ticino-riforme-invece-aggravi': {
+    title: 'Ticino: servono riforme sanitarie, non | Frontaliere Ticino',
+    description: 'Due iniziative popolari sulle casse malati costano 25,8 milioni all’anno. Economia ticinese boccia i nuovi prelievi: aliquota sostanza transitoria, tasse fondia',
+    keywords: 'frontalieri, ticino, svizzera, italia, servono, riforme, sanitarie, aumenti',
+    ogTitle: 'Ticino: servono riforme sanitarie, non aumenti fiscali',
+    ogDescription: 'Due iniziative popolari sulle casse malati costano 25,8 milioni all’anno. Economia ticinese boccia i nuovi prelievi: aliquota sostanza transitoria, tasse fondia',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: servono riforme sanitarie, non aumenti fiscali",
+      "description": "Due iniziative popolari sulle casse malati costano 25,8 milioni all’anno. Economia ticinese boccia i nuovi prelievi: aliquota sostanza transitoria, tasse fondia",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-ticino-riforme-invece-aggravi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stanza di consultazione medica in Ticino con bandiera svizzera e italiana sullo sfondo"
+      },
+      "datePublished": "2026-04-16T23:11:03+00:00",
+      "dateModified": "2026-04-16T23:11:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

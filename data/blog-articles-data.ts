@@ -6179,4 +6179,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/deputato-varesino-ferrara-forno-massacro-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-salute-ticino-riforme-invece-aggravi',
+ category: 'fiscale',
+ date: '2026-04-16T23:11:03.751Z',
+ image: '/images/blog/tassa-salute-ticino-riforme-invece-aggravi.jpg',
+ hasCalculator: true,
+ },
 ];

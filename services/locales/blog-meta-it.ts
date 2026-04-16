@@ -2226,6 +2226,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.title': 'Deputato varesino a Forno di Massa: «La vergogna nazifascista non si sdogana»',
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.excerpt': 'Antonio Ferrara (M5S) sanzionato per aver bloccato convegno sulla remigrazione con estrema destra. Il 10 aprile ha commemorato la strage del 1944 a Forno con 60 vittime.',
     'blog.article.deputato-varesino-ferrara-forno-massacro-2026.imageAlt': 'Vista notturna del lago di Lugano con Palazzo dei Congressi illuminato e montagne innevate sullo sfondo',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.title': 'Ticino: servono riforme sanitarie, non aumenti fiscali',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.excerpt': 'Due iniziative popolari sulle casse malati costano 25,8 milioni all’anno. Economia ticinese boccia i nuovi prelievi: aliquota sostanza transitoria, tasse fondiari e ospedalizzazione',
+    'blog.article.tassa-salute-ticino-riforme-invece-aggravi.imageAlt': 'Stanza di consultazione medica in Ticino con bandiera svizzera e italiana sullo sfondo',
 };
 
 export default blogMetaIt;
