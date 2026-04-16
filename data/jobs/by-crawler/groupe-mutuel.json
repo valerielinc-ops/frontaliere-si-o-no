@@ -165,11 +165,11 @@
         "it": "Consulente assicurativo e previdenziale (m/f) 80-100%",
         "en": "Insurance and Pension Advisor (m/f) 80-100%"
       },
-      "slug": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn",
+      "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-solothurn",
       "slugByLocale": {
-        "fr": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "en": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "it": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn",
+        "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-solothurn",
+        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-solothurn",
+        "it": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-solothurn",
         "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
       },
       "category": "insurance",
@@ -188,11 +188,19 @@
       "id": "groupe-mutuel-9c6fdee8f32a",
       "previousSlugsByLocale": {
         "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
