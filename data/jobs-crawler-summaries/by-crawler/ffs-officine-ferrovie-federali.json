@@ -1,18 +1,75 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-04-16T10:36:17.179Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-04-16T22:14:38.716Z",
+  "total": 4,
+  "newCount": 2,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14692,
-  "avgDurationMs": 14692,
+  "durationMs": 30375,
+  "avgDurationMs": 30375,
   "durationHistory": [
-    14692
+    30375
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "sbb-9474d7f15605",
+      "slug": "responsabile-gestione-del-portafoglio-costruzioni-regione-sud-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Responsabile gestione del portafoglio costruzioni regione sud (m/f/d)",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2026-04-16",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-gestione-del-portafoglio-costruzioni-regione-sud-m-f-d/137e71fe-cbe7-453c-bb6d-53bda7cd9a6b",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-04-16T22:14:34.492Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "sbb-a03826d7aa6e",
+      "slug": "responsabile-in-gestione-del-portafoglio-di-costruzione-regione-sud-ffs-officine-ferrovie-federali-bellinzona",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Leiter:in Bauportfoliomanagement Region Süd",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "de",
+      "postedDate": "2026-04-16",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-bauportfoliomanagement-region-sued/2e4648a3-c84a-41ed-bb40-0c4379a07438",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-04-16T22:14:38.472Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "sbb-f4d78cef9cf1",
@@ -33,7 +90,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-16T10:36:17.125Z",
+      "crawledAt": "2026-04-16T22:14:38.644Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -62,7 +119,7 @@
       "postedDate": "2026-01-18",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-16T10:36:16.125Z",
+      "crawledAt": "2026-04-16T22:14:38.289Z",
       "firstSeenAt": "2026-04-13T11:12:22.576Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
