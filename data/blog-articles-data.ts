@@ -6263,4 +6263,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/moon-stars-resident-discount-locarno-card.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scoperta-quantita-marijuana-colverde-confine-ticino',
+ category: 'novita',
+ date: '2026-04-17T19:50:20.042Z',
+ image: '/images/blog/scoperta-quantita-marijuana-colverde-confine-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

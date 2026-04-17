@@ -2262,6 +2262,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moon-stars-resident-discount-locarno-card.title': 'Moon&Stars: discounts for residents with the Locarno Card 2026',
     'blog.article.moon-stars-resident-discount-locarno-card.excerpt': 'The Locarno Card offers tickets at 75 CHF for 11 evening concerts and 45 CHF for the Opening Night on 9 July 2026. Online sales from 22 April to 29 May with a personal code.',
     'blog.article.moon-stars-resident-discount-locarno-card.imageAlt': 'Locarno\'s Piazza Grande during Moon&Stars festival with posters and crowds of residents',
+    'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.title': 'Record haul in Colverde: over 100 kg of marijuana seized',
+    'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.excerpt': 'The provincial police of Como have seized 105 kg of marijuana found in abandoned sacks near the Ticino border. The operation was launched following an environmental check.',
+    'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.imageAlt': 'Como police officers inspect black bags containing marijuana seized near the Ticino border in Colverde',
 };
 
 export default blogMetaEn;

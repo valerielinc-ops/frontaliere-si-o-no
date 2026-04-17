@@ -2262,6 +2262,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.moon-stars-resident-discount-locarno-card.title': 'Moon&Stars: Ermäßigungen für Einwohner mit Locarno Card 2026',
     'blog.article.moon-stars-resident-discount-locarno-card.excerpt': 'Die Locarno Card bietet Tickets zu 75 Franken für 11 Abendkonzerte sowie zu 45 Franken für die Opening Night am 9. Juli 2026. Der Online-Verkauf läuft vom 22. April bis zum 29. Mai mit persönlichem Code.',
     'blog.article.moon-stars-resident-discount-locarno-card.imageAlt': 'Piazza Grande in Locarno während des Moon&Stars-Festivals mit Plakaten und Besuchern',
+    'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.title': 'Rekordfund in Coldrerio: Über ein Zentner Marihuana beschlagnahmt',
+    'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.excerpt': 'Die kantonale Polizei Como hat bei einer Umweltkontrolle in der Nähe der Tessiner Grenze 105 kg Marihuana beschlagnahmt. Die Drogen waren in Säcken zurückgelassen worden.',
+    'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.imageAlt': 'Polizeibeamte in Como untersuchen schwarze Säcke mit beschlagnahmter Marihuana nahe der Tessiner Grenze in Colverde',
 };
 
 export default blogMetaDe;

@@ -2009,6 +2009,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-usi-supsi-25-milioni-casse-malati': { name: 'Taglio da 25 milioni per USI e SUPSI', path: '/articoli-frontaliere/usi-supsi-25-milioni-casse-malati', parent: 'blog' },
     'blog-lega-ticino-solidarieta-casa-propria-2026': { name: 'Lega Ticino', path: '/articoli-frontaliere/lega-ticino-solidarieta-casa-propria-2026', parent: 'blog' },
     'blog-moon-stars-resident-discount-locarno-card': { name: 'Moon&Stars', path: '/articoli-frontaliere/moon-stars-resident-discount-locarno-card', parent: 'blog' },
+    'blog-scoperta-quantita-marijuana-colverde-confine-ticino': { name: 'Scoperta record a Colverde', path: '/articoli-frontaliere/scoperta-quantita-marijuana-colverde-confine-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

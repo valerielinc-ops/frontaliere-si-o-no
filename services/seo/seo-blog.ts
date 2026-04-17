@@ -8758,6 +8758,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scoperta-quantita-marijuana-colverde-confine-ticino': {
+    title: 'Scoperta record a Colverde: sequestrato | Frontaliere Ticino',
+    description: 'La polizia provinciale di Como ha sequestrato 105 kg di marijuana in sacchi abbandonati vicino al confine ticinese. Operazione nata da un controllo ambientale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scoperta, record, colverde, sequestrato',
+    ogTitle: 'Scoperta record a Colverde: sequestrato oltre un quintale',
+    ogDescription: 'La polizia provinciale di Como ha sequestrato 105 kg di marijuana in sacchi abbandonati vicino al confine ticinese. Operazione nata da un controllo ambientale.',
+    canonicalPath: '/articoli-frontaliere/scoperta-quantita-marijuana-colverde-confine-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scoperta record a Colverde: sequestrato oltre un quintale",
+      "description": "La polizia provinciale di Como ha sequestrato 105 kg di marijuana in sacchi abbandonati vicino al confine ticinese. Operazione nata da un controllo ambientale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scoperta-quantita-marijuana-colverde-confine-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agente della polizia locale di Como analizza sacchi di marijuana sequestrati a Colverde, vicino al confine ticinese"
+      },
+      "datePublished": "2026-04-17T19:50:20+00:00",
+      "dateModified": "2026-04-17T19:50:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scoperta-quantita-marijuana-colverde-confine-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
