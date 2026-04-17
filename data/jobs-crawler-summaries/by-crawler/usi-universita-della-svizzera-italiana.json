@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-17T10:50:27.399Z",
+  "generatedAt": "2026-04-17T22:27:23.372Z",
   "total": 19,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 69014,
-  "avgDurationMs": 69014,
+  "durationMs": 77242,
+  "avgDurationMs": 77242,
   "durationHistory": [
-    69014
+    77242
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,88 +55,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-amministratore-reti-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-amministratore-reti-2026.pdf",
-      "title": "Amministratore/trice di reti (Network Engineer)",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "amministratore-trice-di-reti-network-engineer-usi-lugano",
-      "department": "Servizio informatico",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-6f7a448c9640",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/elab/elab-sviluppatore-junior-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/elab/elab-sviluppatore-junior-2026.pdf",
-      "title": "Sviluppatore/trice junior",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "sviluppatore-trice-junior-usi-universita-della-svizzera-italiana-lugano",
-      "department": "Servizio eLab",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-112665c8e637",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
