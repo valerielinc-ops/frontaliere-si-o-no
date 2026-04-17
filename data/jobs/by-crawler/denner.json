@@ -101,12 +101,12 @@
     },
     {
       "id": "denner-16f4b806c72a",
-      "slug": "filialleiter-in-in-ausbildung-denner-emmenbrucke",
+      "slug": "capofila-dell-istruzione-denner-emmenbrucke",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-emmenbrucke",
-        "en": "filialleiter-in-in-ausbildung-denner-emmenbrucke",
+        "it": "capofila-dell-istruzione-denner-emmenbrucke",
+        "en": "head-of-branch-in-education-denner-emmenbrucke",
         "de": "filialleiter-in-in-ausbildung-denner-emmenbrucke",
-        "fr": "filialleiter-in-in-ausbildung-denner-emmenbrucke"
+        "fr": "chef-de-division-en-education-denner-emmenbrucke"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -165,20 +165,24 @@
       "crawledAt": "2026-04-17T21:23:47.202Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-emmenbrucke"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-emmenbrucke"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-emmenbrucke",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -478,12 +482,12 @@
     },
     {
       "id": "denner-7b4f33bf78a1",
-      "slug": "verkaufer-in-im-stundenlohn-denner-monchaltorf",
+      "slug": "venditore-in-salario-orario-denner-monchaltorf",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-monchaltorf",
-        "en": "verkaufer-in-im-stundenlohn-denner-monchaltorf",
+        "it": "venditore-in-salario-orario-denner-monchaltorf",
+        "en": "seller-in-in-hourly-wage-denner-monchaltorf",
         "de": "verkaufer-in-im-stundenlohn-denner-monchaltorf",
-        "fr": "verkaufer-in-im-stundenlohn-denner-monchaltorf"
+        "fr": "vendeur-en-salaire-horaire-denner-monchaltorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -542,20 +546,24 @@
       "crawledAt": "2026-04-17T21:23:45.859Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-monchaltorf"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-monchaltorf"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-monchaltorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-monchaltorf",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -967,9 +975,9 @@
       "slug": "filialleiter-in-denner-schluein",
       "slugByLocale": {
         "it": "filialleiter-in-denner-schluein",
-        "en": "filialleiter-in-denner-schluein",
+        "en": "head-of-branch-in-denner-schluein",
         "de": "filialleiter-in-denner-schluein",
-        "fr": "filialleiter-in-denner-schluein"
+        "fr": "chef-de-branche-denner-schluein"
       },
       "company": "Denner",
       "companyKey": "denner",

@@ -1235,10 +1235,10 @@
     },
     {
       "id": "tally-weijl-4a9ab1655229",
-      "slug": "flexible-aushilfe-tally-weijl-baden",
+      "slug": "aiuto-flessibile-tally-weijl-baden",
       "slugByLocale": {
         "de": "flexible-aushilfe-tally-weijl-baden",
-        "it": "flexible-aushilfe-tally-weijl-baden",
+        "it": "aiuto-flessibile-tally-weijl-baden",
         "en": "flexible-aushilfe-tally-weijl-baden",
         "fr": "flexible-aushilfe-tally-weijl-baden"
       },
@@ -1294,14 +1294,22 @@
         }
       },
       "postalCode": "5400",
-      "firstSeenAt": "2026-04-17T22:21:29.384Z"
+      "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-tally-weijl-baden"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-baden"
+      ]
     },
     {
       "id": "tally-weijl-bf3e64bf2328",
-      "slug": "flexible-aushilfe-tally-weijl-chur",
+      "slug": "aiuto-flessibile-tally-weijl-chur",
       "slugByLocale": {
         "de": "flexible-aushilfe-tally-weijl-chur",
-        "it": "flexible-aushilfe-tally-weijl-chur",
+        "it": "aiuto-flessibile-tally-weijl-chur",
         "en": "flexible-aushilfe-tally-weijl-chur",
         "fr": "flexible-aushilfe-tally-weijl-chur"
       },
@@ -1357,7 +1365,15 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-17T22:21:28.726Z"
+      "firstSeenAt": "2026-04-17T22:21:28.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-tally-weijl-chur"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-chur"
+      ]
     },
     {
       "id": "tally-weijl-4b18b5fa4e7e",

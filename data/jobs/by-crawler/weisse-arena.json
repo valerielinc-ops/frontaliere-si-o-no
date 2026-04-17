@@ -984,7 +984,7 @@
         "de": "bar-service-mitarbeiter-in-weisse-arena-ch",
         "it": "bar-service-collaboratore-trice-weisse-arena-gruppe-laax",
         "en": "bar-service-mitarbeiter-in-weisse-arena-ch",
-        "fr": "bar-service-mitarbeiter-in-weisse-arena-ch"
+        "fr": "services-du-barreau-personnel-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1032,6 +1032,9 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "it": [
+          "bar-service-mitarbeiter-in-weisse-arena-ch"
+        ],
+        "fr": [
           "bar-service-mitarbeiter-in-weisse-arena-ch"
         ]
       },

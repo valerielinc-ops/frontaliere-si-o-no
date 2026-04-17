@@ -2573,10 +2573,10 @@
     },
     {
       "id": "lonza-73e3cdcae73b",
-      "slug": "security-specialist-m-w-d-lonza-ch",
+      "slug": "specialista-di-sicurezza-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "security-specialist-m-w-d-lonza-ch",
-        "it": "security-specialist-m-w-d-lonza-ch",
+        "it": "specialista-di-sicurezza-m-w-d-lonza-ch",
         "en": "security-specialist-m-w-d-lonza-ch",
         "fr": "security-specialist-m-w-d-lonza-ch"
       },
@@ -2632,16 +2632,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-17T21:53:15.559Z"
+      "firstSeenAt": "2026-04-17T21:53:15.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "security-specialist-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "security-specialist-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a98d6e33f41c",
-      "slug": "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch",
+      "slug": "scienziato-senior-qualificazione-attrezzature-m-f-d-80-100-lonza-ch",
       "slugByLocale": {
         "en": "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch",
-        "it": "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch",
+        "it": "scienziato-senior-qualificazione-attrezzature-m-f-d-80-100-lonza-ch",
         "de": "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch",
-        "fr": "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch"
+        "fr": "chercheur-principal-qualification-en-equipement-m-f-j-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2695,15 +2703,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-17T21:53:14.906Z"
+      "firstSeenAt": "2026-04-17T21:53:14.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch"
+        ],
+        "fr": [
+          "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-equipment-qualification-m-f-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-59544a7634fb",
-      "slug": "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch",
+      "slug": "leader-del-gruppo-sviluppo-analitico-molecole-minori-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch",
-        "it": "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch",
-        "de": "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch",
+        "it": "leader-del-gruppo-sviluppo-analitico-molecole-minori-80-100-m-f-d-lonza-ch",
+        "de": "gruppenleiter-analytische-entwicklung-kleine-molekule-80-100-m-f-d-lonza-ch",
         "fr": "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
@@ -2758,16 +2777,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-17T21:53:14.230Z"
+      "firstSeenAt": "2026-04-17T21:53:14.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
+          "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-analytical-development-small-molecules-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6e2b7c6510d3",
-      "slug": "scientist-qc-microbiology-80-100-lonza-ch",
+      "slug": "microbiologia-qc-scienziata-80-100-lonza-ch",
       "slugByLocale": {
         "en": "scientist-qc-microbiology-80-100-lonza-ch",
-        "it": "scientist-qc-microbiology-80-100-lonza-ch",
-        "de": "scientist-qc-microbiology-80-100-lonza-ch",
-        "fr": "scientist-qc-microbiology-80-100-lonza-ch"
+        "it": "microbiologia-qc-scienziata-80-100-lonza-ch",
+        "de": "wissenschaftler-qc-mikrobiologie-80-100-lonza-ch",
+        "fr": "scientifique-qc-microbiologie-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2821,16 +2851,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-17T21:53:13.543Z"
+      "firstSeenAt": "2026-04-17T21:53:13.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-qc-microbiology-80-100-lonza-ch"
+        ],
+        "de": [
+          "scientist-qc-microbiology-80-100-lonza-ch"
+        ],
+        "fr": [
+          "scientist-qc-microbiology-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-qc-microbiology-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-fa2ace307dad",
-      "slug": "head-visual-inspection-80-100-lonza-ch",
+      "slug": "testa-di-ispezione-visiva-80-100-lonza-ch",
       "slugByLocale": {
         "en": "head-visual-inspection-80-100-lonza-ch",
-        "it": "head-visual-inspection-80-100-lonza-ch",
-        "de": "head-visual-inspection-80-100-lonza-ch",
-        "fr": "head-visual-inspection-80-100-lonza-ch"
+        "it": "testa-di-ispezione-visiva-80-100-lonza-ch",
+        "de": "head-visuelle-inspektion-80-100-lonza-ch",
+        "fr": "inspection-visuelle-de-la-tete-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2884,7 +2928,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-17T21:53:12.839Z"
+      "firstSeenAt": "2026-04-17T21:53:12.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-visual-inspection-80-100-lonza-ch"
+        ],
+        "de": [
+          "head-visual-inspection-80-100-lonza-ch"
+        ],
+        "fr": [
+          "head-visual-inspection-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-visual-inspection-80-100-lonza-ch"
+      ]
     }
   ]
 }
