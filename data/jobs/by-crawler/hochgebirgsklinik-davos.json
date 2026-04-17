@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-04-17T10:04:16.169Z",
+  "assembledAt": "2026-04-17T21:41:23.711Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.075Z",
+      "crawledAt": "2026-04-17T21:41:21.315Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -100,6 +100,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -144,7 +145,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.074Z",
+      "crawledAt": "2026-04-17T21:41:21.314Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -195,6 +196,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.074Z",
+      "crawledAt": "2026-04-17T21:41:21.314Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -301,6 +303,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -345,7 +348,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.073Z",
+      "crawledAt": "2026-04-17T21:41:21.313Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -399,6 +402,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -443,7 +447,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.073Z",
+      "crawledAt": "2026-04-17T21:41:21.313Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -508,6 +512,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -552,7 +557,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.072Z",
+      "crawledAt": "2026-04-17T21:41:21.312Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -610,6 +615,106 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-344ac3aa2fe0",
+      "slug": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
+        "en": "biomedical-analyst-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
+        "de": "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch",
+        "fr": "analyste-biomedical-bma-hf-mtl-h-f-d-50-80-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
+      "titleByLocale": {
+        "it": "Analista biomedico (BMA) HF / MTL (m/f/d) 50 - 80%",
+        "en": "Biomedical Analyst (BMA) HF / MTL (m/f/d) 50 - 80%",
+        "de": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
+        "fr": "Analyste biomédical (BMA) HF / MTL (h/f/d) 50 - 80%"
+      },
+      "description": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
+      "descriptionByLocale": {
+        "it": "Mansioni - Clima di lavoro piacevole - Attività variegate in un laboratorio polivalente (ematologia, emostasiologia, chimica clinica, immunologia/allergologia e diagnostica delle urine) - Raccolta campioni, attività manuali e operazioni su sistemi di analisi automatizzati - Prelievi di sangue venoso e capillare - Manutenzione degli apparecchi e controlli di qualità interni/esterni secondo le linee guida di Qualab - Consulti i committenti interni (medici, personale infermieristico) in modo competente, orientato alla soluzione e alla pari - Turni festivi a rotazione, nessun turno notturno o weekend ## Requisiti - Hai una laurea come Analista biomedico (BMA) HF / MTL - Esperienza nelle discipline di laboratorio sopra elencate è un vantaggio - Comprensione tecnica e padronanza dei programmi software comuni come Word, Excel ecc. - Capacità di lavoro autonomo e strutturato e alto senso di responsabilità - Ti distingui per la personalità: flessibile, impegnato, aperto e orientato al lavoro di squadra",
+        "en": "Responsibilities - Pleasant working atmosphere - Varied tasks in a polyvalent laboratory (hematology, hemostasis, clinical chemistry, immunology/allergy and urine diagnostics) - Sample collection, manual tasks as well as work on automated analysis systems - Venous and capillary blood draws - Equipment maintenance and internal/external quality controls according to Qualab specifications - You advise internal clients (physicians, nursing staff) competently, solution‑oriented and on equal footing - Rotating holiday shifts, no night or weekend duty ## Requirements - You have a degree as Biomedical Analyst (BMA) HF / MTL - Experience in the above laboratory diagnostic disciplines is advantageous - Technical understanding and proficiency with common software programs such as Word, Excel etc. - Independent and structured way of working and a high level of responsibility - You convince as a personality: flexible, committed, open‑minded and team‑oriented",
+        "de": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
+        "fr": "Missions - Ambiance de travail agréable - Activités variées dans un laboratoire polyvalent (hématologie, hémostase, chimie clinique, immunologie/allergologie et diagnostic urinaire) - Prise d’échantillons, tâches manuelles ainsi que travail sur des systèmes d’analyse automatisés - Prélèvements sanguins veineux et capillaires - Maintenance des équipements et contrôles qualité internes/externes selon les directives de Qualab - Vous conseillez les commanditaires internes (médecins, personnel infirmier) de manière compétente, orientée solution et sur un pied d’égalité - Services de garde les jours fériés en rotation, pas de service de nuit ou week‑end ## Exigences - Vous êtes titulaire d’un diplôme d’Analyste biomédical (BMA) HF / MTL - Une expérience dans les disciplines de diagnostic de laboratoire mentionnées est un atout - Compréhension technique et maîtrise des logiciels courants tels que Word, Excel, etc. - Une méthode de travail autonome et structurée ainsi qu’un sens élevé des responsabilités - Vous vous distinguez par votre personnalité : flexible, engagé, ouvert d’esprit et orienté équipe"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-17T21:41:21.311Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-19",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/636/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Laurea come Analista biomedico (BMA) HF / MTL",
+          "Esperienza nelle discipline di laboratorio è un vantaggio",
+          "Competenze tecniche e padronanza di Word, Excel, ecc.",
+          "Lavoro autonomo, strutturato e alto senso di responsabilità",
+          "Personalità flessibile, impegnata, aperta e orientata al team"
+        ],
+        "en": [
+          "Degree as Biomedical Analyst (BMA) HF / MTL",
+          "Experience in listed lab disciplines is a plus",
+          "Technical skills with Word, Excel and similar software",
+          "Independent, structured work style with high responsibility",
+          "Flexible, committed, open‑minded and team‑oriented personality"
+        ],
+        "fr": [
+          "Diplôme d’Analyste biomédical (BMA) HF / MTL",
+          "Expérience dans les disciplines de laboratoire est un atout",
+          "Compétences techniques avec Word, Excel, etc.",
+          "Méthode de travail autonome, structurée et sens élevé des responsabilités",
+          "Personnalité flexible, engagée, ouverte d’esprit et orientée équipe"
+        ]
+      },
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 50,
+      "pensumMax": 80,
+      "pensum": "50 - 80%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -654,7 +759,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.072Z",
+      "crawledAt": "2026-04-17T21:41:21.311Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -708,6 +813,7 @@
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
       ],
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -752,7 +858,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.071Z",
+      "crawledAt": "2026-04-17T21:41:21.310Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -821,104 +927,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.480Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-344ac3aa2fe0",
-      "slug": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
-        "en": "biomedical-analyst-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
-        "de": "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch",
-        "fr": "analyste-biomedical-bma-hf-mtl-h-f-d-50-80-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
-      "titleByLocale": {
-        "it": "Analista biomedico (BMA) HF / MTL (m/f/d) 50 - 80%",
-        "en": "Biomedical Analyst (BMA) HF / MTL (m/f/d) 50 - 80%",
-        "de": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
-        "fr": "Analyste biomédical (BMA) HF / MTL (h/f/d) 50 - 80%"
-      },
-      "description": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
-      "descriptionByLocale": {
-        "it": "Mansioni - Clima di lavoro piacevole - Attività variegate in un laboratorio polivalente (ematologia, emostasiologia, chimica clinica, immunologia/allergologia e diagnostica delle urine) - Raccolta campioni, attività manuali e operazioni su sistemi di analisi automatizzati - Prelievi di sangue venoso e capillare - Manutenzione degli apparecchi e controlli di qualità interni/esterni secondo le linee guida di Qualab - Consulti i committenti interni (medici, personale infermieristico) in modo competente, orientato alla soluzione e alla pari - Turni festivi a rotazione, nessun turno notturno o weekend ## Requisiti - Hai una laurea come Analista biomedico (BMA) HF / MTL - Esperienza nelle discipline di laboratorio sopra elencate è un vantaggio - Comprensione tecnica e padronanza dei programmi software comuni come Word, Excel ecc. - Capacità di lavoro autonomo e strutturato e alto senso di responsabilità - Ti distingui per la personalità: flessibile, impegnato, aperto e orientato al lavoro di squadra",
-        "en": "Responsibilities - Pleasant working atmosphere - Varied tasks in a polyvalent laboratory (hematology, hemostasis, clinical chemistry, immunology/allergy and urine diagnostics) - Sample collection, manual tasks as well as work on automated analysis systems - Venous and capillary blood draws - Equipment maintenance and internal/external quality controls according to Qualab specifications - You advise internal clients (physicians, nursing staff) competently, solution‑oriented and on equal footing - Rotating holiday shifts, no night or weekend duty ## Requirements - You have a degree as Biomedical Analyst (BMA) HF / MTL - Experience in the above laboratory diagnostic disciplines is advantageous - Technical understanding and proficiency with common software programs such as Word, Excel etc. - Independent and structured way of working and a high level of responsibility - You convince as a personality: flexible, committed, open‑minded and team‑oriented",
-        "de": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
-        "fr": "Missions - Ambiance de travail agréable - Activités variées dans un laboratoire polyvalent (hématologie, hémostase, chimie clinique, immunologie/allergologie et diagnostic urinaire) - Prise d’échantillons, tâches manuelles ainsi que travail sur des systèmes d’analyse automatisés - Prélèvements sanguins veineux et capillaires - Maintenance des équipements et contrôles qualité internes/externes selon les directives de Qualab - Vous conseillez les commanditaires internes (médecins, personnel infirmier) de manière compétente, orientée solution et sur un pied d’égalité - Services de garde les jours fériés en rotation, pas de service de nuit ou week‑end ## Exigences - Vous êtes titulaire d’un diplôme d’Analyste biomédical (BMA) HF / MTL - Une expérience dans les disciplines de diagnostic de laboratoire mentionnées est un atout - Compréhension technique et maîtrise des logiciels courants tels que Word, Excel, etc. - Une méthode de travail autonome et structurée ainsi qu’un sens élevé des responsabilités - Vous vous distinguez par votre personnalité : flexible, engagé, ouvert d’esprit et orienté équipe"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.071Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-19",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/636/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea come Analista biomedico (BMA) HF / MTL",
-          "Esperienza nelle discipline di laboratorio è un vantaggio",
-          "Competenze tecniche e padronanza di Word, Excel, ecc.",
-          "Lavoro autonomo, strutturato e alto senso di responsabilità",
-          "Personalità flessibile, impegnata, aperta e orientata al team"
-        ],
-        "en": [
-          "Degree as Biomedical Analyst (BMA) HF / MTL",
-          "Experience in listed lab disciplines is a plus",
-          "Technical skills with Word, Excel and similar software",
-          "Independent, structured work style with high responsibility",
-          "Flexible, committed, open‑minded and team‑oriented personality"
-        ],
-        "fr": [
-          "Diplôme d’Analyste biomédical (BMA) HF / MTL",
-          "Expérience dans les disciplines de laboratoire est un atout",
-          "Compétences techniques avec Word, Excel, etc.",
-          "Méthode de travail autonome, structurée et sens élevé des responsabilités",
-          "Personnalité flexible, engagée, ouverte d’esprit et orientée équipe"
-        ]
-      },
-      "department": "Ärztlicher/medizinischer Dienst",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 50,
-      "pensumMax": 80,
-      "pensum": "50 - 80%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -963,7 +972,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.070Z",
+      "crawledAt": "2026-04-17T21:41:21.310Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1014,6 +1023,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1058,7 +1068,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.069Z",
+      "crawledAt": "2026-04-17T21:41:21.309Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1115,6 +1125,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1159,7 +1170,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.069Z",
+      "crawledAt": "2026-04-17T21:41:21.309Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1211,6 +1222,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1223,90 +1235,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-9b9d35d55ba4",
-      "slug": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
-        "en": "senior-consultant-m-w-80-100-hochgebirgsklinik-davos-davos",
-        "de": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "consultant-principal-m-m-80-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
-      "titleByLocale": {
-        "it": "Consulente senior (m/w) 80-100 %",
-        "en": "Senior Consultant (m/w) 80-100 %",
-        "de": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
-        "fr": "Consultant principal (m/m) 80-100 %"
-      },
-      "description": "Aufgaben: Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten Internistische Mitbetreuung stationärer Patienten aller Indikationen Gesamte nicht invasive Kardiologie in Diagnostik und Therapie Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte Teilnahme am allgemeininternistischen Hintergrunddienst Ambulante Sprechstunde | Anforderungen: Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung Selbständige und kunden-/patientenorientierte Arbeitsweise Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
-      "descriptionByLocale": {
-        "it": "Specialista nel campo della medicina Allora dovremmo conoscerci! ## Contatto - (senza informazioni di contatto fornite)",
-        "en": "Specialist in the field of medicine Then we should get to know each other! ## Contatto - (no contact information provided)",
-        "de": "## Mansioni\n- Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten\n- Internistische Mitbetreuung stationärer Patienten aller Indikationen\n- Gesamte nicht invasive Kardiologie in Diagnostik und Therapie\n- Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen\n- Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n- Teilnahme am allgemeininternistischen Hintergrunddienst\n- Ambulante Sprechstunde\n\n## Requisiti\n- Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH\n- Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie\n- Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung\n- Selbständige und kunden-/patientenorientierte Arbeitsweise\n- Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit\n- Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1)\n\n## Cosa offriamo\n- Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!\n\n## Contatto\n- (no contact information provided)",
-        "fr": "Spécialiste en médecine Alors nous devrions apprendre à nous connaître ! ## Contatto - (pas de coordonnées fournies)"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.068Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/641/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ärztlicher/medizinischer Dienst",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-15T21:45:59.207Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "retranslationAttempts": 2
     },
     {
       "id": "hochgebirgsklinik-davos-03c64fa60f34",
@@ -1339,7 +1267,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.068Z",
+      "crawledAt": "2026-04-17T21:41:21.308Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1393,6 +1321,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1407,106 +1336,84 @@
       }
     },
     {
-      "id": "hochgebirgsklinik-davos-4196f884c3ee",
-      "slug": "psicologo-psicosomatica-adulti-m-w-d-80-100-hochgebirgsklinik-davos-davos",
+      "id": "hochgebirgsklinik-davos-9b9d35d55ba4",
+      "slug": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "it": "psicologo-psicosomatica-adulti-m-w-d-80-100-hochgebirgsklinik-davos-davos",
-        "en": "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "de": "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "psychologue-psychosomatique-adultes-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+        "it": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
+        "en": "senior-consultant-m-w-80-100-hochgebirgsklinik-davos-davos",
+        "de": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "consultant-principal-m-m-80-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
       "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Psychologe Erwachsenen-Psychosomatik (m/w/d) 80-100%",
+      "title": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
       "titleByLocale": {
-        "it": "Psicologo Psicosomatica Adulti (m/w/d) 80-100%",
-        "en": "Psychologe Erwachsenen-Psychosomatik (m/w/d) 80-100%",
-        "de": "Psychologe Erwachsenen-Psychosomatik (m/w/d) 80-100%",
-        "fr": "Psychologue Psychosomatique Adultes (m/w/d) 80-100%"
+        "it": "Consulente senior (m/w) 80-100 %",
+        "en": "Senior Consultant (m/w) 80-100 %",
+        "de": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
+        "fr": "Consultant principal (m/m) 80-100 %"
       },
-      "description": "Danke der Ruhe Ruhe und der Natur in Davos finden unsere Psychologen und Therapeuten hier in der Hochgebirgsklinik Davos das ideale Umfeld für ihre Arbeit mit unseren Patienten. | Aufgaben: Selbstständige Planung und Durchführung von Einzelpsychotherapien Leitung von themenspezifischen Gruppentherapien Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen Anleitung von Entspannungsverfahren Dokumentation und Berichtswesen Aktive interdisziplinäre Zusammenarbeit | Anforderungen: Masterabschluss in Psychologie Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung Freude und Interesse am patientenorientierten Arbeiten Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse",
+      "description": "Aufgaben: Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten Internistische Mitbetreuung stationärer Patienten aller Indikationen Gesamte nicht invasive Kardiologie in Diagnostik und Therapie Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte Teilnahme am allgemeininternistischen Hintergrunddienst Ambulante Sprechstunde | Anforderungen: Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung Selbständige und kunden-/patientenorientierte Arbeitsweise Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
       "descriptionByLocale": {
-        "it": "Descrizione Grazie alla tranquillità e alla natura di Davos, i nostri psicologi e terapeuti trovano qui nella Hochgebirgsklinik Davos l'ambiente ideale per lavorare con i nostri pazienti. ## Compiti - Pianificazione e svolgimento autonomo di terapie individuali - Direzione di terapie di gruppo specifiche - Svolgimento di gruppi di educazione psicologica - Formazione di pazienti e loro familiari - Guida di procedure di rilassamento - Documentazione e attività di reporting - Collaborazione interdisciplinare attiva ## Requisiti - Laurea magistrale in Psicologia - Formazione in psicoterapia riconosciuta a livello federale, completata o in corso - Passione e interesse per il lavoro orientato al paziente - Alta competenza sociale, autonomia e affidabilità nel lavoro - Resistenza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone conoscenze informatiche",
-        "en": "Description Thanks to the tranquility and nature of Davos, our psychologists and therapists find the ideal environment here at the Hochgebirgsklinik Davos to work with our patients. ## Tasks - Independent planning and implementation of individual psychotherapy - Leadership of theme-specific group therapies - Conducting psychoeducational groups - Training of patients and their relatives - Guidance of relaxation procedures - Documentation and reporting activities - Active interdisciplinary collaboration ## Requirements - Master's degree in Psychology - Completed or ongoing federally recognized psychotherapeutic further education - Enjoyment and interest in patient-oriented work - High social competence, independent and reliable work style - Resilience, sense of responsibility, flexibility, and teamwork - Good PC user skills",
-        "de": "Danke der Ruhe Ruhe und der Natur in Davos finden unsere Psychologen und Therapeuten hier in der Hochgebirgsklinik Davos das ideale Umfeld für ihre Arbeit mit unseren Patienten. | Aufgaben: Selbstständige Planung und Durchführung von Einzelpsychotherapien Leitung von themenspezifischen Gruppentherapien Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen Anleitung von Entspannungsverfahren Dokumentation und Berichtswesen Aktive interdisziplinäre Zusammenarbeit | Anforderungen: Masterabschluss in Psychologie Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung Freude und Interesse am patientenorientierten Arbeiten Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse",
-        "fr": "Description Grâce à la tranquillité et à la nature de Davos, nos psychologues et thérapeutes trouvent ici, à la Hochgebirgsklinik Davos, l'environnement idéal pour travailler avec nos patients. ## Tâches - Planification et mise en œuvre autonomes de psychothérapies individuelles - Direction de thérapies de groupe spécifiques - Animation de groupes d'éducation psychologique - Formation des patients et de leurs proches - Guidance de procédures de relaxation - Documentation et activités de reporting - Collaboration interdisciplinaire active ## Exigences - Diplôme de master en Psychologie - Formation en psychothérapie reconnue au niveau fédéral, achevée ou en cours - Plaisir et intérêt pour le travail orienté vers le patient - Forte compétence sociale, autonomie et fiabilité dans le travail - Résistance, sens des responsabilités, flexibilité et esprit d'équipe - Bonnes connaissances en informatique"
+        "it": "Specialista nel campo della medicina Allora dovremmo conoscerci! ## Contatto - (senza informazioni di contatto fornite)",
+        "en": "Specialist in the field of medicine Then we should get to know each other! ## Contatto - (no contact information provided)",
+        "de": "Aufgaben: Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten Internistische Mitbetreuung stationärer Patienten aller Indikationen Gesamte nicht invasive Kardiologie in Diagnostik und Therapie Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte Teilnahme am allgemeininternistischen Hintergrunddienst Ambulante Sprechstunde | Anforderungen: Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung Selbständige und kunden-/patientenorientierte Arbeitsweise Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
+        "fr": "Spécialiste en médecine Alors nous devrions apprendre à nous connaître ! ## Contatto - (pas de coordonnées fournies)"
       },
       "location": "Davos",
       "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM1&showApplicationForm=false",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.067Z",
+      "crawledAt": "2026-04-17T21:41:21.307Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Psicologia",
+      "category": "Medicina",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-19",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/635/Application/CheckLogin/1?lang=ger",
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/641/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea magistrale in Psicologia",
-          "Formazione in psicoterapia riconosciuta a livello federale, completata o in corso",
-          "Passione e interesse per il lavoro orientato al paziente",
-          "Alta competenza sociale, autonomia e affidabilità nel lavoro",
-          "Resistenza, senso di responsabilità, flessibilità e capacità di lavorare in squadra",
-          "Buone conoscenze informatiche"
-        ],
-        "en": [
-          "Master's degree in Psychology",
-          "Completed or ongoing federally recognized psychotherapeutic further education",
-          "Enjoyment and interest in patient-oriented work",
-          "High social competence, independent and reliable work style",
-          "Resilience, sense of responsibility, flexibility, and teamwork",
-          "Good PC user skills"
-        ],
-        "fr": [
-          "Diplôme de master en Psychologie",
-          "Formation en psychothérapie reconnue au niveau fédéral, achevée ou en cours",
-          "Plaisir et intérêt pour le travail orienté vers le patient",
-          "Forte compétence sociale, autonomie et fiabilité dans le travail",
-          "Résistance, sens des responsabilités, flexibilité et esprit d'équipe",
-          "Bonnes connaissances en informatique"
-        ]
-      },
-      "department": "Psychologie",
+      "requirementsByLocale": {},
+      "department": "Ärztlicher/medizinischer Dienst",
       "streetAddress": "Promenade 117",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
       "previousSlugs": [
-        "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "psychologie-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
         ],
-        "de": [
-          "psychologie-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+        "en": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.478Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -1542,7 +1449,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.067Z",
+      "crawledAt": "2026-04-17T21:41:21.307Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1603,6 +1510,113 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-4196f884c3ee",
+      "slug": "psicologo-psicosomatica-adulti-m-w-d-80-100-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "psicologo-psicosomatica-adulti-m-w-d-80-100-hochgebirgsklinik-davos-davos",
+        "en": "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "de": "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "psychologue-psychosomatique-adultes-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Psychologe Erwachsenen-Psychosomatik (m/w/d) 80-100%",
+      "titleByLocale": {
+        "it": "Psicologo Psicosomatica Adulti (m/w/d) 80-100%",
+        "en": "Psychologe Erwachsenen-Psychosomatik (m/w/d) 80-100%",
+        "de": "Psychologe Erwachsenen-Psychosomatik (m/w/d) 80-100%",
+        "fr": "Psychologue Psychosomatique Adultes (m/w/d) 80-100%"
+      },
+      "description": "Danke der Ruhe Ruhe und der Natur in Davos finden unsere Psychologen und Therapeuten hier in der Hochgebirgsklinik Davos das ideale Umfeld für ihre Arbeit mit unseren Patienten. | Aufgaben: Selbstständige Planung und Durchführung von Einzelpsychotherapien Leitung von themenspezifischen Gruppentherapien Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen Anleitung von Entspannungsverfahren Dokumentation und Berichtswesen Aktive interdisziplinäre Zusammenarbeit | Anforderungen: Masterabschluss in Psychologie Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung Freude und Interesse am patientenorientierten Arbeiten Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse",
+      "descriptionByLocale": {
+        "it": "Descrizione Grazie alla tranquillità e alla natura di Davos, i nostri psicologi e terapeuti trovano qui nella Hochgebirgsklinik Davos l'ambiente ideale per lavorare con i nostri pazienti. ## Compiti - Pianificazione e svolgimento autonomo di terapie individuali - Direzione di terapie di gruppo specifiche - Svolgimento di gruppi di educazione psicologica - Formazione di pazienti e loro familiari - Guida di procedure di rilassamento - Documentazione e attività di reporting - Collaborazione interdisciplinare attiva ## Requisiti - Laurea magistrale in Psicologia - Formazione in psicoterapia riconosciuta a livello federale, completata o in corso - Passione e interesse per il lavoro orientato al paziente - Alta competenza sociale, autonomia e affidabilità nel lavoro - Resistenza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone conoscenze informatiche",
+        "en": "Description Thanks to the tranquility and nature of Davos, our psychologists and therapists find the ideal environment here at the Hochgebirgsklinik Davos to work with our patients. ## Tasks - Independent planning and implementation of individual psychotherapy - Leadership of theme-specific group therapies - Conducting psychoeducational groups - Training of patients and their relatives - Guidance of relaxation procedures - Documentation and reporting activities - Active interdisciplinary collaboration ## Requirements - Master's degree in Psychology - Completed or ongoing federally recognized psychotherapeutic further education - Enjoyment and interest in patient-oriented work - High social competence, independent and reliable work style - Resilience, sense of responsibility, flexibility, and teamwork - Good PC user skills",
+        "de": "Danke der Ruhe Ruhe und der Natur in Davos finden unsere Psychologen und Therapeuten hier in der Hochgebirgsklinik Davos das ideale Umfeld für ihre Arbeit mit unseren Patienten. | Aufgaben: Selbstständige Planung und Durchführung von Einzelpsychotherapien Leitung von themenspezifischen Gruppentherapien Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen Anleitung von Entspannungsverfahren Dokumentation und Berichtswesen Aktive interdisziplinäre Zusammenarbeit | Anforderungen: Masterabschluss in Psychologie Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung Freude und Interesse am patientenorientierten Arbeiten Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse",
+        "fr": "Description Grâce à la tranquillité et à la nature de Davos, nos psychologues et thérapeutes trouvent ici, à la Hochgebirgsklinik Davos, l'environnement idéal pour travailler avec nos patients. ## Tâches - Planification et mise en œuvre autonomes de psychothérapies individuelles - Direction de thérapies de groupe spécifiques - Animation de groupes d'éducation psychologique - Formation des patients et de leurs proches - Guidance de procédures de relaxation - Documentation et activités de reporting - Collaboration interdisciplinaire active ## Exigences - Diplôme de master en Psychologie - Formation en psychothérapie reconnue au niveau fédéral, achevée ou en cours - Plaisir et intérêt pour le travail orienté vers le patient - Forte compétence sociale, autonomie et fiabilité dans le travail - Résistance, sens des responsabilités, flexibilité et esprit d'équipe - Bonnes connaissances en informatique"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM1&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-17T21:41:21.306Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Psicologia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-19",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/635/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Laurea magistrale in Psicologia",
+          "Formazione in psicoterapia riconosciuta a livello federale, completata o in corso",
+          "Passione e interesse per il lavoro orientato al paziente",
+          "Alta competenza sociale, autonomia e affidabilità nel lavoro",
+          "Resistenza, senso di responsabilità, flessibilità e capacità di lavorare in squadra",
+          "Buone conoscenze informatiche"
+        ],
+        "en": [
+          "Master's degree in Psychology",
+          "Completed or ongoing federally recognized psychotherapeutic further education",
+          "Enjoyment and interest in patient-oriented work",
+          "High social competence, independent and reliable work style",
+          "Resilience, sense of responsibility, flexibility, and teamwork",
+          "Good PC user skills"
+        ],
+        "fr": [
+          "Diplôme de master en Psychologie",
+          "Formation en psychothérapie reconnue au niveau fédéral, achevée ou en cours",
+          "Plaisir et intérêt pour le travail orienté vers le patient",
+          "Forte compétence sociale, autonomie et fiabilité dans le travail",
+          "Résistance, sens des responsabilités, flexibilité et esprit d'équipe",
+          "Bonnes connaissances en informatique"
+        ]
+      },
+      "department": "Psychologie",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "psychologie-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologe-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "de": [
+          "psychologie-erwachsenen-psychosomatik-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1647,7 +1661,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.066Z",
+      "crawledAt": "2026-04-17T21:41:21.306Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1710,6 +1724,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.476Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1754,7 +1769,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T10:04:14.063Z",
+      "crawledAt": "2026-04-17T21:41:21.302Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
