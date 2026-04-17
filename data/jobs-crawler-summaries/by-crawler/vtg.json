@@ -1,59 +1,19 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-04-17T10:52:21.096Z",
+  "generatedAt": "2026-04-17T22:29:13.430Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 45081,
-  "avgDurationMs": 45081,
+  "unchangedCount": 4,
+  "durationMs": 37918,
+  "avgDurationMs": 37918,
   "durationHistory": [
-    45081
+    37918
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "company-jnoz9i",
-      "slug": "fachspezialist-in-planung-e-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
-      "location": "Monteceneri (TI)",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://jobs.admin.ch/offene-stellen/fachspezialist-in-planung-und-controlling-stv-chef-in/7844109b-a283-4f73-888b-bb0e3f7a896e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Monteceneri (TI)",
-        "canton": "TI"
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-04-16T22:33:41.044Z",
-      "firstSeenAt": "2026-04-16T22:33:41.044Z",
-      "sourceLang": "de",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-d62hnl",
       "slug": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
@@ -95,6 +55,46 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-jnoz9i",
+      "slug": "fachspezialist-in-planung-e-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
+      "location": "Monteceneri (TI)",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-16",
+      "url": "https://jobs.admin.ch/offene-stellen/fachspezialist-in-planung-und-controlling-stv-chef-in/7844109b-a283-4f73-888b-bb0e3f7a896e",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Monteceneri (TI)",
+        "canton": "TI"
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-04-16T22:33:41.044Z",
+      "firstSeenAt": "2026-04-16T22:33:41.044Z",
+      "sourceLang": "de",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-84ss1r",
       "slug": "professionista-specialista-in-rete-swiss-armed-forces-vtg-locarno",
