@@ -1,18 +1,49 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-16T21:19:39.378Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-04-17T09:38:44.876Z",
+  "total": 13,
+  "newCount": 1,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1512,
-  "avgDurationMs": 1512,
+  "durationMs": 1535,
+  "avgDurationMs": 1535,
   "durationHistory": [
-    1512
+    1535
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
+      "slug": "fachspezialist-in-planung-und-controlling-stv-chef-in-confederazione-monteceneri",
+      "url": "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-planung-und-controlling-stv-chef-in/7844109b-a283-4f73-888b-bb0e3f7a896e",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18415",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Monteceneri (TI)",
+      "addressLocality": "Monteceneri",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "management",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-16",
+      "validThrough": "2026-05-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Inspektor/in",
@@ -302,8 +333,8 @@
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
