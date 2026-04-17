@@ -8526,6 +8526,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-droga-confine-brogeda-2026': {
+    title: 'Due frontalieri arrestati a Brogeda con | Frontaliere Ticino',
+    description: 'Due corrieri arrestati a Brogeda con 1.96 kg di eroina e cocaina. Scopri le implicazioni per i frontalieri, le procedure in caso di controllo e come tutelarsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arrestati, brogeda, quasi, chili',
+    ogTitle: 'Droga al confine Brogeda: arresti e rischi per i frontalieri',
+    ogDescription: 'Due corrieri fermati con 1.96 kg di droga a Brogeda. Scopri le implicazioni per i frontalieri, le procedure in caso di controllo e gli strumenti per tutelarsi.',
+    canonicalPath: '/articoli-frontaliere/arresto-droga-confine-brogeda-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino - Arresto droga confine Brogeda 2026",
+      "description": "Due corrieri arrestati a Brogeda con 1.96 kg di eroina e cocaina. Scopri le implicazioni per i frontalieri, le procedure in caso di controllo e come tutelarsi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arresto-droga-confine-brogeda-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agente al valico di Brogeda mostra eroina e cocaina sequestrata ai due corrieri arrestati"
+      },
+      "datePublished": "2026-04-17T08:11:48+00:00",
+      "dateModified": "2026-04-17T08:11:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-droga-confine-brogeda-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

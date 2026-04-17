@@ -2238,6 +2238,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Tassa salute frontalieri: Lombardia rinvia ancora la mozione, 80.000 ticinesi in attesa',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile. Il PD accusa: «Hanno detto che possiamo aspettare», mentre 80.000 famiglie ticinesi sono in standby.',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Frontalieri in attesa al valico di Brogeda con documenti in mano',
+    'blog.article.arresto-droga-confine-brogeda-2026.title': 'Due frontalieri arrestati a Brogeda con quasi due chili di eroina e cocaina',
+    'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Due corrieri, rispettivamente di 30 e 33 anni, fermati in flagranza di reato nei pressi del valico di Brogeda con 1,96 kg di droga tra eroina e cocaina.',
+    'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Agente al valico di Brogeda mostra eroina e cocaina sequestrata ai due corrieri arrestati',
 };
 
 export default blogMetaIt;

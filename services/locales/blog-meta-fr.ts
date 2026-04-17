@@ -2238,6 +2238,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Taxe santé pour les frontaliers : la Lombardie reporte encore la motion, 80 000 Tessinois en attente',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'La Région Lombardie reporte au 23 avril la discussion sur la taxe de santé pour les frontaliers historiques. Le Parti démocrate (PD) dénonce : « Ils nous disent que nous pouvons attendre », alors que 80 000 familles tessinoises restent en suspens.',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Frontaliers en attente au passage frontalier de Brogeda avec des documents à la main',
+    'blog.article.arresto-droga-confine-brogeda-2026.title': 'Deux frontaliers arrêtés à Brogeda avec près de deux kilos d’héroïne et de cocaïne',
+    'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Deux coursiers, âgés respectivement de 30 et 33 ans, ont été interpellés en flagrant délit près du poste frontière de Brogeda avec 1,96 kg de drogue, composée d’héroïne et de cocaïne.',
+    'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Agent à la frontière de Brogeda montrant de l\'héroïne et de la cocaïne saisies sur deux passeurs arrêtés',
 };
 
 export default blogMetaFr;

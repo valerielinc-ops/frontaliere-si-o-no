@@ -2238,6 +2238,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Cross-border worker health tax: Lombardy delays motion again, 80,000 Ticino families left waiting',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'Lombardy’s regional council has once again postponed the debate on the health tax for long-standing cross-border workers, now set for April 23. The PD opposition has hit out, declaring: >They told us we can wait<, as 80,000 Ticino families remain in limbo.',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Cross-border workers waiting at the Brogeda border crossing with documents in hand',
+    'blog.article.arresto-droga-confine-brogeda-2026.title': 'Two cross-border workers arrested in Brogeda with nearly two kilos of heroin and cocaine',
+    'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Two couriers, aged 30 and 33, were caught in the act near the Brogeda border crossing with 1.96 kg of drugs, including heroin and cocaine.',
+    'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Police at Brogeda border checkpoint displaying heroin and cocaine seized from two couriers arrested',
 };
 
 export default blogMetaEn;

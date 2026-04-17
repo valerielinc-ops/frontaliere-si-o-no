@@ -2238,6 +2238,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Krankensteuer für Grenzgänger: Lombardei vertagt Antrag erneut – 80.000 Tessiner in Wartestellung',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'Die Region Lombardei verschiebt die Diskussion über die Krankensteuer für langjährige Grenzgänger auf den 23. April. Die Partito Democratico wirft ihr vor: «Sie haben gesagt, wir sollen warten», während 80.000 Tessiner Haushalte in der Schwebe hängen.',
     'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Grenzpendler warten am Übergang Brogeda mit Dokumenten in der Hand',
+    'blog.article.arresto-droga-confine-brogeda-2026.title': 'Zwei Grenzgänger in Brogeda mit fast zwei Kilogramm Heroin und Kokain festgenommen',
+    'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Zwei Kurierdienste, 30 und 33 Jahre alt, wurden in Brogeda nahe des Grenzübergangs in flagranti mit insgesamt 1,96 Kilogramm Rauschgift – darunter Heroin und Kokain – festgenommen.',
+    'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Polizisten am Grenzübergang Brogeda zeigen Heroin und Kokain, die von zwei Kurieren beschlagnahmt wurden',
 };
 
 export default blogMetaDe;

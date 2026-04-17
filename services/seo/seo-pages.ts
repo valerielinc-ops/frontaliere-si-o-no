@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 797,
+ "numberOfItems": 798,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4486,7 +4486,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 794, "name": "Ticino: servono riforme sanitarie, non aumenti ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi` },
           { "@type": "ListItem", "position": 795, "name": "ChiassoLetteraria festeggia 20 anni dal 6 al 10...", "url": `${BASE_URL}/articoli-frontaliere/chiassolitteratura-venti-anniversario-2026` },
           { "@type": "ListItem", "position": 796, "name": "Finanze Ticino 2025", "url": `${BASE_URL}/articoli-frontaliere/finanze-2025-fragile-ticino` },
-          { "@type": "ListItem", "position": 797, "name": "Tassa salute frontalieri Lombardia: rinvio mozi...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026` }
+          { "@type": "ListItem", "position": 797, "name": "Tassa salute frontalieri Lombardia: rinvio mozi...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026` },
+          { "@type": "ListItem", "position": 798, "name": "Frontaliere Ticino - Arresto droga confine Brog...", "url": `${BASE_URL}/articoli-frontaliere/arresto-droga-confine-brogeda-2026` }
  ]
  }
  ]

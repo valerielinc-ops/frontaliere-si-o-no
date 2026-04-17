@@ -6207,4 +6207,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/tassa-salute-frontalieri-lombardia-rinvio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'arresto-droga-confine-brogeda-2026',
+ category: 'pratico',
+ date: '2026-04-17T08:11:48.730Z',
+ image: '/images/blog/arresto-droga-confine-brogeda-2026.jpg',
+ hasCalculator: true,
+ },
 ];
