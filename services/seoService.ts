@@ -2000,6 +2000,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-ticino-riforme-invece-aggravi': { name: 'Ticino', path: '/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi', parent: 'blog' },
     'blog-chiassolitteratura-venti-anniversario-2026': { name: 'ChiassoLetteraria festeggia 20 anni dal', path: '/articoli-frontaliere/chiassolitteratura-venti-anniversario-2026', parent: 'blog' },
     'blog-finanze-2025-fragile-ticino': { name: 'Finanze', path: '/articoli-frontaliere/finanze-2025-fragile-ticino', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-lombardia-rinvio-2026': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

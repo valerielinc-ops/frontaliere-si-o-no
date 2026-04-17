@@ -2235,6 +2235,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.finanze-2025-fragile-ticino.title': 'Ticino: finanze 2025 migliori del previsto ma restano fragili',
     'blog.article.finanze-2025-fragile-ticino.excerpt': 'Il consuntivo 2025 del Cantone chiude con un disavanzo di 32,5 milioni, migliorando di circa 64 milioni rispetto alle previsioni, ma con sfide future da affrontare.',
     'blog.article.finanze-2025-fragile-ticino.imageAlt': 'Veduta di Locarno con lago e montagne sullo sfondo, scena urbana e naturale in Ticino.',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Tassa salute frontalieri: Lombardia rinvia ancora la mozione, 80.000 ticinesi in attesa',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile. Il PD accusa: «Hanno detto che possiamo aspettare», mentre 80.000 famiglie ticinesi sono in standby.',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Frontalieri in attesa al valico di Brogeda con documenti in mano',
 };
 
 export default blogMetaIt;

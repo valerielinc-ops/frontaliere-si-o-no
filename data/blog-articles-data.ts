@@ -6200,4 +6200,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/finanze-2025-fragile-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-salute-frontalieri-lombardia-rinvio-2026',
+ category: 'fiscale',
+ date: '2026-04-17T05:53:09.275Z',
+ image: '/images/blog/tassa-salute-frontalieri-lombardia-rinvio-2026.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -8497,6 +8497,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-lombardia-rinvio-2026': {
+    title: 'Tassa salute frontalieri: Lombardia | Frontaliere Ticino',
+    description: 'La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile 2026. Scopri quali sono i rischi per i 80.000 ticinesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, rinvia',
+    ogTitle: 'Tassa salute frontalieri Lombardia: rinvio mozione fino al',
+    ogDescription: 'La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile 2026. Scopri quali sono i rischi per i 80.000 ticinesi',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri Lombardia: rinvio mozione fino al 23 aprile 2026",
+      "description": "La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile 2026. Scopri quali sono i rischi per i 80.000 ticinesi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-rinvio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa al valico di Brogeda con documenti in mano"
+      },
+      "datePublished": "2026-04-17T05:53:09+00:00",
+      "dateModified": "2026-04-17T05:53:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

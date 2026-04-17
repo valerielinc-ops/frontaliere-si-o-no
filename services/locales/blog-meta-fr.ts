@@ -2235,6 +2235,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.finanze-2025-fragile-ticino.title': 'Tessin : finances 2025 meilleures que prévu, mais restent fragiles',
     'blog.article.finanze-2025-fragile-ticino.excerpt': 'Le compte rendu 2025 du canton se solde par un déficit de 32,5 millions de francs, s’améliorant d’environ 64 millions par rapport aux prévisions, tout en présentant des défis à relever pour l’avenir.',
     'blog.article.finanze-2025-fragile-ticino.imageAlt': 'Vue de Locarno avec lac et montagnes en arrière-plan, paysage urbain et naturel dans le Tessin.',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Taxe santé pour les frontaliers : la Lombardie reporte encore la motion, 80 000 Tessinois en attente',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'La Région Lombardie reporte au 23 avril la discussion sur la taxe de santé pour les frontaliers historiques. Le Parti démocrate (PD) dénonce : « Ils nous disent que nous pouvons attendre », alors que 80 000 familles tessinoises restent en suspens.',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Frontaliers en attente au passage frontalier de Brogeda avec des documents à la main',
 };
 
 export default blogMetaFr;

@@ -2235,6 +2235,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.finanze-2025-fragile-ticino.title': 'Ticino: 2025 Finances Better Than Expected but Still Fragile',
     'blog.article.finanze-2025-fragile-ticino.excerpt': 'The 2025 final account of the Canton closes with a deficit of 32.5 million francs, an improvement of approximately 64 million compared to forecasts, but with future challenges to address.',
     'blog.article.finanze-2025-fragile-ticino.imageAlt': 'View of Locarno with lake and mountains in the background, urban and natural scenery in Ticino.',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.title': 'Cross-border worker health tax: Lombardy delays motion again, 80,000 Ticino families left waiting',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.excerpt': 'Lombardy’s regional council has once again postponed the debate on the health tax for long-standing cross-border workers, now set for April 23. The PD opposition has hit out, declaring: >They told us we can wait<, as 80,000 Ticino families remain in limbo.',
+    'blog.article.tassa-salute-frontalieri-lombardia-rinvio-2026.imageAlt': 'Cross-border workers waiting at the Brogeda border crossing with documents in hand',
 };
 
 export default blogMetaEn;
