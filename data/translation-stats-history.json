@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-09T05:22:42.918Z",
-    "label": "before",
-    "total": 1557,
-    "needsRetranslation": 53,
-    "incomplete": 5,
-    "complete": 1552,
-    "missingByLocale": {
-      "it": 4,
-      "en": 5,
-      "de": 1,
-      "fr": 5
-    },
-    "topPending": [
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-09T05:23:25.114Z",
-    "label": "after",
-    "total": 1557,
-    "needsRetranslation": 53,
-    "incomplete": 5,
-    "complete": 1552,
-    "missingByLocale": {
-      "it": 4,
-      "en": 5,
-      "de": 1,
-      "fr": 5
-    },
-    "topPending": [
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-09T07:58:04.787Z",
     "label": "before",
     "total": 1495,
@@ -7670,6 +7622,90 @@
       },
       {
         "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-17T13:50:25.163Z",
+    "label": "before",
+    "total": 2921,
+    "needsRetranslation": 72,
+    "incomplete": 12,
+    "complete": 2909,
+    "missingByLocale": {
+      "it": 7,
+      "en": 8,
+      "de": 5,
+      "fr": 8
+    },
+    "topPending": [
+      {
+        "company": "Groupe Mutuel",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Hochgebirgsklinik Davos",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-17T14:24:28.217Z",
+    "label": "after",
+    "total": 2921,
+    "needsRetranslation": 57,
+    "incomplete": 4,
+    "complete": 2917,
+    "missingByLocale": {
+      "it": 2,
+      "en": 1,
+      "de": 0,
+      "fr": 4
+    },
+    "topPending": [
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Hochgebirgsklinik Davos",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]
