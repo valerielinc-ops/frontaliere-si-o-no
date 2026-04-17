@@ -13,13 +13,80 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-04-16T22:23:53.858Z",
+  "updatedAt": "2026-04-17T10:42:39.839Z",
   "seedDetailUrls": [
+    "https://www.supsi.ch/bando26_5015",
+    "https://www.supsi.ch/bando26_1007",
+    "https://www.supsi.ch/bando25_9005",
+    "https://www.supsi.ch/bando26_5013",
+    "https://www.supsi.ch/26_5001",
+    "https://www.supsi.ch/bando26_5016",
+    "https://www.supsi.ch/bando26_4004",
     "https://www.supsi.ch/bando26_9001",
     "https://www.supsi.ch/bando26_1008",
     "https://www.supsi.ch/bando26_4001"
   ],
   "seedMetaByUrl": {
+    "https://www.supsi.ch/bando26_5015": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-04-16"
+    },
+    "https://www.supsi.ch/bando26_1007": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "expiresAt": "2026-04-19"
+    },
+    "https://www.supsi.ch/bando25_9005": {
+      "location": "USI SUPSInido del Campus Est di Viganello",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "expiresAt": "2026-04-30"
+    },
+    "https://www.supsi.ch/bando26_5013": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-04-30"
+    },
+    "https://www.supsi.ch/26_5001": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "expiresAt": "2026-05-03"
+    },
+    "https://www.supsi.ch/bando26_5016": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-05-17"
+    },
+    "https://www.supsi.ch/bando26_4004": {
+      "location": "Direzione SUPSI",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-05-29"
+    },
     "https://www.supsi.ch/bando26_9001": {
       "location": "Ticino",
       "canton": "TI",
