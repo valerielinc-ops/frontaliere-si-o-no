@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-04-16T21:35:14.865Z",
+  "generatedAt": "2026-04-17T09:54:16.391Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1677,
-  "avgDurationMs": 1677,
+  "unchangedCount": 0,
+  "durationMs": 2201,
+  "avgDurationMs": 2201,
   "durationHistory": [
-    1677
+    2201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -187,6 +187,49 @@
       }
     },
     {
+      "title": "Lead QA & Test Automation Engineer",
+      "slug": "lead-qa-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/rufnDy9bGi/Lead-QA-Test-Automation-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/rufnDy9bGi/Lead-QA-Test-Automation-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-16",
+      "validThrough": "2026-07-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260416080451_SE0SAPENJ4RXNGWB",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-01823395ac1a",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-04-16T09:56:47.059Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "title": "Senior IT Business Analyst - Banking",
       "slug": "senior-it-business-analyst-banking-fincons-group-lugano-switzerland",
       "url": "https://fincons.applytojob.com/apply/7bihSvn5Tw/Senior-IT-Business-Analyst-Banking",
@@ -317,49 +360,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Lead QA & Test Automation Engineer",
-      "slug": "lead-qa-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/rufnDy9bGi/Lead-QA-Test-Automation-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/rufnDy9bGi/Lead-QA-Test-Automation-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-16",
-      "validThrough": "2026-07-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260416080451_SE0SAPENJ4RXNGWB",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-01823395ac1a",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-04-16T09:56:47.059Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
