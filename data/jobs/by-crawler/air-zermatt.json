@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-04-16T20:54:45.608Z",
+  "assembledAt": "2026-04-17T09:13:44.733Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -41,12 +41,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "featured": false,
-      "postedDate": "2026-04-16",
+      "postedDate": "2026-04-17",
       "url": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-16T20:54:44.079Z",
+      "crawledAt": "2026-04-17T09:13:43.253Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -141,12 +142,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "featured": false,
-      "postedDate": "2026-04-16",
+      "postedDate": "2026-04-17",
       "url": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-16T20:54:43.827Z",
+      "crawledAt": "2026-04-17T09:13:43.009Z",
       "requirementsByLocale": {
         "it": [
           "Licenza EASA Part-66 valida di categoria B1.3 e/o B2",
@@ -198,6 +199,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.399Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
