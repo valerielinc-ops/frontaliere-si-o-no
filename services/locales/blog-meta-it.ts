@@ -2271,6 +2271,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-canada-mercati-alternativi-trump.title': 'Svizzera-Canada: verso l’aggiornamento dell’accordo commerciale nel segno dell’agricoltura',
     'blog.article.svizzera-canada-mercati-alternativi-trump.excerpt': 'La delegazione parlamentare svizzera in Canada ottiene attenzione su modernizzazione accordo del 2009. Doppia imposizione e dossier agricoli al centro delle trattative.',
     'blog.article.svizzera-canada-mercati-alternativi-trump.imageAlt': 'La torre medievale di Bellinzona al crepuscolo con montagne sullo sfondo',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.title': 'Casse malati Ticino: 61 milioni in meno per Lugano e Bellinzona',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.excerpt': 'Le due iniziative cantonali costano 61,4 milioni ai comuni ticinesi. Lugano rischia 11-12 milioni in meno con l’abolizione del valore locativo.',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.imageAlt': 'Piazza della Riforma a Lugano con il municipio in fondo, alberi e persone in passeggio',
 };
 
 export default blogMetaIt;

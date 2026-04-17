@@ -6284,4 +6284,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/svizzera-canada-mercati-alternativi-trump.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziative-casse-malati-61-milioni-ticino',
+ category: 'fiscale',
+ date: '2026-04-17T22:58:42.372Z',
+ image: '/images/blog/iniziative-casse-malati-61-milioni-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

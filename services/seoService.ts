@@ -2012,6 +2012,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-scoperta-quantita-marijuana-colverde-confine-ticino': { name: 'Scoperta record a Colverde', path: '/articoli-frontaliere/scoperta-quantita-marijuana-colverde-confine-ticino', parent: 'blog' },
     'blog-controlli-serali-lavena-ponte-tresa-15-aprile-2026': { name: 'Controlli straordinari a Lavena Ponte Tr', path: '/articoli-frontaliere/controlli-serali-lavena-ponte-tresa-15-aprile-2026', parent: 'blog' },
     'blog-svizzera-canada-mercati-alternativi-trump': { name: 'Accordi commerciali', path: '/articoli-frontaliere/svizzera-canada-mercati-alternativi-trump', parent: 'blog' },
+    'blog-iniziative-casse-malati-61-milioni-ticino': { name: 'Casse malati Ticino', path: '/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

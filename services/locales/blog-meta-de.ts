@@ -2271,6 +2271,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-canada-mercati-alternativi-trump.title': 'Schweiz-Kanada: Aktualisierung des Handelsabkommens im Zeichen der Landwirtschaft',
     'blog.article.svizzera-canada-mercati-alternativi-trump.excerpt': 'Die Schweizer Parlamentsdelegation in Kanada erhält Aufmerksamkeit für die Modernisierung des Abkommens von 2009. Doppelbesteuerung und Agrardossiers stehen im Mittelpunkt der Verhandlungen.',
     'blog.article.svizzera-canada-mercati-alternativi-trump.imageAlt': 'Mittelalterlicher Bellinzona-Turm bei Dämmerung mit Bergen im Hintergrund',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.title': 'Krankenkassen Tessin: 61 Millionen Franken weniger für Lugano und Bellinzona',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.excerpt': 'Die beiden kantonalen Vorlagen kosten die Tessiner Gemeinden 61,4 Millionen Franken. Lugano drohen durch die Abschaffung des Mietwerts Einbußen von 11 bis 12 Millionen Franken.',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.imageAlt': 'Piazza della Riforma in Lugano mit dem Rathaus im Hintergrund, Bäumen und Spaziergängern',
 };
 
 export default blogMetaDe;

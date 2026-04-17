@@ -8845,6 +8845,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziative-casse-malati-61-milioni-ticino': {
+    title: 'Casse malati Ticino: 61 milioni in meno | Frontaliere Ticino',
+    description: 'Le due iniziative cantonali costano 61,4 milioni ai comuni ticinesi. Lugano rischia 11-12 milioni in meno con l’abolizione del valore locativo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malati, milioni, meno',
+    ogTitle: 'Casse malati Ticino: 61 milioni in meno per Lugano e Bell',
+    ogDescription: 'Le due iniziative cantonali costano 61,4 milioni ai comuni ticinesi. Lugano rischia 11-12 milioni in meno con l’abolizione del valore locativo.',
+    canonicalPath: '/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malati Ticino: 61 milioni in meno per Lugano e Bell",
+      "description": "Le due iniziative cantonali costano 61,4 milioni ai comuni ticinesi. Lugano rischia 11-12 milioni in meno con l’abolizione del valore locativo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-casse-malati-61-milioni-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza della Riforma a Lugano con il municipio in fondo, alberi e persone in passeggio"
+      },
+      "datePublished": "2026-04-17T22:58:42+00:00",
+      "dateModified": "2026-04-17T22:58:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2271,6 +2271,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-canada-mercati-alternativi-trump.title': 'Switzerland-Canada: Moving towards an update of the trade agreement with a focus on agriculture',
     'blog.article.svizzera-canada-mercati-alternativi-trump.excerpt': 'The Swiss parliamentary delegation in Canada gains traction on modernizing the 2009 agreement. Double taxation and agricultural issues are at the heart of the negotiations.',
     'blog.article.svizzera-canada-mercati-alternativi-trump.imageAlt': 'Medieval Bellinzona tower at dusk with mountains in the background',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.title': 'Ticino health insurance funds: 61 million francs less for Lugano and Bellinzona',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.excerpt': 'The two cantonal initiatives will cost Ticino’s municipalities 61.4 million francs. Lugano faces a shortfall of 11-12 million francs if the abolition of imputed rental value comes into effect.',
+    'blog.article.iniziative-casse-malati-61-milioni-ticino.imageAlt': 'Piazza della Riforma in Lugano with the town hall in the background, trees and pedestrians',
 };
 
 export default blogMetaEn;
