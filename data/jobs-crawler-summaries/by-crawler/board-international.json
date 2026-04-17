@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-04-17T09:27:35.495Z",
-  "total": 9,
+  "generatedAt": "2026-04-17T21:04:34.552Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2297,
-  "avgDurationMs": 2297,
+  "durationMs": 2328,
+  "avgDurationMs": 2328,
   "durationHistory": [
-    2297
+    2328
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -237,43 +237,6 @@
       }
     },
     {
-      "title": "Solution Developer",
-      "slug": "solution-developer-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-17",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-04-17",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 11",
-      "postalCode": "6982",
-      "id": "board-international-3832804b5bb5",
-      "firstSeenAt": "2026-04-13T21:14:48.639Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "UX Designer",
       "slug": "ux-designer-board-international-chiasso-ticino-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/VAUNIdK4v9/UX-Designer",
@@ -348,6 +311,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Solution Developer",
+      "slug": "sviluppatore-soluzione-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-17",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-04-17",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "currency": "CHF",
+      "streetAddress": "Via Campagna 11",
+      "postalCode": "6982",
+      "id": "board-international-3832804b5bb5",
+      "firstSeenAt": "2026-04-13T21:14:48.639Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
