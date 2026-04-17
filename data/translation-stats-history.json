@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-09T07:58:04.787Z",
-    "label": "before",
-    "total": 1495,
-    "needsRetranslation": 52,
-    "incomplete": 5,
-    "complete": 1490,
-    "missingByLocale": {
-      "it": 4,
-      "en": 5,
-      "de": 1,
-      "fr": 5
-    },
-    "topPending": [
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-09T07:58:45.054Z",
-    "label": "after",
-    "total": 1495,
-    "needsRetranslation": 52,
-    "incomplete": 5,
-    "complete": 1490,
-    "missingByLocale": {
-      "it": 4,
-      "en": 5,
-      "de": 1,
-      "fr": 5
-    },
-    "topPending": [
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-09T10:16:46.487Z",
     "label": "before",
     "total": 1561,
@@ -7702,6 +7654,106 @@
       },
       {
         "company": "Hochgebirgsklinik Davos",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-17T22:31:52.711Z",
+    "label": "before",
+    "total": 2941,
+    "needsRetranslation": 1259,
+    "incomplete": 68,
+    "complete": 2873,
+    "missingByLocale": {
+      "it": 55,
+      "en": 21,
+      "de": 45,
+      "fr": 60
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 33
+      },
+      {
+        "company": "Lonza",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 4
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 2
+      },
+      {
+        "company": "PEMSA",
+        "pending": 2
+      },
+      {
+        "company": "TALLY WEiJL",
+        "pending": 2
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-17T23:44:26.369Z",
+    "label": "after",
+    "total": 2941,
+    "needsRetranslation": 87,
+    "incomplete": 29,
+    "complete": 2912,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 25,
+      "fr": 29
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 22
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
         "pending": 1
       },
       {
