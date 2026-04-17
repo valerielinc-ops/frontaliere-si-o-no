@@ -2006,6 +2006,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confine-italia-svizzera-6-regole-doganali': { name: 'Confine Italia-Svizzera', path: '/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali', parent: 'blog' },
     'blog-due-arresti-brogeda-smuggling-droga-2024': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024', parent: 'blog' },
     'blog-tutela-frontalieri-specie-invasive-ticino-2026': { name: 'Ticino', path: '/articoli-frontaliere/tutela-frontalieri-specie-invasive-ticino-2026', parent: 'blog' },
+    'blog-usi-supsi-25-milioni-casse-malati': { name: 'Taglio da 25 milioni per USI e SUPSI', path: '/articoli-frontaliere/usi-supsi-25-milioni-casse-malati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

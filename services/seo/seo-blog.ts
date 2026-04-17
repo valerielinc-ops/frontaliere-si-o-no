@@ -8671,6 +8671,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usi-supsi-25-milioni-casse-malati': {
+    title: 'Taglio da 25 milioni per USI e SUPSI | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato riduce i contributi a USI e SUPSI di 6,8 milioni. Aumento tasse per studenti stranieri e attingimento dalle riserve. Priorità alla competi',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglio, milioni, supsi, cosa',
+    ogTitle: 'Taglio da 25 milioni per USI e SUPSI: cosa cambia per i f',
+    ogDescription: 'Il Consiglio di Stato riduce i contributi a USI e SUPSI di 6,8 milioni. Aumento tasse per studenti stranieri e attingimento dalle riserve. Priorità alla competi',
+    canonicalPath: '/articoli-frontaliere/usi-supsi-25-milioni-casse-malati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Taglio da 25 milioni per USI e SUPSI: cosa cambia per i f",
+      "description": "Il Consiglio di Stato riduce i contributi a USI e SUPSI di 6,8 milioni. Aumento tasse per studenti stranieri e attingimento dalle riserve. Priorità alla competi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usi-supsi-25-milioni-casse-malati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti in atrio dell'Università della Svizzera Italiana a Lugano"
+      },
+      "datePublished": "2026-04-17T15:17:40+00:00",
+      "dateModified": "2026-04-17T15:17:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usi-supsi-25-milioni-casse-malati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

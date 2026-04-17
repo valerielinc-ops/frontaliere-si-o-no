@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 802,
+ "numberOfItems": 803,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4491,7 +4491,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 799, "name": "Manutenzione USTAT e chiusure natalizie 2025: p...", "url": `${BASE_URL}/articoli-frontaliere/manutenzione-ustat-servizi-chiusure-31-12-2025` },
           { "@type": "ListItem", "position": 800, "name": "Confine Italia-Svizzera: 6 regole doganali per ...", "url": `${BASE_URL}/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali` },
           { "@type": "ListItem", "position": 801, "name": "Blocco traffico a Chiasso-Brogeda: due nigerian...", "url": `${BASE_URL}/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024` },
-          { "@type": "ListItem", "position": 802, "name": "Ticino: nuove regole contro specie invasive per...", "url": `${BASE_URL}/articoli-frontaliere/tutela-frontalieri-specie-invasive-ticino-2026` }
+          { "@type": "ListItem", "position": 802, "name": "Ticino: nuove regole contro specie invasive per...", "url": `${BASE_URL}/articoli-frontaliere/tutela-frontalieri-specie-invasive-ticino-2026` },
+          { "@type": "ListItem", "position": 803, "name": "Taglio da 25 milioni per USI e SUPSI: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/usi-supsi-25-milioni-casse-malati` }
  ]
  }
  ]

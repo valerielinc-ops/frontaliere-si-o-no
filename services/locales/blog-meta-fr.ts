@@ -2253,6 +2253,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Tessin: de nouvelles règles contre les espèces invasives pour les frontaliers',
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'Dès 2026, le canton octroiera des aides pour lutter contre les fourmis Tapinoma, les moules quagga et les écrevisses de Louisiane. Nettoyage obligatoire des embarcations pour éviter les contaminations.',
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Larves de moule quagga sur une embarcation au Tessin',
+    'blog.article.usi-supsi-25-milioni-casse-malati.title': 'Réduction de 25 millions pour l’USI et la SUPSI : quels impacts pour les frontaliers',
+    'blog.article.usi-supsi-25-milioni-casse-malati.excerpt': 'Le Conseil d’État réduit les contributions allouées à l’USI et à la SUPSI de 6,8 millions de francs. Hausse des taxes pour les étudiants étrangers et recours aux réserves. Priorité donnée à la compétitivité académique.',
+    'blog.article.usi-supsi-25-milioni-casse-malati.imageAlt': 'Étudiants dans l\'atrium de l\'Università della Svizzera Italiana à Lugano',
 };
 
 export default blogMetaFr;

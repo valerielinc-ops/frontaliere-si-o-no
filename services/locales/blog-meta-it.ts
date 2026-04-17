@@ -2253,6 +2253,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Ticino: nuove regole contro specie invasive per frontaliers',
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'Dal 2026 aiuti cantonali per combattere formiche Tapinoma, cozze quagga e gamberi della Louisiana. Obbligo di pulizia imbarcazioni per evitare contaminazioni.',
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Larve di cozza quagga su un\'imbarcazione nel lago ticinese',
+    'blog.article.usi-supsi-25-milioni-casse-malati.title': 'Taglio da 25 milioni per USI e SUPSI: cosa cambia per i frontalieri',
+    'blog.article.usi-supsi-25-milioni-casse-malati.excerpt': 'Il Consiglio di Stato riduce i contributi a USI e SUPSI di 6,8 milioni. Aumento tasse per studenti stranieri e attingimento dalle riserve. Priorità alla competitività accademica.',
+    'blog.article.usi-supsi-25-milioni-casse-malati.imageAlt': 'Studenti in atrio dell\'Università della Svizzera Italiana a Lugano',
 };
 
 export default blogMetaIt;

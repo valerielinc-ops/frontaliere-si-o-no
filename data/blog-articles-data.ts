@@ -6242,4 +6242,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/tutela-frontalieri-specie-invasive-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'usi-supsi-25-milioni-casse-malati',
+ category: 'pratico',
+ date: '2026-04-17T15:17:40.036Z',
+ image: '/images/blog/usi-supsi-25-milioni-casse-malati.jpg',
+ hasCalculator: true,
+ },
 ];

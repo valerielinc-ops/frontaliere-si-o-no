@@ -2253,6 +2253,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Ticino: new rules to combat invasive species for cross-border workers',
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'From 2026, canton-level support to tackle Tapinoma ants, quagga mussels, and Louisiana crayfish. Mandatory boat cleaning to prevent contamination.',
     'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Quagga mussel larvae on a boat in Ticino\'s lake',
+    'blog.article.usi-supsi-25-milioni-casse-malati.title': 'CHF 25 million cut for USI and SUPSI: what changes for cross-border workers',
+    'blog.article.usi-supsi-25-milioni-casse-malati.excerpt': 'The State Council is reducing contributions to USI and SUPSI by CHF 6.8 million. Increase in tuition fees for international students and drawing from reserves. Priority given to academic competitiveness.',
+    'blog.article.usi-supsi-25-milioni-casse-malati.imageAlt': 'Students in the atrium of the University of Italian Switzerland in Lugano',
 };
 
 export default blogMetaEn;
