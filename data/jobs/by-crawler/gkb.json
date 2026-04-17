@@ -7,7 +7,7 @@
       "slug": "consulente-clienti-aziendali-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "it": "consulente-clienti-aziendali-80-100-graubundner-kantonalbank-chur",
-        "en": "corporate-client-advisor-80-100-graubundner-kantonalbank-chur",
+        "en": "adviser-in-company-customers-80-100-graubundner-kantonalbank-chur",
         "de": "berater-in-firmenkunden-80-100-graubundner-kantonalbank-chur",
         "fr": "conseiller-e-clients-entreprises-80-100-graubundner-kantonalbank-chur"
       },
@@ -81,10 +81,14 @@
         ],
         "it": [
           "berater-in-firmenkunden-80-100-gkb-ch"
+        ],
+        "en": [
+          "corporate-client-advisor-80-100-graubundner-kantonalbank-chur"
         ]
       },
       "previousSlugs": [
-        "berater-in-firmenkunden-80-100-gkb-ch"
+        "berater-in-firmenkunden-80-100-gkb-ch",
+        "corporate-client-advisor-80-100-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-04-13T10:37:45.052Z",
       "salaryMin": 49500,
