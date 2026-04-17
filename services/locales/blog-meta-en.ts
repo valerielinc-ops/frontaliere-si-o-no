@@ -2256,6 +2256,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usi-supsi-25-milioni-casse-malati.title': 'CHF 25 million cut for USI and SUPSI: what changes for cross-border workers',
     'blog.article.usi-supsi-25-milioni-casse-malati.excerpt': 'The State Council is reducing contributions to USI and SUPSI by CHF 6.8 million. Increase in tuition fees for international students and drawing from reserves. Priority given to academic competitiveness.',
     'blog.article.usi-supsi-25-milioni-casse-malati.imageAlt': 'Students in the atrium of the University of Italian Switzerland in Lugano',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.title': 'Ticino League: ‘Put Ticino first, solidarity starts at home’',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.excerpt': 'The Ticino League is urging Bern to prioritise funding for the canton before allocating resources abroad, accusing the federal system of a ‘penalising equalisation’ and the neglect of peripheral regions such as the Vallemaggia.',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.imageAlt': 'Castelgrande in Bellinzona at sunset with Swiss and Italian flags',
 };
 
 export default blogMetaEn;

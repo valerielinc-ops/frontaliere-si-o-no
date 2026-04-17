@@ -2256,6 +2256,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.usi-supsi-25-milioni-casse-malati.title': 'Réduction de 25 millions pour l’USI et la SUPSI : quels impacts pour les frontaliers',
     'blog.article.usi-supsi-25-milioni-casse-malati.excerpt': 'Le Conseil d’État réduit les contributions allouées à l’USI et à la SUPSI de 6,8 millions de francs. Hausse des taxes pour les étudiants étrangers et recours aux réserves. Priorité donnée à la compétitivité académique.',
     'blog.article.usi-supsi-25-milioni-casse-malati.imageAlt': 'Étudiants dans l\'atrium de l\'Università della Svizzera Italiana à Lugano',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.title': 'Lega Ticino: «D’abord le Tessin, la solidarité commence chez soi»',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.excerpt': 'La Lega dei Ticinesi demande à Berne de privilégier les financements alloués au Canton avant ceux versés à l’étranger, dénonçant une «péréquation désavantageuse» et l’abandon des régions périphériques comme la Vallemaggia.',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.imageAlt': 'Castelgrande à Bellinzone au coucher du soleil avec drapeaux suisse et italien',
 };
 
 export default blogMetaFr;

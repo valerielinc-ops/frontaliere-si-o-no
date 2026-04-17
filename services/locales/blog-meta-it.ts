@@ -2256,6 +2256,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.usi-supsi-25-milioni-casse-malati.title': 'Taglio da 25 milioni per USI e SUPSI: cosa cambia per i frontalieri',
     'blog.article.usi-supsi-25-milioni-casse-malati.excerpt': 'Il Consiglio di Stato riduce i contributi a USI e SUPSI di 6,8 milioni. Aumento tasse per studenti stranieri e attingimento dalle riserve. Priorità alla competitività accademica.',
     'blog.article.usi-supsi-25-milioni-casse-malati.imageAlt': 'Studenti in atrio dell\'Università della Svizzera Italiana a Lugano',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.title': 'Lega Ticino: «Prima il Ticino, solidarietà inizia a casa propria»',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.excerpt': 'La Lega dei Ticinesi chiede a Berna di priorizzare i finanziamenti al Cantone prima di quelli all’estero, denunciando una «perequazione penalizzante» e l’abbandono delle regioni periferiche come la Vallemaggia.',
+    'blog.article.lega-ticino-solidarieta-casa-propria-2026.imageAlt': 'Castelgrande di Bellinzona al tramonto con bandiere svizzera e italiana',
 };
 
 export default blogMetaIt;

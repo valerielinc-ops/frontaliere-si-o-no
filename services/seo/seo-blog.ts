@@ -8700,6 +8700,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lega-ticino-solidarieta-casa-propria-2026': {
+    title: 'Lega Ticino: «Prima il Ticino | Frontaliere Ticino',
+    description: 'La Lega dei Ticinesi chiede a Berna di priorizzare i finanziamenti al Cantone prima di quelli all’estero, denunciando una «perequazione penalizzante» e l’abband',
+    keywords: 'frontalieri, ticino, svizzera, italia, lega, prima, solidarietà, inizia',
+    ogTitle: 'Lega Ticino: «Prima il Ticino, solidarietà inizia a casa',
+    ogDescription: 'La Lega dei Ticinesi chiede a Berna di priorizzare i finanziamenti al Cantone prima di quelli all’estero, denunciando una «perequazione penalizzante» e l’abband',
+    canonicalPath: '/articoli-frontaliere/lega-ticino-solidarieta-casa-propria-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lega Ticino: «Prima il Ticino, solidarietà inizia a casa",
+      "description": "La Lega dei Ticinesi chiede a Berna di priorizzare i finanziamenti al Cantone prima di quelli all’estero, denunciando una «perequazione penalizzante» e l’abband",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lega-ticino-solidarieta-casa-propria-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande di Bellinzona al tramonto con bandiere svizzera e italiana"
+      },
+      "datePublished": "2026-04-17T17:31:41+00:00",
+      "dateModified": "2026-04-17T17:31:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lega-ticino-solidarieta-casa-propria-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

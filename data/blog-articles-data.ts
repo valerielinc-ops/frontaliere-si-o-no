@@ -6249,4 +6249,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/usi-supsi-25-milioni-casse-malati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lega-ticino-solidarieta-casa-propria-2026',
+ category: 'novita',
+ date: '2026-04-17T17:31:41.088Z',
+ image: '/images/blog/lega-ticino-solidarieta-casa-propria-2026.jpg',
+ hasCalculator: true,
+ },
 ];
