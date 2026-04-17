@@ -1,16 +1,16 @@
 {
   "key": "mobiliar",
   "label": "die Mobiliar",
-  "generatedAt": "2026-04-16T22:04:40.355Z",
-  "total": 2,
+  "generatedAt": "2026-04-17T10:23:40.404Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4497,
-  "avgDurationMs": 4497,
+  "durationMs": 4559,
+  "avgDurationMs": 4559,
   "durationHistory": [
-    4497
+    4559
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-16T22:04:37.218Z",
+      "crawledAt": "2026-04-17T10:23:37.807Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,7 +38,7 @@
       "sector": "Assicurazioni",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-16",
+      "postedDate": "2026-04-17",
       "applyUrl": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "pensum": "100%",
       "sfJobId": "1164099655",
@@ -50,10 +50,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "mobiliar-50daec2734a8",
-      "slug": "collaborateur-support-vente-f-m-d-agence-generale-de-sion-mobiliar-ch",
+      "slug": "collaboratore-supporto-vendite-m-f-d-agenzia-generale-di-sion-die-mobiliar-sion",
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
       "companyDomain": "mobiliar.ch",
@@ -79,15 +81,17 @@
       "pensum": "3%",
       "sfJobId": "1164356655",
       "firstSeenAt": "2026-04-13T11:02:42.516Z",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "postalCode": "1950",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
