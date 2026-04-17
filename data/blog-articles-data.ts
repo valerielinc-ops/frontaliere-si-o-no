@@ -6186,4 +6186,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/tassa-salute-ticino-riforme-invece-aggravi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiassolitteratura-venti-anniversario-2026',
+ category: 'novita',
+ date: '2026-04-17T00:14:36.230Z',
+ image: '/images/blog/chiassolitteratura-venti-anniversario-2026.jpg',
+ hasCalculator: true,
+ },
 ];

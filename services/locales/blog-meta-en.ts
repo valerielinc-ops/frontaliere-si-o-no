@@ -2229,6 +2229,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.title': 'Ticino: healthcare reform needed, not tax hikes',
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.excerpt': 'Two popular initiatives on health insurance funds cost CHF 25.8 million annually. Ticino’s economy rejects new levies: temporary substance tax, land taxes, and hospitalisation fees',
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.imageAlt': 'Medical consultation room in Ticino with Swiss and Italian flags in the background',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.title': 'ChiassoLetteraria celebrates its 20th anniversary from 6 to 10 May 2026',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.excerpt': 'From 6 to 10 May 2026, the literary festival of Chiasso returns after 20 years with over 50 events featuring talks, readings and debates. Confirmed guests include Mannocchi/Pasqualini, Chamoiseau/Bosc and Usón/Giménez.',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.imageAlt': 'ChiassoLetteraria literary festival with outdoor book fair in Chiasso, blending Swiss and Italian cultures under street lights.',
 };
 
 export default blogMetaEn;

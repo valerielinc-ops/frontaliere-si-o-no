@@ -2229,6 +2229,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.title': 'Tessin: des réformes du système de santé, pas des hausses d’impôts',
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.excerpt': 'Deux initiatives populaires sur les caisses-maladie coûtent 25,8 millions de francs par an. L’économie tessinoise rejette les nouveaux prélèvements : taux transitoire sur la substance, impôts fonciers et hospitalisation',
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.imageAlt': 'Salle de consultation médicale au Tessin avec drapeaux suisse et italien en arrière-plan',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.title': 'ChiassoLetteraria fête ses 20 ans du 6 au 10 mai 2026',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.excerpt': 'Du 6 au 10 mai 2026, le festival littéraire de Chiasso revient après 20 ans avec plus de 50 événements mêlant rencontres, lectures et débats. Parmi les invités confirmés figurent Mannocchi/Pasqualini, Chamoiseau/Bosc et Usón/Giménez.',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.imageAlt': 'Festival littéraire ChiassoLetteraria avec des étals de livres en plein air à Chiasso, mélange de cultures suisse et italienne sous les réverbères.',
 };
 
 export default blogMetaFr;

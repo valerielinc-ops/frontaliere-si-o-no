@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 794,
+ "numberOfItems": 795,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4483,7 +4483,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 791, "name": "Varese 2026: Congresso Svizzera Italia su fisco...", "url": `${BASE_URL}/articoli-frontaliere/congresso-varese-2026-fisco-lavoro-ticino` },
           { "@type": "ListItem", "position": 792, "name": "Deprexis rimborsata da cassa malati: cosa cambi...", "url": `${BASE_URL}/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026` },
           { "@type": "ListItem", "position": 793, "name": "Deputato varesino a Forno di Massa: «La vergogn...", "url": `${BASE_URL}/articoli-frontaliere/deputato-varesino-ferrara-forno-massacro-2026` },
-          { "@type": "ListItem", "position": 794, "name": "Ticino: servono riforme sanitarie, non aumenti ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi` }
+          { "@type": "ListItem", "position": 794, "name": "Ticino: servono riforme sanitarie, non aumenti ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi` },
+          { "@type": "ListItem", "position": 795, "name": "ChiassoLetteraria festeggia 20 anni dal 6 al 10...", "url": `${BASE_URL}/articoli-frontaliere/chiassolitteratura-venti-anniversario-2026` }
  ]
  }
  ]

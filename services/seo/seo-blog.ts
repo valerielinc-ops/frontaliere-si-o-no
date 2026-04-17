@@ -8439,6 +8439,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiassolitteratura-venti-anniversario-2026': {
+    title: 'ChiassoLetteraria festeggia 20 anni dal | Frontaliere Ticino',
+    description: 'Dal 6 al 10 maggio 2026 il festival letterario di Chiasso torna dopo 20 anni con oltre 50 eventi tra incontri, reading e dibattiti. Tra gli ospiti confermati Ma',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiassoletteraria, festeggia, anni, maggio',
+    ogTitle: 'ChiassoLetteraria festeggia 20 anni dal 6 al 10 maggio 20',
+    ogDescription: 'Dal 6 al 10 maggio 2026 il festival letterario di Chiasso torna dopo 20 anni con oltre 50 eventi tra incontri, reading e dibattiti. Tra gli ospiti confermati Ma',
+    canonicalPath: '/articoli-frontaliere/chiassolitteratura-venti-anniversario-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ChiassoLetteraria festeggia 20 anni dal 6 al 10 maggio 20",
+      "description": "Dal 6 al 10 maggio 2026 il festival letterario di Chiasso torna dopo 20 anni con oltre 50 eventi tra incontri, reading e dibattiti. Tra gli ospiti confermati Ma",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiassolitteratura-venti-anniversario-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festival letterario ChiassoLetteraria con il pubblico che sfoglia libri all'aperto a Chiasso tra architetture moderne e bandiere italo-svizzere."
+      },
+      "datePublished": "2026-04-17T00:14:36+00:00",
+      "dateModified": "2026-04-17T00:14:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiassolitteratura-venti-anniversario-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1998,6 +1998,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-psicoterapia-digitale-deprexis-rimborsata-2026': { name: 'Deprexis rimborsata da cassa malati', path: '/articoli-frontaliere/psicoterapia-digitale-deprexis-rimborsata-2026', parent: 'blog' },
     'blog-deputato-varesino-ferrara-forno-massacro-2026': { name: 'Deputato varesino a Forno di Massa', path: '/articoli-frontaliere/deputato-varesino-ferrara-forno-massacro-2026', parent: 'blog' },
     'blog-tassa-salute-ticino-riforme-invece-aggravi': { name: 'Ticino', path: '/articoli-frontaliere/tassa-salute-ticino-riforme-invece-aggravi', parent: 'blog' },
+    'blog-chiassolitteratura-venti-anniversario-2026': { name: 'ChiassoLetteraria festeggia 20 anni dal', path: '/articoli-frontaliere/chiassolitteratura-venti-anniversario-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

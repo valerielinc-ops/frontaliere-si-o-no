@@ -2229,6 +2229,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.title': 'Ticino: servono riforme sanitarie, non aumenti fiscali',
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.excerpt': 'Due iniziative popolari sulle casse malati costano 25,8 milioni all’anno. Economia ticinese boccia i nuovi prelievi: aliquota sostanza transitoria, tasse fondiari e ospedalizzazione',
     'blog.article.tassa-salute-ticino-riforme-invece-aggravi.imageAlt': 'Stanza di consultazione medica in Ticino con bandiera svizzera e italiana sullo sfondo',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.title': 'ChiassoLetteraria festeggia 20 anni dal 6 al 10 maggio 2026',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.excerpt': 'Dal 6 al 10 maggio 2026 il festival letterario di Chiasso torna dopo 20 anni con oltre 50 eventi tra incontri, reading e dibattiti. Tra gli ospiti confermati Mannocchi/Pasqualini, Chamoiseau/Bosc e Usón/Giménez.',
+    'blog.article.chiassolitteratura-venti-anniversario-2026.imageAlt': 'Festival letterario ChiassoLetteraria con il pubblico che sfoglia libri all\'aperto a Chiasso tra architetture moderne e bandiere italo-svizzere.',
 };
 
 export default blogMetaIt;
