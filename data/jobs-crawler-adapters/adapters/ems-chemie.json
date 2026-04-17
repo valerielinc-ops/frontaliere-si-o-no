@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwicklung-m-w-d/e124f258-7792-4f17-b82e-b8817490073a",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/a482c4be-1216-4d40-a334-a412aeb60f55",
     "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
     "https://jobs.ems-group.com/offene-stellen/key-account-manager-deutschland-segment-industrie-und-konsumgueter-m-w-d/b772609a-b608-444f-b469-1a2d4f485ec0",
@@ -16,10 +17,13 @@
     "https://jobs.ems-group.com/offene-stellen/leiter-umweltschutz-und-sicherheit-m-w-d/242e08e0-a181-4bec-b26b-9140e840eedb",
     "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/422b427e-8f2c-42c7-87fd-d91d1d23dd46",
     "https://jobs.ems-group.com/offene-stellen/leitung-assistenz-marketing-verkauf-m-w-d/b1a22d5c-9894-4964-ada6-ab9a4483baa6",
-    "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/a257fe67-7cec-4c0d-924d-444eefecd159",
-    "https://jobs.ems-group.com/offene-stellen/laborant-forschung-entwicklung-m-w-d/328dbdd3-2467-4bf1-ac3c-51bfdc7836b4"
+    "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/a257fe67-7cec-4c0d-924d-444eefecd159"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwicklung-m-w-d/e124f258-7792-4f17-b82e-b8817490073a": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/a482c4be-1216-4d40-a334-a412aeb60f55": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -55,12 +59,8 @@
     "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/a257fe67-7cec-4c0d-924d-444eefecd159": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/laborant-forschung-entwicklung-m-w-d/328dbdd3-2467-4bf1-ac3c-51bfdc7836b4": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
     }
   },
   "notes": "Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.",
-  "updatedAt": "2026-04-16T21:30:48.818Z"
+  "updatedAt": "2026-04-17T09:49:40.975Z"
 }
