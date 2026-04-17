@@ -2268,6 +2268,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Extraordinary checks in Lavena Ponte Tresa: drugs and bladed weapon seized',
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'In the night between 14 and 15 April 2026, four patrol units from the Lavena Ponte Tresa local police, working alongside the local police headquarters and other forces, identified 25 individuals and reported three for possession of narcotics.',
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Local police and officers conducting evening checks in Lavena Ponte Tresa near the Ticino border',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.title': 'Switzerland-Canada: Moving towards an update of the trade agreement with a focus on agriculture',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.excerpt': 'The Swiss parliamentary delegation in Canada gains traction on modernizing the 2009 agreement. Double taxation and agricultural issues are at the heart of the negotiations.',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.imageAlt': 'Medieval Bellinzona tower at dusk with mountains in the background',
 };
 
 export default blogMetaEn;

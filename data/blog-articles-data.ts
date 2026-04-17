@@ -6277,4 +6277,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/controlli-serali-lavena-ponte-tresa-15-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-canada-mercati-alternativi-trump',
+ category: 'novita',
+ date: '2026-04-17T21:59:58.849Z',
+ image: '/images/blog/svizzera-canada-mercati-alternativi-trump.jpg',
+ hasCalculator: true,
+ },
 ];

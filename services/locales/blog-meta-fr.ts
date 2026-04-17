@@ -2268,6 +2268,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Contrôles exceptionnels à Lavena Ponte Tresa : drogue et arme blanche saisies',
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'Dans la nuit du 14 au 15 avril 2026, quatre patrouilles de la police locale de Lavena Ponte Tresa, en collaboration avec la Questure et d’autres unités, ont identifié 25 personnes et signalé trois d’entre elles pour détention de stupéfiants. Une arme blanche a également été saisie lors de cette opération.',
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Policiers et agents locaux en patrouille de contrôle le soir à Lavena Ponte Tresa près de la frontière tessinoise',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.title': 'Suisse-Canada : vers la modernisation de l’accord commercial dans une optique agricole',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.excerpt': 'La délégation parlementaire suisse au Canada obtient une reconnaissance pour la modernisation de l’accord de 2009. La double imposition et les dossiers agricoles sont au cœur des négociations.',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.imageAlt': 'Tour médiévale de Bellinzone au crépuscule avec montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

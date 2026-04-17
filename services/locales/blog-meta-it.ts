@@ -2268,6 +2268,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Controlli straordinari a Lavena Ponte Tresa: droga e arma da taglio sequestrate',
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'Nella notte tra il 14 e 15 aprile 2026, quattro pattuglie della polizia locale di Lavena Ponte Tresa, congiunte alla Questura e ad altri comandi, hanno identificato 25 persone e segnalato tre per possesso di stupefacenti.',
     'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Poliziotti e agenti della polizia locale in controllo serale a Lavena Ponte Tresa vicino al confine con il Ticino',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.title': 'Svizzera-Canada: verso l’aggiornamento dell’accordo commerciale nel segno dell’agricoltura',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.excerpt': 'La delegazione parlamentare svizzera in Canada ottiene attenzione su modernizzazione accordo del 2009. Doppia imposizione e dossier agricoli al centro delle trattative.',
+    'blog.article.svizzera-canada-mercati-alternativi-trump.imageAlt': 'La torre medievale di Bellinzona al crepuscolo con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

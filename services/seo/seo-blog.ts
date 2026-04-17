@@ -8816,6 +8816,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-canada-mercati-alternativi-trump': {
+    title: 'Svizzera-Canada: verso l’aggiornamento | Frontaliere Ticino',
+    description: 'Modernizzazione dell’accordo di libero scambio tra Svizzera e Canada nel 2026. Doppia imposizione e agricoltura al centro delle trattative. Impatto per',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-canada, verso, aggiornamento, dell',
+    ogTitle: 'Svizzera-Canada: accordo commerciale in modernizzazione nel',
+    ogDescription: 'Modernizzazione dell’accordo di libero scambio tra Svizzera e Canada nel 2026. Doppia imposizione e agricoltura al centro delle trattative. Impatto per',
+    canonicalPath: '/articoli-frontaliere/svizzera-canada-mercati-alternativi-trump',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e Canada avviano la modernizzazione dell’accordo commerciale del 2009, con focus su doppia",
+      "description": "Modernizzazione dell’accordo di libero scambio tra Svizzera e Canada nel 2026. Doppia imposizione e agricoltura al centro delle trattative. Impatto per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-canada-mercati-alternativi-trump.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La torre medievale di Bellinzona al crepuscolo con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-17T21:59:58+00:00",
+      "dateModified": "2026-04-17T21:59:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-canada-mercati-alternativi-trump`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
