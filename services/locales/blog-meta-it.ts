@@ -2250,6 +2250,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Nigeriani arrestati a Chiasso-Brogeda con eroina e cocaina',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Due cittadini nigeriani fermati al varco di confine con 2 kg di eroina e 3 kg di cocaina. Blocco immediato del traffico per 3 ore durante l\'operazione antidroga.',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Agente doganale a Chiasso-Brogeda durante un controllo antidroga nella notte',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Ticino: nuove regole contro specie invasive per frontaliers',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'Dal 2026 aiuti cantonali per combattere formiche Tapinoma, cozze quagga e gamberi della Louisiana. Obbligo di pulizia imbarcazioni per evitare contaminazioni.',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Larve di cozza quagga su un\'imbarcazione nel lago ticinese',
 };
 
 export default blogMetaIt;

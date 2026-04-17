@@ -6235,4 +6235,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/due-arresti-brogeda-smuggling-droga-2024.jpg',
  hasCalculator: false,
  },
+ {
+ id: 'tutela-frontalieri-specie-invasive-ticino-2026',
+ category: 'pratico',
+ date: '2026-04-17T14:17:08.316Z',
+ image: '/images/blog/tutela-frontalieri-specie-invasive-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

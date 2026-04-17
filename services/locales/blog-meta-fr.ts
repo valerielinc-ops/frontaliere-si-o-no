@@ -2250,6 +2250,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Deux Nigérians arrêtés à Chiasso-Brogeda avec de l’héroïne et de la cocaïne',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Deux citoyens nigérians interpellés au poste frontalier avec 2 kg d’héroïne et 3 kg de cocaïne. Le trafic a été immédiatement bloqué pendant trois heures lors de l’opération antidrogue.',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Agent des douanes au passage frontalier de Chiasso-Brogeda lors d\'une saisie de drogue de nuit',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Tessin: de nouvelles règles contre les espèces invasives pour les frontaliers',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'Dès 2026, le canton octroiera des aides pour lutter contre les fourmis Tapinoma, les moules quagga et les écrevisses de Louisiane. Nettoyage obligatoire des embarcations pour éviter les contaminations.',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Larves de moule quagga sur une embarcation au Tessin',
 };
 
 export default blogMetaFr;

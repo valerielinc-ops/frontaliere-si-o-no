@@ -8642,6 +8642,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tutela-frontalieri-specie-invasive-ticino-2026': {
+    title: 'Ticino: nuove regole contro specie | Frontaliere Ticino',
+    description: 'Dal 2026 aiuti cantonali per combattere formiche Tapinoma, cozze quagga e gamberi della Louisiana. Obbligo di pulizia imbarcazioni per evitare contaminazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, regole, contro, specie',
+    ogTitle: 'Ticino: nuove regole contro specie invasive per frontalie',
+    ogDescription: 'Dal 2026 aiuti cantonali per combattere formiche Tapinoma, cozze quagga e gamberi della Louisiana. Obbligo di pulizia imbarcazioni per evitare contaminazioni.',
+    canonicalPath: '/articoli-frontaliere/tutela-frontalieri-specie-invasive-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: nuove regole contro specie invasive per frontalie",
+      "description": "Dal 2026 aiuti cantonali per combattere formiche Tapinoma, cozze quagga e gamberi della Louisiana. Obbligo di pulizia imbarcazioni per evitare contaminazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tutela-frontalieri-specie-invasive-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Larve di cozza quagga su un'imbarcazione nel lago ticinese"
+      },
+      "datePublished": "2026-04-17T14:17:08+00:00",
+      "dateModified": "2026-04-17T14:17:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tutela-frontalieri-specie-invasive-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

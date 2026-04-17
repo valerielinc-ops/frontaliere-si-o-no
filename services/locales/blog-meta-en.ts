@@ -2250,6 +2250,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Nigerians arrested at Chiasso-Brogeda checkpoint with heroin and cocaine',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Two Nigerian citizens were detained at the border crossing with 2 kg of heroin and 3 kg of cocaine. Immediate traffic disruption for 3 hours during the anti-drug operation.',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Customs officer at Chiasso-Brogeda crossing during a night drug bust',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Ticino: new rules to combat invasive species for cross-border workers',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'From 2026, canton-level support to tackle Tapinoma ants, quagga mussels, and Louisiana crayfish. Mandatory boat cleaning to prevent contamination.',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Quagga mussel larvae on a boat in Ticino\'s lake',
 };
 
 export default blogMetaEn;

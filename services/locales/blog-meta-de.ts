@@ -2250,6 +2250,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Nigerianer an der Grenze Chiasso-Brogeda mit Heroin und Kokain festgenommen',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Zwei nigerianische Staatsbürger wurden am Grenzübergang mit 2 kg Heroin und 3 kg Kokain festgenommen. Der Drogenfahndungseinsatz führte zu einer sofortigen Sperrung des Verkehrs für drei Stunden.',
     'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Zollbeamter am Grenzübergang Chiasso-Brogeda während einer nächtlichen Drogenrazzia',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.title': 'Tessin: Neue Regeln gegen invasive Arten für Grenzgänger',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.excerpt': 'Ab 2026 kantonale Unterstützung zur Bekämpfung von Tapinoma-Ameisen, Quaggamuscheln und Louisiana-Garnelen. Reinigungspflicht für Boote, um Kontaminationen zu vermeiden.',
+    'blog.article.tutela-frontalieri-specie-invasive-ticino-2026.imageAlt': 'Quagga-Muschellarven an einem Boot im Tessin',
 };
 
 export default blogMetaDe;
