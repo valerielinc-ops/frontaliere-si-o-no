@@ -1,81 +1,5 @@
 [
   {
-    "timestamp": "2026-04-08T13:54:17.477Z",
-    "label": "before",
-    "total": 1532,
-    "needsRetranslation": 65,
-    "incomplete": 16,
-    "complete": 1516,
-    "missingByLocale": {
-      "it": 8,
-      "en": 14,
-      "de": 10,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Swisscom (sede Ticino)",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-08T13:55:48.329Z",
-    "label": "after",
-    "total": 1532,
-    "needsRetranslation": 56,
-    "incomplete": 9,
-    "complete": 1523,
-    "missingByLocale": {
-      "it": 8,
-      "en": 7,
-      "de": 3,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-08T22:00:00.319Z",
     "label": "before",
     "total": 1558,
@@ -7704,6 +7628,58 @@
       "fr": 2
     },
     "topPending": [
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-17T03:48:38.212Z",
+    "label": "before",
+    "total": 2904,
+    "needsRetranslation": 65,
+    "incomplete": 2,
+    "complete": 2902,
+    "missingByLocale": {
+      "it": 1,
+      "en": 0,
+      "de": 1,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-17T04:20:18.289Z",
+    "label": "after",
+    "total": 2904,
+    "needsRetranslation": 37,
+    "incomplete": 3,
+    "complete": 2901,
+    "missingByLocale": {
+      "it": 2,
+      "en": 0,
+      "de": 1,
+      "fr": 3
+    },
+    "topPending": [
+      {
+        "company": "Hochgebirgsklinik Davos",
+        "pending": 1
+      },
       {
         "company": "Spital Davos",
         "pending": 1
