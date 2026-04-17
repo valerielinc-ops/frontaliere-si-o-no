@@ -10,6 +10,8 @@
     "generic_ats"
   ],
   "seedUrls": [
+    "https://jobs.de.jysk.ch/offene-stellen/mitarbeitender-aufbauteam-100",
+    "https://jobs.de.jysk.ch/offene-stellen/filialleiterin-80-100-der-filiale-zollikofen",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-80-der-filiale-regensdorf",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-filiale-jysk-sirnach",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-schlieren",
@@ -20,10 +22,10 @@
     "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-netstal",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-50-der-filiale-emmenbruecke",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-wilderswil",
-    "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-bern",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lager-unterstuetzung-20-40-der-region-bern-mi-sa",
-    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-stans",
+    "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-bern",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20",
+    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-stans",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-staufen-lenzburg",
     "https://jobs.de.jysk.ch/offene-stellen/lagerist-60-der-filiale-pratteln",
     "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-den-store-lyss",
@@ -47,10 +49,8 @@
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-samstag-aushilfe-der-filiale-davos",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-der-filiale-regensdorf",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-wettingen",
-    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-schlieren",
-    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-filiale-schattdorf",
-    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-40-der-filiale-st-gallen"
+    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-schlieren"
   ],
   "notes": "JYSK Swiss-German careers portal (Drupal CMS). Detail pages at /offene-stellen/{slug} have JSON-LD JobPosting structured data. Seed URLs auto-discovered from listing page.",
-  "updatedAt": "2026-04-17T10:09:14.815Z"
+  "updatedAt": "2026-04-17T21:46:15.411Z"
 }
