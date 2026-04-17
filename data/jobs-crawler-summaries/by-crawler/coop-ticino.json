@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-17T09:44:35.425Z",
+  "generatedAt": "2026-04-17T21:25:00.367Z",
   "total": 169,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 165,
-  "durationMs": 194485,
-  "avgDurationMs": 194485,
+  "unchangedCount": 167,
+  "durationMs": 394108,
+  "avgDurationMs": 394108,
   "durationHistory": [
-    194485
+    394108
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-wpsadl",
       "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
@@ -36,15 +37,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-17T09:42:47.850Z",
       "firstSeenAt": "2026-04-17T09:42:47.850Z",
-      "needsRetranslation": true,
       "addressLocality": "Davos",
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -70,17 +73,22 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-17T09:42:47.850Z",
       "firstSeenAt": "2026-04-17T09:42:47.850Z",
-      "needsRetranslation": true,
       "addressLocality": "Davos",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -104,15 +112,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-17T09:42:47.850Z",
       "firstSeenAt": "2026-04-17T09:42:47.850Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -138,21 +148,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-17T09:42:47.850Z",
       "firstSeenAt": "2026-04-17T09:42:47.850Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-wr6zkb",
       "slug": "filialleiter-in-interdiscount-chur-graubunden",
@@ -1150,77 +1158,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-bs45mj",
-      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Inventuren",
-      "location": "Basel",
-      "canton": "BS",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/83600992-4755-4dfa-b53c-360bf39d94f0",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-01T07:24:33.443Z",
-      "addressLocality": "Basel",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "addressRegion": "BS",
-      "firstSeenAt": "2026-04-01T07:24:33.443Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-45zfce",
-      "slug": "responsabile-service-center-ticino-f-m-d-coop-castione-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Responsabile Service Center Ticino (f/m/d)",
-      "location": "Castione",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-service-center-ticino-f-m-d/940922fb-0428-4d66-a84e-646bd732b8b7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Castione",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
