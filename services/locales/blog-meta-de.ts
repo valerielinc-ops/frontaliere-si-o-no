@@ -2232,6 +2232,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiassolitteratura-venti-anniversario-2026.title': 'ChiassoLetteraria feiert 20 Jahre vom 6. bis 10. Mai 2026',
     'blog.article.chiassolitteratura-venti-anniversario-2026.excerpt': 'Vom 6. bis 10. Mai 2026 kehrt das Literaturfestival Chiasso nach 20 Jahren mit über 50 Veranstaltungen zurück: darunter Begegnungen, Lesungen und Diskussionen. Zu den bereits bestätigten Gästen zählen Mannocchi/Pasqualini, Chamoiseau/Bosc sowie Usón/Giménez.',
     'blog.article.chiassolitteratura-venti-anniversario-2026.imageAlt': 'Literarisches Festival ChiassoLetteraria mit Büchertischen im Freien in Chiasso, schweizerisch-italienische Kultur unter Laternen.',
+    'blog.article.finanze-2025-fragile-ticino.title': 'Tessin: Finanzplan 2025 besser als erwartet, aber weiterhin fragil',
+    'blog.article.finanze-2025-fragile-ticino.excerpt': 'Der Rechnungsabschluss 2025 des Kantons weist ein Defizit von 32,5 Millionen Franken aus. Dies stellt eine Verbesserung von rund 64 Millionen Franken gegenüber den Prognosen dar, doch zukünftige Herausforderungen bleiben bestehen.',
+    'blog.article.finanze-2025-fragile-ticino.imageAlt': 'Blick auf Locarno mit See und Bergen im Hintergrund, städtische und natürliche Szenerie im Tessin.',
 };
 
 export default blogMetaDe;

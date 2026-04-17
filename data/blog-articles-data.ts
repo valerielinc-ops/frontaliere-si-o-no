@@ -6193,4 +6193,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/chiassolitteratura-venti-anniversario-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'finanze-2025-fragile-ticino',
+ category: 'fiscale',
+ date: '2026-04-17T03:42:16.165Z',
+ image: '/images/blog/finanze-2025-fragile-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

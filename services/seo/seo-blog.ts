@@ -8468,6 +8468,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanze-2025-fragile-ticino': {
+    title: 'Ticino: finanze 2025 migliori del | Frontaliere Ticino',
+    description: 'Il consuntivo 2025 del Cantone Ticino mostra un disavanzo di 32,5 milioni, con sfide future legate a debito e spese sociali. Analisi e procedure pratiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanze, 2025, migliori, previsto',
+    ogTitle: 'Ticino: finanze 2025 migliorate ma fragile',
+    ogDescription: 'Consuntivo 2025 del Cantone Ticino con disavanzo di 32,5 milioni, miglioramento rispetto alle previsioni. Analisi, implicazioni e procedure per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/finanze-2025-fragile-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanze Ticino 2025",
+      "description": "Il consuntivo 2025 del Cantone Ticino mostra un disavanzo di 32,5 milioni, con sfide future legate a debito e spese sociali. Analisi e procedure pratiche.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/finanze-2025-fragile-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Locarno con lago e montagne sullo sfondo, scena urbana e naturale in Ticino."
+      },
+      "datePublished": "2026-04-17T03:42:16+00:00",
+      "dateModified": "2026-04-17T03:42:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/finanze-2025-fragile-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

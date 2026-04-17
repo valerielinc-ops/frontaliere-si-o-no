@@ -2232,6 +2232,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiassolitteratura-venti-anniversario-2026.title': 'ChiassoLetteraria festeggia 20 anni dal 6 al 10 maggio 2026',
     'blog.article.chiassolitteratura-venti-anniversario-2026.excerpt': 'Dal 6 al 10 maggio 2026 il festival letterario di Chiasso torna dopo 20 anni con oltre 50 eventi tra incontri, reading e dibattiti. Tra gli ospiti confermati Mannocchi/Pasqualini, Chamoiseau/Bosc e Usón/Giménez.',
     'blog.article.chiassolitteratura-venti-anniversario-2026.imageAlt': 'Festival letterario ChiassoLetteraria con il pubblico che sfoglia libri all\'aperto a Chiasso tra architetture moderne e bandiere italo-svizzere.',
+    'blog.article.finanze-2025-fragile-ticino.title': 'Ticino: finanze 2025 migliori del previsto ma restano fragili',
+    'blog.article.finanze-2025-fragile-ticino.excerpt': 'Il consuntivo 2025 del Cantone chiude con un disavanzo di 32,5 milioni, migliorando di circa 64 milioni rispetto alle previsioni, ma con sfide future da affrontare.',
+    'blog.article.finanze-2025-fragile-ticino.imageAlt': 'Veduta di Locarno con lago e montagne sullo sfondo, scena urbana e naturale in Ticino.',
 };
 
 export default blogMetaIt;
