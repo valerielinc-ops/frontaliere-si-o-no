@@ -3308,7 +3308,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }
