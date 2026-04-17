@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-16T21:30:30.091Z",
+  "generatedAt": "2026-04-17T09:49:25.135Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 34172,
-  "avgDurationMs": 34172,
+  "durationMs": 26619,
+  "avgDurationMs": 26619,
   "durationHistory": [
-    34172
+    26619
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,7 +47,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.927Z",
+      "crawledAt": "2026-04-17T09:49:23.079Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -101,7 +101,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.927Z",
+      "crawledAt": "2026-04-17T09:49:23.079Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -202,7 +202,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.925Z",
+      "crawledAt": "2026-04-17T09:49:23.076Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -214,114 +214,6 @@
       "employmentType": "FULL_TIME",
       "datePosted": "2026-03-11",
       "firstSeenAt": "2026-04-13T10:28:21.959Z",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6103",
-      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
-      "company": "EFG International AG",
-      "title": "Temp Contract - IT Business Analyst/Developer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
-              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
-              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
-              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
-              "<span>Escalate issues in timely manner with all required stakeholders</span>",
-              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
-              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
-              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
-            ],
-            "requirements": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Goal-oriented</span>",
-              "<span>Excellent knowledge of MS Office</span>",
-              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
-              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
-              "<span>English (French/German/Italian would be beneficial)</span>",
-              "<span>Effective interpersonal skill in negotiation and influencing</span>",
-              "<span>Must be able to travel from time to time if required</span>",
-              "<span>Previous experience in financial industry would be preferable</span>",
-              "<span>Expectation to be office based</span>",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
-            ],
-            "keywords": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Specification of Core Function",
-                "paragraphs": [
-                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-16T21:30:27.924Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-10",
-      "firstSeenAt": "2026-04-13T10:28:21.956Z",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -427,7 +319,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.924Z",
+      "crawledAt": "2026-04-17T09:49:23.075Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -443,6 +335,192 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6103",
+      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
+      "company": "EFG International AG",
+      "title": "Temp Contract - IT Business Analyst/Developer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
+              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
+              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
+              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
+              "<span>Escalate issues in timely manner with all required stakeholders</span>",
+              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
+              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
+              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
+            ],
+            "requirements": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Goal-oriented</span>",
+              "<span>Excellent knowledge of MS Office</span>",
+              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
+              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
+              "<span>English (French/German/Italian would be beneficial)</span>",
+              "<span>Effective interpersonal skill in negotiation and influencing</span>",
+              "<span>Must be able to travel from time to time if required</span>",
+              "<span>Previous experience in financial industry would be preferable</span>",
+              "<span>Expectation to be office based</span>",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
+            ],
+            "keywords": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Specification of Core Function",
+                "paragraphs": [
+                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-17T09:49:23.074Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-10",
+      "firstSeenAt": "2026-04-13T10:28:21.956Z",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6056",
+      "slug": "risk-analyst-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Operational Risk Analyst",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6056",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<span>The position of Operational Risk Analyst sits within the Operational Risk function and focuses on strengthening the bank’s risk management and internal control framework globally. Acting as a key risk partner to the first line of defence, the position provides independent challenge and oversight on operational risks, ensuring that processes, systems and activities are managed in line with the bank’s risk appetite.</span>",
+              "<span>Location: Lugano, Zurich, Geneva.</span>",
+              "<span><strong>Main responsibilities</strong></span>"
+            ],
+            "responsibilities": [
+              "<span>Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.</span>",
+              "<span>Contribute to thematic risk and control assessments on a broad range of issues, including back and middle-office, funds, securities, payments, corporate actions, and order execution through collaboration with other stakeholders.</span>",
+              "<span>Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.</span>",
+              "<span>Proactively escalate and effectively communicate material control weaknesses, closely collaborate with key stakeholders in the relevant functions to define appropriate action plans and oversee their timely implementation.</span>",
+              "<span>Provide expertise and make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices.</span>",
+              "<span>Master’s degree in Business Administration, Economics, or a technical field (Science, Technology, Engineering, Mathematics).</span>",
+              "<span>At least 5 to 7 years of experience in the banking sector (ideally in Risk Control, Audit, or Business Risk Management), or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.</span>",
+              "<span>Strong understanding of banking processes and systems, products, and related regulatory requirements. Expertise with core banking systems and Front systems is a plus.</span>",
+              "<span>Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.</span>",
+              "<span>Proven ability to write reports and communicate effectively with a senior audience.</span>",
+              "<span>Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.</span>",
+              "<span>Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.</span>",
+              "<span>Innovative mindset, with the ability to identify opportunities for process improvement and operational efficiency.</span>"
+            ],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "<span>Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.</span>",
+              "<span>Contribute to thematic risk and control assessments on a broad range of issues, including back and middle-office, funds, securities, payments, corporate actions, and order execution through collaboration with other stakeholders.</span>",
+              "<span>Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.</span>"
+            ],
+            "keywords": [
+              "<span>Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.</span>",
+              "<span>Contribute to thematic risk and control assessments on a broad range of issues",
+              "<span>Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.</span>",
+              "<span>Proactively escalate and effectively communicate material control weaknesses"
+            ],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-04-17T09:49:23.073Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "sourceLang": "en",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.940Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -549,7 +627,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.923Z",
+      "crawledAt": "2026-04-17T09:49:23.072Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -677,7 +755,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.922Z",
+      "crawledAt": "2026-04-17T09:49:23.071Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -694,244 +772,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6056",
-      "slug": "risk-analyst-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Operational Risk Analyst",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6056",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<span>The position of Operational Risk Analyst sits within the Operational Risk function and focuses on strengthening the bank’s risk management and internal control framework globally. Acting as a key risk partner to the first line of defence, the position provides independent challenge and oversight on operational risks, ensuring that processes, systems and activities are managed in line with the bank’s risk appetite.</span>",
-              "<span>Location: Lugano, Zurich, Geneva.</span>",
-              "<span><strong>Main responsibilities</strong></span>"
-            ],
-            "responsibilities": [
-              "<span>Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.</span>",
-              "<span>Contribute to thematic risk and control assessments on a broad range of issues, including back and middle-office, funds, securities, payments, corporate actions, and order execution through collaboration with other stakeholders.</span>",
-              "<span>Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.</span>",
-              "<span>Proactively escalate and effectively communicate material control weaknesses, closely collaborate with key stakeholders in the relevant functions to define appropriate action plans and oversee their timely implementation.</span>",
-              "<span>Provide expertise and make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices.</span>",
-              "<span>Master’s degree in Business Administration, Economics, or a technical field (Science, Technology, Engineering, Mathematics).</span>",
-              "<span>At least 5 to 7 years of experience in the banking sector (ideally in Risk Control, Audit, or Business Risk Management), or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.</span>",
-              "<span>Strong understanding of banking processes and systems, products, and related regulatory requirements. Expertise with core banking systems and Front systems is a plus.</span>",
-              "<span>Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.</span>",
-              "<span>Proven ability to write reports and communicate effectively with a senior audience.</span>",
-              "<span>Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.</span>",
-              "<span>Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.</span>",
-              "<span>Innovative mindset, with the ability to identify opportunities for process improvement and operational efficiency.</span>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "<span>Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.</span>",
-              "<span>Contribute to thematic risk and control assessments on a broad range of issues, including back and middle-office, funds, securities, payments, corporate actions, and order execution through collaboration with other stakeholders.</span>",
-              "<span>Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.</span>"
-            ],
-            "keywords": [
-              "<span>Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.</span>",
-              "<span>Contribute to thematic risk and control assessments on a broad range of issues",
-              "<span>Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.</span>",
-              "<span>Proactively escalate and effectively communicate material control weaknesses"
-            ],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-04-16T21:30:27.921Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "sourceLang": "en",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.940Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6039",
-      "slug": "epm-onestream-developer-business-data-analyst-efg-lugano",
-      "company": "EFG International AG",
-      "title": "EPM OneStream Developer/Business Data Analyst",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-16T21:30:27.920Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5869",
-      "slug": "strategic-planning-officer-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-16T21:30:27.919Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6237",
-      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
-      "source": "Oracle HCM API",
-      "sourceLang": "it",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-04-16T21:30:27.918Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-10",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1048,7 +888,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-16T21:30:27.918Z",
+      "crawledAt": "2026-04-17T09:49:23.069Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -1064,6 +904,166 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6039",
+      "slug": "epm-onestream-developer-business-data-analyst-efg-lugano",
+      "company": "EFG International AG",
+      "title": "EPM OneStream Developer/Business Data Analyst",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-17T09:49:23.065Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.934Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5869",
+      "slug": "strategic-planning-officer-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-17T09:49:23.064Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6237",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
+      "source": "Oracle HCM API",
+      "sourceLang": "it",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-04-17T09:49:23.062Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-10",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
