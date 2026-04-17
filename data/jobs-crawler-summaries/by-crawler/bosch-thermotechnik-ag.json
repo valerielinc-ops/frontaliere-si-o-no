@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-04-17T09:29:33.238Z",
-  "total": 4,
+  "generatedAt": "2026-04-17T21:06:31.060Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 11822,
-  "avgDurationMs": 11822,
+  "durationMs": 9943,
+  "avgDurationMs": 9943,
   "durationHistory": [
-    11822
+    9943
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -121,10 +121,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Mechaniker (w/m/div.) - REF280421X",
-      "slug": "mechaniker-w-m-div-ref280421x-bosch-st-niklaus",
+      "slug": "meccanico-w-m-div-ref280421x-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF280421X-mechaniker-w-m-div-ref280421x",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000114067032-mechaniker-w-m-div-ref280421x?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -159,6 +161,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
