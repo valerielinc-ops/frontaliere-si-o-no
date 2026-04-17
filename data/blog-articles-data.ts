@@ -6214,4 +6214,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/arresto-droga-confine-brogeda-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'manutenzione-ustat-servizi-chiusure-31-12-2025',
+ category: 'pratico',
+ date: '2026-04-17T09:45:06.716Z',
+ image: '/images/blog/manutenzione-ustat-servizi-chiusure-31-12-2025.jpg',
+ hasCalculator: true,
+ },
 ];

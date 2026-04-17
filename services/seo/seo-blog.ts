@@ -8555,6 +8555,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manutenzione-ustat-servizi-chiusure-31-12-2025': {
+    title: 'Manutenzione Ustat e chiusure | Frontaliere Ticino',
+    description: 'Servizi USTAT chiusi il 31 dicembre 2025 pomeriggio e interruzioni il 2 dicembre sera. Scadenze, procedure e strumenti per frontalieri e residenti in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, manutenzione, ustat, chiusure, natalizie',
+    ogTitle: 'Manutenzione USTAT e chiusure natalizie 2025: cosa cambia',
+    ogDescription: 'Scopri le date delle chiusure USTAT a fine 2025 e come evitare ritardi nelle tue pratiche da frontaliero in Ticino.',
+    canonicalPath: '/articoli-frontaliere/manutenzione-ustat-servizi-chiusure-31-12-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manutenzione USTAT e chiusure natalizie 2025: procedure e scadenze per frontalieri",
+      "description": "Servizi USTAT chiusi il 31 dicembre 2025 pomeriggio e interruzioni il 2 dicembre sera. Scadenze, procedure e strumenti per frontalieri e residenti in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/manutenzione-ustat-servizi-chiusure-31-12-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio Ustat a Lugano con neve al crepuscolo"
+      },
+      "datePublished": "2026-04-17T09:45:06+00:00",
+      "dateModified": "2026-04-17T09:45:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/manutenzione-ustat-servizi-chiusure-31-12-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2241,6 +2241,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-droga-confine-brogeda-2026.title': 'Zwei Grenzgänger in Brogeda mit fast zwei Kilogramm Heroin und Kokain festgenommen',
     'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Zwei Kurierdienste, 30 und 33 Jahre alt, wurden in Brogeda nahe des Grenzübergangs in flagranti mit insgesamt 1,96 Kilogramm Rauschgift – darunter Heroin und Kokain – festgenommen.',
     'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Polizisten am Grenzübergang Brogeda zeigen Heroin und Kokain, die von zwei Kurieren beschlagnahmt wurden',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Ustat-Wartung und Weihnachtsferien: Was ändert sich für Grenzgänger und Einwohner',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Ustat-Dienststellen geschlossen am 31. Dezember 2025 nachmittags und Unterbrechungen am 2. Dezember abends wegen Wartungsarbeiten. Fristen und Verfahren für die Tessiner Grenzgänger.',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Ustat-Gebäude in Lugano bei winterlicher Abenddämmerung mit Schnee',
 };
 
 export default blogMetaDe;

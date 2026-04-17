@@ -2241,6 +2241,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-droga-confine-brogeda-2026.title': 'Two cross-border workers arrested in Brogeda with nearly two kilos of heroin and cocaine',
     'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Two couriers, aged 30 and 33, were caught in the act near the Brogeda border crossing with 1.96 kg of drugs, including heroin and cocaine.',
     'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Police at Brogeda border checkpoint displaying heroin and cocaine seized from two couriers arrested',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Ustat maintenance and Christmas closures: what changes for cross-border workers and residents',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Ustat services closed on the afternoon of 31 December 2025 and interruptions on the evening of 2 December for maintenance. Deadlines and procedures for Ticino cross-border workers.',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Ustat building in Lugano during winter dusk with snow',
 };
 
 export default blogMetaEn;

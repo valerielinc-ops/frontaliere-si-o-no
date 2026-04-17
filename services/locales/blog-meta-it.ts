@@ -2241,6 +2241,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-droga-confine-brogeda-2026.title': 'Due frontalieri arrestati a Brogeda con quasi due chili di eroina e cocaina',
     'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Due corrieri, rispettivamente di 30 e 33 anni, fermati in flagranza di reato nei pressi del valico di Brogeda con 1,96 kg di droga tra eroina e cocaina.',
     'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Agente al valico di Brogeda mostra eroina e cocaina sequestrata ai due corrieri arrestati',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Manutenzione Ustat e chiusure natalizie: cosa cambia per frontalieri e residenti',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Servizi Ustat chiusi il 31 dicembre 2025 pomeriggio e interruzioni il 2 dicembre sera per manutenzione. Scadenze e procedure per i frontalieri ticinesi.',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Edificio Ustat a Lugano con neve al crepuscolo',
 };
 
 export default blogMetaIt;

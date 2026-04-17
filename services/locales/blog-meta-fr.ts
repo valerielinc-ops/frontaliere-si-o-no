@@ -2241,6 +2241,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-droga-confine-brogeda-2026.title': 'Deux frontaliers arrêtés à Brogeda avec près de deux kilos d’héroïne et de cocaïne',
     'blog.article.arresto-droga-confine-brogeda-2026.excerpt': 'Deux coursiers, âgés respectivement de 30 et 33 ans, ont été interpellés en flagrant délit près du poste frontière de Brogeda avec 1,96 kg de drogue, composée d’héroïne et de cocaïne.',
     'blog.article.arresto-droga-confine-brogeda-2026.imageAlt': 'Agent à la frontière de Brogeda montrant de l\'héroïne et de la cocaïne saisies sur deux passeurs arrêtés',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Entretien de l\'Office fédéral de la statistique et fermetures de fin d\'année : quelles conséquences pour les frontaliers et les résidents',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Les services de l\'Office fédéral de la statistique (USTAT) fermeront le 31 décembre 2025 en après-midi et interrompront leurs activités le 2 décembre 2025 en soirée pour maintenance. Quels sont les impacts sur les délais et les démarches pour les frontaliers du Tessin.',
+    'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Bâtiment de l\'Ustat à Lugano au crépuscule hivernal avec neige',
 };
 
 export default blogMetaFr;

@@ -2002,6 +2002,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-finanze-2025-fragile-ticino': { name: 'Finanze', path: '/articoli-frontaliere/finanze-2025-fragile-ticino', parent: 'blog' },
     'blog-tassa-salute-frontalieri-lombardia-rinvio-2026': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026', parent: 'blog' },
     'blog-arresto-droga-confine-brogeda-2026': { name: 'Frontalieri e sicurezza', path: '/articoli-frontaliere/arresto-droga-confine-brogeda-2026', parent: 'blog' },
+    'blog-manutenzione-ustat-servizi-chiusure-31-12-2025': { name: 'Servizi USTAT', path: '/articoli-frontaliere/manutenzione-ustat-servizi-chiusure-31-12-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];
