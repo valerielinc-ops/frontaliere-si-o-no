@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-04-17T09:34:57.946Z",
+  "generatedAt": "2026-04-17T21:11:53.885Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3603,
-  "avgDurationMs": 3603,
+  "durationMs": 3053,
+  "avgDurationMs": 3053,
   "durationHistory": [
-    3603
+    3053
   ],
   "newJobs": [
     {
@@ -38,7 +38,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=68509370-a964-427f-8d65-025e7108b5e3,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-17T09:34:55.590Z",
+      "crawledAt": "2026-04-17T21:11:51.911Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -51,11 +51,11 @@
   "updatedJobs": [
     {
       "id": "citta-di-bellinzona-azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona",
-      "slug": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona",
+      "slug": "direttore-trice-tecnico-a-presso-bellinzona-teatro-bellinzona",
       "company": "Città di Bellinzona",
       "companyKey": "citta-di-bellinzona",
       "companyDomain": "bellinzona.ch",
-      "title": "Azienda Multiservizi Bellinzona (AMB) - Un/una assistente clienti per il Settore Approvvigionamento e Vendita (InfoCentro)",
+      "title": "Direttore/trice tecnico/a presso Bellinzona Teatro",
       "location": "Bellinzona",
       "canton": "TI",
       "addressLocality": "Bellinzona",
@@ -74,12 +74,12 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-17T09:34:55.589Z",
+      "crawledAt": "2026-04-17T21:11:51.911Z",
       "firstSeenAt": "2026-03-30T20:10:23.185Z",
-      "_qualityScore": 94,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
