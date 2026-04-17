@@ -2265,6 +2265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.title': 'Scoperta record a Colverde: sequestrato oltre un quintale di marijuana',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.excerpt': 'La polizia provinciale di Como ha sequestrato 105 kg di marijuana in sacchi abbandonati vicino al confine ticinese. Operazione nata da un controllo ambientale.',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.imageAlt': 'Agente della polizia locale di Como analizza sacchi di marijuana sequestrati a Colverde, vicino al confine ticinese',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Controlli straordinari a Lavena Ponte Tresa: droga e arma da taglio sequestrate',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'Nella notte tra il 14 e 15 aprile 2026, quattro pattuglie della polizia locale di Lavena Ponte Tresa, congiunte alla Questura e ad altri comandi, hanno identificato 25 persone e segnalato tre per possesso di stupefacenti.',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Poliziotti e agenti della polizia locale in controllo serale a Lavena Ponte Tresa vicino al confine con il Ticino',
 };
 
 export default blogMetaIt;

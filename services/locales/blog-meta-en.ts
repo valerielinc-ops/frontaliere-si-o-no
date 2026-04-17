@@ -2265,6 +2265,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.title': 'Record haul in Colverde: over 100 kg of marijuana seized',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.excerpt': 'The provincial police of Como have seized 105 kg of marijuana found in abandoned sacks near the Ticino border. The operation was launched following an environmental check.',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.imageAlt': 'Como police officers inspect black bags containing marijuana seized near the Ticino border in Colverde',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Extraordinary checks in Lavena Ponte Tresa: drugs and bladed weapon seized',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'In the night between 14 and 15 April 2026, four patrol units from the Lavena Ponte Tresa local police, working alongside the local police headquarters and other forces, identified 25 individuals and reported three for possession of narcotics.',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Local police and officers conducting evening checks in Lavena Ponte Tresa near the Ticino border',
 };
 
 export default blogMetaEn;

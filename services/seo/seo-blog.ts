@@ -8787,6 +8787,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-serali-lavena-ponte-tresa-15-aprile-2026': {
+    title: 'Controlli straordinari a Lavena Ponte | Frontaliere Ticino',
+    description: 'Nella notte tra il 14 e 15 aprile 2026, quattro pattuglie della polizia locale di Lavena Ponte Tresa, congiunte alla Questura e ad altri comandi, hanno identifi',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, straordinari, lavena, ponte',
+    ogTitle: 'Controlli straordinari a Lavena Ponte Tresa: droga e arma',
+    ogDescription: 'Nella notte tra il 14 e 15 aprile 2026, quattro pattuglie della polizia locale di Lavena Ponte Tresa, congiunte alla Questura e ad altri comandi, hanno identifi',
+    canonicalPath: '/articoli-frontaliere/controlli-serali-lavena-ponte-tresa-15-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli straordinari a Lavena Ponte Tresa: droga e arma",
+      "description": "Nella notte tra il 14 e 15 aprile 2026, quattro pattuglie della polizia locale di Lavena Ponte Tresa, congiunte alla Questura e ad altri comandi, hanno identifi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-serali-lavena-ponte-tresa-15-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Poliziotti e agenti della polizia locale in controllo serale a Lavena Ponte Tresa vicino al confine con il Ticino"
+      },
+      "datePublished": "2026-04-17T21:03:21+00:00",
+      "dateModified": "2026-04-17T21:03:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-serali-lavena-ponte-tresa-15-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

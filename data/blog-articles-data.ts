@@ -6270,4 +6270,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/scoperta-quantita-marijuana-colverde-confine-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'controlli-serali-lavena-ponte-tresa-15-aprile-2026',
+ category: 'pratico',
+ date: '2026-04-17T21:03:21.406Z',
+ image: '/images/blog/controlli-serali-lavena-ponte-tresa-15-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ];

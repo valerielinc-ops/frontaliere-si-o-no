@@ -2265,6 +2265,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.title': 'Découverte record à Colverde : plus d’un quintal de marijuana saisi',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.excerpt': 'La police provinciale de Côme a saisi 105 kg de marijuana abandonnée dans des sacs près de la frontière tessinoise. L’opération, née d’un contrôle environnemental, a permis de démanteler un important trafic.',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.imageAlt': 'Des agents de police de Côme analysent des sacs noirs contenant de la marijuana saisis près de la frontière tessinoise à Colverde',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Contrôles exceptionnels à Lavena Ponte Tresa : drogue et arme blanche saisies',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'Dans la nuit du 14 au 15 avril 2026, quatre patrouilles de la police locale de Lavena Ponte Tresa, en collaboration avec la Questure et d’autres unités, ont identifié 25 personnes et signalé trois d’entre elles pour détention de stupéfiants. Une arme blanche a également été saisie lors de cette opération.',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Policiers et agents locaux en patrouille de contrôle le soir à Lavena Ponte Tresa près de la frontière tessinoise',
 };
 
 export default blogMetaFr;

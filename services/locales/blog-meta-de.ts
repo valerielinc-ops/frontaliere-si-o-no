@@ -2265,6 +2265,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.title': 'Rekordfund in Coldrerio: Über ein Zentner Marihuana beschlagnahmt',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.excerpt': 'Die kantonale Polizei Como hat bei einer Umweltkontrolle in der Nähe der Tessiner Grenze 105 kg Marihuana beschlagnahmt. Die Drogen waren in Säcken zurückgelassen worden.',
     'blog.article.scoperta-quantita-marijuana-colverde-confine-ticino.imageAlt': 'Polizeibeamte in Como untersuchen schwarze Säcke mit beschlagnahmter Marihuana nahe der Tessiner Grenze in Colverde',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.title': 'Außergewöhnliche Kontrollen in Lavena Ponte Tresa: Drogen und Messer sichergestellt',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.excerpt': 'In der Nacht vom 14. auf den 15. April 2026 haben vier Streifen der örtlichen Polizei von Lavena Ponte Tresa, unterstützt von der Kantonspolizei und weiteren Einheiten, 25 Personen identifiziert und drei wegen Drogenbesitzes gemeldet.',
+    'blog.article.controlli-serali-lavena-ponte-tresa-15-aprile-2026.imageAlt': 'Polizisten und Beamte des lokalen Wachdienstes bei Kontrollen am Abend in Lavena Ponte Tresa nahe der Grenze zum Tessin',
 };
 
 export default blogMetaDe;
