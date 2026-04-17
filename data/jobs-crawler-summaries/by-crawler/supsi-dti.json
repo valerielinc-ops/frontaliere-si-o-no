@@ -1,21 +1,21 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-04-17T10:43:54.924Z",
-  "total": 10,
-  "newCount": 10,
+  "generatedAt": "2026-04-17T22:20:28.525Z",
+  "total": 9,
+  "newCount": 9,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 77987,
-  "avgDurationMs": 77987,
+  "durationMs": 60018,
+  "avgDurationMs": 60018,
   "durationHistory": [
-    77987
+    60018
   ],
   "newJobs": [
     {
       "id": "company-l4u53h",
-      "slug": "ricercatrice-ricercatore-in-metodi-di-valutazione-della-sostenibilita-per-prodotti-e-processi-industriali-supsi-dti-lugano",
+      "slug": "ricercatrice-ricercatore-in-metodi-di-valutazione-della-sostenibilita-per-prodotti-e-processi-industriali-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore in Metodi di valutazione della sostenibilità per prodotti e processi industriali",
       "location": "Lugano",
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -47,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -57,7 +57,7 @@
     },
     {
       "id": "company-l4rl4k",
-      "slug": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
+      "slug": "assistente-con-master-in-idrologia-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Assistente con Master in idrologia",
       "location": "Mendrisio",
@@ -78,7 +78,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -89,17 +88,18 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 23,
         "completeness": 25
       }
     },
     {
       "id": "company-knv2mj",
-      "slug": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
+      "slug": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
       "location": "USI SUPSInido del Campus Est di Viganello",
@@ -120,7 +120,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 59500,
@@ -131,6 +130,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -162,7 +162,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -173,6 +172,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -183,7 +183,7 @@
     },
     {
       "id": "company-hm5vuy",
-      "slug": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
+      "slug": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
       "location": "Lugano",
@@ -204,7 +204,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 142000,
@@ -215,6 +214,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,7 +225,7 @@
     },
     {
       "id": "company-l4u53i",
-      "slug": "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-lugano",
+      "slug": "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore con PhD nell’area del Privacy Preserving Data Processing",
       "location": "Lugano",
@@ -246,7 +246,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -257,6 +256,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -267,7 +267,7 @@
     },
     {
       "id": "company-l4ti32",
-      "slug": "direttrice-direttore-della-formazione-di-base-supsi-dti-direzione-supsi",
+      "slug": "direttrice-direttore-della-formazione-di-base-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Direttrice / Direttore della Formazione di Base",
       "location": "Direzione SUPSI",
@@ -288,7 +288,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-17T10:42:59.630Z",
       "firstSeenAt": "2026-04-17T10:42:59.630Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 68000,
@@ -299,6 +298,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,48 +346,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4rl4l",
-      "slug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-      "company": "SUPSI / DTI",
-      "title": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
-      "location": "Mendrisio. Grado d",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://www.supsi.ch/bando26_1008",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Mendrisio",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-31T21:47:14.853Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T21:47:14.853Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
         "completeness": 25
       }
     },
