@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
-      "slug": "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig",
+      "slug": "gestione-del-prodotto-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig",
-        "en": "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "gestione-del-prodotto-m-w-d-matterhorn-gotthard-bahn-brig",
+        "en": "projektmanagement-m-w-d-matterhorn-gotthard-bahn-brig",
         "fr": "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
       },
       "company": "Matterhorn Gotthard Bahn",
@@ -72,11 +72,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
+          "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
+        ],
+        "en": [
           "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
+        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
+        "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

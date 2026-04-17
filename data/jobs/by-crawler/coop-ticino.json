@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-wpsadl",
-      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
+      "slug": "personale-in-gastronomia-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Davos",
@@ -50,8 +50,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-wpsadl",
-        "en": "associate-gastronomie-coop-ristorante-davos-platz-wpsadl",
+        "it": "personale-in-gastronomia-coop-genossenschaft-davos",
+        "en": "staff-in-gastronomy-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-wpsadl",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-wpsadl"
       },
@@ -68,11 +68,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-wpsadl",
+          "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-davos-platz-wpsadl"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-wpsadl",
+        "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
+        "associate-gastronomie-coop-ristorante-davos-platz-wpsadl"
+      ]
     },
     {
       "id": "company-25lv0h",
-      "slug": "kochin-koch-w-m-d-coop-ristorante-davos-platz",
+      "slug": "chef-cuoco-w-m-d-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Davos",
@@ -118,10 +132,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h",
-        "en": "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h",
+        "it": "chef-cuoco-w-m-d-coop-genossenschaft-davos",
+        "en": "chef-cook-w-m-d-coop-genossenschaft-davos",
         "de": "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h",
-        "fr": "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h"
+        "fr": "chef-cuisinier-w-m-d-coop-genossenschaft-davos"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -136,7 +150,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h",
+          "kochin-koch-w-m-d-coop-ristorante-davos-platz"
+        ],
+        "en": [
+          "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h"
+        ],
+        "fr": [
+          "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-w-m-d-coop-ristorante-davos-platz-25lv0h",
+        "kochin-koch-w-m-d-coop-ristorante-davos-platz"
+      ]
     },
     {
       "id": "company-g6dub0",
@@ -220,8 +250,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
       ]
     },
     {
@@ -306,8 +335,7 @@
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
       ]
     },
     {

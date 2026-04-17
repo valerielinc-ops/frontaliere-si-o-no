@@ -79,10 +79,10 @@
     },
     {
       "id": "otis-1d3686ec70c4",
-      "slug": "service-technician-otis-oberburen-2",
+      "slug": "servizio-tecnico-otis-sa-oberburen",
       "slugByLocale": {
         "en": "service-technician-otis-oberburen",
-        "it": "service-technician-otis-oberburen-2",
+        "it": "servizio-tecnico-otis-sa-oberburen",
         "de": "service-technician-otis-oberburen-2",
         "fr": "service-technician-otis-oberburen-2"
       },
@@ -136,15 +136,14 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-04-17T10:26:08.108Z",
       "previousSlugs": [
-        "service-technician-otis-oberburen",
+        "service-technician-otis-oberburen-2",
+        "technique-des-services-otis-sa-oberburen",
         "service-techniker-otis-sa-oberburen",
-        "technicien-des-services-otis-sa-oberburen",
-        "servizio-tecnico-otis-sa-oberburen",
-        "technique-des-services-otis-sa-oberburen"
+        "technicien-des-services-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servizio-tecnico-otis-sa-oberburen"
+          "service-technician-otis-oberburen-2"
         ],
         "fr": [
           "technique-des-services-otis-sa-oberburen"

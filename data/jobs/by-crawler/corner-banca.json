@@ -855,9 +855,9 @@
     },
     {
       "id": "corner-banca-4b9d1c5b215f",
-      "slug": "employee-front-office-collection-corner-banca-wallisellen",
+      "slug": "collezione-dei-dipendenti-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "employee-front-office-collection-corner-banca-wallisellen",
+        "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
         "en": "employee-front-office-collection-corner-banca-wallisellen",
         "de": "employee-front-office-collection-corner-banca-wallisellen",
         "fr": "employee-front-office-collection-corner-banca-wallisellen"
@@ -947,7 +947,15 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-front-office-collection-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "employee-front-office-collection-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-97d8d7e51ea2",

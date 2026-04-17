@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-c93c698d26b9",
-      "slug": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "capo-ufficio-vendita-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "de": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "it": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "en": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "fr": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "it": "capo-ufficio-vendita-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "head-of-sales-office-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "fr": "chef-du-bureau-de-vente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-vertriebsinnendienst-m-w-d-hilcona-radolfzell"
+          "leiter-vertriebsinnendienst-m-w-d-hilcona-radolfzell",
+          "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
         ],
         "de": [
           "leiter-vertriebsinnendienst-m-w-d-hilcona-radolfzell"
+        ],
+        "en": [
+          "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        ],
+        "fr": [
+          "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
         ]
       },
       "previousSlugs": [
-        "leiter-vertriebsinnendienst-m-w-d-hilcona-radolfzell"
+        "leiter-vertriebsinnendienst-m-w-d-hilcona-radolfzell",
+        "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "salaryMin": 98000,
       "salaryMax": 132000,

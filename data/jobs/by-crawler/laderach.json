@@ -9,7 +9,7 @@
         "de": "verkaufer-40-60-chocolaterie-thun-w-m-d-laderach-thun",
         "it": "verkaufer-40-60-chocolaterie-thun-w-m-d-laderach-thun",
         "en": "verkaufer-40-60-chocolaterie-thun-w-m-d-laderach-thun",
-        "fr": "verkaufer-40-60-chocolaterie-thun-w-m-d-laderach-thun"
+        "fr": "vendeur-40-60-chocolaterie-thune-m-j-laderach-schweiz-ag-thun"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3812,12 +3812,12 @@
     },
     {
       "id": "laderach-471e0429a39e",
-      "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart",
+      "slug": "assistente-vendite-m-w-d-laderach-schweiz-ag-stuttgart",
       "slugByLocale": {
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-stuttgart",
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart",
+        "it": "assistente-vendite-m-w-d-laderach-schweiz-ag-stuttgart",
         "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-schweiz-ag-stuttgart",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-schweiz-ag-stuttgart"
+        "fr": "assistant-aux-ventes-m-m-j-laderach-schweiz-ag-stuttgart"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3859,11 +3859,17 @@
           "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart"
         ],
         "fr": [
-          "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart"
+          "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart",
+          "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-schweiz-ag-stuttgart"
+        ],
+        "it": [
+          "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart"
         ]
       },
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart",
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-schweiz-ag-stuttgart",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
