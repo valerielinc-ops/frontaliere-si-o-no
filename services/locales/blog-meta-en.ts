@@ -2247,6 +2247,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Italy-Switzerland border: 6 customs rules for cross-border workers without surprises',
     'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'From the €10,000 cash limit to duty-free allowances on alcohol and cigarettes: what changes for those traveling between Ticino and Lombardy.',
     'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Customs at Chiasso border crossing during rush hour with vehicles and cross-border workers in transit.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Nigerians arrested at Chiasso-Brogeda checkpoint with heroin and cocaine',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Two Nigerian citizens were detained at the border crossing with 2 kg of heroin and 3 kg of cocaine. Immediate traffic disruption for 3 hours during the anti-drug operation.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Customs officer at Chiasso-Brogeda crossing during a night drug bust',
 };
 
 export default blogMetaEn;

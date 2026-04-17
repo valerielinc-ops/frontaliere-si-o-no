@@ -2247,6 +2247,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Confine Italia-Svizzera: 6 regole doganali per frontalieri senza sorprese',
     'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'Dal limite di 10.000 euro per il contante alle franchigie su alcol e sigarette: cosa cambia per chi viaggia tra Ticino e Lombardia.',
     'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Dogana a Chiasso durante l\'orario di punta con veicoli e frontalieri in transito.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Nigeriani arrestati a Chiasso-Brogeda con eroina e cocaina',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Due cittadini nigeriani fermati al varco di confine con 2 kg di eroina e 3 kg di cocaina. Blocco immediato del traffico per 3 ore durante l\'operazione antidroga.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Agente doganale a Chiasso-Brogeda durante un controllo antidroga nella notte',
 };
 
 export default blogMetaIt;

@@ -6228,4 +6228,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/confine-italia-svizzera-6-regole-doganali.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'due-arresti-brogeda-smuggling-droga-2024',
+ category: 'novita',
+ date: '2026-04-17T12:02:52.439Z',
+ image: '/images/blog/due-arresti-brogeda-smuggling-droga-2024.jpg',
+ hasCalculator: false,
+ },
 ];

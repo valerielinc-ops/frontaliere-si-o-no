@@ -2004,6 +2004,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-arresto-droga-confine-brogeda-2026': { name: 'Frontalieri e sicurezza', path: '/articoli-frontaliere/arresto-droga-confine-brogeda-2026', parent: 'blog' },
     'blog-manutenzione-ustat-servizi-chiusure-31-12-2025': { name: 'Servizi USTAT', path: '/articoli-frontaliere/manutenzione-ustat-servizi-chiusure-31-12-2025', parent: 'blog' },
     'blog-confine-italia-svizzera-6-regole-doganali': { name: 'Confine Italia-Svizzera', path: '/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali', parent: 'blog' },
+    'blog-due-arresti-brogeda-smuggling-droga-2024': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2247,6 +2247,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Frontière Italie-Suisse : 6 règles douanières pour les frontaliers sans mauvaise surprise',
     'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'De la limite de 10 000 euros en liquide aux franchises sur l’alcool et les cigarettes : ce qui change pour ceux qui voyagent entre le Tessin et la Lombardie.',
     'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Douane à Chiasso pendant les heures de pointe avec des véhicules et des frontaliers en transit.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Deux Nigérians arrêtés à Chiasso-Brogeda avec de l’héroïne et de la cocaïne',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Deux citoyens nigérians interpellés au poste frontalier avec 2 kg d’héroïne et 3 kg de cocaïne. Le trafic a été immédiatement bloqué pendant trois heures lors de l’opération antidrogue.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Agent des douanes au passage frontalier de Chiasso-Brogeda lors d\'une saisie de drogue de nuit',
 };
 
 export default blogMetaFr;

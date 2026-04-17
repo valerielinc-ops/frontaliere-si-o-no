@@ -8613,6 +8613,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-due-arresti-brogeda-smuggling-droga-2024': {
+    title: 'Nigeriani arrestati a Chiasso-Brogeda | Frontaliere Ticino',
+    description: 'Due cittadini nigeriani fermati al valico di Chiasso-Brogeda con 2 kg di eroina e 3 kg di cocaina. Blocco traffico per 3 ore, indagini in corso. Cosa cambia per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nigeriani, arrestati, chiasso-brogeda, eroina',
+    ogTitle: 'Arresti al confine Ticino: 2 nigeriani fermati con 5 kg di',
+    ogDescription: 'Due cittadini nigeriani fermati a Chiasso-Brogeda con 5 kg di droga. Blocco traffico per 3 ore, indagini in corso. Impatto sui frontalieri e procedure di',
+    canonicalPath: '/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blocco traffico a Chiasso-Brogeda: due nigeriani arrestati con 5 kg di droga",
+      "description": "Due cittadini nigeriani fermati al valico di Chiasso-Brogeda con 2 kg di eroina e 3 kg di cocaina. Blocco traffico per 3 ore, indagini in corso. Cosa cambia per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/due-arresti-brogeda-smuggling-droga-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agente doganale a Chiasso-Brogeda durante un controllo antidroga nella notte"
+      },
+      "datePublished": "2026-04-17T12:02:52+00:00",
+      "dateModified": "2026-04-17T12:02:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

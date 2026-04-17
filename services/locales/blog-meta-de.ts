@@ -2247,6 +2247,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Grenze Italien-Schweiz: 6 Zollregeln für Grenzgänger ohne böse Überraschungen',
     'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'Von der 10.000-Franken-Grenze für Bargeld bis zu den Freimengen für Alkohol und Zigaretten: Was sich für Pendler zwischen Tessin und Lombardei ändert.',
     'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Zoll in Chiasso während der Stoßzeit mit Fahrzeugen und Grenzgängern im Transit.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.title': 'Nigerianer an der Grenze Chiasso-Brogeda mit Heroin und Kokain festgenommen',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.excerpt': 'Zwei nigerianische Staatsbürger wurden am Grenzübergang mit 2 kg Heroin und 3 kg Kokain festgenommen. Der Drogenfahndungseinsatz führte zu einer sofortigen Sperrung des Verkehrs für drei Stunden.',
+    'blog.article.due-arresti-brogeda-smuggling-droga-2024.imageAlt': 'Zollbeamter am Grenzübergang Chiasso-Brogeda während einer nächtlichen Drogenrazzia',
 };
 
 export default blogMetaDe;
