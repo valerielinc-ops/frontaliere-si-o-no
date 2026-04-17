@@ -6256,4 +6256,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/lega-ticino-solidarieta-casa-propria-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moon-stars-resident-discount-locarno-card',
+ category: 'pratico',
+ date: '2026-04-17T18:33:12.083Z',
+ image: '/images/blog/moon-stars-resident-discount-locarno-card.jpg',
+ hasCalculator: true,
+ },
 ];

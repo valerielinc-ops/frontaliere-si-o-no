@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 804,
+ "numberOfItems": 805,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4493,7 +4493,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 801, "name": "Blocco traffico a Chiasso-Brogeda: due nigerian...", "url": `${BASE_URL}/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024` },
           { "@type": "ListItem", "position": 802, "name": "Ticino: nuove regole contro specie invasive per...", "url": `${BASE_URL}/articoli-frontaliere/tutela-frontalieri-specie-invasive-ticino-2026` },
           { "@type": "ListItem", "position": 803, "name": "Taglio da 25 milioni per USI e SUPSI: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/usi-supsi-25-milioni-casse-malati` },
-          { "@type": "ListItem", "position": 804, "name": "Lega Ticino: «Prima il Ticino, solidarietà iniz...", "url": `${BASE_URL}/articoli-frontaliere/lega-ticino-solidarieta-casa-propria-2026` }
+          { "@type": "ListItem", "position": 804, "name": "Lega Ticino: «Prima il Ticino, solidarietà iniz...", "url": `${BASE_URL}/articoli-frontaliere/lega-ticino-solidarieta-casa-propria-2026` },
+          { "@type": "ListItem", "position": 805, "name": "Moon&Stars: sconti per residenti con Locarno Ca...", "url": `${BASE_URL}/articoli-frontaliere/moon-stars-resident-discount-locarno-card` }
  ]
  }
  ]

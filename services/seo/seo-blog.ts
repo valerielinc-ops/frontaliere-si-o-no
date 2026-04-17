@@ -8729,6 +8729,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moon-stars-resident-discount-locarno-card': {
+    title: 'Moon&Stars: sconti per residenti con | Frontaliere Ticino',
+    description: 'Locarno Card offre biglietti a 75 CHF per 11 concerti serali e 45 CHF per l\'Opening Night del 9 luglio 2026. Vendita online dal 22 aprile al 29 maggio con codic',
+    keywords: 'frontalieri, ticino, svizzera, italia, moon, stars, sconti, residenti',
+    ogTitle: 'Moon&Stars: sconti per residenti con Locarno Card 2026',
+    ogDescription: 'Locarno Card offre biglietti a 75 CHF per 11 concerti serali e 45 CHF per l\'Opening Night del 9 luglio 2026. Vendita online dal 22 aprile al 29 maggio con codic',
+    canonicalPath: '/articoli-frontaliere/moon-stars-resident-discount-locarno-card',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Moon&Stars: sconti per residenti con Locarno Card 2026",
+      "description": "Locarno Card offre biglietti a 75 CHF per 11 concerti serali e 45 CHF per l'Opening Night del 9 luglio 2026. Vendita online dal 22 aprile al 29 maggio con codic",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moon-stars-resident-discount-locarno-card.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Grande a Locarno durante il festival Moon&Stars con manifesti e folle di residenti"
+      },
+      "datePublished": "2026-04-17T18:33:12+00:00",
+      "dateModified": "2026-04-17T18:33:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moon-stars-resident-discount-locarno-card`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

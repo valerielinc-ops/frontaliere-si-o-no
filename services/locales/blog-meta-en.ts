@@ -2259,6 +2259,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lega-ticino-solidarieta-casa-propria-2026.title': 'Ticino League: ‘Put Ticino first, solidarity starts at home’',
     'blog.article.lega-ticino-solidarieta-casa-propria-2026.excerpt': 'The Ticino League is urging Bern to prioritise funding for the canton before allocating resources abroad, accusing the federal system of a ‘penalising equalisation’ and the neglect of peripheral regions such as the Vallemaggia.',
     'blog.article.lega-ticino-solidarieta-casa-propria-2026.imageAlt': 'Castelgrande in Bellinzona at sunset with Swiss and Italian flags',
+    'blog.article.moon-stars-resident-discount-locarno-card.title': 'Moon&Stars: discounts for residents with the Locarno Card 2026',
+    'blog.article.moon-stars-resident-discount-locarno-card.excerpt': 'The Locarno Card offers tickets at 75 CHF for 11 evening concerts and 45 CHF for the Opening Night on 9 July 2026. Online sales from 22 April to 29 May with a personal code.',
+    'blog.article.moon-stars-resident-discount-locarno-card.imageAlt': 'Locarno\'s Piazza Grande during Moon&Stars festival with posters and crowds of residents',
 };
 
 export default blogMetaEn;
