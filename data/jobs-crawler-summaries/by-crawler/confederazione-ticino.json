@@ -1,18 +1,19 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-17T09:38:44.876Z",
+  "generatedAt": "2026-04-17T21:15:38.900Z",
   "total": 13,
-  "newCount": 1,
-  "updatedCount": 12,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1535,
-  "avgDurationMs": 1535,
+  "durationMs": 1860,
+  "avgDurationMs": 1860,
   "durationHistory": [
-    1535
+    1860
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
       "slug": "fachspezialist-in-planung-und-controlling-stv-chef-in-confederazione-monteceneri",
@@ -35,16 +36,23 @@
       "validThrough": "2026-05-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 61,
+      "id": "confederazione-ticino-a4523137f558",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Inspektor/in",
       "slug": "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs",
@@ -333,8 +341,8 @@
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
