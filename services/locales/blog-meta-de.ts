@@ -2244,6 +2244,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Ustat-Wartung und Weihnachtsferien: Was ändert sich für Grenzgänger und Einwohner',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Ustat-Dienststellen geschlossen am 31. Dezember 2025 nachmittags und Unterbrechungen am 2. Dezember abends wegen Wartungsarbeiten. Fristen und Verfahren für die Tessiner Grenzgänger.',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Ustat-Gebäude in Lugano bei winterlicher Abenddämmerung mit Schnee',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Grenze Italien-Schweiz: 6 Zollregeln für Grenzgänger ohne böse Überraschungen',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'Von der 10.000-Franken-Grenze für Bargeld bis zu den Freimengen für Alkohol und Zigaretten: Was sich für Pendler zwischen Tessin und Lombardei ändert.',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Zoll in Chiasso während der Stoßzeit mit Fahrzeugen und Grenzgängern im Transit.',
 };
 
 export default blogMetaDe;

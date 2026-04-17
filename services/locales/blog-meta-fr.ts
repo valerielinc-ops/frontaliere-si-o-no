@@ -2244,6 +2244,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Entretien de l\'Office fédéral de la statistique et fermetures de fin d\'année : quelles conséquences pour les frontaliers et les résidents',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Les services de l\'Office fédéral de la statistique (USTAT) fermeront le 31 décembre 2025 en après-midi et interrompront leurs activités le 2 décembre 2025 en soirée pour maintenance. Quels sont les impacts sur les délais et les démarches pour les frontaliers du Tessin.',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Bâtiment de l\'Ustat à Lugano au crépuscule hivernal avec neige',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Frontière Italie-Suisse : 6 règles douanières pour les frontaliers sans mauvaise surprise',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'De la limite de 10 000 euros en liquide aux franchises sur l’alcool et les cigarettes : ce qui change pour ceux qui voyagent entre le Tessin et la Lombardie.',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Douane à Chiasso pendant les heures de pointe avec des véhicules et des frontaliers en transit.',
 };
 
 export default blogMetaFr;

@@ -8584,6 +8584,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confine-italia-svizzera-6-regole-doganali': {
+    title: 'Confine Italia-Svizzera: 6 regole | Frontaliere Ticino',
+    description: 'Dal limite di 10.000 euro per il contante alle franchigie su alcol e sigarette: cosa cambia per chi viaggia tra Ticino e Lombardia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, confine, italia-svizzera, regole, doganali',
+    ogTitle: 'Confine Italia-Svizzera: 6 regole doganali per frontalier',
+    ogDescription: 'Dal limite di 10.000 euro per il contante alle franchigie su alcol e sigarette: cosa cambia per chi viaggia tra Ticino e Lombardia.',
+    canonicalPath: '/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confine Italia-Svizzera: 6 regole doganali per frontalier",
+      "description": "Dal limite di 10.000 euro per il contante alle franchigie su alcol e sigarette: cosa cambia per chi viaggia tra Ticino e Lombardia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confine-italia-svizzera-6-regole-doganali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dogana a Chiasso durante l'orario di punta con veicoli e frontalieri in transito."
+      },
+      "datePublished": "2026-04-17T11:11:08+00:00",
+      "dateModified": "2026-04-17T11:11:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2244,6 +2244,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Manutenzione Ustat e chiusure natalizie: cosa cambia per frontalieri e residenti',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Servizi Ustat chiusi il 31 dicembre 2025 pomeriggio e interruzioni il 2 dicembre sera per manutenzione. Scadenze e procedure per i frontalieri ticinesi.',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Edificio Ustat a Lugano con neve al crepuscolo',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Confine Italia-Svizzera: 6 regole doganali per frontalieri senza sorprese',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'Dal limite di 10.000 euro per il contante alle franchigie su alcol e sigarette: cosa cambia per chi viaggia tra Ticino e Lombardia.',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Dogana a Chiasso durante l\'orario di punta con veicoli e frontalieri in transito.',
 };
 
 export default blogMetaIt;

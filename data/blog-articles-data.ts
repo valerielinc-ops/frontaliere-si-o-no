@@ -6221,4 +6221,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/manutenzione-ustat-servizi-chiusure-31-12-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'confine-italia-svizzera-6-regole-doganali',
+ category: 'pratico',
+ date: '2026-04-17T11:11:08.751Z',
+ image: '/images/blog/confine-italia-svizzera-6-regole-doganali.jpg',
+ hasCalculator: true,
+ },
 ];

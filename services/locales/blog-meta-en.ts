@@ -2244,6 +2244,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.title': 'Ustat maintenance and Christmas closures: what changes for cross-border workers and residents',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.excerpt': 'Ustat services closed on the afternoon of 31 December 2025 and interruptions on the evening of 2 December for maintenance. Deadlines and procedures for Ticino cross-border workers.',
     'blog.article.manutenzione-ustat-servizi-chiusure-31-12-2025.imageAlt': 'Ustat building in Lugano during winter dusk with snow',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.title': 'Italy-Switzerland border: 6 customs rules for cross-border workers without surprises',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.excerpt': 'From the €10,000 cash limit to duty-free allowances on alcohol and cigarettes: what changes for those traveling between Ticino and Lombardy.',
+    'blog.article.confine-italia-svizzera-6-regole-doganali.imageAlt': 'Customs at Chiasso border crossing during rush hour with vehicles and cross-border workers in transit.',
 };
 
 export default blogMetaEn;
