@@ -13,9 +13,8 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-04-17T22:19:30.640Z",
+  "updatedAt": "2026-04-18T10:12:25.119Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_5015",
     "https://www.supsi.ch/bando25_9005",
     "https://www.supsi.ch/bando26_5013",
     "https://www.supsi.ch/bando26_1007",
@@ -23,18 +22,10 @@
     "https://www.supsi.ch/bando26_5016",
     "https://www.supsi.ch/bando26_4004",
     "https://www.supsi.ch/bando26_9001",
+    "https://www.supsi.ch/bando26_1008",
     "https://www.supsi.ch/bando26_4001"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_5015": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-04-16"
-    },
     "https://www.supsi.ch/bando25_9005": {
       "location": "USI SUPSInido del Campus Est di Viganello",
       "canton": "TI",
@@ -93,6 +84,14 @@
       "company": "SUPSI / DTI",
       "companyDomain": "supsi.ch",
       "expiresAt": "2026-05-31"
+    },
+    "https://www.supsi.ch/bando26_1008": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "expiresAt": "2026-06-26"
     },
     "https://www.supsi.ch/bando26_4001": {
       "location": "Ticino",
