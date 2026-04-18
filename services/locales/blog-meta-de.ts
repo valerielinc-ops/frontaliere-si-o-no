@@ -2298,6 +2298,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.title': 'Lombardei investiert 12,3 Millionen in die Modebranche: Chancen für Tessiner Grenzgänger',
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.excerpt': 'Die Region Lombardei stellt im Rahmen der Ausschreibung Next Fashion mehr als 12 Millionen Franken bereit. 73 Unternehmen sind beteiligt, mit Fokus auf KMU und Nachhaltigkeit. Wie auch Tessiner Firmen eingebunden werden können',
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.imageAlt': 'Textilarbeitsplatz im Tessin mit nachhaltigen Materialien und digitalen Werkzeugen',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.title': 'Schweiz-USA: Parmelin startet neue Handelsverhandlungsphase',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.excerpt': 'Der Schweizer Bundespräsident Guy Parmelin trifft in Washington auf den US-Handelsbeauftragten Jamieson Greer. Ziel ist es, einen klaren Rahmen für ein künftiges Handelsabkommen zu definieren. Im Fokus der Gespräche stehen Handelsbräuche und Zölle.',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.imageAlt': 'Institutionelles Treffen zwischen Schweizer und US-Vertretern in Washington DC mit Nationalflaggen im Hintergrund',
 };
 
 export default blogMetaDe;

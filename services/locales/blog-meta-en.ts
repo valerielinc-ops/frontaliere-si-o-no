@@ -2298,6 +2298,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.title': 'Lombardy invests 12.3 million in fashion: opportunities for Ticino cross-border workers',
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.excerpt': 'Lombardy allocates over 12 million euros for the Next Fashion call for projects, involving 73 companies with a focus on SMEs and sustainability. How to involve Ticino-based businesses as well',
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.imageAlt': 'Textile workshop in Ticino showcasing sustainable fashion materials and digital tools',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.title': 'Switzerland-USA: Parmelin launches new phase of trade negotiations',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.excerpt': 'Swiss President Guy Parmelin meets with US Trade Representative Jamieson Greer in Washington. The goal is to establish a clear framework for a future trade agreement. Talks focus on trade practices and tariffs.',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.imageAlt': 'Institutional meeting between Swiss and US representatives in Washington DC with national flags in the background',
 };
 
 export default blogMetaEn;

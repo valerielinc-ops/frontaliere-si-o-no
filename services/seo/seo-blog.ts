@@ -9106,6 +9106,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-usa-nuovi-negoziati-commerciali-2026': {
+    title: 'Svizzera-USA: Parmelin avvia nuova fase | Frontaliere Ticino',
+    description: 'Il presidente della Confederazione Guy Parmelin incontra a Washington il rappresentante USA per il commercio Jamieson Greer. Obiettivo: definire un quadro chiar',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-usa, parmelin, avvia, nuova',
+    ogTitle: 'Svizzera-USA: Parmelin avvia nuova fase negoziale commerc',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin incontra a Washington il rappresentante USA per il commercio Jamieson Greer. Obiettivo: definire un quadro chiar',
+    canonicalPath: '/articoli-frontaliere/svizzera-usa-nuovi-negoziati-commerciali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera-USA: Parmelin avvia nuova fase negoziale commerc",
+      "description": "Il presidente della Confederazione Guy Parmelin incontra a Washington il rappresentante USA per il commercio Jamieson Greer. Obiettivo: definire un quadro chiar",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-usa-nuovi-negoziati-commerciali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro istituzionale tra rappresentanti svizzeri e statunitensi a Washington DC con bandiere nazionali sullo sfondo"
+      },
+      "datePublished": "2026-04-18T11:46:45+00:00",
+      "dateModified": "2026-04-18T11:46:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-usa-nuovi-negoziati-commerciali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

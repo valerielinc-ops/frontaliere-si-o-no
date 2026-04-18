@@ -6347,4 +6347,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/lombardia-investimento-moda-ticinesi-next-fashion.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-usa-nuovi-negoziati-commerciali-2026',
+ category: 'novita',
+ date: '2026-04-18T11:46:45.577Z',
+ image: '/images/blog/svizzera-usa-nuovi-negoziati-commerciali-2026.jpg',
+ hasCalculator: true,
+ },
 ];

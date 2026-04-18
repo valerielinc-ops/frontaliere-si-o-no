@@ -2298,6 +2298,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.title': 'La Lombardie investit 12,3 millions dans la mode : une opportunité pour les frontaliers du Tessin',
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.excerpt': 'La Région Lombardie alloue plus de 12 millions d’euros au dispositif Next Fashion, impliquant 73 entreprises et mettant l’accent sur les PME et la durabilité. Comment associer aussi les entreprises tessinoises ?',
     'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.imageAlt': 'Atelier textile au Tessin mettant en avant des matériaux de mode durables et des outils numériques',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.title': 'Suisse-USA : Parmelin lance une nouvelle phase de négociations commerciales',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.excerpt': 'Le président de la Confédération Guy Parmelin rencontre à Washington le représentant américain au Commerce, Jamieson Greer. L’objectif : définir un cadre clair pour un futur accord commercial. Les négociations portent principalement sur les pratiques commerciales et les droits de douane.',
+    'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.imageAlt': 'Rencontre institutionnelle entre représentants suisses et américains à Washington DC avec des drapeaux nationaux en arrière-plan',
 };
 
 export default blogMetaFr;
