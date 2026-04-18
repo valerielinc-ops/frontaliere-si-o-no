@@ -2277,6 +2277,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.allentamenti-affitti-brevi-ticino-2025.title': 'Allentamenti affitti brevi in Ticino: cosa cambia per frontalieri e settore',
     'blog.article.allentamenti-affitti-brevi-ticino-2025.excerpt': 'HotellerieSuisse Ticino valuta positivo il 2025 ma lancia l\'allarme su regole più flessibili per affitti brevi tramite piattaforme online. Analisi dei rischi per mercato immobiliare',
     'blog.article.allentamenti-affitti-brevi-ticino-2025.imageAlt': 'Uffici moderni a Lugano con vista sul Lago di Lugano, simbolo del settore alberghiero ticinese',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.title': 'Fuoriuscita di ammoniaca alla Rapelli di Stabio',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.excerpt': 'L\'azienda conferma la sicurezza dei prodotti dopo l\'incidente tecnico di giovedì sera. Evacuate 100 persone, situazione ora sotto controllo.',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.imageAlt': 'Stabilimento industriale a Stabio',
 };
 
 export default blogMetaIt;

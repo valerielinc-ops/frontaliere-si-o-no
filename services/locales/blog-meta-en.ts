@@ -2277,6 +2277,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.allentamenti-affitti-brevi-ticino-2025.title': 'Relaxation of short-term rentals in Ticino: what changes for cross-border workers and the sector',
     'blog.article.allentamenti-affitti-brevi-ticino-2025.excerpt': 'HotellerieSuisse Ticino views 2025 positively but warns about the need for more flexible rules for short-term rentals through online platforms. Analysis of risks for the real estate market',
     'blog.article.allentamenti-affitti-brevi-ticino-2025.imageAlt': 'Modern offices in Lugano with a view of Lake Lugano, symbolizing Ticino\'s hospitality sector',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.title': 'Ammonia leak at Rapelli in Stabio',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.excerpt': 'The company confirms the safety of its products following Thursday evening\'s technical incident. 100 people were evacuated, and the situation is now under control.',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.imageAlt': 'Industrial facility in Stabio',
 };
 
 export default blogMetaEn;

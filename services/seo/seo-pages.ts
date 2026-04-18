@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 810,
+ "numberOfItems": 811,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4499,7 +4499,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 807, "name": "Controlli straordinari a Lavena Ponte Tresa: dr...", "url": `${BASE_URL}/articoli-frontaliere/controlli-serali-lavena-ponte-tresa-15-aprile-2026` },
           { "@type": "ListItem", "position": 808, "name": "Svizzera e Canada avviano la modernizzazione de...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-canada-mercati-alternativi-trump` },
           { "@type": "ListItem", "position": 809, "name": "Casse malati Ticino: 61 milioni in meno per Lug...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino` },
-          { "@type": "ListItem", "position": 810, "name": "Allentamenti affitti brevi in Ticino: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025` }
+          { "@type": "ListItem", "position": 810, "name": "Allentamenti affitti brevi in Ticino: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025` },
+          { "@type": "ListItem", "position": 811, "name": "Fuoriuscita di ammoniaca alla Rapelli di Stabio", "url": `${BASE_URL}/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio` }
  ]
  }
  ]

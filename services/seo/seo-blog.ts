@@ -8903,6 +8903,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuoriuscita-ammoniaca-rapelli-stabio': {
+    title: 'Fuoriuscita di ammoniaca alla Rapelli | Frontaliere Ticino',
+    description: 'Fuoriuscita di ammoniaca alla Rapelli di Stabio: l\'azienda conferma la sicurezza dei prodotti e la ripresa della produzione dopo l\'evacuazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuoriuscita, ammoniaca, alla, rapelli',
+    ogTitle: 'Fuoriuscita di ammoniaca alla Rapelli di Stabio',
+    ogDescription: 'L\'azienda conferma la sicurezza dei prodotti dopo l\'incidente tecnico di giovedì sera. Evacuate 100 persone, situazione ora sotto controllo.',
+    canonicalPath: '/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuoriuscita di ammoniaca alla Rapelli di Stabio",
+      "description": "Fuoriuscita di ammoniaca alla Rapelli di Stabio: l'azienda conferma la sicurezza dei prodotti e la ripresa della produzione dopo l'evacuazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuoriuscita-ammoniaca-rapelli-stabio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento industriale a Stabio"
+      },
+      "datePublished": "2026-04-18T03:28:19+00:00",
+      "dateModified": "2026-04-18T03:28:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

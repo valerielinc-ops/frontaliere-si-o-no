@@ -2277,6 +2277,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.allentamenti-affitti-brevi-ticino-2025.title': 'Lockerungen bei Kurzzeitmieten im Tessin: Was sich für Grenzgänger und die Branche ändert',
     'blog.article.allentamenti-affitti-brevi-ticino-2025.excerpt': 'HotellerieSuisse Ticino bewertet das Jahr 2025 positiv, warnt jedoch vor flexibleren Regeln für Kurzzeitmieten über Online-Plattformen. Analyse der Risiken für den Immobilienmarkt',
     'blog.article.allentamenti-affitti-brevi-ticino-2025.imageAlt': 'Moderne Büros in Lugano mit Blick auf den Luganersee, Symbol für den Tessiner Gastgewerbesektor',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.title': 'Ammoniakleck bei Rapelli in Stabio',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.excerpt': 'Das Unternehmen bestätigt die Sicherheit der Produkte nach dem technischen Vorfall am Donnerstagabend. 100 Personen wurden evakuiert, die Lage ist jetzt unter Kontrolle.',
+    'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.imageAlt': 'Industrieanlage in Stabio',
 };
 
 export default blogMetaDe;

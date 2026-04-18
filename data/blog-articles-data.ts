@@ -6298,4 +6298,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/allentamenti-affitti-brevi-ticino-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fuoriuscita-ammoniaca-rapelli-stabio',
+ category: 'pratico',
+ date: '2026-04-18T03:28:19.326Z',
+ image: '/images/blog/fuoriuscita-ammoniaca-rapelli-stabio.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2014,6 +2014,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-canada-mercati-alternativi-trump': { name: 'Accordi commerciali', path: '/articoli-frontaliere/svizzera-canada-mercati-alternativi-trump', parent: 'blog' },
     'blog-iniziative-casse-malati-61-milioni-ticino': { name: 'Casse malati Ticino', path: '/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino', parent: 'blog' },
     'blog-allentamenti-affitti-brevi-ticino-2025': { name: 'Allentamenti affitti brevi in Ticino', path: '/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025', parent: 'blog' },
+    'blog-fuoriuscita-ammoniaca-rapelli-stabio': { name: 'Cronaca Stabio', path: '/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio', parent: 'blog' },
  };
 
  const info = sectionNames[section];
