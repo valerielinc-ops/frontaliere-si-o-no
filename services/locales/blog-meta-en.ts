@@ -2313,6 +2313,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa running on empty: what cross-border workers from Ticino stand to lose',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa relies on two pipelines for its Jet A-1 fuel supply. An energy crisis could ground flights and jeopardize the livelihoods of 40,000 cross-border commuters.',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Malpensa airport at night: refueling aircraft with Jet A-1 fuel for civil flights between Italy and Ticino',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'New mobile water treatment plant in Rivera: 24 m³/h capacity ready for water emergencies',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'The Canton of Ticino has acquired a mobile water treatment plant with a capacity of 24 m³/h to address water crises. The plant was presented today in Rivera during a meeting of the Ticino Waterworks Association with Civil Protection and the UPAAI.',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Mobile water purification unit operational in Rivera for emergency situations',
 };
 
 export default blogMetaEn;

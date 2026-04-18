@@ -2313,6 +2313,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa ohne Treibstoff: Was droht den Tessiner Grenzgängern?',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa ist für den Bezug von Jet A-1 auf zwei Pipelines angewiesen. Eine Energiekrise könnte Flüge streichen und 40\'000 grenzüberschreitende Arbeitnehmende treffen.',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Flughafen Malpensa bei Nacht: Betankung von Zivilflugzeugen mit Jet A-1-Kraftstoff zwischen Italien und Tessin',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'Neues mobiles Trinkwasseraufbereitungssystem in Rivera: Wassernotfälle mit 24 m³/Stunde gerüstet',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'Der Kanton Tessin erhält ein mobiles Trinkwasseraufbereitungssystem mit einer Kapazität von 24 m³/Stunde zur Bewältigung von Wasserkrisen. Heute in Rivera vorgestellt im Rahmen der Tagung des Verbands der Tessiner Wasserwerke mit Zivilschutz und UPAAI.',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Mobile Wasseraufbereitungsanlage im Einsatz in Rivera für Notfälle',
 };
 
 export default blogMetaDe;

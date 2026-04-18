@@ -2026,6 +2026,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-radar-controlli-velocita-ticino-aprile-2026': { name: 'Radar mobili in Ticino', path: '/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026', parent: 'blog' },
     'blog-nuove-tratte-estive-ffs-ticino-2026': { name: 'Mobilità transfrontaliera', path: '/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026', parent: 'blog' },
     'blog-malpensa-carburante-rischio-frontalieri-2026': { name: 'Malpensa senza carburante', path: '/articoli-frontaliere/malpensa-carburante-rischio-frontalieri-2026', parent: 'blog' },
+    'blog-nuovo-potabilizzatore-mobile-emergenza-ticino': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-emergenza-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

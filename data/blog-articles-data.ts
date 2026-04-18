@@ -6382,4 +6382,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/malpensa-carburante-rischio-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-potabilizzatore-mobile-emergenza-ticino',
+ category: 'pratico',
+ date: '2026-04-18T17:24:03.915Z',
+ image: '/images/blog/nuovo-potabilizzatore-mobile-emergenza-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

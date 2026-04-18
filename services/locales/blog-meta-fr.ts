@@ -2313,6 +2313,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa à sec de carburant : quels risques pour les travailleurs frontaliers du Tessin',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa dépend de deux oléoducs pour son carburant Jet A-1. Une crise énergétique pourrait annuler des vols et frapper 40 000 travailleurs frontaliers.',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Aéroport de Malpensa de nuit : ravitaillement en carburant Jet A-1 pour vols civils entre l\'Italie et le Tessin',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'Nouveau potabilisateur mobile à Rivera : une solution d\'urgence pour 24 m³ d\'eau par heure',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'Le Tessin s’est doté d’un potabilisateur mobile capable de traiter jusqu’à 24 m³ d’eau par heure en cas de crise hydrique. Présenté aujourd’hui à Rivera lors de la rencontre de l’Association des Aqueducs Tessinois avec la Protection civile et l’UPAAI.',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Unité mobile de potabilisation en fonction à Rivera en cas d\'urgence',
 };
 
 export default blogMetaFr;

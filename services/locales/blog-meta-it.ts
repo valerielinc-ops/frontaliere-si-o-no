@@ -2313,6 +2313,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa senza carburante: cosa rischiano i frontalieri ticinesi',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa dipende da due oleodotti per il Jet A-1. Una crisi energetica potrebbe cancellare voli e colpire 40mila lavoratori transfrontalieri.',
     'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Aeroporto di Malpensa di notte: rifornimento carburante Jet A-1 per voli civili tra Italia e Ticino',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'Nuovo potabilizzatore mobile a Rivera: emergenza idrica pronta in 24 m³/ora',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'Il Ticino si dota di un potabilizzatore mobile da 24 m³/ora per crisi idriche. Presentato oggi a Rivera durante l\'incontro dell’Associazione Acquedotti Ticinesi con Protezione Civile e UPAAI.',
+    'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Potabilizzatore mobile in funzione a Rivera per emergenze idriche',
 };
 
 export default blogMetaIt;

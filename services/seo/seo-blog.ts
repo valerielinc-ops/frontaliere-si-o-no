@@ -9251,6 +9251,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-potabilizzatore-mobile-emergenza-ticino': {
+    title: 'Nuovo potabilizzatore mobile a Rivera | Frontaliere Ticino',
+    description: 'Il Ticino si dota di un potabilizzatore mobile da 24 m³/ora per emergenze idriche. Scopri come funziona, chi lo gestisce e cosa fare in caso di crisi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, potabilizzatore, mobile, rivera',
+    ogTitle: 'Nuovo potabilizzatore mobile in Ticino: emergenza idrica',
+    ogDescription: 'Il Cantone Ticino presenta un potabilizzatore mobile da 24 m³/ora per affrontare emergenze idriche. Scopri come funziona e cosa cambia per frontalieri e',
+    canonicalPath: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-emergenza-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo potabilizzatore mobile in Ticino: emergenza idrica con 24 m³/ora",
+      "description": "Il Ticino si dota di un potabilizzatore mobile da 24 m³/ora per emergenze idriche. Scopri come funziona, chi lo gestisce e cosa fare in caso di crisi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-potabilizzatore-mobile-emergenza-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Potabilizzatore mobile in funzione a Rivera per emergenze idriche"
+      },
+      "datePublished": "2026-04-18T17:24:03+00:00",
+      "dateModified": "2026-04-18T17:24:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-potabilizzatore-mobile-emergenza-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
