@@ -1300,7 +1300,7 @@
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
         "en": "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano",
-        "de": "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
+        "de": "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
         "fr": "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -1325,7 +1325,7 @@
       "previousSlugsByLocale": {
         "de": [
           "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
+          "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano"
         ],
         "fr": [
           "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
@@ -1336,7 +1336,7 @@
       },
       "previousSlugs": [
         "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
+        "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
         "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
         "commercial-apprentice-afc-bank-efg-international-ag-lugano"
       ],
@@ -2950,7 +2950,7 @@
     },
     {
       "id": "efg-6075",
-      "slug": "rischio-di-credito-intern-efg-international-ag-luxembourg",
+      "slug": "tirocinante-credit-risk-efg-international-ag-luxembourg",
       "company": "EFG International AG",
       "title": "Intern Credit Risk",
       "location": "Luxembourg",
@@ -3035,7 +3035,7 @@
       },
       "crawledAt": "2026-04-17T21:26:44.312Z",
       "slugByLocale": {
-        "it": "rischio-di-credito-intern-efg-international-ag-luxembourg",
+        "it": "tirocinante-credit-risk-efg-international-ag-luxembourg",
         "en": "intern-credit-risk-efg-luxembourg",
         "de": "praktikant-credit-risk-efg-international-ag-luxembourg",
         "fr": "stagiaire-credit-risk-efg-international-ag-luxembourg"
@@ -3062,7 +3062,8 @@
       "firstSeenAt": "2026-04-17T21:26:44.312Z",
       "previousSlugsByLocale": {
         "it": [
-          "intern-credit-risk-efg-luxembourg"
+          "intern-credit-risk-efg-luxembourg",
+          "rischio-di-credito-intern-efg-international-ag-luxembourg"
         ],
         "de": [
           "intern-credit-risk-efg-luxembourg"
@@ -3072,7 +3073,8 @@
         ]
       },
       "previousSlugs": [
-        "intern-credit-risk-efg-luxembourg"
+        "intern-credit-risk-efg-luxembourg",
+        "rischio-di-credito-intern-efg-international-ag-luxembourg"
       ]
     },
     {

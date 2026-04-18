@@ -984,7 +984,7 @@
         "it": "servizio-bar-staff-in-weisse-arena-gruppe-laax",
         "en": "bar-service-staff-in-weisse-arena-gruppe-laax",
         "de": "bar-service-mitarbeiter-in-weisse-arena-ch",
-        "fr": "services-du-barreau-personnel-in-weisse-arena-gruppe-laax"
+        "fr": "bar-service-collaborateur-trice-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1030,7 +1030,8 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "bar-service-mitarbeiter-in-weisse-arena-ch",
-        "bar-service-collaboratore-trice-weisse-arena-gruppe-laax"
+        "bar-service-collaboratore-trice-weisse-arena-gruppe-laax",
+        "services-du-barreau-personnel-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1038,7 +1039,8 @@
           "bar-service-collaboratore-trice-weisse-arena-gruppe-laax"
         ],
         "fr": [
-          "bar-service-mitarbeiter-in-weisse-arena-ch"
+          "bar-service-mitarbeiter-in-weisse-arena-ch",
+          "services-du-barreau-personnel-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "bar-service-mitarbeiter-in-weisse-arena-ch"
