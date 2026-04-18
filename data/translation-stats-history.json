@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-09T18:34:01.640Z",
-    "label": "before",
-    "total": 1644,
-    "needsRetranslation": 65,
-    "incomplete": 7,
-    "complete": 1637,
-    "missingByLocale": {
-      "it": 6,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel-Erzeugung GmbH",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-09T18:34:58.081Z",
-    "label": "after",
-    "total": 1644,
-    "needsRetranslation": 60,
-    "incomplete": 7,
-    "complete": 1637,
-    "missingByLocale": {
-      "it": 6,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel-Erzeugung GmbH",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-09T19:29:03.409Z",
     "label": "before",
     "total": 1644,
@@ -7667,6 +7611,98 @@
       {
         "company": "EFG International AG",
         "pending": 22
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-18T10:24:44.638Z",
+    "label": "before",
+    "total": 2940,
+    "needsRetranslation": 1218,
+    "incomplete": 86,
+    "complete": 2854,
+    "missingByLocale": {
+      "it": 30,
+      "en": 59,
+      "de": 72,
+      "fr": 80
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 47
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 1
+      },
+      {
+        "company": "Lonza",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-18T11:30:05.171Z",
+    "label": "after",
+    "total": 2940,
+    "needsRetranslation": 90,
+    "incomplete": 24,
+    "complete": 2916,
+    "missingByLocale": {
+      "it": 20,
+      "en": 3,
+      "de": 22,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 1
       },
       {
         "company": "Spital Davos",

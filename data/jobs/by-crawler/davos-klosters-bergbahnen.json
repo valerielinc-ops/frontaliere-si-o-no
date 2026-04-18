@@ -45,7 +45,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-04-18T09:15:46.925Z",
       "firstSeenAt": "2026-04-17T09:45:37.650Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -418,7 +417,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-04-18T09:15:45.617Z",
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -491,7 +489,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -603,7 +600,7 @@
       "descriptionByLocale": {
         "it": "Mansioni - Allrounder 100% ## Il Ristorante Il ristorante Jatzmeder si trova a un'altitudine di 2'054 metri sul livello del mare in una splendida zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, inclusa una grande terrazza soleggiata. La vita.",
         "en": "Mansioni - Allrounder 100% ## Il Ristorante Il ristorante Jatzmeder si trova a un'altitudine di 2'054 metri sul livello del mare in una bellissima zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, inclusa una grande terrazza soleggiata. prairie.",
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne- Superior Hotel. Für die kommende Sommersaison 2026 suchen wir für das Bergrestaurant Jatzmeder eine Person als: Allrounder 100% Das Restaurant Das Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterrasse. Deine Aufgaben Korrektes Sortieren von schmutzigem Geschirr, Besteck, Gläsern und Küchenutensilien Ordnungsgemässes Bedienen und Bestücken der Spülmaschine Durchführung täglicher Reinigungs- und Aufräumarbeiten Allgemeine Reinigungsarbeiten im Bergrestaurant und Berghostel Unterstützung des Küchenteams in der kalten Küche Dein Profil Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und flexibel Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen mitzuhelfen Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind für dich in Ordnung Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und Sprache und verstehst Dialekt Wir bieten Aufgestelltes Team mit flexiblem und positivem Arbeitsklima Vorwiegend geregelte Arbeitszeiten mit Tagdiensten Saisonkarte der Davos Klosters Bergbahnen Vermittlung von Personalwohnungen- oder zimmern Fitnessraum zu Spezialkonditionen Attraktive Benefits für interne Angebote und Leistungen Bei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "de": "## Mansioni\n\n- Allrounder 100%\n\n## Il Ristorante\n\nIl ristorante Jatzmeder si trova a un'altitudine di 2'054 metri sul livello del mare in una bellissima zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, inclusa una grande terrazza soleggiata.\n\n## Compiti\n\n- Ordinare correttamente il piatto sporco, posate, bicchieri e utensili da cucina\n- Servire e caricare la lavastoviglie in modo ordinato\n- Eseguire le pulizie e il riordino quotidiane\n- Eseguire i lavori di pulizia generali nel ristorante di montagna e nell'hotel ghost\n- Sostenere il team di cucina nella cucina fredda\n\n## Profilo\n\n- Capacità di apprendimento rapido, lavoro autonomo, affidabile e flessibile\n- Lavoro di squadra: lavora volentieri in squadra e pronto a collaborare in altri settori\n- Impiego: mantiene la calma in situazioni caotiche, disponibile per il lavoro nei fine settimana\n- Lingue: buone conoscenze della lingua tedesca e inglese, sia in scrittura che in parlato, comprensione del dialetto\n\n## Cosa Offriamo\n\n- Squadra motivata con un'atmosfera di lavoro flessibile e positiva\n- Orari di lavoro prevalentemente regolari con turni diurni\n- Carta stagionale delle Davos Klosters Bergbahnen\n- Possibilità di alloggio o camera in affitto\n- Palestra a condizioni speciali\n- Benefici attraenti per le offerte e i servizi interni\n\n## Contatto\n\nInviaci la tua candidatura se interessato.",
         "fr": "Mansioni - Allrounder 100% ## Il Ristorante Il ristoante Jatzmeder si trova a un'altitudine di 2'054 metri sul liverllo del mare in una bellissima zona sciistica e escursionistica. Il ristorante ha 600 posti a sedere, y compris una grande terrazza soleggiata. Prairies."
       },
       "requirements": [],
@@ -650,7 +647,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270"
+      "postalCode": "7270",
+      "retranslationAttempts": 1
     }
   ]
 }
