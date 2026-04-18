@@ -6424,4 +6424,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/confindustria-varese-paciaroni-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'finanza-ticino-si-reinventa-economia-dati',
+ category: 'novita',
+ date: '2026-04-18T22:49:30.493Z',
+ image: '/images/blog/finanza-ticino-si-reinventa-economia-dati.jpg',
+ hasCalculator: true,
+ },
 ];

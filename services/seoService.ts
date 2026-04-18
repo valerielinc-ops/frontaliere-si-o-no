@@ -2032,6 +2032,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fashion-outlet-landquart-15-nuovi-negozi-expansion': { name: 'Fashion Outlet Landquart', path: '/articoli-frontaliere/fashion-outlet-landquart-15-nuovi-negozi-expansion', parent: 'blog' },
     'blog-salario-minimo-25-chf-ticino': { name: 'Salario Minimo', path: '/articoli-frontaliere/salario-minimo-25-chf-ticino', parent: 'blog' },
     'blog-confindustria-varese-paciaroni-2026': { name: 'Confindustria Varese', path: '/articoli-frontaliere/confindustria-varese-paciaroni-2026', parent: 'blog' },
+    'blog-finanza-ticino-si-reinventa-economia-dati': { name: 'Finanza ticinese si reinventa', path: '/articoli-frontaliere/finanza-ticino-si-reinventa-economia-dati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

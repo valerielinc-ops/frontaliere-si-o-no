@@ -2331,6 +2331,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varese: Paciaroni reappointed to lead Infrastructure, Transport and Tourism',
     'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) oversaw 78 companies and 9,532 employees in the strategic group. Focus on logistics, automation and AI by 2026.',
     'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Malpensa Airport with Swiss and Italian flags, symbolizing Ticino and Lombardia logistics connections',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'Ticino’s finance sector reinvents itself: the economy goes digital',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Intangible assets now outweigh physical ones. Bank credit is giving way to equity and innovative financial instruments. The implications for cross-border workers and businesses in the canton.',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Modern office in Lugano with a Swiss-Italian cross-border worker reviewing finance documents on a laptop, city skyline and Monte Brè in the background',
 };
 
 export default blogMetaEn;

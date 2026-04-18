@@ -9425,6 +9425,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanza-ticino-si-reinventa-economia-dati': {
+    title: 'Finanza ticinese si reinventa | Frontaliere Ticino',
+    description: 'Gli asset immateriali superano quelli fisici. Il credito bancario perde terreno a favore del capitale proprio e di nuovi strumenti finanziari. Le implicazioni p',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanza, ticinese, reinventa, economia',
+    ogTitle: 'Finanza ticinese si reinventa: l’economia va in digitale',
+    ogDescription: 'Gli asset immateriali superano quelli fisici. Il credito bancario perde terreno a favore del capitale proprio e di nuovi strumenti finanziari. Le implicazioni p',
+    canonicalPath: '/articoli-frontaliere/finanza-ticino-si-reinventa-economia-dati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanza ticinese si reinventa: l’economia va in digitale",
+      "description": "Gli asset immateriali superano quelli fisici. Il credito bancario perde terreno a favore del capitale proprio e di nuovi strumenti finanziari. Le implicazioni p",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/finanza-ticino-si-reinventa-economia-dati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno a Lugano con un frontaliero che analizza documenti finanziari su laptop, skyline della città e Monte Brè sullo sfondo"
+      },
+      "datePublished": "2026-04-18T22:49:30+00:00",
+      "dateModified": "2026-04-18T22:49:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/finanza-ticino-si-reinventa-economia-dati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

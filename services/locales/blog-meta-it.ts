@@ -2331,6 +2331,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varese: Paciaroni riconfermato alla guida di Infrastrutture, Trasporti e Turismo',
     'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) guidò 78 imprese e 9.532 addetti nel Gruppo strategico. Focus su logistica, automazione e AI nel 2026.',
     'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Aeroporto di Malpensa con bandiere svizzere e italiane, simbolo delle connessioni logistiche tra Ticino e Lombardia',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'Finanza ticinese si reinventa: l’economia va in digitale',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Gli asset immateriali superano quelli fisici. Il credito bancario perde terreno a favore del capitale proprio e di nuovi strumenti finanziari. Le implicazioni per frontalieri e imprese del Cantone.',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Ufficio moderno a Lugano con un frontaliero che analizza documenti finanziari su laptop, skyline della città e Monte Brè sullo sfondo',
 };
 
 export default blogMetaIt;

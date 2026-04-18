@@ -2331,6 +2331,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varèse : Paciaroni reconduit à la tête d\'Infrastructures, Transports et Tourisme',
     'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) a dirigé 78 entreprises et 9 532 salariés au sein du Groupe stratégique. En 2026, l’accent sera mis sur la logistique, l’automatisation et l’IA.',
     'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Aéroport de Malpensa avec drapeaux suisse et italien, symbole des connexions logistiques entre le Tessin et la Lombardie',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'La finance tessinoise se réinvente : l’économie bascule dans le numérique',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Les actifs immatériels surpassent désormais les actifs physiques. Le crédit bancaire recule au profit des fonds propres et de nouveaux instruments financiers. Quelles conséquences pour les frontaliers et les entreprises du canton ?',
+    'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Bureau moderne à Lugano avec un frontalier analysant des documents financiers sur un ordinateur portable, silhouette de la ville et Monte Brè en arrière-plan',
 };
 
 export default blogMetaFr;
