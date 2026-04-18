@@ -2274,6 +2274,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziative-casse-malati-61-milioni-ticino.title': 'Casse malati Ticino: 61 milioni in meno per Lugano e Bellinzona',
     'blog.article.iniziative-casse-malati-61-milioni-ticino.excerpt': 'Le due iniziative cantonali costano 61,4 milioni ai comuni ticinesi. Lugano rischia 11-12 milioni in meno con l’abolizione del valore locativo.',
     'blog.article.iniziative-casse-malati-61-milioni-ticino.imageAlt': 'Piazza della Riforma a Lugano con il municipio in fondo, alberi e persone in passeggio',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.title': 'Allentamenti affitti brevi in Ticino: cosa cambia per frontalieri e settore',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.excerpt': 'HotellerieSuisse Ticino valuta positivo il 2025 ma lancia l\'allarme su regole più flessibili per affitti brevi tramite piattaforme online. Analisi dei rischi per mercato immobiliare',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.imageAlt': 'Uffici moderni a Lugano con vista sul Lago di Lugano, simbolo del settore alberghiero ticinese',
 };
 
 export default blogMetaIt;

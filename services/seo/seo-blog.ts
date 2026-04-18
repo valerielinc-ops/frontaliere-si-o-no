@@ -8874,6 +8874,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-allentamenti-affitti-brevi-ticino-2025': {
+    title: 'Allentamenti affitti brevi in Ticino | Frontaliere Ticino',
+    description: 'HotellerieSuisse Ticino valuta positivo il 2025 ma lancia l\'allarme su regole più flessibili per affitti brevi tramite piattaforme online. Analisi dei rischi pe',
+    keywords: 'frontalieri, ticino, svizzera, italia, allentamenti, affitti, brevi, cosa',
+    ogTitle: 'Allentamenti affitti brevi in Ticino: cosa cambia per fro',
+    ogDescription: 'HotellerieSuisse Ticino valuta positivo il 2025 ma lancia l\'allarme su regole più flessibili per affitti brevi tramite piattaforme online. Analisi dei rischi pe',
+    canonicalPath: '/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allentamenti affitti brevi in Ticino: cosa cambia per fro",
+      "description": "HotellerieSuisse Ticino valuta positivo il 2025 ma lancia l'allarme su regole più flessibili per affitti brevi tramite piattaforme online. Analisi dei rischi pe",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/allentamenti-affitti-brevi-ticino-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici moderni a Lugano con vista sul Lago di Lugano, simbolo del settore alberghiero ticinese"
+      },
+      "datePublished": "2026-04-17T23:53:27+00:00",
+      "dateModified": "2026-04-17T23:53:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

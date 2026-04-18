@@ -6291,4 +6291,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/iniziative-casse-malati-61-milioni-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'allentamenti-affitti-brevi-ticino-2025',
+ category: 'novita',
+ date: '2026-04-17T23:53:27.435Z',
+ image: '/images/blog/allentamenti-affitti-brevi-ticino-2025.jpg',
+ hasCalculator: true,
+ },
 ];

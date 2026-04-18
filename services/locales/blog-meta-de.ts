@@ -2274,6 +2274,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziative-casse-malati-61-milioni-ticino.title': 'Krankenkassen Tessin: 61 Millionen Franken weniger für Lugano und Bellinzona',
     'blog.article.iniziative-casse-malati-61-milioni-ticino.excerpt': 'Die beiden kantonalen Vorlagen kosten die Tessiner Gemeinden 61,4 Millionen Franken. Lugano drohen durch die Abschaffung des Mietwerts Einbußen von 11 bis 12 Millionen Franken.',
     'blog.article.iniziative-casse-malati-61-milioni-ticino.imageAlt': 'Piazza della Riforma in Lugano mit dem Rathaus im Hintergrund, Bäumen und Spaziergängern',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.title': 'Lockerungen bei Kurzzeitmieten im Tessin: Was sich für Grenzgänger und die Branche ändert',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.excerpt': 'HotellerieSuisse Ticino bewertet das Jahr 2025 positiv, warnt jedoch vor flexibleren Regeln für Kurzzeitmieten über Online-Plattformen. Analyse der Risiken für den Immobilienmarkt',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.imageAlt': 'Moderne Büros in Lugano mit Blick auf den Luganersee, Symbol für den Tessiner Gastgewerbesektor',
 };
 
 export default blogMetaDe;

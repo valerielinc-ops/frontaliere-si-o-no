@@ -2274,6 +2274,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziative-casse-malati-61-milioni-ticino.title': 'Ticino health insurance funds: 61 million francs less for Lugano and Bellinzona',
     'blog.article.iniziative-casse-malati-61-milioni-ticino.excerpt': 'The two cantonal initiatives will cost Ticino’s municipalities 61.4 million francs. Lugano faces a shortfall of 11-12 million francs if the abolition of imputed rental value comes into effect.',
     'blog.article.iniziative-casse-malati-61-milioni-ticino.imageAlt': 'Piazza della Riforma in Lugano with the town hall in the background, trees and pedestrians',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.title': 'Relaxation of short-term rentals in Ticino: what changes for cross-border workers and the sector',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.excerpt': 'HotellerieSuisse Ticino views 2025 positively but warns about the need for more flexible rules for short-term rentals through online platforms. Analysis of risks for the real estate market',
+    'blog.article.allentamenti-affitti-brevi-ticino-2025.imageAlt': 'Modern offices in Lugano with a view of Lake Lugano, symbolizing Ticino\'s hospitality sector',
 };
 
 export default blogMetaEn;
