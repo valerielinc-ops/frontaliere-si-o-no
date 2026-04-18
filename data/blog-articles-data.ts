@@ -6354,4 +6354,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/svizzera-usa-nuovi-negoziati-commerciali-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aumento-kerosene-voli-cancellati-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-04-18T13:39:29.414Z',
+ image: '/images/blog/aumento-kerosene-voli-cancellati-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

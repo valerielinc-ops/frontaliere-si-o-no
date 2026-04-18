@@ -9135,6 +9135,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-kerosene-voli-cancellati-frontalieri-ticino': {
+    title: 'Voli cancellati a causa del kerosene | Frontaliere Ticino',
+    description: 'Lufthansa, KLM ed Edelweiss riducono rotte e flotte per l’aumento del 100% del kerosene. Swiss conferma rete, ma rischio penuria in Europa. Consigli per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, voli, cancellati, causa, kerosene',
+    ogTitle: 'Tagli voli aerei: cosa cambia per i frontalieri Ticino',
+    ogDescription: 'Scopri quali compagnie tagliano rotte e come affrontare i cambiamenti per i viaggi in Europa e Usa. Consigli pratici per i frontalieri ticinesi.',
+    canonicalPath: '/articoli-frontaliere/aumento-kerosene-voli-cancellati-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voli cancellati a causa del prezzo del kerosene: impatto diretto sui frontalieri ticinesi",
+      "description": "Lufthansa, KLM ed Edelweiss riducono rotte e flotte per l’aumento del 100% del kerosene. Swiss conferma rete, ma rischio penuria in Europa. Consigli per i",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-kerosene-voli-cancellati-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del lago di Lugano con barche e montagne sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-04-18T13:39:29+00:00",
+      "dateModified": "2026-04-18T13:39:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-kerosene-voli-cancellati-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

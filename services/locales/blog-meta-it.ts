@@ -2301,6 +2301,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.title': 'Svizzera-USA: Parmelin avvia nuova fase negoziale commerciale',
     'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.excerpt': 'Il presidente della Confederazione Guy Parmelin incontra a Washington il rappresentante USA per il commercio Jamieson Greer. Obiettivo: definire un quadro chiaro per un futuro accordo commerciale. Le trattative si concentrano su pratiche commerciali e dazi.',
     'blog.article.svizzera-usa-nuovi-negoziati-commerciali-2026.imageAlt': 'Incontro istituzionale tra rappresentanti svizzeri e statunitensi a Washington DC con bandiere nazionali sullo sfondo',
+    'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.title': 'Voli cancellati a causa del kerosene: cosa cambia per i frontalieri ticinesi',
+    'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.excerpt': 'Lufthansa, KLM ed Edelweiss tagliano rotte e flotte a causa dell\'aumento del 100% del prezzo del carburante. Swiss conferma la rete attuale, ma le tensioni nel Medio Oriente minacciano forniture.',
+    'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.imageAlt': 'Veduta aerea del lago di Lugano con barche e montagne sullo sfondo al tramonto',
 };
 
 export default blogMetaIt;
