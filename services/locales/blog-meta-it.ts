@@ -2292,6 +2292,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio: sussidi cassa malati in ritardo, cittadini in difficoltà',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio: ritardi inaccettabili nell\'erogazione dei sussidi per i premi cassa malati, secondo l\'interrogazione del consigliere Robbiani. Cittadini senza risposta da mesi, premi assicurativi in aumento.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Uffici comunali di Mendrisio con cittadini in coda per sussidi cassa malati',
+    'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Varese economia in crescita: cosa cambia per i frontalieri ticinesi nel 2026',
+    'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'La provincia di Varese registra +3,2% di export nel 2024, ma giovani e transizione verde restano gli ostacoli principali. Analisi per i 68mila frontalieri ticinesi.',
+    'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzona di notte con le tre fortezze illuminate e il fiume Ticino',
 };
 
 export default blogMetaIt;

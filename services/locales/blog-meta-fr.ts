@@ -2292,6 +2292,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio : retards inacceptables dans le versement des subventions pour les primes d\'assurance maladie, des citoyens en difficulté',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio : retards inacceptables dans l\'octroi des subventions destinées aux primes d\'assurance maladie, selon l\'interpellation du conseiller Robbiani. Des citoyens sans réponse depuis des mois, des primes d\'assurance en hausse.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Bureaux communaux de Mendrisio avec des citoyens en file pour les subventions d\'assurance maladie',
+    'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Économie de Varèse en croissance : ce qui va changer pour les frontaliers tessinois en 2026',
+    'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'La province de Varèse enregistre une hausse de 3,2 % de ses exportations en 2024, mais l’emploi des jeunes et la transition verte restent les principaux défis. Analyse pour les 68 000 frontaliers tessinois.',
+    'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzone de nuit avec les trois châteaux illuminés et le fleuve Ticino',
 };
 
 export default blogMetaFr;

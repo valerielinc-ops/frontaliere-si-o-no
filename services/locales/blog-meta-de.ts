@@ -2292,6 +2292,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio: Verzögerungen bei den Krankenkassenzuschüssen – Bürger in Not',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio: Inakzeptable Verzögerungen bei der Auszahlung der Zuschüsse für die Krankenkassenprämien, wie der Ratsherr Robbiani in einer Interpellation rügt. Bürger erhalten seit Monaten keine Antwort, während die Versicherungsprämien steigen.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Gemeindeverwaltung Mendrisio mit Bürgern, die auf Gesundheitsversicherungssubventionen warten',
+    'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Varese: Wirtschaft im Aufschwung – was sich 2026 für die Tessiner Grenzgänger ändert',
+    'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'Die Provinz Varese verzeichnete 2024 ein Exportplus von 3,2 %, doch junge Arbeitskräfte und die grüne Transformation bleiben die größten Hürden. Analyse für die 68.000 Tessiner Grenzgänger.',
+    'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzona bei Nacht mit den drei beleuchteten Burgen und dem Fluss Ticino',
 };
 
 export default blogMetaDe;

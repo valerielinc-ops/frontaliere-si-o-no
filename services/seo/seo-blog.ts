@@ -9048,6 +9048,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-economia-frontalieri-ticino-2026': {
+    title: 'Varese economia in crescita: cosa | Frontaliere Ticino',
+    description: 'La provincia di Varese registra +3,2% di export nel 2024, ma giovani e transizione verde restano gli ostacoli principali. Analisi per i 68mila frontalieri ticin',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, economia, crescita, cosa',
+    ogTitle: 'Varese economia in crescita: cosa cambia per i frontalier',
+    ogDescription: 'La provincia di Varese registra +3,2% di export nel 2024, ma giovani e transizione verde restano gli ostacoli principali. Analisi per i 68mila frontalieri ticin',
+    canonicalPath: '/articoli-frontaliere/varese-economia-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese economia in crescita: cosa cambia per i frontalier",
+      "description": "La provincia di Varese registra +3,2% di export nel 2024, ma giovani e transizione verde restano gli ostacoli principali. Analisi per i 68mila frontalieri ticin",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-economia-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona di notte con le tre fortezze illuminate e il fiume Ticino"
+      },
+      "datePublished": "2026-04-18T10:11:13+00:00",
+      "dateModified": "2026-04-18T10:11:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-economia-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

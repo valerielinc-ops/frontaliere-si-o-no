@@ -2292,6 +2292,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio: delays in health insurance subsidies leave residents struggling',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio: unacceptable delays in the disbursement of health insurance premium subsidies, according to a question raised by councillor Robbiani. Residents have been left without answers for months, with insurance premiums on the rise.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Municipal offices of Mendrisio with citizens queuing for health insurance subsidies',
+    'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Varese’s economy is growing: what changes for Ticino cross-border workers by 2026',
+    'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'The province of Varese recorded a +3.2% increase in exports in 2024, but youth employment and the green transition remain the main obstacles. Analysis for the 68,000 Ticino cross-border workers.',
+    'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzona at night with the three illuminated castles and the Ticino river',
 };
 
 export default blogMetaEn;

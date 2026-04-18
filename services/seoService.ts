@@ -2019,6 +2019,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-swiss-market-index-vedi-breve-rimbalzo': { name: 'Swiss Market Index in territorio positiv', path: '/articoli-frontaliere/swiss-market-index-vedi-breve-rimbalzo', parent: 'blog' },
     'blog-sussidi-cassa-malati-mendrisio-rallentamenti': { name: 'Sussidi cassa malati a Mendrisio', path: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-rallentamenti', parent: 'blog' },
     'blog-sussidi-cassa-malati-mendrisio-ritardi': { name: 'Mendrisio', path: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi', parent: 'blog' },
+    'blog-varese-economia-frontalieri-ticino-2026': { name: 'Varese economia in crescita', path: '/articoli-frontaliere/varese-economia-frontalieri-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

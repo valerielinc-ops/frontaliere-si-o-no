@@ -6333,4 +6333,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/sussidi-cassa-malati-mendrisio-ritardi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-economia-frontalieri-ticino-2026',
+ category: 'novita',
+ date: '2026-04-18T10:11:13.457Z',
+ image: '/images/blog/varese-economia-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];
