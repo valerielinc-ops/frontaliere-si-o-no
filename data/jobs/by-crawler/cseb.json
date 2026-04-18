@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-04-17T21:21:52.442Z",
+  "assembledAt": "2026-04-18T09:15:12.221Z",
   "jobs": [
     {
       "id": "cseb-2cd0a531b721",
@@ -33,7 +33,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1e70844e-12af-e07a-ee28-a4c8cb3a2af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.104Z",
+      "crawledAt": "2026-04-18T09:15:10.155Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -85,6 +85,7 @@
         "mitarbeiter-in-romisch-irisches-bad-40-60-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.998Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/896bdfd5-dd52-ab4e-e9fb-b16d160fcca7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.104Z",
+      "crawledAt": "2026-04-18T09:15:10.154Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -193,6 +194,7 @@
         "dipl-pflegefachfrau-mann-hf-mit-fahigkeitsausweis-in-operationspflege-80-100-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.997Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -237,7 +239,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.103Z",
+      "crawledAt": "2026-04-18T09:15:10.154Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -285,6 +287,7 @@
         "leitende-arztin-leitender-arzt-gynakologie-und-geburtshilfe-25-50-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.997Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -329,7 +332,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.103Z",
+      "crawledAt": "2026-04-18T09:15:10.153Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -375,6 +378,7 @@
         "unterassistenten-innen-pj-jahr-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.996Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -419,7 +423,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.102Z",
+      "crawledAt": "2026-04-18T09:15:10.153Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -472,6 +476,7 @@
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.996Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -481,6 +486,112 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cseb-9ed058f71022",
+      "slug": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
+      "slugByLocale": {
+        "it": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol",
+        "de": "lehrstelle-als-kauffrau-kaufmann-efz-center-da-sanadad-engiadina-bassa-scuol",
+        "fr": "apprentissage-en-commerce-cfc-center-da-sanadad-engiadina-bassa-scuol"
+      },
+      "company": "Center da Sanadad Engiadina Bassa",
+      "companyKey": "cseb",
+      "companyDomain": "cseb.ch",
+      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come impiegata / impiegato di commercio CFP",
+        "en": "Apprenticeship as Commercial Employee EFZ",
+        "de": "Lehrstelle als Kauffrau / Kaufmann EFZ",
+        "fr": "Apprentissage en commerce CFC"
+      },
+      "description": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine | Aufgaben: Ausbildung und Dauer Während der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen. Die Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt. | Anforderungen: Dein Profil Du verfügst über einen Sekundar- oder Realschulabschluss Du bist einsatz- und kontaktfreudig Du arbeitest gerne im Team Du schätzt flexible Arbeitszeiten | Wir bieten: Unser Angebot Interessantes und abwechslungsreiches Aufgabengebiet Ein attraktives, motiviertes Arbeitsumfeld Moderne Infrastruktur Gutes Arbeitsklima | Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. ​​​​​​​ | Für weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
+      "descriptionByLocale": {
+        "it": "Descrizione Offriamo nel settore dell'amministrazione a partire dal 1° agosto 2027 una ## Compiti - Formazione e durata - Durante il periodo di formazione lavorerai in diversi reparti del \"Center da sandà Engiadina Bassa\", ad esempio amministrazione Chasa Puntota, reception Ospidal, servizio del personale, finanze - La formazione ha una durata di tre anni - Dopo il superamento dell'esame finale di tirocinio viene rilasciato il certificato federale di capacità \"impiegata/impiegato di commercio CFP\" ## Requisiti - Il tuo profilo - Possiedi un diploma della scuola secondaria inferiore o della scuola real - Sei disponibile e socievole - Ti piace lavorare in team - Apprezzi orari di lavoro flessibili ## Offerta - La nostra offerta - Un campo d'attività interessante e vario - Un ambiente di lavoro motivante e attraente - Infrastrutture moderne - Un buon clima lavorativo ## Chi siamo Sotto l'egida di «Center da sandà Engiadina Bassa» (CSEB) / «Centro salute Unterengadina» importanti fornitori regionali nei settori dell'assistenza sanitaria e del benessere percorrono insieme un cammino comune. Nella regione del Parco Nazionale ti aspetta un ambiente meraviglioso con numerose possibilità di svago e sport. ## Contatto Per ulteriori informazioni si mette a tua disposizione volentieri il signor Gerhard Hauser, responsabile della formazione KV, telefono 081 861 10 09. Ti abbiamo suscitato interesse? Saremo lieti di ricevere la tua candidatura online o per iscritto a:",
+        "en": "Description We offer in the administrative department starting 1 August 2027 a ## Tasks - Training and duration - During your apprenticeship, you will work in various departments of the \"Center da sandà Engiadina Bassa\", such as Administration Chasa Puntota, Ospidal Reception, Human Resources, Finance - The apprenticeship lasts three years - Upon successful completion of the final examination, the Federal Certificate of Proficiency \"Commercial Employee EFZ\" is awarded ## Requirements - Your profile - You have a lower secondary or upper secondary school diploma - You are motivated and enjoy contact with people - You enjoy working in a team - You appreciate flexible working hours ## We offer - Our offer - An interesting and varied range of responsibilities - An attractive and motivated working environment - Modern infrastructure - A positive working atmosphere ## About us Under the umbrella of «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin», key regional providers in healthcare and wellness are joining forces. In the National Park region, you will find a wonderful environment with diverse recreational and sports opportunities. ## Contact For further information, please do not hesitate to contact Mr Gerhard Hauser, Head of Commercial Apprenticeships, by phone at 081 861 10 09. Have we sparked your interest? We look forward to receiving your online or written application at:",
+        "de": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine | Aufgaben: Ausbildung und Dauer Während der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen. Die Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt. | Anforderungen: Dein Profil Du verfügst über einen Sekundar- oder Realschulabschluss Du bist einsatz- und kontaktfreudig Du arbeitest gerne im Team Du schätzt flexible Arbeitszeiten | Wir bieten: Unser Angebot Interessantes und abwechslungsreiches Aufgabengebiet Ein attraktives, motiviertes Arbeitsumfeld Moderne Infrastruktur Gutes Arbeitsklima | Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. ​​​​​​​ | Für weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
+        "fr": "Description Nous proposons dans le domaine administratif à partir du 1er août 2027 un ## Tâches - Formation et durée - Pendant la période de formation, vous travaillerez dans différents départements du «Center da sandà Engiadina Bassa», par exemple l'administration de la Chasa Puntota, l'accueil de l'Ospidal, le service du personnel, les finances - La formation dure trois ans - Après la réussite de l'examen de fin d'apprentissage, le certificat fédéral de capacité «employé/e de commerce CFC» est délivré ## Exigences - Votre profil - Vous possédez un diplôme d'école secondaire I ou d'école de maturité - Vous êtes motivé/e et aimez le contact humain - Vous aimez travailler en équipe - Vous appréciez des horaires de travail flexibles ## Nous offrons - Notre offre - Un domaine d'activité intéressant et varié - Un environnement de travail attractif et motivant - Une infrastructure moderne - Un bon climat de travail ## À propos de nous Sous l'égide du «Center da sandà Engiadina Bassa» (CSEB) / «Zentrum für Gesundheit Unterengadin», d'importants prestataires régionaux dans les domaines de la santé et du bien-être s'engagent ensemble. Dans la région du Parc national, vous trouverez un cadre magnifique offrant de nombreuses possibilités de loisirs et de sport. ## Contact Pour de plus amples informations, veuillez contacter M. Gerhard Hauser, responsable de la formation en commerce, au 081 861 10 09. Notre offre vous intéresse ? Nous nous réjouissons de recevoir votre candidature en ligne ou par écrit à l'adresse suivante :"
+      },
+      "location": "Scuol",
+      "canton": "GR",
+      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
+      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-18T09:15:10.152Z",
+      "addressLocality": "Scuol",
+      "postalCode": "7550",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-12",
+      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Possiedi un diploma della scuola secondaria inferiore o della scuola real",
+          "Sei disponibile e socievole",
+          "Ti piace lavorare in team",
+          "Apprezzi orari di lavoro flessibili",
+          "Formazione in diversi reparti del Center da sandà Engiadina Bassa",
+          "Durata della formazione: tre anni",
+          "Rilascio del certificato federale di capacità dopo l'esame finale",
+          "Ambiente di lavoro moderno e motivante"
+        ],
+        "en": [
+          "You have a lower secondary or upper secondary school diploma",
+          "You are motivated and enjoy contact with people",
+          "You enjoy working in a team",
+          "You appreciate flexible working hours",
+          "Training in various departments of Center da sandà Engiadina Bassa",
+          "Apprenticeship duration: three years",
+          "Federal Certificate of Proficiency awarded after final exam",
+          "Modern and motivated working environment"
+        ],
+        "fr": [
+          "Vous possédez un diplôme d'école secondaire I ou d'école de maturité",
+          "Vous êtes motivé/e et aimez le contact humain",
+          "Vous aimez travailler en équipe",
+          "Vous appréciez des horaires de travail flexibles",
+          "Formation dans différents départements du Center da sandà Engiadina Bassa",
+          "Durée de la formation : trois ans",
+          "Délivrance du certificat fédéral de capacité après l'examen final",
+          "Environnement de travail moderne et motivant"
+        ]
+      },
+      "streetAddress": "Via da l'Ospidal 280",
+      "contactPerson": "Corsina Feuerstein Betschart",
+      "previousSlugsByLocale": {
+        "de": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
+        ],
+        "it": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
+      ],
+      "firstSeenAt": "2026-04-13T10:23:37.995Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -516,7 +627,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.102Z",
+      "crawledAt": "2026-04-18T09:15:10.152Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -580,6 +691,7 @@
         "dipl-rettungssanitater-in-srk-hf-40-100-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.996Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -624,7 +736,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.101Z",
+      "crawledAt": "2026-04-18T09:15:10.151Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -673,111 +785,7 @@
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.995Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "cseb-9ed058f71022",
-      "slug": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
-      "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol",
-        "de": "lehrstelle-als-kauffrau-kaufmann-efz-center-da-sanadad-engiadina-bassa-scuol",
-        "fr": "apprentissage-en-commerce-cfc-center-da-sanadad-engiadina-bassa-scuol"
-      },
-      "company": "Center da Sanadad Engiadina Bassa",
-      "companyKey": "cseb",
-      "companyDomain": "cseb.ch",
-      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come impiegata / impiegato di commercio CFP",
-        "en": "Apprenticeship as Commercial Employee EFZ",
-        "de": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-        "fr": "Apprentissage en commerce CFC"
-      },
-      "description": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine | Aufgaben: Ausbildung und Dauer Während der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen. Die Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt. | Anforderungen: Dein Profil Du verfügst über einen Sekundar- oder Realschulabschluss Du bist einsatz- und kontaktfreudig Du arbeitest gerne im Team Du schätzt flexible Arbeitszeiten | Wir bieten: Unser Angebot Interessantes und abwechslungsreiches Aufgabengebiet Ein attraktives, motiviertes Arbeitsumfeld Moderne Infrastruktur Gutes Arbeitsklima | Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. ​​​​​​​ | Für weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
-      "descriptionByLocale": {
-        "it": "Descrizione Offriamo nel settore dell'amministrazione a partire dal 1° agosto 2027 una ## Compiti - Formazione e durata - Durante il periodo di formazione lavorerai in diversi reparti del \"Center da sandà Engiadina Bassa\", ad esempio amministrazione Chasa Puntota, reception Ospidal, servizio del personale, finanze - La formazione ha una durata di tre anni - Dopo il superamento dell'esame finale di tirocinio viene rilasciato il certificato federale di capacità \"impiegata/impiegato di commercio CFP\" ## Requisiti - Il tuo profilo - Possiedi un diploma della scuola secondaria inferiore o della scuola real - Sei disponibile e socievole - Ti piace lavorare in team - Apprezzi orari di lavoro flessibili ## Offerta - La nostra offerta - Un campo d'attività interessante e vario - Un ambiente di lavoro motivante e attraente - Infrastrutture moderne - Un buon clima lavorativo ## Chi siamo Sotto l'egida di «Center da sandà Engiadina Bassa» (CSEB) / «Centro salute Unterengadina» importanti fornitori regionali nei settori dell'assistenza sanitaria e del benessere percorrono insieme un cammino comune. Nella regione del Parco Nazionale ti aspetta un ambiente meraviglioso con numerose possibilità di svago e sport. ## Contatto Per ulteriori informazioni si mette a tua disposizione volentieri il signor Gerhard Hauser, responsabile della formazione KV, telefono 081 861 10 09. Ti abbiamo suscitato interesse? Saremo lieti di ricevere la tua candidatura online o per iscritto a:",
-        "en": "Description We offer in the administrative department starting 1 August 2027 a ## Tasks - Training and duration - During your apprenticeship, you will work in various departments of the \"Center da sandà Engiadina Bassa\", such as Administration Chasa Puntota, Ospidal Reception, Human Resources, Finance - The apprenticeship lasts three years - Upon successful completion of the final examination, the Federal Certificate of Proficiency \"Commercial Employee EFZ\" is awarded ## Requirements - Your profile - You have a lower secondary or upper secondary school diploma - You are motivated and enjoy contact with people - You enjoy working in a team - You appreciate flexible working hours ## We offer - Our offer - An interesting and varied range of responsibilities - An attractive and motivated working environment - Modern infrastructure - A positive working atmosphere ## About us Under the umbrella of «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin», key regional providers in healthcare and wellness are joining forces. In the National Park region, you will find a wonderful environment with diverse recreational and sports opportunities. ## Contact For further information, please do not hesitate to contact Mr Gerhard Hauser, Head of Commercial Apprenticeships, by phone at 081 861 10 09. Have we sparked your interest? We look forward to receiving your online or written application at:",
-        "de": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine | Aufgaben: Ausbildung und Dauer Während der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen. Die Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt. | Anforderungen: Dein Profil Du verfügst über einen Sekundar- oder Realschulabschluss Du bist einsatz- und kontaktfreudig Du arbeitest gerne im Team Du schätzt flexible Arbeitszeiten | Wir bieten: Unser Angebot Interessantes und abwechslungsreiches Aufgabengebiet Ein attraktives, motiviertes Arbeitsumfeld Moderne Infrastruktur Gutes Arbeitsklima | Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. ​​​​​​​ | Für weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
-        "fr": "Description Nous proposons dans le domaine administratif à partir du 1er août 2027 un ## Tâches - Formation et durée - Pendant la période de formation, vous travaillerez dans différents départements du «Center da sandà Engiadina Bassa», par exemple l'administration de la Chasa Puntota, l'accueil de l'Ospidal, le service du personnel, les finances - La formation dure trois ans - Après la réussite de l'examen de fin d'apprentissage, le certificat fédéral de capacité «employé/e de commerce CFC» est délivré ## Exigences - Votre profil - Vous possédez un diplôme d'école secondaire I ou d'école de maturité - Vous êtes motivé/e et aimez le contact humain - Vous aimez travailler en équipe - Vous appréciez des horaires de travail flexibles ## Nous offrons - Notre offre - Un domaine d'activité intéressant et varié - Un environnement de travail attractif et motivant - Une infrastructure moderne - Un bon climat de travail ## À propos de nous Sous l'égide du «Center da sandà Engiadina Bassa» (CSEB) / «Zentrum für Gesundheit Unterengadin», d'importants prestataires régionaux dans les domaines de la santé et du bien-être s'engagent ensemble. Dans la région du Parc national, vous trouverez un cadre magnifique offrant de nombreuses possibilités de loisirs et de sport. ## Contact Pour de plus amples informations, veuillez contacter M. Gerhard Hauser, responsable de la formation en commerce, au 081 861 10 09. Notre offre vous intéresse ? Nous nous réjouissons de recevoir votre candidature en ligne ou par écrit à l'adresse suivante :"
-      },
-      "location": "Scuol",
-      "canton": "GR",
-      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
-      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.101Z",
-      "addressLocality": "Scuol",
-      "postalCode": "7550",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-12",
-      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Possiedi un diploma della scuola secondaria inferiore o della scuola real",
-          "Sei disponibile e socievole",
-          "Ti piace lavorare in team",
-          "Apprezzi orari di lavoro flessibili",
-          "Formazione in diversi reparti del Center da sandà Engiadina Bassa",
-          "Durata della formazione: tre anni",
-          "Rilascio del certificato federale di capacità dopo l'esame finale",
-          "Ambiente di lavoro moderno e motivante"
-        ],
-        "en": [
-          "You have a lower secondary or upper secondary school diploma",
-          "You are motivated and enjoy contact with people",
-          "You enjoy working in a team",
-          "You appreciate flexible working hours",
-          "Training in various departments of Center da sandà Engiadina Bassa",
-          "Apprenticeship duration: three years",
-          "Federal Certificate of Proficiency awarded after final exam",
-          "Modern and motivated working environment"
-        ],
-        "fr": [
-          "Vous possédez un diplôme d'école secondaire I ou d'école de maturité",
-          "Vous êtes motivé/e et aimez le contact humain",
-          "Vous aimez travailler en équipe",
-          "Vous appréciez des horaires de travail flexibles",
-          "Formation dans différents départements du Center da sandà Engiadina Bassa",
-          "Durée de la formation : trois ans",
-          "Délivrance du certificat fédéral de capacité après l'examen final",
-          "Environnement de travail moderne et motivant"
-        ]
-      },
-      "streetAddress": "Via da l'Ospidal 280",
-      "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
-        ],
-        "it": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:23:37.995Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -822,7 +830,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.100Z",
+      "crawledAt": "2026-04-18T09:15:10.150Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -871,6 +879,7 @@
         "assistenzarztinnen-assistenzarzte-70-100-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.994Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -915,7 +924,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.100Z",
+      "crawledAt": "2026-04-18T09:15:10.150Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -970,6 +979,7 @@
         "lehrstelle-als-kochin-koch-efz-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.994Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1014,7 +1024,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.099Z",
+      "crawledAt": "2026-04-18T09:15:10.149Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1060,6 +1070,7 @@
         "famulatur-stelle-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.993Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1104,7 +1115,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.098Z",
+      "crawledAt": "2026-04-18T09:15:10.147Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1153,6 +1164,7 @@
         "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1197,7 +1209,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-17T21:21:50.093Z",
+      "crawledAt": "2026-04-18T09:15:10.143Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
