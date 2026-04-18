@@ -2325,6 +2325,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.title': 'Fashion Outlet Landquart: 15 nuovi negozi e +1\'000 posti di lavoro',
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.excerpt': 'Il centro commerciale Foxtown Landquart raggiunge quota 100 spazi commerciali con 15 nuovi negozi. Investimento multi milioni e benefici fiscali per il Comune di Zizers.',
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.imageAlt': 'Centro commerciale Foxtown Landquart con 15 nuovi negozi e parcheggi affollati',
+    'blog.article.salario-minimo-25-chf-ticino.title': 'Salario minimo a 25 CHF l’ora in Ticino: il Movimento per il socialismo chiede un passo indietro',
+    'blog.article.salario-minimo-25-chf-ticino.excerpt': 'Il Movimento per il socialismo chiede al Gran Consiglio di aumentare il salario minimo a 25 CHF l’ora senza deroghe, opponendosi all’accordo della ‘Gestione’.',
+    'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'Il Gran Consiglio del Canton Ticino a Bellinzona, sede delle decisioni politiche cantonali.',
 };
 
 export default blogMetaIt;

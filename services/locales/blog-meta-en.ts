@@ -2325,6 +2325,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.title': 'Fashion Outlet Landquart: 15 new stores and over 1,000 jobs',
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.excerpt': 'The Foxtown Landquart shopping centre reaches the milestone of 100 retail spaces with the addition of 15 new stores. A multi-million investment and tax benefits for the municipality of Zizers.',
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.imageAlt': 'Foxtown Landquart shopping center with 15 new stores and crowded parking lots',
+    'blog.article.salario-minimo-25-chf-ticino.title': 'Minimum wage of 25 CHF per hour in Ticino: the Movement for Socialism calls for a step back',
+    'blog.article.salario-minimo-25-chf-ticino.excerpt': 'The Movement for Socialism is urging the Grand Council to raise the minimum wage to 25 CHF per hour without exceptions, opposing the \'Management\' agreement.',
+    'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'The Gran Consiglio of Canton Ticino in Bellinzona, the seat of cantonal political decisions.',
 };
 
 export default blogMetaEn;

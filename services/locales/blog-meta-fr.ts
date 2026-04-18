@@ -2325,6 +2325,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.title': 'Fashion Outlet Landquart : 15 nouveaux magasins et plus de 1 000 emplois',
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.excerpt': 'Le centre commercial Foxtown Landquart atteint les 100 espaces commerciaux avec 15 nouveaux magasins. Investissement de plusieurs millions et avantages fiscaux pour la commune de Zizers.',
     'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.imageAlt': 'Centre commercial Foxtown Landquart avec 15 nouveaux magasins et parkings bondés',
+    'blog.article.salario-minimo-25-chf-ticino.title': 'Salaire minimum à 25 CHF de l\'heure au Tessin : le Mouvement pour le socialisme demande un pas en arrière',
+    'blog.article.salario-minimo-25-chf-ticino.excerpt': 'Le Mouvement pour le socialisme demande au Grand Conseil d\'augmenter le salaire minimum à 25 CHF de l\'heure sans dérogations, s\'opposant ainsi à l\'accord de la \'Gestion\'.',
+    'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'Le Gran Consiglio du canton du Tessin à Bellinzona, siège des décisions politiques cantonales.',
 };
 
 export default blogMetaFr;

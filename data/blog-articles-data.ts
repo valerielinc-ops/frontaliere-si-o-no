@@ -6410,4 +6410,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/fashion-outlet-landquart-15-nuovi-negozi-expansion.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'salario-minimo-25-chf-ticino',
+ category: 'novita',
+ date: '2026-04-18T21:02:23.299Z',
+ image: '/images/blog/salario-minimo-25-chf-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

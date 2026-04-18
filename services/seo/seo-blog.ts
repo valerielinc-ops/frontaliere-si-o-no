@@ -9367,6 +9367,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-25-chf-ticino': {
+    title: 'Salario minimo a 25 CHF l’ora in | Frontaliere Ticino',
+    description: 'Il Movimento per il socialismo chiede un aumento del salario minimo a 25 CHF l’ora in Ticino. Scopri le implicazioni per i lavoratori ticinesi e frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, movimento, socialismo',
+    ogTitle: 'Salario minimo a 25 CHF in Ticino: Proposta MPS e Impatto',
+    ogDescription: 'Il MPS propone un salario minimo di 25 CHF l’ora in Ticino. Analisi delle implicazioni per i lavoratori ticinesi e frontalieri.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-25-chf-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo a 25 CHF in Ticino: Proposta MPS e Impatto sui Frontalieri",
+      "description": "Il Movimento per il socialismo chiede un aumento del salario minimo a 25 CHF l’ora in Ticino. Scopri le implicazioni per i lavoratori ticinesi e frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-25-chf-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Gran Consiglio del Canton Ticino a Bellinzona, sede delle decisioni politiche cantonali."
+      },
+      "datePublished": "2026-04-18T21:02:23+00:00",
+      "dateModified": "2026-04-18T21:02:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-25-chf-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
