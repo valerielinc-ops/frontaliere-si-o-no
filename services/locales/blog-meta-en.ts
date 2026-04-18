@@ -2310,6 +2310,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'SBB: new summer routes for cross-border workers to Italy and Europe',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Direct trains from Zurich to Rimini will run from 30 May 2026. TGV services to Avignon and Marseille will depart from Lausanne and Geneva from 16 April. Nightjet overnight trains will connect to Austria and Germany.',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Swiss train carrying cross-border workers to Ticino during a summer evening with Alpine peaks in the background',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa running on empty: what cross-border workers from Ticino stand to lose',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa relies on two pipelines for its Jet A-1 fuel supply. An energy crisis could ground flights and jeopardize the livelihoods of 40,000 cross-border commuters.',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Malpensa airport at night: refueling aircraft with Jet A-1 fuel for civil flights between Italy and Ticino',
 };
 
 export default blogMetaEn;

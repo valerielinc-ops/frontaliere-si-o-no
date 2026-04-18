@@ -2310,6 +2310,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'SBB: Neue Sommerverbindungen für Grenzgänger nach Italien und Europa',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Ab dem 30. Mai 2026 direkte Züge Zürich–Rimini. TGV-Verbindungen nach Avignon und Marseille ab Lausanne und Genf ab dem 16. April. Nightjet-Nachtservices nach Österreich und Deutschland.',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Schweizer Zug mit Grenzgängern auf dem Weg ins Tessin an einem Sommerabend mit Alpen im Hintergrund',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa ohne Treibstoff: Was droht den Tessiner Grenzgängern?',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa ist für den Bezug von Jet A-1 auf zwei Pipelines angewiesen. Eine Energiekrise könnte Flüge streichen und 40\'000 grenzüberschreitende Arbeitnehmende treffen.',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Flughafen Malpensa bei Nacht: Betankung von Zivilflugzeugen mit Jet A-1-Kraftstoff zwischen Italien und Tessin',
 };
 
 export default blogMetaDe;

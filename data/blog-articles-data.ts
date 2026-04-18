@@ -6375,4 +6375,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/nuove-tratte-estive-ffs-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'malpensa-carburante-rischio-frontalieri-2026',
+ category: 'pratico',
+ date: '2026-04-18T16:41:32.551Z',
+ image: '/images/blog/malpensa-carburante-rischio-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -9222,6 +9222,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malpensa-carburante-rischio-frontalieri-2026': {
+    title: 'Malpensa senza carburante: cosa | Frontaliere Ticino',
+    description: 'Malpensa dipende da due oleodotti per il Jet A-1. Una crisi energetica potrebbe cancellare voli e colpire 40mila lavoratori transfrontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, malpensa, senza, carburante, cosa',
+    ogTitle: 'Malpensa senza carburante: cosa rischiano i frontalieri t',
+    ogDescription: 'Malpensa dipende da due oleodotti per il Jet A-1. Una crisi energetica potrebbe cancellare voli e colpire 40mila lavoratori transfrontalieri.',
+    canonicalPath: '/articoli-frontaliere/malpensa-carburante-rischio-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malpensa senza carburante: cosa rischiano i frontalieri t",
+      "description": "Malpensa dipende da due oleodotti per il Jet A-1. Una crisi energetica potrebbe cancellare voli e colpire 40mila lavoratori transfrontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/malpensa-carburante-rischio-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Malpensa di notte: rifornimento carburante Jet A-1 per voli civili tra Italia e Ticino"
+      },
+      "datePublished": "2026-04-18T16:41:32+00:00",
+      "dateModified": "2026-04-18T16:41:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malpensa-carburante-rischio-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

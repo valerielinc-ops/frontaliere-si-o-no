@@ -2310,6 +2310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'FFS: nuove tratte estive per frontalieri verso Italia e Europa',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Dal 30 maggio 2026 treni diretti Zurigo-Rimini. TGV per Avignone e Marsiglia da Losanna e Ginevra dal 16 aprile. Nightjet notturni verso Austria e Germania.',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Treno FFS con frontalieri in viaggio verso il Ticino durante una sera estiva tra le Alpi',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa senza carburante: cosa rischiano i frontalieri ticinesi',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa dipende da due oleodotti per il Jet A-1. Una crisi energetica potrebbe cancellare voli e colpire 40mila lavoratori transfrontalieri.',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Aeroporto di Malpensa di notte: rifornimento carburante Jet A-1 per voli civili tra Italia e Ticino',
 };
 
 export default blogMetaIt;

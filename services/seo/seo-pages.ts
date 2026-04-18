@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 821,
+ "numberOfItems": 822,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4510,7 +4510,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 818, "name": "Svizzera-USA: Parmelin avvia nuova fase negozia...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-usa-nuovi-negoziati-commerciali-2026` },
           { "@type": "ListItem", "position": 819, "name": "Voli cancellati a causa del prezzo del kerosene...", "url": `${BASE_URL}/articoli-frontaliere/aumento-kerosene-voli-cancellati-frontalieri-ticino` },
           { "@type": "ListItem", "position": 820, "name": "Radar mobili in Ticino: dove e quando faranno p...", "url": `${BASE_URL}/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026` },
-          { "@type": "ListItem", "position": 821, "name": "Treni diretti Zurigo-Rimini e TGV per la Franci...", "url": `${BASE_URL}/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026` }
+          { "@type": "ListItem", "position": 821, "name": "Treni diretti Zurigo-Rimini e TGV per la Franci...", "url": `${BASE_URL}/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026` },
+          { "@type": "ListItem", "position": 822, "name": "Malpensa senza carburante: cosa rischiano i fro...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-carburante-rischio-frontalieri-2026` }
  ]
  }
  ]

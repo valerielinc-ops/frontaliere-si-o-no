@@ -2310,6 +2310,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'CFF : nouvelles liaisons ferroviaires estivales pour les frontaliers en direction de l’Italie et de l’Europe',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Dès le 30 mai 2026, trains directs Zurich-Rimini. TGV pour Avignon et Marseille depuis Lausanne et Genève à partir du 16 avril. Nightjet de nuit en direction de l’Autriche et de l’Allemagne.',
     'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Train CFF transportant des frontaliers vers le Tessin lors d\'un soir d\'été avec les Alpes en arrière-plan',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.title': 'Malpensa à sec de carburant : quels risques pour les travailleurs frontaliers du Tessin',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.excerpt': 'Malpensa dépend de deux oléoducs pour son carburant Jet A-1. Une crise énergétique pourrait annuler des vols et frapper 40 000 travailleurs frontaliers.',
+    'blog.article.malpensa-carburante-rischio-frontalieri-2026.imageAlt': 'Aéroport de Malpensa de nuit : ravitaillement en carburant Jet A-1 pour vols civils entre l\'Italie et le Tessin',
 };
 
 export default blogMetaFr;
