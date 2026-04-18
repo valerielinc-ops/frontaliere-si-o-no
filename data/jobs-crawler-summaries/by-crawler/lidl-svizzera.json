@@ -1,61 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-17T21:51:17.712Z",
-  "total": 12,
+  "generatedAt": "2026-04-18T09:44:30.301Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 15310,
-  "avgDurationMs": 15310,
+  "durationMs": 17671,
+  "avgDurationMs": 17671,
   "durationHistory": [
-    15310
+    17671
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "company-9bjbvk",
-      "slug": "vendite-operatore-di-filiale-part-time-f-m-lidl-svizzera-arbedo-castione-9bjbvk",
-      "company": "Lidl Svizzera",
-      "title": "Vendite_Operatore di Filiale part-time (f/m)",
-      "location": "Arbedo-Castione",
-      "canton": "ti",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://team.lidl.ch/it/jobs/vendite-operatore-di-filiale-part-time-f-m-arbedo-castione-655516",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Arbedo-Castione",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-04-16T21:55:41.750Z",
-      "firstSeenAt": "2026-04-16T21:55:41.750Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "postalCode": "6532",
-      "streetAddress": "Via San Gottardo 6",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-7p9uz6",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
