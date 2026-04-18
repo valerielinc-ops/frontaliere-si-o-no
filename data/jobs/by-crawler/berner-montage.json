@@ -710,7 +710,6 @@
         "gebietsleiter-m-w-d-fur-das-bau-handwerk-region-bern-nordwest-schweiz-berner-montage-ch",
         "gebietsleiter-m-w-d-per-das-bau-handwerk-region-bern-nordwest-schweiz-montagetechnik-berner-ag-visp"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -723,8 +722,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "berner-montage-ff0962713571",
