@@ -2283,6 +2283,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ia-selezione-personale-ticino.title': 'IA nella selezione del personale: rischi e opportunità in Ticino',
     'blog.article.ia-selezione-personale-ticino.excerpt': 'Le aziende ticinesi integrano l\'IA nelle assunzioni del 2026. Quali sono i rischi di discriminazione e le criticità per i candidati? Il punto della situazione.',
     'blog.article.ia-selezione-personale-ticino.imageAlt': 'Tecnologia IA nella selezione del personale in un ufficio ticinese',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'Swiss Market Index in territorio positivo: cosa significa per frontalieri',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'Il Swiss Market Index (SMI) chiude in territorio positivo con piccoli guadagni a New York e resistenza endemica a Zurigo. Analisi per frontalieri e residenti del Canton Ticino.',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Veduta di Lugano con lago e montagne al tramonto e luci della città riflessi sull\'acqua',
 };
 
 export default blogMetaIt;

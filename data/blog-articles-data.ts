@@ -6312,4 +6312,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ia-selezione-personale-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'swiss-market-index-vedi-breve-rimbalzo',
+ category: 'novita',
+ date: '2026-04-18T07:09:32.771Z',
+ image: '/images/blog/swiss-market-index-vedi-breve-rimbalzo.jpg',
+ hasCalculator: true,
+ },
 ];

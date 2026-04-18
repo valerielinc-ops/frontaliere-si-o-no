@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 812,
+ "numberOfItems": 813,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4501,7 +4501,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 809, "name": "Casse malati Ticino: 61 milioni in meno per Lug...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino` },
           { "@type": "ListItem", "position": 810, "name": "Allentamenti affitti brevi in Ticino: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025` },
           { "@type": "ListItem", "position": 811, "name": "Fuoriuscita di ammoniaca alla Rapelli di Stabio", "url": `${BASE_URL}/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio` },
-          { "@type": "ListItem", "position": 812, "name": "L'IA nella selezione del personale: tra opportu...", "url": `${BASE_URL}/articoli-frontaliere/ia-selezione-personale-ticino` }
+          { "@type": "ListItem", "position": 812, "name": "L'IA nella selezione del personale: tra opportu...", "url": `${BASE_URL}/articoli-frontaliere/ia-selezione-personale-ticino` },
+          { "@type": "ListItem", "position": 813, "name": "Swiss Market Index in territorio positivo: cosa...", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-vedi-breve-rimbalzo` }
  ]
  }
  ]

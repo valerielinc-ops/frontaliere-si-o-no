@@ -8961,6 +8961,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-market-index-vedi-breve-rimbalzo': {
+    title: 'Swiss Market Index in territorio | Frontaliere Ticino',
+    description: 'Il Swiss Market Index (SMI) chiude in territorio positivo con piccoli guadagni a New York e resistenza endemica a Zurigo. Analisi per frontalieri e residenti de',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, market, index, territorio',
+    ogTitle: 'Swiss Market Index in territorio positivo: cosa significa',
+    ogDescription: 'Il Swiss Market Index (SMI) chiude in territorio positivo con piccoli guadagni a New York e resistenza endemica a Zurigo. Analisi per frontalieri e residenti de',
+    canonicalPath: '/articoli-frontaliere/swiss-market-index-vedi-breve-rimbalzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss Market Index in territorio positivo: cosa significa",
+      "description": "Il Swiss Market Index (SMI) chiude in territorio positivo con piccoli guadagni a New York e resistenza endemica a Zurigo. Analisi per frontalieri e residenti de",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-market-index-vedi-breve-rimbalzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con lago e montagne al tramonto e luci della città riflessi sull'acqua"
+      },
+      "datePublished": "2026-04-18T07:09:32+00:00",
+      "dateModified": "2026-04-18T07:09:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swiss-market-index-vedi-breve-rimbalzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

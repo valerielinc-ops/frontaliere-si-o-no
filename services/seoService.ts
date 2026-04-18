@@ -2016,6 +2016,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-allentamenti-affitti-brevi-ticino-2025': { name: 'Allentamenti affitti brevi in Ticino', path: '/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025', parent: 'blog' },
     'blog-fuoriuscita-ammoniaca-rapelli-stabio': { name: 'Cronaca Stabio', path: '/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio', parent: 'blog' },
     'blog-ia-selezione-personale-ticino': { name: 'IA Lavoro Ticino', path: '/articoli-frontaliere/ia-selezione-personale-ticino', parent: 'blog' },
+    'blog-swiss-market-index-vedi-breve-rimbalzo': { name: 'Swiss Market Index in territorio positiv', path: '/articoli-frontaliere/swiss-market-index-vedi-breve-rimbalzo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

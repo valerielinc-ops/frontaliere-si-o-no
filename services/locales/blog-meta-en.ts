@@ -2283,6 +2283,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ia-selezione-personale-ticino.title': 'AI in recruitment: risks and opportunities in Ticino',
     'blog.article.ia-selezione-personale-ticino.excerpt': 'Ticino companies are integrating AI into their 2026 hiring processes. What are the risks of discrimination and the critical issues for candidates? A status update.',
     'blog.article.ia-selezione-personale-ticino.imageAlt': 'AI technology in personnel recruitment within a Ticino office',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'Swiss Market Index turns positive: what it means for cross-border workers',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'The Swiss Market Index (SMI) closes in positive territory with modest gains in New York and endemic resistance in Zurich. Analysis for cross-border workers and residents of Ticino Canton.',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Panoramic view of Lugano with lake and mountains at sunset and city lights reflecting on the water',
 };
 
 export default blogMetaEn;

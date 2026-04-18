@@ -2283,6 +2283,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ia-selezione-personale-ticino.title': 'IA dans la sélection du personnel : risques et opportunités au Tessin',
     'blog.article.ia-selezione-personale-ticino.excerpt': 'Les entreprises tessiannes intègrent l\'IA dans les recrutements de 2026. Quels sont les risques de discrimination et les problématiques pour les candidats ? Le point de la situation.',
     'blog.article.ia-selezione-personale-ticino.imageAlt': 'Technologie IA dans le recrutement du personnel dans un bureau tessinois',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'L’indice Swiss Market Index en territoire positif : ce que cela signifie pour les frontaliers',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'L’indice Swiss Market Index (SMI) clôture en territoire positif avec de légères hausses à New York et une résistance persistante à Zurich. Analyse à l’attention des frontaliers et des résidents du canton du Tessin.',
+    'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes au coucher de soleil et lumières de la ville reflétées sur l\'eau',
 };
 
 export default blogMetaFr;
