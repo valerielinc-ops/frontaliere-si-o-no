@@ -2289,6 +2289,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Health insurance subsidies in Mendrisio: unacceptable delays for cross-border workers',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'In Mendrisio, the Municipal Council is under fire: delays of up to May for health insurance subsidies. Councillor Robbiani is demanding explanations and extraordinary measures for affected families.',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Citizens queuing at Mendrisio\'s social services office due to delays in health insurance subsidies',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio: delays in health insurance subsidies leave residents struggling',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio: unacceptable delays in the disbursement of health insurance premium subsidies, according to a question raised by councillor Robbiani. Residents have been left without answers for months, with insurance premiums on the rise.',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Municipal offices of Mendrisio with citizens queuing for health insurance subsidies',
 };
 
 export default blogMetaEn;

@@ -2289,6 +2289,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Subventions de l\'assurance maladie à Mendrisio : retards inacceptables pour les frontaliers',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'À Mendrisio, la Municipalité dans le collimateur : des retards pouvant aller jusqu\'à mai pour les subventions de l\'assurance maladie. Le conseiller Robbiani exige des explications et des mesures exceptionnelles pour les familles touchées.',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Citoyens en file aux services sociaux de Mendrisio à cause des retards dans les subventions d\'assurance maladie',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio : retards inacceptables dans le versement des subventions pour les primes d\'assurance maladie, des citoyens en difficulté',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio : retards inacceptables dans l\'octroi des subventions destinées aux primes d\'assurance maladie, selon l\'interpellation du conseiller Robbiani. Des citoyens sans réponse depuis des mois, des primes d\'assurance en hausse.',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Bureaux communaux de Mendrisio avec des citoyens en file pour les subventions d\'assurance maladie',
 };
 
 export default blogMetaFr;

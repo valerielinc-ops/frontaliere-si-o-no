@@ -2289,6 +2289,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Krankenkassenzuschüsse in Mendrisio: inakzeptable Verzögerungen für Grenzgänger',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'In Mendrisio gerät der Gemeinderat unter Beschuss: Bis zu fünf Monate Verspätung bei den Krankenkassenzuschüssen. Der Gemeinderat Robbiani fordert Erklärungen und außerordentliche Maßnahmen für die betroffenen Familien.',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Bürger stehen an der Sozialdienststelle in Mendrisio nach wegen Verzögerungen bei Krankenkassenzuschüssen an',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio: Verzögerungen bei den Krankenkassenzuschüssen – Bürger in Not',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio: Inakzeptable Verzögerungen bei der Auszahlung der Zuschüsse für die Krankenkassenprämien, wie der Ratsherr Robbiani in einer Interpellation rügt. Bürger erhalten seit Monaten keine Antwort, während die Versicherungsprämien steigen.',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Gemeindeverwaltung Mendrisio mit Bürgern, die auf Gesundheitsversicherungssubventionen warten',
 };
 
 export default blogMetaDe;

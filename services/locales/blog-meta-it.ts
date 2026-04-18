@@ -2289,6 +2289,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Sussidi cassa malati a Mendrisio: ritardi inaccettabili per i frontalieri',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'A Mendrisio il Municipio sotto tiro: ritardi fino a maggio per i sussidi cassa malati. Il consigliere Robbiani chiede spiegazioni e interventi straordinari per le famiglie colpite.',
     'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Cittadini in fila agli uffici sociali di Mendrisio per chiedere spiegazioni sui ritardi dei sussidi di cassa malati',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.title': 'Mendrisio: sussidi cassa malati in ritardo, cittadini in difficoltà',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.excerpt': 'Mendrisio: ritardi inaccettabili nell\'erogazione dei sussidi per i premi cassa malati, secondo l\'interrogazione del consigliere Robbiani. Cittadini senza risposta da mesi, premi assicurativi in aumento.',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi.imageAlt': 'Uffici comunali di Mendrisio con cittadini in coda per sussidi cassa malati',
 };
 
 export default blogMetaIt;

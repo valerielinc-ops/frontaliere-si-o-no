@@ -6326,4 +6326,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/sussidi-cassa-malati-mendrisio-rallentamenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sussidi-cassa-malati-mendrisio-ritardi',
+ category: 'fiscale',
+ date: '2026-04-18T09:04:37.087Z',
+ image: '/images/blog/sussidi-cassa-malati-mendrisio-ritardi.jpg',
+ hasCalculator: true,
+ },
 ];

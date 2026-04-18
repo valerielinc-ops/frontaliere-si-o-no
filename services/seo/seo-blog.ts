@@ -9019,6 +9019,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sussidi-cassa-malati-mendrisio-ritardi': {
+    title: 'Mendrisio: sussidi cassa malati in | Frontaliere Ticino',
+    description: 'Mendrisio: ritardi inaccettabili nell\'erogazione dei sussidi per i premi cassa malati, secondo l\'interrogazione del consigliere Robbiani. Cittadini senza rispos',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, sussidi, cassa, malati',
+    ogTitle: 'Mendrisio: sussidi cassa malati in ritardo, cittadini in',
+    ogDescription: 'Mendrisio: ritardi inaccettabili nell\'erogazione dei sussidi per i premi cassa malati, secondo l\'interrogazione del consigliere Robbiani. Cittadini senza rispos',
+    canonicalPath: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio: sussidi cassa malati in ritardo, cittadini in",
+      "description": "Mendrisio: ritardi inaccettabili nell'erogazione dei sussidi per i premi cassa malati, secondo l'interrogazione del consigliere Robbiani. Cittadini senza rispos",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sussidi-cassa-malati-mendrisio-ritardi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici comunali di Mendrisio con cittadini in coda per sussidi cassa malati"
+      },
+      "datePublished": "2026-04-18T09:04:37+00:00",
+      "dateModified": "2026-04-18T09:04:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
