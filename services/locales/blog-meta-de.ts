@@ -2328,6 +2328,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salario-minimo-25-chf-ticino.title': 'Mindestlohn von 25 Franken pro Stunde im Tessin: Die Bewegung für den Sozialismus fordert einen Rückzieher',
     'blog.article.salario-minimo-25-chf-ticino.excerpt': 'Die Bewegung für den Sozialismus fordert den Grossen Rat auf, den Mindestlohn auf 25 Franken pro Stunde ohne Ausnahmen zu erhöhen und sich damit gegen die Vereinbarung der ‚Verwaltung‘ zu stellen.',
     'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'Der Gran Consiglio des Kantons Tessin in Bellinzona, Sitz der kantonalen politischen Entscheidungen.',
+    'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varese: Paciaroni bleibt an der Spitze von Infrastruktur, Verkehr und Tourismus',
+    'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) führte 78 Unternehmen und 9.532 Beschäftigte in der strategischen Gruppe. Der Fokus 2026 liegt auf Logistik, Automatisierung und KI.',
+    'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Flughafen Malpensa mit Schweizer und italienischer Flagge, Symbol für logistische Verbindungen zwischen Tessin und Lombardei',
 };
 
 export default blogMetaDe;

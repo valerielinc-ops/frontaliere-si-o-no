@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 827,
+ "numberOfItems": 828,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4516,7 +4516,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 824, "name": "Acqua potabile in emergenza: Ticino presenta il...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-potabilizzatore-mobile-ticino-emergenza` },
           { "@type": "ListItem", "position": 825, "name": "PalaRaiffeisen a Lugano: la maxi-opera del PSE ...", "url": `${BASE_URL}/articoli-frontaliere/palaraiffeisen-porta-aperte-lugano-2026` },
           { "@type": "ListItem", "position": 826, "name": "Fashion Outlet Landquart: 15 nuovi negozi e +1'...", "url": `${BASE_URL}/articoli-frontaliere/fashion-outlet-landquart-15-nuovi-negozi-expansion` },
-          { "@type": "ListItem", "position": 827, "name": "Salario minimo a 25 CHF in Ticino: Proposta MPS...", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-25-chf-ticino` }
+          { "@type": "ListItem", "position": 827, "name": "Salario minimo a 25 CHF in Ticino: Proposta MPS...", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-25-chf-ticino` },
+          { "@type": "ListItem", "position": 828, "name": "Confindustria Varese: Paciaroni riconfermato al...", "url": `${BASE_URL}/articoli-frontaliere/confindustria-varese-paciaroni-2026` }
  ]
  }
  ]

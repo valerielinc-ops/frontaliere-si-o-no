@@ -2328,6 +2328,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-minimo-25-chf-ticino.title': 'Minimum wage of 25 CHF per hour in Ticino: the Movement for Socialism calls for a step back',
     'blog.article.salario-minimo-25-chf-ticino.excerpt': 'The Movement for Socialism is urging the Grand Council to raise the minimum wage to 25 CHF per hour without exceptions, opposing the \'Management\' agreement.',
     'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'The Gran Consiglio of Canton Ticino in Bellinzona, the seat of cantonal political decisions.',
+    'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varese: Paciaroni reappointed to lead Infrastructure, Transport and Tourism',
+    'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) oversaw 78 companies and 9,532 employees in the strategic group. Focus on logistics, automation and AI by 2026.',
+    'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Malpensa Airport with Swiss and Italian flags, symbolizing Ticino and Lombardia logistics connections',
 };
 
 export default blogMetaEn;

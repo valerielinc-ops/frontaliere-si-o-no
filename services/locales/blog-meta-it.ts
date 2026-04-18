@@ -2328,6 +2328,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salario-minimo-25-chf-ticino.title': 'Salario minimo a 25 CHF l’ora in Ticino: il Movimento per il socialismo chiede un passo indietro',
     'blog.article.salario-minimo-25-chf-ticino.excerpt': 'Il Movimento per il socialismo chiede al Gran Consiglio di aumentare il salario minimo a 25 CHF l’ora senza deroghe, opponendosi all’accordo della ‘Gestione’.',
     'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'Il Gran Consiglio del Canton Ticino a Bellinzona, sede delle decisioni politiche cantonali.',
+    'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varese: Paciaroni riconfermato alla guida di Infrastrutture, Trasporti e Turismo',
+    'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) guidò 78 imprese e 9.532 addetti nel Gruppo strategico. Focus su logistica, automazione e AI nel 2026.',
+    'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Aeroporto di Malpensa con bandiere svizzere e italiane, simbolo delle connessioni logistiche tra Ticino e Lombardia',
 };
 
 export default blogMetaIt;

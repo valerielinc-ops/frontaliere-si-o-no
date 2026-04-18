@@ -6417,4 +6417,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/salario-minimo-25-chf-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'confindustria-varese-paciaroni-2026',
+ category: 'novita',
+ date: '2026-04-18T21:54:57.262Z',
+ image: '/images/blog/confindustria-varese-paciaroni-2026.jpg',
+ hasCalculator: true,
+ },
 ];

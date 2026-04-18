@@ -2328,6 +2328,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salario-minimo-25-chf-ticino.title': 'Salaire minimum à 25 CHF de l\'heure au Tessin : le Mouvement pour le socialisme demande un pas en arrière',
     'blog.article.salario-minimo-25-chf-ticino.excerpt': 'Le Mouvement pour le socialisme demande au Grand Conseil d\'augmenter le salaire minimum à 25 CHF de l\'heure sans dérogations, s\'opposant ainsi à l\'accord de la \'Gestion\'.',
     'blog.article.salario-minimo-25-chf-ticino.imageAlt': 'Le Gran Consiglio du canton du Tessin à Bellinzona, siège des décisions politiques cantonales.',
+    'blog.article.confindustria-varese-paciaroni-2026.title': 'Confindustria Varèse : Paciaroni reconduit à la tête d\'Infrastructures, Transports et Tourisme',
+    'blog.article.confindustria-varese-paciaroni-2026.excerpt': 'Roberto Paciaroni (Hupac) a dirigé 78 entreprises et 9 532 salariés au sein du Groupe stratégique. En 2026, l’accent sera mis sur la logistique, l’automatisation et l’IA.',
+    'blog.article.confindustria-varese-paciaroni-2026.imageAlt': 'Aéroport de Malpensa avec drapeaux suisse et italien, symbole des connexions logistiques entre le Tessin et la Lombardie',
 };
 
 export default blogMetaFr;

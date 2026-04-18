@@ -9396,6 +9396,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confindustria-varese-paciaroni-2026': {
+    title: 'Confindustria Varese: Paciaroni | Frontaliere Ticino',
+    description: 'Roberto Paciaroni (Hupac) guidò 78 imprese e 9.532 addetti nel Gruppo strategico. Focus su logistica, automazione e AI nel 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, confindustria, varese, paciaroni, riconfermato',
+    ogTitle: 'Confindustria Varese: Paciaroni riconfermato alla guida d',
+    ogDescription: 'Roberto Paciaroni (Hupac) guidò 78 imprese e 9.532 addetti nel Gruppo strategico. Focus su logistica, automazione e AI nel 2026.',
+    canonicalPath: '/articoli-frontaliere/confindustria-varese-paciaroni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confindustria Varese: Paciaroni riconfermato alla guida d",
+      "description": "Roberto Paciaroni (Hupac) guidò 78 imprese e 9.532 addetti nel Gruppo strategico. Focus su logistica, automazione e AI nel 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confindustria-varese-paciaroni-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Malpensa con bandiere svizzere e italiane, simbolo delle connessioni logistiche tra Ticino e Lombardia"
+      },
+      "datePublished": "2026-04-18T21:54:57+00:00",
+      "dateModified": "2026-04-18T21:54:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confindustria-varese-paciaroni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
