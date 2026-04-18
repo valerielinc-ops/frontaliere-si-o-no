@@ -2286,6 +2286,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'Swiss Market Index in territorio positivo: cosa significa per frontalieri',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'Il Swiss Market Index (SMI) chiude in territorio positivo con piccoli guadagni a New York e resistenza endemica a Zurigo. Analisi per frontalieri e residenti del Canton Ticino.',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Veduta di Lugano con lago e montagne al tramonto e luci della città riflessi sull\'acqua',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Sussidi cassa malati a Mendrisio: ritardi inaccettabili per i frontalieri',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'A Mendrisio il Municipio sotto tiro: ritardi fino a maggio per i sussidi cassa malati. Il consigliere Robbiani chiede spiegazioni e interventi straordinari per le famiglie colpite.',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Cittadini in fila agli uffici sociali di Mendrisio per chiedere spiegazioni sui ritardi dei sussidi di cassa malati',
 };
 
 export default blogMetaIt;

@@ -8990,6 +8990,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sussidi-cassa-malati-mendrisio-rallentamenti': {
+    title: 'Sussidi cassa malati a Mendrisio | Frontaliere Ticino',
+    description: 'A Mendrisio il Municipio sotto tiro: ritardi fino a maggio per i sussidi cassa malati. Il consigliere Robbiani chiede spiegazioni e interventi straordinari per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sussidi, cassa, malati, mendrisio',
+    ogTitle: 'Sussidi cassa malati a Mendrisio: ritardi inaccettabili p',
+    ogDescription: 'A Mendrisio il Municipio sotto tiro: ritardi fino a maggio per i sussidi cassa malati. Il consigliere Robbiani chiede spiegazioni e interventi straordinari per',
+    canonicalPath: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-rallentamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sussidi cassa malati a Mendrisio: ritardi inaccettabili p",
+      "description": "A Mendrisio il Municipio sotto tiro: ritardi fino a maggio per i sussidi cassa malati. Il consigliere Robbiani chiede spiegazioni e interventi straordinari per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sussidi-cassa-malati-mendrisio-rallentamenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cittadini in fila agli uffici sociali di Mendrisio per chiedere spiegazioni sui ritardi dei sussidi di cassa malati"
+      },
+      "datePublished": "2026-04-18T08:10:46+00:00",
+      "dateModified": "2026-04-18T08:10:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-mendrisio-rallentamenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

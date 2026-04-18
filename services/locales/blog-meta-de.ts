@@ -2286,6 +2286,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'Swiss Market Index im positiven Bereich: Was bedeutet das für Grenzgänger?',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'Der Swiss Market Index (SMI) schließt im positiven Bereich mit leichten Gewinnen in New York und endemischer Widerstandsfähigkeit in Zürich. Analyse für Grenzgänger und Einwohner des Kantons Tessin.',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Panoramablick auf Lugano mit See und Bergen bei Sonnenuntergang und Stadtlichtern, die sich im Wasser spiegeln',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Krankenkassenzuschüsse in Mendrisio: inakzeptable Verzögerungen für Grenzgänger',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'In Mendrisio gerät der Gemeinderat unter Beschuss: Bis zu fünf Monate Verspätung bei den Krankenkassenzuschüssen. Der Gemeinderat Robbiani fordert Erklärungen und außerordentliche Maßnahmen für die betroffenen Familien.',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Bürger stehen an der Sozialdienststelle in Mendrisio nach wegen Verzögerungen bei Krankenkassenzuschüssen an',
 };
 
 export default blogMetaDe;

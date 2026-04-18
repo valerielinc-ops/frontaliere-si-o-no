@@ -6319,4 +6319,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/swiss-market-index-vedi-breve-rimbalzo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sussidi-cassa-malati-mendrisio-rallentamenti',
+ category: 'fiscale',
+ date: '2026-04-18T08:10:46.310Z',
+ image: '/images/blog/sussidi-cassa-malati-mendrisio-rallentamenti.jpg',
+ hasCalculator: true,
+ },
 ];

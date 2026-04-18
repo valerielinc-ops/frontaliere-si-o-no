@@ -2286,6 +2286,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'Swiss Market Index turns positive: what it means for cross-border workers',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'The Swiss Market Index (SMI) closes in positive territory with modest gains in New York and endemic resistance in Zurich. Analysis for cross-border workers and residents of Ticino Canton.',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Panoramic view of Lugano with lake and mountains at sunset and city lights reflecting on the water',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Health insurance subsidies in Mendrisio: unacceptable delays for cross-border workers',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'In Mendrisio, the Municipal Council is under fire: delays of up to May for health insurance subsidies. Councillor Robbiani is demanding explanations and extraordinary measures for affected families.',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Citizens queuing at Mendrisio\'s social services office due to delays in health insurance subsidies',
 };
 
 export default blogMetaEn;

@@ -2286,6 +2286,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.title': 'L’indice Swiss Market Index en territoire positif : ce que cela signifie pour les frontaliers',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.excerpt': 'L’indice Swiss Market Index (SMI) clôture en territoire positif avec de légères hausses à New York et une résistance persistante à Zurich. Analyse à l’attention des frontaliers et des résidents du canton du Tessin.',
     'blog.article.swiss-market-index-vedi-breve-rimbalzo.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes au coucher de soleil et lumières de la ville reflétées sur l\'eau',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.title': 'Subventions de l\'assurance maladie à Mendrisio : retards inacceptables pour les frontaliers',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.excerpt': 'À Mendrisio, la Municipalité dans le collimateur : des retards pouvant aller jusqu\'à mai pour les subventions de l\'assurance maladie. Le conseiller Robbiani exige des explications et des mesures exceptionnelles pour les familles touchées.',
+    'blog.article.sussidi-cassa-malati-mendrisio-rallentamenti.imageAlt': 'Citoyens en file aux services sociaux de Mendrisio à cause des retards dans les subventions d\'assurance maladie',
 };
 
 export default blogMetaFr;
