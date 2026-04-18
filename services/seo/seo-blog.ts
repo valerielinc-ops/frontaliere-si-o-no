@@ -9164,6 +9164,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-radar-controlli-velocita-ticino-aprile-2026': {
+    title: 'Radar mobili in Ticino: dove e quando | Frontaliere Ticino',
+    description: 'Controlli sulla velocità con radar mobili in 40 comuni del Cantone Ticino dal 16 aprile 2026. Elenco completo delle aree interessate e corpi di polizia coinvolt',
+    keywords: 'frontalieri, ticino, svizzera, italia, radar, mobili, dove, quando',
+    ogTitle: 'Radar mobili in Ticino: dove e quando faranno più rumore',
+    ogDescription: 'Controlli sulla velocità con radar mobili in 40 comuni del Cantone Ticino dal 16 aprile 2026. Elenco completo delle aree interessate e corpi di polizia coinvolt',
+    canonicalPath: '/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radar mobili in Ticino: dove e quando faranno più rumore",
+      "description": "Controlli sulla velocità con radar mobili in 40 comuni del Cantone Ticino dal 16 aprile 2026. Elenco completo delle aree interessate e corpi di polizia coinvolt",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/radar-controlli-velocita-ticino-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Radar mobile per controllo velocità a Chiasso durante i controlli di aprile 2026"
+      },
+      "datePublished": "2026-04-18T14:17:06+00:00",
+      "dateModified": "2026-04-18T14:17:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2304,6 +2304,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.title': 'Voli cancellati a causa del kerosene: cosa cambia per i frontalieri ticinesi',
     'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.excerpt': 'Lufthansa, KLM ed Edelweiss tagliano rotte e flotte a causa dell\'aumento del 100% del prezzo del carburante. Swiss conferma la rete attuale, ma le tensioni nel Medio Oriente minacciano forniture.',
     'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.imageAlt': 'Veduta aerea del lago di Lugano con barche e montagne sullo sfondo al tramonto',
+    'blog.article.radar-controlli-velocita-ticino-aprile-2026.title': 'Radar mobili in Ticino: dove e quando faranno più rumore ad aprile 2026',
+    'blog.article.radar-controlli-velocita-ticino-aprile-2026.excerpt': 'Controlli sulla velocità con radar mobili in 40 comuni del Cantone Ticino dal 16 aprile 2026. Elenco completo delle aree interessate e corpi di polizia coinvolti.',
+    'blog.article.radar-controlli-velocita-ticino-aprile-2026.imageAlt': 'Radar mobile per controllo velocità a Chiasso durante i controlli di aprile 2026',
 };
 
 export default blogMetaIt;

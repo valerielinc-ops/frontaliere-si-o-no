@@ -6361,4 +6361,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/aumento-kerosene-voli-cancellati-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'radar-controlli-velocita-ticino-aprile-2026',
+ category: 'pratico',
+ date: '2026-04-18T14:17:06.006Z',
+ image: '/images/blog/radar-controlli-velocita-ticino-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ];

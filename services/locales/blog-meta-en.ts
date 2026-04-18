@@ -2304,6 +2304,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.title': 'Cancelled flights due to fuel price surge: what this means for Ticino cross-border workers',
     'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.excerpt': 'Lufthansa, KLM and Edelweiss are cutting routes and fleets as fuel prices soar by 100%. Swiss confirms its current network, but Middle East tensions threaten supply chains.',
     'blog.article.aumento-kerosene-voli-cancellati-frontalieri-ticino.imageAlt': 'Aerial view of Lake Lugano with boats and Swiss Alps in the background at sunset',
+    'blog.article.radar-controlli-velocita-ticino-aprile-2026.title': 'Mobile speed cameras in Ticino: where and when they’ll be noisiest in April 2026',
+    'blog.article.radar-controlli-velocita-ticino-aprile-2026.excerpt': 'Speed checks using mobile cameras in 40 municipalities across the Canton of Ticino from 16 April 2026. Full list of affected areas and police forces involved.',
+    'blog.article.radar-controlli-velocita-ticino-aprile-2026.imageAlt': 'Mobile speed radar during Ticino April 2026 checks near Chiasso',
 };
 
 export default blogMetaEn;
