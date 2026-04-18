@@ -2027,6 +2027,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-tratte-estive-ffs-ticino-2026': { name: 'Mobilità transfrontaliera', path: '/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026', parent: 'blog' },
     'blog-malpensa-carburante-rischio-frontalieri-2026': { name: 'Malpensa senza carburante', path: '/articoli-frontaliere/malpensa-carburante-rischio-frontalieri-2026', parent: 'blog' },
     'blog-nuovo-potabilizzatore-mobile-emergenza-ticino': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-emergenza-ticino', parent: 'blog' },
+    'blog-nuovo-potabilizzatore-mobile-ticino-emergenza': { name: 'Acqua potabile in emergenza', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-ticino-emergenza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

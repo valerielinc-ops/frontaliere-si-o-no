@@ -2316,6 +2316,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'New mobile water treatment plant in Rivera: 24 m³/h capacity ready for water emergencies',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'The Canton of Ticino has acquired a mobile water treatment plant with a capacity of 24 m³/h to address water crises. The plant was presented today in Rivera during a meeting of the Ticino Waterworks Association with Civil Protection and the UPAAI.',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Mobile water purification unit operational in Rivera for emergency situations',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Drinking water emergency: Ticino unveils new mobile water treatment plant',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'The canton is investing CHF 260,000 in a mobile plant to ensure safe drinking water in case of contamination or system failures. The facility can produce up to 24 m³ of safe water per hour, enough for 200,000 people.',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Mobile water treatment unit operating on the Maggia River in Locarno. Yellow intake hoses and blue output pipes visible, with clean water being delivered to a tank.',
 };
 
 export default blogMetaEn;

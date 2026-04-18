@@ -2316,6 +2316,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'Neues mobiles Trinkwasseraufbereitungssystem in Rivera: Wassernotfälle mit 24 m³/Stunde gerüstet',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'Der Kanton Tessin erhält ein mobiles Trinkwasseraufbereitungssystem mit einer Kapazität von 24 m³/Stunde zur Bewältigung von Wasserkrisen. Heute in Rivera vorgestellt im Rahmen der Tagung des Verbands der Tessiner Wasserwerke mit Zivilschutz und UPAAI.',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Mobile Wasseraufbereitungsanlage im Einsatz in Rivera für Notfälle',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Trinkwasser in Notfällen: Tessin stellt neues mobiles Wasseraufbereitungssystem vor',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'Der Kanton investiert 260\'000 Franken in eine mobile Anlage, um im Falle von Verunreinigungen oder Störungen sauberes Trinkwasser zu gewährleisten. Bis zu 24 m³ pro Stunde sicheres Wasser für 200\'000 Personen.',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Mobile Wasseraufbereitungsanlage am Fluss Maggia in Locarno. Sichtbare gelbe Ansaugschläuche und blaue Auslassrohre, die sauberes Wasser in einen Tank leiten.',
 };
 
 export default blogMetaDe;

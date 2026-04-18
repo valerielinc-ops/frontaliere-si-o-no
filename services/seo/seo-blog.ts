@@ -9280,6 +9280,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-potabilizzatore-mobile-ticino-emergenza': {
+    title: 'Acqua potabile in emergenza: Ticino | Frontaliere Ticino',
+    description: 'Il Cantone investe 260mila franchi in un impianto mobile per garantire acqua potabile in caso di contaminazioni o guasti. Fino a 24 m³/ora di acqua sicura per 2',
+    keywords: 'frontalieri, ticino, svizzera, italia, acqua, potabile, emergenza, presenta',
+    ogTitle: 'Acqua potabile in emergenza: Ticino presenta il nuovo pot',
+    ogDescription: 'Il Cantone investe 260mila franchi in un impianto mobile per garantire acqua potabile in caso di contaminazioni o guasti. Fino a 24 m³/ora di acqua sicura per 2',
+    canonicalPath: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-ticino-emergenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acqua potabile in emergenza: Ticino presenta il nuovo pot",
+      "description": "Il Cantone investe 260mila franchi in un impianto mobile per garantire acqua potabile in caso di contaminazioni o guasti. Fino a 24 m³/ora di acqua sicura per 2",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-potabilizzatore-mobile-ticino-emergenza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto mobile di potabilizzazione in funzione presso il fiume Maggia a Locarno. Tubazioni gialle per l'acqua da trattare e tubi blu per l'acqua potabile distribuita."
+      },
+      "datePublished": "2026-04-18T17:48:54+00:00",
+      "dateModified": "2026-04-18T17:48:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-potabilizzatore-mobile-ticino-emergenza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2316,6 +2316,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'Nuovo potabilizzatore mobile a Rivera: emergenza idrica pronta in 24 m³/ora',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'Il Ticino si dota di un potabilizzatore mobile da 24 m³/ora per crisi idriche. Presentato oggi a Rivera durante l\'incontro dell’Associazione Acquedotti Ticinesi con Protezione Civile e UPAAI.',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Potabilizzatore mobile in funzione a Rivera per emergenze idriche',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Acqua potabile in emergenza: Ticino presenta il nuovo potabilizzatore mobile',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'Il Cantone investe 260mila franchi in un impianto mobile per garantire acqua potabile in caso di contaminazioni o guasti. Fino a 24 m³/ora di acqua sicura per 200mila persone.',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Impianto mobile di potabilizzazione in funzione presso il fiume Maggia a Locarno. Tubazioni gialle per l\'acqua da trattare e tubi blu per l\'acqua potabile distribuita.',
 };
 
 export default blogMetaIt;

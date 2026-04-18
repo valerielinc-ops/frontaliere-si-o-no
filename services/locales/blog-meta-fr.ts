@@ -2316,6 +2316,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.title': 'Nouveau potabilisateur mobile à Rivera : une solution d\'urgence pour 24 m³ d\'eau par heure',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.excerpt': 'Le Tessin s’est doté d’un potabilisateur mobile capable de traiter jusqu’à 24 m³ d’eau par heure en cas de crise hydrique. Présenté aujourd’hui à Rivera lors de la rencontre de l’Association des Aqueducs Tessinois avec la Protection civile et l’UPAAI.',
     'blog.article.nuovo-potabilizzatore-mobile-emergenza-ticino.imageAlt': 'Unité mobile de potabilisation en fonction à Rivera en cas d\'urgence',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Eau potable en situation d\'urgence : le Tessin présente sa nouvelle station mobile de potabilisation',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'Le Canton investit 260 000 francs dans une installation mobile pour garantir l\'approvisionnement en eau potable en cas de contamination ou de panne. Jusqu\'à 24 m³/heure d\'eau sûre pour 200 000 personnes.',
+    'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Unité mobile de potabilisation de l\'eau en fonctionnement sur la rivière Maggia à Locarno. Tuyaux jaunes d\'aspiration et tuyaux bleus de distribution d\'eau potable vers un réservoir.',
 };
 
 export default blogMetaFr;

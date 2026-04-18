@@ -6389,4 +6389,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/nuovo-potabilizzatore-mobile-emergenza-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-potabilizzatore-mobile-ticino-emergenza',
+ category: 'pratico',
+ date: '2026-04-18T17:48:54.510Z',
+ image: '/images/blog/nuovo-potabilizzatore-mobile-ticino-emergenza.jpg',
+ hasCalculator: true,
+ },
 ];
