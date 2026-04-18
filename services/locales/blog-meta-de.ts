@@ -2307,6 +2307,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.title': 'Mobile Radaranlagen im Tessin: Wo und wann sie im April 2026 am meisten Lärm verursachen',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.excerpt': 'Geschwindigkeitskontrollen mit mobilen Radaranlagen in 40 Gemeinden des Kantons Tessin vom 16. April 2026 an. Vollständige Liste der betroffenen Gebiete und der beteiligten Polizeikorps.',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.imageAlt': 'Mobiler Geschwindigkeitsradar bei Chiasso während der April-2026-Kontrollen in Tessin',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'SBB: Neue Sommerverbindungen für Grenzgänger nach Italien und Europa',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Ab dem 30. Mai 2026 direkte Züge Zürich–Rimini. TGV-Verbindungen nach Avignon und Marseille ab Lausanne und Genf ab dem 16. April. Nightjet-Nachtservices nach Österreich und Deutschland.',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Schweizer Zug mit Grenzgängern auf dem Weg ins Tessin an einem Sommerabend mit Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -2307,6 +2307,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.title': 'Mobile speed cameras in Ticino: where and when they’ll be noisiest in April 2026',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.excerpt': 'Speed checks using mobile cameras in 40 municipalities across the Canton of Ticino from 16 April 2026. Full list of affected areas and police forces involved.',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.imageAlt': 'Mobile speed radar during Ticino April 2026 checks near Chiasso',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'SBB: new summer routes for cross-border workers to Italy and Europe',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Direct trains from Zurich to Rimini will run from 30 May 2026. TGV services to Avignon and Marseille will depart from Lausanne and Geneva from 16 April. Nightjet overnight trains will connect to Austria and Germany.',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Swiss train carrying cross-border workers to Ticino during a summer evening with Alpine peaks in the background',
 };
 
 export default blogMetaEn;

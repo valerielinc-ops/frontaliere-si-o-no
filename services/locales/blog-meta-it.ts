@@ -2307,6 +2307,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.title': 'Radar mobili in Ticino: dove e quando faranno più rumore ad aprile 2026',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.excerpt': 'Controlli sulla velocità con radar mobili in 40 comuni del Cantone Ticino dal 16 aprile 2026. Elenco completo delle aree interessate e corpi di polizia coinvolti.',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.imageAlt': 'Radar mobile per controllo velocità a Chiasso durante i controlli di aprile 2026',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'FFS: nuove tratte estive per frontalieri verso Italia e Europa',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Dal 30 maggio 2026 treni diretti Zurigo-Rimini. TGV per Avignone e Marsiglia da Losanna e Ginevra dal 16 aprile. Nightjet notturni verso Austria e Germania.',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Treno FFS con frontalieri in viaggio verso il Ticino durante una sera estiva tra le Alpi',
 };
 
 export default blogMetaIt;

@@ -6368,4 +6368,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/radar-controlli-velocita-ticino-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuove-tratte-estive-ffs-ticino-2026',
+ category: 'pratico',
+ date: '2026-04-18T15:12:40.590Z',
+ image: '/images/blog/nuove-tratte-estive-ffs-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

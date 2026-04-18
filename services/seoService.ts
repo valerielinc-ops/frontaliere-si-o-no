@@ -2024,6 +2024,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-usa-nuovi-negoziati-commerciali-2026': { name: 'Svizzera-USA', path: '/articoli-frontaliere/svizzera-usa-nuovi-negoziati-commerciali-2026', parent: 'blog' },
     'blog-aumento-kerosene-voli-cancellati-frontalieri-ticino': { name: 'Trasporti aerei', path: '/articoli-frontaliere/aumento-kerosene-voli-cancellati-frontalieri-ticino', parent: 'blog' },
     'blog-radar-controlli-velocita-ticino-aprile-2026': { name: 'Radar mobili in Ticino', path: '/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026', parent: 'blog' },
+    'blog-nuove-tratte-estive-ffs-ticino-2026': { name: 'Mobilità transfrontaliera', path: '/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

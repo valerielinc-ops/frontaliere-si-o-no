@@ -9193,6 +9193,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-tratte-estive-ffs-ticino-2026': {
+    title: 'FFS: nuove tratte estive per | Frontaliere Ticino',
+    description: 'Dal 30 maggio 2026 treni diretti Zurigo-Rimini. TGV per Avignone e Marsiglia da Losanna e Ginevra dal 16 aprile. Nightjet notturni verso Austria e Germania',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, tratte, estive, verso',
+    ogTitle: 'FFS: nuove tratte estive per frontalieri verso Italia e',
+    ogDescription: 'Scopri le nuove tratte ferroviarie FFS 2026 per raggiungere Italia, Francia, Austria e Germania. Date, costi e consigli per i frontalieri ticinesi.',
+    canonicalPath: '/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treni diretti Zurigo-Rimini e TGV per la Francia: le nuove tratte estive FFS 2026 per i frontalieri",
+      "description": "Dal 30 maggio 2026 treni diretti Zurigo-Rimini. TGV per Avignone e Marsiglia da Losanna e Ginevra dal 16 aprile. Nightjet notturni verso Austria e Germania",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-tratte-estive-ffs-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno FFS con frontalieri in viaggio verso il Ticino durante una sera estiva tra le Alpi"
+      },
+      "datePublished": "2026-04-18T15:12:40+00:00",
+      "dateModified": "2026-04-18T15:12:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-tratte-estive-ffs-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

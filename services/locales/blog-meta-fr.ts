@@ -2307,6 +2307,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.title': 'Radars mobiles au Tessin : où et quand feront-ils le plus de bruit en avril 2026',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.excerpt': 'Contrôles de vitesse avec radars mobiles dans 40 communes du Canton du Tessin à partir du 16 avril 2026. Liste complète des zones concernées et des corps de police impliqués.',
     'blog.article.radar-controlli-velocita-ticino-aprile-2026.imageAlt': 'Radar mobile de contrôle de vitesse près de Chiasso lors des vérifications d\'avril 2026 au Tessin',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.title': 'CFF : nouvelles liaisons ferroviaires estivales pour les frontaliers en direction de l’Italie et de l’Europe',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.excerpt': 'Dès le 30 mai 2026, trains directs Zurich-Rimini. TGV pour Avignon et Marseille depuis Lausanne et Genève à partir du 16 avril. Nightjet de nuit en direction de l’Autriche et de l’Allemagne.',
+    'blog.article.nuove-tratte-estive-ffs-ticino-2026.imageAlt': 'Train CFF transportant des frontaliers vers le Tessin lors d\'un soir d\'été avec les Alpes en arrière-plan',
 };
 
 export default blogMetaFr;
