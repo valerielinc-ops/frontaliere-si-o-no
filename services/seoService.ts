@@ -2020,6 +2020,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sussidi-cassa-malati-mendrisio-rallentamenti': { name: 'Sussidi cassa malati a Mendrisio', path: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-rallentamenti', parent: 'blog' },
     'blog-sussidi-cassa-malati-mendrisio-ritardi': { name: 'Mendrisio', path: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi', parent: 'blog' },
     'blog-varese-economia-frontalieri-ticino-2026': { name: 'Varese economia in crescita', path: '/articoli-frontaliere/varese-economia-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-lombardia-investimento-moda-ticinesi-next-fashion': { name: 'Lombardia investe 12,3 milioni in moda', path: '/articoli-frontaliere/lombardia-investimento-moda-ticinesi-next-fashion', parent: 'blog' },
  };
 
  const info = sectionNames[section];

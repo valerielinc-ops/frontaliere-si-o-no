@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 816,
+ "numberOfItems": 817,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4505,7 +4505,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 813, "name": "Swiss Market Index in territorio positivo: cosa...", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-vedi-breve-rimbalzo` },
           { "@type": "ListItem", "position": 814, "name": "Sussidi cassa malati a Mendrisio: ritardi inacc...", "url": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-mendrisio-rallentamenti` },
           { "@type": "ListItem", "position": 815, "name": "Mendrisio: sussidi cassa malati in ritardo, cit...", "url": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi` },
-          { "@type": "ListItem", "position": 816, "name": "Varese economia in crescita: cosa cambia per i ...", "url": `${BASE_URL}/articoli-frontaliere/varese-economia-frontalieri-ticino-2026` }
+          { "@type": "ListItem", "position": 816, "name": "Varese economia in crescita: cosa cambia per i ...", "url": `${BASE_URL}/articoli-frontaliere/varese-economia-frontalieri-ticino-2026` },
+          { "@type": "ListItem", "position": 817, "name": "Lombardia investe 12,3 milioni in moda: opportu...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-investimento-moda-ticinesi-next-fashion` }
  ]
  }
  ]

@@ -9077,6 +9077,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-investimento-moda-ticinesi-next-fashion': {
+    title: 'Lombardia investe 12,3 milioni in moda | Frontaliere Ticino',
+    description: 'Regione Lombardia stanzia oltre 12 milioni per il bando Next Fashion, con 73 imprese coinvolte e focus su PMI e sostenibilità. Come coinvolgere anche le aziende',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, investe, milioni, moda',
+    ogTitle: 'Lombardia investe 12,3 milioni in moda: opportunità per f',
+    ogDescription: 'Regione Lombardia stanzia oltre 12 milioni per il bando Next Fashion, con 73 imprese coinvolte e focus su PMI e sostenibilità. Come coinvolgere anche le aziende',
+    canonicalPath: '/articoli-frontaliere/lombardia-investimento-moda-ticinesi-next-fashion',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia investe 12,3 milioni in moda: opportunità per f",
+      "description": "Regione Lombardia stanzia oltre 12 milioni per il bando Next Fashion, con 73 imprese coinvolte e focus su PMI e sostenibilità. Come coinvolgere anche le aziende",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-investimento-moda-ticinesi-next-fashion.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio tessile in Ticino con materiali moda sostenibile e strumenti digitali"
+      },
+      "datePublished": "2026-04-18T11:18:17+00:00",
+      "dateModified": "2026-04-18T11:18:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-investimento-moda-ticinesi-next-fashion`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

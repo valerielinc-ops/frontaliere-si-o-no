@@ -2295,6 +2295,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Varese’s economy is growing: what changes for Ticino cross-border workers by 2026',
     'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'The province of Varese recorded a +3.2% increase in exports in 2024, but youth employment and the green transition remain the main obstacles. Analysis for the 68,000 Ticino cross-border workers.',
     'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzona at night with the three illuminated castles and the Ticino river',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.title': 'Lombardy invests 12.3 million in fashion: opportunities for Ticino cross-border workers',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.excerpt': 'Lombardy allocates over 12 million euros for the Next Fashion call for projects, involving 73 companies with a focus on SMEs and sustainability. How to involve Ticino-based businesses as well',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.imageAlt': 'Textile workshop in Ticino showcasing sustainable fashion materials and digital tools',
 };
 
 export default blogMetaEn;

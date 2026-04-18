@@ -2295,6 +2295,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Varese: Wirtschaft im Aufschwung – was sich 2026 für die Tessiner Grenzgänger ändert',
     'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'Die Provinz Varese verzeichnete 2024 ein Exportplus von 3,2 %, doch junge Arbeitskräfte und die grüne Transformation bleiben die größten Hürden. Analyse für die 68.000 Tessiner Grenzgänger.',
     'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzona bei Nacht mit den drei beleuchteten Burgen und dem Fluss Ticino',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.title': 'Lombardei investiert 12,3 Millionen in die Modebranche: Chancen für Tessiner Grenzgänger',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.excerpt': 'Die Region Lombardei stellt im Rahmen der Ausschreibung Next Fashion mehr als 12 Millionen Franken bereit. 73 Unternehmen sind beteiligt, mit Fokus auf KMU und Nachhaltigkeit. Wie auch Tessiner Firmen eingebunden werden können',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.imageAlt': 'Textilarbeitsplatz im Tessin mit nachhaltigen Materialien und digitalen Werkzeugen',
 };
 
 export default blogMetaDe;

@@ -2295,6 +2295,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-economia-frontalieri-ticino-2026.title': 'Varese economia in crescita: cosa cambia per i frontalieri ticinesi nel 2026',
     'blog.article.varese-economia-frontalieri-ticino-2026.excerpt': 'La provincia di Varese registra +3,2% di export nel 2024, ma giovani e transizione verde restano gli ostacoli principali. Analisi per i 68mila frontalieri ticinesi.',
     'blog.article.varese-economia-frontalieri-ticino-2026.imageAlt': 'Bellinzona di notte con le tre fortezze illuminate e il fiume Ticino',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.title': 'Lombardia investe 12,3 milioni in moda: opportunità per frontalieri ticinesi',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.excerpt': 'Regione Lombardia stanzia oltre 12 milioni per il bando Next Fashion, con 73 imprese coinvolte e focus su PMI e sostenibilità. Come coinvolgere anche le aziende ticinesi',
+    'blog.article.lombardia-investimento-moda-ticinesi-next-fashion.imageAlt': 'Laboratorio tessile in Ticino con materiali moda sostenibile e strumenti digitali',
 };
 
 export default blogMetaIt;

@@ -6340,4 +6340,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/varese-economia-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lombardia-investimento-moda-ticinesi-next-fashion',
+ category: 'pratico',
+ date: '2026-04-18T11:18:17.000Z',
+ image: '/images/blog/lombardia-investimento-moda-ticinesi-next-fashion.jpg',
+ hasCalculator: true,
+ },
 ];
