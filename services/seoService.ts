@@ -2015,6 +2015,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziative-casse-malati-61-milioni-ticino': { name: 'Casse malati Ticino', path: '/articoli-frontaliere/iniziative-casse-malati-61-milioni-ticino', parent: 'blog' },
     'blog-allentamenti-affitti-brevi-ticino-2025': { name: 'Allentamenti affitti brevi in Ticino', path: '/articoli-frontaliere/allentamenti-affitti-brevi-ticino-2025', parent: 'blog' },
     'blog-fuoriuscita-ammoniaca-rapelli-stabio': { name: 'Cronaca Stabio', path: '/articoli-frontaliere/fuoriuscita-ammoniaca-rapelli-stabio', parent: 'blog' },
+    'blog-ia-selezione-personale-ticino': { name: 'IA Lavoro Ticino', path: '/articoli-frontaliere/ia-selezione-personale-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2280,6 +2280,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.title': 'Ammonia leak at Rapelli in Stabio',
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.excerpt': 'The company confirms the safety of its products following Thursday evening\'s technical incident. 100 people were evacuated, and the situation is now under control.',
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.imageAlt': 'Industrial facility in Stabio',
+    'blog.article.ia-selezione-personale-ticino.title': 'AI in recruitment: risks and opportunities in Ticino',
+    'blog.article.ia-selezione-personale-ticino.excerpt': 'Ticino companies are integrating AI into their 2026 hiring processes. What are the risks of discrimination and the critical issues for candidates? A status update.',
+    'blog.article.ia-selezione-personale-ticino.imageAlt': 'AI technology in personnel recruitment within a Ticino office',
 };
 
 export default blogMetaEn;

@@ -2280,6 +2280,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.title': 'Fuoriuscita di ammoniaca alla Rapelli di Stabio',
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.excerpt': 'L\'azienda conferma la sicurezza dei prodotti dopo l\'incidente tecnico di giovedì sera. Evacuate 100 persone, situazione ora sotto controllo.',
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.imageAlt': 'Stabilimento industriale a Stabio',
+    'blog.article.ia-selezione-personale-ticino.title': 'IA nella selezione del personale: rischi e opportunità in Ticino',
+    'blog.article.ia-selezione-personale-ticino.excerpt': 'Le aziende ticinesi integrano l\'IA nelle assunzioni del 2026. Quali sono i rischi di discriminazione e le criticità per i candidati? Il punto della situazione.',
+    'blog.article.ia-selezione-personale-ticino.imageAlt': 'Tecnologia IA nella selezione del personale in un ufficio ticinese',
 };
 
 export default blogMetaIt;

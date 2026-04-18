@@ -8932,6 +8932,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-selezione-personale-ticino': {
+    title: 'IA nella selezione del personale | Frontaliere Ticino',
+    description: 'L\'IA nel recruiting in Ticino: rischi di discriminazione e opportunità per i candidati. Analisi del rapporto 2026 di Manpower. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nella, selezione, personale, rischi',
+    ogTitle: 'IA nella selezione del personale: rischi e opportunità',
+    ogDescription: 'L\'IA nel recruiting in Ticino: rischi di discriminazione e opportunità per i candidati nel 2026.',
+    canonicalPath: '/articoli-frontaliere/ia-selezione-personale-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'IA nella selezione del personale: tra opportunità e rischi di discriminazione",
+      "description": "L'IA nel recruiting in Ticino: rischi di discriminazione e opportunità per i candidati. Analisi del rapporto 2026 di Manpower. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ia-selezione-personale-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tecnologia IA nella selezione del personale in un ufficio ticinese"
+      },
+      "datePublished": "2026-04-18T05:31:03+00:00",
+      "dateModified": "2026-04-18T05:31:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ia-selezione-personale-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

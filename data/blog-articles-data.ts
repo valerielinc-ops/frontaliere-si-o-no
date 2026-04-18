@@ -6305,4 +6305,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/fuoriuscita-ammoniaca-rapelli-stabio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ia-selezione-personale-ticino',
+ category: 'pratico',
+ date: '2026-04-18T05:31:03.792Z',
+ image: '/images/blog/ia-selezione-personale-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

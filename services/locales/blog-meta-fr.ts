@@ -2280,6 +2280,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.title': 'Fuite d\'ammoniac chez Rapelli à Stabio',
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.excerpt': 'L\'entreprise confirme la sécurité des produits après l\'incident technique de jeudi soir. 100 personnes ont été évacuées, la situation est désormais sous contrôle.',
     'blog.article.fuoriuscita-ammoniaca-rapelli-stabio.imageAlt': 'Site industriel à Stabio',
+    'blog.article.ia-selezione-personale-ticino.title': 'IA dans la sélection du personnel : risques et opportunités au Tessin',
+    'blog.article.ia-selezione-personale-ticino.excerpt': 'Les entreprises tessiannes intègrent l\'IA dans les recrutements de 2026. Quels sont les risques de discrimination et les problématiques pour les candidats ? Le point de la situation.',
+    'blog.article.ia-selezione-personale-ticino.imageAlt': 'Technologie IA dans le recrutement du personnel dans un bureau tessinois',
 };
 
 export default blogMetaFr;
