@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-17T21:15:38.900Z",
-  "total": 13,
+  "generatedAt": "2026-04-18T09:08:55.825Z",
+  "total": 12,
   "newCount": 0,
-  "updatedCount": 13,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1860,
-  "avgDurationMs": 1860,
+  "durationMs": 1905,
+  "avgDurationMs": 1905,
   "durationHistory": [
-    1860
+    1905
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,9 +42,9 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "retranslationAttempts": 2,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -239,43 +239,6 @@
       }
     },
     {
-      "title": "GERICHTSSCHREIBERIN / GERICHTSSCHREIBER der Strafkammer",
-      "slug": "gerichtsschreiberin-gerichtsschreiber-der-strafkammer-confederazione-bellinzona",
-      "url": "https://jobs.admin.ch/posti-vacanti/gerichtsschreiberin-gerichtsschreiber-der-strafkammer/acbd9f41-7f7c-4052-9f76-1adfa12f23ba",
-      "applyUrl": "https://jobs.admin.ch/posti-vacanti/gerichtsschreiberin-gerichtsschreiber-der-strafkammer/acbd9f41-7f7c-4052-9f76-1adfa12f23ba",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "legal",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-18",
-      "validThrough": "2026-04-17",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "salaryMin": 80500,
-      "salaryMax": 108500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-aa3545729b04",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Operator/-in Support",
       "slug": "operator-in-support-confederazione-rivera",
       "url": "https://jobs.admin.ch/posti-vacanti/operator-in-support/771b16cf-183e-45b2-aaf0-ed8342934e63",
@@ -341,8 +304,8 @@
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
