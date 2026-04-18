@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-04-18T10:08:28.111Z",
+  "assembledAt": "2026-04-18T22:06:19.324Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:25.328Z",
+      "crawledAt": "2026-04-18T22:06:16.782Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:24.331Z",
+      "crawledAt": "2026-04-18T22:06:15.807Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -191,6 +192,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +237,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:23.347Z",
+      "crawledAt": "2026-04-18T22:06:14.842Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -331,7 +334,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:22.337Z",
+      "crawledAt": "2026-04-18T22:06:13.889Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -389,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -425,7 +429,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura delle persone EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement pour les soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -433,7 +437,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/568/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:21.356Z",
+      "crawledAt": "2026-04-18T22:06:12.927Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -482,8 +486,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-e72119e3765f",
@@ -516,7 +519,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:19.605Z",
+      "crawledAt": "2026-04-18T22:06:11.378Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -554,6 +557,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +602,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:18.625Z",
+      "crawledAt": "2026-04-18T22:06:10.412Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -634,6 +638,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -678,7 +683,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/703/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:17.611Z",
+      "crawledAt": "2026-04-18T22:06:09.420Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -761,7 +766,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:16.596Z",
+      "crawledAt": "2026-04-18T22:06:08.427Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -794,6 +799,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -838,7 +844,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/705/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:15.583Z",
+      "crawledAt": "2026-04-18T22:06:07.428Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -918,7 +924,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/700/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:14.584Z",
+      "crawledAt": "2026-04-18T22:06:06.435Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -973,6 +979,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1017,7 +1024,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/701/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:13.587Z",
+      "crawledAt": "2026-04-18T22:06:05.449Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1047,6 +1054,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1091,7 +1099,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/698/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:12.607Z",
+      "crawledAt": "2026-04-18T22:06:04.682Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1113,15 +1121,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
+        "assistente-di-medicina-interna-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
-        "assistant-en-medecine-interne-100-spital-davos-davos",
-        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
-        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
-        "senior-physician-internal-medicine-80-100-spital-davos-davos",
-        "assistente-di-medicina-interna-100-spital-davos-davos"
+        "assistant-en-medecine-interne-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "assistente-di-medicina-interna-100-spital-davos-davos"
+        ],
         "en": [
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
@@ -1130,12 +1138,10 @@
         ],
         "fr": [
           "assistant-en-medecine-interne-100-spital-davos-davos"
-        ],
-        "it": [
-          "assistente-di-medicina-interna-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1172,7 +1178,7 @@
       "descriptionByLocale": {
         "it": "Descrizione Abitare in modo indipendente a casa nonostante malattia, convalescenza o vecchiaia: questo è possibile per i residenti di Davos con il vostro supporto professionale. In qualità di ospedale regionale/ospedale acuto con servizio di soccorso, casa di cura e Spitex, siamo responsabili dell'assistenza medica di base per la popolazione e gli ospiti di Davos. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavori in un'azienda gestibile, ma importante per la regione, manteniamo un clima di lavoro collegiale e apprezziamo la vicinanza alla natura e le numerose attività sportive e ricreative di Davos. ## Mansioni - Esecuzione delle cure di base e di cura - Supporto e accompagnamento dei nostri clienti nelle attività domestiche - Guida con supporto e accompagnamento dei nostri apprendisti durante il loro periodo di formazione ## Requisiti - Formazione come specialista in salute AFC o infermiere:in FASRK - Piacere di svolgere attività di cura, di assistenza e di economia domestica e di trattare con persone bisognose di aiuto - Senso di responsabilità, capacità di lavorare in team, autonomia e flessibilità - Buona conoscenza del tedesco e patente di guida Categoria B ## Cosa offriamo - Un'introduzione accurata a un campo di attività interessante e versatile - Attività responsabile, varia e indipendente in un team motivato e in un ambiente stimolante -",
         "en": "Descrizione Self-employed living at home despite illness, reconvalescence or age: This allows the residents of Davos with their professional support. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but important operation for the region, we maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > & For further information please contact Mrs. Marlis Zimmermann, Head of Spitex, +41 81 414 85 89 or Mr. Marcus Caduff, Head of Care Spitex of Spital Davos AG, telephone +41 81 414 85 85. Of course, our HRM recruitment team will answer your questions at +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
-        "de": "## Descrizione\nSelbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n\n## Mansioni\n- Durchführen der Grund- und Behandlungspflege\n- Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten\n- Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit\n\n## Requisiti\n- Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK\n- Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen\n- Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität\n- Gute Deutschkenntnisse und Führerausweis Kategorie B\n\n## Cosa offriamo\n- Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet\n- Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld\n- Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich)\n- Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe\n\n## Contatto\nFür weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
+        "de": "Selbständiges Wohnen zuhause trotz Krankheit, Rekonvaleszenz oder Alter: Dies ermöglichen Sie den Einwohnerinnen und Einwohnern von Davos mit Ihrer fachlichen Unterstützung. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine | Durchführen der Grund- und Behandlungspflege Unterstützung und Begleitung unserer Klientinnen und Klienten bei hauswirtschaftlichen Tätigkeiten Anleitung mit Unterstützung und Begleitung unserer Lernenden während ihrer Ausbildungszeit | Ausbildung als Fachperson Gesundheit EFZ oder Krankenpfleger:in FASRK Freude an pflegerischen, betreuerischen sowie hauswirtschaftlichen Tätigkeiten und am Umgang mit hilfsbedürftigen Menschen Verantwortungsbewusstsein, Teamfähigkeit, Selbständigkeit und Flexibilität Gute Deutschkenntnisse und Führerausweis Kategorie B | Sorgfältige Einführung in ein interessantes und vielseitiges Aufgabengebiet Verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit in einem motivierten Team und spannendem Umfeld Unterstützung bei der Vereinbarkeit von Beruf und Familie (nur Morgen- oder Abenddienst sowie Wochenenddienst möglich) Attraktive Fort- und Weiterbildungsmöglichkeiten sowie Anstellungsbedingungen; spitaleigene Kinderkrippe | Für weitere Auskünfte steht Ihnen Frau Marlis Zimmermann, Leitung Spitex, +41 81 414 85 89 oder oder Herr Marcus Caduff, Leitung Pflege Spitex der Spital Davos AG, Telefon +41 81 414 85 85 gerne zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "fr": "Descrizione Travailleur indépendant vivant à la maison malgré maladie, reconvalescence ou âge: Cela permet aux résidents de Davos de bénéficier de leur soutien professionnel. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais importante pour la région, nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Bien sûr, notre équipe de recrutement HRM répondra à vos questions au +41 81 414 84 12 ou par email jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -1180,7 +1186,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:11.609Z",
+      "crawledAt": "2026-04-18T22:06:03.683Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1222,8 +1228,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-016659b12606",
@@ -1256,7 +1261,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:10.631Z",
+      "crawledAt": "2026-04-18T22:06:02.675Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1303,6 +1308,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1347,7 +1353,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/679/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:09.656Z",
+      "crawledAt": "2026-04-18T22:06:01.659Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1381,6 +1387,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1417,7 +1424,7 @@
       "descriptionByLocale": {
         "it": "Descrizione In qualità di MPA in caso di emergenza, i nostri esperti supportano le cure di emergenza NDS e imparano a gestire situazioni in rapida evoluzione. Lavorano volentieri in un team interdisciplinare e godono dell'assistenza infermieristica di persone di tutte le età con diverse origini socio-culturali e diversi gradi di malattia e lesioni. Il lavoro amministrativo fa parte di questo e voi come MPA vi sentite nell'elemento. In qualità di ospedale regionale/ospedale acuto con servizio di soccorso, casa di cura e Spitex, siamo responsabili dell'assistenza medica di base per la popolazione e gli ospiti di Davos. Altrettanto importante per noi è il benessere dei nostri dipendenti. Lavora con noi in un'azienda gestibile, ma estremamente importante per la regione. Coltiviamo un clima di lavoro collegiale e ci godiamo la vicinanza alla natura e le numerose attività sportive e ricreative di Davos. ## Mansioni - Assistenza indipendente di pazienti con uno stato di salute prevedibilmente non pericoloso per la vita e assistenza di pazienti con incidenti minori o malattie poco gravi in caso di emergenza - Supporto di esperti diplomati in cure d'emergenza per interventi infermieristici - Esecuzione di misure diagnostiche e tecniche mediche prescritte sotto la responsabilità di un medico - Installazione di stecche e gesso - Valutazione di",
         "en": "Descrizione As an MPA on our emergency, our experts support emergency care NDS and learn to deal with rapidly changing situations. You like to work in an interdisciplinary team and enjoy the nursing care of people of all ages with different socio-cultural backgrounds and different degrees of illness and injury. Administrative work is part of this and you as an MPA feel in the element. As a regional hospital/acute care hospital with ambulance service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. But the well-being of our employees is just as important to us. With us, you work in a manageable, but extremely important company for the region. We maintain a collegial working atmosphere and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. ## Mansioni - Independent care of patients with a foreseeable non-life-threatening state of health and care of patients with minor accidents or minor illnesses in an emergency - Support of qualified experts in emergency care during nursing interventions - Implementation of ordered medical diagnostic and technical measures under medical responsibility - Installation of splints and plaster - Evaluation of",
-        "de": "## Descrizione\nAls MPA auf unserem Notfall unterstützen Sie unsere Expertinnen und Experten Notfallpflege NDS und lernen, mit schnell wechselnden Situationen umzugehen. Sie arbeiten gerne in einem interdisziplinären Team und haben Freude an der pflegerischen Betreuung von Personen aller Altersgruppen mit unterschiedlicher sozio-kultureller Herkunft und verschiedenen Erkrankungs- und Verletzungsgraden. Administrative Arbeiten gehören dazu und Sie als MPA fühlen sich dabei im Element. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n\n## Mansioni\n- Selbständige Betreuung von Patientinnen und Patienten mit einem absehbar nicht lebensbedrohlichen Gesundheitszustand sowie Betreuung von Patieninnen und Patienten mit Bagatellunfällen oder wenig schwerwiegenden Krankheiten auf dem Notfall\n- Unterstützung der diplomierten Expertinnen und Experten Notfallpflege bei pflegerischen Interventionen\n- Durchführung von angeordneten medizindiagnostischen und -technischen Massnahmen unter ärztlicher Verantwortung\n- Anlage von Schienen und Gips\n- Auswertung von Laboranalysen\n- Empfang der Patientinnen und Patienten und Bearbeiten des administrativen Aufnahmeprozesses der Patientendaten\n- Ausführen von stationsinternen allgemeinen administrativen Arbeiten, Materialbewirtschaftung, Vor- und Nachbereitung von Patientenplätzen\n\n## Requisiti\n- Abgeschlossene Berufsausbildung als MPA sowie erste Berufserfahrung, Kenntnisse im Anlegen von Schienen und Gips von Vorteil\n- Freude an der Tätigkeit in einem anspruchsvollen und lebhaften Umfeld in einem interdisziplinären Team\n- Bereitschaft zu Diensten an Wochenenden und Feiertagen und zu Einsätzen in Früh- und Spätschicht bis 22:45 Uhr, passend zu Ihrer Work-Life-Balance\n- Teamfähige Persönlichkeit, die sich gerne in einem grossen Team engagiert\n- Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n## Cosa offriamo\n- Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem saisonalen Spitalbetrieb\n- Aufgestelltes, engagiertes, dynamisches und kollegiales Team\n- Attraktive Anstellungsbedingungen und Sozialleistungen, eigenes Personalhaus für Mitarbeitende wie auch eine spitaleigene Kinderkrippe\n- Interessante Fort- und Weiterbildungsmöglichkeiten\n\n## Contatto\nFür weitere Auskünfte steht Ihnen Frau Monika Kühne, Leiterin Notfallpflege, unter +41 81 414 83 30 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder jobs@spitaldavos.ch gerne zur Verfügung.",
+        "de": "Als MPA auf unserem Notfall unterstützen Sie unsere Expertinnen und Experten Notfallpflege NDS und lernen, mit schnell wechselnden Situationen umzugehen. Sie arbeiten gerne in einem interdisziplinären Team und haben Freude an der pflegerischen Betreuung von Personen aller Altersgruppen mit unterschiedlicher sozio-kultureller Herkunft und verschiedenen Erkrankungs- und Verletzungsgraden. Administrative Arbeiten gehören dazu und Sie als MPA fühlen sich dabei im Element. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Nach Vereinbarung suchen wir eine:n | Selbständige Betreuung von Patientinnen und Patienten mit einem absehbar nicht lebensbedrohlichen Gesundheitszustand sowie Betreuung von Patieninnen und Patienten mit Bagatellunfällen oder wenig schwerwiegenden Krankheiten auf dem Notfall Unterstützung der diplomierten Expertinnen und Experten Notfallpflege bei pflegerischen Interventionen Durchführung von angeordneten medizindiagnostischen und -technischen Massnahmen unter ärztlicher Verantwortung Anlage von Schienen und Gips Auswertung von Laboranalysen Empfang der Patientinnen und Patienten und Bearbeiten des administrativen Aufnahmeprozesses der Patientendaten Ausführen von stationsinternen allgemeinen administrativen Arbeiten, Materialbewirtschaftung, Vor- und Nachbereitung von Patientenplätzen | Abgeschlossene Berufsausbildung als MPA sowie erste Berufserfahrung, Kenntnisse im Anlegen von Schienen und Gips von Vorteil Freude an der Tätigkeit in einem anspruchsvollen und lebhaften Umfeld in einem interdisziplinären Team Bereitschaft zu Diensten an Wochenenden und Feiertagen und zu Einsätzen in Früh- und Spätschicht bis 22:45 Uhr, passend zu Ihrer Work-Life-Balance Teamfähige Persönlichkeit, die sich gerne in einem grossen Team engagiert Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil | Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem saisonalen Spitalbetrieb Aufgestelltes, engagiertes, dynamisches und kollegiales Team Attraktive Anstellungsbedingungen und Sozialleistungen, eigenes Personalhaus für Mitarbeitende wie auch eine spitaleigene Kinderkrippe Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Monika Kühne, Leiterin Notfallpflege, unter +41 81 414 83 30 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder jobs@spitaldavos.ch gerne zur Verfügung.",
         "fr": "Descrizione En tant que MPA sur notre urgence, vous soutenez nos experts en soins d'urgence NDS et apprenez à faire face à des situations qui changent rapidement. Vous aimez travailler au sein d'une équipe interdisciplinaire et vous aimez prendre soin de personnes de tous âges, d'origines socio-culturelles et de différents degrés de maladie et de blessure. Le travail administratif en fait partie et vous, en tant que MPA, vous vous sentez dans l'élément. En tant qu'hôpital régional/hôpital de soins aigus avec service de secours, maison de soins infirmiers et soins à domicile, nous sommes responsables des soins médicaux de base pour la population de Davos et ses hôtes. Mais le bien-être de nos employés est tout aussi important pour nous. Chez nous, vous travaillez dans une entreprise gérable, mais extrêmement importante pour la région. Nous entretenons un climat de travail collégial et apprécions la proximité avec la nature ainsi que les nombreuses possibilités de sport et de loisirs de Davos. ## Mansioni - Prise en charge indépendante des patients dont l'état de santé n'est pas susceptible de mettre leur vie en danger et prise en charge des patients présentant des accidents mineurs ou des maladies peu graves en cas d'urgence - Soutien aux experts diplômés en soins d'urgence lors d'interventions infirmières - Mise en œuvre des mesures de diagnostic médical et techniques ordonnées sous la responsabilité d'un médecin - Installation d'attelles et de plâtre - Évaluation de"
       },
       "location": "Davos",
@@ -1425,7 +1432,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/655/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:08.700Z",
+      "crawledAt": "2026-04-18T22:06:00.678Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1459,8 +1466,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-e84ba21560a0",
@@ -1493,7 +1499,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/654/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:07.708Z",
+      "crawledAt": "2026-04-18T22:05:59.653Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1523,6 +1529,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:18.819Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1567,7 +1574,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:06.745Z",
+      "crawledAt": "2026-04-18T22:05:58.681Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1603,6 +1610,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1647,7 +1655,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/597/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:05.784Z",
+      "crawledAt": "2026-04-18T22:05:57.675Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1677,6 +1685,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.067Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1721,7 +1730,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:04.764Z",
+      "crawledAt": "2026-04-18T22:05:56.714Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1754,6 +1763,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1790,7 +1800,7 @@
       "descriptionByLocale": {
         "it": "Descrizione In qualità di MPA o FaGe presso la nostra clinica diurna, i nostri infermieri vi supportano. Si divertono a lavorare in un team interdisciplinare, si divertono a prendersi cura di persone di tutte le età, con diverse origini socio-culturali e diversi gradi di malattia. Il lavoro amministrativo fa parte di questo e voi come MPA o FaGe vi sentite nell'elemento. In qualità di ospedale regionale/ospedale acuto con servizio di soccorso, casa di cura e Spitex, siamo responsabili dell'assistenza medica di base per la popolazione e gli ospiti di Davos. Altrettanto importante per noi è il benessere dei nostri dipendenti. Lavora con noi in un'azienda gestibile, ma estremamente importante per la regione. Coltiviamo un clima di lavoro collegiale e ci godiamo la vicinanza alla natura e le numerose attività sportive e ricreative di Davos. ## Mansioni - Svolgimento di compiti organizzativi e amministrativi (consulto, telefono, e-mail, foto ferite, statistiche, PC) - Preparazione e cura dei pazienti e assistenza in interventi diagnostici (endoscopie) - Cura della ferita con una buona introduzione/istruzione da parte dei nostri esperti della ferita - Assistenza ai pazienti con dolore - Preparazione e follow-up del consulto oncologico - Ordini di materiali e farmaci ## Requisiti - Hai completato la formazione professionale come assistente medico (MPA)",
         "en": "Descrizione As MPA or FaGe at our daily clinic, you support our care professionals. You will enjoy working in an interdisciplinary team, enjoying the care of people of all ages, with different socio-cultural origins and different degrees of disorder. Administrative work includes this and you feel in the element as MPA or FaGe. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but extremely important operation for the region. We maintain a collegial working environment and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > & You can also contact us in the team - German skills, other languages of advantage ## Cosa offriamo - Varied, responsible activity - Regular working hours (no services on weekends and holidays) - An established, committed, dynamic and collegial team is pleased to welcome you in Davos - Attractive employment conditions and social benefits, own staff house for employees and a spalit.",
-        "de": "## Descrizione\nAls MPA oder FaGe auf unserer Tagesklinik unterstützen Sie unsere Pflegefachpersonen. Sie haben Freude in einem interdisziplinären Team zu arbeiten, Freude an der Betreuung von Personen aller Altersgruppen, mit unterschiedlicher sozio-kultureller Herkunft und verschiedenen Erkrankungsgraden. Administrative Arbeiten gehören dazu und Sie als MPA oder FaGe fühlen sich dabei im Element. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n\n## Mansioni\n- Erledigung von Organisations- und Administrationsaufgaben (Sprechstunde, Telefon, E-Mails, Fotos Wunden, Statistiken, allg. PC-Arbeiten)\n- Vorbereitung und Betreuung der Patientinnen und Patienten sowie Assistenz bei diagnostischen Interventionen (Endoskopien)\n- Wundversorgung mit guter Einführung/Instruktion durch unsere Wundexpertinnen\n- Betreuung von Schmerzpatienten:innen\n- Vor- und Nachbearbeitung der Onkologie-Sprechstunde\n- Bestellungen von Materialien und Medikamente\n\n## Requisiti\n- Sie verfügen über eine abgeschlossene Berufsausbildung als Medizinische:r Praxisassistent:in (MPA) oder als Fachperson Gesundheit (FaGe)\n- Erfahrungen in einem klinischen Umfeld sind von Vorteil\n- Es macht Ihnen Freude, in einem anspruchsvollen und lebhaften Umfeld in einem interdisziplinären Team tätig zu sein\n- Einen empathischen Umgang mit Patientinnen und Patienten ist für sie selbstverständlich\n- Sie verfügen über eine strukturierte und selbständige Arbeitsweise\n- Als teamfähige Persönlichkeit engagieren Sie sich gerne im Team\n- Fliessende Deutschkenntnisse, weitere Sprachen von Vorteil\n\n## Cosa offriamo\n- Abwechslungsreiche, verantwortungsvolle Tätigkeit\n- Regelmässige Arbeitszeiten (keine Dienste an Wochenenden und Feiertagen)\n- Ein aufgestelltes, engagiertes, dynamisches und kollegiales Team freut sich, Sie in Davos willkommen zu heissen\n- Attraktive Anstellungsbedingungen und Sozialleistungen, eigenes Personalhaus für Mitarbeitende wie auch eine spitaleigene Kinderkrippe stehen zur Verfügung\n- Interessante Weiterbildungsmöglichkeiten\n\n## Contatto\nFür weitere Auskünfte steht Ihnen Frau Bea Heeb, Leiterin Pflege und Querschnittsdisziplinen unter +41 81 414 82 50 wie auch das Rekrutierungsteam unter +41 81 414 84 12 oder per Email jobs@spitaldavos.ch gerne zur Verfügung.",
+        "de": "Als MPA oder FaGe auf unserer Tagesklinik unterstützen Sie unsere Pflegefachpersonen. Sie haben Freude in einem interdisziplinären Team zu arbeiten, Freude an der Betreuung von Personen aller Altersgruppen, mit unterschiedlicher sozio-kultureller Herkunft und verschiedenen Erkrankungsgraden. Administrative Arbeiten gehören dazu und Sie als MPA oder FaGe fühlen sich dabei im Element. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine:n | Erledigung von Organisations- und Administrationsaufgaben (Sprechstunde, Telefon, E-Mails, Fotos Wunden, Statistiken, allg. PC-Arbeiten) Vorbereitung und Betreuung der Patientinnen und Patienten sowie Assistenz bei diagnostischen Interventionen (Endoskopien) Wundversorgung mit guter Einführung/Instruktion durch unsere Wundexpertinnen Betreuung von Schmerzpatienten:innen Vor- und Nachbearbeitung der Onkologie-Sprechstunde Bestellungen von Materialien und Medikamente | Sie verfügen über eine abgeschlossene Berufsausbildung als Medizinische:r Praxisassistent:in (MPA) oder als Fachperson Gesundheit (FaGe) Erfahrungen in einem klinischen Umfeld sind von Vorteil Es macht Ihnen Freude, in einem anspruchsvollen und lebhaften Umfeld in einem interdisziplinären Team tätig zu sein Einen empathischen Umgang mit Patientinnen und Patienten ist für sie selbstverständlich Sie verfügen über eine strukturierte und selbständige Arbeitsweise Als teamfähige Persönlichkeit engagieren Sie sich gerne im Team Fliessende Deutschkenntnisse, weitere Sprachen von Vorteil | Abwechslungsreiche, verantwortungsvolle Tätigkeit Regelmässige Arbeitszeiten (keine Dienste an Wochenenden und Feiertagen) Ein aufgestelltes, engagiertes, dynamisches und kollegiales Team freut sich, Sie in Davos willkommen zu heissen Attraktive Anstellungsbedingungen und Sozialleistungen, eigenes Personalhaus für Mitarbeitende wie auch eine spitaleigene Kinderkrippe stehen zur Verfügung Interessante Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Leiterin Pflege und Querschnittsdisziplinen unter +41 81 414 82 50 wie auch das Rekrutierungsteam unter +41 81 414 84 12 oder per Email jobs@spitaldavos.ch gerne zur Verfügung.",
         "fr": "Descrizione En tant que MPA ou FaGe à notre clinique quotidienne, vous aidez nos professionnels de soins. Vous apprécierez de travailler dans une équipe interdisciplinaire, bénéficiant des soins de personnes de tous âges, avec des origines socioculturelles différentes et des degrés différents de désordre. Le travail administratif comprend ceci et vous vous sentez dans l'élément comme MPA ou FaGe. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais extrêmement importante pour la région. Nous maintenons un environnement de travail collégial et profitons de la proximité de la nature ainsi que des nombreuses possibilités sportives et de loisirs de Davos. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Une équipe établie, engagée, dynamique et collégiale est heureuse de vous accueillir à Davos - Des conditions d'emploi attrayantes et des avantages sociaux, une maison d'employés propre et un spalit."
       },
       "location": "Davos",
@@ -1798,7 +1808,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:03.787Z",
+      "crawledAt": "2026-04-18T22:05:55.754Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1850,8 +1860,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -1884,7 +1893,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:02.830Z",
+      "crawledAt": "2026-04-18T22:05:54.776Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1934,6 +1943,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1978,7 +1988,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:01.880Z",
+      "crawledAt": "2026-04-18T22:05:53.799Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2039,6 +2049,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2083,7 +2094,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:08:00.858Z",
+      "crawledAt": "2026-04-18T22:05:52.798Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2141,6 +2152,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2185,7 +2197,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T10:07:59.856Z",
+      "crawledAt": "2026-04-18T22:05:51.821Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2230,6 +2242,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
