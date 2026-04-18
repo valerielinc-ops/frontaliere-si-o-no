@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-04-17T21:06:31.060Z",
+  "generatedAt": "2026-04-18T08:59:46.553Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9943,
-  "avgDurationMs": 9943,
+  "durationMs": 10639,
+  "avgDurationMs": 10639,
   "durationHistory": [
-    9943
+    10639
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -123,43 +123,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mechaniker (w/m/div.) - REF280421X",
-      "slug": "meccanico-w-m-div-ref280421x-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF280421X-mechaniker-w-m-div-ref280421x",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000114067032-mechaniker-w-m-div-ref280421x?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-11",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-0dc8dc51f7ee",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T21:16:51.371Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
