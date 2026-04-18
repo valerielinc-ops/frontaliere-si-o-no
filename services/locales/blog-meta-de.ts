@@ -2322,6 +2322,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.palaraiffeisen-porta-aperte-lugano-2026.title': 'PalaRaiffeisen in Lugano: Tag der offenen Baustelle für das Megaprojekt',
     'blog.article.palaraiffeisen-porta-aperte-lugano-2026.excerpt': 'Am Samstag, 18. April 2026, öffnet die Stadt Lugano die Tore zur Baustelle des zukünftigen PalaRaiffeisens im Rahmen des Sport- und Eventzentrums Polo Sportivo e degli Eventi.',
     'blog.article.palaraiffeisen-porta-aperte-lugano-2026.imageAlt': 'Baustelle des PalaRaiffeisen in Lugano während des Tags der offenen Tür am 18. April 2026',
+    'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.title': 'Fashion Outlet Landquart: 15 neue Läden und über 1.000 Arbeitsplätze',
+    'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.excerpt': 'Das Einkaufszentrum Foxtown Landquart erreicht mit 15 neuen Läden die Marke von 100 Verkaufsflächen. Dazu gehören eine mehrstellige Millioneninvestition und steuerliche Vorteile für die Gemeinde Zizers.',
+    'blog.article.fashion-outlet-landquart-15-nuovi-negozi-expansion.imageAlt': 'Einkaufszentrum Foxtown Landquart mit 15 neuen Läden und vollen Parkplätzen',
 };
 
 export default blogMetaDe;

@@ -6403,4 +6403,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/palaraiffeisen-porta-aperte-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fashion-outlet-landquart-15-nuovi-negozi-expansion',
+ category: 'pratico',
+ date: '2026-04-18T19:55:14.032Z',
+ image: '/images/blog/fashion-outlet-landquart-15-nuovi-negozi-expansion.jpg',
+ hasCalculator: true,
+ },
 ];

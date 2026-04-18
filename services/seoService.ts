@@ -2029,6 +2029,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-potabilizzatore-mobile-emergenza-ticino': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-emergenza-ticino', parent: 'blog' },
     'blog-nuovo-potabilizzatore-mobile-ticino-emergenza': { name: 'Acqua potabile in emergenza', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-ticino-emergenza', parent: 'blog' },
     'blog-palaraiffeisen-porta-aperte-lugano-2026': { name: 'PalaRaiffeisen 2026', path: '/articoli-frontaliere/palaraiffeisen-porta-aperte-lugano-2026', parent: 'blog' },
+    'blog-fashion-outlet-landquart-15-nuovi-negozi-expansion': { name: 'Fashion Outlet Landquart', path: '/articoli-frontaliere/fashion-outlet-landquart-15-nuovi-negozi-expansion', parent: 'blog' },
  };
 
  const info = sectionNames[section];

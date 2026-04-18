@@ -9338,6 +9338,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fashion-outlet-landquart-15-nuovi-negozi-expansion': {
+    title: 'Fashion Outlet Landquart: 15 nuovi | Frontaliere Ticino',
+    description: 'Il centro commerciale Foxtown Landquart raggiunge quota 100 spazi commerciali con 15 nuovi negozi. Investimento multi milioni e benefici fiscali per il Comune d',
+    keywords: 'frontalieri, ticino, svizzera, italia, fashion, outlet, landquart, nuovi',
+    ogTitle: 'Fashion Outlet Landquart: 15 nuovi negozi e +1\'000 posti',
+    ogDescription: 'Il centro commerciale Foxtown Landquart raggiunge quota 100 spazi commerciali con 15 nuovi negozi. Investimento multi milioni e benefici fiscali per il Comune d',
+    canonicalPath: '/articoli-frontaliere/fashion-outlet-landquart-15-nuovi-negozi-expansion',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fashion Outlet Landquart: 15 nuovi negozi e +1'000 posti",
+      "description": "Il centro commerciale Foxtown Landquart raggiunge quota 100 spazi commerciali con 15 nuovi negozi. Investimento multi milioni e benefici fiscali per il Comune d",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fashion-outlet-landquart-15-nuovi-negozi-expansion.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro commerciale Foxtown Landquart con 15 nuovi negozi e parcheggi affollati"
+      },
+      "datePublished": "2026-04-18T19:55:14+00:00",
+      "dateModified": "2026-04-18T19:55:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fashion-outlet-landquart-15-nuovi-negozi-expansion`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
