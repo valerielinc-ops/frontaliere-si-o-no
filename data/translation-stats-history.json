@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-09T17:34:04.179Z",
-    "label": "before",
-    "total": 1643,
-    "needsRetranslation": 65,
-    "incomplete": 7,
-    "complete": 1636,
-    "missingByLocale": {
-      "it": 6,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel-Erzeugung GmbH",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-09T17:34:55.700Z",
-    "label": "after",
-    "total": 1643,
-    "needsRetranslation": 60,
-    "incomplete": 7,
-    "complete": 1636,
-    "missingByLocale": {
-      "it": 6,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel-Erzeugung GmbH",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-09T18:34:01.640Z",
     "label": "before",
     "total": 1644,
@@ -7665,6 +7609,54 @@
     "needsRetranslation": 46,
     "incomplete": 23,
     "complete": 2918,
+    "missingByLocale": {
+      "it": 22,
+      "en": 1,
+      "de": 22,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 22
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-18T07:34:24.892Z",
+    "label": "before",
+    "total": 2887,
+    "needsRetranslation": 46,
+    "incomplete": 23,
+    "complete": 2864,
+    "missingByLocale": {
+      "it": 22,
+      "en": 1,
+      "de": 22,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 22
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-18T07:52:46.824Z",
+    "label": "after",
+    "total": 2887,
+    "needsRetranslation": 53,
+    "incomplete": 23,
+    "complete": 2864,
     "missingByLocale": {
       "it": 22,
       "en": 1,
