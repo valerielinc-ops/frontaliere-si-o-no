@@ -2028,6 +2028,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malpensa-carburante-rischio-frontalieri-2026': { name: 'Malpensa senza carburante', path: '/articoli-frontaliere/malpensa-carburante-rischio-frontalieri-2026', parent: 'blog' },
     'blog-nuovo-potabilizzatore-mobile-emergenza-ticino': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-emergenza-ticino', parent: 'blog' },
     'blog-nuovo-potabilizzatore-mobile-ticino-emergenza': { name: 'Acqua potabile in emergenza', path: '/articoli-frontaliere/nuovo-potabilizzatore-mobile-ticino-emergenza', parent: 'blog' },
+    'blog-palaraiffeisen-porta-aperte-lugano-2026': { name: 'PalaRaiffeisen 2026', path: '/articoli-frontaliere/palaraiffeisen-porta-aperte-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

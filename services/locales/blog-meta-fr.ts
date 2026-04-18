@@ -2319,6 +2319,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Eau potable en situation d\'urgence : le Tessin présente sa nouvelle station mobile de potabilisation',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'Le Canton investit 260 000 francs dans une installation mobile pour garantir l\'approvisionnement en eau potable en cas de contamination ou de panne. Jusqu\'à 24 m³/heure d\'eau sûre pour 200 000 personnes.',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Unité mobile de potabilisation de l\'eau en fonctionnement sur la rivière Maggia à Locarno. Tuyaux jaunes d\'aspiration et tuyaux bleus de distribution d\'eau potable vers un réservoir.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.title': 'PalaRaiffeisen à Lugano : journée portes ouvertes pour découvrir le grand chantier',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.excerpt': 'Samedi 18 avril 2026, la Ville de Lugano organise une journée portes ouvertes sur le chantier du futur PalaRaiffeisen, dans le cadre du Pôle Sportif et des Événements.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.imageAlt': 'Chantier du PalaRaiffeisen à Lugano lors de la journée portes ouvertes du 18 avril 2026',
 };
 
 export default blogMetaFr;

@@ -2319,6 +2319,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Trinkwasser in Notfällen: Tessin stellt neues mobiles Wasseraufbereitungssystem vor',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'Der Kanton investiert 260\'000 Franken in eine mobile Anlage, um im Falle von Verunreinigungen oder Störungen sauberes Trinkwasser zu gewährleisten. Bis zu 24 m³ pro Stunde sicheres Wasser für 200\'000 Personen.',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Mobile Wasseraufbereitungsanlage am Fluss Maggia in Locarno. Sichtbare gelbe Ansaugschläuche und blaue Auslassrohre, die sauberes Wasser in einen Tank leiten.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.title': 'PalaRaiffeisen in Lugano: Tag der offenen Baustelle für das Megaprojekt',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.excerpt': 'Am Samstag, 18. April 2026, öffnet die Stadt Lugano die Tore zur Baustelle des zukünftigen PalaRaiffeisens im Rahmen des Sport- und Eventzentrums Polo Sportivo e degli Eventi.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.imageAlt': 'Baustelle des PalaRaiffeisen in Lugano während des Tags der offenen Tür am 18. April 2026',
 };
 
 export default blogMetaDe;

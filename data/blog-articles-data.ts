@@ -6396,4 +6396,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/nuovo-potabilizzatore-mobile-ticino-emergenza.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'palaraiffeisen-porta-aperte-lugano-2026',
+ category: 'novita',
+ date: '2026-04-18T19:10:42.172Z',
+ image: '/images/blog/palaraiffeisen-porta-aperte-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ];

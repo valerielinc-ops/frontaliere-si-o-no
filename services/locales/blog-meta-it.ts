@@ -2319,6 +2319,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Acqua potabile in emergenza: Ticino presenta il nuovo potabilizzatore mobile',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'Il Cantone investe 260mila franchi in un impianto mobile per garantire acqua potabile in caso di contaminazioni o guasti. Fino a 24 m³/ora di acqua sicura per 200mila persone.',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Impianto mobile di potabilizzazione in funzione presso il fiume Maggia a Locarno. Tubazioni gialle per l\'acqua da trattare e tubi blu per l\'acqua potabile distribuita.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.title': 'PalaRaiffeisen a Lugano: porte aperte per scoprire la maxi-opera',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.excerpt': 'Sabato 18 aprile 2026 la Città di Lugano ha organizzato una giornata di porte aperte al cantiere del futuro PalaRaiffeisen nell’ambito del Polo Sportivo e degli Eventi.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.imageAlt': 'Cantiere del PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026',
 };
 
 export default blogMetaIt;

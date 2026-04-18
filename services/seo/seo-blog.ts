@@ -9309,6 +9309,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-palaraiffeisen-porta-aperte-lugano-2026': {
+    title: 'PalaRaiffeisen a Lugano: porte aperte | Frontaliere Ticino',
+    description: 'Scopri come visitare il cantiere del PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026. Programma, accesso e opportunità per',
+    keywords: 'frontalieri, ticino, svizzera, italia, palaraiffeisen, lugano, porte, aperte',
+    ogTitle: 'PalaRaiffeisen a Lugano: porte aperte per la maxi-opera del',
+    ogDescription: 'Visita il cantiere del futuro PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026. Scopri programma, accesso e opportunità per',
+    canonicalPath: '/articoli-frontaliere/palaraiffeisen-porta-aperte-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PalaRaiffeisen a Lugano: la maxi-opera del PSE si svela ai cittadini con una giornata di porte",
+      "description": "Scopri come visitare il cantiere del PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026. Programma, accesso e opportunità per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/palaraiffeisen-porta-aperte-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere del PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026"
+      },
+      "datePublished": "2026-04-18T19:10:42+00:00",
+      "dateModified": "2026-04-18T19:10:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palaraiffeisen-porta-aperte-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2319,6 +2319,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.title': 'Drinking water emergency: Ticino unveils new mobile water treatment plant',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.excerpt': 'The canton is investing CHF 260,000 in a mobile plant to ensure safe drinking water in case of contamination or system failures. The facility can produce up to 24 m³ of safe water per hour, enough for 200,000 people.',
     'blog.article.nuovo-potabilizzatore-mobile-ticino-emergenza.imageAlt': 'Mobile water treatment unit operating on the Maggia River in Locarno. Yellow intake hoses and blue output pipes visible, with clean water being delivered to a tank.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.title': 'PalaRaiffeisen in Lugano: open day to discover the mega-project',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.excerpt': 'On Saturday, 18 April 2026, the City of Lugano will host an open day at the construction site of the future PalaRaiffeisen as part of the Sports and Events Complex.',
+    'blog.article.palaraiffeisen-porta-aperte-lugano-2026.imageAlt': 'PalaRaiffeisen construction site in Lugano during the open day on April 18, 2026',
 };
 
 export default blogMetaEn;
