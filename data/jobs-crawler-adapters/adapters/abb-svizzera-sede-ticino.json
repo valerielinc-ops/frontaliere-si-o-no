@@ -13,7 +13,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00017810EXTERNALENGLOBAL/Inside-Sales-Service-Specialist--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018528EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018698EXTERNALENGLOBAL/Process-Quality-Specialist--80-100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00024159EXTERNALENGLOBAL/Production-Supervisor--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00024261EXTERNALENGLOBAL/R-D-Senior-Engineer-Firmware--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00024574EXTERNALENGLOBAL/Test-Engineer--80---100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100",
@@ -27,7 +26,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00030206EXTERNALENGLOBAL/Technical-Support-Engineer--80-100"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-04-19T08:45:40.700Z",
+  "updatedAt": "2026-04-19T20:40:36.294Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018528EXTERNALENGLOBAL/Technical-Support-Engineer--80-100": {
       "location": "Quartino, Ticino, Switzerland",
@@ -94,14 +93,6 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00024159EXTERNALENGLOBAL/Production-Supervisor--80--100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
