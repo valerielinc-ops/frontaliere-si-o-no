@@ -2048,6 +2048,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026': { name: 'Maltempo Ticino', path: '/articoli-frontaliere/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026', parent: 'blog' },
     'blog-sportello-dipendenze-digitali-ticino-2024': { name: 'Ticino', path: '/articoli-frontaliere/sportello-dipendenze-digitali-ticino-2024', parent: 'blog' },
     'blog-tasse-agevolate-milionari-ticino-golfo': { name: 'Ticino, paradiso fiscale per milionari i', path: '/articoli-frontaliere/tasse-agevolate-milionari-ticino-golfo', parent: 'blog' },
+    'blog-infermiere-pratiche-avanzate-ticino-2024': { name: 'APN Ticino', path: '/articoli-frontaliere/infermiere-pratiche-avanzate-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

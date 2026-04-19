@@ -6536,4 +6536,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/tasse-agevolate-milionari-ticino-golfo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'infermiere-pratiche-avanzate-ticino-2024',
+ category: 'novita',
+ date: '2026-04-19T21:58:32.931Z',
+ image: '/images/blog/infermiere-pratiche-avanzate-ticino-2024.jpg',
+ hasCalculator: true,
+ },
 ];

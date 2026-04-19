@@ -2379,6 +2379,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Tessin, paradis fiscal pour millionnaires en fuite du Golfe persique',
     'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Depuis le déclenchement de la guerre en Iran, les demandes d’immobilier au Tessin ont augmenté de 15 %. Les avantages fiscaux forfaitaires et les résidences secondaires sans permis de séjour attirent les Européens en provenance des Émirats, du Qatar et d’Iran.',
     'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'Vue d\'une villa de luxe avec piscine à Ascona, lac Majeur et Alpes en arrière-plan',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Infirmier en pratique avancée : le nouveau rôle dans le paysage sanitaire tessinois',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'La quatrième édition de la Journée de l\'Innovation et de la Recherche Infirmière à Lugano a mis en lumière l\'APN, figure clé pour moderniser les soins au chevet du patient avec 60 professionnels déjà formés localement.',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Campus universitaire de Lugano avec bâtiments SUPSI et EOC lors d\'une journée d\'automne',
 };
 
 export default blogMetaFr;

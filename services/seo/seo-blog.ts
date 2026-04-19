@@ -9889,6 +9889,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermiere-pratiche-avanzate-ticino-2024': {
+    title: 'Infermiere di pratiche avanzate: il | Frontaliere Ticino',
+    description: 'Scopri come la figura dell\'Infermiere di Pratiche Avanzate (APN) sta rivoluzionando il sistema sanitario ticinese e quali vantaggi offre ai frontalieri. Guida',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermiere, pratiche, avanzate, nuovo',
+    ogTitle: 'APN Ticino: formazione, ruoli e vantaggi per frontalieri',
+    ogDescription: 'Scopri come la figura dell\'Infermiere di Pratiche Avanzate (APN) sta rivoluzionando il sistema sanitario ticinese e quali vantaggi offre ai frontalieri.',
+    canonicalPath: '/articoli-frontaliere/infermiere-pratiche-avanzate-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’Infermiere di Pratiche Avanzate (APN) nel Ticino: formazione, ruoli e vantaggi per i frontalieri",
+      "description": "Scopri come la figura dell'Infermiere di Pratiche Avanzate (APN) sta rivoluzionando il sistema sanitario ticinese e quali vantaggi offre ai frontalieri. Guida",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermiere-pratiche-avanzate-ticino-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario di Lugano con edifici SUPSI ed EOC durante una giornata autunnale"
+      },
+      "datePublished": "2026-04-19T21:58:32+00:00",
+      "dateModified": "2026-04-19T21:58:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermiere-pratiche-avanzate-ticino-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

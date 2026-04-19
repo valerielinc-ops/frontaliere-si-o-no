@@ -2379,6 +2379,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Ticino, a tax haven for millionaires fleeing the Persian Gulf',
     'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Since the outbreak of war in Iran, property inquiries in Ticino have surged by 15%. Flat-rate tax benefits and holiday homes without a residence permit are luring Europeans from the UAE, Qatar, and Iran.',
     'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'View of a luxury villa with pool in Ascona, Lake Maggiore and Alps in the background',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Advanced Practice Nurses: The new role in Ticino’s healthcare system',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'The fourth edition of the Nursing Innovation and Research Day in Lugano highlighted the APN, a key figure in modernizing patient care at the bedside, with 60 professionals already locally trained.',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Lugano University Campus with SUPSI and EOC buildings on an autumn day',
 };
 
 export default blogMetaEn;

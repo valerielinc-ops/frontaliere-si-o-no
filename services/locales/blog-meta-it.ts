@@ -2379,6 +2379,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Ticino, paradiso fiscale per milionari in fuga dal Golfo Persico',
     'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Dallo scoppio della guerra in Iran, le richieste di immobili nel Ticino sono aumentate del 15%. Agevolazioni fiscali forfettarie e case vacanza senza permesso di soggiorno attirano europei da Emirati, Qatar e Iran.',
     'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'Veduta di una villa di lusso con piscina ad Ascona, lago Maggiore e Alpi in secondo piano',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Infermiere di pratiche avanzate: il nuovo ruolo nel Ticino sanitario',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'La quarta edizione della Giornata dell\'Innovazione e Ricerca Infermieristica a Lugano ha posto l\'attenzione sull\'APN, figura chiave per modernizzare le cure al letto del paziente con 60 professionisti già formati localmente.',
+    'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Campus universitario di Lugano con edifici SUPSI ed EOC durante una giornata autunnale',
 };
 
 export default blogMetaIt;
