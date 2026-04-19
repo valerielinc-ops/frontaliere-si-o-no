@@ -2343,6 +2343,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-usa-accordo-commerciale-2026.title': 'Schweiz-USA: Handelsabkommen in der Schwebe – Parmelin fordert Klarheit',
     'blog.article.svizzera-usa-accordo-commerciale-2026.excerpt': 'Guy Parmelin trifft in Washington den Handelsbeauftragten der USA, um einen stabilen Verhandlungsrahmen zu definieren. Die Vorwürfe unfaire Handelspraktiken und die Ermittlungen der USA erschweren die Gespräche.',
     'blog.article.svizzera-usa-accordo-commerciale-2026.imageAlt': 'Guy Parmelin und Jamieson Greer während des Treffens in Washington zu Handelsverhandlungen zwischen der Schweiz und den USA',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti startet Resolution: Tessiner Wein als erste Wahl, Import nur als Notlösung',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'Die Jahresversammlung von Federviti in Biasca: 2025 mit den niedrigsten Erträgen der letzten 25 Jahre und sinkendem Konsum. Präsident Cadenazzi fordert bei Veranstaltungen Priorität für den lokalen Wein und ein erneuertes Komitee.',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Weinprobe im sonnigen Tessin, Frontaliere stoßen mit Schweizer-Italiänischem Wein und Herbstblättern an',
 };
 
 export default blogMetaDe;

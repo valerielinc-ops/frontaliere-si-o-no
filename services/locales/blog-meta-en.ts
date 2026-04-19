@@ -2343,6 +2343,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-usa-accordo-commerciale-2026.title': 'Switzerland-USA: Trade deal in limbo, Parmelin seeks clarity',
     'blog.article.svizzera-usa-accordo-commerciale-2026.excerpt': 'Guy Parmelin meets in Washington with the US trade representative to establish a stable negotiating framework. Allegations of unfair practices and a US investigation are complicating the talks.',
     'blog.article.svizzera-usa-accordo-commerciale-2026.imageAlt': 'Guy Parmelin and Jamieson Greer during the Washington meeting on Swiss-US trade negotiations',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti launches resolution: Ticino wine first choice, imports only as last resort',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'The annual Federviti assembly in Biasca highlighted 2025 as the year with the lowest yields in the past 25 years and declining consumption. President Cadenazzi calls for prioritizing local wine at public events and a refreshed committee.',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Ticino wine tasting in a sunny vineyard, frontaliers toasting with Swiss-Italian wine and autumn leaves',
 };
 
 export default blogMetaEn;

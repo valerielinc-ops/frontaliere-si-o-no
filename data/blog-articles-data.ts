@@ -6452,4 +6452,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/svizzera-usa-accordo-commerciale-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'risoluzione-federviti-vino-ticinese-2025',
+ category: 'novita',
+ date: '2026-04-19T07:55:00.850Z',
+ image: '/images/blog/risoluzione-federviti-vino-ticinese-2025.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -9541,6 +9541,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-risoluzione-federviti-vino-ticinese-2025': {
+    title: 'Federviti lancia risoluzione: vino | Frontaliere Ticino',
+    description: 'L’Assemblea annuale di Federviti a Biasca, il 2025 con le rese più basse degli ultimi 25 anni e consumi in calo. Il presidente Cadenazzi chiede priorità al vino',
+    keywords: 'frontalieri, ticino, svizzera, italia, federviti, lancia, risoluzione, vino',
+    ogTitle: 'Federviti lancia risoluzione: vino ticinese prima scelta,',
+    ogDescription: 'L’Assemblea annuale di Federviti a Biasca, il 2025 con le rese più basse degli ultimi 25 anni e consumi in calo. Il presidente Cadenazzi chiede priorità al vino',
+    canonicalPath: '/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Federviti lancia risoluzione: vino ticinese prima scelta,",
+      "description": "L’Assemblea annuale di Federviti a Biasca, il 2025 con le rese più basse degli ultimi 25 anni e consumi in calo. Il presidente Cadenazzi chiede priorità al vino",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/risoluzione-federviti-vino-ticinese-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Degustazione di vini ticinesi in un vigneto soleggiato, con frontaliers che brindano tra barili di legno e foglie autunnali"
+      },
+      "datePublished": "2026-04-19T07:55:00+00:00",
+      "dateModified": "2026-04-19T07:55:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

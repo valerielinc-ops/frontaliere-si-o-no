@@ -2343,6 +2343,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-usa-accordo-commerciale-2026.title': 'Svizzera-USA: accordo commerciale in bilico, Parmelin chiede chiarezza',
     'blog.article.svizzera-usa-accordo-commerciale-2026.excerpt': 'Guy Parmelin incontra a Washington il rappresentante commerciale USA per definire un quadro negoziale stabile. Le accuse di pratiche sleali e l’indagine USA complicano i negoziati.',
     'blog.article.svizzera-usa-accordo-commerciale-2026.imageAlt': 'Guy Parmelin e Jamieson Greer durante l\'incontro a Washington per i negoziati commerciali tra Svizzera e Stati Uniti',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti lancia risoluzione: vino ticinese prima scelta, estero solo come ripiego',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'L’Assemblea annuale di Federviti a Biasca, il 2025 con le rese più basse degli ultimi 25 anni e consumi in calo. Il presidente Cadenazzi chiede priorità al vino locale nelle manifestazioni e un comitato rinnovato.',
+    'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Degustazione di vini ticinesi in un vigneto soleggiato, con frontaliers che brindano tra barili di legno e foglie autunnali',
 };
 
 export default blogMetaIt;
