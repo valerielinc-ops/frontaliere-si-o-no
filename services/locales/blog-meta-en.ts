@@ -2373,6 +2373,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Hail in Bellinzona and weather alert for Lugano and Chiasso: what changes for cross-border workers',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'On Sunday, 19 April 2026, hail struck the Bellinzona area while mobile thunderstorms affected Lugano and Chiasso until 20:43. Weather alert level 3 for hail risk issued: here are the procedures for cross-border workers and residents.',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzona hit by hailstorm on April 19, 2026: streets and cars covered in ice pellets',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Ticino: launch of DIDI desk for digital addictions',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'OSC opens dedicated desk for digital addictions. 6.8% of Ticinesi at risk, 22% under 15. Service operational in Lugano and Bellinzona',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'A young person by Lake Lugano uses a smartphone as the sun sets behind Monte Brè',
 };
 
 export default blogMetaEn;

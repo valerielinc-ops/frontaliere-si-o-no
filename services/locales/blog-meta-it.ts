@@ -2373,6 +2373,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Grandine a Bellinzona e allerta meteo su Lugano e Chiasso: cosa cambia per i frontalieri',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'Domenica 19 aprile 2026 grandine nel Bellinzonese e temporali mobili su Lugano e Chiasso fino alle 20.43. Allerta meteo di grado 3 per rischio grandinate: ecco le procedure per frontalieri e residenti.',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzona colpita da grandine la sera del 19 aprile 2026: strade e auto coperte di chicchi di ghiaccio',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Ticino: apertura sportello DIDI per dipendenze digitali',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'OSC lancia sportello dedicato alle dipendenze digitali. 6,8% ticinesi a rischio, 22% under 15. Servizio operativo a Lugano e Bellinzona',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'Un giovane in riva al lago di Lugano usa lo smartphone mentre il sole tramonta dietro il Monte Brè',
 };
 
 export default blogMetaIt;

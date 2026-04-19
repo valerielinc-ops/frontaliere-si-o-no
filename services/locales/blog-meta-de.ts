@@ -2373,6 +2373,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Hagel in Bellinzona und Wetterwarnung für Lugano und Chiasso: Was ändert sich für Grenzgänger',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'Am Sonntag, 19. April 2026, Hagel im Bellinzonese und mobile Gewitter in Lugano und Chiasso bis 20.43 Uhr. Wetterwarnung der Stufe 3 wegen Hagelgefahr: Hier sind die Verfahren für Grenzgänger und Einwohner.',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzona von Hagelsturm am 19. April 2026 getroffen: Straßen und Autos mit Eiskörnern bedeckt',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Tessin: Öffnung einer Anlaufstelle für digitale Abhängigkeiten',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'OSC lanciert eine spezielle Anlaufstelle für digitale Abhängigkeiten. 6,8 % der Tessiner sind gefährdet, 22 % unter 15 Jahren. Der Service ist in Lugano und Bellinzona verfügbar',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'Ein junger Mensch am Luganersee nutzt ein Smartphone während die Sonne hinter dem Monte Brè untergeht',
 };
 
 export default blogMetaDe;

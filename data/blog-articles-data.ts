@@ -6522,4 +6522,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.jpg',
  hasCalculator: false,
  },
+ {
+ id: 'sportello-dipendenze-digitali-ticino-2024',
+ category: 'pratico',
+ date: '2026-04-19T19:52:18.211Z',
+ image: '/images/blog/sportello-dipendenze-digitali-ticino-2024.jpg',
+ hasCalculator: true,
+ },
 ];

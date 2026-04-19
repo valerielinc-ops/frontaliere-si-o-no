@@ -2373,6 +2373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Grêle à Bellinzone et alerte météo à Lugano et Chiasso : ce qui change pour les frontaliers',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'Dimanche 19 avril 2026, de la grêle a frappé la région de Bellinzone et des orages mobiles ont balayé Lugano ainsi que Chiasso jusqu’à 20h43. Une alerte météo de niveau 3 concernant le risque de grêle est en vigueur : voici les procédures à suivre pour les frontaliers et les résidents.',
     'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzone frappée par une grêle le 19 avril 2026 : rues et voitures recouvertes de grêlons',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Tessin: ouverture d’un guichet DIDI pour les dépendances numériques',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'L’OSC lance un guichet dédié aux dépendances numériques. 6,8 % des Tessinois sont à risque, 22 % des moins de 15 ans. Le service est opérationnel à Lugano et Bellinzone',
+    'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'Un jeune en bordure du lac de Lugano utilise un smartphone au coucher du soleil derrière le Monte Brè',
 };
 
 export default blogMetaFr;
