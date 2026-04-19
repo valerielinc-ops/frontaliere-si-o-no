@@ -2358,6 +2358,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Echo Project: Submerged Meadows to Save Lake Lugano and Como',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'The Interreg Echo project (2025–2027) is testing the restoration of submerged meadows using biochar to combat climate change in Lake Lugano and Lake Como. Two experimental sites, each covering 500 square metres.',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Submerged aquatic plants growing in Lake Lugano as part of the Echo project to restore underwater meadows',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.title': 'Ammonia leak in Stabio: what you need to know and how to react',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.excerpt': 'On Thursday, April 16, 2026, an ammonia leak occurred at the Rapelli food factory in Stabio. Authorities have urged residents to close doors and windows within a 1 km radius. No serious injuries were reported, and an immediate evacuation was carried out.',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.imageAlt': 'Rapelli food factory in Stabio during ammonia leak emergency: ambulances and warning signs with yellow vapors',
 };
 
 export default blogMetaEn;

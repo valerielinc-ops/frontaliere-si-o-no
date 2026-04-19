@@ -9686,6 +9686,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuga-ammoniaca-stabio-rapelli-allerta-ticino': {
+    title: 'Fuga di ammoniaca a Stabio: cosa sapere | Frontaliere Ticino',
+    description: 'Giovedì 16 aprile 2026, fuga di ammoniaca nella fabbrica alimentare Rapelli a Stabio. Autorità chiedono di chiudere porte e finestre in un raggio di 1 km. Nessu',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, ammoniaca, stabio, cosa',
+    ogTitle: 'Fuga di ammoniaca a Stabio: cosa sapere e come reagire',
+    ogDescription: 'Giovedì 16 aprile 2026, fuga di ammoniaca nella fabbrica alimentare Rapelli a Stabio. Autorità chiedono di chiudere porte e finestre in un raggio di 1 km. Nessu',
+    canonicalPath: '/articoli-frontaliere/fuga-ammoniaca-stabio-rapelli-allerta-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuga di ammoniaca a Stabio: cosa sapere e come reagire",
+      "description": "Giovedì 16 aprile 2026, fuga di ammoniaca nella fabbrica alimentare Rapelli a Stabio. Autorità chiedono di chiudere porte e finestre in un raggio di 1 km. Nessu",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuga-ammoniaca-stabio-rapelli-allerta-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fabbrica alimentare Rapelli a Stabio durante l'emergenza ammoniaca: ambulanze e cartelli di pericolo con vapori gialli"
+      },
+      "datePublished": "2026-04-19T15:37:53+00:00",
+      "dateModified": "2026-04-19T15:37:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-stabio-rapelli-allerta-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

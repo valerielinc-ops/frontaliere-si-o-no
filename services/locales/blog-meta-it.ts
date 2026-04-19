@@ -2358,6 +2358,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Progetto Echo: praterie sommerse per salvare i laghi di Lugano e Como',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'Il progetto Interreg Echo (2025-2027) sperimenta il restauro delle praterie sommerse con biochar per combattere il cambiamento climatico nei laghi di Lugano e Como. Due siti sperimentali da 500 mq ciascuno.',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Piante acquatiche che crescono nel lago di Lugano durante il progetto Echo per il restauro delle praterie sommerse',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.title': 'Fuga di ammoniaca a Stabio: cosa sapere e come reagire',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.excerpt': 'Giovedì 16 aprile 2026, fuga di ammoniaca nella fabbrica alimentare Rapelli a Stabio. Autorità chiedono di chiudere porte e finestre in un raggio di 1 km. Nessun ferito grave, evacuazione immediata.',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.imageAlt': 'Fabbrica alimentare Rapelli a Stabio durante l\'emergenza ammoniaca: ambulanze e cartelli di pericolo con vapori gialli',
 };
 
 export default blogMetaIt;

@@ -2358,6 +2358,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Projekt Echo: Unterwasserwiesen zur Rettung der Seen von Lugano und Como',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'Das Interreg-Projekt Echo (2025–2027) testet die Wiederherstellung von Unterwasserwiesen mit Biokohle, um den Klimawandel in den Seen von Lugano und Como zu bekämpfen. Zwei Versuchsflächen von je 500 m².',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Unterwasserpflanzen, die im Luganersee im Rahmen des ECHO-Projekts zur Wiederherstellung von Unterwasserwiesen wachsen',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.title': 'Ammoniak-Austritt in Stabio: Wichtige Informationen und Verhaltenstipps',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.excerpt': 'Am Donnerstag, den 16. April 2026, kam es zu einem Ammoniak-Austritt in der Lebensmittelfabrik Rapelli in Stabio. Die Behörden fordern die Bevölkerung auf, Türen und Fenster in einem Umkreis von 1 km zu schließen. Es gab keine schweren Verletzten, eine sofortige Evakuierung wurde veranlasst.',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.imageAlt': 'Nahrungsmittelfabrik Rapelli in Stabio während Ammoniak-Austritt: Krankenwagen und Warnschilder mit gelben Dämpfen',
 };
 
 export default blogMetaDe;

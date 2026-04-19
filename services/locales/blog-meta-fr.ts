@@ -2358,6 +2358,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Projet Echo : des prairies submergées pour sauver les lacs de Lugano et de Côme',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'Le projet Interreg Echo (2025-2027) expérimente la restauration des prairies submergées avec du biochar pour lutter contre le changement climatique dans les lacs de Lugano et de Côme. Deux sites expérimentaux de 500 m² chacun.',
     'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Plantes aquatiques submergées dans le lac de Lugano dans le cadre du projet Echo pour restaurer les prairies sous-marines',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.title': 'Fuite d\'ammoniac à Stabio : ce qu\'il faut savoir et comment réagir',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.excerpt': 'Jeudi 16 avril 2026, une fuite d\'ammoniac s\'est produite dans l\'usine alimentaire Rapelli à Stabio. Les autorités demandent de fermer portes et fenêtres dans un rayon d\'1 km. Aucun blessé grave, évacuation immédiate.',
+    'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.imageAlt': 'Usine alimentaire Rapelli à Stabio pendant la fuite d\'ammoniac : ambulances et panneaux d\'avertissement avec vapeurs jaunes',
 };
 
 export default blogMetaFr;

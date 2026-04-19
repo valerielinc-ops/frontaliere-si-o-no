@@ -6487,4 +6487,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/rinascita-praterie-sommerse-laghi-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fuga-ammoniaca-stabio-rapelli-allerta-ticino',
+ category: 'pratico',
+ date: '2026-04-19T15:37:53.690Z',
+ image: '/images/blog/fuga-ammoniaca-stabio-rapelli-allerta-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

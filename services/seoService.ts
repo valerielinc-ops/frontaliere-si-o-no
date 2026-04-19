@@ -2041,6 +2041,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiusura-ramo-a8-a9-notte-lavori-2026': { name: 'A8-A9 verso Chiasso chiusa di notte', path: '/articoli-frontaliere/chiusura-ramo-a8-a9-notte-lavori-2026', parent: 'blog' },
     'blog-ia-swiss-re-produttivita-ceo-berger': { name: 'L’IA riduce i tempi di determinazione de', path: '/articoli-frontaliere/ia-swiss-re-produttivita-ceo-berger', parent: 'blog' },
     'blog-rinascita-praterie-sommerse-laghi-ticino': { name: 'Progetto Echo', path: '/articoli-frontaliere/rinascita-praterie-sommerse-laghi-ticino', parent: 'blog' },
+    'blog-fuga-ammoniaca-stabio-rapelli-allerta-ticino': { name: 'Fuga di ammoniaca a Stabio', path: '/articoli-frontaliere/fuga-ammoniaca-stabio-rapelli-allerta-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
