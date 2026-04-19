@@ -6445,4 +6445,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/grigioni-governo-2026-nove-candidati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-usa-accordo-commerciale-2026',
+ category: 'novita',
+ date: '2026-04-19T06:09:51.775Z',
+ image: '/images/blog/svizzera-usa-accordo-commerciale-2026.jpg',
+ hasCalculator: true,
+ },
 ];

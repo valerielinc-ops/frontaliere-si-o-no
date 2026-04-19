@@ -2340,6 +2340,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-governo-2026-nove-candidati.title': 'Grigioni: nove candidati per cinque seggi al Governo',
     'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'Il 14 giugno 2026 si voterà per il Governo grigionese. Nove i nomi in lizza, tra cui quattro uscenti. Scopri chi sono e cosa cambia per i frontalieri ticinesi.',
     'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzona di notte con il Castelgrande illuminato e la strada affollata sotto',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.title': 'Svizzera-USA: accordo commerciale in bilico, Parmelin chiede chiarezza',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.excerpt': 'Guy Parmelin incontra a Washington il rappresentante commerciale USA per definire un quadro negoziale stabile. Le accuse di pratiche sleali e l’indagine USA complicano i negoziati.',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.imageAlt': 'Guy Parmelin e Jamieson Greer durante l\'incontro a Washington per i negoziati commerciali tra Svizzera e Stati Uniti',
 };
 
 export default blogMetaIt;

@@ -2340,6 +2340,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-governo-2026-nove-candidati.title': 'Graubünden: Neun Kandidatinnen und Kandidaten für fünf Regierungsplätze',
     'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'Am 14. Juni 2026 wird im Kanton Graubünden über die Zusammensetzung der Regierung abgestimmt. Insgesamt neun Namen stehen zur Wahl – darunter vier amtierende Regierungsmitglieder. Hier erfahren Sie, wer sich bewirbt und was dies für die Grenzgänger aus dem Tessin bedeutet.',
     'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzona bei Nacht mit beleuchtetem Castelgrande und einer belebten Straße darunter',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.title': 'Schweiz-USA: Handelsabkommen in der Schwebe – Parmelin fordert Klarheit',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.excerpt': 'Guy Parmelin trifft in Washington den Handelsbeauftragten der USA, um einen stabilen Verhandlungsrahmen zu definieren. Die Vorwürfe unfaire Handelspraktiken und die Ermittlungen der USA erschweren die Gespräche.',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.imageAlt': 'Guy Parmelin und Jamieson Greer während des Treffens in Washington zu Handelsverhandlungen zwischen der Schweiz und den USA',
 };
 
 export default blogMetaDe;

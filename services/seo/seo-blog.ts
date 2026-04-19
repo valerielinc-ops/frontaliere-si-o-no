@@ -9512,6 +9512,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-usa-accordo-commerciale-2026': {
+    title: 'Svizzera-USA: accordo commerciale in | Frontaliere Ticino',
+    description: 'Guy Parmelin incontra a Washington il rappresentante commerciale USA per definire un quadro negoziale stabile. Le accuse di pratiche sleali e l’indagine USA com',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-usa, accordo, commerciale, bilico',
+    ogTitle: 'Svizzera-USA: accordo commerciale in bilico, Parmelin chi',
+    ogDescription: 'Guy Parmelin incontra a Washington il rappresentante commerciale USA per definire un quadro negoziale stabile. Le accuse di pratiche sleali e l’indagine USA com',
+    canonicalPath: '/articoli-frontaliere/svizzera-usa-accordo-commerciale-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera-USA: accordo commerciale in bilico, Parmelin chi",
+      "description": "Guy Parmelin incontra a Washington il rappresentante commerciale USA per definire un quadro negoziale stabile. Le accuse di pratiche sleali e l’indagine USA com",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-usa-accordo-commerciale-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guy Parmelin e Jamieson Greer durante l'incontro a Washington per i negoziati commerciali tra Svizzera e Stati Uniti"
+      },
+      "datePublished": "2026-04-19T06:09:51+00:00",
+      "dateModified": "2026-04-19T06:09:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-usa-accordo-commerciale-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

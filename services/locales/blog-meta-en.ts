@@ -2340,6 +2340,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grigioni-governo-2026-nove-candidati.title': 'Grisons: nine candidates vie for five government seats',
     'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'On 14 June 2026, voters in the Grisons will elect the canton’s government. Nine candidates are in the running, including four incumbents. Discover who they are and what this means for cross-border workers from Ticino.',
     'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzona at night with Castelgrande lit up and a busy street below',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.title': 'Switzerland-USA: Trade deal in limbo, Parmelin seeks clarity',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.excerpt': 'Guy Parmelin meets in Washington with the US trade representative to establish a stable negotiating framework. Allegations of unfair practices and a US investigation are complicating the talks.',
+    'blog.article.svizzera-usa-accordo-commerciale-2026.imageAlt': 'Guy Parmelin and Jamieson Greer during the Washington meeting on Swiss-US trade negotiations',
 };
 
 export default blogMetaEn;
