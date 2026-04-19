@@ -1,105 +1,5 @@
 [
   {
-    "timestamp": "2026-04-10T02:36:18.097Z",
-    "label": "before",
-    "total": 1681,
-    "needsRetranslation": 78,
-    "incomplete": 18,
-    "complete": 1663,
-    "missingByLocale": {
-      "it": 10,
-      "en": 17,
-      "de": 9,
-      "fr": 18
-    },
-    "topPending": [
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hilcona Gourmet S.A.",
-        "pending": 4
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 2
-      },
-      {
-        "company": "AFRY",
-        "pending": 1
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-10T02:38:26.388Z",
-    "label": "after",
-    "total": 1681,
-    "needsRetranslation": 59,
-    "incomplete": 11,
-    "complete": 1670,
-    "missingByLocale": {
-      "it": 8,
-      "en": 11,
-      "de": 3,
-      "fr": 11
-    },
-    "topPending": [
-      {
-        "company": "Hilcona Gourmet S.A.",
-        "pending": 4
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "AFRY",
-        "pending": 1
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-10T03:44:18.054Z",
     "label": "before",
     "total": 1681,
@@ -7663,6 +7563,54 @@
     "label": "after",
     "total": 2936,
     "needsRetranslation": 18,
+    "incomplete": 21,
+    "complete": 2915,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 20,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-19T05:38:40.172Z",
+    "label": "before",
+    "total": 2936,
+    "needsRetranslation": 18,
+    "incomplete": 21,
+    "complete": 2915,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 20,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-19T05:53:13.991Z",
+    "label": "after",
+    "total": 2936,
+    "needsRetranslation": 54,
     "incomplete": 21,
     "complete": 2915,
     "missingByLocale": {
