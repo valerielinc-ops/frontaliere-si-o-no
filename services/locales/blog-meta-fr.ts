@@ -2337,6 +2337,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': 'Championnat du monde de course d\'orientation 2026 : Locarno et Ascona en première ligne',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'Du 24 au 26 avril 2026, le Championnat du monde de course d\'orientation investira le Locarnese avec 250 athlètes issus de 30 pays et plus de 1\'800 passionnés en compétition. Impact économique et restrictions de circulation.',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'La Piazza Grande de Locarno transformée en arène de sprint d\'orientation lors de la Coupe du Monde 2026',
+    'blog.article.grigioni-governo-2026-nove-candidati.title': 'Grisons: neuf candidats pour cinq sièges au gouvernement',
+    'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'Le 14 juin 2026, les Grisons voteront pour leur gouvernement cantonal. Neuf noms sont en lice, dont quatre sortants. Découvrez qui sont ces candidats et ce qui pourrait changer pour les travailleurs frontaliers du Tessin.',
+    'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzone de nuit avec le Castelgrande illuminé et une rue animée en contrebas',
 };
 
 export default blogMetaFr;

@@ -9483,6 +9483,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-governo-2026-nove-candidati': {
+    title: 'Grigioni: nove candidati per cinque | Frontaliere Ticino',
+    description: 'Il 14 giugno 2026 si voterà per il Governo grigionese. Nove i nomi in lizza, tra cui quattro uscenti. Scopri chi sono e cosa cambia per i frontalieri ticinesi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, nove, candidati, cinque',
+    ogTitle: 'Grigioni: nove candidati per cinque seggi al Governo',
+    ogDescription: 'Il 14 giugno 2026 si voterà per il Governo grigionese. Nove i nomi in lizza, tra cui quattro uscenti. Scopri chi sono e cosa cambia per i frontalieri ticinesi.',
+    canonicalPath: '/articoli-frontaliere/grigioni-governo-2026-nove-candidati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: nove candidati per cinque seggi al Governo",
+      "description": "Il 14 giugno 2026 si voterà per il Governo grigionese. Nove i nomi in lizza, tra cui quattro uscenti. Scopri chi sono e cosa cambia per i frontalieri ticinesi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grigioni-governo-2026-nove-candidati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona di notte con il Castelgrande illuminato e la strada affollata sotto"
+      },
+      "datePublished": "2026-04-19T03:50:28+00:00",
+      "dateModified": "2026-04-19T03:50:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-governo-2026-nove-candidati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

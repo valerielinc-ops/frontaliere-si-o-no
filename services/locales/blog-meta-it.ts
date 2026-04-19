@@ -2337,6 +2337,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': 'Coppa del Mondo di corsa d\'orientamento 2026: Locarno e Ascona in prima linea',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'Dal 24 al 26 aprile 2026 la Coppa del Mondo di corsa d\'orientamento porterà nel Locarnese 250 atleti da 30 Paesi e oltre 1\'800 appassionati in gara. Impatto economico e restrizioni al traffico.',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'Piazza Grande di Locarno durante la Coppa del Mondo di corsa d\'orientamento 2026 con atleti in gara e pubblico',
+    'blog.article.grigioni-governo-2026-nove-candidati.title': 'Grigioni: nove candidati per cinque seggi al Governo',
+    'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'Il 14 giugno 2026 si voterà per il Governo grigionese. Nove i nomi in lizza, tra cui quattro uscenti. Scopri chi sono e cosa cambia per i frontalieri ticinesi.',
+    'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzona di notte con il Castelgrande illuminato e la strada affollata sotto',
 };
 
 export default blogMetaIt;

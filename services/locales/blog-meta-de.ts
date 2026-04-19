@@ -2337,6 +2337,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': 'Orientierungslauf-Weltcup 2026: Locarno und Ascona als Vorreiter',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'Vom 24. bis 26. April 2026 bringt der Orientierungslauf-Weltcup ins Locarnese 250 Athletinnen und Athleten aus 30 Ländern sowie über 1’800 begeisterte Teilnehmende ins Rennen. Wirtschaftliche Auswirkungen und Verkehrsbehinderungen sind zu erwarten.',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'Der Piazza Grande in Locarno verwandelt sich während der Orientierungslauf-Weltmeisterschaft 2026 in eine Sprint-Arena mit Athleten und Publikum',
+    'blog.article.grigioni-governo-2026-nove-candidati.title': 'Graubünden: Neun Kandidatinnen und Kandidaten für fünf Regierungsplätze',
+    'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'Am 14. Juni 2026 wird im Kanton Graubünden über die Zusammensetzung der Regierung abgestimmt. Insgesamt neun Namen stehen zur Wahl – darunter vier amtierende Regierungsmitglieder. Hier erfahren Sie, wer sich bewirbt und was dies für die Grenzgänger aus dem Tessin bedeutet.',
+    'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzona bei Nacht mit beleuchtetem Castelgrande und einer belebten Straße darunter',
 };
 
 export default blogMetaDe;

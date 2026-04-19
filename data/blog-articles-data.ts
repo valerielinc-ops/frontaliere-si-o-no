@@ -6438,4 +6438,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/coppa-del-mondo-orientamento-locarnese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grigioni-governo-2026-nove-candidati',
+ category: 'novita',
+ date: '2026-04-19T03:50:28.108Z',
+ image: '/images/blog/grigioni-governo-2026-nove-candidati.jpg',
+ hasCalculator: true,
+ },
 ];

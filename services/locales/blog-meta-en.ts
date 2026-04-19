@@ -2337,6 +2337,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': '2026 World Cup Orienteering: Locarno and Ascona lead the way',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'From April 24 to 26, 2026, the World Cup Orienteering event will bring 250 athletes from 30 countries and over 1,800 enthusiasts to the Locarno area. Anticipated economic impact and traffic restrictions.',
     'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'Locarno\'s Piazza Grande transformed into an orienteering sprint arena during the 2026 World Cup',
+    'blog.article.grigioni-governo-2026-nove-candidati.title': 'Grisons: nine candidates vie for five government seats',
+    'blog.article.grigioni-governo-2026-nove-candidati.excerpt': 'On 14 June 2026, voters in the Grisons will elect the canton’s government. Nine candidates are in the running, including four incumbents. Discover who they are and what this means for cross-border workers from Ticino.',
+    'blog.article.grigioni-governo-2026-nove-candidati.imageAlt': 'Bellinzona at night with Castelgrande lit up and a busy street below',
 };
 
 export default blogMetaEn;

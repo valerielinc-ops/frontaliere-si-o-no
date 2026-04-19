@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 830,
+ "numberOfItems": 831,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4519,7 +4519,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 827, "name": "Salario minimo a 25 CHF in Ticino: Proposta MPS...", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-25-chf-ticino` },
           { "@type": "ListItem", "position": 828, "name": "Confindustria Varese: Paciaroni riconfermato al...", "url": `${BASE_URL}/articoli-frontaliere/confindustria-varese-paciaroni-2026` },
           { "@type": "ListItem", "position": 829, "name": "Finanza ticinese si reinventa: l’economia va in...", "url": `${BASE_URL}/articoli-frontaliere/finanza-ticino-si-reinventa-economia-dati` },
-          { "@type": "ListItem", "position": 830, "name": "Coppa del Mondo di corsa d'orientamento 2026: L...", "url": `${BASE_URL}/articoli-frontaliere/coppa-del-mondo-orientamento-locarnese-2026` }
+          { "@type": "ListItem", "position": 830, "name": "Coppa del Mondo di corsa d'orientamento 2026: L...", "url": `${BASE_URL}/articoli-frontaliere/coppa-del-mondo-orientamento-locarnese-2026` },
+          { "@type": "ListItem", "position": 831, "name": "Grigioni: nove candidati per cinque seggi al Go...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-governo-2026-nove-candidati` }
  ]
  }
  ]

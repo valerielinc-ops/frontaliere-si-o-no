@@ -2034,6 +2034,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confindustria-varese-paciaroni-2026': { name: 'Confindustria Varese', path: '/articoli-frontaliere/confindustria-varese-paciaroni-2026', parent: 'blog' },
     'blog-finanza-ticino-si-reinventa-economia-dati': { name: 'Finanza ticinese si reinventa', path: '/articoli-frontaliere/finanza-ticino-si-reinventa-economia-dati', parent: 'blog' },
     'blog-coppa-del-mondo-orientamento-locarnese-2026': { name: 'Eventi sportivi', path: '/articoli-frontaliere/coppa-del-mondo-orientamento-locarnese-2026', parent: 'blog' },
+    'blog-grigioni-governo-2026-nove-candidati': { name: 'Grigioni', path: '/articoli-frontaliere/grigioni-governo-2026-nove-candidati', parent: 'blog' },
  };
 
  const info = sectionNames[section];
