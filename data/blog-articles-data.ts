@@ -6529,4 +6529,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/sportello-dipendenze-digitali-ticino-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tasse-agevolate-milionari-ticino-golfo',
+ category: 'novita',
+ date: '2026-04-19T20:53:37.635Z',
+ image: '/images/blog/tasse-agevolate-milionari-ticino-golfo.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2376,6 +2376,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Ticino: launch of DIDI desk for digital addictions',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'OSC opens dedicated desk for digital addictions. 6.8% of Ticinesi at risk, 22% under 15. Service operational in Lugano and Bellinzona',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'A young person by Lake Lugano uses a smartphone as the sun sets behind Monte Brè',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Ticino, a tax haven for millionaires fleeing the Persian Gulf',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Since the outbreak of war in Iran, property inquiries in Ticino have surged by 15%. Flat-rate tax benefits and holiday homes without a residence permit are luring Europeans from the UAE, Qatar, and Iran.',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'View of a luxury villa with pool in Ascona, Lake Maggiore and Alps in the background',
 };
 
 export default blogMetaEn;

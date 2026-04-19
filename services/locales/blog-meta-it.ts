@@ -2376,6 +2376,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Ticino: apertura sportello DIDI per dipendenze digitali',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'OSC lancia sportello dedicato alle dipendenze digitali. 6,8% ticinesi a rischio, 22% under 15. Servizio operativo a Lugano e Bellinzona',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'Un giovane in riva al lago di Lugano usa lo smartphone mentre il sole tramonta dietro il Monte Brè',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Ticino, paradiso fiscale per milionari in fuga dal Golfo Persico',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Dallo scoppio della guerra in Iran, le richieste di immobili nel Ticino sono aumentate del 15%. Agevolazioni fiscali forfettarie e case vacanza senza permesso di soggiorno attirano europei da Emirati, Qatar e Iran.',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'Veduta di una villa di lusso con piscina ad Ascona, lago Maggiore e Alpi in secondo piano',
 };
 
 export default blogMetaIt;

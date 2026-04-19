@@ -2376,6 +2376,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Tessin: Öffnung einer Anlaufstelle für digitale Abhängigkeiten',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'OSC lanciert eine spezielle Anlaufstelle für digitale Abhängigkeiten. 6,8 % der Tessiner sind gefährdet, 22 % unter 15 Jahren. Der Service ist in Lugano und Bellinzona verfügbar',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'Ein junger Mensch am Luganersee nutzt ein Smartphone während die Sonne hinter dem Monte Brè untergeht',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Tessin: Steuerparadies für Millionäre auf der Flucht aus der Golfregion',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Seit dem Ausbruch des Krieges im Iran sind die Anfragen nach Immobilien im Tessin um 15 % gestiegen. Pauschalbesteuerung und Ferienhäuser ohne Aufenthaltsbewilligung locken Europäer aus den Emiraten, Katar und dem Iran.',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'Blick auf eine Luxusvilla mit Pool in Ascona, Lago Maggiore und Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

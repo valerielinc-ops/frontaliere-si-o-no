@@ -9860,6 +9860,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasse-agevolate-milionari-ticino-golfo': {
+    title: 'Ticino, paradiso fiscale per milionari | Frontaliere Ticino',
+    description: 'Dallo scoppio della guerra in Iran, le richieste di immobili nel Ticino sono aumentate del 15%. Agevolazioni fiscali forfettarie e case vacanza senza permesso d',
+    keywords: 'frontalieri, ticino, svizzera, italia, paradiso, fiscale, milionari, fuga',
+    ogTitle: 'Ticino, paradiso fiscale per milionari in fuga dal Golfo',
+    ogDescription: 'Dallo scoppio della guerra in Iran, le richieste di immobili nel Ticino sono aumentate del 15%. Agevolazioni fiscali forfettarie e case vacanza senza permesso d',
+    canonicalPath: '/articoli-frontaliere/tasse-agevolate-milionari-ticino-golfo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino, paradiso fiscale per milionari in fuga dal Golfo",
+      "description": "Dallo scoppio della guerra in Iran, le richieste di immobili nel Ticino sono aumentate del 15%. Agevolazioni fiscali forfettarie e case vacanza senza permesso d",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tasse-agevolate-milionari-ticino-golfo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una villa di lusso con piscina ad Ascona, lago Maggiore e Alpi in secondo piano"
+      },
+      "datePublished": "2026-04-19T20:53:37+00:00",
+      "dateModified": "2026-04-19T20:53:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasse-agevolate-milionari-ticino-golfo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

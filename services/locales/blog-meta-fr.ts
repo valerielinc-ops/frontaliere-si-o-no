@@ -2376,6 +2376,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sportello-dipendenze-digitali-ticino-2024.title': 'Tessin: ouverture d’un guichet DIDI pour les dépendances numériques',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.excerpt': 'L’OSC lance un guichet dédié aux dépendances numériques. 6,8 % des Tessinois sont à risque, 22 % des moins de 15 ans. Le service est opérationnel à Lugano et Bellinzone',
     'blog.article.sportello-dipendenze-digitali-ticino-2024.imageAlt': 'Un jeune en bordure du lac de Lugano utilise un smartphone au coucher du soleil derrière le Monte Brè',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.title': 'Tessin, paradis fiscal pour millionnaires en fuite du Golfe persique',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.excerpt': 'Depuis le déclenchement de la guerre en Iran, les demandes d’immobilier au Tessin ont augmenté de 15 %. Les avantages fiscaux forfaitaires et les résidences secondaires sans permis de séjour attirent les Européens en provenance des Émirats, du Qatar et d’Iran.',
+    'blog.article.tasse-agevolate-milionari-ticino-golfo.imageAlt': 'Vue d\'une villa de luxe avec piscine à Ascona, lac Majeur et Alpes en arrière-plan',
 };
 
 export default blogMetaFr;

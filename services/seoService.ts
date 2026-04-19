@@ -2047,6 +2047,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-alloggi-frontalieri-ticino-crisi-2025': { name: 'Casa e mercato', path: '/articoli-frontaliere/alloggi-frontalieri-ticino-crisi-2025', parent: 'blog' },
     'blog-grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026': { name: 'Maltempo Ticino', path: '/articoli-frontaliere/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026', parent: 'blog' },
     'blog-sportello-dipendenze-digitali-ticino-2024': { name: 'Ticino', path: '/articoli-frontaliere/sportello-dipendenze-digitali-ticino-2024', parent: 'blog' },
+    'blog-tasse-agevolate-milionari-ticino-golfo': { name: 'Ticino, paradiso fiscale per milionari i', path: '/articoli-frontaliere/tasse-agevolate-milionari-ticino-golfo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
