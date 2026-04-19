@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-04-19T09:38:18.355Z",
+  "assembledAt": "2026-04-19T21:33:39.247Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.005Z",
+      "crawledAt": "2026-04-19T21:33:37.286Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -100,6 +100,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -144,7 +145,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.004Z",
+      "crawledAt": "2026-04-19T21:33:37.285Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -195,6 +196,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.004Z",
+      "crawledAt": "2026-04-19T21:33:37.285Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -301,6 +303,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -310,108 +313,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-4a30e8b13690",
-      "slug": "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-        "en": "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-        "de": "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-        "fr": "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Lehrperson (m/w/d) 20 - 40%",
-      "titleByLocale": {
-        "it": "Insegnante (m/f/d) 20 - 40%",
-        "en": "Lehrperson (m/w/d) 20 - 40%",
-        "de": "Lehrperson (m/w/d) 20 - 40%",
-        "fr": "Enseignant(e) (m/f/d) 20 - 40%"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für weitere Auskünfte steht Ihnen Herr Andreas Koska, Leiter Klinikschule Sekundarstufe, unter der Telefonnummer +41 81 417 38 96, gerne zur Verfügung. | Aufgaben: Koordination des Unterrichts Verfolgung aktueller Entwicklungen der Schulpädagogik Organisation und Durchführung des Unterrichts Material- und Medienherstellung Zusammenarbeit mit den Regelschulen Schulische Beratungsgespräche mit Eltern während der Rehabilitation Fächerspezifische Aufgabengebiete (nach Eignung und Neigung) Einbindung von musischen und kreativen Angeboten in den Unterricht Eine Sonderaufgabe stellt die interdisziplinäre Zusammenarbeit mit anderen Abteilungen dar. | Anforderungen: Diplomierte Lehrerausbildung ist erwünscht Ein hohes Maß an Sensibilität, Empathie und Eigenverantwortlichkeit Freude an der Arbeit mit chronisch kranken Kindern und deren Familien Belastbarkeit, Flexibilität, Verantwortungsbewusstsein, Teamfähigkeit und Kooperationsbereitschaft Kenntnis und Erfahrung bei der Beschulung von Kindern mit ADHS, LRS und Dyskalkulie",
-      "descriptionByLocale": {
-        "it": "Alle spalle del nostro successo c'è il team della Hochgebirgsklinik, composto da oltre 400 collaboratori motivati. Le molteplici aree di competenza e la stretta collaborazione tra i team vi offriranno un incarico responsabile e possibilità di sviluppo. Inoltre, la Hochgebirgsklinik offre condizioni di impiego moderne e una posizione ideale per attività ricreative nella regione turistica dei Grigioni. ## Mansioni - Coordinamento dell'insegnamento - Aggiornamento sulle nuove tendenze della pedagogia scolastica - Organizzazione e svolgimento delle lezioni - Preparazione di materiali e supporti didattici - Collaborazione con le scuole regolari - Colloqui di consulenza scolastica con i genitori durante la riabilitazione - Compiti specifici per materia (in base alle competenze e alle inclinazioni personali) - Integrazione di offerte musicali e creative nell'insegnamento - Un compito speciale consiste nella collaborazione interdisciplinare con altri reparti. ## Requisiti - Titolo di insegnante riconosciuto - Elevata sensibilità, empatia e senso di responsabilità - Piacere nel lavorare con bambini e famiglie affetti da malattie croniche - Resistenza allo stress, flessibilità, senso di responsabilità, capacità di lavorare in team e disponibilità alla collaborazione - Conoscenza ed esperienza nell'insegnamento a bambini con ADHD, dislessia e discalculia ## Contatto Per ulteriori informazioni, potete contattare il signor Andreas Koska, responsabile della scuola clinica secondaria, al numero +41 81 417 38 96.",
-        "en": "Behind our success story is the Hochgebirgsklinik team with its over 400 committed employees. The diverse areas of expertise and close collaboration between teams enable you to take on a responsible role with opportunities for development. In addition, Hochgebirgsklinik offers modern employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. ## Tasks - Coordination of teaching - Keeping up to date with current developments in school pedagogy - Organization and delivery of lessons - Preparation of teaching materials and media - Collaboration with mainstream schools - Educational counseling sessions with parents during rehabilitation - Subject-specific tasks (based on qualifications and personal inclinations) - Integration of musical and creative offerings into lessons - A special task involves interdisciplinary collaboration with other departments. ## Requirements - Qualified teaching diploma is desired - High level of sensitivity, empathy, and personal responsibility - Enjoyment of working with chronically ill children and their families - Resilience, flexibility, sense of responsibility, teamwork skills, and willingness to cooperate - Knowledge and experience in teaching children with ADHD, dyslexia, and dyscalculia ## Contact For further information, please contact Mr. Andreas Koska, Head of Clinic School Secondary Level, at +41 81 417 38 96.",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für weitere Auskünfte steht Ihnen Herr Andreas Koska, Leiter Klinikschule Sekundarstufe, unter der Telefonnummer +41 81 417 38 96, gerne zur Verfügung. | Aufgaben: Koordination des Unterrichts Verfolgung aktueller Entwicklungen der Schulpädagogik Organisation und Durchführung des Unterrichts Material- und Medienherstellung Zusammenarbeit mit den Regelschulen Schulische Beratungsgespräche mit Eltern während der Rehabilitation Fächerspezifische Aufgabengebiete (nach Eignung und Neigung) Einbindung von musischen und kreativen Angeboten in den Unterricht Eine Sonderaufgabe stellt die interdisziplinäre Zusammenarbeit mit anderen Abteilungen dar. | Anforderungen: Diplomierte Lehrerausbildung ist erwünscht Ein hohes Maß an Sensibilität, Empathie und Eigenverantwortlichkeit Freude an der Arbeit mit chronisch kranken Kindern und deren Familien Belastbarkeit, Flexibilität, Verantwortungsbewusstsein, Teamfähigkeit und Kooperationsbereitschaft Kenntnis und Erfahrung bei der Beschulung von Kindern mit ADHS, LRS und Dyskalkulie",
-        "fr": "Notre succès repose sur l'équipe de la Hochgebirgsklinik, composée de plus de 400 collaborateurs engagés. Les multiples domaines de compétence et la collaboration étroite entre les équipes vous offriront un poste responsable avec des possibilités d'évolution. De plus, la Hochgebirgsklinik propose des conditions de travail modernes et un emplacement idéal pour des activités de loisirs variées dans la région touristique des Grisons. ## Missions - Coordination de l'enseignement - Veille aux évolutions actuelles de la pédagogie scolaire - Organisation et dispensation des cours - Préparation de matériel et de supports pédagogiques - Collaboration avec les écoles ordinaires - Entretiens de conseil scolaire avec les parents pendant la réadaptation - Tâches spécifiques par matière (selon les qualifications et les affinités personnelles) - Intégration d'offres musicales et créatives dans l'enseignement - Une mission particulière consiste en la collaboration interdisciplinaire avec d'autres services. ## Exigences - Diplôme d'enseignement reconnu souhaité - Grande sensibilité, empathie et sens des responsabilités - Plaisir à travailler avec des enfants et des familles touchés par des maladies chroniques - Résistance au stress, flexibilité, sens des responsabilités, aptitude au travail d'équipe et esprit de collaboration - Connaissance et expérience dans l'enseignement d'enfants atteints de TDAH, de dyslexie et de dyscalculie ## Contact Pour toute information complémentaire, vous pouvez contacter M. Andreas Koska, responsable de l'école clinique du secondaire, au +41 81 417 38 96."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM0&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.003Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/634/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Titolo di insegnante riconosciuto",
-          "Elevata sensibilità ed empatia",
-          "Piacere nel lavorare con bambini e famiglie affetti da malattie croniche",
-          "Resistenza allo stress e flessibilità",
-          "Senso di responsabilità e capacità di lavorare in team",
-          "Disponibilità alla collaborazione",
-          "Conoscenza ed esperienza nell'insegnamento a bambini con ADHD, dislessia e discalculia"
-        ],
-        "en": [
-          "Qualified teaching diploma",
-          "High level of sensitivity and empathy",
-          "Enjoyment of working with chronically ill children and their families",
-          "Resilience and flexibility",
-          "Sense of responsibility and teamwork skills",
-          "Willingness to cooperate",
-          "Knowledge and experience in teaching children with ADHD, dyslexia, and dyscalculia"
-        ],
-        "fr": [
-          "Diplôme d'enseignement reconnu souhaité",
-          "Grande sensibilité et empathie",
-          "Plaisir à travailler avec des enfants et familles touchés par des maladies chroniques",
-          "Résistance au stress et flexibilité",
-          "Sens des responsabilités et aptitude au travail d'équipe",
-          "Esprit de collaboration",
-          "Connaissance et expérience dans l'enseignement d'enfants atteints de TDAH, de dyslexie et de dyscalculie"
-        ]
-      },
-      "department": "Verwaltung",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 20,
-      "pensumMax": 40,
-      "pensum": "20 - 40%",
-      "previousSlugs": [
-        "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.481Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -447,7 +348,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.003Z",
+      "crawledAt": "2026-04-19T21:33:37.284Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -501,6 +402,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -545,7 +447,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.003Z",
+      "crawledAt": "2026-04-19T21:33:37.284Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -610,6 +512,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -624,90 +527,95 @@
       }
     },
     {
-      "id": "hochgebirgsklinik-davos-344ac3aa2fe0",
-      "slug": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
+      "id": "hochgebirgsklinik-davos-4a30e8b13690",
+      "slug": "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "it": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
-        "en": "biomedical-analyst-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
-        "de": "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch",
-        "fr": "analyste-biomedical-bma-hf-mtl-h-f-d-50-80-hochgebirgsklinik-davos-davos"
+        "it": "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+        "en": "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
+        "de": "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
+        "fr": "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
       "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
+      "title": "Lehrperson (m/w/d) 20 - 40%",
       "titleByLocale": {
-        "it": "Analista biomedico (BMA) HF / MTL (m/f/d) 50 - 80%",
-        "en": "Biomedical Analyst (BMA) HF / MTL (m/f/d) 50 - 80%",
-        "de": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
-        "fr": "Analyste biomédical (BMA) HF / MTL (h/f/d) 50 - 80%"
+        "it": "Insegnante (m/f/d) 20 - 40%",
+        "en": "Lehrperson (m/w/d) 20 - 40%",
+        "de": "Lehrperson (m/w/d) 20 - 40%",
+        "fr": "Enseignant(e) (m/f/d) 20 - 40%"
       },
-      "description": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für weitere Auskünfte steht Ihnen Herr Andreas Koska, Leiter Klinikschule Sekundarstufe, unter der Telefonnummer +41 81 417 38 96, gerne zur Verfügung. | Aufgaben: Koordination des Unterrichts Verfolgung aktueller Entwicklungen der Schulpädagogik Organisation und Durchführung des Unterrichts Material- und Medienherstellung Zusammenarbeit mit den Regelschulen Schulische Beratungsgespräche mit Eltern während der Rehabilitation Fächerspezifische Aufgabengebiete (nach Eignung und Neigung) Einbindung von musischen und kreativen Angeboten in den Unterricht Eine Sonderaufgabe stellt die interdisziplinäre Zusammenarbeit mit anderen Abteilungen dar. | Anforderungen: Diplomierte Lehrerausbildung ist erwünscht Ein hohes Maß an Sensibilität, Empathie und Eigenverantwortlichkeit Freude an der Arbeit mit chronisch kranken Kindern und deren Familien Belastbarkeit, Flexibilität, Verantwortungsbewusstsein, Teamfähigkeit und Kooperationsbereitschaft Kenntnis und Erfahrung bei der Beschulung von Kindern mit ADHS, LRS und Dyskalkulie",
       "descriptionByLocale": {
-        "it": "Mansioni - Clima di lavoro piacevole - Attività variegate in un laboratorio polivalente (ematologia, emostasiologia, chimica clinica, immunologia/allergologia e diagnostica delle urine) - Raccolta campioni, attività manuali e operazioni su sistemi di analisi automatizzati - Prelievi di sangue venoso e capillare - Manutenzione degli apparecchi e controlli di qualità interni/esterni secondo le linee guida di Qualab - Consulti i committenti interni (medici, personale infermieristico) in modo competente, orientato alla soluzione e alla pari - Turni festivi a rotazione, nessun turno notturno o weekend ## Requisiti - Hai una laurea come Analista biomedico (BMA) HF / MTL - Esperienza nelle discipline di laboratorio sopra elencate è un vantaggio - Comprensione tecnica e padronanza dei programmi software comuni come Word, Excel ecc. - Capacità di lavoro autonomo e strutturato e alto senso di responsabilità - Ti distingui per la personalità: flessibile, impegnato, aperto e orientato al lavoro di squadra",
-        "en": "Responsibilities - Pleasant working atmosphere - Varied tasks in a polyvalent laboratory (hematology, hemostasis, clinical chemistry, immunology/allergy and urine diagnostics) - Sample collection, manual tasks as well as work on automated analysis systems - Venous and capillary blood draws - Equipment maintenance and internal/external quality controls according to Qualab specifications - You advise internal clients (physicians, nursing staff) competently, solution‑oriented and on equal footing - Rotating holiday shifts, no night or weekend duty ## Requirements - You have a degree as Biomedical Analyst (BMA) HF / MTL - Experience in the above laboratory diagnostic disciplines is advantageous - Technical understanding and proficiency with common software programs such as Word, Excel etc. - Independent and structured way of working and a high level of responsibility - You convince as a personality: flexible, committed, open‑minded and team‑oriented",
-        "de": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
-        "fr": "Missions - Ambiance de travail agréable - Activités variées dans un laboratoire polyvalent (hématologie, hémostase, chimie clinique, immunologie/allergologie et diagnostic urinaire) - Prise d’échantillons, tâches manuelles ainsi que travail sur des systèmes d’analyse automatisés - Prélèvements sanguins veineux et capillaires - Maintenance des équipements et contrôles qualité internes/externes selon les directives de Qualab - Vous conseillez les commanditaires internes (médecins, personnel infirmier) de manière compétente, orientée solution et sur un pied d’égalité - Services de garde les jours fériés en rotation, pas de service de nuit ou week‑end ## Exigences - Vous êtes titulaire d’un diplôme d’Analyste biomédical (BMA) HF / MTL - Une expérience dans les disciplines de diagnostic de laboratoire mentionnées est un atout - Compréhension technique et maîtrise des logiciels courants tels que Word, Excel, etc. - Une méthode de travail autonome et structurée ainsi qu’un sens élevé des responsabilités - Vous vous distinguez par votre personnalité : flexible, engagé, ouvert d’esprit et orienté équipe"
+        "it": "Alle spalle del nostro successo c'è il team della Hochgebirgsklinik, composto da oltre 400 collaboratori motivati. Le molteplici aree di competenza e la stretta collaborazione tra i team vi offriranno un incarico responsabile e possibilità di sviluppo. Inoltre, la Hochgebirgsklinik offre condizioni di impiego moderne e una posizione ideale per attività ricreative nella regione turistica dei Grigioni. ## Mansioni - Coordinamento dell'insegnamento - Aggiornamento sulle nuove tendenze della pedagogia scolastica - Organizzazione e svolgimento delle lezioni - Preparazione di materiali e supporti didattici - Collaborazione con le scuole regolari - Colloqui di consulenza scolastica con i genitori durante la riabilitazione - Compiti specifici per materia (in base alle competenze e alle inclinazioni personali) - Integrazione di offerte musicali e creative nell'insegnamento - Un compito speciale consiste nella collaborazione interdisciplinare con altri reparti. ## Requisiti - Titolo di insegnante riconosciuto - Elevata sensibilità, empatia e senso di responsabilità - Piacere nel lavorare con bambini e famiglie affetti da malattie croniche - Resistenza allo stress, flessibilità, senso di responsabilità, capacità di lavorare in team e disponibilità alla collaborazione - Conoscenza ed esperienza nell'insegnamento a bambini con ADHD, dislessia e discalculia ## Contatto Per ulteriori informazioni, potete contattare il signor Andreas Koska, responsabile della scuola clinica secondaria, al numero +41 81 417 38 96.",
+        "en": "Behind our success story is the Hochgebirgsklinik team with its over 400 committed employees. The diverse areas of expertise and close collaboration between teams enable you to take on a responsible role with opportunities for development. In addition, Hochgebirgsklinik offers modern employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. ## Tasks - Coordination of teaching - Keeping up to date with current developments in school pedagogy - Organization and delivery of lessons - Preparation of teaching materials and media - Collaboration with mainstream schools - Educational counseling sessions with parents during rehabilitation - Subject-specific tasks (based on qualifications and personal inclinations) - Integration of musical and creative offerings into lessons - A special task involves interdisciplinary collaboration with other departments. ## Requirements - Qualified teaching diploma is desired - High level of sensitivity, empathy, and personal responsibility - Enjoyment of working with chronically ill children and their families - Resilience, flexibility, sense of responsibility, teamwork skills, and willingness to cooperate - Knowledge and experience in teaching children with ADHD, dyslexia, and dyscalculia ## Contact For further information, please contact Mr. Andreas Koska, Head of Clinic School Secondary Level, at +41 81 417 38 96.",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für weitere Auskünfte steht Ihnen Herr Andreas Koska, Leiter Klinikschule Sekundarstufe, unter der Telefonnummer +41 81 417 38 96, gerne zur Verfügung. | Aufgaben: Koordination des Unterrichts Verfolgung aktueller Entwicklungen der Schulpädagogik Organisation und Durchführung des Unterrichts Material- und Medienherstellung Zusammenarbeit mit den Regelschulen Schulische Beratungsgespräche mit Eltern während der Rehabilitation Fächerspezifische Aufgabengebiete (nach Eignung und Neigung) Einbindung von musischen und kreativen Angeboten in den Unterricht Eine Sonderaufgabe stellt die interdisziplinäre Zusammenarbeit mit anderen Abteilungen dar. | Anforderungen: Diplomierte Lehrerausbildung ist erwünscht Ein hohes Maß an Sensibilität, Empathie und Eigenverantwortlichkeit Freude an der Arbeit mit chronisch kranken Kindern und deren Familien Belastbarkeit, Flexibilität, Verantwortungsbewusstsein, Teamfähigkeit und Kooperationsbereitschaft Kenntnis und Erfahrung bei der Beschulung von Kindern mit ADHS, LRS und Dyskalkulie",
+        "fr": "Notre succès repose sur l'équipe de la Hochgebirgsklinik, composée de plus de 400 collaborateurs engagés. Les multiples domaines de compétence et la collaboration étroite entre les équipes vous offriront un poste responsable avec des possibilités d'évolution. De plus, la Hochgebirgsklinik propose des conditions de travail modernes et un emplacement idéal pour des activités de loisirs variées dans la région touristique des Grisons. ## Missions - Coordination de l'enseignement - Veille aux évolutions actuelles de la pédagogie scolaire - Organisation et dispensation des cours - Préparation de matériel et de supports pédagogiques - Collaboration avec les écoles ordinaires - Entretiens de conseil scolaire avec les parents pendant la réadaptation - Tâches spécifiques par matière (selon les qualifications et les affinités personnelles) - Intégration d'offres musicales et créatives dans l'enseignement - Une mission particulière consiste en la collaboration interdisciplinaire avec d'autres services. ## Exigences - Diplôme d'enseignement reconnu souhaité - Grande sensibilité, empathie et sens des responsabilités - Plaisir à travailler avec des enfants et des familles touchés par des maladies chroniques - Résistance au stress, flexibilité, sens des responsabilités, aptitude au travail d'équipe et esprit de collaboration - Connaissance et expérience dans l'enseignement d'enfants atteints de TDAH, de dyslexie et de dyscalculie ## Contact Pour toute information complémentaire, vous pouvez contacter M. Andreas Koska, responsable de l'école clinique du secondaire, au +41 81 417 38 96."
       },
       "location": "Davos",
       "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.002Z",
+      "crawledAt": "2026-04-19T21:33:37.283Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
+      "category": "Amministrazione",
+      "contract": "part-time",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-19",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/636/Application/CheckLogin/1?lang=ger",
+      "postedDate": "2026-03-18",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/634/Application/CheckLogin/1?lang=ger",
       "requirements": [],
       "requirementsByLocale": {
         "it": [
-          "Laurea come Analista biomedico (BMA) HF / MTL",
-          "Esperienza nelle discipline di laboratorio è un vantaggio",
-          "Competenze tecniche e padronanza di Word, Excel, ecc.",
-          "Lavoro autonomo, strutturato e alto senso di responsabilità",
-          "Personalità flessibile, impegnata, aperta e orientata al team"
+          "Titolo di insegnante riconosciuto",
+          "Elevata sensibilità ed empatia",
+          "Piacere nel lavorare con bambini e famiglie affetti da malattie croniche",
+          "Resistenza allo stress e flessibilità",
+          "Senso di responsabilità e capacità di lavorare in team",
+          "Disponibilità alla collaborazione",
+          "Conoscenza ed esperienza nell'insegnamento a bambini con ADHD, dislessia e discalculia"
         ],
         "en": [
-          "Degree as Biomedical Analyst (BMA) HF / MTL",
-          "Experience in listed lab disciplines is a plus",
-          "Technical skills with Word, Excel and similar software",
-          "Independent, structured work style with high responsibility",
-          "Flexible, committed, open‑minded and team‑oriented personality"
+          "Qualified teaching diploma",
+          "High level of sensitivity and empathy",
+          "Enjoyment of working with chronically ill children and their families",
+          "Resilience and flexibility",
+          "Sense of responsibility and teamwork skills",
+          "Willingness to cooperate",
+          "Knowledge and experience in teaching children with ADHD, dyslexia, and dyscalculia"
         ],
         "fr": [
-          "Diplôme d’Analyste biomédical (BMA) HF / MTL",
-          "Expérience dans les disciplines de laboratoire est un atout",
-          "Compétences techniques avec Word, Excel, etc.",
-          "Méthode de travail autonome, structurée et sens élevé des responsabilités",
-          "Personnalité flexible, engagée, ouverte d’esprit et orientée équipe"
+          "Diplôme d'enseignement reconnu souhaité",
+          "Grande sensibilité et empathie",
+          "Plaisir à travailler avec des enfants et familles touchés par des maladies chroniques",
+          "Résistance au stress et flexibilité",
+          "Sens des responsabilités et aptitude au travail d'équipe",
+          "Esprit de collaboration",
+          "Connaissance et expérience dans l'enseignement d'enfants atteints de TDAH, de dyslexie et de dyscalculie"
         ]
       },
-      "department": "Ärztlicher/medizinischer Dienst",
+      "department": "Verwaltung",
       "streetAddress": "Promenade 117",
-      "pensumMin": 50,
-      "pensumMax": 80,
-      "pensum": "50 - 80%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
+      "pensumMin": 20,
+      "pensumMax": 40,
+      "pensum": "20 - 40%",
       "previousSlugs": [
-        "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
+        "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
+          "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -752,7 +660,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.002Z",
+      "crawledAt": "2026-04-19T21:33:37.283Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -806,6 +714,7 @@
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
       ],
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -850,7 +759,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.001Z",
+      "crawledAt": "2026-04-19T21:33:37.282Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -919,6 +828,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -933,88 +843,91 @@
       }
     },
     {
-      "id": "hochgebirgsklinik-davos-c634b3960b3a",
-      "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+      "id": "hochgebirgsklinik-davos-344ac3aa2fe0",
+      "slug": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
+        "it": "analista-biomedico-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
+        "en": "biomedical-analyst-bma-hf-mtl-m-f-d-50-80-hochgebirgsklinik-davos-davos",
+        "de": "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch",
+        "fr": "analyste-biomedical-bma-hf-mtl-h-f-d-50-80-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
       "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pflegefachperson (w/m/d)",
+      "title": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
       "titleByLocale": {
-        "it": "Assistente sanitario (m/f/d)",
-        "en": "Pflegefachperson (w/m/d)",
-        "de": "Pflegefachperson (w/m/d)",
-        "fr": "Aide-soignant (m/f/d)"
+        "it": "Analista biomedico (BMA) HF / MTL (m/f/d) 50 - 80%",
+        "en": "Biomedical Analyst (BMA) HF / MTL (m/f/d) 50 - 80%",
+        "de": "Biomedizinischer Analytiker (BMA) HF / MTL (m/w/d) 50 - 80%",
+        "fr": "Analyste biomédical (BMA) HF / MTL (h/f/d) 50 - 80%"
       },
-      "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben: Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell. Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten. Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital. Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen: Diplom als Pflegefachperson HF/FH oder gleichwertig Freude an Akut- und Reha-Pflege Selbstständiges, verantwortungsbewusstes Arbeiten Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten: Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben. Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung. Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung. Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
+      "description": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
       "descriptionByLocale": {
-        "it": "Descrizione Vuoi vivere l'assistenza che fa la differenza? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti nel loro percorso di ritorno alla vita quotidiana, con un mix di medicina di riabilitazione e assistenza acuta. ## Compiti - Assistenza integrale: Lavorerai in modo medico, sociale, emotivo e funzionale - Agire in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento - Promuovere l'autonomia: Accompagnerai i pazienti nel ritorno alla vita quotidiana e rafforzerai la loro fiducia nelle loro capacità - Vivere l'assistenza acuta: Compiti vari con casi interessanti dall'ospedale acuto - Partecipare: Porti idee e modelli attivamente i processi - a livello di squadra ## Requisiti - Diploma di Assistente sanitario HF/FH o equivalente - Passione per l'assistenza acuta e di riabilitazione - Lavoro autonomo e responsabile - Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare ## Cosa offriamo - Più tempo per l'assistenza relazionale: La piscina di accompagnamento e la farmacia alleggeriscono le attività di routine - Equilibrio tra lavoro e vita: Poche ore straordinarie, turni pianificabili, pochi o nessun turno di notte - Cultura familiare: Collaborazione a livello di squadra, assistenza nella direzione - Energia anche dopo il servizio: Più focus sulla relazione che sulla fatica fisica - Goditi la salute: Cucina mediterranea a piccoli prezzi",
-        "en": "Description Do you want to live nursing that makes a difference? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. ## Tasks - Comprehensive care: You will work medically, socially, emotionally, and functionally - Interdisciplinary action: Physio, Ergo, Sport, Psychology, Doctors, Social Service and others – all together for the success of treatment - Promote independence: You will accompany the patients back to everyday life and strengthen their trust in their abilities - Live acute care: Diverse tasks with exciting cases from the acute hospital - Participate: You bring ideas and actively shape processes – on an equal footing in the team ## Requirements - Diploma as a Nursing Assistant HF/FH or equivalent - Enjoyment of acute and rehabilitation nursing - Independent, responsible working - Interest in quality, development, and interdisciplinary collaboration ## What we offer - More time for relationship care: The companion pool and pharmacy relieve routine tasks - Work-life balance: Few overtime hours, schedulable shifts, few or no night shifts - Family culture: Collaboration on an equal footing, nursing in the management - Energy even after service: More focus on relationship than on physical strain - Enjoy health: Mediterranean cuisine at small prices",
-        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben: Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell. Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten. Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital. Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen: Diplom als Pflegefachperson HF/FH oder gleichwertig Freude an Akut- und Reha-Pflege Selbstständiges, verantwortungsbewusstes Arbeiten Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten: Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben. Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung. Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung. Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
-        "fr": "Description Vous souhaitez vivre l'infirmier qui fait la différence? Dans notre clinique de réadaptation, vous accompagnez les patients dans leur retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins urgents. ## Tâches - Soins complets: Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement - Action interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres – tous ensemble pour le succès du traitement - Promouvoir l'autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne et renforcez leur confiance en leurs capacités - Vivre les soins urgents: Tâches variées avec des cas intéressants de l'hôpital urgent - Participer: Vous apportez des idées et façonnez activement les processus – à l'égalité dans l'équipe ## Exigences - Diplôme d'aide-soignant HF/FH ou équivalent - Plaisir des soins urgents et de réadaptation - Travail autonome et responsable - Intérêt pour la qualité, le développement et la collaboration interdisciplinaire ## Ce que nous offrons - Plus de temps pour les soins relationnels: La piscine d'accompagnement et la pharmacie soulage les tâches de routine - Équilibre travail-vie: Peu d'heures supplémentaires, des quarts planifiables, peu ou pas de quarts de nuit - Culture familiale: Collaboration à l'égalité, soins dans la direction - Énergie même après le service: Plus de focus sur la relation que sur la fatigue physique - Profitez de la santé: Cuisine méditerranéenne à petits prix"
+        "it": "Mansioni - Clima di lavoro piacevole - Attività variegate in un laboratorio polivalente (ematologia, emostasiologia, chimica clinica, immunologia/allergologia e diagnostica delle urine) - Raccolta campioni, attività manuali e operazioni su sistemi di analisi automatizzati - Prelievi di sangue venoso e capillare - Manutenzione degli apparecchi e controlli di qualità interni/esterni secondo le linee guida di Qualab - Consulti i committenti interni (medici, personale infermieristico) in modo competente, orientato alla soluzione e alla pari - Turni festivi a rotazione, nessun turno notturno o weekend ## Requisiti - Hai una laurea come Analista biomedico (BMA) HF / MTL - Esperienza nelle discipline di laboratorio sopra elencate è un vantaggio - Comprensione tecnica e padronanza dei programmi software comuni come Word, Excel ecc. - Capacità di lavoro autonomo e strutturato e alto senso di responsabilità - Ti distingui per la personalità: flessibile, impegnato, aperto e orientato al lavoro di squadra",
+        "en": "Responsibilities - Pleasant working atmosphere - Varied tasks in a polyvalent laboratory (hematology, hemostasis, clinical chemistry, immunology/allergy and urine diagnostics) - Sample collection, manual tasks as well as work on automated analysis systems - Venous and capillary blood draws - Equipment maintenance and internal/external quality controls according to Qualab specifications - You advise internal clients (physicians, nursing staff) competently, solution‑oriented and on equal footing - Rotating holiday shifts, no night or weekend duty ## Requirements - You have a degree as Biomedical Analyst (BMA) HF / MTL - Experience in the above laboratory diagnostic disciplines is advantageous - Technical understanding and proficiency with common software programs such as Word, Excel etc. - Independent and structured way of working and a high level of responsibility - You convince as a personality: flexible, committed, open‑minded and team‑oriented",
+        "de": "Aufgaben: Angenehmes Arbeitsklima Abwechslungsreiche Tätigkeiten in einem polyvalenten Labor (Hämatologie, Hämostaseologie, Klinische Chemie, Immunologie/Allergologie und Urindiagnostik) Probenerfassung manuelle Tätigkeiten sowie Tätigkeiten an automatisierten Analysesystemen Venöse und kapilläre Blutentnahmen Geräte-Wartung und interne / externe Qualitätskontrollen gemäss den Vorgaben von Qualab Du berätst interne Auftraggeber (Ärzte, Pflegfachpersonal) kompetent, lösungsorientiert und auf Augenhöhe Turnusmässige Feiertagsdienste, kein Nacht-und Wochenenddienst | Anforderungen: Du hast einen Abschluss als Biomedizinische:r Analytiker:in (BMA) HF / MTL Erfahrung in den oben genannten Labordiagnostischen Disziplinen ist von Vorteil Technisches Verständnis und beherrscht den Umgang mit den gängigen Softwareprogrammen wie Word, Exel etc. Eine selbständige und strukturierte Arbeitsweise und ein hohes Maß an Verantwortungsbewusstsein Du überzeugst als Persönlichkeit: Flexibel, engagiert, aufgeschlossen und teamorientiert",
+        "fr": "Missions - Ambiance de travail agréable - Activités variées dans un laboratoire polyvalent (hématologie, hémostase, chimie clinique, immunologie/allergologie et diagnostic urinaire) - Prise d’échantillons, tâches manuelles ainsi que travail sur des systèmes d’analyse automatisés - Prélèvements sanguins veineux et capillaires - Maintenance des équipements et contrôles qualité internes/externes selon les directives de Qualab - Vous conseillez les commanditaires internes (médecins, personnel infirmier) de manière compétente, orientée solution et sur un pied d’égalité - Services de garde les jours fériés en rotation, pas de service de nuit ou week‑end ## Exigences - Vous êtes titulaire d’un diplôme d’Analyste biomédical (BMA) HF / MTL - Une expérience dans les disciplines de diagnostic de laboratoire mentionnées est un atout - Compréhension technique et maîtrise des logiciels courants tels que Word, Excel, etc. - Une méthode de travail autonome et structurée ainsi qu’un sens élevé des responsabilités - Vous vous distinguez par votre personnalité : flexible, engagé, ouvert d’esprit et orienté équipe"
       },
       "location": "Davos",
       "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.001Z",
+      "crawledAt": "2026-04-19T21:33:37.282Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Infermieristica",
+      "category": "Medicina",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-11-17",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
+      "postedDate": "2026-03-19",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/636/Application/CheckLogin/1?lang=ger",
       "requirements": [],
       "requirementsByLocale": {
         "it": [
-          "Diploma di Assistente sanitario HF/FH o equivalente",
-          "Passione per l'assistenza acuta e di riabilitazione",
-          "Lavoro autonomo e responsabile",
-          "Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare"
+          "Laurea come Analista biomedico (BMA) HF / MTL",
+          "Esperienza nelle discipline di laboratorio è un vantaggio",
+          "Competenze tecniche e padronanza di Word, Excel, ecc.",
+          "Lavoro autonomo, strutturato e alto senso di responsabilità",
+          "Personalità flessibile, impegnata, aperta e orientata al team"
         ],
         "en": [
-          "Diploma as a Nursing Assistant HF/FH or equivalent",
-          "Enjoyment of acute and rehabilitation nursing",
-          "Independent, responsible working",
-          "Interest in quality, development, and interdisciplinary collaboration"
+          "Degree as Biomedical Analyst (BMA) HF / MTL",
+          "Experience in listed lab disciplines is a plus",
+          "Technical skills with Word, Excel and similar software",
+          "Independent, structured work style with high responsibility",
+          "Flexible, committed, open‑minded and team‑oriented personality"
         ],
         "fr": [
-          "Diplôme d'aide-soignant HF/FH ou équivalent",
-          "Plaisir des soins urgents et de réadaptation",
-          "Travail autonome et responsable",
-          "Intérêt pour la qualité, le développement et la collaboration interdisciplinaire"
+          "Diplôme d’Analyste biomédical (BMA) HF / MTL",
+          "Expérience dans les disciplines de laboratoire est un atout",
+          "Compétences techniques avec Word, Excel, etc.",
+          "Méthode de travail autonome, structurée et sens élevé des responsabilités",
+          "Personnalité flexible, engagée, ouverte d’esprit et orientée équipe"
         ]
       },
-      "department": "Pflege",
+      "department": "Ärztlicher/medizinischer Dienst",
       "streetAddress": "Promenade 117",
-      "contactPerson": "Anic Gloor",
-      "contactPhone": "081 417 30 39",
+      "pensumMin": 50,
+      "pensumMax": 80,
+      "pensum": "50 - 80%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos"
+        "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "de": [
-          "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos"
+          "biomedizinischer-analytiker-bma-hf-mtl-m-w-d-50-80-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1059,7 +972,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.001Z",
+      "crawledAt": "2026-04-19T21:33:37.281Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1110,104 +1023,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-03c64fa60f34",
-      "slug": "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "nursing-assistant-m-f-d-hochgebirgsklinik-davos-davos",
-        "de": "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
-        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pflegehelfer (w/m/d)",
-      "titleByLocale": {
-        "it": "Assistente infermieristico (m/f/d)",
-        "en": "Nursing Assistant (m/f/d)",
-        "de": "Pflegehelfer (w/m/d)",
-        "fr": "Aide-soignant (m/f/d)"
-      },
-      "description": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben: Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag. Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen. Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre. Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen: Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren. Das Wohl deiner Patient:innen ist dir am wichtigsten. Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei. Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten. Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Du arbeitest gerne am Computer.",
-      "descriptionByLocale": {
-        "it": "Descrizione Lavori volentieri nell'assistenza sanitaria o desideri iniziare in questo campo, cercando un compito che abbia senso? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti sul loro percorso di ritorno alla vita quotidiana, supportato da un team che vive coesione e rispetto. ## Compiti - Supportare: Aiuti pazienti e pazienti nell'assistenza di base e nella vita quotidiana. - Osservare & Comunicare: Riconosci cambiamenti e informi gli infermieri. - Accompagnare: Sei il punto di riferimento nel quotidiano della stazione e crei un'atmosfera positiva. - Partecipare: Lavorerai strettamente con infermieri e terapeuti. ## Requisiti - Hai una formazione di assistente infermieristico SRK o sei pronto a completarla. - Il benessere dei tuoi pazienti è la tua priorità. - Lavorerai volentieri in squadra e contribuisci a creare un clima di lavoro piacevole. - Sei flessibile e pronto a lavorare in turni, nei fine settimana e nei giorni festivi. - Disponi di buone conoscenze di lingua tedesca, sia parlata che scritta. - Lavorerai volentieri al computer.",
-        "en": "Description Do you enjoy working in healthcare or are you looking to enter the field, seeking a meaningful task? In our rehabilitation clinic, you will accompany patients on their journey back to everyday life, supported by a team that values cohesion and respect. ## Tasks - Support: You assist patients in basic care and daily life. - Observe & Report: You recognize changes and inform the nursing staff. - Accompany: You are the point of contact in the ward's daily routine and create a positive atmosphere. - Participate: You work closely with nursing staff and therapists. ## Requirements - You have completed a nursing assistant training SRK or are willing to complete it. - The well-being of your patients is your top priority. - You enjoy working in a team and contribute to a pleasant working environment. - You are flexible and willing to work in shifts, on weekends, and holidays. - You have good German language skills in both spoken and written form. - You enjoy working on a computer.",
-        "de": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben: Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag. Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen. Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre. Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen: Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren. Das Wohl deiner Patient:innen ist dir am wichtigsten. Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei. Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten. Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Du arbeitest gerne am Computer.",
-        "fr": "Description Vous aimez travailler dans le domaine de la santé ou souhaitez y entrer, à la recherche d'une tâche qui ait du sens? Dans notre clinique de réadaptation, vous accompagnerez les patients dans leur retour à la vie quotidienne, soutenu par une équipe qui valorise la cohésion et le respect. ## Tâches - Soutenir: Vous assistez les patients dans les soins de base et la vie quotidienne. - Observer & Signaler: Vous reconnaissez les changements et informe le personnel soignant. - Accompagner: Vous êtes le point de contact dans la routine quotidienne de la station et créez une atmosphère positive. - Participer: Vous travaillez étroitement avec le personnel soignant et les thérapeutes. ## Exigences - Vous avez une formation d'aide-soignant SRK ou êtes prêt à la compléter. - Le bien-être de vos patients est votre priorité. - Vous aimez travailler en équipe et contribuez à un environnement de travail agréable. - Vous êtes flexible et prêt à travailler en quarts, les week-ends et les jours fériés. - Vous disposez de bonnes compétences en langue allemande, à la fois parlée et écrite. - Vous aimez travailler sur ordinateur."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.000Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-16",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/616/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione di assistente infermieristico SRK o pronto a completarla",
-          "Il benessere dei pazienti è la tua priorità",
-          "Lavori volentieri in squadra e contribuisci a creare un clima di lavoro piacevole",
-          "Sei flessibile e pronto a lavorare in turni, nei fine settimana e nei giorni festivi",
-          "Buone conoscenze di lingua tedesca, sia parlata che scritta",
-          "Lavori volentieri al computer"
-        ],
-        "en": [
-          "Completed nursing assistant training SRK or willing to complete it",
-          "The well-being of your patients is your top priority",
-          "You enjoy working in a team and contribute to a pleasant working environment",
-          "You are flexible and willing to work in shifts, on weekends, and holidays",
-          "Good German language skills in both spoken and written form",
-          "You enjoy working on a computer"
-        ],
-        "fr": [
-          "Formation d'aide-soignant SRK ou prêt à la compléter",
-          "Le bien-être de vos patients est votre priorité",
-          "Vous aimez travailler en équipe et contribuez à un environnement de travail agréable",
-          "Vous êtes flexible et prêt à travailler en quarts, les week-ends et les jours fériés",
-          "Bonnes compétences en langue allemande, à la fois parlée et écrite",
-          "Vous aimez travailler sur ordinateur"
-        ]
-      },
-      "department": "Pflege",
-      "streetAddress": "Promenade 117",
-      "contactPerson": "Anic Gloor",
-      "contactPhone": "081 417 30 39",
-      "previousSlugs": [
-        "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1252,7 +1068,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:16.000Z",
+      "crawledAt": "2026-04-19T21:33:37.280Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1309,6 +1125,104 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-c634b3960b3a",
+      "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Pflegefachperson (w/m/d)",
+      "titleByLocale": {
+        "it": "Assistente sanitario (m/f/d)",
+        "en": "Pflegefachperson (w/m/d)",
+        "de": "Pflegefachperson (w/m/d)",
+        "fr": "Aide-soignant (m/f/d)"
+      },
+      "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben: Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell. Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten. Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital. Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen: Diplom als Pflegefachperson HF/FH oder gleichwertig Freude an Akut- und Reha-Pflege Selbstständiges, verantwortungsbewusstes Arbeiten Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten: Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben. Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung. Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung. Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
+      "descriptionByLocale": {
+        "it": "Descrizione Vuoi vivere l'assistenza che fa la differenza? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti nel loro percorso di ritorno alla vita quotidiana, con un mix di medicina di riabilitazione e assistenza acuta. ## Compiti - Assistenza integrale: Lavorerai in modo medico, sociale, emotivo e funzionale - Agire in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento - Promuovere l'autonomia: Accompagnerai i pazienti nel ritorno alla vita quotidiana e rafforzerai la loro fiducia nelle loro capacità - Vivere l'assistenza acuta: Compiti vari con casi interessanti dall'ospedale acuto - Partecipare: Porti idee e modelli attivamente i processi - a livello di squadra ## Requisiti - Diploma di Assistente sanitario HF/FH o equivalente - Passione per l'assistenza acuta e di riabilitazione - Lavoro autonomo e responsabile - Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare ## Cosa offriamo - Più tempo per l'assistenza relazionale: La piscina di accompagnamento e la farmacia alleggeriscono le attività di routine - Equilibrio tra lavoro e vita: Poche ore straordinarie, turni pianificabili, pochi o nessun turno di notte - Cultura familiare: Collaborazione a livello di squadra, assistenza nella direzione - Energia anche dopo il servizio: Più focus sulla relazione che sulla fatica fisica - Goditi la salute: Cucina mediterranea a piccoli prezzi",
+        "en": "Description Do you want to live nursing that makes a difference? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. ## Tasks - Comprehensive care: You will work medically, socially, emotionally, and functionally - Interdisciplinary action: Physio, Ergo, Sport, Psychology, Doctors, Social Service and others – all together for the success of treatment - Promote independence: You will accompany the patients back to everyday life and strengthen their trust in their abilities - Live acute care: Diverse tasks with exciting cases from the acute hospital - Participate: You bring ideas and actively shape processes – on an equal footing in the team ## Requirements - Diploma as a Nursing Assistant HF/FH or equivalent - Enjoyment of acute and rehabilitation nursing - Independent, responsible working - Interest in quality, development, and interdisciplinary collaboration ## What we offer - More time for relationship care: The companion pool and pharmacy relieve routine tasks - Work-life balance: Few overtime hours, schedulable shifts, few or no night shifts - Family culture: Collaboration on an equal footing, nursing in the management - Energy even after service: More focus on relationship than on physical strain - Enjoy health: Mediterranean cuisine at small prices",
+        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben: Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell. Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten. Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital. Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen: Diplom als Pflegefachperson HF/FH oder gleichwertig Freude an Akut- und Reha-Pflege Selbstständiges, verantwortungsbewusstes Arbeiten Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten: Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben. Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung. Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung. Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
+        "fr": "Description Vous souhaitez vivre l'infirmier qui fait la différence? Dans notre clinique de réadaptation, vous accompagnez les patients dans leur retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins urgents. ## Tâches - Soins complets: Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement - Action interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres – tous ensemble pour le succès du traitement - Promouvoir l'autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne et renforcez leur confiance en leurs capacités - Vivre les soins urgents: Tâches variées avec des cas intéressants de l'hôpital urgent - Participer: Vous apportez des idées et façonnez activement les processus – à l'égalité dans l'équipe ## Exigences - Diplôme d'aide-soignant HF/FH ou équivalent - Plaisir des soins urgents et de réadaptation - Travail autonome et responsable - Intérêt pour la qualité, le développement et la collaboration interdisciplinaire ## Ce que nous offrons - Plus de temps pour les soins relationnels: La piscine d'accompagnement et la pharmacie soulage les tâches de routine - Équilibre travail-vie: Peu d'heures supplémentaires, des quarts planifiables, peu ou pas de quarts de nuit - Culture familiale: Collaboration à l'égalité, soins dans la direction - Énergie même après le service: Plus de focus sur la relation que sur la fatigue physique - Profitez de la santé: Cuisine méditerranéenne à petits prix"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-19T21:33:37.280Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-17",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma di Assistente sanitario HF/FH o equivalente",
+          "Passione per l'assistenza acuta e di riabilitazione",
+          "Lavoro autonomo e responsabile",
+          "Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare"
+        ],
+        "en": [
+          "Diploma as a Nursing Assistant HF/FH or equivalent",
+          "Enjoyment of acute and rehabilitation nursing",
+          "Independent, responsible working",
+          "Interest in quality, development, and interdisciplinary collaboration"
+        ],
+        "fr": [
+          "Diplôme d'aide-soignant HF/FH ou équivalent",
+          "Plaisir des soins urgents et de réadaptation",
+          "Travail autonome et responsable",
+          "Intérêt pour la qualité, le développement et la collaboration interdisciplinaire"
+        ]
+      },
+      "department": "Pflege",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "Anic Gloor",
+      "contactPhone": "081 417 30 39",
+      "previousSlugs": [
+        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+        ],
+        "de": [
+          "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1353,7 +1267,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:15.999Z",
+      "crawledAt": "2026-04-19T21:33:37.279Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1391,6 +1305,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1405,97 +1320,91 @@
       }
     },
     {
-      "id": "hochgebirgsklinik-davos-caa9789d6663",
-      "slug": "assistente-farmaceutico-o-farmacista-efz-w-m-d-40-hochgebirgsklinik-davos-davos",
+      "id": "hochgebirgsklinik-davos-03c64fa60f34",
+      "slug": "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "it": "assistente-farmaceutico-o-farmacista-efz-w-m-d-40-hochgebirgsklinik-davos-davos",
-        "en": "pharmacy-assistant-or-pharmacist-efz-w-m-d-40-hochgebirgsklinik-davos-davos",
-        "de": "pharma-assistenten-oder-drogist-efz-w-m-d-40-hochgebirgsklinik-davos-ch",
-        "fr": "assistant-e-pharmacien-ne-ou-pharmacien-ne-efz-w-m-d-40-hochgebirgsklinik-davos-davos"
+        "it": "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "nursing-assistant-m-f-d-hochgebirgsklinik-davos-davos",
+        "de": "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
+        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
       "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pharma-Assistenten oder Drogist EFZ (w/m/d) 40%",
+      "title": "Pflegehelfer (w/m/d)",
       "titleByLocale": {
-        "it": "Assistente Farmaceutico o Farmacista EFZ (w/m/d) 40%",
-        "en": "Pharmacy Assistant or Pharmacist EFZ (w/m/d) 40%",
-        "de": "Pharma-Assistenten oder Drogist EFZ (w/m/d) 40%",
-        "fr": "Assistant(e) Pharmacien(ne) ou Pharmacien(ne) EFZ (w/m/d) 40%"
+        "it": "Assistente infermieristico (m/f/d)",
+        "en": "Nursing Assistant (m/f/d)",
+        "de": "Pflegehelfer (w/m/d)",
+        "fr": "Aide-soignant (m/f/d)"
       },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Herr Rüdiger Eck, Leiter Telefon +41 81 417 30 29, gerne zur Verfügung. | Aufgaben: Abgeschlossene Berufsausbildung als Pharma-Assistent/-in EFZ oder Drogist/-in Sehr gute Deutschkenntnisse in Wort und Schrift Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse | Anforderungen: Bearbeiten der Bestellungen der Stationen, Führung der Lagerbestände, Ausführung von Bestellungen und Kontrolle der Bestände innerhalb der Apotheke Patientenbezogene Bereitstellung der Medikamente Überwachen und organisieren der klinikinternen Apotheke nach betriebswirtschaftlichen Grundsätzen Durchführen von Preis- und Konditionsverhandlungen Regelmässiges Überprüfen der Notfallkoffer Rüsten der Medikamente für unsere stationären Patientinnen und Patienten",
+      "description": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben: Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag. Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen. Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre. Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen: Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren. Das Wohl deiner Patient:innen ist dir am wichtigsten. Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei. Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten. Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Du arbeitest gerne am Computer.",
       "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team della Hochgebirgsklinik con i suoi oltre 400 dipendenti impegnati. Le competenze diversificate e la stretta collaborazione tra i team vi permettono di assumere un incarico responsabile e di avere possibilità di sviluppo. Inoltre, la Hochgebirgsklinik offre condizioni di lavoro moderne e una posizione ideale per attività di svago diversificate nella regione turistica del Grigioni. Per ulteriori informazioni, Herr Rüdiger Eck, responsabile, è a disposizione al telefono +41 81 417 30 29. ## Compiti - Formazione professionale completata come Assistente Farmaceutico o Farmacista EFZ - Ottime conoscenze di tedesco sia orale che scritta - Resistenza, disponibilità, flessibilità e capacità di lavorare in team - Buone conoscenze dell'uso del computer ## Requisiti - Elaborazione degli ordini delle stazioni - Gestione degli inventari - Esecuzione degli ordini e controllo degli inventari all'interno dell'apoteca - Fornitura di medicinali orientata al paziente - Sorveglianza e organizzazione dell'apoteca clinica interna secondo principi di economia aziendale - Svolgimento di negoziazioni di prezzi e condizioni - Controllo regolare dei kit di emergenza - Preparazione dei medicinali per i nostri pazienti ospedalizzati",
-        "en": "Description Behind our success story stands the Hochgebirgsklinik team with its over 400 engaged employees. The diverse competence areas and the close collaboration between the teams enable you to take on a responsible task and have development opportunities. Moreover, the Hochgebirgsklinik offers you modern employment conditions and an ideal location for diverse leisure activities in the holiday region of Graubünden. For inquiries, Herr Rüdiger Eck, head of department, is available at phone +41 81 417 30 29. ## Tasks - Completed professional training as a Pharmacy Assistant or Pharmacist EFZ - Very good German language skills in speech and writing - Stamina, performance readiness, flexibility and team spirit - Good PC user skills ## Requirements - Processing the orders of the stations - Leading the inventory - Execution of orders and control of the inventory within the pharmacy - Patient-related provision of medicines - Monitoring and organizing the internal clinic pharmacy according to business economic principles - Conducting price and condition negotiations - Regularly checking the emergency kits - Equipping the medicines for our in-patients",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Herr Rüdiger Eck, Leiter Telefon +41 81 417 30 29, gerne zur Verfügung. | Aufgaben: Abgeschlossene Berufsausbildung als Pharma-Assistent/-in EFZ oder Drogist/-in Sehr gute Deutschkenntnisse in Wort und Schrift Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse | Anforderungen: Bearbeiten der Bestellungen der Stationen, Führung der Lagerbestände, Ausführung von Bestellungen und Kontrolle der Bestände innerhalb der Apotheke Patientenbezogene Bereitstellung der Medikamente Überwachen und organisieren der klinikinternen Apotheke nach betriebswirtschaftlichen Grundsätzen Durchführen von Preis- und Konditionsverhandlungen Regelmässiges Überprüfen der Notfallkoffer Rüsten der Medikamente für unsere stationären Patientinnen und Patienten",
-        "fr": "Description Derrière notre histoire de succès se trouve l'équipe de la Hochgebirgsklinik avec ses plus de 400 employés engagés. Les domaines de compétence diversifiés et la collaboration étroite entre les équipes vous permettent d'assumer une tâche responsable et d'avoir des possibilités de développement. De plus, la Hochgebirgsklinik vous offre des conditions de travail modernes et un emplacement idéal pour des activités de loisirs diversifiées dans la région touristique du Grisons. Pour des renseignements, Herr Rüdiger Eck, chef de service, est joignable au téléphone +41 81 417 30 29. ## Tâches - Formation professionnelle complète en tant qu'assistant(e) pharmacien(ne) ou pharmacien(ne) EFZ - Très bonnes connaissances en allemand oral et écrit - Endurance, disponibilité, flexibilité et esprit d'équipe - Bonnes connaissances en informatique ## Exigences - Traitement des commandes des stations - Gestion des stocks - Exécution des commandes et contrôle des stocks dans la pharmacie - Fourniture de médicaments orientée vers le patient - Surveillance et organisation de la pharmacie clinique interne selon les principes économiques - Négociation des prix et conditions - Vérification régulière des kits d'urgence - Préparation des médicaments pour nos patients hospitalisés"
+        "it": "Descrizione Lavori volentieri nell'assistenza sanitaria o desideri iniziare in questo campo, cercando un compito che abbia senso? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti sul loro percorso di ritorno alla vita quotidiana, supportato da un team che vive coesione e rispetto. ## Compiti - Supportare: Aiuti pazienti e pazienti nell'assistenza di base e nella vita quotidiana. - Osservare & Comunicare: Riconosci cambiamenti e informi gli infermieri. - Accompagnare: Sei il punto di riferimento nel quotidiano della stazione e crei un'atmosfera positiva. - Partecipare: Lavorerai strettamente con infermieri e terapeuti. ## Requisiti - Hai una formazione di assistente infermieristico SRK o sei pronto a completarla. - Il benessere dei tuoi pazienti è la tua priorità. - Lavorerai volentieri in squadra e contribuisci a creare un clima di lavoro piacevole. - Sei flessibile e pronto a lavorare in turni, nei fine settimana e nei giorni festivi. - Disponi di buone conoscenze di lingua tedesca, sia parlata che scritta. - Lavorerai volentieri al computer.",
+        "en": "Description Do you enjoy working in healthcare or are you looking to enter the field, seeking a meaningful task? In our rehabilitation clinic, you will accompany patients on their journey back to everyday life, supported by a team that values cohesion and respect. ## Tasks - Support: You assist patients in basic care and daily life. - Observe & Report: You recognize changes and inform the nursing staff. - Accompany: You are the point of contact in the ward's daily routine and create a positive atmosphere. - Participate: You work closely with nursing staff and therapists. ## Requirements - You have completed a nursing assistant training SRK or are willing to complete it. - The well-being of your patients is your top priority. - You enjoy working in a team and contribute to a pleasant working environment. - You are flexible and willing to work in shifts, on weekends, and holidays. - You have good German language skills in both spoken and written form. - You enjoy working on a computer.",
+        "de": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben: Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag. Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen. Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre. Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen: Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren. Das Wohl deiner Patient:innen ist dir am wichtigsten. Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei. Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten. Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Du arbeitest gerne am Computer.",
+        "fr": "Description Vous aimez travailler dans le domaine de la santé ou souhaitez y entrer, à la recherche d'une tâche qui ait du sens? Dans notre clinique de réadaptation, vous accompagnerez les patients dans leur retour à la vie quotidienne, soutenu par une équipe qui valorise la cohésion et le respect. ## Tâches - Soutenir: Vous assistez les patients dans les soins de base et la vie quotidienne. - Observer & Signaler: Vous reconnaissez les changements et informe le personnel soignant. - Accompagner: Vous êtes le point de contact dans la routine quotidienne de la station et créez une atmosphère positive. - Participer: Vous travaillez étroitement avec le personnel soignant et les thérapeutes. ## Exigences - Vous avez une formation d'aide-soignant SRK ou êtes prêt à la compléter. - Le bien-être de vos patients est votre priorité. - Vous aimez travailler en équipe et contribuez à un environnement de travail agréable. - Vous êtes flexible et prêt à travailler en quarts, les week-ends et les jours fériés. - Vous disposez de bonnes compétences en langue allemande, à la fois parlée et écrite. - Vous aimez travailler sur ordinateur."
       },
       "location": "Davos",
       "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:15.999Z",
+      "crawledAt": "2026-04-19T21:33:37.279Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Medicina",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-11",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/631/Application/CheckLogin/1?lang=ger",
+      "postedDate": "2025-12-16",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/616/Application/CheckLogin/1?lang=ger",
       "requirements": [],
       "requirementsByLocale": {
         "it": [
-          "Formazione professionale completata come Assistente Farmaceutico o Farmacista EFZ",
-          "Ottime conoscenze di tedesco sia orale che scritta",
-          "Resistenza, disponibilità, flessibilità e capacità di lavorare in team",
-          "Buone conoscenze dell'uso del computer",
-          "Elaborazione degli ordini delle stazioni",
-          "Gestione degli inventari",
-          "Esecuzione degli ordini e controllo degli inventari all'interno dell'apoteca",
-          "Fornitura di medicinali orientata al paziente"
+          "Formazione di assistente infermieristico SRK o pronto a completarla",
+          "Il benessere dei pazienti è la tua priorità",
+          "Lavori volentieri in squadra e contribuisci a creare un clima di lavoro piacevole",
+          "Sei flessibile e pronto a lavorare in turni, nei fine settimana e nei giorni festivi",
+          "Buone conoscenze di lingua tedesca, sia parlata che scritta",
+          "Lavori volentieri al computer"
         ],
         "en": [
-          "Completed professional training as a Pharmacy Assistant or Pharmacist EFZ",
-          "Very good German language skills in speech and writing",
-          "Stamina, performance readiness, flexibility and team spirit",
-          "Good PC user skills",
-          "Processing the orders of the stations",
-          "Leading the inventory",
-          "Execution of orders and control of the inventory within the pharmacy",
-          "Patient-related provision of medicines"
+          "Completed nursing assistant training SRK or willing to complete it",
+          "The well-being of your patients is your top priority",
+          "You enjoy working in a team and contribute to a pleasant working environment",
+          "You are flexible and willing to work in shifts, on weekends, and holidays",
+          "Good German language skills in both spoken and written form",
+          "You enjoy working on a computer"
         ],
         "fr": [
-          "Formation professionnelle complète en tant qu'assistant(e) pharmacien(ne) ou pharmacien(ne) EFZ",
-          "Très bonnes connaissances en allemand oral et écrit",
-          "Endurance, disponibilité, flexibilité et esprit d'équipe",
-          "Bonnes connaissances en informatique",
-          "Traitement des commandes des stations",
-          "Gestion des stocks",
-          "Exécution des commandes et contrôle des stocks dans la pharmacie",
-          "Fourniture de médicaments orientée vers le patient"
+          "Formation d'aide-soignant SRK ou prêt à la compléter",
+          "Le bien-être de vos patients est votre priorité",
+          "Vous aimez travailler en équipe et contribuez à un environnement de travail agréable",
+          "Vous êtes flexible et prêt à travailler en quarts, les week-ends et les jours fériés",
+          "Bonnes compétences en langue allemande, à la fois parlée et écrite",
+          "Vous aimez travailler sur ordinateur"
         ]
       },
-      "department": "Ärztlicher/medizinischer Dienst",
+      "department": "Pflege",
       "streetAddress": "Promenade 117",
-      "pensumMin": 40,
-      "pensumMax": 40,
-      "pensum": "40%",
+      "contactPerson": "Anic Gloor",
+      "contactPhone": "081 417 30 39",
       "previousSlugs": [
-        "pharma-assistenten-oder-drogist-efz-w-m-d-40-hochgebirgsklinik-davos-ch"
+        "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistenten-oder-drogist-efz-w-m-d-40-hochgebirgsklinik-davos-ch"
+          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1540,7 +1449,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:15.998Z",
+      "crawledAt": "2026-04-19T21:33:37.278Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1601,6 +1510,113 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-caa9789d6663",
+      "slug": "assistente-farmaceutico-o-farmacista-efz-w-m-d-40-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "assistente-farmaceutico-o-farmacista-efz-w-m-d-40-hochgebirgsklinik-davos-davos",
+        "en": "pharmacy-assistant-or-pharmacist-efz-w-m-d-40-hochgebirgsklinik-davos-davos",
+        "de": "pharma-assistenten-oder-drogist-efz-w-m-d-40-hochgebirgsklinik-davos-ch",
+        "fr": "assistant-e-pharmacien-ne-ou-pharmacien-ne-efz-w-m-d-40-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Pharma-Assistenten oder Drogist EFZ (w/m/d) 40%",
+      "titleByLocale": {
+        "it": "Assistente Farmaceutico o Farmacista EFZ (w/m/d) 40%",
+        "en": "Pharmacy Assistant or Pharmacist EFZ (w/m/d) 40%",
+        "de": "Pharma-Assistenten oder Drogist EFZ (w/m/d) 40%",
+        "fr": "Assistant(e) Pharmacien(ne) ou Pharmacien(ne) EFZ (w/m/d) 40%"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Herr Rüdiger Eck, Leiter Telefon +41 81 417 30 29, gerne zur Verfügung. | Aufgaben: Abgeschlossene Berufsausbildung als Pharma-Assistent/-in EFZ oder Drogist/-in Sehr gute Deutschkenntnisse in Wort und Schrift Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse | Anforderungen: Bearbeiten der Bestellungen der Stationen, Führung der Lagerbestände, Ausführung von Bestellungen und Kontrolle der Bestände innerhalb der Apotheke Patientenbezogene Bereitstellung der Medikamente Überwachen und organisieren der klinikinternen Apotheke nach betriebswirtschaftlichen Grundsätzen Durchführen von Preis- und Konditionsverhandlungen Regelmässiges Überprüfen der Notfallkoffer Rüsten der Medikamente für unsere stationären Patientinnen und Patienten",
+      "descriptionByLocale": {
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team della Hochgebirgsklinik con i suoi oltre 400 dipendenti impegnati. Le competenze diversificate e la stretta collaborazione tra i team vi permettono di assumere un incarico responsabile e di avere possibilità di sviluppo. Inoltre, la Hochgebirgsklinik offre condizioni di lavoro moderne e una posizione ideale per attività di svago diversificate nella regione turistica del Grigioni. Per ulteriori informazioni, Herr Rüdiger Eck, responsabile, è a disposizione al telefono +41 81 417 30 29. ## Compiti - Formazione professionale completata come Assistente Farmaceutico o Farmacista EFZ - Ottime conoscenze di tedesco sia orale che scritta - Resistenza, disponibilità, flessibilità e capacità di lavorare in team - Buone conoscenze dell'uso del computer ## Requisiti - Elaborazione degli ordini delle stazioni - Gestione degli inventari - Esecuzione degli ordini e controllo degli inventari all'interno dell'apoteca - Fornitura di medicinali orientata al paziente - Sorveglianza e organizzazione dell'apoteca clinica interna secondo principi di economia aziendale - Svolgimento di negoziazioni di prezzi e condizioni - Controllo regolare dei kit di emergenza - Preparazione dei medicinali per i nostri pazienti ospedalizzati",
+        "en": "Description Behind our success story stands the Hochgebirgsklinik team with its over 400 engaged employees. The diverse competence areas and the close collaboration between the teams enable you to take on a responsible task and have development opportunities. Moreover, the Hochgebirgsklinik offers you modern employment conditions and an ideal location for diverse leisure activities in the holiday region of Graubünden. For inquiries, Herr Rüdiger Eck, head of department, is available at phone +41 81 417 30 29. ## Tasks - Completed professional training as a Pharmacy Assistant or Pharmacist EFZ - Very good German language skills in speech and writing - Stamina, performance readiness, flexibility and team spirit - Good PC user skills ## Requirements - Processing the orders of the stations - Leading the inventory - Execution of orders and control of the inventory within the pharmacy - Patient-related provision of medicines - Monitoring and organizing the internal clinic pharmacy according to business economic principles - Conducting price and condition negotiations - Regularly checking the emergency kits - Equipping the medicines for our in-patients",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Herr Rüdiger Eck, Leiter Telefon +41 81 417 30 29, gerne zur Verfügung. | Aufgaben: Abgeschlossene Berufsausbildung als Pharma-Assistent/-in EFZ oder Drogist/-in Sehr gute Deutschkenntnisse in Wort und Schrift Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit Gute PC-Anwenderkenntnisse | Anforderungen: Bearbeiten der Bestellungen der Stationen, Führung der Lagerbestände, Ausführung von Bestellungen und Kontrolle der Bestände innerhalb der Apotheke Patientenbezogene Bereitstellung der Medikamente Überwachen und organisieren der klinikinternen Apotheke nach betriebswirtschaftlichen Grundsätzen Durchführen von Preis- und Konditionsverhandlungen Regelmässiges Überprüfen der Notfallkoffer Rüsten der Medikamente für unsere stationären Patientinnen und Patienten",
+        "fr": "Description Derrière notre histoire de succès se trouve l'équipe de la Hochgebirgsklinik avec ses plus de 400 employés engagés. Les domaines de compétence diversifiés et la collaboration étroite entre les équipes vous permettent d'assumer une tâche responsable et d'avoir des possibilités de développement. De plus, la Hochgebirgsklinik vous offre des conditions de travail modernes et un emplacement idéal pour des activités de loisirs diversifiées dans la région touristique du Grisons. Pour des renseignements, Herr Rüdiger Eck, chef de service, est joignable au téléphone +41 81 417 30 29. ## Tâches - Formation professionnelle complète en tant qu'assistant(e) pharmacien(ne) ou pharmacien(ne) EFZ - Très bonnes connaissances en allemand oral et écrit - Endurance, disponibilité, flexibilité et esprit d'équipe - Bonnes connaissances en informatique ## Exigences - Traitement des commandes des stations - Gestion des stocks - Exécution des commandes et contrôle des stocks dans la pharmacie - Fourniture de médicaments orientée vers le patient - Surveillance et organisation de la pharmacie clinique interne selon les principes économiques - Négociation des prix et conditions - Vérification régulière des kits d'urgence - Préparation des médicaments pour nos patients hospitalisés"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-19T21:33:37.278Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-11",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/631/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione professionale completata come Assistente Farmaceutico o Farmacista EFZ",
+          "Ottime conoscenze di tedesco sia orale che scritta",
+          "Resistenza, disponibilità, flessibilità e capacità di lavorare in team",
+          "Buone conoscenze dell'uso del computer",
+          "Elaborazione degli ordini delle stazioni",
+          "Gestione degli inventari",
+          "Esecuzione degli ordini e controllo degli inventari all'interno dell'apoteca",
+          "Fornitura di medicinali orientata al paziente"
+        ],
+        "en": [
+          "Completed professional training as a Pharmacy Assistant or Pharmacist EFZ",
+          "Very good German language skills in speech and writing",
+          "Stamina, performance readiness, flexibility and team spirit",
+          "Good PC user skills",
+          "Processing the orders of the stations",
+          "Leading the inventory",
+          "Execution of orders and control of the inventory within the pharmacy",
+          "Patient-related provision of medicines"
+        ],
+        "fr": [
+          "Formation professionnelle complète en tant qu'assistant(e) pharmacien(ne) ou pharmacien(ne) EFZ",
+          "Très bonnes connaissances en allemand oral et écrit",
+          "Endurance, disponibilité, flexibilité et esprit d'équipe",
+          "Bonnes connaissances en informatique",
+          "Traitement des commandes des stations",
+          "Gestion des stocks",
+          "Exécution des commandes et contrôle des stocks dans la pharmacie",
+          "Fourniture de médicaments orientée vers le patient"
+        ]
+      },
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 40,
+      "pensumMax": 40,
+      "pensum": "40%",
+      "previousSlugs": [
+        "pharma-assistenten-oder-drogist-efz-w-m-d-40-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistenten-oder-drogist-efz-w-m-d-40-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1645,7 +1661,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:15.998Z",
+      "crawledAt": "2026-04-19T21:33:37.277Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1708,6 +1724,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.476Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1752,7 +1769,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T09:38:15.995Z",
+      "crawledAt": "2026-04-19T21:33:37.274Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
