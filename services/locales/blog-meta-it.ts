@@ -2355,6 +2355,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ia-swiss-re-produttivita-ceo-berger.title': 'L’IA riduce i tempi di determinazione dei prezzi del 75% a Swiss Re',
     'blog.article.ia-swiss-re-produttivita-ceo-berger.excerpt': 'L’intelligenza artificiale di Swiss Re accelera i processi assicurativi fino all’80% e libera tempo per i collaboratori. Il CEO Andreas Berger illustra l’impatto concreto.',
     'blog.article.ia-swiss-re-produttivita-ceo-berger.imageAlt': 'Sede di Swiss Re a Zurigo con display di intelligenza artificiale che mostrano miglioramenti di produttività',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Progetto Echo: praterie sommerse per salvare i laghi di Lugano e Como',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'Il progetto Interreg Echo (2025-2027) sperimenta il restauro delle praterie sommerse con biochar per combattere il cambiamento climatico nei laghi di Lugano e Como. Due siti sperimentali da 500 mq ciascuno.',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Piante acquatiche che crescono nel lago di Lugano durante il progetto Echo per il restauro delle praterie sommerse',
 };
 
 export default blogMetaIt;

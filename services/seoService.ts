@@ -2040,6 +2040,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziative-cassa-malati-piano-lega-ticino': { name: 'Cassa malati Ticino', path: '/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino', parent: 'blog' },
     'blog-chiusura-ramo-a8-a9-notte-lavori-2026': { name: 'A8-A9 verso Chiasso chiusa di notte', path: '/articoli-frontaliere/chiusura-ramo-a8-a9-notte-lavori-2026', parent: 'blog' },
     'blog-ia-swiss-re-produttivita-ceo-berger': { name: 'L’IA riduce i tempi di determinazione de', path: '/articoli-frontaliere/ia-swiss-re-produttivita-ceo-berger', parent: 'blog' },
+    'blog-rinascita-praterie-sommerse-laghi-ticino': { name: 'Progetto Echo', path: '/articoli-frontaliere/rinascita-praterie-sommerse-laghi-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

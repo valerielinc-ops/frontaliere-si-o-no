@@ -2355,6 +2355,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ia-swiss-re-produttivita-ceo-berger.title': 'KI reduziert Preisbestimmungszeiten bei Swiss Re um 75%',
     'blog.article.ia-swiss-re-produttivita-ceo-berger.excerpt': 'Die künstliche Intelligenz von Swiss Re beschleunigt Versicherungsprozesse um bis zu 80 % und schafft so mehr Zeit für die Mitarbeitenden. CEO Andreas Berger erklärt die konkreten Auswirkungen.',
     'blog.article.ia-swiss-re-produttivita-ceo-berger.imageAlt': 'Swiss Re Hauptsitz in Zürich mit KI-Dashboards, die Produktivitätssteigerungen anzeigen',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Projekt Echo: Unterwasserwiesen zur Rettung der Seen von Lugano und Como',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'Das Interreg-Projekt Echo (2025–2027) testet die Wiederherstellung von Unterwasserwiesen mit Biokohle, um den Klimawandel in den Seen von Lugano und Como zu bekämpfen. Zwei Versuchsflächen von je 500 m².',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Unterwasserpflanzen, die im Luganersee im Rahmen des ECHO-Projekts zur Wiederherstellung von Unterwasserwiesen wachsen',
 };
 
 export default blogMetaDe;

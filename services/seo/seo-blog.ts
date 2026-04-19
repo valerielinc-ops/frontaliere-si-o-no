@@ -9657,6 +9657,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rinascita-praterie-sommerse-laghi-ticino': {
+    title: 'Progetto Echo: praterie sommerse per | Frontaliere Ticino',
+    description: 'Il progetto Interreg Echo (2025-2027) sperimenta il restauro delle praterie sommerse con biochar per combattere il cambiamento climatico nei laghi di Lugano e C',
+    keywords: 'frontalieri, ticino, svizzera, italia, progetto, echo, praterie, sommerse',
+    ogTitle: 'Progetto Echo: praterie sommerse per salvare i laghi di L',
+    ogDescription: 'Il progetto Interreg Echo (2025-2027) sperimenta il restauro delle praterie sommerse con biochar per combattere il cambiamento climatico nei laghi di Lugano e C',
+    canonicalPath: '/articoli-frontaliere/rinascita-praterie-sommerse-laghi-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Progetto Echo: praterie sommerse per salvare i laghi di L",
+      "description": "Il progetto Interreg Echo (2025-2027) sperimenta il restauro delle praterie sommerse con biochar per combattere il cambiamento climatico nei laghi di Lugano e C",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rinascita-praterie-sommerse-laghi-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piante acquatiche che crescono nel lago di Lugano durante il progetto Echo per il restauro delle praterie sommerse"
+      },
+      "datePublished": "2026-04-19T14:28:10+00:00",
+      "dateModified": "2026-04-19T14:28:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rinascita-praterie-sommerse-laghi-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -6480,4 +6480,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ia-swiss-re-produttivita-ceo-berger.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rinascita-praterie-sommerse-laghi-ticino',
+ category: 'novita',
+ date: '2026-04-19T14:28:10.522Z',
+ image: '/images/blog/rinascita-praterie-sommerse-laghi-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

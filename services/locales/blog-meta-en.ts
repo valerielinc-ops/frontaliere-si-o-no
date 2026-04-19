@@ -2355,6 +2355,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ia-swiss-re-produttivita-ceo-berger.title': 'AI cuts price determination time by 75% at Swiss Re',
     'blog.article.ia-swiss-re-produttivita-ceo-berger.excerpt': 'Swiss Re’s artificial intelligence accelerates insurance processes by up to 80%, freeing up time for employees. CEO Andreas Berger outlines the concrete impact.',
     'blog.article.ia-swiss-re-produttivita-ceo-berger.imageAlt': 'Swiss Re headquarters in Zurich with AI dashboards showing productivity improvements',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.title': 'Echo Project: Submerged Meadows to Save Lake Lugano and Como',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.excerpt': 'The Interreg Echo project (2025–2027) is testing the restoration of submerged meadows using biochar to combat climate change in Lake Lugano and Lake Como. Two experimental sites, each covering 500 square metres.',
+    'blog.article.rinascita-praterie-sommerse-laghi-ticino.imageAlt': 'Submerged aquatic plants growing in Lake Lugano as part of the Echo project to restore underwater meadows',
 };
 
 export default blogMetaEn;
