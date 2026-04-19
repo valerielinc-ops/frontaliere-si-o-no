@@ -2367,6 +2367,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.title': 'Retards dans le versement des subsides de l’assurance-maladie à Mendrisio : quels risques pour les frontaliers',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.excerpt': 'Mendrisio demande au Canton du Tessin de débloquer les paiements des subsides de l’assurance-maladie en retard de plusieurs mois. Frontaliers et résidents risquent de ne pas pouvoir s’acquitter des primes d’assurance dans les délais impartis.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.imageAlt': 'Vue nocturne de la Piazza della Collegiata à Mendrisio avec des lumières chaudes et une enseigne de bureau communal en italien et allemand',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Marché immobilier au Tessin : -33 % de logements en 5 ans. Quels changements pour les frontaliers',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'Au cours des cinq dernières années, le nombre de logements libres à louer au Tessin est passé de 5 941 à 3 980 unités. Le taux de vacance s’élève désormais à 1,92 %.',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Immeubles résidentiels au bord du lac de Lugano avec balcons vides sous un ciel clair',
 };
 
 export default blogMetaFr;

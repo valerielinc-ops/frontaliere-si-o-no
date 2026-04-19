@@ -6508,4 +6508,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/sussidi-cassa-malati-mendrisio-ritardi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'alloggi-frontalieri-ticino-crisi-2025',
+ category: 'pratico',
+ date: '2026-04-19T18:04:52.349Z',
+ image: '/images/blog/alloggi-frontalieri-ticino-crisi-2025.jpg',
+ hasCalculator: true,
+ },
 ];

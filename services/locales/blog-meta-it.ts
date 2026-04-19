@@ -2367,6 +2367,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.title': 'Ritardi negli assegni cassa malati a Mendrisio: cosa rischiano i frontalieri',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.excerpt': 'Mendrisio chiede al Canton Ticino di sbloccare i pagamenti dei sussidi cassa malati ritardati da mesi. Frontalieri e residenti rischiano di non pagare i premi assicurativi entro i termini.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.imageAlt': 'Mendrisio di notte: uffici comunali illuminati con cartelli in italiano e tedesco, simbolo della burocrazia locale',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Mercato immobiliare Ticino: -33% di alloggi in 5 anni. Cosa cambia per i frontalieri',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'Negli ultimi cinque anni, gli alloggi liberi in affitto in Ticino sono scesi da 5.941 a 3.980 unità. Il tasso di sfitto è ora dell\'1,92%.',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Edifici residenziali a Lugano lungo il lago, con balconi vuoti e cielo sereno',
 };
 
 export default blogMetaIt;

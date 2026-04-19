@@ -9773,6 +9773,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alloggi-frontalieri-ticino-crisi-2025': {
+    title: 'Mercato immobiliare Ticino: -33% di | Frontaliere Ticino',
+    description: 'Affitti e immobili in vendita in Ticino crollano del 33% in 5 anni. Analisi dei dati federali e impatto diretto sui lavoratori frontalieri con soluzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, immobiliare, alloggi, anni',
+    ogTitle: 'Mercato immobiliare Ticino 2025: la crisi degli alloggi in',
+    ogDescription: 'Calo del 33% degli alloggi in affitto in Ticino. Analisi dei dati federali e consigli pratici per i frontalieri che cercano casa in Ticino.',
+    canonicalPath: '/articoli-frontaliere/alloggi-frontalieri-ticino-crisi-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato immobiliare Ticino: analisi della crisi degli alloggi con dati federali e soluzioni per i",
+      "description": "Affitti e immobili in vendita in Ticino crollano del 33% in 5 anni. Analisi dei dati federali e impatto diretto sui lavoratori frontalieri con soluzioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/alloggi-frontalieri-ticino-crisi-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali a Lugano lungo il lago, con balconi vuoti e cielo sereno"
+      },
+      "datePublished": "2026-04-19T18:04:52+00:00",
+      "dateModified": "2026-04-19T18:04:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/alloggi-frontalieri-ticino-crisi-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

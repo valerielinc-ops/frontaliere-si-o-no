@@ -2367,6 +2367,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.title': 'Delays in health insurance subsidies in Mendrisio: what cross-border workers risk',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.excerpt': 'Mendrisio is urging the Canton of Ticino to unblock payments for health insurance subsidies that have been delayed for months. Cross-border workers and residents risk missing insurance premium deadlines.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.imageAlt': 'Night view of Mendrisio’s Piazza della Collegiata with warm lights and municipal offices sign in Italian and German',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Ticino real estate market: -33% in available rental properties in 5 years. What changes for cross-border workers',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'Over the past five years, the number of vacant rental properties in Ticino has dropped from 5,941 to 3,980 units. The vacancy rate now stands at 1.92%.',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Lugano lakefront with modern apartments and empty balconies under clear sky',
 };
 
 export default blogMetaEn;

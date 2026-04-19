@@ -2367,6 +2367,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.title': 'Verzögerungen bei den Krankenkassenbeiträgen in Mendrisio: Was Grenzgängern droht',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.excerpt': 'Mendrisio fordert den Kanton Tessin auf, die seit Monaten ausstehenden Zahlungen der Krankenkassensubventionen freizugeben. Grenzgänger und Einwohner riskieren, die Versicherungsprämien nicht fristgerecht zu begleichen.',
     'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.imageAlt': 'Nachtaufnahme des Platzes Piazza della Collegiata in Mendrisio mit warmen Lichtern und kommunalem Bürohinweisschild auf Italienisch und Deutsch',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Immobilienmarkt Tessin: -33 % weniger Mietwohnungen in fünf Jahren. Was bedeutet das für Grenzgänger?',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'In den letzten fünf Jahren ist die Zahl der freien Mietwohnungen im Tessin von 5.941 auf 3.980 Einheiten gesunken. Die Leerstandsquote liegt nun bei 1,92 %.',
+    'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Wohngebäude am Luganersee mit leeren Balkonen bei goldenem Abendlicht',
 };
 
 export default blogMetaDe;
