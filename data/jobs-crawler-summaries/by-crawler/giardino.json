@@ -1,18 +1,19 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-04-18T21:25:19.859Z",
+  "generatedAt": "2026-04-19T09:31:28.725Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5264,
-  "avgDurationMs": 5264,
+  "durationMs": 4461,
+  "avgDurationMs": 4461,
   "durationHistory": [
-    5264
+    4461
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "giardino-4c0dd2545c09",
       "slug": "steward-giardino-group-ascona",
@@ -25,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T21:25:17.654Z",
+      "crawledAt": "2026-04-19T09:31:26.385Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-04-18",
       "applyUrl": "https://giardinohotels.ch/en/jobs/ga-steward/",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-04-18T21:25:17.654Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "giardino-e7f4937bce90",
       "slug": "assistant-accounting-50-giardino-group-champfer",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T21:25:17.655Z",
+      "crawledAt": "2026-04-19T09:31:26.386Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -98,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T21:25:17.654Z",
+      "crawledAt": "2026-04-19T09:31:26.384Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -134,7 +134,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-18T21:25:17.655Z",
+      "crawledAt": "2026-04-19T09:31:26.386Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
