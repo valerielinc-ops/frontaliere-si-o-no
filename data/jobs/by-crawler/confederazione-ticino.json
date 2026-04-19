@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-04-19T09:12:47.174Z",
+  "assembledAt": "2026-04-19T21:07:57.065Z",
   "jobs": [
     {
       "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
@@ -68,8 +68,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Inspektor/in",
@@ -550,7 +550,8 @@
         "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       ],
-      "firstSeenAt": "2026-04-13T21:25:51.212Z"
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -631,8 +632,7 @@
         "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "retranslationAttempts": 2
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
