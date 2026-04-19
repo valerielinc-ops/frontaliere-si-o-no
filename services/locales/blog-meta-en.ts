@@ -2370,6 +2370,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Ticino real estate market: -33% in available rental properties in 5 years. What changes for cross-border workers',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'Over the past five years, the number of vacant rental properties in Ticino has dropped from 5,941 to 3,980 units. The vacancy rate now stands at 1.92%.',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Lugano lakefront with modern apartments and empty balconies under clear sky',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Hail in Bellinzona and weather alert for Lugano and Chiasso: what changes for cross-border workers',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'On Sunday, 19 April 2026, hail struck the Bellinzona area while mobile thunderstorms affected Lugano and Chiasso until 20:43. Weather alert level 3 for hail risk issued: here are the procedures for cross-border workers and residents.',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzona hit by hailstorm on April 19, 2026: streets and cars covered in ice pellets',
 };
 
 export default blogMetaEn;

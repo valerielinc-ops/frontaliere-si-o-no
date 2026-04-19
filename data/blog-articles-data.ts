@@ -6515,4 +6515,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/alloggi-frontalieri-ticino-crisi-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026',
+ category: 'pratico',
+ date: '2026-04-19T19:05:49.198Z',
+ image: '/images/blog/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.jpg',
+ hasCalculator: false,
+ },
 ];

@@ -2370,6 +2370,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Immobilienmarkt Tessin: -33 % weniger Mietwohnungen in fünf Jahren. Was bedeutet das für Grenzgänger?',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'In den letzten fünf Jahren ist die Zahl der freien Mietwohnungen im Tessin von 5.941 auf 3.980 Einheiten gesunken. Die Leerstandsquote liegt nun bei 1,92 %.',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Wohngebäude am Luganersee mit leeren Balkonen bei goldenem Abendlicht',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Hagel in Bellinzona und Wetterwarnung für Lugano und Chiasso: Was ändert sich für Grenzgänger',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'Am Sonntag, 19. April 2026, Hagel im Bellinzonese und mobile Gewitter in Lugano und Chiasso bis 20.43 Uhr. Wetterwarnung der Stufe 3 wegen Hagelgefahr: Hier sind die Verfahren für Grenzgänger und Einwohner.',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzona von Hagelsturm am 19. April 2026 getroffen: Straßen und Autos mit Eiskörnern bedeckt',
 };
 
 export default blogMetaDe;

@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 841,
+ "numberOfItems": 842,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4530,7 +4530,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 838, "name": "Fuga di ammoniaca a Stabio: cosa sapere e come ...", "url": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-stabio-rapelli-allerta-ticino` },
           { "@type": "ListItem", "position": 839, "name": "AIL Arena a Lugano: porte aperte il 30 e 31 mag...", "url": `${BASE_URL}/articoli-frontaliere/inaugurazione-ail-arena-lugano-30-31-maggio` },
           { "@type": "ListItem", "position": 840, "name": "Ritardi negli assegni cassa malati a Mendrisio:...", "url": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi-2026` },
-          { "@type": "ListItem", "position": 841, "name": "Mercato immobiliare Ticino: analisi della crisi...", "url": `${BASE_URL}/articoli-frontaliere/alloggi-frontalieri-ticino-crisi-2025` }
+          { "@type": "ListItem", "position": 841, "name": "Mercato immobiliare Ticino: analisi della crisi...", "url": `${BASE_URL}/articoli-frontaliere/alloggi-frontalieri-ticino-crisi-2025` },
+          { "@type": "ListItem", "position": 842, "name": "Grandine in Ticino: cosa devono fare i frontali...", "url": `${BASE_URL}/articoli-frontaliere/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026` }
  ]
  }
  ]

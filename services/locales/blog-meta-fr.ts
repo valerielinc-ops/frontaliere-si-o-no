@@ -2370,6 +2370,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Marché immobilier au Tessin : -33 % de logements en 5 ans. Quels changements pour les frontaliers',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'Au cours des cinq dernières années, le nombre de logements libres à louer au Tessin est passé de 5 941 à 3 980 unités. Le taux de vacance s’élève désormais à 1,92 %.',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Immeubles résidentiels au bord du lac de Lugano avec balcons vides sous un ciel clair',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Grêle à Bellinzone et alerte météo à Lugano et Chiasso : ce qui change pour les frontaliers',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'Dimanche 19 avril 2026, de la grêle a frappé la région de Bellinzone et des orages mobiles ont balayé Lugano ainsi que Chiasso jusqu’à 20h43. Une alerte météo de niveau 3 concernant le risque de grêle est en vigueur : voici les procédures à suivre pour les frontaliers et les résidents.',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzone frappée par une grêle le 19 avril 2026 : rues et voitures recouvertes de grêlons',
 };
 
 export default blogMetaFr;

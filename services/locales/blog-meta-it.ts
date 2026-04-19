@@ -2370,6 +2370,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.title': 'Mercato immobiliare Ticino: -33% di alloggi in 5 anni. Cosa cambia per i frontalieri',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.excerpt': 'Negli ultimi cinque anni, gli alloggi liberi in affitto in Ticino sono scesi da 5.941 a 3.980 unità. Il tasso di sfitto è ora dell\'1,92%.',
     'blog.article.alloggi-frontalieri-ticino-crisi-2025.imageAlt': 'Edifici residenziali a Lugano lungo il lago, con balconi vuoti e cielo sereno',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.title': 'Grandine a Bellinzona e allerta meteo su Lugano e Chiasso: cosa cambia per i frontalieri',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.excerpt': 'Domenica 19 aprile 2026 grandine nel Bellinzonese e temporali mobili su Lugano e Chiasso fino alle 20.43. Allerta meteo di grado 3 per rischio grandinate: ecco le procedure per frontalieri e residenti.',
+    'blog.article.grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.imageAlt': 'Bellinzona colpita da grandine la sera del 19 aprile 2026: strade e auto coperte di chicchi di ghiaccio',
 };
 
 export default blogMetaIt;

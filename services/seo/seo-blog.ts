@@ -9802,6 +9802,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026': {
+    title: 'Grandine a Bellinzona e allerta meteo | Frontaliere Ticino',
+    description: 'Allerta meteo grado 3 per grandine e temporali a Lugano, Chiasso e Bellinzona. Procedure per frontalieri, danni ai veicoli e consigli per spostamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, grandine, bellinzona, allerta, meteo',
+    ogTitle: 'Grandine Ticino: allerta Lugano e Chiasso 19 aprile 2026',
+    ogDescription: 'Allerta meteo grado 3 per grandine a Lugano e Chiasso. Procedure per frontalieri, danni ai veicoli e consigli per spostamenti. Aggiornamenti in tempo reale.',
+    canonicalPath: '/articoli-frontaliere/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grandine in Ticino: cosa devono fare i frontalieri dopo l'allerta meteo di grado 3 a Lugano e",
+      "description": "Allerta meteo grado 3 per grandine e temporali a Lugano, Chiasso e Bellinzona. Procedure per frontalieri, danni ai veicoli e consigli per spostamenti",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona colpita da grandine la sera del 19 aprile 2026: strade e auto coperte di chicchi di ghiaccio"
+      },
+      "datePublished": "2026-04-19T19:05:49+00:00",
+      "dateModified": "2026-04-19T19:05:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
