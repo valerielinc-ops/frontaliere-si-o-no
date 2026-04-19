@@ -6494,4 +6494,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/fuga-ammoniaca-stabio-rapelli-allerta-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'inaugurazione-ail-arena-lugano-30-31-maggio',
+ category: 'pratico',
+ date: '2026-04-19T16:25:18.093Z',
+ image: '/images/blog/inaugurazione-ail-arena-lugano-30-31-maggio.jpg',
+ hasCalculator: true,
+ },
 ];

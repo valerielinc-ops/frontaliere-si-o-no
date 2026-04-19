@@ -2361,6 +2361,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.title': 'Fuga di ammoniaca a Stabio: cosa sapere e come reagire',
     'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.excerpt': 'Giovedì 16 aprile 2026, fuga di ammoniaca nella fabbrica alimentare Rapelli a Stabio. Autorità chiedono di chiudere porte e finestre in un raggio di 1 km. Nessun ferito grave, evacuazione immediata.',
     'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.imageAlt': 'Fabbrica alimentare Rapelli a Stabio durante l\'emergenza ammoniaca: ambulanze e cartelli di pericolo con vapori gialli',
+    'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.title': 'AIL Arena a Lugano: porte aperte il 30 e 31 maggio per scoprire la nuova casa del FC Lugano',
+    'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.excerpt': 'Il 30 e 31 maggio 2025 il FC Lugano apre la nuova AIL Arena con due giornate di eventi gratuiti: tour guidati, Fan Village e concorso con una Renault Clio in palio.',
+    'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.imageAlt': 'Panoramica aerea della nuova AIL Arena del FC Lugano in riva al lago durante il tramonto',
 };
 
 export default blogMetaIt;

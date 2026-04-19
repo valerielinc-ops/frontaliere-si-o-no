@@ -9715,6 +9715,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inaugurazione-ail-arena-lugano-30-31-maggio': {
+    title: 'AIL Arena a Lugano: porte aperte il 30 | Frontaliere Ticino',
+    description: 'Il 30 e 31 maggio 2025 il FC Lugano apre la nuova AIL Arena con due giornate di eventi gratuiti: tour guidati, Fan Village e concorso con una Renault Clio in pa',
+    keywords: 'frontalieri, ticino, svizzera, italia, arena, lugano, porte, aperte',
+    ogTitle: 'AIL Arena a Lugano: porte aperte il 30 e 31 maggio per sc',
+    ogDescription: 'Il 30 e 31 maggio 2025 il FC Lugano apre la nuova AIL Arena con due giornate di eventi gratuiti: tour guidati, Fan Village e concorso con una Renault Clio in pa',
+    canonicalPath: '/articoli-frontaliere/inaugurazione-ail-arena-lugano-30-31-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AIL Arena a Lugano: porte aperte il 30 e 31 maggio per sc",
+      "description": "Il 30 e 31 maggio 2025 il FC Lugano apre la nuova AIL Arena con due giornate di eventi gratuiti: tour guidati, Fan Village e concorso con una Renault Clio in pa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inaugurazione-ail-arena-lugano-30-31-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica aerea della nuova AIL Arena del FC Lugano in riva al lago durante il tramonto"
+      },
+      "datePublished": "2026-04-19T16:25:18+00:00",
+      "dateModified": "2026-04-19T16:25:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inaugurazione-ail-arena-lugano-30-31-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

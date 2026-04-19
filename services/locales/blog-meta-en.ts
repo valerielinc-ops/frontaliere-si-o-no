@@ -2361,6 +2361,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.title': 'Ammonia leak in Stabio: what you need to know and how to react',
     'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.excerpt': 'On Thursday, April 16, 2026, an ammonia leak occurred at the Rapelli food factory in Stabio. Authorities have urged residents to close doors and windows within a 1 km radius. No serious injuries were reported, and an immediate evacuation was carried out.',
     'blog.article.fuga-ammoniaca-stabio-rapelli-allerta-ticino.imageAlt': 'Rapelli food factory in Stabio during ammonia leak emergency: ambulances and warning signs with yellow vapors',
+    'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.title': 'AIL Arena in Lugano: open days on 30 and 31 May to discover the new home of FC Lugano',
+    'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.excerpt': 'On 30 and 31 May 2025, FC Lugano will open the new AIL Arena with two days of free events: guided tours, a Fan Village, and a competition with a Renault Clio up for grabs.',
+    'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.imageAlt': 'Aerial view of the new FC Lugano AIL Arena by the lake at sunset',
 };
 
 export default blogMetaEn;
