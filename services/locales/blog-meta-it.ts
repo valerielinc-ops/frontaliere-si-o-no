@@ -2364,6 +2364,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.title': 'AIL Arena a Lugano: porte aperte il 30 e 31 maggio per scoprire la nuova casa del FC Lugano',
     'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.excerpt': 'Il 30 e 31 maggio 2025 il FC Lugano apre la nuova AIL Arena con due giornate di eventi gratuiti: tour guidati, Fan Village e concorso con una Renault Clio in palio.',
     'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.imageAlt': 'Panoramica aerea della nuova AIL Arena del FC Lugano in riva al lago durante il tramonto',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.title': 'Ritardi negli assegni cassa malati a Mendrisio: cosa rischiano i frontalieri',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.excerpt': 'Mendrisio chiede al Canton Ticino di sbloccare i pagamenti dei sussidi cassa malati ritardati da mesi. Frontalieri e residenti rischiano di non pagare i premi assicurativi entro i termini.',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.imageAlt': 'Mendrisio di notte: uffici comunali illuminati con cartelli in italiano e tedesco, simbolo della burocrazia locale',
 };
 
 export default blogMetaIt;

@@ -2043,6 +2043,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rinascita-praterie-sommerse-laghi-ticino': { name: 'Progetto Echo', path: '/articoli-frontaliere/rinascita-praterie-sommerse-laghi-ticino', parent: 'blog' },
     'blog-fuga-ammoniaca-stabio-rapelli-allerta-ticino': { name: 'Fuga di ammoniaca a Stabio', path: '/articoli-frontaliere/fuga-ammoniaca-stabio-rapelli-allerta-ticino', parent: 'blog' },
     'blog-inaugurazione-ail-arena-lugano-30-31-maggio': { name: 'AIL Arena a Lugano', path: '/articoli-frontaliere/inaugurazione-ail-arena-lugano-30-31-maggio', parent: 'blog' },
+    'blog-sussidi-cassa-malati-mendrisio-ritardi-2026': { name: 'Ritardi negli assegni cassa malati a Men', path: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

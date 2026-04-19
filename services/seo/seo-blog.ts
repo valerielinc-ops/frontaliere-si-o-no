@@ -9744,6 +9744,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sussidi-cassa-malati-mendrisio-ritardi-2026': {
+    title: 'Ritardi negli assegni cassa malati a | Frontaliere Ticino',
+    description: 'Mendrisio chiede al Canton Ticino di sbloccare i pagamenti dei sussidi cassa malati ritardati da mesi. Frontalieri e residenti rischiano di non pagare i premi a',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritardi, negli, assegni, cassa',
+    ogTitle: 'Ritardi negli assegni cassa malati a Mendrisio: cosa risc',
+    ogDescription: 'Mendrisio chiede al Canton Ticino di sbloccare i pagamenti dei sussidi cassa malati ritardati da mesi. Frontalieri e residenti rischiano di non pagare i premi a',
+    canonicalPath: '/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritardi negli assegni cassa malati a Mendrisio: cosa risc",
+      "description": "Mendrisio chiede al Canton Ticino di sbloccare i pagamenti dei sussidi cassa malati ritardati da mesi. Frontalieri e residenti rischiano di non pagare i premi a",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sussidi-cassa-malati-mendrisio-ritardi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mendrisio di notte: uffici comunali illuminati con cartelli in italiano e tedesco, simbolo della burocrazia locale"
+      },
+      "datePublished": "2026-04-19T16:57:27+00:00",
+      "dateModified": "2026-04-19T16:57:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-mendrisio-ritardi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

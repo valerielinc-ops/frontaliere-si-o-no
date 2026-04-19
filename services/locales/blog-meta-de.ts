@@ -2364,6 +2364,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.title': 'AIL Arena in Lugano: am 30. und 31. Mai 2025 mit Tag der offenen Tür in der neuen Heimat des FC Lugano',
     'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.excerpt': 'Am 30. und 31. Mai 2025 öffnet der FC Lugano die neue AIL Arena mit zwei Tagen voller kostenloser Angebote: geführte Rundgänge, ein Fan Village und ein Wettbewerb mit einem Renault Clio als Hauptgewinn.',
     'blog.article.inaugurazione-ail-arena-lugano-30-31-maggio.imageAlt': 'Luftaufnahme der neuen AIL Arena des FC Lugano am See bei Sonnenuntergang',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.title': 'Verzögerungen bei den Krankenkassenbeiträgen in Mendrisio: Was Grenzgängern droht',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.excerpt': 'Mendrisio fordert den Kanton Tessin auf, die seit Monaten ausstehenden Zahlungen der Krankenkassensubventionen freizugeben. Grenzgänger und Einwohner riskieren, die Versicherungsprämien nicht fristgerecht zu begleichen.',
+    'blog.article.sussidi-cassa-malati-mendrisio-ritardi-2026.imageAlt': 'Nachtaufnahme des Platzes Piazza della Collegiata in Mendrisio mit warmen Lichtern und kommunalem Bürohinweisschild auf Italienisch und Deutsch',
 };
 
 export default blogMetaDe;

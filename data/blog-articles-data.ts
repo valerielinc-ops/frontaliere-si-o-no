@@ -6501,4 +6501,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/inaugurazione-ail-arena-lugano-30-31-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sussidi-cassa-malati-mendrisio-ritardi-2026',
+ category: 'pratico',
+ date: '2026-04-19T16:57:27.722Z',
+ image: '/images/blog/sussidi-cassa-malati-mendrisio-ritardi-2026.jpg',
+ hasCalculator: true,
+ },
 ];
