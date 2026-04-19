@@ -1,18 +1,49 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-19T10:19:19.915Z",
-  "total": 15,
-  "newCount": 0,
+  "generatedAt": "2026-04-19T22:15:04.869Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 15914,
-  "avgDurationMs": 15914,
+  "durationMs": 19672,
+  "avgDurationMs": 19672,
   "durationHistory": [
-    15914
+    19672
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213id7",
+      "slug": "operaio-a-a-tempo-parziale-45-presso-la-biblioteca-cantonale-di-lugano-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-100-",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Operaio/a a tempo parziale (45%), presso la Biblioteca cantonale di Lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-19",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4159",
+      "source": "Company Careers Crawler",
+      "salaryMin": 47348,
+      "salaryMax": 72822,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-04-19T22:14:59.612Z",
+      "firstSeenAt": "2026-04-19T22:14:59.612Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213ie5",
