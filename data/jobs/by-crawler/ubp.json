@@ -154,7 +154,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-a6e1ffea0076",
@@ -616,7 +616,6 @@
       "previousSlugs": [
         "investment-advisor-ubp-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:28:15.483Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -629,8 +628,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "ubp-d2b1b07b8727",
@@ -805,7 +803,7 @@
       "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
         "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
         "fr": "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
       },
@@ -855,7 +853,6 @@
           "tax-specialist-ubp-ch"
         ],
         "it": [
-          "tax-specialista-union-bancaire-privee-geneva-switzerland",
           "tax-specialist-ubp-ch-2"
         ],
         "de": [
@@ -868,7 +865,6 @@
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-2",
         "tax-specialiste-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-3",
@@ -876,7 +872,9 @@
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
         "steuerspezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9",
+        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1526,7 +1524,7 @@
       "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
         "de": "steuerspezialist-union-bancaire-privee-geneva-switzerland",
         "fr": "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
       },
@@ -1576,7 +1574,6 @@
           "tax-specialist-ubp-ch"
         ],
         "it": [
-          "tax-specialista-union-bancaire-privee-geneva-switzerland",
           "tax-specialist-ubp-ch-3"
         ],
         "de": [
@@ -1590,7 +1587,6 @@
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-3",
         "tax-spezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialiste-union-bancaire-privee-geneva-switzerland",
@@ -1598,7 +1594,10 @@
         "tax-specialist-ubp-ch-2",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
         "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9",
+        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
+        "steuerspezialist-union-bancaire-privee-geneva-switzerland"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1927,7 +1926,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-99358eef03d4",
@@ -2382,7 +2381,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-9edc4a537980",
@@ -2843,7 +2842,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-09f350a4712c",
@@ -3310,7 +3309,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-00af29d45ac0",
@@ -3453,7 +3452,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-9039bd9f2bce",
@@ -3686,7 +3685,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ubp-0b87a0672eac",
