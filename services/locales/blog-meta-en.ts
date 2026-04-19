@@ -2346,6 +2346,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti launches resolution: Ticino wine first choice, imports only as last resort',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'The annual Federviti assembly in Biasca highlighted 2025 as the year with the lowest yields in the past 25 years and declining consumption. President Cadenazzi calls for prioritizing local wine at public events and a refreshed committee.',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Ticino wine tasting in a sunny vineyard, frontaliers toasting with Swiss-Italian wine and autumn leaves',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Health insurance initiatives: Ticino plan unacceptable according to the Lega',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'The Ticino State Council has proposed a CHF 51 million annual plan to address the two initiatives launched by the Lega and the Social Democrats (PS). The Lega has dismissed the proposal as a \'scrap plan\' and is demanding the immediate implementation of its own initiative.',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Ticino cantonal office discussing health insurance initiatives',
 };
 
 export default blogMetaEn;

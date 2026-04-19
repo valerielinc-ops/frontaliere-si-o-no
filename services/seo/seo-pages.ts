@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 833,
+ "numberOfItems": 834,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4522,7 +4522,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 830, "name": "Coppa del Mondo di corsa d'orientamento 2026: L...", "url": `${BASE_URL}/articoli-frontaliere/coppa-del-mondo-orientamento-locarnese-2026` },
           { "@type": "ListItem", "position": 831, "name": "Grigioni: nove candidati per cinque seggi al Go...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-governo-2026-nove-candidati` },
           { "@type": "ListItem", "position": 832, "name": "Svizzera-USA: accordo commerciale in bilico, Pa...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-usa-accordo-commerciale-2026` },
-          { "@type": "ListItem", "position": 833, "name": "Federviti lancia risoluzione: vino ticinese pri...", "url": `${BASE_URL}/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025` }
+          { "@type": "ListItem", "position": 833, "name": "Federviti lancia risoluzione: vino ticinese pri...", "url": `${BASE_URL}/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025` },
+          { "@type": "ListItem", "position": 834, "name": "Analisi delle iniziative sulla cassa malati in ...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino` }
  ]
  }
  ]

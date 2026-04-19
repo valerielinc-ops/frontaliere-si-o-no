@@ -2037,6 +2037,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grigioni-governo-2026-nove-candidati': { name: 'Grigioni', path: '/articoli-frontaliere/grigioni-governo-2026-nove-candidati', parent: 'blog' },
     'blog-svizzera-usa-accordo-commerciale-2026': { name: 'Svizzera-USA', path: '/articoli-frontaliere/svizzera-usa-accordo-commerciale-2026', parent: 'blog' },
     'blog-risoluzione-federviti-vino-ticinese-2025': { name: 'Federviti lancia risoluzione', path: '/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025', parent: 'blog' },
+    'blog-iniziative-cassa-malati-piano-lega-ticino': { name: 'Cassa malati Ticino', path: '/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2346,6 +2346,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti startet Resolution: Tessiner Wein als erste Wahl, Import nur als Notlösung',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'Die Jahresversammlung von Federviti in Biasca: 2025 mit den niedrigsten Erträgen der letzten 25 Jahre und sinkendem Konsum. Präsident Cadenazzi fordert bei Veranstaltungen Priorität für den lokalen Wein und ein erneuertes Komitee.',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Weinprobe im sonnigen Tessin, Frontaliere stoßen mit Schweizer-Italiänischem Wein und Herbstblättern an',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Krankenkassen-Initiativen: Der Tessiner Plan ist für die Lega unannehmbar',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'Der Staatsrat schlägt einen Plan über 51 Millionen Franken pro Jahr für die beiden Initiativen von Lega und SP vor. Die Lega bezeichnet den Vorschlag als »Rottamierungsplan« und fordert die sofortige Umsetzung ihrer Initiative.',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Kantonsamt im Tessin während der Diskussion über Krankenkassen-Initiativen',
 };
 
 export default blogMetaDe;

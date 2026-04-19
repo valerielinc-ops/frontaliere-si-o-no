@@ -2346,6 +2346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti lancia risoluzione: vino ticinese prima scelta, estero solo come ripiego',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'L’Assemblea annuale di Federviti a Biasca, il 2025 con le rese più basse degli ultimi 25 anni e consumi in calo. Il presidente Cadenazzi chiede priorità al vino locale nelle manifestazioni e un comitato rinnovato.',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Degustazione di vini ticinesi in un vigneto soleggiato, con frontaliers che brindano tra barili di legno e foglie autunnali',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Iniziative cassa malati: il piano ticinese inaccettabile secondo la Lega',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'Il Consiglio di Stato propone un piano da 51 milioni l’anno per le due iniziative Lega e PS. La Lega bolla la proposta come «piano di rottamazione» e chiede l’attuazione immediata della sua iniziativa.',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Ufficio cantonale Ticino durante la discussione sulle iniziative sulla cassa malati',
 };
 
 export default blogMetaIt;

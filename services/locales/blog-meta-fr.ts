@@ -2346,6 +2346,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.risoluzione-federviti-vino-ticinese-2025.title': 'Federviti lance une résolution : le vin tessinois en priorité, l\'étranger en dernier recours',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.excerpt': 'L’Assemblée annuelle de Federviti à Biasca en 2025 a révélé les rendements les plus bas des 25 dernières années et une baisse de la consommation. Le président Cadenazzi demande que le vin local soit privilégié lors des manifestations et un comité renouvelé.',
     'blog.article.risoluzione-federviti-vino-ticinese-2025.imageAlt': 'Dégustation de vins tessinois dans un vignoble ensoleillé, frontaliers trinquant avec du vin suisse-italien et des feuilles d\'automne',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Initiatives des caisses-maladie: le plan tessinois inacceptable selon la Lega',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'Le Conseil d\'État propose un plan annuel de 51 millions de francs pour les deux initiatives de la Lega et du PS. La Lega qualifie la proposition de «plan de démolition» et exige l\'application immédiate de son initiative.',
+    'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Bureau cantonal tessinois discutant des initiatives sur les caisses maladie',
 };
 
 export default blogMetaFr;

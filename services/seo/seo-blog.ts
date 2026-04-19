@@ -9570,6 +9570,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziative-cassa-malati-piano-lega-ticino': {
+    title: 'Iniziative cassa malati: il piano | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato ticinese propone un piano da 51 milioni l’anno per le iniziative sulla cassa malati. La Lega bolla la proposta come inaccettabile e chiede',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, cassa, malati, piano',
+    ogTitle: 'Iniziative cassa malati: il piano da 51 milioni bocciato',
+    ogDescription: 'Il Consiglio di Stato ticinese propone un piano da 51 milioni l’anno per le iniziative sulla cassa malati. La Lega bolla la proposta come inaccettabile e chiede',
+    canonicalPath: '/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Analisi delle iniziative sulla cassa malati in Ticino: il piano del Consiglio di Stato tra risparmi",
+      "description": "Il Consiglio di Stato ticinese propone un piano da 51 milioni l’anno per le iniziative sulla cassa malati. La Lega bolla la proposta come inaccettabile e chiede",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-cassa-malati-piano-lega-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale Ticino durante la discussione sulle iniziative sulla cassa malati"
+      },
+      "datePublished": "2026-04-19T09:08:36+00:00",
+      "dateModified": "2026-04-19T09:08:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

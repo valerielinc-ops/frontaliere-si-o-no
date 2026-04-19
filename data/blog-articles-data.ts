@@ -6459,4 +6459,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/risoluzione-federviti-vino-ticinese-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziative-cassa-malati-piano-lega-ticino',
+ category: 'fiscale',
+ date: '2026-04-19T09:08:36.809Z',
+ image: '/images/blog/iniziative-cassa-malati-piano-lega-ticino.jpg',
+ hasCalculator: true,
+ },
 ];
