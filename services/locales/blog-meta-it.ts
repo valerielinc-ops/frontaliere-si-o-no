@@ -2382,6 +2382,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Infermiere di pratiche avanzate: il nuovo ruolo nel Ticino sanitario',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'La quarta edizione della Giornata dell\'Innovazione e Ricerca Infermieristica a Lugano ha posto l\'attenzione sull\'APN, figura chiave per modernizzare le cure al letto del paziente con 60 professionisti già formati localmente.',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Campus universitario di Lugano con edifici SUPSI ed EOC durante una giornata autunnale',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Medio Oriente in fiamme: costi e rischi per imprese ticinesi',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Materie prime in aumento del 30-50% a causa del conflitto. Direttore SSIC Bagnovini chiede interventi urgenti per salvare cantieri edili.',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Cantiere edile in Ticino con gru e materiali da costruzione',
 };
 
 export default blogMetaIt;

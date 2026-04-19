@@ -2382,6 +2382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Pflegefachpersonen mit erweiterten Kompetenzen: Die neue Rolle im Tessiner Gesundheitswesen',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'Die vierte Ausgabe des Tages der Innovation und Pflegeforschung in Lugano richtete den Fokus auf die APN – eine Schlüsselfigur für die Modernisierung der Patientenversorgung vor Ort. Bereits 60 Fachkräfte wurden vor Ort dafür ausgebildet.',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Universitätscampus Lugano mit SUPSI- und EOC-Gebäuden an einem Herbsttag',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Naher Osten in Flammen: Kosten und Risiken für Tessiner Unternehmen',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Rohstoffe verteuern sich um 30–50 % aufgrund des Konflikts. SSIC-Direktor Bagnovini fordert dringende Massnahmen, um Baustellen zu retten.',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Bauplatz im Tessin mit Kran und Baumaterial',
 };
 
 export default blogMetaDe;

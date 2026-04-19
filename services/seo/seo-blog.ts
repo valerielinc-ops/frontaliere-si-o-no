@@ -9918,6 +9918,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caos-medioriente-e-impatti-costruzione-ticino': {
+    title: 'Medio Oriente in fiamme: costi e rischi | Frontaliere Ticino',
+    description: 'Materie prime in aumento del 30-50% a causa del conflitto. Direttore SSIC Bagnovini chiede interventi urgenti per salvare cantieri edili. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, medio, oriente, fiamme, costi',
+    ogTitle: 'Medio Oriente in fiamme: costi e rischi per imprese ticin',
+    ogDescription: 'Materie prime in aumento del 30-50% a causa del conflitto. Direttore SSIC Bagnovini chiede interventi urgenti per salvare cantieri edili.',
+    canonicalPath: '/articoli-frontaliere/caos-medioriente-e-impatti-costruzione-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medio Oriente in fiamme: costi e rischi per imprese ticin",
+      "description": "Materie prime in aumento del 30-50% a causa del conflitto. Direttore SSIC Bagnovini chiede interventi urgenti per salvare cantieri edili. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/caos-medioriente-e-impatti-costruzione-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino con gru e materiali da costruzione"
+      },
+      "datePublished": "2026-04-19T23:19:19+00:00",
+      "dateModified": "2026-04-19T23:19:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caos-medioriente-e-impatti-costruzione-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

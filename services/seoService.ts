@@ -2049,6 +2049,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sportello-dipendenze-digitali-ticino-2024': { name: 'Ticino', path: '/articoli-frontaliere/sportello-dipendenze-digitali-ticino-2024', parent: 'blog' },
     'blog-tasse-agevolate-milionari-ticino-golfo': { name: 'Ticino, paradiso fiscale per milionari i', path: '/articoli-frontaliere/tasse-agevolate-milionari-ticino-golfo', parent: 'blog' },
     'blog-infermiere-pratiche-avanzate-ticino-2024': { name: 'APN Ticino', path: '/articoli-frontaliere/infermiere-pratiche-avanzate-ticino-2024', parent: 'blog' },
+    'blog-caos-medioriente-e-impatti-costruzione-ticino': { name: 'Medio Oriente in fiamme', path: '/articoli-frontaliere/caos-medioriente-e-impatti-costruzione-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

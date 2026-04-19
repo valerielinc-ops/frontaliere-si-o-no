@@ -2382,6 +2382,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Infirmier en pratique avancée : le nouveau rôle dans le paysage sanitaire tessinois',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'La quatrième édition de la Journée de l\'Innovation et de la Recherche Infirmière à Lugano a mis en lumière l\'APN, figure clé pour moderniser les soins au chevet du patient avec 60 professionnels déjà formés localement.',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Campus universitaire de Lugano avec bâtiments SUPSI et EOC lors d\'une journée d\'automne',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Moyen-Orient en flammes : coûts et risques pour les entreprises tessinoises',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Les matières premières ont augmenté de 30 à 50 % en raison du conflit. Le directeur de l’USSIC, Bagnovini, demande des mesures urgentes pour sauver les chantiers de construction.',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Chantier de construction au Tessin avec grue et matériaux',
 };
 
 export default blogMetaFr;

@@ -6543,4 +6543,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/infermiere-pratiche-avanzate-ticino-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'caos-medioriente-e-impatti-costruzione-ticino',
+ category: 'pratico',
+ date: '2026-04-19T23:19:19.628Z',
+ image: '/images/blog/caos-medioriente-e-impatti-costruzione-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

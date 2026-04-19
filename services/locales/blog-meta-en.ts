@@ -2382,6 +2382,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.title': 'Advanced Practice Nurses: The new role in Ticino’s healthcare system',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.excerpt': 'The fourth edition of the Nursing Innovation and Research Day in Lugano highlighted the APN, a key figure in modernizing patient care at the bedside, with 60 professionals already locally trained.',
     'blog.article.infermiere-pratiche-avanzate-ticino-2024.imageAlt': 'Lugano University Campus with SUPSI and EOC buildings on an autumn day',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Middle East in flames: costs and risks for Ticino businesses',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Raw material costs have surged by 30-50% due to the conflict. SSIC Director Bagnovini calls for urgent measures to save construction sites in Ticino.',
+    'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Construction site in Ticino with crane and building materials',
 };
 
 export default blogMetaEn;
