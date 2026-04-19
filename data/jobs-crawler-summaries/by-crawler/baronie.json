@@ -1,16 +1,16 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-04-19T08:59:39.982Z",
+  "generatedAt": "2026-04-19T20:54:43.476Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15637,
-  "avgDurationMs": 15637,
+  "durationMs": 15515,
+  "avgDurationMs": 15515,
   "durationHistory": [
-    15637
+    15515
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,8 +43,8 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6613",
       "firstSeenAt": "2026-04-17T09:25:26.001Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
