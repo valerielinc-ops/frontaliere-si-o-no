@@ -6473,4 +6473,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/chiusura-ramo-a8-a9-notte-lavori-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ia-swiss-re-produttivita-ceo-berger',
+ category: 'novita',
+ date: '2026-04-19T12:07:42.489Z',
+ image: '/images/blog/ia-swiss-re-produttivita-ceo-berger.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2352,6 +2352,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.title': 'A8-A9 closed at night towards Chiasso: alternative routes for cross-border workers',
     'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.excerpt': 'From Wednesday 22 to Thursday 23 April 2026, the A8-A9 branch towards Chiasso will be closed at night for maintenance work. Cross-border commuters heading to Ticino should use alternative routes via Lainate Arese, Origgio and Saronno.',
     'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.imageAlt': 'A8-A9 highway branch towards Chiasso closed at night for maintenance work with illuminated road signs',
+    'blog.article.ia-swiss-re-produttivita-ceo-berger.title': 'AI cuts price determination time by 75% at Swiss Re',
+    'blog.article.ia-swiss-re-produttivita-ceo-berger.excerpt': 'Swiss Re’s artificial intelligence accelerates insurance processes by up to 80%, freeing up time for employees. CEO Andreas Berger outlines the concrete impact.',
+    'blog.article.ia-swiss-re-produttivita-ceo-berger.imageAlt': 'Swiss Re headquarters in Zurich with AI dashboards showing productivity improvements',
 };
 
 export default blogMetaEn;

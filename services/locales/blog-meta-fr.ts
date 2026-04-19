@@ -2352,6 +2352,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.title': 'A8-A9 vers Chiasso fermée la nuit : itinéraires alternatifs pour les frontaliers',
     'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.excerpt': 'Du mercredi 22 au jeudi 23 avril 2026, la section A8-A9 en direction de Chiasso sera fermée la nuit pour des travaux d’entretien. Pour les travailleurs frontaliers se rendant au Tessin, des itinéraires alternatifs sont proposés via Lainate, Arese, Origgio et Saronno.',
     'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.imageAlt': 'Branche autoroutière A8-A9 vers Chiasso fermée la nuit pour travaux d\'entretien avec panneaux lumineux',
+    'blog.article.ia-swiss-re-produttivita-ceo-berger.title': 'L’IA réduit de 75 % les délais de détermination des prix chez Swiss Re',
+    'blog.article.ia-swiss-re-produttivita-ceo-berger.excerpt': 'L’intelligence artificielle de Swiss Re accélère les processus assurantiels jusqu’à 80 % et libère du temps pour les collaborateurs. Le CEO Andreas Berger illustre l’impact concret de cette innovation.',
+    'blog.article.ia-swiss-re-produttivita-ceo-berger.imageAlt': 'Siège de Swiss Re à Zurich avec tableaux de bord IA affichant des améliorations de productivité',
 };
 
 export default blogMetaFr;

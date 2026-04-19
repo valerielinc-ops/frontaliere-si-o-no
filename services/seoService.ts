@@ -2039,6 +2039,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-risoluzione-federviti-vino-ticinese-2025': { name: 'Federviti lancia risoluzione', path: '/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025', parent: 'blog' },
     'blog-iniziative-cassa-malati-piano-lega-ticino': { name: 'Cassa malati Ticino', path: '/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino', parent: 'blog' },
     'blog-chiusura-ramo-a8-a9-notte-lavori-2026': { name: 'A8-A9 verso Chiasso chiusa di notte', path: '/articoli-frontaliere/chiusura-ramo-a8-a9-notte-lavori-2026', parent: 'blog' },
+    'blog-ia-swiss-re-produttivita-ceo-berger': { name: 'L’IA riduce i tempi di determinazione de', path: '/articoli-frontaliere/ia-swiss-re-produttivita-ceo-berger', parent: 'blog' },
  };
 
  const info = sectionNames[section];
