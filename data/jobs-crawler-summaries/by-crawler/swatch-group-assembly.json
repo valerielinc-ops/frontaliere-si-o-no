@@ -1,21 +1,21 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-04-18T22:11:01.497Z",
+  "generatedAt": "2026-04-19T10:17:13.514Z",
   "total": 1,
   "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22001,
-  "avgDurationMs": 22001,
+  "durationMs": 33591,
+  "avgDurationMs": 33591,
   "durationHistory": [
-    22001
+    33591
   ],
   "newJobs": [
     {
       "id": "company-7uauhj",
-      "slug": "controller-medior-senior-at-the-intersection-of-business-finance-control-the-swatch-group-netherlands-b-v-5611-zs-zs-eindhoven-noord-brabant",
+      "slug": "controller-medior-senior-at-the-intersection-of-business-finanza-control-the-swatch-group-netherlands-b-v-5611-zs-zs-eindhoven-noord-brabant-7uauhj",
       "company": "The Swatch Group (Netherlands) B.V.",
       "title": "Controller Medior/ Senior at the intersection of Business & Finance control",
       "location": "5611 ZS ZS Eindhoven (Noord-Brabant) Netherlands Company address The Swatch Grou",
@@ -31,14 +31,21 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-04-18T22:11:01.361Z",
       "firstSeenAt": "2026-04-18T22:11:01.361Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 66,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Lengnau",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 9,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
