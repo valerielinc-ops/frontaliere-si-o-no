@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-09T19:58:59.599Z",
-    "label": "before",
-    "total": 1644,
-    "needsRetranslation": 65,
-    "incomplete": 7,
-    "complete": 1637,
-    "missingByLocale": {
-      "it": 6,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel-Erzeugung GmbH",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-09T19:59:51.822Z",
-    "label": "after",
-    "total": 1644,
-    "needsRetranslation": 60,
-    "incomplete": 7,
-    "complete": 1637,
-    "missingByLocale": {
-      "it": 6,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel-Erzeugung GmbH",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-09T22:10:45.736Z",
     "label": "before",
     "total": 1679,
@@ -7739,6 +7683,62 @@
       {
         "company": "Hochgebirgsklinik Davos",
         "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-19T02:44:52.677Z",
+    "label": "before",
+    "total": 2936,
+    "needsRetranslation": 68,
+    "incomplete": 23,
+    "complete": 2913,
+    "missingByLocale": {
+      "it": 21,
+      "en": 1,
+      "de": 20,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Hochgebirgsklinik Davos",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-19T03:20:22.129Z",
+    "label": "after",
+    "total": 2936,
+    "needsRetranslation": 64,
+    "incomplete": 21,
+    "complete": 2915,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 20,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
       },
       {
         "company": "Spital Davos",
