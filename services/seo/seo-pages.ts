@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 834,
+ "numberOfItems": 835,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4523,7 +4523,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 831, "name": "Grigioni: nove candidati per cinque seggi al Go...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-governo-2026-nove-candidati` },
           { "@type": "ListItem", "position": 832, "name": "Svizzera-USA: accordo commerciale in bilico, Pa...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-usa-accordo-commerciale-2026` },
           { "@type": "ListItem", "position": 833, "name": "Federviti lancia risoluzione: vino ticinese pri...", "url": `${BASE_URL}/articoli-frontaliere/risoluzione-federviti-vino-ticinese-2025` },
-          { "@type": "ListItem", "position": 834, "name": "Analisi delle iniziative sulla cassa malati in ...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino` }
+          { "@type": "ListItem", "position": 834, "name": "Analisi delle iniziative sulla cassa malati in ...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino` },
+          { "@type": "ListItem", "position": 835, "name": "A8-A9 verso Chiasso chiusa di notte: percorsi a...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-ramo-a8-a9-notte-lavori-2026` }
  ]
  }
  ]

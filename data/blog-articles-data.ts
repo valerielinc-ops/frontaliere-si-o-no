@@ -6466,4 +6466,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/iniziative-cassa-malati-piano-lega-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiusura-ramo-a8-a9-notte-lavori-2026',
+ category: 'pratico',
+ date: '2026-04-19T11:05:29.442Z',
+ image: '/images/blog/chiusura-ramo-a8-a9-notte-lavori-2026.jpg',
+ hasCalculator: true,
+ },
 ];

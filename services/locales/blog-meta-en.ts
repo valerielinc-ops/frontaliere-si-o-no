@@ -2349,6 +2349,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Health insurance initiatives: Ticino plan unacceptable according to the Lega',
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'The Ticino State Council has proposed a CHF 51 million annual plan to address the two initiatives launched by the Lega and the Social Democrats (PS). The Lega has dismissed the proposal as a \'scrap plan\' and is demanding the immediate implementation of its own initiative.',
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Ticino cantonal office discussing health insurance initiatives',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.title': 'A8-A9 closed at night towards Chiasso: alternative routes for cross-border workers',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.excerpt': 'From Wednesday 22 to Thursday 23 April 2026, the A8-A9 branch towards Chiasso will be closed at night for maintenance work. Cross-border commuters heading to Ticino should use alternative routes via Lainate Arese, Origgio and Saronno.',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.imageAlt': 'A8-A9 highway branch towards Chiasso closed at night for maintenance work with illuminated road signs',
 };
 
 export default blogMetaEn;

@@ -9599,6 +9599,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusura-ramo-a8-a9-notte-lavori-2026': {
+    title: 'A8-A9 verso Chiasso chiusa di notte | Frontaliere Ticino',
+    description: 'Da mercoledì 22 a giovedì 23 aprile 2026 stop al ramo A8-A9 verso Chiasso per manutenzione. Percorsi alternativi via Lainate Arese, Origgio e Saronno per chi vi',
+    keywords: 'frontalieri, ticino, svizzera, italia, a8-a9, verso, chiasso, chiusa',
+    ogTitle: 'A8-A9 verso Chiasso chiusa di notte: percorsi alternativi',
+    ogDescription: 'Da mercoledì 22 a giovedì 23 aprile 2026 stop al ramo A8-A9 verso Chiasso per manutenzione. Percorsi alternativi via Lainate Arese, Origgio e Saronno per chi vi',
+    canonicalPath: '/articoli-frontaliere/chiusura-ramo-a8-a9-notte-lavori-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8-A9 verso Chiasso chiusa di notte: percorsi alternativi",
+      "description": "Da mercoledì 22 a giovedì 23 aprile 2026 stop al ramo A8-A9 verso Chiasso per manutenzione. Percorsi alternativi via Lainate Arese, Origgio e Saronno per chi vi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusura-ramo-a8-a9-notte-lavori-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A8-A9 verso Chiasso chiusa di notte per lavori di manutenzione con cartelli luminosi"
+      },
+      "datePublished": "2026-04-19T11:05:29+00:00",
+      "dateModified": "2026-04-19T11:05:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-ramo-a8-a9-notte-lavori-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

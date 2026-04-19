@@ -2349,6 +2349,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Iniziative cassa malati: il piano ticinese inaccettabile secondo la Lega',
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'Il Consiglio di Stato propone un piano da 51 milioni l’anno per le due iniziative Lega e PS. La Lega bolla la proposta come «piano di rottamazione» e chiede l’attuazione immediata della sua iniziativa.',
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Ufficio cantonale Ticino durante la discussione sulle iniziative sulla cassa malati',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.title': 'A8-A9 verso Chiasso chiusa di notte: percorsi alternativi per frontalieri',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.excerpt': 'Da mercoledì 22 a giovedì 23 aprile 2026 stop al ramo A8-A9 verso Chiasso per manutenzione. Percorsi alternativi via Lainate Arese, Origgio e Saronno per chi viaggia verso Ticino.',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.imageAlt': 'Autostrada A8-A9 verso Chiasso chiusa di notte per lavori di manutenzione con cartelli luminosi',
 };
 
 export default blogMetaIt;

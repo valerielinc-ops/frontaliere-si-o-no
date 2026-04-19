@@ -2349,6 +2349,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.title': 'Initiatives des caisses-maladie: le plan tessinois inacceptable selon la Lega',
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.excerpt': 'Le Conseil d\'État propose un plan annuel de 51 millions de francs pour les deux initiatives de la Lega et du PS. La Lega qualifie la proposition de «plan de démolition» et exige l\'application immédiate de son initiative.',
     'blog.article.iniziative-cassa-malati-piano-lega-ticino.imageAlt': 'Bureau cantonal tessinois discutant des initiatives sur les caisses maladie',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.title': 'A8-A9 vers Chiasso fermée la nuit : itinéraires alternatifs pour les frontaliers',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.excerpt': 'Du mercredi 22 au jeudi 23 avril 2026, la section A8-A9 en direction de Chiasso sera fermée la nuit pour des travaux d’entretien. Pour les travailleurs frontaliers se rendant au Tessin, des itinéraires alternatifs sont proposés via Lainate, Arese, Origgio et Saronno.',
+    'blog.article.chiusura-ramo-a8-a9-notte-lavori-2026.imageAlt': 'Branche autoroutière A8-A9 vers Chiasso fermée la nuit pour travaux d\'entretien avec panneaux lumineux',
 };
 
 export default blogMetaFr;
