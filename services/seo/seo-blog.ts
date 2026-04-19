@@ -9454,6 +9454,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coppa-del-mondo-orientamento-locarnese-2026': {
+    title: 'Coppa del Mondo di corsa d\'orientamento | Frontaliere Ticino',
+    description: 'Dal 24 al 26 aprile 2026 Locarno e Ascona ospiteranno la prima tappa della Coppa del Mondo di corsa d’orientamento 2026. 250 atleti da 30 Paesi, oltre 1’800',
+    keywords: 'frontalieri, ticino, svizzera, italia, coppa, mondo, corsa, orientamento',
+    ogTitle: 'Coppa del Mondo orientamento 2026: Locarno e Ascona in prima',
+    ogDescription: 'Dal 24 al 26 aprile 2026 Locarno e Ascona ospiteranno la prima tappa della Coppa del Mondo di corsa d’orientamento 2026 con 250 atleti da 30 Paesi e oltre 1’800',
+    canonicalPath: '/articoli-frontaliere/coppa-del-mondo-orientamento-locarnese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coppa del Mondo di corsa d'orientamento 2026: Locarno e Ascona si preparano ad accogliere atleti e",
+      "description": "Dal 24 al 26 aprile 2026 Locarno e Ascona ospiteranno la prima tappa della Coppa del Mondo di corsa d’orientamento 2026. 250 atleti da 30 Paesi, oltre 1’800",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/coppa-del-mondo-orientamento-locarnese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Grande di Locarno durante la Coppa del Mondo di corsa d'orientamento 2026 con atleti in gara e pubblico"
+      },
+      "datePublished": "2026-04-18T23:56:42+00:00",
+      "dateModified": "2026-04-18T23:56:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coppa-del-mondo-orientamento-locarnese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

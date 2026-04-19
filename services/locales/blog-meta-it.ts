@@ -2334,6 +2334,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'Finanza ticinese si reinventa: l’economia va in digitale',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Gli asset immateriali superano quelli fisici. Il credito bancario perde terreno a favore del capitale proprio e di nuovi strumenti finanziari. Le implicazioni per frontalieri e imprese del Cantone.',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Ufficio moderno a Lugano con un frontaliero che analizza documenti finanziari su laptop, skyline della città e Monte Brè sullo sfondo',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': 'Coppa del Mondo di corsa d\'orientamento 2026: Locarno e Ascona in prima linea',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'Dal 24 al 26 aprile 2026 la Coppa del Mondo di corsa d\'orientamento porterà nel Locarnese 250 atleti da 30 Paesi e oltre 1\'800 appassionati in gara. Impatto economico e restrizioni al traffico.',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'Piazza Grande di Locarno durante la Coppa del Mondo di corsa d\'orientamento 2026 con atleti in gara e pubblico',
 };
 
 export default blogMetaIt;

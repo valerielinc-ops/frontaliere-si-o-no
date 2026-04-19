@@ -2334,6 +2334,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'Ticino’s finance sector reinvents itself: the economy goes digital',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Intangible assets now outweigh physical ones. Bank credit is giving way to equity and innovative financial instruments. The implications for cross-border workers and businesses in the canton.',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Modern office in Lugano with a Swiss-Italian cross-border worker reviewing finance documents on a laptop, city skyline and Monte Brè in the background',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': '2026 World Cup Orienteering: Locarno and Ascona lead the way',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'From April 24 to 26, 2026, the World Cup Orienteering event will bring 250 athletes from 30 countries and over 1,800 enthusiasts to the Locarno area. Anticipated economic impact and traffic restrictions.',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'Locarno\'s Piazza Grande transformed into an orienteering sprint arena during the 2026 World Cup',
 };
 
 export default blogMetaEn;

@@ -2334,6 +2334,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'La finance tessinoise se réinvente : l’économie bascule dans le numérique',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Les actifs immatériels surpassent désormais les actifs physiques. Le crédit bancaire recule au profit des fonds propres et de nouveaux instruments financiers. Quelles conséquences pour les frontaliers et les entreprises du canton ?',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Bureau moderne à Lugano avec un frontalier analysant des documents financiers sur un ordinateur portable, silhouette de la ville et Monte Brè en arrière-plan',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': 'Championnat du monde de course d\'orientation 2026 : Locarno et Ascona en première ligne',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'Du 24 au 26 avril 2026, le Championnat du monde de course d\'orientation investira le Locarnese avec 250 athlètes issus de 30 pays et plus de 1\'800 passionnés en compétition. Impact économique et restrictions de circulation.',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'La Piazza Grande de Locarno transformée en arène de sprint d\'orientation lors de la Coupe du Monde 2026',
 };
 
 export default blogMetaFr;

@@ -6431,4 +6431,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/finanza-ticino-si-reinventa-economia-dati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'coppa-del-mondo-orientamento-locarnese-2026',
+ category: 'pratico',
+ date: '2026-04-18T23:56:42.787Z',
+ image: '/images/blog/coppa-del-mondo-orientamento-locarnese-2026.jpg',
+ hasCalculator: true,
+ },
 ];

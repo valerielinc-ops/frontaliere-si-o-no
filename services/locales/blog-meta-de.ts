@@ -2334,6 +2334,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.finanza-ticino-si-reinventa-economia-dati.title': 'Das Tessin in der Finanzwelt: Die Wirtschaft wird digital',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.excerpt': 'Immaterielle Vermögenswerte übertreffen materielle. Bankkredite verlieren an Bedeutung zugunsten von Eigenkapital und neuen Finanzinstrumenten. Die Auswirkungen auf Grenzgänger und Unternehmen im Kanton.',
     'blog.article.finanza-ticino-si-reinventa-economia-dati.imageAlt': 'Modernes Büro in Lugano mit einem grenzüberschreitenden Arbeitnehmer, der Finanzdokumente auf einem Laptop prüft, Stadtpanorama und Monte Brè im Hintergrund',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.title': 'Orientierungslauf-Weltcup 2026: Locarno und Ascona als Vorreiter',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.excerpt': 'Vom 24. bis 26. April 2026 bringt der Orientierungslauf-Weltcup ins Locarnese 250 Athletinnen und Athleten aus 30 Ländern sowie über 1’800 begeisterte Teilnehmende ins Rennen. Wirtschaftliche Auswirkungen und Verkehrsbehinderungen sind zu erwarten.',
+    'blog.article.coppa-del-mondo-orientamento-locarnese-2026.imageAlt': 'Der Piazza Grande in Locarno verwandelt sich während der Orientierungslauf-Weltmeisterschaft 2026 in eine Sprint-Arena mit Athleten und Publikum',
 };
 
 export default blogMetaDe;
