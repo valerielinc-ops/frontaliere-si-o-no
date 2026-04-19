@@ -1,85 +1,5 @@
 [
   {
-    "timestamp": "2026-04-10T05:34:59.386Z",
-    "label": "before",
-    "total": 1681,
-    "needsRetranslation": 59,
-    "incomplete": 12,
-    "complete": 1669,
-    "missingByLocale": {
-      "it": 10,
-      "en": 9,
-      "de": 2,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Hilcona Gourmet S.A.",
-        "pending": 4
-      },
-      {
-        "company": "Colin&Cie Wealth Management",
-        "pending": 3
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-10T05:35:06.612Z",
-    "label": "after",
-    "total": 1681,
-    "needsRetranslation": 59,
-    "incomplete": 12,
-    "complete": 1669,
-    "missingByLocale": {
-      "it": 10,
-      "en": 9,
-      "de": 2,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Hilcona Gourmet S.A.",
-        "pending": 4
-      },
-      {
-        "company": "Colin&Cie Wealth Management",
-        "pending": 3
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-10T08:03:25.645Z",
     "label": "before",
     "total": 1620,
@@ -7599,6 +7519,102 @@
       {
         "company": "EFG International AG",
         "pending": 20
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-19T10:28:40.208Z",
+    "label": "before",
+    "total": 2935,
+    "needsRetranslation": 1258,
+    "incomplete": 86,
+    "complete": 2849,
+    "missingByLocale": {
+      "it": 30,
+      "en": 59,
+      "de": 72,
+      "fr": 80
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 47
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-19T11:28:03.407Z",
+    "label": "after",
+    "total": 2935,
+    "needsRetranslation": 80,
+    "incomplete": 26,
+    "complete": 2909,
+    "missingByLocale": {
+      "it": 22,
+      "en": 5,
+      "de": 22,
+      "fr": 26
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 1
       },
       {
         "company": "Spital Davos",

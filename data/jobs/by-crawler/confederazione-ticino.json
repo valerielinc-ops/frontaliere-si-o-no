@@ -67,9 +67,7 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-17T09:38:44.875Z"
     },
     {
       "title": "Inspektor/in",
@@ -550,8 +548,7 @@
         "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       ],
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -632,7 +629,8 @@
         "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
