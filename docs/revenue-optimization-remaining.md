@@ -36,7 +36,7 @@ Completed 2026-04-20. These items follow up on the 8 fixes already shipped in co
   - Differenza tra valico Chiasso Centro e Brogeda
   - Consigli per evitare la coda (valichi alternativi: Ponte Chiasso, Novazzano)
   - Link alla webcam o stato traffico in tempo reale
-- **File**: Find the component rendering this border crossing page (likely data-driven from the border crossings system)
+- **File**: `components/guide/TrafficAlerts.tsx` — editorial block rendered conditionally when `initialCrossingId` starts with `chiasso-` (covers Chiasso Centro, Brogeda, and Strada URLs). Shipped 2026-04-20.
 
 ### 2b. Calcolo Tasse Frontalieri Oltre 20 km
 - **Page**: `/calcola-stipendio/nuovi-frontalieri-oltre-20-km/`

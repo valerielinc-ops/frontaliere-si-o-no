@@ -35,6 +35,21 @@ vi.mock('@/services/router', () => ({
   replaceRoute: vi.fn(),
 }));
 
+vi.mock('@/services/trafficService', () => ({
+  trafficService: { getTrafficData: vi.fn(async () => []) },
+  hasLiveTrafficData: vi.fn(() => false),
+}));
+
+vi.mock('@/services/analytics', () => ({
+  Analytics: new Proxy({}, { get: () => vi.fn() }),
+  track: vi.fn(),
+}));
+
+vi.mock('@/services/errorReporter', () => ({
+  reportCaughtError: vi.fn(),
+  reportError: vi.fn(),
+}));
+
 vi.mock('@/services/calculationService', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/services/calculationService')>();
   const mockTaxResult = {
@@ -109,6 +124,26 @@ describe('NewFrontierOver20KmHub — striking-distance content', () => {
     expect(text).toContain("60'000");
     expect(text).toContain("3'820");
     expect(text).toContain("3'880");
+  });
+});
+
+describe('TrafficAlerts — Chiasso Brogeda striking-distance editorial', () => {
+  it('renders the Chiasso/Brogeda editorial block when deep-linked to a chiasso crossing', async () => {
+    const { default: TrafficAlerts } = await import('@/components/guide/TrafficAlerts');
+    const { container } = render(<TrafficAlerts initialCrossingId="chiasso-centro" />);
+    const text = container.textContent ?? '';
+    expect(text).toMatch(/Traffico dogana Chiasso e Brogeda/i);
+    // Key phrases that target the "traffico dogana chiasso brogeda" query + supporting tips.
+    expect(text).toContain('Chiasso Brogeda');
+    expect(text).toContain('orari di punta');
+    expect(text).toMatch(/Bizzarone|Novazzano|Ponte Chiasso/);
+  });
+
+  it('does NOT render the Chiasso editorial block on non-chiasso crossings', async () => {
+    const { default: TrafficAlerts } = await import('@/components/guide/TrafficAlerts');
+    const { container } = render(<TrafficAlerts initialCrossingId="gaggiolo" />);
+    const text = container.textContent ?? '';
+    expect(text).not.toMatch(/Traffico dogana Chiasso e Brogeda/i);
   });
 });
 

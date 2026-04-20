@@ -214,6 +214,51 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </p>
  </div>
 
+ {/* Striking-distance editorial: Chiasso deep-links (target query: "traffico dogana chiasso brogeda") */}
+ {initialCrossingId?.startsWith('chiasso-') && (
+ <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
+ <h3 className="text-lg font-bold font-display text-heading mb-3">
+ Traffico dogana Chiasso e Brogeda: orari, code e valichi alternativi
+ </h3>
+ <div className="space-y-3 text-sm leading-7 text-body max-w-4xl">
+ <p>
+ Il valico di <strong>Chiasso Brogeda</strong> è il principale punto di
+ attraversamento merci/autotrasporti sulla A2 e assorbe il traffico pesante fra
+ l&apos;Italia e il Ticino; <strong>Chiasso Strada</strong> (Chiasso Centro) è
+ invece la dogana urbana dedicata alle autovetture sulla vecchia statale del
+ Gaggiolo e si raggiunge dall&apos;uscita autostradale di Como Monte Olimpino.
+ La differenza pratica per il frontaliere è netta: Brogeda ha più corsie ma è
+ intasato dai TIR, Chiasso Centro è più snello ma obbligato dai semafori
+ cittadini di Como e Chiasso.
+ </p>
+ <p>
+ Gli <strong>orari di punta</strong> per chi entra in Svizzera sono
+ 7:00–9:00 (mattina, direzione Ticino) e 17:00–19:00 (sera, rientro in
+ Italia). Il venerdì pomeriggio e la domenica sera sommano al traffico
+ pendolare quello turistico: in queste finestre le code a Brogeda arrivano
+ facilmente a 20–30 minuti, a Chiasso Centro a 10–15 minuti.
+ Fuori dalle ore di punta entrambi i valichi sono aperti 24/7 e l&apos;attesa
+ scende sotto i 5 minuti.
+ </p>
+ <p>
+ Per <strong>evitare la coda</strong>, i valichi alternativi più usati dai
+ frontalieri in zona Chiasso sono <strong>Ponte Chiasso–Pedrinate</strong>
+ (solo residenti, ma spesso libero), <strong>Bizzarone–Novazzano</strong> (via
+ Gaggiolo, ottimo quando la A2 è intasata) e <strong>Ronago–Novazzano</strong>
+ (piccolo valico secondario, quasi mai congestionato). Se vai verso Lugano e
+ trovi code a Brogeda superiori ai 15 minuti, la deviazione via Novazzano
+ costa 5–8 km in più ma recupera spesso 20–30 minuti di attesa.
+ </p>
+ <p>
+ Lo stato del traffico in tempo reale è visibile nella mappa qui sotto
+ (aggiornata ogni ora) e sui portali ufficiali delle dogane svizzere; le
+ webcam lungo la A2 sono accessibili dal sito di Astra per verificare la
+ situazione prima di partire.
+ </p>
+ </div>
+ </div>
+ )}
+
  {/* Controls */}
  <div className="bg-surface rounded-xl p-4 border border-edge">
  <div className="flex items-center justify-between flex-wrap gap-3">
