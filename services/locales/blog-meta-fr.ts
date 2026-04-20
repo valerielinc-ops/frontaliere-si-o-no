@@ -2388,6 +2388,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parmelin-washington-dazi-usa-2026.title': 'Droits de douane américains : Parmelin en déplacement à Washington pour relancer un accord commercial',
     'blog.article.parmelin-washington-dazi-usa-2026.excerpt': 'Le président de la Confédération Guy Parmelin rencontre Jamieson Greer, représentant américain en charge des droits de douane. La volonté d’un accord est affichée, mais sans certitudes quant aux délais et aux détails.',
     'blog.article.parmelin-washington-dazi-usa-2026.imageAlt': 'Bords du lac de Lugano avec drapeaux suisse et américain, bâtiment moderne au premier plan',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Trois Colombiens arrêtés pour un vol sur le Verbano : un suspect interpellé au Tessin',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Trois membres d’un réseau criminel colombien ont dérobé pour 50 000 francs de bijoux à un bijoutier situé au bord du lac Majeur. L’un des voleurs a été arrêté au Tessin après dix mois d’enquête.',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Vue au coucher du soleil de l\'embarcadère de Stresa sur le lac Majeur avec les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

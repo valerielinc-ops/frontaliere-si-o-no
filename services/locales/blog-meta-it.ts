@@ -2388,6 +2388,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parmelin-washington-dazi-usa-2026.title': 'Dazi USA: Parmelin a Washington per rilanciare accordo commerciale',
     'blog.article.parmelin-washington-dazi-usa-2026.excerpt': 'Il presidente della Confederazione Guy Parmelin incontra il rappresentante USA per i dazi Jamieson Greer. Volontà di accordo, ma senza certezze su tempistiche e dettagli.',
     'blog.article.parmelin-washington-dazi-usa-2026.imageAlt': 'Lugano sul lago con bandiere svizzere e statunitensi, edificio moderno in primo piano',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Tre colombiani arrestati per furto sul Verbano: uno in Ticino',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Tre membri di una banda colombiana hanno rubato gioielli per 50mila franchi a un orafo sul Lago Maggiore. Uno dei ladri è stato arrestato in Ticino dopo 10 mesi di indagini.',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Imbarcadero di Stresa al Lago Maggiore durante il tramonto con monti alle spalle',
 };
 
 export default blogMetaIt;

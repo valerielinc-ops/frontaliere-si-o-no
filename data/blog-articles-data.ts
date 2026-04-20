@@ -6557,4 +6557,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/parmelin-washington-dazi-usa-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gang-colombiani-verbano-arresti-ticino-2026',
+ category: 'novita',
+ date: '2026-04-20T03:52:38.240Z',
+ image: '/images/blog/gang-colombiani-verbano-arresti-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

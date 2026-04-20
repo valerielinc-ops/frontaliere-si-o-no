@@ -2388,6 +2388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parmelin-washington-dazi-usa-2026.title': 'US-Zölle: Parmelin in Washington, um Handelsabkommen voranzubringen',
     'blog.article.parmelin-washington-dazi-usa-2026.excerpt': 'Der Schweizer Bundespräsident Guy Parmelin trifft sich in Washington mit dem US-Beauftragten für Zollfragen Jamieson Greer. Der Wille zu einer Einigung ist vorhanden, doch konkrete Zeitpläne und Details bleiben ungewiss.',
     'blog.article.parmelin-washington-dazi-usa-2026.imageAlt': 'Luganersee mit Schweizer- und US-Flaggen, modernes Bürogebäude im Vordergrund',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Drei Kolumbianer wegen Diebstahls am Langensee festgenommen: Einer in der Schweiz verhaftet',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Drei Mitglieder einer kolumbianischen Bande haben einem Goldschmied am Lago Maggiore Schmuck im Wert von 50 000 Franken gestohlen. Einer der Diebe wurde nach zehnmonatigen Ermittlungen in der Schweiz festgenommen.',
+    'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Abendansicht des Landungsstegs von Stresa am Lago Maggiore mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

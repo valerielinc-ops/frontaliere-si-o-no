@@ -9976,6 +9976,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gang-colombiani-verbano-arresti-ticino-2026': {
+    title: 'Tre colombiani arrestati per furto sul | Frontaliere Ticino',
+    description: 'Tre membri di una banda colombiana hanno rubato gioielli per 50mila franchi a un orafo sul Lago Maggiore. Uno dei ladri è stato arrestato in Ticino dopo 10 mesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, colombiani, arrestati, furto, verbano',
+    ogTitle: 'Tre colombiani arrestati per furto sul Verbano: uno in Ti',
+    ogDescription: 'Tre membri di una banda colombiana hanno rubato gioielli per 50mila franchi a un orafo sul Lago Maggiore. Uno dei ladri è stato arrestato in Ticino dopo 10 mesi',
+    canonicalPath: '/articoli-frontaliere/gang-colombiani-verbano-arresti-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre colombiani arrestati per furto sul Verbano: uno in Ti",
+      "description": "Tre membri di una banda colombiana hanno rubato gioielli per 50mila franchi a un orafo sul Lago Maggiore. Uno dei ladri è stato arrestato in Ticino dopo 10 mesi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gang-colombiani-verbano-arresti-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imbarcadero di Stresa al Lago Maggiore durante il tramonto con monti alle spalle"
+      },
+      "datePublished": "2026-04-20T03:52:38+00:00",
+      "dateModified": "2026-04-20T03:52:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gang-colombiani-verbano-arresti-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

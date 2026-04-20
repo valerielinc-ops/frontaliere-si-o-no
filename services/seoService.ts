@@ -2051,6 +2051,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-infermiere-pratiche-avanzate-ticino-2024': { name: 'APN Ticino', path: '/articoli-frontaliere/infermiere-pratiche-avanzate-ticino-2024', parent: 'blog' },
     'blog-caos-medioriente-e-impatti-costruzione-ticino': { name: 'Medio Oriente in fiamme', path: '/articoli-frontaliere/caos-medioriente-e-impatti-costruzione-ticino', parent: 'blog' },
     'blog-parmelin-washington-dazi-usa-2026': { name: 'Dazi USA', path: '/articoli-frontaliere/parmelin-washington-dazi-usa-2026', parent: 'blog' },
+    'blog-gang-colombiani-verbano-arresti-ticino-2026': { name: 'Tre colombiani arrestati per furto sul V', path: '/articoli-frontaliere/gang-colombiani-verbano-arresti-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
