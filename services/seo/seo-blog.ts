@@ -10237,6 +10237,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-capre-dogana-gandria-intervento-30-marzo': {
+    title: 'Intervento alla dogana di Gandria | Frontaliere Ticino',
+    description: 'L\'Ufficio federale della dogana e della sicurezza dei confini ha salvato quattro capre che mettevano a rischio la circolazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, intervento, alla, dogana, gandria',
+    ogTitle: 'Intervento alla dogana di Gandria: salvate quattro capre |',
+    ogDescription: 'L\'Ufficio federale della dogana e della sicurezza dei confini ha salvato quattro capre che mettevano a rischio la circolazione.',
+    canonicalPath: '/articoli-frontaliere/capre-dogana-gandria-intervento-30-marzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intervento alla dogana di Gandria: salvate quattro capre",
+      "description": "L'Ufficio federale della dogana e della sicurezza dei confini ha salvato quattro capre che mettevano a rischio la circolazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/capre-dogana-gandria-intervento-30-marzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quattro capre vicino alla dogana di Gandria, Ticino"
+      },
+      "datePublished": "2026-04-20T19:22:26+00:00",
+      "dateModified": "2026-04-20T19:22:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/capre-dogana-gandria-intervento-30-marzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

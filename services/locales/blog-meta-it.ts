@@ -2415,6 +2415,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.just-eat-migros-ticino-consegna-2026.title': 'Just Eat consegna prodotti Migros in Ticino: oltre 10.000 articoli disponibili',
     'blog.article.just-eat-migros-ticino-consegna-2026.excerpt': 'Dal 4 maggio, Just Eat consegna prodotti Migros in Ticino, Vallese e Ginevra con consegna in meno di un\'ora. Prezzi identici a quelli dei negozi.',
     'blog.article.just-eat-migros-ticino-consegna-2026.imageAlt': 'Consegna Just Eat Migros a Lugano, scooter e supermercato in vista',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.title': 'Intervento alla dogana di Gandria: salvate quattro capre',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.excerpt': 'L\'Ufficio federale della dogana e della sicurezza dei confini ha salvato quattro capre che mettevano a rischio la circolazione.',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.imageAlt': 'Quattro capre vicino alla dogana di Gandria, Ticino',
 };
 
 export default blogMetaIt;

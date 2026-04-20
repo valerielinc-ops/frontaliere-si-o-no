@@ -6620,4 +6620,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/just-eat-migros-ticino-consegna-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'capre-dogana-gandria-intervento-30-marzo',
+ category: 'novita',
+ date: '2026-04-20T19:22:26.842Z',
+ image: '/images/blog/capre-dogana-gandria-intervento-30-marzo.jpg',
+ hasCalculator: true,
+ },
 ];

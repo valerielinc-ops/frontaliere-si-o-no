@@ -2415,6 +2415,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.just-eat-migros-ticino-consegna-2026.title': 'Just Eat liefert Migros-Produkte im Tessin: über 10.000 Artikel verfügbar',
     'blog.article.just-eat-migros-ticino-consegna-2026.excerpt': 'Seit dem 4. Mai liefert Just Eat Migros-Produkte im Tessin, Wallis und Genf innerhalb von weniger als einer Stunde. Die Preise sind identisch mit denen in den Geschäften.',
     'blog.article.just-eat-migros-ticino-consegna-2026.imageAlt': 'Just Eat Lieferung in Lugano mit Migros Supermarkt im Hintergrund',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.title': 'Einsatz am Zoll von Gandria: vier Ziegen gerettet',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.excerpt': 'Das Eidgenössische Zoll- und Grenzsicherheitsamt hat vier Ziegen gerettet, die den Verkehr gefährdeten.',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.imageAlt': 'Vier Ziegen in der Nähe des Zollamts Gandria, Tessin',
 };
 
 export default blogMetaDe;

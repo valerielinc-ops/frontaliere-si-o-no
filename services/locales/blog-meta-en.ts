@@ -2415,6 +2415,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.just-eat-migros-ticino-consegna-2026.title': 'Just Eat delivers Migros products in Ticino: over 10,000 items available',
     'blog.article.just-eat-migros-ticino-consegna-2026.excerpt': 'Since May 4th, Just Eat has been delivering Migros products in Ticino, Valais, and Geneva with delivery in less than an hour. Prices are identical to those in stores.',
     'blog.article.just-eat-migros-ticino-consegna-2026.imageAlt': 'Just Eat delivery in Lugano with Migros supermarket in the background',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.title': 'Intervention at Gandria customs: four goats rescued',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.excerpt': 'The Federal Customs Administration and Border Security saved four goats that were endangering traffic circulation.',
+    'blog.article.capre-dogana-gandria-intervento-30-marzo.imageAlt': 'Four goats near Gandria customs office, Ticino',
 };
 
 export default blogMetaEn;
