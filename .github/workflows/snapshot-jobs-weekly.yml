@@ -1,0 +1,88 @@
+name: Snapshot Jobs Weekly (F5)
+
+# Writes data/jobs-snapshots-history/{YYYY-WW}.json every Monday 06:00 UTC
+# so the weekly-employers build plugin can compute per-city delta.
+# Also regenerates data/weekly-employers-delta.json as a human-readable
+# companion file. Safe to re-run: the snapshot file for the current ISO week
+# is overwritten (last-writer-wins).
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install dependencies (light)
+        run: npm ci --ignore-scripts
+
+      - name: Assemble jobs dataset
+        # Produces data/jobs.json from per-crawler slices. Soft-fails if the
+        # slices are stale — the snapshot script handles missing jobs.json.
+        run: node scripts/assemble-jobs-dataset.mjs || true
+
+      - name: Write weekly snapshot
+        run: node scripts/snapshot-jobs-weekly.mjs
+
+      - name: Compute weekly employer delta (report file)
+        run: node scripts/compute-weekly-employer-delta.mjs
+
+      - name: Commit snapshot + delta
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json
+          if git diff --cached --quiet; then
+            echo "No changes to snapshot — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh weekly-employers snapshot
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+          # Push with rebase-and-retry to survive concurrent pushes from
+          # other scheduled workflows (ported from refresh-keyword-config.yml).
+          attempt=1
+          max_attempts=5
+          until git push origin HEAD:main; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "::error::Failed to push after $max_attempts attempts"
+              exit 1
+            fi
+            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main and retrying..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "Rebase conflict; regenerating snapshot on top of new base"
+              git rebase --abort
+              git reset --hard origin/main
+              node scripts/assemble-jobs-dataset.mjs || true
+              node scripts/snapshot-jobs-weekly.mjs
+              node scripts/compute-weekly-employer-delta.mjs
+              git add data/jobs-snapshots-history/ data/weekly-employers-delta.json
+              if git diff --cached --quiet; then
+                echo "No changes after regeneration; nothing to push"
+                exit 0
+              fi
+              git commit -m "chore(seo): refresh weekly-employers snapshot
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            fi
+            attempt=$((attempt + 1))
+            sleep $((attempt * 2))
+          done
