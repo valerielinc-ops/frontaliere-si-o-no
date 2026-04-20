@@ -1,10 +1,10 @@
 {
   "crawlerKey": "prada",
-  "assembledAt": "2026-04-15T22:10:06.389Z",
+  "assembledAt": "2026-04-20T05:11:32.256Z",
   "jobs": [
     {
       "id": "prada-332f237b0ca4",
-      "slug": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz",
+      "slug": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-mendrisio",
       "slugByLocale": {
         "it": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-mendrisio",
         "en": "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
@@ -39,13 +39,14 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-15",
+      "postedDate": "2026-04-20",
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T22:10:01.457Z",
+      "crawledAt": "2026-04-20T05:11:27.844Z",
       "previousSlugs": [
         "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+        "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz",
         "directeur-du-magasin-miu-miu-saint-moritz-prada-group-mendrisio",
         "miu-miu-crm-senior-manager-prada-group-mendrisio",
         "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
@@ -56,12 +57,12 @@
         "miu-miu-verkaufsleiter-crm-prada-group-mendrisio",
         "prada-crm-manager-korea-prada-group-mendrisio",
         "responsable-crm-miu-miu-en-magasin-harrods-prada-group-mendrisio",
-        "mui-mui-direttore-del-negozio-saint-moritz-prada-group-mendrisio",
         "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+          "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+          "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz"
         ],
         "en": [
           "miu-miu-store-manager-saint-moritz-prada-mendrisio"
@@ -86,14 +87,14 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "7500"
     },
     {
       "id": "prada-e41a47cd1c53",
       "slug": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisio",
       "slugByLocale": {
         "it": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisio",
-        "en": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisio",
+        "en": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisio-mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract",
         "de": "mendrisio-outlet-client-berater-teilzeit-domenicale-limited-contract-prada-group-mendrisio",
         "fr": "mendrisio-outlet-client-conseiller-temps-partiel-domenicale-limited-contract-prada-group-mendrisio"
       },
@@ -116,20 +117,34 @@
       },
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Mendrisio",
+      "location": "Mendrisio Mendrisio Outlet Client Advisor part time domenicale (limited contract)",
       "canton": "TI",
-      "addressLocality": "Mendrisio",
+      "addressLocality": "Mendrisio Mendrisio Outlet Client Advisor part time domenicale (limited contract)",
       "addressCountry": "CH",
       "category": "fashion",
       "contract": "full-time",
       "employmentType": "PART_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-15",
+      "postedDate": "2026-04-20",
       "url": "https://jobs.pradagroup.com/job/Mendrisio-Mendrisio-Outlet-Client-Advisor-part-time-domenicale-%28limited-contract%29/1377980233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-15T22:10:00.959Z",
+      "crawledAt": "2026-04-20T05:11:27.411Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ],
+        "it": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ],
+        "de": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ],
+        "fr": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ]
+      },
       "previousSlugs": [
         "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio",
         "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisi",
@@ -141,21 +156,8 @@
         "assistant-aux-ventes-m-f-j-temps-partiel-prada-group-mendrisio",
         "consulente-cliente-prada-part-time-oslo-prada-group-mendrisio"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
-        ],
-        "en": [
-          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
-        ],
-        "de": [
-          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
-        ],
-        "fr": [
-          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
-        ]
-      },
       "firstSeenAt": "2026-04-13T22:16:01.993Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -168,7 +170,67 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6500"
+    },
+    {
+      "id": "prada-b8ab80bfb2e1",
+      "slug": "prada-store-manager-zurich-prada-group-zurich",
+      "slugByLocale": {
+        "en": "prada-store-manager-zurich-prada-group-zurich",
+        "it": "prada-store-manager-zurich-prada-group-zurich",
+        "de": "prada-store-manager-zurich-prada-group-zurich",
+        "fr": "prada-store-manager-zurich-prada-group-zurich"
+      },
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "PRADA Store Manager, Zurich",
+      "titleByLocale": {
+        "en": "PRADA Store Manager, Zurich",
+        "it": "PRADA Store Manager, Zurich",
+        "de": "PRADA Store Manager, Zurich",
+        "fr": "PRADA Store Manager, Zurich"
+      },
+      "description": "Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Church’s and Car Shoe brands, and has employees of over 100 nationalities. \n\n \n \n\n \n \n\n JOB PURPOSE \n\n \n \n\n \n To be the owner of the business, a Company Brand Ambassador and a business leader, accountable for overall store performance. To guarantee an extraordinary Client experience, being present on the sales floor, leading and supporting all activities to achieve store targets. \n\n \n To manage and coach the store team and to ensure succession plans and internal growth. \n\n \n \n\n \n \n\n \n RESPONSIBILITIES \n\n \n \n\n \n BUSINESS \n\n \n \n Drive and maximize sales performances. \n \n Propose and develop business plans. \n \n Drive the store team to exceed their KPIs. \n \n Represent the Company on the local market, identifying new opportunities to increase customer footfall, attracts new Clients and builds a loyal relationship with the brand. \n \n Be present on the sales floor, ensuring a proper approach and service to the Clients. \n \n Foster the Omni Channel development through the team. \n \n Meet the store-operating budget, controlling store expenses. \n \n \n \n\n \n CUSTOMER \n\n \n \n Foster a Client centric mindset by developing and maintaining solid Client relationships. \n \n Guarantee an excellent Client satisfaction and the highest level of Client service. \n \n Implement, in partnership with other company functions, clienteling initiatives and events, securing Client loyalty and increasing Client spending. \n \n Foster a strong private appointment culture. \n \n \n \n\n \n TEAM \n\n \n \n Promote an entrepreneurial and team spirit using effective communication, ensuring efficient organization and professional growth. \n \n Ensure the team is always prepared and updated on the Prada Group main information, product knowledge, local market, competitors, policies and procedures. \n \n The ideal Store Manager is able to attract and recruit the best talents available on the market through networking and scouting. \n \n \n \n\n \n RETAIL \n\n \n \n Develop a proper sales strategy, in cooperation with the Retail Merchandising, Visual Merchandising and Retail Operations teams. \n \n Ensures that the display attracts Clients and maximizes sales in accordance with Company guidelines. \n \n Participate in the buying session when requested and in any case he/she provides effective product feedback based on store needs. \n \n Ensure synergy and cooperation between front and back of house. \n \n Is responsible for the enforcement of Company procedures on cash activity, inventory, logistics and all the main reporting activities requested by the head office. \n \n \n \n\n \n EVENTS \n\n \n \n Cooperate with the Retail Events Office for the organization of local events and defines a challenging and realistic target per Client, proposing new opportunities for local events in partnership with local Stakeholders and Influencers. \n \n \n \n\n \n \n\n \n KNOWLEDGE AND SKILLS \n\n \n \n\n \n Business driven \n\n \n Leadership and team management \n\n \n Ability to motivate and persuade people \n\n \n Strong customer service mindset \n\n \n Natural ability to welcome our client \n\n \n Confident, enthusiastic and positive \n\n \n Mature and assertive \n\n \n Organized and detail oriented \n\n \n Market and product knowledge/passion \n\n \n Business/Retail Management degree or equivalent is a plus \n\n \n Interest in luxury/fashion, art and design \n\n \n Fluent spoken English expected. Other languages are desirable \n\n \n\n \n \n\n \n Joining our Company means working in a creative and international environment, with teams of people motivated by curiosity and the quest for excellence. The engine of our success is the importance and value that we place on the talent and passion of our people leading to their own professional growth. \n Prada Group promotes an inclusive work environment, ensuring equal opportunities for all candidates, regardless of gender, ethnicity, sexual orientation, disability, or other personal characteristics. We believe that diversity is a value and we are committed to build a fair and respectful workplace for all.",
+      "descriptionByLocale": {
+        "en": "Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Church’s and Car Shoe brands, and has employees of over 100 nationalities. \n\n \n \n\n \n \n\n JOB PURPOSE \n\n \n \n\n \n To be the owner of the business, a Company Brand Ambassador and a business leader, accountable for overall store performance. To guarantee an extraordinary Client experience, being present on the sales floor, leading and supporting all activities to achieve store targets. \n\n \n To manage and coach the store team and to ensure succession plans and internal growth. \n\n \n \n\n \n \n\n \n RESPONSIBILITIES \n\n \n \n\n \n BUSINESS \n\n \n \n Drive and maximize sales performances. \n \n Propose and develop business plans. \n \n Drive the store team to exceed their KPIs. \n \n Represent the Company on the local market, identifying new opportunities to increase customer footfall, attracts new Clients and builds a loyal relationship with the brand. \n \n Be present on the sales floor, ensuring a proper approach and service to the Clients. \n \n Foster the Omni Channel development through the team. \n \n Meet the store-operating budget, controlling store expenses. \n \n \n \n\n \n CUSTOMER \n\n \n \n Foster a Client centric mindset by developing and maintaining solid Client relationships. \n \n Guarantee an excellent Client satisfaction and the highest level of Client service. \n \n Implement, in partnership with other company functions, clienteling initiatives and events, securing Client loyalty and increasing Client spending. \n \n Foster a strong private appointment culture. \n \n \n \n\n \n TEAM \n\n \n \n Promote an entrepreneurial and team spirit using effective communication, ensuring efficient organization and professional growth. \n \n Ensure the team is always prepared and updated on the Prada Group main information, product knowledge, local market, competitors, policies and procedures. \n \n The ideal Store Manager is able to attract and recruit the best talents available on the market through networking and scouting. \n \n \n \n\n \n RETAIL \n\n \n \n Develop a proper sales strategy, in cooperation with the Retail Merchandising, Visual Merchandising and Retail Operations teams. \n \n Ensures that the display attracts Clients and maximizes sales in accordance with Company guidelines. \n \n Participate in the buying session when requested and in any case he/she provides effective product feedback based on store needs. \n \n Ensure synergy and cooperation between front and back of house. \n \n Is responsible for the enforcement of Company procedures on cash activity, inventory, logistics and all the main reporting activities requested by the head office. \n \n \n \n\n \n EVENTS \n\n \n \n Cooperate with the Retail Events Office for the organization of local events and defines a challenging and realistic target per Client, proposing new opportunities for local events in partnership with local Stakeholders and Influencers. \n \n \n \n\n \n \n\n \n KNOWLEDGE AND SKILLS \n\n \n \n\n \n Business driven \n\n \n Leadership and team management \n\n \n Ability to motivate and persuade people \n\n \n Strong customer service mindset \n\n \n Natural ability to welcome our client \n\n \n Confident, enthusiastic and positive \n\n \n Mature and assertive \n\n \n Organized and detail oriented \n\n \n Market and product knowledge/passion \n\n \n Business/Retail Management degree or equivalent is a plus \n\n \n Interest in luxury/fashion, art and design \n\n \n Fluent spoken English expected. Other languages are desirable \n\n \n\n \n \n\n \n Joining our Company means working in a creative and international environment, with teams of people motivated by curiosity and the quest for excellence. The engine of our success is the importance and value that we place on the talent and passion of our people leading to their own professional growth. \n Prada Group promotes an inclusive work environment, ensuring equal opportunities for all candidates, regardless of gender, ethnicity, sexual orientation, disability, or other personal characteristics. We believe that diversity is a value and we are committed to build a fair and respectful workplace for all.",
+        "it": "Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Church’s and Car Shoe brands, and has employees of over 100 nationalities. \n\n \n \n\n \n \n\n JOB PURPOSE \n\n \n \n\n \n To be the owner of the business, a Company Brand Ambassador and a business leader, accountable for overall store performance. To guarantee an extraordinary Client experience, being present on the sales floor, leading and supporting all activities to achieve store targets. \n\n \n To manage and coach the store team and to ensure succession plans and internal growth. \n\n \n \n\n \n \n\n \n RESPONSIBILITIES \n\n \n \n\n \n BUSINESS \n\n \n \n Drive and maximize sales performances. \n \n Propose and develop business plans. \n \n Drive the store team to exceed their KPIs. \n \n Represent the Company on the local market, identifying new opportunities to increase customer footfall, attracts new Clients and builds a loyal relationship with the brand. \n \n Be present on the sales floor, ensuring a proper approach and service to the Clients. \n \n Foster the Omni Channel development through the team. \n \n Meet the store-operating budget, controlling store expenses. \n \n \n \n\n \n CUSTOMER \n\n \n \n Foster a Client centric mindset by developing and maintaining solid Client relationships. \n \n Guarantee an excellent Client satisfaction and the highest level of Client service. \n \n Implement, in partnership with other company functions, clienteling initiatives and events, securing Client loyalty and increasing Client spending. \n \n Foster a strong private appointment culture. \n \n \n \n\n \n TEAM \n\n \n \n Promote an entrepreneurial and team spirit using effective communication, ensuring efficient organization and professional growth. \n \n Ensure the team is always prepared and updated on the Prada Group main information, product knowledge, local market, competitors, policies and procedures. \n \n The ideal Store Manager is able to attract and recruit the best talents available on the market through networking and scouting. \n \n \n \n\n \n RETAIL \n\n \n \n Develop a proper sales strategy, in cooperation with the Retail Merchandising, Visual Merchandising and Retail Operations teams. \n \n Ensures that the display attracts Clients and maximizes sales in accordance with Company guidelines. \n \n Participate in the buying session when requested and in any case he/she provides effective product feedback based on store needs. \n \n Ensure synergy and cooperation between front and back of house. \n \n Is responsible for the enforcement of Company procedures on cash activity, inventory, logistics and all the main reporting activities requested by the head office. \n \n \n \n\n \n EVENTS \n\n \n \n Cooperate with the Retail Events Office for the organization of local events and defines a challenging and realistic target per Client, proposing new opportunities for local events in partnership with local Stakeholders and Influencers. \n \n \n \n\n \n \n\n \n KNOWLEDGE AND SKILLS \n\n \n \n\n \n Business driven \n\n \n Leadership and team management \n\n \n Ability to motivate and persuade people \n\n \n Strong customer service mindset \n\n \n Natural ability to welcome our client \n\n \n Confident, enthusiastic and positive \n\n \n Mature and assertive \n\n \n Organized and detail oriented \n\n \n Market and product knowledge/passion \n\n \n Business/Retail Management degree or equivalent is a plus \n\n \n Interest in luxury/fashion, art and design \n\n \n Fluent spoken English expected. Other languages are desirable \n\n \n\n \n \n\n \n Joining our Company means working in a creative and international environment, with teams of people motivated by curiosity and the quest for excellence. The engine of our success is the importance and value that we place on the talent and passion of our people leading to their own professional growth. \n Prada Group promotes an inclusive work environment, ensuring equal opportunities for all candidates, regardless of gender, ethnicity, sexual orientation, disability, or other personal characteristics. We believe that diversity is a value and we are committed to build a fair and respectful workplace for all.",
+        "de": "Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Church’s and Car Shoe brands, and has employees of over 100 nationalities. \n\n \n \n\n \n \n\n JOB PURPOSE \n\n \n \n\n \n To be the owner of the business, a Company Brand Ambassador and a business leader, accountable for overall store performance. To guarantee an extraordinary Client experience, being present on the sales floor, leading and supporting all activities to achieve store targets. \n\n \n To manage and coach the store team and to ensure succession plans and internal growth. \n\n \n \n\n \n \n\n \n RESPONSIBILITIES \n\n \n \n\n \n BUSINESS \n\n \n \n Drive and maximize sales performances. \n \n Propose and develop business plans. \n \n Drive the store team to exceed their KPIs. \n \n Represent the Company on the local market, identifying new opportunities to increase customer footfall, attracts new Clients and builds a loyal relationship with the brand. \n \n Be present on the sales floor, ensuring a proper approach and service to the Clients. \n \n Foster the Omni Channel development through the team. \n \n Meet the store-operating budget, controlling store expenses. \n \n \n \n\n \n CUSTOMER \n\n \n \n Foster a Client centric mindset by developing and maintaining solid Client relationships. \n \n Guarantee an excellent Client satisfaction and the highest level of Client service. \n \n Implement, in partnership with other company functions, clienteling initiatives and events, securing Client loyalty and increasing Client spending. \n \n Foster a strong private appointment culture. \n \n \n \n\n \n TEAM \n\n \n \n Promote an entrepreneurial and team spirit using effective communication, ensuring efficient organization and professional growth. \n \n Ensure the team is always prepared and updated on the Prada Group main information, product knowledge, local market, competitors, policies and procedures. \n \n The ideal Store Manager is able to attract and recruit the best talents available on the market through networking and scouting. \n \n \n \n\n \n RETAIL \n\n \n \n Develop a proper sales strategy, in cooperation with the Retail Merchandising, Visual Merchandising and Retail Operations teams. \n \n Ensures that the display attracts Clients and maximizes sales in accordance with Company guidelines. \n \n Participate in the buying session when requested and in any case he/she provides effective product feedback based on store needs. \n \n Ensure synergy and cooperation between front and back of house. \n \n Is responsible for the enforcement of Company procedures on cash activity, inventory, logistics and all the main reporting activities requested by the head office. \n \n \n \n\n \n EVENTS \n\n \n \n Cooperate with the Retail Events Office for the organization of local events and defines a challenging and realistic target per Client, proposing new opportunities for local events in partnership with local Stakeholders and Influencers. \n \n \n \n\n \n \n\n \n KNOWLEDGE AND SKILLS \n\n \n \n\n \n Business driven \n\n \n Leadership and team management \n\n \n Ability to motivate and persuade people \n\n \n Strong customer service mindset \n\n \n Natural ability to welcome our client \n\n \n Confident, enthusiastic and positive \n\n \n Mature and assertive \n\n \n Organized and detail oriented \n\n \n Market and product knowledge/passion \n\n \n Business/Retail Management degree or equivalent is a plus \n\n \n Interest in luxury/fashion, art and design \n\n \n Fluent spoken English expected. Other languages are desirable \n\n \n\n \n \n\n \n Joining our Company means working in a creative and international environment, with teams of people motivated by curiosity and the quest for excellence. The engine of our success is the importance and value that we place on the talent and passion of our people leading to their own professional growth. \n Prada Group promotes an inclusive work environment, ensuring equal opportunities for all candidates, regardless of gender, ethnicity, sexual orientation, disability, or other personal characteristics. We believe that diversity is a value and we are committed to build a fair and respectful workplace for all.",
+        "fr": "Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Church’s and Car Shoe brands, and has employees of over 100 nationalities. \n\n \n \n\n \n \n\n JOB PURPOSE \n\n \n \n\n \n To be the owner of the business, a Company Brand Ambassador and a business leader, accountable for overall store performance. To guarantee an extraordinary Client experience, being present on the sales floor, leading and supporting all activities to achieve store targets. \n\n \n To manage and coach the store team and to ensure succession plans and internal growth. \n\n \n \n\n \n \n\n \n RESPONSIBILITIES \n\n \n \n\n \n BUSINESS \n\n \n \n Drive and maximize sales performances. \n \n Propose and develop business plans. \n \n Drive the store team to exceed their KPIs. \n \n Represent the Company on the local market, identifying new opportunities to increase customer footfall, attracts new Clients and builds a loyal relationship with the brand. \n \n Be present on the sales floor, ensuring a proper approach and service to the Clients. \n \n Foster the Omni Channel development through the team. \n \n Meet the store-operating budget, controlling store expenses. \n \n \n \n\n \n CUSTOMER \n\n \n \n Foster a Client centric mindset by developing and maintaining solid Client relationships. \n \n Guarantee an excellent Client satisfaction and the highest level of Client service. \n \n Implement, in partnership with other company functions, clienteling initiatives and events, securing Client loyalty and increasing Client spending. \n \n Foster a strong private appointment culture. \n \n \n \n\n \n TEAM \n\n \n \n Promote an entrepreneurial and team spirit using effective communication, ensuring efficient organization and professional growth. \n \n Ensure the team is always prepared and updated on the Prada Group main information, product knowledge, local market, competitors, policies and procedures. \n \n The ideal Store Manager is able to attract and recruit the best talents available on the market through networking and scouting. \n \n \n \n\n \n RETAIL \n\n \n \n Develop a proper sales strategy, in cooperation with the Retail Merchandising, Visual Merchandising and Retail Operations teams. \n \n Ensures that the display attracts Clients and maximizes sales in accordance with Company guidelines. \n \n Participate in the buying session when requested and in any case he/she provides effective product feedback based on store needs. \n \n Ensure synergy and cooperation between front and back of house. \n \n Is responsible for the enforcement of Company procedures on cash activity, inventory, logistics and all the main reporting activities requested by the head office. \n \n \n \n\n \n EVENTS \n\n \n \n Cooperate with the Retail Events Office for the organization of local events and defines a challenging and realistic target per Client, proposing new opportunities for local events in partnership with local Stakeholders and Influencers. \n \n \n \n\n \n \n\n \n KNOWLEDGE AND SKILLS \n\n \n \n\n \n Business driven \n\n \n Leadership and team management \n\n \n Ability to motivate and persuade people \n\n \n Strong customer service mindset \n\n \n Natural ability to welcome our client \n\n \n Confident, enthusiastic and positive \n\n \n Mature and assertive \n\n \n Organized and detail oriented \n\n \n Market and product knowledge/passion \n\n \n Business/Retail Management degree or equivalent is a plus \n\n \n Interest in luxury/fashion, art and design \n\n \n Fluent spoken English expected. Other languages are desirable \n\n \n\n \n \n\n \n Joining our Company means working in a creative and international environment, with teams of people motivated by curiosity and the quest for excellence. The engine of our success is the importance and value that we place on the talent and passion of our people leading to their own professional growth. \n Prada Group promotes an inclusive work environment, ensuring equal opportunities for all candidates, regardless of gender, ethnicity, sexual orientation, disability, or other personal characteristics. We believe that diversity is a value and we are committed to build a fair and respectful workplace for all."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-20",
+      "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-20T05:11:26.980Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-20T05:11:26.980Z"
     }
   ]
 }
