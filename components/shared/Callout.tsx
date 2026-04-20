@@ -46,7 +46,7 @@ export default function Callout({ status, variant = 'tinted', icon, children, cl
   return (
    <div className={`flex items-start gap-3 ${className}`}>
     <span className={`${iconColor[status]} flex-shrink-0 mt-0.5`}>{iconNode}</span>
-    <div className="min-w-0">{children}</div>
+    <div className="flex-1 min-w-0">{children}</div>
    </div>
   );
  }
@@ -55,7 +55,7 @@ export default function Callout({ status, variant = 'tinted', icon, children, cl
   <div className={`border-l-2 rounded-md p-4 ${tintedStyles[status]} ${className}`}>
    <div className="flex items-start gap-3">
     <span className={`${iconColor[status]} flex-shrink-0 mt-0.5`}>{iconNode}</span>
-    <div className="min-w-0">{children}</div>
+    <div className="flex-1 min-w-0">{children}</div>
    </div>
   </div>
  );
