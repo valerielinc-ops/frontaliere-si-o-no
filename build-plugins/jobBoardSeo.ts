@@ -6,12 +6,22 @@
  * adds a 🔥 emoji to signal freshness and boost CTR on high-impression queries
  * like "offerte di lavoro ticino".
  *
+ * F3a — Job Page CTR Optimization (2026-04-20): the primary `title` is now
+ * delegated to the shared `services/seo/job-board-titles.ts` module so the
+ * listing hub, per-city, per-role and recency pages all share the same
+ * 50-60 char CTR-optimized template (see LIN-XXXX). The verbose
+ * "| Frontaliere Ticino" brand suffix stays on `ogT` (Open Graph title)
+ * where length is unconstrained — only the `<title>` tag was driving the
+ * SERP CTR drag.
+ *
  * Kept as a standalone module so the logic is easily unit-tested without
  * booting Vite plugins.
  */
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { buildListingHubTitle } from '../services/seo/job-board-titles'
+import { buildListingHubMeta } from '../services/seo/meta-descriptions'
 
 export type JobBoardLocale = 'it' | 'en' | 'de' | 'fr'
 
@@ -130,39 +140,28 @@ export function buildJobBoardSeo(
 ): JobBoardSeoEntry {
   const safeCount = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0
   const useFire = safeCount >= FIRE_EMOJI_THRESHOLD
-  const prefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : ''
+  // The short `<title>` is delegated to the shared module so per-city / per-role
+  // pages share the same template. The OG title keeps the legacy "| Frontaliere
+  // Ticino" brand suffix because OG renderers don't truncate at 60 chars.
+  const title = buildListingHubTitle({ locale, count: safeCount, year })
+  const desc = buildListingHubMeta({ locale, count: safeCount })
+  const ogPrefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : ''
 
   switch (locale) {
     case 'it': {
-      const title = `${prefix}Offerte di Lavoro Ticino ${year} — Aggiornate Oggi | Frontaliere Ticino`
-      const desc = safeCount > 0
-        ? `Cerca tra ${safeCount} offerte di lavoro in Ticino aggiornate ogni giorno: case anziani, EOC, Lidl, Aldi, scuole. Candidati gratuitamente online.`
-        : `Cerca offerte di lavoro in Ticino aggiornate ogni giorno: case anziani, EOC, Lidl, Aldi, scuole. Candidati gratuitamente online.`
-      const ogT = `${prefix}Offerte di Lavoro Ticino ${year} | Aggiornate Oggi`
+      const ogT = `${ogPrefix}Offerte di Lavoro Ticino ${year} | Aggiornate Oggi`
       return { title, desc, ogT, ogD: desc }
     }
     case 'en': {
-      const title = `${prefix}Jobs in Ticino ${year} — Updated Daily | Frontaliere Ticino`
-      const desc = safeCount > 0
-        ? `Browse ${safeCount} jobs in Ticino, Switzerland updated every day: healthcare, EOC, Lidl, Aldi, schools. Apply online for free.`
-        : `Browse jobs in Ticino, Switzerland updated every day: healthcare, EOC, Lidl, Aldi, schools. Apply online for free.`
-      const ogT = `${prefix}Jobs in Ticino ${year} | Updated Daily`
+      const ogT = `${ogPrefix}Jobs in Ticino ${year} | Updated Daily`
       return { title, desc, ogT, ogD: desc }
     }
     case 'de': {
-      const title = `${prefix}Jobs im Tessin ${year} — Täglich Aktualisiert | Frontaliere Ticino`
-      const desc = safeCount > 0
-        ? `Entdecke ${safeCount} Stellenangebote im Tessin, täglich aktualisiert: Pflege, EOC, Lidl, Aldi, Schulen. Kostenlos online bewerben.`
-        : `Entdecke Stellenangebote im Tessin, täglich aktualisiert: Pflege, EOC, Lidl, Aldi, Schulen. Kostenlos online bewerben.`
-      const ogT = `${prefix}Jobs im Tessin ${year} | Täglich Aktualisiert`
+      const ogT = `${ogPrefix}Jobs im Tessin ${year} | Täglich Aktualisiert`
       return { title, desc, ogT, ogD: desc }
     }
     case 'fr': {
-      const title = `${prefix}Emploi au Tessin ${year} — Mises à Jour Quotidiennes | Frontaliere Ticino`
-      const desc = safeCount > 0
-        ? `Parcourez ${safeCount} offres d'emploi au Tessin mises à jour chaque jour : santé, EOC, Lidl, Aldi, écoles. Postulez gratuitement en ligne.`
-        : `Parcourez les offres d'emploi au Tessin mises à jour chaque jour : santé, EOC, Lidl, Aldi, écoles. Postulez gratuitement en ligne.`
-      const ogT = `${prefix}Emploi au Tessin ${year} | Mises à Jour Quotidiennes`
+      const ogT = `${ogPrefix}Emploi au Tessin ${year} | Mises à Jour Quotidiennes`
       return { title, desc, ogT, ogD: desc }
     }
   }

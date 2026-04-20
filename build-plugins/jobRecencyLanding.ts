@@ -15,6 +15,8 @@
  */
 
 import type { JobLandingLocale } from './jobEditorialLanding';
+import { buildRecencyHubTitle } from '../services/seo/job-board-titles';
+import { buildRecencyHubMeta } from '../services/seo/meta-descriptions';
 
 export type JobRecencyVariant = 'last-3-days' | 'since-yesterday';
 
@@ -496,10 +498,18 @@ export function buildJobRecencyLandingModel(options: {
   const sisterSlug = JOB_RECENCY_LANDING_SLUGS[otherVariant(variant)][locale];
   const sisterLinkHref = buildRecencyHref(baseUrl, options.localePrefix, options.sectionSlug, sisterSlug);
 
-  // Build the count-prefixed title/heading deterministically
-  const title = buildRecencyTitle(variant, locale, count);
+  // Build the count-prefixed title/heading deterministically.
+  // F3a (2026-04-20): short <title> comes from services/seo/job-board-titles.ts
+  // and meta description from services/seo/meta-descriptions.ts so all listing
+  // page types share the same 50-60 / 140-160 char CTR-optimized pattern.
+  const title = buildRecencyTitle(variant, locale, count, year);
   const heading = copy.heading(count);
-  const description = copy.description(count, year);
+  const description = buildRecencyHubMeta({
+    locale,
+    days: windowDays,
+    count,
+    year,
+  });
 
   return {
     kind: 'recency',
@@ -526,14 +536,20 @@ export function buildJobRecencyLandingModel(options: {
 /**
  * Build the `<title>` string for a recency landing with a live count.
  * Exposed as a standalone helper so it is trivially unit-testable.
+ *
+ * F3a (2026-04-20): delegates to the shared CTR-optimized 50-60 char
+ * template in `services/seo/job-board-titles.ts`.
  */
 export function buildRecencyTitle(
   variant: JobRecencyVariant,
   locale: JobLandingLocale,
   count: number,
+  year?: number,
 ): string {
   const safe = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
-  return COPY[variant][locale].title(safe);
+  const days = windowDaysForVariant(variant);
+  const y = year ?? new Date().getUTCFullYear();
+  return buildRecencyHubTitle({ locale, days, count: safe, year: y });
 }
 
 // Re-export for tests / consumers that want to iterate slugs directly

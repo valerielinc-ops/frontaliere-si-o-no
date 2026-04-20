@@ -34,6 +34,19 @@ import {
  countCityJobsByLocale,
  type CityHubKey,
 } from './cityJobsHub';
+// F3a — Job Page CTR Optimization: shared 50-60 char title templates and
+// 140-160 char meta-description templates that drive SERP CTR on the
+// top-20 job listing pages. See services/seo/job-board-titles.ts and
+// services/seo/meta-descriptions.ts for details.
+import {
+ buildEmployerHubTitle,
+ buildRoleHubTitle,
+} from '../services/seo/job-board-titles';
+import {
+ buildCityHubMeta as buildCtrCityHubMeta,
+ buildEmployerHubMeta,
+ buildRoleHubMeta,
+} from '../services/seo/meta-descriptions';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -1623,10 +1636,18 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const getCompanyCopy = (cantonDisplay: string): Record<'it' | 'en' | 'de' | 'fr', CompanyCopyEntry> => {
  const frPrep = frenchCantonPrep(cantonDisplay);
  const dePrep = germanCantonPrep(cantonDisplay);
+ // F3a — title delegates to buildEmployerHubTitle (50-60 visible chars).
+ // description delegates to buildEmployerHubMeta (140-160 visible chars).
+ // Heading / viewAll / editorial stay unchanged (used on-page, not in head).
+ const ctrYear = new Date().getFullYear();
+ const ctrTitle = (loc: 'it' | 'en' | 'de' | 'fr') => (companyName: string) =>
+ buildEmployerHubTitle({ locale: loc, companyDisplay: companyName, count: 0, year: ctrYear });
+ const ctrDesc = (loc: 'it' | 'en' | 'de' | 'fr') => (companyName: string, count: number) =>
+ buildEmployerHubMeta({ locale: loc, companyDisplay: companyName, count });
  return {
  it: {
- title: (companyName: string) => truncTitle(`Lavora con ${companyName} in ${cantonDisplay} — Posizioni Aperte | Frontaliere Ticino`, 65),
- description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in ${cantonDisplay}. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
+ title: ctrTitle('it'),
+ description: ctrDesc('it'),
  heading: (companyName: string) => `${companyName} — posizioni aperte in ${cantonDisplay}`,
  viewAll: 'Vedi tutte le offerte',
  allJobsLink: `Tutte le offerte di lavoro in ${cantonDisplay}`,
@@ -1634,8 +1655,8 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  editorial: `Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l'azienda potrebbe non avere ruoli aperti in ${cantonDisplay} al momento — salva la pagina per ricevere aggiornamenti.`,
  },
  en: {
- title: (companyName: string) => truncTitle(`${companyName} jobs in ${cantonDisplay} | Frontaliere Ticino`, 65),
- description: (companyName: string, count: number) => `Browse ${count} open roles at ${companyName} in ${cantonDisplay}. Review active listings, locations and official application links.`,
+ title: ctrTitle('en'),
+ description: ctrDesc('en'),
  heading: (companyName: string) => `${companyName} jobs in ${cantonDisplay}`,
  viewAll: 'View all jobs',
  allJobsLink: `All job offers in ${cantonDisplay}`,
@@ -1643,8 +1664,8 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  editorial: `This page lists positions published directly on the company's career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in ${cantonDisplay} right now — bookmark this page to stay updated.`,
  },
  de: {
- title: (companyName: string) => truncTitle(`${companyName} Jobs ${dePrep} | Frontaliere Ticino`, 65),
- description: (companyName: string, count: number) => `Entdecke ${count} offene Stellen bei ${companyName} ${dePrep}. Sieh aktive Jobs, Standorte und offizielle Bewerbungslinks.`,
+ title: ctrTitle('de'),
+ description: ctrDesc('de'),
  heading: (companyName: string) => `${companyName} Jobs ${dePrep}`,
  viewAll: 'Alle Stellen ansehen',
  allJobsLink: `Alle Stellenangebote ${dePrep}`,
@@ -1652,8 +1673,8 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  editorial: `Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen ${dePrep}.`,
  },
  fr: {
- title: (companyName: string) => truncTitle(`Travailler chez ${companyName} ${frPrep} — Postes Ouverts | Frontaliere Ticino`, 65),
- description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} ${frPrep}. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
+ title: ctrTitle('fr'),
+ description: ctrDesc('fr'),
  heading: (companyName: string) => `${companyName} — postes ouverts ${frPrep}`,
  viewAll: 'Voir toutes les offres',
  allJobsLink: `Toutes les offres d'emploi ${frPrep}`,
@@ -1685,7 +1706,14 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const companyDisplayCanton = CANTON_DISPLAY[companyPrimaryCanton] || companyPrimaryCanton;
  const copy = getCompanyCopy(companyDisplayCanton)[locale];
  // Tentative defaults — overridden below if a curated brand is registered.
- let title = copy.title(companyName);
+ // F3a: title + description come from the shared CTR-optimized helpers so
+ // the live job count is baked into both.
+ let title = buildEmployerHubTitle({
+ locale,
+ companyDisplay: companyName,
+ count: companyJobs.length,
+ year: new Date().getFullYear(),
+ });
  let description = copy.description(companyName, companyJobs.length);
 
  const alternates = localeList.map((l) => {
@@ -3495,8 +3523,22 @@ ${alternates}
  const catPageLabel = catPage > 1 ? ` - ${locale === 'de' ? 'Seite' : 'Pagina'} ${catPage}` : '';
  const catUniqueCompanies = [...new Set(catJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const catUniqueLocations = [...new Set(catJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
- const catTitle = locale === 'it' ? `${catJobs.length} Offerte di Lavoro ${catLabel} in Ticino${catPageLabel} | Frontaliere Ticino` : locale === 'en' ? `${catJobs.length} ${catLabel} Jobs in Ticino${catPageLabel} | Frontaliere Ticino` : locale === 'de' ? `${catJobs.length} ${catLabel}-Stellen im Tessin${catPageLabel} | Frontaliere Ticino` : `${catJobs.length} Offres ${catLabel} au Tessin${catPageLabel} | Frontaliere Ticino`;
- const catDescription = locale === 'it' ? `${catJobs.length} offerte di lavoro ${catLabel.toLowerCase()} in Ticino da ${catUniqueCompanies.length} aziende in ${catUniqueLocations.length} localit\u00e0. Annunci aggiornati quotidianamente con link diretto alla candidatura.` : locale === 'en' ? `${catJobs.length} ${catLabel.toLowerCase()} jobs in Ticino from ${catUniqueCompanies.length} companies across ${catUniqueLocations.length} locations. Updated daily with direct application links.` : locale === 'de' ? `${catJobs.length} ${catLabel}-Stellen im Tessin von ${catUniqueCompanies.length} Unternehmen an ${catUniqueLocations.length} Standorten. T\u00e4glich aktualisiert mit direkten Bewerbungslinks.` : `${catJobs.length} offres ${catLabel.toLowerCase()} au Tessin de ${catUniqueCompanies.length} entreprises dans ${catUniqueLocations.length} localit\u00e9s. Mises \u00e0 jour quotidiennement avec lien direct de candidature.`;
+ // F3a — CTR-optimized 50-60 char title for page 1, paginated suffix for >1.
+ // Description uses the shared 140-160 char template from meta-descriptions.
+ const catPrimaryTitle = buildRoleHubTitle({
+ locale,
+ roleDisplay: catLabel,
+ count: catJobs.length,
+ year: new Date().getFullYear(),
+ });
+ const catTitle = catPage > 1
+ ? (locale === 'it' ? `${catPrimaryTitle} — Pagina ${catPage}` : locale === 'de' ? `${catPrimaryTitle} — Seite ${catPage}` : `${catPrimaryTitle} — Page ${catPage}`)
+ : catPrimaryTitle;
+ const catDescription = buildRoleHubMeta({
+ locale,
+ roleDisplay: catLabel,
+ count: catJobs.length,
+ });
  const catAlternates = localeList.map((al) => { const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`; const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/'); return ` <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`; }).join('\n');
  const catListHtml = catPageJobs.map((job: any) => { const jSlug = localizedSlug(job, locale); const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/'); const jTitle = String(job?.titleByLocale?.[locale] || job.title || ''); return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`; }).join('');
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:#1e3a8a;display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
@@ -3587,8 +3629,23 @@ ${alternates}
  if (activeJobDirs.has(kwRelDir)) continue;
  const kwCanonicalUrl = `${BASE_URL}${kwCanonicalPath}`;
  const kwQueryDisplay = String(kwPage.query || '').trim();
- const kwTitle = locale === 'it' ? itCopy.title : locale === 'en' ? `${kwJobs.length} Jobs for "${kwQueryDisplay}" in Ticino | Frontaliere Ticino` : locale === 'de' ? `${kwJobs.length} Stellen f\u00fcr "${kwQueryDisplay}" im Tessin | Frontaliere Ticino` : `${kwJobs.length} Offres pour "${kwQueryDisplay}" au Tessin | Frontaliere Ticino`;
- const kwDesc = locale === 'it' ? `${kwJobs.length} offerte di lavoro per "${kwQueryDisplay}" in Ticino da ${kwUniqueCompanies.length} aziende. Annunci aggiornati quotidianamente con link diretto alla candidatura.` : locale === 'en' ? `${kwJobs.length} job openings for "${kwQueryDisplay}" in Ticino from ${kwUniqueCompanies.length} companies. Updated daily with direct application links.` : locale === 'de' ? `${kwJobs.length} Stellenangebote f\u00fcr "${kwQueryDisplay}" im Tessin von ${kwUniqueCompanies.length} Unternehmen. T\u00e4glich aktualisiert mit direkten Bewerbungslinks.` : `${kwJobs.length} offres d'emploi pour "${kwQueryDisplay}" au Tessin de ${kwUniqueCompanies.length} entreprises. Mises \u00e0 jour quotidiennement avec lien direct de candidature.`;
+ // F3a — delegate title/description to the shared CTR-optimized helpers so
+ // keyword landing pages get the same 50-60 / 140-160 char treatment as
+ // role / city / employer hubs. The Italian landing preserves its curated
+ // `itCopy.title` because that was hand-tuned per query in keyword config.
+ const kwTitle = locale === 'it'
+ ? itCopy.title
+ : buildRoleHubTitle({
+ locale,
+ roleDisplay: kwQueryDisplay || 'Jobs',
+ count: kwJobs.length,
+ year: new Date().getFullYear(),
+ });
+ const kwDesc = buildRoleHubMeta({
+ locale,
+ roleDisplay: kwQueryDisplay || (locale === 'it' ? 'lavoro' : locale === 'en' ? 'jobs' : locale === 'de' ? 'Stellen' : 'emploi'),
+ count: kwJobs.length,
+ });
  const kwAlternates = localeList.map((al) => {
  const alSlug = `${searchRoutePrefix[al]}-${kwSlug}`;
  const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
