@@ -3713,7 +3713,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 852,
+ "numberOfItems": 853,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4543,7 +4543,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 849, "name": "Parmelin firma accordo con Bahrein per protegge...", "url": `${BASE_URL}/articoli-frontaliere/parmelin-accordo-investimenti-bahrein-2026` },
           { "@type": "ListItem", "position": 850, "name": "Palazzo civico e Collegiata di Bellinzona più a...", "url": `${BASE_URL}/articoli-frontaliere/palazzo-civico-collegiata-accessibilita-bellinzona-2026` },
           { "@type": "ListItem", "position": 851, "name": "Roche farmaci obesità Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/roche-farmaci-obesita-ticino-2026` },
-          { "@type": "ListItem", "position": 852, "name": "Chiusure autostrada A9: cosa cambia per i front...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026` }
+          { "@type": "ListItem", "position": 852, "name": "Chiusure autostrada A9: cosa cambia per i front...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026` },
+          { "@type": "ListItem", "position": 853, "name": "Capre alla dogana di Gandria: rischio incidente...", "url": `${BASE_URL}/articoli-frontaliere/capre-dogana-gandria-incidenti-2026` }
  ]
  }
  ]

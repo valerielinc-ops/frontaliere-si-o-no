@@ -2403,6 +2403,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'Nouvelles fermetures sur l\'autoroute A9 Lainate-Como-Chiasso : ce qui change pour les frontaliers',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia annonce des fermetures nocturnes sur l\'A9 entre Como et Chiasso pour des travaux de maintenance. Voici les itinéraires alternatifs et les implications pour ceux qui traversent la frontière.',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les paysages du Tessin et de la Lombardie, montrant l\'autoroute A9 et les zones environnantes.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Des chèvres à la douane de Gandria : risque d\'accident et intervention des autorités',
+    'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Quatre chèvres ont attiré l\'attention des autorités douanières, risquant de provoquer deux accidents. Voici ce qui s\'est passé.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Quatre chèvres à la douane de Gandrie, Tessin',
 };
 
 export default blogMetaFr;

@@ -2403,6 +2403,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'New closures on the A9 Lainate-Como-Chiasso motorway: what changes for cross-border workers',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia announces nighttime closures on the A9 between Como and Chiasso for maintenance work. Here are the alternative routes and the implications for those crossing the border.',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino and Lombardy landscapes, showing the A9 highway and surrounding areas.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Goats at Gandria customs: accident risk and authorities\' intervention',
+    'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Four goats caught the attention of customs authorities, risking causing two accidents. Here\'s what happened.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Four goats at Gandria customs, Ticino',
 };
 
 export default blogMetaEn;

@@ -6592,4 +6592,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/chiusure-autostrada-a9-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'capre-dogana-gandria-incidenti-2026',
+ category: 'novita',
+ date: '2026-04-20T14:08:40.798Z',
+ image: '/images/blog/capre-dogana-gandria-incidenti-2026.jpg',
+ hasCalculator: true,
+ },
 ];

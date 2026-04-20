@@ -2403,6 +2403,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'Nuove chiusure sull\'autostrada A9 Lainate-Como-Chiasso: cosa cambia per i frontalieri',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia annuncia chiusure notturne sull\'A9 tra Como e Chiasso per lavori di manutenzione. Ecco gli itinerari alternativi e le implicazioni per chi attraversa il confine.',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Vista aerea del Lago di Lugano con i paesaggi del Ticino e della Lombardia, mostrando l\'autostrada A9 e le aree circostanti.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Capre alla dogana di Gandria: rischio incidente e intervento delle autorità',
+    'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Quattro capre hanno attirato l\'attenzione delle autorità doganali, rischiando di causare due incidenti. Ecco cosa è successo.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Quattro capre alla dogana di Gandria, Ticino',
 };
 
 export default blogMetaIt;

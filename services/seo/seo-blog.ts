@@ -10121,6 +10121,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-capre-dogana-gandria-incidenti-2026': {
+    title: 'Capre alla dogana di Gandria: rischio | Frontaliere Ticino',
+    description: 'Quattro capre hanno attirato l\'attenzione delle autorità doganali, rischiando di causare due incidenti. Ecco cosa è successo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, capre, alla, dogana, gandria',
+    ogTitle: 'Capre alla dogana di Gandria: rischio incidente |',
+    ogDescription: 'Quattro capre hanno attirato l\'attenzione delle autorità doganali, rischiando di causare due incidenti. Ecco cosa è successo.',
+    canonicalPath: '/articoli-frontaliere/capre-dogana-gandria-incidenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Capre alla dogana di Gandria: rischio incidente | Frontaliere Ticino",
+      "description": "Quattro capre hanno attirato l'attenzione delle autorità doganali, rischiando di causare due incidenti. Ecco cosa è successo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/capre-dogana-gandria-incidenti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quattro capre alla dogana di Gandria, Ticino"
+      },
+      "datePublished": "2026-04-20T14:08:40+00:00",
+      "dateModified": "2026-04-20T14:08:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/capre-dogana-gandria-incidenti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

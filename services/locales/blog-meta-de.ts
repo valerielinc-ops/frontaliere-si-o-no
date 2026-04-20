@@ -2403,6 +2403,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'Neue Schließungen auf der Autobahn A9 Lainate-Como-Chiasso: Was sich für Grenzgänger ändert',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia kündigt nächtliche Schließungen auf der A9 zwischen Como und Chiasso für Wartungsarbeiten an. Hier sind die alternativen Routen und die Auswirkungen für diejenigen, die die Grenze überqueren.',
     'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Landschaften des Tessin und der Lombardei, die die Autobahn A9 und die umliegenden Gebiete zeigt.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Ziegen an der Grenzkontrolle von Gandria: Unfallgefahr und Einsatz der Behörden',
+    'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Vier Ziegen haben die Aufmerksamkeit der Zollbehörden auf sich gezogen und zwei Unfälle riskiert. Hier ist, was passiert ist.',
+    'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Vier Ziegen an der Zollstation Gandria, Tessin',
 };
 
 export default blogMetaDe;
