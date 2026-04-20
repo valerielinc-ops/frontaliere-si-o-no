@@ -10005,6 +10005,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parmelin-accordo-investimenti-bahrein-2026': {
+    title: 'Parmelin firma accordo con Bahrein per | Frontaliere Ticino',
+    description: 'Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, firma, accordo, bahrein',
+    ogTitle: 'Parmelin firma accordo con Bahrein per proteggere gli inv',
+    ogDescription: 'Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni',
+    canonicalPath: '/articoli-frontaliere/parmelin-accordo-investimenti-bahrein-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin firma accordo con Bahrein per proteggere gli inv",
+      "description": "Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parmelin-accordo-investimenti-bahrein-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guy Parmelin firma l'accordo con il Bahrein a Washington nel 2026"
+      },
+      "datePublished": "2026-04-20T06:40:25+00:00",
+      "dateModified": "2026-04-20T06:40:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parmelin-accordo-investimenti-bahrein-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

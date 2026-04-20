@@ -2391,6 +2391,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Drei Kolumbianer wegen Diebstahls am Langensee festgenommen: Einer in der Schweiz verhaftet',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Drei Mitglieder einer kolumbianischen Bande haben einem Goldschmied am Lago Maggiore Schmuck im Wert von 50 000 Franken gestohlen. Einer der Diebe wurde nach zehnmonatigen Ermittlungen in der Schweiz festgenommen.',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Abendansicht des Landungsstegs von Stresa am Lago Maggiore mit Bergen im Hintergrund',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.title': 'Parmelin unterzeichnet Abkommen mit Bahrain zum Schutz von Investitionen',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.excerpt': 'Guy Parmelin hat in Washington ein bilaterales Abkommen zum Schutz von Investitionen zwischen der Schweiz und Bahrain unterzeichnet. Die Vereinbarung tritt nach den nationalen Genehmigungen in Kraft. Priorität für den Tessin und die Grenzgänger?',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.imageAlt': 'Guy Parmelin unterzeichnet Investitionsschutzabkommen mit Bahrain in Washington 2026',
 };
 
 export default blogMetaDe;

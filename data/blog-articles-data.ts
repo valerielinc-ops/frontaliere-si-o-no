@@ -6564,4 +6564,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/gang-colombiani-verbano-arresti-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'parmelin-accordo-investimenti-bahrein-2026',
+ category: 'novita',
+ date: '2026-04-20T06:40:25.853Z',
+ image: '/images/blog/parmelin-accordo-investimenti-bahrein-2026.jpg',
+ hasCalculator: true,
+ },
 ];

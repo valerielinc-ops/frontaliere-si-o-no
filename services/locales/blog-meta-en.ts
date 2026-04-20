@@ -2391,6 +2391,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Three Colombians arrested for theft on Lake Maggiore: one detained in Ticino',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Three members of a Colombian gang stole jewellery worth 50,000 francs from a goldsmith on Lake Maggiore. One of the thieves was arrested in Ticino after a 10-month investigation.',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Sunset view of Stresa\'s lakeside pier on Lake Maggiore with mountains in the background',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.title': 'Parmelin signs agreement with Bahrain to protect investments',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.excerpt': 'Guy Parmelin has signed a bilateral agreement in Washington to protect investments between Switzerland and Bahrain. The deal will enter into force following national approvals. Will this be a priority for Ticino and cross-border workers?',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.imageAlt': 'Guy Parmelin signs investment protection agreement with Bahrain in Washington 2026',
 };
 
 export default blogMetaEn;

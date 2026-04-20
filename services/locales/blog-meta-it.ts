@@ -2391,6 +2391,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Tre colombiani arrestati per furto sul Verbano: uno in Ticino',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Tre membri di una banda colombiana hanno rubato gioielli per 50mila franchi a un orafo sul Lago Maggiore. Uno dei ladri è stato arrestato in Ticino dopo 10 mesi di indagini.',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Imbarcadero di Stresa al Lago Maggiore durante il tramonto con monti alle spalle',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.title': 'Parmelin firma accordo con Bahrein per proteggere gli investimenti',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.excerpt': 'Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni nazionali. Priorità per Ticino e frontalieri?',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.imageAlt': 'Guy Parmelin firma l\'accordo con il Bahrein a Washington nel 2026',
 };
 
 export default blogMetaIt;

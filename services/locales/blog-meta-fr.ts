@@ -2391,6 +2391,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.title': 'Trois Colombiens arrêtés pour un vol sur le Verbano : un suspect interpellé au Tessin',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.excerpt': 'Trois membres d’un réseau criminel colombien ont dérobé pour 50 000 francs de bijoux à un bijoutier situé au bord du lac Majeur. L’un des voleurs a été arrêté au Tessin après dix mois d’enquête.',
     'blog.article.gang-colombiani-verbano-arresti-ticino-2026.imageAlt': 'Vue au coucher du soleil de l\'embarcadère de Stresa sur le lac Majeur avec les montagnes en arrière-plan',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.title': 'Parmelin signe un accordo avec le Bahreïn pour protéger les investissements',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.excerpt': 'Guy Parmelin a signé à Washington un accord bilatéral visant à protéger les investissements entre la Suisse et le Bahreïn. Cet accord entrera en vigueur après les approbations nationales. Quelles priorités pour le Tessin et les travailleurs frontaliers?',
+    'blog.article.parmelin-accordo-investimenti-bahrein-2026.imageAlt': 'Guy Parmelin signe un accord de protection des investissements avec Bahreïn à Washington en 2026',
 };
 
 export default blogMetaFr;
