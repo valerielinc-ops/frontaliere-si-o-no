@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-04-20T10:54:14.876Z",
+  "generatedAt": "2026-04-20T21:50:50.831Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 363,
-  "avgDurationMs": 363,
+  "unchangedCount": 0,
+  "durationMs": 626,
+  "avgDurationMs": 626,
   "durationHistory": [
-    363
+    626
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,10 +50,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Senior Avaloq Consultant (80-100%)",
       "slug": "senior-avaloq-consultant-80-100-knowledge-lab-mendrisio",
@@ -91,5 +88,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
