@@ -324,7 +324,8 @@ export type EditorialLandingDescriptor =
  | { kind: 'location'; location: string }
  | { kind: 'location-type'; location: string; typeKey: JobLandingTypeKey }
  | { kind: 'location-sector'; location: string; sectorKey: JobLandingSectorKey }
- | { kind: 'sector-region'; sectorKey: JobLandingSectorKey; canton?: string };
+ | { kind: 'sector-region'; sectorKey: JobLandingSectorKey; canton?: string }
+ | { kind: 'recency'; variant: 'last-3-days' | 'since-yesterday' };
 
 function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  title: string;
@@ -1210,6 +1211,27 @@ function buildLocationSectorLinks(options: {
  .sort((a, b) => b.count - a.count);
 }
 
+// ── Recency-hub slug detection ───────────────────────────────────────
+// Kept in this file (instead of jobRecencyLanding.ts) because the router
+// resolver below needs it synchronously. The runtime model + copy live
+// in jobRecencyLanding.ts to keep file sizes reasonable.
+const RECENCY_SLUGS_BY_VARIANT: Record<'last-3-days' | 'since-yesterday', Record<JobLandingLocale, string>> = {
+ 'last-3-days': { it: 'ultimi-3-giorni', en: 'last-3-days', de: 'letzte-3-tage', fr: 'derniers-3-jours' },
+ 'since-yesterday': { it: 'da-ieri', en: 'since-yesterday', de: 'seit-gestern', fr: 'depuis-hier' },
+};
+
+function resolveRecencyDescriptor(slug: string): { kind: 'recency'; variant: 'last-3-days' | 'since-yesterday' } | null {
+ const needle = slug.trim().toLowerCase();
+ if (!needle) return null;
+ for (const variant of Object.keys(RECENCY_SLUGS_BY_VARIANT) as Array<'last-3-days' | 'since-yesterday'>) {
+  const map = RECENCY_SLUGS_BY_VARIANT[variant];
+  for (const locale of Object.keys(map) as JobLandingLocale[]) {
+   if (map[locale] === needle) return { kind: 'recency', variant };
+  }
+ }
+ return null;
+}
+
 export function isJobTodayLandingSlug(value: string): boolean {
  const slug = normalizeSpace(value);
  for (const cantonSlugs of Object.values(JOB_TODAY_LANDING_SLUGS_BY_CANTON)) {
@@ -1221,6 +1243,10 @@ export function isJobTodayLandingSlug(value: string): boolean {
 export function resolveEditorialJobLandingDescriptor(value: string): EditorialLandingDescriptor | null {
  const slug = normalizeSpace(value);
  if (!slug) return null;
+ // Recency hubs (last-3-days / since-yesterday) — checked first so their
+ // slugs don't get mis-parsed as location pages.
+ const recency = resolveRecencyDescriptor(slug);
+ if (recency) return recency;
  if (isJobTodayLandingSlug(slug)) return { kind: 'today' };
  if (Object.values(JOB_OFFICIAL_GAZETTE_LANDING_SLUGS).includes(slug as (typeof JOB_OFFICIAL_GAZETTE_LANDING_SLUGS)[JobLandingLocale])) {
  return { kind: 'official-gazette' };
