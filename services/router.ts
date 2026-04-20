@@ -40,6 +40,7 @@ import {
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
+import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
@@ -1612,6 +1613,12 @@ export function parsePath(pathname: string): ParseResult {
  // These are build-time static HTML; soft-nav resolves to the fuel-prices Statistiche tab.
  if (FUEL_DAILY_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isFuelDailyPath(pathname)) {
    return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices' }, locale };
+ }
+
+ // Health-premium landings (F2) — /premi-cassa-malati/{canton}/{age}/ + localised variants.
+ // Build-time static HTML; soft-nav lands on the health-premiums Statistiche sub-tab.
+ if (HEALTH_PREMIUMS_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isHealthPremiumsPath(pathname)) {
+   return { route: { activeTab: 'stats', statsSubTab: 'health-premiums' }, locale };
  }
 
  // Weekly "Aziende che assumono" per-city hub (F5) — build-time static HTML.

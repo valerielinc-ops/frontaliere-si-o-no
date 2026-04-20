@@ -1,0 +1,1582 @@
+/**
+ * Vite build plugin — emits evergreen SEO landing pages for LAMal premiums.
+ *
+ * F2 — LAMal per canton × age (moat play).
+ *
+ * Data source: `data/health-premiums.json` (48k lines, refreshed annually
+ * from BAG/UFSP open data via scripts/fetch-health-premiums.mjs).
+ *
+ * Page shape (4 locales × 36 pages = 144 static HTML files):
+ *   - 1 root hub per locale (canton overview)
+ *   - 5 canton hubs per locale (age-bracket overview)
+ *   - 30 leaves per locale (canton × age)
+ *
+ * Each page:
+ *   - ≥50 words hard gate (shared MIN_INDEXABLE_WORDS)
+ *   - Leaf target ≥400 words, hub target ≥300
+ *   - JSON-LD: WebPage + BreadcrumbList + FAQPage (leaves); WebPage + Breadcrumb (hubs)
+ *   - Self-referencing canonical + hreflang alternates for all 4 locales
+ *   - Product/Offer LD with priceCurrency CHF on leaf pages
+ *   - WriteCollector with skipExisting (preserves prior builds on incremental CI)
+ *   - Default-off gate: SKIP_HEALTH_PREMIUMS=1
+ *
+ * Kept standalone so parallel SEO worktrees merge cleanly.
+ */
+
+import type { Plugin } from 'vite';
+import fs from 'node:fs';
+import np from 'node:path';
+import {
+  ANALYTICS_SNIPPET,
+  BASE_URL,
+  FAVICON_LINKS,
+  MIN_INDEXABLE_WORDS,
+  countHtmlBodyWords,
+} from './constants';
+import { WriteCollector } from './batchWrite';
+import {
+  HEALTH_PREMIUM_AGE_BRACKETS,
+  HEALTH_PREMIUM_AGE_LABEL,
+  HEALTH_PREMIUM_AGE_MULTIPLIER,
+  HEALTH_PREMIUM_CANTON_BAG_CODE,
+  HEALTH_PREMIUM_CANTON_DISPLAY,
+  HEALTH_PREMIUM_CANTONS,
+  HEALTH_PREMIUM_COMPARATOR_PATH,
+  HEALTH_PREMIUM_LOCALES,
+  buildHealthPremiumsCantonPath,
+  buildHealthPremiumsLeafPath,
+  buildHealthPremiumsRootPath,
+  type HealthPremiumAgeBracket,
+  type HealthPremiumCanton,
+  type HealthPremiumLocale,
+} from './healthPremiumsData';
+
+// ── Types (dataset shape) ──────────────────────────────────────
+
+export interface InsurerEntry {
+  id: string;
+  name: string;
+  website?: string;
+}
+
+type ModelType = 'standard' | 'hausarzt' | 'telmed' | 'hmo';
+type PremiumByModel = Partial<Record<ModelType, number>>;
+type PremiumByInsurer = Record<string, PremiumByModel>;
+
+interface CantonPremiumBlock {
+  type?: 'canton';
+  canton?: string;
+  region?: number | null;
+  insurers: PremiumByInsurer;
+  bfsNr?: number;
+}
+
+export interface HealthPremiumsDataset {
+  fetchedAt?: string;
+  year?: number;
+  insurers?: InsurerEntry[];
+  premiums?: Record<string, CantonPremiumBlock>;
+}
+
+// ── Helpers ────────────────────────────────────────────────────
+
+function esc(s: unknown): string {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function median(nums: number[]): number | null {
+  if (nums.length === 0) return null;
+  const sorted = [...nums].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[mid - 1] + sorted[mid]) / 2
+    : sorted[mid];
+}
+
+function roundCHF(n: number): number {
+  return Math.round(n * 100) / 100;
+}
+
+function formatCHF(n: number | null, locale: HealthPremiumLocale): string {
+  if (n === null || Number.isNaN(n)) return '—';
+  const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
+  return n.toFixed(2).replace('.', sep);
+}
+
+const LOCALE_OG: Record<HealthPremiumLocale, string> = {
+  it: 'it_IT',
+  en: 'en_US',
+  de: 'de_DE',
+  fr: 'fr_FR',
+};
+
+// ── Data extraction ────────────────────────────────────────────
+
+/**
+ * Given the dataset, return all premium blocks that belong to a given BAG
+ * canton code. For canton-level-only cantons (UR, ZH, AG, ...) there is one
+ * block keyed by canton code. For commune-level cantons (TI, GR, VS) there
+ * are many blocks keyed by "{plz}-{commune}". Missing canton → empty array.
+ */
+function blocksForCanton(
+  dataset: HealthPremiumsDataset,
+  cantonCode: string,
+): CantonPremiumBlock[] {
+  const out: CantonPremiumBlock[] = [];
+  const all = dataset.premiums ?? {};
+  // Canton-level block: key equals canton code, type === 'canton'
+  const cantonBlock = all[cantonCode];
+  if (cantonBlock && cantonBlock.type === 'canton' && cantonBlock.canton === cantonCode) {
+    out.push(cantonBlock);
+  }
+  // Commune-level blocks: iterate, pick where block.canton matches.
+  for (const [key, block] of Object.entries(all)) {
+    if (key === cantonCode) continue;
+    if (!block || typeof block !== 'object') continue;
+    if (block.canton === cantonCode) {
+      out.push(block);
+    }
+  }
+  return out;
+}
+
+/**
+ * Aggregate per-insurer adult standard premium across all provided blocks.
+ * Returns a map keyed by insurer id → average standard premium (CHF/month).
+ */
+function aggregateAdultPremiums(
+  blocks: CantonPremiumBlock[],
+): Record<string, number> {
+  const sums: Record<string, { sum: number; count: number }> = {};
+  for (const block of blocks) {
+    for (const [insurerId, models] of Object.entries(block.insurers || {})) {
+      const price = typeof models.standard === 'number' ? models.standard : null;
+      if (price === null) continue;
+      if (!sums[insurerId]) sums[insurerId] = { sum: 0, count: 0 };
+      sums[insurerId].sum += price;
+      sums[insurerId].count += 1;
+    }
+  }
+  const out: Record<string, number> = {};
+  for (const [id, { sum, count }] of Object.entries(sums)) {
+    if (count > 0) out[id] = roundCHF(sum / count);
+  }
+  return out;
+}
+
+export interface CantonPremiumStats {
+  canton: HealthPremiumCanton;
+  cantonBagCode: string;
+  /** Number of source blocks (1 for canton-level, N for commune-level). */
+  sourceBlocks: number;
+  /** Per-insurer adult standard premium (CHF/month), averaged if commune-level. */
+  adultByInsurer: Record<string, number>;
+  /** Ranked list of (insurerId, price) ascending. */
+  ranked: Array<{ insurerId: string; price: number }>;
+  adultMin: number | null;
+  adultMax: number | null;
+  adultMedian: number | null;
+}
+
+export function computeCantonStats(
+  dataset: HealthPremiumsDataset,
+  canton: HealthPremiumCanton,
+): CantonPremiumStats | null {
+  const cantonBagCode = HEALTH_PREMIUM_CANTON_BAG_CODE[canton];
+  const blocks = blocksForCanton(dataset, cantonBagCode);
+  if (blocks.length === 0) return null;
+  const adultByInsurer = aggregateAdultPremiums(blocks);
+  const prices = Object.values(adultByInsurer);
+  if (prices.length === 0) return null;
+  const ranked = Object.entries(adultByInsurer)
+    .map(([id, price]) => ({ insurerId: id, price }))
+    .sort((a, b) => a.price - b.price);
+  return {
+    canton,
+    cantonBagCode,
+    sourceBlocks: blocks.length,
+    adultByInsurer,
+    ranked,
+    adultMin: Math.min(...prices),
+    adultMax: Math.max(...prices),
+    adultMedian: median(prices),
+  };
+}
+
+/**
+ * Resolve the insurer display name from the dataset's insurer directory.
+ * Falls back to the raw ID if not found.
+ */
+function resolveInsurerName(dataset: HealthPremiumsDataset, id: string): string {
+  const match = (dataset.insurers ?? []).find((ins) => ins.id === id);
+  return match?.name ?? `Cassa #${id}`;
+}
+
+// ── Localised copy ─────────────────────────────────────────────
+
+interface LeafCopy {
+  breadcrumbHome: string;
+  breadcrumbRoot: string;
+  h1: (canton: string, age: string) => string;
+  intro: (canton: string, age: string, median: string, min: string, max: string, year: number) => string;
+  tableHeaders: { rank: string; insurer: string; premium: string };
+  top20Title: (canton: string, age: string) => string;
+  rankingTitle: string;
+  editorialTitle: string;
+  editorial: (canton: string, age: string, median: string, year: number) => string;
+  derivationNote: string;
+  comparatorCTA: string;
+  comparatorCTAText: string;
+  statsLabels: { median: string; min: string; max: string; insurers: string };
+  faqTitle: string;
+  faq: Array<{ q: (canton: string, age: string) => string; a: (canton: string, age: string, median: string, min: string, max: string) => string }>;
+  priceUnit: string;
+  rankingIntro: (canton: string) => string;
+}
+
+interface HubCopy {
+  breadcrumbHome: string;
+  h1Root: (year: number) => string;
+  h1Canton: (canton: string, year: number) => string;
+  introRoot: (year: number) => string;
+  introCanton: (canton: string, median: string, min: string, max: string, year: number) => string;
+  ageGridTitle: (canton: string) => string;
+  cantonGridTitle: string;
+  cantonGridHeaders: { canton: string; median: string; min: string; max: string };
+  ageGridHeaders: { age: string; median: string; slug: string };
+  comparatorCTA: string;
+  comparatorCTAText: string;
+  viewCantonCTA: (canton: string) => string;
+  openLeafCTA: string;
+  rootBackgroundTitle: string;
+  rootBackground: string;
+  faqTitle: string;
+  rootFaq: Array<{ q: string; a: (year: number) => string }>;
+  cantonFaq: Array<{ q: (canton: string) => string; a: (canton: string, median: string, year: number) => string }>;
+  priceUnit: string;
+  updatedLabel: string;
+}
+
+const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
+  it: {
+    breadcrumbHome: 'Home',
+    breadcrumbRoot: 'Premi Cassa Malati',
+    h1: (c, a) => `Premi Cassa Malati ${c} 2026 — fascia ${a}`,
+    intro: (c, a, median, min, max, year) =>
+      `Premi LAMal ${year} in ${c} per ${a}: mediana ${median} CHF/mese, range da ${min} a ${max} CHF. Dati ufficiali UFSP/BAG con franchigia minima (CHF 300 adulti, CHF 0 bambini), senza copertura infortuni. Confronta le principali casse malati e trova l'assicurazione più conveniente per la tua situazione familiare.`,
+    tableHeaders: { rank: 'Posizione', insurer: 'Cassa Malati', premium: 'Premio mensile' },
+    top20Title: (c, a) => `Top 20 casse malati in ${c} — ${a}`,
+    rankingTitle: 'Confronto con i cantoni limitrofi',
+    editorialTitle: 'Come funziona il premio LAMal in questa fascia',
+    editorial: (c, a, median, year) =>
+      `Sotto la legge LAMal svizzera, tutti i residenti devono stipulare un'assicurazione malattia di base. Il premio varia per cantone, regione premi e cassa, ma è uniforme tra tutti gli adulti dai 26 anni in su: non esistono aumenti legati all'età in senso stretto come nelle assicurazioni complementari. Per ${c} nel ${year}, la mediana della fascia ${a} si attesta su ${median} CHF/mese. I frontalieri residenti in Italia che lavorano in Svizzera possono scegliere il regime sanitario tra LAMal svizzera o SSN italiano (diritto di opzione), un passaggio che va valutato con un consulente autorizzato. Chi opta per la LAMal paga il premio indicato e riceve le prestazioni di base in Svizzera; chi sceglie il SSN italiano resta coperto in Italia ma perde la rete di fornitori svizzeri. La scelta dipende dall'età, dallo stato di salute, dal luogo di residenza e dalla famiglia. Le casse più economiche nella fascia di età che ti interessa variano ogni anno: usa la tabella sopra per identificarle e confrontale con il nostro strumento.`,
+    derivationNote:
+      "Nota: i premi per bambini (0-18) e giovani adulti (19-25) sono stimati applicando i massimali statutari BAG 2026 (25% e 80% del premio adulto); per valori esatti per singola cassa consulta il comparatore.",
+    comparatorCTA: 'Vai al comparatore',
+    comparatorCTAText: 'Apri il comparatore pre-filtrato su questo cantone e fascia d\'età per vedere tutte le casse con preventivi personalizzati.',
+    statsLabels: { median: 'Mediana', min: 'Premio minimo', max: 'Premio massimo', insurers: 'Casse considerate' },
+    faqTitle: 'Domande frequenti',
+    faq: [
+      {
+        q: (c, a) => `Quanto costa la cassa malati in ${c} per la fascia ${a}?`,
+        a: (c, a, m, min, max) =>
+          `Nel ${c} la fascia ${a} paga in media ${m} CHF al mese di premio LAMal di base (franchigia 300, senza infortuni). Il range tra le casse va da ${min} a ${max} CHF/mese. Le differenze dipendono dal modello assicurativo (standard, medico di base, telmed, HMO).`,
+      },
+      {
+        q: () => 'Quale cassa malati è più economica?',
+        a: (_, __, ___, min) =>
+          `La cassa più economica varia ogni anno — nel 2026 il premio minimo mensile per la fascia indicata è di ${min} CHF. Consulta la tabella completa per vedere il ranking aggiornato di tutte le casse nel cantone selezionato.`,
+      },
+      {
+        q: () => 'Come risparmio sul premio?',
+        a: () =>
+          "Tre leve principali: (1) scegli un modello alternativo — medico di base, HMO o telemedicina risparmia tipicamente 10-20% rispetto allo standard; (2) alza la franchigia fino a CHF 2 500 se sei in salute (risparmio fino al 50%); (3) confronta ogni ottobre le nuove tariffe dell'anno seguente e cambia cassa entro il 30 novembre se trovi un'offerta migliore.",
+      },
+      {
+        q: () => 'I frontalieri pagano la LAMal?',
+        a: () =>
+          'I frontalieri che lavorano in Svizzera hanno il diritto di opzione tra LAMal svizzera e SSN italiano (o assicurazione privata in Francia/Germania/Austria). Chi sceglie la LAMal paga il premio pieno come un residente svizzero; chi opta per il SSN italiano resta coperto in Italia. La scelta va esercitata entro 3 mesi dall\'inizio dell\'attività e va valutata caso per caso.',
+      },
+      {
+        q: () => 'Il premio cambia con l\'età?',
+        a: () =>
+          "Sotto la LAMal il premio è uniforme per tutti gli adulti dai 26 anni in su: non aumenta con l'età. Bambini (0-18) e giovani adulti (19-25) pagano meno per legge. Nelle assicurazioni complementari (LCA), invece, il premio cresce progressivamente con l'età.",
+      },
+    ],
+    priceUnit: 'CHF/mese',
+    rankingIntro: (c) =>
+      `Ecco come si posiziona ${c} rispetto agli altri cantoni target per la stessa fascia di età. I premi LAMal variano significativamente tra cantoni anche all'interno della stessa regione linguistica.`,
+  },
+  en: {
+    breadcrumbHome: 'Home',
+    breadcrumbRoot: 'Health Insurance Premiums',
+    h1: (c, a) => `Health insurance premiums ${c} 2026 — ${a}`,
+    intro: (c, a, m, min, max, year) =>
+      `LAMal health insurance premiums ${year} in ${c} for ${a}: median ${m} CHF/month, range from ${min} to ${max} CHF. Official FOPH/BAG data with the minimum deductible (CHF 300 for adults, CHF 0 for children) and no accident cover. Compare the main health funds and find the most affordable insurer for your situation.`,
+    tableHeaders: { rank: 'Rank', insurer: 'Health fund', premium: 'Monthly premium' },
+    top20Title: (c, a) => `Top 20 health funds in ${c} — ${a}`,
+    rankingTitle: 'Benchmark vs neighbouring cantons',
+    editorialTitle: 'How the LAMal premium works in this bracket',
+    editorial: (c, a, m, year) =>
+      `Under Swiss LAMal law, every resident must hold a basic health insurance. The premium varies by canton, premium region and health fund, but it is flat across all adults aged 26 and over — there is no age-based increase inside LAMal itself (unlike supplementary LCA cover). In ${c} for ${year}, the median for bracket ${a} is ${m} CHF/month. Cross-border workers living in Italy can elect either the Swiss LAMal or the Italian SSN under the "right of option" — this choice depends on age, health status, residence and family situation and should be evaluated with a licensed adviser. Use the table above to identify the cheapest funds in the age bracket and compare them using our interactive comparator below.`,
+    derivationNote:
+      "Note: premiums for children (0-18) and young adults (19-25) are estimated by applying BAG 2026 statutory caps (25% and 80% of the adult premium); for exact per-insurer figures use the comparator.",
+    comparatorCTA: 'Open the comparator',
+    comparatorCTAText: 'Pre-filtered on this canton and age bracket — see every fund with a personalised quote.',
+    statsLabels: { median: 'Median', min: 'Lowest premium', max: 'Highest premium', insurers: 'Funds surveyed' },
+    faqTitle: 'Frequently asked questions',
+    faq: [
+      {
+        q: (c, a) => `How much does health insurance cost in ${c} for ${a}?`,
+        a: (c, a, m, min, max) =>
+          `In ${c}, bracket ${a} pays ${m} CHF per month on average for basic LAMal cover (CHF 300 deductible, no accident cover). The range across health funds goes from ${min} to ${max} CHF/month. Differences depend on the insurance model (standard, family doctor, telmed, HMO).`,
+      },
+      {
+        q: () => 'Which health fund is cheapest?',
+        a: (_, __, ___, min) =>
+          `The cheapest fund changes every year — in 2026 the lowest monthly premium for this bracket is ${min} CHF. Check the full table for the live ranking of all funds in the selected canton.`,
+      },
+      {
+        q: () => 'How can I save on my premium?',
+        a: () =>
+          'Three main levers: (1) pick an alternative model — family doctor, HMO or telemedicine typically saves 10-20% vs standard; (2) raise the annual deductible up to CHF 2,500 if you are healthy (savings up to ~50%); (3) compare rates every October for the following year and switch by 30 November if a better offer appears.',
+      },
+      {
+        q: () => 'Do cross-border workers pay LAMal?',
+        a: () =>
+          'Cross-border workers in Switzerland have the "right of option" — they can choose Swiss LAMal or stay on the Italian SSN (or the German/French/Austrian system). LAMal choosers pay the same premium as a Swiss resident; SSN choosers stay covered in Italy. The option must be exercised within 3 months of starting work.',
+      },
+      {
+        q: () => 'Does the premium change with age?',
+        a: () =>
+          'Under LAMal the premium is flat for all adults from 26 onwards — it does not rise with age. Children (0-18) and young adults (19-25) pay less by law. Supplementary LCA cover, on the other hand, does rise with age.',
+      },
+    ],
+    priceUnit: 'CHF/month',
+    rankingIntro: (c) =>
+      `Here is how ${c} ranks against the other target cantons for the same age bracket. LAMal premiums vary significantly across cantons even within the same language region.`,
+  },
+  de: {
+    breadcrumbHome: 'Startseite',
+    breadcrumbRoot: 'Krankenkassenprämien',
+    h1: (c, a) => `Krankenkassenprämien ${c} 2026 — ${a}`,
+    intro: (c, a, m, min, max, year) =>
+      `KVG-Prämien ${year} in ${c} für ${a}: Median ${m} CHF/Monat, Spannweite von ${min} bis ${max} CHF. Offizielle BAG/UFSP-Daten mit Mindestfranchise (CHF 300 Erwachsene, CHF 0 Kinder) und ohne Unfalldeckung. Vergleichen Sie die wichtigsten Krankenkassen und finden Sie den günstigsten Versicherer für Ihre Situation.`,
+    tableHeaders: { rank: 'Rang', insurer: 'Krankenkasse', premium: 'Monatsprämie' },
+    top20Title: (c, a) => `Top 20 Krankenkassen in ${c} — ${a}`,
+    rankingTitle: 'Vergleich mit Nachbarkantonen',
+    editorialTitle: 'Wie die KVG-Prämie in dieser Gruppe funktioniert',
+    editorial: (c, a, m, year) =>
+      `Nach dem Schweizer KVG müssen alle Einwohner eine Grundversicherung abschliessen. Die Prämie variiert nach Kanton, Prämienregion und Krankenkasse, ist aber für alle Erwachsenen ab 26 Jahren einheitlich — innerhalb des KVG selbst gibt es keinen altersbedingten Prämienanstieg (im Gegensatz zur Zusatzversicherung VVG). In ${c} beträgt der Median für die Kategorie ${a} im Jahr ${year} ${m} CHF/Monat. Grenzgänger mit Wohnsitz in Italien können zwischen Schweizer KVG und italienischem SSN wählen (Optionsrecht). Nutzen Sie die Tabelle oben, um die günstigsten Kassen für Ihre Altersgruppe zu identifizieren, und vergleichen Sie sie über unser interaktives Tool.`,
+    derivationNote:
+      'Hinweis: Prämien für Kinder (0-18) und junge Erwachsene (19-25) werden durch Anwendung der gesetzlichen BAG-Maxima 2026 geschätzt (25% bzw. 80% der Erwachsenenprämie); genaue Werte pro Versicherer liefert der Vergleich.',
+    comparatorCTA: 'Zum Prämienvergleich',
+    comparatorCTAText: 'Vorgefiltert auf diesen Kanton und Altersbereich — sehen Sie alle Kassen mit personalisiertem Angebot.',
+    statsLabels: { median: 'Median', min: 'Tiefste Prämie', max: 'Höchste Prämie', insurers: 'Berücksichtigte Kassen' },
+    faqTitle: 'Häufige Fragen',
+    faq: [
+      {
+        q: (c, a) => `Was kostet die Krankenkasse in ${c} für ${a}?`,
+        a: (c, a, m, min, max) =>
+          `In ${c} zahlt die Gruppe ${a} im Durchschnitt ${m} CHF pro Monat für die KVG-Grundversicherung (Franchise 300, ohne Unfall). Die Spanne zwischen den Kassen reicht von ${min} bis ${max} CHF/Monat. Unterschiede kommen vom gewählten Modell (Standard, Hausarzt, Telmed, HMO).`,
+      },
+      {
+        q: () => 'Welche Krankenkasse ist am günstigsten?',
+        a: (_, __, ___, min) =>
+          `Die günstigste Kasse wechselt jährlich — 2026 liegt die Mindestprämie für diese Gruppe bei ${min} CHF/Monat. Die vollständige Tabelle zeigt das aktuelle Ranking aller Kassen im gewählten Kanton.`,
+      },
+      {
+        q: () => 'Wie kann ich Prämie sparen?',
+        a: () =>
+          'Drei Hebel: (1) Alternativmodell — Hausarzt, HMO oder Telmed sparen typisch 10-20% gegenüber Standard; (2) Jahresfranchise bis CHF 2 500 erhöhen, wenn Sie gesund sind (bis ~50% Ersparnis); (3) im Oktober die Tarife fürs Folgejahr vergleichen und bis 30. November wechseln.',
+      },
+      {
+        q: () => 'Zahlen Grenzgänger KVG?',
+        a: () =>
+          'Grenzgänger haben das Optionsrecht zwischen Schweizer KVG und dem SSN im Wohnsitzstaat (IT/FR/DE/AT). Wer KVG wählt, zahlt dieselbe Prämie wie ein Schweizer Einwohner. Die Entscheidung muss innerhalb von 3 Monaten ab Arbeitsbeginn getroffen werden.',
+      },
+      {
+        q: () => 'Ändert sich die Prämie mit dem Alter?',
+        a: () =>
+          'Unter KVG ist die Prämie für alle Erwachsenen ab 26 einheitlich — sie steigt nicht mit dem Alter. Kinder (0-18) und junge Erwachsene (19-25) zahlen gesetzlich weniger. Zusatzversicherungen (VVG) hingegen werden mit dem Alter teurer.',
+      },
+    ],
+    priceUnit: 'CHF/Monat',
+    rankingIntro: (c) =>
+      `So positioniert sich ${c} gegenüber den anderen Zielkantonen für dieselbe Altersgruppe. KVG-Prämien unterscheiden sich auch innerhalb derselben Sprachregion erheblich zwischen den Kantonen.`,
+  },
+  fr: {
+    breadcrumbHome: 'Accueil',
+    breadcrumbRoot: 'Primes assurance maladie',
+    h1: (c, a) => `Primes assurance maladie ${c} 2026 — ${a}`,
+    intro: (c, a, m, min, max, year) =>
+      `Primes LAMal ${year} à ${c} pour ${a} : médiane ${m} CHF/mois, plage de ${min} à ${max} CHF. Données officielles OFSP/BAG avec franchise minimale (CHF 300 adultes, CHF 0 enfants) et sans couverture accident. Comparez les principales caisses maladie et trouvez l'assureur le plus avantageux pour votre situation.`,
+    tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', premium: 'Prime mensuelle' },
+    top20Title: (c, a) => `Top 20 caisses maladie à ${c} — ${a}`,
+    rankingTitle: 'Comparatif avec les cantons voisins',
+    editorialTitle: 'Comment la prime LAMal fonctionne dans cette tranche',
+    editorial: (c, a, m, year) =>
+      `Selon la loi suisse LAMal, tout résident doit souscrire une assurance maladie de base. La prime varie selon le canton, la région de prime et la caisse, mais elle est forfaitaire pour tous les adultes dès 26 ans — aucune hausse liée à l'âge dans la LAMal elle-même (contrairement à la LCA complémentaire). À ${c} en ${year}, la médiane pour la tranche ${a} s'établit à ${m} CHF/mois. Les frontaliers résidant en Italie peuvent choisir entre la LAMal suisse et le SSN italien (droit d'option). Utilisez le tableau ci-dessus pour repérer les caisses les moins chères dans votre tranche d'âge, puis comparez-les avec notre outil interactif.`,
+    derivationNote:
+      "Note : les primes pour enfants (0-18) et jeunes adultes (19-25) sont estimées en appliquant les maxima statutaires BAG 2026 (25 % et 80 % de la prime adulte) ; pour les valeurs exactes par caisse, consultez le comparateur.",
+    comparatorCTA: 'Ouvrir le comparateur',
+    comparatorCTAText: 'Pré-filtré sur ce canton et cette tranche d\'âge — voir toutes les caisses avec devis personnalisé.',
+    statsLabels: { median: 'Médiane', min: 'Prime la plus basse', max: 'Prime la plus élevée', insurers: 'Caisses analysées' },
+    faqTitle: 'Questions fréquentes',
+    faq: [
+      {
+        q: (c, a) => `Combien coûte l'assurance maladie à ${c} pour ${a} ?`,
+        a: (c, a, m, min, max) =>
+          `À ${c}, la tranche ${a} paie en moyenne ${m} CHF par mois pour la LAMal de base (franchise 300, sans accident). La plage entre les caisses va de ${min} à ${max} CHF/mois. Les différences dépendent du modèle (standard, médecin de famille, telmed, HMO).`,
+      },
+      {
+        q: () => 'Quelle caisse maladie est la moins chère ?',
+        a: (_, __, ___, min) =>
+          `La caisse la moins chère change chaque année — en 2026 la prime mensuelle minimum pour cette tranche est de ${min} CHF. Consultez le tableau complet pour le classement à jour de toutes les caisses dans le canton sélectionné.`,
+      },
+      {
+        q: () => 'Comment économiser sur la prime ?',
+        a: () =>
+          "Trois leviers : (1) choisir un modèle alternatif — médecin de famille, HMO ou télémédecine économise typiquement 10-20 % par rapport au standard ; (2) augmenter la franchise annuelle jusqu'à CHF 2 500 si vous êtes en bonne santé (économie jusqu'à ~50 %) ; (3) comparer les tarifs chaque octobre pour l'année suivante et changer de caisse d'ici le 30 novembre.",
+      },
+      {
+        q: () => 'Les frontaliers paient-ils la LAMal ?',
+        a: () =>
+          "Les frontaliers qui travaillent en Suisse bénéficient du droit d'option entre LAMal suisse et système de l'État de résidence (SSN italien, CPAM français, etc.). Ceux qui choisissent la LAMal paient la prime complète comme un résident suisse. Le choix doit être exercé dans les 3 mois suivant le début de l'activité.",
+      },
+      {
+        q: () => "La prime change-t-elle avec l'âge ?",
+        a: () =>
+          "Sous LAMal la prime est forfaitaire pour tous les adultes à partir de 26 ans — elle n'augmente pas avec l'âge. Enfants (0-18) et jeunes adultes (19-25) paient moins par la loi. La LCA complémentaire, elle, augmente avec l'âge.",
+      },
+    ],
+    priceUnit: 'CHF/mois',
+    rankingIntro: (c) =>
+      `Voici comment ${c} se positionne par rapport aux autres cantons cibles pour la même tranche d'âge. Les primes LAMal varient sensiblement d'un canton à l'autre, même au sein d'une même région linguistique.`,
+  },
+};
+
+const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
+  it: {
+    breadcrumbHome: 'Home',
+    h1Root: (y) => `Premi Cassa Malati ${y} per cantone e fascia d'età`,
+    h1Canton: (c, y) => `Premi Cassa Malati ${c} ${y}`,
+    introRoot: (y) =>
+      `Il sistema LAMal svizzero impone a ogni residente un'assicurazione malattia di base. I premi ${y} variano in modo significativo fra cantoni, regioni premio e fasce d'età: questa è la pagina hub del nostro monitor dei premi, con dati ufficiali UFSP/BAG aggiornati ogni anno. Per ogni cantone target (Ticino, Grigioni, Uri, Vallese, Zurigo come benchmark) forniamo una vista dettagliata della mediana, del minimo e del massimo premio mensile, suddivisi in 6 fasce d'età. I frontalieri che lavorano in Svizzera possono scegliere tra LAMal svizzera e SSN italiano grazie al diritto d'opzione: la pagina del cantone che abiti (o del cantone della tua sede di lavoro) è il punto di partenza per confrontare le casse. Ogni landing si collega al comparatore pre-filtrato dove puoi ottenere un preventivo personalizzato.`,
+    introCanton: (c, m, min, max, y) =>
+      `Panoramica dei premi LAMal ${y} nel ${c} per tutte le fasce d'età: mediana ${m} CHF/mese, range da ${min} a ${max} CHF fra le casse ufficialmente attive. I valori provengono da UFSP/BAG (franchigia 300 adulti, senza infortuni). Usa la griglia sotto per aprire la pagina della fascia d'età che ti interessa e vedere il ranking completo delle casse e le offerte alternative (medico di famiglia, telmed, HMO).`,
+    ageGridTitle: (c) => `Mediane per fascia di età in ${c}`,
+    cantonGridTitle: 'Mediane per cantone — fascia adulti (26+)',
+    cantonGridHeaders: { canton: 'Cantone', median: 'Mediana', min: 'Minimo', max: 'Massimo' },
+    ageGridHeaders: { age: 'Fascia', median: 'Mediana', slug: 'Apri' },
+    comparatorCTA: 'Apri il comparatore',
+    comparatorCTAText: 'Trova la cassa più conveniente per la tua situazione',
+    viewCantonCTA: (c) => `Apri la pagina ${c}`,
+    openLeafCTA: 'Apri',
+    rootBackgroundTitle: 'Cosa copre la LAMal',
+    rootBackground:
+      "La legge federale sull'assicurazione malattia (LAMal) garantisce a tutti i residenti in Svizzera — e ai frontalieri che scelgono il sistema svizzero — le prestazioni mediche di base: visite mediche, ricoveri in reparto comune, farmaci della lista positiva, maternità, psichiatria di base, fisioterapia prescritta. Non copre cure dentali di routine, stanze private, medicina alternativa non riconosciuta, lenti a contatto: per questi serve una complementare (LCA).",
+    faqTitle: 'Domande frequenti',
+    rootFaq: [
+      {
+        q: 'Come sono stabiliti i premi LAMal?',
+        a: (y) =>
+          `Ogni cassa presenta le proprie tariffe al Consiglio federale, che le approva a fine settembre. Entro il 31 ottobre ${y - 1} gli assicurati ricevono la comunicazione per l'anno successivo e hanno tempo fino al 30 novembre per cambiare cassa.`,
+      },
+      {
+        q: 'Quali cantoni hanno i premi più bassi?',
+        a: () =>
+          'In generale Svizzera interna e orientale hanno premi più bassi; Ginevra, Basilea Città e Ticino hanno premi più alti. La variazione è significativa anche all\'interno dello stesso cantone (3 regioni premio in molti cantoni).',
+      },
+      {
+        q: 'Posso cambiare cassa durante l\'anno?',
+        a: () =>
+          'Solo in casi particolari (aumento straordinario di premio, cambio di cantone). Il momento standard per cambiare cassa è entro il 30 novembre per la polizza dell\'anno successivo.',
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `Quanto costa la cassa malati in ${c} nel 2026?`,
+        a: (c, m, y) =>
+          `Il premio mediano per adulti nel ${c} nel ${y} è di ${m} CHF/mese (franchigia 300, senza infortuni). La variazione tra casse è significativa: apri la fascia d'età che ti interessa per il ranking completo.`,
+      },
+      {
+        q: () => 'Le regioni premio fanno differenza?',
+        a: () =>
+          "Sì. Molti cantoni sono divisi in 2-3 regioni premio con differenze di 20-30 CHF/mese. Il Ticino ha una sola regione premio; Grigioni e Vallese ne hanno tre, con premi più bassi nelle zone periferiche.",
+      },
+    ],
+    priceUnit: 'CHF/mese',
+    updatedLabel: 'Aggiornato',
+  },
+  en: {
+    breadcrumbHome: 'Home',
+    h1Root: (y) => `Swiss health insurance premiums ${y} by canton and age`,
+    h1Canton: (c, y) => `Health insurance premiums ${c} ${y}`,
+    introRoot: (y) =>
+      `The Swiss LAMal system requires every resident to hold basic health insurance. ${y} premiums vary substantially by canton, premium region and age bracket: this hub is the entry point to our premium tracker, with official FOPH/BAG data refreshed annually. For each target canton (Ticino, Graubünden, Uri, Valais, Zurich as benchmark) we expose median, minimum and maximum monthly premium across 6 age brackets. Cross-border workers employed in Switzerland can choose between the Swiss LAMal and their home-country system under the "right of option" — the canton of your employer (or your residence canton) is the right starting point. Every landing links to the pre-filtered comparator where you can obtain a personalised quote.`,
+    introCanton: (c, m, min, max, y) =>
+      `${y} LAMal premium overview in ${c} across all age brackets: median ${m} CHF/month, range from ${min} to ${max} CHF across active health funds. Data from FOPH/BAG (CHF 300 deductible for adults, no accident cover). Use the grid below to open the age bracket you need and see the full ranking of funds with alternative models (family doctor, telmed, HMO).`,
+    ageGridTitle: (c) => `Median by age bracket in ${c}`,
+    cantonGridTitle: 'Median by canton — adult bracket (26+)',
+    cantonGridHeaders: { canton: 'Canton', median: 'Median', min: 'Min', max: 'Max' },
+    ageGridHeaders: { age: 'Bracket', median: 'Median', slug: 'Open' },
+    comparatorCTA: 'Open the comparator',
+    comparatorCTAText: 'Find the most affordable fund for your situation',
+    viewCantonCTA: (c) => `Open ${c}`,
+    openLeafCTA: 'Open',
+    rootBackgroundTitle: 'What LAMal covers',
+    rootBackground:
+      'The Swiss Federal Health Insurance Act (LAMal) guarantees every resident — and cross-border workers electing the Swiss system — basic medical care: doctor visits, ward-level hospital stays, prescription drugs on the positive list, maternity, basic psychiatry, prescribed physiotherapy. It does not cover routine dental care, private rooms, non-recognised alternative medicine, contact lenses: for these you need supplementary cover (LCA/VVG).',
+    faqTitle: 'Frequently asked questions',
+    rootFaq: [
+      {
+        q: 'How are LAMal premiums set?',
+        a: (y) =>
+          `Each fund submits its tariffs to the Federal Council, which approves them by late September. By 31 October ${y - 1} insured members receive the next-year quote and have until 30 November to switch funds.`,
+      },
+      {
+        q: 'Which cantons have the lowest premiums?',
+        a: () =>
+          "Central and eastern Switzerland usually have the lowest premiums; Geneva, Basel-City and Ticino are at the high end. Variation within a single canton is also significant (many cantons have 2-3 premium regions).",
+      },
+      {
+        q: 'Can I switch funds during the year?',
+        a: () =>
+          "Only in special cases (extraordinary premium increase, change of canton). The standard switching window is by 30 November for the following year's cover.",
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `How much does health insurance cost in ${c} in 2026?`,
+        a: (c, m, y) =>
+          `The ${y} adult median in ${c} is ${m} CHF/month (CHF 300 deductible, no accident cover). Variation between funds is substantial: open the age bracket that matches you for the full ranking.`,
+      },
+      {
+        q: () => 'Do premium regions matter?',
+        a: () =>
+          'Yes. Many cantons are split into 2-3 premium regions with 20-30 CHF/month differences. Ticino has one region; Graubünden and Valais have three, with lower premiums in peripheral zones.',
+      },
+    ],
+    priceUnit: 'CHF/month',
+    updatedLabel: 'Updated',
+  },
+  de: {
+    breadcrumbHome: 'Startseite',
+    h1Root: (y) => `Krankenkassenprämien ${y} nach Kanton und Altersgruppe`,
+    h1Canton: (c, y) => `Krankenkassenprämien ${c} ${y}`,
+    introRoot: (y) =>
+      `Das Schweizer KVG verpflichtet jeden Einwohner zu einer Grundversicherung. Die Prämien ${y} variieren deutlich nach Kanton, Prämienregion und Altersgruppe: Diese Hub-Seite ist der Einstieg zu unserem Prämienmonitor mit amtlichen BAG/UFSP-Daten, jährlich aktualisiert. Für jeden Zielkanton (Tessin, Graubünden, Uri, Wallis, Zürich als Benchmark) zeigen wir Median, Minimum und Maximum der Monatsprämie in 6 Altersgruppen. Grenzgänger in der Schweiz können dank Optionsrecht zwischen Schweizer KVG und dem System ihres Wohnlandes wählen — der Kanton des Arbeitgebers (oder Ihr Wohnkanton) ist der beste Einstiegspunkt. Jede Seite verlinkt den vorgefilterten Vergleich für ein persönliches Angebot.`,
+    introCanton: (c, m, min, max, y) =>
+      `Übersicht der KVG-Prämien ${y} in ${c} für alle Altersgruppen: Median ${m} CHF/Monat, Spanne von ${min} bis ${max} CHF bei den aktiven Krankenkassen. Daten aus BAG/UFSP (Franchise 300 Erwachsene, ohne Unfall). Wählen Sie in der Tabelle die gewünschte Altersgruppe, um das vollständige Ranking mit alternativen Modellen (Hausarzt, Telmed, HMO) zu sehen.`,
+    ageGridTitle: (c) => `Median nach Altersgruppe in ${c}`,
+    cantonGridTitle: 'Median nach Kanton — Erwachsene (26+)',
+    cantonGridHeaders: { canton: 'Kanton', median: 'Median', min: 'Min', max: 'Max' },
+    ageGridHeaders: { age: 'Gruppe', median: 'Median', slug: 'Öffnen' },
+    comparatorCTA: 'Prämienvergleich öffnen',
+    comparatorCTAText: 'Finden Sie die günstigste Kasse für Ihre Situation',
+    viewCantonCTA: (c) => `${c} öffnen`,
+    openLeafCTA: 'Öffnen',
+    rootBackgroundTitle: 'Was das KVG abdeckt',
+    rootBackground:
+      'Das Bundesgesetz über die Krankenversicherung (KVG) garantiert allen Einwohnern — und Grenzgängern, die sich für das Schweizer System entscheiden — die medizinische Grundversorgung: Arztbesuche, Spitalaufenthalte in allgemeiner Abteilung, Medikamente auf der Spezialitätenliste, Mutterschaft, psychiatrische Grundversorgung, ärztlich verordnete Physiotherapie. Nicht abgedeckt sind Routinezahnbehandlungen, Privatzimmer, nicht anerkannte Alternativmedizin, Kontaktlinsen: dafür braucht es eine Zusatzversicherung (VVG).',
+    faqTitle: 'Häufige Fragen',
+    rootFaq: [
+      {
+        q: 'Wie werden KVG-Prämien festgelegt?',
+        a: (y) =>
+          `Jede Kasse reicht ihre Tarife dem Bundesrat ein, der sie Ende September genehmigt. Bis 31. Oktober ${y - 1} erhalten die Versicherten die Mitteilung fürs Folgejahr und können bis 30. November die Kasse wechseln.`,
+      },
+      {
+        q: 'Welche Kantone haben die tiefsten Prämien?',
+        a: () =>
+          'Zentral- und Ostschweiz haben meist die tiefsten Prämien; Genf, Basel-Stadt und Tessin liegen am oberen Rand. Auch innerhalb eines Kantons ist die Variation gross (viele Kantone haben 2-3 Prämienregionen).',
+      },
+      {
+        q: 'Kann ich die Kasse unterjährig wechseln?',
+        a: () =>
+          'Nur in Sonderfällen (ausserordentliche Prämienerhöhung, Kantonswechsel). Der Standard-Wechseltermin ist der 30. November für das Folgejahr.',
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `Was kostet die Krankenkasse in ${c} 2026?`,
+        a: (c, m, y) =>
+          `Der Erwachsenen-Median in ${c} ${y} liegt bei ${m} CHF/Monat (Franchise 300, ohne Unfall). Die Variation zwischen Kassen ist erheblich — öffnen Sie Ihre Altersgruppe für das vollständige Ranking.`,
+      },
+      {
+        q: () => 'Spielen Prämienregionen eine Rolle?',
+        a: () =>
+          'Ja. Viele Kantone sind in 2-3 Prämienregionen unterteilt mit Unterschieden von 20-30 CHF/Monat. Tessin hat eine Region; Graubünden und Wallis haben drei, mit tieferen Prämien in Randregionen.',
+      },
+    ],
+    priceUnit: 'CHF/Monat',
+    updatedLabel: 'Aktualisiert',
+  },
+  fr: {
+    breadcrumbHome: 'Accueil',
+    h1Root: (y) => `Primes d'assurance maladie ${y} par canton et tranche d'âge`,
+    h1Canton: (c, y) => `Primes assurance maladie ${c} ${y}`,
+    introRoot: (y) =>
+      `Le système LAMal suisse oblige tout résident à souscrire une assurance maladie de base. Les primes ${y} varient sensiblement selon le canton, la région de prime et la tranche d'âge : cette page hub est le point d'entrée de notre moniteur des primes, avec des données officielles OFSP/BAG mises à jour chaque année. Pour chaque canton cible (Tessin, Grisons, Uri, Valais, Zurich comme référence) nous affichons la médiane, le minimum et le maximum de prime mensuelle pour 6 tranches d'âge. Les frontaliers travaillant en Suisse peuvent choisir entre la LAMal suisse et le système de leur État de résidence grâce au droit d'option — le canton de l'employeur (ou votre canton de résidence) est le bon point de départ. Chaque page renvoie au comparateur pré-filtré pour obtenir un devis personnalisé.`,
+    introCanton: (c, m, min, max, y) =>
+      `Aperçu des primes LAMal ${y} à ${c} pour toutes les tranches d'âge : médiane ${m} CHF/mois, plage de ${min} à ${max} CHF entre les caisses actives. Données OFSP/BAG (franchise 300 adultes, sans accident). Utilisez la grille ci-dessous pour ouvrir la tranche d'âge souhaitée et voir le classement complet des caisses avec modèles alternatifs (médecin de famille, telmed, HMO).`,
+    ageGridTitle: (c) => `Médiane par tranche d'âge à ${c}`,
+    cantonGridTitle: 'Médiane par canton — adultes (26+)',
+    cantonGridHeaders: { canton: 'Canton', median: 'Médiane', min: 'Min', max: 'Max' },
+    ageGridHeaders: { age: 'Tranche', median: 'Médiane', slug: 'Ouvrir' },
+    comparatorCTA: 'Ouvrir le comparateur',
+    comparatorCTAText: 'Trouvez la caisse la plus avantageuse pour votre situation',
+    viewCantonCTA: (c) => `Ouvrir ${c}`,
+    openLeafCTA: 'Ouvrir',
+    rootBackgroundTitle: 'Ce que couvre la LAMal',
+    rootBackground:
+      "La loi fédérale sur l'assurance maladie (LAMal) garantit à tout résident — et aux frontaliers ayant choisi le système suisse — les soins médicaux de base : consultations, hospitalisation en division commune, médicaments de la liste des spécialités, maternité, psychiatrie de base, physiothérapie prescrite. Elle ne couvre pas les soins dentaires de routine, la chambre privée, les médecines alternatives non reconnues, les lentilles de contact : il faut pour cela une complémentaire (LCA).",
+    faqTitle: 'Questions fréquentes',
+    rootFaq: [
+      {
+        q: 'Comment les primes LAMal sont-elles fixées ?',
+        a: (y) =>
+          `Chaque caisse soumet ses tarifs au Conseil fédéral qui les approuve fin septembre. Jusqu'au 31 octobre ${y - 1} les assurés reçoivent la notification pour l'année suivante et ont jusqu'au 30 novembre pour changer de caisse.`,
+      },
+      {
+        q: 'Quels cantons ont les primes les plus basses ?',
+        a: () =>
+          'La Suisse centrale et orientale a généralement les primes les plus basses ; Genève, Bâle-Ville et le Tessin sont en haut de fourchette. La variation au sein même d\'un canton est aussi importante (2-3 régions de prime dans beaucoup de cantons).',
+      },
+      {
+        q: 'Puis-je changer de caisse en cours d\'année ?',
+        a: () =>
+          "Seulement dans des cas particuliers (hausse extraordinaire, changement de canton). La fenêtre standard de changement est avant le 30 novembre pour la couverture de l'année suivante.",
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `Combien coûte l'assurance maladie à ${c} en 2026 ?`,
+        a: (c, m, y) =>
+          `La médiane adulte à ${c} en ${y} est de ${m} CHF/mois (franchise 300, sans accident). La variation entre caisses est importante : ouvrez la tranche d'âge qui vous concerne pour le classement complet.`,
+      },
+      {
+        q: () => 'Les régions de prime font-elles une différence ?',
+        a: () =>
+          "Oui. Beaucoup de cantons sont divisés en 2-3 régions de prime avec 20-30 CHF/mois de différence. Le Tessin n'a qu'une région ; Grisons et Valais en ont trois, avec des primes plus basses en périphérie.",
+      },
+    ],
+    priceUnit: 'CHF/mois',
+    updatedLabel: 'Mis à jour',
+  },
+};
+
+// ── Page builders ─────────────────────────────────────────────
+
+interface LeafInputs {
+  locale: HealthPremiumLocale;
+  canton: HealthPremiumCanton;
+  age: HealthPremiumAgeBracket;
+  dataset: HealthPremiumsDataset;
+  stats: CantonPremiumStats;
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
+  canonicalPath: string;
+  alternates: Record<HealthPremiumLocale, string>;
+  today: Date;
+}
+
+function renderLeafPage(inp: LeafInputs): string {
+  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today } = inp;
+  const copy = LEAF_COPY[locale];
+  const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
+  const ageLabel = HEALTH_PREMIUM_AGE_LABEL[locale][age];
+  const multiplier = HEALTH_PREMIUM_AGE_MULTIPLIER[age];
+  const year = dataset.year ?? today.getUTCFullYear();
+
+  // Apply multiplier to adult premiums to derive bracket-specific values.
+  const perInsurer = stats.ranked.map((r) => ({
+    insurerId: r.insurerId,
+    insurerName: resolveInsurerName(dataset, r.insurerId),
+    price: roundCHF(r.price * multiplier),
+  }));
+  const top20 = perInsurer.slice(0, 20);
+  const prices = perInsurer.map((p) => p.price);
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
+  const med = median(prices) ?? 0;
+
+  const medFmt = formatCHF(med, locale);
+  const minFmt = formatCHF(min, locale);
+  const maxFmt = formatCHF(max, locale);
+
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const h1 = copy.h1(cantonLabel, ageLabel);
+  const intro = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
+
+  // Top-20 table
+  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    <thead><tr>
+      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableHeaders.rank)}</th>
+      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableHeaders.insurer)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableHeaders.premium)}</th>
+    </tr></thead>
+    <tbody>${top20
+      .map(
+        (r, i) => `<tr>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(r.insurerName)}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#1d4ed8;font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.price, locale)} ${esc(copy.priceUnit)}</td>
+      </tr>`,
+      )
+      .join('')}</tbody>
+  </table>`;
+
+  // Canton ranking comparison
+  const rankingRows: Array<{ canton: HealthPremiumCanton; price: number | null }> = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
+    const s = allCantonStats[c];
+    if (!s) {
+      rankingRows.push({ canton: c, price: null });
+      continue;
+    }
+    const adultMed = s.adultMedian ?? 0;
+    rankingRows.push({ canton: c, price: roundCHF(adultMed * multiplier) });
+  }
+  // Sort by price ascending, missing last
+  rankingRows.sort((a, b) => {
+    if (a.price === null && b.price === null) return 0;
+    if (a.price === null) return 1;
+    if (b.price === null) return -1;
+    return a.price - b.price;
+  });
+  const rankingHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    <thead><tr>
+      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">#</th>
+      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
+    </tr></thead>
+    <tbody>${rankingRows
+      .map(
+        (r, i) => `<tr${r.canton === canton ? ' style="background:#eef2ff"' : ''}>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a${r.canton === canton ? ';font-weight:700' : ''}">${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
+      </tr>`,
+      )
+      .join('')}</tbody>
+  </table>`;
+
+  // Stats cards
+  const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
+      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.median)}</div>
+      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${medFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
+      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.min)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${minFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#fef3c7;border:1px solid #fde68a">
+      <div style="font-size:12px;color:#78350f;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.max)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${maxFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
+      <div style="font-size:12px;color:#334155;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.insurers)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${perInsurer.length}</div>
+    </div>
+  </section>`;
+
+  // FAQ
+  const faqItems = copy.faq;
+  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
+    <h2 id="hpFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q(cantonLabel, ageLabel))}</summary>
+        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  // hreflang alternates
+  const alternatesHtml = (Object.keys(alternates) as HealthPremiumLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  // Comparator CTA with pre-filter query
+  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}?canton=${stats.cantonBagCode}&age=${age}`;
+
+  // JSON-LD
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.breadcrumbRoot, item: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: cantonLabel, item: `${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: ageLabel, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q(cantonLabel, ageLabel),
+      acceptedAnswer: { '@type': 'Answer', text: f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt) },
+    })),
+  });
+
+  const productLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `LAMal premium ${cantonLabel} ${ageLabel}`,
+    description: intro.slice(0, 200),
+    category: 'HealthInsurance',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'CHF',
+      lowPrice: min.toFixed(2),
+      highPrice: max.toFixed(2),
+      offerCount: perInsurer.length,
+      url: canonicalUrl,
+      availability: 'https://schema.org/InStock',
+    },
+  });
+
+  const title = `${h1} | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbRoot)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" style="color:#1d4ed8;text-decoration:none">${esc(cantonLabel)}</a>
+    <span> / </span>
+    <span>${esc(ageLabel)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">LAMal ${year}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+  </header>
+  ${statsHtml}
+  <section style="margin:0 0 24px" aria-labelledby="top20">
+    <h2 id="top20" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
+    ${tableHtml}
+    ${age === '0-18' || age === '19-25' ? `<p style="margin:12px 0 0;color:#78350f;font-size:13px;line-height:1.5;padding:12px;background:#fef3c7;border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="ranking">
+    <h2 id="ranking" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.rankingTitle)}</h2>
+    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.rankingIntro(cantonLabel))}</p>
+    ${rankingHtml}
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="editorial">
+    <h2 id="editorial" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.editorialTitle)}</h2>
+    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="comparatorCta">
+    <h2 id="comparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
+  ${faqHtml}
+</main>`;
+
+  return `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternatesHtml}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${webPageLd}</script>
+    <script type="application/ld+json">${faqLd}</script>
+    <script type="application/ld+json">${productLd}</script>
+    ${ANALYTICS_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+${bodyHtml}
+    </div>
+  </body>
+</html>`;
+}
+
+interface CantonHubInputs {
+  locale: HealthPremiumLocale;
+  canton: HealthPremiumCanton;
+  dataset: HealthPremiumsDataset;
+  stats: CantonPremiumStats;
+  canonicalPath: string;
+  alternates: Record<HealthPremiumLocale, string>;
+  today: Date;
+}
+
+function renderCantonHubPage(inp: CantonHubInputs): string {
+  const { locale, canton, dataset, stats, canonicalPath, alternates, today } = inp;
+  const copy = HUB_COPY[locale];
+  const leafCopy = LEAF_COPY[locale];
+  const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
+  const year = dataset.year ?? today.getUTCFullYear();
+
+  const adultMed = stats.adultMedian ?? 0;
+  const adultMin = stats.adultMin ?? 0;
+  const adultMax = stats.adultMax ?? 0;
+  const medFmt = formatCHF(adultMed, locale);
+  const minFmt = formatCHF(adultMin, locale);
+  const maxFmt = formatCHF(adultMax, locale);
+
+  // Age grid
+  const ageGridRows = HEALTH_PREMIUM_AGE_BRACKETS.map((ab) => {
+    const mult = HEALTH_PREMIUM_AGE_MULTIPLIER[ab.id];
+    const med = roundCHF(adultMed * mult);
+    const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
+    return { ab, med, leafPath };
+  });
+  const ageGridHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    <thead><tr>
+      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.ageGridHeaders.age)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.ageGridHeaders.median)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.ageGridHeaders.slug)}</th>
+    </tr></thead>
+    <tbody>${ageGridRows
+      .map(
+        (r) => `<tr>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.med, locale)} ${esc(copy.priceUnit)}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;text-align:right"><a href="${esc(r.leafPath)}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(copy.openLeafCTA)} →</a></td>
+      </tr>`,
+      )
+      .join('')}</tbody>
+  </table>`;
+
+  // Stats cards
+  const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
+      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.median)}</div>
+      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${medFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
+      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.min)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${minFmt}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#fef3c7;border:1px solid #fde68a">
+      <div style="font-size:12px;color:#78350f;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.max)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${maxFmt}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
+      <div style="font-size:12px;color:#334155;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.insurers)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${stats.ranked.length}</div>
+    </div>
+  </section>`;
+
+  // Canton FAQ
+  const faqItems = copy.cantonFaq;
+  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
+    <h2 id="hpFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q(cantonLabel))}</summary>
+        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(cantonLabel, medFmt, year))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  const alternatesHtml = (Object.keys(alternates) as HealthPremiumLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const h1 = copy.h1Canton(cantonLabel, year);
+  const intro = copy.introCanton(cantonLabel, medFmt, minFmt, maxFmt, year);
+  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}?canton=${stats.cantonBagCode}`;
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: leafCopy.breadcrumbRoot, item: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: cantonLabel, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q(cantonLabel),
+      acceptedAnswer: { '@type': 'Answer', text: f.a(cantonLabel, medFmt, year) },
+    })),
+  });
+
+  const title = `${h1} | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(leafCopy.breadcrumbRoot)}</a>
+    <span> / </span>
+    <span>${esc(cantonLabel)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+  </header>
+  ${statsHtml}
+  <section style="margin:0 0 24px" aria-labelledby="ageGrid">
+    <h2 id="ageGrid" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.ageGridTitle(cantonLabel))}</h2>
+    ${ageGridHtml}
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
+    <h2 id="cantonComparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
+  ${faqHtml}
+</main>`;
+
+  return `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternatesHtml}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${webPageLd}</script>
+    <script type="application/ld+json">${faqLd}</script>
+    ${ANALYTICS_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+${bodyHtml}
+    </div>
+  </body>
+</html>`;
+}
+
+interface RootHubInputs {
+  locale: HealthPremiumLocale;
+  dataset: HealthPremiumsDataset;
+  cantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
+  canonicalPath: string;
+  alternates: Record<HealthPremiumLocale, string>;
+  today: Date;
+}
+
+function renderRootHubPage(inp: RootHubInputs): string {
+  const { locale, dataset, cantonStats, canonicalPath, alternates, today } = inp;
+  const copy = HUB_COPY[locale];
+  const leafCopy = LEAF_COPY[locale];
+  const year = dataset.year ?? today.getUTCFullYear();
+
+  // Canton grid with adult median/min/max
+  const cantonRows = HEALTH_PREMIUM_CANTONS.map((c) => {
+    const s = cantonStats[c];
+    if (!s) return { canton: c, med: null, min: null, max: null };
+    return {
+      canton: c,
+      med: s.adultMedian,
+      min: s.adultMin,
+      max: s.adultMax,
+    };
+  });
+  const cantonGridHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    <thead><tr>
+      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.canton)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.median)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.min)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.max)}</th>
+      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">&nbsp;</th>
+    </tr></thead>
+    <tbody>${cantonRows
+      .map((r) => {
+        const cantonPath = buildHealthPremiumsCantonPath(locale, r.canton);
+        const name = HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton];
+        return `<tr>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-weight:700"><a href="${esc(cantonPath)}" style="color:#1d4ed8;text-decoration:none">${esc(name)}</a></td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.med === null ? '—' : formatCHF(r.med, locale) + ' ' + esc(copy.priceUnit)}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.min === null ? '—' : formatCHF(r.min, locale)}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.max === null ? '—' : formatCHF(r.max, locale)}</td>
+        <td style="padding:10px;border-bottom:1px solid #f1f5f9;text-align:right"><a href="${esc(cantonPath)}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(copy.viewCantonCTA(name))} →</a></td>
+      </tr>`;
+      })
+      .join('')}</tbody>
+  </table>`;
+
+  const faqItems = copy.rootFaq;
+  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
+    <h2 id="hpFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q)}</summary>
+        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(year))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  const alternatesHtml = (Object.keys(alternates) as HealthPremiumLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const h1 = copy.h1Root(year);
+  const intro = copy.introRoot(year);
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: leafCopy.breadcrumbRoot, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a(year) },
+    })),
+  });
+
+  const title = `${h1} | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <span>${esc(leafCopy.breadcrumbRoot)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">LAMal ${year}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+  </header>
+  <section style="margin:0 0 24px" aria-labelledby="cantonGrid">
+    <h2 id="cantonGrid" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.cantonGridTitle)}</h2>
+    ${cantonGridHtml}
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="background">
+    <h2 id="background" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.rootBackgroundTitle)}</h2>
+    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.rootBackground)}</p>
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
+    <h2 id="rootComparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
+  ${faqHtml}
+</main>`;
+
+  return `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternatesHtml}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${webPageLd}</script>
+    <script type="application/ld+json">${faqLd}</script>
+    ${ANALYTICS_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+${bodyHtml}
+    </div>
+  </body>
+</html>`;
+}
+
+// ── Pure generator ─────────────────────────────────────────────
+
+/**
+ * Pure generator — used by both the Vite plugin (closeBundle) and tests.
+ * Produces a map of canonical path → HTML string and a summary of cantons
+ * that had to be skipped for missing data.
+ */
+export interface GenerateHealthPremiumsResult {
+  pages: Record<string, string>;
+  skippedCantons: HealthPremiumCanton[];
+}
+
+export function generateHealthPremiumsPages(opts: {
+  dataset: HealthPremiumsDataset;
+  today?: Date;
+}): GenerateHealthPremiumsResult {
+  const dataset = opts.dataset;
+  const today = opts.today ?? new Date();
+
+  // Precompute per-canton stats once.
+  const cantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null> = {
+    ticino: null,
+    grigioni: null,
+    uri: null,
+    vallese: null,
+    zurigo: null,
+  };
+  const skippedCantons: HealthPremiumCanton[] = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
+    const stats = computeCantonStats(dataset, c);
+    cantonStats[c] = stats;
+    if (!stats) {
+      skippedCantons.push(c);
+      console.warn(
+        `[health-premiums] no premium data for canton ${c} (BAG code ${HEALTH_PREMIUM_CANTON_BAG_CODE[c]}) — skipping its pages`,
+      );
+    }
+  }
+
+  const pages: Record<string, string> = {};
+
+  for (const locale of HEALTH_PREMIUM_LOCALES) {
+    // Root hub
+    const rootPath = buildHealthPremiumsRootPath(locale);
+    const rootAlternates: Record<HealthPremiumLocale, string> = {
+      it: buildHealthPremiumsRootPath('it'),
+      en: buildHealthPremiumsRootPath('en'),
+      de: buildHealthPremiumsRootPath('de'),
+      fr: buildHealthPremiumsRootPath('fr'),
+    };
+    pages[rootPath] = renderRootHubPage({
+      locale,
+      dataset,
+      cantonStats,
+      canonicalPath: rootPath,
+      alternates: rootAlternates,
+      today,
+    });
+
+    for (const canton of HEALTH_PREMIUM_CANTONS) {
+      const stats = cantonStats[canton];
+      if (!stats) continue;
+
+      const cantonPath = buildHealthPremiumsCantonPath(locale, canton);
+      const cantonAlternates: Record<HealthPremiumLocale, string> = {
+        it: buildHealthPremiumsCantonPath('it', canton),
+        en: buildHealthPremiumsCantonPath('en', canton),
+        de: buildHealthPremiumsCantonPath('de', canton),
+        fr: buildHealthPremiumsCantonPath('fr', canton),
+      };
+      pages[cantonPath] = renderCantonHubPage({
+        locale,
+        canton,
+        dataset,
+        stats,
+        canonicalPath: cantonPath,
+        alternates: cantonAlternates,
+        today,
+      });
+
+      for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
+        const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
+        const leafAlternates: Record<HealthPremiumLocale, string> = {
+          it: buildHealthPremiumsLeafPath('it', canton, ab.id),
+          en: buildHealthPremiumsLeafPath('en', canton, ab.id),
+          de: buildHealthPremiumsLeafPath('de', canton, ab.id),
+          fr: buildHealthPremiumsLeafPath('fr', canton, ab.id),
+        };
+        pages[leafPath] = renderLeafPage({
+          locale,
+          canton,
+          age: ab.id,
+          dataset,
+          stats,
+          allCantonStats: cantonStats,
+          canonicalPath: leafPath,
+          alternates: leafAlternates,
+          today,
+        });
+      }
+    }
+  }
+
+  return { pages, skippedCantons };
+}
+
+// ── Sitemap ────────────────────────────────────────────────────
+
+function buildSitemapXml(
+  paths: string[],
+  today: Date,
+  pathsByCanonical: Record<string, { alternates: string[] }>,
+): string {
+  const date = today.toISOString().slice(0, 10);
+  const entries = paths
+    .filter((p) => !p.startsWith('/en/') && !p.startsWith('/de/') && !p.startsWith('/fr/'))
+    .map((canonical) => {
+      const meta = pathsByCanonical[canonical];
+      const alt = meta
+        ? meta.alternates
+            .map((h) => `    <xhtml:link rel="alternate" hreflang="${h.split(':')[0]}" href="${h.split(':').slice(1).join(':')}" />`)
+            .join('\n')
+        : '';
+      return `  <url>
+    <loc>${BASE_URL}${canonical}</loc>
+${alt}
+    <lastmod>${date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries}
+</urlset>
+`;
+}
+
+function patchSitemapIndex(distDir: string, dateStamp: string): void {
+  const indexPath = np.join(distDir, 'sitemap.xml');
+  if (!fs.existsSync(indexPath)) return;
+  try {
+    let idx = fs.readFileSync(indexPath, 'utf-8');
+    if (!idx.includes('sitemap-health-premiums.xml')) {
+      idx = idx.replace(
+        '</sitemapindex>',
+        `  <sitemap>\n    <loc>${BASE_URL}/sitemap-health-premiums.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
+      );
+    } else {
+      idx = idx.replace(
+        /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-health-premiums\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+        `$1${dateStamp}$2`,
+      );
+    }
+    fs.writeFileSync(indexPath, idx, 'utf-8');
+  } catch (err) {
+    console.warn('[health-premiums] failed to patch sitemap index', err);
+  }
+}
+
+// ── Plugin entry ───────────────────────────────────────────────
+
+export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
+  return {
+    name: 'health-premiums-landing',
+    apply: 'build',
+    async closeBundle() {
+      if (process.env.SKIP_HEALTH_PREMIUMS === '1') {
+        console.log('\x1b[33m[health-premiums]\x1b[0m Skipped (SKIP_HEALTH_PREMIUMS=1)');
+        return;
+      }
+
+      const distDir = np.resolve(rootDir, 'dist');
+      if (!fs.existsSync(distDir)) return;
+
+      const dataPath = np.resolve(rootDir, 'data', 'health-premiums.json');
+      let dataset: HealthPremiumsDataset = {};
+      try {
+        if (fs.existsSync(dataPath)) {
+          const raw = fs.readFileSync(dataPath, 'utf-8');
+          dataset = JSON.parse(raw) as HealthPremiumsDataset;
+        } else {
+          console.warn('[health-premiums] data/health-premiums.json missing — skipping plugin');
+          return;
+        }
+      } catch (err) {
+        console.warn('[health-premiums] failed to read data/health-premiums.json', err);
+        return;
+      }
+
+      const today = new Date();
+      const { pages, skippedCantons } = generateHealthPremiumsPages({ dataset, today });
+
+      const collector = new WriteCollector({ distDir, skipExisting: false });
+      let pagesWritten = 0;
+      let skippedForWordCount = 0;
+      const writtenPaths: string[] = [];
+
+      for (const [path, html] of Object.entries(pages)) {
+        const words = countHtmlBodyWords(html);
+        if (words < MIN_INDEXABLE_WORDS) {
+          skippedForWordCount++;
+          console.warn(`[health-premiums] thin content (${words} words) for ${path} — skipping`);
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        pagesWritten++;
+        writtenPaths.push(path);
+      }
+
+      await collector.flush();
+
+      // Sitemap — emit only IT canonicals, with hreflang alternates pointing to each localised path.
+      try {
+        const pathsByCanonical: Record<string, { alternates: string[] }> = {};
+        for (const path of writtenPaths) {
+          if (path.startsWith('/en/') || path.startsWith('/de/') || path.startsWith('/fr/')) continue;
+          // Build list of hreflang alternates: find corresponding entries in other locales.
+          const alts: string[] = [];
+          for (const alt of HEALTH_PREMIUM_LOCALES) {
+            const altPath = deriveAltPath(path, alt);
+            if (altPath && writtenPaths.includes(altPath)) {
+              alts.push(`${alt}:${BASE_URL}${altPath}`);
+            }
+          }
+          alts.push(`x-default:${BASE_URL}${path}`);
+          pathsByCanonical[path] = { alternates: alts };
+        }
+        const xml = buildSitemapXml(writtenPaths, today, pathsByCanonical);
+        fs.writeFileSync(np.join(distDir, 'sitemap-health-premiums.xml'), xml, 'utf-8');
+        patchSitemapIndex(distDir, today.toISOString().slice(0, 10));
+      } catch (err) {
+        console.warn('[health-premiums] failed to write sitemap', err);
+      }
+
+      console.log(
+        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'})`,
+      );
+    },
+  };
+}
+
+/**
+ * Given an Italian canonical path like `/premi-cassa-malati/ticino/adulto-31-45/`,
+ * derive the equivalent path in the target locale by re-mapping the section,
+ * canton and age slugs. Returns `null` when the path does not match the
+ * expected shape.
+ */
+function deriveAltPath(itPath: string, targetLocale: HealthPremiumLocale): string | null {
+  if (targetLocale === 'it') return itPath;
+  const parts = itPath.split('/').filter(Boolean);
+  if (parts.length < 1) return null;
+  // Expected: [section] or [section, canton] or [section, canton, age]
+  const section = parts[0];
+  // Validate IT section slug
+  if (section !== 'premi-cassa-malati') return null;
+  // Import slug maps from the data module to avoid duplicating them here
+  // (we keep this inline to prevent a circular import).
+  const ageMap: Record<string, HealthPremiumAgeBracket> = {
+    'bambini-0-18': '0-18',
+    'giovani-adulti-19-25': '19-25',
+    'adulto-26-30': '26-30',
+    'adulto-31-45': '31-45',
+    'adulto-46-55': '46-55',
+    'adulto-56-piu': '56-plus',
+  };
+  const cantonMap: Record<string, HealthPremiumCanton> = {
+    ticino: 'ticino',
+    grigioni: 'grigioni',
+    uri: 'uri',
+    vallese: 'vallese',
+    zurigo: 'zurigo',
+  };
+  if (parts.length === 1) return buildHealthPremiumsRootPath(targetLocale);
+  const canton = cantonMap[parts[1]];
+  if (!canton) return null;
+  if (parts.length === 2) return buildHealthPremiumsCantonPath(targetLocale, canton);
+  const age = ageMap[parts[2]];
+  if (!age) return null;
+  return buildHealthPremiumsLeafPath(targetLocale, canton, age);
+}
