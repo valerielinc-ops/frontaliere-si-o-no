@@ -417,32 +417,66 @@ const CurrencyExchange: React.FC = () => {
  const best = results[0];
  const worst = results[results.length - 1];
  const savingsVsWorst = worst.totalCost - best.totalCost;
+ // Top-ranked provider with affiliate link (falls back across ranked list)
+ const topAffiliate = results.find(r => r.provider.referralUrl);
 
  return (
  <div className="max-w-7xl mx-auto space-y-6">
  {/* Header */}
  <div className="bg-gradient-to-br from-success-strong-hover to-info-strong-hover rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-on-accent">
- <div className="flex items-center gap-3 sm:gap-4 mb-4">
+ <div className="flex items-center gap-3 sm:gap-4">
  <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
  <div>
  <h1 className="text-xl sm:text-3xl font-extrabold font-display">{t('currency.title')}</h1>
  <p className="text-on-accent/80 text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
  </div>
  </div>
+ </div>
 
- {/* Important Notice */}
- <div className="mt-6 p-4 bg-on-accent/10 rounded-2xl border border-on-accent/20">
- <div className="flex items-start gap-3">
- <AlertCircle size={24} className="flex-shrink-0 mt-0.5" />
- <div className="text-sm">
- <p className="font-bold mb-2">⚠️ {t('currency.notice_title')}</p>
- <p className="text-on-accent/80 leading-relaxed">
+ {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
+ {topAffiliate && (
+ <a
+ href={appendUtm(topAffiliate.provider.referralUrl!, topAffiliate.provider.name)}
+ target="_blank"
+ rel="noopener noreferrer"
+ onClick={() => Analytics.trackExternalLink(topAffiliate.provider.referralUrl!, topAffiliate.provider.name)}
+ aria-label={`${t('currency.best_offer_cta')} — ${topAffiliate.provider.name}`}
+ className="block rounded-2xl border-2 border-success bg-gradient-to-r from-success-subtle to-info-subtle p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-success-strong transition-all"
+ >
+ <div className="flex items-center justify-between gap-3 sm:gap-4 flex-wrap">
+ <div className="flex items-center gap-3 min-w-0">
+ <div className="flex-shrink-0 text-3xl sm:text-4xl">{topAffiliate.provider.logo}</div>
+ <div className="min-w-0">
+ <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-success-strong text-on-accent text-[10px] sm:text-xs font-bold rounded-full mb-1">
+ <CheckCircle2 size={12} />
+ {t('currency.best_offer_badge')}
+ </div>
+ <div className="text-sm sm:text-base font-bold font-display text-strong truncate">
+ {topAffiliate.provider.name}
+ </div>
+ <div className="text-xs sm:text-sm text-subtle">
+ {t('currency.best_offer_savings', { amount: `CHF ${savingsVsWorst.toFixed(2)}` })}
+ </div>
+ </div>
+ </div>
+ <span className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-xl text-sm font-semibold font-display transition-colors whitespace-nowrap">
+ {t('currency.best_offer_cta')}
+ <ArrowRightLeft size={16} />
+ </span>
+ </div>
+ </a>
+ )}
+
+ {/* Important Notice — sibling, not nested */}
+ <aside role="note" className="flex items-start gap-3 border-l-0 border border-warning-border bg-warning-subtle rounded-xl px-4 py-3">
+ <AlertCircle size={20} className="flex-shrink-0 mt-0.5 text-warning" aria-hidden="true" />
+ <div className="text-sm text-body">
+ <p className="font-bold mb-1 text-strong">{t('currency.notice_title')}</p>
+ <p className="text-subtle leading-relaxed">
  {t('currency.notice_text')}
  </p>
  </div>
- </div>
- </div>
- </div>
+ </aside>
 
  {/* Sub-tab navigation */}
  <SegmentControl

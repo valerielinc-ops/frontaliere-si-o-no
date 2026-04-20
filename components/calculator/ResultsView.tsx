@@ -4,10 +4,12 @@ import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRig
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
 import DataFreshness from '@/components/shared/DataFreshness';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 // ComparisonChart is lazy-loaded to avoid pulling vendor-charts (~114KB gzip) into the critical path
 const ComparisonChart = lazyRetry(() => import('./ComparisonChart').then(m => ({ default: m.ComparisonChart })));
 const SubscriptionCTA = lazyRetry(() => import('@/components/shared/SubscriptionCTA'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -719,6 +721,16 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  {/* Post-calculation newsletter CTA */}
  <Suspense fallback={null}>
  <SubscriptionCTA />
+ </Suspense>
+
+ {/* AdSense: in-page multiplex after high-intent simulation_complete moment */}
+ <Suspense fallback={null}>
+ <AdSenseBanner
+ adSlot={AD_SLOTS.CALCULATOR_POST_RESULT.slot}
+ adFormat={AD_SLOTS.CALCULATOR_POST_RESULT.format}
+ fullWidthResponsive={AD_SLOTS.CALCULATOR_POST_RESULT.fullWidthResponsive}
+ className="my-6"
+ />
  </Suspense>
 
  {/* SEO: Internal cross-links to related tools */}
