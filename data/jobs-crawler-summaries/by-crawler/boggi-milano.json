@@ -1,16 +1,16 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-04-20T10:10:57.823Z",
+  "generatedAt": "2026-04-20T21:08:03.179Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 5513,
-  "avgDurationMs": 5513,
+  "updatedCount": 4,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 5782,
+  "avgDurationMs": 5782,
   "durationHistory": [
-    5513
+    5782
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -124,48 +124,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Retail HR Specialist",
-      "slug": "specialista-hr-retail-boggi-milano-mendrisio",
-      "url": "https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2",
-      "applyUrl": "https://boggimilano1.recruitee.com/o/retail-hr-specialist-2/c/new",
-      "company": "Boggi Milano",
-      "companyKey": "boggi-milano",
-      "companyDomain": "recruitee.com",
-      "location": "Mendrisio, Ticino",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Moda & Retail",
-      "source": "boggi-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "streetAddress": "Via A. Maspoli 18",
-      "postalCode": "6850",
-      "id": "boggi-milano-2f33a8326479",
-      "firstSeenAt": "2026-04-13T21:15:19.174Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Cercasi Neolaureato/a in Ingegneria Gestionale per stage in ambito Purchasing",
       "slug": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
@@ -203,5 +162,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
