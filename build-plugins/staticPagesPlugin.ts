@@ -14,6 +14,12 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { translateFaqPage } from '../services/seo/faq-translations';
 import { translateHowToSchema } from '../services/seo/howto-translations';
+import {
+ buildJobBoardSeo,
+ getActiveJobCountsByLocale,
+ isJobBoardLandingPath,
+ type JobBoardLocale,
+} from './jobBoardSeo';
 
 // ── FAQ page dedicated pre-rendering ──────────────────────────────────
 // The dedicated FAQ page at /domande-frequenti-frontalieri/ has 30 Q&A pairs
@@ -981,6 +987,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
 
+ /* ── Dynamic job-board landing SEO (live counts + fire emoji) ── */
+ // Reads data/jobs.json once and computes per-locale active-job counts.
+ // Used below to override the static title/description on job-board landing
+ // pages so Googlebot sees a fresh "N 🔥" signal on each build.
+ const jobBoardCounts = getActiveJobCountsByLocale(rootDir);
+ const jobBoardYear = new Date().getFullYear();
+ console.log(`\x1b[36m[static-pages]\x1b[0m Job board counts: it=${jobBoardCounts.it} en=${jobBoardCounts.en} de=${jobBoardCounts.de} fr=${jobBoardCounts.fr} (year=${jobBoardYear})`);
+
  /* ── 3. Generate static pages ──────────────────────────────── */
  const esc = (s: string) =>
  s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -1274,6 +1288,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ogT: `${readableTitle} | Frontaliere Ticino`,
  ogD: `Informazioni utili per frontalieri: ${readableTitle.toLowerCase()}.`,
  };
+ }
+
+ // Dynamic override for the IT job-board landing: inject the live count
+ // + fire emoji into title/description. Keeps existing structured data.
+ if (isJobBoardLandingPath(url.path) && jobBoardCounts.it > 0) {
+ const dyn = buildJobBoardSeo('it', jobBoardCounts.it, jobBoardYear);
+ seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD };
  }
 
  // Detect locale from path
@@ -2430,6 +2451,23 @@ ${hrefTags}
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
  const locSeo = seoMap.get(locPath) ?? deriveLocaleSeo(locPath, hl.lang, seo);
+
+ // Dynamic override for per-locale job-board landings (en/de/fr): inject
+ // live active-job count + fire emoji so each locale ships a unique title
+ // reflecting its translated jobs (jobs without a ≥50-word locale body are
+ // excluded from that locale's count).
+ if (
+ isJobBoardLandingPath(locPath)
+ && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')
+ && jobBoardCounts[hl.lang as JobBoardLocale] > 0
+ ) {
+ const loc = hl.lang as JobBoardLocale;
+ const dyn = buildJobBoardSeo(loc, jobBoardCounts[loc], jobBoardYear);
+ locSeo.title = dyn.title;
+ locSeo.desc = dyn.desc;
+ locSeo.ogT = dyn.ogT;
+ locSeo.ogD = dyn.ogD;
+ }
 
  // Translate FAQPage structured data for non-IT locale variants
  if (locSeo.sd) {
