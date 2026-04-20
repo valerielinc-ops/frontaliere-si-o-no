@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-04-20T05:11:32.257Z",
+  "generatedAt": "2026-04-20T11:12:00.604Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7800,
-  "avgDurationMs": 7800,
+  "durationMs": 10389,
+  "avgDurationMs": 10389,
   "durationHistory": [
-    7800
+    10389
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-b8ab80bfb2e1",
       "slug": "prada-store-manager-zurich-prada-group-zurich",
@@ -33,20 +34,19 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T05:11:26.980Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-04-20T11:11:53.469Z",
+      "firstSeenAt": "2026-04-20T05:11:26.980Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-e41a47cd1c53",
-      "slug": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisio-mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract",
+      "slug": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-group-mendrisio",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/Mendrisio-Mendrisio-Outlet-Client-Advisor-part-time-domenicale-%28limited-contract%29/1377980233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T05:11:27.411Z",
+      "crawledAt": "2026-04-20T11:11:54.069Z",
       "firstSeenAt": "2026-04-13T22:16:01.993Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T05:11:27.844Z",
+      "crawledAt": "2026-04-20T11:11:54.702Z",
       "firstSeenAt": "2026-04-13T11:07:34.691Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T05:11:27.844Z",
+      "crawledAt": "2026-04-20T11:11:54.702Z",
       "firstSeenAt": "2026-04-13T11:07:34.691Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -160,7 +160,7 @@
       "url": "https://jobs.pradagroup.com/job/Mendrisio-Mendrisio-Outlet-Client-Advisor-part-time-domenicale-%28limited-contract%29/1377980233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T05:11:27.411Z",
+      "crawledAt": "2026-04-20T11:11:54.069Z",
       "firstSeenAt": "2026-04-13T22:16:01.993Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -194,16 +194,16 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T05:11:26.980Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-04-20T11:11:53.469Z",
+      "firstSeenAt": "2026-04-20T05:11:26.980Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "8001",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
