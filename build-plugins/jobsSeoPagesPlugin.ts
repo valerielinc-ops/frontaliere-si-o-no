@@ -14,6 +14,7 @@ import { buildSimplePage } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
+import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -1675,8 +1676,9 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const companyPrimaryCanton = [...new Set(companyJobs.map((j: any) => String(j.canton || DEFAULT_CANTON)).filter(Boolean))][0] || DEFAULT_CANTON;
  const companyDisplayCanton = CANTON_DISPLAY[companyPrimaryCanton] || companyPrimaryCanton;
  const copy = getCompanyCopy(companyDisplayCanton)[locale];
- const title = copy.title(companyName);
- const description = copy.description(companyName, companyJobs.length);
+ // Tentative defaults — overridden below if a curated brand is registered.
+ let title = copy.title(companyName);
+ let description = copy.description(companyName, companyJobs.length);
 
  const alternates = localeList.map((l) => {
  const lSlug = `${companyRoutePrefix[l]}-${cSlug}`;
@@ -1733,7 +1735,143 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  }
  // Remove undefined values before serialization
  if (!orgLdObj.url) delete orgLdObj.url;
- const organizationLd = JSON.stringify(orgLdObj);
+ // Curated employer brand overlay (EOC, Lidl, …). When present, we
+ // (a) override the generic organization JSON-LD with a richer one,
+ // (b) emit FAQPage + ItemList JSON-LD, and
+ // (c) swap the generic "About/Frontalier" sections for the curated hub HTML.
+ const curatedBrand: EmployerBrand | undefined = EMPLOYER_BRANDS[cSlug];
+ let organizationLd: string;
+ let curatedExtraLd = '';
+ let curatedBodyHtml = '';
+ let curatedMetaTitle: string | undefined;
+ let curatedMetaDescription: string | undefined;
+ if (curatedBrand) {
+ const brandCopy = curatedBrand.copy[locale];
+ const curatedOrgLd: Record<string, unknown> = {
+ '@context': 'https://schema.org',
+ '@type': 'Organization',
+ name: curatedBrand.name,
+ legalName: curatedBrand.fullName,
+ alternateName: curatedBrand.shortName,
+ url: curatedBrand.website,
+ address: {
+ '@type': 'PostalAddress',
+ streetAddress: curatedBrand.headquarters.streetAddress,
+ postalCode: curatedBrand.headquarters.postalCode,
+ addressLocality: curatedBrand.headquarters.addressLocality,
+ addressRegion: curatedBrand.headquarters.addressRegion,
+ addressCountry: curatedBrand.headquarters.addressCountry,
+ },
+ description: brandCopy.paragraphs[0] ?? brandCopy.tagline,
+ numberOfEmployees: { '@type': 'QuantitativeValue', value: companyJobs.length, unitText: 'open positions' },
+ ...(curatedBrand.sameAs && curatedBrand.sameAs.length > 0 ? { sameAs: [...curatedBrand.sameAs] } : {}),
+ };
+ organizationLd = JSON.stringify(curatedOrgLd);
+
+ // ItemList with top open roles
+ const itemListItems = companyJobs.slice(0, 10).map((job, idx) => {
+ const jSlug = localizedSlug(job, locale);
+ const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+ const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ return { '@type': 'ListItem', position: idx + 1, url: jHref, name: jTitle };
+ });
+ const itemListLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: `${curatedBrand.shortName} — ${brandCopy.sectionHeadings.openRoles}`,
+ url: canonicalUrl,
+ numberOfItems: companyJobs.length,
+ itemListElement: itemListItems,
+ });
+ const faqLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: brandCopy.faqs.map((f) => ({
+ '@type': 'Question',
+ name: f.q,
+ acceptedAnswer: { '@type': 'Answer', text: f.a },
+ })),
+ });
+ curatedExtraLd = `\n <script type="application/ld+json">${itemListLd}</script>\n <script type="application/ld+json">${faqLd}</script>`;
+ curatedMetaTitle = brandCopy.metaTitle;
+ curatedMetaDescription = brandCopy.metaDescription;
+
+ // Curated body HTML — replaces the generic company landing body.
+ const paragraphsHtml = brandCopy.paragraphs.map((p) => `<p>${esc(p)}</p>`).join('');
+ const locationsHtml = curatedBrand.locations
+ .map((loc) => `<li>${esc(loc)}</li>`)
+ .join('');
+ const benefitsHtml = brandCopy.benefits
+ .map((b) => `<li><strong>${esc(b.title)}.</strong> ${esc(b.desc)}</li>`)
+ .join('');
+ const faqsHtml = brandCopy.faqs
+ .map(
+ (f) =>
+ `<div style="margin:0 0 12px 0;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px"><h3 style="margin:0 0 6px 0;font-size:15px;color:#0f172a">${esc(
+ f.q,
+ )}</h3><p style="margin:0;font-size:14px;color:#334155;line-height:1.55">${esc(
+ f.a,
+ )}</p></div>`,
+ )
+ .join('');
+ const openRolesListHtml = companyJobs
+ .slice(0, 10)
+ .map((job) => {
+ const jSlug = localizedSlug(job, locale);
+ const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+ const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ return `<li style="margin:0 0 8px 0"><a href="${jHref}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(
+ jTitle,
+ )}</a><div style="font-size:13px;color:#64748b">${esc(job.location)}${
+ job.canton ? ` · ${esc(job.canton)}` : ''
+ }</div></li>`;
+ })
+ .join('');
+ const listingUrlCurated = `${BASE_URL}${withSlash(
+ `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
+ )}`;
+ const headerBadge = `<p style="margin:0 0 8px 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#4f46e5;font-weight:700">${esc(
+ curatedBrand.shortName,
+ )}</p>`;
+ const hubLabels = {
+ viewAllLabel: copy.viewAll,
+ };
+ curatedBodyHtml = [
+ `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p style="font-size:16px;color:#475569;margin-top:4px">${esc(
+ brandCopy.tagline,
+ )}</p></header>`,
+ `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.about)}</h2>${paragraphsHtml}</section>`,
+ `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.locations)}</h2><p>${esc(
+ brandCopy.locationsIntro,
+ )}</p><ul>${locationsHtml}</ul></section>`,
+ `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.benefits)}</h2><ul>${benefitsHtml}</ul></section>`,
+ `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.howToApply)}</h2><p>${esc(
+ brandCopy.howToApply,
+ )}</p>${
+ curatedBrand.careersUrl
+ ? `<p><a href="${esc(curatedBrand.careersUrl)}" rel="noopener noreferrer" target="_blank" style="color:#1e3a8a;font-weight:600;text-decoration:none">${esc(
+ curatedBrand.website.replace(/^https?:\/\//, ''),
+ )} &rarr;</a></p>`
+ : ''
+ }</section>`,
+ `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
+ openRolesListHtml
+ ? `<ul style="list-style:none;padding:0;margin:16px 0">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
+ hubLabels.viewAllLabel,
+ )}</a></p>`
+ : `<p>${esc(brandCopy.emptyStateNote)}</p>`
+ }</section>`,
+ `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.faq)}</h2>${faqsHtml}</section>`,
+ ].join('\n');
+
+ // Apply curated meta overrides so brand-queried SERPs show branded titles.
+ if (curatedMetaTitle) title = curatedMetaTitle;
+ if (curatedMetaDescription) description = curatedMetaDescription;
+ } else {
+ organizationLd = JSON.stringify(orgLdObj);
+ }
 
  const companyHtml = `<!doctype html>
 <html lang="${locale}">
@@ -1761,16 +1899,14 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
 ${hreflangHtml}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${organizationLd}</script>
- <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g,'/'))}`,name:copy.sectionName}})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g,'/'))}`,name:copy.sectionName}})}</script>${curatedExtraLd}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
  </head>
  <body>
  <div id="root">
  <main class="static-job-page">
  <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}" style="color:#4f46e5;text-decoration:none;font-weight:600">&larr; ${esc(copy.allJobsLink)}</a></nav>
- <h1>${esc(copy.heading(companyName))}</h1>
- <p>${esc(description)}</p>
-${(() => {
+${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName))}</h1>\n<p>${esc(description)}</p>\n`}${curatedBodyHtml ? '' : (() => {
  // Collect location info from company jobs
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
@@ -1846,6 +1982,7 @@ ${(() => {
  parts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
  return parts.join('\n');
  })()}
+ ${curatedBodyHtml ? `<p style="margin-top:24px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>` : ''}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>

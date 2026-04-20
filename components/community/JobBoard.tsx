@@ -31,6 +31,8 @@ import {
 } from '@/services/personalizationScoring';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
+import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
+import { getEmployerBrandBySlug } from '@/services/employerBrands';
 import popularityData from '@/data/job-popularity.json';
 import type { SimulationResult } from '@/types';
 import { DEFAULT_INPUTS } from '@/constants';
@@ -3135,6 +3137,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firstMatch = filteredJobs[0];
  return firstMatch?.company ?? null;
  }, [companySlugFilter, filteredJobs]);
+
+ // Resolve the curated employer brand (EOC, …) by canonical slug.
+ // Falls back to null for companies without a curated hub page.
+ const employerBrand = useMemo(
+ () => (companySlugFilter ? getEmployerBrandBySlug(companySlugFilter) : null),
+ [companySlugFilter],
+ );
+
+ // All jobs for this employer, ignoring the secondary filters (search,
+ // category, contract…). The curated hub shows an unfiltered count so the
+ // page remains useful even when the user narrows the list afterwards.
+ const employerBrandJobs = useMemo(() => {
+ if (!employerBrand || !companySlugFilter) return [] as typeof sortedJobs;
+ return sortedJobs.filter((job) => {
+ const slugCandidates = companyRouteSlugCandidates(job.company, job.companyKey);
+ return slugCandidates.has(companySlugFilter);
+ });
+ }, [employerBrand, companySlugFilter, sortedJobs]);
 
  // Resolve the display name of the location when a location slug filter is active
  const locationDisplayName = useMemo(() => {
@@ -6570,6 +6590,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  </div>
  )}
+ {employerBrand && companySlugFilter ? (
+ <EmployerBrandHub
+ brand={employerBrand}
+ locale={locale}
+ jobs={employerBrandJobs as any}
+ buildJobHref={(job) => {
+ const path = buildJobPath(job as any);
+ return path.startsWith('http') ? path : `${window.location.origin}${path}`;
+ }}
+ canonicalUrl={typeof window !== 'undefined' ? window.location.href : ''}
+ />
+ ) : (
  <div className="text-center space-y-3">
  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-xs font-medium">
  <Briefcase className="w-4 h-4" />
@@ -6584,6 +6616,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h1>
  <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', getCantonI18nParams())}</p>
  </div>
+ )}
 
  {/* ─── Search & Filters ─── */}
  <div className="space-y-3">
