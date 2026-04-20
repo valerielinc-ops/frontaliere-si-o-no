@@ -2406,6 +2406,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Ziegen an der Grenzkontrolle von Gandria: Unfallgefahr und Einsatz der Behörden',
     'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Vier Ziegen haben die Aufmerksamkeit der Zollbehörden auf sich gezogen und zwei Unfälle riskiert. Hier ist, was passiert ist.',
     'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Vier Ziegen an der Zollstation Gandria, Tessin',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.title': 'Arbeiten an den Autobahnen im Tessin: Nachtschließungen in Besnate, Turate und auf der A9',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.excerpt': 'Autostrade per l\'Italia plant nächtliche Eingriffe vom 20. bis 24. April 2026. Schließungen in Besnate, Turate und auf der A9 Lainate-Como-Chiasso',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.imageAlt': 'Luftaufnahme der Autobahn A9 in der Nähe von Chiasso, Tessin, mit sichtbarer Bauarbeit in der Nacht',
 };
 
 export default blogMetaDe;

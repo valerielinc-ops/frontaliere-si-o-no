@@ -2080,6 +2080,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-roche-farmaci-obesita-ticino-2026': { name: 'Farmaci obesità', path: '/articoli-frontaliere/roche-farmaci-obesita-ticino-2026', parent: 'blog' },
     'blog-chiusure-autostrada-a9-lombardia-2026': { name: 'Chiusure autostrada', path: '/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026', parent: 'blog' },
     'blog-capre-dogana-gandria-incidenti-2026': { name: 'Capre dogana Gandria', path: '/articoli-frontaliere/capre-dogana-gandria-incidenti-2026', parent: 'blog' },
+    'blog-lavori-autostrade-ticino-aprile-2026': { name: 'Lavori autostrade', path: '/articoli-frontaliere/lavori-autostrade-ticino-aprile-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

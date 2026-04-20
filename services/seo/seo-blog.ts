@@ -10150,6 +10150,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-autostrade-ticino-aprile-2026': {
+    title: 'Lavori autostrade Ticino: chiusure | Frontaliere Ticino',
+    description: 'Autostrade per l\'Italia programma interventi notturni dal 20 al 24 aprile 2026. Chiusure a Besnate, Turate e sulla A9 Lainate-Como-Chiasso. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, autostrade, chiusure, notturne',
+    ogTitle: 'Lavori autostrade Ticino: chiusure notturne | Frontaliere',
+    ogDescription: 'Autostrade per l\'Italia programma interventi notturni dal 20 al 24 aprile 2026. Chiusure a Besnate, Turate e sulla A9 Lainate-Como-Chiasso',
+    canonicalPath: '/articoli-frontaliere/lavori-autostrade-ticino-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori autostrade Ticino: chiusure notturne a Besnate, Turate e sulla A9",
+      "description": "Autostrade per l'Italia programma interventi notturni dal 20 al 24 aprile 2026. Chiusure a Besnate, Turate e sulla A9 Lainate-Como-Chiasso. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-autostrade-ticino-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'autostrada A9 vicino a Chiasso, Ticino, con lavori di costruzione visibili di notte"
+      },
+      "datePublished": "2026-04-20T15:29:33+00:00",
+      "dateModified": "2026-04-20T15:29:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-autostrade-ticino-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

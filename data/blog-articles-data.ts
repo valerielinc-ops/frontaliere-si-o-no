@@ -6599,4 +6599,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/capre-dogana-gandria-incidenti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavori-autostrade-ticino-aprile-2026',
+ category: 'pratico',
+ date: '2026-04-20T15:29:33.794Z',
+ image: '/images/blog/lavori-autostrade-ticino-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ];

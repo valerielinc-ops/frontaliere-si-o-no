@@ -2406,6 +2406,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Goats at Gandria customs: accident risk and authorities\' intervention',
     'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Four goats caught the attention of customs authorities, risking causing two accidents. Here\'s what happened.',
     'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Four goats at Gandria customs, Ticino',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.title': 'Ticino Highway Works: Nighttime Closures in Besnate, Turate, and on the A9',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.excerpt': 'Autostrade per l\'Italia has scheduled nighttime interventions from April 20 to 24, 2026. Closures will affect Besnate, Turate, and the A9 between Lainate, Como, and Chiasso.',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.imageAlt': 'Aerial view of A9 highway near Chiasso, Ticino, with construction work visible at night',
 };
 
 export default blogMetaEn;

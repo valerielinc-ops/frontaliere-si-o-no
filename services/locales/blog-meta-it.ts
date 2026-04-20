@@ -2406,6 +2406,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.capre-dogana-gandria-incidenti-2026.title': 'Capre alla dogana di Gandria: rischio incidente e intervento delle autorità',
     'blog.article.capre-dogana-gandria-incidenti-2026.excerpt': 'Quattro capre hanno attirato l\'attenzione delle autorità doganali, rischiando di causare due incidenti. Ecco cosa è successo.',
     'blog.article.capre-dogana-gandria-incidenti-2026.imageAlt': 'Quattro capre alla dogana di Gandria, Ticino',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.title': 'Lavori autostrade Ticino: chiusure notturne a Besnate, Turate e sulla A9',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.excerpt': 'Autostrade per l\'Italia programma interventi notturni dal 20 al 24 aprile 2026. Chiusure a Besnate, Turate e sulla A9 Lainate-Como-Chiasso',
+    'blog.article.lavori-autostrade-ticino-aprile-2026.imageAlt': 'Vista aerea dell\'autostrada A9 vicino a Chiasso, Ticino, con lavori di costruzione visibili di notte',
 };
 
 export default blogMetaIt;
