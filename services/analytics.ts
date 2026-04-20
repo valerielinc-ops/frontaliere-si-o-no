@@ -1648,6 +1648,25 @@ export const Analytics = {
  trackJobAlertDeleted: () => {
  log('job_alert_deleted', {});
  },
+
+ /**
+  * Track an interaction with a Job Alert conversion surface other than the
+  * inline form itself. `surface` identifies where the event originated
+  * (sticky banner, end-of-list card, post-auth prompt); `action` identifies
+  * whether the user opened or dismissed it. Used to compare conversion rate
+  * across surfaces and prune the ones that underperform.
+  */
+ trackJobAlertCtaClick: (
+ surface: 'sticky_banner' | 'end_card' | 'post_auth_prompt' | 'inline_card',
+ action: 'open' | 'dismiss' | 'auto_expand',
+ keyword?: string,
+ ) => {
+ log('job_alert_cta_click', {
+ cta_surface: surface,
+ cta_action: action,
+ cta_keyword: (keyword || '').slice(0, 80),
+ });
+ },
 };
 
 // ─── Protect Analytics methods from external modification ──────

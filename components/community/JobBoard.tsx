@@ -7029,11 +7029,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <JobAlertPostAuthPrompt
  keyword={searchQuery.trim()}
  onAccept={() => {
+ Analytics.trackJobAlertCtaClick('post_auth_prompt', 'open', searchQuery.trim());
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
  setPostAuthPromptVisible(false);
  window.dispatchEvent(new CustomEvent('openJobAlert'));
  }}
  onDismiss={() => {
+ Analytics.trackJobAlertCtaClick('post_auth_prompt', 'dismiss', searchQuery.trim());
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
  setPostAuthPromptVisible(false);
  }}

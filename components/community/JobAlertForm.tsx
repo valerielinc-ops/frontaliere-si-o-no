@@ -87,6 +87,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  if (distinctSearchesRef.current.size >= 2) {
  autoExpandedRef.current = true;
  setExpanded(true);
+ import('@/services/analytics')
+ .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'auto_expand', k))
+ .catch(() => {});
  }
  }, 800);
  return () => window.clearTimeout(timer);
@@ -219,7 +222,14 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <div className="mt-4 mb-6">
  {/* Trigger card */}
  <button
- onClick={() => setExpanded(!expanded)}
+ onClick={() => {
+ if (!expanded) {
+ import('@/services/analytics')
+ .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'open', initialKeyword))
+ .catch(() => {});
+ }
+ setExpanded(!expanded);
+ }}
  aria-expanded={expanded}
  aria-controls="job-alert-form"
  className="w-full flex items-center gap-3 p-4 rounded-xl border border-accent-border bg-accent-subtle hover:bg-accent-subtle hover:border-accent transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"

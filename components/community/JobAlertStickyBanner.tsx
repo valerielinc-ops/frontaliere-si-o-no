@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BellRing, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
 
 const DISMISS_KEY = 'jobAlertStickyBanner:dismissedUntil';
 const DISMISS_DAYS = 7;
@@ -31,11 +32,13 @@ export default function JobAlertStickyBanner() {
  }, []);
 
  const handleOpen = () => {
+ Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
  window.dispatchEvent(new CustomEvent('openJobAlert'));
  setVisible(false);
  };
 
  const handleDismiss = () => {
+ Analytics.trackJobAlertCtaClick('sticky_banner', 'dismiss');
  localStorage.setItem(DISMISS_KEY, String(Date.now() + DISMISS_DAYS * 24 * 60 * 60 * 1000));
  setVisible(false);
  };

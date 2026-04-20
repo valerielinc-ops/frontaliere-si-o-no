@@ -1,5 +1,6 @@
 import { BellRing, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
 
 interface JobAlertEndCardProps {
  keyword?: string;
@@ -8,6 +9,7 @@ interface JobAlertEndCardProps {
 export default function JobAlertEndCard({ keyword }: JobAlertEndCardProps) {
  const { t } = useTranslation();
  const handleClick = () => {
+ Analytics.trackJobAlertCtaClick('end_card', 'open', keyword);
  window.dispatchEvent(new CustomEvent('openJobAlert'));
  };
 
