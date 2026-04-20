@@ -256,7 +256,7 @@ export const AI_MODELS = Object.freeze({
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
 
   // ── Mistral AI La Plateforme (OpenAI-compatible, free tier — 1B tokens/month) ──
-  MISTRAL_SMALL:       'mistral/mistral-small-latest',
+  MISTRAL_SMALL:       'mistral/mistral-small-2506',
   MISTRAL_CODESTRAL:   'mistral/codestral-latest',
   MISTRAL_8B:          'mistral/ministral-8b-latest',
   MISTRAL_NEMO:        'mistral/open-mistral-nemo',
