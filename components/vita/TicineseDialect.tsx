@@ -361,11 +361,11 @@ const TicineseDialect: React.FC = () => {
  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-edge pt-4">
  <div>
  <h4 className="text-sm font-bold text-strong mb-2">{tt('dialect.workExpressionsTitle', 'Le 10 espressioni in dialetto più usate al lavoro in Ticino')}</h4>
- <p className="text-sm leading-6 text-subtle">{tt('dialect.workExpressionsText', '')}</p>
+ <p className="text-sm leading-6 text-subtle">{tt('dialect.workExpressionsText', 'Per un frontaliere che lavora in Ticino, conoscere anche solo poche espressioni in dialetto aiuta a integrarsi con colleghi svizzeri e clienti locali. Le più ricorrenti in pausa caffè o nei cantieri sono: "Vèm a bev un cicchètt" (andiamo a bere un bicchiere), "Fa minga el sciatì" (non fare lo scemo), "Ciapà sü" (prendere, afferrare), "Smorzà" (spegnere), "Pizzà" (accendere), "Gh\'è nagòta de fà" (non c\'è niente da fare), "Stà tranquil" (stai tranquillo), "Ma va\' a rampegà" (ma vai a quel paese), "Roba de matt" (roba da matti) e "A l\'è una cioca" (è una sbronza). Queste espressioni sono parole in dialetto ticinese d\'uso quotidiano: le sentirai in mensa aziendale, nei ristoranti di Lugano e Mendrisio, e nei cantieri di Chiasso.')}</p>
  </div>
  <div>
  <h4 className="text-sm font-bold text-strong mb-2">{tt('dialect.differencesTitle', 'Differenze tra dialetto ticinese e italiano standard')}</h4>
- <p className="text-sm leading-6 text-subtle">{tt('dialect.differencesText', '')}</p>
+ <p className="text-sm leading-6 text-subtle">{tt('dialect.differencesText', 'Il dialetto ticinese differisce dall\'italiano standard sul piano fonetico (la "u" come "cüü"), morfologico (articolo "el/la" invece di "il/la") e lessicale (molti termini di origine lombarda, celtica o germanica assenti in italiano standard). Per il frontaliere italiano la comprensione passiva è generalmente facile dopo poche settimane, mentre la produzione attiva richiede più tempo.')}</p>
  </div>
  </div>
  </div>
