@@ -92,6 +92,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',
  '/fr/articles-frontaliers/elections-communales-tessin-2026/': '/fr/articles-frontalier/elections-municipales-tessin/',
  '/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/': '/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/',
+ // Swiss transit fee refresh 2023 → 2026 (GSC striking-distance query "switzerland transit fee 2026")
+ '/articoli-frontaliere/tassa-transito-svizzera-2023/': '/articoli-frontaliere/tassa-transito-svizzera-2026/',
+ '/en/cross-border-articles/transit-fee-switzerland-2023/': '/en/cross-border-articles/transit-fee-switzerland-2026/',
+ '/de/grenzgaenger-artikel/transitgebuehr-schweiz-2023/': '/de/grenzgaenger-artikel/transitgebuehr-schweiz-2026/',
+ '/fr/articles-frontalier/frais-de-transit-suisse-2023/': '/fr/articles-frontalier/frais-de-transit-suisse-2026/',
  '/en/cross-border-articles/speed-controls-ticino-2026/': '/en/cross-border-articles/ticino-speed-controls-2026/',
  // Consolidated Q4 2025 frontalieri duplicates → canonical: frontalieri-ticino-dati-q4-2025
  // ex frontalieri-ticino-calo-2025

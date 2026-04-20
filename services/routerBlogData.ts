@@ -461,7 +461,7 @@ export const BLOG_SLUGS: Record<BlogArticleId, Record<Locale, string>> = {
  'tassa-transito-automobilisti-ticino': { it: 'tassa-transito-automobilisti-ticino', en: 'transit-tax-car-ticino', de: 'transit-gebuehr-auto-tessin', fr: 'taxe-transit-voiture-tessin' },
  'nubifragio-coira-mesolcina-ristoro': { it: 'nubifragio-coira-mesolcina-ristoro', en: 'cloudburst-coira-mesolcina-relief', de: 'wolkenbruch-coira-mesolcina-hilfe', fr: 'devaste-coira-mesolcina-soutien' },
  'lotta-violenza-di-genere-ticino': { it: 'lotta-violenza-di-genere-ticino', en: 'fight-gender-violence-ticino', de: 'bekämpfung-geschlechtergewalt-tessin', fr: 'combat-violence-genre-tessin' },
- 'tassa-transito-svizzera-2023': { it: 'tassa-transito-svizzera-2023', en: 'transit-fee-switzerland-2023', de: 'transitgebuehr-schweiz-2023', fr: 'frais-de-transit-suisse-2023' },
+ 'tassa-transito-svizzera-2023': { it: 'tassa-transito-svizzera-2026', en: 'transit-fee-switzerland-2026', de: 'transitgebuehr-schweiz-2026', fr: 'frais-de-transit-suisse-2026' },
  'controlli-cantieri-mendrisiotto': { it: 'controlli-cantieri-mendrisiotto', en: 'inspection-construction-mendrisiotto', de: 'kontrolle-baustellen-mendrisiotto', fr: 'controle-chantiers-mendrisiotto' },
  'acinque-lancia-piano-genitorialita': { it: 'acinque-lancia-piano-genitorialita', en: 'acinque-launches-parenthood-plan', de: 'acinque-startet-elternschaftsplan', fr: 'acinque-lance-plan-parentalite' },
  'danni-riparati-centovallina': { it: 'danni-riparati-centovallina', en: 'damages-repaired-centovallina', de: 'schäden-repariert-centovallina', fr: 'dommages-repares-centovallina' },

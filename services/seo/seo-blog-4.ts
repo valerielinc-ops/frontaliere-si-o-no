@@ -1358,16 +1358,16 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
 
  'blog-tassa-transito-svizzera-2023': {
  title: 'Tassa di transito Svizzera 2026: costi e regole | Frontaliere Ticino',
- description: 'Tassa di transito Svizzera 2026 (Switzerland transit fee): nuove regole, costi aggiornati e impatto sui frontalieri in Ticino.',
- keywords: 'tassa transito svizzera 2026, switzerland transit fee 2026, transit fee switzerland, frontalieri, ticino, tariffa transito, cross-border commuters',
- ogTitle: 'Tassa di transito Svizzera 2026: cosa cambia per i frontalieri?',
- ogDescription: 'Tassa di transito Svizzera 2026: nuove regole, costi aggiornati e impatto sui frontalieri in Ticino.',
- canonicalPath: '/articoli-frontaliere/tassa-transito-svizzera-2023',
+ description: 'Switzerland transit fee 2026: nuove regole, vignetta autostradale, tariffe di transito e impatto reale sui frontalieri del Ticino.',
+ keywords: 'switzerland transit fee 2026, tassa transito svizzera 2026, swiss highway vignette 2026, transit fee switzerland, frontalieri, ticino, tariffa transito, cross-border commuters',
+ ogTitle: 'Switzerland Transit Fee 2026: la guida aggiornata per frontalieri',
+ ogDescription: 'Switzerland transit fee 2026: tariffe di transito, vignetta autostradale e regole aggiornate per i frontalieri del Ticino.',
+ canonicalPath: '/articoli-frontaliere/tassa-transito-svizzera-2026',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Tassa di transito Svizzera 2026: cosa cambia per i frontalieri?",
- "description": "Tassa di transito Svizzera 2026 (Switzerland transit fee): nuove regole, costi aggiornati e impatto sui frontalieri in Ticino.",
+ "headline": "Switzerland Transit Fee 2026: la guida aggiornata per frontalieri",
+ "description": "Switzerland transit fee 2026: nuove regole, tariffe di transito, vignetta autostradale e impatto concreto sui frontalieri del Ticino.",
  "image": {
  "@type": "ImageObject",
  "url": `${BASE_URL}/images/blog/tassa-transito-svizzera-2023.webp`,
@@ -1380,7 +1380,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
- "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2023`,
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2026`,
  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
  "isAccessibleForFree": true
  }

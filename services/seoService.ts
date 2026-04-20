@@ -1737,7 +1737,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'blog-tassa-transito-automobilisti-ticino': { name: 'Tassa di transito in Ticino', path: '/articoli-frontaliere/tassa-transito-automobilisti-ticino', parent: 'blog' },
  'blog-nubifragio-coira-mesolcina-ristoro': { name: 'Nubifragio Giugno 2024', path: '/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro', parent: 'blog' },
  'blog-lotta-violenza-di-genere-ticino': { name: 'Ticino e Svizzera sotto l\'attenzione del', path: '/articoli-frontaliere/lotta-violenza-di-genere-ticino', parent: 'blog' },
- 'blog-tassa-transito-svizzera-2023': { name: 'Tassa di transito Svizzera 2026', path: '/articoli-frontaliere/tassa-transito-svizzera-2023', parent: 'blog' },
+ 'blog-tassa-transito-svizzera-2023': { name: 'Tassa di transito Svizzera 2026', path: '/articoli-frontaliere/tassa-transito-svizzera-2026', parent: 'blog' },
  'blog-controlli-cantieri-mendrisiotto': { name: 'Operazione di controllo nei cantieri del', path: '/articoli-frontaliere/controlli-cantieri-mendrisiotto', parent: 'blog' },
  'blog-acinque-lancia-piano-genitorialita': { name: 'Lavoro', path: '/articoli-frontaliere/acinque-lancia-piano-genitorialita', parent: 'blog' },
  'blog-danni-riparati-centovallina': { name: 'Danni riparati, riapre la Centovallina-V', path: '/articoli-frontaliere/danni-riparati-centovallina', parent: 'blog' },

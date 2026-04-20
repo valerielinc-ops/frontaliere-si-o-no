@@ -4299,7 +4299,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "ListItem", "position": 471, "name": "Tassa di transito in Ticino: cosa cambia per gl...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-automobilisti-ticino` },
  { "@type": "ListItem", "position": 472, "name": "Nubifragio Giugno 2024: Ristoro Finanziario in ...", "url": `${BASE_URL}/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro` },
  { "@type": "ListItem", "position": 473, "name": "Ticino e Svizzera sotto l'attenzione del Consig...", "url": `${BASE_URL}/articoli-frontaliere/lotta-violenza-di-genere-ticino` },
- { "@type": "ListItem", "position": 474, "name": "Tassa di transito Svizzera 2026: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2023` },
+ { "@type": "ListItem", "position": 474, "name": "Tassa di transito Svizzera 2026: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2026` },
  { "@type": "ListItem", "position": 475, "name": "Operazione di controllo nei cantieri del Mendri...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto` },
  { "@type": "ListItem", "position": 476, "name": "Acinque lancia il piano 'Genitorialità': un mes...", "url": `${BASE_URL}/articoli-frontaliere/acinque-lancia-piano-genitorialita` },
  { "@type": "ListItem", "position": 477, "name": "Danni riparati, riapre la Centovallina-Vigezzina", "url": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina` },
