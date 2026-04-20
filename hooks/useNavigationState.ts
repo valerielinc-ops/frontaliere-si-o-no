@@ -71,6 +71,8 @@ export interface NavigationState {
  setJobSlug: Dispatch<SetStateAction<string | null>>;
  setTaxReturnCountry: Dispatch<SetStateAction<'italia' | 'svizzera' | undefined>>;
  setShowApiStatus: Dispatch<SetStateAction<boolean>>;
+ setNotFoundPath: Dispatch<SetStateAction<string | undefined>>;
+ setJobBoardFilterParams: Dispatch<SetStateAction<{ location?: string; query?: string } | null>>;
 
  // Refs
  suppressNextRouteSyncForTabRef: MutableRefObject<ActiveTab | null>;
@@ -637,6 +639,7 @@ export function useNavigationState(): NavigationState {
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
  setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setTaxReturnCountry, setShowApiStatus,
+ setNotFoundPath, setJobBoardFilterParams,
 
  suppressNextRouteSyncForTabRef,
 

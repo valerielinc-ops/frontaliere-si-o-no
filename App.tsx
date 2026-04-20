@@ -75,6 +75,7 @@ const StatsTabContent = lazyRetry(() => import('@/components/tabs/StatsTabConten
 
 // Simulation state hook: manages inputs, result, handleCalculate, URL hydration, SEO presets
 import { useSimulationState } from '@/hooks/useSimulationState';
+import { useNavigationState } from '@/hooks/useNavigationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { initPostHog } from '@/services/posthog';
@@ -84,15 +85,10 @@ setDefaultConsent();
 // Initialize PostHog EU Cloud analytics (async, non-blocking)
 initPostHog();
 // SEO helpers live in hooks/seoHelpers.ts — shared between App.tsx and extracted hooks.
-import { enableRuntimeSeo, updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
-// Apply noindex SEO for 404 pages — NOT gated by runtimeSeoEnabled because
-// soft-404 noindex must be set immediately on initial load before any user interaction.
-const applyNotFoundSeo = (path: string) => {
- import('@/services/seoService').then(m => m.applyNotFoundSeo(path));
-};
-import { useTranslation, setLocale, onLocaleChange, getCantonI18nParams } from '@/services/i18n';
-import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug, getLocalizedJobSlug } from '@/services/router';
-import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
+import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
+import { useTranslation, getCantonI18nParams } from '@/services/i18n';
+import { pushRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
+import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
 import type { UserProfileData } from '@/components/pages/UserProfile';
@@ -152,78 +148,35 @@ const App: React.FC = () => {
  signInEmail,
  } = useAuth();
 
- // Read initial route from URL path (or migrate legacy hash)
- const [initialRoute] = useState(() => {
- const parsed = parsePath(window.location.pathname);
- // Defer locale side-effect to useEffect to avoid setState-during-render
- return { route: parsed.route, locale: parsed.locale };
- });
- const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
+ // Navigation state: tabs, sub-tabs, deep links, popstate, SEO effects, etc.
+ const {
+ activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
+ guidaSubTab, vitaSubTab, statsSubTab,
+ blogArticle, seoLanding, glossaryTerm, borderCrossing,
+ jobSlug, taxReturnCountry, showApiStatus, notFoundPath,
+ jobBoardFilterParams,
+ setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
+ setGuidaSubTab, setVitaSubTab, setStatsSubTab,
+ setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setJobSlug, setTaxReturnCountry, setShowApiStatus,
+ setNotFoundPath, setJobBoardFilterParams,
+ suppressNextRouteSyncForTabRef,
+ handleTabChange: navHandleTabChange, handleSearchNavigate,
+ } = useNavigationState();
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
 
- const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
- const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
- const [confrontiSubTab, setConfrontiSubTab] = useState<ConfrontiSubTab>(initialRoute.route.confrontiSubTab || 'exchange');
- const [fiscoSubTab, setFiscoSubTab] = useState<FiscoSubTab>(initialRoute.route.fiscoSubTab || 'tax-return');
- const [guidaSubTab, setGuidaSubTab] = useState<GuidaSubTab>(initialRoute.route.guidaSubTab || 'first-day');
- const [vitaSubTab, setVitaSubTab] = useState<VitaSubTab>(initialRoute.route.vitaSubTab || 'living-ch');
- const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
- const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle || null);
-
- // Auto-scroll active sub-tab chip into view on mobile (YouTube/Spotify peek pattern)
- const activeSubTab = activeTab === 'calcolatore' ? calcolatoreSubTab
- : activeTab === 'confronti' ? confrontiSubTab
- : activeTab === 'fisco' ? fiscoSubTab
- : activeTab === 'guida' ? guidaSubTab
- : activeTab === 'vita' ? vitaSubTab
- : activeTab === 'stats' ? statsSubTab
- : null;
-
- useEffect(() => {
- if (!activeSubTab) return;
- // Small delay to ensure DOM is rendered after tab switch
- const timer = setTimeout(() => {
- const activeBtn = document.querySelector<HTMLElement>('[data-subtab-active="true"]');
- if (activeBtn?.scrollIntoView) {
- activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
- }
- }, 50);
- return () => clearTimeout(timer);
- }, [activeSubTab]);
-
- // Preload blog slug data and resolve any deferred blog slug from initial URL
- useEffect(() => {
- preloadBlogData().then(() => {
- const slug = initialRoute.route.blogSlug;
- if (slug && !initialRoute.route.blogArticle) {
- const resolved = resolveBlogSlug(slug, initialRoute.locale);
- if (resolved) setBlogArticle(resolved);
- }
- }).catch(() => {});
- }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
- // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection).
- // This runs before runtimeSeoEnabled is true, so it won't be overwritten by
- // updateMetaTags until the user interacts — at which point we guard against it.
- useEffect(() => {
- if (notFoundPath) {
- applyNotFoundSeo(notFoundPath);
- }
- }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
- const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
  const { inputs, setInputs, result, setResult, handleCalculate, urlHydrated } = useSimulationState(activeTab, seoLanding);
  const deferredResult = useDeferredValue(result);
  const isResultStale = deferredResult !== result;
- const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
- const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
- const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
- /** Filter params passed from SiteSearch to JobBoard (location, search query) */
- const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
- const [taxReturnCountry, setTaxReturnCountry] = useState<'italia' | 'svizzera' | undefined>(initialRoute.route.taxReturnCountry);
- const [showApiStatus, setShowApiStatus] = useState(false);
+
+ // Wrap the hook's handleTabChange to also close the mobile menu
+ const handleTabChange = useCallback((tab: ActiveTab) => {
+ setMobileMenuOpen(false);
+ navHandleTabChange(tab);
+ }, [navHandleTabChange]);
+
  const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
  const [enablePersonalization, setEnablePersonalization] = useState(false);
@@ -317,25 +270,6 @@ const App: React.FC = () => {
  }
  }, [activeTab]);
 
- // Skip pushRoute on initial mount — the URL is already correct from parsePath.
- // Pushing it again would strip the hash fragment (e.g. #cambio-stato).
- const isInitialMount = useRef(true);
-
- // Eagerly prefetch the active tab's component chunk on initial load.
- // On direct URL navigation (e.g., /guida-frontaliere), React.lazy() only
- // discovers the chunk after the entry JS is fully parsed. Prefetch triggers
- // the download immediately so it loads in parallel with React hydration.
- useEffect(() => {
- if (activeTab === 'calculator' && calcolatoreSubTab === 'calculator') return;
- prefetchTab(activeTab);
- }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
- // When we navigate programmatically (search/CTA), we push the URL immediately.
- // The subsequent sub-tab useEffect would otherwise push the same URL again.
- const suppressNextRouteSyncForTabRef = useRef<ActiveTab | null>(null);
-
- // (scroll always resets to top on tab change — no preservation)
-
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
  useEffect(() => {
@@ -371,15 +305,6 @@ const App: React.FC = () => {
  };
  window.addEventListener('storage', onStorage);
  return () => window.removeEventListener('storage', onStorage);
- }, []);
-
- // Check for hidden API status page via URL parameter
- useEffect(() => {
- const urlParams = new URLSearchParams(window.location.search);
- if (urlParams.get('debug') === 'api' || urlParams.get('status') === 'api') {
- setShowApiStatus(true);
- setActiveTab('api-status');
- }
  }, []);
 
  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
@@ -937,441 +862,8 @@ const App: React.FC = () => {
  promptOneTap().catch(() => {});
  }, [authLoading, authUser]);
 
- // Listen for browser back/forward navigation
- useEffect(() => {
- const onPopState = () => {
- enableRuntimeSeo();
- const { route, locale: urlLocale, notFoundPath: parsedNotFoundPath } = parsePath(window.location.pathname);
- setNotFoundPath(parsedNotFoundPath);
- setActiveTab(route.activeTab);
- if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
- if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
- if (route.fiscoSubTab) setFiscoSubTab(route.fiscoSubTab);
- if (route.taxReturnCountry) setTaxReturnCountry(route.taxReturnCountry);
- if (route.guidaSubTab) setGuidaSubTab(route.guidaSubTab);
- if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
- if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
- setBlogArticle(route.blogArticle || null);
- // If blog data wasn't loaded yet, resolve the deferred slug
- if (route.blogSlug && !route.blogArticle) {
- preloadBlogData().then(() => {
- const resolved = resolveBlogSlug(route.blogSlug!, urlLocale);
- if (resolved) setBlogArticle(resolved);
- }).catch(() => {});
- }
- setSeoLanding(route.seoLanding || null);
- setGlossaryTerm(route.glossaryTerm || null);
- setBorderCrossing(route.borderCrossing || null);
- setJobSlug(route.jobSlug || null);
- // Sync locale from URL
- setLocale(urlLocale);
- // Update SEO meta tags — use 404-specific noindex for unrecognized routes
- if (parsedNotFoundPath) {
- applyNotFoundSeo(parsedNotFoundPath);
- } else {
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- }
- // Scroll to anchor fragment if present, otherwise scroll to top
- // Skip auto-scroll when returning to job-board list — JobBoard restores scroll itself
- const isJobBoardReturn = route.activeTab === 'job-board' && !route.jobSlug;
- if (!isJobBoardReturn && !scrollToAnchor()) {
- window.scrollTo({ top: 0, behavior: 'instant' });
- }
- };
- window.addEventListener('popstate', onPopState);
- // When locale changes, rewrite current URL with new locale slugs.
- // Also sync jobSlug state: if the map is already loaded, update to the
- // target-locale slug immediately so canonical URLs and state stay consistent.
- const unsubLocale = onLocaleChange((newLocale) => {
- updatePathForLocale(newLocale);
- setJobSlug(prev => {
- if (!prev) return prev;
- return getLocalizedJobSlug(prev, newLocale) || prev;
- });
- });
- return () => {
- window.removeEventListener('popstate', onPopState);
- unsubLocale();
- };
- }, []);
-
- // Handle in-page hash navigation and scroll to anchor on initial load
- useEffect(() => {
- const onHashChange = () => {
- scrollToAnchor();
- };
- window.addEventListener('hashchange', onHashChange);
- // On initial mount, scroll to anchor if URL has a hash fragment (non-legacy)
- if (window.location.hash && !window.location.hash.startsWith('#/')) {
- // Delay to allow components to render their id attributes
- requestAnimationFrame(() => scrollToAnchor());
- }
- return () => window.removeEventListener('hashchange', onHashChange);
- }, []);
-
- // Listen for navigate-tab events from child components (e.g. profile quick actions)
- useEffect(() => {
- const onNavigateTab = (e: Event) => {
- const detail = (e as CustomEvent).detail;
- if (detail?.tab) {
- // Map legacy tab names from child components
- let tab = detail.tab as string;
- let subTab = detail.subTab as string | undefined;
- let guideSec = detail.guideSection as string | undefined;
-
- // Legacy: 'comparatori' → 'confronti'
- if (tab === 'comparatori') { tab = 'confronti'; }
- // Legacy: 'pension' → 'fisco'
- if (tab === 'pension') { tab = 'fisco'; subTab = subTab || 'pension'; }
- // Legacy: 'guide' → 'guida'
- if (tab === 'guide') { tab = 'guida'; subTab = guideSec; }
- // Legacy: 'strumenti' → remap
- if (tab === 'strumenti') {
- if (subTab === 'permit-compare') { tab = 'guida'; subTab = 'permit-compare'; }
- else if (subTab === 'car-cost') { tab = 'guida'; subTab = 'car-cost'; }
- else { tab = 'guida'; subTab = 'car-cost'; }
- }
-
- setActiveTab(tab as ActiveTab);
- const route: AppRoute = { activeTab: tab as ActiveTab };
- if (tab === 'confronti' && subTab) { route.confrontiSubTab = subTab as ConfrontiSubTab; setConfrontiSubTab(subTab as ConfrontiSubTab); }
- if (tab === 'fisco' && subTab) { route.fiscoSubTab = subTab as FiscoSubTab; setFiscoSubTab(subTab as FiscoSubTab); }
- if (tab === 'guida' && subTab) { route.guidaSubTab = subTab as GuidaSubTab; setGuidaSubTab(subTab as GuidaSubTab); }
- if (tab === 'vita' && subTab) { route.vitaSubTab = subTab as VitaSubTab; setVitaSubTab(subTab as VitaSubTab); }
- if (tab === 'calculator' && subTab) { route.calcolatoreSubTab = subTab as CalcolatoreSubTab; setCalcolatoreSubTab(subTab as CalcolatoreSubTab); }
- if (tab === 'stats' && subTab) { route.statsSubTab = subTab as StatsSubTab; setStatsSubTab(subTab as StatsSubTab); }
- pushRoute(route);
- updateMetaTags(getSeoSection(route));
- trackSectionView(getSeoSection(route));
- // Scroll to top on programmatic navigation from child components
- window.scrollTo({ top: 0, behavior: 'instant' });
- }
- };
- window.addEventListener('navigate-tab', onNavigateTab);
- return () => window.removeEventListener('navigate-tab', onNavigateTab);
- }, []);
-
- // Migrate legacy hash-based URLs to clean paths (only legacy #/... format)
- useEffect(() => {
- const hash = window.location.hash;
- if (hash && hash.startsWith('#/')) {
- const newPath = parseHashToPath(hash);
- if (newPath) {
- history.replaceState(null, '', newPath);
- }
- }
- // Redirect old bare English slugs to canonical Italian URLs
- const p = window.location.pathname.replace(/\/$/, '').toLowerCase();
- const legacyRedirects: Record<string, string> = {
- '/calculator': '/',
- '/stats': '/statistiche',
- '/guide': '/guida-frontaliere',
- };
- if (legacyRedirects[p]) {
- history.replaceState(null, '', legacyRedirects[p]);
- }
- }, []);
-
  // Theme init, analytics init, SPA pageview tracking, deferred widgets,
  // and toggleTheme are all managed by useUIState (hooks/useUIState.ts).
-
- const handleTabChange = useCallback((tab: ActiveTab) => {
- enableRuntimeSeo();
- setMobileMenuOpen(false);
- setActiveTab(prevTab => {
- Analytics.trackTabNavigation(prevTab, tab);
- if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: prevTab });
- if (tab === 'guida') unlockAchievement('guide_reader');
- if (tab === 'feedback') unlockAchievement('feedback_giver');
- if (tab === 'stats') unlockAchievement('stats_checker');
- if (tab === 'fisco') unlockAchievement('pension_planner');
- return tab;
- });
- if (tab !== 'calculator') setSeoLanding(null);
- if (tab !== 'glossario') setGlossaryTerm(null);
- if (tab !== 'job-board') setJobSlug(null);
- if (tab === 'blog') setBlogArticle(null);
-
- // Build route and push to history
- const route: AppRoute = { activeTab: tab };
- if (tab === 'confronti') route.confrontiSubTab = confrontiSubTab;
- if (tab === 'fisco') {
- route.fiscoSubTab = fiscoSubTab;
- if (fiscoSubTab === 'tax-return' && taxReturnCountry) route.taxReturnCountry = taxReturnCountry;
- }
- if (tab === 'guida') route.guidaSubTab = guidaSubTab;
- if (tab === 'vita') route.vitaSubTab = vitaSubTab;
- if (tab === 'calculator') {
- route.calcolatoreSubTab = calcolatoreSubTab;
- if (calcolatoreSubTab === 'calculator' && seoLanding) route.seoLanding = seoLanding;
- }
- if (tab === 'stats') route.statsSubTab = statsSubTab;
- if (tab === 'glossario' && glossaryTerm) route.glossaryTerm = glossaryTerm;
- if (tab === 'job-board' && jobSlug) route.jobSlug = jobSlug;
- pushRoute(route);
- // Always scroll to top on explicit top-nav tab changes
- window.scrollTo({ top: 0, behavior: 'instant' });
-
- // Update SEO meta tags for the new section
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- }, [confrontiSubTab, fiscoSubTab, taxReturnCountry, guidaSubTab, vitaSubTab, calcolatoreSubTab, seoLanding, statsSubTab, glossaryTerm, jobSlug]);
-
- // Update SEO tags when confronti sub-tab changes
- useEffect(() => {
- if (activeTab === 'confronti') {
- if (suppressNextRouteSyncForTabRef.current === 'confronti') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- const route: AppRoute = { activeTab: 'confronti', confrontiSubTab };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
-
- // Gamification: track comparator exploration
- unlockAchievement('comparator_curious');
- unlockAchievement('comparator_master');
- if (confrontiSubTab === 'exchange') unlockAchievement('currency_watcher');
- if (confrontiSubTab === 'health') unlockAchievement('health_researcher');
- }
- }, [confrontiSubTab]);
-
- // Update SEO tags when fisco sub-tab changes
- useEffect(() => {
- if (activeTab === 'fisco') {
- if (suppressNextRouteSyncForTabRef.current === 'fisco') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- const route: AppRoute = { activeTab: 'fisco', fiscoSubTab };
- if (fiscoSubTab === 'tax-return' && taxReturnCountry) route.taxReturnCountry = taxReturnCountry;
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }
- }, [fiscoSubTab, taxReturnCountry]);
-
- // Update SEO tags when guida sub-tab changes
- useEffect(() => {
- if (activeTab === 'guida') {
- if (suppressNextRouteSyncForTabRef.current === 'guida') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- if (guidaSubTab !== 'border' && borderCrossing) {
- setBorderCrossing(null);
- }
- const route: AppRoute = { activeTab: 'guida', guidaSubTab };
- if (guidaSubTab === 'border' && borderCrossing) route.borderCrossing = borderCrossing;
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }
- }, [guidaSubTab, borderCrossing]);
-
- // Update SEO tags when vita sub-tab changes
- useEffect(() => {
- if (activeTab === 'vita') {
- if (suppressNextRouteSyncForTabRef.current === 'vita') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- const route: AppRoute = { activeTab: 'vita', vitaSubTab };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }
- }, [vitaSubTab]);
-
- // Update SEO tags when calcolatore sub-tab changes
- useEffect(() => {
- if (activeTab === 'calculator') {
- if (suppressNextRouteSyncForTabRef.current === 'calculator') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- // Leaving the main calculator tab clears any long-tail landing URL.
- if (calcolatoreSubTab !== 'calculator' && seoLanding) {
- setSeoLanding(null);
- }
- const route: AppRoute = {
- activeTab: 'calculator',
- calcolatoreSubTab,
- seoLanding: calcolatoreSubTab === 'calculator' ? (seoLanding || undefined) : undefined,
- };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
- if (calcolatoreSubTab === 'whatif') unlockAchievement('what_if_dreamer');
- }
- }, [activeTab, calcolatoreSubTab, seoLanding]);
-
- // Update SEO tags and URL when glossary term deep link changes
- useEffect(() => {
- if (activeTab === 'glossario') {
- if (suppressNextRouteSyncForTabRef.current === 'glossario') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- const route: AppRoute = { activeTab: 'glossario', glossaryTerm: glossaryTerm || undefined };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }
- }, [activeTab, glossaryTerm]);
-
- // Update SEO tags when stats sub-tab changes
- useEffect(() => {
- if (activeTab === 'stats') {
- if (suppressNextRouteSyncForTabRef.current === 'stats') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- const route: AppRoute = { activeTab: 'stats', statsSubTab };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) {
- pushRoute(route);
- if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }
- }, [statsSubTab]);
-
- // Update SEO tags and URL when blog article changes
- useEffect(() => {
- if (activeTab === 'blog') {
- if (suppressNextRouteSyncForTabRef.current === 'blog') {
- suppressNextRouteSyncForTabRef.current = null;
- return;
- }
- const route: AppRoute = { activeTab: 'blog', blogArticle: blogArticle || undefined };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- if (!isInitialMount.current) pushRoute(route);
- // Scroll to top when switching articles (unless anchored to a section)
- if (!window.location.hash) {
- window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }
- }, [blogArticle]);
-
- // Clear initial-mount flag after all sub-tab effects have fired
- // (must be declared AFTER all sub-tab useEffects so it runs last)
- useEffect(() => { isInitialMount.current = false; }, []);
-
- // Update SEO tags and scroll to top when active tab changes
- useEffect(() => {
- // Scroll to top on tab change unless URL has a hash fragment (anchor link)
- if (!window.location.hash) {
- window.scrollTo({ top: 0, behavior: 'instant' });
- }
-
- // For tabs without sub-tab useEffects, handle SEO here
- const tabsWithSubEffects = ['confronti', 'fisco', 'guida', 'vita', 'calculator', 'stats', 'blog'];
- if (!tabsWithSubEffects.includes(activeTab)) {
- const route: AppRoute = { activeTab };
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- }
- }, [activeTab]);
-
- // Gamification: track guida section visits
- useEffect(() => {
- if (activeTab === 'guida') {
- // car-cost is now under guida
- }
- if (activeTab === 'vita') {
- if (vitaSubTab === 'schools') unlockAchievement('school_finder');
- if (vitaSubTab === 'places') unlockAchievement('map_explorer');
- }
- if (activeTab === 'fisco') {
- if (fiscoSubTab === 'calendar') unlockAchievement('tax_calendar_user');
- }
- }, [activeTab, guidaSubTab, vitaSubTab, fiscoSubTab]);
-
- // Handle search navigation
- const handleSearchNavigate = useCallback((tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => {
- enableRuntimeSeo();
- // We'll push the target route explicitly below.
- suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
- setActiveTab(tab as ActiveTab);
- if (tab !== 'calculator') setSeoLanding(null);
- if (tab !== 'glossario') setGlossaryTerm(null);
- if (tab !== 'blog') setBlogArticle(null);
-
- // Forward filter params to JobBoard when navigating to job-board
- if (tab === 'job-board' && filterParams) {
- setJobBoardFilterParams(filterParams);
- } else if (tab !== 'job-board') {
- setJobBoardFilterParams(null);
- }
-
- if (tab === 'calculator' && subTab) {
- setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
- } else if (tab === 'confronti' && subTab) {
- setConfrontiSubTab(subTab as ConfrontiSubTab);
- } else if (tab === 'fisco' && subTab) {
- setFiscoSubTab(subTab as FiscoSubTab);
- } else if (tab === 'guida' && subTab) {
- setGuidaSubTab(subTab as GuidaSubTab);
- } else if (tab === 'vita' && subTab) {
- setVitaSubTab(subTab as VitaSubTab);
- } else if (tab === 'stats' && subTab) {
- setStatsSubTab(subTab as StatsSubTab);
- } else if (tab === 'blog' && subTab) {
- setBlogArticle(subTab as BlogArticleId);
- } else if (tab === 'glossario') {
- setGlossaryTerm((subTab as GlossaryTermId) || null);
- }
- const route: AppRoute = { activeTab: tab as ActiveTab };
- if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
- if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
- if (tab === 'fisco') route.fiscoSubTab = (subTab || fiscoSubTab) as FiscoSubTab;
- if (tab === 'guida') route.guidaSubTab = (subTab || guidaSubTab) as GuidaSubTab;
- if (tab === 'vita') route.vitaSubTab = (subTab || vitaSubTab) as VitaSubTab;
- if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
- if (tab === 'blog') route.blogArticle = (subTab as BlogArticleId) || undefined;
- if (tab === 'glossario') route.glossaryTerm = (subTab as GlossaryTermId) || undefined;
- pushRoute(route);
- const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
- // Scroll to top on search/CTA navigation
- if (!window.location.hash) {
- window.scrollTo({ top: 0, behavior: 'instant' });
- }
- }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
  type CtaTarget =
  | { kind: 'tab'; tab: ActiveTab; subTab?: string }
