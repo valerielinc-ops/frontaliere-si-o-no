@@ -1,109 +1,5 @@
 [
   {
-    "timestamp": "2026-04-10T21:56:18.826Z",
-    "label": "before",
-    "total": 1694,
-    "needsRetranslation": 526,
-    "incomplete": 55,
-    "complete": 1639,
-    "missingByLocale": {
-      "it": 40,
-      "en": 38,
-      "de": 20,
-      "fr": 48
-    },
-    "topPending": [
-      {
-        "company": "Lonza",
-        "pending": 19
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 5
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Prada Group",
-        "pending": 4
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 2
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Avaloq",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-10T22:02:08.803Z",
-    "label": "after",
-    "total": 1694,
-    "needsRetranslation": 64,
-    "incomplete": 15,
-    "complete": 1679,
-    "missingByLocale": {
-      "it": 9,
-      "en": 13,
-      "de": 7,
-      "fr": 14
-    },
-    "topPending": [
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T02:22:32.298Z",
     "label": "before",
     "total": 1695,
@@ -7497,6 +7393,58 @@
     "needsRetranslation": 29,
     "incomplete": 21,
     "complete": 2912,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 20,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T05:50:46.268Z",
+    "label": "before",
+    "total": 2934,
+    "needsRetranslation": 31,
+    "incomplete": 22,
+    "complete": 2912,
+    "missingByLocale": {
+      "it": 21,
+      "en": 1,
+      "de": 21,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Prada Group",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T06:08:32.230Z",
+    "label": "after",
+    "total": 2934,
+    "needsRetranslation": 56,
+    "incomplete": 21,
+    "complete": 2913,
     "missingByLocale": {
       "it": 20,
       "en": 1,
