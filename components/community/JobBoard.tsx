@@ -3890,6 +3890,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  void promptOneTap();
  }, [authResolved, authGateOpen, hasAccess]);
 
+ // Close auth gate modal on Escape key
+ useEffect(() => {
+ if (!authGateOpen) return;
+ const handleKeyDown = (e: KeyboardEvent) => {
+ if (e.key === 'Escape') {
+ authUnlockCandidateRef.current = null;
+ setAuthGateOpen(false);
+ releaseSlot('job-auth-gate');
+ setPendingJob(null);
+ setAuthError(null);
+ }
+ };
+ window.addEventListener('keydown', handleKeyDown);
+ return () => window.removeEventListener('keydown', handleKeyDown);
+ }, [authGateOpen]);
+
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
  authUnlockCandidateRef.current = selectedJob.id;

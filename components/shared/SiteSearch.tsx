@@ -1290,6 +1290,9 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[env(safe-area-inset-top,12vh)] sm:pt-[12vh] bg-black/40 backdrop-blur-sm transition-opacity duration-150">
  <div
  ref={modalRef}
+ role="dialog"
+ aria-modal="true"
+ aria-label={t('search.placeholder') || 'Cerca'}
  className="w-full max-w-lg max-h-[70vh] sm:max-h-[75vh] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col animate-modal-in"
  >
  {/* Search input */}
