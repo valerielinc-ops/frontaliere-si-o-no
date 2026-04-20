@@ -26,6 +26,14 @@ import {
  buildJobTodayLandingModel,
  EDITORIAL_CANTONS,
 } from './jobEditorialLanding';
+import {
+ CITY_HUB_KEYS,
+ CITY_HUB_SLUG,
+ buildCityHubPath,
+ buildCityHubSeo,
+ countCityJobsByLocale,
+ type CityHubKey,
+} from './cityJobsHub';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -2875,10 +2883,24 @@ ${alternates}
  localePrefix: localePrefix[locale],
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ // Detect if this location is a canonical geo-hub city — those pages are
+ // canonicalized to the clean `/cerca-lavoro-ticino/<city>/` URL rather
+ // than the legacy `ricerca-<city>` editorial slug, to resolve GSC
+ // cannibalization and concentrate link equity on the clean hub.
+ const cityHubKey: CityHubKey | undefined = CITY_HUB_KEYS.find(
+ (k) => k.toLowerCase() === location.toLowerCase(),
+ );
+ const legacyPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const canonicalPath = cityHubKey
+ ? buildCityHubPath(locale, cityHubKey)
+ : legacyPath;
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const alternates = localeList
  .map((altLocale) => {
+ if (cityHubKey) {
+ // Clean-URL alternates for geo-hub cities.
+ return ` <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${buildCityHubPath(altLocale, cityHubKey)}">`;
+ }
  const altModel = buildJobLocationLandingModel({
  jobs: validJobs,
  locale: altLocale,
@@ -2899,17 +2921,27 @@ ${alternates}
  const sectorLinks = model.relatedSectorLinks.length > 0
  ? model.relatedSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dcfce7;border-radius:16px;background:#f0fdf4;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#15803d">${link.count}</span></a>`).join('')
  : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ // For geo-hub cities, override title/description with boosted count+fire
+ // copy to target high-intent queries like "lavoro lugano".
+ const cityHubSeo = cityHubKey
+ ? buildCityHubSeo(locale, cityHubKey, model.totalJobs, new Date().getFullYear())
+ : null;
+ const pageTitle = cityHubSeo ? cityHubSeo.title : model.title;
+ const pageDesc = cityHubSeo ? cityHubSeo.desc : model.description;
+ const pageOgTitle = cityHubSeo ? cityHubSeo.ogT : model.title;
+ const pageOgDesc = cityHubSeo ? cityHubSeo.ogD : model.description;
+ const pageH1 = cityHubSeo ? cityHubSeo.h1 : model.heading;
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
- name: model.heading,
+ name: pageH1,
  url: canonicalUrl,
- description: model.description,
+ description: pageDesc,
  isPartOf: sectionRootUrl,
  breadcrumbs: [
  { name: 'Home', item: `${BASE_URL}/` },
  { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
- { name: model.heading, item: canonicalUrl },
+ { name: pageH1, item: canonicalUrl },
  ],
  items: [...model.feed.jobs, ...model.latestJobs],
  });
@@ -2919,21 +2951,21 @@ ${alternates}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <title>${esc(pageTitle)}</title>
+ <meta name="description" content="${esc(pageDesc)}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:title" content="${esc(pageOgTitle)}">
+ <meta property="og:description" content="${esc(pageOgDesc)}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
+ <meta name="twitter:title" content="${esc(pageOgTitle)}">
+ <meta name="twitter:description" content="${esc(pageOgDesc)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -2946,8 +2978,8 @@ ${alternates}
  <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
+ <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(pageH1)}</h1>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(pageDesc)}</p>
  <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
@@ -2977,14 +3009,25 @@ ${alternates}
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
- const outDir = np.join(distDir, canonicalPath.slice(1));
+ // Primary write — at canonicalPath (clean URL for geo-hub cities,
+ // legacy `ricerca-<slug>` editorial path otherwise).
+ const writeCityOrLegacy = (targetPath: string, body: string) => {
+ const outDir = np.join(distDir, targetPath.slice(1));
  _md(outDir);
- _qw(np.join(outDir, 'index.html'), html);
- const flatPath = canonicalPath.replace(/\/+$/, '');
- if (flatPath) {
- const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
+ _qw(np.join(outDir, 'index.html'), body);
+ const flat = targetPath.replace(/\/+$/, '');
+ if (flat) {
+ const flatFile = np.join(distDir, flat.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qw(flatFile, body.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ }
+ };
+ writeCityOrLegacy(canonicalPath, html);
+ // Geo-hub cities: also keep the legacy /<section>/ricerca-<city>/
+ // path live (backward-compat + external links) but emitting the same
+ // HTML whose canonical already points at the clean URL.
+ if (cityHubKey && legacyPath !== canonicalPath) {
+ writeCityOrLegacy(legacyPath, html);
  }
  }
 
@@ -2998,6 +3041,24 @@ ${alternates}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  }), '0.75');
+
+ // Geo-hub city: add a dedicated sitemap entry for the clean canonical
+ // URL /cerca-lavoro-ticino/<city>/ (and locale variants). Priority 0.85
+ // — higher than legacy ricerca-* editorial pages since the clean URL is
+ // the canonical target for high-intent queries.
+ {
+ const cityHubKey: CityHubKey | undefined = CITY_HUB_KEYS.find(
+ (k) => k.toLowerCase() === location.toLowerCase(),
+ );
+ if (cityHubKey) {
+ const itPath = `/${sectionByLocale.it}/${CITY_HUB_SLUG.it[cityHubKey]}/`.replace(/\/+/g, '/');
+ const alternateLinks = localeList.map((locale) => {
+ const altPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${CITY_HUB_SLUG[locale][cityHubKey]}/`.replace(/\/+/g, '/');
+ return ` <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${altPath}" />`;
+ }).join('\n');
+ editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ }
+ }
 
  for (const typeKey of editorialTypeKeys) {
  const italianTypeModel = buildJobLocationTypeLandingModel({
