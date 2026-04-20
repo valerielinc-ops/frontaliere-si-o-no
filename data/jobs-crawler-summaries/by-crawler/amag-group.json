@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-04-20T05:11:34.640Z",
+  "generatedAt": "2026-04-20T09:59:21.843Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4962,
-  "avgDurationMs": 4962,
+  "durationMs": 4605,
+  "avgDurationMs": 4605,
   "durationHistory": [
-    4962
+    4605
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "streetAddress": "Via Industria 1",
       "postalCode": "6934",
       "id": "amag-group-cf089567d2ec",
+      "firstSeenAt": "2026-04-20T05:11:34.640Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
