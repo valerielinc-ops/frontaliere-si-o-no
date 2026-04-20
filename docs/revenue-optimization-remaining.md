@@ -120,7 +120,8 @@ Set up a scheduled check (GitHub Action or cron) that runs weekly and compares:
 **Status (2026-04-20)**: Shipped.
 - Script: `scripts/revenue-monitor.mjs` — queries AdSense `reports:generate` (revenue, RPM, desktop RPM, auth-gate unit impressions) and GSC `searchAnalytics:query` (clicks/day, avg position), compares against the Apr 6-19 baseline and flags regressions (⚠️ > 10%, 🔴 > 20%). Supports `--json`, `--markdown`, `--save`.
 - Workflow: `.github/workflows/revenue-monitor.yml` — Mondays 06:15 UTC, writes markdown summary to `$GITHUB_STEP_SUMMARY`, uploads `reports/revenue-*.{md,json}` artifacts, and auto-commits the report.
-- Required secrets (add in repo Settings → Secrets): `ADSENSE_REFRESH_TOKEN` (required), `ADSENSE_CLIENT_ID` / `ADSENSE_CLIENT_SECRET` (optional; fall back to `GSC_*`). GSC already loads via `scripts/load-rc-env.mjs`. PostHog CLS and GA4 bounce are **not** wired up yet — add as follow-ups once baseline has ≥1 week of weekly reports.
+- Required secrets (add in repo Settings → Secrets): `ADSENSE_REFRESH_TOKEN` (required), `ADSENSE_CLIENT_ID` / `ADSENSE_CLIENT_SECRET` (optional; fall back to `GSC_*`). GSC already loads via `scripts/load-rc-env.mjs`.
+- **2026-04-20 (W3-MONITORING)**: script now also tracks (a) PostHog **CLS p75 mobile/desktop** via HogQL REST API and (b) **GSC CTR per page bucket** (`/job-board/`, `/calcola-stipendio/`, `/articoli-frontaliere/`, `/fisco/`, `/guida-frontaliere/`). Regression thresholds unchanged (⚠️ > 10%, 🔴 > 20%). CLS section is **gated behind credentials**: if `POSTHOG_PERSONAL_API_KEY` + `POSTHOG_PROJECT_ID` are missing, the workflow emits a warning row in the report instead of failing. Add the two secrets in repo Settings → Secrets *or* in Firebase Remote Config (`SERVER_POSTHOG_PERSONAL_API_KEY`, `SERVER_POSTHOG_PROJECT_ID`, optional `SERVER_POSTHOG_HOST`). GA4 bounce remains a follow-up.
 
 ---
 
