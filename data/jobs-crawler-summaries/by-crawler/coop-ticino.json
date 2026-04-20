@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-20T10:32:31.965Z",
+  "generatedAt": "2026-04-20T21:29:30.906Z",
   "total": 171,
-  "newCount": 6,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 165,
-  "durationMs": 495451,
-  "avgDurationMs": 495451,
+  "durationMs": 496383,
+  "avgDurationMs": 496383,
   "durationHistory": [
-    495451
+    496383
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-gyn995",
       "slug": "collaboratrice-collaboratore-produzione-panofina-basel",
@@ -36,47 +37,16 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-20T10:29:08.873Z",
       "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-3u7hyt",
-      "slug": "venditrice-tore-prodotti-freschi-m-w-d-coop-losone-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Venditrice/tore Prodotti freschi (f/m/d)",
-      "location": "Losone",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/venditrice-tore-prodotti-freschi-f-m-d/f8ffab97-cbd2-4607-b5d1-907f70f7d6f5",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-20T10:29:08.873Z",
-      "firstSeenAt": "2026-04-20T10:29:08.873Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "needsRetranslation": true,
-      "addressLocality": "Losone",
-      "_qualityScore": 68,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -102,47 +72,16 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-20T10:29:08.873Z",
       "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-wdtls",
-      "slug": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-riazzino-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
-      "location": "Riazzino",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/macellaia-macellaio-salumiera-salumiere-f-m-d/29f986e3-d292-4710-a347-92f5861ed133",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-20T10:29:08.873Z",
-      "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "needsRetranslation": true,
-      "addressLocality": "Riazzino",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -168,15 +107,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-20T10:29:08.873Z",
       "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -202,21 +143,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-20T10:29:08.873Z",
       "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -285,6 +224,79 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-3u7hyt",
+      "slug": "venditrice-tore-prodotti-freschi-m-w-d-coop-losone-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Venditrice/tore Prodotti freschi (f/m/d)",
+      "location": "Losone",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-20",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/venditrice-tore-prodotti-freschi-f-m-d/f8ffab97-cbd2-4607-b5d1-907f70f7d6f5",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-20T10:29:08.873Z",
+      "firstSeenAt": "2026-04-20T10:29:08.873Z",
+      "addressLocality": "Losone",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-wdtls",
+      "slug": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-riazzino-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
+      "location": "Riazzino",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-20",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/macellaia-macellaio-salumiera-salumiere-f-m-d/29f986e3-d292-4710-a347-92f5861ed133",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-20T10:29:08.873Z",
+      "firstSeenAt": "2026-04-20T10:29:08.873Z",
+      "addressLocality": "Riazzino",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
