@@ -2081,6 +2081,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiusure-autostrada-a9-lombardia-2026': { name: 'Chiusure autostrada', path: '/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026', parent: 'blog' },
     'blog-capre-dogana-gandria-incidenti-2026': { name: 'Capre dogana Gandria', path: '/articoli-frontaliere/capre-dogana-gandria-incidenti-2026', parent: 'blog' },
     'blog-lavori-autostrade-ticino-aprile-2026': { name: 'Lavori autostrade', path: '/articoli-frontaliere/lavori-autostrade-ticino-aprile-2026', parent: 'blog' },
+    'blog-militari-treni-ticino-20-euro': { name: 'Novità', path: '/articoli-frontaliere/militari-treni-ticino-20-euro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

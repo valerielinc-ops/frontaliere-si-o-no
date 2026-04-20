@@ -2409,6 +2409,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-autostrade-ticino-aprile-2026.title': 'Travaux autoroutiers au Tessin : fermetures nocturnes à Besnate, Turate et sur l\'A9',
     'blog.article.lavori-autostrade-ticino-aprile-2026.excerpt': 'Autostrade per l\'Italia prévoit des interventions nocturnes du 20 au 24 avril 2026. Fermetures à Besnate, Turate et sur l\'A9 Lainate-Como-Chiasso',
     'blog.article.lavori-autostrade-ticino-aprile-2026.imageAlt': 'Vue aérienne de l\'autoroute A9 près de Chiasso, Tessin, avec des travaux de construction visibles la nuit',
+    'blog.article.militari-treni-ticino-20-euro.title': 'Militaires dans les trains Trenord : 20 euros par an pour une sécurité accrue',
+    'blog.article.militari-treni-ticino-20-euro.excerpt': 'À partir du 1er mai 2026, les militaires pourront voyager sur les trains Trenord en Lombardie avec un abonnement avantageux de 20 euros par an pour augmenter la sécurité à bord des convois.',
+    'blog.article.militari-treni-ticino-20-euro.imageAlt': 'Personnel militaire en uniforme dans un train Trenord au Tessin avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

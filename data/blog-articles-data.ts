@@ -6606,4 +6606,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/lavori-autostrade-ticino-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'militari-treni-ticino-20-euro',
+ category: 'novita',
+ date: '2026-04-20T16:46:26.706Z',
+ image: '/images/blog/militari-treni-ticino-20-euro.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2409,6 +2409,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-autostrade-ticino-aprile-2026.title': 'Lavori autostrade Ticino: chiusure notturne a Besnate, Turate e sulla A9',
     'blog.article.lavori-autostrade-ticino-aprile-2026.excerpt': 'Autostrade per l\'Italia programma interventi notturni dal 20 al 24 aprile 2026. Chiusure a Besnate, Turate e sulla A9 Lainate-Como-Chiasso',
     'blog.article.lavori-autostrade-ticino-aprile-2026.imageAlt': 'Vista aerea dell\'autostrada A9 vicino a Chiasso, Ticino, con lavori di costruzione visibili di notte',
+    'blog.article.militari-treni-ticino-20-euro.title': 'Militari sui treni Trenord: 20 euro all\'anno per maggiore sicurezza',
+    'blog.article.militari-treni-ticino-20-euro.excerpt': 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui convogli.',
+    'blog.article.militari-treni-ticino-20-euro.imageAlt': 'Militare in divisa su un treno Trenord in Ticino con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

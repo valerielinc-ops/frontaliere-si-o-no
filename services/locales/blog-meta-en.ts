@@ -2409,6 +2409,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-autostrade-ticino-aprile-2026.title': 'Ticino Highway Works: Nighttime Closures in Besnate, Turate, and on the A9',
     'blog.article.lavori-autostrade-ticino-aprile-2026.excerpt': 'Autostrade per l\'Italia has scheduled nighttime interventions from April 20 to 24, 2026. Closures will affect Besnate, Turate, and the A9 between Lainate, Como, and Chiasso.',
     'blog.article.lavori-autostrade-ticino-aprile-2026.imageAlt': 'Aerial view of A9 highway near Chiasso, Ticino, with construction work visible at night',
+    'blog.article.militari-treni-ticino-20-euro.title': 'Military on Trenord trains: 20 euros per year for enhanced security',
+    'blog.article.militari-treni-ticino-20-euro.excerpt': 'From 1st May 2026, military personnel will be able to travel on Trenord trains in Lombardy with a discounted annual subscription of 20 euros to increase security on board.',
+    'blog.article.militari-treni-ticino-20-euro.imageAlt': 'Military personnel in uniform on a Trenord train in Ticino with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -10179,6 +10179,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-militari-treni-ticino-20-euro': {
+    title: 'Militari sui treni Trenord: 20 euro | Frontaliere Ticino',
+    description: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui',
+    keywords: 'frontalieri, ticino, svizzera, italia, militari, treni, trenord, euro',
+    ogTitle: 'Militari sui treni Trenord: 20 euro all\'anno per maggiore',
+    ogDescription: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui',
+    canonicalPath: '/articoli-frontaliere/militari-treni-ticino-20-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Militari sui treni Trenord: 20 euro all'anno per maggiore sicurezza",
+      "description": "Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/militari-treni-ticino-20-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Militare in divisa su un treno Trenord in Ticino con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-20T16:46:26+00:00",
+      "dateModified": "2026-04-20T16:46:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/militari-treni-ticino-20-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
