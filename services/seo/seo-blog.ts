@@ -10324,6 +10324,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-domocilio-ticino-2026': {
+    title: 'Cure a domicilio, palla in tribuna | Frontaliere Ticino',
+    description: 'Il Gran Consiglio del Ticino ha respinto la richiesta d\'urgenza sull\'iniziativa che chiedeva di stralciare la partecipazione ai costi per le cure a domicilio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, palla, tribuna',
+    ogTitle: 'Cure a domicilio, palla in tribuna | Frontaliere Ticino',
+    ogDescription: 'Il Gran Consiglio del Ticino ha respinto la richiesta d\'urgenza sull\'iniziativa che chiedeva di stralciare la partecipazione ai costi per le cure a domicilio.',
+    canonicalPath: '/articoli-frontaliere/cure-domocilio-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure a domicilio, palla in tribuna: respinta la richiesta d'urgenza",
+      "description": "Il Gran Consiglio del Ticino ha respinto la richiesta d'urgenza sull'iniziativa che chiedeva di stralciare la partecipazione ai costi per le cure a domicilio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-domocilio-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un operatore sanitario in visita domiciliare in Ticino"
+      },
+      "datePublished": "2026-04-20T22:17:21+00:00",
+      "dateModified": "2026-04-20T22:17:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-domocilio-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

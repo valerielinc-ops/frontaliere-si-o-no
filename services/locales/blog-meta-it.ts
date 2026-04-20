@@ -2424,6 +2424,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2027-2029.title': 'Salario minimo in Ticino: ecco come cambia dal 2027',
     'blog.article.salario-minimo-ticino-2027-2029.excerpt': 'Il Gran Consiglio ha approvato il compromesso sul salario minimo: da 20,50 a 21,75-22,25 franchi l\'ora entro il 2029',
     'blog.article.salario-minimo-ticino-2027-2029.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.cure-domocilio-ticino-2026.title': 'Cure a domicilio, palla in tribuna: respinta la richiesta d\'urgenza',
+    'blog.article.cure-domocilio-ticino-2026.excerpt': 'Il Gran Consiglio del Ticino ha respinto la richiesta d\'urgenza sull\'iniziativa che chiedeva di stralciare la partecipazione ai costi da parte dei pazienti per le cure a domicilio.',
+    'blog.article.cure-domocilio-ticino-2026.imageAlt': 'Un operatore sanitario in visita domiciliare in Ticino',
 };
 
 export default blogMetaIt;

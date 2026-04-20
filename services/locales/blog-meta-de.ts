@@ -2424,6 +2424,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2027-2029.title': 'Mindestlohn im Tessin: So ändert er sich ab 2027',
     'blog.article.salario-minimo-ticino-2027-2029.excerpt': 'Der Grosse Rat hat den Kompromiss zum Mindestlohn genehmigt: von 20,50 auf 21,75-22,25 Franken pro Stunde bis 2029',
     'blog.article.salario-minimo-ticino-2027-2029.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.cure-domocilio-ticino-2026.title': 'Hausbesuche: Dringlichkeitsantrag abgelehnt',
+    'blog.article.cure-domocilio-ticino-2026.excerpt': 'Der Grosse Rat des Kantons Tessin hat den Dringlichkeitsantrag zur Initiative, die die Streichung der Kostenbeteiligung der Patienten für Hausbesuche forderte, abgelehnt.',
+    'blog.article.cure-domocilio-ticino-2026.imageAlt': 'Ein Gesundheitsdienstleister besucht einen Patienten zu Hause in Tessin',
 };
 
 export default blogMetaDe;

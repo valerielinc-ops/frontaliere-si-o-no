@@ -6641,4 +6641,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/salario-minimo-ticino-2027-2029.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cure-domocilio-ticino-2026',
+ category: 'novita',
+ date: '2026-04-20T22:17:21.927Z',
+ image: '/images/blog/cure-domocilio-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2424,6 +2424,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2027-2029.title': 'Minimum wage in Ticino: here\'s how it changes from 2027',
     'blog.article.salario-minimo-ticino-2027-2029.excerpt': 'The Grand Council has approved the compromise on the minimum wage: from 20.50 to 21.75-22.25 francs per hour by 2029',
     'blog.article.salario-minimo-ticino-2027-2029.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.cure-domocilio-ticino-2026.title': 'Home care, ball in the stands: urgent request rejected',
+    'blog.article.cure-domocilio-ticino-2026.excerpt': 'The Grand Council of Ticino has rejected the urgent request on the initiative that asked to remove the patients\' share of the costs for home care.',
+    'blog.article.cure-domocilio-ticino-2026.imageAlt': 'A healthcare professional visiting a patient at home in Ticino',
 };
 
 export default blogMetaEn;
