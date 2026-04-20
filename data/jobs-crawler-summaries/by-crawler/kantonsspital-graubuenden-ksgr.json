@@ -1,18 +1,51 @@
 {
   "key": "kantonsspital-graubuenden-ksgr",
   "label": "KSGR",
-  "generatedAt": "2026-04-20T10:55:11.319Z",
-  "total": 111,
-  "newCount": 0,
+  "generatedAt": "2026-04-20T21:51:49.081Z",
+  "total": 112,
+  "newCount": 1,
   "updatedCount": 111,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1603,
-  "avgDurationMs": 1603,
+  "durationMs": 1787,
+  "avgDurationMs": 1787,
   "durationHistory": [
-    1603
+    1787
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "10005062",
+      "title": "Oberärztin mbF / Oberarzt mbF Radio-Onkologie",
+      "url": "https://jobs.ksgr.ch/offene-stellen/oberaerztin-mbf-oberarzt-mbf-radio-onkologie/d81f1cb0-9429-4e88-b54d-57c842519413",
+      "company": "Kantonsspital Graubünden",
+      "companyKey": "kantonsspital-graubuenden-ksgr",
+      "companyDomain": "ksgr.ch",
+      "source": "KSGR Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "postalCode": "7000",
+      "streetAddress": "Loëstrasse 170",
+      "postedDate": "2026-04-20",
+      "employmentType": "80 - 100%",
+      "category": "Gesundheitswesen",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
+      "slug": "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur",
+      "featured": false,
+      "needsRetranslation": true,
+      "_targetScope": "grigioni",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "10002111",
@@ -33,15 +66,15 @@
       "postedDate": "2026-04-16",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "medico-assistente-pratico-in-clinica-medica-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -65,15 +98,15 @@
       "postedDate": "2026-04-15",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "leader-del-team-nella-pneumologia-ambulatoriale-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -97,15 +130,15 @@
       "postedDate": "2026-04-13",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "capo-della-stazione-in-medicina-interna-kantonsspital-graubunden-walenstadt",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -129,15 +162,15 @@
       "postedDate": "2026-04-13",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "senior-medico-senior-medico-assistenza-sanitaria-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -161,15 +194,15 @@
       "postedDate": "2026-04-13",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": true,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -193,15 +226,15 @@
       "postedDate": "2026-04-13",
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "fisioterapista-in-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -225,15 +258,15 @@
       "postedDate": "2026-04-13",
       "employmentType": "50 - 70%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.261Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "specialista-infermieristica-radio-oncologia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -257,15 +290,15 @@
       "postedDate": "2026-04-12",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "senior-medico-senior-medico-mbf-senior-medico-mbf-neurologia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -289,15 +322,15 @@
       "postedDate": "2026-04-08",
       "employmentType": "80 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "addetto-al-room-service-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -321,15 +354,15 @@
       "postedDate": "2026-04-08",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "responsabile-di-ristorante-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -353,15 +386,15 @@
       "postedDate": "2026-04-08",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "co-responsabile-area-geriatria-acuta-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -385,15 +418,15 @@
       "postedDate": "2026-04-08",
       "employmentType": "20 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "infermiere-a-medicina-interna-pool-infermieristico-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -417,15 +450,15 @@
       "postedDate": "2026-04-08",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "tecnico-a-di-farmacia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -449,15 +482,15 @@
       "postedDate": "2026-04-08",
       "employmentType": "60 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "ergoterapista-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -481,15 +514,15 @@
       "postedDate": "2026-04-02",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "primario-a-di-ematologia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -513,15 +546,15 @@
       "postedDate": "2026-04-01",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "responsabile-formazione-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -545,15 +578,15 @@
       "postedDate": "2026-04-01",
       "employmentType": "50 - 80%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "responsabile-formazione-infermieristica-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -577,15 +610,15 @@
       "postedDate": "2026-04-01",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "responsabile-di-squadra-mpa-poliambulatorio-medico-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -609,15 +642,15 @@
       "postedDate": "2026-04-01",
       "employmentType": "60 - 80%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "responsabile-team-hr-amministrazione-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -641,15 +674,15 @@
       "postedDate": "2026-04-01",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "analista-biomedico-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -673,15 +706,15 @@
       "postedDate": "2026-04-01",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "assistente-di-studio-medico-orl-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -705,15 +738,15 @@
       "postedDate": "2026-03-31",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "coordinatore-di-ricerca-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -737,15 +770,15 @@
       "postedDate": "2026-03-31",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "tecnico-di-laboratorio-biomedico-in-microbiologia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -769,15 +802,15 @@
       "postedDate": "2026-03-30",
       "employmentType": "60 - 60%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "addetto-a-cucina-kantonsspital-graubunden-walenstadt",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 96,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 22
       }
@@ -801,15 +834,15 @@
       "postedDate": "2026-03-30",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "assistente-medico-in-ematologia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -833,15 +866,15 @@
       "postedDate": "2026-03-30",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "medico-in-formazione-specialistica-in-oncologia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -865,15 +898,15 @@
       "postedDate": "2026-03-27",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "assistente-medico-in-chirurgia-vascolare-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -897,15 +930,15 @@
       "postedDate": "2026-03-26",
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "formatore-professionale-in-cure-infermieristiche-chirurgia-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -929,15 +962,15 @@
       "postedDate": "2026-03-25",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "primario-a-supplente-in-chirurgia-vascolare-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -961,15 +994,15 @@
       "postedDate": "2026-03-25",
       "employmentType": "50 - 60%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-04-20T10:55:11.262Z",
+      "crawledAt": "2026-04-20T21:51:49.023Z",
       "slug": "partner-aziendale-junior-hr-kantonsspital-graubunden-chur",
       "featured": false,
       "needsRetranslation": false,
       "_targetScope": "grigioni",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
