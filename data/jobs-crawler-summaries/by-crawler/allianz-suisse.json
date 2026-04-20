@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-20T09:57:22.885Z",
+  "generatedAt": "2026-04-20T20:54:32.493Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13185,
-  "avgDurationMs": 13185,
+  "unchangedCount": 1,
+  "durationMs": 15409,
+  "avgDurationMs": 15409,
   "durationHistory": [
-    13185
+    15409
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -235,7 +235,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "| Allianz | Bewerbermanagement",
       "slug": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
@@ -273,7 +276,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
