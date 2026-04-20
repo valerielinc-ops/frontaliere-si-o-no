@@ -41,6 +41,7 @@ import {
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
+import { WEEKLY_EMPLOYERS_ROUTES, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 
 // ── Route types ──────────────────────────────────────────────
 
@@ -1610,6 +1611,22 @@ export function parsePath(pathname: string): ParseResult {
  // These are build-time static HTML; soft-nav resolves to the fuel-prices Statistiche tab.
  if (FUEL_DAILY_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isFuelDailyPath(pathname)) {
    return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices' }, locale };
+ }
+
+ // Weekly "Aziende che assumono" per-city hub (F5) — build-time static HTML.
+ // Soft-nav resolves to the job-board tab so back/forward works without 404.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (WEEKLY_EMPLOYERS_ROUTES.includes(normalized)) {
+     const parsed = parseWeeklyEmployersPath(pathname);
+     if (parsed) {
+       return { route: { activeTab: 'job-board' }, locale: parsed.locale as Locale };
+     }
+   }
+   const weeklyEmployersMatch = parseWeeklyEmployersPath(pathname);
+   if (weeklyEmployersMatch) {
+     return { route: { activeTab: 'job-board' }, locale: weeklyEmployersMatch.locale as Locale };
+   }
  }
 
  if (parts.length === 0) {
