@@ -23,12 +23,18 @@ jobs:
       - name: Generate keyword pages config
         run: node scripts/generate-keyword-pages-config.mjs
 
+      - name: Re-cluster orphan queries (F3b)
+        # Runs off the latest committed gsc-orphan-queries.json (refreshed by
+        # sync-gsc-orphans.mjs in its own workflow). Safe to run: produces a
+        # deterministic JSON artifact that the build plugin consumes.
+        run: node scripts/cluster-orphan-queries.mjs
+
       - name: Commit if changed
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/keyword-pages-config.json
+          git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json
           if git diff --cached --quiet; then
             echo "No changes to keyword config"
             exit 0
@@ -59,7 +65,8 @@ jobs:
               git rebase --abort
               git reset --hard origin/main
               node scripts/generate-keyword-pages-config.mjs
-              git add data/keyword-pages-config.json
+              node scripts/cluster-orphan-queries.mjs
+              git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json
               if git diff --cached --quiet; then
                 echo "No changes after regeneration; nothing to push"
                 exit 0

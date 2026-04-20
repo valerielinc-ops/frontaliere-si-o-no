@@ -40,6 +40,7 @@ import {
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
+import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 
 // ── Route types ──────────────────────────────────────────────
 
@@ -1613,6 +1614,13 @@ export function parsePath(pathname: string): ParseResult {
 
  if (parts.length === 0) {
  return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
+ }
+
+ // Orphan-query cluster landings (F3b): /ricerca/<slug>/, /en/search/<slug>/, …
+ // Pages are statically generated; on SPA back/forward we just land users on the job-board tab.
+ const orphanMatch = ORPHAN_LANDING_ROUTES(pathname);
+ if (orphanMatch) {
+ return { route: { activeTab: 'job-board' }, locale: orphanMatch.locale as Locale };
  }
 
  const first = parts[0];

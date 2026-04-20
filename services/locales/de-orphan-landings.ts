@@ -1,0 +1,28 @@
+// German translations — orphan-query cluster landings chunk.
+const translations: Record<string, string> = {
+ 'orphanLanding.breadcrumbHome': 'Startseite',
+ 'orphanLanding.breadcrumbSection': 'Stellensuche',
+ 'orphanLanding.updatedLabel': 'Aktualisiert am',
+ 'orphanLanding.resultsLabel': 'Passende Stellen',
+ 'orphanLanding.noResults': 'Aktuell gibt es keine Stellen, die genau dieser Suche entsprechen.',
+ 'orphanLanding.similarQueries': 'Ähnliche Suchanfragen anderer Besucher',
+ 'orphanLanding.medianSalary': 'Indikatives Medianeinkommen',
+ 'orphanLanding.medianSalaryNA': 'Keine Angabe',
+ 'orphanLanding.topEmployers': 'Unternehmen, die für diese Rolle einstellen',
+ 'orphanLanding.topCities': 'Städte mit den meisten offenen Stellen',
+ 'orphanLanding.ctaAllJobs': 'Alle Jobs im Tessin anzeigen',
+ 'orphanLanding.ctaCalculator': 'Berechnen Sie Ihren Nettolohn als Grenzgänger',
+ 'orphanLanding.editorialTech': 'Der Schweizer Tech-Sektor wächst rasant, besonders im Grossraum Zürich und im Tessin. Qualifizierte Fachkräfte profitieren von wettbewerbsfähigen Löhnen, flexiblen Arbeitszeiten und internationalen Teams.',
+ 'orphanLanding.editorialHealthcare': 'Das Schweizer Gesundheitswesen ist einer der stabilsten und bestbezahlten Sektoren. Altersheime, Kantonsspitäler und Privatkliniken schreiben laufend Stellen für Pflegekräfte und medizinisches Personal aus.',
+ 'orphanLanding.editorialRetail': 'Der Schweizer Detailhandel bietet stabile Beschäftigungsmöglichkeiten, von Grosskonzernen (Coop, Migros, Manor) bis zu Luxusmarken in Outlet-Centern. Voll- und Teilzeitverträge sind üblich.',
+ 'orphanLanding.editorialHospitality': 'Hotellerie und Gastronomie stellen das ganze Jahr über ein, mit saisonalen Spitzen. Das Tessin und die Alpenkantone suchen Küchen-, Service- und Empfangspersonal — oft mit Unterkunft.',
+ 'orphanLanding.editorialOffice': 'Schweizer Banken, Versicherungen und Büros sind grosse Arbeitgeber für italienische Grenzgänger: Administration, Buchhaltung, Sekretariat und Kundendienst.',
+ 'orphanLanding.editorialLogistics': 'Logistik, Transport und Chauffeur-Tätigkeiten zählen in der Deutschschweiz und im Tessin zu den gefragtesten Bereichen. Überdurchschnittliche Löhne und klar geregelte Arbeitszeiten.',
+ 'orphanLanding.editorialGeneric': 'Der Schweizer Arbeitsmarkt bietet italienischen Grenzgängern attraktive wirtschaftliche und rechtliche Bedingungen: höhere Nettolöhne, Quellensteuer, obligatorische Krankenversicherung und 13. Monatslohn. Für Einwohner innerhalb von 20 km zur Grenze gilt das Grenzgängerabkommen 2026.',
+ 'orphanLanding.faqH2': 'Häufig gestellte Fragen',
+ 'orphanLanding.faqQ1': 'Wie bewerbe ich mich auf diese Stellen?',
+ 'orphanLanding.faqA1': 'Jede Anzeige verlinkt auf die Originalseite des Arbeitgebers oder sein ATS-Portal. Eine Registrierung auf Frontaliere Ticino ist nicht erforderlich.',
+ 'orphanLanding.faqQ2': 'Kann ich als Grenzgänger diese Jobs annehmen?',
+ 'orphanLanding.faqA2': 'Ja — wenn Sie in einer italienischen Gemeinde innerhalb von 20 km zur Schweizer Grenze wohnen und täglich nach Hause zurückkehren. Andere Fälle fallen unter den Ausländerausweis B.',
+};
+export default translations;

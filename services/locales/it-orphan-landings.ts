@@ -1,0 +1,29 @@
+// Italian translations — orphan-query cluster landings chunk.
+// Editorial strings used by build-plugins/orphanQueryLandingPlugin.ts.
+const translations: Record<string, string> = {
+ 'orphanLanding.breadcrumbHome': 'Home',
+ 'orphanLanding.breadcrumbSection': 'Ricerca lavoro',
+ 'orphanLanding.updatedLabel': 'Aggiornato il',
+ 'orphanLanding.resultsLabel': 'Offerte pertinenti',
+ 'orphanLanding.noResults': 'Al momento non ci sono offerte che corrispondono esattamente a questa ricerca.',
+ 'orphanLanding.similarQueries': 'Ricerche simili dei nostri visitatori',
+ 'orphanLanding.medianSalary': 'Stipendio mediano indicativo',
+ 'orphanLanding.medianSalaryNA': 'Dato non disponibile',
+ 'orphanLanding.topEmployers': 'Aziende che assumono per questo ruolo',
+ 'orphanLanding.topCities': 'Città con più opportunità',
+ 'orphanLanding.ctaAllJobs': 'Vedi tutte le offerte di lavoro in Ticino',
+ 'orphanLanding.ctaCalculator': 'Calcola il tuo stipendio netto come frontaliere',
+ 'orphanLanding.editorialTech': 'Il settore tecnologico svizzero è in rapida crescita, soprattutto in Ticino e nell\'area metropolitana di Zurigo. I candidati qualificati beneficiano di stipendi competitivi, orari flessibili e la possibilità di lavorare in contesti internazionali.',
+ 'orphanLanding.editorialHealthcare': 'La sanità svizzera è uno dei settori più solidi e meglio retribuiti. Case per anziani, ospedali cantonali e cliniche private pubblicano costantemente offerte per infermieri, assistenti di cura e personale medico.',
+ 'orphanLanding.editorialRetail': 'Il commercio al dettaglio svizzero offre numerose opportunità stabili, dai grandi gruppi (Coop, Migros, Manor) ai brand del lusso nei centri outlet. Contratti a tempo indeterminato e part-time sono diffusi.',
+ 'orphanLanding.editorialHospitality': 'Hotellerie e ristorazione assumono tutto l\'anno, con picchi stagionali. Il Ticino e i cantoni alpini cercano personale per cucine, sala, accoglienza, con alloggio spesso incluso.',
+ 'orphanLanding.editorialOffice': 'Uffici, banche e assicurazioni svizzere sono grandi datori di lavoro per frontalieri italiani, con ruoli amministrativi, contabili, segreteria e customer service.',
+ 'orphanLanding.editorialLogistics': 'Logistica, trasporti e autisti sono fra i settori più richiesti in Svizzera tedesca e in Ticino. Stipendi superiori alla media europea e turni regolamentati dai CCNL.',
+ 'orphanLanding.editorialGeneric': 'Il mercato del lavoro svizzero offre condizioni economiche e legali attrattive per i frontalieri italiani: stipendi netti più alti, tasse alla fonte, assicurazione sanitaria obbligatoria e tredicesima. Per i residenti in Italia entro 20 km dal confine si applicano le regole dell\'Accordo frontalieri 2026.',
+ 'orphanLanding.faqH2': 'Domande frequenti',
+ 'orphanLanding.faqQ1': 'Come posso candidarmi a queste offerte?',
+ 'orphanLanding.faqA1': 'Ogni annuncio porta al sito originale dell\'azienda o del portale di recruiting. Non serve registrarsi su Frontaliere Ticino per candidarsi.',
+ 'orphanLanding.faqQ2': 'Posso lavorare come frontaliere a queste condizioni?',
+ 'orphanLanding.faqA2': 'Sì, se risiedi in un comune italiano entro 20 km dal confine svizzero e torni quotidianamente a casa. Per altri casi si applicano le regole del permesso B.',
+};
+export default translations;
