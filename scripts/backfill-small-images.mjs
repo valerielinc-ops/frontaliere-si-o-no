@@ -24,6 +24,8 @@ const args = process.argv.slice(2);
 const DRY_RUN = args.includes('--dry-run');
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx !== -1 ? parseInt(args[limitIdx + 1], 10) : Infinity;
+const fileIdx = args.indexOf('--file');
+const ONLY_FILE = fileIdx !== -1 ? args[fileIdx + 1] : null;
 
 // ── Constants (match create-article.mjs) ──────────────────────────────────
 const BLOG_IMAGE_TARGET_MAX_BYTES = 220 * 1024;
@@ -35,29 +37,29 @@ const MIN_WIDTH = 1200;
 
 // ── Topic keyword → Wikimedia search query map (copied from create-article.mjs) ──
 const TOPIC_SEARCH_MAP = [
-  { keywords: ['benzina', 'carburante', 'petrolio', 'diesel', 'rifornimento'], queries: ['fuel station Switzerland', 'gas pump Europe'] },
-  { keywords: ['tasse', 'fiscale', 'imposta', 'irpef', 'fisco', 'deduzioni'], queries: ['tax office building', 'financial documents desk'] },
-  { keywords: ['salute', 'malattia', 'lamal', 'assicurazione', 'premio'], queries: ['hospital Switzerland modern', 'health insurance card'] },
-  { keywords: ['lavoro', 'impiego', 'occupazione', 'assunzione', 'disoccup'], queries: ['modern office workplace', 'job interview meeting'] },
-  { keywords: ['confine', 'dogana', 'frontiera', 'frontalier', 'permesso'], queries: ['Swiss Italian border crossing', 'customs checkpoint Europe'] },
-  { keywords: ['treno', 'ferrovia', 'trasporto', 'pendolar', 'tilo'], queries: ['train station Switzerland', 'commuter train Alps'] },
-  { keywords: ['casa', 'affitto', 'immobiliare', 'appartamento', 'mutuo'], queries: ['apartment building Switzerland', 'residential area Ticino'] },
-  { keywords: ['banca', 'finanziario', 'cambio', 'valuta', 'franco', 'euro'], queries: ['Swiss bank building', 'currency exchange counter'] },
-  { keywords: ['scuola', 'formazione', 'educazione', 'universit', 'corso'], queries: ['university campus Switzerland', 'classroom education'] },
-  { keywords: ['pensione', 'avs', 'pilastro', 'previdenza', 'anzian'], queries: ['retirement couple walking', 'pension fund documents'] },
-  { keywords: ['salario', 'stipendio', 'busta paga', 'reddito', 'retribuzion'], queries: ['salary paycheck document', 'business accounting office'] },
-  { keywords: ['dumping', 'sindacat', 'contratto', 'ccl'], queries: ['labor union protest Switzerland', 'workers rights demonstration'] },
-  { keywords: ['voto', 'elezioni', 'referendum', 'iniziativa', 'parlament'], queries: ['Swiss parliament Bern', 'voting ballot Switzerland'] },
-  { keywords: ['clima', 'meteo', 'alluvione', 'tempesta', 'neve'], queries: ['weather Alps Switzerland', 'storm clouds mountains'] },
-  { keywords: ['polizia', 'sicurezza', 'reato', 'accident'], queries: ['police patrol Switzerland', 'road safety checkpoint'] },
-  { keywords: ['ospedale', 'medico', 'farmacia', 'sanitar'], queries: ['medical center Switzerland', 'doctor consultation'] },
-  { keywords: ['costruzione', 'cantiere', 'ediliz', 'ristrutturazione'], queries: ['construction site Switzerland', 'building renovation'] },
-  { keywords: ['supermercato', 'spesa', 'prezzi', 'costo vita'], queries: ['supermarket grocery store', 'shopping food prices'] },
-  { keywords: ['auto', 'macchina', 'traffico', 'stradale', 'autostrada'], queries: ['highway traffic Switzerland', 'car road Alps'] },
-  { keywords: ['economia', 'pil', 'crescita', 'mercato', 'commercial'], queries: ['business district Zurich', 'economic growth chart'] },
-  { keywords: ['bambini', 'famiglia', 'asilo', 'nido', 'genitor'], queries: ['family park Switzerland', 'kindergarten playground'] },
-  { keywords: ['golfo', 'guerra', 'conflitto', 'geopolitica', 'medio oriente'], queries: ['oil tanker shipping port', 'cargo ship Mediterranean'] },
-  { keywords: ['tecnologia', 'digitale', 'intelligenza artificiale', 'innovation'], queries: ['technology office workspace', 'digital innovation center'] },
+  { keywords: ['benzina', 'carburante', 'petrolio', 'diesel', 'rifornimento'], queries: ['fuel station Switzerland', 'gas pump Europe'], category: 'transportation' },
+  { keywords: ['tasse', 'fiscale', 'imposta', 'irpef', 'fisco', 'deduzioni'], queries: ['tax office building', 'financial documents desk'], category: 'business' },
+  { keywords: ['salute', 'malattia', 'lamal', 'assicurazione', 'premio'], queries: ['hospital Switzerland modern', 'health insurance card'], category: 'health' },
+  { keywords: ['lavoro', 'impiego', 'occupazione', 'assunzione', 'disoccup'], queries: ['modern office workplace', 'job interview meeting'], category: 'business' },
+  { keywords: ['confine', 'dogana', 'frontiera', 'frontalier', 'permesso'], queries: ['Swiss Italian border crossing', 'customs checkpoint Europe'], category: 'places' },
+  { keywords: ['treno', 'ferrovia', 'trasporto', 'pendolar', 'tilo'], queries: ['train station Switzerland', 'commuter train Alps'], category: 'transportation' },
+  { keywords: ['casa', 'affitto', 'immobiliare', 'appartamento', 'mutuo'], queries: ['apartment building Switzerland', 'residential area Ticino'], category: 'buildings' },
+  { keywords: ['banca', 'finanziario', 'cambio', 'valuta', 'franco', 'euro'], queries: ['Swiss bank building', 'currency exchange counter'], category: 'business' },
+  { keywords: ['scuola', 'formazione', 'educazione', 'universit', 'corso'], queries: ['university campus Switzerland', 'classroom education'], category: 'education' },
+  { keywords: ['pensione', 'avs', 'pilastro', 'previdenza', 'anzian'], queries: ['retirement couple walking', 'pension fund documents'], category: 'people' },
+  { keywords: ['salario', 'stipendio', 'busta paga', 'reddito', 'retribuzion'], queries: ['salary paycheck document', 'business accounting office'], category: 'business' },
+  { keywords: ['dumping', 'sindacat', 'contratto', 'ccl'], queries: ['labor union protest Switzerland', 'workers rights demonstration'], category: 'people' },
+  { keywords: ['voto', 'elezioni', 'referendum', 'iniziativa', 'parlament'], queries: ['Swiss parliament Bern', 'voting ballot Switzerland'], category: 'buildings' },
+  { keywords: ['clima', 'meteo', 'alluvione', 'tempesta', 'neve'], queries: ['weather Alps Switzerland', 'storm clouds mountains'], category: 'nature' },
+  { keywords: ['polizia', 'sicurezza', 'reato', 'accident'], queries: ['police patrol Switzerland', 'road safety checkpoint'], category: 'transportation' },
+  { keywords: ['ospedale', 'medico', 'farmacia', 'sanitar'], queries: ['medical center Switzerland', 'doctor consultation'], category: 'health' },
+  { keywords: ['costruzione', 'cantiere', 'ediliz', 'ristrutturazione'], queries: ['construction site Switzerland', 'building renovation'], category: 'industry' },
+  { keywords: ['supermercato', 'spesa', 'prezzi', 'costo vita'], queries: ['supermarket grocery store', 'shopping food prices'], category: 'business' },
+  { keywords: ['auto', 'macchina', 'traffico', 'stradale', 'autostrada'], queries: ['highway traffic Switzerland', 'car road Alps'], category: 'transportation' },
+  { keywords: ['economia', 'pil', 'crescita', 'mercato', 'commercial'], queries: ['business district Zurich', 'economic growth chart'], category: 'business' },
+  { keywords: ['bambini', 'famiglia', 'asilo', 'nido', 'genitor'], queries: ['family park Switzerland', 'kindergarten playground'], category: 'people' },
+  { keywords: ['golfo', 'guerra', 'conflitto', 'geopolitica', 'medio oriente'], queries: ['oil tanker shipping port', 'cargo ship Mediterranean'], category: 'industry' },
+  { keywords: ['tecnologia', 'digitale', 'intelligenza artificiale', 'innovation'], queries: ['technology office workspace', 'digital innovation center'], category: 'computer' },
 ];
 
 const GENERIC_QUERIES = [
@@ -143,11 +145,62 @@ function buildWikimediaQueries(articleId, title, category) {
   return queries;
 }
 
+// ── Image relevance filter (mirror of create-article.mjs) ─────────────────
+const IMAGE_TAG_DENYLIST = {
+  food: ['food', 'pasta', 'spaghetti', 'pizza', 'cheese', 'meal', 'dish', 'cooking', 'kitchen', 'restaurant', 'cuisine', 'recipe', 'ingredient', 'plate', 'breakfast', 'lunch', 'dinner', 'dessert', 'cake', 'bread', 'fruit', 'vegetable', 'wine', 'drink', 'coffee', 'beverage'],
+  people_closeup: ['wedding', 'bride', 'groom', 'kiss', 'romance', 'love', 'couple'],
+  pets: ['dog', 'cat', 'puppy', 'kitten', 'pet'],
+};
+const FOOD_ARTICLE_KEYWORDS = ['cibo', 'cucina', 'ristorante', 'pasta', 'pizza', 'gastronomi', 'enologi', 'vino', 'birra', 'caffè', 'caffe', 'ricetta', 'pranzo', 'cena', 'colazione'];
+
+function isImageRelevant(tagsString, title) {
+  if (!tagsString) return true;
+  const tags = tagsString.toLowerCase().split(/[,;|]/).map(t => t.trim()).filter(Boolean);
+  if (tags.length === 0) return true;
+  const lowerTitle = (title || '').toLowerCase();
+  const isFoodArticle = FOOD_ARTICLE_KEYWORDS.some(k => lowerTitle.includes(k));
+  for (const [topic, denied] of Object.entries(IMAGE_TAG_DENYLIST)) {
+    if (topic === 'food' && isFoodArticle) continue;
+    if (tags.some(t => denied.includes(t))) return false;
+  }
+  return true;
+}
+
+function inferPixabayCategory(title) {
+  const lowerTitle = (title || '').toLowerCase();
+  for (const entry of TOPIC_SEARCH_MAP) {
+    if (entry.keywords.some(k => lowerTitle.includes(k))) return entry.category || null;
+  }
+  return null;
+}
+
 // ── Build image generation prompt ─────────────────────────────────────────
+/**
+ * Derive a concrete English "Subject:" clause from the title so the image
+ * generator focuses on the article topic (e.g. highway, hospital) instead of
+ * defaulting to people-in-a-street stock when "frontalieri" is in the title.
+ */
+function buildTopicSubjectClause(title) {
+  const lowerTitle = (title || '').toLowerCase();
+  for (const entry of TOPIC_SEARCH_MAP) {
+    if (entry.keywords.some(k => lowerTitle.includes(k))) {
+      // Use the first topic query — it's an English noun phrase describing the subject
+      return entry.queries[0] || null;
+    }
+  }
+  return null;
+}
+
 function buildPrompt(title) {
+  const subject = buildTopicSubjectClause(title);
+  // Put subject FIRST so it dominates — trailing context (cross-border workers) biases
+  // generators (Pollinations/flux) toward portraits regardless of title.
+  const leading = subject
+    ? `Professional editorial photograph of ${subject}. No people as main subject. `
+    : '';
   const base = title
-    ? `Professional editorial photo illustrating: "${title}". Context: cross-border workers in Ticino, Switzerland. Natural lighting, photorealistic.`
-    : `Professional editorial photo for a news article about cross-border workers in Ticino, Switzerland. Lake Lugano, warm lighting.`;
+    ? `${leading}Editorial photo illustrating: "${title}". Setting: Ticino, Switzerland. Natural lighting, photorealistic.`
+    : `Professional editorial photo for a news article about Ticino, Switzerland. Lake Lugano, warm lighting.`;
   return base
     + '\n\nIMPORTANT: Generate ONLY the image, do NOT include any text, watermarks, labels, or captions on the image.'
     + '\n\nSTYLE: Photorealistic editorial photograph indistinguishable from a real DSLR/mirrorless camera shot. Include natural lens characteristics: shallow depth of field, subtle chromatic aberration, realistic bokeh on out-of-focus areas, natural film grain, slight vignetting. Lighting must be natural and ambient — avoid flat, evenly-lit AI look. Absolutely NO AI artifacts, NO unnaturally smooth textures, NO perfect symmetry, NO CGI plastic look.';
@@ -433,18 +486,22 @@ async function regenerateImage(articleId, title, category, imgPath) {
     const pxQueries = buildWikimediaQueries(articleId, title, category).slice(0, 2).map(q => q.replace(/\bcommons\b/gi, '').trim());
     if (pxQueries.length === 0) pxQueries.push('ticino switzerland');
     pxQueries.push('swiss landscape lake');
+    const pxCategory = inferPixabayCategory(title);
+    const pxCatParam = pxCategory ? `&category=${encodeURIComponent(pxCategory)}` : '';
     for (const pxQuery of pxQueries) {
       try {
-        console.error(`🖼️  Pixabay ("${pxQuery}")...`);
+        console.error(`🖼️  Pixabay ("${pxQuery}"${pxCategory ? `, cat=${pxCategory}` : ''})...`);
         const res = await fetch(
-          `https://pixabay.com/api/?key=${pixabayKey}&q=${encodeURIComponent(pxQuery)}&image_type=photo&orientation=horizontal&per_page=8&min_width=1280&safesearch=true`,
+          `https://pixabay.com/api/?key=${pixabayKey}&q=${encodeURIComponent(pxQuery)}${pxCatParam}&image_type=photo&orientation=horizontal&per_page=20&min_width=1280&safesearch=true`,
           { signal: AbortSignal.timeout(15000) },
         );
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
         const hits = json.hits || [];
         if (hits.length === 0) { console.error(`  ⚠️  Pixabay "${pxQuery}": nessun risultato`); continue; }
-        const pick = hits[Math.floor(Math.random() * Math.min(5, hits.length))];
+        const relevant = hits.filter(h => isImageRelevant(h.tags, title));
+        if (relevant.length === 0) { console.error(`  ⚠️  Pixabay "${pxQuery}": filtro rilevanza ha respinto tutti i risultati`); continue; }
+        const pick = relevant[Math.floor(Math.random() * Math.min(5, relevant.length))];
         const imgUrl = pick.largeImageURL || pick.webformatURL;
         if (imgUrl) {
           const imgRes = await fetch(imgUrl, { signal: AbortSignal.timeout(20000) });
@@ -469,14 +526,16 @@ async function regenerateImage(articleId, title, category, imgPath) {
       try {
         console.error(`🖼️  Pexels ("${pxQuery}")...`);
         const res = await fetch(
-          `https://api.pexels.com/v1/search?query=${encodeURIComponent(pxQuery)}&orientation=landscape&size=large&per_page=8`,
+          `https://api.pexels.com/v1/search?query=${encodeURIComponent(pxQuery)}&orientation=landscape&size=large&per_page=20`,
           { headers: { Authorization: pexelsKey }, signal: AbortSignal.timeout(15000) },
         );
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
         const photos = json.photos || [];
         if (photos.length === 0) { console.error(`  ⚠️  Pexels "${pxQuery}": nessun risultato`); continue; }
-        const pick = photos[Math.floor(Math.random() * Math.min(5, photos.length))];
+        const relevant = photos.filter(p => isImageRelevant((p.alt || '').replace(/\s+/g, ','), title));
+        if (relevant.length === 0) { console.error(`  ⚠️  Pexels "${pxQuery}": filtro rilevanza ha respinto tutti i risultati`); continue; }
+        const pick = relevant[Math.floor(Math.random() * Math.min(5, relevant.length))];
         const imgUrl = pick.src?.large2x || pick.src?.large || pick.src?.original;
         if (imgUrl) {
           const imgRes = await fetch(imgUrl, { signal: AbortSignal.timeout(20000) });
@@ -531,14 +590,15 @@ async function main() {
   const allJpgs = readdirSync(imgDir).filter(f => f.endsWith('.jpg') && !f.includes('.source.'));
   console.error(`\n📂 Trovati ${allJpgs.length} file .jpg in public/images/blog/`);
 
-  // Find undersized images
+  // Find undersized images (or force a single file via --file)
   const toProcess = [];
   for (const filename of allJpgs) {
+    if (ONLY_FILE && filename !== ONLY_FILE && basename(filename, '.jpg') !== ONLY_FILE) continue;
     const filepath = resolve(imgDir, filename);
     try {
       const meta = await sharp(filepath).metadata();
       const w = meta.width || 0;
-      if (w < MIN_WIDTH) {
+      if (ONLY_FILE || w < MIN_WIDTH) {
         const articleId = basename(filename, '.jpg');
         toProcess.push({ filename, filepath, articleId, width: w });
       }
