@@ -2,9 +2,9 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 
 // Mock firebase/firestore
-const mockAddDoc = vi.fn(() => Promise.resolve());
-const mockUpdateDoc = vi.fn(() => Promise.resolve());
-const mockGetDocs = vi.fn(() => Promise.resolve({ empty: true, docs: [] }));
+const mockAddDoc = vi.fn((..._args: any[]) => Promise.resolve() as Promise<any>);
+const mockUpdateDoc = vi.fn((..._args: any[]) => Promise.resolve() as Promise<any>);
+const mockGetDocs = vi.fn((..._args: any[]) => Promise.resolve({ empty: true, docs: [] as any[] }));
 vi.mock('firebase/firestore', () => ({
   getFirestore: vi.fn(() => ({})),
   collection: vi.fn((_db: any, name: string) => name),

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 
-const mockCalculateSimulation = vi.fn(() => ({
+const mockCalculateSimulation = vi.fn((..._args: any[]): any => ({
   netIncomeCH: 50000,
   netIncomeIT: 45000,
   delta: 5000,
@@ -75,7 +75,7 @@ describe('useSimulationState', () => {
 
       expect(mockCalculateSimulation).toHaveBeenCalledWith(result.current.inputs);
       expect(result.current.result).toBeTruthy();
-      expect(result.current.result?.netIncomeCH).toBe(50000);
+      expect((result.current.result as any)?.netIncomeCH).toBe(50000);
       expect(unlockAchievement).toHaveBeenCalledWith('first_simulation');
       expect(unlockAchievement).toHaveBeenCalledWith('simulation_pro');
       expect(Analytics.trackFunnelStep).toHaveBeenCalledWith('calculate', expect.any(Object));
