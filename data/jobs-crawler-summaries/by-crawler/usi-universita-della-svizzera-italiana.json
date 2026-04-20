@@ -1,18 +1,50 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-19T22:21:19.660Z",
-  "total": 19,
-  "newCount": 0,
+  "generatedAt": "2026-04-20T11:33:59.827Z",
+  "total": 20,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 155855,
-  "avgDurationMs": 155855,
+  "durationMs": 75525,
+  "avgDurationMs": 75525,
   "durationHistory": [
-    155855
+    75525
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/isi/isi-phd-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/isi/isi-phd-2026.pdf",
+      "title": "Posizione di assistente-dottorando/a",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-assistente-dottorando-a-usi",
+      "department": "Facoltà di comunicazione, cultura e società – Istituto di studi italiani (ISI)",
+      "category": "staff",
+      "datePosted": "2026-04-20",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-f744134dcb46",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
