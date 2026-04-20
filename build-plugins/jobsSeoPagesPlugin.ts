@@ -3895,8 +3895,12 @@ ${alternates}
  }).join('\n');
  const landingEntry = ` <url>\n <loc>${BASE_URL}/cerca-lavoro-ticino/</loc>\n${landingAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/cerca-lavoro-ticino/" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.9</priority>\n </url>`;
 
- // Filter out thin content jobs (<50 words IT description) from sitemap (FRO-278)
+ // Filter out thin content jobs (<50 words IT description) from sitemap (FRO-278).
+ // Also exclude jobs flagged `needsRetranslation` — per-locale alternates would
+ // point at stale/auto-generated text and waste crawl budget until AI
+ // retranslation completes (seo/sitemap-crawl-budget).
  const sitemapEligibleJobs = validJobs.filter((job) => {
+ if ((job as any).needsRetranslation === true) return false;
  const desc = String((job as any).descriptionByLocale?.it || (job as any).description || '');
  const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
  return wordCount >= 50;
@@ -3918,18 +3922,20 @@ ${alternates}
  return ` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
  }).join('\n');
 
- // FRO-SEO: Add previousSlugs entries to sitemap so Google can associate
- // old indexed URLs with sitemap entries. These bridge pages have canonical
- // pointing to the current active slug, helping Google consolidate signals.
+ // FRO-SEO / seo/sitemap-crawl-budget: previousSlugs bridge pages are NOT
+ // listed in the sitemap. Each bridge already emits `<link rel="canonical">`
+ // pointing at the current slug, which is how Google consolidates signals —
+ // enumerating 13k+ bridge URLs in the sitemap just multiplied crawl-budget
+ // waste without adding a consolidation signal. We still render the bridge
+ // HTML (see bridge generator below) so the old URL resolves, we just stop
+ // advertising it in the sitemap.
  //
- // IMPORTANT: Sitemap entries MUST match the paths where bridge pages are
- // actually generated (see bridge page generator below). Locale-specific
- // previousSlugs (pslByLocale[locale]) get bridge pages only under that
- // locale's prefix; legacy flat previousSlugs get bridge pages under all
- // locale prefixes but the sitemap uses the Italian path as canonical.
+ // To re-enable the old behavior flip this flag to true; the generation code
+ // below is kept intact so the opt-in path keeps working.
+ const INCLUDE_PREV_SLUG_SITEMAP_ENTRIES = false;
  const prevSlugEntries: string[] = [];
  const prevSlugSitemapPaths = new Set<string>(); // dedup
- for (const job of sitemapEligibleJobs) {
+ for (const job of (INCLUDE_PREV_SLUG_SITEMAP_ENTRIES ? sitemapEligibleJobs : [])) {
  const prevSlugsLegacy: string[] = Array.isArray((job as any).previousSlugs) ? (job as any).previousSlugs : [];
  const pslByLocale = (job as any).previousSlugsByLocale;
  // Identify locale-aware slugs so we can separate legacy-only
