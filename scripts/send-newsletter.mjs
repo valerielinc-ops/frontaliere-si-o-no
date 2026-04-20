@@ -150,7 +150,7 @@ const NEWSLETTER_AI_CHAIN = [
   'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
   'gemma-4-31b-it',             // Google — 14,400 req/day free
   'gemma-4-26b-it',             // Google — 14,400 req/day free
-  'mistral-small-latest',       // Mistral — 1B tokens/month free
+  'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
 ];
 
@@ -738,12 +738,40 @@ function localizeArticle(articleId, locale) {
  * Returns a function (locale) => article object, so each subscriber gets localized content.
  * Uses Firestore article_views (most viewed this week), falls back to hardcoded default.
  */
+async function fetchRecentlyFeaturedArticles() {
+  if (!db) return [];
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const doc = await metaRef.get();
+    return doc.exists ? (doc.data().recently_featured_articles || []) : [];
+  } catch {
+    return [];
+  }
+}
+
+async function saveRecentlyFeaturedArticle(articleId) {
+  if (!db) return;
+  const MAX_HISTORY = 4; // exclude last 4 articles → guarantees rotation with 5+ articles
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const doc = await metaRef.get();
+    const history = doc.exists ? (doc.data().recently_featured_articles || []) : [];
+    const updated = [articleId, ...history.filter(id => id !== articleId)].slice(0, MAX_HISTORY);
+    await metaRef.set({ recently_featured_articles: updated }, { merge: true });
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Save featured article history failed:', e.message);
+  }
+}
+
 async function pickFeaturedArticle() {
   let bestId = DEFAULT_ARTICLE_ID;
 
   if (db) {
     try {
-      const topArticles = await fetchTopArticles();
+      const [topArticles, recentlyFeatured] = await Promise.all([
+        fetchTopArticles(),
+        fetchRecentlyFeaturedArticles(),
+      ]);
       if (topArticles.length > 0) {
         const byViewsThenRecency = (a, b) =>
           b.views - a.views || (b.lastViewed || 0) - (a.lastViewed || 0);
@@ -753,11 +781,20 @@ async function pickFeaturedArticle() {
           .filter((a) => a.lastViewed && a.lastViewed > weekAgo)
           .sort(byViewsThenRecency);
 
-        const best = recentTop[0] || topArticles.sort(byViewsThenRecency)[0];
-        // Verify at least Italian meta exists before adopting this article
+        const sorted = recentTop.length > 0 ? recentTop : topArticles.sort(byViewsThenRecency);
+
+        // Pick the best article that wasn't recently featured
+        const fresh = sorted.find(a => !recentlyFeatured.includes(a.id) && loadBlogMeta(a.id, 'it'));
+        // Fall back to the top article if all have been recently featured
+        const best = fresh || sorted.find(a => loadBlogMeta(a.id, 'it')) || sorted[0];
+
         if (loadBlogMeta(best.id, 'it')) {
           bestId = best.id;
-          console.log(`\ud83d\udcf0 Featured article: "${best.id}" (${best.views} views)`);
+          const rotated = fresh ? '' : ' (rotation exhausted, reusing)';
+          console.log(`\ud83d\udcf0 Featured article: "${best.id}" (${best.views} views)${rotated}`);
+          if (recentlyFeatured.length > 0) {
+            console.log(`   Recently featured (excluded): ${recentlyFeatured.join(', ')}`);
+          }
         } else {
           console.warn(`\u26a0\ufe0f No blog meta for top article "${best.id}", using default`);
         }
@@ -769,13 +806,16 @@ async function pickFeaturedArticle() {
 
   // Cache per locale to avoid re-reading files for each subscriber
   const cache = new Map();
-  return (locale) => {
+  const getArticle = (locale) => {
     const lang = locale || 'it';
     if (cache.has(lang)) return cache.get(lang);
     const article = localizeArticle(bestId, lang) || localizeArticle(DEFAULT_ARTICLE_ID, lang);
     cache.set(lang, article);
     return article;
   };
+  getArticle.articleId = bestId;
+  getArticle.persistRotation = () => saveRecentlyFeaturedArticle(bestId);
+  return getArticle;
 }
 
 function getWeeklyFact(locale = 'it') {
@@ -905,6 +945,7 @@ async function fetchSubscribers() {
         source: row.source || null,
         preferences: row.preferences || {},
         type: row.type || null,
+        createdAt: row.createdAt?.toDate?.() || (row.created_at ? new Date(row.created_at) : null),
       });
     });
   } catch (e) {
@@ -1647,6 +1688,11 @@ async function main() {
 
   const sampleSubject = emails[0]?.payload?.subject || 'N/A';
   await logSend(sent.length, sampleSubject, sent.length > 0 ? 'sent' : 'failed');
+
+  // Track featured article for rotation (avoid repeating same article next week)
+  if (sent.length > 0 && featuredArticle.persistRotation) {
+    await featuredArticle.persistRotation();
+  }
 
   if (flushScores) await flushScores();
 }

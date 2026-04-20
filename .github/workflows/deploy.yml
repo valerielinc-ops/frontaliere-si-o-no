@@ -37,10 +37,13 @@ permissions:
   id-token: write
 
 concurrency:
-  # Push deploys share a group (cancel each other). Dispatch deploys get unique
-  # groups (never cancelled — protects post-deploy social media posting).
-  group: deploy-${{ github.event_name == 'workflow_dispatch' && github.run_id || 'push-to-main' }}
-  cancel-in-progress: true
+  # GitHub Pages allows only one active deployment at a time. Every trigger —
+  # push to main, workflow_dispatch from articles/crawlers/etc. — must share a
+  # single queue so deploys run strictly serially. cancel-in-progress is false
+  # to preserve post-deploy steps (social media posts, IndexNow) that happen
+  # after the Pages deployment succeeds.
+  group: pages-deploy
+  cancel-in-progress: false
 
 env:
   PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
