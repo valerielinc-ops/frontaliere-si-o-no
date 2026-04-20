@@ -358,6 +358,16 @@ const TicineseDialect: React.FC = () => {
  <h3 className="font-semibold text-strong">{tt('dialect.historyTitle', 'Storia del dialetto')}</h3>
  </div>
  <p className="text-sm text-subtle">{tt('dialect.historyText', 'Il dialetto ticinese appartiene al gruppo lombardo occidentale, con influenze alpine, italiane e svizzere. Nella vita quotidiana convive con l’italiano standard, soprattutto nei contesti di lavoro frontaliero.')}</p>
+ <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-edge pt-4">
+ <div>
+ <h4 className="text-sm font-bold text-strong mb-2">{tt('dialect.workExpressionsTitle', 'Le 10 espressioni in dialetto più usate al lavoro in Ticino')}</h4>
+ <p className="text-sm leading-6 text-subtle">{tt('dialect.workExpressionsText', '')}</p>
+ </div>
+ <div>
+ <h4 className="text-sm font-bold text-strong mb-2">{tt('dialect.differencesTitle', 'Differenze tra dialetto ticinese e italiano standard')}</h4>
+ <p className="text-sm leading-6 text-subtle">{tt('dialect.differencesText', '')}</p>
+ </div>
+ </div>
  </div>
 
  <div className="bg-surface border border-edge rounded-xl p-4">

@@ -27,6 +27,8 @@ type Copy = {
  compareDelta: string;
  linksTitle: string;
  links: Array<{ label: string; route: AppRoute }>;
+ editorialTitle: string;
+ editorialParagraphs: string[];
  faqTitle: string;
  faq: Array<{ q: string; a: string }>;
  caseSummary: string;
@@ -61,6 +63,12 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  { label: 'Aliquote imposta alla fonte Ticino 2026', route: { activeTab: 'fisco', fiscoSubTab: 'withholding-rates' } },
  { label: 'Confronto netto 2025 vs 2026 oltre 20 km', route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: 'net-comparison-2025-2026-over20km' } },
  { label: 'Guida dichiarazione redditi', route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' } },
+ ],
+ editorialTitle: 'Come si calcolano le tasse del frontaliere oltre 20 km',
+ editorialParagraphs: [
+ 'Per i nuovi frontalieri che risiedono oltre 20 km dal confine, l\'Accordo 2020 (in vigore dal 17 luglio 2023) introduce la regola della **tassazione esclusiva svizzera**: il reddito da lavoro dipendente prodotto in Ticino è tassato integralmente e solo in Svizzera, tramite l\'imposta alla fonte trattenuta in busta paga. In Italia non si dichiara questo reddito (se non ci sono altri redditi rilevanti), e non si applica la tassazione concorrente.',
+ 'La differenza con i **vecchi frontalieri** (assunti prima del 17 luglio 2023) è sostanziale: i vecchi frontalieri — se residenti nella fascia dei 20 km — continuano a essere tassati solo in Svizzera grazie al regime transitorio, mentre i nuovi frontalieri entro 20 km rientrano nella tassazione concorrente (Svizzera trattiene l\'80% come acconto, Italia completa con credito d\'imposta). Superati i 20 km, invece, i nuovi frontalieri tornano al regime di tassazione esclusiva, simile a quello dei vecchi frontalieri, semplificando di fatto la dichiarazione.',
+ 'Esempio pratico su uno stipendio lordo di CHF 60\'000 annui (5\'000 CHF/mese), single senza figli: i contributi sociali obbligatori (AVS/AI/IPG/AD ~6,25%, LPP ~7-8%, AINF ~1%, totale circa 14%) sottraggono ~700 CHF/mese, lasciando un imponibile di ~4\'300 CHF. L\'imposta alla fonte ticinese 2026 su questo scaglione (tariffa A0, single) si attesta attorno al 9-11%, ovvero ~420-480 CHF/mese. Il **netto mensile in tasca** risulta quindi di circa **CHF 3\'820-3\'880**, senza ulteriori prelievi italiani. Per numeri esatti sul tuo caso, usa il calcolatore qui sopra inserendo comune di residenza e composizione familiare.',
  ],
  faqTitle: 'FAQ essenziali',
  faq: [
@@ -108,6 +116,12 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  { label: 'Net comparison 2025 vs 2026 over 20 km', route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: 'net-comparison-2025-2026-over20km' } },
  { label: 'Tax return guide', route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' } },
  ],
+ editorialTitle: 'How taxes are calculated for cross-border workers over 20 km',
+ editorialParagraphs: [
+ 'For new cross-border workers residing more than 20 km from the border, the 2020 Agreement (in force from 17 July 2023) introduces **Swiss-exclusive taxation**: employment income earned in Ticino is taxed fully and only in Switzerland via payroll withholding tax. In Italy this income is not declared (unless other Italian-source income exists), and concurrent taxation does not apply.',
+ 'The contrast with **old cross-border workers** (hired before 17 July 2023) is significant: old frontalieri — when living inside the 20 km band — remain taxed only in Switzerland under the transitional regime, while new frontalieri inside 20 km fall under concurrent taxation (Switzerland withholds 80% as an advance, Italy tops it up with a foreign tax credit). Beyond 20 km, new frontalieri return to an exclusive-taxation regime similar to old frontalieri, which materially simplifies the Italian filing.',
+ 'Worked example on a gross salary of CHF 60\'000/year (CHF 5\'000/month), single, no children: mandatory social contributions (AHV/AI/EO/ALV ~6.25%, BVG ~7-8%, accident ~1%, total around 14%) remove ~CHF 700/month, leaving a taxable base of ~CHF 4\'300. Ticino 2026 withholding tax on this bracket (A0 single tariff) lands around 9-11%, i.e. ~CHF 420-480/month. The **monthly take-home net** therefore sits around **CHF 3\'820-3\'880**, with no further Italian withholdings. For exact figures on your own case, use the calculator above with your residence municipality and family composition.',
+ ],
  faqTitle: 'Essential FAQ',
  faq: [
  {
@@ -154,6 +168,12 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  { label: 'Nettovergleich 2025 vs 2026 ueber 20 km', route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: 'net-comparison-2025-2026-over20km' } },
  { label: 'Steuererklaerung Leitfaden', route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' } },
  ],
+ editorialTitle: 'So werden die Steuern fuer Grenzgaenger ueber 20 km berechnet',
+ editorialParagraphs: [
+ 'Fuer neue Grenzgaenger mit Wohnsitz mehr als 20 km von der Grenze entfernt fuehrt das Abkommen 2020 (in Kraft seit 17. Juli 2023) die **ausschliessliche Besteuerung in der Schweiz** ein: das in Tessin erzielte Arbeitseinkommen wird voll und ausschliesslich in der Schweiz ueber die Lohnquellensteuer besteuert. In Italien wird dieses Einkommen nicht deklariert (sofern keine weiteren italienischen Einkuenfte vorliegen), und eine konkurrierende Besteuerung findet nicht statt.',
+ 'Der Unterschied zu den **alten Grenzgaengern** (vor dem 17. Juli 2023 angestellt) ist erheblich: alte Grenzgaenger innerhalb der 20-km-Zone bleiben dank der Uebergangsregelung nur in der Schweiz steuerpflichtig, waehrend neue Grenzgaenger innerhalb 20 km der konkurrierenden Besteuerung unterliegen (Schweiz behaelt 80 % als Vorauszahlung ein, Italien ergaenzt mit Steuergutschrift). Ueber 20 km kehren die neuen Grenzgaenger zur ausschliesslichen Besteuerung zurueck, aehnlich dem Regime der alten Grenzgaenger, was die italienische Erklaerung erheblich vereinfacht.',
+ 'Rechenbeispiel bei einem Bruttolohn von CHF 60\'000/Jahr (CHF 5\'000/Monat), alleinstehend, kinderlos: die Pflichtsozialabgaben (AHV/IV/EO/ALV ~6,25 %, BVG ~7-8 %, UVG ~1 %, insgesamt rund 14 %) reduzieren den Betrag um ~CHF 700/Monat und lassen eine Bemessungsgrundlage von ~CHF 4\'300. Die Tessiner Quellensteuer 2026 liegt fuer diesen Bereich (Tarif A0, alleinstehend) bei rund 9-11 %, also ~CHF 420-480/Monat. Das **monatliche Netto auf dem Konto** betraegt damit rund **CHF 3\'820-3\'880**, ohne weitere italienische Abzuege. Fuer exakte Werte verwende den obigen Rechner mit Wohngemeinde und Familienstand.',
+ ],
  faqTitle: 'Wichtige FAQ',
  faq: [
  {
@@ -199,6 +219,12 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  { label: 'Baremes impot a la source Tessin 2026', route: { activeTab: 'fisco', fiscoSubTab: 'withholding-rates' } },
  { label: 'Comparaison net 2025 vs 2026 au-dela de 20 km', route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: 'net-comparison-2025-2026-over20km' } },
  { label: 'Guide declaration fiscale', route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' } },
+ ],
+ editorialTitle: 'Comment calculer les impots du frontalier a plus de 20 km',
+ editorialParagraphs: [
+ 'Pour les nouveaux frontaliers residant a plus de 20 km de la frontiere, l\'Accord 2020 (en vigueur depuis le 17 juillet 2023) introduit la regle de **l\'imposition exclusive en Suisse** : le revenu d\'activite salariee produit au Tessin est impose integralement et uniquement en Suisse via l\'impot a la source retenu sur le salaire. En Italie, ce revenu n\'est pas declare (sauf autres revenus italiens) et l\'imposition concurrente ne s\'applique pas.',
+ 'La difference avec les **anciens frontaliers** (embauches avant le 17 juillet 2023) est substantielle : les anciens frontaliers residant dans la bande des 20 km restent imposes uniquement en Suisse grace au regime transitoire, tandis que les nouveaux frontaliers dans les 20 km entrent dans l\'imposition concurrente (la Suisse retient 80 % en acompte, l\'Italie complete avec un credit d\'impot). Au-dela de 20 km, les nouveaux frontaliers retrouvent un regime d\'imposition exclusive similaire a celui des anciens, ce qui simplifie nettement la declaration italienne.',
+ 'Exemple chiffre sur un salaire brut de CHF 60\'000/an (CHF 5\'000/mois), celibataire sans enfant : les cotisations sociales obligatoires (AVS/AI/APG/AC ~6,25 %, LPP ~7-8 %, LAA ~1 %, soit environ 14 %) reduisent le salaire de ~CHF 700/mois, laissant une base imposable de ~CHF 4\'300. L\'impot a la source tessinois 2026 sur cette tranche (bareme A0, celibataire) est d\'environ 9-11 %, soit ~CHF 420-480/mois. Le **net mensuel en poche** se situe donc autour de **CHF 3\'820-3\'880**, sans prelevement italien supplementaire. Pour des chiffres precis adaptes a votre cas, utilisez le calculateur ci-dessus avec votre commune et composition familiale.',
  ],
  faqTitle: 'FAQ essentielles',
  faq: [
@@ -397,6 +423,21 @@ const NewFrontierOver20KmHub: React.FC = () => {
  <ArrowRight className="w-4 h-4 text-muted group-hover:text-info transition-colors" />
  </div>
  </a>
+ ))}
+ </div>
+ </div>
+
+ <div>
+ <h3 className="text-base font-bold font-display text-heading">{copy.editorialTitle}</h3>
+ <div className="mt-3 space-y-3 text-sm leading-7 text-body max-w-4xl">
+ {copy.editorialParagraphs.map((paragraph, idx) => (
+ <p
+ key={idx}
+ dangerouslySetInnerHTML={{
+ __html: paragraph
+ .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'),
+ }}
+ />
  ))}
  </div>
  </div>
