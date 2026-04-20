@@ -864,6 +864,10 @@ interface BlogArticlesProps {
  selectedArticle?: BlogArticleId | null;
  /** Navigate to an individual article (updates URL) */
  onSelectArticle?: (articleId: BlogArticleId | null) => void;
+ /** Firebase auth state — bypasses content gate when true (mirrors JobBoard) */
+ isLoggedIn?: boolean;
+ /** True while Firebase auth is resolving — gate stays closed until resolved */
+ authLoading?: boolean;
 }
 
 /* CTA widget config */
@@ -961,6 +965,8 @@ const SEO_CLUSTER_ACTIONS: Record<SeoCluster, NavAction[]> = {
 function BlogArticles({
  selectedArticle = null,
  onSelectArticle,
+ isLoggedIn = false,
+ authLoading = false,
 }: BlogArticlesProps) {
  const nav = useNavigation();
  const { t } = useTranslation();
@@ -1684,15 +1690,23 @@ function BlogArticles({
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
  const adEligibleInline = adEligible;
 
- // Content gate: unauthenticated users see only the first half of long articles
- const hasArticleAccess = typeof window !== 'undefined' && (
-  !!localStorage.getItem('ft_job_email') ||
-  !!localStorage.getItem('frontaliere_job_email_access') ||
+ // Content gate — mirrors JobBoard.tsx hasAccess logic exactly:
+ //   Firebase auth (Google/LinkedIn) OR legacy email localStorage OR crawler UA.
+ // Crawlers MUST bypass the gate: without this, SEO content goes missing on
+ // half of long articles and Google indexes the "sign in" call-to-action
+ // instead of the real text.
+ const isCrawlerVisitor = typeof window !== 'undefined' &&
   /bot|crawler|spider|crawling|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i.test(
    navigator.userAgent || ''
-  )
+  );
+ const hasEmailAccess = typeof window !== 'undefined' && (
+  !!localStorage.getItem('ft_job_email') ||
+  !!localStorage.getItem('frontaliere_job_email_access')
  );
- const contentGateApplies = !hasArticleAccess && presentSegments.length >= 5;
+ const hasArticleAccess = isLoggedIn || hasEmailAccess || isCrawlerVisitor;
+ // Keep gate closed while auth resolves — avoids a brief flash of "sign in"
+ // for users who are already logged in when they land on an article.
+ const contentGateApplies = !authLoading && !hasArticleAccess && presentSegments.length >= 5;
  const visibleSegmentCount = contentGateApplies ? Math.ceil(presentSegments.length / 2) : presentSegments.length;
  const visibleSegments = presentSegments.slice(0, visibleSegmentCount);
 
@@ -2218,6 +2232,31 @@ function BlogArticles({
     className="mt-4"
     />
    </Suspense>
+  )}
+
+  {/* AdSense — desktop auth-gate rails (xl+ only). Single-column blog body
+      has no natural left/right rail so render the pair side-by-side below. */}
+  {(AD_SLOTS.AUTHGATE_RAIL_LEFT.slot || AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot) && (
+   <div className="hidden xl:grid xl:grid-cols-2 xl:gap-4 mt-4">
+    {AD_SLOTS.AUTHGATE_RAIL_LEFT.slot && (
+     <Suspense fallback={<div style={{ minHeight: AD_SLOTS.AUTHGATE_RAIL_LEFT.placeholderMinHeight, contain: 'content' }} />}>
+      <AdSenseBanner
+       adSlot={AD_SLOTS.AUTHGATE_RAIL_LEFT.slot}
+       adFormat={AD_SLOTS.AUTHGATE_RAIL_LEFT.format}
+       fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_LEFT.fullWidthResponsive}
+      />
+     </Suspense>
+    )}
+    {AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot && (
+     <Suspense fallback={<div style={{ minHeight: AD_SLOTS.AUTHGATE_RAIL_RIGHT.placeholderMinHeight, contain: 'content' }} />}>
+      <AdSenseBanner
+       adSlot={AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot}
+       adFormat={AD_SLOTS.AUTHGATE_RAIL_RIGHT.format}
+       fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_RIGHT.fullWidthResponsive}
+      />
+     </Suspense>
+    )}
+   </div>
   )}
   </>
  )}

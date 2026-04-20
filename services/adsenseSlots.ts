@@ -8,6 +8,12 @@
  *
  * Pruned 2026-04-20: 14 low-earner slots (30d AdSense report showed €0.00-0.10 each).
  * Auto-ads (Anchor €16.01, In-page €10.42) cover those placements more effectively.
+ *
+ * Extended 2026-04-20 (2nd pass): wired 4 previously-orphaned AdSense units
+ * that already existed in the console but were never mounted in the DOM:
+ *   - AUTHGATE_RAIL_LEFT / AUTHGATE_RAIL_RIGHT — desktop rails around gate
+ *   - JOBDETAIL_SIDEBAR_2 — secondary sidebar slot on authenticated detail
+ *   - ARTICLE_INLINE_MOBILE_2 — second mid-body inline (reserved for long form)
  */
 
 export const AD_CLIENT = 'ca-pub-8628054934855353';
@@ -106,6 +112,35 @@ export const AD_SLOTS = {
  format: 'autorelaxed',
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
+ },
+ /** Auth gate: desktop left rail (shared between job + blog gate) */
+ AUTHGATE_RAIL_LEFT: {
+ slot: '2190721703',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 280,
+ },
+ /** Auth gate: desktop right rail (shared between job + blog gate) */
+ AUTHGATE_RAIL_RIGHT: {
+ slot: '7139796055',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 280,
+ },
+ /** Job detail: secondary sidebar slot (below primary JOBDETAIL_SIDEBAR) */
+ JOBDETAIL_SIDEBAR_2: {
+ slot: '6065026724',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 280,
+ },
+ /** Article: second inline-mobile ad for long-form articles (>1500 words) */
+ ARTICLE_INLINE_MOBILE_2: {
+ slot: '6483829128',
+ format: 'fluid',
+ layout: 'in-article',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 220,
  },
  /** Calculator: in-page multiplex after simulation_complete (high-intent moment) */
  CALCULATOR_POST_RESULT: {

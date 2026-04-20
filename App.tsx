@@ -2033,6 +2033,8 @@ const App: React.FC = () => {
  <BlogArticles
  selectedArticle={blogArticle}
  onSelectArticle={(id) => setBlogArticle(id)}
+ isLoggedIn={!!authUser}
+ authLoading={authLoading}
  />
  </div>
  ) : activeTab === 'privacy' ? (
