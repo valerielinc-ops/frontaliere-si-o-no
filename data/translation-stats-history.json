@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T07:21:22.680Z",
-    "label": "before",
-    "total": 1631,
-    "needsRetranslation": 56,
-    "incomplete": 8,
-    "complete": 1623,
-    "missingByLocale": {
-      "it": 7,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T07:22:11.813Z",
-    "label": "after",
-    "total": 1631,
-    "needsRetranslation": 56,
-    "incomplete": 8,
-    "complete": 1623,
-    "missingByLocale": {
-      "it": 7,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T08:57:50.781Z",
     "label": "before",
     "total": 1784,
@@ -7474,6 +7402,110 @@
       },
       {
         "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T22:34:54.473Z",
+    "label": "before",
+    "total": 2608,
+    "needsRetranslation": 1094,
+    "incomplete": 66,
+    "complete": 2542,
+    "missingByLocale": {
+      "it": 53,
+      "en": 28,
+      "de": 39,
+      "fr": 60
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "AFRY",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "Lonza",
+        "pending": 4
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 3
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "TALLY WEiJL",
+        "pending": 3
+      },
+      {
+        "company": "Otis SA",
+        "pending": 2
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T23:52:08.037Z",
+    "label": "after",
+    "total": 2608,
+    "needsRetranslation": 75,
+    "incomplete": 28,
+    "complete": 2580,
+    "missingByLocale": {
+      "it": 22,
+      "en": 3,
+      "de": 25,
+      "fr": 28
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      },
+      {
+        "company": "AFRY",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Città di Mendrisio",
         "pending": 1
       },
       {
