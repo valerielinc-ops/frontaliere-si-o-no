@@ -47,6 +47,7 @@ export function htmlToText(html = '') {
     // Block elements: add a newline before their closing tag
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol|blockquote|section|article)>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     // Ignore remaining open tags
     .replace(/<[^>]+>/g, '')
     // HTML entities

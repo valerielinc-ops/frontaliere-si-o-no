@@ -71,6 +71,7 @@ export function htmlToText(html = '') {
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol|blockquote|section|article)>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')

@@ -76,7 +76,8 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
   const sourceTextLength = decoded.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().length;
 
   // Clean up: remove </br> self-closing breaks used as spacers
-  let html = decoded.replace(/<\/br>/gi, '').replace(/<br\s*\/?>/gi, '\n');
+  let html = decoded.replace(/<\/br>/gi, '').replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ');
 
   const sections = [];
   const skipHeadings = /contatto|persona di contatto|contact|Kontakt|votre interlocuteur/i;

@@ -65,6 +65,7 @@ export function stripGuessHtml(html = '') {
   return decodeHtml(
     String(html || '')
       .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
       .replace(/<\/(?:p|li|div|h[1-6]|ul|ol)>/gi, '\n')
       .replace(/<[^>]+>/g, '')
       .replace(/\n{3,}/g, '\n\n')

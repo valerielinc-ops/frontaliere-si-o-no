@@ -26,6 +26,7 @@ function stripHtml(html = '') {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|h[1-6]|ul|ol)>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/\u00a0/g, ' ')

@@ -73,6 +73,7 @@ function htmlToText(html = '') {
   if (!html || !html.trim()) return '';
   return html
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<li[^>]*>/gi, '- ')
     .replace(/<\/p>/gi, '\n\n')

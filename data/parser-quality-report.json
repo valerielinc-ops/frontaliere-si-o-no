@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-20T12:06:22.942Z",
+  "timestamp": "2026-04-20T12:27:47.641Z",
   "crawlersChecked": 179,
   "urlChecksEnabled": false,
   "crawlers": {
@@ -1464,19 +1464,19 @@
       "severity": "OK"
     },
     "tether": {
-      "total": 70,
+      "total": 385,
       "issues": [
         {
           "type": "no-structured-content",
-          "count": 66,
-          "total": 70,
-          "message": "66/70 no structured content (no bullets/lists)"
+          "count": 368,
+          "total": 385,
+          "message": "368/385 no structured content (no bullets/lists)"
         },
         {
           "type": "duplicate-descriptions",
-          "count": 28,
-          "total": 70,
-          "message": "28/70 duplicate descriptions"
+          "count": 316,
+          "total": 385,
+          "message": "316/385 duplicate descriptions"
         }
       ],
       "severity": "WARNING"

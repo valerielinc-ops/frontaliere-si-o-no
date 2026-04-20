@@ -54,6 +54,7 @@ function pickPensum(job = {}) {
 function stripHtml(html = '') {
   return String(html || '')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<li[^>]*>/gi, '- ')
     .replace(/<\/p>/gi, '\n\n')

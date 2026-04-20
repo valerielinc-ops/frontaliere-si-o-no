@@ -302,6 +302,29 @@ export async function fetchAllTetherJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Tether Operations jobs discovered: ${jobs.length}`);
-  return jobs;
+  // ── Dedup: Tether publishes each role once per location on Recruitee.
+  // Collapse by normalized title+employment type, preferring the Swiss
+  // variant when one exists (Lugano HQ role should win over random location).
+  const deduped = new Map();
+  for (const job of jobs) {
+    const key = `${normalize(job.title)}|${job.employmentType}`;
+    const existing = deduped.get(key);
+    if (!existing) {
+      deduped.set(key, job);
+      continue;
+    }
+    const currentIsSwiss = job.addressCountry === 'CH' || Boolean(job.canton);
+    const existingIsSwiss = existing.addressCountry === 'CH' || Boolean(existing.canton);
+    if (currentIsSwiss && !existingIsSwiss) {
+      deduped.set(key, job);
+    }
+  }
+  const unique = [...deduped.values()];
+  const collapsed = jobs.length - unique.length;
+  if (collapsed > 0) {
+    console.log(`  🔁 Deduped ${collapsed} location variants (kept Swiss where available)`);
+  }
+
+  console.log(`\n📋 Total Tether Operations jobs discovered: ${unique.length}`);
+  return unique;
 }

@@ -45,6 +45,7 @@ function htmlFragmentToMarkdown(html = '') {
     const text = normalizeSpace(
       (node.innerHTML || '')
         .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
         .replace(/<\/(?:p|div|li)>/gi, '\n')
         .replace(/<li[^>]*>/gi, '- ')
         .replace(/<[^>]+>/g, ' ')

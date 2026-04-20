@@ -23,6 +23,7 @@ function normalizeSpace(value = '') {
 function stripHtml(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/li>/gi, '\n')
     .replace(/<\/div>/gi, '\n')

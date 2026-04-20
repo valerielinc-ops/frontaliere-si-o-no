@@ -19,6 +19,7 @@ function slugify(value = '') {
 function htmlToMarkdown(html = '') {
   return String(html || '')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(p|div|li|h2|h3|h4)>/gi, '\n')
     .replace(/<li[^>]*>/gi, '- ')
     .replace(/<[^>]+>/g, ' ')

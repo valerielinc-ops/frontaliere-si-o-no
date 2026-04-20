@@ -18,6 +18,7 @@ function slugify(value = '') {
 function stripHtmlTags(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|ul|ol|section|h[1-6])>/gi, '\n')
     .replace(/<li[^>]*>/gi, '- ')
     .replace(/<[^>]+>/g, ' ')

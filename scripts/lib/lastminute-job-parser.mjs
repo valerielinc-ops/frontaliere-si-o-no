@@ -76,6 +76,7 @@ function htmlToMarkdown(html = '') {
     .replace(/<(?:p|div)[^>]*>/gi, '')
     // Line breaks
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
     // Strip remaining tags
     .replace(/<[^>]+>/g, ' ')
     // Decode entities
