@@ -2707,6 +2707,127 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  q: "Combien coûte un plein de diesel au Tessin aujourd'hui ?",
  a: "Un plein de diesel de 50 litres au Tessin en 2026 coûte en moyenne environ CHF 105, au prix moyen de CHF 2,10/litre. Dans les stations en libre-service les moins chères, il est possible de descendre à environ CHF 98-100 pour le même plein. Le tableau des prix en direct dans cet article affiche les stations-service suisses les plus avantageuses, mises à jour en temps réel."
  }
+ },
+
+ // ── Payslip simulator FAQ (new frontaliere 2026) ──
+ "Che cos'è il Nuovo Accordo frontalieri 2026?": {
+ en: {
+ q: "What is the 2026 New Cross-Border Worker Agreement?",
+ a: "The new Italy-Switzerland tax agreement (in force since 2024 and fully applied in 2026) separates 'old' and 'new' cross-border workers. New cross-border workers (hired from 17/07/2023) who live within 20 km of the border pay 80% withholding tax in Switzerland and declare the income in Italy with a €10,000 exemption and tax credit. Beyond 20 km, Swiss withholding rises to 100%."
+ },
+ de: {
+ q: "Was ist das neue Grenzgaengerabkommen 2026?",
+ a: "Das neue Steuerabkommen Italien-Schweiz (seit 2024 in Kraft und 2026 vollstaendig angewandt) unterscheidet zwischen 'alten' und 'neuen' Grenzgaengern. Neue Grenzgaenger (ab 17.07.2023 angestellt), die innerhalb 20 km zur Grenze wohnen, zahlen 80% Quellensteuer in der Schweiz und erklaeren das Einkommen in Italien mit €10'000 Freibetrag und Steuergutschrift. Ausserhalb 20 km betraegt die Schweizer Quellensteuer 100%."
+ },
+ fr: {
+ q: "Qu'est-ce que le Nouvel Accord frontaliers 2026 ?",
+ a: "Le nouvel accord fiscal Italie-Suisse (en vigueur depuis 2024 et pleinement applique en 2026) distingue les 'anciens' et les 'nouveaux' frontaliers. Les nouveaux frontaliers (embauches a partir du 17/07/2023) qui residents dans les 20 km de la frontiere paient 80% d'impot a la source en Suisse et declarent leurs revenus en Italie avec une franchise de 10 000 € et un credit d'impot. Au-dela de 20 km, la retenue suisse est de 100%."
+ }
+ },
+
+ "Quando si è considerati 'nuovo frontaliere'?": {
+ en: {
+ q: "When are you considered a 'new cross-border worker'?",
+ a: "You are a new cross-border worker if your Swiss employment contract was signed on or after 17 July 2023. Those hired before that date remain 'old cross-border workers' until 31 December 2033 (transitional period), with taxation only in Switzerland at 100% and remittance of part of the tax to Italian border municipalities."
+ },
+ de: {
+ q: "Wann gilt man als 'neuer Grenzgaenger'?",
+ a: "Man gilt als neuer Grenzgaenger, wenn der Schweizer Arbeitsvertrag ab dem 17. Juli 2023 unterzeichnet wurde. Wer vorher angestellt wurde, bleibt bis 31. Dezember 2033 (Uebergangszeit) 'alter Grenzgaenger', mit Besteuerung nur in der Schweiz zu 100% und Ruecklaeufern an die italienischen Grenzgemeinden."
+ },
+ fr: {
+ q: "Quand est-on considere comme 'nouveau frontalier' ?",
+ a: "On est nouveau frontalier si le contrat de travail suisse a ete signe a partir du 17 juillet 2023. Ceux qui etaient embauches avant cette date restent 'anciens frontaliers' jusqu'au 31 decembre 2033 (periode transitoire), avec une imposition uniquement en Suisse a 100% et des ristournes aux communes frontalieres italiennes."
+ }
+ },
+
+ "Come si calcola l'imposta alla fonte in Ticino nel 2026?": {
+ en: {
+ q: "How is the withholding tax calculated in Ticino in 2026?",
+ a: "The Ticino withholding tax is applied by the employer using the cantonal schedule: A (single, no children), B (married, single-earner), C (married, dual-earner) and H (single-parent family). The rate depends on monthly gross income and ranges from about 2% (CHF 3,000/month) to 16% (above CHF 15,000/month). Each dependent child reduces the rate by about one percentage point."
+ },
+ de: {
+ q: "Wie wird die Quellensteuer im Tessin 2026 berechnet?",
+ a: "Die Tessiner Quellensteuer wird vom Arbeitgeber nach dem kantonalen Tarif angewendet: A (ledig, ohne Kinder), B (verheiratet, Einzelverdiener), C (verheiratet, Doppelverdiener) und H (Alleinerziehende). Der Satz haengt vom monatlichen Bruttoeinkommen ab und reicht von ca. 2% (CHF 3'000/Monat) bis 16% (ueber CHF 15'000/Monat). Jedes Kind reduziert den Satz um etwa einen Prozentpunkt."
+ },
+ fr: {
+ q: "Comment l'impot a la source est-il calcule au Tessin en 2026 ?",
+ a: "L'impot a la source tessinois est applique par l'employeur selon le bareme cantonal : A (celibataire, sans enfants), B (marie, revenu unique), C (marie, double revenu) et H (famille monoparentale). Le taux depend du revenu mensuel brut et varie d'environ 2% (CHF 3 000/mois) a 16% (au-dela de CHF 15 000/mois). Chaque enfant a charge reduit le taux d'environ un point de pourcentage."
+ }
+ },
+
+ "Cosa cambia se vivo oltre 20 km dal confine svizzero?": {
+ en: {
+ q: "What changes if I live beyond 20 km from the Swiss border?",
+ a: "New cross-border workers who live beyond 20 km from the Swiss border lose cross-border tax status under the New Agreement: they pay 100% withholding tax in Switzerland (like residents without remittance) and declare the income in Italy with a full tax credit to avoid double taxation. The €10,000 exemption does not apply in this case."
+ },
+ de: {
+ q: "Was aendert sich, wenn ich weiter als 20 km von der Schweizer Grenze wohne?",
+ a: "Neue Grenzgaenger, die weiter als 20 km von der Schweizer Grenze wohnen, verlieren den Grenzgaenger-Steuerstatus nach dem neuen Abkommen: Sie zahlen 100% Quellensteuer in der Schweiz (wie Ansaessige ohne Ruecklauf) und erklaeren das Einkommen in Italien mit vollem Steuergutschrift, um Doppelbesteuerung zu vermeiden. Der Freibetrag von 10'000 € gilt in diesem Fall nicht."
+ },
+ fr: {
+ q: "Qu'est-ce qui change si j'habite au-dela de 20 km de la frontiere suisse ?",
+ a: "Les nouveaux frontaliers qui residents au-dela de 20 km de la frontiere suisse perdent le statut fiscal de frontalier selon le Nouvel Accord : ils paient 100% d'impot a la source en Suisse (comme les residents sans ristourne) et declarent le revenu en Italie avec credit d'impot integral pour eviter la double imposition. La franchise de 10 000 € ne s'applique pas dans ce cas."
+ }
+ },
+
+ "I contributi AVS e LPP sono deducibili in Italia?": {
+ en: {
+ q: "Are AVS and LPP contributions deductible in Italy?",
+ a: "Yes. Mandatory Swiss social security contributions AVS/AI/IPG (5.3%) and LPP (2nd pillar) withheld in Switzerland are deductible from the IRPEF taxable income of new cross-border workers when they file their Italian tax return, effectively lowering the Italian taxable base. Keep the annual Swiss salary certificate (Lohnausweis) for your accountant."
+ },
+ de: {
+ q: "Sind AHV- und BVG-Beitraege in Italien abzugsfaehig?",
+ a: "Ja. Die obligatorischen Schweizer Sozialversicherungsbeitraege AHV/IV/EO (5,3%) und BVG (2. Saeule), die in der Schweiz einbehalten werden, sind vom IRPEF-steuerpflichtigen Einkommen neuer Grenzgaenger in der italienischen Steuererklaerung abzugsfaehig und senken damit die italienische Bemessungsgrundlage. Bewahren Sie den jaehrlichen Schweizer Lohnausweis fuer Ihren Steuerberater auf."
+ },
+ fr: {
+ q: "Les cotisations AVS et LPP sont-elles deductibles en Italie ?",
+ a: "Oui. Les cotisations suisses obligatoires AVS/AI/APG (5,3%) et LPP (2e pilier) retenues en Suisse sont deductibles du revenu imposable IRPEF des nouveaux frontaliers dans la declaration fiscale italienne, ce qui reduit la base imposable italienne. Conservez le certificat de salaire annuel suisse (Lohnausweis) pour votre comptable."
+ }
+ },
+
+ "Posso usare il simulatore anche se ho il Permesso B?": {
+ en: {
+ q: "Can I use the simulator even with a B permit?",
+ a: "Yes. The payslip simulator computes social deductions (AVS, AD, AINF, IJM, LPP) and Ticino withholding tax: these are the same items on the payslip of a B-permit resident working in Ticino. However, with a B permit the special cross-border tax regime (Italian tax credit) does not apply: the CHF net is your actual net. For a G vs B tax comparison, use the dedicated comparator."
+ },
+ de: {
+ q: "Kann ich den Simulator auch mit B-Ausweis nutzen?",
+ a: "Ja. Der Lohnabrechnungs-Simulator berechnet die Sozialabzuege (AHV, ALV, UVG, IJM, BVG) und die Tessiner Quellensteuer: Dies sind die gleichen Positionen wie auf der Lohnabrechnung eines B-Ausweis-Inhabers, der im Tessin arbeitet. Mit B-Ausweis gilt jedoch nicht das Sonderregime fuer Grenzgaenger (italienische Steuergutschrift): Das CHF-Netto ist Ihr tatsaechliches Netto. Fuer einen G-vs-B-Vergleich verwenden Sie den speziellen Rechner."
+ },
+ fr: {
+ q: "Puis-je utiliser le simulateur meme avec un permis B ?",
+ a: "Oui. Le simulateur de fiche de paie calcule les deductions sociales (AVS, AC, AANP, IJM, LPP) et l'impot a la source tessinois : ce sont les memes rubriques qu'on trouve sur la fiche de paie d'un titulaire de permis B travaillant au Tessin. Toutefois, avec un permis B le regime fiscal special du frontalier (credit d'impot italien) ne s'applique pas : le net CHF est votre vrai net. Pour une comparaison fiscale G vs B, utilisez le comparateur dedie."
+ }
+ },
+
+ "L'imposta alla fonte è definitiva o posso recuperare qualcosa con la TDR?": {
+ en: {
+ q: "Is the withholding tax final or can I recover part of it via the TDR?",
+ a: "The Ticino withholding tax can be adjusted via the TDR (Tariffa Doganale Ridotta) by 31 March of the following year. Allowed deductions include commuting expenses (max CHF 3,200), meals outside home, 3rd pillar contributions (max CHF 7,258 in 2026), medical expenses and alimony. The refund is credited directly to your bank account."
+ },
+ de: {
+ q: "Ist die Quellensteuer endgueltig oder kann ich ueber die TDR etwas zurueckholen?",
+ a: "Die Tessiner Quellensteuer kann ueber die TDR (Tariffa Doganale Ridotta) bis zum 31. Maerz des Folgejahres korrigiert werden. Zugelassene Abzuege umfassen Fahrkosten (max CHF 3'200), Mahlzeiten ausser Haus, Saeule-3a-Beitraege (max CHF 7'258 im Jahr 2026), Krankheitskosten und Alimente. Die Rueckerstattung wird direkt auf Ihr Bankkonto ueberwiesen."
+ },
+ fr: {
+ q: "L'impot a la source est-il definitif ou puis-je recuperer une partie via la TDR ?",
+ a: "L'impot a la source tessinois peut etre rectifie via la TDR (Tariffa Doganale Ridotta) avant le 31 mars de l'annee suivante. Les deductions admises incluent les frais de transport (max CHF 3 200), les repas hors domicile, les cotisations au 3e pilier (max CHF 7 258 en 2026), les frais medicaux et les pensions alimentaires. Le remboursement est credite directement sur votre compte bancaire."
+ }
+ },
+
+ "Il simulatore include la tredicesima e gli assegni familiari?": {
+ en: {
+ q: "Does the simulator include the 13th month and family allowances?",
+ a: "The annual gross salary entered already includes the 13th month (divided by 13 to get the monthly gross). Cantonal family allowances (approximately CHF 200-300 per month per child in Ticino) are not included in the simulation because they are not subject to social deductions and withholding tax: add them to the net computed."
+ },
+ de: {
+ q: "Beinhaltet der Simulator den 13. Monatslohn und die Familienzulagen?",
+ a: "Das eingegebene Bruttojahresgehalt enthaelt bereits den 13. Monatslohn (durch 13 geteilt, um das Monatsbrutto zu erhalten). Die kantonalen Familienzulagen (ca. CHF 200-300 pro Monat und Kind im Tessin) sind in der Simulation nicht enthalten, da sie nicht den Sozialabzuegen und der Quellensteuer unterliegen: Addieren Sie sie zum berechneten Netto."
+ },
+ fr: {
+ q: "Le simulateur inclut-il le 13e mois et les allocations familiales ?",
+ a: "Le salaire brut annuel saisi inclut deja le 13e mois (divise par 13 pour obtenir le brut mensuel). Les allocations familiales cantonales (environ CHF 200-300 par mois et par enfant au Tessin) ne sont pas incluses dans la simulation car elles ne sont pas soumises aux cotisations sociales ni a l'impot a la source : ajoutez-les au net calcule."
+ }
  }
 };
 

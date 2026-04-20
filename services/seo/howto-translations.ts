@@ -234,6 +234,49 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  { name: "Soumettre et attendre le remboursement", text: "Soumettez la TDR a l'Office d'imposition. Le remboursement est credite directement sur votre compte bancaire." }
  ]
  }
+ },
+
+ // ── HowTo: Payslip simulator (new frontaliere 2026) ──
+ "Come simulare la busta paga del nuovo frontaliere Svizzera-Italia": {
+ en: {
+ name: "How to simulate the payslip of a new cross-border worker (Switzerland-Italy)",
+ description: "Step-by-step guide to simulating a new cross-border worker's payslip for 2026 with Ticino withholding tax, AVS/LPP deductions and CH vs IT net comparison.",
+ steps: [
+ { name: "Enter the annual gross salary in CHF", text: "Enter the annual gross salary in Swiss francs (CHF) as stated in the employment contract. The simulator automatically derives the monthly gross by dividing by 13 (13th month included)." },
+ { name: "Provide age, marital status and children", text: "Select age (drives the LPP rate), marital status (table A single or B married) and number of dependent children. Each child reduces the withholding tax by about one percentage point." },
+ { name: "Pick your residence zone (within or beyond 20 km)", text: "Indicate whether you live within 20 km of the Swiss border or beyond. Under the 2026 New Agreement, new cross-border workers within 20 km pay 80% withholding tax in Switzerland and Italian IRPEF with a €10,000 exemption, while beyond 20 km the Swiss withholding is 100%." },
+ { name: "Review the Swiss social deductions", text: "Check the breakdown of mandatory contributions: AVS/AI/IPG (5.3%), AD unemployment (1.1%), AINF non-occupational accident insurance, IJM daily sickness allowance, and LPP (2nd pillar, age-bracketed rate 25-65)." },
+ { name: "Visualize the withholding tax simulation", text: "See the withholding tax computed on the Ticino cantonal table A/B/C/H 2026, with percentage and CHF amount on a monthly basis." },
+ { name: "Compare the Swiss net with the Italian net in euro", text: "Compare the Swiss net with the Italian net taking into account IRPEF and the tax credit: this is the amount actually left to a new cross-border worker in 2026." },
+ { name: "Export the payslip to PDF", text: "Download the simulation summary as a PDF including all AVS, AD, AINF, IJM, LPP deductions and withholding tax: useful for comparing it against the real payslip issued by the employer." }
+ ]
+ },
+ de: {
+ name: "So simulieren Sie die Lohnabrechnung eines neuen Grenzgaengers (Schweiz-Italien)",
+ description: "Schritt-fuer-Schritt-Anleitung zur Simulation der Lohnabrechnung eines neuen Grenzgaengers fuer 2026 mit Tessiner Quellensteuer, AHV/BVG-Abzuegen und Netto-Vergleich CH vs. IT.",
+ steps: [
+ { name: "Bruttojahresgehalt in CHF eingeben", text: "Geben Sie das Bruttojahresgehalt in Schweizer Franken (CHF) gemaess Arbeitsvertrag ein. Der Simulator berechnet das Monatsbrutto durch Division durch 13 (13. Monatslohn inbegriffen)." },
+ { name: "Alter, Zivilstand und Kinder angeben", text: "Waehlen Sie Alter (bestimmt den BVG-Satz), Zivilstand (Tarif A ledig oder B verheiratet) und Anzahl der unterhaltsberechtigten Kinder. Jedes Kind reduziert die Quellensteuer um etwa einen Prozentpunkt." },
+ { name: "Wohnzone waehlen (innerhalb oder ausserhalb 20 km)", text: "Geben Sie an, ob Sie innerhalb von 20 km zur Schweizer Grenze wohnen oder weiter entfernt. Nach dem neuen Abkommen 2026 zahlen neue Grenzgaenger innerhalb 20 km 80% Quellensteuer in der Schweiz und italienische IRPEF mit €10'000 Freibetrag, ausserhalb 20 km betraegt die Schweizer Quellensteuer 100%." },
+ { name: "Schweizer Sozialabzuege pruefen", text: "Ueberpruefen Sie die Aufschluesselung der obligatorischen Beitraege: AHV/IV/EO (5,3%), ALV Arbeitslosenversicherung (1,1%), UVG Nichtberufsunfallversicherung, Krankentaggeld IJM und BVG (2. Saeule, altersgestaffelter Satz 25-65)." },
+ { name: "Quellensteuer-Simulation anzeigen", text: "Sehen Sie die nach dem Tessiner Tarif A/B/C/H 2026 berechnete Quellensteuer mit Prozentsatz und CHF-Betrag auf Monatsbasis." },
+ { name: "Schweizer Netto mit italienischem Netto in Euro vergleichen", text: "Vergleichen Sie das Schweizer Netto mit dem italienischen unter Beruecksichtigung von IRPEF und Steuergutschrift: das ist der Betrag, der einem neuen Grenzgaenger 2026 tatsaechlich bleibt." },
+ { name: "Lohnabrechnung als PDF exportieren", text: "Laden Sie die Zusammenfassung der Simulation als PDF mit allen Abzuegen AHV, ALV, UVG, IJM, BVG und Quellensteuer herunter: nuetzlich zum Vergleich mit der echten Lohnabrechnung des Arbeitgebers." }
+ ]
+ },
+ fr: {
+ name: "Comment simuler la fiche de paie d'un nouveau frontalier (Suisse-Italie)",
+ description: "Guide etape par etape pour simuler la fiche de paie d'un nouveau frontalier en 2026 avec l'impot a la source tessinois, les deductions AVS/LPP et la comparaison du net CH vs IT.",
+ steps: [
+ { name: "Saisissez le salaire brut annuel en CHF", text: "Saisissez le salaire brut annuel en francs suisses (CHF) tel qu'indique sur le contrat de travail. Le simulateur calcule automatiquement le brut mensuel en divisant par 13 (13e mois inclus)." },
+ { name: "Indiquez age, etat civil et enfants a charge", text: "Selectionnez l'age (determine le taux LPP), l'etat civil (bareme A celibataire ou B marie) et le nombre d'enfants a charge. Chaque enfant reduit l'impot a la source d'environ un point de pourcentage." },
+ { name: "Choisissez la zone de residence (jusqu'a ou au-dela de 20 km)", text: "Indiquez si vous residez a moins de 20 km de la frontiere suisse ou au-dela. Selon le Nouvel Accord 2026, les nouveaux frontaliers dans les 20 km paient 80% d'impot a la source en Suisse et l'IRPEF italien avec une franchise de 10 000 €, au-dela de 20 km la retenue suisse est de 100%." },
+ { name: "Verifiez les deductions sociales suisses", text: "Consultez le detail des cotisations obligatoires : AVS/AI/APG (5,3%), AC chomage (1,1%), AANP accident non professionnel, IJM indemnites maladie et LPP (2e pilier, taux par tranche d'age 25-65)." },
+ { name: "Visualisez la simulation de l'impot a la source", text: "Consultez l'impot a la source calcule selon le bareme cantonal tessinois A/B/C/H 2026, avec le pourcentage et le montant en CHF sur une base mensuelle." },
+ { name: "Comparez le net suisse avec le net italien en euros", text: "Comparez le net suisse au net italien en tenant compte de l'IRPEF et du credit d'impot : c'est le montant qui reste effectivement a un nouveau frontalier en 2026." },
+ { name: "Exportez la fiche de paie en PDF", text: "Telechargez le recapitulatif de la simulation en PDF avec toutes les deductions AVS, AC, AANP, IJM, LPP et l'impot a la source : utile pour la comparer a la vraie fiche de paie remise par l'employeur." }
+ ]
+ }
  }
 };
 

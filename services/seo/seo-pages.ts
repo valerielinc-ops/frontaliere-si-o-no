@@ -2278,11 +2278,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  payslip: {
  title: 'Calcolo Imposta alla Fonte 2026 | Busta Paga Frontaliere',
  description: 'Calcolatore imposta alla fonte 2026: busta paga frontaliere Svizzera con lordo, deduzioni AVS, AC, LPP e netto. Simulazione cedolino eTax per permesso G Ticino.',
- keywords: 'busta paga svizzera, cedolino svizzera frontaliere, calcolo stipendio netto svizzera, deduzioni AVS AC LPP, imposta alla fonte calcolo, stipendio frontaliere dettaglio, calcolatore imposte alla fonte 2026, etax ticino, calcolo imposta fonte ticino',
+ keywords: 'simulazione tasse nuovi frontalieri, busta paga svizzera, cedolino svizzera frontaliere, calcolo stipendio netto svizzera, deduzioni AVS AC LPP, imposta alla fonte calcolo, stipendio frontaliere dettaglio, calcolatore imposte alla fonte 2026, etax ticino, calcolo imposta fonte ticino, nuovo accordo frontalieri 2026, calcolo tasse frontalieri oltre 20 km',
  ogTitle: 'Calcolatore Imposta alla Fonte 2026 | Busta Paga Frontaliere',
  ogDescription: '📄 Calcolo imposta alla fonte 2026: busta paga frontaliere Svizzera con deduzioni AVS, LPP e netto in dettaglio.',
  canonicalPath: '/calcola-stipendio/simula-busta-paga',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "WebApplication",
  "name": "Simulatore Busta Paga Svizzera",
@@ -2293,7 +2294,132 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come simulare la busta paga del nuovo frontaliere Svizzera-Italia",
+ "url": `${BASE_URL}/calcola-stipendio/simula-busta-paga`,
+ "description": "Guida passo-passo per simulare la busta paga del nuovo frontaliere Svizzera-Italia 2026 con imposta alla fonte Ticino, deduzioni AVS/LPP e confronto netto CH vs IT.",
+ "totalTime": "PT3M",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Inserisci lo stipendio lordo annuale in CHF",
+ "text": "Digita lo stipendio lordo annuale in franchi svizzeri (CHF) così come appare sul contratto di lavoro. Il simulatore calcola automaticamente il lordo mensile dividendo per 13 (tredicesima inclusa)."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Indica età, stato civile e figli a carico",
+ "text": "Seleziona età (determina l'aliquota LPP), stato civile (barème A celibe o B coniugato) e numero di figli a carico. Ogni figlio riduce l'imposta alla fonte di circa 1 punto percentuale."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Scegli la zona di residenza (entro o oltre 20 km)",
+ "text": "Indica se risiedi entro 20 km dal confine svizzero oppure oltre. Con il Nuovo Accordo 2026 i nuovi frontalieri entro 20 km pagano l'80% alla fonte in Svizzera e IRPEF in Italia con franchigia di €10.000, mentre oltre 20 km la trattenuta svizzera è al 100%."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Verifica le deduzioni sociali svizzere",
+ "text": "Controlla il dettaglio delle trattenute obbligatorie: AVS/AI/IPG (5,3%), AD disoccupazione (1,1%), AINF infortuni non professionali, IJM malattia e LPP (2° pilastro, aliquota per fascia d'età 25-65 anni).",
+ "url": `${BASE_URL}/guida-frontaliere/contributi-sociali`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Visualizza la simulazione dell'imposta alla fonte",
+ "text": "Consulta il calcolo dell'imposta alla fonte applicata secondo il barème cantonale ticinese A/B/C/H 2026, con la percentuale e l'importo in CHF su base mensile."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 6,
+ "name": "Confronta il netto CHF con il netto in euro in Italia",
+ "text": "Confronta il netto svizzero con quello italiano considerando IRPEF e credito d'imposta: questa è la cifra che effettivamente resta al nuovo frontaliere nel 2026.",
+ "url": `${BASE_URL}/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 7,
+ "name": "Esporta il cedolino in PDF",
+ "text": "Scarica il riepilogo della simulazione in PDF con tutte le trattenute AVS, AD, AINF, IJM, LPP e imposta alla fonte: utile per confrontarlo con la busta paga reale ricevuta dal datore di lavoro."
  }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Che cos'è il Nuovo Accordo frontalieri 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il Nuovo Accordo fiscale Italia-Svizzera (in vigore dal 2024 e pienamente applicato nel 2026) distingue tra 'vecchi' e 'nuovi' frontalieri. I nuovi frontalieri (assunti dal 17/07/2023) che risiedono entro 20 km dal confine pagano l'80% dell'imposta alla fonte in Svizzera e dichiarano il reddito in Italia con franchigia di €10.000 e credito d'imposta. Oltre i 20 km, la trattenuta svizzera sale al 100%."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quando si è considerati 'nuovo frontaliere'?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Si è nuovo frontaliere se il contratto di lavoro svizzero è stato firmato a partire dal 17 luglio 2023. Chi era assunto prima di questa data resta 'vecchio frontaliere' fino al 31 dicembre 2033 (periodo transitorio), con tassazione solo in Svizzera al 100% e ristorni ai comuni italiani di frontiera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcola l'imposta alla fonte in Ticino nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'imposta alla fonte in Ticino è applicata dal datore di lavoro secondo il barème cantonale: A (celibe/nubile senza figli), B (coniugato/a unico reddito), C (coniugato/a doppio reddito) e H (famiglia monoparentale). L'aliquota dipende dal reddito mensile lordo e varia da circa 2% (CHF 3.000/mese) a 16% (oltre CHF 15.000/mese). Ogni figlio a carico riduce l'aliquota di circa 1 punto percentuale."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cosa cambia se vivo oltre 20 km dal confine svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I nuovi frontalieri che risiedono oltre 20 km dal confine svizzero perdono lo status fiscale di frontaliere secondo il Nuovo Accordo: pagano il 100% dell'imposta alla fonte in Svizzera (come i residenti senza ristorno) e dichiarano il reddito in Italia con credito d'imposta pieno per evitare la doppia imposizione. La franchigia €10.000 non si applica in questo caso."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I contributi AVS e LPP sono deducibili in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. I contributi previdenziali obbligatori AVS/AI/IPG (5,3%) e LPP (2° pilastro) trattenuti in Svizzera sono deducibili dal reddito imponibile IRPEF nella dichiarazione italiana dei nuovi frontalieri, riducendo di fatto la base imponibile italiana. Conserva il certificato di salario annuale svizzero (Lohnausweis) per il commercialista."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso usare il simulatore anche se ho il Permesso B?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il simulatore di busta paga calcola le trattenute sociali (AVS, AD, AINF, IJM, LPP) e l'imposta alla fonte ticinese: sono le stesse voci presenti sul cedolino di un residente con permesso B che lavora in Ticino. Tuttavia, con permesso B non si applica il regime speciale del frontaliere (credito d'imposta italiano): il netto CHF è il tuo vero netto. Per un confronto fiscale G vs B usa il comparatore dedicato."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "L'imposta alla fonte è definitiva o posso recuperare qualcosa con la TDR?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'imposta alla fonte ticinese può essere rettificata tramite la TDR (Tariffa Doganale Ridotta) entro il 31 marzo dell'anno successivo. Sono ammesse deduzioni per spese di trasporto (max CHF 3.200), pasti fuori casa, contributi 3° pilastro (max CHF 7.258 nel 2026), spese mediche e alimenti. Il rimborso viene accreditato direttamente sul conto bancario."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il simulatore include la tredicesima e gli assegni familiari?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Lo stipendio lordo annuale inserito comprende già la tredicesima (si divide per 13 per il lordo mensile). Gli assegni familiari cantonali (circa CHF 200-300 al mese per figlio in Ticino) non sono invece inclusi nella simulazione perché non soggetti a trattenute sociali e imposta alla fonte: vanno sommati al netto calcolato."
+ }
+ }
+ ]
+ }
+ ]
  },
 
  'permit-compare': {
