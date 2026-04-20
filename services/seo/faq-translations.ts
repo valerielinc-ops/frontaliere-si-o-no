@@ -2646,6 +2646,67 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  q: "Comment les frontaliers peuvent-ils économiser sur le diesel ?",
  a: "Les frontaliers peuvent économiser sur le diesel en faisant le plein en Italie avant de traverser la frontière, en utilisant des applications de comparaison de prix comme Prezzi Benzina, en choisissant les stations en libre-service et en accumulant des points de fidélité. L'économie annuelle peut dépasser EUR 500 pour ceux qui parcourent plus de 40 km par jour."
  }
+ },
+
+ // ── Ticino fuel price article FAQs ──
+ "Quali sono i distributori più economici in Ticino nel 2026?": {
+ en: {
+ q: "Which are the cheapest fuel stations in Ticino in 2026?",
+ a: "The cheapest fuel stations in Ticino in 2026 are generally self-service ones away from main motorway exits, particularly in Mendrisiotto and Bellinzonese. The live SP95 price ranking published by TCS helps you spot the most convenient stations of the day; differences can exceed CHF 0.15/liter between the most expensive and cheapest station."
+ },
+ de: {
+ q: "Welches sind die günstigsten Tankstellen im Tessin 2026?",
+ a: "Die günstigsten Tankstellen im Tessin sind 2026 in der Regel die Selbstbedienungstankstellen abseits der Hauptautobahnausfahrten, vor allem im Mendrisiotto und Bellinzonese. Das von TCS veröffentlichte Live-Ranking der SP95-Preise zeigt die günstigsten Stationen des Tages; zwischen der teuersten und der günstigsten Tankstelle können mehr als CHF 0,15/Liter Unterschied liegen."
+ },
+ fr: {
+ q: "Quelles sont les stations-service les moins chères au Tessin en 2026 ?",
+ a: "Les stations-service les moins chères au Tessin en 2026 sont généralement les stations en libre-service éloignées des grandes sorties d'autoroute, en particulier dans le Mendrisiotto et le Bellinzonese. Le classement en direct des prix SP95 publié par TCS permet d'identifier les stations les plus avantageuses du jour ; l'écart entre la station la plus chère et la moins chère peut dépasser CHF 0,15/litre."
+ }
+ },
+
+ "Di quanto sono aumentati i prezzi dei carburanti in Ticino nel 2026?": {
+ en: {
+ q: "By how much have fuel prices risen in Ticino in 2026?",
+ a: "In 2026, fuel prices in Ticino have risen by about +19 millesimi per liter for petrol and +46 millesimi per liter for diesel compared with the start of the year, according to TCS and Adnkronos aggregated data. The increase is in line with the Swiss national average and is driven by crude-oil volatility and the adjustment of CO₂ surcharges."
+ },
+ de: {
+ q: "Um wie viel sind die Kraftstoffpreise im Tessin 2026 gestiegen?",
+ a: "2026 sind die Kraftstoffpreise im Tessin im Vergleich zum Jahresbeginn um rund +19 Rappen pro Liter bei Benzin und +46 Rappen pro Liter bei Diesel gestiegen, so die Zahlen von TCS und Adnkronos. Der Anstieg liegt im nationalen Schweizer Durchschnitt und ist auf die Volatilität der Rohölpreise und die Anpassung der CO₂-Zuschläge zurückzuführen."
+ },
+ fr: {
+ q: "De combien les prix des carburants ont-ils augmenté au Tessin en 2026 ?",
+ a: "En 2026, les prix des carburants au Tessin ont augmenté d'environ +19 millièmes par litre pour l'essence et +46 millièmes par litre pour le diesel par rapport au début de l'année, selon les données TCS et Adnkronos. La hausse est conforme à la moyenne nationale suisse et s'explique par la volatilité du brut et l'ajustement des surtaxes CO₂."
+ }
+ },
+
+ "Conviene ancora fare benzina in Italia per i frontalieri?": {
+ en: {
+ q: "Is it still worth refuelling in Italy for cross-border workers?",
+ a: "In 2026, filling up in Italy is still worthwhile for most cross-border workers: the price differential is around CHF 0.30-0.50 per liter versus Switzerland after CHF/EUR conversion. On a 50-liter tank the gross saving is CHF 15-25, but you must factor in the time and fuel cost of the detour; for anyone living within 5 km of the border it is almost always advantageous."
+ },
+ de: {
+ q: "Lohnt sich das Tanken in Italien für Grenzgänger 2026 noch?",
+ a: "2026 lohnt sich das Tanken in Italien für die meisten Grenzgänger weiterhin: Der Preisunterschied beträgt nach CHF/EUR-Umrechnung rund CHF 0,30-0,50 pro Liter gegenüber der Schweiz. Bei einer Tankfüllung von 50 Litern beträgt die Bruttoersparnis CHF 15-25, doch müssen Zeit- und Kraftstoffkosten für den Umweg einkalkuliert werden; wer weniger als 5 km von der Grenze entfernt wohnt, profitiert fast immer."
+ },
+ fr: {
+ q: "Est-il toujours intéressant de faire le plein en Italie pour les frontaliers ?",
+ a: "En 2026, faire le plein en Italie reste intéressant pour la plupart des frontaliers : l'écart de prix est d'environ CHF 0,30-0,50 par litre par rapport à la Suisse après conversion CHF/EUR. Sur un plein de 50 litres, l'économie brute est de CHF 15-25, mais il faut tenir compte du temps et du carburant du détour ; pour quiconque habite à moins de 5 km de la frontière, c'est presque toujours avantageux."
+ }
+ },
+
+ "Quanto costa un pieno di diesel in Ticino oggi?": {
+ en: {
+ q: "How much does a diesel tank cost in Ticino today?",
+ a: "A 50-liter diesel tank in Ticino in 2026 costs on average about CHF 105, at a mean price of CHF 2.10/liter. At the cheapest self-service stations the figure can drop to around CHF 98-100 for the same tank. The live price table in this article shows the most convenient Swiss fuel stations, updated in real time."
+ },
+ de: {
+ q: "Was kostet eine Tankfüllung Diesel im Tessin heute?",
+ a: "Eine Tankfüllung mit 50 Litern Diesel kostet im Tessin 2026 durchschnittlich rund CHF 105 bei einem mittleren Preis von CHF 2,10/Liter. An den günstigsten Selbstbedienungstankstellen sinkt der Betrag für dieselbe Tankfüllung auf rund CHF 98-100. Die Live-Preistabelle in diesem Artikel zeigt die günstigsten Schweizer Tankstellen in Echtzeit."
+ },
+ fr: {
+ q: "Combien coûte un plein de diesel au Tessin aujourd'hui ?",
+ a: "Un plein de diesel de 50 litres au Tessin en 2026 coûte en moyenne environ CHF 105, au prix moyen de CHF 2,10/litre. Dans les stations en libre-service les moins chères, il est possible de descendre à environ CHF 98-100 pour le même plein. Le tableau des prix en direct dans cet article affiche les stations-service suisses les plus avantageuses, mises à jour en temps réel."
+ }
  }
 };
 

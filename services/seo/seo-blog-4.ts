@@ -1987,11 +1987,11 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-diesel-aumento-prezzi-svizzera-2026': {
- title: 'Prezzo Diesel Svizzera 2026: Costo al Litro | Frontaliere Ticino',
- description: 'Prezzo diesel in Svizzera oggi: CHF 2,10/litro. Confronto con Italia, evoluzione dei prezzi e consigli per risparmiare al distributore. Aggiornato 2026.',
- keywords: 'prezzo diesel svizzera 2026, dieselpreis schweiz, prix diesel suisse, diesel price switzerland, costo diesel litro svizzera, carburante ticino',
- ogTitle: 'Prezzo Diesel Svizzera 2026: Costo Attuale al Litro',
- ogDescription: 'Diesel a CHF 2,10/litro in Svizzera: evoluzione dei prezzi, confronto con l\'Italia e consigli per risparmiare al distributore.',
+ title: 'Prezzo Diesel Ticino 2026 — Confronto Distributori Oggi | Frontaliere Ticino',
+ description: 'Prezzo diesel in Ticino e Svizzera 2026: CHF 2,10/litro, confronto con l\'Italia, classifica distributori più convenienti e consigli per i frontalieri.',
+ keywords: 'prezzo diesel ticino 2026, prezzo diesel svizzera 2026, dieselpreis tessin, prix diesel tessin, diesel price ticino, costo diesel litro svizzera, carburante ticino',
+ ogTitle: 'Prezzo Diesel Ticino 2026 — Confronto Distributori Oggi',
+ ogDescription: 'Diesel a CHF 2,10/litro in Ticino e Svizzera: classifica distributori, confronto con l\'Italia e consigli per risparmiare al pieno.',
  canonicalPath: '/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026',
  structuredData: [
  {
@@ -5359,17 +5359,18 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-carburanti-ticino-aumento-prezzi': {
- title: 'Carburanti in Ticino, prezzi in | Frontaliere Ticino',
- description: 'Prezzi dei carburanti in aumento in Ticino, secondo l\'agenzia Adnkronos. Ecco i dati aggiornati martedì 7 aprile 2026. Dati aggiornati 2026 per frontalieri in',
- keywords: 'frontalieri, ticino, svizzera, italia, carburanti, prezzi, aumento, millesimi',
- ogTitle: 'Prezzi carburanti in Ticino in aumento',
- ogDescription: 'I prezzi dei carburanti in Ticino sono aumentati di +19 millesimi di benzina e +46 millesimi di diesel rispetto a venerdì scorso, secondo Adnkronos.',
+ title: 'Prezzi Carburanti Ticino 2026 — Benzina e Diesel Aggiornati | Frontaliere Ticino',
+ description: 'Prezzi carburante in Ticino 2026: rincari di +19 millesimi benzina e +46 millesimi diesel. Classifica distributori più convenienti e confronto con l\'Italia.',
+ keywords: 'prezzi carburanti ticino 2026, prezzo benzina ticino, prezzo diesel ticino, tankstellen tessin preise, prix carburant tessin, distributori economici ticino',
+ ogTitle: 'Prezzi Carburanti Ticino 2026 — Benzina e Diesel Aggiornati',
+ ogDescription: 'Prezzi carburante Ticino 2026: +19 millesimi benzina, +46 millesimi diesel. Classifica distributori e confronto con l\'Italia per i frontalieri.',
  canonicalPath: '/articoli-frontaliere/carburanti-ticino-aumento-prezzi',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Prezzi carburanti in Ticino: +19 millesimi di benzina e +46 millesimi di diesel",
- "description": "Prezzi dei carburanti in aumento in Ticino, secondo l'agenzia Adnkronos. Ecco i dati aggiornati martedì 7 aprile 2026. Dati aggiornati 2026 per frontalieri in",
+ "headline": "Prezzi carburanti Ticino 2026: confronto distributori benzina e diesel",
+ "description": "Prezzi carburante in Ticino 2026: rincari di +19 millesimi benzina e +46 millesimi diesel. Classifica distributori più convenienti e confronto con l'Italia.",
  "image": {
  "@type": "ImageObject",
  "url": `${BASE_URL}/images/blog/carburanti-ticino-aumento-prezzi.jpg`,
@@ -5378,13 +5379,25 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  "caption": "Benzinaio in aumento dei prezzi dei carburanti in Ticino"
  },
  "datePublished": "2026-04-07T09:55:25+00:00",
- "dateModified": "2026-04-07T09:55:25+00:00",
+ "dateModified": BUILD_DATE_ISO,
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-ticino-aumento-prezzi`,
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali sono i distributori più economici in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I distributori più economici in Ticino nel 2026 sono generalmente quelli self-service lontani dalle uscite autostradali principali, in particolare nel Mendrisiotto e nel Bellinzonese. La classifica live dei prezzi SP95 pubblicata da TCS ti aiuta a individuare le stazioni più convenienti del giorno; le differenze possono superare i CHF 0,15/litro tra il distributore più caro e quello più economico." } },
+ { "@type": "Question", "name": "Di quanto sono aumentati i prezzi dei carburanti in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i prezzi dei carburanti in Ticino sono aumentati di circa +19 millesimi al litro per la benzina e +46 millesimi per il diesel rispetto ai livelli dell'inizio dell'anno, secondo i dati aggregati TCS e Adnkronos. L'aumento è in linea con la media nazionale svizzera ed è dovuto a tensioni sul prezzo del greggio e all'adeguamento dei supplementi CO₂." } },
+ { "@type": "Question", "name": "Conviene ancora fare benzina in Italia per i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 fare il pieno in Italia continua a convenire per la maggior parte dei frontalieri: il differenziale di prezzo è di circa CHF 0,30-0,50 al litro rispetto alla Svizzera dopo il cambio CHF/EUR. Su un pieno da 50 litri il risparmio lordo è di CHF 15-25, ma va considerato il costo del tempo e del carburante per la deviazione; per chi abita a meno di 5 km dal confine è quasi sempre vantaggioso." } },
+ { "@type": "Question", "name": "Quanto costa un pieno di diesel in Ticino oggi?", "acceptedAnswer": { "@type": "Answer", "text": "Un pieno di diesel da 50 litri in Ticino nel 2026 costa in media circa CHF 105, con un prezzo medio di CHF 2,10/litro. Nei distributori self-service più economici si può scendere a circa CHF 98-100 per lo stesso pieno. La tabella dei prezzi live in questo articolo mostra le stazioni svizzere più convenienti aggiornate in tempo reale." } }
+ ]
  }
+ ]
  },
 
  'blog-provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026': {
