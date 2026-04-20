@@ -1332,7 +1332,6 @@
           "employee-underwriting-e-cash-corner-banca-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1349,8 +1348,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
+      "employmentType": "FULL_TIME"
     }
   ]
 }
