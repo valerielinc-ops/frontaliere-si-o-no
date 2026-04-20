@@ -131,6 +131,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'tsmg': cLogo('tsmg.co'),
  'usi-universita-della-svizzera-italiana': gFavicon('usi.ch'),
  'vf-international-the-north-face-timberland': gFavicon('vfc.com'),
+ 'wuerth-international': gFavicon('wurth.com'),
  'zambon': cLogo('zambon.com'),
  'zucchetti-switzerland': gFavicon('zucchetti.com'),
  'zurich-insurance-sede-ticino': gFavicon('zurich.ch'),
