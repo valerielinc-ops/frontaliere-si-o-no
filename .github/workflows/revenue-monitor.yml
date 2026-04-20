@@ -44,10 +44,6 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run revenue monitor (save report)
-        env:
-          ADSENSE_REFRESH_TOKEN: ${{ secrets.ADSENSE_REFRESH_TOKEN }}
-          ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
-          ADSENSE_CLIENT_SECRET: ${{ secrets.ADSENSE_CLIENT_SECRET }}
         run: node scripts/revenue-monitor.mjs --save --markdown > /tmp/revenue-monitor.md
 
       - name: Print summary to job log

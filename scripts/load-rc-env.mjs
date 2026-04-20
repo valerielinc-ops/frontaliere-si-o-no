@@ -60,6 +60,9 @@ const RC_TO_ENV = {
   SERVER_GA4_PROPERTY_ID:         ['GA4_PROPERTY_ID'],
   SERVER_GSC_CLIENT_SECRET:       ['GSC_CLIENT_SECRET'],
   SERVER_GSC_REFRESH_TOKEN:       ['GSC_REFRESH_TOKEN'],
+  SERVER_ADSENSE_CLIENT_ID:       ['ADSENSE_CLIENT_ID'],
+  SERVER_ADSENSE_CLIENT_SECRET:   ['ADSENSE_CLIENT_SECRET'],
+  SERVER_ADSENSE_REFRESH_TOKEN:   ['ADSENSE_REFRESH_TOKEN'],
   DEEPL_API_KEY:                  ['DEEPL_API_KEY'],
   DEEPL_API_KEY_2:                ['DEEPL_API_KEY_2'],
   AZURE_TRANSLATOR_KEY:           ['AZURE_TRANSLATOR_KEY'],
@@ -163,7 +166,8 @@ async function main() {
   }
 
   const paramCount = Object.keys(template.parameters || {}).length;
-  console.log(`📦 Remote Config: ${paramCount} params available`);
+  const statusLog = isCI ? console.log : console.error;
+  statusLog(`📦 Remote Config: ${paramCount} params available`);
 
   // 4. Map RC values → env vars
   let loaded = 0;
@@ -213,7 +217,7 @@ async function main() {
     }
   }
 
-  console.log(`✅ RC secrets loaded: ${loaded} set, ${skipped} already in env, ${missing} not in RC`);
+  statusLog(`✅ RC secrets loaded: ${loaded} set, ${skipped} already in env, ${missing} not in RC`);
 }
 
 main().catch((err) => {

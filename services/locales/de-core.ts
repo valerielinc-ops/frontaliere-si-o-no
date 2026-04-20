@@ -486,6 +486,14 @@ const deCore: Record<string, string> = {
  'traffic.navigateHere': 'Hierhin navigieren',
  'traffic.openGoogleMaps': 'In Google Maps öffnen',
  'traffic.tipsTitle': 'Tipps zur Stauvermeidung',
+
+ // Striking-distance editorial for Chiasso / Brogeda deep-links (SEO: "grenzübergang chiasso brogeda wartezeit")
+ 'traffic.chiassoEditorial.title': 'Grenzübergang Chiasso und Brogeda: Stoßzeiten, Wartezeiten und Alternativen',
+ 'traffic.chiassoEditorial.p1': 'Der Grenzübergang <strong>Chiasso Brogeda</strong> an der A2 ist der wichtigste Güter- und LKW-Übergang zwischen Italien und dem Tessin, während <strong>Chiasso Strada</strong> (Chiasso Centro) der städtische PKW-Zoll an der alten Gaggiolo-Strasse ist und über die Autobahnausfahrt Como Monte Olimpino erreicht wird. Für Grenzgänger ist der Unterschied klar: Brogeda hat mehr Spuren, ist aber vom LKW-Verkehr verstopft; Chiasso Centro ist schlanker, aber durch die Stadtampeln in Como und Chiasso limitiert.',
+ 'traffic.chiassoEditorial.p2': 'Die <strong>Stoßzeiten</strong> bei Einreise in die Schweiz liegen zwischen 7:00\u20139:00 Uhr (morgens Richtung Tessin) und 17:00\u201319:00 Uhr (abends zurück nach Italien). Freitagnachmittag und Sonntagabend addieren Pendler- und Touristenverkehr: In diesen Fenstern erreichen die Schlangen in Brogeda leicht 20\u201330 Minuten, in Chiasso Centro 10\u201315 Minuten. Außerhalb der Hauptzeiten sind beide Übergänge 24/7 geöffnet und die Wartezeit sinkt unter 5 Minuten.',
+ 'traffic.chiassoEditorial.p3': 'Um <strong>die Schlange zu umgehen</strong>, nutzen Grenzgänger rund um Chiasso am häufigsten <strong>Ponte Chiasso\u2013Pedrinate</strong> (nur Anwohner, aber meist frei), <strong>Bizzarone\u2013Novazzano</strong> (über Gaggiolo, ideal wenn die A2 steht) und <strong>Ronago\u2013Novazzano</strong> (kleiner Seitenübergang, selten überlastet). Bei einer Fahrt nach Lugano mit mehr als 15 Minuten Stau an Brogeda bringt die Umleitung über Novazzano 5\u20138 km Mehrweg, spart aber oft 20\u201330 Minuten Wartezeit.',
+ 'traffic.chiassoEditorial.p4': 'Der Live-Verkehrsstatus ist in der Karte unten (stündlich aktualisiert) und auf den offiziellen Schweizer Zollportalen einsehbar; die Webcams entlang der A2 sind auf der Astra-Website verfügbar, um die Situation vor der Abfahrt zu prüfen.',
+
  'stats.title': 'Echtdaten-Observatorium',
  'stats.source': 'Offizielle Quelle: Bundesamt für Statistik (BFS) • Grenzgänger (STAF)',
  'stats.refreshData': 'Daten aktualisieren',

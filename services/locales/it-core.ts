@@ -517,7 +517,14 @@ const translations: Record<string, string> = {
  'traffic.navigateHere': 'Naviga qui',
  'traffic.openGoogleMaps': 'Apri su Google Maps',
  'traffic.tipsTitle': 'Consigli per Evitare le Code',
- 
+
+ // Striking-distance editorial for Chiasso / Brogeda deep-links (SEO: "traffico dogana chiasso brogeda")
+ 'traffic.chiassoEditorial.title': 'Traffico dogana Chiasso e Brogeda: orari, code e valichi alternativi',
+ 'traffic.chiassoEditorial.p1': 'Il valico di <strong>Chiasso Brogeda</strong> è il principale punto di attraversamento merci/autotrasporti sulla A2 e assorbe il traffico pesante fra l\u2019Italia e il Ticino; <strong>Chiasso Strada</strong> (Chiasso Centro) è invece la dogana urbana dedicata alle autovetture sulla vecchia statale del Gaggiolo e si raggiunge dall\u2019uscita autostradale di Como Monte Olimpino. La differenza pratica per il frontaliere è netta: Brogeda ha più corsie ma è intasato dai TIR, Chiasso Centro è più snello ma obbligato dai semafori cittadini di Como e Chiasso.',
+ 'traffic.chiassoEditorial.p2': 'Gli <strong>orari di punta</strong> per chi entra in Svizzera sono 7:00\u20139:00 (mattina, direzione Ticino) e 17:00\u201319:00 (sera, rientro in Italia). Il venerdì pomeriggio e la domenica sera sommano al traffico pendolare quello turistico: in queste finestre le code a Brogeda arrivano facilmente a 20\u201330 minuti, a Chiasso Centro a 10\u201315 minuti. Fuori dalle ore di punta entrambi i valichi sono aperti 24/7 e l\u2019attesa scende sotto i 5 minuti.',
+ 'traffic.chiassoEditorial.p3': 'Per <strong>evitare la coda</strong>, i valichi alternativi più usati dai frontalieri in zona Chiasso sono <strong>Ponte Chiasso\u2013Pedrinate</strong> (solo residenti, ma spesso libero), <strong>Bizzarone\u2013Novazzano</strong> (via Gaggiolo, ottimo quando la A2 è intasata) e <strong>Ronago\u2013Novazzano</strong> (piccolo valico secondario, quasi mai congestionato). Se vai verso Lugano e trovi code a Brogeda superiori ai 15 minuti, la deviazione via Novazzano costa 5\u20138 km in più ma recupera spesso 20\u201330 minuti di attesa.',
+ 'traffic.chiassoEditorial.p4': 'Lo stato del traffico in tempo reale è visibile nella mappa qui sotto (aggiornata ogni ora) e sui portali ufficiali delle dogane svizzere; le webcam lungo la A2 sono accessibili dal sito di Astra per verificare la situazione prima di partire.',
+
  // Transport Calculator
  'stats.title': 'Osservatorio Dati Reali',
  'stats.source': 'Fonte ufficiale: Ufficio Federale di Statistica (BFS) • Frontalieri (STAF)',

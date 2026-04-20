@@ -486,6 +486,14 @@ const enCore: Record<string, string> = {
  'traffic.navigateHere': 'Navigate here',
  'traffic.openGoogleMaps': 'Open in Google Maps',
  'traffic.tipsTitle': 'Tips to Avoid Queues',
+
+ // Striking-distance editorial for Chiasso / Brogeda deep-links (SEO: "chiasso brogeda border crossing wait times")
+ 'traffic.chiassoEditorial.title': 'Chiasso and Brogeda border crossings: peak hours, queues and alternatives',
+ 'traffic.chiassoEditorial.p1': 'The <strong>Chiasso Brogeda</strong> crossing on the A2 motorway is the main freight and trucking border between Italy and Ticino, while <strong>Chiasso Strada</strong> (Chiasso Centro) is the urban customs point for cars on the old Gaggiolo road, reached from the Como Monte Olimpino motorway exit. For cross-border commuters the difference matters: Brogeda has more lanes but is clogged with HGVs, Chiasso Centro is leaner but constrained by the Como and Chiasso city traffic lights.',
+ 'traffic.chiassoEditorial.p2': '<strong>Peak hours</strong> for entering Switzerland are 7:00\u20139:00 (morning, towards Ticino) and 17:00\u201319:00 (evening, back to Italy). Friday afternoon and Sunday evening combine commuter and tourist traffic: in those windows queues at Brogeda easily reach 20\u201330 minutes and 10\u201315 minutes at Chiasso Centro. Outside rush hours both crossings are open 24/7 and the wait drops below 5 minutes.',
+ 'traffic.chiassoEditorial.p3': 'To <strong>skip the queue</strong>, the alternative crossings most used by frontalieri near Chiasso are <strong>Ponte Chiasso\u2013Pedrinate</strong> (residents only, but usually free), <strong>Bizzarone\u2013Novazzano</strong> (via Gaggiolo, great when the A2 is jammed) and <strong>Ronago\u2013Novazzano</strong> (small secondary crossing, rarely congested). Heading to Lugano with queues at Brogeda over 15 minutes, the Novazzano detour adds 5\u20138 km but typically saves 20\u201330 minutes of waiting.',
+ 'traffic.chiassoEditorial.p4': 'Live traffic status is shown in the map below (refreshed hourly) and on the official Swiss customs portals; webcams along the A2 are available on the Astra site to check conditions before leaving.',
+
  'stats.title': 'Real Data Observatory',
  'stats.source': 'Official source: Federal Statistical Office (BFS) • Cross-border workers (STAF)',
  'stats.refreshData': 'Refresh Data',

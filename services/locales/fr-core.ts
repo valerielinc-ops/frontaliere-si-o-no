@@ -486,6 +486,14 @@ const frCore: Record<string, string> = {
  'traffic.navigateHere': 'Naviguer ici',
  'traffic.openGoogleMaps': 'Ouvrir dans Google Maps',
  'traffic.tipsTitle': 'Conseils pour éviter les bouchons',
+
+ // Striking-distance editorial for Chiasso / Brogeda deep-links (SEO: "douane chiasso brogeda temps d'attente")
+ 'traffic.chiassoEditorial.title': 'Douane de Chiasso et Brogeda : heures de pointe, files et passages alternatifs',
+ 'traffic.chiassoEditorial.p1': 'Le poste-frontière de <strong>Chiasso Brogeda</strong> sur l\u2019A2 est le principal point de passage pour les marchandises et les poids lourds entre l\u2019Italie et le Tessin, tandis que <strong>Chiasso Strada</strong> (Chiasso Centro) est la douane urbaine pour les voitures, sur l\u2019ancienne route du Gaggiolo, accessible depuis la sortie d\u2019autoroute de Como Monte Olimpino. Pour les frontaliers la différence est nette : Brogeda a plus de voies mais est saturé par les camions, Chiasso Centro est plus fluide mais dépendant des feux de Côme et Chiasso.',
+ 'traffic.chiassoEditorial.p2': 'Les <strong>heures de pointe</strong> pour entrer en Suisse sont 7h00\u20139h00 (matin, vers le Tessin) et 17h00\u201319h00 (soir, retour en Italie). Le vendredi après-midi et le dimanche soir, le trafic pendulaire s\u2019ajoute au trafic touristique : dans ces créneaux les files à Brogeda atteignent facilement 20\u201330 minutes et 10\u201315 minutes à Chiasso Centro. Hors pointe, les deux postes sont ouverts 24/7 et l\u2019attente tombe sous 5 minutes.',
+ 'traffic.chiassoEditorial.p3': 'Pour <strong>éviter la file</strong>, les passages alternatifs les plus utilisés par les frontaliers dans la zone de Chiasso sont <strong>Ponte Chiasso\u2013Pedrinate</strong> (riverains uniquement, mais souvent libre), <strong>Bizzarone\u2013Novazzano</strong> (via Gaggiolo, idéal quand l\u2019A2 est saturée) et <strong>Ronago\u2013Novazzano</strong> (petit passage secondaire, rarement encombré). En direction de Lugano avec plus de 15 minutes d\u2019attente à Brogeda, le détour par Novazzano ajoute 5\u20138 km mais fait souvent gagner 20\u201330 minutes.',
+ 'traffic.chiassoEditorial.p4': 'L\u2019état du trafic en direct est visible sur la carte ci-dessous (actualisée chaque heure) et sur les portails officiels des douanes suisses ; les webcams le long de l\u2019A2 sont accessibles sur le site Astra pour vérifier la situation avant de partir.',
+
  'stats.title': 'Observatoire de données réelles',
  'stats.source': 'Source officielle : Office fédéral de la statistique (OFS) • Frontaliers (STAF)',
  'stats.refreshData': 'Actualiser les données',
