@@ -13,6 +13,7 @@ import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSe
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
+import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 
 ensureAdminApp();
 
@@ -411,6 +412,42 @@ export const jobAlertUnsubscribe = onRequest(
  } catch (error) {
  console.error('[jobAlertUnsubscribe] Error:', error);
  res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+ }
+ },
+);
+
+/**
+ * reCAPTCHA Enterprise token verification.
+ * POST { token: string, action: string } → { ok, score, threshold, passed }
+ * Used by Contact form and Feedback form to gate submissions before they
+ * reach Firestore / GitHub. Runs createAssessment server-side so the
+ * "unprotected events" alert goes away.
+ */
+export const verifyRecaptcha = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://www.frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).json({ ok: false, error: 'method_not_allowed', code: 'METHOD' });
+ return;
+ }
+
+ try {
+ const { status, body } = await handleRecaptchaVerification(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[verifyRecaptcha] Unhandled error:', error);
+ res.status(500).json({ ok: false, error: 'internal_error', code: 'INTERNAL' });
  }
  },
 );

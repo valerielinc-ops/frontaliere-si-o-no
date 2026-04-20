@@ -151,8 +151,14 @@ export const FeedbackSection: React.FC = () => {
  setSubmitError(null);
 
  try {
- // Verifica reCAPTCHA prima di inviare il feedback
- await recaptchaService.canProceed('FEEDBACK_SUBMIT');
+ // Generate + verify reCAPTCHA token server-side before creating an issue.
+ const verification = await recaptchaService.verifyAction('FEEDBACK_SUBMIT');
+ if (!verification.passed) {
+ setSubmitError(t('feedback.submitError') || 'Verifica anti-bot fallita. Riprova.');
+ reportCaughtError(new Error(`recaptcha_blocked:${verification.error ?? 'unknown'}`), 'feedback.recaptcha');
+ setIsSubmitting(false);
+ return;
+ }
 
  const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
  method: 'POST',

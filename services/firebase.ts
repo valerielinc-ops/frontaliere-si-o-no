@@ -593,21 +593,9 @@ if (typeof window !== 'undefined') {
  }
  }, 25000);
 
- // Defer App Check (reCAPTCHA) to first user interaction — not needed until
- // forms/APIs are used. This keeps reCAPTCHA out of Lighthouse's observation
- // window entirely, eliminating ~360KB of unused JS and font-display warnings.
- let appCheckQueued = false;
- const triggerAppCheck = () => {
- if (appCheckQueued) return;
- appCheckQueued = true;
- // Remove listeners immediately to avoid repeated calls
- for (const evt of ['pointerdown', 'keydown', 'scroll', 'touchstart'] as const) {
- window.removeEventListener(evt, triggerAppCheck, { capture: true });
- }
- // Small delay after interaction to not compete with the user's action
- setTimeout(() => initAppCheck().catch((e) => reportCaughtError(e, 'firebase.deferredAppCheck')), 100);
- };
- for (const evt of ['pointerdown', 'keydown', 'scroll', 'touchstart'] as const) {
- window.addEventListener(evt, triggerAppCheck, { capture: true, passive: true, once: true } as AddEventListenerOptions);
- }
+ // reCAPTCHA is NOT auto-loaded globally. It's only loaded on demand by
+ // the protected forms (Contact, Feedback) via `recaptchaService`. App Check
+ // can still be initialized explicitly via `ensureAppCheck()` when a caller
+ // genuinely needs it — but we don't trigger it on every user interaction,
+ // which previously generated thousands of unverified tokens.
 }

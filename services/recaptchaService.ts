@@ -1,147 +1,171 @@
 /**
  * reCAPTCHA Enterprise Service
- * Protegge le API a consumo da abusi e bot
+ *
+ * Lazy: script is only loaded on demand (when a protected form is about to
+ * submit). Tokens are generated client-side and MUST be verified server-side
+ * via the `verifyRecaptcha` Cloud Function before the action proceeds —
+ * otherwise Google counts them as "unprotected events".
  */
 
 import { reportCaughtError } from '@/services/errorReporter';
+import { ensureRecaptchaLoaded } from '@/services/recaptchaLoader';
+import { getConfigValue } from '@/services/firebase';
 
-// Estendi il tipo Window per includere grecaptcha
 declare global {
- interface Window {
- grecaptcha?: {
- enterprise: {
- ready: (callback: () => void) => void;
- execute: (siteKey: string, options: { action: string }) => Promise<string>;
- };
- };
- }
+  interface Window {
+    grecaptcha?: {
+      ready?: (callback: () => void) => void;
+      enterprise?: {
+        ready: (callback: () => void) => void;
+        execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      };
+    };
+  }
 }
 
-export type RecaptchaAction = 
- | 'TRAFFIC_DATA' // Richiesta dati traffico Google Maps
- | 'EXCHANGE_RATES' // Richiesta tassi di cambio
- | 'FEEDBACK_SUBMIT' // Invio feedback
- | 'API_TEST' // Test API
- | 'PAGE_LOAD' // Caricamento pagina
- | 'CONTACT_FORM'; // Modulo contatti
+export type RecaptchaAction =
+  | 'TRAFFIC_DATA'
+  | 'EXCHANGE_RATES'
+  | 'FEEDBACK_SUBMIT'
+  | 'API_TEST'
+  | 'PAGE_LOAD'
+  | 'CONTACT_FORM';
+
+const VERIFY_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/verifyRecaptcha';
+
+export interface RecaptchaVerifyResult {
+  ok: boolean;
+  passed: boolean;
+  score?: number;
+  threshold?: number;
+  reasons?: string[];
+  error?: string;
+}
 
 class RecaptchaService {
- private siteKey: string | null = null;
- private isReady: boolean = false;
+  private siteKey: string | null = null;
+  private siteKeyPromise: Promise<string | null> | null = null;
 
- constructor() {
- // Site key loaded dynamically from Firebase Remote Config, not from env
- this.siteKey = null;
- 
- // Attendi che reCAPTCHA sia pronto
- if (this.isEnabled() && typeof window !== 'undefined') {
- this.waitForRecaptcha();
- }
- }
+  public setSiteKey(key: string): void {
+    if (key && key.length > 0) {
+      this.siteKey = key.trim();
+    }
+  }
 
- /**
- * Imposta la site key (caricata da Firebase Remote Config)
- */
- public setSiteKey(key: string): void {
- if (key && key.length > 0) {
- this.siteKey = key;
- console.log('🔑 reCAPTCHA site key configurata nel servizio');
- if (typeof window !== 'undefined') {
- this.waitForRecaptcha();
- }
- }
- }
+  public isEnabled(): boolean {
+    return this.siteKey !== null && this.siteKey.length > 0;
+  }
 
- /**
- * Controlla se reCAPTCHA è configurato
- */
- public isEnabled(): boolean {
- return this.siteKey !== null && this.siteKey.length > 0;
- }
+  private async resolveSiteKey(): Promise<string | null> {
+    if (this.siteKey) return this.siteKey;
 
- /**
- * Attende che lo script reCAPTCHA sia caricato
- */
- private async waitForRecaptcha(): Promise<void> {
- return new Promise((resolve) => {
- const checkRecaptcha = () => {
- if (window.grecaptcha?.enterprise) {
- window.grecaptcha.enterprise.ready(() => {
- this.isReady = true;
- resolve();
- });
- } else {
- // Riprova dopo 100ms
- setTimeout(checkRecaptcha, 100);
- }
- };
- checkRecaptcha();
- });
- }
+    if (!this.siteKeyPromise) {
+      this.siteKeyPromise = (async () => {
+        try {
+          const fromRc = await getConfigValue('RECAPTCHA_SITE_KEY');
+          if (fromRc && fromRc.length > 0) {
+            this.siteKey = fromRc;
+            return this.siteKey;
+          }
+        } catch (error) {
+          reportCaughtError(error, 'recaptcha.resolveSiteKey');
+        }
 
- /**
- * Esegue la verifica reCAPTCHA e restituisce il token
- * @param action L'azione da verificare (es. 'TRAFFIC_DATA', 'EXCHANGE_RATES')
- * @returns Token reCAPTCHA o null se non disponibile
- */
- public async executeRecaptcha(action: RecaptchaAction): Promise<string | null> {
- // Se reCAPTCHA non è configurato, restituisci null (modalità fallback)
- if (!this.isEnabled()) {
- console.warn('reCAPTCHA non configurato - operazione consentita senza verifica');
- return null;
- }
+        const devKey = (import.meta as { env?: Record<string, string | undefined> }).env?.VITE_RECAPTCHA_SITE_KEY;
+        if (devKey && devKey.trim().length > 0) {
+          this.siteKey = devKey.trim();
+          return this.siteKey;
+        }
 
- try {
- // Attendi che reCAPTCHA sia pronto se non lo è ancora
- if (!this.isReady) {
- await this.waitForRecaptcha();
- }
+        return null;
+      })();
+    }
 
- // Esegui la verifica
- if (window.grecaptcha?.enterprise && this.siteKey) {
- const token = await window.grecaptcha.enterprise.execute(this.siteKey, {
- action: action
- });
- 
- console.log(`✅ reCAPTCHA token ottenuto per azione: ${action}`);
- return token;
- }
+    return this.siteKeyPromise;
+  }
 
- console.warn('reCAPTCHA non disponibile');
- return null;
+  /**
+   * Generate a reCAPTCHA Enterprise token client-side.
+   * The token MUST then be verified via verifyToken() before the action proceeds.
+   */
+  public async executeRecaptcha(action: RecaptchaAction): Promise<string | null> {
+    if (typeof window === 'undefined') return null;
 
- } catch (error) {
- reportCaughtError(error, 'recaptcha.execute');
- // In caso di errore, permetti comunque l'operazione (graceful degradation)
- return null;
- }
- }
+    const key = await this.resolveSiteKey();
+    if (!key) {
+      console.warn('reCAPTCHA non configurato - token non generato');
+      return null;
+    }
 
- /**
- * Verifica se una richiesta può procedere (con o senza token)
- * Questa funzione può essere estesa per implementare logiche di throttling
- */
- public async canProceed(action: RecaptchaAction): Promise<boolean> {
- // Se reCAPTCHA è abilitato, richiedi il token
- if (this.isEnabled()) {
- const token = await this.executeRecaptcha(action);
- // Anche se il token fallisce, permetti l'operazione (graceful degradation)
- return true;
- }
- 
- // Se reCAPTCHA non è configurato, permetti sempre
- return true;
- }
+    try {
+      await ensureRecaptchaLoaded(key);
+      if (!window.grecaptcha?.enterprise) {
+        return null;
+      }
+      return await window.grecaptcha.enterprise.execute(key, { action });
+    } catch (error) {
+      reportCaughtError(error, 'recaptcha.execute');
+      return null;
+    }
+  }
 
- /**
- * Ottiene il token reCAPTCHA per una richiesta API
- * Da inviare al backend per la verifica
- */
- public async getTokenForApi(action: RecaptchaAction): Promise<string | null> {
- return await this.executeRecaptcha(action);
- }
+  /**
+   * Alias used by legacy callers (ContactPage, etc.).
+   */
+  public async getTokenForApi(action: RecaptchaAction): Promise<string | null> {
+    return this.executeRecaptcha(action);
+  }
+
+  /**
+   * Generate a token AND verify it server-side via the Cloud Function.
+   * Returns the verification result; the caller should abort if `passed` is false.
+   */
+  public async verifyAction(action: RecaptchaAction): Promise<RecaptchaVerifyResult> {
+    const token = await this.executeRecaptcha(action);
+    if (!token) {
+      return { ok: false, passed: false, error: 'token_generation_failed' };
+    }
+    return this.verifyToken(token, action);
+  }
+
+  /**
+   * Submit an already-generated token to the Cloud Function for verification.
+   * Returns the full response so the caller can inspect score/reasons.
+   */
+  public async verifyToken(token: string, action: RecaptchaAction): Promise<RecaptchaVerifyResult> {
+    try {
+      const response = await fetch(VERIFY_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, action }),
+      });
+
+      const data = (await response.json().catch(() => ({}))) as Partial<RecaptchaVerifyResult> & { error?: string };
+
+      if (!response.ok) {
+        return {
+          ok: false,
+          passed: false,
+          score: data.score,
+          threshold: data.threshold,
+          reasons: data.reasons,
+          error: data.error ?? `http_${response.status}`,
+        };
+      }
+
+      return {
+        ok: true,
+        passed: Boolean(data.passed),
+        score: data.score,
+        threshold: data.threshold,
+        reasons: data.reasons,
+      };
+    } catch (error) {
+      reportCaughtError(error, 'recaptcha.verifyToken');
+      return { ok: false, passed: false, error: 'verification_network_error' };
+    }
+  }
 }
 
-// Esporta un'istanza singleton
 export const recaptchaService = new RecaptchaService();
 export default recaptchaService;

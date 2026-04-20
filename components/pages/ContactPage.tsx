@@ -84,9 +84,17 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
 
  try {
  Analytics.trackUIInteraction('contact', 'form', 'submit', 'start');
- // Verify with reCAPTCHA
+ // Generate token and verify server-side before persisting anything.
  const token = await recaptchaService.getTokenForApi('CONTACT_FORM');
- 
+ if (!token) {
+ throw new Error('recaptcha_token_missing');
+ }
+ const verification = await recaptchaService.verifyToken(token, 'CONTACT_FORM');
+ if (!verification.passed) {
+ Analytics.trackUIInteraction('contact', 'form', 'submit', 'recaptcha_blocked');
+ throw new Error(`recaptcha_blocked:${verification.error ?? 'unknown'}`);
+ }
+
  // Save to Firestore as backup record
  const firebaseApp = await getApp();
  const db = getFirestore(firebaseApp);
@@ -95,7 +103,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  email: form.email.trim(),
  topic: form.topic,
  message: form.message.trim(),
- recaptchaToken: token,
+ recaptchaScore: verification.score ?? null,
  recipientEmail: 'valerielinc@gmail.com',
  createdAt: serverTimestamp(),
  status: 'new',

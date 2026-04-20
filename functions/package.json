@@ -7,6 +7,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^6.4.0",
     "firebase-admin": "^13.6.1",
     "firebase-functions": "^7.1.1",
     "resend": "^6.9.2"
