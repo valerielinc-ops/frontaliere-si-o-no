@@ -5,7 +5,7 @@
  * Integrates with jobAlertService.ts for Firestore CRUD.
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 'lucide-react';
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
@@ -72,6 +72,25 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  useEffect(() => {
  if (initialKeyword) setKeyword(initialKeyword);
  }, [initialKeyword]);
+
+ // Auto-expand after the user has completed ≥2 distinct non-empty searches
+ // (debounced 800ms to avoid counting every keystroke). Once expanded via
+ // this path, we don't auto-collapse — user stays in control afterwards.
+ const distinctSearchesRef = useRef<Set<string>>(new Set());
+ const autoExpandedRef = useRef(false);
+ useEffect(() => {
+ if (autoExpandedRef.current || expanded) return;
+ const k = (initialKeyword || '').trim();
+ if (k.length < 2) return;
+ const timer = window.setTimeout(() => {
+ distinctSearchesRef.current.add(k.toLowerCase());
+ if (distinctSearchesRef.current.size >= 2) {
+ autoExpandedRef.current = true;
+ setExpanded(true);
+ }
+ }, 800);
+ return () => window.clearTimeout(timer);
+ }, [initialKeyword, expanded]);
 
  // Load user's existing alerts
  useEffect(() => {
@@ -185,24 +204,46 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  return (
  <div className="mt-4 mb-6">
- {/* Collapsed trigger */}
+ {/* Trigger card */}
  <button
  onClick={() => setExpanded(!expanded)}
- className="flex items-center gap-2 text-sm text-accent hover:text-accent transition-colors"
+ aria-expanded={expanded}
+ aria-controls="job-alert-form"
+ className="w-full flex items-center gap-3 p-4 rounded-xl border border-accent-border bg-accent-subtle hover:bg-accent-subtle hover:border-accent transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  >
- <BellRing className="w-4 h-4" />
- <span>{t('jobAlert.trigger') || 'Avvisami per nuovi lavori'}</span>
+ <span className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent-strong text-on-accent shadow-sm">
+ <BellRing className="w-5 h-5" aria-hidden="true" />
+ </span>
+ <span className="flex-1 min-w-0">
+ <span className="flex items-center gap-2">
+ <span className="block text-sm font-semibold text-strong">
+ {alerts.length > 0
+ ? (t('jobAlert.cardTitleActive') || 'Le tue alert lavoro')
+ : (t('jobAlert.cardTitle') || 'Ricevi nuovi lavori via email')}
+ </span>
  {alerts.length > 0 && (
- <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-accent-subtle text-xs font-semibold text-accent">
+ <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-accent-strong text-on-accent text-[10px] font-semibold">
  {alerts.length}
  </span>
  )}
+ </span>
+ <span className="block mt-0.5 text-xs text-subtle">
+ {alerts.length > 0
+ ? (t('jobAlert.cardDescriptionActive') || 'Gestisci o aggiungi nuove alert personalizzate.')
+ : (t('jobAlert.cardDescription') || 'Attiva un\'alert gratuita: ti scriviamo quando escono offerte nei tuoi criteri.')}
+ </span>
+ </span>
+ <span className="flex-shrink-0 inline-flex items-center gap-1 text-xs font-medium text-accent">
+ {!expanded && alerts.length === 0 && (
+ <span className="hidden sm:inline">{t('jobAlert.cardCta') || 'Crea alert'}</span>
+ )}
  {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+ </span>
  </button>
 
  {/* Expanded form */}
  {expanded && (
- <div className="mt-3 p-4 bg-accent-subtle rounded-xl border border-accent-border space-y-3">
+ <div id="job-alert-form" className="mt-3 p-4 bg-accent-subtle rounded-xl border border-accent-border space-y-3">
  {/* Keyword */}
  <div>
  <label htmlFor="job-alert-keyword" className="block text-sm font-medium text-subtle mb-1">

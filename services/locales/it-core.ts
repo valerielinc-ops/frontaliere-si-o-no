@@ -740,6 +740,11 @@ const translations: Record<string, string> = {
 
  // Job Alerts (FRO-332)
  'jobAlert.trigger': 'Avvisami per nuovi lavori',
+ 'jobAlert.cardTitle': 'Ricevi nuovi lavori via email',
+ 'jobAlert.cardDescription': 'Attiva un\'alert gratuita: ti scriviamo quando escono offerte nei tuoi criteri.',
+ 'jobAlert.cardCta': 'Crea alert',
+ 'jobAlert.cardTitleActive': 'Le tue alert lavoro',
+ 'jobAlert.cardDescriptionActive': 'Gestisci o aggiungi nuove alert personalizzate.',
  'jobAlert.keyword': 'Parole chiave',
  'jobAlert.keywordPlaceholder': 'es. developer, ingegnere, contabile',
  'jobAlert.zone': 'Zona',

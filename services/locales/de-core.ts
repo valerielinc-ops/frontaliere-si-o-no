@@ -701,6 +701,11 @@ const deCore: Record<string, string> = {
 
  // Job Alerts (FRO-332)
  'jobAlert.trigger': 'Bei neuen Jobs benachrichtigen',
+ 'jobAlert.cardTitle': 'Neue Jobs per E-Mail erhalten',
+ 'jobAlert.cardDescription': 'Kostenlose Benachrichtigung einrichten: Wir senden dir eine E-Mail, sobald Stellen mit deinen Kriterien verfügbar sind.',
+ 'jobAlert.cardCta': 'Alert erstellen',
+ 'jobAlert.cardTitleActive': 'Deine Job-Alerts',
+ 'jobAlert.cardDescriptionActive': 'Verwalte oder füge neue benutzerdefinierte Alerts hinzu.',
  'jobAlert.keyword': 'Stichwörter',
  'jobAlert.keywordPlaceholder': 'z.B. Entwickler, Ingenieur, Buchhalter',
  'jobAlert.zone': 'Gebiet',

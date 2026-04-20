@@ -701,6 +701,11 @@ const enCore: Record<string, string> = {
 
  // Job Alerts (FRO-332)
  'jobAlert.trigger': 'Notify me about new jobs',
+ 'jobAlert.cardTitle': 'Get new jobs by email',
+ 'jobAlert.cardDescription': 'Set up a free alert: we\'ll email you when jobs matching your criteria are posted.',
+ 'jobAlert.cardCta': 'Create alert',
+ 'jobAlert.cardTitleActive': 'Your job alerts',
+ 'jobAlert.cardDescriptionActive': 'Manage or add new custom alerts.',
  'jobAlert.keyword': 'Keywords',
  'jobAlert.keywordPlaceholder': 'e.g. developer, engineer, accountant',
  'jobAlert.zone': 'Area',

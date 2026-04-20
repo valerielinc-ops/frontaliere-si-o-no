@@ -701,6 +701,11 @@ const frCore: Record<string, string> = {
 
  // Job Alerts (FRO-332)
  'jobAlert.trigger': 'Me notifier des nouvelles offres',
+ 'jobAlert.cardTitle': 'Recevez les nouveaux emplois par e-mail',
+ 'jobAlert.cardDescription': 'Activez une alerte gratuite : nous vous écrivons dès qu\'une offre correspond à vos critères.',
+ 'jobAlert.cardCta': 'Créer une alerte',
+ 'jobAlert.cardTitleActive': 'Vos alertes emploi',
+ 'jobAlert.cardDescriptionActive': 'Gérez ou ajoutez de nouvelles alertes personnalisées.',
  'jobAlert.keyword': 'Mots-clés',
  'jobAlert.keywordPlaceholder': 'ex. développeur, ingénieur, comptable',
  'jobAlert.zone': 'Zone',
