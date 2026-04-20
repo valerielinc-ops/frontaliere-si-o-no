@@ -2385,6 +2385,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Middle East in flames: costs and risks for Ticino businesses',
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Raw material costs have surged by 30-50% due to the conflict. SSIC Director Bagnovini calls for urgent measures to save construction sites in Ticino.',
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Construction site in Ticino with crane and building materials',
+    'blog.article.parmelin-washington-dazi-usa-2026.title': 'US Tariffs: Parmelin Heads to Washington to Revive Trade Deal',
+    'blog.article.parmelin-washington-dazi-usa-2026.excerpt': 'Swiss President Guy Parmelin is meeting with US trade representative Jamieson Greer to discuss tariffs. While there is a willingness to reach an agreement, there are no guarantees regarding timelines or specific details.',
+    'blog.article.parmelin-washington-dazi-usa-2026.imageAlt': 'Lugano lakeside with Swiss and US flags, modern office building in foreground',
 };
 
 export default blogMetaEn;

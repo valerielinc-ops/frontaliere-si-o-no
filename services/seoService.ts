@@ -2050,6 +2050,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tasse-agevolate-milionari-ticino-golfo': { name: 'Ticino, paradiso fiscale per milionari i', path: '/articoli-frontaliere/tasse-agevolate-milionari-ticino-golfo', parent: 'blog' },
     'blog-infermiere-pratiche-avanzate-ticino-2024': { name: 'APN Ticino', path: '/articoli-frontaliere/infermiere-pratiche-avanzate-ticino-2024', parent: 'blog' },
     'blog-caos-medioriente-e-impatti-costruzione-ticino': { name: 'Medio Oriente in fiamme', path: '/articoli-frontaliere/caos-medioriente-e-impatti-costruzione-ticino', parent: 'blog' },
+    'blog-parmelin-washington-dazi-usa-2026': { name: 'Dazi USA', path: '/articoli-frontaliere/parmelin-washington-dazi-usa-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

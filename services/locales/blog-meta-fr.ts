@@ -2385,6 +2385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Moyen-Orient en flammes : coûts et risques pour les entreprises tessinoises',
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Les matières premières ont augmenté de 30 à 50 % en raison du conflit. Le directeur de l’USSIC, Bagnovini, demande des mesures urgentes pour sauver les chantiers de construction.',
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Chantier de construction au Tessin avec grue et matériaux',
+    'blog.article.parmelin-washington-dazi-usa-2026.title': 'Droits de douane américains : Parmelin en déplacement à Washington pour relancer un accord commercial',
+    'blog.article.parmelin-washington-dazi-usa-2026.excerpt': 'Le président de la Confédération Guy Parmelin rencontre Jamieson Greer, représentant américain en charge des droits de douane. La volonté d’un accord est affichée, mais sans certitudes quant aux délais et aux détails.',
+    'blog.article.parmelin-washington-dazi-usa-2026.imageAlt': 'Bords du lac de Lugano avec drapeaux suisse et américain, bâtiment moderne au premier plan',
 };
 
 export default blogMetaFr;

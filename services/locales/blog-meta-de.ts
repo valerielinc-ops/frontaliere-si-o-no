@@ -2385,6 +2385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.title': 'Naher Osten in Flammen: Kosten und Risiken für Tessiner Unternehmen',
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.excerpt': 'Rohstoffe verteuern sich um 30–50 % aufgrund des Konflikts. SSIC-Direktor Bagnovini fordert dringende Massnahmen, um Baustellen zu retten.',
     'blog.article.caos-medioriente-e-impatti-costruzione-ticino.imageAlt': 'Bauplatz im Tessin mit Kran und Baumaterial',
+    'blog.article.parmelin-washington-dazi-usa-2026.title': 'US-Zölle: Parmelin in Washington, um Handelsabkommen voranzubringen',
+    'blog.article.parmelin-washington-dazi-usa-2026.excerpt': 'Der Schweizer Bundespräsident Guy Parmelin trifft sich in Washington mit dem US-Beauftragten für Zollfragen Jamieson Greer. Der Wille zu einer Einigung ist vorhanden, doch konkrete Zeitpläne und Details bleiben ungewiss.',
+    'blog.article.parmelin-washington-dazi-usa-2026.imageAlt': 'Luganersee mit Schweizer- und US-Flaggen, modernes Bürogebäude im Vordergrund',
 };
 
 export default blogMetaDe;

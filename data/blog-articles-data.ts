@@ -6550,4 +6550,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/caos-medioriente-e-impatti-costruzione-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'parmelin-washington-dazi-usa-2026',
+ category: 'novita',
+ date: '2026-04-20T00:04:53.891Z',
+ image: '/images/blog/parmelin-washington-dazi-usa-2026.jpg',
+ hasCalculator: true,
+ },
 ];

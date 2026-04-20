@@ -9947,6 +9947,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parmelin-washington-dazi-usa-2026': {
+    title: 'Dazi USA: Parmelin a Washington per | Frontaliere Ticino',
+    description: 'Il presidente della Confederazione Guy Parmelin incontra il rappresentante USA per i dazi Jamieson Greer. Volontà di accordo, ma senza certezze su tempistiche e',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, parmelin, washington, rilanciare',
+    ogTitle: 'Dazi USA: Parmelin a Washington per rilanciare accordo co',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin incontra il rappresentante USA per i dazi Jamieson Greer. Volontà di accordo, ma senza certezze su tempistiche e',
+    canonicalPath: '/articoli-frontaliere/parmelin-washington-dazi-usa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA: Parmelin a Washington per rilanciare accordo co",
+      "description": "Il presidente della Confederazione Guy Parmelin incontra il rappresentante USA per i dazi Jamieson Greer. Volontà di accordo, ma senza certezze su tempistiche e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parmelin-washington-dazi-usa-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano sul lago con bandiere svizzere e statunitensi, edificio moderno in primo piano"
+      },
+      "datePublished": "2026-04-20T00:04:53+00:00",
+      "dateModified": "2026-04-20T00:04:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parmelin-washington-dazi-usa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
