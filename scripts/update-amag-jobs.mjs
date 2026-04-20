@@ -252,14 +252,21 @@ async function enrichWithDetails(listings) {
       });
       console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.jobId}: ${detail.title || item.title} — ${location}`);
     } catch (err) {
-      console.log(`  ⚠️ Detail fetch failed for ${item.jobId}: ${err.message}`);
-      enriched.push({
-        ...item,
-        description: '',
-        datePosted: new Date().toISOString().slice(0, 10),
-        validThrough: '',
-        employmentType: 'FULL_TIME',
-      });
+      const msg = String(err?.message || err);
+      // 404/410 mean the job was delisted upstream while still in the listing cache.
+      // Skip it entirely so the thin-source validator does not fail the whole run.
+      if (/HTTP (404|410)\b/.test(msg)) {
+        console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (upstream removed: ${msg})`);
+      } else {
+        console.log(`  ⚠️ Detail fetch failed for ${item.jobId}: ${msg}`);
+        enriched.push({
+          ...item,
+          description: '',
+          datePosted: new Date().toISOString().slice(0, 10),
+          validThrough: '',
+          employmentType: 'FULL_TIME',
+        });
+      }
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }

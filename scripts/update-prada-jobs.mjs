@@ -42,7 +42,7 @@ import {
   slugify, inferEmploymentType,
 } from './lib/prada-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
-import { isLocationExplicitlyForeign, isTargetSwissLocation } from './lib/dedicated-crawler-common.mjs';
+import { isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

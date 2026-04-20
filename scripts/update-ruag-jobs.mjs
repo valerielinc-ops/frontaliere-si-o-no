@@ -186,8 +186,12 @@ async function discoverRuagGraph() {
   for (const detail of target) {
     console.log(`  📄 ${detail.title} (${detail.location || 'n/a'})`);
   }
-  if (target.length < 1) {
-    throw new Error(`Expected at least 1 RUAG job in Ticino/Grigioni, found ${target.length}`);
+  // Only fail hard if discovery itself is broken (0 detail pages fetched).
+  // If we fetched jobs but none are in TI/GR, that is a legitimate empty state —
+  // RUAG currently has no openings in our target cantons. Return [] so main()
+  // can exit cleanly without wiping the existing dataset.
+  if (all.length === 0) {
+    throw new Error('RUAG discovery failed: 0 detail pages fetched (likely listing block or all seeds 410).');
   }
   return target;
 }
@@ -311,6 +315,35 @@ async function main() {
   const beforeSlugs = snapshotJobSlugs(beforeTargetJobs);
 
   const discoveredJobs = await discoverRuagGraph();
+
+  // Legit empty-region state: discovery worked but 0 jobs in TI/GR.
+  // Preserve existing dataset (don't wipe) and exit cleanly with an empty slice.
+  if (discoveredJobs.length === 0) {
+    console.log('ℹ️  RUAG has no current openings in Ticino/Grigioni — skipping merge and validator.');
+    const _durationMs = getCrawlerElapsedMs();
+    writeJobsCrawlerSlice(COMPANY_KEY, []);
+    writeSummaryCrawlerSlice({
+      key: COMPANY_KEY,
+      label: 'RUAG',
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: 0,
+      unchangedCount: 0,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: [],
+      unchangedJobs: [],
+    });
+    await assembleJobsDataset();
+    console.log('✅ RUAG crawler complete (empty-region state, dataset preserved).');
+    return;
+  }
+
   ensureAdapter(discoveredJobs);
   const mergeStats = mergeJobs(discoveredJobs);
   console.log(`🧩 RUAG merge: total=${mergeStats.total} added=${mergeStats.added} updated=${mergeStats.updated}`);
