@@ -6627,4 +6627,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/capre-dogana-gandria-intervento-30-marzo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'costi-cure-domocilio-ticino-2026',
+ category: 'novita',
+ date: '2026-04-20T20:14:54.737Z',
+ image: '/images/blog/costi-cure-domocilio-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

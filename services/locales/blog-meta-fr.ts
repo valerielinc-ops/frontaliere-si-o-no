@@ -2418,6 +2418,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.capre-dogana-gandria-intervento-30-marzo.title': 'Intervention à la douane de Gandrie : quatre chèvres sauvées',
     'blog.article.capre-dogana-gandria-intervento-30-marzo.excerpt': 'L\'Office fédéral de la douane et de la sécurité des frontières a sauvé quatre chèvres qui mettaient en danger la circulation.',
     'blog.article.capre-dogana-gandria-intervento-30-marzo.imageAlt': 'Quatre chèvres près de la douane de Gandrie, Tessin',
+    'blog.article.costi-cure-domocilio-ticino-2026.title': 'Soins à domicile : les factures continuent d\'arriver au Tessin',
+    'blog.article.costi-cure-domocilio-ticino-2026.excerpt': 'Le Parlement tessinois a rejeté la demande d\'urgence pour abolir la participation aux coûts des soins à domicile. La mesure reste en vigueur.',
+    'blog.article.costi-cure-domocilio-ticino-2026.imageAlt': 'Patient recevant des soins à domicile au Tessin avec infirmière et facture',
 };
 
 export default blogMetaFr;

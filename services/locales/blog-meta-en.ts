@@ -2418,6 +2418,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.capre-dogana-gandria-intervento-30-marzo.title': 'Intervention at Gandria customs: four goats rescued',
     'blog.article.capre-dogana-gandria-intervento-30-marzo.excerpt': 'The Federal Customs Administration and Border Security saved four goats that were endangering traffic circulation.',
     'blog.article.capre-dogana-gandria-intervento-30-marzo.imageAlt': 'Four goats near Gandria customs office, Ticino',
+    'blog.article.costi-cure-domocilio-ticino-2026.title': 'Home care: bills keep coming in Ticino',
+    'blog.article.costi-cure-domocilio-ticino-2026.excerpt': 'The Ticino Parliament has rejected the urgency request to abolish the cost-sharing for home care. The measure remains in force.',
+    'blog.article.costi-cure-domocilio-ticino-2026.imageAlt': 'Patient receiving home care in Ticino with nurse and bill',
 };
 
 export default blogMetaEn;

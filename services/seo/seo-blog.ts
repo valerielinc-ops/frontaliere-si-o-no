@@ -10266,6 +10266,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-cure-domocilio-ticino-2026': {
+    title: 'Cure a domicilio: le fatture continuano | Frontaliere Ticino',
+    description: 'Il Parlamento ticinese ha bocciato la richiesta di urgenza per abolire la partecipazione ai costi delle cure a domicilio. Scopri cosa cambia per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, fatture, continuano',
+    ogTitle: 'Cure a domicilio: costi in Ticino | Frontaliere Ticino',
+    ogDescription: 'Il Parlamento ticinese ha bocciato la richiesta di urgenza per abolire la partecipazione ai costi delle cure a domicilio. Scopri cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costi-cure-domocilio-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure a domicilio: costi in Ticino",
+      "description": "Il Parlamento ticinese ha bocciato la richiesta di urgenza per abolire la partecipazione ai costi delle cure a domicilio. Scopri cosa cambia per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costi-cure-domocilio-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paziente in cure domiciliari in Ticino con infermiera e fattura"
+      },
+      "datePublished": "2026-04-20T20:14:54+00:00",
+      "dateModified": "2026-04-20T20:14:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-cure-domocilio-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3831,7 +3831,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 857,
+ "numberOfItems": 858,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4666,7 +4666,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 854, "name": "Lavori autostrade Ticino: chiusure notturne a B...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostrade-ticino-aprile-2026` },
           { "@type": "ListItem", "position": 855, "name": "Militari sui treni Trenord: 20 euro all'anno pe...", "url": `${BASE_URL}/articoli-frontaliere/militari-treni-ticino-20-euro` },
           { "@type": "ListItem", "position": 856, "name": "Just Eat consegna prodotti Migros in Ticino, Va...", "url": `${BASE_URL}/articoli-frontaliere/just-eat-migros-ticino-consegna-2026` },
-          { "@type": "ListItem", "position": 857, "name": "Intervento alla dogana di Gandria: salvate quat...", "url": `${BASE_URL}/articoli-frontaliere/capre-dogana-gandria-intervento-30-marzo` }
+          { "@type": "ListItem", "position": 857, "name": "Intervento alla dogana di Gandria: salvate quat...", "url": `${BASE_URL}/articoli-frontaliere/capre-dogana-gandria-intervento-30-marzo` },
+          { "@type": "ListItem", "position": 858, "name": "Cure a domicilio: costi in Ticino", "url": `${BASE_URL}/articoli-frontaliere/costi-cure-domocilio-ticino-2026` }
  ]
  }
  ]

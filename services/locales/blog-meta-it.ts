@@ -2418,6 +2418,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.capre-dogana-gandria-intervento-30-marzo.title': 'Intervento alla dogana di Gandria: salvate quattro capre',
     'blog.article.capre-dogana-gandria-intervento-30-marzo.excerpt': 'L\'Ufficio federale della dogana e della sicurezza dei confini ha salvato quattro capre che mettevano a rischio la circolazione.',
     'blog.article.capre-dogana-gandria-intervento-30-marzo.imageAlt': 'Quattro capre vicino alla dogana di Gandria, Ticino',
+    'blog.article.costi-cure-domocilio-ticino-2026.title': 'Cure a domicilio: le fatture continuano ad arrivare in Ticino',
+    'blog.article.costi-cure-domocilio-ticino-2026.excerpt': 'Il Parlamento ticinese ha bocciato la richiesta di urgenza per abolire la partecipazione ai costi delle cure a domicilio. La misura rimane in vigore.',
+    'blog.article.costi-cure-domocilio-ticino-2026.imageAlt': 'Paziente in cure domiciliari in Ticino con infermiera e fattura',
 };
 
 export default blogMetaIt;
