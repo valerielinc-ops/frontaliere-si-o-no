@@ -10034,6 +10034,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-palazzo-civico-collegiata-accessibilita-bellinzona-2026': {
+    title: 'Palazzo civico e Collegiata di | Frontaliere Ticino',
+    description: 'Il Municipio di Bellinzona stanzia 1,385 milioni per eliminare barriere architettoniche a Palazzo Civico e Collegiata. Ascensori rifatti, piattaforme elevatrici',
+    keywords: 'frontalieri, ticino, svizzera, italia, palazzo, civico, collegiata, bellinzona',
+    ogTitle: 'Palazzo civico e Collegiata di Bellinzona più accessibili',
+    ogDescription: 'Il Municipio di Bellinzona stanzia 1,385 milioni per eliminare barriere architettoniche a Palazzo Civico e Collegiata. Ascensori rifatti, piattaforme elevatrici',
+    canonicalPath: '/articoli-frontaliere/palazzo-civico-collegiata-accessibilita-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Palazzo civico e Collegiata di Bellinzona più accessibili",
+      "description": "Il Municipio di Bellinzona stanzia 1,385 milioni per eliminare barriere architettoniche a Palazzo Civico e Collegiata. Ascensori rifatti, piattaforme elevatrici",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/palazzo-civico-collegiata-accessibilita-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Civico e Collegiata di Bellinzona: lavori di accessibilità con piattaforme elevatrici e adeguamenti normativi"
+      },
+      "datePublished": "2026-04-20T09:03:51+00:00",
+      "dateModified": "2026-04-20T09:03:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palazzo-civico-collegiata-accessibilita-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

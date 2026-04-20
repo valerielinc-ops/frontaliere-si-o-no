@@ -2394,6 +2394,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parmelin-accordo-investimenti-bahrein-2026.title': 'Parmelin firma accordo con Bahrein per proteggere gli investimenti',
     'blog.article.parmelin-accordo-investimenti-bahrein-2026.excerpt': 'Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni nazionali. Priorità per Ticino e frontalieri?',
     'blog.article.parmelin-accordo-investimenti-bahrein-2026.imageAlt': 'Guy Parmelin firma l\'accordo con il Bahrein a Washington nel 2026',
+    'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.title': 'Palazzo civico e Collegiata di Bellinzona più accessibili: lavori per 1,385 milioni',
+    'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.excerpt': 'Il Municipio di Bellinzona stanzia 1,385 milioni per eliminare barriere architettoniche a Palazzo Civico e Collegiata. Ascensori rifatti, piattaforme elevatrici e servizi igienici adeguati. Via ai lavori nel 2026.',
+    'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.imageAlt': 'Palazzo Civico e Collegiata di Bellinzona: lavori di accessibilità con piattaforme elevatrici e adeguamenti normativi',
 };
 
 export default blogMetaIt;

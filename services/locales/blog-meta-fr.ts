@@ -2394,6 +2394,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parmelin-accordo-investimenti-bahrein-2026.title': 'Parmelin signe un accordo avec le Bahreïn pour protéger les investissements',
     'blog.article.parmelin-accordo-investimenti-bahrein-2026.excerpt': 'Guy Parmelin a signé à Washington un accord bilatéral visant à protéger les investissements entre la Suisse et le Bahreïn. Cet accord entrera en vigueur après les approbations nationales. Quelles priorités pour le Tessin et les travailleurs frontaliers?',
     'blog.article.parmelin-accordo-investimenti-bahrein-2026.imageAlt': 'Guy Parmelin signe un accord de protection des investissements avec Bahreïn à Washington en 2026',
+    'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.title': 'Hôtel de ville et Collégiale de Bellinzone plus accessibles : des travaux pour 1,385 million',
+    'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.excerpt': 'La Municipalité de Bellinzone alloue 1,385 million pour éliminer les barrières architecturales à l’Hôtel de ville et à la Collégiale. Ascenseurs refaits, plates-formes élévatrices et toilettes adaptées. Les travaux débuteront en 2026.',
+    'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.imageAlt': 'Hôtel de Ville de Bellinzone et Collégiale: travaux d\'accessibilité avec ascenseurs et ajustements normatifs',
 };
 
 export default blogMetaFr;

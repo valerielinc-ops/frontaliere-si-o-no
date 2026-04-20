@@ -6571,4 +6571,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/parmelin-accordo-investimenti-bahrein-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'palazzo-civico-collegiata-accessibilita-bellinzona-2026',
+ category: 'pratico',
+ date: '2026-04-20T09:03:51.667Z',
+ image: '/images/blog/palazzo-civico-collegiata-accessibilita-bellinzona-2026.jpg',
+ hasCalculator: true,
+ },
 ];
