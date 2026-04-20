@@ -9,13 +9,15 @@
  *
  * Metrics tracked:
  *   - AdSense:  revenue/day, RPM, desktop RPM, auth-gate impressions
- *   - GSC:      clicks/day, avg position
- *   - (GA4 / PostHog hooks are included as optional extensions.)
+ *   - GSC:      clicks/day, avg position, CTR by page bucket
+ *   - PostHog:  CLS p75 (mobile / desktop) from $web_vitals events
  *
  * Auth (env, loaded via scripts/load-rc-env.mjs):
- *   GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN   (required for GSC)
- *   ADSENSE_REFRESH_TOKEN                                   (required for AdSense)
- *   ADSENSE_CLIENT_ID / ADSENSE_CLIENT_SECRET               (optional; defaults to GSC_*)
+ *   GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN     (required for GSC)
+ *   ADSENSE_REFRESH_TOKEN                                     (required for AdSense)
+ *   ADSENSE_CLIENT_ID / ADSENSE_CLIENT_SECRET                 (optional; defaults to GSC_*)
+ *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID             (optional; CLS section)
+ *   POSTHOG_HOST                                              (optional; defaults to https://eu.posthog.com)
  *
  * Usage:
  *   node scripts/revenue-monitor.mjs                 # human table
@@ -37,7 +39,9 @@ const SITE_URL = 'https://frontaliereticino.ch';
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 
 // ── Baseline captured Apr 6-19 2026 (see docs/revenue-optimization-remaining.md) ──
-const BASELINE = {
+// CTR baselines by URL bucket derived from GSC 28-day query bucketed by path prefix
+// on 2026-04-20 (see docs/seo-action-plan-apr20-parallel.md "SEO audit").
+export const BASELINE = {
   period: '2026-04-06 → 2026-04-19',
   adsense: {
     revenuePerDayCHF: 0.87,
@@ -48,8 +52,30 @@ const BASELINE = {
   gsc: {
     clicksPerDay: 323,
     avgPosition: 5.7,
+    // CTR percentages per bucket (mean over Apr 6-19)
+    ctrByBucket: {
+      '/job-board/':             6.2,
+      '/calcola-stipendio/':     4.8,
+      '/articoli-frontaliere/':  3.1,
+      '/fisco/':                 3.9,
+      '/guida-frontaliere/':     3.5,
+    },
+  },
+  posthog: {
+    // CLS p75 baseline from PostHog $web_vitals (14d window 2026-04-06..19)
+    clsP75Mobile:  0.51,
+    clsP75Desktop: 0.18,
   },
 };
+
+// URL buckets for GSC CTR tracking. Matched as URL-contains on the page dimension.
+export const GSC_BUCKETS = [
+  '/job-board/',
+  '/calcola-stipendio/',
+  '/articoli-frontaliere/',
+  '/fisco/',
+  '/guida-frontaliere/',
+];
 
 // ── CLI ─────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -190,45 +216,148 @@ async function fetchAdSenseReport(token) {
 }
 
 // ── GSC (searchanalytics:query) ─────────────────────────────
-async function fetchGscMetrics(token) {
-  const { start, end } = last7Days();
+async function gscQuery(token, body) {
   const site = `sc-domain:${new URL(SITE_URL).hostname}`;
   const encoded = encodeURIComponent(site);
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encoded}/searchAnalytics/query`;
   const res = await fetch(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ startDate: start, endDate: end, dimensions: [], rowLimit: 1 }),
+    body: JSON.stringify(body),
   });
-  if (!res.ok) {
-    // Fall back to the URL-prefix property.
-    const fallbackEncoded = encodeURIComponent(SITE_URL + '/');
-    const fallbackUrl = `https://www.googleapis.com/webmasters/v3/sites/${fallbackEncoded}/searchAnalytics/query`;
-    const r2 = await fetch(fallbackUrl, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ startDate: start, endDate: end, dimensions: [], rowLimit: 1 }),
-    });
-    if (!r2.ok) throw new Error(`gsc ${r2.status}: ${await r2.text()}`);
-    return parseGscTotals(await r2.json(), start, end);
-  }
-  return parseGscTotals(await res.json(), start, end);
+  if (res.ok) return await res.json();
+  // Fall back to URL-prefix property.
+  const fallbackEncoded = encodeURIComponent(SITE_URL + '/');
+  const fallbackUrl = `https://www.googleapis.com/webmasters/v3/sites/${fallbackEncoded}/searchAnalytics/query`;
+  const r2 = await fetch(fallbackUrl, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!r2.ok) throw new Error(`gsc ${r2.status}: ${await r2.text()}`);
+  return await r2.json();
 }
 
-function parseGscTotals(data, start, end) {
-  const row = data.rows?.[0];
-  const clicks = row?.clicks ?? 0;
-  const position = row?.position ?? null;
+async function fetchGscMetrics(token) {
+  const { start, end } = last7Days();
+
+  // Top-line totals
+  const totals = await gscQuery(token, {
+    startDate: start,
+    endDate: end,
+    dimensions: [],
+    rowLimit: 1,
+  });
+  const totalsRow = totals.rows?.[0];
+  const clicks = totalsRow?.clicks ?? 0;
+  const position = totalsRow?.position ?? null;
+
+  // CTR by page bucket — pull top 5000 pages and aggregate client-side.
+  const byPage = await gscQuery(token, {
+    startDate: start,
+    endDate: end,
+    dimensions: ['page'],
+    rowLimit: 5000,
+  });
+
+  const ctrByBucket = bucketCtrFromRows(byPage.rows || [], GSC_BUCKETS);
+
   return {
     window: { start, end },
     clicks7d: clicks,
     clicksPerDay: Number((clicks / 7).toFixed(1)),
     avgPosition: position !== null ? Number(position.toFixed(2)) : null,
+    ctrByBucket,
+  };
+}
+
+/**
+ * Bucket GSC rows (dimension=page) into CTR % per URL prefix.
+ * Pure function — exported for unit testing.
+ */
+export function bucketCtrFromRows(rows, buckets) {
+  const acc = Object.fromEntries(buckets.map((b) => [b, { clicks: 0, impressions: 0 }]));
+  for (const row of rows) {
+    const page = row.keys?.[0] || '';
+    for (const b of buckets) {
+      if (page.includes(b)) {
+        acc[b].clicks += row.clicks || 0;
+        acc[b].impressions += row.impressions || 0;
+        break; // first matching bucket wins (buckets are disjoint by design)
+      }
+    }
+  }
+  const result = {};
+  for (const b of buckets) {
+    const { clicks, impressions } = acc[b];
+    result[b] = impressions > 0 ? Number(((clicks / impressions) * 100).toFixed(2)) : null;
+  }
+  return result;
+}
+
+// ── PostHog (HogQL via REST API) ────────────────────────────
+/**
+ * Query PostHog CLS p75 for the last 7 days, split by device type.
+ * Returns { clsP75Mobile, clsP75Desktop, window } or null if unauthenticated.
+ *
+ * HogQL schema: $web_vitals events with properties.$web_vitals_CLS_value
+ * (numeric) and properties.$device_type ('Mobile' | 'Desktop' | 'Tablet').
+ */
+export async function fetchPostHogCls({ apiKey, projectId, host = 'https://eu.posthog.com', fetchImpl = fetch } = {}) {
+  if (!apiKey || !projectId) return null;
+  const { start, end } = last7Days();
+  const url = `${host.replace(/\/$/, '')}/api/projects/${projectId}/query/`;
+
+  const runQuery = async (deviceType) => {
+    const hogql = `
+      SELECT quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS cls_p75
+      FROM events
+      WHERE event = '$web_vitals'
+        AND properties.$device_type = '${deviceType}'
+        AND properties.$web_vitals_CLS_value IS NOT NULL
+        AND timestamp >= toDateTime('${start} 00:00:00')
+        AND timestamp <= toDateTime('${end} 23:59:59')
+    `.trim();
+    const res = await fetchImpl(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query: { kind: 'HogQLQuery', query: hogql } }),
+    });
+    if (!res.ok) {
+      throw new Error(`posthog ${res.status}: ${await res.text()}`);
+    }
+    const data = await res.json();
+    // results is array-of-rows; each row is array-of-columns
+    const raw = data?.results?.[0]?.[0];
+    if (raw === null || raw === undefined) return null;
+    const n = Number(raw);
+    return Number.isFinite(n) ? Number(n.toFixed(3)) : null;
+  };
+
+  const [mobile, desktop] = await Promise.all([runQuery('Mobile'), runQuery('Desktop')]);
+
+  return {
+    window: { start, end },
+    clsP75Mobile: mobile,
+    clsP75Desktop: desktop,
   };
 }
 
 // ── Comparison ──────────────────────────────────────────────
-function compare(current, baseline, { higherIsBetter = true, toleranceFrac = 0.1 } = {}) {
+/**
+ * Compare a current value against a baseline, returning delta, percentage,
+ * and a verdict flag. Pure function — exported for tests.
+ *
+ * @param current  number|null
+ * @param baseline number|null
+ * @param opts.higherIsBetter boolean (default true)
+ * @param opts.warnThresholdFrac fraction that triggers ⚠️ (default 0.10)
+ * @param opts.failThresholdFrac fraction that triggers 🔴 (default 0.20)
+ */
+export function compare(current, baseline, { higherIsBetter = true, warnThresholdFrac = 0.10, failThresholdFrac = 0.20 } = {}) {
   if (current === null || current === undefined || baseline === null || baseline === undefined) {
     return { delta: null, deltaPct: null, verdict: '⚪ n/a' };
   }
@@ -236,11 +365,11 @@ function compare(current, baseline, { higherIsBetter = true, toleranceFrac = 0.1
   const deltaPct = baseline === 0 ? null : Number(((delta / baseline) * 100).toFixed(1));
   let verdict = '✅ flat';
   if (deltaPct !== null) {
-    const improved = higherIsBetter ? deltaPct > toleranceFrac * 100 : deltaPct < -toleranceFrac * 100;
-    const regressed = higherIsBetter ? deltaPct < -toleranceFrac * 100 : deltaPct > toleranceFrac * 100;
-    const severeRegression = higherIsBetter
-      ? deltaPct < -toleranceFrac * 200
-      : deltaPct > toleranceFrac * 200;
+    const warnPct = warnThresholdFrac * 100;
+    const failPct = failThresholdFrac * 100;
+    const improved = higherIsBetter ? deltaPct > warnPct : deltaPct < -warnPct;
+    const regressed = higherIsBetter ? deltaPct < -warnPct : deltaPct > warnPct;
+    const severeRegression = higherIsBetter ? deltaPct < -failPct : deltaPct > failPct;
     if (severeRegression) verdict = '🔴 regressed hard';
     else if (regressed) verdict = '⚠️ regressed';
     else if (improved) verdict = '📈 improved';
@@ -248,11 +377,12 @@ function compare(current, baseline, { higherIsBetter = true, toleranceFrac = 0.1
   return { delta, deltaPct, verdict };
 }
 
-function buildComparisonRows(current) {
+export function buildComparisonRows(current, baseline = BASELINE) {
   const rows = [];
   const adsense = current.adsense;
   const gsc = current.gsc;
-  const b = BASELINE;
+  const posthog = current.posthog;
+  const b = baseline;
 
   if (adsense) {
     rows.push({ metric: 'AdSense revenue / day (CHF)', baseline: b.adsense.revenuePerDayCHF, current: adsense.revenuePerDayCHF, ...compare(adsense.revenuePerDayCHF, b.adsense.revenuePerDayCHF) });
@@ -268,8 +398,28 @@ function buildComparisonRows(current) {
   if (gsc) {
     rows.push({ metric: 'GSC clicks / day', baseline: b.gsc.clicksPerDay, current: gsc.clicksPerDay, ...compare(gsc.clicksPerDay, b.gsc.clicksPerDay) });
     rows.push({ metric: 'GSC avg position', baseline: b.gsc.avgPosition, current: gsc.avgPosition, ...compare(gsc.avgPosition, b.gsc.avgPosition, { higherIsBetter: false }) });
+    if (gsc.ctrByBucket) {
+      for (const bucket of GSC_BUCKETS) {
+        const baselineCtr = b.gsc.ctrByBucket?.[bucket] ?? null;
+        const currentCtr = gsc.ctrByBucket[bucket] ?? null;
+        rows.push({
+          metric: `GSC CTR ${bucket} (%)`,
+          baseline: baselineCtr,
+          current: currentCtr,
+          ...compare(currentCtr, baselineCtr),
+        });
+      }
+    }
   } else {
     rows.push({ metric: 'GSC metrics', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
+  }
+
+  if (posthog) {
+    // Lower is better for CLS.
+    rows.push({ metric: 'CLS p75 mobile', baseline: b.posthog.clsP75Mobile, current: posthog.clsP75Mobile, ...compare(posthog.clsP75Mobile, b.posthog.clsP75Mobile, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 desktop', baseline: b.posthog.clsP75Desktop, current: posthog.clsP75Desktop, ...compare(posthog.clsP75Desktop, b.posthog.clsP75Desktop, { higherIsBetter: false }) });
+  } else {
+    rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
 
   return rows;
@@ -288,12 +438,13 @@ function renderTable(rows) {
   console.table(data);
 }
 
-function renderMarkdown(rows, current) {
+export function renderMarkdown(rows, current, baseline = BASELINE) {
   const lines = [];
   lines.push(`# Revenue monitor — ${new Date().toISOString().slice(0, 10)}`);
   lines.push('');
-  lines.push(`Window: ${current.adsense?.window?.start || current.gsc?.window?.start || 'n/a'} → ${current.adsense?.window?.end || current.gsc?.window?.end || 'n/a'}`);
-  lines.push(`Baseline: ${BASELINE.period}`);
+  const anyWindow = current.adsense?.window || current.gsc?.window || current.posthog?.window;
+  lines.push(`Window: ${anyWindow?.start || 'n/a'} → ${anyWindow?.end || 'n/a'}`);
+  lines.push(`Baseline: ${baseline.period}`);
   lines.push('');
   lines.push('| Metric | Baseline | Current | Δ | Δ% | Verdict |');
   lines.push('|--------|---------:|--------:|--:|---:|:--------|');
@@ -310,12 +461,17 @@ function renderMarkdown(rows, current) {
   } else {
     lines.push('## All metrics healthy — no regressions flagged.');
   }
+  if (current.warnings?.length) {
+    lines.push('');
+    lines.push('## Warnings');
+    for (const w of current.warnings) lines.push(`- ⚠️ ${w}`);
+  }
   return lines.join('\n');
 }
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  const current = { adsense: null, gsc: null, errors: [] };
+  const current = { adsense: null, gsc: null, posthog: null, errors: [], warnings: [] };
 
   try {
     const adsenseToken = await getAdSenseToken();
@@ -333,6 +489,26 @@ async function main() {
   } catch (e) {
     current.errors.push(`gsc: ${e.message}`);
     log('⚠️', `GSC failed: ${e.message}`);
+  }
+
+  // PostHog CLS is optional: if credentials missing, surface a warning instead
+  // of failing. Required secrets are POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID
+  // (add in repo Settings → Secrets or Firebase Remote Config).
+  try {
+    const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
+    const projectId = process.env.POSTHOG_PROJECT_ID;
+    const host = process.env.POSTHOG_HOST;
+    if (apiKey && projectId) {
+      current.posthog = await fetchPostHogCls({ apiKey, projectId, host });
+    } else {
+      const msg = 'PostHog CLS skipped (POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID not set)';
+      current.warnings.push(msg);
+      log('⚪', msg);
+    }
+  } catch (e) {
+    current.errors.push(`posthog: ${e.message}`);
+    current.warnings.push(`PostHog CLS query failed: ${e.message}`);
+    log('⚠️', `PostHog failed: ${e.message}`);
   }
 
   const rows = buildComparisonRows(current);
@@ -359,8 +535,12 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error('revenue-monitor failed:', e.message);
-  if (flags.debug) console.error(e.stack);
-  process.exit(0);
-});
+// Only run main() when invoked directly (not when imported by tests).
+const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedDirectly) {
+  main().catch((e) => {
+    console.error('revenue-monitor failed:', e.message);
+    if (flags.debug) console.error(e.stack);
+    process.exit(0);
+  });
+}

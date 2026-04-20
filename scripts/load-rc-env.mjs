@@ -73,6 +73,11 @@ const RC_TO_ENV = {
   // Microsoft Clarity (UX analytics)
   CLARITY_API_KEY:                ['CLARITY_API_KEY'],
 
+  // PostHog HogQL API (server-side CLS p75 query in revenue-monitor.mjs)
+  SERVER_POSTHOG_PERSONAL_API_KEY: ['POSTHOG_PERSONAL_API_KEY'],
+  SERVER_POSTHOG_PROJECT_ID:       ['POSTHOG_PROJECT_ID'],
+  SERVER_POSTHOG_HOST:             ['POSTHOG_HOST'],
+
   // Amazon Creators API (build-time product fetch)
   AMAZON_CREATOR_ID:              ['AMAZON_CREATOR_ID'],
   AMAZON_CREATOR_SECRET:          ['AMAZON_CREATOR_SECRET'],
