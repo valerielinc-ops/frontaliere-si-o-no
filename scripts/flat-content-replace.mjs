@@ -26,7 +26,8 @@ if (!fs.existsSync(distDir)) {
 }
 
 let replaced = 0;
-let skipped = 0;
+let notBridge = 0;
+let bridgeMissingTarget = 0;
 
 function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -48,7 +49,7 @@ function walk(dir) {
       content.includes('location.replace(') ||
       content.includes('Versione canonica disponibile');
     if (!isRedirect) {
-      skipped++;
+      notBridge++;
       continue;
     }
 
@@ -59,16 +60,18 @@ function walk(dir) {
       fs.copyFileSync(indexPath, flatPath);
       replaced++;
     } else {
-      skipped++;
+      bridgeMissingTarget++;
     }
   }
 }
 
 walk(distDir);
 console.log(
-  `\x1b[36m[flat-content]\x1b[0m Replaced ${replaced} flat redirect files with content copies (${skipped} skipped)`,
+  `\x1b[36m[flat-content]\x1b[0m Replaced ${replaced} bridge pages (${notBridge} non-bridge files, ${bridgeMissingTarget} bridges without target)`,
 );
 
-if (replaced === 0 && skipped > 10) {
-  console.warn('[flat-content] ⚠️  No files replaced but many skipped — check if bridge pages still use expected markers');
+if (bridgeMissingTarget > 0) {
+  console.warn(
+    `[flat-content] ⚠️  ${bridgeMissingTarget} bridge page(s) could not be replaced — sibling index.html missing. Check upstream build output.`,
+  );
 }
