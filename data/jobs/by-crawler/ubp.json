@@ -800,12 +800,12 @@
     },
     {
       "id": "ubp-967b0831912c",
-      "slug": "tax-specialist-ubp-ch-2",
+      "slug": "tax-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-2",
-        "de": "tax-specialist-ubp-ch-2",
-        "fr": "tax-specialist-ubp-ch-2"
+        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -852,10 +852,20 @@
       "previousSlugsByLocale": {
         "en": [
           "tax-specialist-ubp-ch"
+        ],
+        "it": [
+          "tax-specialist-ubp-ch-2"
+        ],
+        "de": [
+          "tax-specialist-ubp-ch-2"
+        ],
+        "fr": [
+          "tax-specialist-ubp-ch-2"
         ]
       },
       "previousSlugs": [
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "tax-specialist-ubp-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1423,12 +1433,12 @@
     },
     {
       "id": "ubp-2fd20487f325",
-      "slug": "tax-specialist-ubp-ch-3",
+      "slug": "tax-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-3",
-        "de": "tax-specialist-ubp-ch-3",
-        "fr": "tax-specialist-ubp-ch-3"
+        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -1475,10 +1485,20 @@
       "previousSlugsByLocale": {
         "en": [
           "tax-specialist-ubp-ch"
+        ],
+        "it": [
+          "tax-specialist-ubp-ch-3"
+        ],
+        "de": [
+          "tax-specialist-ubp-ch-3"
+        ],
+        "fr": [
+          "tax-specialist-ubp-ch-3"
         ]
       },
       "previousSlugs": [
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "tax-specialist-ubp-ch-3"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

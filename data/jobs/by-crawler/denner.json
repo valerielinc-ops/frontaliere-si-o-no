@@ -100,12 +100,12 @@
     },
     {
       "id": "denner-fed8192f3b22",
-      "slug": "filialleiter-in-in-ausbildung-denner-winterthur",
+      "slug": "capofila-dell-istruzione-denner-winterthur",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "en": "filialleiter-in-in-ausbildung-denner-winterthur",
+        "it": "capofila-dell-istruzione-denner-winterthur",
+        "en": "head-of-branch-in-education-denner-winterthur",
         "de": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "fr": "filialleiter-in-in-ausbildung-denner-winterthur"
+        "fr": "chef-de-division-en-education-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -164,20 +164,24 @@
       "crawledAt": "2026-04-20T10:29:48.406Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-winterthur",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -196,12 +200,12 @@
     },
     {
       "id": "denner-713916009c5c",
-      "slug": "verkaufer-in-im-stundenlohn-denner-winterthur",
+      "slug": "venditore-in-salario-orario-denner-winterthur",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-winterthur",
-        "en": "verkaufer-in-im-stundenlohn-denner-winterthur",
+        "it": "venditore-in-salario-orario-denner-winterthur",
+        "en": "seller-in-in-hourly-wage-denner-winterthur",
         "de": "verkaufer-in-im-stundenlohn-denner-winterthur",
-        "fr": "verkaufer-in-im-stundenlohn-denner-winterthur"
+        "fr": "vendeur-en-salaire-horaire-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -260,20 +264,24 @@
       "crawledAt": "2026-04-20T10:29:48.405Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-winterthur",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -477,12 +485,12 @@
     },
     {
       "id": "denner-30a950c6b592",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-in-salario-orario-denner-biel-bienne",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-in-salario-orario-denner-biel-bienne",
         "en": "student-in-im-stundenlohn-denner-biel-bienne",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiante-a-l-ecole-stundenlohn-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -549,16 +557,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T10:29:45.975Z"
+      "firstSeenAt": "2026-04-20T10:29:45.975Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-in-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "student-in-im-stundenlohn-denner"
+        ]
+      },
+      "previousSlugs": [
+        "student-in-im-stundenlohn-denner"
+      ]
     },
     {
       "id": "denner-c613f7f07188",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-biel-bienne",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-biel-bienne",
+        "en": "assistant-in-branch-management-denner-biel-bienne",
         "de": "assistent-in-filialleitung-denner-biel-bienne",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -618,10 +637,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -639,11 +669,11 @@
     },
     {
       "id": "denner-742165bd6088",
-      "slug": "adjoint-e-gerant-e-denner-renens-vd",
+      "slug": "amministratore-delegato-denner-renens-vd",
       "slugByLocale": {
-        "it": "adjoint-e-gerant-e-denner-renens-vd",
-        "en": "adjoint-e-gerant-e-denner",
-        "de": "adjoint-e-gerant-e-denner",
+        "it": "amministratore-delegato-denner-renens-vd",
+        "en": "deputy-managing-officer-denner-renens-vd",
+        "de": "stellvertretender-direktor-denner-renens-vd",
         "fr": "adjoint-e-gerant-e-denner-renens-vd"
       },
       "company": "Denner",
@@ -703,11 +733,19 @@
       "crawledAt": "2026-04-20T10:29:44.884Z",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-gerant-e-denner",
+          "adjoint-e-gerant-e-denner-renens-vd"
+        ],
+        "en": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "de": [
           "adjoint-e-gerant-e-denner"
         ]
       },
       "previousSlugs": [
-        "adjoint-e-gerant-e-denner"
+        "adjoint-e-gerant-e-denner",
+        "adjoint-e-gerant-e-denner-renens-vd"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -730,7 +768,7 @@
         "it": "product-manager-einkauf-nearfood-w-m-d-denner",
         "en": "product-manager-einkauf-nearfood-w-m-d-denner",
         "de": "product-manager-einkauf-nearfood-w-m-d-denner",
-        "fr": "product-manager-einkauf-nearfood-w-m-d-denner"
+        "fr": "gestionnaire-de-produits-einkauf-nearfood-p-m-d-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -805,10 +843,10 @@
     },
     {
       "id": "denner-ec8ed6a048f8",
-      "slug": "senior-category-management-assistent-in-tabak-nikotinprodukte-denner",
+      "slug": "senior-category-management-assistant-in-tabacco-prodotti-nicotina-denner-zurich",
       "slugByLocale": {
-        "it": "senior-category-management-assistent-in-tabak-nikotinprodukte-denner",
-        "en": "senior-category-management-assistent-in-tabak-nikotinprodukte-denner",
+        "it": "senior-category-management-assistant-in-tabacco-prodotti-nicotina-denner-zurich",
+        "en": "senior-category-management-assistant-in-tobacco-nicotine-products-denner-zurich",
         "de": "senior-category-management-assistent-in-tabak-nikotinprodukte-denner",
         "fr": "senior-category-management-assistent-in-tabak-nikotinprodukte-denner"
       },
@@ -881,7 +919,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T10:29:44.476Z"
+      "firstSeenAt": "2026-04-20T10:29:44.476Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-category-management-assistent-in-tabak-nikotinprodukte-denner"
+        ],
+        "en": [
+          "senior-category-management-assistent-in-tabak-nikotinprodukte-denner"
+        ]
+      },
+      "previousSlugs": [
+        "senior-category-management-assistent-in-tabak-nikotinprodukte-denner"
+      ]
     },
     {
       "id": "denner-add5d94b9d66",

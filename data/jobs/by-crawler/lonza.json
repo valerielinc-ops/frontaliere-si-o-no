@@ -2780,7 +2780,7 @@
         "en": "operator-senior-operator-lonza-ch",
         "it": "operator-senior-operator-lonza-ch",
         "de": "operator-senior-operator-lonza-ch",
-        "fr": "operator-senior-operator-lonza-ch"
+        "fr": "operateur-operateur-principal-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2838,10 +2838,10 @@
     },
     {
       "id": "lonza-d6e63e137899",
-      "slug": "bioprocess-engineer-lonza-ch",
+      "slug": "ingegnere-di-bioprocesso-lonza-ch",
       "slugByLocale": {
         "en": "bioprocess-engineer-lonza-ch",
-        "it": "bioprocess-engineer-lonza-ch",
+        "it": "ingegnere-di-bioprocesso-lonza-ch",
         "de": "bioprocess-engineer-lonza-ch",
         "fr": "bioprocess-engineer-lonza-ch"
       },
@@ -2899,16 +2899,24 @@
         }
       },
       "firstSeenAt": "2026-04-20T10:59:36.261Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-engineer-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-lonza-ch"
+      ]
     },
     {
       "id": "lonza-8d9d6e238012",
-      "slug": "bioprocess-engineer-lonza-ch-2",
+      "slug": "ingegnere-di-bioprocesso-lonza-ch",
       "slugByLocale": {
         "en": "bioprocess-engineer-lonza-ch",
-        "it": "bioprocess-engineer-lonza-ch-2",
+        "it": "ingegnere-di-bioprocesso-lonza-ch",
         "de": "bioprocess-engineer-lonza-ch-2",
-        "fr": "bioprocess-engineer-lonza-ch-2"
+        "fr": "ingenieur-bioprocede-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2962,7 +2970,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T10:59:35.564Z"
+      "firstSeenAt": "2026-04-20T10:59:35.564Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-engineer-lonza-ch-2"
+        ],
+        "fr": [
+          "bioprocess-engineer-lonza-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-lonza-ch-2"
+      ]
     }
   ]
 }
