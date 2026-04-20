@@ -13,6 +13,8 @@
  */
 
 import type { JobBoardLocale } from './jobBoardSeo';
+import { buildCityHubTitle } from '../services/seo/job-board-titles';
+import { buildCityHubMeta } from '../services/seo/meta-descriptions';
 
 export type CityHubKey = 'lugano' | 'mendrisio' | 'bellinzona';
 
@@ -124,40 +126,34 @@ export function buildCityHubSeo(
   const useFire = safeCount >= CITY_HUB_FIRE_THRESHOLD;
   const prefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : '';
   const name = CITY_HUB_DISPLAY_NAME[city];
+  // F3a — short <title> comes from the shared module (50-60 visible chars).
+  // OG title + H1 keep the verbose legacy copy (unconstrained length).
+  const title = buildCityHubTitle({
+    locale,
+    cityDisplay: name,
+    count: safeCount,
+    year,
+    fireThreshold: CITY_HUB_FIRE_THRESHOLD,
+  });
+  const desc = buildCityHubMeta({ locale, cityDisplay: name, count: safeCount });
 
   switch (locale) {
     case 'it': {
-      const title = `${prefix}Offerte di Lavoro ${name} ${year} — Aggiornate Oggi | Frontaliere Ticino`;
-      const desc = safeCount > 0
-        ? `Cerca tra ${safeCount} offerte di lavoro a ${name} aggiornate ogni giorno: sanità, banche, commercio, uffici. Candidati gratuitamente online come frontaliere.`
-        : `Cerca offerte di lavoro a ${name} aggiornate ogni giorno: sanità, banche, commercio, uffici. Candidati gratuitamente online come frontaliere.`;
       const ogT = `${prefix}Offerte di Lavoro ${name} ${year} | Aggiornate Oggi`;
       const h1 = safeCount > 0 ? `${safeCount} Offerte di Lavoro a ${name}` : `Offerte di Lavoro a ${name}`;
       return { title, desc, ogT, ogD: desc, h1 };
     }
     case 'en': {
-      const title = `${prefix}Jobs in ${name} ${year} — Updated Daily | Frontaliere Ticino`;
-      const desc = safeCount > 0
-        ? `Browse ${safeCount} jobs in ${name}, Ticino updated every day: healthcare, banking, retail, offices. Apply online for free as a cross-border worker.`
-        : `Browse jobs in ${name}, Ticino updated every day: healthcare, banking, retail, offices. Apply online for free as a cross-border worker.`;
       const ogT = `${prefix}Jobs in ${name} ${year} | Updated Daily`;
       const h1 = safeCount > 0 ? `${safeCount} Jobs in ${name}` : `Jobs in ${name}`;
       return { title, desc, ogT, ogD: desc, h1 };
     }
     case 'de': {
-      const title = `${prefix}Jobs in ${name} ${year} — Täglich Aktualisiert | Frontaliere Ticino`;
-      const desc = safeCount > 0
-        ? `Entdecke ${safeCount} Stellenangebote in ${name}, Tessin — täglich aktualisiert: Pflege, Banken, Handel, Büros. Kostenlos online bewerben.`
-        : `Entdecke Stellenangebote in ${name}, Tessin — täglich aktualisiert: Pflege, Banken, Handel, Büros. Kostenlos online bewerben.`;
       const ogT = `${prefix}Jobs in ${name} ${year} | Täglich Aktualisiert`;
       const h1 = safeCount > 0 ? `${safeCount} Jobs in ${name}` : `Jobs in ${name}`;
       return { title, desc, ogT, ogD: desc, h1 };
     }
     case 'fr': {
-      const title = `${prefix}Emploi à ${name} ${year} — Mises à Jour Quotidiennes | Frontaliere Ticino`;
-      const desc = safeCount > 0
-        ? `Parcourez ${safeCount} offres d'emploi à ${name}, Tessin mises à jour chaque jour : santé, banques, commerce, bureaux. Postulez gratuitement en ligne.`
-        : `Parcourez les offres d'emploi à ${name}, Tessin mises à jour chaque jour : santé, banques, commerce, bureaux. Postulez gratuitement en ligne.`;
       const ogT = `${prefix}Emploi à ${name} ${year} | Mises à Jour Quotidiennes`;
       const h1 = safeCount > 0 ? `${safeCount} Offres d'emploi à ${name}` : `Offres d'emploi à ${name}`;
       return { title, desc, ogT, ogD: desc, h1 };
