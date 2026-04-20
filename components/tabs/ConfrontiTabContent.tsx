@@ -42,6 +42,13 @@ export default function ConfrontiTabContent() {
  <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
  ) : null}
 
+ {/* AdSense — mid-content display ad */}
+ {confrontiSubTab && (
+ <Suspense fallback={null}>
+ <AdSenseBanner adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot} adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format} fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive} className="my-6" />
+ </Suspense>
+ )}
+
  {/* AdSense — bottom multiplex */}
  <Suspense fallback={null}>
  <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />

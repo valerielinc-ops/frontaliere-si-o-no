@@ -280,7 +280,7 @@ export default function AdSenseBanner({
  className={className}
  style={{
  contain: 'content',
- transition: 'opacity 0.3s ease',
+ transition: 'min-height 300ms ease-out, max-height 300ms ease-out, opacity 200ms ease',
  // Reserve space via minHeight — keep it even after ad loads to prevent CLS
  // when the actual ad is shorter than the placeholder (FRO-299)
  minHeight: isCollapsed ? 0 : placeholderMinHeight,

@@ -771,6 +771,28 @@ function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
  ) as Record<string, SEOMetadata>;
 }
 
+/**
+ * Hand-tuned SEO overrides for high-value border crossing pages.
+ * These override the generic template in buildBorderCrossingSeoMetadata()
+ * for crossings that rank in striking distance on GSC.
+ */
+const BORDER_CROSSING_SEO_OVERRIDES: Record<string, SEOMetadata> = {
+ 'valico-chiasso-centro': {
+   title: 'Traffico Dogana Chiasso Centro e Brogeda | Tempi di Attesa e Coda',
+   description: 'Traffico dogana Chiasso Centro e Brogeda: tempi di attesa in tempo reale, coda dogana, orari apertura e consigli per evitare le code. Guida pratica per frontalieri.',
+   keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, dogana chiasso centro, valico brogeda tempi, frontaliere ticino, code dogana chiasso',
+   ogTitle: 'Traffico Dogana Chiasso Centro e Brogeda | Tempi di Attesa',
+   ogDescription: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
+   canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/chiasso-centro',
+   structuredData: {
+     '@context': 'https://schema.org',
+     '@type': 'WebPage',
+     name: 'Traffico dogana Chiasso Centro e Brogeda',
+     url: `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-centro`,
+     description: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
+   },
+ },
+};
 
 // ─── Core SEO entries (eagerly loaded) ───────────────────────────────
 // Contains glossary + border-crossing entries (generated from data).
@@ -778,6 +800,7 @@ function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
 export const SEO_METADATA: Record<string, SEOMetadata> = withSpeakable(withDatasetLicenses({
  ...buildGlossarySeoMetadata(),
  ...buildBorderCrossingSeoMetadata(),
+ ...BORDER_CROSSING_SEO_OVERRIDES,
 }));
 
 // ─── Lazy-loaded SEO chunks ──────────────────────────────────────────

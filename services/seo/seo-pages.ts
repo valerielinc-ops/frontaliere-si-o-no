@@ -1623,11 +1623,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  border: {
- title: 'Traffico Dogana Chiasso, Brogeda e Valichi CH-IT 2026',
- description: 'Traffico dogana Chiasso, Brogeda, Ponte Tresa, Gaggiolo e Stabio: tempi di attesa, orari apertura e percorsi alternativi per frontalieri.',
- keywords: 'traffico dogana chiasso brogeda, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera',
- ogTitle: 'Traffico Dogana Chiasso e Valichi CH-IT | Tempi Attesa',
- ogDescription: '🛃 Traffico dogana Chiasso, Brogeda e tutti i valichi CH-IT: tempi di attesa, orari e percorsi alternativi per frontalieri.',
+ title: 'Traffico Dogana Chiasso Brogeda 2026 | Tempi di Attesa e Coda Dogana',
+ description: 'Traffico dogana Chiasso e Brogeda: tempi di attesa in tempo reale, coda dogana, orari apertura. Valichi alternativi Ponte Tresa, Gaggiolo e Stabio per evitare le code. Guida per frontalieri.',
+ keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
+ ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
+ ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa, code, orari apertura e percorsi alternativi per frontalieri.',
  canonicalPath: '/guida-frontaliere/tempi-attesa-dogana',
  structuredData: [
  {
@@ -2183,7 +2183,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
  }
  },
 
@@ -2498,11 +2499,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  jobboard: {
- title: 'Offerte di Lavoro Ticino — Cerca Lavoro in Svizzera Italiana',
- description: 'Cerchi lavoro in Ticino? Oltre 1500 offerte aggiornate ogni giorno da 100+ aziende a Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanit\u00e0. Candidati gratis.',
- keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, lavoro in svizzera per italiani, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
- ogTitle: 'Offerte di Lavoro Ticino | Cerca tra 1500+ Posizioni Aperte',
- ogDescription: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanit\u00e0. Candidatura diretta \u2014 gratis!',
+ title: 'Offerte di Lavoro Ticino 2026 — Lugano, Mendrisio, Bellinzona | Aggiornate Ogni Giorno',
+ description: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate ogni giorno da 100+ aziende. Posizioni a Lugano, Mendrisio, Bellinzona e tutto il Canton Ticino. Banche, IT, pharma, sanità, case anziani. Candidatura diretta — gratis!',
+ keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, lavoro in svizzera per italiani, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni, case anziani ticino offerte di lavoro',
+ ogTitle: 'Offerte di Lavoro Ticino 2026 | Lugano, Mendrisio, Bellinzona',
+ ogDescription: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate da 100+ aziende a Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità, case anziani. Candidatura diretta — gratis!',
  canonicalPath: '/cerca-lavoro-ticino',
  structuredData: [
  {
@@ -2512,6 +2513,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "url": `${BASE_URL}/cerca-lavoro-ticino`,
  "description": "Bacheca lavoro con oltre 1500 offerte aggiornate per frontalieri in Ticino. Posizioni in diversi settori: tecnologia, finanza, farmaceutica, sanit\u00e0, industria.",
  "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION,
  "about": {
  "@type": "Thing",
  "name": "Offerte di Lavoro Ticino"
@@ -2589,11 +2591,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  dialetto: {
- title: 'Dialetto Ticinese | 64 Espressioni e Proverbi',
- description: 'Scopri 64 parole, espressioni e proverbi del dialetto ticinese. Saluti, cibo, lavoro, natura e proverbi: la lingua del territorio che il frontaliere.',
- keywords: 'dialetto ticinese, espressioni ticinesi, proverbi ticino, lingua ticinese frontalieri, bundi ciau, polenta ticinese, grotto ticino, dialetto lombardo svizzera',
- ogTitle: 'Dialetto Ticinese | 64 Espressioni e Proverbi',
- ogDescription: 'Scopri il dialetto ticinese: 64 espressioni, saluti, proverbi e termini del cibo e lavoro. La lingua del Ticino spiegata ai frontalieri.',
+ title: 'Parole in Dialetto Ticinese | 64 Espressioni e Vocabolario',
+ description: 'Parole in dialetto ticinese: 64 espressioni, vocabolario, proverbi e modi di dire. Saluti, cibo, lavoro e natura — il vocabolario essenziale per capire il Ticino.',
+ keywords: 'parole in dialetto ticinese, dialetto ticinese, espressioni ticinesi, vocabolario ticinese, proverbi ticino, lingua ticinese frontalieri, bundi ciau, polenta ticinese, grotto ticino, dialetto lombardo svizzera, modi di dire ticinesi',
+ ogTitle: 'Parole in Dialetto Ticinese | Espressioni e Vocabolario',
+ ogDescription: 'Parole ed espressioni in dialetto ticinese: 64 vocaboli, saluti, proverbi e modi di dire. Il vocabolario del Ticino spiegato ai frontalieri.',
  canonicalPath: '/dialetto-ticinese',
  structuredData: {
  "@context": "https://schema.org",

@@ -3,6 +3,8 @@ import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Hear
 import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { SimulationInputs, SimulationResult } from '@/types';
@@ -403,7 +405,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  {field.type === 'toggle' && (
  <button
  onClick={() => handleFieldChange(field.key, !(currentVal as boolean))}
- className={`relative w-14 h-7 rounded-full transition-colors ${
+ className={`relative w-14 h-7 rounded-full transition-colors after:absolute after:-inset-[9px] after:content-[''] ${
  currentVal ? 'bg-warning-strong' : 'bg-surface-raised'
  }`}
  role="switch"
@@ -622,6 +624,8 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  )}
  </div>
  </div>
+ {/* Inline ad between simulator and related tools */}
+ <Suspense fallback={null}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
  <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
  </div>
  );

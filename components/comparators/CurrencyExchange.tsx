@@ -51,6 +51,8 @@ const LazyExchangeChart = lazyRetry(() =>
 const LazyCurrencyExchangeStats = lazyRetry(() => import('@/components/comparators/CurrencyExchangeStats'));
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import { AD_SLOTS } from '@/services/adsenseSlots';
 
 interface ExchangeProvider {
  name: string;
@@ -634,7 +636,7 @@ const CurrencyExchange: React.FC = () => {
  <Percent size={20} className="text-success sm:w-6 sm:h-6" />
  {t('currency.detailed_comparison')}
  </h2>
- <button onClick={handleShare} aria-label={t('common.share')} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-surface-raised transition-colors text-sm font-semibold text-subtle">
+ <button onClick={handleShare} aria-label={t('common.share')} className="flex items-center gap-2 px-3 py-1.5 min-h-[44px] rounded-lg bg-surface-raised hover:bg-surface-raised transition-colors text-sm font-semibold text-subtle">
  {shareState === 'copied' ? <><Check size={16} className="text-success" /> {t('common.linkCopied')}</> : <><Share2 size={16} /> {t('common.share')}</>}
  </button>
  </div>
@@ -755,6 +757,9 @@ const CurrencyExchange: React.FC = () => {
 
  {/* Experimental: Exchange Timing Analysis */}
  {/* Moved to Statistics subtab */}
+
+ {/* Inline ad between comparison and educational section */}
+ <Suspense fallback={null}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
 
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-6">

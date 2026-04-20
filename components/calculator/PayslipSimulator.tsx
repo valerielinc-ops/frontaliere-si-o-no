@@ -4,6 +4,8 @@ import { FileText, Download, Info, ChevronDown, ChevronUp, Shield, Coins, User, 
 import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import { DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 
@@ -490,6 +492,8 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  </div>
  </div>
  </div>
+ {/* Inline ad between calculator and related tools */}
+ <Suspense fallback={null}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
  <Suspense fallback={null}><RelatedTools context="payslip" /></Suspense>
  </div>
  );

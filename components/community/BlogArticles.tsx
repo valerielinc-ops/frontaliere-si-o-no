@@ -18,6 +18,7 @@ import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
+import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
@@ -478,9 +479,13 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  if (blockquoteCount < 2) {
  blockquoteCount += 1;
  renderedBlocks.push(
- <blockquote key={`quote-${idx}`} className="bg-accent-subtle border-l-2 border-accent p-4 rounded-r-lg italic text-accent">
+ <Fragment key={`quote-${idx}`}>
+ <Callout status="accent" className="italic">
+ <blockquote className="text-accent">
  {renderInlineFormatting(quote, navigators)}
  </blockquote>
+ </Callout>
+ </Fragment>
  );
  } else {
  renderedBlocks.push(
@@ -1260,6 +1265,19 @@ function BlogArticles({
  const pageArticles = isMobile ? mobileArticles : desktopPageArticles;
  const hasMoreMobileArticles = isMobile && mobileArticleLimit < filteredArticles.length;
 
+ // Preload hero image for LCP optimisation (listing view only)
+ const heroImage = !selectedArticle && pageArticles.length > 0 ? pageArticles[0].image : null;
+ useEffect(() => {
+   if (!heroImage) return;
+   const link = document.createElement('link');
+   link.rel = 'preload';
+   link.as = 'image';
+   link.href = heroImage;
+   link.fetchPriority = 'high';
+   document.head.appendChild(link);
+   return () => { document.head.removeChild(link); };
+ }, [heroImage]);
+
  const loadMoreArticles = useCallback(() => {
  setMobileArticleLimit(prev => prev + ARTICLES_PER_PAGE);
  }, []);
@@ -1596,6 +1614,18 @@ function BlogArticles({
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
  const adEligibleInline = adEligible;
 
+ // Content gate: unauthenticated users see only the first half of long articles
+ const hasArticleAccess = typeof window !== 'undefined' && (
+  !!localStorage.getItem('ft_job_email') ||
+  !!localStorage.getItem('frontaliere_job_email_access') ||
+  /bot|crawler|spider|crawling|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i.test(
+   navigator.userAgent || ''
+  )
+ );
+ const contentGateApplies = !hasArticleAccess && presentSegments.length >= 5;
+ const visibleSegmentCount = contentGateApplies ? Math.ceil(presentSegments.length / 2) : presentSegments.length;
+ const visibleSegments = presentSegments.slice(0, visibleSegmentCount);
+
  // TOC headings extracted from article body
  const tocHeadings = extractHeadings(bodySegments);
  const showToc = tocHeadings.length >= 3;
@@ -1652,7 +1682,7 @@ function BlogArticles({
  {/* Back button — prominent */}
  <button
  onClick={handleBackToList}
- className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-surface border border-edge rounded-xl text-sm font-semibold text-body hover:bg-surface-raised transition-colors shadow-sm"
+ className="mb-6 inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-surface border border-edge rounded-xl text-sm font-semibold text-body hover:bg-surface-raised transition-colors shadow-sm"
  aria-label={t('blog.backToList')}
  >
  <ArrowLeft size={16} />
@@ -1890,9 +1920,11 @@ function BlogArticles({
 
  {/* Article body */}
  <div className="px-4 sm:px-6 py-6 space-y-5">
- <p className="text-lg text-subtle italic border-l-2 border-accent pl-4">
+ <Callout status="accent" variant="plain">
+ <p className="text-lg text-subtle italic">
  {t(`blog.article.${article.id}.excerpt`)}
  </p>
+ </Callout>
 
  {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}
  {showToc && (
@@ -1928,7 +1960,7 @@ function BlogArticles({
  )}
 
  <div className="space-y-4">
- {bodySegments.map((segment, idx) => (
+ {visibleSegments.map((segment, idx) => (
  <Fragment key={idx}>
  {/* Interstitials after body1 (index 0) — all viewports */}
  {idx === 1 && (
@@ -2071,6 +2103,48 @@ function BlogArticles({
  {renderFormattedContent(segment, navigators)}
  </Fragment>
  ))}
+
+ {/* Content gate: fade overlay + sign-in prompt for unauthenticated users */}
+ {contentGateApplies && (
+  <>
+  {/* Gradient fade-out overlay */}
+  <div className="relative h-32 -mt-32 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
+
+  {/* Sign-in prompt */}
+  <div className="text-center py-8 bg-surface-raised rounded-2xl border border-edge mx-auto max-w-lg">
+   <h3 className="text-lg font-bold text-heading mb-2">Continua a leggere</h3>
+   <p className="text-sm text-muted mb-4">Accedi gratis per leggere l&apos;articolo completo</p>
+   <form onSubmit={(e) => { e.preventDefault(); const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement)?.value; if (email) { localStorage.setItem('ft_job_email', email); window.location.reload(); } }} className="flex gap-2 max-w-sm mx-auto px-4">
+    <input name="email" type="email" required placeholder="La tua email" className="flex-1 px-3 py-2 rounded-lg border border-edge bg-surface text-body text-sm" />
+    <button type="submit" className="px-4 py-2 min-h-[44px] bg-accent-strong text-on-accent rounded-lg text-sm font-medium hover:bg-accent-strong-hover transition-colors">Continua</button>
+   </form>
+  </div>
+
+  {/* AdSense — below blog content gate */}
+  {AD_SLOTS.JOBDETAIL_AUTH_GATE.slot && (
+   <Suspense fallback={<div style={{ minHeight: AD_SLOTS.JOBDETAIL_AUTH_GATE.placeholderMinHeight, contain: 'content' }} className="mt-4" />}>
+    <AdSenseBanner
+    adSlot={AD_SLOTS.JOBDETAIL_AUTH_GATE.slot}
+    adFormat={AD_SLOTS.JOBDETAIL_AUTH_GATE.format}
+    fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
+    className="mt-4"
+    />
+   </Suspense>
+  )}
+
+  {/* AdSense — multiplex below content gate */}
+  {AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot && (
+   <Suspense fallback={<div style={{ minHeight: AD_SLOTS.AUTHGATE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="mt-4" />}>
+    <AdSenseBanner
+    adSlot={AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot}
+    adFormat={AD_SLOTS.AUTHGATE_END_MULTIPLEX.format}
+    fullWidthResponsive={AD_SLOTS.AUTHGATE_END_MULTIPLEX.fullWidthResponsive}
+    className="mt-4"
+    />
+   </Suspense>
+  )}
+  </>
+ )}
  </div>
 
  {/* Visible FAQ section */}
@@ -2134,7 +2208,7 @@ function BlogArticles({
  <a
  href={buildPath(NAV_ACTION_ROUTES[cta.navAction])}
  onClick={(e) => { e.preventDefault(); cta.action(); }}
- className={`mt-3 px-4 py-2 ${CTA_BTN_COLORS[cta.color]} text-on-accent rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-colors`}
+ className={`mt-3 px-4 py-2 min-h-[44px] ${CTA_BTN_COLORS[cta.color]} text-on-accent rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-colors`}
  >
  {t(cta.buttonKey)} <ArrowRight size={14} />
  </a>
@@ -2152,7 +2226,7 @@ function BlogArticles({
  <div className="flex items-center gap-3">
  <button
  onClick={() => handleFeedback(article.id, 'useful')}
- className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+ className={`inline-flex items-center gap-1.5 px-4 py-2 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
  articleFeedback[article.id] === 'useful'
  ? 'bg-success-subtle text-success ring-1 ring-success-border'
  : 'bg-surface-raised text-subtle hover:bg-success-subtle'
@@ -2163,11 +2237,11 @@ function BlogArticles({
  </button>
  <button
  onClick={() => handleFeedback(article.id, 'not-useful')}
- className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+ className={`inline-flex items-center gap-1.5 px-4 py-2 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
  articleFeedback[article.id] === 'not-useful'
  ? 'bg-danger-subtle text-danger ring-1 ring-danger-border'
  : 'bg-surface-raised text-subtle hover:bg-danger-subtle'
- }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-heading">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+ }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-heading">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
  </div>
  </a>
  ) : <div />}
@@ -2452,7 +2526,7 @@ function BlogArticles({
  <button
  key={cat}
  onClick={() => handleCategoryChange(cat)}
- className={`px-4 py-2 rounded-full text-xs font-medium transition-[color,background-color,border-color,box-shadow] ${
+ className={`px-4 py-2 min-h-[44px] rounded-full text-xs font-medium transition-[color,background-color,border-color,box-shadow] ${
  selectedCategory === cat
  ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface text-body border border-edge hover:border-accent-border'
@@ -2738,6 +2812,18 @@ function BlogArticles({
  <ChevronRight size={16} />
  </button>
  </div>
+ )}
+
+ {/* End-of-listing multiplex ad — after all articles & pagination */}
+ {pageArticles.length > 0 && (
+ <Suspense fallback={null}>
+ <AdSenseBanner
+ adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
+ fullWidthResponsive={false}
+ className="mt-8 mb-4"
+ />
+ </Suspense>
  )}
 
  {/* SEO content block */}
