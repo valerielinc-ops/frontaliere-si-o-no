@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-20T10:14:54.445Z",
-  "total": 6,
+  "generatedAt": "2026-04-20T21:11:55.329Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 15997,
-  "avgDurationMs": 15997,
+  "durationMs": 16414,
+  "avgDurationMs": 16414,
   "durationHistory": [
-    15997
+    16414
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -218,7 +218,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate--Landquart-Outlet_R_782019",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate--Landquart-Outlet_R_782019",
@@ -233,7 +235,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "addetto-alle-vendite-landquart-outlet-capri-holdings-michael-kors-versace-graubunden",
+      "slug": "associato-vendite-landquart-outlet-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-01-02",
       "source": "capri-holdings-workday-crawler",
@@ -261,6 +263,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

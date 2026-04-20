@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-04-20T10:21:48.767Z",
+  "assembledAt": "2026-04-20T21:18:36.384Z",
   "jobs": [
     {
       "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
@@ -68,8 +68,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "needsRetranslation": true
     },
     {
       "title": "Inspektor/in",
@@ -273,8 +273,6 @@
         "hochschulpraktikant-in-fur-die-entwicklung-von-it-tools-zur-unterstutzung-des-prognosedien",
         "hochschulpraktikant-in-fur-die-entwicklung-von-it-tools-zur-unterstutzung-des-prognosedienstes-m-w-confederazione-locarno-monti",
         "hochschulpraktikant-in-per-lo-sviluppo-di-strumenti-it-per-il-servizio-di-previsione-confe",
-        "hochschulpraktikant-in-per-lo-sviluppo-di-strumenti-it-per-il-servizio-di-previsione-confe",
-        "university-practitioner-for-it-tool-development-for-prognosed-service-confederazione-svizz",
         "university-practitioner-for-it-tool-development-for-prognosed-service-confederazione-svizz"
       ],
       "salaryMin": 58000,
@@ -554,7 +552,8 @@
         "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       ],
-      "firstSeenAt": "2026-04-13T21:25:51.212Z"
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -635,8 +634,7 @@
         "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "retranslationAttempts": 1
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
