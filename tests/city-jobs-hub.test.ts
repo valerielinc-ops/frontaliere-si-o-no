@@ -60,42 +60,61 @@ describe('cityJobsHub — paths', () => {
   });
 });
 
-describe('cityJobsHub — SEO copy', () => {
+describe('cityJobsHub — SEO copy (F3a — CTR-optimized short titles)', () => {
   it('Italian title includes live count and city name', () => {
     const seo = buildCityHubSeo('it', 'lugano', 123, YEAR);
     expect(seo.title).toContain('Lugano');
     expect(seo.title).toContain('123');
     expect(seo.title).toContain(String(YEAR));
-    expect(seo.title).toContain('Offerte di Lavoro');
+    // F3a: short <title> uses "Lavoro {City}" to save chars.
+    expect(seo.title).toContain('Lavoro Lugano');
+    // OG title and H1 retain the verbose legacy "Offerte di Lavoro" phrasing.
+    expect(seo.ogT).toContain('Offerte di Lavoro');
     expect(seo.h1).toBe('123 Offerte di Lavoro a Lugano');
   });
 
-  it('adds fire emoji only when count ≥ threshold', () => {
+  it('adds fire emoji to title only when count ≥ threshold', () => {
     const below = buildCityHubSeo('it', 'lugano', CITY_HUB_FIRE_THRESHOLD - 1, YEAR);
     const at = buildCityHubSeo('it', 'lugano', CITY_HUB_FIRE_THRESHOLD, YEAR);
-    expect(below.title.startsWith('🔥')).toBe(false);
-    expect(at.title.startsWith('🔥')).toBe(true);
+    expect(below.title.includes('🔥')).toBe(false);
+    expect(at.title.includes('🔥')).toBe(true);
   });
 
   it('omits count prefix entirely when count is 0', () => {
     const seo = buildCityHubSeo('it', 'mendrisio', 0, YEAR);
     expect(seo.title).not.toContain('🔥');
-    expect(seo.title).not.toMatch(/^\d/);
+    expect(seo.title).not.toMatch(/— \d/);
     expect(seo.h1).toBe('Offerte di Lavoro a Mendrisio');
   });
 
   it('produces locale-appropriate copy for EN/DE/FR', () => {
     const en = buildCityHubSeo('en', 'lugano', 50, YEAR);
     expect(en.title).toContain('Jobs in Lugano');
-    expect(en.title).toContain('Updated Daily');
+    expect(en.ogT).toContain('Updated Daily');
 
     const de = buildCityHubSeo('de', 'bellinzona', 50, YEAR);
     expect(de.title).toContain('Bellinzona');
-    expect(de.title).toContain('Täglich Aktualisiert');
+    expect(de.ogT).toContain('Täglich Aktualisiert');
 
     const fr = buildCityHubSeo('fr', 'mendrisio', 50, YEAR);
-    expect(fr.title).toContain('Emploi à Mendrisio');
-    expect(fr.title).toContain('Mises à Jour Quotidiennes');
+    expect(fr.title).toContain('Mendrisio');
+    expect(fr.ogT).toContain('Mises à Jour Quotidiennes');
+  });
+
+  it('enforces 50-60 visible-char title length for SERP safety', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const city of CITY_HUB_KEYS) {
+        for (const count of [0, 1, 42, 148, 500, 2408]) {
+          const seo = buildCityHubSeo(locale, city, count, YEAR);
+          const visible = [...seo.title].length;
+          expect(
+            visible,
+            `${locale}/${city} count=${count}: "${seo.title}" length=${visible}`,
+          ).toBeGreaterThanOrEqual(50);
+          expect(visible).toBeLessThanOrEqual(60);
+        }
+      }
+    }
   });
 });
 

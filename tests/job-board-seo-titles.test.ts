@@ -35,47 +35,65 @@ describe('isJobBoardLandingPath', () => {
   })
 })
 
-describe('buildJobBoardSeo', () => {
+describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
   const year = 2026
 
-  it('injects count and fire emoji when count >= threshold (IT)', () => {
+  it('injects count and fire emoji on title when count >= threshold (IT)', () => {
     const entry = buildJobBoardSeo('it', 2408, year)
-    expect(entry.title.startsWith('🔥 2408 ')).toBe(true)
+    // Short <title> (50-60 chars): keyword + year + count + 🔥, NO brand
+    expect(entry.title).toContain('2408')
+    expect(entry.title).toContain('🔥')
     expect(entry.title).toContain(`${year}`)
-    expect(entry.title).toContain('Offerte di Lavoro Ticino')
-    expect(entry.title).toContain('Frontaliere Ticino')
-    expect(entry.desc).toContain('2408')
-    expect(entry.desc).toContain('case anziani')
+    expect(entry.title).toContain('Offerte Lavoro Ticino')
+    // OG title retains legacy brand suffix (unconstrained length)
     expect(entry.ogT.startsWith('🔥 2408 ')).toBe(true)
+    expect(entry.ogT).toContain('Offerte di Lavoro Ticino')
+    // Desc includes number + primary keyword + CTA
+    expect(entry.desc).toContain('2408')
+    expect(entry.desc).toContain('offerte di lavoro in Ticino')
+    expect(entry.desc).toMatch(/Candidati/)
   })
 
-  it('omits fire emoji when count below threshold', () => {
+  it('omits fire emoji on title when count below threshold', () => {
     const below = FIRE_EMOJI_THRESHOLD - 1
     const entry = buildJobBoardSeo('it', below, year)
-    expect(entry.title.startsWith(`${below} Offerte`)).toBe(true)
+    expect(entry.title).toContain(String(below))
     expect(entry.title).not.toContain('🔥')
   })
 
   it('injects fire emoji exactly at threshold', () => {
     const entry = buildJobBoardSeo('en', FIRE_EMOJI_THRESHOLD, year)
-    expect(entry.title.startsWith(`🔥 ${FIRE_EMOJI_THRESHOLD} `)).toBe(true)
+    expect(entry.title).toContain('🔥')
+    expect(entry.title).toContain(String(FIRE_EMOJI_THRESHOLD))
+    expect(entry.ogT.startsWith(`🔥 ${FIRE_EMOJI_THRESHOLD} `)).toBe(true)
   })
 
   it('falls back to count-less copy when count is zero', () => {
     const entry = buildJobBoardSeo('it', 0, year)
     expect(entry.title).not.toContain('🔥')
-    expect(entry.title.startsWith('Offerte di Lavoro Ticino')).toBe(true)
-    expect(entry.desc).not.toMatch(/\d/)
+    expect(entry.title).toContain('Offerte Lavoro Ticino')
+    // Zero-count desc has no numeric jobs count
+    expect(entry.desc).not.toMatch(/\b\d{2,}\b/)
   })
 
-  it('preserves brand names in every locale', () => {
-    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
-      const entry = buildJobBoardSeo(loc, 1200, year)
-      // EOC, Lidl, Aldi should be mentioned verbatim in desc
-      expect(entry.desc).toContain('EOC')
-      expect(entry.desc).toContain('Lidl')
-      expect(entry.desc).toContain('Aldi')
-    }
+  it('mentions primary sector keywords in every locale description', () => {
+    // Desc now leads with "sanità/healthcare/Pflege/santé" as primary sector
+    // anchor — matches highest-impression queries like "lavoro sanità ticino".
+    const it = buildJobBoardSeo('it', 1200, year)
+    expect(it.desc).toContain('sanità')
+    expect(it.desc).toContain('EOC')
+
+    const en = buildJobBoardSeo('en', 1200, year)
+    expect(en.desc).toContain('healthcare')
+    expect(en.desc).toContain('EOC')
+
+    const de = buildJobBoardSeo('de', 1200, year)
+    expect(de.desc).toContain('Pflege')
+    expect(de.desc).toContain('EOC')
+
+    const fr = buildJobBoardSeo('fr', 1200, year)
+    expect(fr.desc).toContain('santé')
+    expect(fr.desc).toContain('EOC')
   })
 
   it('produces locale-appropriate copy', () => {
@@ -88,7 +106,7 @@ describe('buildJobBoardSeo', () => {
     expect(de.desc).toContain('Pflege')
 
     const fr = buildJobBoardSeo('fr', 2406, year)
-    expect(fr.title).toContain('Emploi au Tessin')
+    expect(fr.title).toContain('Emploi Tessin')
     expect(fr.desc).toContain('offres')
   })
 
@@ -96,6 +114,21 @@ describe('buildJobBoardSeo', () => {
     const a = buildJobBoardSeo('it', 1234, 2026)
     const b = buildJobBoardSeo('it', 1234, 2026)
     expect(a).toEqual(b)
+  })
+
+  it('enforces 50-60 visible-char title length for SERP safety', () => {
+    // Google truncates <title> around 60 visible chars; below 50 looks stubby.
+    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+      for (const count of [0, 1, 42, 148, 500, 2408, 12345]) {
+        const entry = buildJobBoardSeo(loc, count, year)
+        const visible = [...entry.title].length
+        expect(
+          visible,
+          `${loc} count=${count}: "${entry.title}" length=${visible}`,
+        ).toBeGreaterThanOrEqual(50)
+        expect(visible).toBeLessThanOrEqual(60)
+      }
+    }
   })
 })
 
