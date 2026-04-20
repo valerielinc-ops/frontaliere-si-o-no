@@ -1,0 +1,28 @@
+// English translations — orphan-query cluster landings chunk.
+const translations: Record<string, string> = {
+ 'orphanLanding.breadcrumbHome': 'Home',
+ 'orphanLanding.breadcrumbSection': 'Job search',
+ 'orphanLanding.updatedLabel': 'Updated on',
+ 'orphanLanding.resultsLabel': 'Relevant openings',
+ 'orphanLanding.noResults': 'No openings currently match this specific search.',
+ 'orphanLanding.similarQueries': 'Similar searches from other visitors',
+ 'orphanLanding.medianSalary': 'Indicative median salary',
+ 'orphanLanding.medianSalaryNA': 'Not disclosed',
+ 'orphanLanding.topEmployers': 'Companies hiring for this role',
+ 'orphanLanding.topCities': 'Cities with the most openings',
+ 'orphanLanding.ctaAllJobs': 'Browse all jobs in Ticino',
+ 'orphanLanding.ctaCalculator': 'Calculate your net salary as a cross-border worker',
+ 'orphanLanding.editorialTech': 'Switzerland\'s tech sector is growing fast, especially around Zurich and Ticino. Qualified candidates enjoy competitive salaries, flexible hours and international work environments.',
+ 'orphanLanding.editorialHealthcare': 'Swiss healthcare is one of the most stable and best-paid sectors. Nursing homes, cantonal hospitals and private clinics constantly post openings for nurses, care assistants and medical staff.',
+ 'orphanLanding.editorialRetail': 'Swiss retail offers steady opportunities, from big groups (Coop, Migros, Manor) to luxury brands in outlet centres. Full-time and part-time contracts are widely available.',
+ 'orphanLanding.editorialHospitality': 'Hospitality and restaurants hire year-round, with seasonal peaks. Ticino and alpine cantons seek kitchen, service and front-desk staff — often with housing included.',
+ 'orphanLanding.editorialOffice': 'Swiss banks, insurers and offices are major employers for Italian cross-border workers, with admin, accounting, secretariat and customer-service roles.',
+ 'orphanLanding.editorialLogistics': 'Logistics, transport and driving are among the most in-demand sectors in German-speaking Switzerland and Ticino. Above-average European wages and well-regulated shifts.',
+ 'orphanLanding.editorialGeneric': 'The Swiss labour market offers attractive economic and legal conditions for Italian cross-border workers: higher net salaries, withholding tax, mandatory health insurance and a 13th-month pay. The 2026 Cross-Border Workers Agreement applies to residents within 20 km of the border.',
+ 'orphanLanding.faqH2': 'Frequently asked questions',
+ 'orphanLanding.faqQ1': 'How do I apply to these openings?',
+ 'orphanLanding.faqA1': 'Each listing links to the employer\'s original site or ATS portal. No registration on Frontaliere Ticino is required to apply.',
+ 'orphanLanding.faqQ2': 'Can I take these jobs as a cross-border worker?',
+ 'orphanLanding.faqA2': 'Yes — if you live in an Italian municipality within 20 km of the Swiss border and return home daily. Other cases fall under the Permit B regime.',
+};
+export default translations;

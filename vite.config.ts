@@ -14,6 +14,7 @@ import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
 import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
+import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
@@ -65,6 +66,7 @@ export default defineConfig(({ mode }) => {
  ogPagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
  jobRecencyPagesPlugin(__dirname),
+ orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),

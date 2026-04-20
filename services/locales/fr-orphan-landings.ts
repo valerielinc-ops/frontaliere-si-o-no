@@ -1,0 +1,28 @@
+// French translations — orphan-query cluster landings chunk.
+const translations: Record<string, string> = {
+ 'orphanLanding.breadcrumbHome': 'Accueil',
+ 'orphanLanding.breadcrumbSection': 'Recherche d\'emploi',
+ 'orphanLanding.updatedLabel': 'Mis à jour le',
+ 'orphanLanding.resultsLabel': 'Offres pertinentes',
+ 'orphanLanding.noResults': 'Aucune offre ne correspond actuellement à cette recherche exacte.',
+ 'orphanLanding.similarQueries': 'Recherches similaires d\'autres visiteurs',
+ 'orphanLanding.medianSalary': 'Salaire médian indicatif',
+ 'orphanLanding.medianSalaryNA': 'Non communiqué',
+ 'orphanLanding.topEmployers': 'Entreprises qui recrutent pour ce poste',
+ 'orphanLanding.topCities': 'Villes avec le plus d\'opportunités',
+ 'orphanLanding.ctaAllJobs': 'Voir toutes les offres au Tessin',
+ 'orphanLanding.ctaCalculator': 'Calculez votre salaire net en tant que frontalier',
+ 'orphanLanding.editorialTech': 'Le secteur tech suisse connaît une croissance rapide, notamment autour de Zurich et du Tessin. Les profils qualifiés bénéficient de salaires compétitifs, d\'horaires flexibles et d\'un environnement international.',
+ 'orphanLanding.editorialHealthcare': 'La santé suisse est l\'un des secteurs les plus stables et les mieux rémunérés. EMS, hôpitaux cantonaux et cliniques privées publient en continu des offres pour infirmiers, aides-soignants et personnel médical.',
+ 'orphanLanding.editorialRetail': 'Le commerce de détail suisse offre des opportunités stables, des grandes enseignes (Coop, Migros, Manor) aux marques de luxe des outlets. Contrats à temps plein et partiel sont courants.',
+ 'orphanLanding.editorialHospitality': 'Hôtellerie et restauration recrutent toute l\'année, avec des pics saisonniers. Le Tessin et les cantons alpins cherchent du personnel de cuisine, de salle et de réception — souvent avec logement.',
+ 'orphanLanding.editorialOffice': 'Banques, assurances et bureaux suisses sont de grands employeurs pour les frontaliers italiens : administration, comptabilité, secrétariat, service client.',
+ 'orphanLanding.editorialLogistics': 'La logistique, le transport et les métiers de chauffeur figurent parmi les secteurs les plus demandés en Suisse alémanique et au Tessin. Salaires au-dessus de la moyenne européenne et horaires encadrés par les CCT.',
+ 'orphanLanding.editorialGeneric': 'Le marché du travail suisse offre aux frontaliers italiens des conditions économiques et légales attractives : salaires nets plus élevés, impôt à la source, assurance maladie obligatoire, 13e salaire. L\'Accord frontaliers 2026 s\'applique aux résidents à moins de 20 km de la frontière.',
+ 'orphanLanding.faqH2': 'Foire aux questions',
+ 'orphanLanding.faqQ1': 'Comment postuler à ces offres ?',
+ 'orphanLanding.faqA1': 'Chaque annonce renvoie au site original de l\'employeur ou à son portail ATS. Aucune inscription sur Frontaliere Ticino n\'est requise.',
+ 'orphanLanding.faqQ2': 'Puis-je accepter ces postes en tant que frontalier ?',
+ 'orphanLanding.faqA2': 'Oui — si vous résidez dans une commune italienne à moins de 20 km de la frontière suisse et rentrez chaque jour. Les autres cas relèvent du permis B.',
+};
+export default translations;
