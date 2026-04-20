@@ -1,0 +1,388 @@
+/**
+ * Vite build plugin that emits static HTML for the recency-filtered
+ * job hubs (last-3-days + since-yesterday) in all 4 locales. Also writes
+ * a dedicated sitemap-recency.xml and patches it into the master
+ * sitemap.xml index.
+ *
+ * Kept as a standalone plugin so the much larger jobsSeoPagesPlugin.ts
+ * (shared with other SEO landings) stays untouched — lower merge-conflict
+ * risk when parallel agents are shipping neighbouring SEO work.
+ */
+
+import type { Plugin } from 'vite';
+import {
+  BASE_URL,
+  FAVICON_LINKS,
+  GTAG_SNIPPET,
+} from './constants';
+import {
+  JOB_RECENCY_LANDING_SLUGS,
+  type JobRecencyVariant,
+  buildJobRecencyLandingModel,
+} from './jobRecencyLanding';
+import type { JobLandingLocale } from './jobEditorialLanding';
+
+const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
+
+const SECTION_BY_LOCALE: Record<JobLandingLocale, string> = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+
+const LOCALE_PREFIX: Record<JobLandingLocale, string> = {
+  it: '',
+  en: '/en',
+  de: '/de',
+  fr: '/fr',
+};
+
+const LOCALE_OG: Record<JobLandingLocale, string> = {
+  it: 'it_IT',
+  en: 'en_US',
+  de: 'de_DE',
+  fr: 'fr_FR',
+};
+
+const SECTION_NAME: Record<JobLandingLocale, string> = {
+  it: 'Cerca lavoro in Ticino',
+  en: 'Find jobs in Ticino',
+  de: 'Jobs im Tessin',
+  fr: 'Trouver un emploi au Tessin',
+};
+
+function esc(s: unknown): string {
+  return String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function withSlash(s: string): string {
+  return s.endsWith('/') ? s : `${s}/`;
+}
+
+function slugify(input: unknown): string {
+  return String(input || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 90);
+}
+
+function localizedJobSlug(job: Record<string, unknown>, locale: JobLandingLocale): string {
+  const slugByLocale = job.slugByLocale as Record<string, string> | undefined;
+  const explicit = String(slugByLocale?.[locale] || '').trim();
+  if (explicit) return explicit;
+  const canonical = String(job.slug || '').trim();
+  if (canonical) return canonical;
+  const titleByLocale = job.titleByLocale as Record<string, string> | undefined;
+  const localizedTitle = String(titleByLocale?.[locale] || job.title || '');
+  return slugify(`${localizedTitle}-${job.company || ''}-${job.location || ''}`) || slugify(localizedTitle);
+}
+
+const VARIANTS: ReadonlyArray<JobRecencyVariant> = ['last-3-days', 'since-yesterday'];
+
+function renderJobCard(job: {
+  title: string;
+  company: string;
+  location: string;
+  href: string;
+  datePosted?: string;
+}): string {
+  const datePart = job.datePosted
+    ? `<time datetime="${esc(job.datePosted)}" style="color:#64748b;font-size:13px">${esc(job.datePosted.slice(0, 10))}</time>`
+    : '';
+  return `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:10px;list-style:none">
+  <a href="${esc(job.href)}" style="color:#0f172a;text-decoration:none;display:block">
+    <div style="font-weight:700;font-size:16px;line-height:1.35">${esc(job.title)}</div>
+    <div style="margin-top:4px;color:#475569;font-size:14px">${esc(job.company)}${job.company && job.location ? ' · ' : ''}${esc(job.location)}</div>
+    ${datePart ? `<div style="margin-top:4px">${datePart}</div>` : ''}
+  </a>
+</li>`;
+}
+
+export function jobRecencyPagesPlugin(rootDir: string): Plugin {
+  return {
+    name: 'job-recency-pages',
+    apply: 'build',
+    async closeBundle() {
+      const fs = await import('node:fs');
+      const np = await import('node:path');
+      const distDir = np.resolve(rootDir, 'dist');
+      const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+
+      // Read jobs.json (gitignored in dev; present in CI). Missing file is
+      // a soft failure — empty-state pages are still generated.
+      let jobs: Array<Record<string, unknown>> = [];
+      try {
+        if (fs.existsSync(jobsPath)) {
+          const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+          if (Array.isArray(raw)) jobs = raw as Array<Record<string, unknown>>;
+        }
+      } catch (err) {
+        console.warn('[job-recency-pages] failed to read data/jobs.json', err);
+      }
+
+      // Filter to valid, non-expired, non-pending-translation jobs
+      const validJobs = jobs.filter((j) => {
+        if (!j || typeof j !== 'object') return false;
+        if ((j as { expired?: boolean }).expired) return false;
+        const nr = (j as { needsRetranslation?: unknown }).needsRetranslation;
+        if (nr === true) return false;
+        return !!(j.title && j.company && j.location);
+      });
+
+      // Try to discover the hashed SPA entry bundle so these pages hydrate
+      // like any other static landing page emitted by jobsSeoPagesPlugin.
+      let entryJs = '';
+      let entryCss = '';
+      try {
+        const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
+        entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
+        entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
+      } catch {
+        /* index.html missing — degrade gracefully */
+      }
+      const hasSpaBundle = !!(entryJs && entryCss);
+
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      const sitemapEntries: string[] = [];
+
+      const ensuredDirs = new Set<string>();
+      const ensureDir = (dir: string): void => {
+        if (ensuredDirs.has(dir)) return;
+        fs.mkdirSync(dir, { recursive: true });
+        ensuredDirs.add(dir);
+      };
+
+      for (const variant of VARIANTS) {
+        for (const locale of LOCALES) {
+          const model = buildJobRecencyLandingModel({
+            jobs: validJobs,
+            locale,
+            variant,
+            now: new Date(),
+            localizedSlug: localizedJobSlug,
+            baseUrl: BASE_URL,
+            sectionSlug: SECTION_BY_LOCALE[locale],
+            localePrefix: LOCALE_PREFIX[locale],
+          });
+
+          const canonicalPath = withSlash(
+            `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}/${model.slug}`.replace(/\/+/g, '/'),
+          );
+          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+          const alternates = LOCALES.map((altLocale) => {
+            const altSlug = JOB_RECENCY_LANDING_SLUGS[variant][altLocale];
+            const altPath = withSlash(
+              `${LOCALE_PREFIX[altLocale]}/${SECTION_BY_LOCALE[altLocale]}/${altSlug}`.replace(/\/+/g, '/'),
+            );
+            return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}">`;
+          }).join('\n');
+
+          const jobsHtml = model.jobs.length > 0
+            ? `<ul style="margin:0;padding:0">${model.jobs.map(renderJobCard).join('')}</ul>`
+            : `<p style="margin:0;padding:16px;border-radius:12px;background:#fef3c7;color:#78350f">${esc(model.noResultsLabel)}</p>`;
+
+          const faqHtml = model.faq.length > 0
+            ? `<section style="margin:28px 0 0">
+    <h2 style="margin:0 0 12px;font-size:22px">FAQ</h2>
+    ${model.faq.map((f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff"><summary style="font-weight:700;cursor:pointer">${esc(f.question)}</summary><p style="margin:8px 0 0;color:#334155;line-height:1.6">${esc(f.answer)}</p></details>`).join('')}
+  </section>`
+            : '';
+
+          // JSON-LD — BreadcrumbList + ItemList + (when jobs present) JobPosting array + FAQPage
+          const sectionRootUrl = `${BASE_URL}${withSlash(
+            `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}`.replace(/\/+/g, '/'),
+          )}`;
+          const breadcrumbLd = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+              { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
+              { '@type': 'ListItem', position: 3, name: model.heading, item: canonicalUrl },
+            ],
+          });
+
+          const itemListLd = model.jobs.length > 0
+            ? JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'ItemList',
+                name: model.heading,
+                numberOfItems: model.jobs.length,
+                itemListElement: model.jobs.slice(0, 50).map((j, idx) => ({
+                  '@type': 'ListItem',
+                  position: idx + 1,
+                  name: j.title,
+                  url: j.href,
+                })),
+              })
+            : '';
+
+          const collectionLd = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: model.heading,
+            url: canonicalUrl,
+            description: model.description,
+            inLanguage: locale,
+            isPartOf: sectionRootUrl,
+            dateModified: new Date().toISOString(),
+          });
+
+          const faqLd = model.faq.length > 0
+            ? JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: model.faq.map((f) => ({
+                  '@type': 'Question',
+                  name: f.question,
+                  acceptedAnswer: { '@type': 'Answer', text: f.answer },
+                })),
+              })
+            : '';
+
+          const openAllHref = sectionRootUrl;
+
+          const html = `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(model.title)}</title>
+    <meta name="description" content="${esc(model.description)}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(model.title)}">
+    <meta property="og:description" content="${esc(model.description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternates}
+    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(
+            `/${SECTION_BY_LOCALE.it}/${JOB_RECENCY_LANDING_SLUGS[variant].it}`.replace(/\/+/g, '/'),
+          )}">
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    ${GTAG_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+        <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+          <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+          <span> / </span>
+          <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none">${esc(SECTION_NAME[locale])}</a>
+          <span> / </span>
+          <span>${esc(model.timeframeLabel)}</span>
+        </nav>
+        <header style="margin-bottom:24px">
+          <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(model.updatedLabel)} · ${dateStamp}</p>
+          <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.1">${esc(model.heading)}</h1>
+          <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
+          <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+        </header>
+        <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 22px">
+          <div style="padding:18px;border-radius:20px;background:#eef2ff;border:1px solid #c7d2fe">
+            <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div>
+            <div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div>
+          </div>
+          <div style="padding:18px;border-radius:20px;background:#ecfccb;border:1px solid #bef264">
+            <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(model.timeframeLabel)}</div>
+            <div style="margin-top:8px;font-size:16px;font-weight:600;line-height:1.4">${esc(dateStamp)}</div>
+          </div>
+          <a href="${esc(model.sisterLinkHref)}" style="padding:18px;border-radius:20px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(model.sisterLinkLabel)} →</a>
+        </section>
+        <section style="margin:0 0 24px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
+            <h2 style="margin:0;font-size:24px">${esc(model.jobsLabel)}</h2>
+            <a href="${openAllHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)} →</a>
+          </div>
+          ${jobsHtml}
+        </section>
+        ${faqHtml}
+      </main>
+    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+  </body>
+</html>`;
+
+          // Write both /path/index.html and /path.html to match existing pattern
+          const outDir = np.join(distDir, canonicalPath.slice(1));
+          ensureDir(outDir);
+          fs.writeFileSync(np.join(outDir, 'index.html'), html, 'utf-8');
+          const flatPath = canonicalPath.replace(/\/+$/, '');
+          if (flatPath) {
+            const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
+            ensureDir(np.dirname(flatFile));
+            fs.writeFileSync(flatFile, html, 'utf-8');
+          }
+
+          // Build sitemap entry once per (locale, variant) pair — keyed on IT canonical
+          if (locale === 'it') {
+            const altLinks = LOCALES.map((altLocale) => {
+              const altSlug = JOB_RECENCY_LANDING_SLUGS[variant][altLocale];
+              const altPath = withSlash(
+                `${LOCALE_PREFIX[altLocale]}/${SECTION_BY_LOCALE[altLocale]}/${altSlug}`.replace(/\/+/g, '/'),
+              );
+              return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}" />`;
+            }).join('\n');
+            const priority = variant === 'last-3-days' ? '0.9' : '0.8';
+            sitemapEntries.push(
+              `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+            );
+          }
+        }
+      }
+
+      // Write sitemap-recency.xml and patch sitemap.xml index
+      if (sitemapEntries.length > 0) {
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${sitemapEntries.join('\n')}
+</urlset>
+`;
+        try {
+          fs.writeFileSync(np.join(distDir, 'sitemap-recency.xml'), sitemapXml, 'utf-8');
+          const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
+          if (fs.existsSync(sitemapIndexPath)) {
+            let idx = fs.readFileSync(sitemapIndexPath, 'utf-8');
+            if (!idx.includes('sitemap-recency.xml')) {
+              idx = idx.replace(
+                '</sitemapindex>',
+                `  <sitemap>\n    <loc>${BASE_URL}/sitemap-recency.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
+              );
+            } else {
+              idx = idx.replace(
+                /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-recency\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+                `$1${dateStamp}$2`,
+              );
+            }
+            fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
+          }
+        } catch (err) {
+          console.warn('[job-recency-pages] failed to write sitemap-recency.xml', err);
+        }
+      }
+
+      console.log(
+        `\x1b[36m[job-recency-pages]\x1b[0m Generated ${LOCALES.length * VARIANTS.length} recency hubs (${validJobs.length} candidate jobs)`,
+      );
+    },
+  };
+}

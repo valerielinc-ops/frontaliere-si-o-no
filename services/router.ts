@@ -27,6 +27,7 @@ import {
  buildJobTodayLandingModel,
  resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
+import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 
 // ── Route types ──────────────────────────────────────────────
 
@@ -1830,6 +1831,11 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  sectionSlug: table.jobBoard,
  localePrefix: prefix,
  }).slug;
+ }
+ if (descriptor.kind === 'recency') {
+ // Locale-switch for recency hubs (last-3-days / since-yesterday).
+ // Pure slug lookup — no model rebuild needed.
+ return RECENCY_LANDING_SLUGS[descriptor.variant][lang];
  }
  if (descriptor.kind === 'official-gazette') {
  return buildJobOfficialGazetteLandingModel({

@@ -13,6 +13,7 @@ import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
+import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
@@ -63,6 +64,7 @@ export default defineConfig(({ mode }) => {
  ...(isFastBuild ? [] : [
  ogPagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
+ jobRecencyPagesPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
