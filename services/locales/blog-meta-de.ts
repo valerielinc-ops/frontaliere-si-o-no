@@ -2412,6 +2412,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.militari-treni-ticino-20-euro.title': 'Militärs in den Zügen von Trenord: 20 Euro pro Jahr für mehr Sicherheit',
     'blog.article.militari-treni-ticino-20-euro.excerpt': 'Ab dem 1. Mai 2026 können Militärangehörige mit einem ermäßigten Jahresabo von 20 Euro in den Zügen von Trenord in der Lombardei fahren, um die Sicherheit in den Zügen zu erhöhen.',
     'blog.article.militari-treni-ticino-20-euro.imageAlt': 'Militärpersonal in Uniform auf einem Trenord-Zug in der Schweiz mit dem Luganersee im Hintergrund',
+    'blog.article.just-eat-migros-ticino-consegna-2026.title': 'Just Eat liefert Migros-Produkte im Tessin: über 10.000 Artikel verfügbar',
+    'blog.article.just-eat-migros-ticino-consegna-2026.excerpt': 'Seit dem 4. Mai liefert Just Eat Migros-Produkte im Tessin, Wallis und Genf innerhalb von weniger als einer Stunde. Die Preise sind identisch mit denen in den Geschäften.',
+    'blog.article.just-eat-migros-ticino-consegna-2026.imageAlt': 'Just Eat Lieferung in Lugano mit Migros Supermarkt im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -2412,6 +2412,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.militari-treni-ticino-20-euro.title': 'Military on Trenord trains: 20 euros per year for enhanced security',
     'blog.article.militari-treni-ticino-20-euro.excerpt': 'From 1st May 2026, military personnel will be able to travel on Trenord trains in Lombardy with a discounted annual subscription of 20 euros to increase security on board.',
     'blog.article.militari-treni-ticino-20-euro.imageAlt': 'Military personnel in uniform on a Trenord train in Ticino with Lake Lugano in the background',
+    'blog.article.just-eat-migros-ticino-consegna-2026.title': 'Just Eat delivers Migros products in Ticino: over 10,000 items available',
+    'blog.article.just-eat-migros-ticino-consegna-2026.excerpt': 'Since May 4th, Just Eat has been delivering Migros products in Ticino, Valais, and Geneva with delivery in less than an hour. Prices are identical to those in stores.',
+    'blog.article.just-eat-migros-ticino-consegna-2026.imageAlt': 'Just Eat delivery in Lugano with Migros supermarket in the background',
 };
 
 export default blogMetaEn;

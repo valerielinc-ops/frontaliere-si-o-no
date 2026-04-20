@@ -6613,4 +6613,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/militari-treni-ticino-20-euro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'just-eat-migros-ticino-consegna-2026',
+ category: 'novita',
+ date: '2026-04-20T18:09:53.016Z',
+ image: '/images/blog/just-eat-migros-ticino-consegna-2026.jpg',
+ hasCalculator: true,
+ },
 ];

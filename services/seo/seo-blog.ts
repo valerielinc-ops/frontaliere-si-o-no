@@ -10208,6 +10208,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-just-eat-migros-ticino-consegna-2026': {
+    title: 'Just Eat consegna prodotti Migros in | Frontaliere Ticino',
+    description: 'Dal 4 maggio 2026, Just Eat consegna prodotti Migros in Ticino, Vallese e Ginevra con consegna in meno di un\'ora. Prezzi identici a quelli dei negozi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, just, consegna, prodotti, migros',
+    ogTitle: 'Just Eat consegna Migros in Ticino | Frontaliere Ticino',
+    ogDescription: 'Dal 4 maggio 2026, Just Eat consegna prodotti Migros in Ticino, Vallese e Ginevra con consegna in meno di un\'ora. Prezzi identici a quelli dei negozi.',
+    canonicalPath: '/articoli-frontaliere/just-eat-migros-ticino-consegna-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Just Eat consegna prodotti Migros in Ticino, Vallese e Ginevra",
+      "description": "Dal 4 maggio 2026, Just Eat consegna prodotti Migros in Ticino, Vallese e Ginevra con consegna in meno di un'ora. Prezzi identici a quelli dei negozi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/just-eat-migros-ticino-consegna-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consegna Just Eat Migros a Lugano, scooter e supermercato in vista"
+      },
+      "datePublished": "2026-04-20T18:09:53+00:00",
+      "dateModified": "2026-04-20T18:09:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/just-eat-migros-ticino-consegna-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

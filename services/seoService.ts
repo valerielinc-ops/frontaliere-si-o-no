@@ -2082,6 +2082,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-capre-dogana-gandria-incidenti-2026': { name: 'Capre dogana Gandria', path: '/articoli-frontaliere/capre-dogana-gandria-incidenti-2026', parent: 'blog' },
     'blog-lavori-autostrade-ticino-aprile-2026': { name: 'Lavori autostrade', path: '/articoli-frontaliere/lavori-autostrade-ticino-aprile-2026', parent: 'blog' },
     'blog-militari-treni-ticino-20-euro': { name: 'Novità', path: '/articoli-frontaliere/militari-treni-ticino-20-euro', parent: 'blog' },
+    'blog-just-eat-migros-ticino-consegna-2026': { name: 'Novità', path: '/articoli-frontaliere/just-eat-migros-ticino-consegna-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

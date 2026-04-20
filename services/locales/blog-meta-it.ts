@@ -2412,6 +2412,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.militari-treni-ticino-20-euro.title': 'Militari sui treni Trenord: 20 euro all\'anno per maggiore sicurezza',
     'blog.article.militari-treni-ticino-20-euro.excerpt': 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui convogli.',
     'blog.article.militari-treni-ticino-20-euro.imageAlt': 'Militare in divisa su un treno Trenord in Ticino con vista sul Lago di Lugano',
+    'blog.article.just-eat-migros-ticino-consegna-2026.title': 'Just Eat consegna prodotti Migros in Ticino: oltre 10.000 articoli disponibili',
+    'blog.article.just-eat-migros-ticino-consegna-2026.excerpt': 'Dal 4 maggio, Just Eat consegna prodotti Migros in Ticino, Vallese e Ginevra con consegna in meno di un\'ora. Prezzi identici a quelli dei negozi.',
+    'blog.article.just-eat-migros-ticino-consegna-2026.imageAlt': 'Consegna Just Eat Migros a Lugano, scooter e supermercato in vista',
 };
 
 export default blogMetaIt;
