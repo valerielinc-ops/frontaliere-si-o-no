@@ -23,6 +23,13 @@ import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const InlineFuelPriceTable = lazyRetry(() => import('@/components/blog/InlineFuelPriceTable'));
+
+/** Blog articles that should render the live Swiss fuel price table inline. */
+const FUEL_PRICE_ARTICLE_IDS: ReadonlySet<string> = new Set([
+ 'diesel-aumento-prezzi-svizzera-2026',
+ 'carburanti-ticino-aumento-prezzi',
+]);
 
 /* ─── Article view counter (Firestore) ─── */
 
@@ -2026,6 +2033,13 @@ function BlogArticles({
  {/* Interstitials after body1 (index 0) — all viewports */}
  {idx === 1 && (
  <>
+ {/* Live fuel price table — only for fuel-price articles */}
+ {FUEL_PRICE_ARTICLE_IDS.has(article.id) && (
+ <Suspense fallback={<div data-testid="inline-fuel-price-table-fallback" className="mt-6 h-24" />}>
+ <InlineFuelPriceTable maxRows={10} />
+ </Suspense>
+ )}
+
  {/* In-article ad #1 — between body1 and body2 */}
  <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
  <AdSenseBanner
