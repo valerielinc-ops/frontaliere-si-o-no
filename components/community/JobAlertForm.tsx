@@ -92,6 +92,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return () => window.clearTimeout(timer);
  }, [initialKeyword, expanded]);
 
+ // Listen for external requests to open the form (sticky banner, end-of-list
+ // card, post-auth prompt). Scrolls into view and expands.
+ useEffect(() => {
+ const handler = () => {
+ setExpanded(true);
+ window.setTimeout(() => {
+ document.getElementById('job-alert-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+ }, 60);
+ };
+ window.addEventListener('openJobAlert', handler);
+ return () => window.removeEventListener('openJobAlert', handler);
+ }, []);
+
  // Load user's existing alerts
  useEffect(() => {
  if (!authUser) {

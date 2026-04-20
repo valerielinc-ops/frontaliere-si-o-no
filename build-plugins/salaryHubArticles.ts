@@ -11,7 +11,7 @@
 
 import type { SimulationResult } from '../types';
 import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
-import { BASE_URL, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildFullPath, type SalaryHubScenario } from './salaryHubScenarios';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
@@ -590,7 +590,7 @@ export function generateArticleHtml(
   <meta property="og:site_name" content="Frontaliere Ticino">
   <meta property="fb:app_id" content="891036063797338">
   ${FAVICON_LINKS}
-  ${GTAG_SNIPPET}
+  ${ANALYTICS_SNIPPET}
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;line-height:1.7}

@@ -1,6 +1,6 @@
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 
 interface PdfGuide {
  filename: string;
@@ -444,6 +444,7 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta name="twitter:title" content="${esc(guide.title)}">
 <meta name="twitter:description" content="${esc(guide.subtitle)}">
 <script type="application/ld+json">${jsonLd}</script>
+${ANALYTICS_SNIPPET}
 <style>
 body{font-family:system-ui,-apple-system,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;color:#334155;line-height:1.6}
 h1{color:#1e293b;font-size:1.75rem;margin-bottom:0.25rem}

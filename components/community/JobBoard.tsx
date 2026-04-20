@@ -8,6 +8,9 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
+const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
+const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
+const JobAlertPostAuthPrompt = lazyRetry(() => import('@/components/community/JobAlertPostAuthPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { normalizeSearchText } from '@/services/textUtils';
@@ -2500,11 +2503,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  getConfigValue('ENABLE_JOB_ALERTS').then((v) => setEnableJobAlerts(v === 'true'))
  ).catch(() => {});
  }, []);
+ // Post-auth prompt: when the user goes from unauthenticated → authenticated
+ // and they were actively searching, invite them to also create an alert.
+ // Session-scoped dismissal to avoid nagging.
+ const [postAuthPromptVisible, setPostAuthPromptVisible] = useState(false);
+ const prevAuthUserRef = useRef<typeof authUser>(authUser);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
  }, []);
  const [searchQuery, setSearchQuery] = useState(() => parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
+ useEffect(() => {
+ const prev = prevAuthUserRef.current;
+ prevAuthUserRef.current = authUser;
+ if (prev || !authUser || !enableJobAlerts) return;
+ if (sessionStorage.getItem('jobAlertPostAuthPromptDismissed') === '1') return;
+ const q = (searchQuery || '').trim();
+ if (q.length < 2) return;
+ setPostAuthPromptVisible(true);
+ }, [authUser, enableJobAlerts, searchQuery]);
  const [selectedCategory, setSelectedCategory] = useState<JobCategory | 'all'>('all');
  const [selectedContract, setSelectedContract] = useState<ContractType | 'all'>('all');
  const [selectedCompany, setSelectedCompany] = useState<string>('all');
@@ -7013,6 +7030,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="mt-6 mb-4"
  />
  </React.Fragment>
+ )}
+
+ {enableJobAlerts && filteredJobs.length >= 3 && (
+ <Suspense fallback={null}>
+ <JobAlertEndCard keyword={deferredSearchQuery.trim()} />
+ </Suspense>
+ )}
+
+ {enableJobAlerts && (
+ <Suspense fallback={null}>
+ <JobAlertStickyBanner />
+ </Suspense>
+ )}
+
+ {postAuthPromptVisible && (
+ <Suspense fallback={null}>
+ <JobAlertPostAuthPrompt
+ keyword={searchQuery.trim()}
+ onAccept={() => {
+ sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
+ setPostAuthPromptVisible(false);
+ window.dispatchEvent(new CustomEvent('openJobAlert'));
+ }}
+ onDismiss={() => {
+ sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
+ setPostAuthPromptVisible(false);
+ }}
+ />
+ </Suspense>
  )}
 
  {authGateModalJsx}

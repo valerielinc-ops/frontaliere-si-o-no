@@ -1,0 +1,115 @@
+name: Discover 404s via URL Inspection
+
+# Proactively inspects a rotating batch of known URLs (active job paths,
+# previous slugs, compat paths) using the GSC URL Inspection API to detect
+# 404 status changes. URLs that Google reports as NOT_FOUND/SOFT_404 are
+# appended to `data/seo-404-compat-paths.json` so the build pipeline
+# generates a soft-landing page. URLs that recovered are dropped.
+#
+# This compensates for Google's lack of a Coverage-drilldown API — the only
+# programmatic way to discover unknown 404 URLs would be via the UI CSV
+# export. By rotating through our known URL universe we catch every
+# 404 transition without manual intervention.
+
+on:
+  schedule:
+    # Daily at 02:15 UTC (off-peak, avoids overlap with sync-gsc-orphans
+    # at 14:30 UTC which shares the URL Inspection quota).
+    - cron: '15 2 * * *'
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'URLs to inspect this run (default 1500, quota cap 2000/day)'
+        required: false
+        type: string
+        default: '1500'
+      min_age_days:
+        description: 'Skip URLs inspected more recently than this many days'
+        required: false
+        type: string
+        default: '14'
+      dry_run:
+        description: 'Dry run (no file writes, just report)'
+        required: false
+        type: boolean
+        default: false
+
+# Serialize with other GSC-API workflows to avoid sharing/exhausting the
+# URL Inspection quota simultaneously.
+concurrency:
+  group: gsc-url-inspection
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run URL Inspection sweep
+        env:
+          BATCH_SIZE: ${{ inputs.batch_size || '1500' }}
+          MIN_AGE_DAYS: ${{ inputs.min_age_days || '14' }}
+        run: |
+          node scripts/discover-404s-via-inspection.mjs \
+            ${{ inputs.dry_run == true && '--dry-run' || '' }}
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run != true }}
+        id: commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # Stage only the files this workflow is responsible for
+          git add data/seo-404-compat-paths.json data/inspection-state.json || true
+
+          if git diff --cached --quiet; then
+            echo "📭 No changes to commit"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: discover 404s via URL Inspection sweep
+
+          Automated sweep via GSC URL Inspection API. Paths flagged as
+          NOT_FOUND/SOFT_404 are added to seo-404-compat-paths.json so
+          the next build generates a soft-landing page at those URLs.
+          URLs that recovered are dropped from compat."
+            git push
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger deploy if compat changed
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        run: |
+          # Only trigger a deploy if the compat file itself changed — state-
+          # file-only updates don't affect the built site.
+          COMPAT_CHANGED=$(git diff HEAD~1 --name-only -- data/seo-404-compat-paths.json | wc -l)
+          if [ "$COMPAT_CHANGED" -gt 0 ]; then
+            echo "🚀 Compat file updated — triggering deploy"
+            bash scripts/lib/trigger-deploy.sh
+          else
+            echo "📝 Only state file changed — no deploy needed"
+          fi
+        env:
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}

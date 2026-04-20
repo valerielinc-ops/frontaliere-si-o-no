@@ -21,6 +21,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
 interface RelatedJob {
@@ -465,6 +466,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  )}
 
  {relatedJobsSection}
+ <JobAlertSection initialKeyword={job.title || ''} />
  {ctaLink}
  </article>
 
@@ -677,6 +679,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  {/* Related active jobs */}
  {relatedJobsSection}
+
+ {/* Job alert opt-in */}
+ <JobAlertSection initialKeyword={job.title || ''} />
 
  {/* CTA */}
  {ctaLink}

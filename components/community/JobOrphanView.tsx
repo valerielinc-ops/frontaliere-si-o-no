@@ -21,6 +21,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import JobAlertSection from '@/components/community/JobAlertSection';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -446,6 +447,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {companyBanner}
  {activeJobsSection}
  {staticContentDetails}
+ <JobAlertSection initialKeyword={slugParts.title || ''} />
  {ctaLink}
 
  {/* End multiplex */}
@@ -616,6 +618,9 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  {/* Static content */}
  {staticContentDetails}
+
+ {/* Job alert opt-in */}
+ <JobAlertSection initialKeyword={slugParts.title || ''} />
 
  {/* CTA */}
  {ctaLink}

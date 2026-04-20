@@ -68,7 +68,7 @@ export function buildCanonicalBridgePage(options: {
  <meta name="description" content="${description}">
  <meta name="robots" content="${robotsContent}">
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
- ${GTAG_SNIPPET}
+ ${ANALYTICS_SNIPPET}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);max-width:480px;width:100%;padding:32px 24px;text-align:center}.logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}.logo svg{width:28px;height:28px}.logo span{font-size:16px;font-weight:700;color:#1e293b}h1{font-size:20px;font-weight:700;color:#1e293b;margin-bottom:8px;line-height:1.3}p{font-size:14px;color:#64748b;line-height:1.6;margin-bottom:16px}.btn{display:inline-block;background:#533afd;color:#fff;font-size:14px;font-weight:600;padding:10px 24px;border-radius:6px;text-decoration:none;transition:background .15s}.btn:hover{background:#4529e6}.footer{margin-top:24px;font-size:12px;color:#94a3b8}</style>
  </head>
@@ -128,7 +128,7 @@ export function buildFlatRedirect(
  <meta name="description" content="${desc}">
  <meta name="robots" content="index,follow">
  <link rel="canonical" href="${canonicalUrl}">${ogTags}
- ${GTAG_SNIPPET}
+ ${ANALYTICS_SNIPPET}
  <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);max-width:480px;width:100%;padding:32px 24px;text-align:center}.logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}.logo svg{width:28px;height:28px}.logo span{font-size:16px;font-weight:700;color:#1e293b}h1{font-size:20px;font-weight:700;color:#1e293b;margin-bottom:8px;line-height:1.3}p{font-size:14px;color:#64748b;line-height:1.6;margin-bottom:16px}.btn{display:inline-block;background:#533afd;color:#fff;font-size:14px;font-weight:600;padding:10px 24px;border-radius:6px;text-decoration:none;transition:background .15s}.btn:hover{background:#4529e6}.footer{margin-top:24px;font-size:12px;color:#94a3b8}</style>
  </head>
  <body>
@@ -185,6 +185,29 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  */
 export const GTAG_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'})</script>`;
+
+/**
+ * PostHog EU Cloud init snippet for standalone static pages that don't load the
+ * SPA bundle (self-healing bridges, flat redirects, salary-hub landing pages,
+ * legacy "pagina spostata" pages). Mirrors the config used by services/posthog.ts
+ * but with `capture_pageview: true` so pageviews fire without React.
+ *
+ * The snippet guards against double-init via `e.__SV`, so it's safe to include
+ * on pages that may later hydrate with the SPA bundle — the React import path
+ * (services/posthog.ts) detects the existing `window.posthog` instance.
+ *
+ * Keys mirror services/posthog.ts — keep in sync if the key ever rotates.
+ */
+export const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
+export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
+export const POSTHOG_SNIPPET = `<script>
+ !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+ posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});
+</script>`;
+
+/** Combined analytics snippet (GA4 + PostHog) for static pages without the SPA bundle. */
+export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
+ ${POSTHOG_SNIPPET}`;
 
 /** Favicon link tags shared across all static HTML pages. */
 export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48">

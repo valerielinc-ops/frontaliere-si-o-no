@@ -65,6 +65,10 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  { pattern: /^\/tasse-e-pensione\//, canonical: '/tasse-e-pensione/', locale: 'it' },
  { pattern: /^\/statistiche\//, canonical: '/statistiche/', locale: 'it' },
  { pattern: /^\/fisco-frontaliere\//, canonical: '/tasse-e-pensione/', locale: 'it' },
+ // Legacy job-board prefix (without `-ticino` suffix) — a handful of historical
+ // 404s use `/cerca-lavoro/<slug>` instead of the canonical `/cerca-lavoro-ticino/`.
+ // Route them to the current IT job board listing as a safe fallback.
+ { pattern: /^\/cerca-lavoro(?!-ticino)\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },
  // Localized sections
  { pattern: /^\/en\/cross-border-articles\//, canonical: '/en/cross-border-articles/', locale: 'en' },
  { pattern: /^\/de\/grenzgaenger-artikel\//, canonical: '/de/grenzgaenger-artikel/', locale: 'de' },

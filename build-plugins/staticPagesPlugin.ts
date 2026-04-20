@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, GTAG_SNIPPET } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 import { WriteCollector } from './batchWrite';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
@@ -2243,6 +2243,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta name="twitter:image" content="${BASE_URL}/og-image.png">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+ ${ANALYTICS_SNIPPET}
  <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:#1e293b}a{color:#2563eb;text-decoration:underline}a:hover{color:#1d4ed8}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}h2{font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}.byline{font-size:0.85rem;color:#64748b;margin-bottom:1rem}</style>
  </head>
  <body>
@@ -2306,7 +2307,7 @@ ${hrefTags}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
  <style>${skeletonAnim}</style>
- ${GTAG_SNIPPET}
+ ${ANALYTICS_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
@@ -2345,7 +2346,7 @@ ${hrefTags}
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
- ${GTAG_SNIPPET}
+ ${ANALYTICS_SNIPPET}
  </head>
  <body>
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}

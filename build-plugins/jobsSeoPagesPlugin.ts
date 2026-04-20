@@ -4246,7 +4246,8 @@ ${alternates}
  // fs.existsSync cannot guard against the bridge page overwriting the expired HTML, so
  // the cleanest fix is to exclude bridge slugs from expiredSlugs entirely.
  const bridgeSlugSet = new Set<string>();
- // Helper: collect all previous slugs from both formats
+ // Helper: collect all previous slugs from both formats (defined early so the
+ // fuzzy-match step below can use it to check "already known" slugs).
  const _allPrevSlugs = (j: any): string[] => {
  const all = new Set<string>(Array.isArray(j.previousSlugs) ? j.previousSlugs : []);
  if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
@@ -4256,6 +4257,86 @@ ${alternates}
  }
  return [...all];
  };
+
+ /* ── Fuzzy match orphan slugs to active jobs ─────────────────── */
+ // When a company rebrand or title rewrite causes a slug to change, only the
+ // locale that triggered regeneration records the old slug in previousSlugsByLocale.
+ // The sibling locales' old slugs (which Google may still have indexed) become
+ // orphans that fall through to the self-healing "offerta aggiornata" page.
+ // Scan `tracking` (merged active + orphan + compat paths) and for each slug
+ // not already attached to any active job, score it against every active job's
+ // slugByLocale via token overlap. If the best match is confident enough
+ // (>=60% token overlap AND ≥3 shared tokens), inject it into that job's
+ // previousSlugsByLocale so the downstream bridge + cross-locale blocks
+ // generate a full-content reconciliation page.
+ const knownSlugs = new Set<string>();
+ for (const j of validJobs) {
+ if (j.slug) knownSlugs.add(j.slug);
+ if (j.slugByLocale) for (const s of Object.values(j.slugByLocale)) if (typeof s === 'string' && s) knownSlugs.add(s);
+ for (const s of _allPrevSlugs(j)) knownSlugs.add(s);
+ }
+ const tokenize = (s: string): string[] => s.split('-').filter(t => t.length >= 3);
+ // Index active jobs by every token that appears in any of their slugs so we
+ // can quickly find candidates for a given orphan slug (avoids O(orphan × jobs)).
+ const jobsByToken = new Map<string, Set<number>>();
+ validJobs.forEach((j, idx) => {
+ const sbl = (j as any).slugByLocale || {};
+ const allJobSlugs = [
+ ...Object.values(sbl).filter((s): s is string => typeof s === 'string' && s.length > 0),
+ j.slug,
+ ].filter(Boolean) as string[];
+ const tokens = new Set<string>();
+ for (const s of allJobSlugs) for (const t of tokenize(s)) tokens.add(t);
+ for (const t of tokens) {
+ if (!jobsByToken.has(t)) jobsByToken.set(t, new Set());
+ jobsByToken.get(t)!.add(idx);
+ }
+ });
+ const SKIP_PREFIX_FUZZY = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
+ let fuzzyMatched = 0;
+ for (const orphanSlug of Object.keys(tracking)) {
+ if (knownSlugs.has(orphanSlug)) continue;
+ if (SKIP_PREFIX_FUZZY.test(orphanSlug)) continue;
+ const orphanTokens = tokenize(orphanSlug);
+ if (orphanTokens.length < 4) continue;
+ // Candidate jobs share at least one token with the orphan slug
+ const candidateIdx = new Map<number, number>();
+ for (const t of orphanTokens) {
+ const idxSet = jobsByToken.get(t);
+ if (!idxSet) continue;
+ for (const i of idxSet) candidateIdx.set(i, (candidateIdx.get(i) || 0) + 1);
+ }
+ if (candidateIdx.size === 0) continue;
+ // Score only candidates that share ≥3 tokens with the orphan (coarse filter)
+ let best: { job: any; locale: string; score: number; shared: number } | null = null;
+ for (const [idx, shared] of candidateIdx) {
+ if (shared < 3) continue;
+ const cand = validJobs[idx];
+ const sbl = (cand as any).slugByLocale || {};
+ for (const locale of localeList) {
+ const candSlug = sbl[locale] || cand.slug || '';
+ if (!candSlug) continue;
+ const candTokens = new Set(tokenize(candSlug));
+ if (candTokens.size === 0) continue;
+ const inter = orphanTokens.filter(t => candTokens.has(t)).length;
+ const score = inter / Math.max(orphanTokens.length, candTokens.size);
+ if (!best || score > best.score) best = { job: cand, locale, score, shared: inter };
+ }
+ }
+ if (!best || best.score < 0.6 || best.shared < 3) continue;
+ const target = best.job as { previousSlugsByLocale?: Record<string, string[]> };
+ if (!target.previousSlugsByLocale) target.previousSlugsByLocale = {};
+ const arr = target.previousSlugsByLocale[best.locale] || (target.previousSlugsByLocale[best.locale] = []);
+ if (!arr.includes(orphanSlug)) {
+ arr.push(orphanSlug);
+ knownSlugs.add(orphanSlug);
+ fuzzyMatched++;
+ }
+ }
+ if (fuzzyMatched > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs`);
+ }
+
  // Collect IT paths of all previous slugs so we can also exclude their
  // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
  // The tracking file stores one key per locale slug, all pointing to the
@@ -4589,6 +4670,24 @@ ${hreflangLinks}
  }
  return result;
  };
+
+ // Cache soft-landing HTML per (locale, slug) so the cross-locale
+ // reconciliation pass below can reuse it instead of re-rendering.
+ // Only cache slugs that actually need it — jobs from expired-jobs.json
+ // whose slugByLocale has divergent values across locales — otherwise
+ // we'd pin ~18k HTML strings (~550MB) in memory for no benefit.
+ const expiredSoftLandingCache = new Map<string, string>();
+ const expiredCacheKeys = new Set<string>();
+ for (const ej of expiredJobsData) {
+ const sbl = (ej && ej.slugByLocale) as Record<string, string> | undefined;
+ if (!sbl || typeof sbl !== 'object') continue;
+ const distinct = new Set(Object.values(sbl).filter(Boolean));
+ if (distinct.size < 2) continue;
+ for (const loc of localeList) {
+ const s = sbl[loc];
+ if (s) expiredCacheKeys.add(`${loc}:${s}`);
+ }
+ }
 
  for (const slug of expiredSlugs) {
  const paths = tracking[slug];
@@ -4928,6 +5027,10 @@ ${hreflangLinks}
  );
 
  writeSoftLandingPage(relPath.slice(1), softLandingHtml);
+ const cacheKey = `${locale}:${slug}`;
+ if (expiredCacheKeys.has(cacheKey)) {
+ expiredSoftLandingCache.set(cacheKey, softLandingHtml);
+ }
  expiredCount++;
 
  // Legacy slug bridge (Italian slug in non-IT locale path)
@@ -4980,6 +5083,51 @@ ${hreflangLinks}
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ }
+
+ /* ── Cross-locale reconciliation for expired jobs ──────────── */
+ // Mirrors the active-jobs cross-locale block below, but for expired jobs.
+ // When an expired job has distinct `slugByLocale`, generate a soft-landing
+ // bridge at every (baseLocale × foreignSlug) combination so a direct hit on
+ // e.g. `/cerca-lavoro-ticino/<slug-fr>` renders soft-landing content in
+ // Italian instead of a 404. Canonical (inherited from the cached HTML)
+ // already points to the base locale's tracked slug URL.
+ let crossLocaleExpiredCount = 0;
+ for (const ej of expiredJobsData) {
+ const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
+ if (!slugByLocale || typeof slugByLocale !== 'object') continue;
+ for (const baseLocale of localeList) {
+ const baseSlug = slugByLocale[baseLocale];
+ if (!baseSlug) continue;
+ const baseHtml = expiredSoftLandingCache.get(`${baseLocale}:${baseSlug}`);
+ if (!baseHtml) continue;
+ const foreignSlugs = new Set<string>();
+ for (const otherLocale of localeList) {
+ if (otherLocale === baseLocale) continue;
+ const fs2 = slugByLocale[otherLocale];
+ if (fs2 && fs2 !== baseSlug) foreignSlugs.add(fs2);
+ }
+ if (foreignSlugs.size === 0) continue;
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(baseSlug)};</script>`;
+ const bridgeHtml = baseHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
+ for (const foreignSlug of foreignSlugs) {
+ const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
+ // Active job wins if a live page already occupies this path.
+ if (activeJobDirs.has(relPathKey)) continue;
+ const outDir = np.join(distDir, relPath.replace(/^\//, ''));
+ const indexFile = np.join(outDir, 'index.html');
+ // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
+ if (_writtenPaths.has(indexFile)) continue;
+ _md(outDir);
+ fs.writeFileSync(indexFile, bridgeHtml);
+ _writtenPaths.add(indexFile);
+ crossLocaleExpiredCount++;
+ }
+ }
+ }
+ if (crossLocaleExpiredCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleExpiredCount} cross-locale reconciliation pages for expired jobs`);
  }
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
@@ -5052,6 +5200,76 @@ ${hreflangLinks}
  }
  if (bridgeCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages`);
+ }
+
+ /* ── Cross-locale reconciliation bridge pages ──────────────── */
+ // When a job has different slugs per locale (e.g. AI translation landed
+ // the French slug under the Italian base URL before the Italian slug
+ // was generated), a direct hit on `/cerca-lavoro-ticino/<slug-fr>` would
+ // otherwise render nothing until the client-side slug map loads.
+ // Generate a full-content bridge page at every (baseLocale × foreignSlug)
+ // combination where the foreign-locale slug differs from the base-locale
+ // slug. Content is served in the base URL's locale; canonical points to
+ // the base locale's current slug URL. No redirect, no countdown.
+ let crossLocaleCount = 0;
+ for (const job of validJobs) {
+ const slugPerLocale: Record<string, string> = {};
+ for (const locale of localeList) {
+ const s = localizedSlug(job, locale);
+ if (s) slugPerLocale[locale] = s;
+ }
+ // Previous slugs grouped by locale (used to cover cross-locale legacy slugs,
+ // e.g. a German previous slug indexed under the Italian base URL).
+ const pslByLocaleTyped = (job as { previousSlugsByLocale?: Record<string, unknown> }).previousSlugsByLocale;
+ const prevSlugsByLocale: Record<string, string[]> = {};
+ if (pslByLocaleTyped && typeof pslByLocaleTyped === 'object') {
+ for (const [l, arr] of Object.entries(pslByLocaleTyped)) {
+ if (Array.isArray(arr)) prevSlugsByLocale[l] = (arr as unknown[]).filter((s): s is string => typeof s === 'string' && s.length > 0);
+ }
+ }
+ for (const baseLocale of localeList) {
+ const baseSlug = slugPerLocale[baseLocale];
+ if (!baseSlug) continue;
+ const cachedHtml = jobHtmlCache.get(`${baseLocale}:${baseSlug}`);
+ if (!cachedHtml) continue;
+ const foreignSlugs = new Set<string>();
+ for (const otherLocale of localeList) {
+ if (otherLocale === baseLocale) continue;
+ // Other locale's current slug
+ const s = slugPerLocale[otherLocale];
+ if (s && s !== baseSlug) foreignSlugs.add(s);
+ // Other locale's previous slugs (covers legacy renames per locale)
+ for (const ps of prevSlugsByLocale[otherLocale] || []) {
+ if (ps && ps !== baseSlug) foreignSlugs.add(ps);
+ }
+ }
+ if (foreignSlugs.size === 0) continue;
+ // Compute once per (job, baseLocale) — same HTML is written at every foreign slug path.
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(baseSlug)};</script>`;
+ const bridgeHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
+ for (const foreignSlug of foreignSlugs) {
+ const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
+ // Skip if an active job page already occupies this path (another
+ // job's slug happens to collide across locales — active wins).
+ if (activeJobDirs.has(relPathKey)) continue;
+ const outDir = np.join(distDir, relPath.replace(/^\//, ''));
+ const indexFile = np.join(outDir, 'index.html');
+ // Skip if a previousSlugs bridge already covered this path for
+ // this job (same content would be written again).
+ if (_writtenPaths.has(indexFile)) continue;
+ _md(outDir);
+ fs.writeFileSync(indexFile, bridgeHtml);
+ _writtenPaths.add(indexFile);
+ // Note: skip the flat `.html` variant — GH Pages serves
+ // /dir/index.html for direct URL hits and the flat variant
+ // would double disk usage for ~27k bridge pages.
+ crossLocaleCount++;
+ }
+ }
+ }
+ if (crossLocaleCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleCount} cross-locale reconciliation pages`);
  }
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
