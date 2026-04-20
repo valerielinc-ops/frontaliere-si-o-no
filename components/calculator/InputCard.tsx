@@ -512,7 +512,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  key={s}
  type="button"
  onClick={() => handleChange('annualIncomeCHF', s)}
- className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+ aria-label={`Stipendio annuo ${(s / 1000).toLocaleString('it-IT')} mila CHF`}
+ aria-pressed={inputs.annualIncomeCHF === s}
+ className={`shrink-0 min-h-[44px] px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
  inputs.annualIncomeCHF === s
  ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
@@ -684,7 +686,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  key={s}
  type="button"
  onClick={() => handleChange('annualIncomeCHF', s)}
- className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+ aria-label={`Stipendio annuo ${(s / 1000).toLocaleString('it-IT')} mila CHF`}
+ aria-pressed={inputs.annualIncomeCHF === s}
+ className={`shrink-0 min-h-[44px] px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
  inputs.annualIncomeCHF === s
  ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
@@ -1034,7 +1038,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  aria-label={t('input.ssnHealthTax') || 'Contributo SSN sanitario'}
  role="switch"
  aria-checked={inputs.enableOldFrontierHealthTax}
- className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner after:absolute after:-inset-[9px] after:content-[''] ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-warning-strong to-warning-strong' : 'bg-surface-raised'}`}
+ className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner after:absolute after:-inset-[9px] after:content-[''] ${inputs.enableOldFrontierHealthTax ? 'bg-warning-strong' : 'bg-surface-raised'}`}
  >
  <span className={`block w-5 h-5 bg-surface rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
  {inputs.enableOldFrontierHealthTax && (

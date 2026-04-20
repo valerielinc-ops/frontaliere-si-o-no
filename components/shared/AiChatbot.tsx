@@ -678,18 +678,18 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  {!isOpen && !popupBlocked && (
  <button
  onClick={handleToggle}
- className={`fixed right-4 z-[53] w-14 h-14 rounded-full bg-accent hover:bg-accent-hover text-on-accent shadow-lg hover:shadow-xl transition-[color,background-color,border-color,box-shadow,transform] flex items-center justify-center group ${hasBottomOverlay ? 'bottom-52 md:bottom-6' : 'bottom-[7rem] md:bottom-6'}`}
+ className={`fixed right-3 md:right-4 z-[53] w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent hover:bg-accent-hover text-on-accent shadow-lg hover:shadow-xl transition-[color,background-color,border-color,box-shadow,transform] flex items-center justify-center group ${hasBottomOverlay ? 'bottom-48 md:bottom-6' : 'bottom-[4.5rem] md:bottom-6'}`}
  style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
  aria-label={t('chatbot.openLabel')}
  >
- <MessageCircle size={24} className="group-hover:scale-110 transition-transform" />
+ <MessageCircle size={20} className="md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
  <span className="absolute -top-1 -right-1 w-3 h-3 bg-success rounded-full" />
  </button>
  )}
 
  {/* Chat panel */}
  {isOpen && queueActive && (
- <div className={`fixed right-4 z-[53] w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-56 md:bottom-4' : 'bottom-[7.5rem] md:bottom-4'}`}>
+ <div className={`fixed right-3 md:right-4 z-[53] w-[360px] max-w-[calc(100vw-1.5rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-52 md:bottom-4' : 'bottom-[5rem] md:bottom-4'}`}>
  {/* Header */}
  <div className="flex items-center justify-between px-4 py-3 bg-accent-strong text-on-accent rounded-t-2xl shrink-0">
  <div className="flex items-center gap-2">

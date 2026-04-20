@@ -318,7 +318,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {inputs.frontierWorkerType === 'NEW' && (
  <div className="absolute top-1.5 right-1.5 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
  )}
- <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>
+ <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>
  {t('input.newFrontier')}
  </span>
  <span className="text-sm text-muted font-medium">{t('input.postDate')}</span>
@@ -334,7 +334,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {inputs.frontierWorkerType === 'OLD' && (
  <div className="absolute top-1.5 right-1.5 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
  )}
- <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>
+ <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>
  {t('input.oldFrontier')}
  </span>
  <span className="text-sm text-muted font-medium">{t('input.preDate')}</span>
@@ -350,13 +350,13 @@ const MobileCalcLayout: React.FC<Props> = ({
  <button
  key={opt.value}
  onClick={() => handleChange('distanceZone', opt.value)}
- className={`flex-1 flex items-center justify-center gap-1 text-xs font-bold py-2 rounded-lg transition-[color,background-color,box-shadow] ${
+ className={`flex-1 flex items-center justify-center gap-1.5 text-sm font-bold min-h-[44px] py-2 rounded-lg transition-[color,background-color,box-shadow] ${
  inputs.distanceZone === opt.value
  ? 'text-accent bg-surface shadow-sm'
  : 'text-subtle'
  }`}
  >
- <Ruler size={10} />
+ <Ruler size={14} />
  {opt.label}
  </button>
  ))}
@@ -454,21 +454,21 @@ const MobileCalcLayout: React.FC<Props> = ({
  <div className="flex gap-2 mt-3">
  <button
  onClick={toggleFullResults}
- className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-[color,background-color,transform] active:scale-95 ${
+ className={`flex-1 min-h-[44px] py-3 rounded-xl text-sm font-bold transition-[color,background-color,transform] active:scale-95 ${
  isBetterIT
  ? 'bg-success-strong hover:bg-success-strong-hover text-on-accent shadow-lg shadow-success-strong/20'
  : 'bg-accent hover:bg-accent-hover text-on-accent shadow-lg shadow-accent/20'
  }`}
  >
- {showFullResults ? <ChevronUp size={14} className="inline mr-1" /> : <ArrowDown size={14} className="inline mr-1" />}
+ {showFullResults ? <ChevronUp size={16} className="inline mr-1.5" /> : <ArrowDown size={16} className="inline mr-1.5" />}
  {t('mobileCalc.viewFullAnalysis')}
  </button>
  <button
  onClick={openSheet}
- className="px-4 py-2.5 rounded-xl text-xs font-bold bg-surface-raised text-subtle border border-edge hover:bg-surface-raised transition-[color,background-color,transform] active:scale-95"
+ className="min-w-[44px] min-h-[44px] px-4 py-3 rounded-xl text-sm font-bold bg-surface-raised text-subtle border border-edge hover:bg-surface-raised transition-[color,background-color,transform] active:scale-95 flex items-center justify-center"
  aria-label={t('mobileCalc.customize')}
  >
- <Settings2 size={16} />
+ <Settings2 size={18} />
  </button>
  </div>
  </div>
