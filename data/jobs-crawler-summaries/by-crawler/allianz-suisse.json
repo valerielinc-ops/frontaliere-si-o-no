@@ -1,21 +1,19 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-19T20:43:57.560Z",
+  "generatedAt": "2026-04-20T09:57:22.885Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 14324,
-  "avgDurationMs": 14324,
+  "unchangedCount": 0,
+  "durationMs": 13185,
+  "avgDurationMs": 13185,
   "durationHistory": [
-    14324
+    13185
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -34,7 +32,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -71,7 +69,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -108,7 +106,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -145,7 +143,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -182,7 +180,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -219,7 +217,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -256,7 +254,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-19",
+      "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -275,5 +273,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
