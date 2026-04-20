@@ -322,9 +322,9 @@ const ShoppingCalculator: React.FC = () => {
  </div>
  {isSelected && (
  <div className="mt-3 flex items-center justify-center gap-3 border-t border-edge pt-3" onClick={e => e.stopPropagation()}>
- <button onClick={() => updateQuantity(product.id, qty - 1)} className="w-8 h-8 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-danger-subtle text-heading" aria-label="Decrease quantity">-</button>
+ <button onClick={() => updateQuantity(product.id, qty - 1)} className="w-11 h-11 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-danger-subtle text-heading" aria-label="Decrease quantity">-</button>
  <span className="text-lg font-bold w-8 text-center text-heading">{qty}</span>
- <button onClick={() => updateQuantity(product.id, qty + 1)} className="w-8 h-8 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-success-subtle text-heading" aria-label="Increase quantity">+</button>
+ <button onClick={() => updateQuantity(product.id, qty + 1)} className="w-11 h-11 rounded-full bg-surface-raised font-bold text-lg flex items-center justify-center hover:bg-success-subtle text-heading" aria-label="Increase quantity">+</button>
  </div>
  )}
  </div>
