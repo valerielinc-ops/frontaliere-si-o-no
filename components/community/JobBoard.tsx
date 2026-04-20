@@ -4141,7 +4141,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleEmailAccess = async () => {
  const email = emailInput.trim();
- if (!email || !validateEmailStrict(email).valid) return;
+ if (!email || !validateEmailStrict(email).valid) { setAuthError(t('newsletter.invalidEmail')); return; }
  setAuthBusy('email');
  setAuthError(null);
  const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : {};
@@ -4176,7 +4176,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  /** Inline email access from the gated detail page (no modal) */
  const handleInlineEmailAccess = async (job: JobListing) => {
  const email = emailInput.trim();
- if (!email || !validateEmailStrict(email).valid) return;
+ if (!email || !validateEmailStrict(email).valid) { setAuthError(t('newsletter.invalidEmail')); return; }
  setAuthBusy('email');
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
