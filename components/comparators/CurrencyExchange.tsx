@@ -16,27 +16,31 @@ function appendUtm(url: string, providerName: string): string {
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = lazyRetry(() =>
- import('recharts').then(({ AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer }) => ({
+ Promise.all([
+ import('recharts'),
+ import('@/hooks/useChartColors'),
+ ]).then(([{ AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer }, { useChartColors, CHART_DATA_COLORS }]) => ({
  default: ({ data }: { data: Array<{ date: string; rate: number }> }) => {
- const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+ const isDark = document.documentElement.classList.contains('dark');
+ const chart = useChartColors(isDark);
  return (
  <ResponsiveContainer width="100%" height={280}>
  <AreaChart data={data}>
  <defs>
  <linearGradient id="colorRate" x1="0" y1="0" x2="0" y2="1">
- <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
- <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+ <stop offset="5%" stopColor={CHART_DATA_COLORS.indigo} stopOpacity={0.3} />
+ <stop offset="95%" stopColor={CHART_DATA_COLORS.indigo} stopOpacity={0} />
  </linearGradient>
  </defs>
- <CartesianGrid strokeDasharray="3 3" opacity={0.3} stroke={isDark ? '#334155' : '#e2e8f0'} />
- <XAxis dataKey="date" tick={{ fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v) => { const d = new Date(v); return `${d.getDate()}/${d.getMonth()+1}`; }} interval="preserveStartEnd" />
- <YAxis domain={['auto', 'auto']} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(3)} />
+ <CartesianGrid strokeDasharray="3 3" opacity={0.3} stroke={chart.grid} />
+ <XAxis dataKey="date" tick={{ fontSize: 10, fill: chart.tick }} tickFormatter={(v) => { const d = new Date(v); return `${d.getDate()}/${d.getMonth()+1}`; }} interval="preserveStartEnd" />
+ <YAxis domain={['auto', 'auto']} tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: number) => v.toFixed(3)} />
  <Tooltip
  formatter={(value: number) => [`${value.toFixed(4)} EUR`, '1 CHF']}
  labelFormatter={(label) => new Date(label).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}
- contentStyle={{ backgroundColor: isDark ? '#1e293b' : '#ffffff', border: `1px solid ${isDark ? '#334155' : '#e2e8f0'}`, color: isDark ? '#e2e8f0' : '#1e293b' }}
+ contentStyle={chart.tooltipStyle}
  />
- <Area type="monotone" dataKey="rate" stroke="#6366f1" fill="url(#colorRate)" strokeWidth={2} dot={false} />
+ <Area type="monotone" dataKey="rate" stroke={CHART_DATA_COLORS.indigo} fill="url(#colorRate)" strokeWidth={2} dot={false} />
  </AreaChart>
  </ResponsiveContainer>
  );

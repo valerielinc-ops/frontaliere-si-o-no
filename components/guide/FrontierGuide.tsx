@@ -116,6 +116,8 @@ function getAgreementType(distanceKm: number): 'new' | 'old' | 'both' {
 
 
 // Custom marker icons per tipo (must be inside LazyLeafletMap)
+const TRAFFIC_COLORS = { high: '#ef4444', medium: '#f59e0b', low: '#10b981' } as const;
+
 const createCustomIcon = (L: any, type: 'new' | 'old' | 'both') => {
  const colors = {
  new: '#533afd', // stripe-600
@@ -1078,7 +1080,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  return true;
  })
  .map((border, idx) => {
- const trafficColor = border.traffic === 'high' ? '#ef4444' : border.traffic === 'medium' ? '#f59e0b' : '#10b981';
+ const trafficColor = border.traffic === 'high' ? TRAFFIC_COLORS.high : border.traffic === 'medium' ? TRAFFIC_COLORS.medium : TRAFFIC_COLORS.low;
  const customIcon = L.divIcon({
  className: 'custom-border-marker',
  html: `<div style="background-color: ${trafficColor}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
