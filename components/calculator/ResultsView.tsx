@@ -435,12 +435,14 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  doc.setFont('helvetica', 'normal');
  doc.text(`${t('results.pdf.estimatedDifference')}: CHF ${formatCurrency(savingsCHF)} / ${t('results.pdf.year')}`, 14, finalY + 6);
 
- // Specific Notes Block
- let noteY = finalY + 20;
+ // Specific Notes Block — add new page if content would overflow A4 (297mm)
+ const PAGE_H = 280; // safe bottom margin (297mm page - 17mm padding)
+ const notesStartY = finalY + 45 > PAGE_H ? (doc.addPage(), 20) : finalY + 20;
+ let noteY = notesStartY;
  doc.setFontSize(9);
  doc.setFont('helvetica', 'bold');
  doc.text(`${t('results.pdf.taxDetails')}:`, 14, noteY);
- 
+
  doc.setFont('helvetica', 'normal');
  noteY += 6;
  const notes = [
@@ -448,16 +450,19 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  `${t('results.pdf.italyRegime')}: ${t(itResident.details.regime)}`,
  ...itResident.details.notes.map(n => t(n.split('|')[0]))
  ];
- 
+
  notes.forEach(note => {
+ if (noteY < PAGE_H - 15) {
  doc.text(`• ${note}`, 14, noteY);
  noteY += 5;
+ }
  });
 
- // Legal Disclaimer
+ // Legal Disclaimer — always at a safe distance below last note
+ const disclaimerY = Math.min(Math.max(noteY + 8, 270), PAGE_H);
  doc.setFontSize(8);
  doc.setTextColor(148, 163, 184);
- doc.text(t('results.pdf.disclaimer'), 105, 285, { align: 'center' });
+ doc.text(t('results.pdf.disclaimer'), 105, disclaimerY, { align: 'center' });
 
  doc.save(t('results.pdf.filename'));
  } catch (error) {

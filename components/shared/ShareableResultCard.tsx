@@ -119,7 +119,7 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number)
  return lines;
 }
 
-/** Draw the card onto a canvas and return a data URL */
+/** Draw the card onto a canvas and return the data URL plus actual pixel dimensions */
 function drawCardToCanvas(
  title: string,
  subtitle: string | undefined,
@@ -127,7 +127,7 @@ function drawCardToCanvas(
  footerText: string,
  accent: string,
  isDark: boolean = false,
-): string {
+): { dataUrl: string; width: number; height: number } {
  const scale = 2;
  const W = 600; // logical width
  const PAD = 24;
@@ -246,7 +246,7 @@ function drawCardToCanvas(
 
  ctx.restore(); // remove clip
 
- return canvas.toDataURL('image/png');
+ return { dataUrl: canvas.toDataURL('image/png'), width: W, height: totalH };
 }
 
 // ─── Component ──────────────────────────────────────────────────────────
@@ -263,6 +263,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  const cardRef = useRef<HTMLDivElement>(null);
  const [isGenerating, setIsGenerating] = useState(false);
  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+ const [cardDimensions, setCardDimensions] = useState<{ width: number; height: number } | null>(null);
  const [copied, setCopied] = useState(false);
  const [showCard, setShowCard] = useState(false);
 
@@ -275,8 +276,9 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  try {
  const footerText = footer || t('shareCard.generatedBy');
  const isDark = document.documentElement.classList.contains('dark');
- const dataUrl = drawCardToCanvas(title, subtitle, rows, footerText, accent, isDark);
+ const { dataUrl, width, height } = drawCardToCanvas(title, subtitle, rows, footerText, accent, isDark);
  setGeneratedImage(dataUrl);
+ setCardDimensions({ width, height });
 
  // Immediate download
  const link = document.createElement('a');
@@ -391,7 +393,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  {/* Close button */}
  <div className="flex justify-end">
  <button
- onClick={() => { setShowCard(false); setGeneratedImage(null); }}
+ onClick={() => { setShowCard(false); setGeneratedImage(null); setCardDimensions(null); }}
  className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg"
  aria-label={t('shareCard.close')}
  >
@@ -478,9 +480,9 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  <img
  src={generatedImage}
  alt={t('shareCard.previewAlt')}
- className="w-full"
- width={600}
- height={400}
+ className="w-full h-auto"
+ width={cardDimensions?.width ?? 600}
+ height={cardDimensions?.height ?? 448}
  />
  </div>
  )}
