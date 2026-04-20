@@ -2421,6 +2421,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costi-cure-domocilio-ticino-2026.title': 'Soins à domicile : les factures continuent d\'arriver au Tessin',
     'blog.article.costi-cure-domocilio-ticino-2026.excerpt': 'Le Parlement tessinois a rejeté la demande d\'urgence pour abolir la participation aux coûts des soins à domicile. La mesure reste en vigueur.',
     'blog.article.costi-cure-domocilio-ticino-2026.imageAlt': 'Patient recevant des soins à domicile au Tessin avec infirmière et facture',
+    'blog.article.salario-minimo-ticino-2027-2029.title': 'Salaire minimum en Tessin : voici comment il change à partir de 2027',
+    'blog.article.salario-minimo-ticino-2027-2029.excerpt': 'Le Grand Conseil a approuvé le compromis sur le salaire minimum : de 20,50 à 21,75-22,25 francs de l\'heure d\'ici 2029',
+    'blog.article.salario-minimo-ticino-2027-2029.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

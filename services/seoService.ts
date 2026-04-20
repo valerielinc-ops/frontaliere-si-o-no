@@ -2085,6 +2085,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-just-eat-migros-ticino-consegna-2026': { name: 'Novità', path: '/articoli-frontaliere/just-eat-migros-ticino-consegna-2026', parent: 'blog' },
     'blog-capre-dogana-gandria-intervento-30-marzo': { name: 'Notizie', path: '/articoli-frontaliere/capre-dogana-gandria-intervento-30-marzo', parent: 'blog' },
     'blog-costi-cure-domocilio-ticino-2026': { name: 'Cure a domicilio', path: '/articoli-frontaliere/costi-cure-domocilio-ticino-2026', parent: 'blog' },
+    'blog-salario-minimo-ticino-2027-2029': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-2027-2029', parent: 'blog' },
  };
 
  const info = sectionNames[section];

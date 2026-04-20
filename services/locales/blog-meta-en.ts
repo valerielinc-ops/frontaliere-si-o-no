@@ -2421,6 +2421,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costi-cure-domocilio-ticino-2026.title': 'Home care: bills keep coming in Ticino',
     'blog.article.costi-cure-domocilio-ticino-2026.excerpt': 'The Ticino Parliament has rejected the urgency request to abolish the cost-sharing for home care. The measure remains in force.',
     'blog.article.costi-cure-domocilio-ticino-2026.imageAlt': 'Patient receiving home care in Ticino with nurse and bill',
+    'blog.article.salario-minimo-ticino-2027-2029.title': 'Minimum wage in Ticino: here\'s how it changes from 2027',
+    'blog.article.salario-minimo-ticino-2027-2029.excerpt': 'The Grand Council has approved the compromise on the minimum wage: from 20.50 to 21.75-22.25 francs per hour by 2029',
+    'blog.article.salario-minimo-ticino-2027-2029.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

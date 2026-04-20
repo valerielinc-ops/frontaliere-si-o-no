@@ -2421,6 +2421,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-cure-domocilio-ticino-2026.title': 'Cure a domicilio: le fatture continuano ad arrivare in Ticino',
     'blog.article.costi-cure-domocilio-ticino-2026.excerpt': 'Il Parlamento ticinese ha bocciato la richiesta di urgenza per abolire la partecipazione ai costi delle cure a domicilio. La misura rimane in vigore.',
     'blog.article.costi-cure-domocilio-ticino-2026.imageAlt': 'Paziente in cure domiciliari in Ticino con infermiera e fattura',
+    'blog.article.salario-minimo-ticino-2027-2029.title': 'Salario minimo in Ticino: ecco come cambia dal 2027',
+    'blog.article.salario-minimo-ticino-2027-2029.excerpt': 'Il Gran Consiglio ha approvato il compromesso sul salario minimo: da 20,50 a 21,75-22,25 franchi l\'ora entro il 2029',
+    'blog.article.salario-minimo-ticino-2027-2029.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

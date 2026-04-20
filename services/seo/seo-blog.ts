@@ -10295,6 +10295,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-ticino-2027-2029': {
+    title: 'Salario minimo in Ticino: ecco come | Frontaliere Ticino',
+    description: 'Il Gran Consiglio ha approvato il compromesso sul salario minimo in Ticino: da 20,50 a 21,75-22,25 franchi l\'ora entro il 2029. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, ecco, cambia',
+    ogTitle: 'Salario minimo Ticino 2027-2029 | Frontaliere Ticino',
+    ogDescription: 'Il Gran Consiglio ha approvato il compromesso sul salario minimo in Ticino: da 20,50 a 21,75-22,25 franchi l\'ora entro il 2029',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-2027-2029',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo Ticino 2027-2029 | Frontaliere Ticino",
+      "description": "Il Gran Consiglio ha approvato il compromesso sul salario minimo in Ticino: da 20,50 a 21,75-22,25 franchi l'ora entro il 2029. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-2027-2029.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-04-20T21:30:21+00:00",
+      "dateModified": "2026-04-20T21:30:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-2027-2029`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

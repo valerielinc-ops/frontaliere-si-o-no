@@ -6634,4 +6634,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/costi-cure-domocilio-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'salario-minimo-ticino-2027-2029',
+ category: 'pratico',
+ date: '2026-04-20T21:30:21.419Z',
+ image: '/images/blog/salario-minimo-ticino-2027-2029.jpg',
+ hasCalculator: true,
+ },
 ];
