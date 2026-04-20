@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-04-20T10:40:36.370Z",
-  "total": 4,
+  "generatedAt": "2026-04-20T21:37:12.661Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 6130,
-  "avgDurationMs": 6130,
+  "durationMs": 3588,
+  "avgDurationMs": 3588,
   "durationHistory": [
-    6130
+    3588
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.097Z",
+      "crawledAt": "2026-04-20T21:37:10.897Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.098Z",
+      "crawledAt": "2026-04-20T21:37:10.898Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -98,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.096Z",
+      "crawledAt": "2026-04-20T21:37:10.896Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -121,10 +121,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "giardino-4327345f9e50",
-      "slug": "chef-de-partie-giardino-group-minusio",
+      "slug": "capopartita-giardino-group-minusio",
       "company": "Giardino Group",
       "companyKey": "giardino",
       "companyDomain": "giardinohotels.ch",
@@ -150,15 +152,16 @@
       "postedDate": "2026-02-06",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
       "firstSeenAt": "2026-04-13T10:36:24.234Z",
-      "_qualityScore": 92,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

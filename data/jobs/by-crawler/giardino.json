@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-04-20T10:40:36.369Z",
+  "assembledAt": "2026-04-20T21:37:12.661Z",
   "jobs": [
     {
       "id": "giardino-e7f4937bce90",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.098Z",
+      "crawledAt": "2026-04-20T21:37:10.898Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T21:43:42.933Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -71,120 +72,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "giardino-4327345f9e50",
-      "slug": "capopartita-giardino-group-minusio",
-      "slugByLocale": {
-        "it": "capopartita-giardino-group-minusio",
-        "en": "head-of-party-giardino-group-minusio",
-        "de": "chef-de-partie-giardino-group-minusio",
-        "fr": "chef-de-partie-giardino-group-minusio"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Chef de Partie",
-      "titleByLocale": {
-        "it": "Capopartita",
-        "en": "Head of Party",
-        "de": "Chef de Partie",
-        "fr": "Chef de Partie"
-      },
-      "description": "Giardino Group sucht für das Giardino Lago in Minusio eine/n Chef de Partie. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du für den reibungslosen Betriebsablauf in deinem Arbeitsbereich verantwortlich. Dazu gehören das Bestellwesen, sowie die Kontrolle bezüglich Qualität, Hygiene und Sicherheit. Du arbeitest in einem leistungsstarken und dynamischen Team und kochst auf einem hohen gastronomischen Niveau.\n\n## Anforderungen\n- Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie\n- Erfahrung in einer vergleichbaren Position\n- Detailbewusstsein, Kreativität und Zuverlässigkeit\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-      "descriptionByLocale": {
-        "it": "Giardino Group cerca per il Giardino Lago a Minusio un/a Chef de Partie. I Giardino Hotels sono un gruppo alberghiero di lusso svizzero con carattere, con sedi a St. Moritz, Ascona e Locarno. ## Compiti In questa funzione sarai responsabile del regolare svolgimento delle operazioni nel tuo ambito di lavoro. Questo include la gestione degli ordini, così come il controllo della qualità, dell'igiene e della sicurezza. Lavorerai in un team dinamico e performante e cucinerai a un alto livello gastronomico. ## Requisiti - Una formazione professionale completata come cuoco nella gastronomia/hotellerie - Esperienza in una posizione simile - Attenzione ai dettagli, creatività e affidabilità - Resistenza, flessibilità ed entusiasmo - Sei un giocatore di squadra anche in situazioni frenetiche e non perdi la visione d'insieme - Un trattamento rispettoso con colleghi e superiori ## Benefici - Un posto di lavoro innovativo e ben organizzato - La possibilità di partecipare attivamente all'apertura, alla gestione quotidiana e allo sviluppo aziendale - Una comunicazione aperta e trasparente - Formazioni e aggiornamenti regolari, così come numerosi vantaggi per i dipendenti - Far parte di un gruppo alberghiero svizzero moderno e con carattere",
-        "en": "Giardino Group is looking for a Chef de Partie for Giardino Lago in Minusio. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona, and Locarno. ## Responsibilities In this role, you will be responsible for the smooth operation of your area of work. This includes order management as well as quality, hygiene, and safety control. You will work in a dynamic and high-performing team and cook at a high gastronomic level. ## Requirements - Completed professional training as a chef in gastronomy/hospitality - Experience in a comparable position - Attention to detail, creativity, and reliability - Resilience, flexibility, and enthusiasm - You are a team player even in hectic situations and do not lose your overview - A respectful approach to colleagues and superiors ## Benefits - An innovative and well-organized workplace - The opportunity to actively participate in the opening, daily operations, and company development - Open and transparent communication - Regular training and further education as well as numerous employee benefits - Being part of a modern and characterful Swiss hotel group",
-        "de": "Giardino Group sucht für das Giardino Lago in Minusio eine/n Chef de Partie. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno. ## Aufgaben In dieser Funktion bist du für den reibungslosen Betriebsablauf in deinem Arbeitsbereich verantwortlich. Dazu gehören das Bestellwesen, sowie die Kontrolle bezüglich Qualität, Hygiene und Sicherheit. Du arbeitest in einem leistungsstarken und dynamischen Team und kochst auf einem hohen gastronomischen Niveau. ## Anforderungen - Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie - Erfahrung in einer vergleichbaren Position - Detailbewusstsein, Kreativität und Zuverlässigkeit - Belastbarkeit, Flexibilität und Begeisterungsfähigkeit - Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht - Einen respektvollen Umgang mit Kollegen und Vorgesetzten ## Benefits - Einen innovativen und gut organisierten Arbeitsplatz - Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen - Eine offene und transparente Kommunikation - Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits - Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-        "fr": "Giardino Group recherche un/e Chef de Partie pour le Giardino Lago à Minusio. Les hôtels Giardino sont un groupe hôtelier de luxe suisse au caractère unique, avec des établissements à St. Moritz, Ascona et Locarno. ## Missions Dans ce rôle, vous serez responsable du bon déroulement des opérations dans votre domaine de travail. Cela inclut la gestion des commandes ainsi que le contrôle de la qualité, de l'hygiène et de la sécurité. Vous travaillerez au sein d'une équipe dynamique et performante et cuisinerez à un niveau gastronomique élevé. ## Exigences - Une formation professionnelle achevée en tant que cuisinier dans la gastronomie/hôtellerie - Expérience dans un poste similaire - Sens du détail, créativité et fiabilité - Résistance, flexibilité et enthousiasme - Vous êtes un joueur d'équipe même dans des situations stressantes et ne perdez pas de vue l'ensemble - Un comportement respectueux envers les collègues et les supérieurs ## Avantages - Un lieu de travail innovant et bien organisé - La possibilité de participer activement à l'ouverture, à la gestion quotidienne et au développement de l'entreprise - Une communication ouverte et transparente - Formations régulières et perfectionnements ainsi que de nombreux avantages pour les employés - Faire partie d'un groupe hôtelier suisse moderne et de caractère"
-      },
-      "location": "Minusio",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.098Z",
-      "addressLocality": "Minusio",
-      "postalCode": "6648",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Cucina / Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-06",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
-      "requirements": [
-        "Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie",
-        "Erfahrung in einer vergleichbaren Position",
-        "Detailbewusstsein, Kreativität und Zuverlässigkeit",
-        "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-        "Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht",
-        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Una formazione professionale completata come cuoco nella gastronomia/hotellerie",
-          "Esperienza in una posizione simile",
-          "Attenzione ai dettagli, creatività e affidabilità",
-          "Resistenza, flessibilità ed entusiasmo",
-          "Sei un giocatore di squadra anche in situazioni frenetiche e non perdi la visione d'insieme",
-          "Un trattamento rispettoso con colleghi e superiori"
-        ],
-        "en": [
-          "Completed professional training as a chef in gastronomy/hospitality",
-          "Experience in a comparable position",
-          "Attention to detail, creativity, and reliability",
-          "Resilience, flexibility, and enthusiasm",
-          "You are a team player even in hectic situations and do not lose your overview",
-          "A respectful approach to colleagues and superiors"
-        ],
-        "de": [
-          "Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie",
-          "Erfahrung in einer vergleichbaren Position",
-          "Detailbewusstsein, Kreativität und Zuverlässigkeit",
-          "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-          "Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht",
-          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-        ],
-        "fr": [
-          "Une formation professionnelle achevée en tant que cuisinier dans la gastronomie/hôtellerie",
-          "Expérience dans un poste similaire",
-          "Sens du détail, créativité et fiabilité",
-          "Résistance, flexibilité et enthousiasme",
-          "Vous êtes un joueur d'équipe même dans des situations stressantes et ne perdez pas de vue l'ensemble",
-          "Un comportement respectueux envers les collègues et les supérieurs"
-        ]
-      },
-      "previousSlugs": [
-        "chef-de-partie-giardino-group-minusio",
-        "partiekoch-giardino-group-minusio"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-partie-giardino-group-minusio"
-        ],
-        "de": [
-          "partiekoch-giardino-group-minusio"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:36:24.234Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -220,7 +107,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.097Z",
+      "crawledAt": "2026-04-20T21:37:10.897Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -261,6 +148,7 @@
         ]
       },
       "firstSeenAt": "2026-04-18T21:25:17.654Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -305,7 +193,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.096Z",
+      "crawledAt": "2026-04-20T21:37:10.896Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -361,6 +249,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:36:24.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
