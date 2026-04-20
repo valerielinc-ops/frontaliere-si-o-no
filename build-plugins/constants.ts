@@ -183,7 +183,7 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * Firebase now always fires page_view, accepting a minor duplicate for
  * non-blocked users in exchange for correct landing page in all sessions.
  */
-export const GTAG_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
+export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'})</script>`;
 
 /**

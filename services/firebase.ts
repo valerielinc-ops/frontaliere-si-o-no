@@ -323,6 +323,7 @@ async function loadRecaptchaScript(siteKey: string): Promise<void> {
  script.src = `https://www.google.com/recaptcha/${apiPath}?render=${siteKey}`;
  script.async = true;
  script.defer = true;
+ script.crossOrigin = 'anonymous';
  
  script.onload = () => {
  recaptchaScriptLoaded = true;

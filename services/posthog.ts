@@ -32,6 +32,27 @@ async function ensurePostHog(): Promise<any> {
  capture_pageview: false, // We handle page_view manually via analytics.ts
  capture_pageleave: true,
  autocapture: false, // Explicit events only, reduces noise
+ // Filter benign noise from exception tracking so real errors stay visible.
+ before_send: (event) => {
+ if (!event || event.event !== '$exception') return event;
+ const props = event.properties || {};
+ const msgs: string[] = [];
+ const rawValues = props.$exception_values || props.$exception_list;
+ if (Array.isArray(rawValues)) {
+ for (const v of rawValues) {
+ if (typeof v === 'string') msgs.push(v);
+ else if (v && typeof v === 'object' && typeof v.value === 'string') msgs.push(v.value);
+ }
+ }
+ const blob = msgs.join(' | ');
+ if (!blob) return event;
+ // Benign browser noise — drop.
+ if (/ResizeObserver loop/i.test(blob)) return null;
+ if (/Non-Error promise rejection captured with value: undefined/i.test(blob)) return null;
+ // Cross-origin scripts with no stack info — useless to track.
+ if (/^Script error\.?$/i.test(blob.trim())) return null;
+ return event;
+ },
  // Performance
  loaded: (ph) => { _posthog = ph; },
  });

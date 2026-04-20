@@ -53,6 +53,7 @@ export async function initClarity(): Promise<void> {
  c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
  const t = l.createElement(r) as HTMLScriptElement;
  t.async = true;
+ t.crossOrigin = 'anonymous';
  t.src = 'https://www.clarity.ms/tag/' + i;
  const s = l.getElementsByTagName(r)[0];
  s.parentNode?.insertBefore(t, s);

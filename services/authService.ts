@@ -1283,6 +1283,7 @@ async function loadGISScript(): Promise<void> {
  script.src = 'https://accounts.google.com/gsi/client';
  script.async = true;
  script.defer = true;
+ script.crossOrigin = 'anonymous';
  script.onload = () => resolve();
  script.onerror = () => reject(new Error('Failed to load Google Identity Services'));
  document.head.appendChild(script);
