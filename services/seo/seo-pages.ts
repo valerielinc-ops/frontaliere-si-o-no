@@ -155,7 +155,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Imposta alla fonte — Glossario Frontalieri',
  ogDescription: 'Cos\'è l\'imposta alla fonte in Ticino e perché conta per lo stipendio netto dei frontalieri.',
  canonicalPath: '/glossario-frontaliere/imposta-alla-fonte',
- structuredData: {
+ structuredData: [
+ {
  '@context': 'https://schema.org',
  '@type': 'DefinedTerm',
  name: 'Imposta alla fonte',
@@ -163,6 +164,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  url: `${BASE_URL}/glossario-frontaliere/imposta-alla-fonte`,
  inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` },
  },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Come funziona l'imposta alla fonte per i frontalieri in Ticino?", acceptedAnswer: { '@type': 'Answer', text: "L'imposta alla fonte (Quellensteuer) è trattenuta direttamente dal datore di lavoro svizzero sulla busta paga del frontaliere secondo la tabella tariffaria del Canton Ticino. Le aliquote dipendono da stato civile, figli e confessione religiosa (tabelle A, B, C, H). Per i nuovi frontalieri, il nuovo accordo 2026 prevede una ritenuta ridotta all'80% della tariffa normale, compensata in Italia tramite credito d'imposta IRPEF." } },
+ { '@type': 'Question', name: "Quali sono le tabelle A, B, C e H dell'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Le tabelle classificano il lavoratore: A per single senza figli, B per coniugato con unico reddito in famiglia, C per coniugato con entrambi i redditi, H per famiglie monoparentali con figli a carico. La tabella determina le aliquote progressive: ad esempio un single con reddito CHF 80.000 paga circa 10-11% di imposta alla fonte, mentre un coniugato tabella C con stesso reddito paga circa il 7-8% grazie alle deduzioni familiari." } },
+ { '@type': 'Question', name: "Posso richiedere la rettifica dell'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Sì: entro il 31 marzo dell'anno successivo, il frontaliere può presentare al Cantone la domanda di Tassazione Ordinaria Ulteriore (TOU, ex TDR) per ottenere il rimborso delle deduzioni non considerate nella ritenuta: contributi pillar 3a, spese di trasporto, spese mediche, oneri familiari straordinari, donazioni. Il rimborso medio si aggira tra CHF 500 e CHF 3.000 l'anno e viene accreditato direttamente sul conto bancario." } },
+ { '@type': 'Question', name: "L'imposta alla fonte sostituisce l'IRPEF italiana?", acceptedAnswer: { '@type': 'Answer', text: "Dipende dal regime. Per i vecchi frontalieri (assunti prima del 17/07/2023, residenza entro 20 km) l'imposta alla fonte svizzera è l'unica tassazione sul reddito svizzero, senza IRPEF italiana. Per i nuovi frontalieri vige la tassazione concorrente: si paga prima l'imposta alla fonte (ridotta all'80%) in Svizzera, poi si dichiara il reddito in Italia con IRPEF, franchigia €10.000 e credito d'imposta per l'imposta già versata in CH." } },
+ ],
+ },
+ ],
  },
 
  'glossario-irpef': {
@@ -172,7 +184,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'IRPEF — Glossario Frontalieri',
  ogDescription: 'Cos\'è l\'IRPEF e come si applica ai frontalieri con il nuovo accordo.',
  canonicalPath: '/glossario-frontaliere/irpef',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'IRPEF', description: 'IRPEF: imposta sul reddito delle persone fisiche in Italia. Per i frontalieri 2026, scaglioni dal 23% al 43% con franchigia di €10.000.', url: `${BASE_URL}/glossario-frontaliere/irpef`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'IRPEF', description: 'IRPEF: imposta sul reddito delle persone fisiche in Italia. Per i frontalieri 2026, scaglioni dal 23% al 43% con franchigia di €10.000.', url: `${BASE_URL}/glossario-frontaliere/irpef`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Quali sono gli scaglioni IRPEF 2026 per i frontalieri?', acceptedAnswer: { '@type': 'Answer', text: "Per i redditi 2026 l'IRPEF italiana si applica con tre scaglioni: 23% fino a €28.000, 35% tra €28.001 e €50.000 e 43% oltre €50.000. Per i nuovi frontalieri questi scaglioni colpiscono il reddito svizzero convertito in euro al cambio medio annuo, al netto della franchigia di €10.000 prevista dal nuovo accordo fiscale Italia-Svizzera." } },
+ { '@type': 'Question', name: 'Come si calcola la base imponibile IRPEF del frontaliere?', acceptedAnswer: { '@type': 'Answer', text: "La base imponibile parte dal salario lordo svizzero convertito in euro con il cambio medio annuo dell'Agenzia delle Entrate. Si sottraggono i contributi sociali obbligatori svizzeri (AVS, AI, AC, LPP obbligatoria), la franchigia di €10.000 per i nuovi frontalieri e le deduzioni italiane ammesse (trasporto, sanità, figli). Sul risultato si applicano le aliquote IRPEF progressive." } },
+ { '@type': 'Question', name: "Come funziona il credito d'imposta per la doppia tassazione?", acceptedAnswer: { '@type': 'Answer', text: "Il nuovo accordo 2026 prevede tassazione concorrente: il frontaliere paga l'imposta alla fonte in Svizzera (ridotta all'80%) e poi dichiara il reddito anche in Italia. L'imposta svizzera già versata diventa credito d'imposta nel quadro CE del Modello Redditi PF, fino a concorrenza dell'IRPEF italiana calcolata sul reddito estero. L'eventuale eccedenza si riporta nelle otto dichiarazioni successive." } },
+ { '@type': 'Question', name: 'Le addizionali regionali e comunali si applicano al frontaliere?', acceptedAnswer: { '@type': 'Answer', text: "Sì: addizionale regionale (1,23%-3,33% secondo la regione) e addizionale comunale (0%-0,9% secondo il comune di residenza) si applicano sulla stessa base imponibile IRPEF anche sui redditi svizzeri dichiarati. Un frontaliere lombardo residente a Como paga l'addizionale regionale del 1,23% e quella comunale comunale fino allo 0,8%, da versare con F24 entro le scadenze di saldo e acconto." } },
+ ],
+ },
+ ],
  },
 
  'glossario-franchigia': {
@@ -182,7 +206,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Franchigia — Glossario Frontalieri',
  ogDescription: 'Cos\'è la franchigia e come influisce sulle tasse dei frontalieri.',
  canonicalPath: '/glossario-frontaliere/franchigia',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Franchigia', description: 'Franchigia fiscale €10.000 per nuovi frontalieri dal 2024: reddito svizzero esente IRPEF fino a questa soglia. Nuovo accordo CH-IT.', url: `${BASE_URL}/glossario-frontaliere/franchigia`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Franchigia', description: 'Franchigia fiscale €10.000 per nuovi frontalieri dal 2024: reddito svizzero esente IRPEF fino a questa soglia. Nuovo accordo CH-IT.', url: `${BASE_URL}/glossario-frontaliere/franchigia`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Chi ha diritto alla franchigia di €10.000?', acceptedAnswer: { '@type': 'Answer', text: "La franchigia di €10.000 spetta ai nuovi frontalieri, cioè i lavoratori assunti in Svizzera dal 17 luglio 2023 in poi che risiedono nei comuni italiani entro 20 km dal confine con Svizzera e rientrano quotidianamente al proprio domicilio. È prevista dal nuovo accordo fiscale Italia-Svizzera ratificato nel 2023 ed è riservata esclusivamente al reddito da lavoro dipendente di fonte svizzera." } },
+ { '@type': 'Question', name: "Come si applica concretamente la franchigia nella dichiarazione?", acceptedAnswer: { '@type': 'Answer', text: "In dichiarazione dei redditi (Modello Redditi PF), si indica nel quadro RC il reddito svizzero convertito in euro e poi si sottraggono €10.000 di franchigia prima del calcolo IRPEF. Su un lordo di €45.000 annui, la base imponibile scende a €35.000, con un risparmio stimato tra €2.300 e €3.000 l'anno tra IRPEF e addizionali, a seconda del comune di residenza e della composizione familiare." } },
+ { '@type': 'Question', name: "La franchigia vale anche per i vecchi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "No, i vecchi frontalieri (assunti prima del 17 luglio 2023 e residenti entro 20 km dal confine) restano nel regime storico: pagano solo l'imposta alla fonte svizzera e non dichiarano il reddito in Italia, quindi non devono applicare alcuna franchigia. Il regime storico rimane in vigore fino al 2033 come periodo transitorio, dopo di che si valuterà l'uscita progressiva dal vecchio accordo bilaterale." } },
+ { '@type': 'Question', name: "Cosa succede se cambio datore di lavoro dopo il 2023?", acceptedAnswer: { '@type': 'Answer', text: "Il regime di vecchio frontaliere è personale ma legato alla continuità del rapporto di frontalierato: se cambi datore di lavoro restando frontaliere senza interruzioni significative (oltre 3 mesi) mantieni il regime storico. Un'interruzione prolungata o un cambio di residenza fuori dai 20 km ti fa rientrare nel nuovo regime, con tassazione concorrente e applicazione della franchigia di €10.000." } },
+ ],
+ },
+ ],
  },
 
  'glossario-ristorni': {
@@ -192,7 +228,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Ristorni — Glossario Frontalieri',
  ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
  canonicalPath: '/glossario-frontaliere/ristorni',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Come funzionano i ristorni fiscali tra Svizzera e Italia?', acceptedAnswer: { '@type': 'Answer', text: "I ristorni sono la quota delle imposte alla fonte che la Svizzera retrocede ogni anno ai comuni italiani di confine dove risiedono i frontalieri. Con il vecchio accordo del 1974, i cantoni Ticino, Grigioni e Vallese restituiscono il 38,8% dell'imposta alla fonte incassata sui redditi dei vecchi frontalieri. Con il nuovo accordo 2023, i ristorni vengono progressivamente sostituiti dalla tassazione concorrente." } },
+ { '@type': 'Question', name: "Quali comuni italiani ricevono i ristorni e come li usano?", acceptedAnswer: { '@type': 'Answer', text: "Ricevono i ristorni i comuni italiani entro 20 km dal confine svizzero nelle province di Varese, Como, Lecco, Sondrio e Verbano-Cusio-Ossola. Le risorse finanziano servizi locali (trasporti, scuole, manutenzione stradale, assistenza sociale), riducendo la pressione fiscale sui residenti. Per molti comuni di montagna, i ristorni rappresentano oltre il 15% del bilancio comunale." } },
+ { '@type': 'Question', name: "Cosa cambia con il nuovo accordo 2023 per i ristorni?", acceptedAnswer: { '@type': 'Answer', text: "Il nuovo accordo introduce la tassazione concorrente per i nuovi frontalieri: Svizzera trattiene l'imposta alla fonte ridotta (80% della tariffa normale) e Italia tassa con IRPEF, con credito d'imposta. I ristorni continuano per i vecchi frontalieri in regime storico fino al 2033. Dal 2034 la transizione sarà completa e i comuni italiani compenseranno la perdita con un fondo statale specifico previsto dalla legge." } },
+ { '@type': 'Question', name: "Il singolo frontaliere riceve direttamente una parte dei ristorni?", acceptedAnswer: { '@type': 'Answer', text: "No, i ristorni non vanno al lavoratore ma al suo comune di residenza: è il comune che poi decide come spenderli per servizi collettivi. Il frontaliere beneficia indirettamente tramite servizi migliori (scuolabus, manutenzione, welfare comunale). Alcuni comuni destinano parte dei ristorni a bonus frontalieri mirati (asili, trasporti), ma non si tratta di un diritto individuale e varia da amministrazione a amministrazione." } },
+ ],
+ },
+ ],
  },
 
  'glossario-lamal': {
@@ -222,7 +270,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Permesso G — Glossario Frontalieri',
  ogDescription: 'Cos\'è il permesso G e cosa cambia rispetto al permesso B.',
  canonicalPath: '/glossario-frontaliere/permesso-g',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-g`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-g`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Quali sono i requisiti per ottenere il permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Per ottenere il permesso G devi avere cittadinanza UE/AELS, un contratto di lavoro con un datore svizzero e residenza in un paese confinante (Italia, Francia, Germania, Austria). È obbligatorio rientrare a casa almeno una volta a settimana. La domanda la fa il datore di lavoro tramite l'ufficio migrazione cantonale (in Ticino, la Sezione Popolazione). Il permesso G ha validità di 5 anni rinnovabili, legata al rapporto di lavoro." } },
+ { '@type': 'Question', name: 'Quali documenti servono per la domanda del permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Servono: contratto di lavoro firmato dal datore svizzero, documento di identità valido, certificato di residenza italiano, attestazione ISEE o stato di famiglia, modulo ufficiale cantonale compilato dal datore. La procedura richiede tipicamente 2-4 settimane in Ticino. Il costo del permesso è a carico del lavoratore (CHF 65-100 a seconda del cantone) ed è rilasciato in formato card biometrica da esibire al posto di confine quando richiesto." } },
+ { '@type': 'Question', name: 'Il permesso G permette di vivere in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "No: il permesso G autorizza solo a lavorare in Svizzera mantenendo la residenza nel paese confinante di origine, con rientro settimanale obbligatorio. Per vivere in Svizzera serve il permesso B (dimora annuale) o C (stabilimento), che comportano residenza fiscale svizzera e tassazione ordinaria invece di tassazione concorrente. Il permesso G decade se sposti la residenza in Svizzera o se smetti di rientrare settimanalmente nel paese d'origine." } },
+ { '@type': 'Question', name: 'Cosa succede al permesso G in caso di licenziamento o disoccupazione?', acceptedAnswer: { '@type': 'Answer', text: "In caso di cessazione del rapporto di lavoro, il permesso G perde validità entro pochi mesi (solitamente 3-6 a seconda del cantone e della durata del rapporto pregresso). Il frontaliere può iscriversi alla disoccupazione svizzera (cassa di compensazione AC) solo se si è trasferito in Svizzera; altrimenti fa domanda di NASpI in Italia, dove gli anni di contribuzione AC svizzera vengono totalizzati grazie agli accordi bilaterali UE-CH." } },
+ ],
+ },
+ ],
  },
 
  'glossario-permessoB': {
@@ -232,7 +292,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Permesso B — Glossario Frontalieri',
  ogDescription: 'Cos\'è il permesso B e quando conviene rispetto al permesso G.',
  canonicalPath: '/glossario-frontaliere/permesso-b',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso B', description: 'Permesso B: autorizzazione di dimora in Svizzera per cittadini UE/AELS. Consente residenza e lavoro in Svizzera, validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-b`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso B', description: 'Permesso B: autorizzazione di dimora in Svizzera per cittadini UE/AELS. Consente residenza e lavoro in Svizzera, validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-b`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Qual è la differenza fiscale tra permesso B e permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Il permesso B comporta residenza e tassazione fiscale in Svizzera: si paga imposta ordinaria cantonale e federale sulla base di una dichiarazione annuale, con aliquote marginali fino al 40% circa per redditi alti in Ticino. Il permesso G mantiene residenza fiscale italiana, paga imposta alla fonte svizzera e (per nuovi frontalieri) IRPEF italiana con franchigia €10.000. La convenienza dipende da reddito, composizione familiare e costo della vita." } },
+ { '@type': 'Question', name: 'Chi può richiedere il permesso B in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "Possono richiedere il permesso B i cittadini UE/AELS con contratto di lavoro svizzero di durata superiore a 12 mesi, o chi dimostra mezzi sufficienti di sostentamento e copertura sanitaria. La durata iniziale è di 5 anni, rinnovabile. Dopo 5 anni di residenza continuativa si può chiedere il permesso C (stabilimento). È necessario trasferire la residenza anagrafica in Svizzera, iscriversi al comune e sottoscrivere LAMal obbligatoria entro 3 mesi dall'arrivo." } },
+ { '@type': 'Question', name: 'Conviene passare da permesso G a permesso B?', acceptedAnswer: { '@type': 'Answer', text: "Dipende dal profilo: per redditi alti (oltre CHF 120.000) e famiglie senza vincoli in Italia, il permesso B può risultare conveniente grazie a tassazione ordinaria favorevole e accesso pieno ai servizi svizzeri. Per redditi medi o per chi mantiene famiglia in Italia, il permesso G con nuova franchigia €10.000 resta spesso più vantaggioso. Simula il netto con il nostro calcolatore confronto G vs B prima di decidere: il costo della vita in CH è decisivo." } },
+ { '@type': 'Question', name: 'Il permesso B comporta la perdita dei diritti pensionistici italiani?', acceptedAnswer: { '@type': 'Answer', text: "No: i contributi INPS già versati in Italia restano validi e concorrono alla pensione tramite la totalizzazione UE. Con il permesso B continui a versare AVS (1° pilastro) e LPP (2° pilastro) in Svizzera. Al pensionamento riceverai pensioni pro-rata da entrambi i paesi, calcolate sui rispettivi anni di contribuzione. Per ottimizzare la previdenza è consigliabile massimizzare il 3° pilastro svizzero (3a) deducibile fiscalmente fino a CHF 7.258/anno." } },
+ ],
+ },
+ ],
  },
 
  'glossario-avs': {
@@ -242,7 +314,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'AVS — Glossario Frontalieri',
  ogDescription: 'Cos\'è AVS e come incide su busta paga e pensione.',
  canonicalPath: '/glossario-frontaliere/avs',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'AVS', description: 'AVS (Assicurazione Vecchiaia e Superstiti): primo pilastro previdenziale svizzero. Contributo del 5,3% sullo stipendio dei frontalieri.', url: `${BASE_URL}/glossario-frontaliere/avs`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'AVS', description: 'AVS (Assicurazione Vecchiaia e Superstiti): primo pilastro previdenziale svizzero. Contributo del 5,3% sullo stipendio dei frontalieri.', url: `${BASE_URL}/glossario-frontaliere/avs`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Quanto versa un frontaliere all'AVS ogni mese?", acceptedAnswer: { '@type': 'Answer', text: "Il frontaliere versa il 5,3% del salario lordo come contributo AVS/AI/IPG, trattenuto direttamente dal datore di lavoro. Un altro 5,3% è a carico del datore, per un totale del 10,6%. Su un lordo di CHF 80.000 annui, la quota del dipendente è di circa CHF 4.240 l'anno, pari a CHF 353 al mese, che vanno ad alimentare i diritti alla pensione pubblica svizzera di primo pilastro." } },
+ { '@type': 'Question', name: "Posso riscuotere la pensione AVS vivendo in Italia?", acceptedAnswer: { '@type': 'Answer', text: "Sì: l'AVS è esportabile grazie agli accordi bilaterali Svizzera-UE. Dopo aver raggiunto l'età pensionabile (65 anni per uomini e donne, secondo la riforma AVS21), la rendita viene versata direttamente sul conto bancario italiano del pensionato. L'importo dipende dagli anni di contribuzione: servono 44 anni di contributi per la rendita piena (circa CHF 2.450/mese nel 2026), con riduzioni proporzionali per carriere più brevi." } },
+ { '@type': 'Question', name: "Come si cumulano i contributi AVS con quelli INPS italiani?", acceptedAnswer: { '@type': 'Answer', text: "Gli accordi UE-CH permettono la totalizzazione: gli anni di contribuzione AVS e INPS si sommano per raggiungere i requisiti minimi pensionistici, ma ciascun paese paga la quota di pensione pro-rata relativa al proprio periodo contributivo. In pratica, al momento del pensionamento riceverai due rendite distinte: una dalla Svizzera (AVS) e una dall'Italia (INPS), ciascuna calcolata sui propri anni di contribuzione." } },
+ { '@type': 'Question', name: "Posso riscattare o trasferire i contributi AVS al rientro in Italia?", acceptedAnswer: { '@type': 'Answer', text: "I contributi AVS non sono riscattabili né trasferibili all'INPS: restano in Svizzera e daranno luogo a una rendita futura calcolata sugli anni effettivi di contribuzione. Sono riscattabili in alcuni casi il secondo pilastro LPP (capitale cassa pensione) e il terzo pilastro 3a al momento della cessazione del rapporto di lavoro in Svizzera, ma l'AVS segue le regole di esportabilità delle rendite UE." } },
+ ],
+ },
+ ],
  },
 
  'glossario-lpp': {
@@ -252,7 +336,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'LPP — Glossario Frontalieri',
  ogDescription: 'Cos\'è LPP e come influisce su netto e pensione.',
  canonicalPath: '/glossario-frontaliere/lpp',
- structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LPP', description: 'LPP (Previdenza Professionale): secondo pilastro pensionistico svizzero. Contributi crescenti per età, dal 7% al 18% del salario coordinato.', url: `${BASE_URL}/glossario-frontaliere/lpp`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LPP', description: 'LPP (Previdenza Professionale): secondo pilastro pensionistico svizzero. Contributi crescenti per età, dal 7% al 18% del salario coordinato.', url: `${BASE_URL}/glossario-frontaliere/lpp`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Quanto versa un frontaliere alla LPP ogni anno?', acceptedAnswer: { '@type': 'Answer', text: "Il contributo LPP varia con l'età del lavoratore: 7% del salario coordinato fra 25-34 anni, 10% fra 35-44, 15% fra 45-54, 18% fra 55-65. Il salario coordinato è il lordo meno la deduzione di coordinamento di CHF 26.460 (2026). Su un lordo di CHF 80.000 a 40 anni, il salario coordinato è CHF 53.540 e il contributo LPP totale è CHF 5.354/anno (circa CHF 2.677 a carico del dipendente, il resto del datore di lavoro)." } },
+ { '@type': 'Question', name: 'Posso prelevare il capitale LPP quando torno a vivere in Italia?', acceptedAnswer: { '@type': 'Answer', text: "Sì, in parte. Puoi prelevare la quota sovra-obbligatoria LPP e, in alcuni casi, la parte obbligatoria se trasferisci definitivamente la residenza fuori dall'UE o rientri prima dell'età pensionabile con cessazione del lavoro in Svizzera. Dal 2017 il prelievo della parte obbligatoria verso paesi UE (Italia inclusa) è vincolato. Il capitale è tassato con aliquota agevolata una tantum: in Ticino circa 3-7% secondo l'importo, con conteggio separato dalle altre imposte annuali." } },
+ { '@type': 'Question', name: "Posso riscattare anni contributivi della LPP?", acceptedAnswer: { '@type': 'Answer', text: "Sì: la LPP consente versamenti volontari di riscatto per coprire gli anni di contribuzione mancanti rispetto al massimale contributivo. I versamenti sono interamente deducibili dalla dichiarazione fiscale svizzera (TOU), con risparmio tra 20% e 40% del versato secondo l'aliquota marginale. Attenzione: non puoi ritirare il capitale LPP (prelievo in contanti o per casa) nei 3 anni successivi al riscatto, pena il recupero delle deduzioni da parte del Fisco." } },
+ { '@type': 'Question', name: 'La LPP è deducibile dall\'IRPEF italiana?', acceptedAnswer: { '@type': 'Answer', text: "Sì, ma con limiti. I contributi LPP obbligatori versati in Svizzera (parte a carico del dipendente) sono deducibili dal reddito da dichiarare in Italia per i nuovi frontalieri in regime concorrente, come oneri di previdenza obbligatoria estera. Vanno indicati nel quadro RC/RP del Modello Redditi PF. I versamenti volontari di riscatto e la parte del datore di lavoro non sono deducibili in Italia: riducono solo l'imposta alla fonte svizzera tramite la procedura TOU." } },
+ ],
+ },
+ ],
  },
 
  'glossario-terzoPilastro': {
@@ -1952,7 +2048,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Congedo Maternità/Paternità per Frontalieri',
  ogDescription: '👶 Calcola il congedo maternità e paternità per frontalieri: confronto IPG Svizzera vs INPS Italia, importi e documenti.',
  canonicalPath: '/calcola-stipendio/verifica-congedo-parentale',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "WebApplication",
  "name": "Calcolatore Congedo Genitoriale Frontalieri",
@@ -1962,7 +2059,18 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quante settimane di congedo maternità spettano a una frontaliera?", "acceptedAnswer": { "@type": "Answer", "text": "Le frontaliere che lavorano in Svizzera ricevono il congedo maternità svizzero: 14 settimane (98 giorni) con indennità IPG pari all'80% dello stipendio medio, fino a un massimo di CHF 220 al giorno. Il congedo parte dal giorno della nascita e non può essere anticipato prima del parto. I diritti italiani INPS non si applicano perché è il paese in cui lavori a determinare il regime di sicurezza sociale." } },
+ { "@type": "Question", "name": "Il padre frontaliere ha diritto al congedo di paternità?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: dal gennaio 2021 la Svizzera riconosce 2 settimane (10 giorni lavorativi) di congedo paternità retribuite all'80% dello stipendio tramite IPG, con tetto massimo di CHF 220 al giorno. Il congedo va utilizzato entro 6 mesi dalla nascita, anche in modo frazionato. Come frontaliere padre, fai richiesta alla cassa di compensazione svizzera del tuo datore di lavoro, non all'INPS italiana." } },
+ { "@type": "Question", "name": "Come si calcola l'indennità di maternità per una frontaliera?", "acceptedAnswer": { "@type": "Answer", "text": "L'indennità IPG si calcola sull'ultimo stipendio mensile prima del parto: 80% del lordo giornaliero, con massimale di CHF 220/giorno (CHF 6.600/mese). Per 14 settimane il totale massimo è circa CHF 21.560. Se lavori part-time o hai uno stipendio basso, l'indennità sarà proporzionalmente minore. Le prestazioni sono esenti da imposta alla fonte svizzera ma vanno dichiarate in Italia nel nuovo regime concorrente." } },
+ { "@type": "Question", "name": "Posso cumulare il congedo svizzero con quello italiano?", "acceptedAnswer": { "@type": "Answer", "text": "No: in base ai regolamenti UE 883/2004, si applica solo la legislazione del paese in cui si lavora. La frontaliera italiana che lavora in Svizzera percepisce esclusivamente il congedo svizzero (14 settimane), non quello italiano (5 mesi INPS). Se il coniuge lavora in Italia, può invece richiedere il proprio congedo parentale italiano presso INPS, ma non si cumulano sulla stessa persona. Verifica sempre con la cassa di compensazione." } },
+ ]
  }
+ ]
  },
 
  'border-map': {
@@ -2831,6 +2939,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "inLanguage": "it",
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "La tredicesima è obbligatoria per i frontalieri in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "La tredicesima non è obbligatoria per legge in Svizzera, ma è ampiamente diffusa nei CCL (contratti collettivi di lavoro) e nei contratti individuali del Canton Ticino. Molti settori la prevedono contrattualmente: banche, assicurazioni, pubblica amministrazione e molte aziende del settore industriale. Verifica sempre il tuo contratto: se è prevista, viene versata tipicamente a dicembre insieme allo stipendio del mese o come mensilità separata." } },
+ { "@type": "Question", "name": "Come si calcola la tredicesima del frontaliere assunto a metà anno?", "acceptedAnswer": { "@type": "Answer", "text": "La tredicesima si calcola in pro-rata sui mesi effettivamente lavorati nell'anno: salario mensile lordo diviso 12, moltiplicato per i mesi di servizio. Un frontaliere assunto il 1° giugno con CHF 6.000 lordi/mese riceverà 7/12 di una mensilità come tredicesima, cioè CHF 3.500 lordi. Anche la tredicesima è soggetta a imposta alla fonte, contributi AVS/AI/IPG (5,3%), AC (1,1%) e LPP se sopra la soglia contributiva LPP." } },
+ { "@type": "Question", "name": "Esiste la quattordicesima per i frontalieri in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "La quattordicesima è rara in Svizzera ma esiste in alcuni settori e aziende come bonus di produzione o come mensilità contrattuale. Più comune è il bonus a discrezione del datore di lavoro, legato ai risultati aziendali o individuali, che può equivalere a una mensilità supplementare. A differenza dell'Italia dove quattordicesima e premi sono più diffusi, in Svizzera i bonus sono volatili e non garantiti, quindi non vanno considerati reddito fisso nel calcolo della busta paga." } },
+ { "@type": "Question", "name": "La tredicesima svizzera va dichiarata in Italia dal nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la tredicesima è parte integrante del reddito da lavoro dipendente e va inclusa nel totale annuo dichiarato nel Modello Redditi PF (quadro RC). Per i nuovi frontalieri nel regime concorrente, rientra nel reddito imponibile IRPEF, al netto della franchigia di €10.000 e del credito d'imposta per le tasse pagate in Svizzera. Il Lohnausweis emesso dal datore di lavoro riporta già l'importo annuo complessivo inclusivo di tredicesima e bonus." } },
+ ]
  }
  ],
  },
