@@ -1,85 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T02:22:32.298Z",
-    "label": "before",
-    "total": 1695,
-    "needsRetranslation": 67,
-    "incomplete": 13,
-    "complete": 1682,
-    "missingByLocale": {
-      "it": 7,
-      "en": 12,
-      "de": 6,
-      "fr": 12
-    },
-    "topPending": [
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T02:23:27.343Z",
-    "label": "after",
-    "total": 1695,
-    "needsRetranslation": 57,
-    "incomplete": 8,
-    "complete": 1687,
-    "missingByLocale": {
-      "it": 7,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T03:22:48.267Z",
     "label": "before",
     "total": 1695,
@@ -7445,6 +7365,54 @@
     "needsRetranslation": 56,
     "incomplete": 21,
     "complete": 2913,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 20,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T08:39:13.259Z",
+    "label": "before",
+    "total": 2869,
+    "needsRetranslation": 56,
+    "incomplete": 21,
+    "complete": 2848,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 20,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T08:58:35.112Z",
+    "label": "after",
+    "total": 2869,
+    "needsRetranslation": 42,
+    "incomplete": 21,
+    "complete": 2848,
     "missingByLocale": {
       "it": 20,
       "en": 1,
