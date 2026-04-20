@@ -64,6 +64,44 @@ function descFingerprint(desc) {
   return plainText(desc).toLowerCase().slice(0, 500);
 }
 
+/**
+ * Estimate the length of a shared boilerplate prefix across jobs of the same
+ * crawler. We sort plain-text descriptions and take the longest common prefix
+ * of any adjacent pair: if the crawler leaks a company intro into every job,
+ * that intro will show up as a long prefix on most neighbouring pairs.
+ *
+ * We only strip the prefix when it looks like real boilerplate — short enough
+ * compared to the full description. If a pair is essentially identical end to
+ * end (prefix ≈ description length), those are real duplicates and should be
+ * flagged, not masked.
+ */
+function estimateBoilerplateLength(plain) {
+  if (plain.length < 2) return 0;
+  const sorted = [...plain].sort();
+  let maxPrefix = 0;
+  for (let i = 1; i < sorted.length; i++) {
+    const a = sorted[i - 1];
+    const b = sorted[i];
+    const max = Math.min(a.length, b.length);
+    let j = 0;
+    while (j < max && a.charCodeAt(j) === b.charCodeAt(j)) j++;
+    // Guard: if the pair is nearly identical end-to-end, treat as a real
+    // duplicate (don't let it inflate the boilerplate estimate).
+    if (j >= Math.min(a.length, b.length) * 0.9) continue;
+    if (j > maxPrefix) maxPrefix = j;
+  }
+  return maxPrefix;
+}
+
+function fingerprintsForCrawler(jobs) {
+  const plain = jobs.map((j) => plainText(j.description).toLowerCase());
+  const boilerLen = estimateBoilerplateLength(plain);
+  // Only strip when the boilerplate is long enough to be meaningful and not
+  // so long that stripping it leaves no signal.
+  const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
+  return plain.map((p) => p.slice(stripLen, stripLen + 500));
+}
+
 /* ── URL checker with concurrency limit ────────────────────── */
 async function checkUrl(url) {
   const ctrl = new AbortController();
@@ -95,7 +133,9 @@ async function checkUrlsBatch(urls, concurrency = 3) {
 
 /* ── Load crawler slices ───────────────────────────────────── */
 function loadCrawlerSlices() {
-  const files = fs.readdirSync(SLICES_DIR).filter((f) => f.endsWith('.json'));
+  const files = fs
+    .readdirSync(SLICES_DIR)
+    .filter((f) => f.endsWith('.json') && !f.includes('.cleanup-tmp'));
   const slices = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');
@@ -169,8 +209,9 @@ async function main() {
       }
     }
 
-    // 4. Missing locale coverage
+    // 4. Missing locale coverage — skip in-flight translations
     const missingLocales = jobs.filter((j) => {
+      if (j.needsRetranslation === true) return false;
       const titleCount = filledLocaleCount(j.titleByLocale);
       const descCount = filledLocaleCount(j.descriptionByLocale);
       return titleCount < 2 || descCount < 2;
@@ -192,10 +233,10 @@ async function main() {
       });
     }
 
-    // 5. Duplicate descriptions
+    // 5. Duplicate descriptions — strip common company boilerplate prefix first
+    const fps = fingerprintsForCrawler(jobs);
     const fpMap = new Map();
-    for (const j of jobs) {
-      const fp = descFingerprint(j.description);
+    for (const fp of fps) {
       if (fp.length < 20) continue; // skip empty/tiny
       fpMap.set(fp, (fpMap.get(fp) || 0) + 1);
     }
