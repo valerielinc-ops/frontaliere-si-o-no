@@ -87,21 +87,36 @@ function absoluteUrl(raw = '') {
   return new URL(raw, DETAIL_BASE).toString();
 }
 
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
+// Retry policy: 4 total attempts (initial + 3 retries) with exponential backoff
+// 3s → 6s → 12s → 20s between attempts (~41s total wait) to survive transient
+// upstream outages of 45–60s seen in CI on 2026-04-18 (Skyguide) / 2026-04-19 (Ariston).
+const FETCH_RETRY_DELAYS_MS = [3000, 6000, 12000, 20000];
+
+async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000, retries = 3) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        },
+      });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+      return await res.text();
+    } catch (err) {
+      clearTimeout(timer);
+      if (attempt < retries) {
+        const delay = FETCH_RETRY_DELAYS_MS[attempt] ?? 20000;
+        console.log(`  ⚠️ Retry ${attempt + 1}/${retries} for ${url} in ${delay}ms: ${err.message}`);
+        await new Promise((r) => setTimeout(r, delay));
+      } else {
+        throw err;
+      }
+    }
   }
 }
 
