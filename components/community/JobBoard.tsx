@@ -6741,7 +6741,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
 
  {/* Expandable filter panel — uses max-h transition to prevent CLS */}
- <div className={`transition-[max-height,opacity] duration-200 ease-in-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+ <div className={`transition-[max-height,opacity] duration-200 ease-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
  <div className="bg-surface/50 p-3 sm:p-4 rounded-xl border border-edge">
  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
  <div className="relative">

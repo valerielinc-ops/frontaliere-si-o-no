@@ -738,9 +738,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  role="switch"
  aria-checked={inputs.spouseWorks}
  aria-label={t('input.spouseWorks')}
- className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent after:absolute after:-inset-[10px] after:content-[''] ${inputs.spouseWorks ? 'bg-accent-strong' : 'bg-surface-raised'}`}
+ className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent after:absolute after:-inset-[10px] after:content-[''] ${inputs.spouseWorks ? 'bg-accent-strong' : 'bg-surface-raised'}`}
  >
- <span className={`block w-4 h-4 bg-surface rounded-full shadow-md transform transition-transform duration-200 ease-in-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
+ <span className={`block w-4 h-4 bg-surface rounded-full shadow-md transform transition-transform duration-200 ease-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
  </button>
  </div>
  )}
@@ -1038,9 +1038,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  aria-label={t('input.ssnHealthTax') || 'Contributo SSN sanitario'}
  role="switch"
  aria-checked={inputs.enableOldFrontierHealthTax}
- className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner after:absolute after:-inset-[9px] after:content-[''] ${inputs.enableOldFrontierHealthTax ? 'bg-warning-strong' : 'bg-surface-raised'}`}
+ className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner after:absolute after:-inset-[9px] after:content-[''] ${inputs.enableOldFrontierHealthTax ? 'bg-warning-strong' : 'bg-surface-raised'}`}
  >
- <span className={`block w-5 h-5 bg-surface rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
+ <span className={`block w-5 h-5 bg-surface rounded-full shadow-lg transform transition-transform duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
  {inputs.enableOldFrontierHealthTax && (
  <span className="absolute inset-0 flex items-center justify-start pl-2 text-on-accent text-xs font-bold pointer-events-none">ON</span>
  )}
