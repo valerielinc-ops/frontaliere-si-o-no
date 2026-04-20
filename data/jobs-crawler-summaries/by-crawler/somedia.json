@@ -1,16 +1,16 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-04-19T22:07:16.323Z",
-  "total": 4,
+  "generatedAt": "2026-04-20T11:21:20.124Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 6701,
-  "avgDurationMs": 6701,
+  "durationMs": 6213,
+  "avgDurationMs": 6213,
   "durationHistory": [
-    6701
+    6213
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-80-100-de-j380.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T22:07:11.123Z",
+      "crawledAt": "2026-04-20T11:21:15.581Z",
       "addressLocality": "Uznach",
       "addressCountry": "CH",
       "country": "CH",
@@ -68,7 +68,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Informatikerin-EFZ-Plattformentwicklung-202-de-j368.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T22:07:13.038Z",
+      "crawledAt": "2026-04-20T11:21:17.570Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Leiter-People-Culture-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-19T22:07:12.132Z",
+      "crawledAt": "2026-04-20T11:21:16.629Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,10 +139,12 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "somedia-50d06ad469ba",
-      "slug": "gebietsleiter-in-glarus-gaster-100-somedia-ch",
+      "slug": "responsabile-di-zona-glarus-gaster-100-somedia-ag-chur",
       "company": "Somedia AG",
       "companyKey": "somedia",
       "companyDomain": "somedia.ch",
@@ -174,15 +176,16 @@
         "hiringOrganization": "Somedia Press AG"
       },
       "firstSeenAt": "2026-04-13T11:17:12.451Z",
-      "_qualityScore": 91,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
