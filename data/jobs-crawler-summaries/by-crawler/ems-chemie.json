@@ -1,24 +1,23 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-20T10:32:52.575Z",
+  "generatedAt": "2026-04-20T21:29:36.514Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3513,
-  "avgDurationMs": 3513,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 3134,
+  "avgDurationMs": 3134,
   "durationHistory": [
-    3513
+    3134
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "title": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
+      "title": "Projektleiter Materialprüfung (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwicklung-m-w-d/e124f258-7792-4f17-b82e-b8817490073a",
+      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-materialpruefung-m-w-d/99bcbd0d-916c-4de8-ad43-12c5976e8b6c",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -31,22 +30,17 @@
       "category": "science",
       "postedDate": "2026-04-20",
       "source": "company-website",
-      "slug": "prozessingenieur-betriebsentwicklung-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-822dded89ead",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-17T09:49:42.887Z",
-      "_qualityScore": 82,
+      "slug": "projektleiter-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 25,
-        "completeness": 22
+        "translation": 8,
+        "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -72,39 +66,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-14T09:50:40.182Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "SAP Basis Administrator (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-20",
-      "source": "company-website",
-      "slug": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-dc1a28e8e6ec",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:36:53.361Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -310,7 +271,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Anwendungstechniker Technische Fasern 100%",
       "company": "EMS-Chemie AG",
@@ -328,7 +291,7 @@
       "category": "science",
       "postedDate": "2026-04-20",
       "source": "company-website",
-      "slug": "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+      "slug": "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -345,8 +308,40 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Projektleiter Materialprüfung (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-materialpruefung-m-w-d/99bcbd0d-916c-4de8-ad43-12c5976e8b6c",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-04-20",
+      "source": "company-website",
+      "slug": "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "ems-chemie-68b85bb5960e",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
     {
       "title": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -641,39 +636,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Anwendungstechniker Technische Fasern 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/a257fe67-7cec-4c0d-924d-444eefecd159",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-20",
-      "source": "company-website",
-      "slug": "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "id": "ems-chemie-84154a577bee",
-      "firstSeenAt": "2026-04-13T21:36:53.361Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
         "translation": 25,
         "completeness": 22
       }
