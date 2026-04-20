@@ -494,6 +494,70 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  </div>
  {/* Inline ad between calculator and related tools */}
  <Suspense fallback={null}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+
+ {/* HowTo visible content — mirrors HowTo JSON-LD for Google Rich Results */}
+ <section
+ aria-labelledby="payslip-howto-title"
+ className="mt-10 bg-surface rounded-2xl border border-edge p-6"
+ data-testid="payslip-howto"
+ >
+ <h2 id="payslip-howto-title" className="text-xl sm:text-2xl font-bold font-display text-strong mb-2">
+ {t('payslip.howto.title')}
+ </h2>
+ <p className="text-subtle mb-6">{t('payslip.howto.intro')}</p>
+ <ol className="space-y-4">
+ {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+ <li key={`howto-step-${n}`} className="flex gap-4">
+ <span
+ className="flex-shrink-0 w-8 h-8 rounded-full bg-warning-subtle text-warning font-bold flex items-center justify-center text-sm"
+ aria-hidden="true"
+ >
+ {n}
+ </span>
+ <div>
+ <h3 className="font-bold text-strong text-base">
+ {t(`payslip.howto.step${n}.name`)}
+ </h3>
+ <p className="text-sm text-body leading-relaxed mt-1">
+ {t(`payslip.howto.step${n}.text`)}
+ </p>
+ </div>
+ </li>
+ ))}
+ </ol>
+ </section>
+
+ {/* FAQ visible content — mirrors FAQPage JSON-LD for Google Rich Results */}
+ <section
+ aria-labelledby="payslip-faq-title"
+ className="mt-8 bg-surface rounded-2xl border border-edge p-6"
+ data-testid="payslip-faq"
+ >
+ <h2 id="payslip-faq-title" className="text-xl sm:text-2xl font-bold font-display text-strong mb-4">
+ {t('payslip.faq.title')}
+ </h2>
+ <div className="space-y-3">
+ {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+ <details
+ key={`faq-q-${n}`}
+ className="group bg-surface-alt rounded-xl border border-edge overflow-hidden"
+ >
+ <summary className="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer font-semibold text-strong text-sm sm:text-base list-none hover:bg-surface-raised/40 transition-colors">
+ <span>{t(`payslip.faq.q${n}.q`)}</span>
+ <ChevronDown
+ size={18}
+ className="text-muted flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+ aria-hidden="true"
+ />
+ </summary>
+ <div className="px-4 pb-4 pt-1 text-sm text-body leading-relaxed border-t border-edge">
+ {t(`payslip.faq.q${n}.a`)}
+ </div>
+ </details>
+ ))}
+ </div>
+ </section>
+
  <Suspense fallback={null}><RelatedTools context="payslip" /></Suspense>
  </div>
  );
