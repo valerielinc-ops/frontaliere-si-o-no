@@ -49,7 +49,7 @@ export default function CalcolatoreTabContent() {
 
  if (calcolatoreSubTab === 'calculator') {
  return (
- <div className="space-y-6">
+ <div className="space-y-8">
  {seoLanding === 'new-frontier-over20km' ? (
  <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
  <NewFrontierOver20KmHub />
@@ -156,7 +156,7 @@ export default function CalcolatoreTabContent() {
  </div>
 
  {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap */}
- <div className="md:hidden space-y-2 mt-2 min-h-[160px]">
+ <div className="md:hidden space-y-2 mt-6 min-h-[160px]">
  {showDeferredHomeWidgets ? (
  <>
  <Suspense fallback={<SkeletonNewsTicker />}>
@@ -201,7 +201,7 @@ export default function CalcolatoreTabContent() {
  </div>
  )}
  {result && (
- <div className="mt-2 w-full">
+ <div className="mt-6 w-full">
  <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
  </div>
  )}

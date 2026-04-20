@@ -505,12 +505,21 @@ input[type=number] { -moz-appearance: textfield; }
   }
 }
 
-/* Print styles for article view */
+/* Print styles */
 @media print {
   body { background: white !important; }
   header, footer, nav, aside, .print\:hidden,
-  [aria-label="cookie"], [class*="adsense"], [class*="AdSense"] { display: none !important; }
+  [aria-label="cookie"], [class*="adsense"], [class*="AdSense"],
+  [class*="bottom-sheet"], [class*="SocialProof"], [class*="AdSense"],
+  button:not([data-print-keep]), details, [class*="skeleton"] { display: none !important; }
   article { max-width: 100% !important; border: none !important; box-shadow: none !important; }
   a { color: inherit !important; text-decoration: underline; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+  /* Calculator results: force single-column, remove shadows */
+  .grid { display: block !important; }
+  .grid > * { margin-bottom: 1.5rem !important; break-inside: avoid; }
+  .shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl { box-shadow: none !important; }
+  .rounded-3xl, .rounded-2xl, .rounded-xl { border-radius: 8px !important; }
+  /* Ensure result cards don't split across pages */
+  [class*="result"], [class*="comparison"] { break-inside: avoid; page-break-inside: avoid; }
 }

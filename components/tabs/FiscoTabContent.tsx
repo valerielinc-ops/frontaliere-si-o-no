@@ -28,7 +28,7 @@ export default function FiscoTabContent() {
  const { taxReturnCountry, setTaxReturnCountry, userProfile } = useTabContent();
 
  return (
- <div className="max-w-7xl mx-auto">
+ <div className="max-w-7xl mx-auto space-y-8">
  <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.fisco.title')}</h1>
  </div>

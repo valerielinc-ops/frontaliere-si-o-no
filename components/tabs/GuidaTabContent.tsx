@@ -20,7 +20,7 @@ export default function GuidaTabContent() {
  const { userProfile, borderCrossing } = useTabContent();
 
  return (
- <div className="max-w-7xl mx-auto">
+ <div className="max-w-7xl mx-auto space-y-8">
  <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.guida.title')}</h1>
  </div>

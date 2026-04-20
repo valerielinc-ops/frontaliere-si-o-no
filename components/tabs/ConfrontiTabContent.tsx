@@ -20,7 +20,7 @@ export default function ConfrontiTabContent() {
  const { result, inputs, userProfile } = useTabContent();
 
  return (
- <div className="max-w-7xl mx-auto min-h-[60vh]">
+ <div className="max-w-7xl mx-auto min-h-[60vh] space-y-8">
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="confronti" />
  </Suspense>

@@ -857,7 +857,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
  {/* Next deadline highlight */}
  {nextDeadline && (
- <div className="mt-6 bg-warning-subtle rounded-2xl p-4 border border-warning-border">
+ <div className="mt-6 bg-warning-subtle rounded-stripe p-4 border border-warning-border">
  <div className="flex items-center gap-2 text-warning text-xs font-bold uppercase mb-2">
  <Bell size={14} />
  {t('calendar.nextDeadline')}

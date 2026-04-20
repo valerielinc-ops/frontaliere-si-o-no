@@ -86,7 +86,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor ="text-muted", tooltip, inputId }: any) => (
  <div className="space-y-2 min-w-0">
- {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
+ {label && <label htmlFor={inputId} className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
  <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-accent transition-[color,border-color,box-shadow]">
  <button 
  onClick={() => onChange(Math.max(min, value - 1))}
@@ -141,7 +141,7 @@ const SegmentField = ({ options, value, onChange, label, icon: Icon, iconColor =
  tooltip?: string;
 }) => (
  <div className="space-y-2">
- {label && <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+ {label && <label className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
  <SharedSegmentControl
  options={options.map(o => ({ key: o.value, label: o.label }))}
  value={value}
@@ -165,7 +165,7 @@ const TechInput: React.FC<{
 
  return (
  <div className="space-y-2">
- <label className="text-xs font-bold text-subtle uppercase tracking-wide h-4 flex items-end">{label}</label>
+ <label className="text-sm font-bold text-subtle uppercase tracking-wide h-4 flex items-end">{label}</label>
  <div className="relative group">
  <input
  type="number"
@@ -461,7 +461,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="p-5 space-y-6">
  {/* Income Input - Prominent (same as full form) */}
  <div className="space-y-2">
- <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
+ <label className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
  <Coins size={14} className="text-warning"/> {t('input.grossAnnualIncome')}
  <InfoTooltip text={t('input.incomeTooltip')} />
  </label>
@@ -526,7 +526,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* Worker type selector (compact) */}
  <div className="space-y-2">
- <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2">
+ <h3 className="text-sm font-bold text-subtle uppercase tracking-widest flex items-center gap-2">
  <TrainFront size={14} className="text-success"/> {t('input.frontierType')}
  </h3>
  <div className="grid grid-cols-2 gap-3">
@@ -535,7 +535,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-accent bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
+ <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
  <span className="text-xs text-subtle font-medium">{t('input.postDate')}</span>
  </button>
  <button
@@ -543,7 +543,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-success bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
+ <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
  <span className="text-xs text-subtle font-medium">{t('input.preDate')}</span>
  </button>
  </div>
@@ -616,7 +616,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  key={preset.id}
  type="button"
  onClick={() => applyPreset(preset)}
- className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-[color,background-color,border-color,box-shadow] ${
+ className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold border transition-[color,background-color,border-color,box-shadow] ${
  activePreset === preset.id
  ? 'bg-warning-strong text-on-accent border-warning shadow-sm'
  : 'bg-surface border-edge text-body hover:border-warning hover:text-warning'
@@ -633,7 +633,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="p-5 space-y-6">
  {/* Income Input - Prominent */}
  <div className="space-y-2">
- <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
+ <label className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
  <Coins size={14} className="text-warning"/> {t('input.grossAnnualIncome')} 
  <InfoTooltip text={t('input.incomeTooltip')} />
  </label>
@@ -701,7 +701,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <StepperInput inputId="input-age" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-accent" tooltip={t('input.ageTooltip')} />
  {/* Marital Status */}
  <div className="space-y-1.5">
- <label htmlFor="maritalStatus" className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
+ <label htmlFor="maritalStatus" className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
  <Heart size={12} className="text-danger"/> {t('input.maritalStatus')}
  <InfoTooltip text={t('input.maritalStatusTooltip')} />
  </label>
@@ -710,7 +710,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  id="maritalStatus"
  value={inputs.maritalStatus} 
  onChange={(e) => handleChange('maritalStatus', e.target.value)}
- className="w-full h-12 pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-bold uppercase appearance-none outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/10 transition-[color,border-color,box-shadow] cursor-pointer text-body"
+ className="w-full h-12 pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-sm font-bold uppercase appearance-none outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/10 transition-[color,border-color,box-shadow] cursor-pointer text-body"
  >
  <option value="SINGLE">{t('input.single')}</option>
  <option value="MARRIED">{t('input.married')}</option>
@@ -725,7 +725,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* Spouse Works Toggle */}
  {inputs.maritalStatus === 'MARRIED' && (
  <div className="flex items-center justify-between bg-accent-subtle/50 p-3 rounded-xl border border-accent-border animate-fade-in mt-2">
- <span className="text-xs font-bold text-accent flex items-center gap-1.5">
+ <span className="text-sm font-bold text-accent flex items-center gap-1.5">
  <Briefcase size={14} className="text-accent"/> {t('input.spouseWorks')}
  <InfoTooltip text={t('input.spouseWorksTooltip')} />
  </span>
@@ -745,7 +745,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* SECTION 2: FRONTIER TYPE */}
  <div className="bg-surface rounded-2xl border border-edge shadow-sm p-5 space-y-5">
- <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2">
+ <h3 className="text-sm font-bold text-subtle uppercase tracking-widest flex items-center gap-2">
  <TrainFront size={14} className="text-success"/> {t('input.frontierType')}
  <InfoTooltip text={t('input.frontierTypeTooltip')} />
  </h3>
@@ -756,7 +756,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-accent bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
+ <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
  <span className="text-xs text-subtle font-medium">{t('input.postDate')}</span>
  </button>
  <button
@@ -764,7 +764,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-success bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
+ <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
  <span className="text-xs text-subtle font-medium">{t('input.preDate')}</span>
  </button>
  </div>
@@ -786,7 +786,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* SECTION 3: FAMILY & INSURANCE */}
  <div className="bg-surface rounded-2xl border border-edge shadow-sm p-5 space-y-5">
- <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-accent"/> {t('input.familyHealth')}</h3>
+ <h3 className="text-sm font-bold text-subtle uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-accent"/> {t('input.familyHealth')}</h3>
  
  <div className="grid grid-cols-2 gap-4">
  <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-info" />
@@ -804,7 +804,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="space-y-3">
  <div className="flex items-center justify-between gap-2">
  <div className="flex items-center gap-2">
- <div className="text-xs font-bold text-accent uppercase flex items-center gap-1.5">
+ <div className="text-sm font-bold text-accent uppercase flex items-center gap-1.5">
  <Home size={12}/> {t('input.liveInCH')}
  <InfoTooltip text={t('input.amountsCHF')} />
  </div>
@@ -873,7 +873,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="space-y-3">
  <div className="flex items-center justify-between gap-2">
  <div className="flex items-center gap-2">
- <div className="text-xs font-bold text-danger uppercase flex items-center gap-1.5">
+ <div className="text-sm font-bold text-danger uppercase flex items-center gap-1.5">
  <Car size={12}/> {t('input.liveInIT')}
  <InfoTooltip text={t('input.amountsEUR')} />
  </div>
@@ -950,7 +950,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="grid grid-cols-2 gap-4 items-end">
  <div className="space-y-2">
  <div className="flex justify-between items-center h-4">
- <label className="text-xs font-bold text-subtle uppercase flex items-center gap-1">
+ <label className="text-sm font-bold text-subtle uppercase flex items-center gap-1">
  <Coins size={10} className="text-warning" /> {t('input.exchangeRate')}
  <InfoTooltip text={t('input.exchangeRateTooltip')} />
  </label>
@@ -973,7 +973,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  
  {/* Cassa Malati Moved Here */}
  <div className="space-y-2 pt-2">
- <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
+ <label className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
  <Bandage size={12} className="text-danger"/> {t('input.healthInsurance')}
  <InfoTooltip text={t('input.healthInsuranceTooltip')} />
  </label>
@@ -985,7 +985,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  
  {/* Wealth Tax (CH residents only) */}
  <div className="space-y-2 pt-2">
- <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
+ <label className="text-sm font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
  <Landmark size={12} className="text-success"/> {t('input.netWealth')}
  <InfoTooltip text={t('input.netWealthTooltip')} />
  </label>
@@ -1020,10 +1020,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-2 mb-1">
  <PiggyBank size={14} className="text-warning flex-shrink-0" />
- <h4 className="text-xs font-bold text-strong">{t('input.ssnHealthTax')}</h4>
+ <h4 className="text-sm font-bold text-strong">{t('input.ssnHealthTax')}</h4>
  <InfoTooltip text={t('input.ssnHealthTaxTooltip')} />
  </div>
- <p className="text-xs text-subtle leading-relaxed">
+ <p className="text-sm text-subtle leading-relaxed">
  {t('input.ssnHealthTaxDesc')}
  </p>
  </div>
@@ -1052,7 +1052,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  
  <div className="flex items-center gap-2 bg-surface p-3 rounded-lg border border-warning-border">
- <label className="text-xs font-semibold text-body flex-1">{t('input.netIncomePercentage')}</label>
+ <label className="text-sm font-semibold text-body flex-1">{t('input.netIncomePercentage')}</label>
  <div className="flex items-center gap-1">
  <input 
  type="number" 
