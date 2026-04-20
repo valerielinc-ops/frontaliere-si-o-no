@@ -6578,4 +6578,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/palazzo-civico-collegiata-accessibilita-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'roche-farmaci-obesita-ticino-2026',
+ category: 'novita',
+ date: '2026-04-20T10:28:24.787Z',
+ image: '/images/blog/roche-farmaci-obesita-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

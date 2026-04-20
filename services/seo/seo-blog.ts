@@ -10063,6 +10063,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roche-farmaci-obesita-ticino-2026': {
+    title: 'Roche investe miliardi sui farmaci | Frontaliere Ticino',
+    description: 'Petrelintide di Roche promette perdita di peso del 10,7%. Analisi costi, copertura assicurativa e opportunità per chi vive tra Ticino e Lombardia. Guida pratica',
+    keywords: 'frontalieri, ticino, svizzera, italia, roche, investe, miliardi, farmaci',
+    ogTitle: 'Roche investe su farmaci anti-obesità: cosa cambia per i',
+    ogDescription: 'Petrelintide di Roche promette perdita di peso del 10,7% in 42 settimane. Analisi su costi, copertura e opportunità per frontalieri Ticino-Lombardia.',
+    canonicalPath: '/articoli-frontaliere/roche-farmaci-obesita-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roche farmaci obesità Ticino 2026",
+      "description": "Petrelintide di Roche promette perdita di peso del 10,7%. Analisi costi, copertura assicurativa e opportunità per chi vive tra Ticino e Lombardia. Guida pratica",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/roche-farmaci-obesita-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio farmaceutico con dati clinici su schermi digitali in Ticino"
+      },
+      "datePublished": "2026-04-20T10:28:24+00:00",
+      "dateModified": "2026-04-20T10:28:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roche-farmaci-obesita-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

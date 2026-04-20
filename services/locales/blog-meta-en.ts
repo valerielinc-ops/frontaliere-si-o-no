@@ -2397,6 +2397,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.title': 'Bellinzona Town Hall and Collegiate Church to become more accessible: CHF 1.385 million investment',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.excerpt': 'The Municipality of Bellinzona has allocated CHF 1.385 million to eliminate architectural barriers at the Town Hall and Collegiate Church. Elevators, platform lifts, and accessible restrooms will be upgraded. Work is set to begin in 2026.',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.imageAlt': 'Bellinzona Town Hall and Collegiate Church: accessibility works with lift platforms and regulatory adjustments',
+    'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche invests billions in anti-obesity drugs: what changes for cross-border workers',
+    'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'The Swiss pharmaceutical giant launches Petrelintide, a targeted therapy promising a 10.7% weight loss in 42 weeks. Analysis of risks, costs, and opportunities for those commuting between Ticino and Lombardy.',
+    'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Pharmaceutical laboratory with clinical data on digital screens in Ticino',
 };
 
 export default blogMetaEn;

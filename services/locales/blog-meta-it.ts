@@ -2397,6 +2397,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.title': 'Palazzo civico e Collegiata di Bellinzona più accessibili: lavori per 1,385 milioni',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.excerpt': 'Il Municipio di Bellinzona stanzia 1,385 milioni per eliminare barriere architettoniche a Palazzo Civico e Collegiata. Ascensori rifatti, piattaforme elevatrici e servizi igienici adeguati. Via ai lavori nel 2026.',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.imageAlt': 'Palazzo Civico e Collegiata di Bellinzona: lavori di accessibilità con piattaforme elevatrici e adeguamenti normativi',
+    'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche investe miliardi sui farmaci anti-obesità: cosa cambia per i frontalieri',
+    'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'Il colosso farmaceutico svizzero lancia Petrelintide, terapia mirata che promette perdita di peso del 10,7% in 42 settimane. Analisi sui rischi, costi e opportunità per chi lavora tra Ticino e Lombardia.',
+    'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Laboratorio farmaceutico con dati clinici su schermi digitali in Ticino',
 };
 
 export default blogMetaIt;

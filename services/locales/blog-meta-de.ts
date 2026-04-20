@@ -2397,6 +2397,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.title': 'Rathaus und Kollegiatkirche Bellinzona werden barrierefreier: Arbeiten für 1,385 Millionen Franken',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.excerpt': 'Die Stadt Bellinzona stellt 1,385 Millionen Franken für die Beseitigung von architektonischen Barrieren im Rathaus und in der Kollegiatkirche bereit. Dazu gehören die Sanierung der Aufzüge, die Installation von Hebebühnen sowie die Anpassung der Sanitäranlagen. Die Arbeiten sollen 2026 beginnen.',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.imageAlt': 'Rathaus Bellinzona und Kollegiatkirche: Barrierefreiheitsarbeiten mit Aufzügen und normativen Anpassungen',
+    'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche investiert Milliarden in Anti-Adipositas-Medikamente: Was sich für Grenzgänger ändert',
+    'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'Der Schweizer Pharmagigant Roche startet Petrelintid, eine gezielte Therapie, die laut Angaben innerhalb von 42 Wochen einen Gewichtsverlust von 10,7 % verspricht. Eine Analyse zu Risiken, Kosten und Chancen für alle, die zwischen Tessin und Lombardei pendeln.',
+    'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Pharma-Labor mit klinischen Daten auf digitalen Bildschirmen im Tessin',
 };
 
 export default blogMetaDe;

@@ -2397,6 +2397,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.title': 'Hôtel de ville et Collégiale de Bellinzone plus accessibles : des travaux pour 1,385 million',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.excerpt': 'La Municipalité de Bellinzone alloue 1,385 million pour éliminer les barrières architecturales à l’Hôtel de ville et à la Collégiale. Ascenseurs refaits, plates-formes élévatrices et toilettes adaptées. Les travaux débuteront en 2026.',
     'blog.article.palazzo-civico-collegiata-accessibilita-bellinzona-2026.imageAlt': 'Hôtel de Ville de Bellinzone et Collégiale: travaux d\'accessibilité avec ascenseurs et ajustements normatifs',
+    'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche investit des milliards dans les médicaments anti-obésité : ce qui change pour les frontaliers',
+    'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'Le géant pharmaceutique suisse lance la Petrelintide, une thérapie ciblée promettant une perte de poids de 10,7 % en 42 semaines. Analyse des risques, des coûts et des opportunités pour ceux qui travaillent entre le Tessin et la Lombardie.',
+    'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Laboratoire pharmaceutique avec données cliniques sur écrans numériques au Tessin',
 };
 
 export default blogMetaFr;
