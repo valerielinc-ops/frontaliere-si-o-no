@@ -20,8 +20,6 @@
  *   JOBDETAIL_SIDEBAR         desktop only  — rendered inside `isDesktopLg` block
  *   JOBDETAIL_END_MULTIPLEX   all devices   — single placement at end of job detail
  *   JOBDETAIL_AUTH_GATE       all devices   — below sign-in form on auth gate
- *   AUTHGATE_RAIL_LEFT        desktop xl    — left sticky rail on auth gate
- *   AUTHGATE_RAIL_RIGHT       desktop xl    — right sticky rail on auth gate
  *   AUTHGATE_END_MULTIPLEX    all devices   — multiplex below auth gate 3-col layout
  */
 
@@ -45,8 +43,6 @@ const EXPECTED_SLOTS = {
   JOBDETAIL_SIDEBAR:        '8164676143',
   JOBDETAIL_END_MULTIPLEX:  '3205192616',
   JOBDETAIL_AUTH_GATE:      '3205029282',
-  AUTHGATE_RAIL_LEFT:       '2190721703',
-  AUTHGATE_RAIL_RIGHT:      '7139796055',
   AUTHGATE_END_MULTIPLEX:   '5826714385',
 };
 

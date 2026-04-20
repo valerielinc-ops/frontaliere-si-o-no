@@ -489,13 +489,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
- {AD_SLOTS.JOBDETAIL_SIDEBAR_2?.slot && (
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot}
- adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format}
- fullWidthResponsive={AD_SLOTS.JOBDETAIL_SIDEBAR_2.fullWidthResponsive}
- />
- )}
  </div>
  </aside>
  </div>
@@ -523,17 +516,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="hidden xl:block">
- <div className="sticky top-6 space-y-3">
- {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_LEFT.slot && (
- <AdSenseBanner
- adSlot={AD_SLOTS.AUTHGATE_RAIL_LEFT.slot}
- adFormat={AD_SLOTS.AUTHGATE_RAIL_LEFT.format}
- fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_LEFT.fullWidthResponsive}
- />
- )}
- </div>
- </aside>
+ <aside className="hidden xl:block" />
 
  {/* ── Center content ── */}
  <div className="space-y-4">
@@ -651,17 +634,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="hidden xl:block">
- <div className="sticky top-6 space-y-3">
- {isDesktopXl && AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot && (
- <AdSenseBanner
- adSlot={AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot}
- adFormat={AD_SLOTS.AUTHGATE_RAIL_RIGHT.format}
- fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_RIGHT.fullWidthResponsive}
- />
- )}
- </div>
- </aside>
+ <aside className="hidden xl:block" />
 
  </div>
 

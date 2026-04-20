@@ -538,11 +538,9 @@ export function generatePageHtml(
 <body>
   <div class="hub-wrap">
     <div class="hub-grid">
-      <!-- Left rail ads (desktop) -->
+      <!-- Left rail ad (desktop) -->
       <div class="rail" style="display:none" id="left-rail">
         <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_LEFT')}</div>
-        <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_LEFT_2')}</div>
-        <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_LEFT_3')}</div>
       </div>
 
       <!-- Main content -->
@@ -566,23 +564,17 @@ export function generatePageHtml(
         <h2>${l.regimeTitle}</h2>
         <p>${l.regimeExplain(scenario, result)}</p>
 
-        <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE_2')}</div>
-
         <h2>${l.familyTitle}</h2>
         <p>${l.familyExplain(scenario, result)}</p>
 
         <h2>${l.distanceTitle}</h2>
         <p>${l.distanceExplain(scenario, result)}</p>
 
-        <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE_3')}</div>
-
         <h2>${l.budgetTitle}</h2>
         <p>${l.budgetExplain(scenario, result)}</p>
 
         <h2>${l.tipsTitle}</h2>
         <p>${l.tipsExplain(scenario, result)}</p>
-
-        <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE_4')}</div>
 
         <div class="cta-box">
           <p>${l.personalizeBtn}</p>
@@ -592,22 +584,17 @@ export function generatePageHtml(
         <h2>${l.relatedTitle}</h2>
         <div class="related-grid">${relatedHtml}</div>
 
-        <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE_5')}</div>
-
         <div class="faq-section">
           <h2>${l.faqTitle}</h2>
           ${faqs.map(f => `<div class="faq-item"><div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div></div>`).join('\n')}
         </div>
 
         <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
-        <div class="ad-unit">${adSlotHtml('ARTICLE_AFTER_JOBS')}</div>
       </div>
 
-      <!-- Right rail ads (desktop) -->
+      <!-- Right rail ad (desktop) -->
       <div class="rail" style="display:none" id="right-rail">
         <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_RIGHT')}</div>
-        <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_RIGHT_2')}</div>
-        <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_RIGHT_3')}</div>
       </div>
     </div>
   </div>

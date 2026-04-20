@@ -5,6 +5,9 @@
  * - autorelaxed multiplex: 380-450px on mobile → 400px
  * - fluid in-article: ~220px → 220px
  * - auto display: ~250-300px → 280px
+ *
+ * Pruned 2026-04-20: 14 low-earner slots (30d AdSense report showed €0.00-0.10 each).
+ * Auto-ads (Anchor €16.01, In-page €10.42) cover those placements more effectively.
  */
 
 export const AD_CLIENT = 'ca-pub-8628054934855353';
@@ -76,34 +79,12 @@ export const AD_SLOTS = {
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
  },
- /** Blog: desktop left rail — secondary (replaces Amazon products) */
- ARTICLE_RAIL_LEFT_2: {
- slot: '9850785535',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog: desktop right rail — secondary (replaces Amazon products) */
- ARTICLE_RAIL_RIGHT_2: {
- slot: '8537703867',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog: mobile in-article — secondary (replaces Amazon products) */
- ARTICLE_INLINE_MOBILE_2: {
- slot: '6483829128',
- format: 'fluid',
- layout: 'in-article',
- fullWidthResponsive: false,
- placeholderMinHeight: 220,
- },
- /** Homepage: mid-content display ad (between results and widgets) */
+ /** Homepage: mid-content multiplex (in-page RPM €6.64 vs display €0.20 — 2026-04-20 change) */
  HOMEPAGE_MID_DISPLAY: {
  slot: '2093992129',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
+ format: 'autorelaxed',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 400,
  },
  /** Job detail: between related jobs and related articles sections */
  JOBDETAIL_BETWEEN_SECTIONS: {
@@ -112,79 +93,6 @@ export const AD_SLOTS = {
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
  },
- /** Job detail: second sidebar ad (desktop, below first sidebar ad) */
- JOBDETAIL_SIDEBAR_2: {
- slot: '6065026724',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog: desktop left rail — tertiary */
- ARTICLE_RAIL_LEFT_3: {
- slot: '2040366243',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog: desktop right rail — tertiary */
- ARTICLE_RAIL_RIGHT_3: {
- slot: '3590906628',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog: in-article — tertiary (after body3) */
- ARTICLE_INLINE_MOBILE_3: {
- slot: '7011276883',
- format: 'fluid',
- layout: 'in-article',
- fullWidthResponsive: false,
- placeholderMinHeight: 220,
- },
- /** Blog: in-article — quaternary (after body5) */
- ARTICLE_INLINE_MOBILE_4: {
- slot: '6037106565',
- format: 'fluid',
- layout: 'in-article',
- fullWidthResponsive: false,
- placeholderMinHeight: 220,
- },
- /** Blog: in-article — quinary (after body7) */
- ARTICLE_INLINE_MOBILE_5: {
- slot: '7389107873',
- format: 'fluid',
- layout: 'in-article',
- fullWidthResponsive: false,
- placeholderMinHeight: 220,
- },
- /** Blog: after related jobs, before footer */
- ARTICLE_AFTER_JOBS: {
- slot: '4385113543',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog listing: display ad after featured hero */
- BLOG_LIST_TOP: {
- slot: '6759995448',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog listing: in-feed ad between card rows #1 */
- BLOG_LIST_INFEED_1: {
- slot: '9727284578',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Blog listing: in-feed ad between card rows #2 */
- BLOG_LIST_INFEED_2: {
- slot: '4724024898',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
  /** Job detail: auth gate — shown below sign-in form for unauthenticated users */
  JOBDETAIL_AUTH_GATE: {
  slot: '3205029282',
@@ -192,23 +100,16 @@ export const AD_SLOTS = {
  fullWidthResponsive: true,
  placeholderMinHeight: 280,
  },
- /** Job detail: auth gate — desktop left rail */
- AUTHGATE_RAIL_LEFT: {
- slot: '2190721703',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
- /** Job detail: auth gate — desktop right rail */
- AUTHGATE_RAIL_RIGHT: {
- slot: '7139796055',
- format: 'auto',
- fullWidthResponsive: true,
- placeholderMinHeight: 280,
- },
  /** Job detail: auth gate — end multiplex below content */
  AUTHGATE_END_MULTIPLEX: {
  slot: '5826714385',
+ format: 'autorelaxed',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 400,
+ },
+ /** Calculator: in-page multiplex after simulation_complete (high-intent moment) */
+ CALCULATOR_POST_RESULT: {
+ slot: '5196931137', // reuses ARTICLE_END_MULTIPLEX id (cross-context multiplex)
  format: 'autorelaxed',
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
