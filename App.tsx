@@ -1496,7 +1496,22 @@ const App: React.FC = () => {
  <ErrorBoundary>
  <TabContentContext.Provider value={tabContentValue}>
  <NavigationContext.Provider value={navContextValue}>
- <div className={`min-h-screen relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+ {/* AUTO ADS POLICY (CLS fix — FRO-CLS).
+  * Google AdSense Auto Ads is enabled at the account level. In-page auto ads
+  * inject content into the DOM AFTER first paint, which causes severe CLS
+  * (measured mobile p75 0.51, target <0.1). We opt the ENTIRE app out of
+  * in-page auto ads by setting `data-no-auto-ads="inside"` on the root
+  * layout container. This still allows:
+  *   - Anchor / overlay auto ads (position:fixed, no CLS — `data-overlays=bottom`
+  *     is set on the AdSense script in AdSenseBanner.tsx).
+  *   - Manual AdSenseBanner slots (explicit `<ins class="adsbygoogle">` with
+  *     reserved placeholder height in components/shared/AdSenseBanner.tsx —
+  *     these are honored regardless of the no-auto-ads directive).
+  * Revenue impact: loses in-page auto-ads (~€10/day RPM per adsenseSlots.ts
+  * header comment). Anchor auto ads (~€16/day) remain. Manual slots remain.
+  * SEO impact: removes the biggest CLS contributor, unblocking ranking
+  * improvements on job/blog pages. */}
+ <div data-no-auto-ads="inside" className={`min-h-screen relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
  <div className="absolute inset-0 bg-surface-alt -z-20" style={{ contain: 'strict' }}></div>
 
  {/* LinkedIn OAuth2 callback processing overlay */}
