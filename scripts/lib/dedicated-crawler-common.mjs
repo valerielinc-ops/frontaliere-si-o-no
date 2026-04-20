@@ -119,8 +119,114 @@ const GERMAN_TITLE_WORDS =
 const FRENCH_TITLE_WORDS =
   /\b(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|gerante|gerant)\b/i;
 
+/**
+ * Canonicalize all gender-diversity trigraphs (and related bigraphs) to the single
+ * form "m/w/d" BEFORE slugification.
+ *
+ * Swiss/DACH job titles use many interchangeable variants:
+ *   (m/w/d)  German: männlich/weiblich/divers
+ *   (w/m/d)  reordered German
+ *   (m/f/d)  English/mixed
+ *   (f/m/d)  reordered English
+ *   (h/f/d)  French: homme/femme/divers
+ *   (f/h/d)  reordered French
+ *   (m/f/x), (f/m/x), (m/w/x)  'x' for non-binary
+ *   (m/p/g)  Italian-ish variant occasionally seen in source feeds
+ *   (m/w), (w/m), (m/f), (f/m), (h/f), (f/h)  bigraphs w/o 'divers'
+ *   (l/w/d)  observed OCR/AI corruption of (m/w/d)
+ *
+ * The AI-translation pipeline non-deterministically flips between these forms
+ * across runs, causing new slugs to be generated every build. Canonicalizing to
+ * one form (m/w/d — the most common in CH) makes slugs stable regardless of
+ * which variant the translator emits. The slug still retains the gender-inclusive
+ * semantic marker, so no information is lost.
+ *
+ * Also handles parenthesised and bare forms: "(m/w/d)", "m/w/d", "M/W/D".
+ * Idempotent — applying twice yields the same output.
+ */
+export function canonicalizeGenderTrigraph(text = '') {
+  const s = String(text || '');
+  if (!s) return s;
+  // Bracketed trigraph/bigraph with optional spaces around slashes.
+  // Matches any permutation of {m,w,f,h,l,p} with optional {d,x,g} suffix.
+  const TRIGRAPH_RE = /[([]\s*([mwfhlp])\s*\/\s*([mwfhlp])(?:\s*\/\s*([dxg]))?\s*[)\]]/gi;
+  // Bare trigraph/bigraph without brackets (standalone, bounded by non-letter).
+  const BARE_RE = /(?<=^|[\s\-–—|,./])([mwfhlp])\s*\/\s*([mwfhlp])(?:\s*\/\s*([dxg]))?(?=$|[\s\-–—|,./])/gi;
+  // Canonicalize both forms to "(m/w/d)" (bracketed) or "m/w/d" (bare).
+  return s
+    .replace(TRIGRAPH_RE, '(m/w/d)')
+    .replace(BARE_RE, 'm/w/d');
+}
+
+/**
+ * Collapse catastrophic N-gram repetition at the tail of a slug.
+ *
+ * Dedicated crawlers build slugs as `slugify(title + company + location)`. When
+ * the AI-translated title already contains the company name or location (very
+ * common for hotels/hospitality/manufacturing), the concatenation produces
+ * duplicated segments. If the same job cycles through different title shapes,
+ * previousSlugs accumulate forms like:
+ *   "chef-de-projet-...-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems"
+ *
+ * This helper detects sequences of tokens that repeat 2+ times CONSECUTIVELY
+ * and collapses them to a single occurrence. Repetitions separated by distinct
+ * tokens are NOT collapsed — that would be lossy (e.g. "...-ascona-...-sa-ascona"
+ * where the same city appears inside the title and in the location suffix is
+ * legitimate and informative).
+ *
+ * Algorithm: scan for n-gram sizes 1..5 and remove `(G-){k}G` (k≥1) where G is
+ * the immediately-following n-gram. Run repeatedly until a fixed point.
+ * Idempotent.
+ */
+export function dedupSlugSegmentRepeats(slug = '') {
+  let s = String(slug || '').trim();
+  if (!s || !s.includes('-')) return s;
+  // Split into tokens; operate on token list, then rejoin.
+  let tokens = s.split('-').filter(Boolean);
+  if (tokens.length < 2) return tokens.join('-');
+  let changed = true;
+  let guard = 0;
+  // Try ever-larger group sizes to catch the catastrophic N-repeat case
+  // (e.g. domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems has
+  // a repeating 5-gram of [domat, ems, ems, chemie, ag] followed by the
+  // 2-gram [domat, ems]). Processing smaller groups first keeps the
+  // collapse conservative.
+  while (changed && guard < 12) {
+    changed = false;
+    guard += 1;
+    for (let groupSize = 1; groupSize <= Math.min(5, Math.floor(tokens.length / 2)); groupSize += 1) {
+      for (let start = 0; start + 2 * groupSize <= tokens.length; start += 1) {
+        const group = tokens.slice(start, start + groupSize);
+        let repeatEnd = start + groupSize;
+        // Count how many consecutive copies of `group` follow
+        while (repeatEnd + groupSize <= tokens.length) {
+          const next = tokens.slice(repeatEnd, repeatEnd + groupSize);
+          let eq = true;
+          for (let k = 0; k < groupSize; k += 1) {
+            if (next[k] !== group[k]) { eq = false; break; }
+          }
+          if (!eq) break;
+          repeatEnd += groupSize;
+        }
+        const repeatCount = (repeatEnd - start) / groupSize;
+        if (repeatCount >= 2) {
+          tokens = [
+            ...tokens.slice(0, start + groupSize),
+            ...tokens.slice(repeatEnd),
+          ];
+          changed = true;
+          break;
+        }
+      }
+      if (changed) break;
+    }
+  }
+  return tokens.join('-');
+}
+
 function slugifyLocalizedLabel(value = '') {
-  return String(value || '')
+  const canonical = canonicalizeGenderTrigraph(value);
+  const base = String(canonical || '')
     .trim()
     .toLowerCase()
     .normalize('NFD')
@@ -129,6 +235,7 @@ function slugifyLocalizedLabel(value = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-')
     .slice(0, 180);
+  return dedupSlugSegmentRepeats(base);
 }
 
 /** Known company boilerplate fragments that leak into slugs when description text
@@ -4024,13 +4131,24 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
 // ── Slugify ──────────────────────────────────────────────────
 
 export function slugify(input = '', maxLen = 140) {
-  return normalizeSpace(decodeNumericEntities(decodeHtmlEntities(input)))
+  // Canonicalize gender-diversity trigraphs BEFORE slugification so runs with
+  // different AI-translator outputs produce identical slugs. Without this step,
+  // "(m/w/d)", "(w/m/d)", "(m/f/d)", "(h/f/d)", "(m/p/g)" etc. each produce a
+  // different slug for the same job — the #1 source of slug instability
+  // observed in the production slug-instability alert.
+  const canonical = canonicalizeGenderTrigraph(input);
+  const base = normalizeSpace(decodeNumericEntities(decodeHtmlEntities(canonical)))
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, maxLen);
+  // Collapse catastrophic N-gram repetition at the tail (company/location
+  // re-appended by both the translator AND the slug-builder). This fixes slugs
+  // like "...-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems" and
+  // preserves "...-ascona-...-sa-ascona" (non-adjacent duplication is kept).
+  return dedupSlugSegmentRepeats(base);
 }
 
 // ── Slug quality checks ──────────────────────────────────────

@@ -171,8 +171,10 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[0].slug).toBe('collaboratore-trice-telemarketing-axa-svizzera-winterthur');
 
     expect(after[1].titleByLocale.it).toBe('Venditrice / Venditore LANDI - contratto a termine da aprile ad agosto 2026 (f/m/d)');
-    expect(after[1].slugByLocale.it).toBe('venditrice-venditore-landi-contratto-a-termine-da-aprile-ad-agosto-2026-f-m-d-landi-rhone-lavaux-sa-saxon');
-    expect(after[1].slug).toBe('venditrice-venditore-landi-contratto-a-termine-da-aprile-ad-agosto-2026-f-m-d-landi-rhone-lavaux-sa-saxon');
+    // Gender trigraph is canonicalized to "m-w-d" in the slug to prevent churn
+    // when the AI translator emits a different permutation (f/m/d → m/w/d here).
+    expect(after[1].slugByLocale.it).toBe('venditrice-venditore-landi-contratto-a-termine-da-aprile-ad-agosto-2026-m-w-d-landi-rhone-lavaux-sa-saxon');
+    expect(after[1].slug).toBe('venditrice-venditore-landi-contratto-a-termine-da-aprile-ad-agosto-2026-m-w-d-landi-rhone-lavaux-sa-saxon');
   });
 
   it('enriches thin italian descriptions with company boilerplate for recurring crawler outputs', () => {
@@ -316,8 +318,9 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[0].slug).toBe('apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos');
 
     expect(after[1].titleByLocale.it).toBe('Vicegerente / Gerente aggiunto/a (f/m/d)');
-    expect(after[1].slugByLocale.it).toBe('vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers');
-    expect(after[1].slug).toBe('vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers');
+    // Gender trigraph canonicalized to "m-w-d" in slug (stable across translator runs).
+    expect(after[1].slugByLocale.it).toBe('vicegerente-gerente-aggiunto-a-m-w-d-volg-anniviers');
+    expect(after[1].slug).toBe('vicegerente-gerente-aggiunto-a-m-w-d-volg-anniviers');
 
     expect(after[2].titleByLocale.it).toBe('Responsabile di progetto installazioni o Junior responsabile di progetto (100%)');
     expect(after[2].slugByLocale.it).toBe('responsabile-di-progetto-installazioni-o-junior-responsabile-di-progetto-100-elektro-saas-znl-der-tz-stromag-saas-fee');
@@ -328,8 +331,9 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[3].slug).toBe('responsabile-junior-vendita-coop-mezzovico');
 
     expect(after[4].titleByLocale.it).toBe('Venditrice / Venditore (f/m/d)');
-    expect(after[4].slugByLocale.it).toBe('venditrice-venditore-f-m-d-volg-vissoie');
-    expect(after[4].slug).toBe('venditrice-venditore-f-m-d-volg-vissoie');
+    // Gender trigraph canonicalized to "m-w-d" in slug (stable across translator runs).
+    expect(after[4].slugByLocale.it).toBe('venditrice-venditore-m-w-d-volg-vissoie');
+    expect(after[4].slug).toBe('venditrice-venditore-m-w-d-volg-vissoie');
   });
 
   it('enriches thin italian descriptions and localizes german real-estate roles for ticino premium properties', () => {
@@ -421,8 +425,11 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[0].slug).toBe('apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti');
 
     expect(after[1].titleByLocale.it).toBe('Sviluppatore/trice ICT CRM 80 - 100 % (w/m/d)');
-    expect(after[1].slugByLocale.it).toBe('sviluppatore-trice-ict-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz');
-    expect(after[1].slug).toBe('sviluppatore-trice-ict-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz');
+    // Note: gender trigraph is canonicalized to "m-w-d" in the slug even when the
+    // title retains the original "(w/m/d)" form. This prevents slug churn when the
+    // AI translator swaps between trigraph permutations across runs.
+    expect(after[1].slugByLocale.it).toBe('sviluppatore-trice-ict-crm-80-100-m-w-d-hamilton-bonaduz-ag-bonaduz');
+    expect(after[1].slug).toBe('sviluppatore-trice-ict-crm-80-100-m-w-d-hamilton-bonaduz-ag-bonaduz');
   });
 });
 
