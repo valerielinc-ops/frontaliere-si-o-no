@@ -1,6 +1,6 @@
 {
   "crawlerKey": "has-healthcare",
-  "assembledAt": "2026-04-19T21:31:44.773Z",
+  "assembledAt": "2026-04-20T10:45:20.080Z",
   "jobs": [
     {
       "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
@@ -93,123 +93,8 @@
           "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:49:35.924Z"
-    },
-    {
-      "title": "HSE Specialist",
-      "company": "HAS Healthcare Advanced Synthesis",
-      "companyKey": "has-healthcare",
-      "location": "Biasca",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://e-lavoro.ch/node/286",
-      "applyUrl": "https://e-lavoro.ch/node/286",
-      "description": "## Descrizione\nHAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: HSE Specialist.\n\n## Requisiti\n- Lingue richieste: Inglese professionale\n- Titolo di studio: Scuola Universitaria Professionale\n\n## Informazioni Generali\n- Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)\n- Sede: Via Industria 24, Biasca (TI), Svizzera",
-      "category": "general",
-      "sector": "Farmaceutico / Healthcare",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "source": "has-healthcare-crawler",
-      "postedDate": "2026-03-11",
-      "titleByLocale": {
-        "it": "Specialista HSE",
-        "en": "HSE Specialist",
-        "de": "HSE Spezialist",
-        "fr": "Spécialiste HSE"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: HSE Specialist. ## Requisiti - Lingue richieste: Inglese professionale - Titolo di studio: Scuola Universitaria Professionale ## Informazioni Generali - Settore: Farmaceutico / API (Active Pharmaceutical Ingredients) - Sede: Via Industria 24, Biasca (TI), Svizzera",
-        "en": "Description HAS Healthcare Advanced Synthesis, based in Biasca (TI), is looking for: HSE Specialist. ## Requirements - Requested languages: Professional English - Degree: Professional University School ## General Information - Sector: Pharmaceutical / API (Active Pharmaceutical Ingredients) - Location: Via Industria 24, Biasca (TI), Switzerland",
-        "de": "Beschreibung HAS Healthcare Advanced Synthesis mit Sitz in Biasca (TI) sucht: HSE-Spezialist. ## Anforderungen - Geforderte Sprachen: Professionelles Englisch - Studienabschluss: Fachhochschule ## Allgemeine Informationen - Branche: Pharmazeutik / API (Active Pharmaceutical Ingredients) - Standort: Via Industria 24, Biasca (TI), Schweiz",
-        "fr": "Description HAS Healthcare Advanced Synthesis, basée à Biasca (TI), recherche: Spécialiste HSE. ## Exigences - Langues requises: Anglais professionnel - Titre de formation: École universitaire professionnelle ## Informations générales - Secteur: Pharmaceutique / API (Ingrédients pharmaceutiques actifs) - Siège: Via Industria 24, Biasca (TI), Suisse"
-      },
-      "slugByLocale": {
-        "it": "specialista-hse-has-healthcare-advanced-synthesis-biasca",
-        "en": "hse-specialist-has-healthcare-advanced-synthesis-lugano",
-        "de": "hse-spezialist-has-healthcare-advanced-synthesis-biasca",
-        "fr": "specialiste-hse-has-healthcare-advanced-synthesis-biasca"
-      },
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Biasca"
-      },
-      "crawledAt": "",
-      "slug": "specialista-hse-has-healthcare-advanced-synthesis-biasca",
-      "requirementsByLocale": {
-        "en": [
-          "Professional English",
-          "Professional University School"
-        ],
-        "de": [
-          "Professionelles Englisch",
-          "Fachhochschule"
-        ],
-        "fr": [
-          "Anglais professionnel",
-          "École universitaire professionnelle"
-        ]
-      },
-      "sourceLang": "it",
-      "previousSlugs": [
-        "hse-specialist-has-healthcare",
-        "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-        "hse-specialist-has-healthcare-advanced-synthesis-biasca",
-        "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-        "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
-        "ricerca-has-healthcare-advanced-synthesis-biasca",
-        "search-has-healthcare-advanced-synthesis-biasca",
-        "specialista-hse-has-healthcare-advanced-synthesis-lugano"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Motta 4",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "has-healthcare-8e63c477e71b",
-      "previousSlugsByLocale": {
-        "en": [
-          "hse-specialist-has-healthcare",
-          "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "hse-specialist-has-healthcare-advanced-synthesis-biasca",
-          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "ricerca-has-healthcare-advanced-synthesis-biasca",
-          "search-has-healthcare-advanced-synthesis-biasca"
-        ],
-        "it": [
-          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "ricerca-has-healthcare-advanced-synthesis-biasca",
-          "search-has-healthcare-advanced-synthesis-biasca",
-          "hse-specialist-has-healthcare"
-        ],
-        "de": [
-          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "ricerca-has-healthcare-advanced-synthesis-biasca",
-          "search-has-healthcare-advanced-synthesis-biasca"
-        ],
-        "fr": [
-          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
-          "ricerca-has-healthcare-advanced-synthesis-biasca",
-          "search-has-healthcare-advanced-synthesis-biasca"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:49:35.924Z"
+      "firstSeenAt": "2026-04-13T21:49:35.924Z",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di Produzione",
