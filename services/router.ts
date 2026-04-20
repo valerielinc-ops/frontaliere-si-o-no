@@ -16,6 +16,12 @@
 
 import { getLocale, type Locale } from './i18n';
 import {
+ CITY_HUB_KEYS,
+ CITY_HUB_DISPLAY_NAME,
+ CITY_HUB_SLUG,
+ type CityHubKey,
+} from '../build-plugins/cityJobsHub';
+import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
  buildJobLocationSectorLandingModel,
@@ -454,6 +460,15 @@ export interface AppRoute {
  guideSection?: string;
  /** Job detail slug under job-board route (e.g. /cerca-lavoro-ticino/software-engineer-...). */
  jobSlug?: string;
+ /**
+  * Canonical geo-hub key when the URL matches a city-hub path
+  * (e.g. /cerca-lavoro-ticino/lugano/ → `jobBoardCity: 'lugano'`).
+  * When set, {@link jobSlug} is also populated with the corresponding
+  * localized editorial-landing slug (e.g. `ricerca-lugano`) so client-side
+  * rendering shows the full location landing UI. `jobBoardCity` takes
+  * precedence in {@link buildPath} so the emitted URL uses the clean slug.
+  */
+ jobBoardCity?: 'lugano' | 'mendrisio' | 'bellinzona';
  /** URL fragment identifier (without #). Used for anchor-linking to page sections. */
  hash?: string;
  /** Salary Hub slug — pre-computed scenario page loaded from static HTML, routed to calculator tab. */
@@ -1693,7 +1708,29 @@ export function parsePath(pathname: string): ParseResult {
 
  if (topMatch.tab === 'job-board') {
  if (first === table.jobBoard) {
- const jobSlug = second ? second.trim() : undefined;
+ const rawSecond = second ? second.trim() : undefined;
+ // Clean geo-hub URL: /cerca-lavoro-ticino/lugano/ (and locale variants).
+ // Rewrite to the editorial location-landing slug so the client renders
+ // the already-built location landing UI, while preserving the city
+ // identifier for canonical URL generation in buildPath().
+ if (rawSecond) {
+ const cityHit = CITY_HUB_KEYS.find((c) => CITY_HUB_SLUG[locale][c] === rawSecond);
+ if (cityHit) {
+ const editorialPrefix: Record<Locale, string> = {
+ it: 'ricerca', en: 'search', de: 'suche', fr: 'recherche',
+ };
+ const editorialSlug = `${editorialPrefix[locale]}-${CITY_HUB_DISPLAY_NAME[cityHit as CityHubKey].toLowerCase()}`;
+ return {
+ route: {
+ activeTab: 'job-board',
+ jobBoardCity: cityHit as CityHubKey,
+ jobSlug: editorialSlug,
+ },
+ locale,
+ };
+ }
+ }
+ const jobSlug = rawSecond;
  return { route: { activeTab: 'job-board', ...(jobSlug ? { jobSlug } : {}) }, locale };
  }
  }
@@ -2004,10 +2041,18 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.partners}${hashSuffix}`);
  case 'consulting':
  return finish(`${prefix}/${table.consulting}${hashSuffix}`);
- case 'job-board':
+ case 'job-board': {
+ // When a geo-hub city is set, emit the clean canonical URL
+ // (e.g. /cerca-lavoro-ticino/lugano/) — this takes precedence
+ // over jobSlug so Google indexes the clean URL as canonical.
+ if (route.jobBoardCity && CITY_HUB_SLUG[lang as keyof typeof CITY_HUB_SLUG]) {
+ const citySlug = CITY_HUB_SLUG[lang as keyof typeof CITY_HUB_SLUG][route.jobBoardCity];
+ return finish(`${prefix}/${table.jobBoard}/${citySlug}${hashSuffix}`);
+ }
  return finish(route.jobSlug
  ? `${prefix}/${table.jobBoard}/${localizeEditorialJobSlug(route.jobSlug) || route.jobSlug}${hashSuffix}`
  : `${prefix}/${table.jobBoard}${hashSuffix}`);
+ }
  case 'profile':
  return finish(`${prefix}/${table.profile}${hashSuffix}`);
  case 'morning':
