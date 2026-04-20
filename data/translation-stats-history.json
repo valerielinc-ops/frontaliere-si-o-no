@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T05:06:05.869Z",
-    "label": "before",
-    "total": 1695,
-    "needsRetranslation": 57,
-    "incomplete": 8,
-    "complete": 1687,
-    "missingByLocale": {
-      "it": 7,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T05:06:55.873Z",
-    "label": "after",
-    "total": 1695,
-    "needsRetranslation": 57,
-    "incomplete": 8,
-    "complete": 1687,
-    "missingByLocale": {
-      "it": 7,
-      "en": 7,
-      "de": 1,
-      "fr": 7
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T07:21:22.680Z",
     "label": "before",
     "total": 1631,
@@ -7458,6 +7386,94 @@
       },
       {
         "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T14:05:53.927Z",
+    "label": "before",
+    "total": 2930,
+    "needsRetranslation": 100,
+    "incomplete": 33,
+    "complete": 2897,
+    "missingByLocale": {
+      "it": 26,
+      "en": 8,
+      "de": 27,
+      "fr": 29
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-20T14:39:49.124Z",
+    "label": "after",
+    "total": 2930,
+    "needsRetranslation": 83,
+    "incomplete": 23,
+    "complete": 2907,
+    "missingByLocale": {
+      "it": 20,
+      "en": 1,
+      "de": 21,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Banca Cler",
         "pending": 1
       },
       {

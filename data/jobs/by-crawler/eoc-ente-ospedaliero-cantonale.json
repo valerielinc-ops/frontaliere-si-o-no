@@ -70,7 +70,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "responsabilita-e-competenze-eoc-2026-nomina-della-dottoressa-claudia-canonica-a-presidente-della-societa-svizzer-rkf7dn"
@@ -4040,7 +4040,10 @@
         "it": [
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
-      }
+      },
+      "previousSlugs": [
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
+      ]
     },
     {
       "id": "company-uil2r1",
@@ -4069,9 +4072,9 @@
       "firstSeenAt": "2026-04-19T09:28:40.917Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -4121,15 +4124,18 @@
         ],
         "en": [
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
-          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona-uil16d"
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona-uil16d",
+          "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
-          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
           "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-          "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
@@ -4139,7 +4145,10 @@
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+        "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
@@ -4543,7 +4552,8 @@
         "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
         "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
         "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano",
+        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z"
       ]
     },
     {
@@ -4676,7 +4686,10 @@
       },
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d"
+        "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+        "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -4783,7 +4796,8 @@
       },
       "previousSlugs": [
         "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
-        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -4865,7 +4879,8 @@
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio-uikzkn",
         "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistante-soignante-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "assistante-soignante-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58"
       ]
     },
     {
@@ -4893,9 +4908,9 @@
       "firstSeenAt": "2026-04-19T09:28:40.917Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -4926,16 +4941,19 @@
         "en": [
           "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -4947,7 +4965,10 @@
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -5052,7 +5073,8 @@
       "previousSlugs": [
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
       ]
     },
     {
