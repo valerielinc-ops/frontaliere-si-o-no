@@ -308,15 +308,18 @@ export function initLocale(): void {
 
 // ─── Translation Function ────────────────────────────────────
 
-export function t(key: string, params?: Record<string, string | number>): string {
+export function t(key: string, fallback?: string): string;
+export function t(key: string, params: Record<string, string | number>): string;
+export function t(key: string, paramsOrFallback?: string | Record<string, string | number>): string {
+ const fallback = typeof paramsOrFallback === 'string' ? paramsOrFallback : undefined;
+ const params = typeof paramsOrFallback === 'object' ? paramsOrFallback : undefined;
  let translation: string | undefined;
  if (currentLocale === 'it') {
- // Check inline IT translations first, then loadedLocales (lazy blog keys)
  translation = itTranslations[key] || loadedLocales['it']?.[key];
  } else {
  translation = loadedLocales[currentLocale]?.[key] || itTranslations[key] || loadedLocales['it']?.[key];
  }
- if (!translation) translation = key;
+ if (!translation) translation = fallback ?? key;
  if (!params) return translation;
  return Object.entries(params).reduce(
  (str, [k, v]) => str.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v)),
