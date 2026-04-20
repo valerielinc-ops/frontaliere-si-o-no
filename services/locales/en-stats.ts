@@ -425,19 +425,6 @@ const enStats: Record<string, string> = {
  'blog.pagination.prev': 'Previous',
  'blog.pagination.next': 'Next',
  'blog.pagination.page': 'Page',
-
- // ── Blog content gate (auth prompt for full articles) ──
- 'blog.gate.title': 'Keep reading for free',
- 'blog.gate.subtitle': 'Sign up to unlock the full article and get new guides for cross-border workers.',
- 'blog.gate.orEmail': 'or with email',
- 'blog.gate.emailPlaceholder': 'Your email',
- 'blog.gate.emailCta': 'Continue',
- 'blog.gate.emailInvalid': 'Please enter a valid email address.',
- 'blog.gate.authFailed': 'Sign-in failed. Please try again.',
- 'blog.gate.benefit1': 'Full articles',
- 'blog.gate.benefit2': 'No spam',
- 'blog.gate.privacyNote': 'Your data is protected',
-
  'weeklyFact.title': 'Fact of the Week',
  'weeklyFact.share': 'Share',
  'weeklyFact.copied': 'Copied!',

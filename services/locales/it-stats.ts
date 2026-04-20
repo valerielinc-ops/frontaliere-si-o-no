@@ -437,18 +437,6 @@ const translations: Record<string, string> = {
  'blog.pagination.next': 'Successivo',
  'blog.pagination.page': 'Pagina',
 
- // ── Blog content gate (auth prompt for full articles) ──
- 'blog.gate.title': 'Continua a leggere gratis',
- 'blog.gate.subtitle': 'Registrati per accedere all\'articolo completo e ricevere nuovi contenuti utili per frontalieri.',
- 'blog.gate.orEmail': 'oppure con email',
- 'blog.gate.emailPlaceholder': 'La tua email',
- 'blog.gate.emailCta': 'Continua',
- 'blog.gate.emailInvalid': 'Inserisci un indirizzo email valido.',
- 'blog.gate.authFailed': 'Accesso non riuscito. Riprova.',
- 'blog.gate.benefit1': 'Articoli completi',
- 'blog.gate.benefit2': 'Zero spam',
- 'blog.gate.privacyNote': 'I tuoi dati sono protetti',
-
  // ── ResidencySimulator new keys ──
  'weeklyFact.title': 'Dato della Settimana',
  'weeklyFact.share': 'Condividi',

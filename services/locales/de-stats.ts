@@ -425,19 +425,6 @@ const deStats: Record<string, string> = {
  'blog.pagination.prev': 'Zurück',
  'blog.pagination.next': 'Weiter',
  'blog.pagination.page': 'Seite',
-
- // ── Blog content gate (auth prompt for full articles) ──
- 'blog.gate.title': 'Kostenlos weiterlesen',
- 'blog.gate.subtitle': 'Registriere dich, um den vollständigen Artikel zu lesen und neue Inhalte für Grenzgänger zu erhalten.',
- 'blog.gate.orEmail': 'oder per E-Mail',
- 'blog.gate.emailPlaceholder': 'Deine E-Mail',
- 'blog.gate.emailCta': 'Weiter',
- 'blog.gate.emailInvalid': 'Bitte gib eine gültige E-Mail-Adresse ein.',
- 'blog.gate.authFailed': 'Anmeldung fehlgeschlagen. Bitte erneut versuchen.',
- 'blog.gate.benefit1': 'Vollständige Artikel',
- 'blog.gate.benefit2': 'Kein Spam',
- 'blog.gate.privacyNote': 'Deine Daten sind geschützt',
-
  'weeklyFact.title': 'Fakt der Woche',
  'weeklyFact.share': 'Teilen',
  'weeklyFact.copied': 'Kopiert!',

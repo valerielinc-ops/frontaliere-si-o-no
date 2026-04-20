@@ -425,19 +425,6 @@ const frStats: Record<string, string> = {
  'blog.pagination.prev': 'Précédent',
  'blog.pagination.next': 'Suivant',
  'blog.pagination.page': 'Page',
-
- // ── Blog content gate (auth prompt for full articles) ──
- 'blog.gate.title': 'Continuez à lire gratuitement',
- 'blog.gate.subtitle': 'Inscrivez-vous pour accéder à l\'article complet et recevoir de nouveaux contenus pour frontaliers.',
- 'blog.gate.orEmail': 'ou par e-mail',
- 'blog.gate.emailPlaceholder': 'Votre e-mail',
- 'blog.gate.emailCta': 'Continuer',
- 'blog.gate.emailInvalid': 'Veuillez saisir une adresse e-mail valide.',
- 'blog.gate.authFailed': 'Échec de la connexion. Veuillez réessayer.',
- 'blog.gate.benefit1': 'Articles complets',
- 'blog.gate.benefit2': 'Zéro spam',
- 'blog.gate.privacyNote': 'Vos données sont protégées',
-
  'weeklyFact.title': 'Fait de la Semaine',
  'weeklyFact.share': 'Partager',
  'weeklyFact.copied': 'Copié !',
