@@ -415,6 +415,15 @@ input[type=number] { -moz-appearance: textfield; }
   --color-chart-tooltip-text: var(--_chart-tooltip-text);
   --color-chart-tooltip-border: var(--_chart-tooltip-border);
 
+  /* Third-party brand colors (constant, no light/dark switch) */
+  --color-brand-linkedin: #0A66C2;
+  --color-brand-linkedin-hover: #004182;
+  --color-brand-whatsapp: #25D366;
+  --color-brand-whatsapp-hover: #20bd5a;
+  --color-brand-facebook: #1877F2;
+  --color-brand-facebook-hover: #1565d8;
+  --color-brand-telegram: #0088cc;
+
   --animate-slide-up: slide-up 0.3s ease-out both;
 
   @keyframes slide-up {

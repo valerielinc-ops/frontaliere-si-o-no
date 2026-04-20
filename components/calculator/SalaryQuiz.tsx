@@ -361,13 +361,13 @@ export default function SalaryQuiz() {
  <div className="flex flex-wrap gap-3">
  <button
  onClick={() => handleShare('whatsapp')}
- className="flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-on-accent rounded-xl font-semibold text-sm transition-colors"
+ className="flex items-center gap-2 px-5 py-3 bg-brand-whatsapp hover:bg-brand-whatsapp-hover text-on-accent rounded-xl font-semibold text-sm transition-colors"
  >
  💬 WhatsApp
  </button>
  <button
  onClick={() => handleShare('facebook')}
- className="flex items-center gap-2 px-5 py-3 bg-[#1877F2] hover:bg-[#1565d8] text-on-accent rounded-xl font-semibold text-sm transition-colors"
+ className="flex items-center gap-2 px-5 py-3 bg-brand-facebook hover:bg-brand-facebook-hover text-on-accent rounded-xl font-semibold text-sm transition-colors"
  >
  📘 Facebook
  </button>
