@@ -2427,6 +2427,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-domocilio-ticino-2026.title': 'Hausbesuche: Dringlichkeitsantrag abgelehnt',
     'blog.article.cure-domocilio-ticino-2026.excerpt': 'Der Grosse Rat des Kantons Tessin hat den Dringlichkeitsantrag zur Initiative, die die Streichung der Kostenbeteiligung der Patienten für Hausbesuche forderte, abgelehnt.',
     'blog.article.cure-domocilio-ticino-2026.imageAlt': 'Ein Gesundheitsdienstleister besucht einen Patienten zu Hause in Tessin',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Kindergärten in Bellinzona: Kontroversen um das Subventionssystem',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'Das Subventionssystem für Kindergärten in Bellinzona steht im Mittelpunkt einer hitzigen Debatte zwischen der Gemeinde und dem Bildungsdepartement.',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Kindergarten in Bellinzona mit spielenden Kindern und Eltern, die mit dem Personal interagieren',
 };
 
 export default blogMetaDe;

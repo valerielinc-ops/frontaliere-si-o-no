@@ -2427,6 +2427,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-domocilio-ticino-2026.title': 'Cure a domicilio, palla in tribuna: respinta la richiesta d\'urgenza',
     'blog.article.cure-domocilio-ticino-2026.excerpt': 'Il Gran Consiglio del Ticino ha respinto la richiesta d\'urgenza sull\'iniziativa che chiedeva di stralciare la partecipazione ai costi da parte dei pazienti per le cure a domicilio.',
     'blog.article.cure-domocilio-ticino-2026.imageAlt': 'Un operatore sanitario in visita domiciliare in Ticino',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Asili nido a Bellinzona: polemiche sul sistema di sussidi',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'Il sistema di sussidi per gli asili nido a Bellinzona è al centro di un acceso dibattito tra il Comune e il Dipartimento dell\'educazione.',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Asilo nido a Bellinzona con bambini che giocano e genitori che interagiscono con il personale',
 };
 
 export default blogMetaIt;

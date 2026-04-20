@@ -10353,6 +10353,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asili-nido-bellinzona-sussidi-2026': {
+    title: 'Asili nido a Bellinzona: polemiche sul | Frontaliere Ticino',
+    description: 'Scopri le ultime novità sul sistema di sussidi per gli asili nido a Bellinzona e come questo potrebbe influenzare i frontalieri che lavorano in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asili, nido, bellinzona, polemiche',
+    ogTitle: 'Asili nido Bellinzona: polemiche sussidi | Frontaliere',
+    ogDescription: 'Scopri le ultime novità sul sistema di sussidi per gli asili nido a Bellinzona e come questo potrebbe influenzare i frontalieri che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/asili-nido-bellinzona-sussidi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asili nido Bellinzona: polemiche sussidi",
+      "description": "Scopri le ultime novità sul sistema di sussidi per gli asili nido a Bellinzona e come questo potrebbe influenzare i frontalieri che lavorano in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asili-nido-bellinzona-sussidi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido a Bellinzona con bambini che giocano e genitori che interagiscono con il personale"
+      },
+      "datePublished": "2026-04-20T23:28:38+00:00",
+      "dateModified": "2026-04-20T23:28:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-sussidi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

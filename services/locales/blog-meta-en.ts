@@ -2427,6 +2427,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-domocilio-ticino-2026.title': 'Home care, ball in the stands: urgent request rejected',
     'blog.article.cure-domocilio-ticino-2026.excerpt': 'The Grand Council of Ticino has rejected the urgent request on the initiative that asked to remove the patients\' share of the costs for home care.',
     'blog.article.cure-domocilio-ticino-2026.imageAlt': 'A healthcare professional visiting a patient at home in Ticino',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Daycare subsidies in Bellinzona: controversy over the system',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'The subsidy system for daycare centers in Bellinzona is at the heart of a heated debate between the municipality and the Department of Education.',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Daycare center in Bellinzona with children playing and parents interacting with staff',
 };
 
 export default blogMetaEn;

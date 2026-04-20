@@ -6648,4 +6648,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cure-domocilio-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'asili-nido-bellinzona-sussidi-2026',
+ category: 'pratico',
+ date: '2026-04-20T23:28:38.689Z',
+ image: '/images/blog/asili-nido-bellinzona-sussidi-2026.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2427,6 +2427,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cure-domocilio-ticino-2026.title': 'Soins à domicile, balle en tribune : rejet de la demande d\'urgence',
     'blog.article.cure-domocilio-ticino-2026.excerpt': 'Le Grand Conseil du Tessin a rejeté la demande d\'urgence concernant l\'initiative qui demandait de supprimer la participation aux coûts par les patients pour les soins à domicile.',
     'blog.article.cure-domocilio-ticino-2026.imageAlt': 'Un professionnel de la santé en visite à domicile au Tessin',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Crèches à Bellinzone: polémique autour du système de subventions',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'Le système de subventions pour les crèches à Bellinzone est au centre d\'un débat animé entre la commune et le Département de l\'éducation.',
+    'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Crèche à Bellinzone avec des enfants qui jouent et des parents qui interagissent avec le personnel',
 };
 
 export default blogMetaFr;
