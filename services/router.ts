@@ -34,6 +34,7 @@ import {
  resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
+import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 
 // ── Route types ──────────────────────────────────────────────
 
@@ -1591,6 +1592,12 @@ export function parsePath(pathname: string): ParseResult {
 
  const table = SLUG_TABLES[locale];
  const revTop = REVERSE_TOP[locale];
+
+ // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
+ // These are build-time static HTML; soft-nav resolves to the fuel-prices Statistiche tab.
+ if (FUEL_DAILY_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isFuelDailyPath(pathname)) {
+   return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices' }, locale };
+ }
 
  if (parts.length === 0) {
  return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
