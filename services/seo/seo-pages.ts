@@ -1624,7 +1624,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  border: {
  title: 'Traffico Dogana Chiasso Brogeda 2026 | Tempi di Attesa e Coda Dogana',
- description: 'Traffico dogana Chiasso e Brogeda: tempi di attesa in tempo reale, coda dogana, orari apertura. Valichi alternativi Ponte Tresa, Gaggiolo e Stabio per evitare le code. Guida per frontalieri.',
+ description: 'Traffico dogana Chiasso e Brogeda: tempi di attesa in tempo reale, orari apertura e valichi alternativi Ponte Tresa, Gaggiolo e Stabio per frontalieri.',
  keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
  ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
  ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa, code, orari apertura e percorsi alternativi per frontalieri.',
@@ -2500,7 +2500,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  jobboard: {
  title: 'Offerte di Lavoro Ticino 2026 — Lugano, Mendrisio, Bellinzona | Aggiornate Ogni Giorno',
- description: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate ogni giorno da 100+ aziende. Posizioni a Lugano, Mendrisio, Bellinzona e tutto il Canton Ticino. Banche, IT, pharma, sanità, case anziani. Candidatura diretta — gratis!',
+ description: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate da 100+ aziende a Lugano, Mendrisio, Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta, gratis!',
  keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, lavoro in svizzera per italiani, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni, case anziani ticino offerte di lavoro',
  ogTitle: 'Offerte di Lavoro Ticino 2026 | Lugano, Mendrisio, Bellinzona',
  ogDescription: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate da 100+ aziende a Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità, case anziani. Candidatura diretta — gratis!',

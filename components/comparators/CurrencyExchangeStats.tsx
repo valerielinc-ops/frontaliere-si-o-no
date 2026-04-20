@@ -7,9 +7,10 @@
  */
 import React, { useState, useEffect, useMemo } from 'react';
 import { TrendingDown, TrendingUp, BarChart3, Clock, Calendar, FlaskConical, Zap, ChartBar, ArrowLeftRight, Bell, Mail } from 'lucide-react';
-import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, BarChart, Bar, Cell } from 'recharts';
 import { useTranslation } from '@/services/i18n';
-import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import ChartWrapper from '@/components/shared/ChartWrapper';
 
 // ── Constants ────────────────────────────────────────────────
 const DAY_KEYS = ['day_mon', 'day_tue', 'day_wed', 'day_thu', 'day_fri', 'day_sat', 'day_sun'];
@@ -332,13 +333,6 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
 
 const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate: number }> }> = ({ historyData }) => {
  const { t } = useTranslation();
- const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
- useEffect(() => {
- const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
- obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
- return () => obs.disconnect();
- }, []);
- const chart = useChartColors(isDark);
  const timing = useMemo(() => analyzeTimingPatterns(historyData), [historyData]);
  const volatility = useMemo(() => analyzeVolatility(historyData), [historyData]);
 
@@ -414,7 +408,8 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <Calendar size={14} /> {t('currency.avg_rate_by_day')}
  </h3>
  <div className="h-[180px]">
- <ResponsiveContainer width="100%" height="100%">
+ <ChartWrapper height="100%">
+ {(chart) => (
  <BarChart data={timing.dayOfWeek.filter(d => d.sampleCount > 0)} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
  <XAxis dataKey="day" tick={{ fontSize: 12, fill: chart.tick }} tickFormatter={(v: string) => t(`currency.${v}`)} />
@@ -430,7 +425,8 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  ))}
  </Bar>
  </BarChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
  </div>
 
@@ -439,7 +435,8 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <Clock size={14} /> {t('currency.avg_rate_by_month')}
  </h3>
  <div className="h-[200px]">
- <ResponsiveContainer width="100%" height="100%">
+ <ChartWrapper height="100%">
+ {(chart) => (
  <BarChart data={timing.monthOfYear} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
  <XAxis dataKey="month" tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: string) => t(`currency.${v}`)} />
@@ -455,11 +452,12 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  ))}
  </Bar>
  </BarChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
  </div>
 
- <div className="bg-warning-subtle rounded-xl p-4 text-xs">
+ <div className="bg-warning-subtle rounded-xl p-4 text-sm">
  <div className="flex items-start gap-2">
  <Zap size={16} className="text-warning mt-0.5 flex-shrink-0" />
  <div className="text-body space-y-1">
@@ -540,7 +538,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  { emoji: '⚡', text: t('currency.hack_avoid_friday') },
  { emoji: '🔔', text: t('currency.hack_set_alert') },
  ].map((hack, i) => (
- <div key={i} className="flex items-start gap-2 bg-surface/60 rounded-lg p-2.5 text-xs text-body">
+ <div key={i} className="flex items-start gap-2 bg-surface/60 rounded-lg p-2.5 text-sm text-body">
  <span className="text-base flex-shrink-0">{hack.emoji}</span>
  <span>{hack.text}</span>
  </div>
@@ -573,13 +571,6 @@ const WeightedAverageStats: React.FC<{
  period: string;
 }> = ({ historyData, currentRate, period }) => {
  const { t } = useTranslation();
- const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
- useEffect(() => {
- const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
- obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
- return () => obs.disconnect();
- }, []);
- const chart = useChartColors(isDark);
  const stats = useMemo(() => {
  if (historyData.length < 5) return null;
 
@@ -685,7 +676,8 @@ const WeightedAverageStats: React.FC<{
  <Calendar size={14} /> {t('currency.yearly_avg_rate')}
  </h3>
  <div className="h-[200px]">
- <ResponsiveContainer width="100%" height="100%">
+ <ChartWrapper height="100%">
+ {(chart) => (
  <BarChart data={stats.yearlyAvgs} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
  <XAxis dataKey="year" tick={{ fontSize: 12, fill: chart.tick }} />
@@ -700,7 +692,8 @@ const WeightedAverageStats: React.FC<{
  ))}
  </Bar>
  </BarChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
  </div>
  )}

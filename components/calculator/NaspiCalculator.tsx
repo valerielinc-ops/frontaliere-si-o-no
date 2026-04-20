@@ -1,9 +1,10 @@
 import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Calculator, TrendingDown, Euro, Clock, Info, ChevronDown, ChevronUp } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { useTranslation } from '@/services/i18n';
-import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import ChartWrapper from '@/components/shared/ChartWrapper';
 import { lazyRetry } from '@/services/lazyRetry';
 
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
@@ -78,14 +79,6 @@ export default function NaspiCalculator() {
  const [exchangeRate, setExchangeRate] = useState(_liveRate || FALLBACK_EXCHANGE_RATE);
  useEffect(() => { if (_liveRate > 0) setExchangeRate(_liveRate); }, [_liveRate]);
  const [showTable, setShowTable] = useState(false);
- const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
- const chart = useChartColors(isDark);
-
- useEffect(() => {
- const observer = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
- observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
- return () => observer.disconnect();
- }, []);
 
  const result = useMemo(
  () => calculateNaspi(salary, monthsWorked, age, exchangeRate),
@@ -237,7 +230,8 @@ export default function NaspiCalculator() {
  {result.rows.length > 0 && (
  <div className="bg-surface rounded-xl border border-edge p-4">
  <h4 className="text-sm font-bold text-body mb-3">{t('naspi.calc.chartTitle')}</h4>
- <ResponsiveContainer width="100%" height={220}>
+ <ChartWrapper height={220}>
+ {(chart) => (
  <LineChart data={result.rows} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
  <XAxis
@@ -269,7 +263,8 @@ export default function NaspiCalculator() {
  activeDot={{ r: 5 }}
  />
  </LineChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
  )}
 

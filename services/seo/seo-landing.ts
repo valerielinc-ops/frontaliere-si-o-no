@@ -322,7 +322,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'landing-new-frontier-over20km': {
  title: 'Calcolo Tasse Frontalieri Oltre 20 km | Simulazione Netto 2026',
- description: 'Calcolo tasse frontalieri oltre 20 km dal confine: simulazione netto con imposta alla fonte Ticino e IRPEF Italia. Casi pratici 60k, 80k, 100k CHF e confronto entro/oltre 20 km.',
+ description: 'Calcolo tasse frontalieri oltre 20 km: simulazione netto con imposta alla fonte Ticino e IRPEF Italia. Casi pratici e confronto entro/oltre 20 km.',
  keywords: 'calcolo tasse frontalieri oltre 20 km, nuovi frontalieri oltre 20 km, simulazione tasse oltre 20 km, frontalieri oltre 20 km tasse 2026, calcolo netto oltre 20 km, confronto entro oltre 20 km, nuovo frontaliere oltre 20 km',
  ogTitle: 'Calcolo tasse frontalieri oltre 20 km | Simulazione 2026',
  ogDescription: 'Calcolo tasse frontalieri oltre 20 km: simulazione netto, casi pratici e confronto entro/oltre 20 km.',

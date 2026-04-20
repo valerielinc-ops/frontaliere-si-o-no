@@ -95,12 +95,12 @@ const RistorniTracker: React.FC = () => {
  <p className="text-sm text-subtle mb-4">{t('ristorni.explanation')}</p>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div className="bg-neutral-subtle rounded-xl p-3 border border-neutral-border">
- <h4 className="font-bold text-xs text-neutral mb-1">{t('ristorni.oldAgreement')}</h4>
- <p className="text-xs text-neutral">{t('ristorni.oldAgreementDesc')}</p>
+ <h4 className="font-bold text-sm text-neutral mb-1">{t('ristorni.oldAgreement')}</h4>
+ <p className="text-sm text-neutral">{t('ristorni.oldAgreementDesc')}</p>
  </div>
  <div className="bg-warning-subtle rounded-xl p-3">
- <h4 className="font-bold text-xs text-warning mb-1">{t('ristorni.newAgreement')}</h4>
- <p className="text-xs text-warning">{t('ristorni.newAgreementDesc')}</p>
+ <h4 className="font-bold text-sm text-warning mb-1">{t('ristorni.newAgreement')}</h4>
+ <p className="text-sm text-warning">{t('ristorni.newAgreementDesc')}</p>
  </div>
  </div>
  </div>

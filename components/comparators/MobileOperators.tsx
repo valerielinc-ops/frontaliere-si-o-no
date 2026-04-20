@@ -628,7 +628,7 @@ const MobileOperators: React.FC = () => {
  <p className={`font-bold text-sm mb-1 ${roaming?.included ? 'text-success' : 'text-danger'}`}>
  {t('mobile.roamingIn')} {operator.country === 'IT' ? `${t('mobile.switzerland')} 🇨🇭` : `${t('mobile.italy')} 🇮🇹`}
  </p>
- <p className="text-xs text-body">
+ <p className="text-sm text-body">
  {roaming?.notes}
  </p>
  {roaming?.costPerDay && (

@@ -23,6 +23,7 @@ import {
  ChevronDown, ChevronUp, Check, Star, Shield, Clock,
  ArrowRight, Info, CalendarDays, Quote,
 } from 'lucide-react';
+import Callout from '@/components/shared/Callout';
 import { useTranslation } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import type { ActiveTab } from '@/services/router';
@@ -237,15 +238,16 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
  {/* Expert quote — authority signal for AI citation (+30% visibility) */}
  {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
- <blockquote className="border-l-2 border-accent-border pl-3 mb-3 py-1.5" data-speakable="true">
+ <Callout status="accent" variant="plain" icon={<Quote className="w-3.5 h-3.5" />} className="mb-3">
+ <blockquote data-speakable="true">
  <p className="text-sm italic text-subtle">
- <Quote className="inline w-3.5 h-3.5 mr-1 text-accent -mt-0.5" aria-hidden="true" />
  {t(`seoContent.${context}.expertQuote`)}
  </p>
  <cite className="text-xs text-muted not-italic font-medium">
  — {t(`seoContent.${context}.expertName`)}
  </cite>
  </blockquote>
+ </Callout>
  )}
 
  {/* Trust signals */}

@@ -734,7 +734,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  role="switch"
  aria-checked={inputs.spouseWorks}
  aria-label={t('input.spouseWorks')}
- className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent ${inputs.spouseWorks ? 'bg-accent-strong' : 'bg-surface-raised'}`}
+ className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent after:absolute after:-inset-[10px] after:content-[''] ${inputs.spouseWorks ? 'bg-accent-strong' : 'bg-surface-raised'}`}
  >
  <span className={`block w-4 h-4 bg-surface rounded-full shadow-md transform transition-transform duration-200 ease-in-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
  </button>
@@ -828,7 +828,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="p-3 bg-surface-alt/50 rounded-xl border border-dashed border-edge mb-2 animate-fade-in">
  <p className="text-xs text-subtle uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
  <div className="flex flex-wrap gap-2">
- <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-accent-border hover:text-accent transition-colors">{t('input.empty')}</button>
+ <button onClick={() => addExpense('CH')} className="px-2 py-1.5 min-h-[44px] rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-accent-border hover:text-accent transition-colors">{t('input.empty')}</button>
  {PRESET_EXPENSES_CH.map((preset, idx) => {
  const Icon = IconsMap[preset.icon] || Home;
  return (
@@ -861,7 +861,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
  </div>
  <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa CH'} className="w-14 sm:w-16 bg-surface-alt border border-edge rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 text-right transition-colors" />
- <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-surface-raised transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+ <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 min-h-[44px] bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-surface-raised transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
  <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-danger transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
  </div>
  ))}
@@ -897,7 +897,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="p-3 bg-surface-alt/50 rounded-xl border border-dashed border-edge mb-2 animate-fade-in">
  <p className="text-xs text-subtle uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
  <div className="flex flex-wrap gap-2">
- <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-danger hover:text-danger transition-colors">{t('input.empty')}</button>
+ <button onClick={() => addExpense('IT')} className="px-2 py-1.5 min-h-[44px] rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-danger hover:text-danger transition-colors">{t('input.empty')}</button>
  {PRESET_EXPENSES_IT.map((preset, idx) => {
  const Icon = IconsMap[preset.icon] || Home;
  return (
@@ -930,7 +930,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
  </div>
  <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-surface-alt border border-edge rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 text-right transition-colors" />
- <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-surface-raised transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+ <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 min-h-[44px] bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-surface-raised transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
  <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-danger transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
  </div>
  ))}
@@ -1034,7 +1034,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  aria-label={t('input.ssnHealthTax') || 'Contributo SSN sanitario'}
  role="switch"
  aria-checked={inputs.enableOldFrontierHealthTax}
- className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-warning-strong to-warning-strong' : 'bg-surface-raised'}`}
+ className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner after:absolute after:-inset-[9px] after:content-[''] ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-warning-strong to-warning-strong' : 'bg-surface-raised'}`}
  >
  <span className={`block w-5 h-5 bg-surface rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
  {inputs.enableOldFrontierHealthTax && (

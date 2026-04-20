@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { Shield, TrendingUp, Calculator, Info, AlertCircle, Landmark, PiggyBank, Percent, Clock, Star, Building, Banknote, BarChart3, CheckCircle2, XCircle } from 'lucide-react';
 import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart } from 'recharts';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
-import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import ChartWrapper from '@/components/shared/ChartWrapper';
 
 interface Pillar3Inputs {
  type: '3a' | '3b';
@@ -23,13 +24,6 @@ const MAX_3A_NO_LPP = 36288; // Max per autonomi senza 2° pilastro
 
 const Pillar3Simulator: React.FC = () => {
  const { t } = useTranslation();
- const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
- useEffect(() => {
- const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
- obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
- return () => obs.disconnect();
- }, []);
- const chart = useChartColors(isDark);
  const [inputs, setInputs] = useState<Pillar3Inputs>({
  type: '3a',
  annualContribution: 7258,
@@ -225,7 +219,8 @@ const Pillar3Simulator: React.FC = () => {
  <TrendingUp size={20} className="text-info" />
  {t('pillar3.growthProjection')}
  </h3>
- <ResponsiveContainer width="100%" height={350}>
+ <ChartWrapper height={350}>
+ {(chart) => (
  <AreaChart data={results.projections}>
  <defs>
  <linearGradient id="colorPillar" x1="0" y1="0" x2="0" y2="1">
@@ -247,7 +242,8 @@ const Pillar3Simulator: React.FC = () => {
  <Area type="monotone" dataKey="taxSaved" name={t('pillar3.cumulativeTaxSaving')} stroke={CHART_DATA_COLORS.warning} fill="url(#colorTax)" strokeWidth={2} />
  )}
  </AreaChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
 
  {/* Withdrawal Info */}
@@ -349,7 +345,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="text-sm text-subtle">
  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">0.5-1.5%</span></div>
  </div>
- <div className="space-y-1.5 text-xs">
+ <div className="space-y-1.5 text-sm">
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.guaranteedCapital')}</div>
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.noKnowledgeRequired')}</div>
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.maxSafety')}</div>
@@ -375,7 +371,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="text-sm text-subtle">
  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">2-5%</span></div>
  </div>
- <div className="space-y-1.5 text-xs">
+ <div className="space-y-1.5 text-sm">
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.goodRiskReturn')}</div>
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.autoDiversification')}</div>
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.professionalManagement')}</div>
@@ -401,7 +397,7 @@ const Pillar3Simulator: React.FC = () => {
  <div className="text-sm text-subtle">
  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">0.5-2%</span></div>
  </div>
- <div className="space-y-1.5 text-xs">
+ <div className="space-y-1.5 text-sm">
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.insuranceCoverage')}</div>
  <div className="flex items-center gap-1.5 text-success"><CheckCircle2 size={12} /> {t('pillar3.forcedSaving')}</div>
  <div className="flex items-center gap-1.5 text-danger"><XCircle size={12} /> {t('pillar3.lowNetReturn')}</div>

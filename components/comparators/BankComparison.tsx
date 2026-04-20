@@ -213,14 +213,13 @@ const BankComparison: React.FC = () => {
 
  return (
  <div className="space-y-6 pb-8">
- <div className="bg-neutral-subtle rounded-md p-5 sm:p-8 border-l-2 border-warning-border">
- <div className="flex items-center gap-3 mb-4">
- <Building2 size={32} className="text-warning" />
+ <Callout status="warning" icon={<Building2 size={32} />} className="p-5 sm:p-8">
+ <div className="mb-1">
  <h2 className="text-2xl sm:text-3xl font-bold font-display text-heading">{t('banks.title')}</h2>
  </div>
  <p className="text-muted text-lg">{t('banks.subtitle')}</p>
  <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
- </div>
+ </Callout>
 
  <p className="text-sm text-subtle leading-relaxed">
  {t('comparatori.bank.intro.p1')}
@@ -322,7 +321,7 @@ const BankComparison: React.FC = () => {
  <p className="text-xs font-bold text-success mb-1">✓ {t('banks.pros')}</p>
  <ul className="space-y-1">
  {bank.pros.slice(0, 2).map((p, i) => (
- <li key={i} className="text-xs text-body">• {p}</li>
+ <li key={i} className="text-sm text-body">• {p}</li>
  ))}
  </ul>
  </div>
@@ -330,7 +329,7 @@ const BankComparison: React.FC = () => {
  <p className="text-xs font-bold text-danger mb-1">✗ {t('banks.cons')}</p>
  <ul className="space-y-1">
  {bank.cons.slice(0, 2).map((c, i) => (
- <li key={i} className="text-xs text-body">• {c}</li>
+ <li key={i} className="text-sm text-body">• {c}</li>
  ))}
  </ul>
  </div>

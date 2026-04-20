@@ -587,7 +587,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  <p className="text-xs uppercase tracking-wide text-warning font-semibold">
  {t('permitCompare.wizard.recommendation')}
  </p>
- <p className="text-lg font-bold text-heading mt-1">
+ <p className="text-lg font-bold font-display text-heading mt-1">
  {wizardDecision.recommendation === 'g'
  ? t('permitCompare.permitG')
  : wizardDecision.recommendation === 'b'

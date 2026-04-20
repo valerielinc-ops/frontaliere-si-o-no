@@ -112,7 +112,7 @@ const CookieBanner: React.FC = () => {
  aria-checked={analyticsOn}
  aria-label={t('consent.analytics')}
  onClick={() => setAnalyticsOn(!analyticsOn)}
- className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
+ className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors after:absolute after:-inset-[12px] after:content-[''] ${
  analyticsOn ? 'bg-accent-strong' : 'bg-surface-raised'
  }`}
  >
@@ -135,7 +135,7 @@ const CookieBanner: React.FC = () => {
  aria-checked={advertisingOn}
  aria-label={t('consent.advertising')}
  onClick={() => setAdvertisingOn(!advertisingOn)}
- className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
+ className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors after:absolute after:-inset-[12px] after:content-[''] ${
  advertisingOn ? 'bg-accent-strong' : 'bg-surface-raised'
  }`}
  >
@@ -149,7 +149,7 @@ const CookieBanner: React.FC = () => {
 
  <button
  onClick={handleSaveCustom}
- className="w-full text-xs font-medium py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent transition-colors"
+ className="w-full text-xs font-medium py-2 min-h-[44px] rounded-lg bg-accent hover:bg-accent-hover text-on-accent transition-colors"
  >
  {t('consent.savePreferences')}
  </button>
@@ -160,20 +160,20 @@ const CookieBanner: React.FC = () => {
  <div className="flex flex-col sm:flex-row gap-2">
  <button
  onClick={handleAcceptAll}
- className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-accent hover:bg-accent-hover text-on-accent transition-colors"
+ className="flex-1 text-xs font-medium py-2.5 px-4 min-h-[44px] rounded-lg bg-accent hover:bg-accent-hover text-on-accent transition-colors"
  >
  {t('consent.acceptAll')}
  </button>
  <button
  onClick={handleRejectAll}
- className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-surface-raised text-body hover:bg-surface-raised transition-colors"
+ className="flex-1 text-xs font-medium py-2.5 px-4 min-h-[44px] rounded-lg bg-surface-raised text-body hover:bg-surface-raised transition-colors"
  >
  {t('consent.rejectAll')}
  </button>
  {!showDetails && (
  <button
  onClick={() => setShowDetails(true)}
- className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg border border-edge text-subtle hover:bg-surface-raised transition-colors inline-flex items-center justify-center gap-1"
+ className="flex-1 text-xs font-medium py-2.5 px-4 min-h-[44px] rounded-lg border border-edge text-subtle hover:bg-surface-raised transition-colors inline-flex items-center justify-center gap-1"
  aria-label={t('consent.customize')}
  >
  <Settings className="w-3.5 h-3.5" />

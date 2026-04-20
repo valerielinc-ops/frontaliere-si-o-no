@@ -121,19 +121,19 @@ const SwissTaxReturn: React.FC = () => {
  <h4 className="font-bold text-danger mb-2 flex items-center gap-2">
  <Euro size={16} /> {t('swissTaxReturn.overview.quellensteuer')}
  </h4>
- <p className="text-danger text-xs">{t('swissTaxReturn.overview.quellensteuerDesc')}</p>
+ <p className="text-danger text-sm">{t('swissTaxReturn.overview.quellensteuerDesc')}</p>
  </div>
  <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
  <h4 className="font-bold text-accent mb-2 flex items-center gap-2">
  <Scale size={16} /> {t('swissTaxReturn.overview.rettifica')}
  </h4>
- <p className="text-accent text-xs">{t('swissTaxReturn.overview.rettificaDesc')}</p>
+ <p className="text-accent text-sm">{t('swissTaxReturn.overview.rettificaDesc')}</p>
  </div>
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
  <h4 className="font-bold text-warning mb-2 flex items-center gap-2">
  <Calculator size={16} /> {t('swissTaxReturn.overview.tdr')}
  </h4>
- <p className="text-warning text-xs">{t('swissTaxReturn.overview.tdrDesc')}</p>
+ <p className="text-warning text-sm">{t('swissTaxReturn.overview.tdrDesc')}</p>
  </div>
  </div>
 
@@ -144,7 +144,7 @@ const SwissTaxReturn: React.FC = () => {
  </h4>
  <div className="space-y-2">
  {[1, 2, 3, 4, 5].map(i => (
- <div key={i} className="flex items-start gap-2 text-xs text-accent">
+ <div key={i} className="flex items-start gap-2 text-sm text-accent">
  <span className="font-bold bg-accent-subtle rounded-full w-5 h-5 flex items-center justify-center shrink-0 text-xs">{i}</span>
  <span>{t(`swissTaxReturn.overview.flow${i}`)}</span>
  </div>
@@ -155,7 +155,7 @@ const SwissTaxReturn: React.FC = () => {
  {/* Who needs what */}
  <div className="bg-success-subtle rounded-xl p-4 border border-success-border">
  <h4 className="font-bold text-success mb-2">{t('swissTaxReturn.overview.whoNeeds')}</h4>
- <ul className="list-disc list-inside space-y-1 text-success text-xs">
+ <ul className="list-disc list-inside space-y-1 text-success text-sm">
  <li>{t('swissTaxReturn.overview.whoNeeds1')}</li>
  <li>{t('swissTaxReturn.overview.whoNeeds2')}</li>
  <li>{t('swissTaxReturn.overview.whoNeeds3')}</li>
@@ -171,12 +171,12 @@ const SwissTaxReturn: React.FC = () => {
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  <div className="bg-surface rounded-lg p-3 border border-warning-border">
- <h5 className="font-bold text-xs text-warning mb-1">{t('swissTaxReturn.overview.oldFrontalier')}</h5>
- <p className="text-xs text-warning">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
+ <h5 className="font-bold text-sm text-warning mb-1">{t('swissTaxReturn.overview.oldFrontalier')}</h5>
+ <p className="text-sm text-warning">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
  </div>
  <div className="bg-surface rounded-lg p-3 border border-warning-border">
- <h5 className="font-bold text-xs text-warning mb-1">{t('swissTaxReturn.overview.newFrontalier')}</h5>
- <p className="text-xs text-warning">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
+ <h5 className="font-bold text-sm text-warning mb-1">{t('swissTaxReturn.overview.newFrontalier')}</h5>
+ <p className="text-sm text-warning">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
  </div>
  </div>
  </div>
@@ -245,17 +245,17 @@ const SwissTaxReturn: React.FC = () => {
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
  <div className="flex items-center gap-2 mb-2">
  <AlertTriangle size={16} className="text-warning" />
- <h4 className="font-bold text-warning text-xs">{t('swissTaxReturn.quellensteuer.newAgreement')}</h4>
+ <h4 className="font-bold text-warning text-sm">{t('swissTaxReturn.quellensteuer.newAgreement')}</h4>
  </div>
- <p className="text-xs text-warning mb-3">{t('swissTaxReturn.quellensteuer.newAgreementDesc')}</p>
+ <p className="text-sm text-warning mb-3">{t('swissTaxReturn.quellensteuer.newAgreementDesc')}</p>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
  <div className="bg-surface rounded-lg p-2 border border-warning-border">
- <span className="text-xs font-bold text-warning">{t('swissTaxReturn.quellensteuer.newAgrOld')}</span>
- <p className="text-xs text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
+ <span className="text-sm font-bold text-warning">{t('swissTaxReturn.quellensteuer.newAgrOld')}</span>
+ <p className="text-sm text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
  </div>
  <div className="bg-surface rounded-lg p-2 border border-warning-border">
- <span className="text-xs font-bold text-warning">{t('swissTaxReturn.quellensteuer.newAgrNew')}</span>
- <p className="text-xs text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
+ <span className="text-sm font-bold text-warning">{t('swissTaxReturn.quellensteuer.newAgrNew')}</span>
+ <p className="text-sm text-warning mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
  </div>
  </div>
  </div>
@@ -263,7 +263,7 @@ const SwissTaxReturn: React.FC = () => {
  {/* What's included in the forfait */}
  <div className="bg-surface-alt rounded-xl p-4 border border-edge">
  <h4 className="font-bold text-sm text-strong mb-2">{t('swissTaxReturn.quellensteuer.forfaitIncludes')}</h4>
- <ul className="list-disc list-inside space-y-1 text-xs text-subtle">
+ <ul className="list-disc list-inside space-y-1 text-sm text-subtle">
  {[1, 2, 3, 4, 5].map(i => (
  <li key={i}>{t(`swissTaxReturn.quellensteuer.forfait${i}`)}</li>
  ))}
@@ -315,8 +315,8 @@ const SwissTaxReturn: React.FC = () => {
  <FileCheck size={16} className="text-accent" />
  <h4 className="font-bold text-accent text-sm">{t('swissTaxReturn.correction.request2')}</h4>
  </div>
- <p className="text-xs text-accent mb-2">{t('swissTaxReturn.correction.request2Desc')}</p>
- <ul className="list-disc list-inside space-y-1 text-xs text-accent">
+ <p className="text-sm text-accent mb-2">{t('swissTaxReturn.correction.request2Desc')}</p>
+ <ul className="list-disc list-inside space-y-1 text-sm text-accent">
  <li>{t('swissTaxReturn.correction.request2Ex1')}</li>
  <li>{t('swissTaxReturn.correction.request2Ex2')}</li>
  <li>{t('swissTaxReturn.correction.request2Ex3')}</li>
@@ -345,7 +345,7 @@ const SwissTaxReturn: React.FC = () => {
 
  <div className="bg-surface-alt rounded-xl p-4 border border-edge">
  <h4 className="font-bold text-sm text-strong mb-2">{t('swissTaxReturn.correction.deductible')}</h4>
- <ul className="list-disc list-inside space-y-1 text-xs text-subtle">
+ <ul className="list-disc list-inside space-y-1 text-sm text-subtle">
  <li>{t('swissTaxReturn.correction.ded1')}</li>
  <li>{t('swissTaxReturn.correction.ded2')}</li>
  <li>{t('swissTaxReturn.correction.ded3')}</li>
@@ -386,7 +386,7 @@ const SwissTaxReturn: React.FC = () => {
  <AlertTriangle size={16} className="text-danger" />
  <h4 className="font-bold text-danger text-sm">{t('swissTaxReturn.correction.deadline')}</h4>
  </div>
- <p className="text-xs text-danger">{t('swissTaxReturn.correction.deadlineDesc')}</p>
+ <p className="text-sm text-danger">{t('swissTaxReturn.correction.deadlineDesc')}</p>
  </div>
  </div>
  </div>
@@ -403,7 +403,7 @@ const SwissTaxReturn: React.FC = () => {
  <div className="space-y-4">
  <div className="bg-danger-subtle rounded-xl p-4 border border-danger-border">
  <h4 className="font-bold text-danger text-sm mb-2">{t('swissTaxReturn.tdr.mandatory')}</h4>
- <ul className="list-disc list-inside space-y-1 text-xs text-danger">
+ <ul className="list-disc list-inside space-y-1 text-sm text-danger">
  <li>{t('swissTaxReturn.tdr.mandatory1')}</li>
  <li>{t('swissTaxReturn.tdr.mandatory2')}</li>
  <li>{t('swissTaxReturn.tdr.mandatory3')}</li>
@@ -414,10 +414,10 @@ const SwissTaxReturn: React.FC = () => {
  <h4 className="font-bold text-accent text-sm mb-2">{t('swissTaxReturn.tdr.quasiResident')}</h4>
  <p className="text-sm text-accent mb-2">{t('swissTaxReturn.tdr.quasiResidentDesc')}</p>
  <div className="bg-surface rounded-lg p-3 border border-accent-border">
- <p className="text-xs font-bold text-accent">{t('swissTaxReturn.tdr.quasiResidentRule')}</p>
+ <p className="text-sm font-bold text-accent">{t('swissTaxReturn.tdr.quasiResidentRule')}</p>
  </div>
  <div className="mt-2 bg-surface rounded-lg p-3 border border-accent-border">
- <p className="text-xs font-bold text-accent mb-1">{t('swissTaxReturn.tdr.quasiResidentExample')}</p>
+ <p className="text-sm font-bold text-accent mb-1">{t('swissTaxReturn.tdr.quasiResidentExample')}</p>
  <p className="text-sm text-accent">{t('swissTaxReturn.tdr.quasiResidentExampleDesc')}</p>
  </div>
  </div>
@@ -426,7 +426,7 @@ const SwissTaxReturn: React.FC = () => {
  <div className="bg-surface-alt rounded-xl p-4 border border-edge">
  <h4 className="font-bold text-sm text-strong mb-2">{t('swissTaxReturn.tdr.etax')}</h4>
  <p className="text-sm text-subtle mb-3">{t('swissTaxReturn.tdr.etaxDesc')}</p>
- <ol className="list-decimal list-inside space-y-2 text-xs text-subtle">
+ <ol className="list-decimal list-inside space-y-2 text-sm text-subtle">
  {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
  <li key={i}>{t(`swissTaxReturn.tdr.etaxStep${i}`)}</li>
  ))}
@@ -439,7 +439,7 @@ const SwissTaxReturn: React.FC = () => {
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  <div className="bg-surface rounded-lg p-3 border border-accent-border">
  <h5 className="font-bold text-xs text-accent mb-2">{t('swissTaxReturn.tdr.compRettifica')}</h5>
- <ul className="list-disc list-inside space-y-1 text-xs text-accent">
+ <ul className="list-disc list-inside space-y-1 text-sm text-accent">
  <li>{t('swissTaxReturn.tdr.compRettifica1')}</li>
  <li>{t('swissTaxReturn.tdr.compRettifica2')}</li>
  <li>{t('swissTaxReturn.tdr.compRettifica3')}</li>
@@ -447,7 +447,7 @@ const SwissTaxReturn: React.FC = () => {
  </div>
  <div className="bg-surface rounded-lg p-3 border border-accent-border">
  <h5 className="font-bold text-xs text-accent mb-2">{t('swissTaxReturn.tdr.compTDR')}</h5>
- <ul className="list-disc list-inside space-y-1 text-xs text-accent">
+ <ul className="list-disc list-inside space-y-1 text-sm text-accent">
  <li>{t('swissTaxReturn.tdr.compTDR1')}</li>
  <li>{t('swissTaxReturn.tdr.compTDR2')}</li>
  <li>{t('swissTaxReturn.tdr.compTDR3')}</li>

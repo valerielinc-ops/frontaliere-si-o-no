@@ -496,13 +496,13 @@ const TicineseDialect: React.FC = () => {
  <div className="px-4 pb-4 text-sm text-subtle animate-fade-in border-t border-edge pt-3 space-y-3">
  <p>{termField(entry, 'meaning')}</p>
  {!!termField(entry, 'example') && (
- <div className="bg-surface-alt rounded-lg p-3 text-xs">
+ <div className="bg-surface-alt rounded-lg p-3 text-sm">
  <span className="font-semibold text-body">{tt('dialect.example', 'Esempio')}: </span>
  <span className="italic">{termField(entry, 'example')}</span>
  </div>
  )}
  {!!termField(entry, 'etymology') && (
- <div className="bg-accent-subtle rounded-lg p-3 text-xs">
+ <div className="bg-accent-subtle rounded-lg p-3 text-sm">
  <span className="font-semibold text-accent">{tt('dialect.etymology', 'Etimologia')}: </span>
  <span>{termField(entry, 'etymology')}</span>
  </div>
@@ -573,7 +573,7 @@ const TicineseDialect: React.FC = () => {
  )}
  </div>
 
- <div className="rounded-xl border border-success-border bg-success-subtle p-4 text-xs text-success">
+ <div className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm text-success">
  <div className="font-semibold flex items-center gap-2 mb-1"><Plus size={14} /> {tt('dialect.newPhrasesTitle', 'Nuove frasi aggiunte')}</div>
  <p>{tt('dialect.newPhrasesText', 'Aggiunte espressioni d’uso comune recuperate da repertori e articoli locali: “Tacàt al tram”, “Sbàssa la crèsta”, “Capì na màzza”, “Sü da cò”.')}</p>
  </div>

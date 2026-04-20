@@ -481,7 +481,7 @@ const ContractsGuide = () => {
  <Heart size={14} className="text-danger" />
  {t('contracts.rights.sickLeave')}
  </h4>
- <ul className="space-y-1 text-xs text-body">
+ <ul className="space-y-1 text-sm text-body">
  <li>• {t('contracts.rights.sickLeaveYear1', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year1) })}</li>
  <li>• {t('contracts.rights.sickLeaveYear2', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year2) })}</li>
  <li>• {t('contracts.rights.sickLeaveYear3', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year3Plus) })}</li>
@@ -497,7 +497,7 @@ const ContractsGuide = () => {
  <Gift size={14} className="text-accent" />
  {t('contracts.rights.parentalLeave')}
  </h4>
- <ul className="space-y-1 text-xs text-body">
+ <ul className="space-y-1 text-sm text-body">
  <li>• {t('contracts.rights.maternityWeeks', { weeks: String(WORKER_RIGHTS_CH.maternityWeeks) })}</li>
  <li>• {t('contracts.rights.paternityWeeks', { weeks: String(WORKER_RIGHTS_CH.paternityWeeks) })}</li>
  </ul>
@@ -512,7 +512,7 @@ const ContractsGuide = () => {
  <Palmtree size={14} className="text-warning" />
  {t('contracts.rights.publicHolidays')}
  </h4>
- <p className="text-xs text-body">
+ <p className="text-sm text-body">
  {t('contracts.rights.publicHolidaysText', { count: String(WORKER_RIGHTS_CH.publicHolidays) })}
  </p>
  <p className="text-sm text-muted mt-1.5">
@@ -526,7 +526,7 @@ const ContractsGuide = () => {
  <Clock size={14} className="text-accent" />
  {t('contracts.rights.overtime')}
  </h4>
- <p className="text-xs text-body">
+ <p className="text-sm text-body">
  {t('contracts.rights.overtimeText')}
  </p>
  <p className="text-sm text-muted mt-1.5">
@@ -569,7 +569,7 @@ const ContractsGuide = () => {
  <ArrowRightLeft size={18} className="text-info" />
  {t('contracts.keyDifferences.title')}
  </h3>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
  <div className="bg-surface/70 rounded-lg p-3">
  <p className="font-semibold text-danger mb-1.5">🇨🇭 {t('contracts.keyDifferences.chTitle')}</p>
  <ul className="space-y-1 text-body">

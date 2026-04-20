@@ -1575,7 +1575,7 @@ const App: React.FC = () => {
  Re-iscriviti alla newsletter
  </a>
  )}
- <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 text-xs text-accent hover:underline">{t('common.close')}</button>
+ <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 min-h-[44px] inline-flex items-center text-xs text-accent hover:underline">{t('common.close')}</button>
  </div>
  )}
 
@@ -1622,7 +1622,7 @@ const App: React.FC = () => {
  onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }}
  onMouseEnter={() => prefetchTab('calculator')}
  aria-label={t('nav.simulator')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
  >
  <Calculator size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.simulator')}</span>
@@ -1637,7 +1637,7 @@ const App: React.FC = () => {
  onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }}
  onMouseEnter={() => prefetchTab('confronti')}
  aria-label={t('nav.confronti')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
  >
  <Layers size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.confronti')}</span>
@@ -1652,7 +1652,7 @@ const App: React.FC = () => {
  onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }}
  onMouseEnter={() => prefetchTab('fisco')}
  aria-label={t('nav.fisco')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
  >
  <PiggyBank size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.fisco')}</span>
@@ -1667,7 +1667,7 @@ const App: React.FC = () => {
  onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }}
  onMouseEnter={() => prefetchTab('guida')}
  aria-label={t('nav.guida')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
  >
  <BookOpen size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.guida')}</span>
@@ -1682,7 +1682,7 @@ const App: React.FC = () => {
  onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }}
  onMouseEnter={() => prefetchTab('vita')}
  aria-label={t('nav.vita')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
  >
  <Home size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.vita')}</span>
@@ -1697,7 +1697,7 @@ const App: React.FC = () => {
  onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }}
  onMouseEnter={() => prefetchTab('stats')}
  aria-label={t('nav.stats')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
  >
  <BarChart2 size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.stats')}</span>
@@ -1745,7 +1745,7 @@ const App: React.FC = () => {
  {authUser ? (
  <button
  onClick={() => handleTabChange('profile')}
- className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-accent' : 'hover:ring-2 hover:ring-edge'}`}
+ className={`p-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-accent' : 'hover:ring-2 hover:ring-edge'}`}
  aria-label={t('profile.title')}
  title={getUserDisplayName(authUser)}
  >
@@ -1782,7 +1782,7 @@ const App: React.FC = () => {
  {isPrivilegedAdmin && (
  <button
  onClick={() => handleTabChange('admin')}
- className={`hidden md:flex p-2 rounded-xl transition-colors shrink-0 items-center justify-center ${
+ className={`hidden md:flex p-2 min-w-[44px] min-h-[44px] rounded-xl transition-colors shrink-0 items-center justify-center ${
  activeTab === 'admin'
  ? 'bg-danger-subtle text-danger'
  : 'text-muted hover:bg-surface-raised'
@@ -1813,7 +1813,7 @@ const App: React.FC = () => {
  {/* Dark mode toggle */}
  <button
  onClick={() => { toggleTheme(); setMobileMenuOpen(false); }}
- className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
+ className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
  >
  {isDarkMode ? <Sun size={18} className="text-warning" /> : <Moon size={18} className="text-subtle" />}
  <span className="text-sm font-medium">{isDarkMode ? t('app.lightMode') : t('app.darkMode')}</span>
@@ -1822,7 +1822,7 @@ const App: React.FC = () => {
  {/* What's New */}
  <button
  onClick={() => { setShowWhatsNew(true); setMobileMenuOpen(false); }}
- className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
+ className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
  >
  <Newspaper size={18} />
  <span className="text-sm font-medium">What&apos;s New</span>
@@ -1832,7 +1832,7 @@ const App: React.FC = () => {
  {authUser ? (
  <button
  onClick={() => handleTabChange('profile')}
- className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
+ className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
  >
  {getUserPhotoURL(authUser, authUser?.uid) ? (
  <img
@@ -1851,7 +1851,7 @@ const App: React.FC = () => {
  ) : !authLoading && (
  <button
  onClick={() => handleTabChange('profile')}
- className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
+ className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
  >
  <LogIn size={18} />
  <span className="text-sm font-medium">{t('profile.signIn')}</span>
@@ -1862,7 +1862,7 @@ const App: React.FC = () => {
  {isPrivilegedAdmin && (
  <button
  onClick={() => handleTabChange('admin')}
- className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-danger hover:bg-danger-subtle transition-colors w-full text-left"
+ className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-xl text-danger hover:bg-danger-subtle transition-colors w-full text-left"
  >
  <Shield size={18} />
  <span className="text-sm font-medium">Pannello amministrazione</span>
@@ -2478,13 +2478,13 @@ const App: React.FC = () => {
  <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
- <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
- <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
- <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
- <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
- <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
- <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline">{t('footer.apiStatus')}</a>
- <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 no-underline">{t('partners.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
+ <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
+ <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
+ <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
+ <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
+ <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline">{t('footer.apiStatus')}</a>
+ <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 min-h-[44px] no-underline">{t('partners.footerLink')}</a>
  </div>
  </details>
  {/* Strumenti */}
@@ -2494,15 +2494,15 @@ const App: React.FC = () => {
  <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
- <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
- <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
- <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
- <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
- <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
- <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
- <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
- <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline">{t('consulting.footerLink')}</a>
- <a href={buildPath({ activeTab: 'tool-of-week' })} onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Sparkles className="w-3.5 h-3.5 shrink-0" />{t('toolOfWeek.title')}</a>
+ <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
+ <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
+ <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
+ <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
+ <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline">{t('consulting.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'tool-of-week' })} onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Sparkles className="w-3.5 h-3.5 shrink-0" />{t('toolOfWeek.title')}</a>
  </div>
  </details>
  {/* Contenuti */}
@@ -2512,11 +2512,11 @@ const App: React.FC = () => {
  <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
- <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
- <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
- <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-info py-1.5 no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
- <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
- <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-body py-1.5 no-underline">{t('sitemap.title')}</a>
+ <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
+ <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
+ <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-info py-1.5 min-h-[44px] no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
+ <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
+ <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-body py-1.5 min-h-[44px] no-underline">{t('sitemap.title')}</a>
  </div>
  </details>
  {/* Social */}

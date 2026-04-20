@@ -248,7 +248,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {onBack && (
  <button
  onClick={onBack}
- className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-heading"
+ className="inline-flex items-center gap-1.5 min-h-[44px] text-sm text-subtle hover:text-heading"
  >
  <ArrowLeft size={14} />
  {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}

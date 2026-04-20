@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Map, List } from 'lucide-react';
+import Callout from '@/components/shared/Callout';
 import { trafficService, hasLiveTrafficData, type TrafficData } from '../../services/trafficService';
 import { Analytics } from '../../services/analytics';
 import { borderCrossings as centralizedCrossings } from '../../data/borderCrossings';
@@ -265,24 +266,16 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </div>
 
  {/* Status */}
- <div className={`border-l-4 p-3 rounded-lg ${
- liveTrafficAvailable
- ? 'bg-success-subtle border-success'
- : 'bg-accent-subtle border-accent'
- }`}>
- <div className="flex items-center gap-2 text-sm">
- {liveTrafficAvailable ? (
- <CheckCircle2 className="text-success flex-shrink-0" size={16} />
- ) : (
- <AlertTriangle className="text-accent flex-shrink-0" size={16} />
- )}
- <span className={liveTrafficAvailable ? 'text-success' : 'text-accent'}>
+ <Callout
+ status={liveTrafficAvailable ? 'success' : 'accent'}
+ icon={liveTrafficAvailable ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
+ >
+ <span className={`text-sm ${liveTrafficAvailable ? 'text-success' : 'text-accent'}`}>
  {liveTrafficAvailable
  ? t('traffic.dataReal')
  : t('traffic.dataSimulated')}
  </span>
- </div>
- </div>
+ </Callout>
 
  {/* Quick stats */}
  {fastest && slowest && (
@@ -292,7 +285,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <TrendingUp size={18} className="text-success" />
  <span className="text-xs font-bold text-success">{t('traffic.fastest')}</span>
  </div>
- <p className="text-lg font-bold text-strong">{fastest.crossingName}</p>
+ <p className="text-lg font-bold font-display text-strong">{fastest.crossingName}</p>
  <p className="text-2xl font-bold text-success">{effectiveWait(fastest)} min</p>
  </div>
  <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-xl border border-danger-border p-4">
@@ -300,7 +293,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <AlertTriangle size={18} className="text-danger" />
  <span className="text-xs font-bold text-danger">{t('traffic.slowest')}</span>
  </div>
- <p className="text-lg font-bold text-strong">{slowest.crossingName}</p>
+ <p className="text-lg font-bold font-display text-strong">{slowest.crossingName}</p>
  <p className="text-2xl font-bold text-danger">{effectiveWait(slowest)} min</p>
  </div>
  </div>

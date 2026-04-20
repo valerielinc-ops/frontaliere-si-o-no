@@ -6,6 +6,7 @@ import { useTranslation } from '@/services/i18n';
 import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { SegmentControl } from '@/components/shared/SegmentControl';
+import Callout from '@/components/shared/Callout';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
@@ -831,13 +832,10 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  return (
  <div className="space-y-6 animate-fade-in">
  {/* Header */}
- <div className="bg-neutral-subtle rounded-md p-5 sm:p-8 border-l-2 border-warning-border">
- <div className="flex items-center gap-4 mb-4">
- {activeTab === 'fiscal' ? <Calendar size={32} className="text-warning" /> : <Star size={32} className="text-warning" />}
+ <Callout status="warning" icon={activeTab === 'fiscal' ? <Calendar size={32} /> : <Star size={32} />} className="p-5 sm:p-8">
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-heading">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
  <p className="text-muted mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
- </div>
  </div>
 
  {/* Tab switcher — only show if no initialTab forced */}
@@ -864,7 +862,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </div>
  <div className="flex items-center justify-between flex-wrap gap-3">
  <div>
- <div className="font-bold text-xl text-heading">{nextDeadline.title}</div>
+ <div className="font-bold font-display text-xl text-heading">{nextDeadline.title}</div>
  <div className="text-muted text-sm">{formatDate(nextDeadline.date)}</div>
  </div>
  <div className="px-4 py-2 bg-warning-subtle text-warning rounded-xl font-bold text-2xl">
@@ -873,7 +871,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </div>
  </div>
  )}
- </div>
+ </Callout>
 
  {/* Personalized checklist + reminders + PDF export */}
  <div className="bg-surface rounded-2xl border border-edge p-4 shadow-sm space-y-3">

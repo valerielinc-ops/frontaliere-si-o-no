@@ -383,7 +383,7 @@ const CommunityForum: React.FC = () => {
  </div>
  ) : (
  <div className="bg-surface-alt/50 rounded-xl p-4 text-center">
- <button onClick={signIn} className="flex items-center gap-2 mx-auto px-4 py-2 bg-info-strong text-on-accent rounded-lg text-sm font-bold hover:bg-info-strong-hover transition-colors">
+ <button onClick={signIn} className="flex items-center gap-2 mx-auto px-4 py-2 min-h-[44px] bg-info-strong text-on-accent rounded-lg text-sm font-bold hover:bg-info-strong-hover transition-colors">
  <LogIn className="w-4 h-4" />
  {t('forum.loginToAnswer') || 'Accedi per rispondere'}
  </button>

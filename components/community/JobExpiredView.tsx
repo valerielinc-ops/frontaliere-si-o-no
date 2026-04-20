@@ -272,7 +272,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const backButton = onBack && (
  <button
  onClick={onBack}
- className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+ className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
  >
  <ArrowLeft size={14} />
  {t('jobBoard.backToList')}

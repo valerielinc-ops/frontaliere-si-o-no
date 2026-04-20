@@ -695,11 +695,11 @@ export default function SalaryCompare() {
  ))}
  </div>
 
- <div className="mt-4 bg-warning-subtle rounded-lg p-3 text-xs">
+ <div className="mt-4 bg-warning-subtle rounded-lg p-3 text-sm">
  <p className="font-semibold text-warning">
  {t('salaryCompare.ppp')}
  </p>
- <p className="text-subtle text-xs mt-1">
+ <p className="text-subtle text-sm mt-1">
  {t('salaryCompare.pppDesc')}
  </p>
  </div>

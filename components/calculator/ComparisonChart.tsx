@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { 
- BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, 
- PieChart, Pie, AreaChart, Area, Legend, LineChart, Line
+import {
+ BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell,
+ PieChart, Pie, AreaChart, Area, Legend, LineChart, Line, ResponsiveContainer
 } from 'recharts';
+import ChartWrapper from '@/components/shared/ChartWrapper';
 import { SimulationResult, TaxResult, SimulationInputs } from '../../types';
 import { BarChart3, PieChart as PieIcon, TrendingUp, Wallet, Percent, ArrowUpRight, Info, LineChart as LineIcon, Layers } from 'lucide-react';
 import { calculateSimulation } from '../../services/calculationService';
@@ -332,8 +333,8 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  </div>
  </div>
  ) : (
- <ResponsiveContainer width="100%" height={320}>
- {activeTab === 'overview' ? (
+ <ChartWrapper height={320} isDarkMode={isDarkMode}>
+ {(chart) => activeTab === 'overview' ? (
  <AreaChart data={projectionData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
  <defs>
  <linearGradient id="colorSavings" x1="0" y1="0" x2="0" y2="1">
@@ -349,9 +350,9 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  type="monotone"
  dataKey={t('chart.accumulated_difference')}
  stroke={CHART_COLORS.savings}
- strokeWidth={3} 
- fillOpacity={1} 
- fill="url(#colorSavings)" 
+ strokeWidth={3}
+ fillOpacity={1}
+ fill="url(#colorSavings)"
  activeDot={{ r: 6, strokeWidth: 0 }}
  />
  <Legend content={<FixedLegend isDarkMode={isDarkMode} />} />
@@ -368,11 +369,11 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  <Line type="monotone" dataKey={t('chart.new_less_20km')} stroke={CHART_COLORS.newLess20km} strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
  <Line type="monotone" dataKey={t('chart.new_more_20km')} stroke={CHART_COLORS.newMore20km} strokeWidth={3} strokeDasharray="5 5" dot={false} activeDot={{ r: 6 }} />
  <Line type="monotone" dataKey={t('chart.old_frontier')} stroke={CHART_COLORS.oldFrontier} strokeWidth={2} strokeDasharray="3 3" dot={false} activeDot={{ r: 4 }} opacity={0.6} />
- 
+
  <Legend content={<FixedLegend isDarkMode={isDarkMode} />} />
  </LineChart>
  )}
- </ResponsiveContainer>
+ </ChartWrapper>
  )}
  </div>
  </div>

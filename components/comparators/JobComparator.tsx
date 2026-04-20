@@ -332,7 +332,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  </div>
 
  {!isBest && bestResult && (
- <div className="mt-3 p-3 bg-warning-subtle rounded-xl text-xs">
+ <div className="mt-3 p-3 bg-warning-subtle rounded-xl text-sm">
  <span className="text-warning font-bold">
  {t('jobs.difference')}: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/{t('common.monthly').toLowerCase()}
  </span>
@@ -352,7 +352,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <Info size={20} className="text-accent flex-shrink-0 mt-0.5" />
  <div className="text-sm text-body">
  <p className="font-bold mb-1">{t('jobs.howItWorks')}</p>
- <ul className="space-y-1 text-xs list-disc ml-4">
+ <ul className="space-y-1 text-sm list-disc ml-4">
  <li>{t('jobs.howItWorks1')}</li>
  <li>{t('jobs.howItWorks2')}</li>
  <li>{t('jobs.howItWorks3')}</li>

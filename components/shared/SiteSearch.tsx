@@ -1246,6 +1246,38 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  return () => document.removeEventListener('mousedown', handleClick);
  }, [isOpen]);
 
+ // Focus trap — Tab cycles within the search modal
+ useEffect(() => {
+ if (!isOpen) return;
+ const modal = modalRef.current;
+ if (!modal) return;
+
+ const handleTrapFocus = (e: KeyboardEvent) => {
+ if (e.key !== 'Tab') return;
+ const focusable = modal.querySelectorAll<HTMLElement>(
+ 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+ );
+ if (focusable.length === 0) return;
+
+ const first = focusable[0];
+ const last = focusable[focusable.length - 1];
+
+ if (e.shiftKey) {
+ if (document.activeElement === first) {
+ e.preventDefault();
+ last.focus();
+ }
+ } else {
+ if (document.activeElement === last) {
+ e.preventDefault();
+ first.focus();
+ }
+ }
+ };
+ document.addEventListener('keydown', handleTrapFocus);
+ return () => document.removeEventListener('keydown', handleTrapFocus);
+ }, [isOpen]);
+
  const handleSelect = useCallback((result: SearchResult) => {
  setIsOpen(false);
  Analytics.trackSearch(query);
@@ -1278,7 +1310,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  {/* Search trigger — compact icon button */}
  <button
  onClick={() => setIsOpen(true)}
- className="p-2 rounded-xl text-muted hover:text-body hover:bg-surface-raised transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-muted hover:text-body hover:bg-surface-raised transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
  aria-label={t('search.placeholder') || 'Cerca'}
  >

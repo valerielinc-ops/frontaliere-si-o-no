@@ -216,7 +216,9 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  <div className="space-y-3">
  <form onSubmit={handleSubscribe} className="flex gap-2">
  <div className="flex-grow">
+ <label htmlFor="newsletter-compact-email" className="sr-only">{t('newsletter.emailLabel')}</label>
  <EmailInput
+ id="newsletter-compact-email"
  value={email}
  onChange={(val) => { setEmail(val); setStatus('idle'); }}
  placeholder={t('newsletter.emailPlaceholder')}

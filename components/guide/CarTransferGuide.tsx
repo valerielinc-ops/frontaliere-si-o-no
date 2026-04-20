@@ -220,7 +220,7 @@ const CarTransferGuide: React.FC = () => {
  <AlertCircle size={16} />
  {t('carTransfer.registration.tiTitle')}
  </h4>
- <p className="text-xs text-warning">{t('carTransfer.registration.tiDesc')}</p>
+ <p className="text-sm text-warning">{t('carTransfer.registration.tiDesc')}</p>
  <a
  href="https://www4.ti.ch/di/sc/veicoli/immatricolazione"
  target="_blank"
@@ -300,7 +300,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="mt-4 bg-accent-subtle rounded-xl p-4">
  <div className="flex items-start gap-2">
  <Info size={16} className="mt-0.5 shrink-0 text-accent" />
- <p className="text-xs text-accent">{t('carTransfer.plates.italianNote')}</p>
+ <p className="text-sm text-accent">{t('carTransfer.plates.italianNote')}</p>
  </div>
  </div>
  </div>
@@ -385,16 +385,16 @@ const CarTransferGuide: React.FC = () => {
  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
  <div className="bg-danger-subtle rounded-xl p-4 border border-danger-border">
  <h4 className="font-bold text-danger mb-2">{t('carTransfer.insurance.rcTitle')}</h4>
- <p className="text-xs text-danger">{t('carTransfer.insurance.rcDesc')}</p>
- <div className="mt-2 text-xs text-danger">{t('carTransfer.insurance.rcNote')}</div>
+ <p className="text-sm text-danger">{t('carTransfer.insurance.rcDesc')}</p>
+ <div className="mt-2 text-sm text-danger">{t('carTransfer.insurance.rcNote')}</div>
  </div>
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
  <h4 className="font-bold text-warning mb-2">{t('carTransfer.insurance.cascoTitle')}</h4>
- <p className="text-xs text-warning">{t('carTransfer.insurance.cascoDesc')}</p>
+ <p className="text-sm text-warning">{t('carTransfer.insurance.cascoDesc')}</p>
  </div>
  <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
  <h4 className="font-bold text-accent mb-2">{t('carTransfer.insurance.assistTitle')}</h4>
- <p className="text-xs text-link">{t('carTransfer.insurance.assistDesc')}</p>
+ <p className="text-sm text-link">{t('carTransfer.insurance.assistDesc')}</p>
  </div>
  </div>
 

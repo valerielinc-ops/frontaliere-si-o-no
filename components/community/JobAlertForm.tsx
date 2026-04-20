@@ -205,29 +205,30 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <div className="mt-3 p-4 bg-accent-subtle rounded-xl border border-accent-border space-y-3">
  {/* Keyword */}
  <div>
- <label className="block text-sm font-medium text-subtle mb-1">
+ <label htmlFor="job-alert-keyword" className="block text-sm font-medium text-subtle mb-1">
  {t('jobAlert.keyword') || 'Parole chiave'}
  </label>
  <input
+ id="job-alert-keyword"
  type="text"
  value={keyword}
  onChange={(e) => setKeyword(e.target.value)}
  placeholder={t('jobAlert.keywordPlaceholder') || 'es. developer, ingegnere, contabile'}
- aria-label={t('jobAlert.keyword') || 'Parole chiave'}
  className="w-full px-3 py-2 text-sm rounded-lg border border-edge bg-surface focus-visible:ring-2 focus-visible:ring-accent outline-none"
  />
  </div>
 
  {/* Locations */}
- <div>
- <label className="block text-sm font-medium text-subtle mb-1">
+ <fieldset>
+ <legend className="block text-sm font-medium text-subtle mb-1">
  {t('jobAlert.zone') || 'Zona'}
- </label>
- <div className="flex flex-wrap gap-2">
+ </legend>
+ <div className="flex flex-wrap gap-2" role="group" aria-label={t('jobAlert.zone') || 'Zona'}>
  {LOCATIONS.map((loc) => (
  <button
  key={loc.value}
  onClick={() => toggleLocation(loc.value)}
+ aria-pressed={selectedLocations.includes(loc.value)}
  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
  selectedLocations.includes(loc.value)
  ? 'bg-accent-strong text-on-accent border-accent'
@@ -238,18 +239,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </button>
  ))}
  </div>
- </div>
+ </fieldset>
 
  {/* Contract types */}
- <div>
- <label className="block text-sm font-medium text-subtle mb-1">
+ <fieldset>
+ <legend className="block text-sm font-medium text-subtle mb-1">
  {t('jobAlert.contractType') || 'Tipo contratto'}
- </label>
- <div className="flex flex-wrap gap-2">
+ </legend>
+ <div className="flex flex-wrap gap-2" role="group" aria-label={t('jobAlert.contractType') || 'Tipo contratto'}>
  {CONTRACT_TYPES.map((ct) => (
  <button
  key={ct.value}
  onClick={() => toggleContract(ct.value)}
+ aria-pressed={selectedContracts.includes(ct.value)}
  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
  selectedContracts.includes(ct.value)
  ? 'bg-accent-strong text-on-accent border-accent'
@@ -260,18 +262,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </button>
  ))}
  </div>
- </div>
+ </fieldset>
 
  {/* Sectors */}
- <div>
- <label className="block text-sm font-medium text-subtle mb-1">
+ <fieldset>
+ <legend className="block text-sm font-medium text-subtle mb-1">
  {t('jobAlert.sector') || 'Settore'}
- </label>
- <div className="flex flex-wrap gap-2">
+ </legend>
+ <div className="flex flex-wrap gap-2" role="group" aria-label={t('jobAlert.sector') || 'Settore'}>
  {SECTORS.map((s) => (
  <button
  key={s.value}
  onClick={() => toggleSector(s.value)}
+ aria-pressed={selectedSectors.includes(s.value)}
  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
  selectedSectors.includes(s.value)
  ? 'bg-accent-strong text-on-accent border-accent'
@@ -282,17 +285,17 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </button>
  ))}
  </div>
- </div>
+ </fieldset>
 
  {/* Frequency */}
  <div className="flex items-center gap-3">
- <label className="text-xs font-medium text-subtle">
+ <label htmlFor="job-alert-frequency" className="text-xs font-medium text-subtle">
  {t('jobAlert.frequency') || 'Frequenza'}:
  </label>
  <select
+ id="job-alert-frequency"
  value={frequency}
  onChange={(e) => setFrequency(e.target.value as 'daily' | 'weekly')}
- aria-label={t('jobAlert.frequency') || 'Frequenza'}
  className="px-2 py-1 text-xs rounded-lg border border-edge bg-surface"
  >
  <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
@@ -359,8 +362,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </div>
  {editingAlertId === alert.id ? (
  <div className="flex items-center gap-2 mt-2 pt-2 border-t border-edge">
- <span className="text-xs text-muted">{t('jobAlert.frequency') || 'Frequenza'}:</span>
+ <label htmlFor={`alert-freq-${alert.id}`} className="text-xs text-muted">{t('jobAlert.frequency') || 'Frequenza'}:</label>
  <select
+ id={`alert-freq-${alert.id}`}
  value={alert.frequency}
  onChange={(e) => handleUpdateFrequency(alert.id, e.target.value as 'daily' | 'weekly')}
  className="px-2 py-0.5 text-xs rounded border border-edge bg-surface"

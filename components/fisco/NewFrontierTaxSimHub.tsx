@@ -493,7 +493,7 @@ export default function NewFrontierTaxSimHub() {
  {cta.title}
  <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
  </h3>
- <p className="mt-1 text-xs text-subtle leading-relaxed">{cta.body}</p>
+ <p className="mt-1 text-sm text-subtle leading-relaxed">{cta.body}</p>
  </a>
  ))}
  </div>

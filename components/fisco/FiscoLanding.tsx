@@ -141,7 +141,7 @@ const FiscoLanding: React.FC = () => {
  <h3 className="text-sm font-semibold text-strong group-hover:text-success transition-colors">
  {t(titleKey)}
  </h3>
- <p className="mt-0.5 text-xs text-muted leading-relaxed line-clamp-2">
+ <p className="mt-0.5 text-sm text-muted leading-relaxed line-clamp-2">
  {t(descKey)}
  </p>
  </div>

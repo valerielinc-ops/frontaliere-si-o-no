@@ -338,7 +338,7 @@ const WorkPermitsGuide: React.FC = () => {
  }`}
  >
  <div className="text-2xl mb-1">{p.icon}</div>
- <div className="font-bold text-lg">{p.name}</div>
+ <div className="font-bold font-display text-lg">{p.name}</div>
  <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-on-accent/90' : 'text-muted'}`}>{p.fullName}</div>
  <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-on-accent/70' : 'text-muted'}`}>{p.duration}</div>
  </button>

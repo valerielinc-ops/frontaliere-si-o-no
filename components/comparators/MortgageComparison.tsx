@@ -17,7 +17,8 @@
 
 import { useState, useMemo, useCallback, useEffect, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
+import ChartWrapper from '@/components/shared/ChartWrapper';
 import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -46,7 +47,6 @@ import {
  CartesianGrid,
  Tooltip as RechartsTooltip,
  Legend,
- ResponsiveContainer,
  LineChart,
  Line,
 } from 'recharts';
@@ -162,22 +162,6 @@ export default function MortgageComparison() {
  // ─ UI state
  const [showAmortization, setShowAmortization] = useState(false);
  const [showRules, setShowRules] = useState(false);
-
- const [isDark, setIsDark] = useState(() =>
- document.documentElement.classList.contains('dark')
- );
- useEffect(() => {
- const observer = new MutationObserver(() => {
- setIsDark(document.documentElement.classList.contains('dark'));
- });
- observer.observe(document.documentElement, {
- attributes: true,
- attributeFilter: ['class'],
- });
- return () => observer.disconnect();
- }, []);
-
- const chart = useChartColors(isDark);
 
  // ─ Derived values
  const loanAmount = propertyValue * (1 - downPaymentPct / 100);
@@ -544,7 +528,7 @@ export default function MortgageComparison() {
  <Shield size={16} className="text-danger" />
  🇨🇭 {t('mortgage.tragbarkeit')}
  </h3>
- <div className="space-y-2 text-xs">
+ <div className="space-y-2 text-sm">
  <div className="flex justify-between">
  <span className="text-subtle">{t('mortgage.imputedRate')}</span>
  <span className="font-semibold text-strong">{fmtPct(CH_IMPUTED_RATE)}</span>
@@ -582,7 +566,7 @@ export default function MortgageComparison() {
  <PiggyBank size={16} className="text-accent" />
  {t('mortgage.equityCheck')}
  </h3>
- <div className="space-y-2 text-xs">
+ <div className="space-y-2 text-sm">
  <div className="flex justify-between">
  <span className="text-subtle">{t('mortgage.yourEquity')}</span>
  <span className="font-semibold text-strong">{fmt(equityAmount)} ({downPaymentPct}%)</span>
@@ -626,7 +610,7 @@ export default function MortgageComparison() {
  <span className="text-lg">🇨🇭</span>
  <span className="text-sm font-bold text-body">{t('mortgage.chTaxBenefits')}</span>
  </div>
- <div className="text-xs space-y-1.5">
+ <div className="text-sm space-y-1.5">
  <div className="flex justify-between">
  <span className="text-subtle">{t('mortgage.interestDeduction')}</span>
  <span className="font-semibold text-strong">{t('mortgage.fromTaxableIncome')}</span>
@@ -651,7 +635,7 @@ export default function MortgageComparison() {
  <span className="text-lg">🇮🇹</span>
  <span className="text-sm font-bold text-body">{t('mortgage.itTaxBenefits')}</span>
  </div>
- <div className="text-xs space-y-1.5">
+ <div className="text-sm space-y-1.5">
  <div className="flex justify-between">
  <span className="text-subtle">{t('mortgage.interestDeduction')}</span>
  <span className="font-semibold text-strong">19% {t('mortgage.onMax')} €4.000/{t('mortgage.year')}</span>
@@ -683,7 +667,8 @@ export default function MortgageComparison() {
  {t('mortgage.interestChart')}
  </h2>
  <div className="h-64 sm:h-80">
- <ResponsiveContainer width="100%" height="100%">
+ <ChartWrapper height="100%">
+ {(chart) => (
  <BarChart data={yearlyChartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
  <XAxis dataKey="year" tick={{ fontSize: 11, fill: chart.tick }} label={{ value: t('mortgage.year'), position: 'insideBottom', offset: -3, style: { fontSize: 11 }, fill: chart.tick }} />
@@ -699,7 +684,8 @@ export default function MortgageComparison() {
  <Bar dataKey="itInterest" name="🇮🇹 Interessi" stackId="it" fill={CHART_DATA_COLORS.green} radius={[0, 0, 0, 0]} />
  <Bar dataKey="itPrincipal" name="🇮🇹 Capitale" stackId="it" fill={CHART_DATA_COLORS.greenLight} radius={[4, 4, 0, 0]} />
  </BarChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
  </div>
 
@@ -710,7 +696,8 @@ export default function MortgageComparison() {
  {t('mortgage.balanceChart')}
  </h2>
  <div className="h-56 sm:h-72">
- <ResponsiveContainer width="100%" height="100%">
+ <ChartWrapper height="100%">
+ {(chart) => (
  <LineChart data={balanceChartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
  <XAxis dataKey="year" tick={{ fontSize: 11, fill: chart.tick }} label={{ value: t('mortgage.year'), position: 'insideBottom', offset: -3, style: { fontSize: 11 }, fill: chart.tick }} />
@@ -724,7 +711,8 @@ export default function MortgageComparison() {
  <Line type="monotone" dataKey="ch" name="🇨🇭 Debito residuo" stroke={CHART_DATA_COLORS.negative} strokeWidth={2} dot={false} />
  <Line type="monotone" dataKey="it" name="🇮🇹 Debito residuo" stroke={CHART_DATA_COLORS.green} strokeWidth={2} dot={false} />
  </LineChart>
- </ResponsiveContainer>
+ )}
+ </ChartWrapper>
  </div>
  </div>
 

@@ -314,7 +314,7 @@ const TaxCreditCalculator: React.FC = () => {
  {/* Spouse works (only if married) */}
  {maritalStatus === 'MARRIED' && (
  <div className="sm:col-span-2">
- <label htmlFor="tc-spouse" className="flex items-center gap-3 cursor-pointer">
+ <label htmlFor="tc-spouse" className="flex items-center gap-3 cursor-pointer min-h-[44px]">
  <div className="relative inline-flex items-center">
  <input
  id="tc-spouse"
