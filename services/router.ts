@@ -40,6 +40,7 @@ import {
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
+import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 
@@ -1627,6 +1628,12 @@ export function parsePath(pathname: string): ParseResult {
    if (weeklyEmployersMatch) {
      return { route: { activeTab: 'job-board' }, locale: weeklyEmployersMatch.locale as Locale };
    }
+ }
+
+ // Job-market snapshot static SEO pages (F4) — /mercato-lavoro-ticino/, weekly + monthly archives.
+ // These are build-time static HTML; soft-nav lands users on the jobs-observatory stats tab.
+ if (JOB_MARKET_SNAPSHOT_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isJobMarketSnapshotPath(pathname)) {
+   return { route: { activeTab: 'stats', statsSubTab: 'jobs-observatory' }, locale };
  }
 
  if (parts.length === 0) {
