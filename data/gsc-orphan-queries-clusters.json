@@ -1,0 +1,273 @@
+{
+  "generatedAt": "2026-04-20T20:48:11.691Z",
+  "sourceFile": "data/gsc-orphan-queries.json",
+  "totalClusters": 9,
+  "gates": {
+    "minClusterImpressions": 10
+  },
+  "clusters": [
+    {
+      "clusterId": "it-offerte-di-lavoro-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro svizzera",
+      "canonicalSlug": "offerte-di-lavoro-svizzera",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 39,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro svizzera",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
+          "query": "offerte lavoro svizzera",
+          "clicks": 0,
+          "impressions": 15
+        },
+        {
+          "query": "offerte di lavoro in svizzera",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "lavoro offerte svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerta lavoro svizzera",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavoro in svizzera",
+      "canonicalSlug": "lavoro-in-svizzera",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 38,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro in svizzera",
+          "clicks": 0,
+          "impressions": 36
+        },
+        {
+          "query": "lavoro svizzera",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino",
+      "canonicalSlug": "lavoro-ticino",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 32,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "lavoro ticino",
+          "clicks": 1,
+          "impressions": 32
+        }
+      ]
+    },
+    {
+      "clusterId": "it-cerco-lavoro-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "cerco lavoro in svizzera",
+      "canonicalSlug": "cerco-lavoro-in-svizzera",
+      "roleTokens": [
+        "cerc",
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 23,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "cerco lavoro in svizzera",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
+          "query": "cerco lavoro svizzera",
+          "clicks": 0,
+          "impressions": 9
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "canonicalSlug": "offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "offert",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 22,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
+          "query": "offerte lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-da-ieri",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino da ieri",
+      "canonicalSlug": "offerte-di-lavoro-ticino-da-ieri",
+      "roleTokens": [
+        "ier",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 18,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino da ieri",
+          "clicks": 0,
+          "impressions": 18
+        }
+      ]
+    },
+    {
+      "clusterId": "de-chauffeur-jobs",
+      "locale": "de",
+      "canonicalQuery": "chauffeur jobs",
+      "canonicalSlug": "chauffeur-jobs",
+      "roleTokens": [
+        "chauff",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 17,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "chauffeur jobs",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
+          "query": "jobs chauffeur",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "chauffeur job",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino",
+      "canonicalSlug": "offerte-di-lavoro-ticino",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 14,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "offerte lavoro ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte di lavoro in ticino",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-posti-di-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "posti di lavoro ticino",
+      "canonicalSlug": "posti-di-lavoro-ticino",
+      "roleTokens": [
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 13,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "posti di lavoro ticino",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "ticino posti di lavoro",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "posti lavoro ticino",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    }
+  ]
+}
