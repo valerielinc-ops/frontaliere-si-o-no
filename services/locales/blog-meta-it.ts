@@ -2400,6 +2400,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche investe miliardi sui farmaci anti-obesità: cosa cambia per i frontalieri',
     'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'Il colosso farmaceutico svizzero lancia Petrelintide, terapia mirata che promette perdita di peso del 10,7% in 42 settimane. Analisi sui rischi, costi e opportunità per chi lavora tra Ticino e Lombardia.',
     'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Laboratorio farmaceutico con dati clinici su schermi digitali in Ticino',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'Nuove chiusure sull\'autostrada A9 Lainate-Como-Chiasso: cosa cambia per i frontalieri',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia annuncia chiusure notturne sull\'A9 tra Como e Chiasso per lavori di manutenzione. Ecco gli itinerari alternativi e le implicazioni per chi attraversa il confine.',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Vista aerea del Lago di Lugano con i paesaggi del Ticino e della Lombardia, mostrando l\'autostrada A9 e le aree circostanti.',
 };
 
 export default blogMetaIt;

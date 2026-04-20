@@ -2078,6 +2078,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parmelin-accordo-investimenti-bahrein-2026': { name: 'Parmelin firma accordo con Bahrein per p', path: '/articoli-frontaliere/parmelin-accordo-investimenti-bahrein-2026', parent: 'blog' },
     'blog-palazzo-civico-collegiata-accessibilita-bellinzona-2026': { name: 'Palazzo civico e Collegiata di Bellinzon', path: '/articoli-frontaliere/palazzo-civico-collegiata-accessibilita-bellinzona-2026', parent: 'blog' },
     'blog-roche-farmaci-obesita-ticino-2026': { name: 'Farmaci obesità', path: '/articoli-frontaliere/roche-farmaci-obesita-ticino-2026', parent: 'blog' },
+    'blog-chiusure-autostrada-a9-lombardia-2026': { name: 'Chiusure autostrada', path: '/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

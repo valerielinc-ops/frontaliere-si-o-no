@@ -2400,6 +2400,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche investiert Milliarden in Anti-Adipositas-Medikamente: Was sich für Grenzgänger ändert',
     'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'Der Schweizer Pharmagigant Roche startet Petrelintid, eine gezielte Therapie, die laut Angaben innerhalb von 42 Wochen einen Gewichtsverlust von 10,7 % verspricht. Eine Analyse zu Risiken, Kosten und Chancen für alle, die zwischen Tessin und Lombardei pendeln.',
     'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Pharma-Labor mit klinischen Daten auf digitalen Bildschirmen im Tessin',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'Neue Schließungen auf der Autobahn A9 Lainate-Como-Chiasso: Was sich für Grenzgänger ändert',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia kündigt nächtliche Schließungen auf der A9 zwischen Como und Chiasso für Wartungsarbeiten an. Hier sind die alternativen Routen und die Auswirkungen für diejenigen, die die Grenze überqueren.',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Landschaften des Tessin und der Lombardei, die die Autobahn A9 und die umliegenden Gebiete zeigt.',
 };
 
 export default blogMetaDe;

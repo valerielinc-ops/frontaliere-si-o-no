@@ -10092,6 +10092,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusure-autostrada-a9-lombardia-2026': {
+    title: 'Nuove chiusure sull\'autostrada A9 | Frontaliere Ticino',
+    description: 'Autostrade per l\'Italia annuncia chiusure notturne sull\'A9 tra Como e Chiasso per lavori di manutenzione. Ecco gli itinerari alternativi e le implicazioni per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, chiusure, sull, autostrada',
+    ogTitle: 'Chiusure autostrada A9: cosa cambia per i frontalieri |',
+    ogDescription: 'Autostrade per l\'Italia annuncia chiusure notturne sull\'A9 tra Como e Chiasso per lavori di manutenzione. Ecco gli itinerari alternativi e le implicazioni per',
+    canonicalPath: '/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure autostrada A9: cosa cambia per i frontalieri | Frontaliere Ticino",
+      "description": "Autostrade per l'Italia annuncia chiusure notturne sull'A9 tra Como e Chiasso per lavori di manutenzione. Ecco gli itinerari alternativi e le implicazioni per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusure-autostrada-a9-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con i paesaggi del Ticino e della Lombardia, mostrando l'autostrada A9 e le aree circostanti."
+      },
+      "datePublished": "2026-04-20T11:56:35+00:00",
+      "dateModified": "2026-04-20T11:56:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-autostrada-a9-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2400,6 +2400,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.roche-farmaci-obesita-ticino-2026.title': 'Roche invests billions in anti-obesity drugs: what changes for cross-border workers',
     'blog.article.roche-farmaci-obesita-ticino-2026.excerpt': 'The Swiss pharmaceutical giant launches Petrelintide, a targeted therapy promising a 10.7% weight loss in 42 weeks. Analysis of risks, costs, and opportunities for those commuting between Ticino and Lombardy.',
     'blog.article.roche-farmaci-obesita-ticino-2026.imageAlt': 'Pharmaceutical laboratory with clinical data on digital screens in Ticino',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.title': 'New closures on the A9 Lainate-Como-Chiasso motorway: what changes for cross-border workers',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.excerpt': 'Autostrade per l\'Italia announces nighttime closures on the A9 between Como and Chiasso for maintenance work. Here are the alternative routes and the implications for those crossing the border.',
+    'blog.article.chiusure-autostrada-a9-lombardia-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino and Lombardy landscapes, showing the A9 highway and surrounding areas.',
 };
 
 export default blogMetaEn;

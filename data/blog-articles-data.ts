@@ -6585,4 +6585,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/roche-farmaci-obesita-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiusure-autostrada-a9-lombardia-2026',
+ category: 'novita',
+ date: '2026-04-20T11:56:35.646Z',
+ image: '/images/blog/chiusure-autostrada-a9-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ];
