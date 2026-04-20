@@ -2499,10 +2499,10 @@
     },
     {
       "id": "tally-weijl-b17137a0512d",
-      "slug": "allocator-intern-tally-weijl-basel",
+      "slug": "interno-legante-tally-weijl-basel",
       "slugByLocale": {
         "en": "allocator-intern-tally-weijl-basel",
-        "it": "allocator-intern-tally-weijl-basel",
+        "it": "interno-legante-tally-weijl-basel",
         "de": "allocator-intern-tally-weijl-basel",
         "fr": "allocator-intern-tally-weijl-basel"
       },
@@ -2558,7 +2558,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-04-20T22:24:13.472Z"
+      "firstSeenAt": "2026-04-20T22:24:13.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allocator-intern-tally-weijl-basel"
+        ]
+      },
+      "previousSlugs": [
+        "allocator-intern-tally-weijl-basel"
+      ]
     }
   ]
 }

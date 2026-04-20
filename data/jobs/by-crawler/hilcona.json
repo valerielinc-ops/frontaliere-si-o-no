@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-0d828ad700a6",
-      "slug": "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart",
+      "slug": "meccanica-operativa-hilcona-ag-landquart",
       "slugByLocale": {
         "de": "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart",
-        "it": "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart",
-        "en": "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart",
-        "fr": "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart"
+        "it": "meccanica-operativa-hilcona-ag-landquart",
+        "en": "operational-mechanic-hilcona-ag-landquart",
+        "fr": "mecanicien-operationnel-hilcona-ag-landquart"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -59,16 +59,30 @@
         }
       },
       "postalCode": "7302",
-      "firstSeenAt": "2026-04-20T21:43:58.131Z"
+      "firstSeenAt": "2026-04-20T21:43:58.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart"
+        ],
+        "en": [
+          "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart"
+        ],
+        "fr": [
+          "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart"
+      ]
     },
     {
       "id": "hilcona-5edeb0ab3cae",
-      "slug": "jungkoch-koch-m-w-d-hilcona-pfaffstatt",
+      "slug": "fornello-per-giovani-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "jungkoch-koch-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "it": "jungkoch-koch-m-w-d-hilcona-pfaffstatt",
-        "en": "jungkoch-koch-m-w-d-hilcona-pfaffstatt",
-        "fr": "jungkoch-koch-m-w-d-hilcona-pfaffstatt"
+        "it": "fornello-per-giovani-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "young-cooker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "jeune-cuisiniere-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -118,7 +132,21 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-20T21:43:57.910Z"
+      "firstSeenAt": "2026-04-20T21:43:57.910Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jungkoch-koch-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "jungkoch-koch-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
+          "jungkoch-koch-m-w-d-hilcona-pfaffstatt"
+        ]
+      },
+      "previousSlugs": [
+        "jungkoch-koch-m-w-d-hilcona-pfaffstatt"
+      ]
     },
     {
       "id": "hilcona-c93c698d26b9",

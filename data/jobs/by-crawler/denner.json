@@ -94,12 +94,12 @@
     },
     {
       "id": "denner-0e3cffd0990e",
-      "slug": "verkaufer-in-im-stundenlohn-denner-schwerzenbach",
+      "slug": "venditore-in-salario-orario-denner-schwerzenbach",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-schwerzenbach",
-        "en": "verkaufer-in-im-stundenlohn-denner-schwerzenbach",
+        "it": "venditore-in-salario-orario-denner-schwerzenbach",
+        "en": "seller-in-in-hourly-wage-denner-schwerzenbach",
         "de": "verkaufer-in-im-stundenlohn-denner-schwerzenbach",
-        "fr": "verkaufer-in-im-stundenlohn-denner-schwerzenbach"
+        "fr": "vendeur-en-salaire-horaire-denner-schwerzenbach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -159,20 +159,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-schwerzenbach"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-schwerzenbach"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-schwerzenbach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-schwerzenbach",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -192,12 +196,12 @@
     },
     {
       "id": "denner-8a60941c222a",
-      "slug": "filialleiter-in-in-ausbildung-denner-biel-bienne",
+      "slug": "capofila-dell-istruzione-denner-biel-bienne",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-biel-bienne",
-        "en": "filialleiter-in-in-ausbildung-denner-biel-bienne",
+        "it": "capofila-dell-istruzione-denner-biel-bienne",
+        "en": "head-of-branch-in-education-denner-biel-bienne",
         "de": "filialleiter-in-in-ausbildung-denner-biel-bienne",
-        "fr": "filialleiter-in-in-ausbildung-denner-biel-bienne"
+        "fr": "chef-de-division-en-education-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -256,20 +260,24 @@
       "crawledAt": "2026-04-20T21:26:41.961Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-biel-bienne"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-biel-bienne"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-biel-bienne"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-biel-bienne",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -928,9 +936,9 @@
       "slug": "filialleiter-in-denner-basel",
       "slugByLocale": {
         "it": "filialleiter-in-denner-basel",
-        "en": "filialleiter-in-denner-basel",
+        "en": "head-of-branch-in-denner-basel",
         "de": "filialleiter-in-denner-basel",
-        "fr": "filialleiter-in-denner-basel"
+        "fr": "chef-de-branche-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",

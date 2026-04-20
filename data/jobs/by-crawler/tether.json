@@ -5491,12 +5491,12 @@
     },
     {
       "id": "tether-2d681a1df42b",
-      "slug": "stablecoin-research-analyst-100-remote-tether-ch",
+      "slug": "stablecoin-ricerca-analista-100-remote-tether-operations-roma-lazio",
       "slugByLocale": {
         "en": "stablecoin-research-analyst-100-remote-tether-ch",
-        "it": "stablecoin-research-analyst-100-remote-tether-ch",
+        "it": "stablecoin-ricerca-analista-100-remote-tether-operations-roma-lazio",
         "de": "stablecoin-research-analyst-100-remote-tether-ch",
-        "fr": "stablecoin-research-analyst-100-remote-tether-ch"
+        "fr": "stablecoin-recherche-analyste-100-remote-tether-operations-roma-lazio"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -5555,7 +5555,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T22:24:49.325Z"
+      "firstSeenAt": "2026-04-20T22:24:49.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stablecoin-research-analyst-100-remote-tether-ch"
+        ],
+        "fr": [
+          "stablecoin-research-analyst-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stablecoin-research-analyst-100-remote-tether-ch"
+      ]
     }
   ]
 }

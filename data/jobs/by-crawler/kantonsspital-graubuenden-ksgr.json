@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-20T21:51:49.023Z",
-      "slug": "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur",
+      "slug": "senior-medico-mbf-senior-medico-mbf-radio-oncologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
+        "de": "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur",
+        "it": "senior-medico-mbf-senior-medico-mbf-radio-oncologia-kantonsspital-graubunden-chur",
+        "en": "senior-physician-mbf-senior-physician-mbf-radio-oncology-kantonsspital-graubunden-chur",
+        "fr": "medecin-principal-mbf-medecin-principal-mbf-radio-oncologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Oberärztin mbF / Oberarzt mbF Radio-Onkologie",
@@ -56,7 +59,15 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-20T21:51:49.023Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10002111",

@@ -227,12 +227,12 @@
     },
     {
       "id": "somedia-a6dc226a6b53",
-      "slug": "praktikant-in-multimediaproduktion-100-somedia-ch",
+      "slug": "produzione-multimediale-interna-100-somedia-ag-chur",
       "slugByLocale": {
         "de": "praktikant-in-multimediaproduktion-100-somedia-ch",
-        "it": "praktikant-in-multimediaproduktion-100-somedia-ch",
-        "en": "praktikant-in-multimediaproduktion-100-somedia-ch",
-        "fr": "praktikant-in-multimediaproduktion-100-somedia-ch"
+        "it": "produzione-multimediale-interna-100-somedia-ag-chur",
+        "en": "intern-in-multimedia-production-100-somedia-ag-chur",
+        "fr": "stage-production-multimedia-100-somedia-ag-chur"
       },
       "company": "Somedia AG",
       "companyKey": "somedia",
@@ -311,7 +311,21 @@
         }
       },
       "firstSeenAt": "2026-04-20T22:17:37.118Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-multimediaproduktion-100-somedia-ch"
+        ],
+        "en": [
+          "praktikant-in-multimediaproduktion-100-somedia-ch"
+        ],
+        "fr": [
+          "praktikant-in-multimediaproduktion-100-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-multimediaproduktion-100-somedia-ch"
+      ]
     },
     {
       "id": "somedia-1f7b0801a77f",
