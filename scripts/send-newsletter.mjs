@@ -48,13 +48,13 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
-// mailgun/mailjet/mailtrap/unosend = force a specific cascade provider
+// mailgun/mailjet/mailtrap = force a specific cascade provider
 // resend = Resend only (legacy fallback)
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'unosend'];
+const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
-// cascade/single = 550/day total (mailjet disabled), resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 550;
+// cascade/single = 350/day total (mailjet+unosend disabled), resend = 100
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 350;
 
 /**
  * Run async tasks with bounded concurrency.

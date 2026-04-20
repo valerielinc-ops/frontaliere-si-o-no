@@ -65,7 +65,6 @@ on:
           - mailgun
           - mailjet
           - mailtrap
-          - unosend
           - resend
 
 permissions:

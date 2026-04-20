@@ -34,7 +34,8 @@ const PROVIDERS = [
   // mailjet: disabled until account is activated (401 Unauthorized). Re-enable when unblocked.
   // { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
+  // unosend: disabled — re-enable when needed.
+  // { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
 ];
 
 // In-memory daily counters (reset on new UTC day)
