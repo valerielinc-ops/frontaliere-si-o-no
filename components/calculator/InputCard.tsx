@@ -270,7 +270,6 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  setSalaryError(null);
  }
  setInputs(prev => ({ ...prev, [field]: value }));
- setActivePreset(null);
  // Track funnel: first input interaction
  if (!inputStartTracked.current) {
  inputStartTracked.current = true;
@@ -289,33 +288,6 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  
  const handleResetTech = () => {
  setInputs(prev => ({...prev, ...DEFAULT_TECH_PARAMS}));
- };
-
- const PRESET_SCENARIOS = [
- {
- id: 'como',
- labels: { it: 'Frontaliere da Como', en: 'Commuter from Como', de: 'Grenzgänger aus Como', fr: 'Frontalier de Côme' } as Record<string, string>,
- fields: { frontierWorkerType: 'NEW' as const, distanceZone: 'WITHIN_20KM' as const, annualIncomeCHF: 75000, age: 35, maritalStatus: 'SINGLE' as const },
- },
- {
- id: 'varese',
- labels: { it: 'Frontaliere da Varese', en: 'Commuter from Varese', de: 'Grenzgänger aus Varese', fr: 'Frontalier de Varèse' } as Record<string, string>,
- fields: { frontierWorkerType: 'NEW' as const, distanceZone: 'OVER_20KM' as const, annualIncomeCHF: 75000, age: 35, maritalStatus: 'SINGLE' as const },
- },
- {
- id: 'lugano',
- labels: { it: 'Famiglia a Lugano', en: 'Family in Lugano', de: 'Familie in Lugano', fr: 'Famille à Lugano' } as Record<string, string>,
- fields: { frontierWorkerType: 'OLD' as const, annualIncomeCHF: 85000, age: 40, maritalStatus: 'MARRIED' as const, spouseWorks: false, children: 2, familyMembers: 4 },
- },
- ];
-
- const [activePreset, setActivePreset] = useState<string | null>(null);
-
- const applyPreset = (preset: typeof PRESET_SCENARIOS[number]) => {
- setInputs(prev => ({ ...prev, ...preset.fields }));
- setActivePreset(preset.id);
- setSalaryError(null);
- Analytics.trackUIInteraction('simulatore', 'input', `preset_${preset.id}`, 'click');
  };
 
  const fetchRate = async () => {
@@ -610,25 +582,6 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  ) : (
 
  <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-4 pb-20">
-
- {/* PRESET SCENARIO CHIPS */}
- <div className="flex gap-2 overflow-x-auto scrollbar-none pb-1">
- {PRESET_SCENARIOS.map((preset) => (
- <button
- key={preset.id}
- type="button"
- onClick={() => applyPreset(preset)}
- className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold border transition-[color,background-color,border-color,box-shadow] ${
- activePreset === preset.id
- ? 'bg-warning-strong text-on-accent border-warning shadow-sm'
- : 'bg-surface border-edge text-body hover:border-warning hover:text-warning'
- }`}
- >
- <Zap size={12} />
- {preset.labels[locale] || preset.labels.it}
- </button>
- ))}
- </div>
 
  {/* SECTION 1: MAIN INPUTS */}
  <div className="bg-surface rounded-2xl border border-edge shadow-sm">

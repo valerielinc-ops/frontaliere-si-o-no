@@ -57,8 +57,8 @@ async function fetchJobs() {
   return swissOffers.map((offer) => {
     const built = buildJobFromApi(offer);
     const slug = slugify(`${built.title} casale ${built.city}`);
-    const fallbackDesc = `${built.title} — posizione aperta presso Casale SA a Lugano, Canton Ticino, Svizzera. Casale SA è un'azienda globale di ingegneria con sede a Lugano, specializzata nella progettazione e costruzione di impianti per la produzione di fertilizzanti e prodotti chimici. L'azienda offre un ambiente di lavoro stimolante e internazionale nel cuore del Ticino.`;
-    const description = (built.description && built.description.length >= 220) ? built.description : (built.description || fallbackDesc);
+    const fallbackDesc = `${built.title} — posizione aperta presso Casale SA a Lugano, Canton Ticino, Svizzera. Casale SA è un'azienda globale di ingegneria con sede a Lugano, specializzata nella progettazione e costruzione di impianti per la produzione di fertilizzanti e prodotti chimici (ammoniaca, urea, metanolo, melamina, nitrati e fosfati). L'azienda offre un ambiente di lavoro stimolante e internazionale nel cuore del Ticino, con opportunità di crescita professionale in un contesto globale.`;
+    const description = (built.description && built.description.length >= 220) ? built.description : fallbackDesc;
     return {
       url: built.detailUrl, applyUrl: built.applyUrl, title: built.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,

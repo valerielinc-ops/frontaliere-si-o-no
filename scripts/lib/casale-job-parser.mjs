@@ -150,29 +150,52 @@ export function isCasaleSwissOffer(offer = {}) {
 /**
  * Patterns that match generic/placeholder offers from Recruitee.
  * These are not real job postings — they are "work with us" or
- * spontaneous application placeholders.
+ * spontaneous application placeholders. Patterns match the phrase
+ * anywhere in the title (to tolerate punctuation, suffixes like
+ * "- Neolaureati", and leading qualifiers).
  */
 const GENERIC_OFFER_PATTERNS = [
-  /^work with us$/i,
-  /^spontaneous application$/i,
-  /^open application$/i,
-  /^candidatura spontanea$/i,
-  /^candidature spontanee$/i,
-  /^postuler spontan[eé]ment$/i,
-  /^initiativbewerbung$/i,
-  /^offene bewerbung$/i,
-  /^candidature spontan[eé]e$/i,
+  /\bwork\s+with\s+us\b/i,
+  /\bjoin\s+(?:our\s+)?team\b/i,
+  /\bspontaneous\s+application\b/i,
+  /\bopen\s+application\b/i,
+  /\bcandidatura\s+spontanea\b/i,
+  /\bcandidature\s+spontan[eé]es?\b/i,
+  /\bpostuler\s+spontan[eé]ment\b/i,
+  /\binitiativbewerbung\b/i,
+  /\boffene\s+bewerbung\b/i,
+  /\bneolaureat[io]\b/i,
+];
+
+/**
+ * Slug fragments that indicate a placeholder/pipeline posting,
+ * independent of how the title is displayed.
+ */
+const GENERIC_SLUG_PATTERNS = [
+  /candidatura-spontanea/i,
+  /spontaneous-application/i,
+  /open-application/i,
+  /work-with-us/i,
+  /join-(?:our-)?team/i,
+  /initiativbewerbung/i,
+  /offene-bewerbung/i,
+  /candidature-spontan/i,
+  /neolaureat[io]/i,
+  /talent-pool/i,
 ];
 
 /**
  * Returns true if the offer title matches a generic/placeholder pattern
- * (e.g. "Work with us", "Spontaneous application") or is too short
- * to be a real job title.
+ * (e.g. "Work with us!", "Candidatura Spontanea - Neolaureati") or the
+ * Recruitee slug marks it as a pipeline/open-application posting.
  */
 export function isGenericOffer(offer = {}) {
   const title = String(offer.title || '').trim();
   if (title.length < 5) return true;
-  return GENERIC_OFFER_PATTERNS.some((re) => re.test(title));
+  if (GENERIC_OFFER_PATTERNS.some((re) => re.test(title))) return true;
+  const slug = String(offer.slug || '').trim();
+  if (slug && GENERIC_SLUG_PATTERNS.some((re) => re.test(slug))) return true;
+  return false;
 }
 
 /**

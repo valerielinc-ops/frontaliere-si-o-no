@@ -252,6 +252,25 @@ describe('isGenericOffer', () => {
     expect(isGenericOffer({ title: 'Mechanical Engineer' })).toBe(false);
     expect(isGenericOffer({ title: 'Apprenticeship - Laboratory Technician in Chemistry AFC' })).toBe(false);
   });
+
+  it('detects "Work with us!" with trailing punctuation', () => {
+    expect(isGenericOffer({ title: 'Work with us!' })).toBe(true);
+    expect(isGenericOffer({ title: 'Work With Us.' })).toBe(true);
+  });
+
+  it('detects suffixed placeholders like "Candidatura Spontanea - Neolaureati"', () => {
+    expect(isGenericOffer({ title: 'Candidatura Spontanea - Neolaureati' })).toBe(true);
+    expect(isGenericOffer({ title: 'Spontaneous Application - New Graduates' })).toBe(true);
+  });
+
+  it('falls back to slug for pipeline postings without matching title', () => {
+    expect(isGenericOffer({ title: 'Neolaureati 2026', slug: 'candidatura-spontanea-neolaureati' })).toBe(true);
+    expect(isGenericOffer({ title: 'Talent Pool', slug: 'talent-pool-engineering' })).toBe(true);
+  });
+
+  it('does not flag real jobs by slug', () => {
+    expect(isGenericOffer({ title: 'Senior Process Engineer', slug: 'senior-process-engineer-1' })).toBe(false);
+  });
 });
 
 // ─── htmlToMarkdown tests ───────────────────────────────────────────────────
