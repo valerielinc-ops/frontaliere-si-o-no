@@ -1595,7 +1595,7 @@ const App: React.FC = () => {
  )}
 
  {/* Navbar */}
- <nav aria-label="Navigazione principale" className="adsbygoogle-auto-ads-ignore sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
+ <nav aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
  <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
  <div className="flex justify-between h-14 md:h-20 items-center">
  {/* Logo Section */}
@@ -2253,7 +2253,7 @@ const App: React.FC = () => {
  )}
  </main>
 
- <footer className="adsbygoogle-auto-ads-ignore border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
+ <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
  <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
@@ -2782,7 +2782,7 @@ const App: React.FC = () => {
  </div>
  </footer>
  {/* Mobile Bottom Navigation Bar */}
- <nav aria-label="Navigazione mobile" className="adsbygoogle-auto-ads-ignore fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
+ <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">
  {([
  { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },
