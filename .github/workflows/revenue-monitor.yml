@@ -1,0 +1,86 @@
+name: Revenue Monitor (weekly)
+
+on:
+  schedule:
+    # Mondays 06:15 UTC — early enough to land in the Monday digest.
+    - cron: '15 6 * * 1'
+  workflow_dispatch: {}
+
+concurrency:
+  group: revenue-monitor
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run revenue monitor (save report)
+        env:
+          ADSENSE_REFRESH_TOKEN: ${{ secrets.ADSENSE_REFRESH_TOKEN }}
+          ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
+          ADSENSE_CLIENT_SECRET: ${{ secrets.ADSENSE_CLIENT_SECRET }}
+        run: node scripts/revenue-monitor.mjs --save --markdown > /tmp/revenue-monitor.md
+
+      - name: Print summary to job log
+        run: |
+          echo "## Revenue monitor" >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/revenue-monitor.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revenue-monitor-report
+          path: |
+            reports/revenue-*.json
+            reports/revenue-*.md
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Commit report to repo
+        run: |
+          if ! git diff --quiet -- reports/ 2>/dev/null || [ -n "$(git status --porcelain reports/ 2>/dev/null)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add reports/revenue-*.md reports/revenue-*.json 2>/dev/null || true
+            git commit -m "📊 Weekly revenue monitor report" || exit 0
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && exit 0 || sleep $((i * 5))
+            done
+            echo "::warning::Failed to push revenue report after 3 attempts"
+          else
+            echo "No report changes to commit"
+          fi
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
