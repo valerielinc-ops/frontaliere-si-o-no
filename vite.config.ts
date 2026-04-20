@@ -27,6 +27,7 @@ import { webpPlugin } from './build-plugins/webpPlugin';
 import { pdfWhitepapersPlugin } from './build-plugins/pdfWhitepapersPlugin';
 import { salaryHubPlugin } from './build-plugins/salaryHubPlugin';
 import { affiliateRedirectPlugin } from './build-plugins/affiliateRedirectPlugin';
+import { fuelDailyPagesPlugin } from './build-plugins/fuelDailyPagesPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,6 +68,7 @@ export default defineConfig(({ mode }) => {
  jobsSeoPagesPlugin(__dirname),
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),
+ fuelDailyPagesPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),

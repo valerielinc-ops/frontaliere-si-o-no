@@ -60,6 +60,10 @@ jobs:
             node scripts/generate-fuel-prices-dataset.mjs
           fi
 
+      - name: Snapshot fuel history for SEO pages (F6)
+        if: steps.schedule.outputs.daily == 'true'
+        run: node scripts/snapshot-fuel-history.mjs
+
       # Daily: commit repo cache + trigger deploy (with rebase-retry for concurrent pushes)
       - name: Commit repo cache (daily only)
         id: commit
@@ -67,7 +71,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f data/fuel-prices.json public/data/fuel-prices.json
+          git add -f data/fuel-prices.json public/data/fuel-prices.json data/fuel-prices-history/
           if git diff --cached --quiet; then
             echo "No fuel price changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
