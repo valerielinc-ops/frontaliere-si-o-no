@@ -2454,6 +2454,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.whp-premia-aziende-ticino-2026.title': 'WHP awards 90 Ticino companies for workplace health',
     'blog.article.whp-premia-aziende-ticino-2026.excerpt': 'ATS Insubria and Confindustria Varese recognize companies that promote health in the workplace with the WHP program',
     'blog.article.whp-premia-aziende-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.rapina-milano-frontaliere-ticino-2026.title': 'Robbery in Milan: Ticino cross-border worker robbed of a 35,000 CHF watch',
+    'blog.article.rapina-milano-frontaliere-ticino-2026.excerpt': 'Three arrests for the robbery of a Swiss citizen residing in the Canton of Lucerne, who was followed and robbed in Milan after a train journey from Lugano.',
+    'blog.article.rapina-milano-frontaliere-ticino-2026.imageAlt': 'Lugano train station with a view of the lake',
 };
 
 export default blogMetaEn;

@@ -4055,7 +4055,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 869,
+ "numberOfItems": 870,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4902,7 +4902,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 866, "name": "Cybercrimepolice.ch ora in italiano", "url": `${BASE_URL}/articoli-frontaliere/cybercrimepolice-ticino-italiano-2026` },
           { "@type": "ListItem", "position": 867, "name": "Azienda assume autisti in Lombardia: 800 euro a...", "url": `${BASE_URL}/articoli-frontaliere/azienda-assume-autisti-lombardia-800-euro` },
           { "@type": "ListItem", "position": 868, "name": "BancaStato Walking Mendrisio 2026: tre percorsi...", "url": `${BASE_URL}/articoli-frontaliere/bancastato-walking-mendrisio-2026` },
-          { "@type": "ListItem", "position": 869, "name": "WHP premia 90 aziende del Ticino per la salute ...", "url": `${BASE_URL}/articoli-frontaliere/whp-premia-aziende-ticino-2026` }
+          { "@type": "ListItem", "position": 869, "name": "WHP premia 90 aziende del Ticino per la salute ...", "url": `${BASE_URL}/articoli-frontaliere/whp-premia-aziende-ticino-2026` },
+          { "@type": "ListItem", "position": 870, "name": "Rapina a Milano: frontaliero ticinese derubato ...", "url": `${BASE_URL}/articoli-frontaliere/rapina-milano-frontaliere-ticino-2026` }
  ]
  }
  ]

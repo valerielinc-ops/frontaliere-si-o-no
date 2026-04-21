@@ -6706,4 +6706,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/whp-premia-aziende-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rapina-milano-frontaliere-ticino-2026',
+ category: 'novita',
+ date: '2026-04-21T16:20:10.661Z',
+ image: '/images/blog/rapina-milano-frontaliere-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

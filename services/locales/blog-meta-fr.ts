@@ -2454,6 +2454,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.whp-premia-aziende-ticino-2026.title': 'WHP récompense 90 entreprises du Tessin pour la santé au travail',
     'blog.article.whp-premia-aziende-ticino-2026.excerpt': 'ATS Insubria et Confindustria Varese reconnaissent les entreprises qui promeuvent la santé sur les lieux de travail avec le programme WHP',
     'blog.article.whp-premia-aziende-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.rapina-milano-frontaliere-ticino-2026.title': 'Braquage à Milan : un frontalier tessinois dépossédé d\'une montre de 35\'000 CHF',
+    'blog.article.rapina-milano-frontaliere-ticino-2026.excerpt': 'Trois arrestations pour le braquage d\'un citoyen suisse domicilié dans le canton de Lucerne, suivi et dévalisé à Milan après un voyage en train depuis Lugano.',
+    'blog.article.rapina-milano-frontaliere-ticino-2026.imageAlt': 'Gare de Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

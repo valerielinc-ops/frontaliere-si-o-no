@@ -10587,6 +10587,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rapina-milano-frontaliere-ticino-2026': {
+    title: 'Rapina a Milano: frontaliero ticinese | Frontaliere Ticino',
+    description: 'Tre arresti per la rapina ai danni di un cittadino svizzero domiciliato in Canton Lucerna, pedinato e derubato a Milano dopo un viaggio in treno da Lugano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapina, milano, frontaliero, ticinese',
+    ogTitle: 'Rapina a Milano: frontaliero ticinese derubato | Frontaliere',
+    ogDescription: 'Tre arresti per la rapina ai danni di un cittadino svizzero domiciliato in Canton Lucerna, pedinato e derubato a Milano dopo un viaggio in treno da Lugano.',
+    canonicalPath: '/articoli-frontaliere/rapina-milano-frontaliere-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapina a Milano: frontaliero ticinese derubato di un orologio da 35'000 CHF",
+      "description": "Tre arresti per la rapina ai danni di un cittadino svizzero domiciliato in Canton Lucerna, pedinato e derubato a Milano dopo un viaggio in treno da Lugano.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rapina-milano-frontaliere-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Lugano con vista sul lago"
+      },
+      "datePublished": "2026-04-21T16:20:10+00:00",
+      "dateModified": "2026-04-21T16:20:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rapina-milano-frontaliere-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

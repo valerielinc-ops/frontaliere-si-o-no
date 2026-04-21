@@ -2052,6 +2052,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-azienda-assume-autisti-lombardia-800-euro': { name: 'Novità', path: '/articoli-frontaliere/azienda-assume-autisti-lombardia-800-euro', parent: 'blog' },
     'blog-bancastato-walking-mendrisio-2026': { name: 'Eventi', path: '/articoli-frontaliere/bancastato-walking-mendrisio-2026', parent: 'blog' },
     'blog-whp-premia-aziende-ticino-2026': { name: 'WHP Ticino', path: '/articoli-frontaliere/whp-premia-aziende-ticino-2026', parent: 'blog' },
+    'blog-rapina-milano-frontaliere-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/rapina-milano-frontaliere-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
