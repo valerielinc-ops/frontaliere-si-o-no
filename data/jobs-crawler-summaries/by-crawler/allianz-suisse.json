@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-20T20:54:32.493Z",
+  "generatedAt": "2026-04-21T09:23:37.360Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 15409,
-  "avgDurationMs": 15409,
+  "unchangedCount": 0,
+  "durationMs": 14608,
+  "avgDurationMs": 14608,
   "durationHistory": [
-    15409
+    14608
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -106,7 +106,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -143,7 +143,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -180,7 +180,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -217,7 +217,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -235,10 +235,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "| Allianz | Bewerbermanagement",
       "slug": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
@@ -257,7 +254,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -276,5 +273,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

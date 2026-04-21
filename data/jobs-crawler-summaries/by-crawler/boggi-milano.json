@@ -1,16 +1,16 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-04-20T21:08:03.179Z",
+  "generatedAt": "2026-04-21T09:36:58.981Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5782,
-  "avgDurationMs": 5782,
+  "unchangedCount": 1,
+  "durationMs": 5038,
+  "avgDurationMs": 5038,
   "durationHistory": [
-    5782
+    5038
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -124,7 +124,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Cercasi Neolaureato/a in Ingegneria Gestionale per stage in ambito Purchasing",
       "slug": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
@@ -162,7 +165,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

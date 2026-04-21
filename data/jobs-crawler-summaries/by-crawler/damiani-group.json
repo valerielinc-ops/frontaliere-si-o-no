@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-04-20T21:25:07.508Z",
-  "total": 4,
+  "generatedAt": "2026-04-21T09:54:07.073Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3394,
-  "avgDurationMs": 3394,
+  "durationMs": 4686,
+  "avgDurationMs": 4686,
   "durationHistory": [
-    3394
+    4686
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-04-20",
+      "validThrough": "2026-04-21",
       "id": "damiani-group-1e3bfdd1100f",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -72,7 +72,7 @@
       "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-04-20",
+      "validThrough": "2026-04-21",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -124,10 +124,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Brand Marketing Specialist",
-      "slug": "brand-marketing-specialist-damiani-group-mendrisio",
+      "slug": "brand-marketing-specialista-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Brand-Marketing-Specialist/1346822155/",
       "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1346822155/?locale=en_US",
       "company": "Damiani Group",
@@ -154,15 +156,14 @@
       "postalCode": "6850",
       "id": "damiani-group-3f6de5e746fe",
       "firstSeenAt": "2026-04-13T21:32:28.163Z",
-      "_qualityScore": 94,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 24,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
