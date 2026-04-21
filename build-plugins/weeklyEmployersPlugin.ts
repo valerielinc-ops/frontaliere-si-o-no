@@ -415,8 +415,12 @@ export function buildCompanyCityStats(opts: {
     limitJobs = 10,
   } = opts;
 
+  // IMPORTANT: for a listing page we use the IT-locale activity oracle so a
+  // job present only in IT still shows up on EN/DE/FR hubs (the detail page
+  // URL falls back to the IT slug when the locale slug is missing — same
+  // policy as existing F5 city-level hubs).
   const matching = jobs.filter((j) => {
-    if (!jobIsActive(j, locale)) return false;
+    if (!jobIsActive(j, 'it')) return false;
     if (!jobMatchesCity(j, city)) return false;
     const company = String(j.company || '').trim();
     if (!company) return false;
