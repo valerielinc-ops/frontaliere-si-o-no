@@ -31,7 +31,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl } from '../services/newsletter-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -221,7 +221,7 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
     const jobUrl = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
     // Company page slug is derived from company display name (mirrors build plugin logic)
     const companySlug = j.company ? slugifyCompanyName(j.company) : '';
-    const companyUrl = companySlug ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${companySlug}` : '';
+    const companyUrl = companyPageUrl(companySlug, locale);
 
     let foundTitle = false;
 
@@ -281,6 +281,16 @@ function sanitizeAIBriefingHtml(raw) {
 
   // Strip markdown code fences if model wrapped output
   html = html.replace(/^```html?\s*/i, '').replace(/\s*```$/, '').trim();
+
+  // Convert leaked markdown to HTML. AI models occasionally output **bold** or
+  // *italic* despite the system prompt asking for HTML — without conversion the
+  // raw asterisks render literally in the email (e.g. "**5'000 CHF**"). Run bold
+  // before italic so the ** patterns are consumed first.
+  html = html.replace(/\*\*([^*\n]+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/(^|[^*])\*([^*\n]+?)\*(?!\*)/g, '$1<em>$2</em>');
+  // Markdown links [text](url) → strip to plain text. injectJobAndCompanyLinks
+  // re-adds correct hyperlinks; raw markdown links would render as literal text.
+  html = html.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
   // Strip ALL <a> tags from AI output (keep inner text).
   // injectJobAndCompanyLinks() re-adds links with correct, validated URLs.
@@ -906,19 +916,21 @@ function loadLocalJobsData() {
 function sanitizeJobUrls(html, validSlugs) {
   if (!validSlugs || validSlugs.size === 0) return html;
 
-  return html.replace(
-    /href="([^"]*\/cerca-lavoro-ticino\/([^/"?#]+)\/?[^"]*)"/g,
-    (fullMatch, fullUrl, slug) => {
-      // Strip query params and trailing slash from slug for comparison
-      const cleanSlug = slug.replace(/\/$/, '');
-      // Company pages (azienda-*) are valid — don't strip them
-      if (cleanSlug.startsWith('azienda-')) return fullMatch;
-      if (validSlugs.has(cleanSlug)) return fullMatch;
+  // Match all locale variants of the job board path
+  const boardSegment = '(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)';
+  const re = new RegExp(`href="([^"]*\\/${boardSegment}\\/([^/"?#]+)\\/?[^"]*)"`, 'g');
 
-      console.warn(`⚠️  Broken job URL removed from newsletter: ${cleanSlug}`);
-      return `href="${fullUrl.split('/cerca-lavoro-ticino/')[0]}/cerca-lavoro-ticino/"`;
-    },
-  );
+  return html.replace(re, (fullMatch, fullUrl, board, slug) => {
+    // Strip query params and trailing slash from slug for comparison
+    const cleanSlug = slug.replace(/\/$/, '');
+    // Company pages (azienda-*) are valid — don't strip them
+    if (cleanSlug.startsWith('azienda-')) return fullMatch;
+    if (validSlugs.has(cleanSlug)) return fullMatch;
+
+    console.warn(`⚠️  Broken job URL removed from newsletter: ${cleanSlug}`);
+    const prefix = fullUrl.split(`/${board}/`)[0];
+    return `href="${prefix}/${board}/"`;
+  });
 }
 
 // ─── Subscriber fetching ────────────────────────────────────

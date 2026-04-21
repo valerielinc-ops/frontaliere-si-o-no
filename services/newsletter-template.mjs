@@ -222,6 +222,22 @@ function nlT(locale, key) {
   return NL_I18N[lang]?.[key] || NL_I18N.it[key] || key;
 }
 
+/**
+ * Truncate text at a word boundary without appending an ellipsis.
+ * Keeps the result tidy (no trailing "…" or cut-off word). If the string
+ * already fits the limit it is returned unchanged.
+ */
+export function truncateAtWordBoundary(text, max) {
+  const s = String(text || '');
+  if (s.length <= max) return s;
+  const slice = s.slice(0, max);
+  const lastSpace = slice.lastIndexOf(' ');
+  // Only break at a word boundary if it's reasonably deep in the string,
+  // otherwise fall back to the hard cut (avoids 1-2 word stubs).
+  const cutAt = lastSpace > max * 0.6 ? lastSpace : max;
+  return slice.slice(0, cutAt).replace(/[\s.,;:–—-]+$/u, '');
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -233,6 +249,59 @@ function escapeHtml(str) {
 export function directUrl(path) {
   if (/^https?:\/\//i.test(path)) return path;
   return `${BASE_URL}${path.startsWith('/') ? path : '/' + path}`;
+}
+
+// Locale-aware path map. IT is the canonical (no prefix); other locales get
+// the /{lang}/ prefix and translated slugs. Keys are the canonical IT paths.
+// Used to ensure newsletter links resolve to the correct localized page.
+const LOCALE_PATH_MAP = {
+  '/cerca-lavoro-ticino': {
+    it: '/cerca-lavoro-ticino',
+    en: '/en/find-jobs-ticino',
+    de: '/de/jobs-im-tessin',
+    fr: '/fr/trouver-emploi-tessin',
+  },
+  '/compara-servizi/cambio-franco-euro': {
+    it: '/compara-servizi/cambio-franco-euro',
+    en: '/en/service-comparison/chf-eur-exchange-rate',
+    de: '/de/service-vergleich/chf-eur-wechselkurs',
+    fr: '/fr/comparaison-services/taux-change-chf-eur',
+  },
+  '/compara-servizi/confronta-casse-malati': {
+    it: '/compara-servizi/confronta-casse-malati',
+    en: '/en/service-comparison/compare-health-insurance',
+    de: '/de/service-vergleich/krankenkassen-vergleichen',
+    fr: '/fr/comparaison-services/comparer-caisses-maladie',
+  },
+  '/statistiche': {
+    it: '/statistiche',
+    en: '/en/statistics',
+    de: '/de/statistiken',
+    fr: '/fr/statistiques',
+  },
+  '/calcola-stipendio': {
+    it: '/calcola-stipendio',
+    en: '/en/calculate-salary',
+    de: '/de/gehalt-berechnen',
+    fr: '/fr/calculer-salaire',
+  },
+  '/tasse-e-pensione/dichiarazione-redditi': {
+    it: '/tasse-e-pensione/dichiarazione-redditi',
+    en: '/en/taxes-and-pension/tax-return-guide',
+    de: '/de/steuern-und-vorsorge/steuererklaerung',
+    fr: '/fr/impots-et-retraite/declaration-revenus',
+  },
+};
+
+/**
+ * Resolve a canonical IT path to its locale variant and return an absolute URL.
+ * Falls back to the IT path if the path is unknown (still safe, just not localized).
+ */
+export function localizedUrl(itPath, locale) {
+  const lang = nlNormLocale(locale);
+  const variants = LOCALE_PATH_MAP[itPath];
+  const path = variants ? (variants[lang] || variants.it) : itPath;
+  return directUrl(path);
 }
 
 function formatDate(locale) {
@@ -329,7 +398,7 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
       <div style="font-size:14px;color:#94a3b8;margin:0 0 20px;">${nlT(locale, 'greetingSub')}</div>
 
       <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
-      <a href="${directUrl('/compara-servizi/cambio-franco-euro')}" style="text-decoration:none;display:inline-block;">
+      <a href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="text-decoration:none;display:inline-block;">
       <div class="rate-box" style="display:inline-block;background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
         <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
         <div class="hero-rate" style="font-size:52px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-1px;line-height:1.1;">${rate.toFixed(4)}</div>
@@ -346,7 +415,7 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
       <div style="margin-top:12px;font-size:14px;color:#e2e8f0;line-height:1.5;">${compareHtml}</div>
 
       <div style="margin-top:16px;">
-        <a href="${directUrl('/compara-servizi/cambio-franco-euro')}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${nlT(locale, 'rateCta')}</a>
+        <a href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${nlT(locale, 'rateCta')}</a>
       </div>
     </td></tr>`;
 }
@@ -382,7 +451,7 @@ function renderMetrics(totalJobs, metrics, locale) {
       <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0"><tr><td width="33%" valign="top"><![endif]-->
       <table width="100%" cellpadding="0" cellspacing="0"><tr class="metric-row">
         <td width="33%" style="padding:0 4px 0 0;">
-          <a href="${directUrl('/cerca-lavoro-ticino')}" style="text-decoration:none;display:block;">
+          <a href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcbc</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${totalJobs || '200+'}</div>
@@ -392,7 +461,7 @@ function renderMetrics(totalJobs, metrics, locale) {
         </td>
         <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
         <td width="33%" style="padding:0 4px;">
-          <a href="${directUrl('/statistiche')}" style="text-decoration:none;display:block;">
+          <a href="${localizedUrl('/statistiche', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcca</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${unemploymentRate}</div>
@@ -402,7 +471,7 @@ function renderMetrics(totalJobs, metrics, locale) {
         </td>
         <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
         <td width="33%" style="padding:0 0 0 4px;">
-          <a href="${directUrl('/compara-servizi/confronta-casse-malati')}" style="text-decoration:none;display:block;">
+          <a href="${localizedUrl('/compara-servizi/confronta-casse-malati', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83c\udfe5</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${lamalPremium}</div>
@@ -424,7 +493,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
   const jobCount = totalJobs || matchedJobs.length;
   const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
     const initial = (job.company || '?')[0].toUpperCase();
-    const truncatedTitle = job.title && job.title.length > 55 ? job.title.slice(0, 55).trimEnd() + '…' : job.title;
+    const truncatedTitle = truncateAtWordBoundary(job.title, 55);
     const tags = [];
     if (i === 0) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
@@ -456,7 +525,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
       <table width="100%" cellpadding="0" cellspacing="0">
         ${jobCards}
         <tr><td style="text-align:center;padding-top:14px;">
-          <a href="${directUrl('/cerca-lavoro-ticino')}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
+          <a href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
         </td></tr>
       </table>
     </td></tr>`;
@@ -539,7 +608,7 @@ function renderTools(locale) {
     const popular = isFeatured ? `<span style="font-size:9px;background:${BRAND_ORANGE};color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-left:4px;vertical-align:middle;">\u2605 #1</span>` : '';
     return `
       <td width="50%" class="tool-cell" style="padding:${i % 2 === 0 ? '0 5px 10px 0' : '0 0 10px 5px'};vertical-align:top;">
-        <a href="${directUrl(tool.toolUrl)}" style="text-decoration:none;display:block;">
+        <a href="${localizedUrl(tool.toolUrl, locale)}" style="text-decoration:none;display:block;">
           <div style="background:${bg};border:1px solid ${border};border-radius:12px;padding:16px 14px;">
             <div style="font-size:24px;margin-bottom:6px;">${tool.icon}</div>
             <div style="font-size:13px;font-weight:700;color:${nameColor};margin:0 0 4px;">${escapeHtml(tool.title)}${popular}</div>

@@ -111,11 +111,13 @@ let _metricsCache = null;
 export function loadDashboardMetrics() {
   if (_metricsCache) return _metricsCache;
 
+  // Labels are intentionally NOT included here — the template renders them
+  // via nlT(locale, 'metricUnemployment') / nlT(locale, 'metricLamal') so
+  // they are localized per-recipient. Adding label fields would override
+  // localization and bake Italian into every email.
   const metrics = {
     unemploymentRate: '2.8%',
-    unemploymentLabel: 'Disoccupazione CH',
     lamalPremium: 'CHF 467',
-    lamalLabel: 'Premio LAMal Lugano',
   };
 
   // ── Unemployment rate ──
@@ -258,6 +260,13 @@ const JOB_BOARD_PATH = {
   de: 'de/jobs-im-tessin',
   fr: 'fr/trouver-emploi-tessin',
 };
+
+/** Build the locale-aware company page URL. Mirror build plugin canonicalCompanySlug. */
+export function companyPageUrl(companySlug, locale = 'it') {
+  if (!companySlug) return '';
+  const boardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
+  return `${BASE_URL}/${boardPath}/azienda-${companySlug}`;
+}
 
 export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it') {
   if (!jobs || jobs.length === 0) return [];
@@ -483,7 +492,7 @@ export function buildBriefingPrompt(ctx) {
         ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
         : '';
       const companySlug = j.company ? slugifyCompanyName(j.company) : '';
-      const companyUrl = companySlug ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${companySlug}` : '';
+      const companyUrl = companyPageUrl(companySlug, locale);
       return `- ${j.title} at ${j.company} (${j.location})${postedInfo} → JOB_URL: ${url}${companyUrl ? ` | COMPANY_URL: ${companyUrl}` : ''}`;
     })
     .filter(Boolean)
@@ -508,7 +517,8 @@ export function buildBriefingPrompt(ctx) {
   const system = [
     `You write the opening section of a weekly email newsletter for "Frontaliere Ticino", a platform for cross-border workers (frontalieri) between Italy and Switzerland.`,
     `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
-    `Output 2-3 short paragraphs. Use simple HTML: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
+    `Output 2-3 short paragraphs. Use simple HTML ONLY: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
+    `CRITICAL: NEVER use Markdown syntax. Do NOT use **bold**, *italic*, [text](link), or any asterisks for emphasis. Always use the HTML tags above. Asterisks will render as literal characters in the email.`,
     `STRUCTURE RULE: First paragraph MUST mention 1-2 specific job opportunities with clickable hyperlinks. Second paragraph covers exchange rate context. Keep jobs EARLY — never push them to the end.`,
     `CRITICAL JOB LINKING RULE: Every job mention MUST have TWO hyperlinks: (1) the job title linked to JOB_URL, and (2) the company name linked to COMPANY_URL. Copy URLs exactly from the data. NEVER use <strong> for job titles or company names — ALWAYS use <a>. If a job has no URL, do NOT mention it. Example: "dai un'occhiata al ruolo di <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> a Chiasso".`,
     `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
@@ -549,26 +559,68 @@ export function buildSubjectPrompt(ctx) {
   const dayNames = { it: ['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'], en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], de: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'], fr: ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'] };
   const today = (dayNames[locale] || dayNames.it)[new Date().getDay()];
 
+  // Locale-specific subject examples. Keeping examples in the target language
+  // prevents the model from drifting to Italian when locale != 'it'.
+  const examplesByLocale = {
+    it: [
+      `- Curiosity gap: "⚡ Il tasso CHF scende: quanto perdi?"`,
+      `- Number + location: "📊 3 aziende assumono a Lugano"`,
+      `- Direct benefit: "💰 Simula il netto 2026 in 30 sec"`,
+      `- Urgency/FOMO: "🔥 Scadenza fiscale: hai controllato?"`,
+      `- Question hook: "🤔 Permesso G o B? Il calcolo che conta"`,
+      `- News peg: "📰 ${today}: cosa cambia per i frontalieri"`,
+    ],
+    en: [
+      `- Curiosity gap: "⚡ CHF rate is dropping: how much are you losing?"`,
+      `- Number + location: "📊 3 companies hiring in Lugano"`,
+      `- Direct benefit: "💰 Simulate your 2026 net pay in 30 sec"`,
+      `- Urgency/FOMO: "🔥 Tax deadline: have you checked?"`,
+      `- Question hook: "🤔 Permit G or B? The calc that matters"`,
+      `- News peg: "📰 ${today}: what's changing for frontalieri"`,
+    ],
+    de: [
+      `- Curiosity gap: "⚡ CHF-Kurs fällt: wie viel verlierst du?"`,
+      `- Number + location: "📊 3 Firmen stellen in Lugano ein"`,
+      `- Direct benefit: "💰 Nettolohn 2026 in 30 Sek berechnen"`,
+      `- Urgency/FOMO: "🔥 Steuerfrist: schon geprüft?"`,
+      `- Question hook: "🤔 Bewilligung G oder B? Die Rechnung zählt"`,
+      `- News peg: "📰 ${today}: was sich für Grenzgänger ändert"`,
+    ],
+    fr: [
+      `- Curiosity gap: "⚡ Le taux CHF baisse : combien tu perds ?"`,
+      `- Number + location: "📊 3 entreprises recrutent à Lugano"`,
+      `- Direct benefit: "💰 Simule ton net 2026 en 30 sec"`,
+      `- Urgency/FOMO: "🔥 Échéance fiscale : t'as vérifié ?"`,
+      `- Question hook: "🤔 Permis G ou B ? Le calcul qui compte"`,
+      `- News peg: "📰 ${today} : ce qui change pour les frontaliers"`,
+    ],
+  };
+  const examples = (examplesByLocale[locale] || examplesByLocale.it).join('\n');
+
+  // Voice pronouns per locale to avoid "tu/you" instruction being misread
+  const voiceByLocale = {
+    it: `Use "tu" voice, never "noi"`,
+    en: `Use "you" voice, never "we"`,
+    de: `Use "du" voice, never "wir"`,
+    fr: `Use "tu" voice, never "nous"`,
+  };
+
   const system = [
     `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
     `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
+    `ABSOLUTE LANGUAGE RULE: The subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
     ``,
-    `PROVEN PATTERNS (pick one and adapt):`,
-    `- Curiosity gap: "⚡ Il tasso CHF scende: quanto perdi?"`,
-    `- Number + location: "📊 3 aziende assumono a Lugano"`,
-    `- Direct benefit: "💰 Simula il netto 2026 in 30 sec"`,
-    `- Urgency/FOMO: "🔥 Scadenza fiscale: hai controllato?"`,
-    `- Question hook: "🤔 Permesso G o B? Il calcolo che conta"`,
-    `- News peg: "📰 ${today}: cosa cambia per i frontalieri"`,
+    `PROVEN PATTERNS (pick one and adapt — stay in ${langName}):`,
+    examples,
     ``,
     `RULES:`,
     `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
     `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
-    `- Use "tu/you" voice, never "noi/we"`,
+    `- ${voiceByLocale[locale] || voiceByLocale.it}`,
     `- NO exact numbers (exchange rates, percentages)`,
-    `- NO generic words: "update", "newsletter", "novità", "weekly"`,
+    `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
     `- ONE hook only. Make the reader NEED to open the email.`,
-    `- Output ONLY the subject line. No quotes, no explanation.`,
+    `- Output ONLY the subject line in ${langName}. No quotes, no translation, no explanation.`,
   ].join('\n');
 
   const hints = [];
