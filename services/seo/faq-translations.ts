@@ -2199,6 +2199,77 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  a: "Non, les frontaliers suivent le calendrier des jours fériés suisse/tessinois. Les jours fériés italiens (25 avril, 2 juin, saint patron) ne sont pas reconnus en Suisse. Les frontaliers doivent prendre des congés pour ces jours."
  }
  },
+ // ── B.1 Festività Ticino 2026 expanded FAQ ──
+ "Il 1° agosto 2026 è festivo in Ticino?": {
+ en: {
+ q: "Is August 1st 2026 a public holiday in Ticino?",
+ a: "Yes, August 1st 2026 is the Swiss National Day, a federal public holiday nationwide including Ticino. In 2026 it falls on a Saturday, so workers who do not work on Saturdays do not receive a compensatory day off under the Swiss Code of Obligations: most Ticino collective labour agreements (CCL) do not provide compensation."
+ },
+ de: {
+ q: "Ist der 1. August 2026 ein Feiertag im Tessin?",
+ a: "Ja, der 1. August 2026 ist der Schweizer Nationalfeiertag und ein nationaler Bundesfeiertag, auch im Tessin. 2026 fällt er auf einen Samstag: Wer nicht samstags arbeitet, erhält laut Schweizer Obligationenrecht keinen Ausgleichstag — die meisten Tessiner GAV sehen keine Kompensation vor."
+ },
+ fr: {
+ q: "Le 1er août 2026 est-il férié au Tessin ?",
+ a: "Oui, le 1er août 2026 est la Fête nationale suisse, un jour férié fédéral dans tout le pays, Tessin inclus. En 2026 il tombe un samedi : les travailleurs qui ne travaillent pas le samedi ne bénéficient pas d'un jour de récupération selon le Code des obligations suisse ; la plupart des CCT tessinoises ne prévoient pas de compensation."
+ }
+ },
+ "Cosa succede se un festivo cade di sabato o domenica in Svizzera?": {
+ en: {
+ q: "What happens if a public holiday falls on a Saturday or Sunday in Switzerland?",
+ a: "In Switzerland, unlike Italy, if a public holiday falls on a Saturday or Sunday it is NOT recovered: the worker simply loses the benefit of the free day. In 2026 this applies to two important Ticino holidays: August 1st (Saturday) and August 15th — Assumption (Saturday). Only some sector CCLs provide a recovery day."
+ },
+ de: {
+ q: "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?",
+ a: "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das zwei wichtige Tessiner Feiertage: den 1. August (Samstag) und den 15. August — Mariä Himmelfahrt (Samstag). Nur einige Branchen-GAV sehen einen Nachholtag vor."
+ },
+ fr: {
+ q: "Que se passe-t-il si un jour férié tombe un samedi ou un dimanche en Suisse ?",
+ a: "Contrairement à l'Italie, en Suisse un jour férié qui tombe un samedi ou un dimanche n'est PAS récupéré : le travailleur perd simplement le bénéfice du jour de congé. En 2026 cela concerne deux jours fériés tessinois importants : le 1er août (samedi) et le 15 août — Assomption (samedi). Seules certaines CCT sectorielles prévoient un jour de récupération."
+ }
+ },
+ "Quali festività sono riconosciute in Ticino ma NON nel resto della Svizzera?": {
+ en: {
+ q: "Which public holidays are recognised in Ticino but NOT in the rest of Switzerland?",
+ a: "Ticino, being a historically Catholic canton, recognises 7 additional cantonal holidays compared to Protestant cantons: Epiphany (Jan 6), St Joseph (Mar 19), Corpus Christi, Saints Peter and Paul (Jun 29), Assumption (Aug 15), All Saints (Nov 1), and Immaculate Conception (Dec 8). This means a cross-border worker in Ticino has on average 3 to 5 more paid holidays than someone working in Zurich or Basel."
+ },
+ de: {
+ q: "Welche Feiertage sind im Tessin anerkannt, im Rest der Schweiz jedoch NICHT?",
+ a: "Das Tessin — als historisch katholischer Kanton — anerkennt 7 zusätzliche kantonale Feiertage gegenüber den protestantischen Kantonen: Dreikönigstag (6.1.), Josefstag (19.3.), Fronleichnam, Peter und Paul (29.6.), Mariä Himmelfahrt (15.8.), Allerheiligen (1.11.) und Mariä Empfängnis (8.12.). Ein Grenzgänger im Tessin hat im Durchschnitt 3 bis 5 bezahlte Feiertage mehr als jemand in Zürich oder Basel."
+ },
+ fr: {
+ q: "Quels jours fériés sont reconnus au Tessin mais PAS dans le reste de la Suisse ?",
+ a: "Le Tessin, canton historiquement catholique, reconnaît 7 jours fériés cantonaux supplémentaires par rapport aux cantons protestants : Épiphanie (6/1), Saint-Joseph (19/3), Fête-Dieu, Saints Pierre et Paul (29/6), Assomption (15/8), Toussaint (1/11) et Immaculée Conception (8/12). Un frontalier au Tessin bénéficie en moyenne de 3 à 5 jours fériés payés de plus qu'à Zurich ou Bâle."
+ }
+ },
+ "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?": {
+ en: {
+ q: "Do Italian public holidays (April 25th, June 2nd) apply to cross-border workers?",
+ a: "No. Cross-border workers follow the Swiss/Ticino holiday calendar because the employment relationship is governed by Swiss labour law (lex loci laboris). Italian holidays (April 25th Liberation, June 2nd Republic Day, local patron saint, December 8th, etc.) are not recognised as non-working days by the Swiss employer: to stay home, the cross-border worker must use ordinary annual leave."
+ },
+ de: {
+ q: "Gelten italienische Feiertage (25. April, 2. Juni) für Grenzgänger?",
+ a: "Nein. Grenzgänger richten sich nach dem Schweizer bzw. Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, Patronatsfest, 8. Dezember etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen."
+ },
+ fr: {
+ q: "Les jours fériés italiens (25 avril, 2 juin) s'appliquent-ils au frontalier ?",
+ a: "Non. Le frontalier suit le calendrier des jours fériés suisse/tessinois car la relation de travail est régie par le droit suisse (lex loci laboris). Les jours fériés italiens (25 avril Libération, 2 juin Fête de la République, saint patron, 8 décembre, etc.) ne sont pas reconnus comme jours non ouvrés par l'employeur suisse : pour rester à la maison, le frontalier doit prendre un jour de congé ordinaire."
+ }
+ },
+ "Come viene pagato il frontaliere nei giorni festivi in Ticino?": {
+ en: {
+ q: "How is a cross-border worker paid on public holidays in Ticino?",
+ a: "The Swiss Code of Obligations and the Labour Act require the Swiss employer to pay for public holidays falling on a working day even if the employee is absent. Hourly-paid workers (Stundenlohn) receive their regular pay and monthly-paid workers receive their full salary. If the cross-border worker works on a public holiday, most Ticino CCLs provide a 50% surcharge or a compensatory day off; some sectors (healthcare, hospitality, transport) go up to 100%."
+ },
+ de: {
+ q: "Wie wird ein Grenzgänger im Tessin an Feiertagen bezahlt?",
+ a: "Obligationenrecht und Arbeitsgesetz verpflichten den Schweizer Arbeitgeber, Feiertage, die auf einen Arbeitstag fallen, auch bei Abwesenheit des Arbeitnehmers zu bezahlen. Im Stundenlohn Beschäftigte erhalten den üblichen Lohn, Monatslohnempfänger den vollen Lohn. Wer an einem Feiertag arbeitet, erhält in den meisten Tessiner GAV einen Zuschlag von 50 % oder einen Kompensationstag; manche Branchen (Gesundheit, Gastgewerbe, Transport) zahlen bis zu 100 %."
+ },
+ fr: {
+ q: "Comment le frontalier est-il payé les jours fériés au Tessin ?",
+ a: "Le Code des obligations et la Loi sur le travail imposent à l'employeur suisse de payer les jours fériés tombant sur un jour ouvrable même en cas d'absence du salarié. Les salariés payés à l'heure (Stundenlohn) reçoivent leur paie habituelle, ceux au mois leur salaire complet. Si le frontalier travaille un jour férié, la plupart des CCT tessinoises prévoient une majoration de 50 % ou un jour de récupération ; certains secteurs (santé, hôtellerie, transports) vont jusqu'à 100 %."
+ }
+ },
  "Quanti giorni di ferie ha un frontaliere in Svizzera?": {
  en: {
  q: "How many vacation days does a cross-border worker have in Switzerland?",
