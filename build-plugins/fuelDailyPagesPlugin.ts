@@ -855,8 +855,11 @@ function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext
         slug = `${baseSlug}-${suffix++}`;
       }
       slugSeen.add(`${zone}/${slug}`);
-      // Derive display strings
-      const cityFromAddr = (s.address ?? '').split(',').pop()?.replace(/^\d{4,5}\s+/, '').trim() ?? FUEL_ZONE_DISPLAY[zone];
+      // Derive display strings. The last comma-separated segment typically
+      // reads "6830 Chiasso" — strip the 4-5 digit postal code to keep only
+      // the proper-noun city name.
+      const rawLast = (s.address ?? '').split(',').pop()?.trim() ?? '';
+      const cityFromAddr = rawLast.replace(/^\d{4,5}\s+/, '').trim() || FUEL_ZONE_DISPLAY[zone];
       const street = (s.address ?? '').split(',')[0]?.trim() ?? '';
       const brandDisplay = s.brand && s.brand.toUpperCase() !== 'UNDEFINED' ? titleCase(s.brand) : (s.name ? titleCase(s.name.split(/\s+/)[0] ?? 'Stazione') : 'Stazione');
       out.push({
@@ -956,7 +959,7 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
   de: {
     h1: (b, st, c, f) => `${f}preis ${b} ${st} in ${c}`,
     intro: (b, c, p, f) => `Die Tankstelle ${b} in ${c} verkauft heute ${f} zum Preis von ${p} CHF pro Liter. Die Preise werden täglich aus den TCS-Benzinpreis-Beobachtungen der Tankstellen im 20-km-Umkreis zur italienischen Grenze aktualisiert — praktisch, um das Tanken vor oder nach dem Grenzübertritt zu planen.`,
-    paragraph: (b, c, p, zAvg, f) => `An der Tankstelle ${b} in ${c} liegt der ${f}preis bei ${p} CHF pro Liter gegenüber dem Zonendurchschnitt von ${zAvg} CHF pro Liter. Nutze die Differenz, um zu entscheiden, ob du hier oder in einer benachbarten Tankstelle tankst. Vergleiche mit dem Wochenverlauf der Zone, prüfe die Wartezeit am nächsten Grenzübergang und konsultiere den Grenzgänger-Leitfaden für die gesamte Pendel-Kostenrechnung.`,
+    paragraph: (b, c, p, zAvg, f) => `An der Tankstelle ${b} in ${c} liegt der ${f}preis bei ${p} CHF pro Liter gegenüber dem Zonendurchschnitt von ${zAvg} CHF pro Liter. Nutze die Differenz, um zu entscheiden, ob du hier oder an einer benachbarten Tankstelle tankst. Die Seite wird jeden Tag frisch aufgebaut und enthält die aktuellen Marktvergleichswerte. Vergleiche mit dem Wochenverlauf der Zone, prüfe die Wartezeit am nächsten Grenzübergang und konsultiere den Grenzgänger-Leitfaden für die gesamte Pendel-Kostenrechnung. So planst du deinen Tankstopp optimal: vor oder nach der Grenze, mit oder ohne Umweg, je nach Tagesdifferenz zwischen Italien und der Schweiz.`,
     ranking: (r, t, c) => `Rang in ${c}: ${r} (${t} erfasste Tankstellen).`,
     infoHeading: 'Tankstellen-Infos',
     infoBrand: 'Marke',
