@@ -15,6 +15,11 @@
 //   - Should also set `inLanguage` if present on the object.
 
 import {
+ translateArticleSchema,
+ translateBlogPostingSchema,
+ translateNewsArticleSchema,
+} from './article-translations';
+import {
  translateClaimReview,
  translateDataset,
  translateOrganization,
@@ -23,6 +28,13 @@ import {
 } from './entity-translations';
 import { translateFaqPage } from './faq-translations';
 import { translateHowToSchema } from './howto-translations';
+import {
+ translateAboutPage,
+ translateCollectionPage,
+ translateContactPage,
+ translateItemList,
+ translateWebPage,
+} from './page-translations';
 
 export type SupportedLocale = 'en' | 'de' | 'fr';
 
@@ -31,14 +43,25 @@ export type SchemaTranslator = (obj: Record<string, any>, locale: SupportedLocal
 // ── Translator registrations ─────────────────────────────────────────────
 // Keep this block alphabetized by @type. Each entry: one line.
 const REGISTRY: Record<string, SchemaTranslator> = {
+ AboutPage: translateAboutPage,
+ Article: translateArticleSchema,
+ BlogPosting: translateBlogPostingSchema,
  ClaimReview: translateClaimReview,
+ CollectionPage: translateCollectionPage,
+ ContactPage: translateContactPage,
  Dataset: translateDataset,
  FAQPage: translateFaqPage,
  HowTo: translateHowToSchema,
+ ItemList: translateItemList,
+ NewsArticle: translateNewsArticleSchema,
  Organization: translateOrganization,
  Review: translateReview,
  WebApplication: translateWebApplication,
+ WebPage: translateWebPage,
 };
+
+// Alias exposed for tests that want to inspect the registry directly.
+export const SCHEMA_TRANSLATOR_REGISTRY = REGISTRY;
 
 /**
  * Look up a translator for a given @type. Returns undefined if none
@@ -61,6 +84,29 @@ export function translateSchema(obj: unknown, locale: SupportedLocale): void {
  const fn = REGISTRY[type];
  if (fn) fn(record, locale);
 }
+
+/**
+ * Translate a JSON-LD object in place and report whether a translator ran.
+ * Italian (`'it'`) is a no-op — returns false. Unknown @types also return false.
+ * Kept as a convenience for tests and consumers that care about dispatch.
+ */
+export function translateSchemaObject(
+ obj: unknown,
+ locale: SupportedLocale | 'it'
+): boolean {
+ if (locale === 'it') return false;
+ if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return false;
+ const record = obj as Record<string, any>;
+ const type = record['@type'];
+ if (typeof type !== 'string') return false;
+ const fn = REGISTRY[type];
+ if (!fn) return false;
+ fn(record, locale);
+ return true;
+}
+
+// Alias used by some tests; same semantics as translateSchema.
+export const translateSchemaByType = translateSchema;
 
 /**
  * Returns the list of @type strings currently handled by the registry.
