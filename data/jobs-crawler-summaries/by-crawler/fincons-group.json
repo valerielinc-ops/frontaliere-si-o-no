@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-04-21T10:03:05.827Z",
+  "generatedAt": "2026-04-21T21:38:41.476Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1345,
-  "avgDurationMs": 1345,
+  "durationMs": 1629,
+  "avgDurationMs": 1629,
   "durationHistory": [
-    1345
+    1629
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -316,50 +316,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Developer PL/SQL - Banking Area",
-      "slug": "sviluppatore-pl-sql-settore-bancario-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/Af7BR0uaxx/Developer-PLSQL-Banking-Area",
-      "applyUrl": "https://fincons.applytojob.com/apply/Af7BR0uaxx/Developer-PLSQL-Banking-Area",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-02",
-      "validThrough": "2026-07-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260402151543_KQ4FIE2ATX4JQ4IX",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "id": "fincons-group-9817cd4f0da2",
-      "firstSeenAt": "2026-04-13T21:41:31.727Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
