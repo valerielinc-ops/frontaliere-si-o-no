@@ -2472,6 +2472,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Taxe santé pour les frontaliers: rejet de l\'abrogation, mais réduction prévue',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'La Région Lombardie a rejeté la motion du Pd pour abolir la taxe santé pour les frontaliers, mais envisage des déductions et des taux minimaux.',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les rives du Tessin et de la Lombardie',
+    'blog.article.donne-arte-chiasso-2026.title': 'De la vie à la toile : sept femmes dans l\'art à Chiasso',
+    'blog.article.donne-arte-chiasso-2026.excerpt': 'Une exposition à Chiasso célèbre l\'art de sept femmes, apportant culture et inclusion au Centre de jour OSC',
+    'blog.article.donne-arte-chiasso-2026.imageAlt': 'Exposition d\'art à Chiasso avec des œuvres de sept artistes femmes',
 };
 
 export default blogMetaFr;

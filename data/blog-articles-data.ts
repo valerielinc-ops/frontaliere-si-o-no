@@ -6748,4 +6748,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/tassa-salute-frontalieri-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'donne-arte-chiasso-2026',
+ category: 'novita',
+ date: '2026-04-21T23:16:34.673Z',
+ image: '/images/blog/donne-arte-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ];

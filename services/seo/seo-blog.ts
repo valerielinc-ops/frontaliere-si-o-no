@@ -10761,6 +10761,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-donne-arte-chiasso-2026': {
+    title: 'Dalla vita alla tela: sette donne in | Frontaliere Ticino',
+    description: 'Una mostra a Chiasso celebra l\'arte di sette donne, portando cultura e inclusione nel Centro diurno OSC. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dalla, vita, alla, tela',
+    ogTitle: 'Donna in arte a Chiasso | Frontaliere Ticino',
+    ogDescription: 'Una mostra a Chiasso celebra l\'arte di sette donne, portando cultura e inclusione nel Centro diurno OSC',
+    canonicalPath: '/articoli-frontaliere/donne-arte-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Donna in arte a Chiasso | Frontaliere Ticino",
+      "description": "Una mostra a Chiasso celebra l'arte di sette donne, portando cultura e inclusione nel Centro diurno OSC. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/donne-arte-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mostra d'arte a Chiasso con opere di sette artiste donne"
+      },
+      "datePublished": "2026-04-21T23:16:34+00:00",
+      "dateModified": "2026-04-21T23:16:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/donne-arte-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

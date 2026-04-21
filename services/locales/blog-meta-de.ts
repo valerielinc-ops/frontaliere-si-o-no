@@ -2472,6 +2472,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Gesundheitssteuer für Grenzgänger: Abschaffung abgelehnt, aber Kürzung kommt',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'Die Region Lombardei hat den Antrag der PD zur Abschaffung der Gesundheitssteuer für Grenzgänger abgelehnt, plant aber Abzüge und Mindestsätze.',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Ufern des Tessin und der Lombardei',
+    'blog.article.donne-arte-chiasso-2026.title': 'Vom Leben zur Leinwand: sieben Künstlerinnen in Chiasso',
+    'blog.article.donne-arte-chiasso-2026.excerpt': 'Eine Ausstellung in Chiasso feiert die Kunst von sieben Frauen und bringt Kultur und Inklusion ins Tageszentrum OSC',
+    'blog.article.donne-arte-chiasso-2026.imageAlt': 'Kunstausstellung in Chiasso mit Werken von sieben Künstlerinnen',
 };
 
 export default blogMetaDe;

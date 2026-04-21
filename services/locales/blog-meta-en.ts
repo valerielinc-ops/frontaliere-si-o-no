@@ -2472,6 +2472,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Health tax for cross-border workers: repeal rejected, but cuts are coming',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'The Lombardy Region has rejected the Pd\'s motion to abolish the health tax for cross-border workers, but is aiming for deductions and minimum rates.',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino and Lombardy shores',
+    'blog.article.donne-arte-chiasso-2026.title': 'From life to canvas: seven women in art in Chiasso',
+    'blog.article.donne-arte-chiasso-2026.excerpt': 'An exhibition in Chiasso celebrates the art of seven women, bringing culture and inclusion to the OSC Day Center',
+    'blog.article.donne-arte-chiasso-2026.imageAlt': 'Art exhibition in Chiasso featuring works by seven women artists',
 };
 
 export default blogMetaEn;

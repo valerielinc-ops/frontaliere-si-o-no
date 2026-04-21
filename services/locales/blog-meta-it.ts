@@ -2472,6 +2472,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Tassa salute per frontalieri: bocciata l\'abrogazione, ma arriva il taglio',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'La Regione Lombardia ha bocciato la mozione del Pd per abolire la tassa salute per i frontalieri, ma punta a detrazioni e aliquote minime.',
     'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Vista aerea del Lago di Lugano con le rive del Ticino e della Lombardia',
+    'blog.article.donne-arte-chiasso-2026.title': 'Dalla vita alla tela: sette donne in arte a Chiasso',
+    'blog.article.donne-arte-chiasso-2026.excerpt': 'Una mostra a Chiasso celebra l\'arte di sette donne, portando cultura e inclusione nel Centro diurno OSC',
+    'blog.article.donne-arte-chiasso-2026.imageAlt': 'Mostra d\'arte a Chiasso con opere di sette artiste donne',
 };
 
 export default blogMetaIt;
