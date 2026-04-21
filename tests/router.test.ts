@@ -557,6 +557,96 @@ describe('Router — root path preservation (no redirect from / to /calcola-stip
   });
 });
 
+/* ─────────── Query-string preservation (autologin regression) ─────────── */
+
+describe('Router — query string preservation', () => {
+  // Regression: newsletter autologin URLs (?ne=…&ac=…) must survive
+  // canonical URL rewrites triggered on initial mount. If pushRoute /
+  // replaceRoute / updatePathForLocale drop location.search when calling
+  // history.{push,replace}State, App.tsx's autologin useEffect reads an
+  // empty search string and bails with "skip: no token".
+  let pushStateSpy: ReturnType<typeof vi.fn>;
+  let replaceStateSpy: ReturnType<typeof vi.fn>;
+
+  beforeEach(() => {
+    pushStateSpy = vi.spyOn(history, 'pushState').mockImplementation(() => {});
+    replaceStateSpy = vi.spyOn(history, 'replaceState').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    pushStateSpy.mockRestore();
+    replaceStateSpy.mockRestore();
+  });
+
+  function setLocation(pathname: string, search = '', hash = '') {
+    Object.defineProperty(window, 'location', {
+      value: { ...window.location, pathname, search, hash },
+      writable: true,
+      configurable: true,
+    });
+  }
+
+  const AUTOLOGIN_SEARCH = '?ne=casarijenny5%40gmail.com&ac=5b4a42b1c867643c386f6802f2e2de4546114ff2fc0c025265be3c02af8026c8&utm_medium=newsletter';
+
+  it('pushRoute preserves ?ne=…&ac=… when canonicalizing the current path', () => {
+    setLocation('/compara-servizi/cambio-franco-euro', AUTOLOGIN_SEARCH);
+    pushRoute({ activeTab: 'confronti', confrontiSubTab: 'exchange' });
+    expect(pushStateSpy).toHaveBeenCalled();
+    const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).toContain('ne=casarijenny5');
+    expect(newUrl).toContain('ac=5b4a42b1c867');
+    expect(newUrl).toContain('utm_medium=newsletter');
+  });
+
+  it('replaceRoute preserves ?ne=…&ac=… when canonicalizing the current path', () => {
+    setLocation('/compara-servizi/cambio-franco-euro', AUTOLOGIN_SEARCH);
+    replaceRoute({ activeTab: 'confronti', confrontiSubTab: 'exchange' });
+    expect(replaceStateSpy).toHaveBeenCalled();
+    const newUrl = replaceStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).toContain('ne=casarijenny5');
+    expect(newUrl).toContain('ac=5b4a42b1c867');
+  });
+
+  it('pushRoute keeps both search and hash when both are present', () => {
+    setLocation('/compara-servizi/cambio-franco-euro', '?ne=user%40example.com&ac=deadbeef');
+    pushRoute({ activeTab: 'confronti', confrontiSubTab: 'exchange', hash: 'tool' });
+    expect(pushStateSpy).toHaveBeenCalled();
+    const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).toContain('?ne=user');
+    expect(newUrl).toContain('ac=deadbeef');
+    expect(newUrl).toContain('#tool');
+    // search must come before the hash fragment
+    expect(newUrl.indexOf('?')).toBeLessThan(newUrl.indexOf('#'));
+  });
+
+  it('updatePathForLocale preserves query string when switching locale from locale-root', () => {
+    setLocation('/', '?ne=user%40example.com&ac=deadbeef');
+    updatePathForLocale('en');
+    expect(replaceStateSpy).toHaveBeenCalled();
+    const newUrl = replaceStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).toContain('/en/');
+    expect(newUrl).toContain('ne=user');
+    expect(newUrl).toContain('ac=deadbeef');
+  });
+
+  it('updatePathForLocale preserves query string when switching locale on a deep page', () => {
+    setLocation('/compara-servizi/cambio-franco-euro', '?ne=user%40example.com&ac=deadbeef');
+    updatePathForLocale('en');
+    expect(replaceStateSpy).toHaveBeenCalled();
+    const newUrl = replaceStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).toContain('ne=user');
+    expect(newUrl).toContain('ac=deadbeef');
+  });
+
+  it('pushRoute still works (and writes empty search) when no query string is present', () => {
+    setLocation('/compara-servizi/cambio-franco-euro', '');
+    pushRoute({ activeTab: 'confronti', confrontiSubTab: 'exchange' });
+    expect(pushStateSpy).toHaveBeenCalled();
+    const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).not.toContain('?');
+  });
+});
+
 describe('Router — legacy bare English slugs', () => {
   it('parsePath("/calculator") resolves to calculator tab', () => {
     const { route } = parsePath('/calculator');
