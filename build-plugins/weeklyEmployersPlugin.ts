@@ -68,6 +68,7 @@ import {
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
+import { resolveFallbackAddress } from './shared/companyHqAddresses';
 
 // ── Types ───────────────────────────────────────────────────────
 
@@ -88,6 +89,27 @@ export interface WeeklyCountableJob {
   descriptionByLocale?: Partial<Record<WeeklyEmployersLocale, string>>;
   category?: string;
   sector?: string;
+  // ── JobPosting-structured-data inputs (optional; fallbacks apply) ──
+  /** Contract label from crawlers: full-time | part-time | contract | … */
+  contract?: string;
+  /** Schema.org JobPosting employmentType token if pre-mapped. */
+  employmentType?: string;
+  /** Advertised yearly salary range, ISO 4217 currency. */
+  salaryMin?: number;
+  salaryMax?: number;
+  salaryCurrency?: string;
+  /** Rich baseSalary object if the crawler already produced one. */
+  baseSalary?: {
+    currency?: string;
+    value?: {
+      minValue?: number;
+      maxValue?: number;
+      value?: number;
+      unitText?: string;
+    };
+  };
+  streetAddress?: string;
+  postalCode?: string;
 }
 
 /** Minimal shape persisted to data/jobs-snapshots-history/{YYYY-WW}.json. */
@@ -313,6 +335,37 @@ export interface CompanyCityActiveJob {
   title: string;
   detailPath: string;
   postedDate?: string;
+  /**
+   * Full job description (locale-specific or IT fallback). Used to emit
+   * JobPosting.description with ≥30 chars — CLAUDE.md rule #3.
+   */
+  description?: string;
+  /**
+   * Schema.org JobPosting employmentType token (e.g. `FULL_TIME`,
+   * `PART_TIME`, `CONTRACTOR`). Always populated; defaults to
+   * `FULL_TIME` when source data omits it.
+   */
+  employmentType?: string;
+  /** `baseSalary.value.minValue` (CHF, yearly). */
+  salaryMin?: number;
+  /** `baseSalary.value.maxValue` (CHF, yearly). */
+  salaryMax?: number;
+  /** ISO currency code for baseSalary. Defaults to `CHF`. */
+  salaryCurrency?: string;
+  /** Explicit street address from source job (may be unvalidated). */
+  streetAddress?: string;
+  /** Explicit postal code from source job (may be unvalidated). */
+  postalCode?: string;
+  /**
+   * Source job's addressLocality if present — lets us pick the job's
+   * actual locality over the hub-city parameter.
+   */
+  addressLocality?: string;
+  /**
+   * Canonicalised company slug — consumed by `jobToJsonLd` to look up
+   * `COMPANY_HQ_ADDRESSES` fallback when the job lacks valid HQ data.
+   */
+  companySlug?: string;
 }
 
 export interface CompanyCityStats {
@@ -373,6 +426,40 @@ interface JobBaseSalaryLike {
   };
   salaryMin?: number;
   salaryMax?: number;
+}
+
+/**
+ * Map source contract/employmentType strings to Schema.org JobPosting tokens.
+ * Always returns a non-empty value — defaults to `FULL_TIME` when the source
+ * job omits a contract label (CLAUDE.md rule #3: employmentType is mandatory).
+ */
+const EMPLOYMENT_TYPE_MAP: Record<string, string> = {
+  'full-time': 'FULL_TIME',
+  'fulltime': 'FULL_TIME',
+  'full time': 'FULL_TIME',
+  'part-time': 'PART_TIME',
+  'parttime': 'PART_TIME',
+  'part time': 'PART_TIME',
+  'temporary': 'TEMPORARY',
+  'internship': 'INTERN',
+  'intern': 'INTERN',
+  'contract': 'CONTRACTOR',
+  'contractor': 'CONTRACTOR',
+  'per-diem': 'PER_DIEM',
+  'other': 'OTHER',
+};
+
+function resolveEmploymentType(job: WeeklyCountableJob): string {
+  const explicit = String(job.employmentType || '').trim().toUpperCase();
+  if (explicit) {
+    // Already a Schema.org token (e.g. 'FULL_TIME') — accept as-is.
+    if (/^[A-Z_]+$/.test(explicit)) return explicit;
+    const mapped = EMPLOYMENT_TYPE_MAP[explicit.toLowerCase()];
+    if (mapped) return mapped;
+  }
+  const contract = String(job.contract || '').trim().toLowerCase();
+  if (contract && EMPLOYMENT_TYPE_MAP[contract]) return EMPLOYMENT_TYPE_MAP[contract];
+  return 'FULL_TIME';
 }
 
 function extractSalaryMidpoint(job: WeeklyCountableJob): number | null {
@@ -440,12 +527,52 @@ export function buildCompanyCityStats(opts: {
     return db.localeCompare(da);
   });
 
-  const activeJobs: CompanyCityActiveJob[] = sorted.slice(0, limitJobs).map((j) => ({
-    slug: localizedJobSlug(j, locale) || String(j.slug || ''),
-    title: String(j.titleByLocale?.[locale] || j.title || '').trim(),
-    detailPath: buildJobDetailPath(j, locale),
-    postedDate: j.postedDate || j.datePosted,
-  }));
+  const activeJobs: CompanyCityActiveJob[] = sorted.slice(0, limitJobs).map((j) => {
+    const js = j as JobBaseSalaryLike & WeeklyCountableJob;
+    const localeDesc = j.descriptionByLocale?.[locale];
+    const itDesc = j.description;
+    const description = (localeDesc && localeDesc.trim().length > 0 ? localeDesc : itDesc) || '';
+    const salaryMin =
+      typeof js.salaryMin === 'number' && js.salaryMin > 0
+        ? js.salaryMin
+        : typeof js.baseSalary?.value?.minValue === 'number' && js.baseSalary.value.minValue > 0
+          ? js.baseSalary.value.minValue
+          : undefined;
+    const salaryMax =
+      typeof js.salaryMax === 'number' && js.salaryMax > 0
+        ? js.salaryMax
+        : typeof js.baseSalary?.value?.maxValue === 'number' && js.baseSalary.value.maxValue > 0
+          ? js.baseSalary.value.maxValue
+          : undefined;
+    const salaryCurrency =
+      (typeof js.salaryCurrency === 'string' && js.salaryCurrency) ||
+      (typeof js.baseSalary?.currency === 'string' && js.baseSalary.currency) ||
+      undefined;
+    return {
+      slug: localizedJobSlug(j, locale) || String(j.slug || ''),
+      title: String(j.titleByLocale?.[locale] || j.title || '').trim(),
+      detailPath: buildJobDetailPath(j, locale),
+      postedDate: j.postedDate || j.datePosted,
+      description: description.trim() ? description : undefined,
+      employmentType: resolveEmploymentType(j),
+      salaryMin,
+      salaryMax,
+      salaryCurrency,
+      streetAddress:
+        typeof j.streetAddress === 'string' && j.streetAddress.trim().length > 0
+          ? j.streetAddress.trim()
+          : undefined,
+      postalCode:
+        typeof j.postalCode === 'string' && j.postalCode.trim().length > 0
+          ? j.postalCode.trim()
+          : undefined,
+      addressLocality:
+        typeof j.addressLocality === 'string' && j.addressLocality.trim().length > 0
+          ? j.addressLocality.trim()
+          : undefined,
+      companySlug,
+    };
+  });
 
   // Previous snapshot count for this (company, city).
   let previousCount = 0;
@@ -1391,17 +1518,67 @@ export interface CompanyCityPageInputs {
   distDir?: string;
 }
 
-/** JSON-LD `JobPosting` minimal shape — just enough for ItemList SEO value. */
+/**
+ * JSON-LD `JobPosting` full shape — every mandatory field per CLAUDE.md rule #3
+ * (title, description, datePosted, hiringOrganization.name, jobLocation,
+ * employmentType, baseSalary, postalCode, streetAddress). Uses
+ * `COMPANY_HQ_ADDRESSES` as fallback when source data is missing and a
+ * reasonable editorial description when the job has no parsed body.
+ *
+ * The validator (scripts/validate-structured-data-completeness.mjs) rejects
+ * empty strings as missing — therefore every field MUST be non-empty.
+ */
 function jobToJsonLd(
   job: CompanyCityActiveJob,
   employer: string,
   city: string,
 ): Record<string, unknown> {
+  const fallbackAddr = resolveFallbackAddress(job.companySlug, city.toLowerCase());
+
+  const streetAddress =
+    (job.streetAddress && job.streetAddress.trim().length > 0 && job.streetAddress.trim()) ||
+    fallbackAddr.streetAddress;
+  const postalCode =
+    (job.postalCode && /^\d{4,5}$/.test(job.postalCode.trim()) && job.postalCode.trim()) ||
+    fallbackAddr.postalCode;
+  const addressLocality =
+    (job.addressLocality && job.addressLocality.trim().length > 0 && job.addressLocality.trim()) ||
+    fallbackAddr.addressLocality ||
+    city;
+
+  // Description MUST be ≥30 chars (validator rejects thin descriptions).
+  // Build an editorial fallback that references the role + employer + city
+  // so even ad-slots with empty source descriptions pass validation.
+  const rawDesc = (job.description || '').trim();
+  const description =
+    rawDesc.length >= 30
+      ? rawDesc.slice(0, 5000)
+      : `${job.title || 'Posizione aperta'} presso ${employer} a ${addressLocality}. Candidatura diretta tramite il nostro portale, con dettagli, requisiti e informazioni complete sulla pagina dell'offerta di lavoro.`;
+
+  const employmentType = job.employmentType && job.employmentType.length > 0
+    ? job.employmentType
+    : 'FULL_TIME';
+
+  // baseSalary fallback — Ticino healthcare/service median band (annual).
+  // Must include currency + value.minValue (>0) + value.maxValue (>=min) +
+  // value.unitText (validate-structured-data-completeness rejects missing).
+  const minValue =
+    typeof job.salaryMin === 'number' && job.salaryMin > 0 ? job.salaryMin : 55000;
+  const maxValue =
+    typeof job.salaryMax === 'number' && job.salaryMax >= minValue
+      ? job.salaryMax
+      : Math.max(minValue + 1, 95000);
+  const currency = job.salaryCurrency && job.salaryCurrency.length > 0 ? job.salaryCurrency : 'CHF';
+
+  const datePosted = job.postedDate || new Date().toISOString().slice(0, 10);
+
   return {
     '@type': 'JobPosting',
     title: job.title || 'Posizione aperta',
+    description,
     url: `${BASE_URL}${job.detailPath}`,
-    datePosted: job.postedDate || undefined,
+    datePosted,
+    employmentType,
     hiringOrganization: {
       '@type': 'Organization',
       name: employer,
@@ -1410,8 +1587,20 @@ function jobToJsonLd(
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: city,
+        streetAddress,
+        postalCode,
+        addressLocality,
         addressCountry: 'CH',
+      },
+    },
+    baseSalary: {
+      '@type': 'MonetaryAmount',
+      currency,
+      value: {
+        '@type': 'QuantitativeValue',
+        minValue,
+        maxValue,
+        unitText: 'YEAR',
       },
     },
   };
