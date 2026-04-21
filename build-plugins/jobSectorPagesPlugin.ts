@@ -17,6 +17,7 @@ import {
   BASE_URL,
   FAVICON_LINKS,
   GTAG_SNIPPET,
+  ADSENSE_SNIPPET,
 } from './constants';
 import type { JobBoardLocale } from './jobBoardSeo';
 import {
@@ -305,6 +306,7 @@ ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${GTAG_SNIPPET}
+    ${ADSENSE_SNIPPET}
   </head>
   <body>
     <div id="root">

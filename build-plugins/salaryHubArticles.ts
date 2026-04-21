@@ -668,7 +668,7 @@ export function generateArticleHtml(
     }
   </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT}" crossorigin="anonymous"></script>
+  <!-- AdSense loader is injected globally via ANALYTICS_SNIPPET in <head>. -->
   <script>
     (function(){
       var slots=document.querySelectorAll('.adsbygoogle');

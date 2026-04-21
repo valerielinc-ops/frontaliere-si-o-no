@@ -7,7 +7,7 @@
  *
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
-import { FAVICON_LINKS, GTAG_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT } from './constants';
+import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT } from './constants';
 
 /**
  * Common <head> prefix: charset + viewport + favicon.
@@ -22,13 +22,15 @@ export const HEAD_PREFIX = `<meta charset="utf-8">
  * Appended before </head> on pages that need both.
  */
 export const HEAD_SUFFIX_WITH_SPA = ` ${SPA_ACTION_REDIRECT_SCRIPT}
- ${GTAG_SNIPPET}`;
+ ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}`;
 
 /**
  * Common <head> suffix: GTAG snippet only (no SPA redirect).
  * For pages that don't need the SPA action redirect (editorial, search, etc.)
  */
-export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}`;
+export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}`;
 
 /** HTML escape for attribute values and text content. */
 export function esc(s: string): string {
@@ -117,6 +119,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
 ${hreflangHtml}${extraHead}
 ${ldTags}${cssLink}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">

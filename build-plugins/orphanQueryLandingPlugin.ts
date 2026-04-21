@@ -41,6 +41,7 @@ import {
   BASE_URL,
   FAVICON_LINKS,
   GTAG_SNIPPET,
+  ADSENSE_SNIPPET,
   countHtmlBodyWords,
   MIN_INDEXABLE_WORDS,
 } from './constants';
@@ -397,6 +398,7 @@ ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${webPageLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}
     ${GTAG_SNIPPET}
+    ${ADSENSE_SNIPPET}
   </head>
   <body>
     <div id="root">

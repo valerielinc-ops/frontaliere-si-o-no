@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
+import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 
@@ -871,6 +871,7 @@ ${headTags}
  <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
  <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>${preloadTag}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
  <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · <time datetime="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">${esc(formatHumanDateTime(normalizeDateTime(en.datePub || en.dateMod || todayIso), locale))}</time></p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
@@ -885,6 +886,7 @@ ${headTags}
 ${headTags}
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi">Confronta Servizi</a> | <a href="/tasse-e-pensione">Tasse e Pensione</a> | <a href="/guida-frontaliere">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri">FAQ</a> | <a href="/glossario-frontaliere">Glossario</a> | <a href="/articoli-frontaliere">Articoli</a></nav></article></main></div>

@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
@@ -1517,6 +1517,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -1966,6 +1967,7 @@ ${hreflangHtml}
  <script type="application/ld+json">${organizationLd}</script>
  <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g,'/'))}`,name:copy.sectionName}})}</script>${curatedExtraLd}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -2249,6 +2251,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -2398,6 +2401,7 @@ ${alternates}
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
  <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -2548,6 +2552,7 @@ ${alternates}
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
  <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -2702,6 +2707,7 @@ ${alternates}
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
  <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -2856,6 +2862,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -3029,6 +3036,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -3209,6 +3217,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -3359,6 +3368,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">
@@ -4911,6 +4921,7 @@ ${hreflangLinks}
  <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${spaBundleCss}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
  </head>
  <body>
  <div id="root">

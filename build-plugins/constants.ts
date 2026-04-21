@@ -205,9 +205,20 @@ export const POSTHOG_SNIPPET = `<script>
  posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});
 </script>`;
 
-/** Combined analytics snippet (GA4 + PostHog) for static pages without the SPA bundle. */
+/**
+ * Google AdSense loader snippet. Included in every statically-generated page
+ * (job detail, hubs, fuel, health premiums, orphan queries, etc.) so Auto Ads
+ * can serve on pages that do not mount the <AdSenseBanner> React component.
+ * The client ID must match the meta `google-adsense-account` in index.html.
+ */
+export const ADSENSE_CLIENT_ID = 'ca-pub-8628054934855353';
+export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous" data-adsense-client="${ADSENSE_CLIENT_ID}" data-overlays="bottom" data-ad-frequency-hint="120s"></script>`;
+
+/** Combined analytics snippet (GA4 + PostHog + AdSense) for static pages without the SPA bundle. */
 export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
- ${POSTHOG_SNIPPET}`;
+ ${POSTHOG_SNIPPET}
+ ${ADSENSE_SNIPPET}`;
 
 /** Favicon link tags shared across all static HTML pages. */
 export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48">
