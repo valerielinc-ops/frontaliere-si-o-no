@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-04-20T21:37:12.661Z",
+  "generatedAt": "2026-04-21T10:06:18.848Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3588,
-  "avgDurationMs": 3588,
+  "durationMs": 3710,
+  "avgDurationMs": 3710,
   "durationHistory": [
-    3588
+    3710
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T21:37:10.897Z",
+      "crawledAt": "2026-04-21T10:06:17.317Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T21:37:10.898Z",
+      "crawledAt": "2026-04-21T10:06:17.318Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -98,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-20T21:37:10.896Z",
+      "crawledAt": "2026-04-21T10:06:17.316Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -123,45 +123,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "giardino-4327345f9e50",
-      "slug": "capopartita-giardino-group-minusio",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Chef de Partie",
-      "location": "Minusio",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-20T10:40:34.098Z",
-      "addressLocality": "Minusio",
-      "postalCode": "6648",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Cucina / Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-06",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
-      "firstSeenAt": "2026-04-13T10:36:24.234Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
