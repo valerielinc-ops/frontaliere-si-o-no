@@ -6683,4 +6683,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/salario-minimo-ticino-2027-2029-nuove-regole.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cybercrimepolice-ticino-italiano-2026',
+ category: 'novita',
+ date: '2026-04-21T10:12:35.617Z',
+ image: '/images/blog/cybercrimepolice-ticino-italiano-2026.jpg',
+ hasCalculator: true,
+ },
 ];

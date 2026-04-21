@@ -2091,6 +2091,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzeri-italiani-cucina-preferita': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-italiani-cucina-preferita', parent: 'blog' },
     'blog-svizzera-chiude-investitori-immobiliari-stranieri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-chiude-investitori-immobiliari-stranieri', parent: 'blog' },
     'blog-salario-minimo-ticino-2027-2029-nuove-regole': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-2027-2029-nuove-regole', parent: 'blog' },
+    'blog-cybercrimepolice-ticino-italiano-2026': { name: 'Novità', path: '/articoli-frontaliere/cybercrimepolice-ticino-italiano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2442,6 +2442,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.title': 'Salario minimo in Ticino: nuove regole dal 2027',
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.excerpt': 'Dal 2027 il salario minimo in Ticino sarà tra i 20,50 e i 21 franchi all\'ora, con aumenti graduali nei due anni successivi.',
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.imageAlt': 'Skyline di Lugano con vista sul Lago di Lugano',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.title': 'Cybercrimepolice.ch ora disponibile in italiano: maggiore accessibilità per i frontalieri',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.excerpt': 'La piattaforma nazionale di prevenzione Cybercrimepolice.ch è ora disponibile anche in italiano, grazie al contributo della Polizia cantonale ticinese.',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.imageAlt': 'Una persona che utilizza un laptop per accedere alla piattaforma Cybercrimepolice.ch in un ufficio a Lugano',
 };
 
 export default blogMetaIt;

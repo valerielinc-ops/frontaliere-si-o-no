@@ -2442,6 +2442,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.title': 'Minimum wage in Ticino: new rules from 2027',
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.excerpt': 'From 2027, the minimum wage in Ticino will be between 20.50 and 21 francs per hour, with gradual increases over the next two years.',
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.imageAlt': 'Lugano skyline with view of Lake Lugano',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.title': 'Cybercrimepolice.ch now available in Italian: greater accessibility for cross-border workers',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.excerpt': 'The national cybercrime prevention platform Cybercrimepolice.ch is now also available in Italian, thanks to the contribution of the Ticino Cantonal Police.',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.imageAlt': 'A person using a laptop to access the Cybercrimepolice.ch platform in an office in Lugano',
 };
 
 export default blogMetaEn;

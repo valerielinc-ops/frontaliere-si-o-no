@@ -2442,6 +2442,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.title': 'Salaire minimum en Tessin : nouvelles règles à partir de 2027',
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.excerpt': 'À partir de 2027, le salaire minimum en Tessin sera compris entre 20,50 et 21 francs de l\'heure, avec des augmentations progressives au cours des deux années suivantes.',
     'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.imageAlt': 'Vue sur le lac de Lugano depuis le centre-ville de Lugano',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.title': 'Cybercrimepolice.ch désormais disponible en italien : une meilleure accessibilité pour les frontaliers',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.excerpt': 'La plateforme nationale de prévention Cybercrimepolice.ch est désormais également disponible en italien, grâce à la contribution de la Police cantonale tessinoise.',
+    'blog.article.cybercrimepolice-ticino-italiano-2026.imageAlt': 'Une personne utilisant un ordinateur portable pour accéder à la plateforme Cybercrimepolice.ch dans un bureau à Lugano',
 };
 
 export default blogMetaFr;

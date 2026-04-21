@@ -10498,6 +10498,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cybercrimepolice-ticino-italiano-2026': {
+    title: 'Cybercrimepolice.ch ora disponibile in | Frontaliere Ticino',
+    description: 'La piattaforma nazionale di prevenzione Cybercrimepolice.ch è ora disponibile anche in italiano, grazie al contributo della Polizia cantonale ticinese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cybercrimepolice, disponibile, italiano, maggiore',
+    ogTitle: 'Cybercrimepolice.ch ora in italiano | Frontaliere Ticino',
+    ogDescription: 'La piattaforma nazionale di prevenzione Cybercrimepolice.ch è ora disponibile anche in italiano, grazie al contributo della Polizia cantonale ticinese.',
+    canonicalPath: '/articoli-frontaliere/cybercrimepolice-ticino-italiano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cybercrimepolice.ch ora in italiano",
+      "description": "La piattaforma nazionale di prevenzione Cybercrimepolice.ch è ora disponibile anche in italiano, grazie al contributo della Polizia cantonale ticinese.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cybercrimepolice-ticino-italiano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che utilizza un laptop per accedere alla piattaforma Cybercrimepolice.ch in un ufficio a Lugano"
+      },
+      "datePublished": "2026-04-21T10:12:35+00:00",
+      "dateModified": "2026-04-21T10:12:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cybercrimepolice-ticino-italiano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
