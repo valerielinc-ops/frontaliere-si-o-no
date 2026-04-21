@@ -35,6 +35,21 @@ const frSeoLinks: Record<string, string> = {
   'seoLinks.jobBoard.employers': 'Entreprises qui recrutent',
   'seoLinks.jobBoard.healthPremiums': 'Primes assurance-maladie',
   'seoLinks.jobBoard.salary': 'Benchmarks salariaux',
+
+  // Related-links 3-cluster section headings (D-2 Expansion C).
+  'related.section.nav': 'Liens utiles',
+  'related.section.hubs': 'Pages principales',
+  'related.section.cross': 'Autres outils pour le frontalier',
+  'related.section.sibling.generic': 'Pages similaires',
+  'related.section.sibling.fuel_daily': 'Autres zones du Tessin',
+  'related.section.sibling.fuel_station': 'Autres stations dans la zone',
+  'related.section.sibling.fuel_italian_city': 'Autres villes italiennes frontalières',
+  'related.section.sibling.weekly_employers': 'Autres villes du Tessin',
+  'related.section.sibling.weekly_employer_company_city': 'Même employeur dans d\'autres villes',
+  'related.section.sibling.job_market_snapshot': 'Semaines précédentes',
+  'related.section.sibling.health_premiums': 'Autres tranches d\'âge',
+  'related.section.sibling.border_wait': 'Autres passages de la même région',
+  'related.section.sibling.orphan_landing': 'Recherches associées',
 };
 
 export default frSeoLinks;
