@@ -488,13 +488,27 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── Section landing pages ──────────────────────────────────,
 
  calcolatore: {
- title: 'Calcolatore Stipendio Netto Frontaliere 2026 | 8 Simulatori',
- description: 'Calcola stipendio netto frontaliere: deduzioni AVS (5,3%), imposta alla fonte (8–10%), IRPEF con franchigia 10.000 €. 8 simulatori gratuiti, calcolo istantaneo.',
- keywords: 'calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, calcolo stipendio netto svizzera, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
- ogTitle: 'Calcolatore Stipendio Frontaliere 2026 | Strumenti Gratuiti',
+ // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
+ // See docs/seo-semrush-growth-plan.md Task A.3.
+ title: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
+ description: 'Calcolo stipendio netto Svizzera 2026 per frontalieri: AVS (5,3%), imposta alla fonte (8–10%), IRPEF con franchigia 10.000 €. 8 simulatori gratuiti, calcolo istantaneo.',
+ keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
+ ogTitle: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
  ogDescription: 'Un frontaliere con 60.000 CHF lordi/anno netta circa 3.200–3.500 €/mese dopo contributi svizzeri e tasse italiane. Usa 8 simulatori gratuiti per calcolare il tuo netto esatto (accordo 2026).',
  canonicalPath: '/calcola-stipendio',
  structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Calcolo Stipendio Netto Svizzera — Simulatore Frontalieri",
+ "url": `${BASE_URL}/calcola-stipendio`,
+ "description": "Simulatore gratuito per il calcolo dello stipendio netto in Svizzera per frontalieri: AVS, imposta alla fonte Ticino, IRPEF con franchigia 10.000 EUR e confronto CHF/EUR. Nuovo Accordo fiscale 2026.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "inLanguage": "it",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "isAccessibleForFree": true,
+ },
  {
  "@context": "https://schema.org",
  "@type": "CollectionPage",

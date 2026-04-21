@@ -4944,35 +4944,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  }
  },
 
- 'blog-naspi-disoccupazione-frontalieri': {
- title: 'NASpI: Indennità di disoccupazione | Frontaliere Ticino',
- description: 'Scopri tutto sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e differenze con la disoccupazione svizzera.',
- keywords: 'disoccupazione frontalieri, naspi frontalieri, requisiti naspi, frontalieri ticino, indennità disoccupazione, naspi 2026',
- ogTitle: 'NASpI: Indennità di disoccupazione frontalieri',
- ogDescription: 'Tutte le informazioni pratiche sulla NASpI: requisiti, calcolo, durata e come richiederla per i frontalieri italiani.',
- canonicalPath: '/articoli-frontaliere/naspi-disoccupazione-frontalieri',
- structuredData: {
- "@context": "https://schema.org",
- "@type": "NewsArticle",
- "headline": "NASpI per frontalieri italiani",
- "description": "Scopri tutto sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e differenze con la disoccupazione svizzera.",
- "image": {
- "@type": "ImageObject",
- "url": `${BASE_URL}/images/blog/naspi-disoccupazione-frontalieri.webp`,
- "width": 1344,
- "height": 756,
- "caption": "Valico doganale di Chiasso con auto in transito e cartelli di confine tra Svizzera e Italia"
- },
- "datePublished": "2026-02-26T11:31:19+00:00",
- "dateModified": BUILD_DATE_ISO,
- "inLanguage": "it",
- "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
- "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
- "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-disoccupazione-frontalieri`,
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
- "isAccessibleForFree": true
- }
- },
+ // A.4 — blog-naspi-disoccupazione-frontalieri retired; canonical is
+ // blog-naspi-ex-frontalieri-2026 (legacy 301 via legacyRedirectsPlugin).
 
  'blog-dichiarazione-redditi-ticino-2026': {
  title: 'Dichiarazione dei redditi Ticino 2026 | Frontaliere Ticino',

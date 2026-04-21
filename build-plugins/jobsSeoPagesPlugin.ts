@@ -1548,7 +1548,19 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const cLogo = companyLogo(job);
  const companyHeading: Record<string, string> = { it: 'Azienda', en: 'Company', de: 'Unternehmen', fr: 'Entreprise' };
  const companyMonitoring: Record<string, string> = { it: 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.', en: 'Frontaliere Ticino discovered this opportunity through company monitoring.', de: 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.', fr: 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' };
- return `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid #e2e8f0;border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="28" height="28" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:#0f172a">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:#475569;margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:#94a3b8;margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ // SEO: keyword-rich anchor "Tutte le offerte {company} {location}" — consolidates cannibalized URLs onto the company hub.
+ // See docs/seo-semrush-growth-plan.md Task A.1/A.2.
+ const companyLoc = String(job.location || dc || '').trim();
+ const allOffersAnchor: Record<string, string> = {
+ it: `Tutte le offerte ${job.company}${companyLoc ? ` ${companyLoc}` : ''}`,
+ en: `All ${job.company} jobs${companyLoc ? ` in ${companyLoc}` : ''}`,
+ de: `Alle ${job.company} Stellen${companyLoc ? ` in ${companyLoc}` : ''}`,
+ fr: `Toutes les offres ${job.company}${companyLoc ? ` à ${companyLoc}` : ''}`,
+ };
+ const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
+ const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid #e2e8f0;border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="28" height="28" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:#0f172a">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:#475569;margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:#94a3b8;margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ const ctaLink = `<p style="margin:12px 0 0;font-size:15px"><a href="${cHref}" style="color:#1e3a8a;text-decoration:underline;font-weight:700">${esc(anchorText)} &rarr;</a></p>`;
+ return card + ctaLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
  ${buildRecentArticlesHtml(locale)}

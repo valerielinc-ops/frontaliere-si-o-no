@@ -1520,6 +1520,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // ── Salary landing page editorial content (19 pages) ──
  } else if (SALARY_LANDING_EDITORIAL[canonicalPath.replace(/\/+$/, '')]) {
  editorialBlocks.push(...SALARY_LANDING_EDITORIAL[canonicalPath.replace(/\/+$/, '')]);
+ // A.3 — consolidate calcolatori stipendio keyword onto the /calcola-stipendio/ master.
+ // Add prominent internal link from every scenario page with anchor "calcolatore stipendio netto".
+ // See docs/seo-semrush-growth-plan.md Task A.3.
+ editorialBlocks.push(
+ `<p style="margin:1rem 0 .5rem;padding:.9rem 1rem;background:#eef2ff;border-left:4px solid #3730a3;border-radius:4px;font-size:.95rem"><strong>Vai al <a href="/calcola-stipendio/" style="color:#1e3a8a;text-decoration:underline;font-weight:700">calcolatore stipendio netto</a></strong> per una simulazione personalizzata: inserisci lordo, stato civile, figli e tipo di frontaliere per ottenere il tuo netto mensile aggiornato al 2026.</p>`,
+ );
  } else if (canonicalPath.startsWith('/calcola-stipendio/')) {
  editorialBlocks.push(
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come calcolare lo stipendio netto in Svizzera</h2>`,

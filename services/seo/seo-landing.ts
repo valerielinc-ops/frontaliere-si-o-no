@@ -282,9 +282,10 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'landing-salary-60000-within20km': {
- title: 'Stipendio netto 60.000 CHF | Residenza entro 20 km dal confine',
+ // A.3 — long-tail variant; master "/calcola-stipendio/" owns the head keyword.
+ title: 'Stipendio netto 60000 CHF frontaliere — simulazione fiscale 2026',
  description: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 60.000 CHF/anno. Imposta alla fonte Ticino, vecchio ordinamento e franchigia 70%.',
- keywords: 'calcolo tasse frontalieri entro 20 km, stipendio netto 60000 chf entro 20km, vecchio frontaliere entro 20 km, comuni frontiera 20 km',
+ keywords: 'stipendio netto 60000 chf frontaliere, calcolo tasse frontalieri entro 20 km, stipendio netto 60000 chf entro 20km, vecchio frontaliere entro 20 km, comuni frontiera 20 km',
  ogTitle: 'Netto 60.000 CHF (entro 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 60.000 CHF/anno con vecchio ordinamento.',
  canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km',
@@ -308,9 +309,10 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'landing-salary-100000-within20km': {
- title: 'Stipendio netto 100.000 CHF | Residenza entro 20 km dal confine',
+ // A.3 — long-tail variant; master "/calcola-stipendio/" owns the head keyword.
+ title: 'Stipendio netto 100000 CHF frontaliere — simulazione fiscale 2026',
  description: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 100.000 CHF/anno. Vecchio ordinamento, imposta alla fonte, franchigia 70%.',
- keywords: 'calcolo tasse frontalieri entro 20 km, stipendio netto 100000 chf entro 20km, vecchio frontaliere entro 20 km, tasse frontaliere alto reddito',
+ keywords: 'stipendio netto 100000 chf frontaliere, calcolo tasse frontalieri entro 20 km, stipendio netto 100000 chf entro 20km, vecchio frontaliere entro 20 km, tasse frontaliere alto reddito',
  ogTitle: 'Netto 100.000 CHF (entro 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 100.000 CHF/anno. Vecchio ordinamento.',
  canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km',

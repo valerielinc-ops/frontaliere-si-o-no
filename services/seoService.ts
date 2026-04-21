@@ -1401,7 +1401,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'blog-confronto-assicurazioni-auto': { name: 'Assicurazioni auto', path: '/articoli-frontaliere/confronto-assicurazioni-auto', parent: 'blog' },
  'blog-permesso-b-vs-g-differenze': { name: 'Permesso B e G', path: '/articoli-frontaliere/permesso-b-vs-g-differenze', parent: 'blog' },
  'blog-spese-sanitarie-frontalieri': { name: 'Spese sanitarie', path: '/articoli-frontaliere/spese-sanitarie-frontalieri', parent: 'blog' },
- 'blog-naspi-disoccupazione-frontalieri': { name: 'NASpI frontalieri', path: '/articoli-frontaliere/naspi-disoccupazione-frontalieri', parent: 'blog' },
+ // A.4 — 'blog-naspi-disoccupazione-frontalieri' retired (301 to naspi-ex-frontalieri-2026).
  'blog-dichiarazione-redditi-ticino-2026': { name: 'Dichiarazione Redditi', path: '/articoli-frontaliere/dichiarazione-redditi-ticino-2026', parent: 'blog' },
  'blog-cantieri-traffico-a9-ticino': { name: 'Cantieri A9', path: '/articoli-frontaliere/cantieri-traffico-a9-ticino', parent: 'blog' },
  'blog-migranti-seghezzone-risparmi': { name: 'Migranti Seghezzone', path: '/articoli-frontaliere/migranti-seghezzone-risparmi', parent: 'blog' },

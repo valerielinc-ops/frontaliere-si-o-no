@@ -87,6 +87,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/comparatori/operatori-mobili/': '/compara-servizi/confronta-operatori-mobili/',
  '/comparatori/mappa-comuni/': '/guida-frontaliere/mappa-confine/',
  // Blog articles with changed slugs (old → new canonical)
+ // A.4 — NASpI duplicate consolidation (cannibalization fix).
+ // Older slug /naspi-disoccupazione-frontalieri/ redirects to the
+ // canonical /naspi-ex-frontalieri-2026/ hub.
+ '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
  '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
  '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
  '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',

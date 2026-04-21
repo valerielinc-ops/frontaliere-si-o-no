@@ -2470,22 +2470,7 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/naspi-disoccupazione-frontalieri/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/naspi-disoccupazione-frontalieri/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/naspi-unemployment-frontaliers/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/naspi-arbeitslosigkeit-grenzgaenger/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/naspi-chomage-frontaliers/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/articoli-frontaliere/naspi-disoccupazione-frontalieri/" />
-    <image:image>
-      <image:loc>https://frontaliereticino.ch/images/blog/naspi-disoccupazione-frontalieri.jpg</image:loc>
-      <image:title>NASpI per frontalieri italiani</image:title>
-      <image:caption>Valico doganale di Chiasso con auto in transito e cartelli di confine tra Svizzera e Italia</image:caption>
-    </image:image>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- A.4 — naspi-disoccupazione-frontalieri retired; canonical is naspi-ex-frontalieri-2026 (301 via legacyRedirectsPlugin). -->
 
   <url>
     <loc>https://frontaliereticino.ch/articoli-frontaliere/dichiarazione-redditi-ticino-2026/</loc>

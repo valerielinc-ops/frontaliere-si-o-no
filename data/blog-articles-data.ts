@@ -1090,13 +1090,8 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/spese-sanitarie-frontalieri.webp',
  hasCalculator: true,
  },
- {
- id: 'naspi-disoccupazione-frontalieri',
- category: 'pratico',
- date: '2026-02-26T11:31:19.516Z',
- image: '/images/blog/naspi-disoccupazione-frontalieri.webp',
- hasCalculator: true,
- },
+ // A.4 — naspi-disoccupazione-frontalieri retired; canonical hub is
+ // naspi-ex-frontalieri-2026 (legacy 301 via legacyRedirectsPlugin).
  {
  id: 'dichiarazione-redditi-ticino-2026',
  category: 'fiscale',

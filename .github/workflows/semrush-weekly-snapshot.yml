@@ -65,6 +65,16 @@ jobs:
             node scripts/seo/semrush-site-audit.mjs --dry-run
           fi
 
+      - name: Run SEMrush cannibalization detector (A.5)
+        env:
+          SEMRUSH_API_KEY: ${{ secrets.SEMRUSH_API_KEY }}
+        run: |
+          if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
+            node scripts/seo/detect-cannibalization.mjs
+          else
+            node scripts/seo/detect-cannibalization.mjs --dry-run
+          fi
+
       - name: Generate weekly report
         run: node scripts/seo/generate-weekly-report.mjs
 
@@ -101,9 +111,11 @@ jobs:
               if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
                 SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/semrush-snapshot.mjs || true
                 SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" SEMRUSH_PROJECT_ID="${{ secrets.SEMRUSH_PROJECT_ID }}" node scripts/seo/semrush-site-audit.mjs || true
+                SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/detect-cannibalization.mjs || true
               else
                 node scripts/seo/semrush-snapshot.mjs --dry-run || true
                 node scripts/seo/semrush-site-audit.mjs --dry-run || true
+                node scripts/seo/detect-cannibalization.mjs --dry-run || true
               fi
               node scripts/seo/generate-weekly-report.mjs || true
               git add data/seo-snapshots/ reports/ docs/seo-reports/
