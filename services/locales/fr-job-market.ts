@@ -27,6 +27,19 @@ const translations: Record<string, string> = {
   'jobMarket.monthLabel': 'Mois',
   'jobMarket.freshness': 'Mis à jour le',
   'jobMarket.relatedLinks': 'Pour aller plus loin',
+  // D-3A: per-sector snapshot pages
+  'jobMarket.sector.kicker': 'Rapport sectoriel · Tessin',
+  'jobMarket.sector.h1': "Marché du travail {sector} Tessin — offres actives aujourd'hui",
+  'jobMarket.sector.activeJobs': 'Offres actives',
+  'jobMarket.sector.weeklyDelta': 'Delta hebdomadaire',
+  'jobMarket.sector.monthlyDelta': 'Delta mensuel',
+  'jobMarket.sector.topEmployers': 'Employeurs les plus actifs',
+  'jobMarket.sector.trend': 'Tendance nouvelles offres — 12 dernières semaines',
+  'jobMarket.sector.hubCta': 'Voir toutes les offres {sector} au Tessin',
+  'jobMarket.sector.snapshotCta': 'Rapport marché du travail Tessin',
+  'jobMarket.sector.faqTitle': 'Questions fréquentes',
+  'jobMarket.sector.breadcrumb': 'Secteurs',
+  'jobMarket.sector.historyFallback': 'historique en construction',
 };
 
 export default translations;

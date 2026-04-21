@@ -27,6 +27,19 @@ const translations: Record<string, string> = {
   'jobMarket.monthLabel': 'Month',
   'jobMarket.freshness': 'Updated on',
   'jobMarket.relatedLinks': 'Related reading',
+  // D-3A: per-sector snapshot pages
+  'jobMarket.sector.kicker': 'Sector report · Ticino',
+  'jobMarket.sector.h1': '{sector} job market in Ticino — openings today',
+  'jobMarket.sector.activeJobs': 'Active openings',
+  'jobMarket.sector.weeklyDelta': 'Week-over-week delta',
+  'jobMarket.sector.monthlyDelta': 'Month-over-month delta',
+  'jobMarket.sector.topEmployers': 'Most active employers',
+  'jobMarket.sector.trend': 'New openings trend — last 12 weeks',
+  'jobMarket.sector.hubCta': 'See all {sector} openings in Ticino',
+  'jobMarket.sector.snapshotCta': 'Ticino job market report',
+  'jobMarket.sector.faqTitle': 'Frequently asked questions',
+  'jobMarket.sector.breadcrumb': 'Sectors',
+  'jobMarket.sector.historyFallback': 'history still building',
 };
 
 export default translations;
