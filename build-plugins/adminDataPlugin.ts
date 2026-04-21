@@ -72,8 +72,23 @@ export function adminDataPlugin(root: string): Plugin {
  if (fs.existsSync(indexHtml)) {
  const adminDir = path.resolve(distDir, ADMIN_SLUG);
  fs.mkdirSync(adminDir, { recursive: true });
- fs.copyFileSync(indexHtml, path.resolve(adminDir, 'index.html'));
- console.log(` 🔐 Admin route: generated dist/${ADMIN_SLUG}/index.html`);
+ // Copy the SPA shell, then force `noindex, nofollow` on the admin route.
+ // The admin panel is an internal tool and must never appear in SERPs,
+ // so it is exempt from the site-wide BreadcrumbList requirement (D.2).
+ let shell = fs.readFileSync(indexHtml, 'utf-8');
+ if (/<meta\s+name=["']robots["'][^>]*>/i.test(shell)) {
+ shell = shell.replace(
+ /<meta\s+name=["']robots["'][^>]*>/i,
+ '<meta name="robots" content="noindex, nofollow" />'
+ );
+ } else {
+ shell = shell.replace(
+ /<head(\s[^>]*)?>/i,
+ (m) => `${m}\n <meta name="robots" content="noindex, nofollow" />`
+ );
+ }
+ fs.writeFileSync(path.resolve(adminDir, 'index.html'), shell, 'utf-8');
+ console.log(` 🔐 Admin route: generated dist/${ADMIN_SLUG}/index.html (noindex)`);
  }
  },
  };

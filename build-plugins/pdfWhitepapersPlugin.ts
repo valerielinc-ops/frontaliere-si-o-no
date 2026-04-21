@@ -423,6 +423,17 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  isAccessibleForFree: true,
  });
 
+ // BreadcrumbList — Home → Guide → this guide (D.2 coverage baseline).
+ const breadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 2, name: 'Guide', item: `${BASE_URL}/guides/` },
+ { '@type': 'ListItem', position: 3, name: guide.title, item: canonical },
+ ],
+ });
+
  return `<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -444,6 +455,7 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta name="twitter:title" content="${esc(guide.title)}">
 <meta name="twitter:description" content="${esc(guide.subtitle)}">
 <script type="application/ld+json">${jsonLd}</script>
+<script type="application/ld+json">${breadcrumbLd}</script>
 ${ANALYTICS_SNIPPET}
 <style>
 body{font-family:system-ui,-apple-system,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;color:#334155;line-height:1.6}
