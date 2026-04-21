@@ -2090,6 +2090,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-asili-nido-bellinzona-sussidi-2026': { name: 'Asili nido Bellinzona', path: '/articoli-frontaliere/asili-nido-bellinzona-sussidi-2026', parent: 'blog' },
     'blog-giovani-scomparsi-7-cantoni': { name: 'In sette cantoni stanno scomparendo i', path: '/articoli-frontaliere/giovani-scomparsi-7-cantoni', parent: 'blog' },
     'blog-svizzeri-italiani-cucina-preferita': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-italiani-cucina-preferita', parent: 'blog' },
+    'blog-svizzera-chiude-investitori-immobiliari-stranieri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-chiude-investitori-immobiliari-stranieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

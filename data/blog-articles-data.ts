@@ -6669,4 +6669,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/svizzeri-italiani-cucina-preferita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-chiude-investitori-immobiliari-stranieri',
+ category: 'novita',
+ date: '2026-04-21T06:21:57.710Z',
+ image: '/images/blog/svizzera-chiude-investitori-immobiliari-stranieri.jpg',
+ hasCalculator: true,
+ },
 ];

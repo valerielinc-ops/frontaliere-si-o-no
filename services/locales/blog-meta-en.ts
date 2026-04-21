@@ -2436,6 +2436,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-italiani-cucina-preferita.title': 'Swiss and Italians: Italian cuisine is the favorite',
     'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'A survey reveals that 79% of Swiss people prefer Italian cuisine when eating out, followed by Swiss cuisine at 71%.',
     'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Lakeside restaurant in Lugano, Ticino',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'New restrictions for foreign real estate investors in Switzerland',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'The Federal Council proposes amendments to the Lex Koller to limit property purchases by non-resident foreigners',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'View of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

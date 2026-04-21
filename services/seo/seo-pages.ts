@@ -3957,7 +3957,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 863,
+ "numberOfItems": 864,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4798,7 +4798,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 860, "name": "Cure a domicilio, palla in tribuna: respinta la...", "url": `${BASE_URL}/articoli-frontaliere/cure-domocilio-ticino-2026` },
           { "@type": "ListItem", "position": 861, "name": "Asili nido Bellinzona: polemiche sussidi", "url": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-sussidi-2026` },
           { "@type": "ListItem", "position": 862, "name": "Discesa giovani Ticino", "url": `${BASE_URL}/articoli-frontaliere/giovani-scomparsi-7-cantoni` },
-          { "@type": "ListItem", "position": 863, "name": "Cucina italiana preferita dagli svizzeri", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-italiani-cucina-preferita` }
+          { "@type": "ListItem", "position": 863, "name": "Cucina italiana preferita dagli svizzeri", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-italiani-cucina-preferita` },
+          { "@type": "ListItem", "position": 864, "name": "Nuove restrizioni per investitori immobiliari s...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-chiude-investitori-immobiliari-stranieri` }
  ]
  }
  ]

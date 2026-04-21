@@ -10440,6 +10440,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-chiude-investitori-immobiliari-stranieri': {
+    title: 'Nuove restrizioni per gli investitori | Frontaliere Ticino',
+    description: 'Il Consiglio federale svizzero propone modifiche alla Lex Koller per limitare gli acquisti di immobili da parte di stranieri non residenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, restrizioni, investitori, immobiliari',
+    ogTitle: 'Nuove restrizioni per investitori immobiliari stranieri in',
+    ogDescription: 'Il Consiglio federale svizzero propone modifiche alla Lex Koller per limitare gli acquisti di immobili da parte di stranieri non residenti.',
+    canonicalPath: '/articoli-frontaliere/svizzera-chiude-investitori-immobiliari-stranieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove restrizioni per investitori immobiliari stranieri in Svizzera",
+      "description": "Il Consiglio federale svizzero propone modifiche alla Lex Koller per limitare gli acquisti di immobili da parte di stranieri non residenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-chiude-investitori-immobiliari-stranieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-21T06:21:57+00:00",
+      "dateModified": "2026-04-21T06:21:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-chiude-investitori-immobiliari-stranieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
