@@ -57,6 +57,11 @@ interface SwissStation {
   address?: string;
   sp95PriceChf?: number;
   sp95PriceEur?: number;
+  /** Real per-station diesel price (CHF/L) populated from the TCS Firestore feed. */
+  dieselPriceChf?: number | null;
+  dieselPriceEur?: number | null;
+  /** `api` | `derived` | `unknown` — see scripts/generate-fuel-prices-dataset.mjs. */
+  dieselSource?: 'api' | 'derived' | 'unknown' | 'monthly_average' | 'scraped';
   updatedAt?: string;
   nearestMunicipality?: string | null;
   nearestMunicipalityDistanceKm?: number;
@@ -90,19 +95,24 @@ interface ZonePrice {
 
 // ── Diesel/benzina derivation ─────────────────────────────────
 //
-// data/fuel-prices.json only exposes `sp95PriceChf` (benzina 95). We derive
-// diesel by applying a fixed offset observed across Swiss retail (diesel is
-// typically ~0.08 CHF/L higher than SP95 in Switzerland as of 2026). The
-// offset lives here as a constant so it can be tuned centrally without
-// touching the plugin body.
-const DIESEL_OFFSET_CHF = 0.08;
+// Primary source: `dieselPriceChf` populated by
+// scripts/generate-fuel-prices-dataset.mjs from the TCS Firestore feed
+// (per-station DIESEL record). When a station is missing a DIESEL price in
+// the upstream feed, we fall back to SP95 + observed retail offset (~0.08
+// CHF/L as of 2026). The fallback constant is kept as `LEGACY_DIESEL_OFFSET_CHF`
+// and documented in scripts/snapshot-fuel-history.mjs as well.
+const LEGACY_DIESEL_OFFSET_CHF = 0.08;
 
 function pricesFromStation(station: SwissStation): { diesel: number; benzina: number } | null {
   const sp95 = typeof station.sp95PriceChf === 'number' ? station.sp95PriceChf : null;
   if (sp95 === null || Number.isNaN(sp95)) return null;
+  const realDiesel =
+    typeof station.dieselPriceChf === 'number' && Number.isFinite(station.dieselPriceChf)
+      ? station.dieselPriceChf
+      : null;
   return {
     benzina: Number(sp95.toFixed(3)),
-    diesel: Number((sp95 + DIESEL_OFFSET_CHF).toFixed(3)),
+    diesel: Number((realDiesel ?? sp95 + LEGACY_DIESEL_OFFSET_CHF).toFixed(3)),
   };
 }
 
