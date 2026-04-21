@@ -32,11 +32,28 @@ export type HealthPremiumCanton = 'ticino' | 'grigioni' | 'uri' | 'vallese' | 'z
 
 /**
  * LAMal age brackets. Under Swiss LAMal law the adult premium (26+) is flat —
- * 31-45, 46-55, 56-plus all receive the identical ERW rate. 0-18 and 19-25
- * are derived from the adult premium using BAG 2026 statutory maxima (child
- * ≤25%, young adult ≤80%) when explicit per-insurer data is not available.
+ * 31-45, 46-55, 56-plus all receive the identical AKL-ERW rate. 0-18 and
+ * 19-25 carry dedicated risk classes (AKL-KIN, AKL-JUG) that every insurer
+ * prices independently; the dataset persists those real per-insurer values
+ * when available and falls back to statutory multipliers only when the BAG
+ * feed does not expose the class for a given insurer × region pair.
  */
 export type HealthPremiumAgeBracket = '0-18' | '19-25' | '26-30' | '31-45' | '46-55' | '56-plus';
+
+/**
+ * BAG risk class that maps to each age bracket. KIN (Kinder) covers 0-18,
+ * JUG (Junge Erwachsene) covers 19-25, ERW (Erwachsene) covers 26+.
+ */
+export type HealthPremiumRiskClass = 'KIN' | 'JUG' | 'ERW';
+
+export const HEALTH_PREMIUM_BRACKET_RISK_CLASS: Record<HealthPremiumAgeBracket, HealthPremiumRiskClass> = {
+  '0-18': 'KIN',
+  '19-25': 'JUG',
+  '26-30': 'ERW',
+  '31-45': 'ERW',
+  '46-55': 'ERW',
+  '56-plus': 'ERW',
+};
 
 export interface HealthPremiumAgeDef {
   id: HealthPremiumAgeBracket;
@@ -346,19 +363,21 @@ export function isHealthPremiumsPath(pathname: string): boolean {
   return HEALTH_PREMIUMS_ROUTE_SET.has(normalised);
 }
 
-// ── BAG age-bracket multipliers ────────────────────────────────
+// ── BAG age-bracket multipliers (FALLBACK ONLY) ────────────────
 //
-// Under LAMal (Federal Act on Health Insurance), the premium is legally flat
-// for all insured persons aged 26 and above. For children (0-18) and young
-// adults (19-25) the law sets statutory maxima that each insurer applies
-// (art. 61 al. 3 LAMal, BAG guidelines 2026):
-//   - Children up to age 18: insurer-specific but capped, typically ~25% of
-//     adult premium (range 20-30% depending on insurer).
-//   - Young adults 19-25: typically ~80% of adult premium (range 70-90%).
-// These ratios are derived from BAG 2026 published premium tables and are
-// standard industry estimates used here when the imported dataset only
-// exposes adult (AKL-ERW) values. Each leaf page links to the full
-// comparator where users see exact insurer-specific figures.
+// Since F2-LAMal real data wiring, the dataset persists per-insurer premiums
+// for all three BAG risk classes (AKL-KIN, AKL-JUG, AKL-ERW). These
+// multipliers are retained only as a graceful-degradation fallback for the
+// edge case where `byAgeClass.KIN` / `byAgeClass.JUG` are missing on an
+// insurer × region pair — either legacy datasets pre-dating the schema
+// upgrade or a BAG feed regression.
+//
+// The BAG statutory maxima (art. 61 al. 3 LAMal, BAG 2026) are:
+//   - Children 0-18: capped at ~25% of adult premium.
+//   - Young adults 19-25: capped at ~80% of adult premium.
+// Callers should prefer the real per-insurer premium from
+// `byAgeClass[riskClass]` and reach for these ratios only when the real
+// value is absent.
 export const HEALTH_PREMIUM_AGE_MULTIPLIER: Record<HealthPremiumAgeBracket, number> = {
   '0-18': 0.25,
   '19-25': 0.80,

@@ -38,6 +38,7 @@ import {
   HEALTH_PREMIUM_AGE_BRACKETS,
   HEALTH_PREMIUM_AGE_LABEL,
   HEALTH_PREMIUM_AGE_MULTIPLIER,
+  HEALTH_PREMIUM_BRACKET_RISK_CLASS,
   HEALTH_PREMIUM_CANTON_BAG_CODE,
   HEALTH_PREMIUM_CANTON_DISPLAY,
   HEALTH_PREMIUM_CANTONS,
@@ -49,6 +50,7 @@ import {
   type HealthPremiumAgeBracket,
   type HealthPremiumCanton,
   type HealthPremiumLocale,
+  type HealthPremiumRiskClass,
 } from './healthPremiumsData';
 
 // ── Types (dataset shape) ──────────────────────────────────────
@@ -60,7 +62,21 @@ export interface InsurerEntry {
 }
 
 type ModelType = 'standard' | 'hausarzt' | 'telmed' | 'hmo';
-type PremiumByModel = Partial<Record<ModelType, number>>;
+type ModelPremiums = Partial<Record<ModelType, number>>;
+
+/**
+ * Insurer entry under `block.insurers[id]`. The dataset exposes both:
+ *  - flat model keys (`standard`, `hausarzt`, ...) which alias the AKL-ERW
+ *    (adult 26+) premium — preserved for backward compatibility with the
+ *    pre-F2-KIN/JUG schema.
+ *  - `byAgeClass.{KIN|JUG|ERW}.{standard|hausarzt|...}` which holds the real
+ *    BAG-published premium per risk class. Consumers that want
+ *    bracket-specific values must read `byAgeClass`.
+ */
+export type PremiumByModel = ModelPremiums & {
+  byAgeClass?: Partial<Record<HealthPremiumRiskClass, ModelPremiums>>;
+};
+
 type PremiumByInsurer = Record<string, PremiumByModel>;
 
 interface CantonPremiumBlock {
@@ -145,27 +161,105 @@ function blocksForCanton(
 }
 
 /**
- * Aggregate per-insurer adult standard premium across all provided blocks.
- * Returns a map keyed by insurer id → average standard premium (CHF/month).
+ * Aggregate per-insurer standard premium for a given risk class across all
+ * provided blocks. Returns a map keyed by insurer id → average standard
+ * premium (CHF/month), plus a `sourceByInsurer` marker that records whether
+ * the value came from a real `byAgeClass[riskClass]` entry ('real') or
+ * was back-filled from the flat ERW alias ('ambiguous' — for ERW this is
+ * identical to 'real'). An insurer appears in the output only when at
+ * least one block contributed a usable premium.
  */
-function aggregateAdultPremiums(
+interface AggregatedPremiums {
+  byInsurer: Record<string, number>;
+  sourceByInsurer: Record<string, 'real' | 'derived'>;
+}
+
+function aggregatePremiumsByRiskClass(
   blocks: CantonPremiumBlock[],
-): Record<string, number> {
-  const sums: Record<string, { sum: number; count: number }> = {};
+  riskClass: HealthPremiumRiskClass,
+): AggregatedPremiums {
+  const sums: Record<string, { sum: number; count: number; realCount: number }> = {};
   for (const block of blocks) {
     for (const [insurerId, models] of Object.entries(block.insurers || {})) {
-      const price = typeof models.standard === 'number' ? models.standard : null;
+      // Prefer real per-risk-class value when present.
+      const bac = models.byAgeClass?.[riskClass];
+      let price: number | null = null;
+      let isReal = false;
+      if (bac && typeof bac.standard === 'number') {
+        price = bac.standard;
+        isReal = true;
+      } else if (riskClass === 'ERW' && typeof models.standard === 'number') {
+        // Back-compat: legacy dataset exposes flat fields that alias ERW.
+        price = models.standard;
+        isReal = true;
+      } else if (typeof models.standard === 'number') {
+        // Fallback for KIN / JUG when real data is missing: apply the
+        // statutory multiplier. Marked as 'derived' so downstream UI can
+        // caveat the leaf page.
+        const mult = riskClass === 'KIN' ? 0.25 : riskClass === 'JUG' ? 0.80 : 1.0;
+        price = models.standard * mult;
+        isReal = false;
+      }
       if (price === null) continue;
-      if (!sums[insurerId]) sums[insurerId] = { sum: 0, count: 0 };
+      if (!sums[insurerId]) sums[insurerId] = { sum: 0, count: 0, realCount: 0 };
       sums[insurerId].sum += price;
       sums[insurerId].count += 1;
+      if (isReal) sums[insurerId].realCount += 1;
     }
   }
-  const out: Record<string, number> = {};
-  for (const [id, { sum, count }] of Object.entries(sums)) {
-    if (count > 0) out[id] = roundCHF(sum / count);
+  const byInsurer: Record<string, number> = {};
+  const sourceByInsurer: Record<string, 'real' | 'derived'> = {};
+  for (const [id, { sum, count, realCount }] of Object.entries(sums)) {
+    if (count === 0) continue;
+    byInsurer[id] = roundCHF(sum / count);
+    // 'real' iff every contributing block provided a real BAG KIN/JUG/ERW
+    // premium — otherwise at least one value was multiplier-derived and we
+    // surface that to the consumer.
+    sourceByInsurer[id] = realCount === count ? 'real' : 'derived';
   }
-  return out;
+  return { byInsurer, sourceByInsurer };
+}
+
+export interface BracketPremiumStats {
+  bracket: HealthPremiumAgeBracket;
+  riskClass: HealthPremiumRiskClass;
+  /** Per-insurer standard premium (CHF/month) for this risk class. */
+  byInsurer: Record<string, number>;
+  /** 'real' = every block exposed byAgeClass data; 'derived' = multiplier fallback. */
+  sourceByInsurer: Record<string, 'real' | 'derived'>;
+  /** Ranked ascending. */
+  ranked: Array<{ insurerId: string; price: number; source: 'real' | 'derived' }>;
+  min: number | null;
+  max: number | null;
+  medianPrice: number | null;
+  /** True when every insurer's price came from real BAG byAgeClass data. */
+  allReal: boolean;
+}
+
+function buildBracketStats(
+  blocks: CantonPremiumBlock[],
+  bracket: HealthPremiumAgeBracket,
+): BracketPremiumStats | null {
+  const riskClass = HEALTH_PREMIUM_BRACKET_RISK_CLASS[bracket];
+  const { byInsurer, sourceByInsurer } = aggregatePremiumsByRiskClass(blocks, riskClass);
+  const ids = Object.keys(byInsurer);
+  if (ids.length === 0) return null;
+  const ranked = ids
+    .map((id) => ({ insurerId: id, price: byInsurer[id], source: sourceByInsurer[id] }))
+    .sort((a, b) => a.price - b.price);
+  const prices = ranked.map((r) => r.price);
+  const allReal = ranked.every((r) => r.source === 'real');
+  return {
+    bracket,
+    riskClass,
+    byInsurer,
+    sourceByInsurer,
+    ranked,
+    min: Math.min(...prices),
+    max: Math.max(...prices),
+    medianPrice: median(prices),
+    allReal,
+  };
 }
 
 export interface CantonPremiumStats {
@@ -180,6 +274,12 @@ export interface CantonPremiumStats {
   adultMin: number | null;
   adultMax: number | null;
   adultMedian: number | null;
+  /**
+   * Pre-computed bracket stats for every LAMal age bracket. Leaf pages use
+   * the entry for their own bracket; the canton hub uses the medians to
+   * populate its age-grid.
+   */
+  bracketStats: Record<HealthPremiumAgeBracket, BracketPremiumStats | null>;
 }
 
 export function computeCantonStats(
@@ -189,12 +289,17 @@ export function computeCantonStats(
   const cantonBagCode = HEALTH_PREMIUM_CANTON_BAG_CODE[canton];
   const blocks = blocksForCanton(dataset, cantonBagCode);
   if (blocks.length === 0) return null;
-  const adultByInsurer = aggregateAdultPremiums(blocks);
+  const erw = aggregatePremiumsByRiskClass(blocks, 'ERW');
+  const adultByInsurer = erw.byInsurer;
   const prices = Object.values(adultByInsurer);
   if (prices.length === 0) return null;
   const ranked = Object.entries(adultByInsurer)
     .map(([id, price]) => ({ insurerId: id, price }))
     .sort((a, b) => a.price - b.price);
+  const bracketStats = {} as Record<HealthPremiumAgeBracket, BracketPremiumStats | null>;
+  for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
+    bracketStats[ab.id] = buildBracketStats(blocks, ab.id);
+  }
   return {
     canton,
     cantonBagCode,
@@ -204,6 +309,7 @@ export function computeCantonStats(
     adultMin: Math.min(...prices),
     adultMax: Math.max(...prices),
     adultMedian: median(prices),
+    bracketStats,
   };
 }
 
@@ -693,11 +799,21 @@ function renderLeafPage(inp: LeafInputs): string {
   const multiplier = HEALTH_PREMIUM_AGE_MULTIPLIER[age];
   const year = dataset.year ?? today.getUTCFullYear();
 
-  // Apply multiplier to adult premiums to derive bracket-specific values.
-  const perInsurer = stats.ranked.map((r) => ({
+  // Prefer real BAG KIN/JUG/ERW per-insurer premiums when the dataset
+  // publishes them; otherwise fall back to multiplier-derived values so
+  // legacy datasets keep rendering. The `bracketSource` flag drives the
+  // editorial note shown below the ranking table.
+  const bracketStats = stats.bracketStats[age];
+  const bracketIsReal = bracketStats?.allReal === true;
+  const perInsurer = (bracketStats?.ranked ?? stats.ranked.map((r) => ({
+    insurerId: r.insurerId,
+    price: roundCHF(r.price * multiplier),
+    source: 'derived' as const,
+  }))).map((r) => ({
     insurerId: r.insurerId,
     insurerName: resolveInsurerName(dataset, r.insurerId),
-    price: roundCHF(r.price * multiplier),
+    price: r.price,
+    source: 'source' in r ? r.source : ('derived' as 'real' | 'derived'),
   }));
   const top20 = perInsurer.slice(0, 20);
   const prices = perInsurer.map((p) => p.price);
@@ -731,7 +847,8 @@ function renderLeafPage(inp: LeafInputs): string {
       .join('')}</tbody>
   </table>`;
 
-  // Canton ranking comparison
+  // Canton ranking comparison — use real per-bracket medians when the
+  // dataset exposes them, else fall back to the adult median × multiplier.
   const rankingRows: Array<{ canton: HealthPremiumCanton; price: number | null }> = [];
   for (const c of HEALTH_PREMIUM_CANTONS) {
     const s = allCantonStats[c];
@@ -739,8 +856,13 @@ function renderLeafPage(inp: LeafInputs): string {
       rankingRows.push({ canton: c, price: null });
       continue;
     }
-    const adultMed = s.adultMedian ?? 0;
-    rankingRows.push({ canton: c, price: roundCHF(adultMed * multiplier) });
+    const bs = s.bracketStats[age];
+    if (bs && bs.medianPrice !== null && bs.allReal) {
+      rankingRows.push({ canton: c, price: roundCHF(bs.medianPrice) });
+    } else {
+      const adultMed = s.adultMedian ?? 0;
+      rankingRows.push({ canton: c, price: roundCHF(adultMed * multiplier) });
+    }
   }
   // Sort by price ascending, missing last
   rankingRows.sort((a, b) => {
@@ -883,7 +1005,7 @@ function renderLeafPage(inp: LeafInputs): string {
   <section style="margin:0 0 24px" aria-labelledby="top20">
     <h2 id="top20" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
     ${tableHtml}
-    ${age === '0-18' || age === '19-25' ? `<p style="margin:12px 0 0;color:#78350f;font-size:13px;line-height:1.5;padding:12px;background:#fef3c7;border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
+    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p style="margin:12px 0 0;color:#78350f;font-size:13px;line-height:1.5;padding:12px;background:#fef3c7;border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="ranking">
     <h2 id="ranking" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.rankingTitle)}</h2>
@@ -964,10 +1086,14 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const minFmt = formatCHF(adultMin, locale);
   const maxFmt = formatCHF(adultMax, locale);
 
-  // Age grid
+  // Age grid — prefer real BAG KIN/JUG/ERW median when dataset exposes it,
+  // else fall back to adult median × multiplier.
   const ageGridRows = HEALTH_PREMIUM_AGE_BRACKETS.map((ab) => {
+    const bs = stats.bracketStats[ab.id];
     const mult = HEALTH_PREMIUM_AGE_MULTIPLIER[ab.id];
-    const med = roundCHF(adultMed * mult);
+    const med = bs && bs.medianPrice !== null && bs.allReal
+      ? roundCHF(bs.medianPrice)
+      : roundCHF(adultMed * mult);
     const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
     return { ab, med, leafPath };
   });
