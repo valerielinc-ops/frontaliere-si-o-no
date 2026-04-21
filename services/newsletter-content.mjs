@@ -103,7 +103,9 @@ function loadPopularity() {
  * Load real-time dashboard metrics for the newsletter.
  * Reads from existing data files (cached per process):
  *   - public/data/switzerland-unemployment-rate.json → unemployment rate
- *   - data/health-premiums.json → Lugano LAMal premium (standard, adult 26+, franchise 2500)
+ *   - data/health-premiums/{year}.json (F2-A3 multi-year) with a fallback to
+ *     the legacy flat `data/health-premiums.json` → Lugano LAMal premium
+ *     (standard, adult 26+, franchise 2500).
  *
  * Franchise 2500 adjustment: -33% from base (franchise 300) premium.
  */
@@ -133,8 +135,25 @@ export function loadDashboardMetrics() {
 
   // ── LAMal premium (Lugano, standard model, franchise 2500) ──
   try {
-    const lamalPath = path.resolve(__dirname, '..', 'data', 'health-premiums.json');
-    const lamalData = JSON.parse(fs.readFileSync(lamalPath, 'utf-8'));
+    // Prefer the F2-A3 year-scoped dataset, fall back to the legacy flat
+    // path when the directory is not present (older deploys / tests).
+    const currentYear = new Date().getUTCFullYear();
+    const candidates = [
+      path.resolve(__dirname, '..', 'data', 'health-premiums', `${currentYear}.json`),
+      path.resolve(__dirname, '..', 'data', 'health-premiums.json'),
+    ];
+    let lamalData = null;
+    for (const p of candidates) {
+      try {
+        if (fs.existsSync(p)) {
+          lamalData = JSON.parse(fs.readFileSync(p, 'utf-8'));
+          break;
+        }
+      } catch {
+        // try next candidate
+      }
+    }
+    if (!lamalData) throw new Error('no health-premiums dataset found');
     const lugano = lamalData.premiums['6823-Lugano'];
     if (lugano?.insurers) {
       let sum = 0;
