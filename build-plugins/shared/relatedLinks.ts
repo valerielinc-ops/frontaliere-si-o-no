@@ -25,7 +25,10 @@ import {
   FUEL_DAILY_LOCALES,
   FUEL_ZONES,
   FUEL_ZONE_DISPLAY,
+  FUEL_ITALIAN_CITIES,
   buildFuelTodayPath,
+  buildFuelStationPath,
+  buildFuelItalianCityPath,
   type FuelDailyLocale,
   type FuelType,
   type FuelZone,
@@ -68,7 +71,9 @@ export type SeoPageType =
   | 'job_market_snapshot'
   | 'health_premiums'
   | 'orphan_landing'
-  | 'border_wait';
+  | 'border_wait'
+  | 'fuel_station'
+  | 'fuel_italian_city';
 
 export type LinkLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -87,6 +92,14 @@ export interface RelatedLinksContext {
   readonly weeklyCity?: WeeklyEmployersCity;
   /** Border crossing for the border_wait page type (context for sibling links). */
   readonly borderCrossing?: BorderCrossingSlug;
+  /** Station slug of the current per-station page (excluded from sibling lists). */
+  readonly stationSlug?: string;
+  /** Sibling stations to surface (same-city, already scored by caller). */
+  readonly siblingStations?: ReadonlyArray<{ slug: string; brand: string; zone: FuelZone }>;
+  /** Italian city slug (for fuel_italian_city + IT per-station contexts). */
+  readonly italianCitySlug?: string;
+  /** Italian city display name. */
+  readonly italianCityDisplay?: string;
 }
 
 // ── Evergreen paths (not covered by feature-specific builders) ──
@@ -152,6 +165,11 @@ interface Copy {
   readonly borderWaitCrossing: (crossing: string) => string;
   readonly borderWaitHub: string;
   readonly frontierGuide: string;
+  /** D-2A station + IT-city copy. */
+  readonly siblingStation: (brandLabel: string, zoneLabel: string) => string;
+  readonly zoneHub: (fuelLabel: string, zoneLabel: string) => string;
+  readonly regionalHub: (fuelLabel: string) => string;
+  readonly italianCityHub: (fuelLabel: string, cityLabel: string) => string;
 }
 
 /**
@@ -181,6 +199,10 @@ const COPY: Record<LinkLocale, Copy> = {
     borderWaitCrossing: (c) => `Coda dogana ${c} adesso`,
     borderWaitHub: 'Tempi attesa dogane Ticino — live',
     frontierGuide: 'Guida frontaliere: permessi e fisco',
+    siblingStation: (b, z) => `Stazione ${b} a ${z}`,
+    zoneHub: (f, z) => `Prezzo ${f.toLowerCase()} oggi a ${z}`,
+    regionalHub: (f) => `Prezzo ${f.toLowerCase()} Ticino oggi`,
+    italianCityHub: (f, c) => `Prezzo ${f.toLowerCase()} a ${c} (Italia)`,
   },
   en: {
     heading: 'Related reading',
@@ -204,6 +226,10 @@ const COPY: Record<LinkLocale, Copy> = {
     borderWaitCrossing: (c) => `${c} border wait right now`,
     borderWaitHub: 'Ticino border wait times — live',
     frontierGuide: 'Cross-border worker guide: permits & tax',
+    siblingStation: (b, z) => `${b} station in ${z}`,
+    zoneHub: (f, z) => `${f} price today in ${z}`,
+    regionalHub: (f) => `${f} price today — Ticino`,
+    italianCityHub: (f, c) => `${f} price in ${c} (Italy)`,
   },
   de: {
     heading: 'Weiterführende Seiten',
@@ -227,6 +253,10 @@ const COPY: Record<LinkLocale, Copy> = {
     borderWaitCrossing: (c) => `Wartezeit ${c} jetzt`,
     borderWaitHub: 'Tessin-Wartezeiten an den Grenzen — live',
     frontierGuide: 'Grenzgänger-Leitfaden: Bewilligungen & Steuern',
+    siblingStation: (b, z) => `Tankstelle ${b} in ${z}`,
+    zoneHub: (f, z) => `${f}preis heute in ${z}`,
+    regionalHub: (f) => `${f}preis Tessin heute`,
+    italianCityHub: (f, c) => `${f}preis in ${c} (Italien)`,
   },
   fr: {
     heading: 'Pour aller plus loin',
@@ -250,6 +280,10 @@ const COPY: Record<LinkLocale, Copy> = {
     borderWaitCrossing: (c) => `File à ${c} en ce moment`,
     borderWaitHub: 'Temps d\'attente aux douanes du Tessin — direct',
     frontierGuide: 'Guide frontalier : permis & fiscalité',
+    siblingStation: (b, z) => `Station ${b} à ${z}`,
+    zoneHub: (f, z) => `Prix du ${f.toLowerCase()} aujourd'hui à ${z}`,
+    regionalHub: (f) => `Prix du ${f.toLowerCase()} au Tessin aujourd'hui`,
+    italianCityHub: (f, c) => `Prix du ${f.toLowerCase()} à ${c} (Italie)`,
   },
 };
 
@@ -576,6 +610,100 @@ function linksForOrphanLanding(locale: LinkLocale, copy: Copy, ctx?: RelatedLink
   return out.slice(0, 5);
 }
 
+// ── D-2A: per-station + Italian-city link builders ──────────────
+
+function linksForFuelStation(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
+  const fuelDailyLocale = locale as FuelDailyLocale;
+  const weeklyLocale = locale as WeeklyEmployersLocale;
+  const fuel: FuelType = ctx?.fuelType ?? 'diesel';
+  const fuelL = fuelLabel(locale, fuel);
+  const currentZone: FuelZone = ctx?.fuelZone ?? 'chiasso';
+  const currentSlug = ctx?.stationSlug;
+  const siblings = ctx?.siblingStations ?? [];
+  const out: RelatedLink[] = [];
+
+  // 1-3) Up to 3 sibling stations same-city (excluding current).
+  for (const sib of siblings) {
+    if (sib.slug === currentSlug) continue;
+    out.push({
+      href: buildFuelStationPath(fuelDailyLocale, fuel, sib.zone, sib.slug),
+      title: copy.siblingStation(sib.brand || 'Stazione', FUEL_ZONE_DISPLAY[sib.zone]),
+    });
+    if (out.length >= 3) break;
+  }
+
+  // 4) Zone hub.
+  out.push({
+    href: buildFuelTodayPath(fuelDailyLocale, fuel, currentZone),
+    title: copy.zoneHub(fuelL, FUEL_ZONE_DISPLAY[currentZone]),
+  });
+
+  // 5) Regional (all Ticino) hub.
+  out.push({
+    href: buildFuelTodayPath(fuelDailyLocale, fuel),
+    title: copy.regionalHub(fuelL),
+  });
+
+  // 6) Cross-category: weekly employers for same city (drives GSC link equity
+  //    to the adjacent F5 cluster, commuters who refuel here often work here).
+  const weeklyCity = normalizeWeeklyCity(currentZone);
+  out.push({
+    href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
+    title: copy.weeklyEmployers(FUEL_ZONE_DISPLAY[currentZone]),
+  });
+
+  // 7) Cross-category: border-wait for closest crossing.
+  const borderCrossing = crossingForCityOrZone(currentZone);
+  out.push({
+    href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
+    title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
+  });
+
+  return out.slice(0, 8);
+}
+
+function linksForFuelItalianCity(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
+  const fuelDailyLocale = locale as FuelDailyLocale;
+  const fuel: FuelType = ctx?.fuelType ?? 'benzina';
+  const fuelL = fuelLabel(locale, fuel);
+  const out: RelatedLink[] = [];
+
+  // 1-2) Two sibling Italian cities.
+  const current = ctx?.italianCitySlug;
+  const siblings = FUEL_ITALIAN_CITIES.filter((c) => c.slug !== current).slice(0, 2);
+  for (const sib of siblings) {
+    out.push({
+      href: buildFuelItalianCityPath(fuelDailyLocale, fuel, sib.slug),
+      title: copy.italianCityHub(fuelL, sib.display),
+    });
+  }
+
+  // 3) Nearest Ticino zone hub — enables CH-vs-IT comparison path.
+  const nearestZone = FUEL_ITALIAN_CITIES.find((c) => c.slug === current)?.nearestZone ?? 'chiasso';
+  out.push({
+    href: buildFuelTodayPath(fuelDailyLocale, fuel, nearestZone),
+    title: copy.zoneHub(fuelL, FUEL_ZONE_DISPLAY[nearestZone]),
+  });
+
+  // 4) Ticino regional hub.
+  out.push({
+    href: buildFuelTodayPath(fuelDailyLocale, fuel),
+    title: copy.regionalHub(fuelL),
+  });
+
+  // 5) Border-wait for the crossing closest to this city.
+  const borderCrossing = crossingForCityOrZone(nearestZone);
+  out.push({
+    href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
+    title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
+  });
+
+  // 6) Frontier worker guide (always valuable for IT-side visitors).
+  out.push({ href: JOB_LISTING_ROOT[locale], title: copy.frontierGuide });
+
+  return out.slice(0, 6);
+}
+
 // ── Public API ──────────────────────────────────────────────────
 
 /**
@@ -602,6 +730,10 @@ export function generateRelatedLinks(
       return linksForOrphanLanding(locale, copy, context);
     case 'border_wait':
       return linksForBorderWait(locale, copy, context);
+    case 'fuel_station':
+      return linksForFuelStation(locale, copy, context);
+    case 'fuel_italian_city':
+      return linksForFuelItalianCity(locale, copy, context);
     default: {
       const exhaustive: never = pageType;
       throw new Error(`unknown SeoPageType: ${String(exhaustive)}`);
