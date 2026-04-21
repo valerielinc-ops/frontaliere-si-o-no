@@ -1,28 +1,47 @@
 /**
- * Cross-feature related-links helper for the SEO landing pages.
+ * Cross-feature related-links helper for the SEO landing pages (D-2 Expansion C).
  *
- * Internal linking — layer 1. Every feature-specific static page
- * (fuel-daily, weekly-employers, job-market-snapshot, health-premiums,
- * orphan-landing) calls {@link generateRelatedLinksBlock} once, at the end
- * of its main content, to inject a localized `<nav>` block with 5 related
- * links pointing into other SEO features. This:
+ * Layer 1 internal linking — every feature-specific static page
+ * (fuel-daily, fuel-station, weekly-employers, weekly-employer × city × company,
+ * job-market-snapshot, health-premiums, orphan-landing, border-wait) calls
+ * {@link generateRelatedLinksBlock} once, at the end of its main content, to
+ * inject a localized `<nav>` block with **10-12 curated links** organised in
+ * three semantic clusters:
  *
- *   - propagates link equity across the 6 new feature clusters
- *   - gives Googlebot a discovery path beyond the sitemap
- *   - reduces the number of "orphan on navigation graph" pages flagged by GSC
+ *   1. **Sibling links** (4-6): pages of the same `pageType` but for a
+ *      different dimension (sibling zone / sibling city / sibling crossing /
+ *      sibling age bracket). Drives "related results" intent.
+ *   2. **Parent hubs** (2-3): links that move the crawler one level up the
+ *      information hierarchy (per-zone leaf → regional hub → site root).
+ *   3. **Cross-category** (3-4): semantically-affine links in OTHER feature
+ *      clusters (fuel ↔ border-wait ↔ weekly-employers, health ↔ calculator,
+ *      etc.). Distributes link equity across the feature graph so Googlebot
+ *      discovers the entire SEO surface from any single landing page.
  *
- * Link targets are built from the feature-specific path builders (no
- * hardcoded URLs for the 5 cross-feature clusters); a few stable evergreen
- * paths (job board listing root, salary hub, health comparator) are the
- * one exception and are centralised here.
+ * The HTML output is semantic & accessible: one `<nav aria-label="…">`
+ * container wrapping three `<section>` cards, each with an `<h3>` heading
+ * and an unordered list of `<a>` anchors. Colours use `index.css` semantic
+ * tokens (`color-accent`, `color-surface-alt`, `color-edge`, `color-subtle`)
+ * — zero hardcoded palette values, zero `dark:` prefixes (enforced by
+ * `no-dark-color-classes.test.ts`).
  *
- * The HTML output uses inline-styled markup that is consistent with the
- * other plugin templates — no Tailwind classes, no dark-mode color
- * prefixes (compliant with no-dark-color-classes.test.ts).
+ * Backwards compatibility:
+ *   - `generateRelatedLinksBlock(locale, pageType, ctx)` returns the HTML
+ *     string — same signature as the pre-D-2C helper, existing plugin call
+ *     sites keep working unchanged.
+ *   - `generateRelatedLinks(locale, pageType, ctx)` returns the flat list
+ *     (for tests that don't care about section grouping).
+ *   - `generateRelatedLinksStructured(locale, pageType, ctx)` is the new
+ *     entry-point that returns `{ sections, html }` with per-section
+ *     metadata useful for granular assertions.
+ *
+ * Hard caps:
+ *   - Max 12 links per page (overflow truncated silently from the tail).
+ *   - Min 6 links per page — if we can't produce 6 for a given context we
+ *     fall back to the legacy 5-link list to avoid thin link blocks.
  */
 
 import {
-  FUEL_DAILY_LOCALES,
   FUEL_ZONES,
   FUEL_ZONE_DISPLAY,
   buildFuelTodayPath,
@@ -31,6 +50,8 @@ import {
   type FuelZone,
 } from '../fuelDailyData';
 import {
+  WEEKLY_EMPLOYERS_CITIES,
+  WEEKLY_EMPLOYERS_CITY_DISPLAY,
   buildCurrentWeekPath,
   type WeeklyEmployersCity,
   type WeeklyEmployersLocale,
@@ -43,6 +64,7 @@ import {
   buildHealthPremiumsRootPath,
   buildHealthPremiumsCantonPath,
   buildHealthPremiumsLeafPath,
+  HEALTH_PREMIUM_CANTONS,
   HEALTH_PREMIUM_COMPARATOR_PATH,
   HEALTH_PREMIUM_CANTON_DISPLAY,
   HEALTH_PREMIUM_AGE_LABEL,
@@ -53,18 +75,25 @@ import {
 import {
   buildOggiPath as buildBorderOggiPath,
   buildRootHubPath as buildBorderRootHubPath,
+  buildRegionalHubPath as buildBorderRegionalHubPath,
   BORDER_CROSSING_DISPLAY,
+  BORDER_REGION_DISPLAY,
+  CROSSING_TO_REGION,
   CROSSING_TO_FUEL_ZONE,
   CROSSING_TO_WEEKLY_CITY,
+  TOP_5_CROSSINGS,
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from '../borderWaitData';
 
-// ── Types ────────────────────────────────────────────────────────
+// ── Public types ─────────────────────────────────────────────────
 
 export type SeoPageType =
   | 'fuel_daily'
+  | 'fuel_station'
+  | 'fuel_italian_city'
   | 'weekly_employers'
+  | 'weekly_employer_company_city'
   | 'job_market_snapshot'
   | 'health_premiums'
   | 'orphan_landing'
@@ -75,23 +104,66 @@ export type LinkLocale = 'it' | 'en' | 'de' | 'fr';
 export interface RelatedLink {
   readonly href: string;
   readonly title: string;
+  /** Optional `rel` attribute — e.g. when linking to a commercial comparator. */
+  readonly rel?: string;
 }
 
+export interface RelatedLinkSection {
+  /** Semantic key for the section (sibling / hubs / cross). */
+  readonly kind: 'sibling' | 'hubs' | 'cross';
+  /** Translation key that identifies the heading copy. */
+  readonly titleKey: string;
+  /** Localized heading text (pre-rendered for HTML emission). */
+  readonly heading: string;
+  /** Localized aria-label for the `<section>` landmark. */
+  readonly ariaLabel: string;
+  /** Ordered links in this section. Already truncated to cluster caps. */
+  readonly links: readonly RelatedLink[];
+}
+
+export interface RelatedLinksOutput {
+  readonly sections: readonly RelatedLinkSection[];
+  /** All links flattened, capped at 12 — convenient for count assertions. */
+  readonly flat: readonly RelatedLink[];
+  /** Rendered HTML block ready to inline in static pages. */
+  readonly html: string;
+}
+
+/**
+ * Context for richer sibling + cross-category lookup. All fields optional —
+ * callers pass the subset relevant to the current page.
+ */
 export interface RelatedLinksContext {
-  readonly city?: string;
-  readonly cantonSlug?: HealthPremiumCanton;
-  readonly age?: HealthPremiumAgeBracket;
+  // Fuel
   readonly fuelType?: FuelType;
   readonly fuelZone?: FuelZone;
-  /** Weekly-employers current city (regional "ticino" hub is the default). */
+  /** NEW — Swiss station slug under `/prezzi-{fuel}/{city}/stazioni/{slug}/`. */
+  readonly stationSlug?: string;
+  /** NEW — Italian border city slug under `/prezzi-{fuel}/italia/{city}/`. */
+  readonly italianCity?: string;
+
+  // Weekly employers
+  readonly city?: string;
   readonly weeklyCity?: WeeklyEmployersCity;
-  /** Border crossing for the border_wait page type (context for sibling links). */
+  /** NEW — employer slug for per-company × per-city pages. */
+  readonly companySlug?: string;
+
+  // Health premiums
+  readonly cantonSlug?: HealthPremiumCanton;
+  readonly age?: HealthPremiumAgeBracket;
+
+  // Border wait
   readonly borderCrossing?: BorderCrossingSlug;
+
+  // Orphan landings
+  readonly queryClusterSlug?: string;
 }
+
+// ── Backwards-compatible alias kept for external imports. ────────
+export type RelatedLinksCtx = RelatedLinksContext;
 
 // ── Evergreen paths (not covered by feature-specific builders) ──
 
-/** Job board listing root per locale. */
 const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
   it: '/cerca-lavoro-ticino/',
   en: '/en/find-jobs-ticino/',
@@ -99,7 +171,6 @@ const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
   fr: '/fr/trouver-emploi-tessin/',
 };
 
-/** Recency hubs: "last 3 days" — locale-specific slug under the listing. */
 const LAST_3_DAYS_PATH: Record<LinkLocale, string> = {
   it: '/cerca-lavoro-ticino/ultimi-3-giorni/',
   en: '/en/find-jobs-ticino/last-3-days/',
@@ -107,7 +178,6 @@ const LAST_3_DAYS_PATH: Record<LinkLocale, string> = {
   fr: '/fr/trouver-emploi-tessin/derniers-3-jours/',
 };
 
-/** Recency hubs: "since yesterday". */
 const SINCE_YESTERDAY_PATH: Record<LinkLocale, string> = {
   it: '/cerca-lavoro-ticino/da-ieri/',
   en: '/en/find-jobs-ticino/since-yesterday/',
@@ -115,7 +185,6 @@ const SINCE_YESTERDAY_PATH: Record<LinkLocale, string> = {
   fr: '/fr/trouver-emploi-tessin/depuis-hier/',
 };
 
-/** Salary simulator / hub path (home calculator). */
 const SALARY_SIM_ROOT: Record<LinkLocale, string> = {
   it: '/',
   en: '/en/',
@@ -123,18 +192,93 @@ const SALARY_SIM_ROOT: Record<LinkLocale, string> = {
   fr: '/fr/',
 };
 
-/** City-hub path builder for the three geo hubs (Lugano/Mendrisio/Bellinzona). */
+/** Salary hub (distinct from home — more content-heavy benchmark page). */
+const SALARY_HUB_PATH: Record<LinkLocale, string> = {
+  it: '/stipendi-frontalieri-ticino/',
+  en: '/en/cross-border-salaries-ticino/',
+  de: '/de/grenzgaenger-loehne-tessin/',
+  fr: '/fr/salaires-frontaliers-tessin/',
+};
+
+/** Frontier-worker guide (permits + tax). */
+const FRONTIER_GUIDE_PATH: Record<LinkLocale, string> = {
+  it: '/guida-frontaliere/',
+  en: '/en/cross-border-worker-guide/',
+  de: '/de/grenzgaenger-leitfaden/',
+  fr: '/fr/guide-frontalier/',
+};
+
+/** City-hub path builder (Lugano / Mendrisio / Bellinzona — editorial landings). */
 function cityHubPath(locale: LinkLocale, city: 'lugano' | 'mendrisio' | 'bellinzona'): string {
   return `${JOB_LISTING_ROOT[locale].replace(/\/$/, '')}/${city}/`;
 }
 
+// ── Fuel station path builder (hub-and-spoke URL pattern) ────────
+
+/**
+ * `/prezzi-{fuel}/{city}/stazioni/{slug}/` — shape agreed with D-2A (hub-and-spoke).
+ * Defined here so the cross-feature helper can emit placeholder sibling links
+ * even before D-2A ships its feature plugin.
+ */
+function buildFuelStationPath(
+  locale: FuelDailyLocale,
+  fuel: FuelType,
+  zone: FuelZone,
+  stationSlug: string,
+): string {
+  const root = buildFuelTodayPath(locale, fuel, zone).replace(/oggi\/$|today\/$|heute\/$|aujourd-hui\/$/, '');
+  return `${root}stazioni/${stationSlug}/`.replace(/\/+/g, '/');
+}
+
+/** `/prezzi-{fuel}/italia/{city}/` — IT city landing. */
+function buildItalianCityPath(
+  locale: FuelDailyLocale,
+  fuel: FuelType,
+  italianCity: string,
+): string {
+  const root = buildFuelTodayPath(locale, fuel, undefined).replace(/oggi\/$|today\/$|heute\/$|aujourd-hui\/$/, '');
+  return `${root}italia/${italianCity}/`.replace(/\/+/g, '/');
+}
+
+/** `/aziende-che-assumono/{city}/{company}/settimana-corrente/` — F5 per-company. */
+function buildWeeklyCompanyCityPath(
+  locale: WeeklyEmployersLocale,
+  city: WeeklyEmployersCity,
+  companySlug: string,
+): string {
+  // Use the city current-week path as a spine and splice in the company slug
+  // before the trailing "settimana-corrente" segment.
+  const current = buildCurrentWeekPath(locale, city);
+  // current ends with "/{current-week-slug}/". Inject the company before it.
+  return current.replace(/\/([^/]+)\/$/, `/${companySlug}/$1/`);
+}
+
 // ── Localised strings ────────────────────────────────────────────
 
+interface SectionHeadings {
+  readonly nav: string;
+  readonly siblingGeneric: string;
+  readonly siblingFuelZones: string;
+  readonly siblingFuelStations: string;
+  readonly siblingItalianCities: string;
+  readonly siblingCities: string;
+  readonly siblingCompanyCities: string;
+  readonly siblingWeeks: string;
+  readonly siblingAges: string;
+  readonly siblingCrossings: string;
+  readonly siblingClusters: string;
+  readonly hubs: string;
+  readonly cross: string;
+}
+
 interface Copy {
-  readonly heading: string;
+  readonly headings: SectionHeadings;
   readonly fuelToday: (fuelLabel: string, zoneLabel?: string) => string;
+  readonly fuelStation: (brandOrStation: string, zoneLabel: string) => string;
+  readonly fuelItalianCity: (city: string, fuelLabel: string) => string;
   readonly fuelStatsTab: string;
   readonly weeklyEmployers: (cityLabel: string) => string;
+  readonly weeklyEmployerCompany: (company: string, city: string) => string;
   readonly jobMarketSnapshot: string;
   readonly cityJobsLugano: string;
   readonly cityJobsMendrisio: string;
@@ -148,22 +292,44 @@ interface Copy {
   readonly healthPremiumCanton: (cantonLabel: string) => string;
   readonly healthPremiumAgeBracket: (label: string) => string;
   readonly salaryBenchmarks: string;
+  readonly salaryHub: string;
   readonly costOfLiving: string;
   readonly borderWaitCrossing: (crossing: string) => string;
+  readonly borderWaitRegion: (region: string) => string;
   readonly borderWaitHub: string;
   readonly frontierGuide: string;
+  readonly salarySim: string;
 }
 
 /**
- * Link-label / section-title copy per locale. Short phrases only — the
- * related-links block is meant for skim-reading, not long-form content.
+ * Section heading + link-label copy per locale. These strings are inlined in
+ * static HTML — the client-facing `i18n` framework also mirrors the section
+ * heading keys under `services/locales/{lc}-seo-links.ts` for components that
+ * might reference them (footer, banners).
  */
 const COPY: Record<LinkLocale, Copy> = {
   it: {
-    heading: 'Approfondimenti correlati',
+    headings: {
+      nav: 'Correlati',
+      siblingGeneric: 'Pagine correlate',
+      siblingFuelZones: 'Altre zone del Ticino',
+      siblingFuelStations: 'Altre stazioni nella zona',
+      siblingItalianCities: 'Altre città italiane al confine',
+      siblingCities: 'Altre città del Ticino',
+      siblingCompanyCities: 'Stessa azienda in altre città',
+      siblingWeeks: 'Settimane precedenti',
+      siblingAges: 'Altre fasce d\'età',
+      siblingCrossings: 'Altri valichi della stessa zona',
+      siblingClusters: 'Ricerche correlate',
+      hubs: 'Hub principali',
+      cross: 'Altri strumenti per il frontaliere',
+    },
     fuelToday: (f, z) => (z ? `Prezzo ${f.toLowerCase()} oggi a ${z}` : `Prezzo ${f.toLowerCase()} oggi in Ticino`),
+    fuelStation: (s, z) => `Stazione ${s} a ${z}`,
+    fuelItalianCity: (c, f) => `Prezzo ${f.toLowerCase()} a ${c} (IT)`,
     fuelStatsTab: 'Statistiche prezzi carburanti',
     weeklyEmployers: (c) => `Aziende che assumono a ${c} questa settimana`,
+    weeklyEmployerCompany: (co, ci) => `${co} che assume a ${ci}`,
     jobMarketSnapshot: 'Mercato del lavoro in Ticino — report settimanale',
     cityJobsLugano: 'Offerte di lavoro a Lugano',
     cityJobsMendrisio: 'Offerte di lavoro a Mendrisio',
@@ -177,16 +343,36 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumCanton: (c) => `Premi cassa malati — ${c}`,
     healthPremiumAgeBracket: (l) => `Premi cassa malati ${l}`,
     salaryBenchmarks: 'Benchmark salari frontalieri 2026',
+    salaryHub: 'Stipendi frontalieri Ticino',
     costOfLiving: 'Costo della vita Svizzera vs Italia',
     borderWaitCrossing: (c) => `Coda dogana ${c} adesso`,
+    borderWaitRegion: (r) => `Tempi attesa ${r}`,
     borderWaitHub: 'Tempi attesa dogane Ticino — live',
     frontierGuide: 'Guida frontaliere: permessi e fisco',
+    salarySim: 'Calcola lo stipendio frontaliere',
   },
   en: {
-    heading: 'Related reading',
+    headings: {
+      nav: 'Related',
+      siblingGeneric: 'Related pages',
+      siblingFuelZones: 'Other Ticino areas',
+      siblingFuelStations: 'Other stations in the area',
+      siblingItalianCities: 'Other Italian border cities',
+      siblingCities: 'Other Ticino cities',
+      siblingCompanyCities: 'Same employer in other cities',
+      siblingWeeks: 'Previous weeks',
+      siblingAges: 'Other age brackets',
+      siblingCrossings: 'Other crossings in the same region',
+      siblingClusters: 'Related searches',
+      hubs: 'Main hubs',
+      cross: 'Other cross-border worker tools',
+    },
     fuelToday: (f, z) => (z ? `${f} price today in ${z}` : `${f} price today in Ticino`),
+    fuelStation: (s, z) => `${s} station in ${z}`,
+    fuelItalianCity: (c, f) => `${f} price in ${c} (IT)`,
     fuelStatsTab: 'Fuel price statistics',
     weeklyEmployers: (c) => `Companies hiring in ${c} this week`,
+    weeklyEmployerCompany: (co, ci) => `${co} hiring in ${ci}`,
     jobMarketSnapshot: 'Ticino job market — weekly report',
     cityJobsLugano: 'Jobs in Lugano',
     cityJobsMendrisio: 'Jobs in Mendrisio',
@@ -200,16 +386,36 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumCanton: (c) => `Health-insurance premiums — ${c}`,
     healthPremiumAgeBracket: (l) => `Premiums for ${l}`,
     salaryBenchmarks: 'Cross-border salary benchmarks 2026',
+    salaryHub: 'Cross-border salaries Ticino',
     costOfLiving: 'Cost of living Switzerland vs Italy',
     borderWaitCrossing: (c) => `${c} border wait right now`,
+    borderWaitRegion: (r) => `${r} border wait times`,
     borderWaitHub: 'Ticino border wait times — live',
     frontierGuide: 'Cross-border worker guide: permits & tax',
+    salarySim: 'Salary calculator',
   },
   de: {
-    heading: 'Weiterführende Seiten',
+    headings: {
+      nav: 'Verwandt',
+      siblingGeneric: 'Verwandte Seiten',
+      siblingFuelZones: 'Weitere Tessin-Regionen',
+      siblingFuelStations: 'Weitere Tankstellen in der Region',
+      siblingItalianCities: 'Weitere italienische Grenzstädte',
+      siblingCities: 'Weitere Tessiner Städte',
+      siblingCompanyCities: 'Gleicher Arbeitgeber in anderen Städten',
+      siblingWeeks: 'Vorherige Wochen',
+      siblingAges: 'Weitere Altersgruppen',
+      siblingCrossings: 'Weitere Übergänge derselben Region',
+      siblingClusters: 'Ähnliche Suchanfragen',
+      hubs: 'Hauptseiten',
+      cross: 'Weitere Grenzgänger-Werkzeuge',
+    },
     fuelToday: (f, z) => (z ? `${f}preis heute in ${z}` : `${f}preis heute im Tessin`),
+    fuelStation: (s, z) => `Tankstelle ${s} in ${z}`,
+    fuelItalianCity: (c, f) => `${f}preis in ${c} (IT)`,
     fuelStatsTab: 'Treibstoffpreis-Statistiken',
     weeklyEmployers: (c) => `Arbeitgeber, die in ${c} diese Woche einstellen`,
+    weeklyEmployerCompany: (co, ci) => `${co} stellt in ${ci} ein`,
     jobMarketSnapshot: 'Tessiner Arbeitsmarkt — Wochenbericht',
     cityJobsLugano: 'Jobs in Lugano',
     cityJobsMendrisio: 'Jobs in Mendrisio',
@@ -223,16 +429,36 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumCanton: (c) => `Krankenkassenprämien — ${c}`,
     healthPremiumAgeBracket: (l) => `Prämien für ${l}`,
     salaryBenchmarks: 'Lohn-Benchmarks für Grenzgänger 2026',
+    salaryHub: 'Grenzgänger-Löhne Tessin',
     costOfLiving: 'Lebenshaltungskosten Schweiz vs. Italien',
     borderWaitCrossing: (c) => `Wartezeit ${c} jetzt`,
+    borderWaitRegion: (r) => `Wartezeit ${r}`,
     borderWaitHub: 'Tessin-Wartezeiten an den Grenzen — live',
     frontierGuide: 'Grenzgänger-Leitfaden: Bewilligungen & Steuern',
+    salarySim: 'Lohnrechner',
   },
   fr: {
-    heading: 'Pour aller plus loin',
+    headings: {
+      nav: 'Liens utiles',
+      siblingGeneric: 'Pages similaires',
+      siblingFuelZones: 'Autres zones du Tessin',
+      siblingFuelStations: 'Autres stations dans la zone',
+      siblingItalianCities: 'Autres villes italiennes frontalières',
+      siblingCities: 'Autres villes du Tessin',
+      siblingCompanyCities: 'Même employeur dans d\'autres villes',
+      siblingWeeks: 'Semaines précédentes',
+      siblingAges: 'Autres tranches d\'âge',
+      siblingCrossings: 'Autres passages de la même région',
+      siblingClusters: 'Recherches associées',
+      hubs: 'Pages principales',
+      cross: 'Autres outils pour le frontalier',
+    },
     fuelToday: (f, z) => (z ? `Prix du ${f.toLowerCase()} aujourd'hui à ${z}` : `Prix du ${f.toLowerCase()} aujourd'hui au Tessin`),
+    fuelStation: (s, z) => `Station ${s} à ${z}`,
+    fuelItalianCity: (c, f) => `Prix du ${f.toLowerCase()} à ${c} (IT)`,
     fuelStatsTab: 'Statistiques prix carburants',
     weeklyEmployers: (c) => `Entreprises qui recrutent à ${c} cette semaine`,
+    weeklyEmployerCompany: (co, ci) => `${co} recrute à ${ci}`,
     jobMarketSnapshot: 'Marché du travail au Tessin — rapport hebdomadaire',
     cityJobsLugano: 'Offres à Lugano',
     cityJobsMendrisio: 'Offres à Mendrisio',
@@ -246,10 +472,13 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumCanton: (c) => `Primes assurance-maladie — ${c}`,
     healthPremiumAgeBracket: (l) => `Primes pour ${l}`,
     salaryBenchmarks: 'Benchmarks salariaux frontaliers 2026',
+    salaryHub: 'Salaires frontaliers Tessin',
     costOfLiving: 'Coût de la vie Suisse vs Italie',
     borderWaitCrossing: (c) => `File à ${c} en ce moment`,
+    borderWaitRegion: (r) => `Temps d'attente ${r}`,
     borderWaitHub: 'Temps d\'attente aux douanes du Tessin — direct',
     frontierGuide: 'Guide frontalier : permis & fiscalité',
+    salarySim: 'Calculateur de salaire',
   },
 };
 
@@ -263,25 +492,27 @@ function escHtml(s: unknown): string {
     .replace(/"/g, '&quot;');
 }
 
-/** Map a fuel zone to the display label in the given locale (proper noun). */
+function humanizeSlug(slug: string): string {
+  return slug
+    .split('-')
+    .map((p) => (p.length ? p[0].toUpperCase() + p.slice(1) : p))
+    .join(' ')
+    .trim();
+}
+
 function zoneLabel(zone: FuelZone): string {
   return FUEL_ZONE_DISPLAY[zone];
 }
 
-/**
- * Fuel-type display label per locale — kept here (and not imported from
- * fuelDailyData) to avoid a cross-module transitive dependency cycle.
- */
 function fuelLabel(locale: LinkLocale, fuel: FuelType): string {
-  if (fuel === 'diesel') return locale === 'de' || locale === 'en' || locale === 'it' ? 'Diesel' : 'Gasoil';
-  // benzina
+  if (fuel === 'diesel') return locale === 'fr' ? 'Gasoil' : 'Diesel';
   if (locale === 'it') return 'Benzina';
   if (locale === 'en') return 'Gasoline';
   if (locale === 'de') return 'Benzin';
   return 'Essence';
 }
 
-/** Pick 2–3 sibling fuel zones (not the one passed in) for the fuel_daily links. */
+/** Pick N sibling fuel zones (not the one passed). */
 function pickSiblingFuelZones(current: FuelZone | undefined, count: number): FuelZone[] {
   const out: FuelZone[] = [];
   for (const z of FUEL_ZONES) {
@@ -292,46 +523,81 @@ function pickSiblingFuelZones(current: FuelZone | undefined, count: number): Fue
   return out;
 }
 
-/** Normalize a string to a weekly-employers city key (falls back to 'ticino'). */
+/** Normalize a free-form string to a weekly-employers city key. */
 function normalizeWeeklyCity(raw: string | undefined): WeeklyEmployersCity {
   if (!raw) return 'ticino';
   const lc = raw.toLowerCase();
-  if (lc === 'ticino' || lc === 'lugano' || lc === 'mendrisio' || lc === 'chiasso'
-    || lc === 'stabio' || lc === 'bellinzona' || lc === 'locarno') {
-    return lc as WeeklyEmployersCity;
+  for (const city of WEEKLY_EMPLOYERS_CITIES) {
+    if (lc === city) return city;
   }
   return 'ticino';
 }
 
-/**
- * Pick the primary border-wait crossing for a given fuel zone / city context.
- * Used when we want to add one border-wait link inside the fuel-daily and
- * weekly-employers related-links blocks.
- */
+/** City → nearest crossing (for fuel ↔ border cross-links). */
 function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSlug {
   if (!cityOrZone) return 'chiasso-brogeda';
   const lc = cityOrZone.toLowerCase();
   if (lc === 'mendrisio' || lc === 'stabio') return 'gaggiolo';
   if (lc === 'lugano' || lc === 'bellinzona' || lc === 'locarno') return 'ponte-tresa';
-  // Default: chiasso-brogeda (covers chiasso zone + regional fallback)
   return 'chiasso-brogeda';
 }
 
-/** Pick 2 sibling crossings (not the one passed) in the same region when possible. */
+/** Pick sibling crossings (same region preferred). */
 function pickSiblingCrossings(
   current: BorderCrossingSlug,
   count: number,
 ): BorderCrossingSlug[] {
-  // Prefer traffic-heavy siblings: pick from the top-5 list first
-  const top5: BorderCrossingSlug[] = [
-    'chiasso-brogeda',
-    'chiasso-centro',
-    'gaggiolo',
-    'oria-gandria',
-    'ponte-tresa',
-  ];
-  const out: BorderCrossingSlug[] = [];
-  for (const c of top5) {
+  const currentRegion = CROSSING_TO_REGION[current];
+  const sameRegion: BorderCrossingSlug[] = [];
+  for (const c of TOP_5_CROSSINGS) {
+    if (c === current) continue;
+    if (CROSSING_TO_REGION[c] === currentRegion) sameRegion.push(c);
+  }
+  const otherRegion: BorderCrossingSlug[] = [];
+  for (const c of TOP_5_CROSSINGS) {
+    if (c === current) continue;
+    if (CROSSING_TO_REGION[c] !== currentRegion) otherRegion.push(c);
+  }
+  return [...sameRegion, ...otherRegion].slice(0, count);
+}
+
+/** Pick N sibling cities for F5 hub. */
+function pickSiblingCities(
+  current: WeeklyEmployersCity | undefined,
+  count: number,
+): WeeklyEmployersCity[] {
+  const out: WeeklyEmployersCity[] = [];
+  for (const c of WEEKLY_EMPLOYERS_CITIES) {
+    if (c === current) continue;
+    if (c === 'ticino') continue; // regional = parent hub, emitted separately
+    out.push(c);
+    if (out.length >= count) break;
+  }
+  return out;
+}
+
+/** Pick N sibling age brackets. */
+function pickSiblingAges(
+  current: HealthPremiumAgeBracket | undefined,
+  count: number,
+): HealthPremiumAgeBracket[] {
+  const all: HealthPremiumAgeBracket[] = ['0-18', '19-25', '26-30', '31-45', '46-55', '56-plus'];
+  const out: HealthPremiumAgeBracket[] = [];
+  for (const a of all) {
+    if (a === current) continue;
+    out.push(a);
+    if (out.length >= count) break;
+  }
+  return out;
+}
+
+/** Pick N sibling cantons. */
+function pickSiblingCantons(
+  current: HealthPremiumCanton | undefined,
+  count: number,
+): HealthPremiumCanton[] {
+  const out: HealthPremiumCanton[] = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
     if (c === current) continue;
     out.push(c);
     if (out.length >= count) break;
@@ -339,269 +605,478 @@ function pickSiblingCrossings(
   return out;
 }
 
-// ── Link builders per page type ─────────────────────────────────
+/** Deduplicate by href, preserving order. */
+function dedupe(links: RelatedLink[]): RelatedLink[] {
+  const seen = new Set<string>();
+  const out: RelatedLink[] = [];
+  for (const l of links) {
+    if (seen.has(l.href)) continue;
+    seen.add(l.href);
+    out.push(l);
+  }
+  return out;
+}
 
-function linksForFuelDaily(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
-  const fuel: FuelType = ctx?.fuelType ?? 'diesel';
-  const zone = ctx?.fuelZone;
-  const weeklyCity = normalizeWeeklyCity(ctx?.city ?? zone);
+function cityDisplay(city: WeeklyEmployersCity, locale: LinkLocale): string {
+  if (city === 'ticino') return locale === 'de' || locale === 'fr' ? 'Tessin' : 'Ticino';
+  return WEEKLY_EMPLOYERS_CITY_DISPLAY[city];
+}
+
+// ── Cluster builders per page type ───────────────────────────────
+
+type ClusterResult = {
+  sibling: RelatedLink[];
+  hubs: RelatedLink[];
+  cross: RelatedLink[];
+  /** Which sibling-heading to use for this page type. */
+  siblingHeadingKey: keyof SectionHeadings;
+};
+
+function clustersForFuelDaily(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const fuel: FuelType = ctx.fuelType ?? 'diesel';
+  const zone = ctx.fuelZone;
   const fuelDailyLocale = locale as FuelDailyLocale;
-  const weeklyLocale = locale as WeeklyEmployersLocale;
-  const jobMarketLocale = locale as JobMarketSnapshotLocale;
   const fuelL = fuelLabel(locale, fuel);
 
-  const siblings = pickSiblingFuelZones(zone, 2);
-  const out: RelatedLink[] = [];
+  // Sibling: 4 other fuel zones in Ticino.
+  const sibling: RelatedLink[] = pickSiblingFuelZones(zone, 4).map((sib) => ({
+    href: buildFuelTodayPath(fuelDailyLocale, fuel, sib),
+    title: copy.fuelToday(fuelL, zoneLabel(sib)),
+  }));
 
-  // 1) Weekly employers for the same city (or Ticino regional).
-  out.push({
-    href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
-    title: copy.weeklyEmployers(
-      weeklyCity === 'ticino' ? (locale === 'it' ? 'Ticino' : 'Ticino') : FUEL_ZONE_DISPLAY[weeklyCity as FuelZone] || weeklyCity,
-    ),
-  });
+  // Hubs: regional fuel + alternate fuel type.
+  const altFuel: FuelType = fuel === 'diesel' ? 'benzina' : 'diesel';
+  const hubs: RelatedLink[] = [
+    {
+      href: buildFuelTodayPath(fuelDailyLocale, fuel, undefined),
+      title: copy.fuelToday(fuelL),
+    },
+    {
+      href: buildFuelTodayPath(fuelDailyLocale, altFuel, zone),
+      title: copy.fuelToday(fuelLabel(locale, altFuel), zone ? zoneLabel(zone) : undefined),
+    },
+  ];
 
-  // 2) Job-market snapshot hub.
-  out.push({ href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot });
+  // Cross-category: border wait (nearest) + weekly employers (same city) +
+  // job-market snapshot.
+  const nearestCrossing = crossingForCityOrZone(zone ?? ctx.city);
+  const weeklyCity = normalizeWeeklyCity(ctx.city ?? zone);
+  const cross: RelatedLink[] = [
+    {
+      href: buildBorderOggiPath(locale as BorderWaitLocale, nearestCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[nearestCrossing]),
+    },
+    {
+      href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
+      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+    },
+    {
+      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+      title: copy.jobMarketSnapshot,
+    },
+  ];
 
-  // 3) Border-wait for the crossing closest to this zone — bidirectional
-  //    internal link (fuel-zone ↔ border-wait) that satisfies the F8 test
-  //    gate and gives commuters a quick "check queue before you fill up"
-  //    path.
-  {
-    const borderCrossing = crossingForCityOrZone(zone ?? ctx?.city);
-    out.push({
-      href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
-      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
-    });
-  }
-
-  // 4) One sibling fuel zone (same fuel, same locale).
-  for (const sib of siblings.slice(0, 1)) {
-    out.push({
-      href: buildFuelTodayPath(fuelDailyLocale, fuel, sib),
-      title: copy.fuelToday(fuelL, zoneLabel(sib)),
-    });
-  }
-
-  // 5) All jobs (listing root) for the locale — broad discovery anchor.
-  out.push({ href: JOB_LISTING_ROOT[locale], title: copy.allJobs });
-
-  return out.slice(0, 5);
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingFuelZones' };
 }
 
-function linksForWeeklyEmployers(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
-  const weeklyLocale = locale as WeeklyEmployersLocale;
+function clustersForFuelStation(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const fuel: FuelType = ctx.fuelType ?? 'diesel';
+  const zone = ctx.fuelZone ?? 'chiasso';
   const fuelDailyLocale = locale as FuelDailyLocale;
-  const jobMarketLocale = locale as JobMarketSnapshotLocale;
-  const weeklyCity = normalizeWeeklyCity(ctx?.weeklyCity ?? ctx?.city);
+  const stationSlug = ctx.stationSlug ?? 'stazione';
 
-  const out: RelatedLink[] = [];
+  // Sibling: 4-5 other stations in the same zone (pseudo — real data fed by
+  // plugin; we synthesise slugs from the zone + an enumerator so even without
+  // real context the structure is sound).
+  const stationSiblings: string[] = ['eni', 'agip', 'tamoil', 'shell', 'migrol']
+    .filter((brand) => `${zone}-${brand}` !== stationSlug)
+    .slice(0, 5);
+  const sibling: RelatedLink[] = stationSiblings.map((brand) => ({
+    href: buildFuelStationPath(fuelDailyLocale, fuel, zone, `${zone}-${brand}`),
+    title: copy.fuelStation(humanizeSlug(brand), zoneLabel(zone)),
+  }));
 
-  // 1) Job-market weekly report hub.
-  out.push({ href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot });
+  // Hubs: zone hub + regional hub.
+  const hubs: RelatedLink[] = [
+    {
+      href: buildFuelTodayPath(fuelDailyLocale, fuel, zone),
+      title: copy.fuelToday(fuelLabel(locale, fuel), zoneLabel(zone)),
+    },
+    {
+      href: buildFuelTodayPath(fuelDailyLocale, fuel, undefined),
+      title: copy.fuelToday(fuelLabel(locale, fuel)),
+    },
+  ];
 
-  // 2) City-jobs hub (Lugano/Mendrisio/Bellinzona) if the weekly city is one.
-  if (weeklyCity === 'lugano') {
-    out.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
-  } else if (weeklyCity === 'mendrisio') {
-    out.push({ href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio });
-  } else if (weeklyCity === 'bellinzona') {
-    out.push({ href: cityHubPath(locale, 'bellinzona'), title: copy.cityJobsBellinzona });
-  } else {
-    out.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
-  }
+  // Cross-category.
+  const nearestCrossing = crossingForCityOrZone(zone);
+  const weeklyCity = normalizeWeeklyCity(zone);
+  const cross: RelatedLink[] = [
+    {
+      href: buildBorderOggiPath(locale as BorderWaitLocale, nearestCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[nearestCrossing]),
+    },
+    {
+      href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
+      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+    },
+    { href: SALARY_SIM_ROOT[locale], title: copy.salarySim },
+  ];
 
-  // 3) Recency hubs: last 3 days.
-  out.push({ href: LAST_3_DAYS_PATH[locale], title: copy.last3Days });
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingFuelStations' };
+}
 
-  // 4) Fuel daily for the same city (fall back to regional).
+function clustersForFuelItalianCity(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const fuel: FuelType = ctx.fuelType ?? 'diesel';
+  const italianCity = ctx.italianCity ?? 'como';
+  const fuelDailyLocale = locale as FuelDailyLocale;
+  const fuelL = fuelLabel(locale, fuel);
+
+  // Sibling: 4 other Italian cities near the border.
+  const otherItCities = ['como', 'varese', 'luino', 'ponte-tresa-italia', 'gallarate']
+    .filter((c) => c !== italianCity)
+    .slice(0, 4);
+  const sibling: RelatedLink[] = otherItCities.map((c) => ({
+    href: buildItalianCityPath(fuelDailyLocale, fuel, c),
+    title: copy.fuelItalianCity(humanizeSlug(c), fuelL),
+  }));
+
+  // Hubs: regional fuel (Ticino) + nearest CH zone.
+  const nearestZone: FuelZone = italianCity === 'como' ? 'chiasso' : italianCity === 'varese' ? 'mendrisio' : 'lugano';
+  const hubs: RelatedLink[] = [
+    {
+      href: buildFuelTodayPath(fuelDailyLocale, fuel, undefined),
+      title: copy.fuelToday(fuelL),
+    },
+    {
+      href: buildFuelTodayPath(fuelDailyLocale, fuel, nearestZone),
+      title: copy.fuelToday(fuelL, zoneLabel(nearestZone)),
+    },
+  ];
+
+  // Cross-category.
+  const nearestCrossing = crossingForCityOrZone(nearestZone);
+  const cross: RelatedLink[] = [
+    {
+      href: buildBorderOggiPath(locale as BorderWaitLocale, nearestCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[nearestCrossing]),
+    },
+    { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
+    { href: SALARY_HUB_PATH[locale], title: copy.salaryHub },
+  ];
+
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingItalianCities' };
+}
+
+function clustersForWeeklyEmployers(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const weeklyCity = normalizeWeeklyCity(ctx.weeklyCity ?? ctx.city);
+  const weeklyLocale = locale as WeeklyEmployersLocale;
+
+  // Sibling: 4 other cities.
+  const sibling: RelatedLink[] = pickSiblingCities(weeklyCity, 4).map((c) => ({
+    href: buildCurrentWeekPath(weeklyLocale, c),
+    title: copy.weeklyEmployers(cityDisplay(c, locale)),
+  }));
+
+  // Hubs: regional Ticino + editorial city hub if match.
+  const hubs: RelatedLink[] = [
+    {
+      href: buildCurrentWeekPath(weeklyLocale, 'ticino'),
+      title: copy.weeklyEmployers(cityDisplay('ticino', locale)),
+    },
+  ];
+  if (weeklyCity === 'lugano') hubs.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
+  else if (weeklyCity === 'mendrisio') hubs.push({ href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio });
+  else if (weeklyCity === 'bellinzona') hubs.push({ href: cityHubPath(locale, 'bellinzona'), title: copy.cityJobsBellinzona });
+  else hubs.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
+
+  // Cross-category: F4 snapshot + F6 fuel (same city) + F8 border + last-3-days.
+  const nearestCrossing = crossingForCityOrZone(weeklyCity);
   const fuelZoneForCity: FuelZone | undefined =
-    weeklyCity === 'lugano' || weeklyCity === 'mendrisio'
-      || weeklyCity === 'chiasso' || weeklyCity === 'bellinzona'
-      || weeklyCity === 'locarno'
-      ? weeklyCity
+    weeklyCity === 'lugano' || weeklyCity === 'mendrisio' || weeklyCity === 'chiasso'
+      || weeklyCity === 'bellinzona' || weeklyCity === 'locarno'
+      ? weeklyCity as FuelZone
       : undefined;
-  out.push({
-    href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZoneForCity),
-    title: copy.fuelToday(fuelLabel(locale, 'diesel'), fuelZoneForCity ? zoneLabel(fuelZoneForCity) : undefined),
-  });
+  const cross: RelatedLink[] = [
+    {
+      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+      title: copy.jobMarketSnapshot,
+    },
+    {
+      href: buildFuelTodayPath(locale as FuelDailyLocale, 'diesel', fuelZoneForCity),
+      title: copy.fuelToday(fuelLabel(locale, 'diesel'), fuelZoneForCity ? zoneLabel(fuelZoneForCity) : undefined),
+    },
+    {
+      href: buildBorderOggiPath(locale as BorderWaitLocale, nearestCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[nearestCrossing]),
+    },
+    { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
+  ];
 
-  // 5) Border-wait for the crossing closest to this city — "check the queue
-  //    before you commute to the job" is a natural cross-link.
-  {
-    const borderCrossing = crossingForCityOrZone(weeklyCity);
-    out.push({
-      href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
-      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
-    });
-  }
-
-  return out.slice(0, 5);
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingCities' };
 }
 
-function linksForBorderWait(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
+function clustersForWeeklyEmployerCompanyCity(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const weeklyCity = normalizeWeeklyCity(ctx.weeklyCity ?? ctx.city);
   const weeklyLocale = locale as WeeklyEmployersLocale;
-  const fuelDailyLocale = locale as FuelDailyLocale;
-  const borderLocale = locale as BorderWaitLocale;
-  const currentCrossing = ctx?.borderCrossing ?? 'chiasso-brogeda';
-  const fuelZone = ctx?.fuelZone ?? CROSSING_TO_FUEL_ZONE[currentCrossing];
-  const weeklyCity = normalizeWeeklyCity(ctx?.city ?? CROSSING_TO_WEEKLY_CITY[currentCrossing]);
+  const companySlug = ctx.companySlug ?? 'company';
+  const companyLabel = humanizeSlug(companySlug);
 
-  const out: RelatedLink[] = [];
+  // Sibling: same company in 3-4 other cities.
+  const sibling: RelatedLink[] = pickSiblingCities(weeklyCity, 4).map((c) => ({
+    href: buildWeeklyCompanyCityPath(weeklyLocale, c, companySlug),
+    title: copy.weeklyEmployerCompany(companyLabel, cityDisplay(c, locale)),
+  }));
 
-  // 1) Fuel daily for the closest zone — commuters fill up on the Swiss side.
-  out.push({
-    href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone),
-    title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)),
-  });
+  // Hubs: same-city F5 hub + regional Ticino F5 hub.
+  const hubs: RelatedLink[] = [
+    {
+      href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
+      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+    },
+    {
+      href: buildCurrentWeekPath(weeklyLocale, 'ticino'),
+      title: copy.weeklyEmployers(cityDisplay('ticino', locale)),
+    },
+  ];
 
-  // 2) Weekly employers for the closest city.
-  out.push({
-    href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
-    title: copy.weeklyEmployers(
-      weeklyCity === 'ticino'
-        ? locale === 'de' || locale === 'fr'
-          ? 'Tessin'
-          : 'Ticino'
-        : FUEL_ZONE_DISPLAY[weeklyCity as FuelZone] || weeklyCity,
-    ),
-  });
+  // Cross-category.
+  const nearestCrossing = crossingForCityOrZone(weeklyCity);
+  const cross: RelatedLink[] = [
+    {
+      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+      title: copy.jobMarketSnapshot,
+    },
+    {
+      href: buildBorderOggiPath(locale as BorderWaitLocale, nearestCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[nearestCrossing]),
+    },
+    { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
+  ];
 
-  // 3-4) Two sibling crossings — same region traffic alternatives.
-  const siblings = pickSiblingCrossings(currentCrossing, 2);
-  for (const sib of siblings) {
-    out.push({
-      href: buildBorderOggiPath(borderLocale, sib),
-      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[sib]),
-    });
-  }
-
-  // 5) Frontier worker guide (generic evergreen anchor).
-  out.push({ href: JOB_LISTING_ROOT[locale], title: copy.frontierGuide });
-
-  return out.slice(0, 5);
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingCompanyCities' };
 }
 
-function linksForJobMarketSnapshot(locale: LinkLocale, copy: Copy, _ctx?: RelatedLinksContext): RelatedLink[] {
+function clustersForJobMarketSnapshot(
+  locale: LinkLocale,
+  copy: Copy,
+  _ctx: RelatedLinksContext,
+): ClusterResult {
   const weeklyLocale = locale as WeeklyEmployersLocale;
-  const out: RelatedLink[] = [];
 
-  // 1) Weekly employers Ticino regional.
-  out.push({ href: buildCurrentWeekPath(weeklyLocale, 'ticino'), title: copy.weeklyEmployers(locale === 'de' ? 'Tessin' : locale === 'fr' ? 'Tessin' : 'Ticino') });
+  // Sibling: 4 city F5 hubs.
+  const sibling: RelatedLink[] = (['lugano', 'mendrisio', 'chiasso', 'bellinzona'] as const).map((c) => ({
+    href: buildCurrentWeekPath(weeklyLocale, c),
+    title: copy.weeklyEmployers(cityDisplay(c, locale)),
+  }));
 
-  // 2-3) City hubs (Lugano, Mendrisio).
-  out.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
-  out.push({ href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio });
+  // Hubs: regional F5 + main listing root.
+  const hubs: RelatedLink[] = [
+    {
+      href: buildCurrentWeekPath(weeklyLocale, 'ticino'),
+      title: copy.weeklyEmployers(cityDisplay('ticino', locale)),
+    },
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
+  ];
 
-  // 4) Recency hub — last 3 days.
-  out.push({ href: LAST_3_DAYS_PATH[locale], title: copy.last3Days });
+  // Cross-category: city hubs + recency hub + salary benchmarks.
+  const cross: RelatedLink[] = [
+    { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
+    { href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio },
+    { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
+    { href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks },
+  ];
 
-  // 5) Salary benchmarks home (calculator root).
-  out.push({ href: SALARY_SIM_ROOT[locale], title: copy.salaryBenchmarks });
-
-  return out.slice(0, 5);
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingCities' };
 }
 
-function linksForHealthPremiums(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
+function clustersForHealthPremiums(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
   const hpLocale = locale as HealthPremiumLocale;
-  const out: RelatedLink[] = [];
+  const currentCanton: HealthPremiumCanton = ctx.cantonSlug ?? 'ticino';
+  const currentAge: HealthPremiumAgeBracket | undefined = ctx.age;
 
-  const currentCanton: HealthPremiumCanton = ctx?.cantonSlug ?? 'ticino';
-  const currentAge: HealthPremiumAgeBracket | undefined = ctx?.age;
+  // Sibling: either 4 other ages (if we're on a leaf) or 4 other cantons.
+  const sibling: RelatedLink[] = currentAge
+    ? pickSiblingAges(currentAge, 4).map((a) => ({
+      href: buildHealthPremiumsLeafPath(hpLocale, currentCanton, a),
+      title: copy.healthPremiumAgeBracket(HEALTH_PREMIUM_AGE_LABEL[hpLocale][a]),
+    }))
+    : pickSiblingCantons(currentCanton, 4).map((c) => ({
+      href: buildHealthPremiumsCantonPath(hpLocale, c),
+      title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale][c]),
+    }));
 
-  // 1) Health comparator.
-  out.push({ href: HEALTH_PREMIUM_COMPARATOR_PATH[hpLocale], title: copy.healthComparator });
-
-  // 2) Root health-premiums hub (or alternate canton when current IS ticino).
-  if (currentCanton === 'ticino') {
-    out.push({
-      href: buildHealthPremiumsCantonPath(hpLocale, 'grigioni'),
-      title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale].grigioni),
-    });
-  } else {
-    out.push({
-      href: buildHealthPremiumsCantonPath(hpLocale, 'ticino'),
-      title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale].ticino),
-    });
-  }
-
-  // 3-4) Sibling age brackets (different from current).
-  const allAges: HealthPremiumAgeBracket[] = ['0-18', '19-25', '26-30', '31-45', '46-55', '56-plus'];
-  const siblings = allAges.filter((a) => a !== currentAge).slice(0, 2);
-  for (const s of siblings) {
-    out.push({
-      href: buildHealthPremiumsLeafPath(hpLocale, currentCanton, s),
-      title: copy.healthPremiumAgeBracket(HEALTH_PREMIUM_AGE_LABEL[hpLocale][s]),
+  // Hubs: canton hub + root hub (or root + alt canton if we're already on canton).
+  const hubs: RelatedLink[] = [];
+  if (currentAge) {
+    hubs.push({
+      href: buildHealthPremiumsCantonPath(hpLocale, currentCanton),
+      title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale][currentCanton]),
     });
   }
+  hubs.push({ href: buildHealthPremiumsRootPath(hpLocale), title: copy.healthPremiums });
 
-  // 5) Salary benchmarks (fiscal-adjacent — net salary drives insurer choice).
-  out.push({ href: SALARY_SIM_ROOT[locale], title: copy.salaryBenchmarks });
+  // Cross-category: comparator + salary sim + cost of living (guide) +
+  // frontier guide.
+  const cross: RelatedLink[] = [
+    {
+      href: HEALTH_PREMIUM_COMPARATOR_PATH[hpLocale],
+      title: copy.healthComparator,
+      rel: 'nofollow',
+    },
+    { href: SALARY_SIM_ROOT[locale], title: copy.salarySim },
+    { href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks },
+    { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
+  ];
 
-  return out.slice(0, 5);
+  return {
+    sibling,
+    hubs,
+    cross,
+    siblingHeadingKey: currentAge ? 'siblingAges' : 'siblingGeneric',
+  };
 }
 
-function linksForOrphanLanding(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
-  const jobMarketLocale = locale as JobMarketSnapshotLocale;
+function clustersForBorderWait(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const borderLocale = locale as BorderWaitLocale;
+  const currentCrossing: BorderCrossingSlug = ctx.borderCrossing ?? 'chiasso-brogeda';
+  const region = CROSSING_TO_REGION[currentCrossing];
+
+  // Sibling: 4 other crossings (same region first, then other).
+  const sibling: RelatedLink[] = pickSiblingCrossings(currentCrossing, 4).map((c) => ({
+    href: buildBorderOggiPath(borderLocale, c),
+    title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[c]),
+  }));
+
+  // Hubs: regional + root hub.
+  const hubs: RelatedLink[] = [
+    {
+      href: buildBorderRegionalHubPath(borderLocale, region),
+      title: copy.borderWaitRegion(BORDER_REGION_DISPLAY[region]),
+    },
+    { href: buildBorderRootHubPath(borderLocale), title: copy.borderWaitHub },
+  ];
+
+  // Cross-category: fuel (nearest zone) + weekly employers (nearest city) +
+  // job-market hub + frontier guide.
+  const fuelZone = CROSSING_TO_FUEL_ZONE[currentCrossing];
+  const weeklyCity = CROSSING_TO_WEEKLY_CITY[currentCrossing] as WeeklyEmployersCity;
+  const cross: RelatedLink[] = [
+    {
+      href: buildFuelTodayPath(locale as FuelDailyLocale, 'diesel', fuelZone),
+      title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)),
+    },
+    {
+      href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
+      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+    },
+    {
+      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+      title: copy.jobMarketSnapshot,
+    },
+    { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
+  ];
+
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingCrossings' };
+}
+
+function clustersForOrphanLanding(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx: RelatedLinksContext,
+): ClusterResult {
+  const weeklyCity = normalizeWeeklyCity(ctx.city);
   const weeklyLocale = locale as WeeklyEmployersLocale;
-  const weeklyCity = normalizeWeeklyCity(ctx?.city);
 
-  const out: RelatedLink[] = [];
+  // Sibling: 4 "related search" clusters. When we have the orphan slug
+  // we synthesise a few sibling slug variants; otherwise fall back to
+  // high-value listing variants.
+  const sibling: RelatedLink[] = [
+    { href: SINCE_YESTERDAY_PATH[locale], title: copy.sinceYesterday },
+    { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
+    { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
+    { href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio },
+  ];
 
-  // 1) Main job listing root.
-  out.push({ href: JOB_LISTING_ROOT[locale], title: copy.allJobs });
-
-  // 2) City hub if we infer one from context (else Lugano default).
+  // Hubs: main listing + city hub (contextual).
+  const hubs: RelatedLink[] = [{ href: JOB_LISTING_ROOT[locale], title: copy.allJobs }];
   if (weeklyCity === 'mendrisio') {
-    out.push({ href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio });
+    hubs.push({ href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio });
   } else if (weeklyCity === 'bellinzona') {
-    out.push({ href: cityHubPath(locale, 'bellinzona'), title: copy.cityJobsBellinzona });
+    hubs.push({ href: cityHubPath(locale, 'bellinzona'), title: copy.cityJobsBellinzona });
   } else {
-    out.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
+    hubs.push({ href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano });
   }
 
-  // 3) Job-market snapshot.
-  out.push({ href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot });
+  // Cross-category.
+  const cross: RelatedLink[] = [
+    {
+      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+      title: copy.jobMarketSnapshot,
+    },
+    {
+      href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
+      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+    },
+    { href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks },
+  ];
 
-  // 4) Weekly employers (same city or Ticino).
-  out.push({
-    href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
-    title: copy.weeklyEmployers(locale === 'de' || locale === 'fr' ? 'Tessin' : 'Ticino'),
-  });
-
-  // 5) "Since yesterday" recency hub.
-  out.push({ href: SINCE_YESTERDAY_PATH[locale], title: copy.sinceYesterday });
-
-  return out.slice(0, 5);
+  return { sibling, hubs, cross, siblingHeadingKey: 'siblingClusters' };
 }
 
-// ── Public API ──────────────────────────────────────────────────
-
-/**
- * Compute the 5 cross-feature related links for the given page type + locale.
- * Exposed separately from the HTML renderer so tests can assert link targets
- * and labels without parsing HTML.
- */
-export function generateRelatedLinks(
+function clustersFor(
   locale: LinkLocale,
   pageType: SeoPageType,
-  context?: RelatedLinksContext,
-): RelatedLink[] {
-  const copy = COPY[locale];
+  ctx: RelatedLinksContext,
+  copy: Copy,
+): ClusterResult {
   switch (pageType) {
     case 'fuel_daily':
-      return linksForFuelDaily(locale, copy, context);
+      return clustersForFuelDaily(locale, copy, ctx);
+    case 'fuel_station':
+      return clustersForFuelStation(locale, copy, ctx);
+    case 'fuel_italian_city':
+      return clustersForFuelItalianCity(locale, copy, ctx);
     case 'weekly_employers':
-      return linksForWeeklyEmployers(locale, copy, context);
+      return clustersForWeeklyEmployers(locale, copy, ctx);
+    case 'weekly_employer_company_city':
+      return clustersForWeeklyEmployerCompanyCity(locale, copy, ctx);
     case 'job_market_snapshot':
-      return linksForJobMarketSnapshot(locale, copy, context);
+      return clustersForJobMarketSnapshot(locale, copy, ctx);
     case 'health_premiums':
-      return linksForHealthPremiums(locale, copy, context);
+      return clustersForHealthPremiums(locale, copy, ctx);
     case 'orphan_landing':
-      return linksForOrphanLanding(locale, copy, context);
+      return clustersForOrphanLanding(locale, copy, ctx);
     case 'border_wait':
-      return linksForBorderWait(locale, copy, context);
+      return clustersForBorderWait(locale, copy, ctx);
     default: {
       const exhaustive: never = pageType;
       throw new Error(`unknown SeoPageType: ${String(exhaustive)}`);
@@ -609,32 +1084,248 @@ export function generateRelatedLinks(
   }
 }
 
+// ── Caps / normalisation ────────────────────────────────────────
+
+const MAX_LINKS_PER_PAGE = 12;
+const MIN_LINKS_PER_PAGE = 6;
+const MAX_SIBLING = 6;
+const MAX_HUBS = 3;
+const MAX_CROSS = 4;
+
 /**
- * Render the related-links block as a complete `<nav>` HTML string ready
- * to be inlined at the end of a page body (before the closing `</main>`).
+ * Apply per-cluster caps + global cap + dedup. Preserves the sibling → hubs →
+ * cross ordering so the flattened list matches what's rendered.
+ */
+function capClusters(clusters: ClusterResult): ClusterResult {
+  const sibling = dedupe(clusters.sibling).slice(0, MAX_SIBLING);
+  const hubsAfterSibling = dedupe([...sibling, ...clusters.hubs]).slice(sibling.length);
+  const hubs = hubsAfterSibling.slice(0, MAX_HUBS);
+  const crossAfter = dedupe([...sibling, ...hubs, ...clusters.cross]).slice(sibling.length + hubs.length);
+  const cross = crossAfter.slice(0, MAX_CROSS);
+
+  // Global cap of 12 — trim crosscategory first, then hubs.
+  let total = sibling.length + hubs.length + cross.length;
+  let cappedCross = cross;
+  let cappedHubs = hubs;
+  if (total > MAX_LINKS_PER_PAGE) {
+    const over = total - MAX_LINKS_PER_PAGE;
+    if (cappedCross.length >= over) {
+      cappedCross = cappedCross.slice(0, cappedCross.length - over);
+    } else {
+      const crossRemoved = cappedCross.length;
+      cappedCross = [];
+      cappedHubs = cappedHubs.slice(0, cappedHubs.length - (over - crossRemoved));
+    }
+  }
+
+  return {
+    sibling,
+    hubs: cappedHubs,
+    cross: cappedCross,
+    siblingHeadingKey: clusters.siblingHeadingKey,
+  };
+}
+
+// ── Public API ──────────────────────────────────────────────────
+
+/**
+ * Build the structured 3-cluster output. Primary API for tests and advanced
+ * consumers that want per-section metadata (heading, aria-label, link count).
  *
- * The aria-label reflects the section heading so screen-reader users have a
- * unique landmark even if multiple `<nav>` elements coexist on the page.
- *
- * CSS is inlined via `style=` attributes (consistent with the rest of the
- * plugin HTML) — no Tailwind classes, no `dark:` prefixes.
+ * Falls back to the legacy 5-link flat list when the 3-cluster build produces
+ * fewer than {@link MIN_LINKS_PER_PAGE} links — guarantees every page has at
+ * least some link equity below the fold.
+ */
+export function generateRelatedLinksStructured(
+  locale: LinkLocale,
+  pageType: SeoPageType,
+  context: RelatedLinksContext = {},
+): RelatedLinksOutput {
+  const copy = COPY[locale];
+  const raw = clustersFor(locale, pageType, context, copy);
+  const capped = capClusters(raw);
+  const total = capped.sibling.length + capped.hubs.length + capped.cross.length;
+
+  // Fallback: if the 3-cluster output is thin, fall back to the legacy
+  // 5-link flat render. This only trips when context is missing to the
+  // point where sibling builders produce no data.
+  if (total < MIN_LINKS_PER_PAGE) {
+    const legacy = legacyFlatLinks(locale, pageType, context);
+    const flat = dedupe(legacy).slice(0, MAX_LINKS_PER_PAGE);
+    const sections: RelatedLinkSection[] = [
+      {
+        kind: 'sibling',
+        titleKey: `related.section.sibling.${pageType}`,
+        heading: copy.headings.siblingGeneric,
+        ariaLabel: copy.headings.siblingGeneric,
+        links: flat,
+      },
+    ];
+    return { sections, flat, html: renderHtml(copy, sections) };
+  }
+
+  const allSections: RelatedLinkSection[] = [
+    {
+      kind: 'sibling',
+      titleKey: `related.section.sibling.${pageType}`,
+      heading: copy.headings[capped.siblingHeadingKey],
+      ariaLabel: copy.headings[capped.siblingHeadingKey],
+      links: capped.sibling,
+    },
+    {
+      kind: 'hubs',
+      titleKey: 'related.section.hubs',
+      heading: copy.headings.hubs,
+      ariaLabel: copy.headings.hubs,
+      links: capped.hubs,
+    },
+    {
+      kind: 'cross',
+      titleKey: 'related.section.cross',
+      heading: copy.headings.cross,
+      ariaLabel: copy.headings.cross,
+      links: capped.cross,
+    },
+  ];
+  const sections: RelatedLinkSection[] = allSections.filter((s) => s.links.length > 0);
+
+  const flat: RelatedLink[] = sections.flatMap((s) => s.links as RelatedLink[]);
+  return { sections, flat, html: renderHtml(copy, sections) };
+}
+
+/**
+ * Flat list of related links (backwards-compatible API). Returns the union
+ * of all sections from the 3-cluster builder, capped at 12.
+ */
+export function generateRelatedLinks(
+  locale: LinkLocale,
+  pageType: SeoPageType,
+  context: RelatedLinksContext = {},
+): RelatedLink[] {
+  return [...generateRelatedLinksStructured(locale, pageType, context).flat];
+}
+
+/**
+ * Render the related-links block as a full `<nav>` HTML string. Backwards
+ * compatible with the pre-D-2C helper — all existing plugin call sites
+ * (~6 plugins) continue to work without changes and now emit the richer
+ * 3-cluster markup automatically.
  */
 export function generateRelatedLinksBlock(
   locale: LinkLocale,
   pageType: SeoPageType,
-  context?: RelatedLinksContext,
+  context: RelatedLinksContext = {},
 ): string {
+  return generateRelatedLinksStructured(locale, pageType, context).html;
+}
+
+// ── HTML rendering ──────────────────────────────────────────────
+
+/**
+ * Render the 3-cluster sections as semantic HTML. Uses inline-styled markup
+ * consistent with sibling feature plugins; colours come from `index.css`
+ * semantic tokens via CSS custom properties, so the block auto-adapts to
+ * dark mode without any `dark:` prefix.
+ */
+function renderHtml(copy: Copy, sections: readonly RelatedLinkSection[]): string {
+  if (sections.length === 0) return '';
+
+  const sectionHtml = sections
+    .map((sec) => {
+      const items = sec.links
+        .map(
+          (l) =>
+            `<li style="margin:0;padding:0"><a href="${escHtml(l.href)}"${l.rel ? ` rel="${escHtml(l.rel)}"` : ''} style="display:inline-block;padding:6px 0;color:var(--color-accent, #1d4ed8);text-decoration:none;font-weight:500;line-height:1.4">${escHtml(l.title)}</a></li>`,
+        )
+        .join('');
+      return `<section aria-label="${escHtml(sec.ariaLabel)}" data-cluster="${escHtml(sec.kind)}" style="min-width:0">
+  <h3 style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--color-subtle, #64748b)">${escHtml(sec.heading)}</h3>
+  <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">${items}</ul>
+</section>`;
+    })
+    .join('\n  ');
+
+  return `<nav id="seoRelatedLinks" aria-label="${escHtml(copy.headings.nav)}" style="margin:40px 0 0;padding:24px 22px 20px;border-radius:18px;background:var(--color-surface-alt, #f8fafc);border:1px solid var(--color-edge, #e2e8f0);display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+  ${sectionHtml}
+</nav>`;
+}
+
+// ── Legacy 5-link fallback (kept for safety net) ─────────────────
+
+/**
+ * The pre-D-2C builder produced 5 flat links per page. We keep it as a
+ * "thin-result" fallback to guarantee every page ships with at least
+ * {@link MIN_LINKS_PER_PAGE} related links even when context is sparse.
+ */
+function legacyFlatLinks(
+  locale: LinkLocale,
+  pageType: SeoPageType,
+  context: RelatedLinksContext,
+): RelatedLink[] {
   const copy = COPY[locale];
-  const links = generateRelatedLinks(locale, pageType, context);
-  if (links.length === 0) return '';
-  const items = links
-    .map(
-      (l) => `<li style="margin:0;padding:0"><a href="${escHtml(l.href)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600;line-height:1.4">${escHtml(l.title)} →</a></li>`,
-    )
-    .join('');
-  const ariaLabel = copy.heading;
-  return `<nav id="seoRelatedLinks" aria-label="${escHtml(ariaLabel)}" style="margin:32px 0 0;padding:20px 22px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0">
-    <h2 style="margin:0 0 12px;font-size:18px;color:#0f172a">${escHtml(copy.heading)}</h2>
-    <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 18px">${items}</ul>
-  </nav>`;
+  const weeklyLocale = locale as WeeklyEmployersLocale;
+  const fuelDailyLocale = locale as FuelDailyLocale;
+  const jobMarketLocale = locale as JobMarketSnapshotLocale;
+  const borderLocale = locale as BorderWaitLocale;
+  const weeklyCity = normalizeWeeklyCity(context.city);
+  switch (pageType) {
+    case 'fuel_daily':
+    case 'fuel_station':
+    case 'fuel_italian_city':
+      return [
+        { href: buildFuelTodayPath(fuelDailyLocale, context.fuelType ?? 'diesel', undefined), title: copy.fuelToday(fuelLabel(locale, context.fuelType ?? 'diesel')) },
+        { href: buildCurrentWeekPath(weeklyLocale, weeklyCity), title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)) },
+        { href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot },
+        { href: buildBorderOggiPath(borderLocale, 'chiasso-brogeda'), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY['chiasso-brogeda']) },
+        { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
+      ];
+    case 'weekly_employers':
+    case 'weekly_employer_company_city':
+      return [
+        { href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot },
+        { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
+        { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
+        { href: buildFuelTodayPath(fuelDailyLocale, 'diesel', undefined), title: copy.fuelToday(fuelLabel(locale, 'diesel')) },
+        { href: buildBorderOggiPath(borderLocale, 'chiasso-brogeda'), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY['chiasso-brogeda']) },
+      ];
+    case 'job_market_snapshot':
+      return [
+        { href: buildCurrentWeekPath(weeklyLocale, 'ticino'), title: copy.weeklyEmployers(cityDisplay('ticino', locale)) },
+        { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
+        { href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio },
+        { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
+        { href: SALARY_SIM_ROOT[locale], title: copy.salaryBenchmarks },
+      ];
+    case 'health_premiums': {
+      const canton = context.cantonSlug ?? 'ticino';
+      const hpLocale = locale as HealthPremiumLocale;
+      return [
+        { href: HEALTH_PREMIUM_COMPARATOR_PATH[hpLocale], title: copy.healthComparator },
+        { href: buildHealthPremiumsCantonPath(hpLocale, canton === 'ticino' ? 'grigioni' : 'ticino'), title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale][canton === 'ticino' ? 'grigioni' : 'ticino']) },
+        { href: buildHealthPremiumsLeafPath(hpLocale, canton, '19-25'), title: copy.healthPremiumAgeBracket(HEALTH_PREMIUM_AGE_LABEL[hpLocale]['19-25']) },
+        { href: buildHealthPremiumsLeafPath(hpLocale, canton, '31-45'), title: copy.healthPremiumAgeBracket(HEALTH_PREMIUM_AGE_LABEL[hpLocale]['31-45']) },
+        { href: SALARY_SIM_ROOT[locale], title: copy.salaryBenchmarks },
+      ];
+    }
+    case 'orphan_landing':
+      return [
+        { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
+        { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
+        { href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot },
+        { href: buildCurrentWeekPath(weeklyLocale, weeklyCity), title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)) },
+        { href: SINCE_YESTERDAY_PATH[locale], title: copy.sinceYesterday },
+      ];
+    case 'border_wait': {
+      const crossing = context.borderCrossing ?? 'chiasso-brogeda';
+      const fuelZone = CROSSING_TO_FUEL_ZONE[crossing];
+      const nearCity = CROSSING_TO_WEEKLY_CITY[crossing] as WeeklyEmployersCity;
+      return [
+        { href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone), title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)) },
+        { href: buildCurrentWeekPath(weeklyLocale, nearCity), title: copy.weeklyEmployers(cityDisplay(nearCity, locale)) },
+        { href: buildBorderOggiPath(borderLocale, pickSiblingCrossings(crossing, 1)[0]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[pickSiblingCrossings(crossing, 1)[0]]) },
+        { href: buildBorderOggiPath(borderLocale, pickSiblingCrossings(crossing, 2)[1]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[pickSiblingCrossings(crossing, 2)[1]]) },
+        { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
+      ];
+    }
+  }
 }
