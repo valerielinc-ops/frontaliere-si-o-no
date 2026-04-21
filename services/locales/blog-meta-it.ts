@@ -2445,6 +2445,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cybercrimepolice-ticino-italiano-2026.title': 'Cybercrimepolice.ch ora disponibile in italiano: maggiore accessibilità per i frontalieri',
     'blog.article.cybercrimepolice-ticino-italiano-2026.excerpt': 'La piattaforma nazionale di prevenzione Cybercrimepolice.ch è ora disponibile anche in italiano, grazie al contributo della Polizia cantonale ticinese.',
     'blog.article.cybercrimepolice-ticino-italiano-2026.imageAlt': 'Una persona che utilizza un laptop per accedere alla piattaforma Cybercrimepolice.ch in un ufficio a Lugano',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.title': 'Azienda assume autisti in Lombardia: 800 euro al mese, poi contratto e premio di 3000 euro',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.excerpt': 'FNM Autoservizi cerca nuovi autisti con un percorso formativo retribuito e un premio di ingresso di 3000 euro',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.imageAlt': 'Autista in Lombardia vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;

@@ -10527,6 +10527,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-azienda-assume-autisti-lombardia-800-euro': {
+    title: 'Azienda assume autisti in Lombardia | Frontaliere Ticino',
+    description: 'FNM Autoservizi cerca nuovi autisti con un percorso formativo retribuito e un premio di ingresso di 3000 euro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, azienda, assume, autisti, lombardia',
+    ogTitle: 'Azienda assume autisti in Lombardia | Frontaliere Ticino',
+    ogDescription: 'FNM Autoservizi cerca nuovi autisti con un percorso formativo retribuito e un premio di ingresso di 3000 euro',
+    canonicalPath: '/articoli-frontaliere/azienda-assume-autisti-lombardia-800-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Azienda assume autisti in Lombardia: 800 euro al mese, poi contratto e premio di 3000 euro",
+      "description": "FNM Autoservizi cerca nuovi autisti con un percorso formativo retribuito e un premio di ingresso di 3000 euro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/azienda-assume-autisti-lombardia-800-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autista in Lombardia vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-04-21T11:23:54+00:00",
+      "dateModified": "2026-04-21T11:23:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azienda-assume-autisti-lombardia-800-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

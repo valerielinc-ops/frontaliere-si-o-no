@@ -2445,6 +2445,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cybercrimepolice-ticino-italiano-2026.title': 'Cybercrimepolice.ch désormais disponible en italien : une meilleure accessibilité pour les frontaliers',
     'blog.article.cybercrimepolice-ticino-italiano-2026.excerpt': 'La plateforme nationale de prévention Cybercrimepolice.ch est désormais également disponible en italien, grâce à la contribution de la Police cantonale tessinoise.',
     'blog.article.cybercrimepolice-ticino-italiano-2026.imageAlt': 'Une personne utilisant un ordinateur portable pour accéder à la plateforme Cybercrimepolice.ch dans un bureau à Lugano',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.title': 'Entreprise recrute des chauffeurs en Lombardie : 800 euros par mois, puis contrat et prime de 3000 euros',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.excerpt': 'FNM Autoservizi recherche de nouveaux chauffeurs avec un parcours de formation rémunéré et une prime d\'entrée de 3000 euros',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.imageAlt': 'Chauffeur de bus en Lombardie près du lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -6690,4 +6690,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cybercrimepolice-ticino-italiano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'azienda-assume-autisti-lombardia-800-euro',
+ category: 'novita',
+ date: '2026-04-21T11:23:54.416Z',
+ image: '/images/blog/azienda-assume-autisti-lombardia-800-euro.jpg',
+ hasCalculator: true,
+ },
 ];

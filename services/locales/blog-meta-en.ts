@@ -2445,6 +2445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cybercrimepolice-ticino-italiano-2026.title': 'Cybercrimepolice.ch now available in Italian: greater accessibility for cross-border workers',
     'blog.article.cybercrimepolice-ticino-italiano-2026.excerpt': 'The national cybercrime prevention platform Cybercrimepolice.ch is now also available in Italian, thanks to the contribution of the Ticino Cantonal Police.',
     'blog.article.cybercrimepolice-ticino-italiano-2026.imageAlt': 'A person using a laptop to access the Cybercrimepolice.ch platform in an office in Lugano',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.title': 'Company hires drivers in Lombardy: 800 euros per month, then contract and 3000 euro bonus',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.excerpt': 'FNM Autoservizi is looking for new drivers with a paid training program and a 3000 euro sign-on bonus',
+    'blog.article.azienda-assume-autisti-lombardia-800-euro.imageAlt': 'Bus driver in Lombardy near Lake Lugano',
 };
 
 export default blogMetaEn;
