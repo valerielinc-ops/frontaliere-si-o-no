@@ -41,6 +41,24 @@ const translations: Record<string, string> = {
   'seoLinks.jobBoard.employers': 'Aziende che assumono',
   'seoLinks.jobBoard.healthPremiums': 'Premi cassa malati',
   'seoLinks.jobBoard.salary': 'Benchmark salari',
+
+  // Related-links 3-cluster section headings (D-2 Expansion C).
+  // These are used by the shared build-plugins/shared/relatedLinks.ts helper
+  // for the sibling / parent-hubs / cross-category clusters rendered at the
+  // bottom of every SEO landing page.
+  'related.section.nav': 'Correlati',
+  'related.section.hubs': 'Hub principali',
+  'related.section.cross': 'Altri strumenti per il frontaliere',
+  'related.section.sibling.generic': 'Pagine correlate',
+  'related.section.sibling.fuel_daily': 'Altre zone del Ticino',
+  'related.section.sibling.fuel_station': 'Altre stazioni nella zona',
+  'related.section.sibling.fuel_italian_city': 'Altre città italiane al confine',
+  'related.section.sibling.weekly_employers': 'Altre città del Ticino',
+  'related.section.sibling.weekly_employer_company_city': 'Stessa azienda in altre città',
+  'related.section.sibling.job_market_snapshot': 'Settimane precedenti',
+  'related.section.sibling.health_premiums': 'Altre fasce d\'età',
+  'related.section.sibling.border_wait': 'Altri valichi della stessa zona',
+  'related.section.sibling.orphan_landing': 'Ricerche correlate',
 };
 
 export default translations;

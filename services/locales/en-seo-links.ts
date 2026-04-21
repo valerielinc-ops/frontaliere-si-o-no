@@ -35,6 +35,21 @@ const enSeoLinks: Record<string, string> = {
   'seoLinks.jobBoard.employers': 'Companies hiring',
   'seoLinks.jobBoard.healthPremiums': 'Health-insurance premiums',
   'seoLinks.jobBoard.salary': 'Salary benchmarks',
+
+  // Related-links 3-cluster section headings (D-2 Expansion C).
+  'related.section.nav': 'Related',
+  'related.section.hubs': 'Main hubs',
+  'related.section.cross': 'Other cross-border worker tools',
+  'related.section.sibling.generic': 'Related pages',
+  'related.section.sibling.fuel_daily': 'Other Ticino areas',
+  'related.section.sibling.fuel_station': 'Other stations in the area',
+  'related.section.sibling.fuel_italian_city': 'Other Italian border cities',
+  'related.section.sibling.weekly_employers': 'Other Ticino cities',
+  'related.section.sibling.weekly_employer_company_city': 'Same employer in other cities',
+  'related.section.sibling.job_market_snapshot': 'Previous weeks',
+  'related.section.sibling.health_premiums': 'Other age brackets',
+  'related.section.sibling.border_wait': 'Other crossings in the same region',
+  'related.section.sibling.orphan_landing': 'Related searches',
 };
 
 export default enSeoLinks;

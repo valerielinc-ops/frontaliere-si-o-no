@@ -35,6 +35,21 @@ const deSeoLinks: Record<string, string> = {
   'seoLinks.jobBoard.employers': 'Arbeitgeber, die einstellen',
   'seoLinks.jobBoard.healthPremiums': 'Krankenkassenprämien',
   'seoLinks.jobBoard.salary': 'Lohn-Benchmarks',
+
+  // Related-links 3-cluster section headings (D-2 Expansion C).
+  'related.section.nav': 'Verwandt',
+  'related.section.hubs': 'Hauptseiten',
+  'related.section.cross': 'Weitere Grenzgänger-Werkzeuge',
+  'related.section.sibling.generic': 'Verwandte Seiten',
+  'related.section.sibling.fuel_daily': 'Weitere Tessin-Regionen',
+  'related.section.sibling.fuel_station': 'Weitere Tankstellen in der Region',
+  'related.section.sibling.fuel_italian_city': 'Weitere italienische Grenzstädte',
+  'related.section.sibling.weekly_employers': 'Weitere Tessiner Städte',
+  'related.section.sibling.weekly_employer_company_city': 'Gleicher Arbeitgeber in anderen Städten',
+  'related.section.sibling.job_market_snapshot': 'Vorherige Wochen',
+  'related.section.sibling.health_premiums': 'Weitere Altersgruppen',
+  'related.section.sibling.border_wait': 'Weitere Übergänge derselben Region',
+  'related.section.sibling.orphan_landing': 'Ähnliche Suchanfragen',
 };
 
 export default deSeoLinks;
