@@ -4,6 +4,21 @@
  * Source: Wikipedia + tabella valichi ufficiali Lombardia-Ticino 2026
  */
 
+export interface WebcamRef {
+ /** Localised display label, e.g. "A2 Chiasso-Brogeda direzione nord". */
+ label: string;
+ /** Direct URL to the JPEG/GIF frame (hotlink-friendly). */
+ imageUrl: string;
+ /** Human-readable source name for attribution, e.g. "Dipartimento del territorio – Canton Ticino". */
+ sourceName: string;
+ /** Public URL of the source page that hosts the webcam (attribution link). */
+ sourceUrl: string;
+ /** Refresh interval in ms — used by the inline JS cache-buster. Default 60_000. */
+ refreshIntervalMs?: number;
+ /** Optional explicit license note shown in <figcaption>. */
+ license?: string;
+}
+
 export interface BorderCrossing {
  name: string;
  italianSide: string;
@@ -20,7 +35,29 @@ export interface BorderCrossing {
  trafficLevel: 'high' | 'medium' | 'low' | 'closed';
  peak: string;
  tips: string;
+ /**
+  * Whether BAZG (Swiss Federal Office of Customs and Border Security) publishes
+  * authoritative waiting-time data for this crossing. When true, the traffic
+  * scheduler should prefer BAZG over TomTom/Google derived estimates.
+  * NOTE: BAZG public JSON endpoint not discoverable as of 2026-04; flag is
+  * future-proofing and currently has no runtime effect (cascade not wired).
+  */
+ bazgCoverage?: boolean;
+ /**
+  * Hotlinkable public webcams covering the crossing. Source: Dipartimento del
+  * territorio, Canton Ticino (https://www.ti.ch/webcam) — GIF snapshots
+  * refreshed ~every 60s, Cache-Control: max-age=60. Verified hotlink-friendly
+  * (200 OK with no Referer or cookies).
+  */
+ webcams?: WebcamRef[];
 }
+
+/**
+ * Shared metadata for the Ticino Cantonal webcam feeds.
+ * All feeds live under `https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/`.
+ */
+const TI_POLCA_SOURCE_NAME = 'Dipartimento del territorio – Canton Ticino';
+const TI_POLCA_SOURCE_URL = 'https://www.ti.ch/webcam';
 
 export const borderCrossings: BorderCrossing[] = [
  // COMO - TICINO
@@ -40,6 +77,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'high',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.chiassoCentro',
+ webcams: [
+ {
+ label: 'A2 – Chiasso via Como (direzione sud)',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Chiasso-Brogeda',
@@ -57,6 +103,30 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'medium',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.chiassoBrogeda',
+ bazgCoverage: true,
+ webcams: [
+ {
+ label: 'A2 – Chiasso Brogeda direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Chiasso Brogeda valico doganale',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Chiasso Brogeda valico commerciale',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Chiasso-Strada',
@@ -74,6 +144,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'medium',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.chiassoStrada',
+ webcams: [
+ {
+ label: 'A2 – Chiasso via Como (direzione sud)',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Maslianico-Pizzamiglio',
@@ -227,6 +306,7 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.oriaGandria',
+ bazgCoverage: true,
  },
  // VARESE - TICINO
  {
@@ -245,6 +325,23 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'high',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.gaggiolo',
+ bazgCoverage: true,
+ webcams: [
+ {
+ label: 'A24 – Stabio direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Mendrisio-Stabio direzione sud',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'San Pietro (Clivio-Stabio)',
@@ -262,6 +359,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'medium',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.sanPietro',
+ webcams: [
+ {
+ label: 'A24 – Stabio direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Clivio-Ligornetto',
