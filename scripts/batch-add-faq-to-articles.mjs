@@ -254,16 +254,27 @@ function hasFaqKey(fileContent) {
   return /\.faq'\s*:/.test(fileContent);
 }
 
-/** Read and concatenate body1+body2+body3 from file content */
+/** Read and concatenate all bodyN keys from file content.
+ *  Supports both single-quoted ('...') and backtick-quoted (`...`) string values,
+ *  and any number of body keys (body1, body2, ..., bodyN).
+ */
 function extractBodyContent(fileContent) {
   const bodies = [];
-  for (const n of ['body1', 'body2', 'body3']) {
-    const re = new RegExp(`\\.${n}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 's');
-    const m = fileContent.match(re);
-    if (m) {
-      // Unescape the TS string: \\' → ', \\n → newline, \\\\ → backslash
-      bodies.push(m[1].replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\'));
+  // Match `.bodyN':` followed by either a single-quoted or backtick-quoted value.
+  // The capturing group \1 pins the opening quote char to its matching closer.
+  const re = /\.body\d+'\s*:\s*(['`])((?:\\.|(?!\1)[\s\S])*?)\1/g;
+  let m;
+  while ((m = re.exec(fileContent)) !== null) {
+    const quoteChar = m[1];
+    let content = m[2];
+    if (quoteChar === "'") {
+      // Single-quoted TS string: unescape \' \n \\
+      content = content.replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
+    } else {
+      // Backtick (template literal): unescape \` \$ \\
+      content = content.replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
     }
+    bodies.push(content);
   }
   return bodies.join('\n\n');
 }
@@ -380,6 +391,38 @@ async function callFaqModel(messages, opts = {}) {
   }
   // All Gemini failed — fall back to general chain
   return callLLM(messages, opts);
+}
+
+/**
+ * Enrich body context when the article body is genuinely short.
+ * Instead of skipping, synthesize a richer explainer from the article ID
+ * (and whatever body text is available) so the FAQ generator has something
+ * to work with. Does NOT modify the article body files — only produces an
+ * in-memory context string used for FAQ generation.
+ */
+async function enrichBodyForFaq(articleId, shortBody) {
+  const topic = articleId.replace(/-/g, ' ');
+  const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Scrivi un testo informativo in italiano (circa 1500-2500 parole) sull'argomento seguente, con dati concreti, cifre, riferimenti normativi 2026 e aspetti pratici rilevanti per un frontaliere italiano che lavora in Ticino.
+
+ARGOMENTO (dallo slug dell'articolo): "${topic}"
+
+${shortBody && shortBody.trim().length > 0 ? `TESTO ESISTENTE (estendilo e arricchiscilo, NON ripeterlo identicamente):\n${shortBody.slice(0, 2000)}\n` : ''}
+REGOLE:
+- Copri aspetti DIVERSI: contesto, normativa, dati, calcoli di esempio, casi pratici, scadenze, errori comuni
+- Dati concreti (aliquote, importi CHF/EUR, soglie, anni)
+- Tono professionale, non promozionale
+- NON generare FAQ o domande qui — solo contenuto informativo continuo
+- Usa apostrofi diritti ('), mai virgolette curve
+- Rispondi SOLO con il testo, senza titoli markdown iniziali, senza code fences
+
+Scrivi ora il testo:`;
+
+  const raw = await callFaqModel(
+    [{ role: 'user', content: prompt }],
+    { temperature: 0.5, maxTokens: 4000 },
+  );
+  const text = String(raw || '').replace(/^```[a-z]*\s*/i, '').replace(/\s*```\s*$/, '').trim();
+  return text;
 }
 
 async function generateFaqIT(articleId, bodyText) {
@@ -595,10 +638,21 @@ async function processArticle(articleId, file, itBodyContent) {
   const label = `[${articleId}]`;
 
   // 1. Extract Italian body text
-  const bodyText = extractBodyContent(itBodyContent);
-  if (!bodyText || bodyText.length < 100) {
-    console.error(`${label} ⚠️  Body text too short (${bodyText?.length || 0} chars), skipping`);
-    return { success: false, error: 'Body too short' };
+  let bodyText = extractBodyContent(itBodyContent);
+  if (!bodyText || bodyText.length < 200) {
+    console.error(`${label} ⚠️  Body text short (${bodyText?.length || 0} chars), enriching before FAQ generation...`);
+    try {
+      const enriched = await enrichBodyForFaq(articleId, bodyText || '');
+      if (!enriched || enriched.length < 500) {
+        console.error(`${label} ❌ Enrichment returned too little content (${enriched?.length || 0} chars)`);
+        return { success: false, error: 'Body too short (enrichment failed)' };
+      }
+      bodyText = enriched;
+      console.error(`${label} ✅ Enriched body to ${bodyText.length} chars`);
+    } catch (enrichErr) {
+      console.error(`${label} ❌ Enrichment failed: ${enrichErr.message}`);
+      return { success: false, error: `Enrichment failed: ${enrichErr.message}` };
+    }
   }
 
   // 2. Generate Italian FAQ
@@ -672,10 +726,21 @@ async function processArticle(articleId, file, itBodyContent) {
 async function processTopUp(articleId, file, itContent, existingFaq) {
   const label = `[${articleId}] [TOP-UP ${existingFaq.length}→${MIN_FAQ_PAIRS}+]`;
 
-  const bodyText = extractBodyContent(itContent);
-  if (!bodyText || bodyText.length < 100) {
-    console.error(`${label} ⚠️  Body too short, skipping`);
-    return { success: false, error: 'Body too short' };
+  let bodyText = extractBodyContent(itContent);
+  if (!bodyText || bodyText.length < 200) {
+    console.error(`${label} ⚠️  Body short (${bodyText?.length || 0} chars), enriching before top-up...`);
+    try {
+      const enriched = await enrichBodyForFaq(articleId, bodyText || '');
+      if (!enriched || enriched.length < 500) {
+        console.error(`${label} ❌ Enrichment returned too little content (${enriched?.length || 0} chars)`);
+        return { success: false, error: 'Body too short (enrichment failed)' };
+      }
+      bodyText = enriched;
+      console.error(`${label} ✅ Enriched body to ${bodyText.length} chars`);
+    } catch (enrichErr) {
+      console.error(`${label} ❌ Enrichment failed: ${enrichErr.message}`);
+      return { success: false, error: `Enrichment failed: ${enrichErr.message}` };
+    }
   }
 
   // 1. Generate additional FAQ pairs
