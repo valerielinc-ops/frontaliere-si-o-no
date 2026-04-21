@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-04-20T21:13:23.277Z",
+  "assembledAt": "2026-04-21T09:42:28.896Z",
   "jobs": [
     {
       "id": "cedes-08f2188aed4b",
@@ -39,11 +39,11 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T21:13:21.409Z",
+      "crawledAt": "2026-04-21T09:42:26.959Z",
       "previousSlugs": [
         "packaging-line-worker-100-cedes-landquart"
       ],
@@ -59,6 +59,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:15.192Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -110,11 +111,11 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-20",
+      "postedDate": "2026-04-21",
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-20T21:13:21.135Z",
+      "crawledAt": "2026-04-21T09:42:26.662Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
