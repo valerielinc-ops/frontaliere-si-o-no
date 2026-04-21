@@ -1,109 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T13:41:15.533Z",
-    "label": "before",
-    "total": 2177,
-    "needsRetranslation": 100,
-    "incomplete": 46,
-    "complete": 2131,
-    "missingByLocale": {
-      "it": 12,
-      "en": 43,
-      "de": 12,
-      "fr": 21
-    },
-    "topPending": [
-      {
-        "company": "TALLY WEiJL",
-        "pending": 24
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "FNZ (Switzerland) AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T13:44:35.153Z",
-    "label": "after",
-    "total": 2177,
-    "needsRetranslation": 88,
-    "incomplete": 35,
-    "complete": 2142,
-    "missingByLocale": {
-      "it": 10,
-      "en": 33,
-      "de": 2,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "TALLY WEiJL",
-        "pending": 24
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T15:56:44.693Z",
     "label": "before",
     "total": 2177,
@@ -7330,6 +7226,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T11:04:13.614Z",
+    "label": "before",
+    "total": 2613,
+    "needsRetranslation": 897,
+    "incomplete": 128,
+    "complete": 2485,
+    "missingByLocale": {
+      "it": 64,
+      "en": 82,
+      "de": 98,
+      "fr": 117
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 7
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 5
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 3
+      },
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 3
+      },
+      {
+        "company": "Denner",
+        "pending": 3
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T12:18:42.036Z",
+    "label": "after",
+    "total": 2613,
+    "needsRetranslation": 81,
+    "incomplete": 38,
+    "complete": 2575,
+    "missingByLocale": {
+      "it": 32,
+      "en": 9,
+      "de": 31,
+      "fr": 35
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "HES-SO Valais-Wallis",
+        "pending": 2
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
         "pending": 1
       }
     ]
