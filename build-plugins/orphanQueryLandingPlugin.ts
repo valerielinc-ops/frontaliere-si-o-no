@@ -60,6 +60,7 @@ import {
   type OrphanCountableJob,
   type OrphanLandingRoute,
 } from './orphanQueryData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -364,6 +365,7 @@ function renderPage(opts: {
       <a href="${esc(jobBoardRoot[locale])}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
       <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
     </section>
+    ${generateRelatedLinksBlock(locale, 'orphan_landing', { city: topCities[0]?.name })}
   `;
 
   const wordCount = countHtmlBodyWords(body);

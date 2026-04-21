@@ -64,6 +64,7 @@ import {
   sundayOfIsoWeek,
   type JobMarketSnapshotLocale,
 } from './jobMarketSnapshotData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -1076,6 +1077,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${methodology}
     ${faqHtml}
     ${relatedHtml}
+    ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </main>`;
 
   return `<!doctype html>
@@ -1257,6 +1259,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ${methodology}
     ${faqHtml}
     ${relatedHtml}
+    ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </main>`;
 
   return `<!doctype html>

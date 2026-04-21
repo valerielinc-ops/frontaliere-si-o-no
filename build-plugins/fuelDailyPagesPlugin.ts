@@ -47,6 +47,7 @@ import {
   type FuelType,
   type FuelZone,
 } from './fuelDailyData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -650,6 +651,7 @@ function renderPage(inp: PageInputs): string {
     ${trendHtml}
   </section>
   ${faqHtml}
+  ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
 </main>`;
 
   // Word count sanity check (hard-gated later by the caller)

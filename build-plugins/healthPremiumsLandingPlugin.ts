@@ -52,6 +52,7 @@ import {
   type HealthPremiumLocale,
   type HealthPremiumRiskClass,
 } from './healthPremiumsData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
 // ── Types (dataset shape) ──────────────────────────────────────
 
@@ -1022,6 +1023,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <a href="${esc(comparatorHref)}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
+  ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
 </main>`;
 
   return `<!doctype html>
@@ -1216,6 +1218,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <a href="${esc(comparatorHref)}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
+  ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
 </main>`;
 
   return `<!doctype html>
@@ -1383,6 +1386,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
+  ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
 </main>`;
 
   return `<!doctype html>

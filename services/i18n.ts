@@ -36,6 +36,7 @@ const localeChunkLoaders: Record<string, Record<string, ChunkLoader>> = {
  guide: () => import('./locales/en-guide'),
  vita: () => import('./locales/en-vita'),
  stats: () => import('./locales/en-stats'),
+ 'seo-links': () => import('./locales/en-seo-links'),
  },
  de: {
  core: () => import('./locales/de-core'),
@@ -45,6 +46,7 @@ const localeChunkLoaders: Record<string, Record<string, ChunkLoader>> = {
  guide: () => import('./locales/de-guide'),
  vita: () => import('./locales/de-vita'),
  stats: () => import('./locales/de-stats'),
+ 'seo-links': () => import('./locales/de-seo-links'),
  },
  fr: {
  core: () => import('./locales/fr-core'),
@@ -54,6 +56,7 @@ const localeChunkLoaders: Record<string, Record<string, ChunkLoader>> = {
  guide: () => import('./locales/fr-guide'),
  vita: () => import('./locales/fr-vita'),
  stats: () => import('./locales/fr-stats'),
+ 'seo-links': () => import('./locales/fr-seo-links'),
  },
 };
 
@@ -200,11 +203,17 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  localeTick++;
  listeners.forEach(fn => fn(currentLocale));
  }
- const [core, calc] = await Promise.all([chunks.core(), chunks.calculator()]);
+ const [core, calc, seoLinks] = await Promise.all([
+ chunks.core(),
+ chunks.calculator(),
+ chunks['seo-links'] ? chunks['seo-links']() : Promise.resolve({ default: {} as Translations }),
+ ]);
  mergeLocaleTranslations(locale, core.default);
  mergeLocaleTranslations(locale, calc.default);
+ mergeLocaleTranslations(locale, seoLinks.default);
  loadedLocaleChunks[locale].add('core');
  loadedLocaleChunks[locale].add('calculator');
+ loadedLocaleChunks[locale].add('seo-links');
 
  // If blog meta was already loaded, merge meta keys for this locale too
  if (blogMetaLoaded) {
@@ -398,6 +407,7 @@ const itPageLoaders: Record<string, () => Promise<{ default: Translations }>> = 
  fisco: () => import('./locales/it-fisco'),
  vita: () => import('./locales/it-vita'),
  stats: () => import('./locales/it-stats'),
+ 'seo-links': () => import('./locales/it-seo-links'),
 };
 const loadedItPages = new Set<string>();
 
@@ -410,13 +420,16 @@ function mergeItTranslations(translations: Translations): void {
  }
 }
 
-/** Promise that resolves once core + calculator IT translations are loaded. */
+/** Promise that resolves once core + calculator + seo-links IT translations are loaded. */
 export const itReady: Promise<void> = Promise.all([
  import('./locales/it-core'),
  import('./locales/it-calculator'),
-]).then(([core, calc]) => {
+ import('./locales/it-seo-links'),
+]).then(([core, calc, seoLinks]) => {
  mergeItTranslations(core.default);
  mergeItTranslations(calc.default);
+ mergeItTranslations(seoLinks.default);
+ loadedItPages.add('seo-links');
  _itReady = true;
  // Background-load remaining page chunks after first render
  const loadRemaining = () => {

@@ -53,6 +53,7 @@ import {
  Clock,
  Euro,
  Eye,
+ Heart,
  Loader2,
  Mail,
  MapPin,
@@ -63,6 +64,7 @@ import {
  Star,
  ArrowRight,
  Tag,
+ TrendingUp,
  UserCheck,
  Users,
  X,
@@ -97,6 +99,10 @@ import {
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import type { Article } from '@/data/blog-articles-data';
+// Layer 2D — Internal linking: cross-feature SEO page builders (sidebar "Strumenti correlati").
+import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
+import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
+import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -7097,6 +7103,53 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {authGateModalJsx}
+
+ {/* Layer 2D — Internal linking: Strumenti correlati sidebar block. */}
+ <aside
+ aria-label={t('seoLinks.jobBoard.title')}
+ data-testid="jobboard-seo-sidebar"
+ className="rounded-2xl border border-edge bg-surface p-4"
+ >
+ <h3 className="text-sm font-bold text-heading mb-2">{t('seoLinks.jobBoard.title')}</h3>
+ <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 list-none p-0 m-0">
+ <li>
+ <a
+ href={buildJobMarketHubPath(locale)}
+ className="inline-flex items-center gap-2 text-xs text-subtle hover:text-accent transition-colors no-underline py-1"
+ >
+ <TrendingUp className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+ {t('seoLinks.jobBoard.jobMarket')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={buildCurrentWeekPath(locale, 'ticino')}
+ className="inline-flex items-center gap-2 text-xs text-subtle hover:text-accent transition-colors no-underline py-1"
+ >
+ <Building2 className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+ {t('seoLinks.jobBoard.employers')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={buildHealthPremiumsCantonPath(locale, 'ticino')}
+ className="inline-flex items-center gap-2 text-xs text-subtle hover:text-success transition-colors no-underline py-1"
+ >
+ <Heart className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+ {t('seoLinks.jobBoard.healthPremiums')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={locale === 'it' ? '/' : `/${locale}/`}
+ className="inline-flex items-center gap-2 text-xs text-subtle hover:text-accent transition-colors no-underline py-1"
+ >
+ <Calculator className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+ {t('seoLinks.jobBoard.salary')}
+ </a>
+ </li>
+ </ul>
+ </aside>
 
  <div className="bg-gradient-to-br from-info-subtle to-accent-subtle rounded-2xl p-6 border border-info-border">
  <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
