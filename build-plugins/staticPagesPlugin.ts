@@ -2438,15 +2438,9 @@ ${hrefTags}
  const locNormalized = locPath.replace(/\/+$/, '') || '/';
  // Deterministic skip: if ogPagesPlugin owns this path, don't race on fs.existsSync
  if (ogPagesPaths.has(locNormalized)) continue;
- if (fs.existsSync(locFile)) {
- // Ensure flat .html exists even if directory index.html was created by another plugin
- const flatLoc = np.join(distDir, locPath + '.html');
- if (!fs.existsSync(flatLoc)) {
- const existingLocHtml = fs.readFileSync(locFile, 'utf-8');
- _qw(flatLoc, existingLocHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
- }
- continue;
- }
+ // NOTE: previously skipped when fs.existsSync(locFile), but that blocked schema
+ // re-translation on incremental builds. staticPagesPlugin owns all non-ogPages locale
+ // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
  const locSeo = seoMap.get(locPath) ?? deriveLocaleSeo(locPath, hl.lang, seo);
