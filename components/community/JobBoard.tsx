@@ -78,6 +78,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
 import { SkeletonJobDetail } from '@/components/shared/Skeletons';
 import { useExpiredJob, hasSeededExpiredData } from '@/hooks/useExpiredJob';
+import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
 import { AD_SLOTS } from '@/services/adsenseSlots';
@@ -2500,6 +2501,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [locale] = useLocale();
  const nav = useNavigation();
  const pageSize = 10;
+ // Runtime kill-switches for the "Strumenti correlati" sidebar cross-links.
+ // Toggle via Firebase Remote Config — each `<li>` respects its own flag.
+ const killSwitches = useKillSwitches();
 
  const [jobs, setJobs] = useState<JobListing[]>([]);
  const [jobsLoading, setJobsLoading] = useState(true);
@@ -7112,6 +7116,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  <h3 className="text-sm font-bold text-heading mb-2">{t('seoLinks.jobBoard.title')}</h3>
  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 list-none p-0 m-0">
+ {!killSwitches.jobMarket && (
  <li>
  <a
  href={buildJobMarketHubPath(locale)}
@@ -7121,6 +7126,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('seoLinks.jobBoard.jobMarket')}
  </a>
  </li>
+ )}
+ {!killSwitches.weeklyEmployers && (
  <li>
  <a
  href={buildCurrentWeekPath(locale, 'ticino')}
@@ -7130,6 +7137,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('seoLinks.jobBoard.employers')}
  </a>
  </li>
+ )}
+ {!killSwitches.healthPremiums && (
  <li>
  <a
  href={buildHealthPremiumsCantonPath(locale, 'ticino')}
@@ -7139,6 +7148,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('seoLinks.jobBoard.healthPremiums')}
  </a>
  </li>
+ )}
  <li>
  <a
  href={locale === 'it' ? '/' : `/${locale}/`}

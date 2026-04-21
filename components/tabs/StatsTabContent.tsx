@@ -7,6 +7,7 @@ import DataFreshness from '@/components/shared/DataFreshness';
 import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
+import { useKillSwitches } from '@/hooks/useKillSwitches';
 
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
@@ -57,6 +58,7 @@ function StatsSeoBanner({ href, Icon, iconBgClass, iconColorClass, message, cta,
 export default function StatsTabContent() {
  const { t, locale } = useTranslation();
  const { statsSubTab } = useNavigation();
+ const killSwitches = useKillSwitches();
 
  return (
  <div className="max-w-7xl mx-auto">
@@ -68,7 +70,7 @@ export default function StatsTabContent() {
  <SeoContentBlock context="stats" />
  </Suspense>
  {/* Layer 2C — Internal linking: stats subtab banners pointing to static SEO pages */}
- {statsSubTab === 'fuel-prices' && (
+ {statsSubTab === 'fuel-prices' && !killSwitches.fuelDaily && (
  <StatsSeoBanner
  href={buildFuelTodayPath(locale, 'diesel')}
  Icon={Fuel}
@@ -79,7 +81,7 @@ export default function StatsTabContent() {
  ariaLabel={t('seoLinks.stats.fuelBannerCta')}
  />
  )}
- {statsSubTab === 'health-premiums' && (
+ {statsSubTab === 'health-premiums' && !killSwitches.healthPremiums && (
  <StatsSeoBanner
  href={buildHealthPremiumsCantonPath(locale, 'ticino')}
  Icon={Heart}
@@ -90,7 +92,7 @@ export default function StatsTabContent() {
  ariaLabel={t('seoLinks.stats.healthBannerCta')}
  />
  )}
- {statsSubTab === 'jobs-observatory' && (
+ {statsSubTab === 'jobs-observatory' && !killSwitches.jobMarket && (
  <StatsSeoBanner
  href={buildJobMarketHubPath(locale)}
  Icon={TrendingUp}

@@ -81,6 +81,7 @@ import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { initPostHog } from '@/services/posthog';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
+import { useKillSwitches } from '@/hooks/useKillSwitches';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts)
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
@@ -174,6 +175,11 @@ const App: React.FC = () => {
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
  useSeoPageTracking();
+ // Runtime kill-switches (Firebase Remote Config) for the 5 SEO feature link
+ // surfaces. When a flag is flipped to true in the RC console, every SPA link
+ // to that feature is hidden within ~1 minute (RC cache). Default-safe:
+ // defaults to false on RC failure so links stay SHOWN.
+ const killSwitches = useKillSwitches();
 
  const { inputs, setInputs, result, setResult, handleCalculate, urlHydrated } = useSimulationState(activeTab, seoLanding);
  const deferredResult = useDeferredValue(result);
@@ -2313,6 +2319,7 @@ const App: React.FC = () => {
  {t('seoLinks.footer.title')}
  </h3>
  <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 list-none p-0 m-0">
+ {!killSwitches.fuelDaily && (
  <li>
  <a
  href={buildFuelTodayPath(locale, 'diesel')}
@@ -2322,6 +2329,8 @@ const App: React.FC = () => {
  {t('seoLinks.footer.fuelToday')}
  </a>
  </li>
+ )}
+ {!killSwitches.weeklyEmployers && (
  <li>
  <a
  href={buildCurrentWeekPath(locale, 'ticino')}
@@ -2331,6 +2340,8 @@ const App: React.FC = () => {
  {t('seoLinks.footer.weeklyEmployers')}
  </a>
  </li>
+ )}
+ {!killSwitches.jobMarket && (
  <li>
  <a
  href={buildJobMarketHubPath(locale)}
@@ -2340,6 +2351,8 @@ const App: React.FC = () => {
  {t('seoLinks.footer.jobMarket')}
  </a>
  </li>
+ )}
+ {!killSwitches.healthPremiums && (
  <li>
  <a
  href={buildHealthPremiumsCantonPath(locale, 'ticino')}
@@ -2349,6 +2362,8 @@ const App: React.FC = () => {
  {t('seoLinks.footer.healthPremiums')}
  </a>
  </li>
+ )}
+ {!killSwitches.orphanLandings && (
  <li>
  <a
  href={
@@ -2366,6 +2381,7 @@ const App: React.FC = () => {
  {t('seoLinks.footer.newYesterday')}
  </a>
  </li>
+ )}
  </ul>
  </nav>
  {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
