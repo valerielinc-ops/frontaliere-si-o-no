@@ -9,6 +9,21 @@
  *
  * Output: data/health-premiums.json + public/data/health-premiums.json
  *
+ * Schema per insurer entry (F2-LAMal real KIN/JUG/ERW data):
+ *   {
+ *     // Back-compat aliases for AKL-ERW (adults 26+). Older readers that
+ *     // inspect `models.standard` etc. keep working without changes.
+ *     standard?: number,
+ *     hausarzt?: number,
+ *     hmo?: number,
+ *     telmed?: number,
+ *     byAgeClass: {
+ *       KIN?: { standard?, hausarzt?, hmo?, telmed? },  // AKL-KIN (0-18), franchise 0
+ *       JUG?: { standard?, hausarzt?, hmo?, telmed? },  // AKL-JUG (19-25), franchise 300
+ *       ERW?: { standard?, hausarzt?, hmo?, telmed? },  // AKL-ERW (26+), franchise 300
+ *     }
+ *   }
+ *
  * Usage:
  *   node scripts/fetch-health-premiums.mjs
  */
@@ -70,6 +85,32 @@ const TARIFF_TYPE_MAP = {
   'TAR-HAM': 'hausarzt',
   'TAR-HMO': 'hmo',
   'TAR-DIV': 'telmed', // alternative models (telmed, pharmacy, etc.)
+};
+
+// ── BAG risk / age-class mapping ──
+// The BAG Praemien_CH.csv "Altersklasse" column uses three codes:
+//   - AKL-KIN: Kinder (age 0-18)
+//   - AKL-JUG: Junge Erwachsene (age 19-25)
+//   - AKL-ERW: Erwachsene (age 26+)
+// Under LAMal art. 61 al. 3, children and young-adult premiums are
+// insurer-specific (subject to statutory caps); capturing AKL-KIN / AKL-JUG
+// alongside AKL-ERW lets downstream consumers show the real per-insurer
+// values instead of deriving them via a flat multiplier.
+const AGE_CLASS_MAP = {
+  'AKL-KIN': 'KIN',
+  'AKL-JUG': 'JUG',
+  'AKL-ERW': 'ERW',
+};
+
+// Base franchise per age class. BAG publishes premiums with every deductible
+// the insurer offers for each risk class; we store only the lowest statutory
+// deductible, which is FRA-0 for children and FRA-300 for young adults +
+// adults. Consumers that need higher deductibles should use the live BAG
+// open-data portal or the comparator.
+const BASE_FRANCHISE_BY_AGE_CLASS = {
+  KIN: 'FRA-0',
+  JUG: 'FRA-300',
+  ERW: 'FRA-300',
 };
 
 // Cantons with commune-level detail
@@ -164,14 +205,21 @@ async function main() {
   const allPremiums = parseCSV(premiumsText, ',');
   console.log(`   ${allPremiums.length} total rows`);
 
-  // Filter: adults (26+), without accident (employer covers UVG), base franchise (300)
-  // We store all franchise levels and models for each insurer
+  // Filter: capture all 3 risk classes (KIN / JUG / ERW), without accident
+  // cover (employer covers UVG for employed insured), and only the CH
+  // territory block (excludes expat/abroad residents). We later group by
+  // age class and keep the statutory base franchise per class.
   const relevantPremiums = allPremiums.filter(row =>
-    row['Altersklasse'] === 'AKL-ERW' &&
+    AGE_CLASS_MAP[row['Altersklasse']] &&
     row['Unfalleinschluss'] === 'OHN-UNF' &&
     row['Hoheitsgebiet'] === 'CH'
   );
-  console.log(`   ${relevantPremiums.length} adult premiums (without accident)`);
+  const countByClass = { KIN: 0, JUG: 0, ERW: 0 };
+  for (const row of relevantPremiums) {
+    const cls = AGE_CLASS_MAP[row['Altersklasse']];
+    if (cls) countByClass[cls]++;
+  }
+  console.log(`   ${relevantPremiums.length} premiums total (KIN=${countByClass.KIN}, JUG=${countByClass.JUG}, ERW=${countByClass.ERW})`);
 
   // 4. Parse regions XLSX — sheet A_COM has commune→region mapping
   console.log('📊 Parsing commune regions...');
@@ -226,9 +274,13 @@ async function main() {
   // 5. Build premiums index
   console.log('🔨 Building premiums index...');
 
-  // Group premiums by canton + region + insurer
-  // Structure: premiumIndex[canton][regionStr][insurerId] = { standard: X, hausarzt: Y, ... }
-  // We only store the base franchise (FRA-300 for adults) premium per model type
+  // Group premiums by canton + region + insurer + age class.
+  // Structure:
+  //   premiumIndex[canton][regionStr][insurerId][ageClass] = { standard, hausarzt, telmed, hmo }
+  // We keep only the statutory base franchise per age class (FRA-0 for KIN,
+  // FRA-300 for JUG and ERW) to keep the JSON size bounded and comparable
+  // across insurers. Consumers needing higher deductibles link to the live
+  // comparator.
   const premiumIndex = {};
   const insurersPerCanton = {};
 
@@ -237,24 +289,31 @@ async function main() {
     const regionStr = row['Region']; // e.g. "PR-REG CH1"
     const insurerId = parseInt(row['Versicherer'], 10);
     const tariffType = TARIFF_TYPE_MAP[row['Tariftyp']];
+    const ageClass = AGE_CLASS_MAP[row['Altersklasse']];
     const franchise = row['Franchise'];
     const premium = parseFloat(row['Prämie']);
 
-    if (!tariffType || isNaN(premium)) continue;
-    // Only base franchise for the index (FRA-300 for adults)
-    if (franchise !== 'FRA-300') continue;
+    if (!tariffType || !ageClass || isNaN(premium)) continue;
+    // Keep only the statutory base franchise for each risk class.
+    if (franchise !== BASE_FRANCHISE_BY_AGE_CLASS[ageClass]) continue;
 
     if (!premiumIndex[canton]) premiumIndex[canton] = {};
     if (!premiumIndex[canton][regionStr]) premiumIndex[canton][regionStr] = {};
     if (!premiumIndex[canton][regionStr][insurerId]) premiumIndex[canton][regionStr][insurerId] = {};
-
-    // Store the cheapest premium for each model type (some insurers have multiple tariffs per type)
-    const current = premiumIndex[canton][regionStr][insurerId][tariffType];
-    if (!current || premium < current) {
-      premiumIndex[canton][regionStr][insurerId][tariffType] = Math.round(premium * 100) / 100;
+    if (!premiumIndex[canton][regionStr][insurerId][ageClass]) {
+      premiumIndex[canton][regionStr][insurerId][ageClass] = {};
     }
 
-    // Track insurers per canton
+    // Store the cheapest premium for each (age class, model type) pair —
+    // some insurers publish multiple tariffs per model (different provider
+    // networks or regional sub-products).
+    const bucket = premiumIndex[canton][regionStr][insurerId][ageClass];
+    const current = bucket[tariffType];
+    if (current === undefined || premium < current) {
+      bucket[tariffType] = Math.round(premium * 100) / 100;
+    }
+
+    // Track insurers per canton (any age class counts).
     if (!insurersPerCanton[canton]) insurersPerCanton[canton] = new Set();
     insurersPerCanton[canton].add(insurerId);
   }
@@ -286,7 +345,38 @@ async function main() {
   }
   console.log(`   ${output.insurers.length} insurers discovered`);
 
-  // Commune-level premiums for TI and GR
+  // Shape an insurer × age-class tariff map into the on-disk record.
+  // Output for each insurer:
+  //   {
+  //     standard / hausarzt / telmed / hmo   — back-compat aliases for ERW
+  //     byAgeClass: {
+  //       KIN: { standard, hausarzt, telmed, hmo },
+  //       JUG: { standard, hausarzt, telmed, hmo },
+  //       ERW: { standard, hausarzt, telmed, hmo },
+  //     }
+  //   }
+  // The flat top-level fields (ERW values) preserve every existing reader
+  // that inspects `models.standard` etc.; new readers should consume
+  // `models.byAgeClass[ageClass]` to fetch real KIN / JUG values.
+  function shapeInsurerEntry(byAgeClass) {
+    const out = {};
+    const erw = byAgeClass.ERW;
+    if (erw) {
+      for (const [model, premium] of Object.entries(erw)) {
+        out[model] = premium;
+      }
+    }
+    const compact = {};
+    for (const cls of ['KIN', 'JUG', 'ERW']) {
+      const models = byAgeClass[cls];
+      if (!models || Object.keys(models).length === 0) continue;
+      compact[cls] = models;
+    }
+    out.byAgeClass = compact;
+    return out;
+  }
+
+  // Commune-level premiums for TI, GR, VS.
   for (const canton of COMMUNE_DETAIL_CANTONS) {
     const communes = communesByCanton[canton] || [];
     for (const commune of communes) {
@@ -296,8 +386,8 @@ async function main() {
 
       const key = `${commune.plz}-${commune.name}`;
       const insurerPremiums = {};
-      for (const [insurerId, models] of Object.entries(regionPremiums)) {
-        insurerPremiums[insurerId] = models;
+      for (const [insurerId, byAgeClass] of Object.entries(regionPremiums)) {
+        insurerPremiums[insurerId] = shapeInsurerEntry(byAgeClass);
       }
       output.premiums[key] = {
         canton,
@@ -308,32 +398,41 @@ async function main() {
     }
   }
 
-  // Canton-level premiums for all other cantons (average across regions)
+  // Canton-level premiums for all other cantons (average across regions).
+  // For each insurer we average per (age class, model) tuple independently.
   for (const [canton, regions] of Object.entries(premiumIndex)) {
     if (COMMUNE_DETAIL_CANTONS.includes(canton)) continue;
 
     const regionEntries = Object.entries(regions);
+    // insurerAverages[insurerId][ageClass][model] = { sum, count }
     const insurerAverages = {};
 
     for (const [, regionPremiums] of regionEntries) {
-      for (const [insurerId, models] of Object.entries(regionPremiums)) {
+      for (const [insurerId, byAgeClass] of Object.entries(regionPremiums)) {
         if (!insurerAverages[insurerId]) insurerAverages[insurerId] = {};
-        for (const [model, premium] of Object.entries(models)) {
-          if (!insurerAverages[insurerId][model]) {
-            insurerAverages[insurerId][model] = { sum: 0, count: 0 };
+        for (const [ageClass, models] of Object.entries(byAgeClass)) {
+          if (!insurerAverages[insurerId][ageClass]) insurerAverages[insurerId][ageClass] = {};
+          for (const [model, premium] of Object.entries(models)) {
+            if (!insurerAverages[insurerId][ageClass][model]) {
+              insurerAverages[insurerId][ageClass][model] = { sum: 0, count: 0 };
+            }
+            insurerAverages[insurerId][ageClass][model].sum += premium;
+            insurerAverages[insurerId][ageClass][model].count += 1;
           }
-          insurerAverages[insurerId][model].sum += premium;
-          insurerAverages[insurerId][model].count += 1;
         }
       }
     }
 
     const insurerPremiums = {};
-    for (const [insurerId, models] of Object.entries(insurerAverages)) {
-      insurerPremiums[insurerId] = {};
-      for (const [model, { sum, count }] of Object.entries(models)) {
-        insurerPremiums[insurerId][model] = Math.round((sum / count) * 100) / 100;
+    for (const [insurerId, byAgeClass] of Object.entries(insurerAverages)) {
+      const flattened = {};
+      for (const [ageClass, models] of Object.entries(byAgeClass)) {
+        flattened[ageClass] = {};
+        for (const [model, { sum, count }] of Object.entries(models)) {
+          flattened[ageClass][model] = Math.round((sum / count) * 100) / 100;
+        }
       }
+      insurerPremiums[insurerId] = shapeInsurerEntry(flattened);
     }
 
     output.premiums[canton] = {
@@ -387,12 +486,30 @@ async function main() {
   fs.writeFileSync(PUBLIC_OUT, json);
   console.log(`✅ Written ${PUBLIC_OUT}`);
 
+  // Risk-class coverage: percentage of (record × insurer) pairs with an
+  // explicit KIN / JUG / ERW block. Useful to detect BAG feed regressions.
+  let totalPairs = 0;
+  let kinPairs = 0;
+  let jugPairs = 0;
+  let erwPairs = 0;
+  for (const block of Object.values(output.premiums)) {
+    for (const entry of Object.values(block.insurers || {})) {
+      totalPairs += 1;
+      const bac = entry.byAgeClass || {};
+      if (bac.KIN && Object.keys(bac.KIN).length > 0) kinPairs += 1;
+      if (bac.JUG && Object.keys(bac.JUG).length > 0) jugPairs += 1;
+      if (bac.ERW && Object.keys(bac.ERW).length > 0) erwPairs += 1;
+    }
+  }
+  const pct = (n) => totalPairs > 0 ? ((n / totalPairs) * 100).toFixed(1) : '0.0';
+
   console.log(`\n📋 Summary:`);
   console.log(`   Year: ${output.year}`);
   console.log(`   Insurers: ${output.insurers.length}`);
   console.log(`   Commune entries: ${Object.keys(output.premiums).filter(k => !output.premiums[k].type).length}`);
   console.log(`   Canton entries: ${Object.keys(output.premiums).filter(k => output.premiums[k].type === 'canton').length}`);
   console.log(`   Ranked communes: ${communeRankings.length}`);
+  console.log(`   Risk-class coverage: KIN ${pct(kinPairs)}% · JUG ${pct(jugPairs)}% · ERW ${pct(erwPairs)}% (of ${totalPairs} insurer×location pairs)`);
 }
 
 main().catch(err => {
