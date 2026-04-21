@@ -1,18 +1,52 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-04-21T10:05:29.861Z",
+  "generatedAt": "2026-04-21T21:41:03.227Z",
   "total": 4,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 16065,
-  "avgDurationMs": 16065,
+  "unchangedCount": 3,
+  "durationMs": 14586,
+  "avgDurationMs": 14586,
   "durationHistory": [
-    16065
+    14586
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-ke4f2c",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c",
+      "company": "Fust",
+      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+      "location": "Bellinzona, Ticino",
+      "canton": "TI",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/88b7c251-8463-4cfe-acb1-f0b6083d3824",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-04-21T21:41:02.274Z",
+      "firstSeenAt": "2026-04-21T21:41:02.274Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -128,46 +162,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-07T09:31:51.316Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-jqltq",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-cadenazzo",
-      "company": "Fust",
-      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Bellinzona, Ticino",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/b5d19edf-4fa0-4b42-8d10-dc555330d56a",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-31T21:17:44.158Z",
-      "sourceLang": "it",
-      "salaryMin": 80000,
-      "salaryMax": 108000,
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T21:17:44.158Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
