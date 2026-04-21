@@ -98,11 +98,25 @@ export default function AdSenseBanner({
  if (typeof document === 'undefined') return;
  const existing = document.querySelector<HTMLScriptElement>('script[data-adsense-client]');
  if (existing) {
+ // adsbygoogle global means the script has already loaded (e.g. via
+ // index.html head) before this component mounted — load event won't
+ // fire again, so mark ready immediately.
+ if (typeof (window as unknown as { adsbygoogle?: unknown }).adsbygoogle !== 'undefined') {
+ existing.setAttribute('data-loaded', '1');
+ setScriptReady(true);
+ return;
+ }
  if (existing.getAttribute('data-loaded') === '1') setScriptReady(true);
  else if (existing.getAttribute('data-failed') === '1') setScriptFailed(true);
  else {
- existing.addEventListener('load', () => setScriptReady(true), { once: true });
- existing.addEventListener('error', () => setScriptFailed(true), { once: true });
+ existing.addEventListener('load', () => {
+ existing.setAttribute('data-loaded', '1');
+ setScriptReady(true);
+ }, { once: true });
+ existing.addEventListener('error', () => {
+ existing.setAttribute('data-failed', '1');
+ setScriptFailed(true);
+ }, { once: true });
  }
  return;
  }
