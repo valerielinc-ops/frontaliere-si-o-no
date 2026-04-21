@@ -70,7 +70,7 @@ export const DataDeletion: React.FC = () => {
  <div>
  <h3 className="font-bold text-strong mb-1">How to Delete Your Data</h3>
  <p className="text-sm">
- If you have an account, go to your <a href="/profilo-utente" className="text-accent hover:underline font-semibold">Profile page</a> and use the"Delete Account" button. This will permanently remove your Firebase Auth account, Firestore profile data, newsletter subscription, and all associated data. You can also revoke access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">Facebook App Settings</a>.
+ If you have an account, go to your <a href="/profilo-utente/" className="text-accent hover:underline font-semibold">Profile page</a> and use the"Delete Account" button. This will permanently remove your Firebase Auth account, Firestore profile data, newsletter subscription, and all associated data. You can also revoke access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">Facebook App Settings</a>.
  </p>
  </div>
  </div>
@@ -112,7 +112,7 @@ export const DataDeletion: React.FC = () => {
  To delete all data associated with your account:
  </p>
  <ol className="text-sm text-subtle space-y-2 list-decimal list-inside mb-4">
- <li>Go to your <a href="/profilo-utente" className="text-accent hover:underline font-semibold">Profile page</a></li>
+ <li>Go to your <a href="/profilo-utente/" className="text-accent hover:underline font-semibold">Profile page</a></li>
  <li>Click the <strong>"Delete Account"</strong> button</li>
  <li>Confirm the deletion when prompted</li>
  </ol>
@@ -120,7 +120,7 @@ export const DataDeletion: React.FC = () => {
  This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">Facebook App Settings</a>.
  </p>
  <p className="text-sm text-subtle mt-3">
- For further questions, refer to our <a href="/privacy" className="text-accent hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
+ For further questions, refer to our <a href="/privacy/" className="text-accent hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
  </p>
  </div>
 

@@ -2887,7 +2887,7 @@ export default function AdminPanel() {
  <span className="shrink-0 mt-0.5 w-4 h-4 rounded border-2 border-warning-border" />
  <div>
  <a
- href="/digest-settimanale"
+ href="/digest-settimanale/"
  className="font-semibold text-warning hover:underline"
  >
  Weekly Digest — Pagina Digest Settimanale
@@ -2995,7 +2995,7 @@ export default function AdminPanel() {
  </div>
  </div>
  <a
- href="/compara-servizi/cambio-franco-euro"
+ href="/compara-servizi/cambio-franco-euro/"
  target="_blank"
  rel="noreferrer"
  className="inline-flex items-center gap-1 text-sm text-link hover:underline"
