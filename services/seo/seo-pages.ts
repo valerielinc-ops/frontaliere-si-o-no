@@ -1820,12 +1820,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'car-cost': {
- title: 'Costi Pendolarismo Frontaliere | Frontaliere Ticino',
+ title: 'Costo Auto Pendolare Frontaliere Ticino 2026 | Tabelle',
  description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta.',
  keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
  ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
  ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',
  canonicalPath: '/guida-frontaliere/costo-auto-pendolare',
+ h1: 'Costo auto pendolare frontaliere Ticino 2026 — casi studio, tabelle km/CHF, treno',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -2161,12 +2162,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa Comuni di Frontiera | Addizionali IRPEF e Costi',
+ title: 'Mappa Confine Svizzera-Italia 2026 | Valichi e Comuni',
  description: 'Mappa interattiva dei comuni italiani di frontiera con la Svizzera. Confronta addizionali IRPEF, distanza dal confine, affitti e popolazione per ogni comune.',
  keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
  ogTitle: 'Mappa Interattiva Comuni di Frontiera',
  ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',
  canonicalPath: '/guida-frontaliere/mappa-confine',
+ h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -3589,12 +3591,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  livability: {
- title: 'Migliori Comuni di Frontiera | Classifica Qualità',
+ title: 'Migliori Comuni di Frontiera 2026 | Classifica Qualità',
  description: 'Classifica dei migliori comuni italiani di frontiera dove vivere come frontaliere: qualità della vita, distanza dalla dogana, servizi, costi, trasporti e.',
  keywords: 'migliori comuni frontiera, comuni frontalieri classifica, vivere como varese, qualità vita frontaliere, comuni vicino svizzera, dove vivere frontaliere',
  ogTitle: 'Migliori Comuni di Frontiera | Classifica 2026',
  ogDescription: '🏡 Classifica dei migliori comuni italiani di frontiera: qualità della vita, distanza dogana e servizi.',
  canonicalPath: '/statistiche/migliori-comuni-frontiera',
+ h1: 'Migliori comuni di frontiera per frontalieri 2026 — classifica qualità e metodologia',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "Dataset",
