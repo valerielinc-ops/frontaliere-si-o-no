@@ -33,6 +33,49 @@ interface Release {
 
 export const RELEASES: Release[] = [
  {
+ version: '3.47.0',
+ date: '2026-04-21',
+ titleKey: 'whatsNew.v3470.title',
+ items: [
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3470.fuelDaily.title',
+ descKey: 'whatsNew.v3470.fuelDaily.desc',
+ link: { tab: 'stats', subTab: 'fuel-prices' },
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3470.weeklyEmployers.title',
+ descKey: 'whatsNew.v3470.weeklyEmployers.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3470.marketSnapshot.title',
+ descKey: 'whatsNew.v3470.marketSnapshot.desc',
+ link: { tab: 'stats', subTab: 'jobs-observatory' },
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3470.healthPremiums.title',
+ descKey: 'whatsNew.v3470.healthPremiums.desc',
+ link: { tab: 'stats', subTab: 'health-premiums' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3470.orphanLandings.title',
+ descKey: 'whatsNew.v3470.orphanLandings.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3470.jobCtrTitles.title',
+ descKey: 'whatsNew.v3470.jobCtrTitles.desc',
+ link: { tab: 'job-board' },
+ },
+ ],
+ },
+ {
  version: '3.46.0',
  date: '2026-04-09',
  titleKey: 'whatsNew.v3460.title',
