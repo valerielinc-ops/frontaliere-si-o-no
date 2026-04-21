@@ -106,13 +106,13 @@ export const SCHEMA_EXPERT_AUTHOR = {
 } as const;
 
 /**
- * SpeakableSpecification for article/FAQ pages — targets the most
- * citation-worthy content for voice assistants and AI summarization.
+ * Previously SpeakableSpecification. Google's speakable is restricted to news
+ * publishers and triggered SEMrush "unrecognized property" errors on
+ * WebApplication/Dataset schemas. Kept as empty export only to preserve
+ * import compatibility.
+ * @deprecated
  */
-export const SCHEMA_SPEAKABLE = {
- "@type": "SpeakableSpecification",
- "cssSelector": ["article h1", "article h2", "article p", ".faq-answer", "[data-speakable]"]
-} as const;
+export const SCHEMA_SPEAKABLE = {} as const;
 
 const SERP_EXPERIMENT_CACHE_KEY = 'seo_serp_experiment_state_v1';
 const SEARCH_ENGINES = ['google.', 'bing.', 'yahoo.', 'duckduckgo.', 'ecosia.', 'yandex.'];
@@ -626,38 +626,13 @@ function withDatasetLicenses(map: Record<string, SEOMetadata>): Record<string, S
  return out;
 }
 
-// ─── Auto-inject SpeakableSpecification into content schemas ────────────
-// Adds speakable to WebApplication, CollectionPage, Dataset, DefinedTermSet,
-// and WebPage schemas so voice assistants and AI readers can identify key
-// passages for spoken answers across ALL content pages.
-const SPEAKABLE_TARGET_TYPES = new Set([
- 'WebApplication', 'CollectionPage', 'Dataset', 'DefinedTermSet',
- 'WebPage', 'WebSite',
-]);
-
-function addSpeakable(value: any): any {
- if (Array.isArray(value)) return value.map(addSpeakable);
- if (!value || typeof value !== 'object') return value;
-
- const cloned: Record<string, any> = {};
- for (const [k, v] of Object.entries(value)) cloned[k] = addSpeakable(v);
-
- const typeValue = cloned['@type'];
- const isTarget = typeof typeValue === 'string' && SPEAKABLE_TARGET_TYPES.has(typeValue);
- if (isTarget && !cloned.speakable) {
- cloned.speakable = SCHEMA_SPEAKABLE;
- }
- return cloned;
-}
-
+// ─── speakable removed ─────────────────────────────────────────────────
+// Google's SpeakableSpecification is limited to news publishers; auto-
+// injection was triggering SEMrush "unrecognized property" errors on
+// WebApplication/Dataset schemas. Pass-through retained to preserve the
+// pipeline shape; safe to drop once call sites are refactored.
 function withSpeakable(map: Record<string, SEOMetadata>): Record<string, SEOMetadata> {
- const out: Record<string, SEOMetadata> = {};
- for (const [key, meta] of Object.entries(map)) {
- out[key] = meta.structuredData
- ? { ...meta, structuredData: addSpeakable(meta.structuredData) }
- : meta;
- }
- return out;
+ return map;
 }
 
 function titleizeGlossaryTermId(termId: string): string {
