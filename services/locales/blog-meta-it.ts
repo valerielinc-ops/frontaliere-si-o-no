@@ -2448,6 +2448,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.azienda-assume-autisti-lombardia-800-euro.title': 'Azienda assume autisti in Lombardia: 800 euro al mese, poi contratto e premio di 3000 euro',
     'blog.article.azienda-assume-autisti-lombardia-800-euro.excerpt': 'FNM Autoservizi cerca nuovi autisti con un percorso formativo retribuito e un premio di ingresso di 3000 euro',
     'blog.article.azienda-assume-autisti-lombardia-800-euro.imageAlt': 'Autista in Lombardia vicino al Lago di Lugano',
+    'blog.article.bancastato-walking-mendrisio-2026.title': 'BancaStato Walking Mendrisio 2026: tre percorsi per tutti',
+    'blog.article.bancastato-walking-mendrisio-2026.excerpt': 'Domenica 26 aprile 2026 a Mendrisio tre percorsi di diversa difficoltà, pranzo offerto e animazioni per la nuova edizione di BancaStato Walking Mendrisio.',
+    'blog.article.bancastato-walking-mendrisio-2026.imageAlt': 'Partecipanti alla camminata BancaStato Walking Mendrisio tra vigneti e campagne',
 };
 
 export default blogMetaIt;

@@ -2448,6 +2448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.azienda-assume-autisti-lombardia-800-euro.title': 'Company hires drivers in Lombardy: 800 euros per month, then contract and 3000 euro bonus',
     'blog.article.azienda-assume-autisti-lombardia-800-euro.excerpt': 'FNM Autoservizi is looking for new drivers with a paid training program and a 3000 euro sign-on bonus',
     'blog.article.azienda-assume-autisti-lombardia-800-euro.imageAlt': 'Bus driver in Lombardy near Lake Lugano',
+    'blog.article.bancastato-walking-mendrisio-2026.title': 'BancaStato Walking Mendrisio 2026: three routes for everyone',
+    'blog.article.bancastato-walking-mendrisio-2026.excerpt': 'On Sunday, April 26, 2026, in Mendrisio, three routes of varying difficulty, a free lunch, and entertainment for the new edition of BancaStato Walking Mendrisio.',
+    'blog.article.bancastato-walking-mendrisio-2026.imageAlt': 'Participants walking in the BancaStato Walking Mendrisio event through vineyards and countryside',
 };
 
 export default blogMetaEn;

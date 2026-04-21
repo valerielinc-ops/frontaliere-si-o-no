@@ -10556,6 +10556,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bancastato-walking-mendrisio-2026': {
+    title: 'BancaStato Walking Mendrisio 2026: tre | Frontaliere Ticino',
+    description: 'Domenica 26 aprile 2026 a Mendrisio tre percorsi di diversa difficoltà, pranzo offerto e animazioni per la nuova edizione di BancaStato Walking Mendrisio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bancastato, walking, mendrisio, percorsi',
+    ogTitle: 'BancaStato Walking Mendrisio 2026 | Frontaliere Ticino',
+    ogDescription: 'Domenica 26 aprile 2026 a Mendrisio tre percorsi di diversa difficoltà, pranzo offerto e animazioni per la nuova edizione di BancaStato Walking Mendrisio.',
+    canonicalPath: '/articoli-frontaliere/bancastato-walking-mendrisio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BancaStato Walking Mendrisio 2026: tre percorsi per tutti",
+      "description": "Domenica 26 aprile 2026 a Mendrisio tre percorsi di diversa difficoltà, pranzo offerto e animazioni per la nuova edizione di BancaStato Walking Mendrisio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bancastato-walking-mendrisio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partecipanti alla camminata BancaStato Walking Mendrisio tra vigneti e campagne"
+      },
+      "datePublished": "2026-04-21T12:50:08+00:00",
+      "dateModified": "2026-04-21T12:50:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bancastato-walking-mendrisio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

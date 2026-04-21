@@ -2448,6 +2448,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.azienda-assume-autisti-lombardia-800-euro.title': 'Entreprise recrute des chauffeurs en Lombardie : 800 euros par mois, puis contrat et prime de 3000 euros',
     'blog.article.azienda-assume-autisti-lombardia-800-euro.excerpt': 'FNM Autoservizi recherche de nouveaux chauffeurs avec un parcours de formation rémunéré et une prime d\'entrée de 3000 euros',
     'blog.article.azienda-assume-autisti-lombardia-800-euro.imageAlt': 'Chauffeur de bus en Lombardie près du lac de Lugano',
+    'blog.article.bancastato-walking-mendrisio-2026.title': 'BancaStato Walking Mendrisio 2026 : trois parcours pour tous',
+    'blog.article.bancastato-walking-mendrisio-2026.excerpt': 'Dimanche 26 avril 2026 à Mendrisio, trois parcours de difficulté variable, déjeuner offert et animations pour la nouvelle édition de BancaStato Walking Mendrisio.',
+    'blog.article.bancastato-walking-mendrisio-2026.imageAlt': 'Participants à la marche BancaStato Walking Mendrisio à travers les vignobles et la campagne',
 };
 
 export default blogMetaFr;

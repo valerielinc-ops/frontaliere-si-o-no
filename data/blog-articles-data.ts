@@ -6697,4 +6697,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/azienda-assume-autisti-lombardia-800-euro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bancastato-walking-mendrisio-2026',
+ category: 'novita',
+ date: '2026-04-21T12:50:08.230Z',
+ image: '/images/blog/bancastato-walking-mendrisio-2026.jpg',
+ hasCalculator: true,
+ },
 ];
