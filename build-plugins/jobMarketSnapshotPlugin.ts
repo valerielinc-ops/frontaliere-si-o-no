@@ -54,13 +54,20 @@ import {
   JOB_MARKET_MONTH_NAMES,
   JOB_MARKET_OG_LOCALE,
   JOB_MARKET_SECTION_SLUG,
+  JOB_MARKET_SECTOR_DISPLAY,
+  JOB_MARKET_SECTOR_KEYS,
+  JOB_MARKET_SECTOR_MATCHERS,
+  JOB_MARKET_SECTOR_SEGMENT,
+  JOB_MARKET_SECTOR_SLUG,
   JOB_MARKET_SNAPSHOT_LOCALES,
   buildHubPath,
   buildMonthlyPath,
+  buildSectorSnapshotPath,
   buildWeeklyPath,
   getIsoWeek,
   mondayOfIsoWeek,
   sundayOfIsoWeek,
+  type JobMarketSectorKey,
   type JobMarketSnapshotLocale,
 } from './jobMarketSnapshotData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
@@ -100,11 +107,17 @@ interface JobRecord {
   title?: string;
   company?: string;
   location?: string;
+  description?: string;
+  category?: string;
+  tags?: readonly string[] | string;
+  addressLocality?: string;
+  titleByLocale?: Partial<Record<JobMarketSnapshotLocale, string>>;
+  descriptionByLocale?: Partial<Record<JobMarketSnapshotLocale, string>>;
   datePosted?: string;
   firstSeenAt?: string;
   crawledAt?: string;
   postedDate?: string;
-  needsRetranslation?: boolean;
+  needsRetranslation?: boolean | Partial<Record<JobMarketSnapshotLocale, boolean>>;
   expired?: boolean;
   baseSalary?: {
     value?: {
@@ -1481,6 +1494,646 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
   return { pages, degraded, completedWeeks, completedMonths };
 }
 
+// ── Per-sector snapshot generation (D-3A) ──────────────────────
+
+/** Case-insensitive match of a job against a sector keyword pattern. */
+function jobMatchesSector(job: JobRecord, sector: JobMarketSectorKey): boolean {
+  const pattern = JOB_MARKET_SECTOR_MATCHERS[sector];
+  const parts: string[] = [];
+  if (job.title) parts.push(String(job.title));
+  if (job.description) parts.push(String(job.description));
+  if (job.category) parts.push(String(job.category));
+  if (job.company) parts.push(String(job.company));
+  if (job.location) parts.push(String(job.location));
+  if (job.addressLocality) parts.push(String(job.addressLocality));
+  if (job.tags) {
+    if (Array.isArray(job.tags)) parts.push(job.tags.join(' '));
+    else parts.push(String(job.tags));
+  }
+  if (job.titleByLocale) {
+    for (const v of Object.values(job.titleByLocale)) {
+      if (typeof v === 'string') parts.push(v);
+    }
+  }
+  if (job.descriptionByLocale) {
+    for (const v of Object.values(job.descriptionByLocale)) {
+      if (typeof v === 'string') parts.push(v);
+    }
+  }
+  return pattern.test(parts.join(' \n '));
+}
+
+function jobIsActiveForSector(job: JobRecord): boolean {
+  if (!job || typeof job !== 'object') return false;
+  if (job.expired) return false;
+  const nr = job.needsRetranslation;
+  if (nr === true) return false;
+  return true;
+}
+
+interface SectorStats {
+  sector: JobMarketSectorKey;
+  activeJobs: number;
+  topEmployers: Array<{ name: string; count: number }>;
+  medianSalary: number | null;
+  trendSeries: Array<{ periodLabel: string; value: number }>;
+  totalJobsEnd: number;
+  /** Week-over-week new postings delta for this sector (may be null if history sparse). */
+  weeklyDelta: number | null;
+  /** Month-over-month new postings delta for this sector (may be null if history sparse). */
+  monthlyDelta: number | null;
+}
+
+/** Count additions for a sector within a HistoryEntry using the keyword matcher
+ *  applied against title/location/company stat keys. */
+function countSectorAddsInEntry(entry: HistoryEntry, sector: JobMarketSectorKey): number {
+  const pattern = JOB_MARKET_SECTOR_MATCHERS[sector];
+  let total = 0;
+  for (const t of entry.titleStats ?? []) {
+    if (pattern.test(t.key) || pattern.test(t.name)) {
+      total += t.addedKeys?.length ?? 0;
+    }
+  }
+  return total;
+}
+
+function aggregateSectorStats(
+  sector: JobMarketSectorKey,
+  jobs: ReadonlyArray<JobRecord>,
+  history: ReadonlyArray<HistoryEntry>,
+  completedWeeks: ReadonlyArray<WeekBucket>,
+  completedMonths: ReadonlyArray<MonthBucket>,
+): SectorStats {
+  const matching: JobRecord[] = [];
+  for (const job of jobs) {
+    if (!jobIsActiveForSector(job)) continue;
+    if (jobMatchesSector(job, sector)) matching.push(job);
+  }
+  const activeJobs = matching.length;
+
+  // Top employers for this sector
+  const employerMap = new Map<string, number>();
+  for (const job of matching) {
+    const name = String(job.company || '').trim();
+    if (!name) continue;
+    employerMap.set(name, (employerMap.get(name) ?? 0) + 1);
+  }
+  const topEmployers = Array.from(employerMap.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([name, count]) => ({ name, count }));
+
+  // Median salary estimate for this sector
+  const salaryVals: number[] = [];
+  for (const job of matching) {
+    const b = job.baseSalary?.value;
+    if (!b) continue;
+    if (typeof b.minValue === 'number' && typeof b.maxValue === 'number' && b.minValue > 0 && b.maxValue > 0) {
+      salaryVals.push(Math.round((b.minValue + b.maxValue) / 2));
+    } else if (typeof b.minValue === 'number' && b.minValue > 0) {
+      salaryVals.push(b.minValue);
+    } else if (typeof b.maxValue === 'number' && b.maxValue > 0) {
+      salaryVals.push(b.maxValue);
+    }
+  }
+  const medianSalary = median(salaryVals);
+
+  // Trend series: last 12 complete weeks, per-week additions for this sector.
+  const recent = completedWeeks.slice(-12);
+  const trendSeries = recent.map((b) => {
+    let value = 0;
+    for (const e of b.entries) value += countSectorAddsInEntry(e, sector);
+    return { periodLabel: `W${String(b.isoWeek).padStart(2, '0')}`, value };
+  });
+
+  // Weekly delta: compare last vs second-to-last complete week
+  let weeklyDelta: number | null = null;
+  if (completedWeeks.length >= 2) {
+    const last = completedWeeks[completedWeeks.length - 1];
+    const prev = completedWeeks[completedWeeks.length - 2];
+    const lastAdds = last.entries.reduce((s, e) => s + countSectorAddsInEntry(e, sector), 0);
+    const prevAdds = prev.entries.reduce((s, e) => s + countSectorAddsInEntry(e, sector), 0);
+    weeklyDelta = lastAdds - prevAdds;
+  }
+
+  // Monthly delta: compare last vs second-to-last complete month
+  let monthlyDelta: number | null = null;
+  if (completedMonths.length >= 2) {
+    const last = completedMonths[completedMonths.length - 1];
+    const prev = completedMonths[completedMonths.length - 2];
+    const lastAdds = last.entries.reduce((s, e) => s + countSectorAddsInEntry(e, sector), 0);
+    const prevAdds = prev.entries.reduce((s, e) => s + countSectorAddsInEntry(e, sector), 0);
+    monthlyDelta = lastAdds - prevAdds;
+  }
+
+  const totalJobsEnd = history.length > 0 ? history[history.length - 1].totalJobs ?? 0 : activeJobs;
+
+  return {
+    sector,
+    activeJobs,
+    topEmployers,
+    medianSalary,
+    trendSeries,
+    totalJobsEnd,
+    weeklyDelta,
+    monthlyDelta,
+  };
+}
+
+// ── Localised sector copy ──────────────────────────────────────
+
+interface SectorCopy {
+  h1: (sectorLabel: string) => string;
+  metaTitle: (sectorLabel: string) => string;
+  metaDesc: (sectorLabel: string, count: number) => string;
+  kicker: string;
+  intro: (sectorLabel: string, count: number) => string;
+  paragraph1: (sectorLabel: string, stats: SectorStats) => string;
+  paragraph2: (sectorLabel: string) => string;
+  statActiveJobs: string;
+  statMedianSalary: string;
+  statWeeklyDelta: string;
+  statMonthlyDelta: string;
+  statEditorialFallback: string;
+  topEmployersHeading: string;
+  trendHeading: string;
+  trendEmpty: string;
+  sectorHubCta: (sectorLabel: string) => string;
+  sectorHubLink: (sectorSlug: string, locale: JobMarketSnapshotLocale) => string;
+  snapshotRootCta: string;
+  methodologyHeading: string;
+  methodologyBody: (sectorLabel: string) => string;
+  breadcrumbHome: string;
+  breadcrumbSectorHub: string;
+  freshnessLabel: (isoDate: string) => string;
+  faqTitle: string;
+  faq: (sectorLabel: string, stats: SectorStats) => Array<{ q: string; a: string }>;
+}
+
+const CITY_SECTOR_HUB_PREFIX: Record<JobMarketSnapshotLocale, string> = {
+  it: '/cerca-lavoro-ticino',
+  en: '/en/find-jobs-ticino',
+  de: '/de/jobs-im-tessin',
+  fr: '/fr/trouver-emploi-tessin',
+};
+
+const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
+  it: {
+    h1: (label) => `Mercato lavoro ${label} Ticino — offerte attive oggi`,
+    metaTitle: (label) =>
+      `Mercato lavoro ${label} Ticino — stipendi, datori di lavoro, trend | Frontaliere Ticino`,
+    metaDesc: (label, count) =>
+      `${count} offerte attive per ${label} in Ticino. Top datori di lavoro, stipendio mediano, trend delle ultime 12 settimane, delta settimanale e mensile.`,
+    kicker: 'Report di settore · Ticino',
+    intro: (label, count) =>
+      `Questa pagina aggrega i dati chiave del mercato del lavoro ticinese nel comparto ${label}. ${count > 0 ? `Al momento ci sono ${count} offerte attive per ${label}` : `Al momento non sono presenti offerte attive per ${label}`}, monitorate ogni giorno dai nostri crawler. Trovi i principali datori di lavoro, la stima dello stipendio mediano, il trend delle nuove posizioni nelle ultime 12 settimane e il confronto con la settimana e il mese precedenti.`,
+    paragraph1: (label, stats) =>
+      `Le offerte per ${label} in Ticino si concentrano su ${stats.topEmployers.slice(0, 3).map((e) => e.name).join(', ') || 'diversi datori di lavoro cantonali'}. La domanda è in linea con la struttura economica del cantone, dove sanità pubblica (EOC, cliniche private), retail organizzato (Migros, Coop, Denner), industria (Lonza, AMAG, Mikron) e servizi (assicurazioni, banche, ingegneria) rappresentano le principali componenti della domanda. I frontalieri italiani con permesso G possono candidarsi direttamente: la stragrande maggioranza dei datori di lavoro ticinesi accetta candidature trans-frontaliere, a condizione che le competenze linguistiche e tecniche richieste dall'annuncio siano soddisfatte.`,
+    paragraph2: (label) =>
+      `Lo stipendio mediano riportato è una stima calcolata sui campi baseSalary.minValue / baseSalary.maxValue delle offerte ${label} che dichiarano una forchetta salariale secondo lo schema schema.org MonetaryAmount. Le offerte senza indicazione esplicita del salario non entrano nel calcolo. Il trend a 12 settimane misura le nuove posizioni apparse per settimana nel settore, usando lo storico aggregato di jobs-stats-history.json; quando la serie è corta o piatta, significa che la finestra storica non copre ancora abbastanza settimane per mostrare una dinamica significativa. Ti consigliamo di controllare la pagina più volte nel corso della settimana: le offerte in Ticino tendono a chiudere rapidamente e i datori di lavoro con più turnover — ospedali, case anziani, retail — aprono e chiudono posizioni ogni giorno.`,
+    statActiveJobs: 'Offerte attive',
+    statMedianSalary: 'Stipendio mediano',
+    statWeeklyDelta: 'Delta settimanale',
+    statMonthlyDelta: 'Delta mensile',
+    statEditorialFallback: 'storico in costruzione',
+    topEmployersHeading: 'Datori di lavoro più attivi',
+    trendHeading: 'Trend nuove posizioni — ultime 12 settimane',
+    trendEmpty:
+      'Lo storico a 12 settimane per questo settore è ancora in costruzione: il grafico si popola man mano che raccogliamo nuovi snapshot.',
+    sectorHubCta: (label) => `Vedi tutte le offerte ${label} in Ticino`,
+    sectorHubLink: (sectorSlug, _locale) => `/cerca-lavoro-ticino/${sectorSlug}/`,
+    snapshotRootCta: 'Report mercato del lavoro Ticino',
+    methodologyHeading: 'Metodologia',
+    methodologyBody: (label) =>
+      `I conteggi per ${label} derivano da un matching case-insensitive su titolo, descrizione, categoria, azienda e tag delle offerte attive. Le nuove posizioni per settore nel trend settimanale provengono da jobs-stats-history.json, filtrando i titleStats che matchano il pattern keyword del settore. Le offerte scadute (expired=true) e quelle in attesa di ritraduzione (needsRetranslation=true) sono escluse. I dati sono aggiornati più volte al giorno dai nostri 80+ crawler dedicati ai principali datori di lavoro ticinesi, ai bollettini cantonali e agli aggregatori pubblici.`,
+    breadcrumbHome: 'Home',
+    breadcrumbSectorHub: 'Settori',
+    freshnessLabel: (isoDate) => `Aggiornato al ${isoDate}`,
+    faqTitle: 'Domande frequenti',
+    faq: (label, stats) => [
+      {
+        q: `Quanti posti di lavoro per ${label} ci sono in Ticino?`,
+        a:
+          stats.activeJobs > 0
+            ? `Attualmente ci sono ${stats.activeJobs} offerte attive per ${label} in Ticino, aggiornate più volte al giorno dai nostri crawler.`
+            : `La lista è aggiornata più volte al giorno. Torna fra qualche ora per nuove offerte ${label} in Ticino.`,
+      },
+      {
+        q: 'Posso candidarmi come frontaliere?',
+        a: `Sì. La maggior parte dei datori di lavoro ticinesi accetta candidature da frontalieri italiani con permesso G. Ogni annuncio porta alla candidatura ufficiale del datore di lavoro.`,
+      },
+      {
+        q: 'Come viene calcolato lo stipendio mediano?',
+        a: `Lo stipendio mediano è la mediana dei valori baseSalary.minValue / baseSalary.maxValue delle offerte ${label} che dichiarano una forchetta salariale. Le offerte senza salario esplicito non entrano nel calcolo.`,
+      },
+    ],
+  },
+  en: {
+    h1: (label) => `${label} job market in Ticino — openings today`,
+    metaTitle: (label) =>
+      `${label} job market in Ticino — salaries, employers, trends | Frontaliere Ticino`,
+    metaDesc: (label, count) =>
+      `${count} active openings for ${label} in Ticino. Top employers, median salary, 12-week trend, week-over-week and month-over-month deltas.`,
+    kicker: 'Sector report · Ticino',
+    intro: (label, count) =>
+      `This page aggregates the key signals of the Ticino job market for the ${label} sector. ${count > 0 ? `There are currently ${count} active openings for ${label}` : `There are no active openings for ${label}`} — monitored daily by our crawlers. You'll find the most active employers, the estimated median salary, the trend of new postings over the last 12 weeks, and week-over-week / month-over-month deltas.`,
+    paragraph1: (label, stats) =>
+      `Openings for ${label} in Ticino concentrate around ${stats.topEmployers.slice(0, 3).map((e) => e.name).join(', ') || 'several cantonal employers'}. Demand aligns with the canton's economic structure: public healthcare (EOC, private clinics), organised retail (Migros, Coop, Denner), industry (Lonza, AMAG, Mikron) and services (insurance, banking, engineering) account for most of the hiring. Italian cross-border workers with a G permit can apply directly: the vast majority of Ticino employers accept cross-border applications provided the language and technical requirements stated in the posting are met.`,
+    paragraph2: (label) =>
+      `The median salary shown is computed from the baseSalary.minValue / baseSalary.maxValue fields of ${label} postings that declare a pay range in the schema.org MonetaryAmount format. Postings without an explicit salary are not counted. The 12-week trend measures new openings per week for the sector, using the aggregated history in jobs-stats-history.json; when the series is short or flat, the history window does not yet cover enough weeks to show a meaningful trend. We recommend checking the page multiple times per week: Ticino postings tend to close quickly, and higher-turnover employers — hospitals, elderly-care homes, retail — open and close positions daily.`,
+    statActiveJobs: 'Active openings',
+    statMedianSalary: 'Median salary',
+    statWeeklyDelta: 'Week-over-week delta',
+    statMonthlyDelta: 'Month-over-month delta',
+    statEditorialFallback: 'history still building',
+    topEmployersHeading: 'Most active employers',
+    trendHeading: 'New openings trend — last 12 weeks',
+    trendEmpty:
+      'The 12-week history for this sector is still being collected: the chart fills in as we gather snapshots.',
+    sectorHubCta: (label) => `See all ${label} openings in Ticino`,
+    sectorHubLink: (sectorSlug, _locale) => `/en/find-jobs-ticino/${sectorSlug}/`,
+    snapshotRootCta: 'Ticino job market report',
+    methodologyHeading: 'Methodology',
+    methodologyBody: (label) =>
+      `The ${label} counts come from a case-insensitive match on title, description, category, company and tags of active postings. Weekly new-posting counts in the trend come from jobs-stats-history.json by filtering titleStats that match the sector keyword pattern. Expired postings (expired=true) and those awaiting retranslation (needsRetranslation=true) are excluded. Data refreshes several times per day, driven by 80+ crawlers dedicated to Ticino's main employers, cantonal bulletins and public aggregators.`,
+    breadcrumbHome: 'Home',
+    breadcrumbSectorHub: 'Sectors',
+    freshnessLabel: (isoDate) => `Updated on ${isoDate}`,
+    faqTitle: 'Frequently asked questions',
+    faq: (label, stats) => [
+      {
+        q: `How many ${label} jobs are there in Ticino?`,
+        a:
+          stats.activeJobs > 0
+            ? `There are currently ${stats.activeJobs} active openings for ${label} in Ticino, refreshed multiple times per day.`
+            : `The list refreshes several times per day. Check back soon for new ${label} openings in Ticino.`,
+      },
+      {
+        q: 'Can I apply as a cross-border worker?',
+        a: `Yes. Most Ticino employers accept applications from Italian cross-border workers with a G permit. Each listing links directly to the employer's official application page.`,
+      },
+      {
+        q: 'How is the median salary computed?',
+        a: `The median salary is the median of the baseSalary.minValue / baseSalary.maxValue values of ${label} postings that declare a pay range. Postings without an explicit salary are not counted.`,
+      },
+    ],
+  },
+  de: {
+    h1: (label) => `Arbeitsmarkt ${label} Tessin — aktive Stellen heute`,
+    metaTitle: (label) =>
+      `Arbeitsmarkt ${label} Tessin — Löhne, Arbeitgeber, Trends | Frontaliere Ticino`,
+    metaDesc: (label, count) =>
+      `${count} aktive Stellen für ${label} im Tessin. Top-Arbeitgeber, Medianlohn, 12-Wochen-Trend, Wochen- und Monatsdelta.`,
+    kicker: 'Branchenbericht · Tessin',
+    intro: (label, count) =>
+      `Diese Seite aggregiert die wichtigsten Signale des Tessiner Arbeitsmarkts für die Branche ${label}. ${count > 0 ? `Aktuell sind ${count} aktive Stellen für ${label} ausgeschrieben` : `Aktuell gibt es keine aktiven Stellen für ${label}`} — täglich von unseren Crawlern erfasst. Du findest die aktivsten Arbeitgeber, den geschätzten Medianlohn, den Trend neuer Stellen über die letzten 12 Wochen sowie Wochen- und Monatsvergleiche.`,
+    paragraph1: (label, stats) =>
+      `Die Stellen für ${label} im Tessin konzentrieren sich bei ${stats.topEmployers.slice(0, 3).map((e) => e.name).join(', ') || 'verschiedenen kantonalen Arbeitgebern'}. Die Nachfrage entspricht der wirtschaftlichen Struktur des Kantons: öffentliches Gesundheitswesen (EOC, Privatkliniken), organisierter Detailhandel (Migros, Coop, Denner), Industrie (Lonza, AMAG, Mikron) und Dienstleistungen (Versicherungen, Banken, Engineering) bilden den Hauptteil der Einstellungen. Italienische Grenzgänger mit G-Bewilligung können sich direkt bewerben: Die grosse Mehrheit der Tessiner Arbeitgeber akzeptiert Bewerbungen von Grenzgängern, sofern die Sprach- und Fachanforderungen der Anzeige erfüllt sind.`,
+    paragraph2: (label) =>
+      `Der angezeigte Medianlohn wird aus den Feldern baseSalary.minValue / baseSalary.maxValue der ${label}-Anzeigen berechnet, die eine Lohnspanne im schema.org MonetaryAmount-Format ausweisen. Anzeigen ohne expliziten Lohn werden nicht gezählt. Der 12-Wochen-Trend misst wöchentliche Neueröffnungen in der Branche und nutzt die aggregierte Historie aus jobs-stats-history.json. Wenn die Serie kurz oder flach wirkt, reicht das Zeitfenster noch nicht, um eine aussagekräftige Dynamik zu zeigen. Wir empfehlen, die Seite mehrmals pro Woche zu prüfen: Tessiner Stellen schliessen schnell, und Arbeitgeber mit hoher Fluktuation — Spitäler, Altenheime, Detailhandel — eröffnen und schliessen täglich Positionen.`,
+    statActiveJobs: 'Aktive Stellen',
+    statMedianSalary: 'Medianlohn',
+    statWeeklyDelta: 'Wochen-Delta',
+    statMonthlyDelta: 'Monats-Delta',
+    statEditorialFallback: 'Historie im Aufbau',
+    topEmployersHeading: 'Aktivste Arbeitgeber',
+    trendHeading: 'Neue Stellen — letzte 12 Wochen',
+    trendEmpty:
+      'Die 12-Wochen-Historie für diese Branche wird noch erfasst: Die Grafik füllt sich mit jedem neuen Snapshot.',
+    sectorHubCta: (label) => `Alle ${label}-Stellen im Tessin ansehen`,
+    sectorHubLink: (sectorSlug, _locale) => `/de/jobs-im-tessin/${sectorSlug}/`,
+    snapshotRootCta: 'Tessiner Arbeitsmarkt-Bericht',
+    methodologyHeading: 'Methodik',
+    methodologyBody: (label) =>
+      `Die Zählungen für ${label} stammen aus einem case-insensitiven Abgleich auf Titel, Beschreibung, Kategorie, Firma und Tags der aktiven Anzeigen. Die wöchentlichen Neueinträge im Trend kommen aus jobs-stats-history.json: wir filtern titleStats, die dem Keyword-Muster der Branche entsprechen. Abgelaufene Anzeigen (expired=true) und Anzeigen mit ausstehender Nachübersetzung (needsRetranslation=true) werden ausgeschlossen. Die Daten werden mehrmals täglich aktualisiert, betrieben von 80+ Crawlern für die wichtigsten Tessiner Arbeitgeber, kantonale Bulletins und öffentliche Aggregatoren.`,
+    breadcrumbHome: 'Startseite',
+    breadcrumbSectorHub: 'Branchen',
+    freshnessLabel: (isoDate) => `Aktualisiert am ${isoDate}`,
+    faqTitle: 'Häufige Fragen',
+    faq: (label, stats) => [
+      {
+        q: `Wie viele Stellen für ${label} gibt es im Tessin?`,
+        a:
+          stats.activeJobs > 0
+            ? `Aktuell sind ${stats.activeJobs} aktive Stellen für ${label} im Tessin verfügbar, mehrmals täglich aktualisiert.`
+            : `Die Liste wird mehrmals täglich aktualisiert. Schauen Sie bald wieder für neue ${label}-Stellen im Tessin vorbei.`,
+      },
+      {
+        q: 'Kann ich mich als Grenzgänger bewerben?',
+        a: `Ja. Die meisten Tessiner Arbeitgeber akzeptieren Bewerbungen von italienischen Grenzgängern mit G-Bewilligung. Jede Anzeige verlinkt direkt auf die offizielle Bewerbungsseite.`,
+      },
+      {
+        q: 'Wie wird der Medianlohn berechnet?',
+        a: `Der Medianlohn ist der Median der baseSalary.minValue / baseSalary.maxValue-Werte der ${label}-Anzeigen, die eine Lohnspanne deklarieren. Anzeigen ohne expliziten Lohn fliessen nicht in die Berechnung ein.`,
+      },
+    ],
+  },
+  fr: {
+    h1: (label) => `Marché du travail ${label} Tessin — offres actives aujourd'hui`,
+    metaTitle: (label) =>
+      `Marché du travail ${label} Tessin — salaires, employeurs, tendances | Frontaliere Ticino`,
+    metaDesc: (label, count) =>
+      `${count} offres actives pour ${label} au Tessin. Employeurs les plus actifs, salaire médian, tendance sur 12 semaines, deltas hebdomadaire et mensuel.`,
+    kicker: 'Rapport sectoriel · Tessin',
+    intro: (label, count) =>
+      `Cette page agrège les signaux clés du marché du travail tessinois pour le secteur ${label}. ${count > 0 ? `Il y a actuellement ${count} offres actives pour ${label}` : `Il n'y a actuellement aucune offre active pour ${label}`} — surveillées chaque jour par nos crawlers. Tu trouves les employeurs les plus actifs, une estimation du salaire médian, la tendance des nouvelles offres sur les 12 dernières semaines et les comparaisons hebdomadaire et mensuelle.`,
+    paragraph1: (label, stats) =>
+      `Les offres pour ${label} au Tessin se concentrent sur ${stats.topEmployers.slice(0, 3).map((e) => e.name).join(', ') || 'plusieurs employeurs cantonaux'}. La demande correspond à la structure économique du canton : santé publique (EOC, cliniques privées), distribution organisée (Migros, Coop, Denner), industrie (Lonza, AMAG, Mikron) et services (assurance, banque, ingénierie) forment l'essentiel des recrutements. Les frontaliers italiens avec permis G peuvent postuler directement : la grande majorité des employeurs tessinois acceptent les candidatures transfrontalières, à condition que les exigences linguistiques et techniques de l'annonce soient remplies.`,
+    paragraph2: (label) =>
+      `Le salaire médian affiché est calculé sur les champs baseSalary.minValue / baseSalary.maxValue des annonces ${label} qui déclarent une fourchette au format schema.org MonetaryAmount. Les annonces sans salaire explicite ne sont pas comptées. La tendance sur 12 semaines mesure les nouvelles offres par semaine pour le secteur, à partir de l'historique agrégé de jobs-stats-history.json ; quand la série est courte ou plate, la fenêtre historique ne couvre pas encore assez de semaines pour montrer une dynamique significative. Nous recommandons de consulter la page plusieurs fois par semaine : les offres tessinoises se ferment rapidement, et les employeurs à forte rotation — hôpitaux, maisons de retraite, retail — ouvrent et ferment des positions chaque jour.`,
+    statActiveJobs: 'Offres actives',
+    statMedianSalary: 'Salaire médian',
+    statWeeklyDelta: 'Delta hebdomadaire',
+    statMonthlyDelta: 'Delta mensuel',
+    statEditorialFallback: 'historique en construction',
+    topEmployersHeading: 'Employeurs les plus actifs',
+    trendHeading: 'Tendance nouvelles offres — 12 dernières semaines',
+    trendEmpty:
+      "L'historique sur 12 semaines pour ce secteur est encore en construction : le graphique se remplira au fil des snapshots.",
+    sectorHubCta: (label) => `Voir toutes les offres ${label} au Tessin`,
+    sectorHubLink: (sectorSlug, _locale) => `/fr/trouver-emploi-tessin/${sectorSlug}/`,
+    snapshotRootCta: 'Rapport marché du travail Tessin',
+    methodologyHeading: 'Méthodologie',
+    methodologyBody: (label) =>
+      `Les comptages pour ${label} proviennent d'un appariement insensible à la casse sur le titre, la description, la catégorie, l'entreprise et les tags des offres actives. Les nouvelles offres hebdomadaires dans la tendance viennent de jobs-stats-history.json : on filtre les titleStats qui correspondent au motif mot-clé du secteur. Les offres expirées (expired=true) et celles en attente de retraduction (needsRetranslation=true) sont exclues. Les données sont rafraîchies plusieurs fois par jour par plus de 80 crawlers dédiés aux principaux employeurs tessinois, aux bulletins cantonaux et aux agrégateurs publics.`,
+    breadcrumbHome: 'Accueil',
+    breadcrumbSectorHub: 'Secteurs',
+    freshnessLabel: (isoDate) => `Mis à jour le ${isoDate}`,
+    faqTitle: 'Questions fréquentes',
+    faq: (label, stats) => [
+      {
+        q: `Combien d'offres pour ${label} au Tessin ?`,
+        a:
+          stats.activeJobs > 0
+            ? `Il y a actuellement ${stats.activeJobs} offres actives pour ${label} au Tessin, mises à jour plusieurs fois par jour.`
+            : `La liste est mise à jour plusieurs fois par jour. Revenez bientôt pour de nouvelles offres ${label} au Tessin.`,
+      },
+      {
+        q: 'Puis-je postuler comme frontalier ?',
+        a: `Oui. La plupart des employeurs tessinois acceptent les candidatures de frontaliers italiens avec un permis G. Chaque annonce renvoie à la candidature officielle de l'employeur.`,
+      },
+      {
+        q: 'Comment est calculé le salaire médian ?',
+        a: `Le salaire médian est la médiane des valeurs baseSalary.minValue / baseSalary.maxValue des annonces ${label} qui déclarent une fourchette. Les annonces sans salaire explicite ne sont pas comptées.`,
+      },
+    ],
+  },
+};
+
+interface SectorPageInputs {
+  locale: JobMarketSnapshotLocale;
+  sector: JobMarketSectorKey;
+  sectorLabel: string;
+  canonicalPath: string;
+  alternates: Record<JobMarketSnapshotLocale, string>;
+  todayIso: string;
+  stats: SectorStats;
+  distDir?: string;
+}
+
+function formatSectorDelta(
+  value: number | null,
+  fallbackCopy: string,
+): string {
+  if (value === null) return fallbackCopy;
+  const sign = value > 0 ? '+' : '';
+  return `${sign}${value}`;
+}
+
+function alternatesForSector(
+  sector: JobMarketSectorKey,
+): Record<JobMarketSnapshotLocale, string> {
+  const out: Record<JobMarketSnapshotLocale, string> = { it: '', en: '', de: '', fr: '' };
+  for (const loc of JOB_MARKET_SNAPSHOT_LOCALES) out[loc] = buildSectorSnapshotPath(loc, sector);
+  return out;
+}
+
+function renderSectorPage(inp: SectorPageInputs): string {
+  const { locale, sector, sectorLabel, canonicalPath, alternates, todayIso, stats, distDir } = inp;
+  const copy = SECTOR_COPY[locale];
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const h1 = copy.h1(sectorLabel);
+  const title = copy.metaTitle(sectorLabel);
+  const metaDesc = copy.metaDesc(sectorLabel, stats.activeJobs);
+
+  const statTiles = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(copy.kicker)}">
+    ${renderStatTile(copy.statActiveJobs, String(stats.activeJobs), 'primary')}
+    ${stats.medianSalary !== null ? renderStatTile(copy.statMedianSalary, `${stats.medianSalary.toLocaleString('en-US').replace(/,/g, '\u202f')} CHF`, 'neutral') : ''}
+    ${renderStatTile(copy.statWeeklyDelta, formatSectorDelta(stats.weeklyDelta, copy.statEditorialFallback), 'success')}
+    ${renderStatTile(copy.statMonthlyDelta, formatSectorDelta(stats.monthlyDelta, copy.statEditorialFallback), 'warning')}
+  </section>`;
+
+  const topEmployersList = renderTopList(
+    copy.topEmployersHeading,
+    stats.topEmployers.map((e) => ({ name: e.name, added: e.count })),
+    locale === 'it'
+      ? 'offerte attive'
+      : locale === 'de'
+      ? 'aktive Stellen'
+      : locale === 'fr'
+      ? 'offres actives'
+      : 'active openings',
+  );
+
+  const trendSection = `<section style="margin:24px 0 0" aria-labelledby="sectorTrend">
+    <h2 id="sectorTrend" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.trendHeading)}</h2>
+    ${renderSvgTrendChart(stats.trendSeries, copy.trendEmpty)}
+  </section>`;
+
+  const sectorHubHref = `${CITY_SECTOR_HUB_PREFIX[locale]}/${JOB_MARKET_SECTOR_SLUG[sector]}/`;
+  const snapshotHubHref = buildHubPath(locale);
+
+  const ctaHtml = `<p style="margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap">
+    <a href="${esc(sectorHubHref)}" style="display:inline-block;padding:12px 22px;border-radius:12px;background:#4f46e5;color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.sectorHubCta(sectorLabel))} →</a>
+    <a href="${esc(snapshotHubHref)}" style="display:inline-block;padding:12px 22px;border-radius:12px;background:#ffffff;border:1px solid #c7d2fe;color:#4338ca;text-decoration:none;font-weight:700">${esc(copy.snapshotRootCta)} →</a>
+  </p>`;
+
+  const methodology = `<section style="margin:26px 0 0" aria-labelledby="sectorMethodology">
+    <h2 id="sectorMethodology" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.methodologyHeading)}</h2>
+    <p style="margin:0;color:#334155;line-height:1.65">${esc(copy.methodologyBody(sectorLabel))}</p>
+  </section>`;
+
+  const faqEntries = copy.faq(sectorLabel, stats);
+  const faqHtml = faqEntries.length > 0
+    ? `<section style="margin:32px 0 0" aria-labelledby="sectorFaq">
+        <h2 id="sectorFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+        ${faqEntries
+          .map(
+            (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+              <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q)}</summary>
+              <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a)}</p>
+            </details>`,
+          )
+          .join('')}
+      </section>`
+    : '';
+
+  const alternatesHtml = renderHreflangAlternates(alternates);
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: JOB_MARKET_HUB_NAME[locale],
+        item: `${BASE_URL}${buildHubPath(locale)}`,
+      },
+      { '@type': 'ListItem', position: 3, name: h1, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    description: metaDesc,
+    url: canonicalUrl,
+    inLanguage: locale,
+    dateModified: `${todayIso}T00:00:00.000Z`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Frontaliere Ticino',
+      url: BASE_URL,
+    },
+  });
+
+  const datasetLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: h1,
+    description: metaDesc,
+    url: canonicalUrl,
+    isAccessibleForFree: true,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    creator: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: BASE_URL,
+    },
+    variableMeasured: [
+      copy.statActiveJobs,
+      copy.statMedianSalary,
+      copy.statWeeklyDelta,
+      copy.statMonthlyDelta,
+      copy.topEmployersHeading,
+      copy.trendHeading,
+    ],
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqEntries.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+    <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+      <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+      <span> / </span>
+      <a href="${BASE_URL}${buildHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
+      <span> / </span>
+      <span>${esc(sectorLabel)}</span>
+    </nav>
+    <header style="margin-bottom:22px">
+      <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.kicker)} · ${esc(sectorLabel)}</p>
+      <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+      <p style="margin:0 0 10px;color:#475569;font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
+    </header>
+    ${ctaHtml}
+    ${statTiles}
+    <section style="margin:0 0 22px">
+      <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
+      <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.paragraph2(sectorLabel))}</p>
+    </section>
+    ${topEmployersList}
+    ${trendSection}
+    ${methodology}
+    ${faqHtml}
+    ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
+  </main>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(metaDesc)}">
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description: metaDesc,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: JOB_MARKET_OG_LOCALE[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, datasetLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
+}
+
+export interface SectorGeneratorInputs {
+  history: StatsHistoryDataset | null;
+  jobs: ReadonlyArray<JobRecord>;
+  today?: Date;
+  distDir?: string;
+}
+
+export interface SectorGeneratorOutput {
+  pages: Record<string, string>;
+  sectorStats: Record<JobMarketSectorKey, SectorStats>;
+}
+
+export function generateSectorSnapshotPages(
+  opts: SectorGeneratorInputs,
+): SectorGeneratorOutput {
+  const today = opts.today ?? new Date();
+  const todayIso = today.toISOString().slice(0, 10);
+  const entries = opts.history?.entries ?? [];
+  const completedWeeks = bucketHistoryByWeek(entries, { requireComplete: true });
+  const completedMonths = bucketHistoryByMonth(entries).filter((m) => {
+    const currentMonthKey = `${today.getUTCFullYear()}-${String(today.getUTCMonth() + 1).padStart(2, '0')}`;
+    const bucketKey = `${m.year}-${String(m.month).padStart(2, '0')}`;
+    return bucketKey < currentMonthKey;
+  });
+
+  const pages: Record<string, string> = {};
+  const sectorStats = {} as Record<JobMarketSectorKey, SectorStats>;
+
+  for (const sector of JOB_MARKET_SECTOR_KEYS) {
+    const stats = aggregateSectorStats(sector, opts.jobs, entries, completedWeeks, completedMonths);
+    sectorStats[sector] = stats;
+    for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+      const canonicalPath = buildSectorSnapshotPath(locale, sector);
+      const sectorLabel = JOB_MARKET_SECTOR_DISPLAY[locale][sector];
+      pages[canonicalPath] = renderSectorPage({
+        locale,
+        sector,
+        sectorLabel,
+        canonicalPath,
+        alternates: alternatesForSector(sector),
+        todayIso,
+        stats,
+        distDir: opts.distDir,
+      });
+    }
+  }
+
+  return { pages, sectorStats };
+}
+
 // ── Sitemap writer ─────────────────────────────────────────────
 
 function patchSitemapIndex(distDir: string, dateStamp: string): void {
@@ -1550,6 +2203,12 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       const today = new Date();
       const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir });
 
+      // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
+      const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir });
+      for (const [path, html] of Object.entries(sectorOutput.pages)) {
+        pages[path] = html;
+      }
+
       const collector = new WriteCollector({ distDir });
       const sitemapEntries: string[] = [];
       let pagesWritten = 0;
@@ -1597,6 +2256,12 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
                 return `${altName}-${year}`;
               }
             }
+            // Sector slug form: settore/<sectorSlug> (IT) → branche/<slug> (DE) etc.
+            const sectorMatch = /^settore\/([a-z0-9-]+)$/.exec(subSlug);
+            if (sectorMatch) {
+              const leaf = sectorMatch[1];
+              return `${JOB_MARKET_SECTOR_SEGMENT[alt]}/${leaf}`;
+            }
             return subSlug;
           };
           const alternates = JOB_MARKET_SNAPSHOT_LOCALES.map((alt) => {
@@ -1627,8 +2292,9 @@ ${sitemapEntries.join('\n')}
         }
       }
 
+      const sectorPagesCount = Object.keys(sectorOutput.pages).length;
       console.log(
-        `\x1b[36m[job-market-snapshot]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount}, degraded=${degraded})`,
+        `\x1b[36m[job-market-snapshot]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount}, degraded=${degraded}, sector=${sectorPagesCount})`,
       );
     },
   };
