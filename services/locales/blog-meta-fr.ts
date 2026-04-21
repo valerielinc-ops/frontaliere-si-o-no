@@ -2451,6 +2451,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bancastato-walking-mendrisio-2026.title': 'BancaStato Walking Mendrisio 2026 : trois parcours pour tous',
     'blog.article.bancastato-walking-mendrisio-2026.excerpt': 'Dimanche 26 avril 2026 à Mendrisio, trois parcours de difficulté variable, déjeuner offert et animations pour la nouvelle édition de BancaStato Walking Mendrisio.',
     'blog.article.bancastato-walking-mendrisio-2026.imageAlt': 'Participants à la marche BancaStato Walking Mendrisio à travers les vignobles et la campagne',
+    'blog.article.whp-premia-aziende-ticino-2026.title': 'WHP récompense 90 entreprises du Tessin pour la santé au travail',
+    'blog.article.whp-premia-aziende-ticino-2026.excerpt': 'ATS Insubria et Confindustria Varese reconnaissent les entreprises qui promeuvent la santé sur les lieux de travail avec le programme WHP',
+    'blog.article.whp-premia-aziende-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

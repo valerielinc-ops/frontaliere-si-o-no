@@ -10585,6 +10585,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-whp-premia-aziende-ticino-2026': {
+    title: 'WHP premia 90 aziende del Ticino per la | Frontaliere Ticino',
+    description: 'ATS Insubria e Confindustria Varese premiano quasi 90 aziende del territorio per la loro adesione al programma WHP, promuovendo la salute nei luoghi di lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premia, aziende, salute, lavoro',
+    ogTitle: 'WHP premia 90 aziende del Ticino | Frontaliere Ticino',
+    ogDescription: 'ATS Insubria e Confindustria Varese premiano quasi 90 aziende del territorio per la loro adesione al programma WHP, promuovendo la salute nei luoghi di lavoro.',
+    canonicalPath: '/articoli-frontaliere/whp-premia-aziende-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "WHP premia 90 aziende del Ticino per la salute sul lavoro",
+      "description": "ATS Insubria e Confindustria Varese premiano quasi 90 aziende del territorio per la loro adesione al programma WHP, promuovendo la salute nei luoghi di lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/whp-premia-aziende-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-21T14:54:15+00:00",
+      "dateModified": "2026-04-21T14:54:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/whp-premia-aziende-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

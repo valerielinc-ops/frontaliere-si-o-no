@@ -6704,4 +6704,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/bancastato-walking-mendrisio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'whp-premia-aziende-ticino-2026',
+ category: 'pratico',
+ date: '2026-04-21T14:54:15.809Z',
+ image: '/images/blog/whp-premia-aziende-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];
