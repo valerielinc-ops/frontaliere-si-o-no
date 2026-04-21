@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo",
         "it": "arztliche-co-leitung-o-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo",
-        "fr": "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo"
+        "en": "medical-co-guidance-or-leading-medicine-arzt-stationary-pain-therapy-60-80-center-da-sanadad-engiadina-bassa-scuol",
+        "fr": "co-orientation-medicale-ou-traitement-de-la-douleur-stationnaire-par-arzt-60-80-center-da-sanadad-engiadina-bassa-scuol"
       },
       "company": "Center da Sanadad Engiadina Bassa",
       "companyKey": "cseb",
@@ -63,10 +63,17 @@
         ],
         "de": [
           "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-cseb-ch"
+        ],
+        "en": [
+          "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo"
+        ],
+        "fr": [
+          "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo"
         ]
       },
       "previousSlugs": [
-        "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-cseb-ch"
+        "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-cseb-ch",
+        "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

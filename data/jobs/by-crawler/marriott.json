@@ -3573,11 +3573,11 @@
     },
     {
       "id": "marriott-255a37d5e818",
-      "slug": "apprentie-employe-commerce-marriott-verbier",
+      "slug": "apprendista-commerciale-marriott-international-verbier",
       "slugByLocale": {
         "en": "apprentie-employe-commerce-marriott-verbier",
-        "it": "apprentie-employe-commerce-marriott-verbier",
-        "de": "apprentie-employe-commerce-marriott-verbier",
+        "it": "apprendista-commerciale-marriott-international-verbier",
+        "de": "ausbildungsberufe-marriott-international-verbier",
         "fr": "apprentie-employe-commerce-marriott-verbier"
       },
       "company": "Marriott International",
@@ -3642,7 +3642,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T22:02:55.219Z"
+      "firstSeenAt": "2026-04-21T22:02:55.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentie-employe-commerce-marriott-verbier"
+        ],
+        "de": [
+          "apprentie-employe-commerce-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "apprentie-employe-commerce-marriott-verbier"
+      ]
     }
   ]
 }
