@@ -66,18 +66,24 @@ function makeJob(
 }
 
 function makeEocJobs(count: number, city = 'Lugano'): WeeklyCountableJob[] {
-  return Array.from({ length: count }, (_, i) =>
-    makeJob({
+  return Array.from({ length: count }, (_, i) => {
+    const base = makeJob({
       slug: `eoc-${city.toLowerCase()}-${i}`,
       company: 'EOC - Ente Ospedaliero Cantonale',
       companyKey: 'eoc-ente-ospedaliero-cantonale',
       location: city,
       addressLocality: city,
       title: `Infermiere specialista ruolo ${i + 1}`,
+    });
+    // salaryMin/Max are resolver fields on the build-time job shape — not
+    // declared on WeeklyCountableJob; attach via index-access to keep the
+    // test strongly typed without widening the interface.
+    return {
+      ...base,
       salaryMin: 60000,
       salaryMax: 80000,
-    }),
-  );
+    } as WeeklyCountableJob & { salaryMin: number; salaryMax: number };
+  });
 }
 
 // ── Constants ────────────────────────────────────────────────────
