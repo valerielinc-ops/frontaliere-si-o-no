@@ -1,0 +1,68 @@
+name: Snapshot border-wait history
+
+on:
+  # 22:30 UTC = 23:30 CET (winter) / 00:30 CEST (summer) — captures the full day
+  schedule:
+    - cron: '30 22 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: update-border-wait-history
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Snapshot today's border-wait history
+        run: node scripts/snapshot-border-wait-history.mjs
+
+      - name: Commit + push (with rebase-retry)
+        # Port of the rebase-retry pattern from refresh-keyword-config.yml so
+        # we survive concurrent pushes from other data-refresh workflows.
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/border-wait-history data/border-wait-current.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore(border-wait): snapshot history $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME:-main}" && git push origin HEAD:"${GITHUB_REF_NAME:-main}"; then
+              echo "✅ push succeeded on attempt $i"
+              exit 0
+            fi
+            echo "⚠️ push attempt $i failed, retrying after 5s…"
+            sleep 5
+          done
+          echo "::error::Failed to push after 5 attempts"
+          exit 1
