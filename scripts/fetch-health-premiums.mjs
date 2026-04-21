@@ -1,13 +1,22 @@
 #!/usr/bin/env node
 /**
  * fetch-health-premiums.mjs — Download official UFSP/BAG health insurance premiums
- * and commune-to-region mappings, producing data/health-premiums.json.
+ * and commune-to-region mappings, producing data/health-premiums/{year}.json.
  *
  * Data sources:
  *   - Praemien_CH.csv from opendata.bagnet.ch (premiums per canton/region/insurer)
+ *     Historical archives use Praemien_{YYYY}_CH.csv or the year-parameterised
+ *     BAG asset. The script probes known URL shapes and falls back gracefully
+ *     when a past-year archive is not available.
  *   - praemienregionen.xlsx from priminfo.admin.ch (commune→region mapping)
  *
- * Output: data/health-premiums.json + public/data/health-premiums.json
+ * Output:
+ *   - data/health-premiums/{year}.json  ← canonical multi-year storage (F2 A3 YoY)
+ *   - public/data/health-premiums/{year}.json  ← runtime comparator mirror
+ *   - data/health-premiums.json  ← legacy flat-file alias for the current-year
+ *     dataset; preserved to keep pre-F2-A3 consumers (tests, newsletter,
+ *     comparator runtime fetch fallback, robots.txt Allow) working without
+ *     a breaking change. Written only when --year matches the dataset year.
  *
  * Schema per insurer entry (F2-LAMal real KIN/JUG/ERW data):
  *   {
@@ -25,7 +34,8 @@
  *   }
  *
  * Usage:
- *   node scripts/fetch-health-premiums.mjs
+ *   node scripts/fetch-health-premiums.mjs             # current year
+ *   node scripts/fetch-health-premiums.mjs --year=2025 # historical archive
  */
 
 import fs from 'node:fs';
@@ -34,11 +44,39 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_OUT = path.join(ROOT, 'data', 'health-premiums.json');
-const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'health-premiums.json');
+
+// Parse CLI args — support --year=YYYY for historical backfill (F2 A3 YoY).
+function parseYearArg(argv) {
+  for (const a of argv) {
+    const m = /^--year=(\d{4})$/.exec(a);
+    if (m) return parseInt(m[1], 10);
+  }
+  return null;
+}
+const TARGET_YEAR = parseYearArg(process.argv.slice(2));
+const CURRENT_YEAR = new Date().getUTCFullYear();
+const YEAR_FOR_PATHS = TARGET_YEAR ?? CURRENT_YEAR;
+
+const DATA_DIR = path.join(ROOT, 'data', 'health-premiums');
+const PUBLIC_DIR = path.join(ROOT, 'public', 'data', 'health-premiums');
+const DATA_OUT = path.join(DATA_DIR, `${YEAR_FOR_PATHS}.json`);
+const PUBLIC_OUT = path.join(PUBLIC_DIR, `${YEAR_FOR_PATHS}.json`);
+// Legacy flat-file paths — written only when the fetched dataset corresponds
+// to the current year, so pre-F2-A3 consumers keep resolving the correct data.
+const LEGACY_DATA_OUT = path.join(ROOT, 'data', 'health-premiums.json');
+const LEGACY_PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'health-premiums.json');
 
 // ── Data source URLs ──
-const PREMIUMS_CSV_URL = 'https://opendata.bagnet.ch/?r=/download&path=L1ByYWVtaWVuL1Byw6RtaWVuX0NILmNzdg%3D%3D';
+// BAG exposes the current year's Prämien_CH.csv directly. Historical years
+// are packaged as `Archiv_Praemien_{year}.zip` on the same FileGator portal.
+// Metadata confirms archives from 2011..2025 are all available.
+const PREMIUMS_CURRENT_URL = 'https://opendata.bagnet.ch/?r=/download&path=L1ByYWVtaWVuL1Byw6RtaWVuX0NILmNzdg%3D%3D';
+function buildHistoricalArchiveUrl(year) {
+  // Path shape: `/Praemien/Archiv_Praemien_{year}.zip` (base64-encoded).
+  const p = `/Praemien/Archiv_Praemien_${year}.zip`;
+  const b64 = Buffer.from(p, 'utf-8').toString('base64').replace(/=/g, '%3D');
+  return `https://opendata.bagnet.ch/?r=/download&path=${b64}`;
+}
 const REGIONS_XLSX_URL = 'https://www.priminfo.admin.ch/downloads/praemienregionen.xlsx';
 
 // ── Insurer ID → name/website mapping (from BAG official list 2026) ──
@@ -117,10 +155,17 @@ const BASE_FRANCHISE_BY_AGE_CLASS = {
 const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
 // ── CSV parser (no dependencies) ──
-function parseCSV(text, separator = ',') {
+function parseCSV(text, separator) {
   const lines = text.split('\n');
   // Remove BOM if present
   if (lines[0].charCodeAt(0) === 0xFEFF) lines[0] = lines[0].slice(1);
+  // Auto-detect separator: 2026 CSV uses comma, 2025 archive uses semicolon.
+  if (!separator) {
+    const header = lines[0];
+    const commaCount = (header.match(/,/g) || []).length;
+    const semiCount = (header.match(/;/g) || []).length;
+    separator = semiCount > commaCount ? ';' : ',';
+  }
   const headers = lines[0].split(separator).map(h => h.trim().replace(/^"|"$/g, ''));
   const rows = [];
   for (let i = 1; i < lines.length; i++) {
@@ -186,14 +231,101 @@ async function download(url, label) {
   return res;
 }
 
+/**
+ * Download the Prämien CSV for the requested year. Current year ships as a
+ * direct CSV; historical years come packaged in a ZIP archive containing
+ * `Prämien_CH.csv`. Returns { csvText, sourceUrl } or throws NoArchiveError.
+ */
+class NoArchiveError extends Error {
+  constructor(year, reason) {
+    super(`No BAG archive reachable for year ${year}: ${reason}`);
+    this.year = year;
+    this.reason = reason;
+  }
+}
+
+async function fetchPremiumsCsv(targetYear) {
+  // Current year or unspecified → direct CSV.
+  if (!targetYear || targetYear === CURRENT_YEAR) {
+    const res = await download(PREMIUMS_CURRENT_URL, `Prämien_CH.csv (current year ${CURRENT_YEAR})`);
+    const csvText = await res.text();
+    return { csvText, sourceUrl: PREMIUMS_CURRENT_URL };
+  }
+  // Historical year → Archiv_Praemien_{year}.zip → extract Prämien_CH.csv.
+  const archiveUrl = buildHistoricalArchiveUrl(targetYear);
+  let res;
+  try {
+    res = await fetch(archiveUrl);
+  } catch (err) {
+    throw new NoArchiveError(targetYear, `network error fetching ${archiveUrl}: ${err.message}`);
+  }
+  if (!res.ok) {
+    throw new NoArchiveError(targetYear, `${archiveUrl} responded ${res.status} ${res.statusText}`);
+  }
+  const contentType = res.headers.get('content-type') || '';
+  if (!/zip/i.test(contentType)) {
+    throw new NoArchiveError(targetYear, `unexpected content-type ${contentType} from ${archiveUrl}`);
+  }
+  const zipBuf = Buffer.from(await res.arrayBuffer());
+  console.log(`   ✅ Downloaded archive ZIP (${(zipBuf.length / 1024 / 1024).toFixed(1)} MB)`);
+
+  // Extract Prämien_CH.csv from the ZIP using the JS unzipper. We lazy-load
+  // `adm-zip` (small, zero-dep) to avoid a hard dependency on CI bootstrap.
+  let AdmZip;
+  try {
+    AdmZip = (await import('adm-zip')).default;
+  } catch {
+    throw new NoArchiveError(targetYear, 'adm-zip package not installed — run `npm install adm-zip` to enable historical backfill');
+  }
+  let zip;
+  try {
+    zip = new AdmZip(zipBuf);
+  } catch (err) {
+    throw new NoArchiveError(targetYear, `failed to open ZIP: ${err.message}`);
+  }
+  const entries = zip.getEntries();
+  const csvEntry = entries.find((e) => /Pr[äa]mien_CH\.csv$/i.test(e.entryName));
+  if (!csvEntry) {
+    throw new NoArchiveError(
+      targetYear,
+      `no Prämien_CH.csv inside archive (entries: ${entries.map((e) => e.entryName).join(', ')})`,
+    );
+  }
+  // Decode the CSV. Historical BAG archives (observed on 2025) ship in
+  // CP1252/Latin1 with ; separator; modern releases are UTF-8 with comma.
+  // Inspect the raw bytes first for the UTF-8 BOM or Latin1-encoded "ä"
+  // (0xE4) and pick the matching decoder.
+  const rawBuf = csvEntry.getData();
+  const looksUtf8 =
+    (rawBuf[0] === 0xef && rawBuf[1] === 0xbb && rawBuf[2] === 0xbf) ||
+    /Prämie|Geschäft/.test(rawBuf.slice(0, 512).toString('utf-8'));
+  const csvText = looksUtf8
+    ? rawBuf.toString('utf-8')
+    : new TextDecoder('windows-1252').decode(rawBuf);
+  return { csvText, sourceUrl: `${archiveUrl}#${csvEntry.entryName}` };
+}
+
 // ── Main ──
 async function main() {
-  console.log('🏥 Fetching health insurance premiums from UFSP/BAG...\n');
+  const yearLabel = TARGET_YEAR ? ` (year ${TARGET_YEAR})` : '';
+  console.log(`🏥 Fetching health insurance premiums from UFSP/BAG${yearLabel}...\n`);
 
-  // 1. Download premiums CSV
-  const premiumsRes = await download(PREMIUMS_CSV_URL, 'Praemien_CH.csv');
-  const premiumsText = await premiumsRes.text();
-  console.log(`   ✅ Downloaded premiums CSV (${(premiumsText.length / 1024 / 1024).toFixed(1)} MB)`);
+  // 1. Download premiums CSV (direct for current year, ZIP archive for past).
+  let premiumsText;
+  let resolvedCsvUrl;
+  try {
+    const downloaded = await fetchPremiumsCsv(TARGET_YEAR);
+    premiumsText = downloaded.csvText;
+    resolvedCsvUrl = downloaded.sourceUrl;
+  } catch (err) {
+    if (err instanceof NoArchiveError) {
+      console.error(`❌ ${err.message}`);
+      console.error(`\n💡 Graceful degradation: no ${err.year}.json written. YoY rendering will be skipped for this year.`);
+      process.exit(2);
+    }
+    throw err;
+  }
+  console.log(`   ✅ Loaded premiums CSV from ${resolvedCsvUrl} (${(premiumsText.length / 1024 / 1024).toFixed(1)} MB)`);
 
   // 2. Download regions XLSX
   const regionsRes = await download(REGIONS_XLSX_URL, 'praemienregionen.xlsx');
@@ -202,7 +334,7 @@ async function main() {
 
   // 3. Parse premiums CSV
   console.log('📊 Parsing premiums...');
-  const allPremiums = parseCSV(premiumsText, ',');
+  const allPremiums = parseCSV(premiumsText);
   console.log(`   ${allPremiums.length} total rows`);
 
   // Filter: capture all 3 risk classes (KIN / JUG / ERW), without accident
@@ -475,16 +607,33 @@ async function main() {
     console.log(`   Most expensive: ${communeRankings[communeRankings.length - 1].municipality} (CHF ${communeRankings[communeRankings.length - 1].avgPremium})`);
   }
 
-  // 8. Write output
-  const json = JSON.stringify(output, null, 2);
-  fs.writeFileSync(DATA_OUT, json);
-  console.log(`\n✅ Written ${DATA_OUT} (${(json.length / 1024).toFixed(0)} KB)`);
+  // 8. Write output — canonical multi-year storage under data/health-premiums/.
+  //    Resolve the final year from the dataset itself (CSV "Geschäftsjahr"
+  //    column) so the written filename matches the actual payload even when
+  //    --year was inferred from the default.
+  const datasetYear = output.year;
+  const resolvedDataOut = path.join(DATA_DIR, `${datasetYear}.json`);
+  const resolvedPublicOut = path.join(PUBLIC_DIR, `${datasetYear}.json`);
 
-  // Copy to public/data/ for runtime access
-  const publicDir = path.dirname(PUBLIC_OUT);
-  if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
-  fs.writeFileSync(PUBLIC_OUT, json);
-  console.log(`✅ Written ${PUBLIC_OUT}`);
+  const json = JSON.stringify(output, null, 2);
+  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+  fs.writeFileSync(resolvedDataOut, json);
+  console.log(`\n✅ Written ${resolvedDataOut} (${(json.length / 1024).toFixed(0)} KB)`);
+
+  if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
+  fs.writeFileSync(resolvedPublicOut, json);
+  console.log(`✅ Written ${resolvedPublicOut}`);
+
+  // Legacy flat-file alias — keep pre-F2-A3 consumers working. Only refresh
+  // when the dataset corresponds to the *current* calendar year so we never
+  // overwrite production data with a historical backfill.
+  if (datasetYear === CURRENT_YEAR) {
+    fs.writeFileSync(LEGACY_DATA_OUT, json);
+    fs.writeFileSync(LEGACY_PUBLIC_OUT, json);
+    console.log(`✅ Refreshed legacy aliases ${LEGACY_DATA_OUT} + ${LEGACY_PUBLIC_OUT}`);
+  } else {
+    console.log(`ℹ️  Skipped legacy alias refresh (dataset year ${datasetYear} ≠ current ${CURRENT_YEAR}).`);
+  }
 
   // Risk-class coverage: percentage of (record × insurer) pairs with an
   // explicit KIN / JUG / ERW block. Useful to detect BAG feed regressions.
