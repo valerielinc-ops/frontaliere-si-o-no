@@ -29,11 +29,11 @@ const SPEAKABLE_SECTION = {
 
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  calculator: {
- title: 'Frontaliere Ticino 2026 — Calcolo Netto Frontalieri',
- description: 'Calcola il netto come frontaliere in Svizzera 2026: simulatore per nuovi e vecchi frontalieri, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP. Accordo 2026.',
- keywords: 'simulazione tasse nuovi frontalieri, vecchi frontalieri calcolo, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, calcolo tasse svizzera frontalieri, nuovo accordo frontalieri 2026',
- ogTitle: 'Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri',
- ogDescription: 'Calcola il tuo stipendio netto come frontaliere in Svizzera 2026: simulatore per nuovi e vecchi frontalieri, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP.',
+ title: 'Frontalieri Svizzera 2026 — Calcolo Stipendio Netto, Tasse, Guida',
+ description: 'Frontalieri in Svizzera 2026: calcola il netto, confronta permessi G/B, guida fiscale Nuovo Accordo, LAMal, dogana. Simulatore ufficiale per nuovi e vecchi frontalieri.',
+ keywords: 'frontalieri svizzera, frontalieri ticino, simulazione tasse nuovi frontalieri, vecchi frontalieri calcolo, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, nuovo accordo frontalieri 2026',
+ ogTitle: 'Frontalieri Svizzera 2026 — Calcolo Netto, Tasse, Permessi, Guida',
+ ogDescription: 'La risorsa di riferimento per frontalieri in Svizzera: calcolo stipendio netto 2026, Nuovo Accordo fiscale, confronto permesso G/B, LAMal, dogana, oltre 700 articoli.',
  canonicalPath: '/',
  structuredData: [
  {
@@ -613,11 +613,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  guide: {
- title: 'Guida Completa Frontaliere | Permessi, Dogana, Primo Giorno',
- description: 'Oltre 78.000 frontalieri lavorano in Ticino. Guida 2026: permesso G (20 km, 5 anni), tempi dogana, primo giorno, trasferimento auto e disoccupazione.',
- keywords: 'guida frontaliere svizzera, permesso g come ottenerlo, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera',
- ogTitle: 'Guida Completa Frontaliere | Tutto Quello che Devi Sapere',
- ogDescription: 'Oltre 78.000 frontalieri lavorano in Ticino ogni giorno. Guida aggiornata 2026: permesso G (20 km, 5 anni), dogana, primo giorno, trasferimento auto e disoccupazione transfrontaliera.',
+ title: 'Frontalieri Svizzera 2026 — Guida Completa Permesso G, Tasse, Dogana',
+ h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
+ description: 'Guida per frontalieri in Svizzera 2026: permesso G (20 km, 5 anni), Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
+ keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
+ ogTitle: 'Frontalieri Svizzera 2026 — Guida Completa Pillar',
+ ogDescription: 'La guida più completa per frontalieri in Svizzera: permesso G (20 km, 5 anni), Nuovo Accordo fiscale 2026, LAMal, dogana, primo giorno, trasferimento auto. 78.000 frontalieri/giorno.',
  canonicalPath: '/guida-frontaliere',
  structuredData: [
  {
@@ -633,15 +634,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Guide per frontalieri",
- "numberOfItems": 7,
+ "numberOfItems": 9,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Permessi di Lavoro G e B", "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro` },
  { "@type": "ListItem", "position": 2, "name": "Tempi Attesa Dogana", "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana` },
  { "@type": "ListItem", "position": 3, "name": "Primo Giorno di Lavoro", "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro` },
- { "@type": "ListItem", "position": 4, "name": "Trasferire Auto in Svizzera", "url": `${BASE_URL}/guida-frontaliere/trasferire-auto-svizzera` },
- { "@type": "ListItem", "position": 5, "name": "Disoccupazione Transfrontaliera", "url": `${BASE_URL}/guida-frontaliere/disoccupazione-transfrontaliera` },
- { "@type": "ListItem", "position": 6, "name": "Mappa Comuni di Frontiera", "url": `${BASE_URL}/guida-frontaliere/mappa-confine` },
- { "@type": "ListItem", "position": 7, "name": "Costo Auto Pendolare", "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare` }
+ { "@type": "ListItem", "position": 4, "name": "Tassa Salute Frontalieri 2026", "url": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri` },
+ { "@type": "ListItem", "position": 5, "name": "LAMal Frontalieri — Guida Pillar", "url": `${BASE_URL}/guida-frontaliere/lamal-frontalieri` },
+ { "@type": "ListItem", "position": 6, "name": "Trasferire Auto in Svizzera", "url": `${BASE_URL}/guida-frontaliere/trasferire-auto-svizzera` },
+ { "@type": "ListItem", "position": 7, "name": "Disoccupazione Transfrontaliera", "url": `${BASE_URL}/guida-frontaliere/disoccupazione-transfrontaliera` },
+ { "@type": "ListItem", "position": 8, "name": "Mappa Comuni di Frontiera", "url": `${BASE_URL}/guida-frontaliere/mappa-confine` },
+ { "@type": "ListItem", "position": 9, "name": "Costo Auto Pendolare", "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare` }
  ]
  },
  {
@@ -1111,19 +1114,20 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  exchange: {
- title: 'Cambio CHF/EUR Oggi | Confronto Wise, Revolut, PostFinance',
- description: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche 1–3%. Su 5.000 CHF/mese risparmi fino a 150 CHF. Confronta i provider.',
- keywords: 'cambio chf eur oggi, wise tasso cambio, revolut commissioni, postfinance cambio valuta, ubs credit suisse cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta',
- ogTitle: 'Cambio CHF/EUR in Tempo Reale',
- ogDescription: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche tradizionali 1–3%. Su uno stipendio di 5.000 CHF/mese risparmi fino a 150 CHF. Confronta 6 provider in tempo reale.',
+ title: 'Cambio Franco Euro 2026: Tasso Oggi + Confronto Spread Wise, Revolut',
+ h1: 'Cambio franco-euro 2026 — tasso in tempo reale, confronto spread, commissioni',
+ description: 'Cambio franco-euro 2026: tasso BNS in tempo reale, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
+ keywords: 'cambio franco euro, cambio chf eur oggi, cambio franco svizzero euro, tasso franco euro 2026, wise tasso cambio, revolut commissioni, spread cambio valuta, postfinance cambio valuta, ubs cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta, calcolo risparmio cambio',
+ ogTitle: 'Cambio Franco Euro 2026 — Tasso Oggi + Confronto Spread',
+ ogDescription: '💱 Cambio franco-euro 2026: tasso BNS in tempo reale, spread a confronto tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26), calcolatore commissioni.',
  canonicalPath: '/compara-servizi/cambio-franco-euro',
  structuredData: [
  {
  "@context": "https://schema.org",
  "@type": "WebApplication",
- "name": "Comparatore Cambio CHF/EUR",
+ "name": "Comparatore Cambio Franco Euro",
  "url": `${BASE_URL}/compara-servizi/cambio-franco-euro`,
- "description": "Confronto tassi di cambio CHF/EUR in tempo reale tra 6 provider: Wise, Revolut, PostFinance, UBS, Raiffeisen, N26",
+ "description": "Confronto tassi di cambio franco-euro in tempo reale tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
@@ -1132,12 +1136,32 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
+ "@type": "ExchangeRateSpecification",
+ "name": "Franco svizzero (CHF) — Euro (EUR) cambio di riferimento",
+ "currency": "CHF",
+ "currentExchangeRate": {
+ "@type": "UnitPriceSpecification",
+ "price": "0.94",
+ "priceCurrency": "EUR",
+ "referenceQuantity": {
+ "@type": "QuantitativeValue",
+ "value": "1",
+ "unitCode": "CHF"
+ }
+ },
+ "exchangeRateSpread": "0.3-3.0% a seconda del provider"
+ },
+ {
+ "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Qual è il miglior servizio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Wise e Revolut offrono generalmente i tassi più vantaggiosi con commissioni tra 0.3% e 0.5%. Le banche tradizionali (UBS, PostFinance) applicano spread più alti, spesso dell'1-3%." } },
- { "@type": "Question", "name": "Quanto costa trasferire CHF in EUR con Wise?", "acceptedAnswer": { "@type": "Answer", "text": "Wise applica una commissione trasparente dello 0.3-0.6% sul tasso di cambio medio di mercato. Per un trasferimento di CHF 5,000, il costo tipico è di circa CHF 15-30." } },
- { "@type": "Question", "name": "Conviene cambiare lo stipendio frontaliere in banca o con servizi online?", "acceptedAnswer": { "@type": "Answer", "text": "I servizi online come Wise e Revolut sono generalmente più convenienti. Su uno stipendio mensile di CHF 5,000, il risparmio rispetto a una banca tradizionale può essere di CHF 50-150 al mese." } },
- { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso CHF/EUR fluttua quotidianamente. Conviene monitorare il tasso e cambiare quando il franco è forte (sotto 0.93 EUR). Evitare i cambi nei weekend quando gli spread sono più ampi." } }
+ { "@type": "Question", "name": "Qual è lo spread medio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Lo spread medio sul cambio franco-euro varia dallo 0,3% dei servizi online (Wise, Revolut) fino al 3% delle banche tradizionali. Su uno stipendio frontaliere di CHF 5.000/mese la differenza tra spread 0,3% e spread 3% è di CHF 135 al mese (CHF 1.620 all'anno), una somma non trascurabile che giustifica l'apertura di un conto multivaluta online." } },
+ { "@type": "Question", "name": "Qual è il miglior servizio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Wise e Revolut offrono generalmente i tassi più vantaggiosi con commissioni tra 0,3% e 0,5% sul tasso mid-market. PostFinance applica uno spread dell'1,5-2%, UBS e Credit Suisse dell'1-2,5%. Le casse Raiffeisen cantonali si fermano tipicamente all'1-1,5%. N26 applica un tasso vicino al mid-market con cambio mensile gratuito fino a €30.000 per i piani You/Metal." } },
+ { "@type": "Question", "name": "Quanto costa trasferire CHF in EUR con Wise?", "acceptedAnswer": { "@type": "Answer", "text": "Wise applica una commissione trasparente dello 0,3-0,6% sul tasso di cambio mid-market reale. Per un trasferimento di CHF 5.000 il costo tipico è CHF 15-30. Il servizio offre anche un conto multivaluta gratuito con IBAN svizzero e IBAN europeo, permettendo di ricevere lo stipendio in CHF e convertirlo a scelta del titolare." } },
+ { "@type": "Question", "name": "Conviene cambiare lo stipendio frontaliere in banca o con servizi online?", "acceptedAnswer": { "@type": "Answer", "text": "I servizi online come Wise e Revolut sono generalmente più convenienti. Su uno stipendio mensile di CHF 5.000 il risparmio rispetto a una banca tradizionale può essere di CHF 50-150 al mese. Tuttavia, le banche offrono strumenti aggiuntivi (piani d'investimento, mutui, conto business) che i servizi online non coprono. Una strategia ottimale è tenere il conto stipendio presso la banca svizzera e cambiare tramite Wise/Revolut solo la quota da trasferire in Italia." } },
+ { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso franco-euro fluttua quotidianamente. Storicamente il franco è stato forte (EUR/CHF sotto 0,95) nei periodi di instabilità finanziaria globale (2015-2017, 2020, 2022). Conviene impostare alert sui provider (Wise Rate Alerts, Revolut Rate Alert) per notifica al superamento di soglie predefinite. Evitare i cambi nei weekend e nelle ore notturne quando gli spread sono più ampi per bassa liquidità interbancaria." } },
+ { "@type": "Question", "name": "Quanto si risparmia usando Revolut Premium o Wise Borderless?", "acceptedAnswer": { "@type": "Answer", "text": "Revolut Premium (€9,99/mese) dà cambio al tasso mid-market illimitato e 3 prelievi ATM gratuiti al mese; Wise Borderless è gratuito con commissione per trasferimento. Per frontalieri che trasferiscono CHF 3.000-7.000/mese, Revolut Premium si ripaga oltre i CHF 3.500/mese di cambio grazie all'azzeramento dello spread; per importi minori Wise resta la scelta più economica." } },
+ { "@type": "Question", "name": "Le commissioni di cambio sono detraibili dalle tasse italiane?", "acceptedAnswer": { "@type": "Answer", "text": "No, le commissioni di cambio valuta applicate a spese personali (stipendio frontaliere convertito per spese familiari) non sono deducibili dall'IRPEF italiana. Possono invece essere spesabili per chi ha una partita IVA italiana o un'attività professionale: in quel caso la commissione rientra tra le spese bancarie deducibili al 100%. Conservare sempre l'estratto conto che dettaglia la commissione sul cambio per eventuale contraddittorio con l'Agenzia delle Entrate." } }
  ]
  }
  ]
@@ -6744,6 +6768,341 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Privacy policy of Frontaliere Ticino",
  "inLanguage": "en"
  },
+ },
+
+ // ───────────────────────────────────────────────────────────────
+ // Workstream C — Nuove landing pages SEO (SemRush growth plan)
+ // ───────────────────────────────────────────────────────────────
+
+ 'tassa-salute-frontalieri': {
+ title: 'Tassa Salute Frontalieri 2026: Importo, Esenzioni, Come Funziona',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, come viene trattenuta',
+ description: 'Tassa salute frontalieri 2026: importo aggiornato, chi è soggetto o esente, come viene trattenuta dal Cantone Ticino ai nuovi frontalieri, differenza con LAMal.',
+ keywords: 'tassa salute frontalieri, contributo sanitario frontalieri, tassa salute ticino, tassa sanitaria frontalieri svizzera, nuovi frontalieri tassa salute, regioni frontaliere salute, trattenuta salute ticino',
+ ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
+ ogDescription: '💰 Guida completa alla tassa salute frontalieri 2026: importo ufficiale, chi è soggetto o esente, come viene trattenuta e rimborsata alle Regioni di confine.',
+ canonicalPath: '/guida-frontaliere/tassa-salute-frontalieri',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Tassa salute frontalieri 2026: importo, esenzioni e funzionamento",
+ "description": "Guida completa al contributo sanitario a carico dei nuovi frontalieri previsto dal Nuovo Accordo Italia-Svizzera 2026: importo, soggetti esenti, meccanismo di trattenuta e destinazione alle Regioni di confine.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": BUILD_DATE_ISO,
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cos'è la tassa salute per i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La tassa salute (contributo sanitario frontalieri) è un prelievo introdotto dall'art. 9 del Nuovo Accordo Italia-Svizzera entrato in vigore il 17 luglio 2023. Si applica ai nuovi frontalieri — coloro che hanno iniziato a lavorare in Svizzera dopo tale data — ed è destinata a finanziare il Servizio Sanitario Nazionale nelle Regioni di confine (Lombardia, Piemonte, Valle d'Aosta, Trentino-Alto Adige). Viene trattenuta direttamente dal datore di lavoro svizzero in busta paga."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto è la tassa salute frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La tassa salute ammonta al 6% dell'imposta alla fonte lorda trattenuta dal Cantone svizzero di lavoro. L'aliquota, fissata dall'art. 9 del Nuovo Accordo, è stata confermata dalla Legge di Bilancio italiana e dalla circolare dell'Agenzia delle Entrate. Per uno stipendio lordo di CHF 72.000 con imposta fonte del 9%, il prelievo mensile è di circa CHF 32 (6% di CHF 540 mensili)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I vecchi frontalieri devono pagare la tassa salute?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No. La tassa salute si applica esclusivamente ai nuovi frontalieri (assunti dal 17/07/2023 in avanti) e non ai vecchi frontalieri, che restano nel regime transitorio con tassazione esclusiva in Svizzera fino al 2033. Anche i frontalieri con permesso B (dimora) sono esenti, in quanto residenti fiscali in Svizzera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Chi incassa materialmente la tassa salute frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il Cantone svizzero di lavoro trattiene la somma alla fonte insieme all'imposta ordinaria e la riversa alla Confederazione, che a sua volta la trasferisce alle Regioni italiane di confine tramite un meccanismo di compensazione finanziaria. Le Regioni la destinano poi al finanziamento del SSN locale a cui il frontaliere ha comunque diritto di accesso mantenendo la residenza in Italia."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "La tassa salute è detraibile in dichiarazione dei redditi?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. Il contributo sanitario frontalieri concorre al credito d'imposta per le imposte pagate in Svizzera riconosciuto in dichiarazione dei redditi (Quadro CE del modello Redditi PF o Quadro G del 730). Conservare sempre la certificazione annuale svizzera (Lohnausweis) e la traduzione giurata se richiesta dal CAF, perché il credito riduce euro su euro l'IRPEF dovuta in Italia."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Tassa salute e LAMal sono la stessa cosa?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No, sono due prelievi completamente diversi. La LAMal è il premio dell'assicurazione sanitaria svizzera obbligatoria (CHF 400-600/mese) che il frontaliere può scegliere di pagare se esercita il diritto d'opzione; la tassa salute è un tributo pubblico (6% dell'imposta fonte) trattenuto dallo Stato svizzero per finanziare il SSN italiano. Un nuovo frontaliere paga sempre la tassa salute, indipendentemente dal fatto che abbia scelto LAMal o SSN come assicurazione."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come si calcola la tassa salute frontalieri",
+ "description": "Procedura per determinare l'importo della tassa salute dovuta da un nuovo frontaliere in base allo stipendio lordo svizzero.",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Determina l'imposta alla fonte lorda annua",
+ "text": "Prendi il lordo annuo in CHF e applica l'aliquota alla fonte cantonale (tabella A/B/C/H del Ticino 2026) per ottenere l'imposta fonte lorda."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Applica l'aliquota del 6%",
+ "text": "Moltiplica l'imposta fonte lorda annua per 0,06 per ottenere il contributo salute annuo."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Dividi per 12 o 13 mensilità",
+ "text": "Dividi il contributo annuo per le mensilità previste in busta paga per ottenere il prelievo mensile visibile sul Lohnausweis."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Verifica e conserva la documentazione",
+ "text": "Controlla che la voce 'contributo salute' o 'tassa frontalieri' compaia in busta paga e conserva il Lohnausweis annuale per la dichiarazione dei redditi italiana."
+ }
+ ]
+ }
+ ]
+ },
+
+ 'lamal-frontalieri': {
+ title: 'LAMal Frontalieri 2026: Guida Assicurazione Malattia Svizzera',
+ h1: 'LAMal frontalieri 2026 — diritto d\'opzione, premi, casse malati, come scegliere',
+ description: 'LAMal frontalieri 2026: diritto d\'opzione tra assicurazione svizzera e SSN italiano, premi delle 14 casse malati Ticino, franchigie, rimborsi e scadenze.',
+ keywords: 'lamal frontalieri, assicurazione malattia frontalieri, casse malati frontalieri, diritto di opzione lamal, premi lamal ticino, franchigia lamal, SSN o lamal frontalieri',
+ ogTitle: 'LAMal Frontalieri 2026 — Guida Completa Diritto d\'Opzione',
+ ogDescription: '🏥 Guida pillar alla LAMal per frontalieri: diritto d\'opzione, confronto casse malati Ticino, premi 2026, franchigie e come scegliere tra LAMal e SSN.',
+ canonicalPath: '/guida-frontaliere/lamal-frontalieri',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "LAMal frontalieri 2026: diritto d'opzione, premi, casse malati",
+ "description": "Guida pillar completa alla LAMal (Legge federale sull'assicurazione malattia) per frontalieri: come funziona il diritto d'opzione tra LAMal e SSN, premi aggiornati 2026 delle casse malati del Canton Ticino, franchigie, rimborsi e scadenze.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": BUILD_DATE_ISO,
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/lamal-frontalieri/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cos'è la LAMal e come si applica ai frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La LAMal (Legge federale sull'assicurazione malattia, entrata in vigore nel 1996) è l'assicurazione sanitaria obbligatoria svizzera. I frontalieri hanno il diritto d'opzione: possono scegliere entro tre mesi dall'inizio del rapporto di lavoro se aderire alla LAMal svizzera o rimanere coperti dal Servizio Sanitario Nazionale italiano. La scelta è irrevocabile ed è formalizzata con un modulo presentato all'Istituto Comune LAMal e al Servizio dell'igiene pubblica del Cantone."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa la LAMal a un frontaliere nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il premio LAMal per frontalieri residenti in Italia e attivi nel Canton Ticino nel 2026 va da circa CHF 280 a CHF 650 al mese per adulto, a seconda della cassa malati scelta, della franchigia (da CHF 300 a CHF 2.500) e del modello assicurativo (standard, medico di famiglia, telemedicina, HMO). Le 14 casse malati autorizzate per i frontalieri Ticino comprendono Helsana, Swica, CSS, Sanitas, KPT, Visana, Sympany, Atupri, ÖKK, Concordia, Sodalis, EGK, SLKK e Rhenusana."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Meglio scegliere LAMal o SSN italiano come frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dipende dall'uso che si fa del sistema sanitario. LAMal: premi CHF 280-650/mese ma accesso rapido a strutture svizzere, copertura su medico di famiglia, farmacia, ospedale pubblico e privato. SSN italiano: sostanzialmente gratuito, liste di attesa più lunghe, copertura limitata in Svizzera (solo cure urgenti). Chi lavora oltre 20 km dal confine, ha famiglia con figli in età scolare o condizioni croniche di salute beneficia tipicamente di più dalla LAMal; chi ha buona salute e usa poco il sistema tende a scegliere SSN."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Si può cambiare cassa malati dopo aver scelto la LAMal?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, ma non si può tornare al SSN italiano. Il cambio di cassa malati all'interno del sistema LAMal è possibile una volta all'anno: comunicando la disdetta entro il 30 novembre con effetto dal 1° gennaio dell'anno successivo (franchigia ordinaria) o entro il 31 marzo ed il 30 settembre per le franchigie opzionali. Il nuovo assicuratore LAMal non può rifiutare l'adesione per motivi di salute: è obbligato per legge ad accettare chiunque rispetti i requisiti di residenza e attività."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I familiari del frontaliere sono coperti dalla LAMal?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. Se il frontaliere sceglie la LAMal, anche coniuge e figli non attivi residenti in Italia devono iscriversi obbligatoriamente alla LAMal svizzera (premio ridotto per i figli fino a 18 anni e giovani adulti 19-25 anni in formazione). Solo il coniuge che ha un proprio lavoro in Italia o risulta iscritto autonomamente al SSN può restare escluso dalla LAMal. Questo è un aspetto spesso sottovalutato nel calcolo del costo reale della scelta LAMal per famiglie numerose."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "La LAMal è detraibile dalle tasse italiane?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri (dal 17/07/2023) i premi LAMal effettivamente versati in Svizzera sono deducibili fino a €3.000 annui ai fini IRPEF italiana, come previsto dall'art. 3 del Nuovo Accordo. La deduzione va indicata nel Quadro RP del modello Redditi PF conservando le ricevute della cassa malati e l'attestazione annuale del premio versato. Per i vecchi frontalieri la LAMal non è deducibile in Italia, ma non essendo tassati in Italia, non ne hanno beneficio diretto."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'outlet-fox-town-mendrisio': {
+ title: 'Fox Town Outlet Mendrisio — Orari, Sconti, Come Arrivare 2026',
+ h1: 'Fox Town Mendrisio — l\'outlet della Svizzera italiana: orari, marchi, sconti 2026',
+ description: 'Guida Fox Town Mendrisio: orari, oltre 160 marchi di lusso, sconti 30-70%, come arrivare da Como e Varese, parcheggio gratuito, ristoranti e cashback frontalieri.',
+ keywords: 'fox town mendrisio, outlet svizzera, outlet mendrisio, outlet ticino, fox town orari, fox town marchi, outlet lusso svizzera, outlet vicino confine italiano, outlet fox town sconti',
+ ogTitle: 'Fox Town Mendrisio — Outlet Svizzera di Lusso 2026',
+ ogDescription: '🛍️ Oltre 160 marchi di lusso scontati 30-70% a soli 3 km dal confine italiano. Orari, parcheggio, ristoranti e consigli per risparmiare a Fox Town Mendrisio.',
+ canonicalPath: '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "ShoppingCenter",
+ "name": "Fox Town Factory Stores Mendrisio",
+ "url": `${BASE_URL}/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/`,
+ "description": "Outlet di lusso nel Canton Ticino con oltre 160 marchi scontati del 30-70% tutto l'anno. A 3 km dalla dogana italiana di Chiasso.",
+ "address": {
+ "@type": "PostalAddress",
+ "streetAddress": "Via Angelo Maspoli 18",
+ "addressLocality": "Mendrisio",
+ "addressRegion": "Ticino",
+ "postalCode": "6850",
+ "addressCountry": "CH"
+ },
+ "geo": {
+ "@type": "GeoCoordinates",
+ "latitude": 45.866,
+ "longitude": 8.981
+ },
+ "openingHoursSpecification": [
+ {
+ "@type": "OpeningHoursSpecification",
+ "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+ "opens": "11:00",
+ "closes": "19:00"
+ }
+ ],
+ "priceRange": "€€-€€€€",
+ "publicAccess": true,
+ "smokingAllowed": false,
+ "currenciesAccepted": "CHF, EUR",
+ "paymentAccepted": "Cash, Credit Card"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quali sono gli orari di Fox Town Mendrisio nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town Mendrisio è aperto tutti i giorni dell'anno, compresi domeniche e festivi, dalle 11:00 alle 19:00. Chiude solo il 25 dicembre (Natale) e il 1° gennaio (Capodanno) mattina. L'orario dei ristoranti e del Casinò interno è esteso fino a tarda notte. Nei periodi di saldi (gennaio e luglio) gli orari possono essere prolungati per eventi speciali — verificare sempre sul sito ufficiale prima della visita."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanti marchi ci sono a Fox Town e che sconti si trovano?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town ospita oltre 160 boutique di marchi internazionali di fascia alta e di lusso: Gucci, Prada, Burberry, Armani, Dolce & Gabbana, Bottega Veneta, Moncler, Tod's, Versace, Balenciaga, Valentino, Fendi, Salvatore Ferragamo, Saint Laurent e molti altri. Gli sconti permanenti vanno dal 30% al 70% sul prezzo di listino, con punte fino al 90% durante i saldi di gennaio e luglio e sulle collezioni di due stagioni precedenti."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come arrivare a Fox Town Mendrisio dall'Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town si trova in Via Angelo Maspoli 18, 6850 Mendrisio, a soli 3 km dal valico doganale di Chiasso-Brogeda (uscita autostrada A2 Svizzera — corrispondente alla A9 italiana). Da Como il tragitto è di circa 25 km (30 minuti); da Milano Centrale circa 60 km (50 minuti in autostrada). Il parcheggio è gratuito con oltre 2.500 posti auto. In treno: stazione Mendrisio San Martino (linea TILO) a 800 metri, collegata con navetta gratuita."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Serve la carta di credito o si paga in euro a Fox Town?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Tutti i negozi accettano euro (EUR) oltre ai franchi svizzeri (CHF). Il tasso di cambio applicato dai negozi è generalmente meno favorevole di quello di mercato, quindi conviene pagare in CHF se si dispone di un conto svizzero o di una carta multivaluta (Revolut, Wise, N26). Tutte le carte di credito principali (Visa, Mastercard, Amex) sono accettate. Ai turisti non residenti in Svizzera è possibile richiedere il rimborso IVA svizzera (7,7%) presso il banco Tax Refund all'uscita, per acquisti superiori a CHF 300."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I frontalieri hanno sconti particolari a Fox Town?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town non offre uno sconto dedicato ai frontalieri ma esiste la Fox Town Privilege Card (gratuita, richiedibile online e all'info point) che dà diritto a sconti aggiuntivi del 5-10% in boutique selezionate, promozioni riservate via email e accesso alla lounge con WiFi e bevande gratuite. I pagamenti con carte di credito svizzere beneficiano in modo indiretto del tasso CHF-EUR e del cashback delle carte. Alcuni marchi (soprattutto orologi e gioielli) applicano uno sconto IVA immediato ai residenti in Italia."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'ponti-2026-ticino': {
+ title: 'Ponti 2026 Ticino: Calendario Festivi + Chiusure Frontiera Frontalieri',
+ h1: 'Ponti 2026 in Ticino — calendario completo festività, long weekend e chiusure dogana',
+ description: 'Calendario ponti 2026 in Ticino per frontalieri: date ufficiali festività svizzere e italiane, long weekend, ferie scolastiche, giorni di chiusura dogana e pagamento.',
+ keywords: 'ponti 2026 ticino, festività 2026 ticino, calendario frontalieri 2026, ponti svizzera 2026, giorni rossi ticino, long weekend 2026, vacanze frontalieri 2026',
+ ogTitle: 'Ponti 2026 Ticino — Calendario Festività + Chiusure Frontiera',
+ ogDescription: '📅 Calendario ponti 2026 per frontalieri: festività svizzere e italiane, long weekend, chiusure dogana e info utili per pianificare ferie e rientri.',
+ canonicalPath: '/vita-in-ticino/ponti-2026-ticino',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Ponti 2026 Ticino: calendario festività e long weekend per frontalieri",
+ "description": "Calendario ufficiale dei ponti 2026 in Ticino con date di festività svizzere e italiane, long weekend, informazioni su chiusure dogana e pagamento stipendi per i frontalieri.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": BUILD_DATE_ISO,
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/ponti-2026-ticino/`,
+ "speakable": SPEAKABLE_SECTION
+ }
+ ]
+ },
+
+ 'vacanze-scolastiche-ticino-2026': {
+ title: 'Vacanze Scolastiche Ticino 2026-2027: Calendario Completo',
+ h1: 'Vacanze scolastiche Ticino 2026-2027 — calendario ufficiale DECS, ferie, carnevale, estate',
+ description: 'Calendario vacanze scolastiche Ticino 2026-2027: date ufficiali DECS di carnevale, Pasqua, estate, autunno e Natale per scuole dell\'infanzia, elementari e medie.',
+ keywords: 'vacanze scolastiche ticino 2026, calendario scolastico ticino 2026, vacanze scolastiche ticino 2027, DECS ticino, carnevale ticino 2026, estate scuole ticino, vacanze pasqua ticino',
+ ogTitle: 'Vacanze Scolastiche Ticino 2026-2027 — Calendario Ufficiale',
+ ogDescription: '📚 Calendario ufficiale vacanze scolastiche Ticino 2026-2027: carnevale, Pasqua, estate, autunno, Natale. Per genitori frontalieri e residenti.',
+ canonicalPath: '/vita-in-ticino/vacanze-scolastiche-ticino-2026',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Vacanze scolastiche Ticino 2026-2027: calendario DECS ufficiale",
+ "description": "Calendario ufficiale delle vacanze scolastiche in Canton Ticino per l'anno 2026-2027 pubblicato dal DECS: carnevale, Pasqua, estate, autunno, Natale.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": BUILD_DATE_ISO,
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/vacanze-scolastiche-ticino-2026/`,
+ "speakable": SPEAKABLE_SECTION
+ }
+ ]
  },
 
 };
