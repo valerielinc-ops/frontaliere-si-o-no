@@ -1,56 +1,18 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-04-20T22:12:35.899Z",
-  "total": 1,
-  "newCount": 1,
+  "generatedAt": "2026-04-21T10:41:49.571Z",
+  "total": 0,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9983,
-  "avgDurationMs": 9983,
+  "durationMs": 8769,
+  "avgDurationMs": 8769,
   "durationHistory": [
-    9983
+    8769
   ],
-  "newJobs": [
-    {
-      "title": "Teamlead Equipment Disposal 100% (w/m/d)",
-      "slug": "teamlead-equipment-disposal-100-w-m-d-ruag-ag-thun",
-      "url": "https://jobs.ruag.ch/offene-stellen/teamlead-equipment-disposal/997817d6-d738-4a1c-95de-2c5c4b024d97",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/997817d6-d738-4a1c-95de-2c5c4b024d97",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Thun",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-20",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2053-09-03",
-      "id": "ruag-ag-72a7d976575e",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna",
-      "postalCode": "6517",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
