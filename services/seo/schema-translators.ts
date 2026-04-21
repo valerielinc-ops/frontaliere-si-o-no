@@ -14,6 +14,13 @@
 //     fallback to Italian is preferred over broken schema).
 //   - Should also set `inLanguage` if present on the object.
 
+import {
+ translateClaimReview,
+ translateDataset,
+ translateOrganization,
+ translateReview,
+ translateWebApplication,
+} from './entity-translations';
 import { translateFaqPage } from './faq-translations';
 import { translateHowToSchema } from './howto-translations';
 
@@ -24,8 +31,13 @@ export type SchemaTranslator = (obj: Record<string, any>, locale: SupportedLocal
 // ── Translator registrations ─────────────────────────────────────────────
 // Keep this block alphabetized by @type. Each entry: one line.
 const REGISTRY: Record<string, SchemaTranslator> = {
+ ClaimReview: translateClaimReview,
+ Dataset: translateDataset,
  FAQPage: translateFaqPage,
  HowTo: translateHowToSchema,
+ Organization: translateOrganization,
+ Review: translateReview,
+ WebApplication: translateWebApplication,
 };
 
 /**
