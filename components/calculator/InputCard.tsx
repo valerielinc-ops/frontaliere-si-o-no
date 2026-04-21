@@ -165,7 +165,7 @@ const TechInput: React.FC<{
 
  return (
  <div className="space-y-2">
- <label className="text-sm font-bold text-subtle uppercase tracking-wide h-4 flex items-end">{label}</label>
+ <label className="text-sm font-bold text-subtle uppercase tracking-wide min-h-[2rem] flex items-end">{label}</label>
  <div className="relative group">
  <input
  type="number"

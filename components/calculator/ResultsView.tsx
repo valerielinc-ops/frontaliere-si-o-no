@@ -512,7 +512,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  aria-label={t('results.downloadPDF')}
  >
  <ScrollText size={14} />
- <span>Scarica PDF</span>
+ <span className="hidden sm:inline">Scarica PDF</span>
  </button>
  <button
  onClick={handleShare}

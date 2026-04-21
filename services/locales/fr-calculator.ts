@@ -351,7 +351,7 @@ const frCalculator: Record<string, string> = {
  'input.avsRate': 'AVS/AI/APG',
  'input.acRate': 'AD (Chômage)',
  'input.laaRate': 'LAA (Accidents)',
- 'input.ijmRate': 'IJM (Indemnité journalière maladie)',
+ 'input.ijmRate': 'IJM (Journalière maladie)',
  'input.lppAge25_34': 'LPP 25-34 ans',
  'input.lppAge35_44': 'LPP 35-44 ans',
  'input.lppAge45_54': 'LPP 45-54 ans',

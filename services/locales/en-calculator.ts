@@ -351,7 +351,7 @@ const enCalculator: Record<string, string> = {
  'input.avsRate': 'AVS/AI/IPG',
  'input.acRate': 'AD (Unemployment)',
  'input.laaRate': 'LAINF (Accidents)',
- 'input.ijmRate': 'IJM (Daily sickness allowance)',
+ 'input.ijmRate': 'IJM (Daily sickness)',
  'input.lppAge25_34': 'LPP 25-34 years',
  'input.lppAge35_44': 'LPP 35-44 years',
  'input.lppAge45_54': 'LPP 45-54 years',

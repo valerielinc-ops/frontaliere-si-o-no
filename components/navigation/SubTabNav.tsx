@@ -48,7 +48,7 @@ export function SubTabNav<K extends string>({ items, activeKey, onSelect }: SubT
  <div className="border-t border-edge bg-surface">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-3">
  <div className="relative md:static">
- <div role="tablist" className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-8 md:pr-0 py-0.5">
+ <div role="tablist" className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-8 md:pr-0 py-1">
  {items.map(({ key, icon: Icon, label }, index) => (
  <button
  key={key}

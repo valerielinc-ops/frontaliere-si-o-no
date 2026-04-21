@@ -361,13 +361,13 @@ const translations: Record<string, string> = {
  'input.avsRate': 'AVS/AI/IPG',
  'input.acRate': 'AD (Disoccupazione)',
  'input.laaRate': 'LAINF (Infortuni)',
- 'input.ijmRate': 'IJM (Indennità giornaliera malattia)',
+ 'input.ijmRate': 'IJM (Giornaliera malattia)',
  'input.lppAge25_34': 'LPP 25-34 anni',
  'input.lppAge35_44': 'LPP 35-44 anni',
  'input.lppAge45_54': 'LPP 45-54 anni',
  'input.lppAge55plus': 'LPP 55+ anni',
  'input.italy': 'Italia',
- 'input.itSurchargeRate': 'Addizionale Regionale/Comunale',
+ 'input.itSurchargeRate': 'Addizionale Reg./Comunale',
  'input.itWorkDeduction': 'Deduzione lavoro dipendente (€)',
 
  // --- Common ---

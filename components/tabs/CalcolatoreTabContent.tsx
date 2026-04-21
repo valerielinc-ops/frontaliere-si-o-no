@@ -201,7 +201,7 @@ export default function CalcolatoreTabContent() {
  </div>
  )}
  {result && (
- <div className="mt-6 w-full">
+ <div className="hidden md:block mt-6 w-full">
  <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
  </div>
  )}
