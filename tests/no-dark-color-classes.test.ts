@@ -17,8 +17,15 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const SKIP_DIRS = new Set([
-  'node_modules', 'dist', '.git', 'test-results', '.next',
+  'node_modules', 'dist', 'dist-old-25912', '.git', 'test-results', '.next',
   '.clarity-asset-cache', 'coverage', 'scripts',
+  // Generated / environment dirs that contain no app source
+  'public', 'data', 'reports', 'log', 'test-results',
+  '.cache', '.build-cache', '.tmp', '.venv', '.playwright-mcp',
+  '.claude', '.cursor', '.idx', '.gitnexus', '.gstack', '.planning',
+  '.agents', '.serena', '.superpowers', '.githooks', '.github',
+  '.vscode', '_newsletter_variants', 'download', 'mcp-gsc-main',
+  'functions', 'server',
 ]);
 
 function collectFiles(dir: string, files: string[] = []): string[] {

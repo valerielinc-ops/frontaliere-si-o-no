@@ -51,6 +51,23 @@ for (const job of jobs) {
   const desc = job.descriptionByLocale;
   if (!desc || typeof desc !== 'object') continue;
 
+  // Flag jobs missing one or more locale descriptions — the translate-pending
+  // pipeline treats needsRetranslation=true as the signal to regenerate all
+  // locales from source_description.
+  const presentLocales = LOCALES.filter((l) => typeof desc[l] === 'string' && desc[l].trim().length > 0);
+  if (presentLocales.length > 0 && presentLocales.length < LOCALES.length) {
+    const key = jobKey(job);
+    flaggedKeys.add(key);
+    const crawlerKey = job.companyKey || '';
+    if (crawlerKey) {
+      if (!flaggedByCrawler.has(crawlerKey)) {
+        flaggedByCrawler.set(crawlerKey, new Set());
+      }
+      flaggedByCrawler.get(crawlerKey).add(key);
+    }
+    continue;
+  }
+
   for (const locale of LOCALES) {
     const text = desc[locale];
     if (!text || text.length < MIN_LENGTH) continue;

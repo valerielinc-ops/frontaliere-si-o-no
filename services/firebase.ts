@@ -224,9 +224,6 @@ async function initPerformance(): Promise<FirebasePerformance | null> {
  try {
  const { getPerformance } = await import("firebase/performance");
  _perf = getPerformance(await getAppInstance());
- if (import.meta.env.DEV) {
- firebaseWarn('[Firebase] Performance Monitoring initialized');
- }
  } catch (e) {
  // Ad blocker or environment where perf monitoring is unsupported
  firebaseWarn('[Firebase] Performance Monitoring unavailable:', e);

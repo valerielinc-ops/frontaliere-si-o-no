@@ -213,7 +213,7 @@ export const POSTHOG_SNIPPET = `<script>
  */
 export const ADSENSE_CLIENT_ID = 'ca-pub-8628054934855353';
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous" data-adsense-client="${ADSENSE_CLIENT_ID}" data-overlays="bottom" data-ad-frequency-hint="120s"></script>`;
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous" data-overlays="bottom" data-ad-frequency-hint="120s"></script>`;
 
 /** Combined analytics snippet (GA4 + PostHog + AdSense) for static pages without the SPA bundle. */
 export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}

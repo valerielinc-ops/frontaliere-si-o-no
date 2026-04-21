@@ -96,7 +96,7 @@ export default function AdSenseBanner({
  // ── Load the AdSense script (singleton) ──────────────────
  const loadAdSenseScript = useCallback(() => {
  if (typeof document === 'undefined') return;
- const existing = document.querySelector<HTMLScriptElement>('script[data-adsense-client]');
+ const existing = document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
  if (existing) {
  // adsbygoogle global means the script has already loaded (e.g. via
  // index.html head) before this component mounted — load event won't
@@ -124,7 +124,6 @@ export default function AdSenseBanner({
  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${CLIENT_ID}`;
  script.async = true;
  script.crossOrigin = 'anonymous';
- script.setAttribute('data-adsense-client', CLIENT_ID);
  // Force anchor/overlay ads to bottom only — prevents covering navbar on mobile
  script.setAttribute('data-overlays', 'bottom');
  // Reduce vignette/interstitial frequency — SPA triggers on every pushState

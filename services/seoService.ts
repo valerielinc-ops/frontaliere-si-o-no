@@ -142,7 +142,6 @@ const serpExperimentState: SerpExperimentState = {
 
 let serpExperimentLoadPromise: Promise<void> | null = null;
 let lastSerpExposureContext: { section: string; path: string; variant: SerpExperimentVariant } | null = null;
-let serpOverrideWarned = false;
 let jobsBySlugCache: Map<string, any> | null = null;
 let jobsBySlugPromise: Promise<Map<string, any>> | null = null;
 let totalActiveJobCount: number | null = null;
@@ -441,26 +440,9 @@ function loadSerpExperimentState(): void {
  : 'control';
  serpExperimentState.targets = parseSerpExperimentTargets(targetsRaw);
  serpExperimentState.year = (yearRaw || '2026').trim() || '2026';
- if (!serpOverrideWarned) {
- const normalizedTargets = (targetsRaw || '').trim() || '';
- const hasOverride =
- serpExperimentState.enabled !== SERP_EXPERIMENT_DEFAULTS.enabled ||
- serpExperimentState.variant !== SERP_EXPERIMENT_DEFAULTS.variant ||
- normalizedTargets !== SERP_EXPERIMENT_DEFAULTS.targets ||
- serpExperimentState.year !== SERP_EXPERIMENT_DEFAULTS.year;
- if (hasOverride && import.meta.env.DEV) {
- console.warn('[SEO SERP Experiment] Remote Config override detected', {
- remoteConfig: {
- enabled: serpExperimentState.enabled,
- variant: serpExperimentState.variant,
- targets: normalizedTargets,
- year: serpExperimentState.year,
- },
- fallbackDefaults: SERP_EXPERIMENT_DEFAULTS,
- });
- }
- serpOverrideWarned = true;
- }
+ // RC override vs defaults is expected behavior, not a warning condition.
+ // The AdminPanel surfaces this via getSerpExperimentDiagnostics().hasRemoteOverride
+ // for operators who need to inspect drift — no console channel needed.
  try {
  window.localStorage.setItem(SERP_EXPERIMENT_CACHE_KEY, JSON.stringify({
  enabled: serpExperimentState.enabled,
