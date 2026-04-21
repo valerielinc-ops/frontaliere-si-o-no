@@ -940,6 +940,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
 
       let pagesWritten = 0;
       let skipped = 0;
+      const sitemapPaths: string[] = [];
       for (const [path, html] of Object.entries(pages)) {
         const words = countHtmlBodyWords(html);
         if (words < MIN_INDEXABLE_WORDS) {
@@ -949,6 +950,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
+        sitemapPaths.push(path);
         pagesWritten++;
       }
 
@@ -961,10 +963,37 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
+        sitemapPaths.push(path);
         archivesWritten++;
       }
 
       await collector.flush();
+
+      // ── Emit sitemap-fuel-daily.xml ─────────────────────────────
+      // The sitemapAliasPlugin auto-discovers every `sitemap-*.xml` in dist/
+      // and weaves it into the master sitemap index, so no manual patching
+      // of `dist/sitemap.xml` is needed here.
+      if (sitemapPaths.length > 0) {
+        try {
+          const dateStamp = today.toISOString().slice(0, 10);
+          const urlEntries = sitemapPaths
+            .map((p) => {
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+            })
+            .join('\n');
+          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
+</urlset>
+`;
+          fs.writeFileSync(np.join(distDir, 'sitemap-fuel-daily.xml'), sitemapXml, 'utf-8');
+          console.log(
+            `\x1b[36m[fuel-daily-pages]\x1b[0m Wrote sitemap-fuel-daily.xml (${sitemapPaths.length} URLs)`,
+          );
+        } catch (err) {
+          console.warn('[fuel-daily-pages] failed to write sitemap-fuel-daily.xml', err);
+        }
+      }
 
       const result: PluginResult = { pagesWritten, archivesWritten, skippedForWordCount: skipped };
       console.log(
