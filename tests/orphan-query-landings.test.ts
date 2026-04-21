@@ -3,7 +3,7 @@
  *
  * Coverage:
  *   - Path builders + parsing (IT/EN/DE/FR).
- *   - Clustering script output shape + gates (≥10 impressions, known-slug skip).
+ *   - Clustering script output shape + gates (≥5 impressions, known-slug skip).
  *   - Job-matching predicate (role + region overlap).
  *   - Build plugin quality gates (≥3 matching jobs → indexable, ≥50 words → indexable).
  */
@@ -171,8 +171,9 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
     expect(Array.isArray(parsed.clusters)).toBe(true);
 
     for (const c of parsed.clusters) {
-      // ≥10 cumulative impressions (hard gate)
-      expect(c.totalImpressions).toBeGreaterThanOrEqual(10);
+      // ≥5 cumulative impressions (hard gate — thin-content safety lives
+      // downstream in the build plugin via MIN_MATCHING_JOBS + word count)
+      expect(c.totalImpressions).toBeGreaterThanOrEqual(5);
       // Must carry identifying metadata
       expect(typeof c.canonicalQuery).toBe('string');
       expect(typeof c.canonicalSlug).toBe('string');
