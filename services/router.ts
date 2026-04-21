@@ -2277,11 +2277,12 @@ export function pushRoute(route: AppRoute): void {
  const [newPath, newHash] = newUrl.split('#');
  const currentPath = window.location.pathname;
  const currentHash = window.location.hash.slice(1); // strip leading #
+ const search = window.location.search; // preserve query params (e.g. newsletter autologin ne/ac)
  // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
  if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
- history.pushState({ route }, '', newPath + hashPart);
+ history.pushState({ route }, '', newPath + search + hashPart);
  }
 }
 
@@ -2290,22 +2291,24 @@ export function replaceRoute(route: AppRoute): void {
  const [newPath, newHash] = newUrl.split('#');
  const currentPath = window.location.pathname;
  const currentHash = window.location.hash.slice(1);
+ const search = window.location.search;
  if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
- history.replaceState({ route }, '', newPath + hashPart);
+ history.replaceState({ route }, '', newPath + search + hashPart);
  }
 }
 
 export function updatePathForLocale(newLocale: Locale): void {
  const currentPath = window.location.pathname;
+ const search = window.location.search;
  const { route } = parsePath(currentPath);
  let nextRoute = route;
  // When switching locale from a root path on the homepage, navigate to the new locale's root
  if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
  const newRoot = newLocale === 'it' ? '/' : `/${newLocale}/`;
  if (currentPath !== newRoot) {
- history.replaceState({ route }, '', newRoot);
+ history.replaceState({ route }, '', newRoot + search);
  }
  return;
  }
@@ -2319,7 +2322,7 @@ export function updatePathForLocale(newLocale: Locale): void {
  const currentStateRoute = history.state?.route;
  const stateNeedsSync = JSON.stringify(currentStateRoute || null) !== JSON.stringify(nextRoute);
  if (currentPath !== newPath || stateNeedsSync) {
- history.replaceState({ route: nextRoute }, '', newPath);
+ history.replaceState({ route: nextRoute }, '', newPath + search);
  }
 }
 

@@ -325,11 +325,12 @@ export function useNavigationState(): NavigationState {
 
  // Migrate legacy hash-based URLs
  useEffect(() => {
+ const search = window.location.search; // preserve query params (e.g. newsletter autologin ne/ac)
  const hash = window.location.hash;
  if (hash && hash.startsWith('#/')) {
  const newPath = parseHashToPath(hash);
  if (newPath) {
- history.replaceState(null, '', newPath);
+ history.replaceState(null, '', newPath + search);
  }
  }
  const p = window.location.pathname.replace(/\/$/, '').toLowerCase();
@@ -340,7 +341,7 @@ export function useNavigationState(): NavigationState {
  '/fr/calculer-salaire': '/fr/',
  };
  if (calcHomeSlugs[p]) {
- history.replaceState(null, '', calcHomeSlugs[p]);
+ history.replaceState(null, '', calcHomeSlugs[p] + search);
  }
  const legacyRedirects: Record<string, string> = {
  '/calculator': '/',
@@ -348,7 +349,7 @@ export function useNavigationState(): NavigationState {
  '/guide': '/guida-frontaliere',
  };
  if (legacyRedirects[p]) {
- history.replaceState(null, '', legacyRedirects[p]);
+ history.replaceState(null, '', legacyRedirects[p] + search);
  }
  }, []);
 
