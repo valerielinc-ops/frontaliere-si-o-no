@@ -2436,6 +2436,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzeri-italiani-cucina-preferita.title': 'Suisses et Italiens : la cuisine italienne est la préférée',
     'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'Un sondage révèle que 79 % des Suisses préfèrent la cuisine italienne lorsqu\'ils mangent à l\'extérieur, suivie de la cuisine helvétique à 71 %.',
     'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Restaurant au bord du lac à Lugano, Tessin',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'Nouvelles restrictions pour les investisseurs immobiliers étrangers en Suisse',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'Le Conseil fédéral propose des modifications à la Lex Koller pour limiter les achats de biens immobiliers par des étrangers non résidents',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

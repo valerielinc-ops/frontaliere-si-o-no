@@ -2436,6 +2436,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzeri-italiani-cucina-preferita.title': 'Svizzeri e italiani: la cucina italiana è la preferita',
     'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'Un sondaggio rivela che il 79% degli svizzeri preferisce la cucina italiana quando mangia fuori, seguita dalla cucina elvetica al 71%.',
     'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Ristorante sul lago di Lugano, Ticino',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'Nuove restrizioni per gli investitori immobiliari stranieri in Svizzera',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'Il Consiglio federale propone modifiche alla Lex Koller per limitare gli acquisti di immobili da parte di stranieri non residenti',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'Vista del lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

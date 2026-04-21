@@ -2436,6 +2436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-italiani-cucina-preferita.title': 'Schweizer und Italiener: die italienische Küche ist die beliebteste',
     'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'Eine Umfrage zeigt, dass 79% der Schweizer die italienische Küche bevorzugen, wenn sie auswärts essen, gefolgt von der Schweizer Küche mit 71%.',
     'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Seerestaurant in Lugano, Tessin',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'Neue Beschränkungen für ausländische Immobilieninvestoren in der Schweiz',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'Der Bundesrat schlägt Änderungen am Lex-Koller-Gesetz vor, um Immobilienkäufe durch nicht ansässige Ausländer einzuschränken',
+    'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
