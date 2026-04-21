@@ -42,12 +42,11 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 import {
-  ANALYTICS_SNIPPET,
   BASE_URL,
-  FAVICON_LINKS,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   JOB_MARKET_HUB_NAME,
@@ -742,6 +741,8 @@ interface CommonRenderInputs {
   alternates: Record<JobMarketSnapshotLocale, string>;
   todayIso: string;
   degraded: boolean;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderHreflangAlternates(alternates: Record<JobMarketSnapshotLocale, string>): string {
@@ -912,7 +913,7 @@ interface SnapshotPageInputs extends CommonRenderInputs {
 }
 
 function renderSnapshotPage(inp: SnapshotPageInputs): string {
-  const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex } = inp;
+  const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex, distDir } = inp;
   const copy = COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 =
@@ -1047,11 +1048,9 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.length > 180 ? `${intro.slice(0, 177)}...` : intro;
 
-  const robotsMeta = noindex
-    ? '<meta name="robots" content="noindex,follow">'
-    : '<meta name="robots" content="index,follow">';
+  const robots = noindex ? 'noindex,follow' : 'index,follow';
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
     <nav style="margin:0 0 14px;font-size:13px;color:#475569">
       <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -1080,42 +1079,28 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </main>`;
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    ${robotsMeta}
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${JOB_MARKET_OG_LOCALE[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${articleLd}</script>
-    <script type="application/ld+json">${datasetLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots,
+    ogType: 'article',
+    ogLocale: JOB_MARKET_OG_LOCALE[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, articleLd, datasetLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 interface HubPageInputs extends CommonRenderInputs {
@@ -1133,7 +1118,7 @@ interface HubPageInputs extends CommonRenderInputs {
 }
 
 function renderHubPage(inp: HubPageInputs): string {
-  const { locale, canonicalPath, alternates, todayIso, degraded, latestWeeks, monthlyArchive, latestWeekHref, heroStats } = inp;
+  const { locale, canonicalPath, alternates, todayIso, degraded, latestWeeks, monthlyArchive, latestWeekHref, heroStats, distDir } = inp;
   const copy = COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 = copy.hubHeading;
@@ -1236,7 +1221,7 @@ function renderHubPage(inp: HubPageInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = copy.hubIntro.length > 180 ? `${copy.hubIntro.slice(0, 177)}...` : copy.hubIntro;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
     <nav style="margin:0 0 14px;font-size:13px;color:#475569">
       <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -1262,41 +1247,28 @@ function renderHubPage(inp: HubPageInputs): string {
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </main>`;
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${JOB_MARKET_OG_LOCALE[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${collectionLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: JOB_MARKET_OG_LOCALE[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, collectionLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Page generator (pure) ─────────────────────────────────────
@@ -1305,6 +1277,8 @@ export interface GeneratorInputs {
   history: StatsHistoryDataset | null;
   jobs: ReadonlyArray<JobRecord>;
   today?: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 export interface GeneratorOutput {
@@ -1350,6 +1324,7 @@ export function buildWeeklyTrendSeries(
 
 export function generateJobMarketSnapshotPages(opts: GeneratorInputs): GeneratorOutput {
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
   const todayIso = today.toISOString().slice(0, 10);
   const entries = opts.history?.entries ?? [];
   const completedWeeks = bucketHistoryByWeek(entries, { requireComplete: true });
@@ -1442,6 +1417,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
       monthlyArchive,
       latestWeekHref,
       heroStats,
+      distDir,
     });
   }
 
@@ -1474,6 +1450,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         todayIso,
         degraded,
         noindex,
+        distDir,
       });
     }
   }
@@ -1496,6 +1473,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         todayIso,
         degraded: false,
         noindex: false,
+        distDir,
       });
     }
   }
@@ -1570,7 +1548,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       }
 
       const today = new Date();
-      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today });
+      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir });
 
       const collector = new WriteCollector({ distDir });
       const sitemapEntries: string[] = [];
