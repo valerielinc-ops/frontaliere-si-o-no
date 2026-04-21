@@ -369,7 +369,6 @@
         "site": "VISP"
       },
       "firstSeenAt": "2026-04-16T21:46:02.683Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -382,8 +381,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-3ed4c11ece1b",
@@ -3512,7 +3510,6 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3526,7 +3523,6 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-60-80-rehabilitation-2-west-hopital-du-valais-brig"

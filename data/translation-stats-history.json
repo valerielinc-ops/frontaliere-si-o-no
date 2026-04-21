@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T09:51:51.239Z",
-    "label": "before",
-    "total": 1831,
-    "needsRetranslation": 600,
-    "incomplete": 191,
-    "complete": 1640,
-    "missingByLocale": {
-      "it": 127,
-      "en": 172,
-      "de": 75,
-      "fr": 176
-    },
-    "topPending": [
-      {
-        "company": "Kantonsspital Graubünden",
-        "pending": 80
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "Lonza",
-        "pending": 19
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Prada Group",
-        "pending": 5
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T10:03:53.340Z",
-    "label": "after",
-    "total": 1831,
-    "needsRetranslation": 153,
-    "incomplete": 105,
-    "complete": 1726,
-    "missingByLocale": {
-      "it": 90,
-      "en": 98,
-      "de": 15,
-      "fr": 94
-    },
-    "topPending": [
-      {
-        "company": "Kantonsspital Graubünden",
-        "pending": 73
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 7
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T13:07:40.385Z",
     "label": "before",
     "total": 2175,
@@ -7494,6 +7382,66 @@
       },
       {
         "company": "USI – Università della Svizzera italiana",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T03:49:06.698Z",
+    "label": "before",
+    "total": 2608,
+    "needsRetranslation": 34,
+    "incomplete": 24,
+    "complete": 2584,
+    "missingByLocale": {
+      "it": 22,
+      "en": 1,
+      "de": 23,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T04:12:13.304Z",
+    "label": "after",
+    "total": 2608,
+    "needsRetranslation": 24,
+    "incomplete": 23,
+    "complete": 2585,
+    "missingByLocale": {
+      "it": 22,
+      "en": 1,
+      "de": 22,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]
