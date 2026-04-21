@@ -1163,12 +1163,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  transport: {
- title: 'Costi Trasporto Frontalieri | Calcolo Auto vs Treno CH-IT',
+ title: 'Trasporti Frontalieri Ticino 2026 | Treno, Auto, Car-Sharing',
  description: 'Calcola i costi reali di trasporto per frontalieri: auto (carburante, usura, pedaggi), treno (Trenitalia, FFS), bus transfrontalieri. Confronta convenienza.',
  keywords: 'costi trasporto frontalieri, calcolo costi auto, abbonamento treno svizzera, trenitalia frontalieri, ffs ticino, pedaggi autostrada, costo benzina diesel, usura auto, trasporti pubblici frontalieri',
  ogTitle: 'Calcolo Costi Trasporto Frontalieri | Auto vs Treno',
  ogDescription: '🚗 Calcola i costi reali di trasporto per frontalieri. Confronta auto, treno e bus per trovare la soluzione più conveniente!',
  canonicalPath: '/vivere-in-ticino/trasporti-frontalieri',
+ h1: 'Trasporti frontalieri Ticino 2026 — treni TILO, auto, car-sharing e abbonamenti',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -3463,12 +3464,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  nursery: {
- title: 'Asili Nido Ticino vs Italia | Frontaliere Ticino',
+ title: 'Confronta Asili Nido Ticino vs Italia 2026 | Costi',
  description: 'Confronta asili nido tra Ticino e Italia: costi mensili, orari, criteri di ammissione, sussidi disponibili. Calcola il costo reale della custodia per.',
  keywords: 'asili nido ticino, asili nido como, costi asilo svizzera, asili frontalieri, custodia bambini ticino, confronto asili nido, sussidi asilo svizzera italia',
  ogTitle: 'Asili Nido Ticino vs Italia | Confronto per Frontalieri',
  ogDescription: '👶 Confronta costi, orari e sussidi asili nido tra Ticino e Italia per famiglie di frontalieri.',
  canonicalPath: '/vivere-in-ticino/confronta-asili-nido',
+ h1: 'Confronta asili nido Ticino vs Italia 2026 — costi, orari e liste d\'attesa',
  structuredData: [
  {
  "@context": "https://schema.org",
