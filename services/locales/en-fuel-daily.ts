@@ -20,6 +20,15 @@ const translations: Record<string, string> = {
   'fuelDaily.date': 'Date',
   'fuelDaily.price': 'Price',
   'fuelDaily.currency': 'CHF/litre',
+  // D-2A: per-station + Italian-city keys.
+  'fuelDaily.station.h1': '{fuel} price {brand} {street} in {city}',
+  'fuelDaily.station.info': 'Station info',
+  'fuelDaily.station.brand': 'Brand',
+  'fuelDaily.station.backToZone': 'Back to zone average',
+  'fuelDaily.station.deltaVsZone': 'vs zone avg',
+  'fuelDaily.italianCity.h1': '{fuel} price in {city} — cheapest stations',
+  'fuelDaily.italianCity.tableTitle': '{city} stations — today\'s prices',
+  'fuelDaily.italianCity.crossBorderTip': 'Check the border queue before you drive — 30 minutes can wipe out per-litre savings.',
 };
 
 export default translations;

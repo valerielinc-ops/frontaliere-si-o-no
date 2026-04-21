@@ -40,11 +40,18 @@ import {
   FUEL_TYPE_LABEL,
   FUEL_ZONES,
   FUEL_ZONE_DISPLAY,
+  FUEL_ITALIAN_CITIES,
+  FUEL_ITALY_SLUG,
   buildFuelArchivePath,
   buildFuelTodayPath,
+  buildFuelStationPath,
+  buildFuelItalianCityPath,
+  buildStationSlug,
+  zoneForAddress,
   type FuelDailyLocale,
   type FuelType,
   type FuelZone,
+  type ItalianCityEntry,
 } from './fuelDailyData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
@@ -66,6 +73,9 @@ interface SwissStation {
   nearestMunicipality?: string | null;
   nearestMunicipalityDistanceKm?: number;
   distanceKm?: number;
+  /** Geo coordinates (populated for all TCS feed stations). */
+  lat?: number;
+  lng?: number;
 }
 
 interface MunicipalityRow {
@@ -797,12 +807,783 @@ function renderArchive(inp: ArchiveInputs): string {
   });
 }
 
+// ── D-2A: Per-station + Italian-city generation ────────────────
+//
+// Extends F6 from "regional + 5 zones" to:
+//  - one page per Swiss station in a known Ticino zone
+//  - one per-city hub for curated Italian border cities
+//
+// Safety: the hard cap MAX_FUEL_STATION_PAGES_PER_BUILD stops runaway emission
+// if the dataset unexpectedly balloons. Stations with no price AND no brand AND
+// no name are skipped.
+
+/** Per-station rendering target with all computed metadata. */
+interface StationContext {
+  station: SwissStation;
+  zone: FuelZone;
+  city: string; // display-case, from address
+  slug: string;
+  brandDisplay: string;
+  streetDisplay: string;
+  prices: { diesel: number; benzina: number };
+}
+
+/** Collect every Swiss station with a known Ticino zone + compute its slug. */
+function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext[] {
+  const seen = new Set<string>();
+  const out: StationContext[] = [];
+  const slugSeen = new Set<string>();
+  for (const row of dataset.municipalities ?? []) {
+    const nearby = row.swiss?.nearbyStations ?? [];
+    for (const s of nearby) {
+      if (!s || typeof s.sp95PriceChf !== 'number') continue;
+      // Skip totally-empty stations (no brand + no name = unidentifiable)
+      if (!s.brand && !s.name) continue;
+      const dedupKey = `${s.id ?? ''}:${s.address ?? ''}:${s.name ?? ''}`;
+      if (seen.has(dedupKey)) continue;
+      seen.add(dedupKey);
+      const zone = zoneForAddress(s.address);
+      if (!zone) continue; // outside the 5 Ticino zones
+      const prices = pricesFromStation(s);
+      if (!prices) continue;
+      const baseSlug = buildStationSlug({ brand: s.brand, name: s.name, address: s.address });
+      if (!baseSlug) continue;
+      // Ensure slug uniqueness across the full set (rare collision possible)
+      let slug = baseSlug;
+      let suffix = 2;
+      while (slugSeen.has(`${zone}/${slug}`)) {
+        slug = `${baseSlug}-${suffix++}`;
+      }
+      slugSeen.add(`${zone}/${slug}`);
+      // Derive display strings. The last comma-separated segment typically
+      // reads "6830 Chiasso" — strip the 4-5 digit postal code to keep only
+      // the proper-noun city name.
+      const rawLast = (s.address ?? '').split(',').pop()?.trim() ?? '';
+      const cityFromAddr = rawLast.replace(/^\d{4,5}\s+/, '').trim() || FUEL_ZONE_DISPLAY[zone];
+      const street = (s.address ?? '').split(',')[0]?.trim() ?? '';
+      const brandDisplay = s.brand && s.brand.toUpperCase() !== 'UNDEFINED' ? titleCase(s.brand) : (s.name ? titleCase(s.name.split(/\s+/)[0] ?? 'Stazione') : 'Stazione');
+      out.push({
+        station: s,
+        zone,
+        city: cityFromAddr,
+        slug,
+        brandDisplay,
+        streetDisplay: street,
+        prices,
+      });
+    }
+  }
+  return out;
+}
+
+function titleCase(s: string): string {
+  return s
+    .toLowerCase()
+    .split(/\s+/)
+    .map((w) => (w.length > 0 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+    .join(' ');
+}
+
+/** Group station contexts by zone (for sibling picking). */
+function groupByZone(contexts: StationContext[]): Map<FuelZone, StationContext[]> {
+  const out = new Map<FuelZone, StationContext[]>();
+  for (const c of contexts) {
+    const arr = out.get(c.zone) ?? [];
+    arr.push(c);
+    out.set(c.zone, arr);
+  }
+  return out;
+}
+
+// ── Localised station copy ─────────────────────────────────────
+
+interface StationCopy {
+  h1: (brand: string, street: string, city: string, fuelLabel: string) => string;
+  intro: (brand: string, city: string, price: string, fuelLabel: string) => string;
+  paragraph: (brand: string, city: string, price: string, zoneAvg: string, fuelLabel: string) => string;
+  ranking: (rank: string, total: number, city: string) => string;
+  infoHeading: string;
+  infoBrand: string;
+  infoAddress: string;
+  infoUpdated: string;
+  currency: string;
+  backToZone: (zone: string) => string;
+  rankCheapest: string;
+  rankMedian: string;
+  rankPremium: string;
+  deltaVsZone: string;
+  deltaVsCity: string;
+  priceDiesel: string;
+  priceBenzina: string;
+}
+
+const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
+  it: {
+    h1: (b, st, c, f) => `Prezzo ${f.toLowerCase()} ${b} ${st} a ${c}`,
+    intro: (b, c, p, f) => `La stazione ${b} di ${c} offre oggi ${f.toLowerCase()} a ${p} CHF/litro. I prezzi sono aggiornati ogni giorno dalle rilevazioni TCS Benzinpreis sulle stazioni entro 20 km dal confine italiano — utili per pianificare il rifornimento prima o dopo il passaggio frontaliero.`,
+    paragraph: (b, c, p, zAvg, f) => `Alla stazione ${b} di ${c} il prezzo del ${f.toLowerCase()} è ${p} CHF/litro rispetto alla media di zona di ${zAvg} CHF/litro. Questo dato ti aiuta a capire se conviene fare rifornimento qui oppure in una stazione vicina. Incrocia il valore con lo storico settimanale del prezzo in zona per decidere se aspettare o pieno subito. Usa la mappa dei valichi doganali per verificare la fila prima di spostarti e la guida frontaliere per capire costi e tempi complessivi del tragitto casa-lavoro.`,
+    ranking: (r, t, c) => `Posizione nella classifica di ${c}: ${r} (${t} stazioni rilevate).`,
+    infoHeading: 'Informazioni stazione',
+    infoBrand: 'Brand',
+    infoAddress: 'Indirizzo',
+    infoUpdated: 'Ultimo aggiornamento prezzo',
+    currency: 'CHF/litro',
+    backToZone: (z) => `Torna al prezzo medio zona ${z}`,
+    rankCheapest: 'più economica',
+    rankMedian: 'mediana',
+    rankPremium: 'premium',
+    deltaVsZone: 'vs media zona',
+    deltaVsCity: 'vs media città',
+    priceDiesel: 'Prezzo diesel',
+    priceBenzina: 'Prezzo benzina',
+  },
+  en: {
+    h1: (b, st, c, f) => `${f} price ${b} ${st} in ${c}`,
+    intro: (b, c, p, f) => `The ${b} station in ${c} currently sells ${f.toLowerCase()} at ${p} CHF per litre. Prices are refreshed daily from TCS Benzinpreis observations of stations within 20 km of the Italian border — useful to plan your fill-up before or after your cross-border commute.`,
+    paragraph: (b, c, p, zAvg, f) => `At the ${b} station in ${c} the ${f.toLowerCase()} price is ${p} CHF per litre vs the zone average of ${zAvg} CHF per litre. Use this gap to decide whether to fill up here or at a nearby station. Cross-check with the weekly zone trend to plan your refuel, check the border crossing queue before you drive, and use the cross-border commuter guide for the full commute picture.`,
+    ranking: (r, t, c) => `Rank in ${c}: ${r} (${t} stations observed).`,
+    infoHeading: 'Station info',
+    infoBrand: 'Brand',
+    infoAddress: 'Address',
+    infoUpdated: 'Last price update',
+    currency: 'CHF/litre',
+    backToZone: (z) => `Back to ${z} zone average`,
+    rankCheapest: 'cheapest',
+    rankMedian: 'median',
+    rankPremium: 'premium',
+    deltaVsZone: 'vs zone avg',
+    deltaVsCity: 'vs city avg',
+    priceDiesel: 'Diesel price',
+    priceBenzina: 'Gasoline price',
+  },
+  de: {
+    h1: (b, st, c, f) => `${f}preis ${b} ${st} in ${c}`,
+    intro: (b, c, p, f) => `Die Tankstelle ${b} in ${c} verkauft heute ${f} zum Preis von ${p} CHF pro Liter. Die Preise werden täglich aus den TCS-Benzinpreis-Beobachtungen der Tankstellen im 20-km-Umkreis zur italienischen Grenze aktualisiert — praktisch, um das Tanken vor oder nach dem Grenzübertritt zu planen.`,
+    paragraph: (b, c, p, zAvg, f) => `An der Tankstelle ${b} in ${c} liegt der ${f}preis bei ${p} CHF pro Liter gegenüber dem Zonendurchschnitt von ${zAvg} CHF pro Liter. Nutze die Differenz, um zu entscheiden, ob du hier oder an einer benachbarten Tankstelle tankst. Die Seite wird jeden Tag frisch aufgebaut und enthält die aktuellen Marktvergleichswerte. Vergleiche mit dem Wochenverlauf der Zone, prüfe die Wartezeit am nächsten Grenzübergang und konsultiere den Grenzgänger-Leitfaden für die gesamte Pendel-Kostenrechnung. So planst du deinen Tankstopp optimal: vor oder nach der Grenze, mit oder ohne Umweg, je nach Tagesdifferenz zwischen Italien und der Schweiz.`,
+    ranking: (r, t, c) => `Rang in ${c}: ${r} (${t} erfasste Tankstellen).`,
+    infoHeading: 'Tankstellen-Infos',
+    infoBrand: 'Marke',
+    infoAddress: 'Adresse',
+    infoUpdated: 'Letzte Preisaktualisierung',
+    currency: 'CHF/Liter',
+    backToZone: (z) => `Zurück zum Zonendurchschnitt ${z}`,
+    rankCheapest: 'günstigste',
+    rankMedian: 'Median',
+    rankPremium: 'Premium',
+    deltaVsZone: 'vs Zonen-Ø',
+    deltaVsCity: 'vs Stadt-Ø',
+    priceDiesel: 'Dieselpreis',
+    priceBenzina: 'Benzinpreis',
+  },
+  fr: {
+    h1: (b, st, c, f) => `Prix du ${f.toLowerCase()} ${b} ${st} à ${c}`,
+    intro: (b, c, p, f) => `La station ${b} à ${c} vend aujourd'hui du ${f.toLowerCase()} à ${p} CHF le litre. Les prix sont mis à jour chaque jour à partir des relevés TCS Benzinpreis des stations à moins de 20 km de la frontière italienne — utile pour planifier le plein avant ou après votre trajet frontalier.`,
+    paragraph: (b, c, p, zAvg, f) => `À la station ${b} de ${c}, le prix du ${f.toLowerCase()} est de ${p} CHF le litre contre une moyenne de zone de ${zAvg} CHF le litre. Utilisez cet écart pour choisir si faire le plein ici ou dans une station voisine. Croisez avec la tendance hebdomadaire de la zone, vérifiez le temps d'attente au poste-frontière le plus proche et consultez le guide frontalier pour l'ensemble du calcul du trajet.`,
+    ranking: (r, t, c) => `Classement à ${c} : ${r} (${t} stations observées).`,
+    infoHeading: 'Infos station',
+    infoBrand: 'Marque',
+    infoAddress: 'Adresse',
+    infoUpdated: 'Dernière mise à jour du prix',
+    currency: 'CHF/litre',
+    backToZone: (z) => `Retour à la moyenne de zone ${z}`,
+    rankCheapest: 'la moins chère',
+    rankMedian: 'médiane',
+    rankPremium: 'premium',
+    deltaVsZone: 'vs moy. zone',
+    deltaVsCity: 'vs moy. ville',
+    priceDiesel: 'Prix du gasoil',
+    priceBenzina: 'Prix de l\'essence',
+  },
+};
+
+/** Render a Swiss per-station HTML page for a single fuel. */
+function renderStationPage(opts: {
+  ctx: StationContext;
+  locale: FuelDailyLocale;
+  fuel: FuelType;
+  zoneAvg: number | null;
+  zoneStations: StationContext[];
+  today: Date;
+  canonicalPath: string;
+  alternates: Record<FuelDailyLocale, string>;
+  distDir?: string;
+}): string {
+  const { ctx, locale, fuel, zoneAvg, zoneStations, today, canonicalPath, alternates, distDir } = opts;
+  const copy = STATION_COPY[locale];
+  const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
+  const zoneLabel = FUEL_ZONE_DISPLAY[ctx.zone];
+  const dateStamp = today.toISOString().slice(0, 10);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  const price = ctx.prices[fuel];
+  const priceFmt = formatPrice(price, locale);
+  const zoneAvgFmt = formatPrice(zoneAvg, locale);
+
+  // Rank within zone (for the chosen fuel)
+  const sortedByFuel = [...zoneStations]
+    .map((c) => ({ slug: c.slug, price: c.prices[fuel] }))
+    .sort((a, b) => a.price - b.price);
+  const rankIdx = sortedByFuel.findIndex((c) => c.slug === ctx.slug);
+  const total = sortedByFuel.length;
+  const rankLabel =
+    rankIdx < total / 3
+      ? copy.rankCheapest
+      : rankIdx < (2 * total) / 3
+      ? copy.rankMedian
+      : copy.rankPremium;
+
+  // Delta vs zone average
+  const deltaZone = zoneAvg !== null ? Number((price - zoneAvg).toFixed(3)) : null;
+  const deltaZoneFmt = formatDelta(deltaZone, locale);
+
+  const h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, ctx.city, fuelLabel);
+  const intro = copy.intro(ctx.brandDisplay, ctx.city, priceFmt, fuelLabel);
+  const paragraph = copy.paragraph(ctx.brandDisplay, ctx.city, priceFmt, zoneAvgFmt, fuelLabel);
+  const rankingLine = copy.ranking(rankLabel, total, ctx.city);
+
+  // Alternates
+  const alternatesHtml = (Object.keys(alternates) as FuelDailyLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  // Sibling stations for related-links block
+  const siblingStations = zoneStations
+    .filter((s) => s.slug !== ctx.slug)
+    .slice(0, 6)
+    .map((s) => ({ slug: s.slug, brand: s.brandDisplay, zone: s.zone }));
+
+  // JSON-LD
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'it' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'fr' ? 'Accueil' : 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+      { '@type': 'ListItem', position: 3, name: zoneLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}` },
+      { '@type': 'ListItem', position: 4, name: ctx.brandDisplay + ' ' + ctx.streetDisplay, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro,
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  // GasStation + Place (geo)
+  const gasStationLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'GasStation',
+    name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: ctx.streetDisplay,
+      addressLocality: ctx.city,
+      addressCountry: 'CH',
+    },
+    ...(typeof ctx.station.lat === 'number' && typeof ctx.station.lng === 'number'
+      ? {
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: ctx.station.lat,
+            longitude: ctx.station.lng,
+          },
+        }
+      : {}),
+    brand: ctx.brandDisplay,
+    url: canonicalUrl,
+  });
+
+  const productLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${fuelLabel} — ${ctx.brandDisplay} ${ctx.city}`,
+    category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'CHF',
+      price: price.toFixed(3),
+      priceValidUntil: new Date(today.getTime() + 24 * 3600 * 1000).toISOString().slice(0, 10),
+      availability: 'https://schema.org/InStock',
+      url: canonicalUrl,
+    },
+  });
+
+  const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+    <span> / </span>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(fuelLabel)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="color:#1d4ed8;text-decoration:none">${esc(zoneLabel)}</a>
+    <span> / </span>
+    <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(dateStamp)}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.15">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+  </header>
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
+      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(fuel === 'diesel' ? copy.priceDiesel : copy.priceBenzina)}</div>
+      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${priceFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.currency)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#fef3c7;border:1px solid #fde68a">
+      <div style="font-size:12px;color:#92400e;font-weight:700;text-transform:uppercase">${esc(copy.deltaVsZone)}</div>
+      <div style="margin-top:8px;font-size:22px;font-weight:700;color:#1e293b">${esc(deltaZoneFmt)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
+      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(rankLabel)}</div>
+      <div style="margin-top:8px;font-size:18px;color:#1e293b">${esc(rankingLine)}</div>
+    </div>
+  </section>
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+  </section>
+  <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="stationInfo">
+    <h2 id="stationInfo" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.infoHeading)}</h2>
+    <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:#334155">
+      <dt style="font-weight:600">${esc(copy.infoBrand)}</dt><dd style="margin:0">${esc(ctx.brandDisplay)}</dd>
+      <dt style="font-weight:600">${esc(copy.infoAddress)}</dt><dd style="margin:0">${esc(ctx.station.address ?? '—')}</dd>
+      ${ctx.station.updatedAt ? `<dt style="font-weight:600">${esc(copy.infoUpdated)}</dt><dd style="margin:0">${esc(String(ctx.station.updatedAt).slice(0, 10))}</dd>` : ''}
+    </dl>
+  </section>
+  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
+  ${generateRelatedLinksBlock(locale, 'fuel_station', {
+    fuelType: fuel,
+    fuelZone: ctx.zone,
+    stationSlug: ctx.slug,
+    siblingStations,
+  })}
+</main>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd, productLd],
+    bodyHtml,
+    distDir,
+  });
+}
+
+// ── Italian-city hub rendering ──────────────────────────────────
+
+interface ItalianCityStation {
+  id?: string;
+  stationName?: string;
+  brand?: string;
+  address?: string;
+  priceEur?: number;
+  lat?: number;
+  lng?: number;
+  updatedAt?: string;
+}
+
+/** Collect Italian stations (cheapest per municipality) per curated city. */
+function collectItalianCityStations(
+  dataset: FuelPricesDataset,
+  entry: ItalianCityEntry,
+): ItalianCityStation[] {
+  const out: ItalianCityStation[] = [];
+  for (const row of dataset.municipalities ?? []) {
+    if (!row.municipality) continue;
+    if (row.municipality.toLowerCase() !== entry.matchKey) continue;
+    const raw = (row as unknown as { italy?: { cheapestStation?: ItalianCityStation; nearbyStations?: ItalianCityStation[] } }).italy;
+    if (!raw) continue;
+    // Prefer nearbyStations, else the cheapestStation alone
+    if (Array.isArray(raw.nearbyStations) && raw.nearbyStations.length > 0) {
+      for (const s of raw.nearbyStations) {
+        if (s && typeof s.priceEur === 'number') out.push(s);
+      }
+    } else if (raw.cheapestStation && typeof raw.cheapestStation.priceEur === 'number') {
+      out.push(raw.cheapestStation);
+    }
+  }
+  return out;
+}
+
+interface ItalianCityCopy {
+  h1: (fuelLabel: string, city: string) => string;
+  intro: (fuelLabel: string, city: string, minPrice: string) => string;
+  paragraph: (fuelLabel: string, city: string, minPrice: string, nearestZoneLabel: string) => string;
+  tableTitle: (city: string) => string;
+  tableStation: string;
+  tableAddress: string;
+  tablePrice: string;
+  crossBorderTip: string;
+  currency: string;
+  backLink: string;
+  noData: string;
+}
+
+const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
+  it: {
+    h1: (f, c) => `Prezzo ${f.toLowerCase()} a ${c} — stazioni più economiche`,
+    intro: (f, c, p) => `A ${c} il prezzo più basso del ${f.toLowerCase()} rilevato oggi è ${p} EUR/litro. Dati MIMIT aggiornati dalle stazioni italiane del comune. Utile se sei frontaliere e valuti se fare il pieno in Italia o in Svizzera prima del confine.`,
+    paragraph: (f, c, p, nz) => `Il prezzo minimo del ${f.toLowerCase()} a ${c} è ${p} EUR/litro. La tabella qui sotto elenca le stazioni attive ordinate per prezzo crescente. Confronta con il prezzo medio ${f.toLowerCase()} in zona ${nz}, la Ticino più vicina, per capire da che lato del confine conviene rifornirsi oggi. Ricorda che la differenza di 0,10-0,20 EUR/litro compensa spesso il piccolo disagio di una deviazione al valico. Per stime complessive di costo del tragitto giornaliero consulta la guida frontalieri.`,
+    tableTitle: (c) => `Stazioni a ${c} — prezzi di oggi`,
+    tableStation: 'Stazione',
+    tableAddress: 'Indirizzo',
+    tablePrice: 'Prezzo',
+    crossBorderTip: `Controlla sempre il tempo d'attesa alla dogana prima di attraversare: una coda di 30 minuti può annullare il risparmio al litro.`,
+    currency: 'EUR/litro',
+    backLink: 'Vedi il prezzo medio in Ticino',
+    noData: 'Nessuna stazione disponibile per oggi — dati in aggiornamento.',
+  },
+  en: {
+    h1: (f, c) => `${f} price in ${c} — cheapest stations`,
+    intro: (f, c, p) => `In ${c} the cheapest ${f.toLowerCase()} price observed today is ${p} EUR per litre. MIMIT data refreshed daily from Italian stations in this municipality. Useful for cross-border commuters deciding whether to refuel in Italy or Switzerland.`,
+    paragraph: (f, c, p, nz) => `The minimum ${f.toLowerCase()} price in ${c} is ${p} EUR per litre. The table below lists active stations sorted by price. Compare with the ${f.toLowerCase()} average in the ${nz} Ticino zone — the closest Swiss side — to understand which side of the border is cheapest today. A gap of 0.10-0.20 EUR per litre often offsets a small detour at the border crossing. For full trip cost estimates see the cross-border commuter guide.`,
+    tableTitle: (c) => `${c} stations — today's prices`,
+    tableStation: 'Station',
+    tableAddress: 'Address',
+    tablePrice: 'Price',
+    crossBorderTip: `Always check the border crossing wait time before you drive: a 30-minute queue can wipe out per-litre savings.`,
+    currency: 'EUR/litre',
+    backLink: 'See the Ticino average price',
+    noData: 'No station data for today — refresh pending.',
+  },
+  de: {
+    h1: (f, c) => `${f}preis in ${c} — günstigste Tankstellen`,
+    intro: (f, c, p) => `In ${c} liegt der günstigste heute beobachtete ${f}preis bei ${p} EUR pro Liter. MIMIT-Daten, täglich von den italienischen Tankstellen dieser Gemeinde aktualisiert. Praktisch für Grenzgänger, die entscheiden, ob sie in Italien oder in der Schweiz tanken.`,
+    paragraph: (f, c, p, nz) => `Der Mindestpreis für ${f} in ${c} beträgt ${p} EUR pro Liter. Die Tabelle listet die aktiven Tankstellen nach Preis sortiert. Vergleiche mit dem ${f}-Durchschnitt der Tessiner Zone ${nz} — der nächsten Schweizer Seite — um zu erkennen, welche Seite der Grenze heute günstiger ist. Ein Unterschied von 0,10-0,20 EUR pro Liter rechtfertigt oft einen kleinen Umweg über den Grenzübergang. Für eine Gesamtkostenkalkulation der Pendelstrecke konsultiere den Grenzgänger-Leitfaden.`,
+    tableTitle: (c) => `Tankstellen ${c} — heutige Preise`,
+    tableStation: 'Tankstelle',
+    tableAddress: 'Adresse',
+    tablePrice: 'Preis',
+    crossBorderTip: `Prüfe immer die Wartezeit am Grenzübergang bevor du losfährst: eine 30-minütige Wartezeit frisst die Ersparnis pro Liter auf.`,
+    currency: 'EUR/Liter',
+    backLink: 'Tessiner Durchschnittspreis anzeigen',
+    noData: 'Keine Tankstellendaten für heute — Aktualisierung ausstehend.',
+  },
+  fr: {
+    h1: (f, c) => `Prix du ${f.toLowerCase()} à ${c} — stations les moins chères`,
+    intro: (f, c, p) => `À ${c} le prix le plus bas du ${f.toLowerCase()} observé aujourd'hui est de ${p} EUR par litre. Données MIMIT mises à jour quotidiennement depuis les stations italiennes de la commune. Utile pour les frontaliers qui arbitrent entre faire le plein en Italie ou en Suisse.`,
+    paragraph: (f, c, p, nz) => `Le prix minimum du ${f.toLowerCase()} à ${c} est de ${p} EUR par litre. Le tableau ci-dessous liste les stations actives triées par prix. Comparez avec la moyenne du ${f.toLowerCase()} dans la zone tessinoise ${nz} — le côté suisse le plus proche — pour savoir de quel côté de la frontière il est plus avantageux de faire le plein aujourd'hui. Un écart de 0,10-0,20 EUR par litre compense souvent un petit détour au poste-frontière. Pour une estimation du coût global du trajet quotidien, consultez le guide frontalier.`,
+    tableTitle: (c) => `Stations à ${c} — prix du jour`,
+    tableStation: 'Station',
+    tableAddress: 'Adresse',
+    tablePrice: 'Prix',
+    crossBorderTip: `Vérifiez toujours le temps d'attente au poste-frontière avant de partir : 30 minutes d'attente annulent souvent l'économie au litre.`,
+    currency: 'EUR/litre',
+    backLink: 'Voir le prix moyen au Tessin',
+    noData: 'Aucune donnée de station disponible aujourd\'hui — mise à jour en attente.',
+  },
+};
+
+function renderItalianCityPage(opts: {
+  entry: ItalianCityEntry;
+  locale: FuelDailyLocale;
+  fuel: FuelType;
+  stations: ItalianCityStation[];
+  canonicalPath: string;
+  alternates: Record<FuelDailyLocale, string>;
+  today: Date;
+  distDir?: string;
+}): string {
+  const { entry, locale, fuel, stations, canonicalPath, alternates, today, distDir } = opts;
+  const copy = IT_CITY_COPY[locale];
+  const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const dateStamp = today.toISOString().slice(0, 10);
+
+  const sortedStations = [...stations]
+    .filter((s) => typeof s.priceEur === 'number')
+    .sort((a, b) => (a.priceEur ?? Infinity) - (b.priceEur ?? Infinity))
+    .slice(0, 10);
+  const minPrice = sortedStations[0]?.priceEur ?? null;
+  const minPriceFmt = minPrice !== null ? formatPrice(minPrice, locale) : '—';
+  const nearestZoneLabel = FUEL_ZONE_DISPLAY[entry.nearestZone];
+
+  const h1 = copy.h1(fuelLabel, entry.display);
+  const intro = copy.intro(fuelLabel, entry.display, minPriceFmt);
+  const paragraph = copy.paragraph(fuelLabel, entry.display, minPriceFmt, nearestZoneLabel);
+
+  const alternatesHtml = (Object.keys(alternates) as FuelDailyLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  // Table of top stations
+  const tableRows = sortedStations.length > 0
+    ? sortedStations
+        .map((s) => `<tr>
+        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(s.stationName || s.brand || '—')}</td>
+        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#475569">${esc(s.address || '—')}</td>
+        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) + ' EUR' : '—'}</td>
+      </tr>`)
+        .join('')
+    : `<tr><td colspan="3" style="padding:18px;color:#78350f;background:#fef3c7">${esc(copy.noData)}</td></tr>`;
+
+  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    <thead><tr>
+      <th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableStation)}</th>
+      <th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableAddress)}</th>
+      <th style="text-align:right;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tablePrice)}</th>
+    </tr></thead>
+    <tbody>${tableRows}</tbody>
+  </table>`;
+
+  // JSON-LD
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'it' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'fr' ? 'Accueil' : 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+      { '@type': 'ListItem', position: 3, name: locale === 'it' ? 'Italia' : locale === 'de' ? 'Italien' : locale === 'fr' ? 'Italie' : 'Italy', item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_ITALY_SLUG[locale]}/` },
+      { '@type': 'ListItem', position: 4, name: entry.display, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro,
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const itemListLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: h1,
+    numberOfItems: sortedStations.length,
+    itemListElement: sortedStations.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'GasStation',
+        name: s.stationName || s.brand || `Stazione ${i + 1}`,
+        address: s.address,
+        ...(typeof s.lat === 'number' && typeof s.lng === 'number'
+          ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } }
+          : {}),
+      },
+    })),
+  });
+
+  const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+    <span> / </span>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(fuelLabel)}</a>
+    <span> / </span>
+    <span>${esc(entry.display)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(dateStamp)}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.15">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+  </header>
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 24px">
+    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
+      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(locale === 'it' ? 'Prezzo minimo' : locale === 'de' ? 'Mindestpreis' : locale === 'fr' ? 'Prix minimum' : 'Minimum price')}</div>
+      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${esc(minPriceFmt)}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.currency)}</div>
+    </div>
+    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
+      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(locale === 'it' ? 'Zona Ticino più vicina' : locale === 'de' ? 'Nächste Tessiner Zone' : locale === 'fr' ? 'Zone tessinoise la plus proche' : 'Nearest Ticino zone')}</div>
+      <div style="margin-top:8px;font-size:22px;font-weight:700;color:#1e293b"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:#1e293b;text-decoration:underline">${esc(nearestZoneLabel)}</a></div>
+    </div>
+  </section>
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="itCityTable">
+    <h2 id="itCityTable" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.tableTitle(entry.display))}</h2>
+    ${tableHtml}
+  </section>
+  <section style="margin:0 0 24px;padding:16px 18px;border-radius:14px;background:#fef3c7;border:1px solid #fde68a;color:#78350f">
+    <p style="margin:0;line-height:1.6">${esc(copy.crossBorderTip)}</p>
+  </section>
+  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
+  ${generateRelatedLinksBlock(locale, 'fuel_italian_city', {
+    fuelType: fuel,
+    italianCitySlug: entry.slug,
+    italianCityDisplay: entry.display,
+    fuelZone: entry.nearestZone,
+  })}
+</main>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd],
+    bodyHtml,
+    distDir,
+  });
+}
+
+// ── Exported generators for station + IT-city pages ────────────
+
+/**
+ * Generate per-station HTML pages for every (Ticino station × fuel × locale).
+ * Returns a map of canonical path → HTML string.
+ *
+ * Safety cap: MAX_FUEL_STATION_PAGES_PER_BUILD (env var). When exceeded the
+ * generator stops emitting and logs a warning.
+ */
+export function generateFuelStationPages(opts: {
+  dataset: FuelPricesDataset;
+  today?: Date;
+  distDir?: string;
+  maxPages?: number;
+}): Record<string, string> {
+  const dataset = opts.dataset;
+  const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
+  const maxPages = opts.maxPages ?? Number(process.env.MAX_FUEL_STATION_PAGES_PER_BUILD || 1500);
+  const pages: Record<string, string> = {};
+
+  const contexts = collectSwissStationContexts(dataset);
+  if (contexts.length === 0) return pages;
+
+  const zoneGroups = groupByZone(contexts);
+
+  // Precompute zone averages per fuel
+  const zoneAvg: Record<FuelZone, Record<FuelType, number | null>> = {
+    chiasso: { diesel: null, benzina: null },
+    mendrisio: { diesel: null, benzina: null },
+    lugano: { diesel: null, benzina: null },
+    bellinzona: { diesel: null, benzina: null },
+    locarno: { diesel: null, benzina: null },
+  };
+  for (const zone of FUEL_ZONES) {
+    const ctxList = zoneGroups.get(zone) ?? [];
+    for (const fuel of FUEL_TYPES) {
+      const prices = ctxList.map((c) => c.prices[fuel]);
+      zoneAvg[zone][fuel] = mean(prices);
+    }
+  }
+
+  let emitted = 0;
+  outer: for (const fuel of FUEL_TYPES) {
+    for (const locale of FUEL_DAILY_LOCALES) {
+      for (const ctx of contexts) {
+        const canonicalPath = buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug);
+        // Precompute alternates for all 4 locales
+        const alternates: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
+        for (const alt of FUEL_DAILY_LOCALES) {
+          alternates[alt] = buildFuelStationPath(alt, fuel, ctx.zone, ctx.slug);
+        }
+        const zoneStations = zoneGroups.get(ctx.zone) ?? [];
+        const html = renderStationPage({
+          ctx,
+          locale,
+          fuel,
+          zoneAvg: zoneAvg[ctx.zone][fuel],
+          zoneStations,
+          today,
+          canonicalPath,
+          alternates,
+          distDir,
+        });
+        pages[canonicalPath] = html;
+        emitted++;
+        if (emitted >= maxPages) {
+          console.warn(`[fuel-daily-pages] MAX_FUEL_STATION_PAGES_PER_BUILD=${maxPages} reached — halting station page emission`);
+          break outer;
+        }
+      }
+    }
+  }
+  return pages;
+}
+
+/**
+ * Generate Italian per-city hub pages for the curated list of border cities.
+ */
+export function generateFuelItalianCityPages(opts: {
+  dataset: FuelPricesDataset;
+  today?: Date;
+  distDir?: string;
+}): Record<string, string> {
+  const dataset = opts.dataset;
+  const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
+  const pages: Record<string, string> = {};
+
+  for (const entry of FUEL_ITALIAN_CITIES) {
+    const stations = collectItalianCityStations(dataset, entry);
+    if (stations.length === 0) continue; // skip if no station data
+    for (const fuel of FUEL_TYPES) {
+      for (const locale of FUEL_DAILY_LOCALES) {
+        const canonicalPath = buildFuelItalianCityPath(locale, fuel, entry.slug);
+        const alternates: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
+        for (const alt of FUEL_DAILY_LOCALES) {
+          alternates[alt] = buildFuelItalianCityPath(alt, fuel, entry.slug);
+        }
+        const html = renderItalianCityPage({
+          entry,
+          locale,
+          fuel,
+          stations,
+          canonicalPath,
+          alternates,
+          today,
+          distDir,
+        });
+        pages[canonicalPath] = html;
+      }
+    }
+  }
+  return pages;
+}
+
 // ── Plugin ─────────────────────────────────────────────────────
 
 interface PluginResult {
   pagesWritten: number;
   archivesWritten: number;
   skippedForWordCount: number;
+  stationPagesWritten?: number;
+  italianCityPagesWritten?: number;
 }
 
 /**
@@ -944,6 +1725,8 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
 
       const pages = generateFuelDailyPages({ rootDir, dataset, history, today, distDir });
       const archives = generateFuelArchivePages({ history, today, distDir });
+      const stationPages = generateFuelStationPages({ dataset, today, distDir });
+      const italianCityPages = generateFuelItalianCityPages({ dataset, today, distDir });
 
       const collector = new WriteCollector({ distDir });
 
@@ -976,18 +1759,53 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         archivesWritten++;
       }
 
+      // ── D-2A: Per-station + Italian-city emission ───────────────
+      // Separate sitemap files so they can be refreshed independently and
+      // the master index (sitemapAliasPlugin) picks them up automatically.
+      const STATION_MIN_WORDS = 250;
+      const stationSitemapPaths: string[] = [];
+      let stationPagesWritten = 0;
+      for (const [path, html] of Object.entries(stationPages)) {
+        const words = countHtmlBodyWords(html);
+        if (words < STATION_MIN_WORDS) {
+          skipped++;
+          console.warn(`[fuel-daily-pages] station thin content (${words} words) for ${path} — skipping`);
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        stationSitemapPaths.push(path);
+        stationPagesWritten++;
+      }
+
+      const italianCitySitemapPaths: string[] = [];
+      let italianCityPagesWritten = 0;
+      for (const [path, html] of Object.entries(italianCityPages)) {
+        const words = countHtmlBodyWords(html);
+        if (words < STATION_MIN_WORDS) {
+          skipped++;
+          console.warn(`[fuel-daily-pages] IT-city thin content (${words} words) for ${path} — skipping`);
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        italianCitySitemapPaths.push(path);
+        italianCityPagesWritten++;
+      }
+
       await collector.flush();
 
       // ── Emit sitemap-fuel-daily.xml ─────────────────────────────
       // The sitemapAliasPlugin auto-discovers every `sitemap-*.xml` in dist/
       // and weaves it into the master sitemap index, so no manual patching
       // of `dist/sitemap.xml` is needed here.
-      if (sitemapPaths.length > 0) {
+      const writeSitemap = (paths: string[], filename: string, changefreq: string): void => {
+        if (paths.length === 0) return;
         try {
           const dateStamp = today.toISOString().slice(0, 10);
-          const urlEntries = sitemapPaths
+          const urlEntries = paths
             .map((p) => {
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
             })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -995,18 +1813,28 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
 ${urlEntries}
 </urlset>
 `;
-          fs.writeFileSync(np.join(distDir, 'sitemap-fuel-daily.xml'), sitemapXml, 'utf-8');
+          fs.writeFileSync(np.join(distDir, filename), sitemapXml, 'utf-8');
           console.log(
-            `\x1b[36m[fuel-daily-pages]\x1b[0m Wrote sitemap-fuel-daily.xml (${sitemapPaths.length} URLs)`,
+            `\x1b[36m[fuel-daily-pages]\x1b[0m Wrote ${filename} (${paths.length} URLs)`,
           );
         } catch (err) {
-          console.warn('[fuel-daily-pages] failed to write sitemap-fuel-daily.xml', err);
+          console.warn(`[fuel-daily-pages] failed to write ${filename}`, err);
         }
-      }
+      };
 
-      const result: PluginResult = { pagesWritten, archivesWritten, skippedForWordCount: skipped };
+      writeSitemap(sitemapPaths, 'sitemap-fuel-daily.xml', 'daily');
+      writeSitemap(stationSitemapPaths, 'sitemap-fuel-stations.xml', 'daily');
+      writeSitemap(italianCitySitemapPaths, 'sitemap-fuel-italian-cities.xml', 'daily');
+
+      const result: PluginResult = {
+        pagesWritten,
+        archivesWritten,
+        skippedForWordCount: skipped,
+        stationPagesWritten,
+        italianCityPagesWritten,
+      };
       console.log(
-        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily pages + ${result.archivesWritten} archives (skipped ${result.skippedForWordCount})`,
+        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily + ${result.archivesWritten} archives + ${stationPagesWritten} station + ${italianCityPagesWritten} IT-city pages (skipped ${result.skippedForWordCount})`,
       );
     },
   };
