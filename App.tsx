@@ -79,6 +79,7 @@ import { useNavigationState } from '@/hooks/useNavigationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { initPostHog } from '@/services/posthog';
+import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts)
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
@@ -166,6 +167,7 @@ const App: React.FC = () => {
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+ useSeoPageTracking();
 
  const { inputs, setInputs, result, setResult, handleCalculate, urlHydrated } = useSimulationState(activeTab, seoLanding);
  const deferredResult = useDeferredValue(result);
