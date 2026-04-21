@@ -2457,6 +2457,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rapina-milano-frontaliere-ticino-2026.title': 'Rapina a Milano: frontaliero ticinese derubato di un orologio da 35\'000 CHF',
     'blog.article.rapina-milano-frontaliere-ticino-2026.excerpt': 'Tre arresti per la rapina ai danni di un cittadino svizzero domiciliato in Canton Lucerna, pedinato e derubato a Milano dopo un viaggio in treno da Lugano.',
     'blog.article.rapina-milano-frontaliere-ticino-2026.imageAlt': 'Stazione ferroviaria di Lugano con vista sul lago',
+    'blog.article.frontalieri-contributo-sanitario-2026.title': 'Frontalieri: approvata mozione per contributo sanitario equo',
+    'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'La mozione di Zocchi (FdI) mira a rendere il contributo sanitario meno gravoso e a distribuire le risorse nei territori di residenza dei frontalieri.',
+    'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;

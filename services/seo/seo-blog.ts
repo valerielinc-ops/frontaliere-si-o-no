@@ -10616,6 +10616,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-contributo-sanitario-2026': {
+    title: 'Frontalieri: approvata mozione per | Frontaliere Ticino',
+    description: 'Scopri come la mozione approvata da Zocchi (FdI) mira a rendere il contributo sanitario meno gravoso per i frontalieri e a distribuire le risorse nei territori',
+    keywords: 'frontalieri, ticino, svizzera, italia, approvata, mozione, contributo, sanitario',
+    ogTitle: 'Frontalieri: mozione per contributo sanitario equo',
+    ogDescription: 'Scopri come la mozione approvata da Zocchi (FdI) mira a rendere il contributo sanitario meno gravoso per i frontalieri e a distribuire le risorse nei territori',
+    canonicalPath: '/articoli-frontaliere/frontalieri-contributo-sanitario-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: mozione per contributo sanitario equo",
+      "description": "Scopri come la mozione approvata da Zocchi (FdI) mira a rendere il contributo sanitario meno gravoso per i frontalieri e a distribuire le risorse nei territori",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-contributo-sanitario-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-21T17:39:48+00:00",
+      "dateModified": "2026-04-21T17:39:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-contributo-sanitario-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2457,6 +2457,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rapina-milano-frontaliere-ticino-2026.title': 'Raub in Mailand: Schweizer Grenzgänger aus dem Tessin wird um eine Uhr im Wert von 35\'000 CHF beraubt',
     'blog.article.rapina-milano-frontaliere-ticino-2026.excerpt': 'Drei Festnahmen nach einem Raubüberfall auf einen Schweizer Bürger, der im Kanton Luzern wohnt, der in Mailand nach einer Zugfahrt von Lugano verfolgt und ausgeraubt wurde.',
     'blog.article.rapina-milano-frontaliere-ticino-2026.imageAlt': 'Bahnhof Lugano mit Seeblick',
+    'blog.article.frontalieri-contributo-sanitario-2026.title': 'Grenzgänger: Motion für faire Krankenversicherungsbeiträge genehmigt',
+    'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'Die Motion von Zocchi (FdI) zielt darauf ab, die Krankenversicherungsbeiträge weniger belastend zu gestalten und die Ressourcen in den Wohngebieten der Grenzgänger zu verteilen.',
+    'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;

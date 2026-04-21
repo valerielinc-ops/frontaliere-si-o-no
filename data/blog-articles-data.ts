@@ -6713,4 +6713,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/rapina-milano-frontaliere-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-contributo-sanitario-2026',
+ category: 'novita',
+ date: '2026-04-21T17:39:48.468Z',
+ image: '/images/blog/frontalieri-contributo-sanitario-2026.jpg',
+ hasCalculator: true,
+ },
 ];

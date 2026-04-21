@@ -2457,6 +2457,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rapina-milano-frontaliere-ticino-2026.title': 'Robbery in Milan: Ticino cross-border worker robbed of a 35,000 CHF watch',
     'blog.article.rapina-milano-frontaliere-ticino-2026.excerpt': 'Three arrests for the robbery of a Swiss citizen residing in the Canton of Lucerne, who was followed and robbed in Milan after a train journey from Lugano.',
     'blog.article.rapina-milano-frontaliere-ticino-2026.imageAlt': 'Lugano train station with a view of the lake',
+    'blog.article.frontalieri-contributo-sanitario-2026.title': 'Cross-border workers: motion approved for fair healthcare contribution',
+    'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'Zocchi\'s (FdI) motion aims to make the healthcare contribution less burdensome and to distribute resources in the territories where cross-border workers reside.',
+    'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

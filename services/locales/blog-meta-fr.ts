@@ -2457,6 +2457,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rapina-milano-frontaliere-ticino-2026.title': 'Braquage à Milan : un frontalier tessinois dépossédé d\'une montre de 35\'000 CHF',
     'blog.article.rapina-milano-frontaliere-ticino-2026.excerpt': 'Trois arrestations pour le braquage d\'un citoyen suisse domicilié dans le canton de Lucerne, suivi et dévalisé à Milan après un voyage en train depuis Lugano.',
     'blog.article.rapina-milano-frontaliere-ticino-2026.imageAlt': 'Gare de Lugano avec vue sur le lac',
+    'blog.article.frontalieri-contributo-sanitario-2026.title': 'Frontaliers : motion approuvée pour une contribution sanitaire équitable',
+    'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'La motion de Zocchi (FdI) vise à rendre la contribution sanitaire moins lourde et à répartir les ressources dans les territoires de résidence des frontaliers.',
+    'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;
