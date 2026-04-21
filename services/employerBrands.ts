@@ -1255,6 +1255,198 @@ const MANOR: EmployerBrand = {
   },
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// MEDACTA — Medacta International SA (B.4)
+// Castel San Pietro (Mendrisio). Orthopedic medical devices, listed on SIX
+// Swiss Exchange, one of Ticino's top private-sector employers. The crawler
+// regularly picks up openings at medacta.com/careers; this registry entry
+// lets the hub render the moment those jobs flow in.
+// ─────────────────────────────────────────────────────────────────────────────
+const MEDACTA: EmployerBrand = {
+  brandKey: 'medacta-international-sa',
+  name: 'Medacta International SA',
+  shortName: 'Medacta',
+  fullName: 'Medacta International SA',
+  website: 'https://www.medacta.com',
+  careersUrl: 'https://www.medacta.com/careers',
+  locations: [
+    'Sede centrale Castel San Pietro (TI)',
+    'Stabilimento produttivo Castel San Pietro',
+    'Medacta Education Lab (Rancate)',
+    'Filiali commerciali in oltre 40 Paesi',
+  ],
+  headquarters: {
+    streetAddress: 'Strada Regina 34',
+    postalCode: '6874',
+    addressLocality: 'Castel San Pietro',
+    addressRegion: 'TI',
+    addressCountry: 'CH',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/medacta-international-sa',
+    'https://it.wikipedia.org/wiki/Medacta',
+    'https://www.six-group.com/en/market-data/shares/share-explorer/share-details.CH0468525222CHF4.html',
+  ],
+  copy: {
+    it: {
+      h1: 'Lavorare in Medacta — medical device e ortopedia in Ticino',
+      tagline: 'Posizioni aperte Medacta a Castel San Pietro: produzione, R&D, regulatory, qualità. Stipendi, benefit e candidatura frontaliere.',
+      paragraphs: [
+        "Medacta International SA è un'azienda svizzera fondata nel 1999 dalla famiglia Siccardi e quotata dal 2019 a SIX Swiss Exchange (MOVE). La sede centrale e lo stabilimento produttivo si trovano a Castel San Pietro, nel Mendrisiotto, a pochi chilometri dal confine italiano. Medacta progetta, produce e distribuisce protesi ortopediche di anca, ginocchio, spalla e colonna vertebrale, oltre a tecniche chirurgiche mini-invasive (MySpine, MyHip, MyKnee, MyShoulder) e piattaforme di navigazione NextAR. Impiega oltre 1'900 persone a livello globale, di cui circa 800 in Ticino.",
+        "Il campus di Castel San Pietro integra R&D, ingegneria, produzione in camera bianca, regulatory affairs, clinical research, supply chain, marketing e funzioni corporate. Medacta Education Lab, il centro di formazione chirurgica dedicato, ospita ogni anno centinaia di chirurghi da tutto il mondo per workshop e cadaver lab. L'azienda investe costantemente in automazione, additive manufacturing e digitalizzazione, e ha espanso negli ultimi anni lo stabilimento con nuove linee produttive e un polo logistico.",
+        "I profili più ricercati a Castel San Pietro sono ingegneri di processo, ingegneri biomedici e meccanici, tecnici di produzione CNC, operatori di camera bianca, quality engineer (ISO 13485, MDR), regulatory affairs specialist, clinical research associate, data analyst, sviluppatori software (navigazione, robotica, AR), progettisti meccanici (SolidWorks, CATIA), supply chain planner, addetti al magazzino e ruoli corporate in finance, HR, IT, legal e marketing. Medacta pubblica posizioni anche per apprendisti e stagisti.",
+        "Per i frontalieri italiani Medacta è uno dei datori di lavoro più attrattivi del Mendrisiotto: Castel San Pietro è a 5-15 minuti dai comuni di confine italiani (Como, Varese, Bizzarone, Stabio, Chiasso). L'azienda accetta candidature con Permesso G per tutti i ruoli operativi e tecnici, applica contratti aziendali con 13ª, previdenza LPP sopra il minimo di legge, e valuta titoli e diplomi italiani secondo equipollenza. È richiesto un buon livello di italiano per i ruoli di produzione e almeno B2 di inglese per i ruoli tecnici e corporate.",
+      ],
+      sectionHeadings: {
+        locations: 'Sedi Medacta in Ticino',
+        benefits: 'Perché lavorare in Medacta',
+        openRoles: 'Posizioni aperte oggi',
+        howToApply: 'Come candidarsi in Medacta',
+        faq: 'Domande frequenti',
+        about: 'Chi è Medacta',
+      },
+      howToApply: "Tutte le posizioni ufficiali Medacta sono pubblicate su medacta.com/careers e monitorate quotidianamente dal nostro crawler. Processo standard: (1) candidatura online con CV in inglese o italiano; (2) screening HR entro 2 settimane; (3) primo colloquio HR + hiring manager (spesso da remoto per profili internazionali); (4) colloquio tecnico con case study o prova pratica per ingegneri, quality e regulatory; (5) visita di sito a Castel San Pietro con tour dello stabilimento; (6) offerta con stipendio annuo lordo × 13, bonus variabile, LPP, buoni mensa e benefit. Il processo per ruoli corporate dura tipicamente 4-8 settimane; produzione e magazzino 2-4 settimane.",
+      benefits: [
+        { title: '13ª e bonus variabile', desc: 'Stipendio di base su 13 mensilità + MBO individuale legato a obiettivi annuali e risultati aziendali; stock plan per ruoli manageriali.' },
+        { title: 'Formazione continua', desc: 'Accesso al Medacta Education Lab, formazione tecnica interna, percorsi MBA e master finanziati, training ISO 13485 / MDR / FDA.' },
+        { title: 'Previdenza LPP sopra il minimo', desc: 'Cassa pensione con contributi datoriali superiori al minimo legale; copertura AVS/AI/IPG e infortunio LAINF inclusa.' },
+        { title: 'Mensa aziendale e navetta', desc: "Servizio mensa sovvenzionato presso il campus di Castel San Pietro; servizio navetta dalla stazione di Mendrisio e parcheggio gratuito per chi viene in auto." },
+        { title: 'Ambiente R&D internazionale', desc: 'Lavoro con team multidisciplinari in 40+ Paesi, lingua di lavoro italiano + inglese, possibilità di mobilità internazionale verso filiali (USA, UK, Cina, Giappone).' },
+        { title: 'Frontalieri benvenuti', desc: "L'azienda assume regolarmente titolari di Permesso G per produzione, R&D, quality e funzioni corporate. Castel San Pietro è 5-15 minuti dal confine italiano (Como/Varese)." },
+      ],
+      faqs: [
+        { q: 'Medacta assume frontalieri italiani?', a: "Sì. Lo stabilimento di Castel San Pietro è a pochi chilometri dal confine italiano e Medacta assume regolarmente titolari di Permesso G in produzione, magazzino, quality, regulatory, R&D e ruoli corporate. La lingua di lavoro è italiano per produzione e inglese per i ruoli tecnici internazionali." },
+        { q: 'Quanto paga Medacta in Svizzera?', a: "Gli stipendi seguono il mercato ticinese dei medical device. Valori lordi indicativi (dati di mercato pubblici): operatore di produzione CNC CHF 60'000-75'000 × 13, tecnico camera bianca CHF 58'000-72'000 × 13, quality engineer CHF 85'000-110'000 × 13, regulatory affairs specialist CHF 90'000-120'000 × 13, ingegnere R&D CHF 95'000-130'000 × 13, senior engineer CHF 120'000-160'000 × 13. Tredicesima inclusa + bonus. Usa il simulatore Frontaliere Ticino per stimare il netto." },
+        { q: 'Quali permessi di lavoro accetta Medacta?', a: 'Medacta assume cittadini svizzeri e titolari di Permesso C, B, G e Li. Per i ruoli di produzione e tecnici il Permesso G è pienamente accettato. Per alcuni ruoli R&D e corporate può essere preferito il Permesso B con residenza in Svizzera, ma non è un requisito obbligatorio. La documentazione è gestita dal servizio HR a Castel San Pietro.' },
+        { q: 'Medacta offre stage e apprendistato?', a: "Sì. L'azienda è datore di formazione riconosciuto per apprendisti del settore meccanico, polimeccanico, laboratorista e impiegato di commercio. Offre stage curricolari e tesi di laurea con università svizzere e italiane (SUPSI, USI, Politecnico di Milano, Bicocca). Gli stage retribuiti durano 3-6 mesi." },
+        { q: 'Che tipo di contratti offre Medacta?', a: "Medacta offre contratti a tempo indeterminato (la maggior parte), a tempo determinato per progetti specifici, apprendistato AFC, stage e tesi. Le percentuali sono prevalentemente full-time (100%) per produzione e ruoli tecnici; alcune funzioni corporate (HR, finance, marketing) sono disponibili anche in part-time 80%." },
+        { q: 'Che lingue servono per lavorare in Medacta?', a: "Italiano fluente è richiesto per produzione, magazzino e ruoli operativi. Per R&D, regulatory, clinical research, quality, marketing e corporate è richiesto anche inglese (livello B2-C1). Tedesco e francese sono un plus per ruoli commerciali internazionali ma non obbligatori in Ticino." },
+      ],
+      locationsIntro: "Medacta opera principalmente dal campus di Castel San Pietro (sede centrale + produzione + R&D + Education Lab) con alcune funzioni distribuite a Rancate. Il sito è raggiungibile in auto da Como (15 min), Chiasso (5 min), Varese (25 min) e Stabio (10 min), oppure in navetta dalla stazione FFS di Mendrisio.",
+      emptyStateNote: 'Al momento non ci sono posizioni Medacta attive nella nostra banca dati. Gli annunci vengono aggiornati ogni giorno: torna domani oppure candidati sul portale ufficiale medacta.com/careers, dove puoi anche inviare una candidatura spontanea.',
+      metaTitle: 'Lavorare in Medacta | Posizioni aperte Ticino',
+      metaDescription: 'Medacta International SA, Castel San Pietro: lavoro ortopedia, medical device, R&D, produzione, quality. Stipendi e candidatura frontaliere aggiornati ogni giorno.',
+    },
+    en: {
+      h1: 'Careers at Medacta — orthopedic medical devices in Ticino',
+      tagline: 'Open Medacta roles in Castel San Pietro: manufacturing, R&D, regulatory, quality. Salaries, benefits, cross-border application.',
+      paragraphs: [
+        "Medacta International SA is a Swiss company founded in 1999 by the Siccardi family and listed on SIX Swiss Exchange since 2019 (MOVE). Its headquarters and main production site are in Castel San Pietro, in the Mendrisiotto region of Canton Ticino, just a few kilometres from the Italian border. Medacta designs, manufactures and distributes orthopedic implants for hip, knee, shoulder and spine, alongside minimally invasive surgical techniques (MySpine, MyHip, MyKnee, MyShoulder) and the NextAR navigation platform. The group employs more than 1,900 people worldwide, with around 800 based in Ticino.",
+        "The Castel San Pietro campus brings together R&D, engineering, cleanroom production, regulatory affairs, clinical research, supply chain, marketing and corporate functions. Medacta Education Lab — the dedicated surgical training centre — hosts hundreds of surgeons from all over the world every year for workshops and cadaver labs. The company invests steadily in automation, additive manufacturing and digitalisation, and has recently expanded its plant with new production lines and a logistics hub.",
+        "Most sought-after roles in Castel San Pietro include process engineers, biomedical and mechanical engineers, CNC production technicians, cleanroom operators, quality engineers (ISO 13485, MDR), regulatory affairs specialists, clinical research associates, data analysts, software developers (navigation, robotics, AR), mechanical designers (SolidWorks, CATIA), supply-chain planners, warehouse operators and corporate profiles in finance, HR, IT, legal and marketing. Medacta also hires apprentices and interns.",
+        'For Italian cross-border workers, Medacta is one of the most attractive employers in Mendrisiotto: Castel San Pietro is 5–15 minutes from the main Italian border towns (Como, Varese, Bizzarone, Stabio, Chiasso). G-permit applications are accepted for all operational and technical roles, company agreements include 13th-month pay, LPP pension above the legal minimum, and Italian qualifications are recognised by equivalence. Fluent Italian is required for production roles and at least B2 English for technical and corporate positions.',
+      ],
+      sectionHeadings: {
+        locations: 'Medacta sites in Canton Ticino',
+        benefits: 'Why work at Medacta',
+        openRoles: 'Open positions today',
+        howToApply: 'How to apply at Medacta',
+        faq: 'Frequently asked questions',
+        about: 'About Medacta',
+      },
+      howToApply: 'All official Medacta openings are published on medacta.com/careers and tracked daily by our crawler. Standard process: (1) online application with CV in English or Italian; (2) HR screening within 2 weeks; (3) first interview with HR + hiring manager (often remote for international profiles); (4) technical interview with a case study or practical test for engineering, quality and regulatory; (5) on-site visit to Castel San Pietro with a plant tour; (6) offer with annual gross salary × 13, variable bonus, LPP, meal vouchers and benefits. Corporate roles typically take 4–8 weeks, production and warehouse 2–4 weeks.',
+      benefits: [
+        { title: '13th month and variable bonus', desc: 'Base salary over 13 months + individual MBO linked to annual targets and company results; stock plan for managerial roles.' },
+        { title: 'Continuous learning', desc: 'Access to Medacta Education Lab, internal technical training, funded MBA and Master programmes, ISO 13485 / MDR / FDA training.' },
+        { title: 'LPP pension above the minimum', desc: 'Pension fund with employer contributions higher than the legal minimum; AVS/AI/IPG social security and LAA accident cover included.' },
+        { title: 'Canteen and shuttle', desc: 'Subsidised canteen at the Castel San Pietro campus; shuttle from Mendrisio railway station and free parking for commuters.' },
+        { title: 'International R&D environment', desc: 'Work with multidisciplinary teams across 40+ countries; working languages Italian + English; international mobility to subsidiaries (USA, UK, China, Japan) available.' },
+        { title: 'Cross-border workers welcome', desc: 'G-permit holders regularly hired in production, R&D, quality and corporate. Castel San Pietro is 5–15 minutes from the Italian border (Como/Varese).' },
+      ],
+      faqs: [
+        { q: 'Does Medacta hire Italian cross-border workers?', a: 'Yes. The Castel San Pietro plant is just a few kilometres from the Italian border and Medacta regularly hires G-permit applicants in production, warehousing, quality, regulatory, R&D and corporate roles. Italian is the working language in production, English in technical international roles.' },
+        { q: 'What does Medacta pay in Switzerland?', a: 'Salaries follow the Ticino medical-device market. Indicative gross figures (public market data): CNC production operator CHF 60,000–75,000 × 13, cleanroom technician CHF 58,000–72,000 × 13, quality engineer CHF 85,000–110,000 × 13, regulatory affairs specialist CHF 90,000–120,000 × 13, R&D engineer CHF 95,000–130,000 × 13, senior engineer CHF 120,000–160,000 × 13. 13th-month included + bonus. Use the Frontaliere Ticino simulator to estimate net pay.' },
+        { q: 'Which work permits does Medacta accept?', a: 'Swiss citizens and holders of C, B, G and Li permits. For production and technical roles the G permit is fully accepted. For some R&D and corporate roles a B permit with Swiss residency may be preferred but is not a strict requirement. Paperwork is handled by HR at Castel San Pietro.' },
+        { q: 'Does Medacta offer internships and apprenticeships?', a: 'Yes. Medacta is an accredited training company for apprentices in mechanics, polymechanics, laboratory and commercial employee. It offers curricular internships and thesis projects with Swiss and Italian universities (SUPSI, USI, Politecnico di Milano, Bicocca). Paid internships last 3–6 months.' },
+        { q: 'What types of contracts does Medacta offer?', a: 'Medacta offers permanent contracts (most roles), fixed-term contracts for specific projects, AFC apprenticeships, internships and thesis placements. Most roles are full-time (100%); some corporate functions (HR, finance, marketing) are also available at 80% part-time.' },
+        { q: 'What languages are needed to work at Medacta?', a: 'Fluent Italian is required for production, warehouse and operational roles. R&D, regulatory, clinical research, quality, marketing and corporate roles also require English (B2–C1). German and French are a plus for international commercial roles but are not mandatory in Ticino.' },
+      ],
+      locationsIntro: 'Medacta operates mainly from the Castel San Pietro campus (HQ + production + R&D + Education Lab) with some functions in Rancate. The site is reachable by car from Como (15 min), Chiasso (5 min), Varese (25 min) and Stabio (10 min), or by shuttle from Mendrisio railway station.',
+      emptyStateNote: 'No active Medacta roles in our database right now. Listings refresh daily — come back tomorrow or apply on medacta.com/careers, where speculative applications are also welcome.',
+      metaTitle: 'Jobs at Medacta | Open roles in Canton Ticino',
+      metaDescription: 'Medacta International SA, Castel San Pietro: orthopedic jobs, medical devices, R&D, manufacturing, quality. Cross-border salaries and applications, daily updates.',
+    },
+    de: {
+      h1: 'Arbeiten bei Medacta — Medizintechnik und Orthopädie im Tessin',
+      tagline: 'Offene Medacta-Stellen in Castel San Pietro: Produktion, R&D, Regulatory, Qualität. Löhne, Benefits und Bewerbung für Grenzgänger.',
+      paragraphs: [
+        "Medacta International SA ist ein 1999 von der Familie Siccardi gegründetes Schweizer Unternehmen und seit 2019 an der SIX Swiss Exchange notiert (MOVE). Hauptsitz und Produktionsstätte befinden sich in Castel San Pietro im Mendrisiotto (Kanton Tessin), wenige Kilometer von der italienischen Grenze entfernt. Medacta entwickelt, produziert und vertreibt orthopädische Implantate für Hüfte, Knie, Schulter und Wirbelsäule sowie minimalinvasive Operationstechniken (MySpine, MyHip, MyKnee, MyShoulder) und die Navigationsplattform NextAR. Weltweit beschäftigt die Gruppe über 1'900 Mitarbeitende, rund 800 davon im Tessin.",
+        "Der Campus Castel San Pietro vereint R&D, Engineering, Reinraumproduktion, Regulatory Affairs, Clinical Research, Supply Chain, Marketing und Corporate-Funktionen. Das Medacta Education Lab — das hauseigene chirurgische Schulungszentrum — empfängt jedes Jahr Hunderte von Chirurgen aus der ganzen Welt für Workshops und Kadaverlabore. Medacta investiert laufend in Automatisierung, Additive Manufacturing und Digitalisierung und hat den Standort zuletzt mit neuen Produktionslinien und einem Logistikzentrum erweitert.",
+        "Gefragteste Tessiner Profile sind Prozessingenieure, Biomedizin- und Maschinenbauingenieure, CNC-Produktionstechniker, Reinraumoperateure, Quality Engineers (ISO 13485, MDR), Regulatory-Affairs-Spezialisten, Clinical Research Associates, Data Analysts, Softwareentwickler (Navigation, Robotik, AR), mechanische Konstrukteure (SolidWorks, CATIA), Supply-Chain-Planer, Lagermitarbeitende und Corporate-Profile in Finance, HR, IT, Legal und Marketing. Medacta stellt auch Lernende und Praktikanten ein.",
+        'Für italienische Grenzgänger ist Medacta einer der attraktivsten Arbeitgeber im Mendrisiotto: Castel San Pietro ist 5–15 Minuten von den italienischen Grenzorten (Como, Varese, Bizzarone, Stabio, Chiasso) entfernt. G-Bewilligungs-Bewerbungen werden für alle operativen und technischen Rollen akzeptiert, es gelten Firmenverträge mit 13. Monatslohn und überobligatorischer BVG-Vorsorge, italienische Abschlüsse werden nach Äquivalenz anerkannt. Für Produktion wird fliessendes Italienisch verlangt, für technische und Corporate-Rollen mindestens B2-Englisch.',
+      ],
+      sectionHeadings: {
+        locations: 'Medacta-Standorte im Tessin',
+        benefits: 'Warum bei Medacta arbeiten',
+        openRoles: 'Offene Stellen heute',
+        howToApply: 'Bewerbung bei Medacta',
+        faq: 'Häufige Fragen',
+        about: 'Über Medacta',
+      },
+      howToApply: 'Alle offiziellen Medacta-Stellen werden auf medacta.com/careers publiziert und täglich von unserem Crawler erfasst. Ablauf: (1) Online-Bewerbung mit Lebenslauf in Englisch oder Italienisch; (2) HR-Screening in 2 Wochen; (3) Erstgespräch mit HR + Hiring Manager (oft remote für internationale Profile); (4) Fachgespräch mit Case Study oder Praxisaufgabe für Engineering, Quality und Regulatory; (5) Vor-Ort-Besuch in Castel San Pietro mit Werksführung; (6) Angebot mit Jahresbruttolohn × 13, variablem Bonus, BVG, Essensgutscheinen und Benefits. Corporate-Rollen dauern in der Regel 4–8 Wochen, Produktion und Lager 2–4 Wochen.',
+      benefits: [
+        { title: '13. Monatslohn und variabler Bonus', desc: 'Grundlohn auf 13 Monate + individueller MBO an Jahresziele und Unternehmensergebnisse gekoppelt; Aktienplan für Führungsrollen.' },
+        { title: 'Kontinuierliche Weiterbildung', desc: 'Zugang zum Medacta Education Lab, interne Fachschulungen, finanzierte MBA- und Master-Programme, ISO 13485 / MDR / FDA Training.' },
+        { title: 'Überobligatorische BVG', desc: 'Pensionskasse mit überobligatorischen Arbeitgeberbeiträgen; AHV/IV/EO und UVG inbegriffen.' },
+        { title: 'Betriebskantine und Shuttle', desc: 'Subventionierte Kantine auf dem Campus Castel San Pietro; Shuttle ab SBB-Bahnhof Mendrisio und kostenlose Parkplätze.' },
+        { title: 'Internationales R&D-Umfeld', desc: 'Arbeit in multidisziplinären Teams in 40+ Ländern; Arbeitssprachen Italienisch + Englisch; internationale Mobilität zu Tochtergesellschaften (USA, UK, China, Japan).' },
+        { title: 'Grenzgänger willkommen', desc: 'G-Bewilligungs-Inhaber werden regelmässig in Produktion, R&D, Quality und Corporate eingestellt. Castel San Pietro ist 5–15 Minuten von der italienischen Grenze (Como/Varese).' },
+      ],
+      faqs: [
+        { q: 'Stellt Medacta italienische Grenzgänger ein?', a: 'Ja. Die Produktionsstätte in Castel San Pietro liegt wenige Kilometer von der italienischen Grenze entfernt und Medacta stellt regelmässig G-Bewilligungs-Bewerbende in Produktion, Lager, Quality, Regulatory, R&D und Corporate ein. Arbeitssprache in der Produktion ist Italienisch, in technischen internationalen Rollen Englisch.' },
+        { q: 'Wie hoch sind die Medacta-Löhne in der Schweiz?', a: "Die Löhne orientieren sich am Tessiner Medical-Device-Markt. Richtwerte brutto (öffentliche Marktdaten): CNC-Produktionsoperator CHF 60'000–75'000 × 13, Reinraumtechniker CHF 58'000–72'000 × 13, Quality Engineer CHF 85'000–110'000 × 13, Regulatory-Affairs-Spezialist CHF 90'000–120'000 × 13, R&D-Ingenieur CHF 95'000–130'000 × 13, Senior Engineer CHF 120'000–160'000 × 13. 13. Monatslohn inbegriffen + Bonus. Mit dem Frontaliere-Ticino-Rechner den Nettolohn schätzen." },
+        { q: 'Welche Bewilligungen akzeptiert Medacta?', a: 'Schweizer Staatsangehörige und Inhaber von C-, B-, G- und Li-Bewilligungen. Für Produktion und technische Rollen ist die G-Bewilligung vollständig akzeptiert. Für einige R&D- und Corporate-Rollen kann eine B-Bewilligung mit Schweizer Wohnsitz bevorzugt sein, ist aber keine strenge Voraussetzung. Die Administration übernimmt HR in Castel San Pietro.' },
+        { q: 'Bietet Medacta Praktika und Lehrstellen?', a: 'Ja. Medacta ist anerkannter Ausbildungsbetrieb für Lernende in Mechanik, Polymechanik, Labor und Kaufmann/Kauffrau. Das Unternehmen bietet curriculare Praktika und Diplomarbeiten mit Schweizer und italienischen Universitäten (SUPSI, USI, Politecnico di Milano, Bicocca). Bezahlte Praktika dauern 3–6 Monate.' },
+        { q: 'Welche Vertragsarten bietet Medacta?', a: 'Medacta bietet unbefristete Verträge (Mehrheit), befristete Verträge für spezifische Projekte, EFZ-Lehrstellen, Praktika und Diplomarbeiten. Die meisten Rollen sind Vollzeit (100%); einige Corporate-Funktionen (HR, Finance, Marketing) sind auch mit 80% Teilzeit verfügbar.' },
+        { q: 'Welche Sprachen sind bei Medacta nötig?', a: 'Fliessendes Italienisch ist für Produktion, Lager und operative Rollen erforderlich. R&D, Regulatory, Clinical Research, Quality, Marketing und Corporate-Rollen erfordern zusätzlich Englisch (B2–C1). Deutsch und Französisch sind für internationale kommerzielle Rollen ein Plus, aber im Tessin nicht obligatorisch.' },
+      ],
+      locationsIntro: 'Medacta arbeitet hauptsächlich vom Campus Castel San Pietro (Hauptsitz + Produktion + R&D + Education Lab), mit einigen Funktionen in Rancate. Der Standort ist mit dem Auto von Como (15 Min.), Chiasso (5 Min.), Varese (25 Min.) und Stabio (10 Min.) erreichbar oder per Shuttle ab SBB-Bahnhof Mendrisio.',
+      emptyStateNote: 'Derzeit keine aktiven Medacta-Stellen in unserer Datenbank. Die Angebote werden täglich aktualisiert — schauen Sie morgen wieder vorbei oder bewerben Sie sich auf medacta.com/careers, wo auch Spontanbewerbungen willkommen sind.',
+      metaTitle: 'Jobs bei Medacta | Offene Stellen Kanton Tessin',
+      metaDescription: 'Medacta International SA, Castel San Pietro: Orthopädie-Jobs, Medizintechnik, R&D, Produktion, Quality. Grenzgänger-Löhne und Bewerbung, täglich aktualisiert.',
+    },
+    fr: {
+      h1: 'Travailler chez Medacta — dispositifs médicaux orthopédiques au Tessin',
+      tagline: 'Postes ouverts Medacta à Castel San Pietro : production, R&D, regulatory, qualité. Salaires, avantages et candidature frontalière.',
+      paragraphs: [
+        "Medacta International SA est une entreprise suisse fondée en 1999 par la famille Siccardi et cotée au SIX Swiss Exchange depuis 2019 (MOVE). Son siège et son site de production se trouvent à Castel San Pietro, dans le Mendrisiotto (canton du Tessin), à quelques kilomètres de la frontière italienne. Medacta conçoit, fabrique et distribue des implants orthopédiques pour la hanche, le genou, l'épaule et la colonne vertébrale, ainsi que des techniques chirurgicales mini-invasives (MySpine, MyHip, MyKnee, MyShoulder) et la plateforme de navigation NextAR. Le groupe emploie plus de 1'900 personnes dans le monde, dont environ 800 au Tessin.",
+        "Le campus de Castel San Pietro regroupe R&D, ingénierie, production en salle blanche, regulatory affairs, clinical research, supply chain, marketing et fonctions corporate. Le Medacta Education Lab — le centre de formation chirurgicale dédié — accueille chaque année des centaines de chirurgiens du monde entier pour des workshops et des cadaver labs. L'entreprise investit régulièrement dans l'automatisation, la fabrication additive et la digitalisation, et a récemment étendu son site avec de nouvelles lignes de production et un hub logistique.",
+        "Les profils les plus recherchés à Castel San Pietro sont les ingénieurs process, ingénieurs biomédicaux et mécaniques, techniciens de production CNC, opérateurs de salle blanche, quality engineers (ISO 13485, MDR), spécialistes regulatory affairs, clinical research associates, data analysts, développeurs logiciels (navigation, robotique, AR), concepteurs mécaniques (SolidWorks, CATIA), supply chain planners, magasiniers et profils corporate en finance, RH, IT, legal et marketing. Medacta engage aussi des apprentis et stagiaires.",
+        "Pour les frontaliers italiens, Medacta est l'un des employeurs les plus attractifs du Mendrisiotto : Castel San Pietro est à 5-15 minutes des principales communes frontalières italiennes (Côme, Varèse, Bizzarone, Stabio, Chiasso). Les candidatures avec Permis G sont acceptées pour tous les postes opérationnels et techniques, les accords d'entreprise incluent un 13e mois, une LPP au-dessus du minimum légal, et les diplômes italiens sont reconnus par équivalence. L'italien courant est requis pour la production et au moins un niveau B2 d'anglais pour les postes techniques et corporate.",
+      ],
+      sectionHeadings: {
+        locations: 'Sites Medacta au Tessin',
+        benefits: 'Pourquoi travailler chez Medacta',
+        openRoles: 'Postes ouverts aujourd\'hui',
+        howToApply: 'Comment postuler chez Medacta',
+        faq: 'Questions fréquentes',
+        about: 'À propos de Medacta',
+      },
+      howToApply: "Toutes les offres officielles Medacta sont publiées sur medacta.com/careers et suivies chaque jour par notre crawler. Processus standard : (1) candidature en ligne avec CV en anglais ou en italien ; (2) tri RH sous 2 semaines ; (3) premier entretien RH + hiring manager (souvent à distance pour les profils internationaux) ; (4) entretien technique avec étude de cas ou test pratique pour ingénierie, qualité et regulatory ; (5) visite sur site à Castel San Pietro avec tour de l'usine ; (6) offre avec salaire annuel brut × 13, bonus variable, LPP, chèques repas et avantages. Les rôles corporate prennent en général 4-8 semaines, la production et l'entrepôt 2-4 semaines.",
+      benefits: [
+        { title: '13e mois et bonus variable', desc: 'Salaire de base sur 13 mois + MBO individuel lié aux objectifs annuels et aux résultats de l’entreprise ; plan d’actions pour les rôles de management.' },
+        { title: 'Formation continue', desc: 'Accès au Medacta Education Lab, formation technique interne, programmes MBA et Master financés, formation ISO 13485 / MDR / FDA.' },
+        { title: 'LPP au-dessus du minimum', desc: 'Caisse de pension avec cotisations employeur supérieures au minimum légal ; AVS/AI/APG et LAA inclus.' },
+        { title: 'Cantine et navette', desc: 'Cantine subventionnée sur le campus de Castel San Pietro ; navette depuis la gare CFF de Mendrisio et parking gratuit pour les automobilistes.' },
+        { title: 'Environnement R&D international', desc: 'Travail avec des équipes multidisciplinaires dans plus de 40 pays ; langues de travail italien + anglais ; mobilité internationale vers les filiales (USA, Royaume-Uni, Chine, Japon).' },
+        { title: 'Frontaliers bienvenus', desc: 'Les titulaires de Permis G sont régulièrement engagés en production, R&D, qualité et corporate. Castel San Pietro est à 5-15 minutes de la frontière italienne (Côme/Varèse).' },
+      ],
+      faqs: [
+        { q: 'Medacta engage-t-il des frontaliers italiens ?', a: "Oui. L'usine de Castel San Pietro est à quelques kilomètres de la frontière italienne et Medacta engage régulièrement des candidats avec Permis G en production, entrepôt, qualité, regulatory, R&D et rôles corporate. La langue de travail est l'italien en production et l'anglais pour les rôles techniques internationaux." },
+        { q: 'Quels salaires paie Medacta en Suisse ?', a: "Les salaires suivent le marché tessinois du dispositif médical. Valeurs brutes indicatives (données publiques) : opérateur de production CNC CHF 60'000-75'000 × 13, technicien salle blanche CHF 58'000-72'000 × 13, quality engineer CHF 85'000-110'000 × 13, spécialiste regulatory affairs CHF 90'000-120'000 × 13, ingénieur R&D CHF 95'000-130'000 × 13, senior engineer CHF 120'000-160'000 × 13. 13e mois inclus + bonus. Utilisez le simulateur Frontaliere Ticino pour estimer le net." },
+        { q: 'Quels permis Medacta accepte-t-il ?', a: "Citoyens suisses et titulaires de permis C, B, G et Li. Pour les rôles de production et techniques le Permis G est pleinement accepté. Pour certains rôles R&D et corporate, un Permis B avec résidence en Suisse peut être préféré mais n'est pas une exigence stricte. L'administration est gérée par les RH à Castel San Pietro." },
+        { q: 'Medacta propose-t-il des stages et des apprentissages ?', a: "Oui. Medacta est entreprise formatrice reconnue pour des apprentis en mécanique, polymécanique, laboratoire et employé de commerce. Elle offre des stages curriculaires et des travaux de thèse avec des universités suisses et italiennes (SUPSI, USI, Politecnico di Milano, Bicocca). Les stages rémunérés durent 3-6 mois." },
+        { q: 'Quels types de contrats propose Medacta ?', a: 'Medacta propose des contrats à durée indéterminée (majorité), à durée déterminée pour des projets spécifiques, apprentissages CFC, stages et thèses. La plupart des rôles sont à plein temps (100 %) ; certaines fonctions corporate (RH, finance, marketing) sont également disponibles à 80 % à temps partiel.' },
+        { q: 'Quelles langues sont nécessaires chez Medacta ?', a: "Un italien courant est requis pour la production, l'entrepôt et les rôles opérationnels. Pour R&D, regulatory, clinical research, qualité, marketing et corporate, l'anglais est également demandé (B2-C1). L'allemand et le français sont un plus pour les rôles commerciaux internationaux mais ne sont pas obligatoires au Tessin." },
+      ],
+      locationsIntro: "Medacta opère principalement depuis le campus de Castel San Pietro (siège + production + R&D + Education Lab) avec quelques fonctions à Rancate. Le site est accessible en voiture depuis Côme (15 min), Chiasso (5 min), Varèse (25 min) et Stabio (10 min), ou en navette depuis la gare CFF de Mendrisio.",
+      emptyStateNote: "Aucun poste Medacta actif dans notre base pour l'instant. Les annonces sont actualisées chaque jour — revenez demain ou postulez sur medacta.com/careers, où les candidatures spontanées sont également les bienvenues.",
+      metaTitle: 'Emplois Medacta | Postes ouverts Canton du Tessin',
+      metaDescription: 'Medacta International SA, Castel San Pietro : emplois orthopédie, dispositifs médicaux, R&D, production, qualité. Salaires frontaliers, candidature quotidienne.',
+    },
+  },
+};
+
 export const EMPLOYER_BRANDS: Readonly<Record<string, EmployerBrand>> = {
   [EOC.brandKey]: EOC,
   [LIDL.brandKey]: LIDL,
@@ -1262,6 +1454,7 @@ export const EMPLOYER_BRANDS: Readonly<Record<string, EmployerBrand>> = {
   [MCDONALDS.brandKey]: MCDONALDS,
   [LIS.brandKey]: LIS,
   [MANOR.brandKey]: MANOR,
+  [MEDACTA.brandKey]: MEDACTA,
 } as const;
 
 /**

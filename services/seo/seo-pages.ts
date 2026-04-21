@@ -2077,32 +2077,62 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  holidays: {
- title: 'Giorni Festivi Ticino 2026 | Festività e Ponti',
- description: 'Giorni festivi Ticino 2026: calendario completo con tutti i 15 giorni festivi del Canton Ticino, festività ufficiali, facoltative e ponti per frontalieri.',
- keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, festività canton ticino, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino 2026, ponti svizzera 2026, festività svizzere 2026, giorni festivi svizzera italia confronto',
- ogTitle: 'Festività Ticino 2026 | Tutti i Giorni Festivi Canton Ticino',
- ogDescription: '📅 Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali, facoltative, ponti e confronto con festività italiane.',
+ title: 'Festività Ticino 2026 | Calendario Giorni Festivi Canton Ticino',
+ description: 'Festività Ticino 2026: calendario dei 15 giorni festivi del Canton Ticino con date, confronto con resto Svizzera e impatto su busta paga frontaliere.',
+ keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, festività canton ticino, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino 2026, ponti svizzera 2026, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026',
+ ogTitle: 'Festività Ticino 2026 | Calendario Completo Giorni Festivi',
+ ogDescription: 'Festività Ticino 2026: 15 giorni festivi con date, ponti, calendario stampabile, confronto con Italia e impatto sulla busta paga del frontaliere.',
  canonicalPath: '/tasse-e-pensione/festivita-ticino',
  structuredData: [
  {
  "@context": "https://schema.org",
  "@type": "Article",
- "headline": "Festività Ticino 2026: Tutti i Giorni Festivi del Canton Ticino",
+ "headline": "Festività Ticino 2026: Calendario Completo dei Giorni Festivi del Canton Ticino",
  "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino`,
- "description": "Giorni festivi Ticino 2026: tutti i 15 giorni festivi ufficiali del Canton Ticino, feste cantonali e federali, ponti e confronto con Italia",
+ "description": "Festività Ticino 2026: tutti i 15 giorni festivi ufficiali del Canton Ticino con date, giorno della settimana, ponti, differenze con il resto della Svizzera e impatto sulla busta paga del frontaliere",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": BUILD_DATE_ISO,
+ "keywords": "festività ticino 2026, giorni festivi ticino, calendario ticino 2026"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Giorni Festivi Canton Ticino 2026",
+ "description": "Elenco completo dei 15 giorni festivi riconosciuti nel Canton Ticino nel 2026",
+ "itemListOrder": "https://schema.org/ItemListOrderAscending",
+ "numberOfItems": 15,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "item": { "@type": "Event", "name": "Capodanno", "startDate": "2026-01-01", "endDate": "2026-01-01", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Capodanno — giovedì 1 gennaio 2026. Festività federale svizzera, giorno non lavorativo in tutto il Ticino.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 2, "item": { "@type": "Event", "name": "San Berchtoldo (2 gennaio)", "startDate": "2026-01-02", "endDate": "2026-01-02", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "San Berchtoldo — venerdì 2 gennaio 2026. Festività facoltativa in alcuni comuni ticinesi, giorno di chiusura bancaria.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 3, "item": { "@type": "Event", "name": "Epifania", "startDate": "2026-01-06", "endDate": "2026-01-06", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Epifania — martedì 6 gennaio 2026. Festività cantonale ticinese, riconosciuta anche in Italia.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 4, "item": { "@type": "Event", "name": "San Giuseppe", "startDate": "2026-03-19", "endDate": "2026-03-19", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "San Giuseppe — giovedì 19 marzo 2026. Festività cantonale ticinese, non riconosciuta nel resto della Svizzera.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 5, "item": { "@type": "Event", "name": "Venerdì Santo", "startDate": "2026-04-03", "endDate": "2026-04-03", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Venerdì Santo — venerdì 3 aprile 2026. Festività cantonale ticinese; non è festivo federale ma è riconosciuto in Ticino.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 6, "item": { "@type": "Event", "name": "Lunedì dell'Angelo (Pasquetta)", "startDate": "2026-04-06", "endDate": "2026-04-06", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Lunedì dell'Angelo (Pasquetta) — lunedì 6 aprile 2026. Festività federale svizzera, ottimo ponte con il weekend di Pasqua.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 7, "item": { "@type": "Event", "name": "Festa del Lavoro", "startDate": "2026-05-01", "endDate": "2026-05-01", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Festa del Lavoro — venerdì 1 maggio 2026. Festività cantonale ticinese, non federale.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 8, "item": { "@type": "Event", "name": "Ascensione", "startDate": "2026-05-14", "endDate": "2026-05-14", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Ascensione — giovedì 14 maggio 2026. Festività federale svizzera, cade sempre di giovedì (ottimo ponte).", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 9, "item": { "@type": "Event", "name": "Lunedì di Pentecoste", "startDate": "2026-05-25", "endDate": "2026-05-25", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Lunedì di Pentecoste — lunedì 25 maggio 2026. Festività cantonale ticinese.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 10, "item": { "@type": "Event", "name": "Corpus Domini", "startDate": "2026-06-04", "endDate": "2026-06-04", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Corpus Domini — giovedì 4 giugno 2026. Festività cantonale ticinese, cade sempre di giovedì (ottimo ponte).", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 11, "item": { "@type": "Event", "name": "SS. Pietro e Paolo", "startDate": "2026-06-29", "endDate": "2026-06-29", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "SS. Pietro e Paolo — lunedì 29 giugno 2026. Festività cantonale ticinese.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 12, "item": { "@type": "Event", "name": "Festa Nazionale Svizzera", "startDate": "2026-08-01", "endDate": "2026-08-01", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Festa Nazionale Svizzera — sabato 1 agosto 2026. Festività federale, cade di sabato: non c'è recupero.", "organizer": { "@type": "GovernmentOrganization", "name": "Confederazione Svizzera" } } },
+ { "@type": "ListItem", "position": 13, "item": { "@type": "Event", "name": "Assunzione di Maria", "startDate": "2026-08-15", "endDate": "2026-08-15", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Assunzione di Maria (Ferragosto) — sabato 15 agosto 2026. Festività cantonale ticinese, cade di sabato.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 14, "item": { "@type": "Event", "name": "Ognissanti", "startDate": "2026-11-01", "endDate": "2026-11-01", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Ognissanti — domenica 1 novembre 2026. Festività cantonale ticinese, cade di domenica.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } },
+ { "@type": "ListItem", "position": 15, "item": { "@type": "Event", "name": "Immacolata Concezione", "startDate": "2026-12-08", "endDate": "2026-12-08", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Canton Ticino", "address": { "@type": "PostalAddress", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Immacolata Concezione — martedì 8 dicembre 2026. Festività cantonale ticinese.", "organizer": { "@type": "GovernmentOrganization", "name": "Canton Ticino" } } }
+ ]
  },
  {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Quanti giorni festivi ci sono in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino ha 15 giorni festivi ufficiali nel 2026, tra festività federali (Capodanno, 1° agosto) e cantonali (San Giuseppe, Corpus Domini, SS. Pietro e Paolo, Assunzione, Ognissanti, Immacolata)." } },
- { "@type": "Question", "name": "Le festività italiane valgono anche per chi lavora in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "No, i frontalieri seguono il calendario festivo svizzero/ticinese. Le festività italiane (25 aprile, 2 giugno, santo patrono) non sono riconosciute in Svizzera. I frontalieri devono prendere ferie per questi giorni." } },
- { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera, il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL prevedono 5 settimane dopo una certa anzianità." } },
- { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I ponti più convenienti nel 2026 sono quelli di Pasqua (Venerdì Santo + Pasquetta), Ascensione (giovedì, ponte con 1 giorno) e Corpus Domini (giovedì, ponte con 1 giorno). Consulta il nostro calendario interattivo." } }
+ { "@type": "Question", "name": "Quanti giorni festivi ci sono in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere (Capodanno, Lunedì dell'Angelo, Ascensione, 1° Agosto, Natale, Santo Stefano) più le festività cantonali cattoliche tipiche della Svizzera italiana (Epifania, San Giuseppe, Venerdì Santo, Pentecoste, Corpus Domini, SS. Pietro e Paolo, Assunzione, Ognissanti, Immacolata)." } },
+ { "@type": "Question", "name": "Il 1° agosto 2026 è festivo in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, il 1° agosto 2026 è la Festa Nazionale Svizzera ed è un giorno festivo federale in tutto il Paese, Ticino incluso. Nel 2026 cade di sabato, quindi per chi non lavora il sabato non è previsto un giorno di recupero secondo il Codice delle Obbligazioni svizzero (art. 110 ss.): la maggior parte dei CCL ticinesi non prevede compensazione." } },
+ { "@type": "Question", "name": "Cosa succede se un festivo cade di sabato o domenica in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "In Svizzera, a differenza dell'Italia, se un festivo cade di sabato o domenica NON viene recuperato: il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questo capita a due festività ticinesi importanti: il 1° agosto (sabato) e il 15 agosto - Assunzione (sabato). Solo alcuni CCL di settore prevedono un giorno di recupero." } },
+ { "@type": "Question", "name": "Quali festività sono riconosciute in Ticino ma NON nel resto della Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Il Ticino, come cantone storicamente cattolico, riconosce 7 festività cantonali aggiuntive rispetto ai cantoni protestanti: Epifania (6/1), San Giuseppe (19/3), Corpus Domini, SS. Pietro e Paolo (29/6), Assunzione (15/8), Ognissanti (1/11), Immacolata (8/12). Questo significa che un frontaliere in Ticino ha in media 3-5 giorni festivi in più rispetto a chi lavora a Zurigo o Basilea." } },
+ { "@type": "Question", "name": "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Il frontaliere segue il calendario festivo svizzero/ticinese perché il rapporto di lavoro è regolato dal diritto del lavoro svizzero (lex loci laboris). Le festività italiane (25 aprile Liberazione, 2 giugno Festa della Repubblica, santo patrono locale, 8 dicembre, ecc.) non sono riconosciute come giorni non lavorativi dal datore svizzero: per non andare al lavoro il frontaliere deve prendere un giorno di ferie ordinarie." } },
+ { "@type": "Question", "name": "Come viene pagato il frontaliere nei giorni festivi in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il Codice delle Obbligazioni e la Legge sul Lavoro stabiliscono che il datore svizzero debba pagare i festivi che cadono in un giorno lavorativo anche se il lavoratore è assente. Il lavoratore in Stundenlohn (orario) riceve il compenso regolare, quello in salario mensile riceve lo stipendio pieno. Se il frontaliere lavora in un giorno festivo, la maggior parte dei CCL ticinesi prevede una maggiorazione del 50% o un giorno di recupero; alcuni settori (sanità, ospitalità, trasporti) arrivano al 100% di maggiorazione." } },
+ { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i ponti più convenienti sono: Pasqua (Venerdì Santo 3 aprile + Pasquetta 6 aprile — già 4 giorni), Ascensione (giovedì 14 maggio, ponte con un giorno di ferie venerdì 15), Corpus Domini (giovedì 4 giugno, ponte con venerdì 5), SS. Pietro e Paolo (lunedì 29 giugno, weekend lungo). Meno fortunati i festivi 2026: il 1° agosto cade di sabato e il 15 agosto pure." } },
+ { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera (CO art. 329a) il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime." } }
  ]
  }
  ]
@@ -2177,24 +2207,116 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa Confine Svizzera-Italia 2026 | Valichi e Comuni',
- description: 'Mappa interattiva dei comuni italiani di frontiera con la Svizzera. Confronta addizionali IRPEF, distanza dal confine, affitti e popolazione per ogni comune.',
- keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
- ogTitle: 'Mappa Interattiva Comuni di Frontiera',
- ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',
+ title: 'Mappa Valichi Confine Ticino-Italia 2026 | Tempi Attesa + Webcam',
+ description: 'Mappa interattiva dei valichi di confine Ticino-Italia: Chiasso, Brogeda, Gaggiolo, Ponte Tresa. Tempi di attesa, orari, webcam live, coordinate GPS e comuni di frontiera con addizionali IRPEF.',
+ keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
+ ogTitle: 'Mappa Valichi Ticino-Italia | Tempi Attesa + Webcam Live',
+ ogDescription: '🗺️ Mappa interattiva dei valichi di confine tra Ticino e Italia con tempi di attesa, webcam, addizionali IRPEF e comuni di frontiera.',
  canonicalPath: '/guida-frontaliere/mappa-confine',
  h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "WebApplication",
- "name": "Mappa Comuni di Frontiera Italia-Svizzera",
+ "name": "Mappa Valichi e Comuni di Frontiera Italia-Svizzera",
  "url": `${BASE_URL}/guida-frontaliere/mappa-confine`,
- "description": "Mappa interattiva dei comuni italiani di frontiera: addizionali IRPEF, distanza dal confine, costo affitti",
- "applicationCategory": "FinanceApplication",
+ "description": "Mappa interattiva dei valichi di confine Ticino-Italia con tempi di attesa, webcam live, orari, e comuni di frontiera con addizionali IRPEF",
+ "applicationCategory": "UtilitiesApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ // B.2 — Place schema per valico principale con geo coordinates (Ticino-Italia).
+ // Source: data/borderCrossings.ts (lat/lng/hours/customsPresent).
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso-Brogeda (A2)",
+ "alternateName": ["Brogeda", "Chiasso Autostrada", "Brogeda Merci"],
+ "description": "Principale valico autostradale A2 tra Como (Italia) e Ticino (Svizzera). Apertura 24h, dogana presente, copertura BAZG. Tempi medi attesa: 8-15 min mattina, 12-25 min sera.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8409, "longitude": 9.0376 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso Centro (Ponte Chiasso)",
+ "alternateName": ["Ponte Chiasso", "Chiasso Strada"],
+ "description": "Valico stradale SS35 Como-Chiasso, 24h con dogana. Tempi medi attesa: 15-30 min mattina, 20-40 min sera. Alternativa consigliata: Brogeda autostrada.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8326, "longitude": 9.0340 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Gaggiolo (Cantello-Stabio)",
+ "alternateName": ["Gaggiolo", "Stabio Confine", "Cantello-Stabio"],
+ "description": "Valico stradale SS344 Varese-Mendrisio, 24h con dogana. Traffico alto, seconda via d'accesso più importante al Mendrisiotto. Tempi medi attesa: 10-20 min mattina, 15-30 min sera.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8411, "longitude": 8.9134 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Stabio", "addressRegion": "TI", "postalCode": "6855", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Ponte Tresa",
+ "alternateName": ["Ponte Tresa", "Lavena Ponte Tresa"],
+ "description": "Valico stradale SS233 tra Lavena Ponte Tresa (Varese) e Ponte Tresa (Ticino), aperto 24h. Accesso a Luganese ovest e Malcantone. Tempi medi attesa: 5-15 min mattina.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.9670, "longitude": 8.8589 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Ponte Tresa", "addressRegion": "TI", "postalCode": "6988", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/ponte-tresa`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso-Strada",
+ "alternateName": ["Chiasso Strada", "Strada Regina Brogeda"],
+ "description": "Valico stradale parallelo all'autostrada Brogeda, 24h senza dogana permanente. Utile come alternativa quando Brogeda A2 è congestionato. Tempi medi attesa: 5-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8361, "longitude": 9.0300 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-strada`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Bizzarone-Novazzano",
+ "alternateName": ["Bizzarone", "Novazzano"],
+ "description": "Valico stradale tra Bizzarone (Como) e Novazzano (Ticino), 24h. Alternativa locale a Brogeda per accedere al Mendrisiotto. Tempi medi attesa: 4-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8523, "longitude": 8.9748 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Novazzano", "addressRegion": "TI", "postalCode": "6883", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/bizzarone-novazzano`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Luino-Fornasette",
+ "alternateName": ["Luino", "Fornasette"],
+ "description": "Valico stradale tra Luino (Varese) e Fornasette (Malcantone), aperto 24h. Accesso al Luganese nord-ovest e Valle del Vedeggio. Tempi medi attesa: 4-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.9931, "longitude": 8.7878 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Fornasette", "addressRegion": "TI", "postalCode": "6989", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/luino-fornasette`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Zenna-Dirinella",
+ "alternateName": ["Zenna", "Dirinella"],
+ "description": "Valico stradale sul Lago Maggiore tra Zenna (Varese) e Dirinella (Gambarogno), aperto 24h. Accesso al Locarnese da sud. Tempi medi attesa: 2-5 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 46.1040, "longitude": 8.7579 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Dirinella", "addressRegion": "TI", "postalCode": "6573", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/zenna-dirinella`
  }
+ ]
  },
 
  morning: {

@@ -136,6 +136,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/tasse-e-pensione/aliquote-imposta-fonte/': '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/',
  '/tasse-e-pensione/pianificazione-pensionistica/': '/tasse-e-pensione/calcola-previdenza/',
  '/tasse-e-pensione/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
+ // B.1 — festivita-ticino canonical variant with year suffix (301 → evergreen slug)
+ '/tasse-e-pensione/festivita-ticino-2026/': '/tasse-e-pensione/festivita-ticino/',
+ '/en/taxes-and-pension/ticino-holidays-2026/': '/en/taxes-and-pension/ticino-holidays/',
+ '/de/steuern-und-rente/tessiner-feiertage-2026/': '/de/steuern-und-rente/tessiner-feiertage/',
+ '/fr/impots-et-retraite/jours-feries-tessin-2026/': '/fr/impots-et-retraite/jours-feries-tessin/',
  '/calcola-stipendio/simulazione-busta-paga/': '/calcola-stipendio/simula-busta-paga/',
  '/calcola-stipendio/what-if-scenario/': '/calcola-stipendio/cosa-cambia-se/',
  '/guida-frontaliere/comuni-confine/': '/vivere-in-ticino/comuni-di-frontiera/',
