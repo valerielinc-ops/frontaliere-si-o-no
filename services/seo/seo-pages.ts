@@ -1403,12 +1403,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  jobs: {
- title: 'Confronto Offerte Lavoro Svizzera | Calcolo Netto Reale',
+ title: 'Confronta Offerte Lavoro Svizzera 2026 | Netto Reale',
  description: 'Confronta fino a 4 offerte di lavoro in Svizzera: calcolo netto reale considerando tasse, costi trasporto, tempo viaggio, home office e benefit. Scopri.',
  keywords: 'confronto offerte lavoro svizzera, stipendio netto reale frontaliere, calcolo netto lavoro ticino, costi pendolarismo frontaliere, home office frontaliere, benefit lavoro svizzera',
  ogTitle: 'Confronto Offerte Lavoro Svizzera | Netto Reale Frontalieri',
  ogDescription: '💼 Confronta offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, tempo e benefit inclusi.',
  canonicalPath: '/compara-servizi/confronta-offerte-lavoro',
+ h1: 'Confronta offerte di lavoro in Svizzera per frontalieri 2026 — netto reale CHF/EUR',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
