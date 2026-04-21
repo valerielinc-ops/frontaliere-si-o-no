@@ -1,101 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T15:56:44.693Z",
-    "label": "before",
-    "total": 2177,
-    "needsRetranslation": 90,
-    "incomplete": 35,
-    "complete": 2142,
-    "missingByLocale": {
-      "it": 10,
-      "en": 33,
-      "de": 2,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "TALLY WEiJL",
-        "pending": 24
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T15:58:09.859Z",
-    "label": "after",
-    "total": 2177,
-    "needsRetranslation": 90,
-    "incomplete": 35,
-    "complete": 2142,
-    "missingByLocale": {
-      "it": 10,
-      "en": 33,
-      "de": 2,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "TALLY WEiJL",
-        "pending": 24
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T16:03:34.740Z",
     "label": "before",
     "total": 2177,
@@ -7338,6 +7242,94 @@
       },
       {
         "company": "Manor AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T14:04:15.760Z",
+    "label": "before",
+    "total": 2613,
+    "needsRetranslation": 82,
+    "incomplete": 38,
+    "complete": 2575,
+    "missingByLocale": {
+      "it": 32,
+      "en": 9,
+      "de": 31,
+      "fr": 35
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "HES-SO Valais-Wallis",
+        "pending": 2
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T14:35:03.343Z",
+    "label": "after",
+    "total": 2613,
+    "needsRetranslation": 62,
+    "incomplete": 23,
+    "complete": 2590,
+    "missingByLocale": {
+      "it": 21,
+      "en": 2,
+      "de": 20,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]
