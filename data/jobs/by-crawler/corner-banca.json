@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-21T09:52:33.761Z",
+  "assembledAt": "2026-04-21T21:28:15.429Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-21T09:52:31.811Z",
+      "crawledAt": "2026-04-21T21:28:13.457Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "unsolicited-application-apprenticeship-corner-banca-switzerland",
@@ -83,6 +83,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -140,7 +141,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.810Z",
+      "crawledAt": "2026-04-21T21:28:13.456Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -268,7 +269,7 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.809Z",
+      "crawledAt": "2026-04-21T21:28:13.455Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano",
         "employee-card-onboarding-corner-banca-lugano-a3j84m",
@@ -304,6 +305,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -386,7 +388,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.809Z",
+      "crawledAt": "2026-04-21T21:28:13.455Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -402,6 +404,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -487,7 +490,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-21T09:52:31.808Z",
+      "crawledAt": "2026-04-21T21:28:13.454Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -518,6 +521,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -594,7 +598,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.807Z",
+      "crawledAt": "2026-04-21T21:28:13.453Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
@@ -620,6 +624,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -706,7 +711,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.806Z",
+      "crawledAt": "2026-04-21T21:28:13.451Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -740,6 +745,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -829,7 +835,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.805Z",
+      "crawledAt": "2026-04-21T21:28:13.450Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
@@ -842,6 +848,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -928,7 +935,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.804Z",
+      "crawledAt": "2026-04-21T21:28:13.449Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen"
       ],
@@ -941,6 +948,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -1031,7 +1039,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.803Z",
+      "crawledAt": "2026-04-21T21:28:13.448Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "conseiller-client-a-100-corner-banca-lugano",
@@ -1061,6 +1069,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1100,7 +1109,7 @@
       "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
       "descriptionByLocale": {
         "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di “trattamento delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l'emissione di carte, la gestione del ciclo di vita, la compensazione e l'insediamento, la frode e i riscattamenti) • Raccogliere, analizzare e valutare le richieste regolari (ad esempio, modifiche, conformità, ...) dai programmi di carta (ad esempio VISA, MC, ...) • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related\n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks)\n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …)\n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly\n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) • Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications • Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models • Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping) • Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management • Support the analysis and management of application incidents and production issues Must Have • Resident in Ticino or willing to relocate • Experience in banking or financial contexts • Experience in functional and technical analysis in IT • Knowledge of credit and debit card payment systems, including payment tokenization. • Knowledge of major payment circuits (e.g. Visa, Mastercard)",
         "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analyseaktivitäten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. • Analyse und Analyse von Funktionen und Verfahren • Analyse und Verständnis von „Kartenzahlungsverarbeitung, Zahlungsaufzeichnung und Betrugsverhütung“ Prozessen und verwandten (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Erfassung, Analyse und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC,...) • Kenntnis der wichtigsten Zahlungsströme (z.B. Visa, Mastercard)",
         "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et à l'intégration avec les banques centrales, les circuits de paiement et les plateformes externes. Responsabilités principales Analyse des fonctions et des processus • Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus d'émission de cartes, de gestion du cycle de vie, de compensation et de règlement, de la fraude et des remises en charges) • Collecte, analyse et évaluation des demandes régulières (c'est-à-dire des changements, de la conformité, ...) des systèmes de cartes (par exemple VISA, MC, ...) les traduisant en spécifications fonctionnelles et techniques • Collecte, analyse et formalisation des exigences opérationnelles (si nécessaire), traduction en spécifications fonctionnelles et techniques • Appui à l'entreprise dans la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres parties prenantes internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec les équipes de développement internes et externes pendant les phases de développement, d'essai et de libération, exécution directe (si nécessaire) test et gestion des rejets • Appui à l' • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
       },
@@ -1139,7 +1148,7 @@
       "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.802Z",
+      "crawledAt": "2026-04-21T21:28:13.447Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "salaryMin": 51500,
@@ -1151,106 +1160,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51500,
           "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
-    },
-    {
-      "id": "corner-banca-acebb12b2bb7",
-      "slug": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
-        "en": "customer-advisor-60-team-zurich-corner-banca-wallisellen",
-        "de": "kundenberater-60-team-zurich-corner-banca-wallisellen",
-        "fr": "conseiller-client-60-team-zurich-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 60% Team Zurich",
-      "titleByLocale": {
-        "it": "Customer Consulente 60% Team Zurich",
-        "en": "Customer Advisor 60% Team Zurich",
-        "de": "Kundenberater 60% Team Zürich",
-        "fr": "Conseiller client 60% Team Zurich"
-      },
-      "description": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nKey responsibilities: \n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un individuo altamente qualificato per gestire, elaborare e/o inoltrare richieste di clienti e partner, in tedesco, francese, italiano e inglese, su vari argomenti relativi al pagamento delle carte, in conformità con le nostre istruzioni di lavoro. Responsabilità chiave: Rispondere alle chiamate in arrivo e gestire richieste di clienti e partner commerciali in tedesco, francese, italiano e inglese Ricevi e processa reclami e problemi relativi a carte di credito, prepagate e di debito Assicurarsi una risoluzione tempestiva e soddisfacente delle preoccupazioni del cliente per migliorare la soddisfazione e la lealtà del cliente Assicurarsi che tutte le interazioni e i processi dei clienti siano conformi agli standard di qualità interna e alle normative legali Cosa offriamo? Flessibilità nel lavoro da casa e nella gestione delle ore di lavoro al fine di garantire un sano equilibrio tra lavoro e vita Numerosi vantaggi e incentivi Benessere, attività motivazionali e team building Per l'apertura del lavoro, stiamo cercando candidati che soddisfano i seguenti requisiti: Esperienza nel servizio clienti Buona conoscenza del pacchetto Office/ PC uso Buone competenze comunicative Lingue: Italiano, Tedesco/Svizzero Tedesco, Francese e Inglese Come primo punto di contatto con i clienti, sono necessarie le seguenti competenze morbide: cortesia, empatia, orientamento del cliente e capacità di lavorare in team Resident in Ticino o disposto a trasferirsi",
-        "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions. Key responsibilities: • Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English • Receive and process client complaints and issues related to credit, prepaid and debit cards • Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty • Ensure all customer interactions and processes comply with internal quality standards and legal regulations • Proactively find solutions for client complaints and escalating complex cases to the appropriate department • Identify sales opportunities (selling and upselling) during interactions with the customers What do we offer? • Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance • Numerous benefits and incentives • Well-being, motivational and team-building activities For the job opening, we are looking for candidates who meet the following requirements: • Commercial or tourism background • Experience in customer service • Good knowledge of Office package/ PC use • Good communication skills • Languages: Italian, German/Swiss German, French and English • As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team • Resident in Ticino or willing to relocate",
-        "de": "Wir suchen ein hochqualifiziertes Individuum, um Kundenanrufe und Partneranfragen in Deutsch, Französisch, Italienisch und Englisch zu verschiedenen Themen im Zusammenhang mit Kartenzahlung entsprechend unserer Arbeitsanweisungen kompetent zu behandeln, zu verarbeiten und/oder weiterzuleiten. Hauptverantwortlichkeiten: Beantworten eingehender Anrufe und Behandlung von Anfragen von Kunden und Geschäftspartnern in Deutsch, Französisch, Italienisch und Englisch Empfangen und bearbeiten Kundenbeschwerden und Fragen im Zusammenhang mit Kredit-, Prepaid- und Debitkarten Gewährleistung zeitnahe und zufriedenstellende Lösung der Kundenbelange zur Steigerung der Kundenzufriedenheit und -bindung Alle Kundeninteraktionen und Prozesse erfüllen interne Qualitätsstandards und gesetzliche Regelungen Proaktiv finden Sie Lösungen für Kundenbeschwerden und eskalieren komplexer Fälle an der zuständigen Abteilung Was bieten wir an? Flexibilität in der Arbeit von zu Hause und der Verwaltung von Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten Zahlreiche Vorteile und Anreize Wohlbefinden, Motivation und Team-building-Aktivitäten Für die Stelleneröffnung suchen wir Kandidaten, die folgende Anforderungen erfüllen: Erfahrung im Kundenservice Gute Kenntnisse im Office-Paket/PC nutzen Gute Kommunikationsfähigkeit Sprachen: Italienisch, Deutsch/Swiss Deutsch, Französisch und Englisch Als erster Ansprechpartner bei Kunden sind folgende Soft Skills erforderlich: Höflichkeit, Empathie, Kundenorientierung und Arbeitsfähigkeit im Team Resident in Tessin oder bereit, sich zu verlagern",
-        "fr": "Nous recherchons une personne hautement qualifiée pour gérer, traiter et/ou envoyer des appels clients et des demandes de renseignements partenaires, en allemand, français, italien et anglais, sur divers sujets liés au paiement des cartes, conformément à nos instructions de travail. Responsabilités clés : répondre aux appels entrants et traiter les demandes de clients et de partenaires commerciaux en allemand, français, italien et anglais Recevoir et traiter les plaintes et les problèmes des clients liés aux cartes de crédit, prépayées et de débit S'assurer d'une résolution rapide et satisfaisante des préoccupations des clients afin d'améliorer la satisfaction et la loyauté de la clientèle S'assurer que toutes les interactions et tous les processus des clients sont conformes aux normes internes de qualité et aux règlements juridiques. Qu'est-ce qu'on offre ? La flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle. Pour l'ouverture d'emploi, nous recherchons des candidats qui répondent aux exigences suivantes : Expérience commerciale ou touristique Expérience dans le service à la clientèle Bonne connaissance de l'utilisation du bloc Office/ PC Bonnes compétences en communication Langues: italien, allemand/suisse Allemand, français et anglais Comme premier point de contact avec les clients, les compétences suivantes sont nécessaires : courtoisie, empathie, orientation du client et capacité de travailler en équipe Résident au Tessin ou disposé à déménager"
-      },
-      "requirements": [
-        "Commercial or tourism background",
-        "Experience in customer service",
-        "Good knowledge of Office package/ PC use",
-        "Good communication skills",
-        "Languages: Italian, German/Swiss German, French and English",
-        "As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial or tourism background",
-          "Experience in customer service",
-          "Good knowledge of Office package/ PC use",
-          "Good communication skills",
-          "Languages: Italian, German/Swiss German, French and English",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Commercial or tourism background",
-          "Experience in customer service",
-          "Good knowledge of Office package/ PC use",
-          "Good communication skills",
-          "Languages: Italian, German/Swiss German, French and English",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.801Z",
-      "previousSlugs": [
-        "customer-advisor-60-team-zurich-corner-banca-wallisellen",
-        "customer-consulente-60-team-zurich-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
-        ],
-        "de": [
-          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
-        ],
-        "fr": [
-          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-04-17T21:20:43.257Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
           "unitText": "YEAR"
         }
       },
@@ -1323,7 +1232,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-21T09:52:31.801Z",
+      "crawledAt": "2026-04-21T21:28:13.446Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-corner-banca-lugano"
       ],
@@ -1336,6 +1245,107 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-acebb12b2bb7",
+      "slug": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
+        "en": "customer-advisor-60-team-zurich-corner-banca-wallisellen",
+        "de": "kundenberater-60-team-zurich-corner-banca-wallisellen",
+        "fr": "conseiller-client-60-team-zurich-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Advisor 60% Team Zurich",
+      "titleByLocale": {
+        "it": "Customer Consulente 60% Team Zurich",
+        "en": "Customer Advisor 60% Team Zurich",
+        "de": "Kundenberater 60% Team Zürich",
+        "fr": "Conseiller client 60% Team Zurich"
+      },
+      "description": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nKey responsibilities: \n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un individuo altamente qualificato per gestire, elaborare e/o inoltrare richieste di clienti e partner, in tedesco, francese, italiano e inglese, su vari argomenti relativi al pagamento delle carte, in conformità con le nostre istruzioni di lavoro. Responsabilità chiave: Rispondere alle chiamate in arrivo e gestire richieste di clienti e partner commerciali in tedesco, francese, italiano e inglese Ricevi e processa reclami e problemi relativi a carte di credito, prepagate e di debito Assicurarsi una risoluzione tempestiva e soddisfacente delle preoccupazioni del cliente per migliorare la soddisfazione e la lealtà del cliente Assicurarsi che tutte le interazioni e i processi dei clienti siano conformi agli standard di qualità interna e alle normative legali Cosa offriamo? Flessibilità nel lavoro da casa e nella gestione delle ore di lavoro al fine di garantire un sano equilibrio tra lavoro e vita Numerosi vantaggi e incentivi Benessere, attività motivazionali e team building Per l'apertura del lavoro, stiamo cercando candidati che soddisfano i seguenti requisiti: Esperienza nel servizio clienti Buona conoscenza del pacchetto Office/ PC uso Buone competenze comunicative Lingue: Italiano, Tedesco/Svizzero Tedesco, Francese e Inglese Come primo punto di contatto con i clienti, sono necessarie le seguenti competenze morbide: cortesia, empatia, orientamento del cliente e capacità di lavorare in team Resident in Ticino o disposto a trasferirsi",
+        "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions. Key responsibilities: • Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English • Receive and process client complaints and issues related to credit, prepaid and debit cards • Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty • Ensure all customer interactions and processes comply with internal quality standards and legal regulations • Proactively find solutions for client complaints and escalating complex cases to the appropriate department • Identify sales opportunities (selling and upselling) during interactions with the customers What do we offer? • Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance • Numerous benefits and incentives • Well-being, motivational and team-building activities For the job opening, we are looking for candidates who meet the following requirements: • Commercial or tourism background • Experience in customer service • Good knowledge of Office package/ PC use • Good communication skills • Languages: Italian, German/Swiss German, French and English • As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team • Resident in Ticino or willing to relocate",
+        "de": "Wir suchen ein hochqualifiziertes Individuum, um Kundenanrufe und Partneranfragen in Deutsch, Französisch, Italienisch und Englisch zu verschiedenen Themen im Zusammenhang mit Kartenzahlung entsprechend unserer Arbeitsanweisungen kompetent zu behandeln, zu verarbeiten und/oder weiterzuleiten. Hauptverantwortlichkeiten: Beantworten eingehender Anrufe und Behandlung von Anfragen von Kunden und Geschäftspartnern in Deutsch, Französisch, Italienisch und Englisch Empfangen und bearbeiten Kundenbeschwerden und Fragen im Zusammenhang mit Kredit-, Prepaid- und Debitkarten Gewährleistung zeitnahe und zufriedenstellende Lösung der Kundenbelange zur Steigerung der Kundenzufriedenheit und -bindung Alle Kundeninteraktionen und Prozesse erfüllen interne Qualitätsstandards und gesetzliche Regelungen Proaktiv finden Sie Lösungen für Kundenbeschwerden und eskalieren komplexer Fälle an der zuständigen Abteilung Was bieten wir an? Flexibilität in der Arbeit von zu Hause und der Verwaltung von Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten Zahlreiche Vorteile und Anreize Wohlbefinden, Motivation und Team-building-Aktivitäten Für die Stelleneröffnung suchen wir Kandidaten, die folgende Anforderungen erfüllen: Erfahrung im Kundenservice Gute Kenntnisse im Office-Paket/PC nutzen Gute Kommunikationsfähigkeit Sprachen: Italienisch, Deutsch/Swiss Deutsch, Französisch und Englisch Als erster Ansprechpartner bei Kunden sind folgende Soft Skills erforderlich: Höflichkeit, Empathie, Kundenorientierung und Arbeitsfähigkeit im Team Resident in Tessin oder bereit, sich zu verlagern",
+        "fr": "Nous recherchons une personne hautement qualifiée pour gérer, traiter et/ou envoyer des appels clients et des demandes de renseignements partenaires, en allemand, français, italien et anglais, sur divers sujets liés au paiement des cartes, conformément à nos instructions de travail. Responsabilités clés : répondre aux appels entrants et traiter les demandes de clients et de partenaires commerciaux en allemand, français, italien et anglais Recevoir et traiter les plaintes et les problèmes des clients liés aux cartes de crédit, prépayées et de débit S'assurer d'une résolution rapide et satisfaisante des préoccupations des clients afin d'améliorer la satisfaction et la loyauté de la clientèle S'assurer que toutes les interactions et tous les processus des clients sont conformes aux normes internes de qualité et aux règlements juridiques. Qu'est-ce qu'on offre ? La flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle. Pour l'ouverture d'emploi, nous recherchons des candidats qui répondent aux exigences suivantes : Expérience commerciale ou touristique Expérience dans le service à la clientèle Bonne connaissance de l'utilisation du bloc Office/ PC Bonnes compétences en communication Langues: italien, allemand/suisse Allemand, français et anglais Comme premier point de contact avec les clients, les compétences suivantes sont nécessaires : courtoisie, empathie, orientation du client et capacité de travailler en équipe Résident au Tessin ou disposé à déménager"
+      },
+      "requirements": [
+        "Commercial or tourism background",
+        "Experience in customer service",
+        "Good knowledge of Office package/ PC use",
+        "Good communication skills",
+        "Languages: Italian, German/Swiss German, French and English",
+        "As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial or tourism background",
+          "Experience in customer service",
+          "Good knowledge of Office package/ PC use",
+          "Good communication skills",
+          "Languages: Italian, German/Swiss German, French and English",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Commercial or tourism background",
+          "Experience in customer service",
+          "Good knowledge of Office package/ PC use",
+          "Good communication skills",
+          "Languages: Italian, German/Swiss German, French and English",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-16",
+      "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-21T21:28:13.445Z",
+      "previousSlugs": [
+        "customer-advisor-60-team-zurich-corner-banca-wallisellen",
+        "customer-consulente-60-team-zurich-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        ],
+        "de": [
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-04-17T21:20:43.257Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
