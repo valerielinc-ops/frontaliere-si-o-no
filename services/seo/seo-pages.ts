@@ -3640,6 +3640,52 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "ListItem", "position": 9, "item": { "@type": "ChildCare", "name": "Micro-nido Il Sole", "address": { "@type": "PostalAddress", "addressLocality": "Bellinzona", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:00-18:00", "priceRange": "CHF 1500-2300/mese" } },
  { "@type": "ListItem", "position": 10, "item": { "@type": "ChildCare", "name": "Nido Familiare Le Stelle", "address": { "@type": "PostalAddress", "addressLocality": "Locarno", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:30-18:00", "priceRange": "CHF 1400-2200/mese" } }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quanto costa un asilo nido in Ticino rispetto all'Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Le tariffe comunali ticinesi variano da circa CHF 300 a CHF 2'200 al mese secondo reddito familiare, con una retta media piena attorno a CHF 1'800-2'200. In Italia (province di Como e Varese) i nidi comunali partono da 200-300 euro al mese con ISEE bassi e arrivano a 550-650 euro a tariffa piena; i nidi privati italiani costano mediamente 550-800 euro al mese. A parità di fascia di reddito, un nido privato italiano costa circa un terzo di un nido privato ticinese."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Le famiglie di frontalieri hanno diritto a sussidi in Ticino?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I Comuni ticinesi applicano tariffe ridotte solo ai residenti in Svizzera. I figli di frontalieri residenti in Italia pagano normalmente la tariffa piena. Alcuni nidi aziendali (USI/SUPSI, ospedali, banche) e cooperative offrono posti riservati o convenzioni con sconti per dipendenti frontalieri: conviene sempre verificare con l'ufficio HR del datore di lavoro svizzero."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso detrarre fiscalmente le spese del nido in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. In Italia il frontaliere residente può detrarre le spese per asili nido pubblici o privati fino a un massimo di 632 euro per figlio (detrazione al 19%). Esiste inoltre il Bonus Asilo Nido INPS fino a 3'000 euro annui a seconda dell'ISEE. Le spese per un nido svizzero non sono detraibili in Italia, ma possono essere deducibili in Svizzera per i frontalieri soggetti a tassazione ordinaria (ex-Permesso B o nuovi frontalieri con redditi extra)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si entra in un nido comunale ticinese?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'iscrizione va presentata direttamente al servizio infanzia del Comune (Lugano, Bellinzona, Locarno, Mendrisio, Chiasso): si compila la graduatoria, si documentano reddito e situazione lavorativa, si attende la conferma di posto. La priorità va ai residenti in Ticino; gli esterni vengono ammessi solo se restano posti liberi. Le liste d'attesa più lunghe sono a Lugano e Mendrisio, dove i tempi possono superare i 6-12 mesi."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Conviene mandare il bambino al nido in Italia o in Ticino?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dipende dal costo orario, dalla flessibilità e dai tempi di percorrenza. Il nido italiano costa meno in termini assoluti e consente di lasciare il bambino vicino ai nonni, ma richiede un secondo spostamento mattutino; il nido aziendale ticinese costa di più ma permette di avere il bambino sul luogo di lavoro e orari 07:00-19:00. Per chi lavora a Lugano con partenza da Como, il break-even è attorno ai CHF 1'500 al mese: sopra quella cifra un nido italiano conviene sempre."
+ }
+ }
+ ]
  }
  ]
  },
@@ -5042,6 +5088,52 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 874, "name": "Cuasso al Monte: chiusura ospedale frontalieri", "url": `${BASE_URL}/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura` },
           { "@type": "ListItem", "position": 875, "name": "Tassa salute frontalieri: cosa cambia nel 2026", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-2026` },
           { "@type": "ListItem", "position": 876, "name": "Donna in arte a Chiasso | Frontaliere Ticino", "url": `${BASE_URL}/articoli-frontaliere/donne-arte-chiasso-2026` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Ogni quanto vengono aggiornati gli articoli per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene costantemente aggiornati i contenuti evergreen sulla fiscalità, la LAMal, l'AVS e il nuovo accordo sul telelavoro. Ogni articolo riporta la data di ultima revisione nella parte alta della pagina."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Gli articoli coprono anche le novità del nuovo accordo fiscale 2024?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. La sezione 'Fisco' raccoglie tutte le guide dedicate al nuovo accordo Italia-Svizzera: tassazione concorrente, soglia dei 20 km, CU italiana per i 'nuovi frontalieri', ristorni, telelavoro fino a 45 giorni e regole transitorie per chi lavorava in Svizzera prima del 17 luglio 2023."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso usare gli articoli per confrontare Permesso G e Permesso B?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Certo. Oltre al calcolatore dedicato, pubblichiamo articoli che analizzano pro e contro del trasferimento in Svizzera: costo della vita, LAMal, AVS/LPP, cassa pensioni, ricongiungimento familiare e impatto fiscale per coppie con redditi misti italo-svizzeri."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Dove trovo le statistiche aggiornate su stipendi e mercato del lavoro frontaliero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Gli articoli rimandano alle pagine 'Statistiche' che aggregano i dati USTAT, SECO, INPS e Banca d'Italia: frontalieri attivi per settore, salari mediani, tempi di attesa ai valichi, tasso di cambio CHF/EUR storico e andamento delle offerte di lavoro settimanali."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Gli articoli sostituiscono una consulenza professionale?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No. I contenuti sono redatti con cura e citano sempre le fonti ufficiali (AFC, AFD, INPS, BAG, DSS), ma non sostituiscono il parere di un commercialista, di un patronato o di un broker LAMal. Per decisioni patrimoniali importanti consigliamo sempre una consulenza dedicata."
+ }
+ }
  ]
  }
  ]
