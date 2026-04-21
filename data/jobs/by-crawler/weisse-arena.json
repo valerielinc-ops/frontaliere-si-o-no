@@ -1062,11 +1062,11 @@
     },
     {
       "id": "weisse-arena-cb4f07d694bb",
-      "slug": "hutten-gastgeber-in-allrounder-in-weisse-arena-ch",
+      "slug": "ospite-della-cabina-allrounder-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "hutten-gastgeber-in-allrounder-in-weisse-arena-ch",
-        "it": "hutten-gastgeber-in-allrounder-in-weisse-arena-ch",
-        "en": "hutten-gastgeber-in-allrounder-in-weisse-arena-ch",
+        "it": "ospite-della-cabina-allrounder-in-weisse-arena-gruppe-laax",
+        "en": "cabin-host-allrounder-in-weisse-arena-gruppe-laax",
         "fr": "hutten-gastgeber-in-allrounder-in-weisse-arena-ch"
       },
       "company": "Weisse Arena Gruppe",
@@ -1125,7 +1125,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T11:00:57.817Z"
+      "firstSeenAt": "2026-04-21T11:00:57.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hutten-gastgeber-in-allrounder-in-weisse-arena-ch"
+        ],
+        "en": [
+          "hutten-gastgeber-in-allrounder-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hutten-gastgeber-in-allrounder-in-weisse-arena-ch"
+      ]
     }
   ]
 }

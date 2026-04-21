@@ -934,12 +934,12 @@
     },
     {
       "id": "denner-b46094ebf408",
-      "slug": "filialleiter-in-in-ausbildung-denner-sissach",
+      "slug": "capofila-dell-istruzione-denner-sissach",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-sissach",
-        "en": "filialleiter-in-in-ausbildung-denner-sissach",
+        "it": "capofila-dell-istruzione-denner-sissach",
+        "en": "head-of-branch-in-education-denner-sissach",
         "de": "filialleiter-in-in-ausbildung-denner-sissach",
-        "fr": "filialleiter-in-in-ausbildung-denner-sissach"
+        "fr": "chef-de-division-en-education-denner-sissach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -998,20 +998,24 @@
       "crawledAt": "2026-04-21T09:55:43.536Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-sissach"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-sissach"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-sissach"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-sissach",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -1030,12 +1034,12 @@
     },
     {
       "id": "denner-694d6e0ead88",
-      "slug": "teamleiter-in-data-platform-denner",
+      "slug": "leader-del-team-nella-piattaforma-dati-denner-zurich",
       "slugByLocale": {
-        "it": "teamleiter-in-data-platform-denner",
-        "en": "teamleiter-in-data-platform-denner",
+        "it": "leader-del-team-nella-piattaforma-dati-denner-zurich",
+        "en": "team-leader-in-data-platform-denner-zurich",
         "de": "teamleiter-in-data-platform-denner",
-        "fr": "teamleiter-in-data-platform-denner"
+        "fr": "chef-d-equipe-dans-la-plate-forme-de-donnees-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1104,7 +1108,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T09:55:42.311Z"
+      "firstSeenAt": "2026-04-21T09:55:42.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-data-platform-denner"
+        ],
+        "en": [
+          "teamleiter-in-data-platform-denner"
+        ],
+        "fr": [
+          "teamleiter-in-data-platform-denner"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-data-platform-denner"
+      ]
     },
     {
       "id": "denner-add5d94b9d66",

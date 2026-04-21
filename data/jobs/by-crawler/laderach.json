@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "teamleiter-assembling-100-w-m-d-laderach-glarus",
         "it": "teamleiter-assembling-100-w-m-d-laderach-glarus",
-        "en": "teamleiter-assembling-100-w-m-d-laderach-glarus",
+        "en": "team-leader-assembly-100-f-m-d-laderach-schweiz-ag-glarus",
         "fr": "teamleiter-assembling-100-w-m-d-laderach-glarus"
       },
       "company": "Läderach (Schweiz) AG",
@@ -981,12 +981,12 @@
     },
     {
       "id": "laderach-0c321242bff1",
-      "slug": "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda",
+      "slug": "qualita-e-conformita-regolamentare-specialista-w-m-d-laderach-schweiz-ag-ennenda",
       "slugByLocale": {
         "de": "quality-regulatory-compliance-specialst-w-m-d-laderach-ennenda",
-        "it": "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda",
+        "it": "qualita-e-conformita-regolamentare-specialista-w-m-d-laderach-schweiz-ag-ennenda",
         "en": "quality-regulatory-compliance-specialst-w-m-d-laderach-schweiz-ag-ennenda",
-        "fr": "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+        "fr": "qualite-regulatory-compliance-specialst-w-m-d-laderach-schweiz-ag-ennenda"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1038,7 +1038,18 @@
       },
       "postalCode": "7000",
       "firstSeenAt": "2026-04-21T10:22:17.475Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+        ],
+        "fr": [
+          "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+        ]
+      },
+      "previousSlugs": [
+        "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+      ]
     },
     {
       "id": "laderach-1e9472c54b21",

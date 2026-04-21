@@ -1858,11 +1858,11 @@
     },
     {
       "id": "tally-weijl-d34e79917e48",
-      "slug": "operazioni-intern-tally-weijl-basel",
+      "slug": "operations-tirocinante-tally-weijl-basel",
       "slugByLocale": {
-        "it": "operazioni-intern-tally-weijl-basel",
+        "it": "operations-tirocinante-tally-weijl-basel",
         "en": "operations-intern-tally-weijl-basel",
-        "de": "operationen-intern-tally-weijl-basel",
+        "de": "operations-praktikant-tally-weijl-basel",
         "fr": "operations-internes-tally-weijl-basel"
       },
       "company": "TALLY WEiJL",
@@ -1905,17 +1905,21 @@
       "firstSeenAt": "2026-04-20T22:24:17.926Z",
       "previousSlugsByLocale": {
         "it": [
-          "operations-intern-tally-weijl-basel"
+          "operations-intern-tally-weijl-basel",
+          "operazioni-intern-tally-weijl-basel"
         ],
         "de": [
-          "operations-intern-tally-weijl-basel"
+          "operations-intern-tally-weijl-basel",
+          "operationen-intern-tally-weijl-basel"
         ],
         "fr": [
           "operations-intern-tally-weijl-basel"
         ]
       },
       "previousSlugs": [
-        "operations-intern-tally-weijl-basel"
+        "operations-intern-tally-weijl-basel",
+        "operazioni-intern-tally-weijl-basel",
+        "operationen-intern-tally-weijl-basel"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

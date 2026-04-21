@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-1cc73d87642d",
-      "slug": "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan",
+      "slug": "sostenibilita-responsabile-hilcona-group-60-100-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan",
-        "it": "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan",
-        "en": "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan",
-        "fr": "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan"
+        "it": "sostenibilita-responsabile-hilcona-group-60-100-hilcona-ag-schaan",
+        "en": "responsible-responsible-sustainability-hilcona-group-60-100-hilcona-ag-schaan",
+        "fr": "durabilite-responsable-hilcona-group-60-100-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -59,7 +59,21 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-21T10:13:07.113Z"
+      "firstSeenAt": "2026-04-21T10:13:07.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan"
+        ],
+        "en": [
+          "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan"
+        ],
+        "fr": [
+          "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-verantwortlicher-nachhaltigkeit-hilcona-gruppe-60-100-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-c6b11efdd983",
@@ -67,8 +81,8 @@
       "slugByLocale": {
         "de": "jurist-juristin-hilcona-basel",
         "it": "jurist-juristin-bell-schweiz-ag-basel",
-        "en": "jurist-juristin-hilcona-basel",
-        "fr": "jurist-juristin-hilcona-basel"
+        "en": "legal-lawyer-bell-schweiz-ag-basel",
+        "fr": "juriste-juriste-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -107,6 +121,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "jurist-juristin-hilcona-basel"
+        ],
+        "en": [
+          "jurist-juristin-hilcona-basel"
+        ],
+        "fr": [
           "jurist-juristin-hilcona-basel"
         ]
       },

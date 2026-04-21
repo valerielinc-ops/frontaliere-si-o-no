@@ -1964,9 +1964,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -2015,12 +2015,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -2363,7 +2363,7 @@
       "slug": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
-        "en": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
+        "en": "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai",
         "de": "50-stelle-als-psychologe-psychotherapeut-in-fur-den-dienst-fur-erwachsenenpsychiatrie-und-psychotherapie-im-zentralwalli",
         "fr": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       },
@@ -2413,7 +2413,7 @@
           "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
           "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-in-central-valais-hopital-du-valais-m",
           "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-of-the-central-valais-hopital-du-vala",
-          "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai"
+          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
         ],
         "it": [
           "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
@@ -2426,8 +2426,7 @@
         "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
         "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-in-central-valais-hopital-du-valais-m",
         "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-of-the-central-valais-hopital-du-vala",
-        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
-        "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai"
+        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -3469,11 +3468,11 @@
     },
     {
       "id": "hopital-du-valais-cf22ec3bc8da",
-      "slug": "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi",
+      "slug": "60-assistente-psicologo-per-psichiatria-e-psicoterapia-unita-di-psichiatria-di-collegamento-asfm-riconosciuta-istituzion",
       "slugByLocale": {
         "fr": "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychiatrie-de-liaison-etablissement",
-        "it": "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi",
-        "en": "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi",
+        "it": "60-assistente-psicologo-per-psichiatria-e-psicoterapia-unita-di-psichiatria-di-collegamento-asfm-riconosciuta-istituzion",
+        "en": "60-assistant-psychologist-for-psychiatry-and-psychotherapy-liaison-psychiatry-unit-asfm-recognized-institution-hopital-d",
         "de": "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi"
       },
       "company": "Hôpital du Valais",
@@ -3530,16 +3529,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T10:13:38.364Z"
+      "firstSeenAt": "2026-04-21T10:13:38.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi"
+        ],
+        "en": [
+          "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-assistant-e-a-60-pour-le-pole-de-psychiatrie-et-psychotherapie-unite-de-psychi"
+      ]
     },
     {
       "id": "hopital-du-valais-fef5619b1990",
-      "slug": "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho",
+      "slug": "infermiere-ere-100-addestratore-per-il-reparto-medico-h4-presso-l-ospedale-sion-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho",
-        "it": "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho",
-        "en": "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho",
-        "de": "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho"
+        "it": "infermiere-ere-100-addestratore-per-il-reparto-medico-h4-presso-l-ospedale-sion-hopital-du-valais-sion",
+        "en": "nurse-ere-100-trainer-practitioner-for-the-h4-medical-department-at-the-sion-hospital-hopital-du-valais-sion",
+        "de": "nurse-ere-100-trainer-praktizierende-fur-die-h4-medizinische-abteilung-im-sion-hospital-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3597,7 +3607,21 @@
         }
       },
       "firstSeenAt": "2026-04-21T10:13:38.034Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho"
+        ],
+        "en": [
+          "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho"
+        ],
+        "de": [
+          "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-praticien-ne-formateur-trice-a-100-pour-le-service-de-medecine-du-h4-de-l-ho"
+      ]
     }
   ]
 }

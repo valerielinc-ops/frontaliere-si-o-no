@@ -798,12 +798,12 @@
     },
     {
       "id": "ubp-967b0831912c",
-      "slug": "tax-specialist-ubp-ch-2",
+      "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-2",
-        "de": "tax-specialist-ubp-ch-2",
-        "fr": "tax-specialist-ubp-ch-2"
+        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -851,29 +851,27 @@
           "tax-specialist-ubp-ch"
         ],
         "it": [
-          "tax-specialista-union-bancaire-privee-geneva-switzerland"
+          "tax-specialista-union-bancaire-privee-geneva-switzerland",
+          "tax-specialist-ubp-ch-2"
         ],
         "de": [
-          "tax-spezialist-union-bancaire-privee-geneva-switzerland"
+          "tax-specialist-ubp-ch-2"
         ],
         "fr": [
-          "tax-specialiste-union-bancaire-privee-geneva-switzerland"
+          "tax-specialist-ubp-ch-2"
         ]
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "tax-specialista-union-bancaire-privee-geneva-switzerland",
+        "tax-specialist-ubp-ch-2",
         "tax-specialist-ubp-ch-3",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393r9",
         "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
-        "tax-specialist-ubp-ch-2",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
         "steuerspezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-        "tax-specialiste-union-bancaire-privee-geneva-switzerland"
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1441,12 +1439,12 @@
     },
     {
       "id": "ubp-2fd20487f325",
-      "slug": "tax-specialist-ubp-ch-3",
+      "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-3",
-        "de": "tax-specialist-ubp-ch-3",
-        "fr": "tax-specialist-ubp-ch-3"
+        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -1494,29 +1492,28 @@
           "tax-specialist-ubp-ch"
         ],
         "it": [
-          "tax-specialista-union-bancaire-privee-geneva-switzerland"
+          "tax-specialista-union-bancaire-privee-geneva-switzerland",
+          "tax-specialist-ubp-ch-3"
         ],
         "de": [
-          "tax-spezialist-union-bancaire-privee-geneva-switzerland"
+          "tax-specialist-ubp-ch-3"
         ],
         "fr": [
-          "tax-specialiste-union-bancaire-privee-geneva-switzerland"
+          "tax-specialiste-union-bancaire-privee-geneva-switzerland",
+          "tax-specialist-ubp-ch-3"
         ]
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "tax-specialista-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-3",
+        "tax-specialiste-union-bancaire-privee-geneva-switzerland",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393r9",
-        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-2",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
         "steuerspezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-        "tax-specialiste-union-bancaire-privee-geneva-switzerland"
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3524,11 +3521,11 @@
     },
     {
       "id": "ubp-57ed9c252002",
-      "slug": "senior-compliance-officer-special-investigations-unit-ubp-ch",
+      "slug": "senior-compliance-officer-unita-investigazioni-speciali-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "senior-compliance-officer-special-investigations-unit-ubp-ch",
-        "it": "senior-compliance-officer-special-investigations-unit-ubp-ch",
-        "de": "senior-compliance-officer-special-investigations-unit-ubp-ch",
+        "it": "senior-compliance-officer-unita-investigazioni-speciali-union-bancaire-privee-geneva-switzerland",
+        "de": "senior-compliance-officer-sonderforschungsbereich-union-bancaire-privee-geneva-switzerland",
         "fr": "senior-compliance-officer-special-investigations-unit-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
@@ -3584,16 +3581,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T10:57:40.460Z"
+      "firstSeenAt": "2026-04-21T10:57:40.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-special-investigations-unit-ubp-ch"
+        ],
+        "de": [
+          "senior-compliance-officer-special-investigations-unit-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-special-investigations-unit-ubp-ch"
+      ]
     },
     {
       "id": "ubp-2375e8750dae",
-      "slug": "market-specialist-emerging-markets-ubp-ch",
+      "slug": "market-specialist-mercati-emergenti-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "market-specialist-emerging-markets-union-bancaire-privee-geneva-switzerland",
-        "it": "market-specialist-emerging-markets-ubp-ch",
+        "it": "market-specialist-mercati-emergenti-union-bancaire-privee-geneva-switzerland",
         "de": "market-specialist-emerging-markets-ubp-ch",
-        "fr": "market-specialist-emerging-markets-ubp-ch"
+        "fr": "specialiste-des-marches-emergents-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3648,7 +3656,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T10:57:39.854Z"
+      "firstSeenAt": "2026-04-21T10:57:39.854Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-specialist-emerging-markets-ubp-ch"
+        ],
+        "fr": [
+          "market-specialist-emerging-markets-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "market-specialist-emerging-markets-ubp-ch"
+      ]
     },
     {
       "id": "ubp-f77846d32e23",
@@ -3657,7 +3676,7 @@
         "en": "investments-data-analyst-temporary-union-bancaire-privee-geneva-switzerland",
         "it": "investments-data-analyst-temporary-ubp-ch",
         "de": "investments-data-analyst-temporary-ubp-ch",
-        "fr": "investments-data-analyst-temporary-ubp-ch"
+        "fr": "analyste-des-donnees-sur-les-placements-temporaire-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",

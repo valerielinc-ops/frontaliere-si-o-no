@@ -2464,12 +2464,12 @@
     },
     {
       "id": "lonza-8d9d6e238012",
-      "slug": "bioprocess-engineer-lonza-ch-2",
+      "slug": "ingegnere-di-bioprocesso-lonza-ch",
       "slugByLocale": {
         "en": "bioprocess-engineer-lonza-ch",
-        "it": "bioprocess-engineer-lonza-ch-2",
+        "it": "ingegnere-di-bioprocesso-lonza-ch",
         "de": "bioprocess-engineer-lonza-ch-2",
-        "fr": "bioprocess-engineer-lonza-ch-2"
+        "fr": "ingenieur-bioprocede-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2525,16 +2525,14 @@
       },
       "firstSeenAt": "2026-04-21T10:25:28.751Z",
       "previousSlugs": [
-        "bioprocess-engineer-lonza-ch",
-        "ingegnere-di-bioprocesso-lonza-ch",
-        "ingenieur-bioprocede-lonza-ch"
+        "bioprocess-engineer-lonza-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-di-bioprocesso-lonza-ch"
+          "bioprocess-engineer-lonza-ch-2"
         ],
         "fr": [
-          "ingenieur-bioprocede-lonza-ch"
+          "bioprocess-engineer-lonza-ch-2"
         ]
       }
     },
@@ -2753,12 +2751,12 @@
     },
     {
       "id": "lonza-8229bc03cd75",
-      "slug": "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch",
+      "slug": "opportunita-di-stage-nella-gestione-del-programma-part-time-15-ore-settimana-lonza-ch",
       "slugByLocale": {
         "en": "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch",
-        "it": "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch",
+        "it": "opportunita-di-stage-nella-gestione-del-programma-part-time-15-ore-settimana-lonza-ch",
         "de": "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch",
-        "fr": "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch"
+        "fr": "possibilite-de-stage-en-gestion-de-programme-temps-partiel-15-heures-semaine-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2812,7 +2810,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-21T10:25:25.843Z"
+      "firstSeenAt": "2026-04-21T10:25:25.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch"
+        ],
+        "fr": [
+          "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch"
+      ]
     },
     {
       "id": "lonza-13881d186445",
@@ -2821,7 +2830,7 @@
         "de": "praktikant-im-operations-team-microbial-bioconjugation-6-monate-m-w-d-lonza-ch",
         "it": "praktikant-im-operations-team-microbial-bioconjugation-6-monate-m-w-d-lonza-ch",
         "en": "praktikant-im-operations-team-microbial-bioconjugation-6-monate-m-w-d-lonza-ch",
-        "fr": "praktikant-im-operations-team-microbial-bioconjugation-6-monate-m-w-d-lonza-ch"
+        "fr": "equipe-d-operations-de-praktikan-im-microbial-bioconjugaison-6-monate-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",

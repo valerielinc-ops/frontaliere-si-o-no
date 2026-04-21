@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-ricett",
-      "slug": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
+      "slug": "bevande-di-vendita-dei-dipendenti-transgourmet-schweiz-ag-chur",
       "company": "Transgourmet Schweiz AG",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Getränke",
       "location": "Chur",
@@ -41,8 +41,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-prodega-chur-graubunden-ricett",
-        "en": "mitarbeiterin-sales-associate-getranke-transgourmet-prodega-chur-graubunden-ricett",
+        "it": "bevande-di-vendita-dei-dipendenti-transgourmet-schweiz-ag-chur",
+        "en": "employees-sales-drinks-transgourmet-schweiz-ag-chur",
         "de": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden-ricett",
         "fr": "mitarbeiterin-vendeur-se-getranke-transgourmet-prodega-chur-graubunden-ricett"
       },
@@ -59,7 +59,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-prodega-chur-graubunden-ricett",
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden"
+        ],
+        "en": [
+          "mitarbeiterin-sales-associate-getranke-transgourmet-prodega-chur-graubunden-ricett"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-prodega-chur-graubunden-ricett",
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
+        "mitarbeiterin-sales-associate-getranke-transgourmet-prodega-chur-graubunden-ricett"
+      ]
     },
     {
       "id": "company-g6dub0",
@@ -143,8 +157,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
       ]
     },
     {
@@ -229,8 +242,7 @@
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
       ]
     },
     {
