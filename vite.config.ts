@@ -32,6 +32,7 @@ import { fuelDailyPagesPlugin } from './build-plugins/fuelDailyPagesPlugin';
 import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
+import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -83,6 +84,10 @@ export default defineConfig(({ mode }) => {
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),
+ // A6: inject contextual links from blog articles to feature hubs.
+ // MUST run after ogPagesPlugin + jobsSeoPagesPlugin so the target
+ // HTML files already exist on disk when closeBundle fires.
+ blogContextualLinksPlugin(__dirname),
  ]),
  ],
  define: {
