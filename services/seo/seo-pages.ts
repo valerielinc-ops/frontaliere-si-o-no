@@ -1177,12 +1177,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  transport: {
- title: 'Costi Trasporto Frontalieri | Calcolo Auto vs Treno CH-IT',
+ title: 'Trasporti Frontalieri Ticino 2026 | Treno, Auto, Car-Sharing',
  description: 'Calcola i costi reali di trasporto per frontalieri: auto (carburante, usura, pedaggi), treno (Trenitalia, FFS), bus transfrontalieri. Confronta convenienza.',
  keywords: 'costi trasporto frontalieri, calcolo costi auto, abbonamento treno svizzera, trenitalia frontalieri, ffs ticino, pedaggi autostrada, costo benzina diesel, usura auto, trasporti pubblici frontalieri',
  ogTitle: 'Calcolo Costi Trasporto Frontalieri | Auto vs Treno',
  ogDescription: '🚗 Calcola i costi reali di trasporto per frontalieri. Confronta auto, treno e bus per trovare la soluzione più conveniente!',
  canonicalPath: '/vivere-in-ticino/trasporti-frontalieri',
+ h1: 'Trasporti frontalieri Ticino 2026 — treni TILO, auto, car-sharing e abbonamenti',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -1416,12 +1417,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  jobs: {
- title: 'Confronto Offerte Lavoro Svizzera | Calcolo Netto Reale',
+ title: 'Confronta Offerte Lavoro Svizzera 2026 | Netto Reale',
  description: 'Confronta fino a 4 offerte di lavoro in Svizzera: calcolo netto reale considerando tasse, costi trasporto, tempo viaggio, home office e benefit. Scopri.',
  keywords: 'confronto offerte lavoro svizzera, stipendio netto reale frontaliere, calcolo netto lavoro ticino, costi pendolarismo frontaliere, home office frontaliere, benefit lavoro svizzera',
  ogTitle: 'Confronto Offerte Lavoro Svizzera | Netto Reale Frontalieri',
  ogDescription: '💼 Confronta offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, tempo e benefit inclusi.',
  canonicalPath: '/compara-servizi/confronta-offerte-lavoro',
+ h1: 'Confronta offerte di lavoro in Svizzera per frontalieri 2026 — netto reale CHF/EUR',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -1833,12 +1835,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'car-cost': {
- title: 'Costi Pendolarismo Frontaliere | Frontaliere Ticino',
+ title: 'Costo Auto Pendolare Frontaliere Ticino 2026 | Tabelle',
  description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta.',
  keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
  ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
  ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',
  canonicalPath: '/guida-frontaliere/costo-auto-pendolare',
+ h1: 'Costo auto pendolare frontaliere Ticino 2026 — casi studio, tabelle km/CHF, treno',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -1853,7 +1856,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  companies: {
- title: 'Aziende che Assumono in Ticino | Frontaliere Ticino',
+ title: 'Aziende che Assumono Frontalieri in Ticino 2026',
+ h1: 'Aziende che assumono frontalieri in Ticino — settori, dimensioni aziendali e stipendi medi 2026',
  description: 'Scopri le principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi. Link diretti alle.',
  keywords: 'aziende ticino lavoro, aziende che assumono svizzera, lavoro canton ticino, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino',
  ogTitle: 'Aziende che Assumono in Ticino | Opportunità per Frontalieri',
@@ -1940,7 +1944,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  places: {
- title: 'Posti da Visitare in Ticino | Natura, Cultura e Attività',
+ title: 'Attrazioni Ticino 2026 | Cosa Visitare in Svizzera Italiana',
+ h1: 'Attrazioni in Ticino e Svizzera italiana 2026 — laghi, montagne, castelli UNESCO e grotti',
  description: 'Guida ai posti più belli del Canton Ticino: montagne, laghi, città, cultura, attività per famiglie e shopping. Consigli per frontalieri che vivono e.',
  keywords: 'posti da visitare ticino, cosa fare ticino, lugano attrazioni, monte san salvatore, lago lugano, bellinzona castelli unesco, foxtown mendrisio, swissminiatur, locarno film festival, grotti ticinesi',
  ogTitle: 'Posti da Visitare in Ticino | Natura, Cultura e Famiglia',
@@ -2172,12 +2177,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa Comuni di Frontiera | Addizionali IRPEF e Costi',
+ title: 'Mappa Confine Svizzera-Italia 2026 | Valichi e Comuni',
  description: 'Mappa interattiva dei comuni italiani di frontiera con la Svizzera. Confronta addizionali IRPEF, distanza dal confine, affitti e popolazione per ogni comune.',
  keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
  ogTitle: 'Mappa Interattiva Comuni di Frontiera',
  ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',
  canonicalPath: '/guida-frontaliere/mappa-confine',
+ h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebApplication",
@@ -2738,7 +2744,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  quiz: {
- title: 'Quiz Fiscale Frontalieri | Testa le Tue Conoscenze',
+ title: 'Quiz Fiscale Frontalieri 2026 | Testa le Conoscenze',
+ h1: 'Quiz fiscale frontalieri 2026 — 20 domande sulle tasse CH-IT con risposte spiegate',
  description: 'Quiz settimanale sulla fiscalità transfrontaliera Svizzera-Italia. Verifica le tue conoscenze su tasse, deduzioni, permessi e normative per frontalieri in.',
  keywords: 'quiz frontalieri, test fiscale, quiz tasse svizzera, quiz permesso G, frontalieri ticino quiz, test conoscenze frontaliere',
  ogTitle: 'Quiz Fiscale Frontalieri | Testa le Tue Conoscenze',
@@ -2906,7 +2913,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── Glossario SEO ──────────────────────────────────────────────────────,
 
  glossario: {
- title: 'Glossario Frontaliere | 52 Termini Spiegati',
+ title: 'Glossario Frontaliere 2026 | 52 Termini CH-IT',
+ h1: 'Glossario frontaliere Svizzera-Italia 2026 — 52 termini fiscali, previdenziali e sanitari spiegati',
  description: 'Glossario completo per frontalieri: 52 termini fiscali, previdenziali, assicurativi e legali spiegati in modo semplice. AVS, LPP, LAMal, imposta alla.',
  keywords: 'glossario frontaliere, termini fiscali svizzera, avs significato, lpp secondo pilastro, lamal frontaliere, imposta alla fonte spiegazione, irpef frontaliere, glossario lavoro svizzera',
  ogTitle: 'Glossario Frontaliere | 52 Termini Spiegati',
@@ -3473,12 +3481,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  nursery: {
- title: 'Asili Nido Ticino vs Italia | Frontaliere Ticino',
+ title: 'Confronta Asili Nido Ticino vs Italia 2026 | Costi',
  description: 'Confronta asili nido tra Ticino e Italia: costi mensili, orari, criteri di ammissione, sussidi disponibili. Calcola il costo reale della custodia per.',
  keywords: 'asili nido ticino, asili nido como, costi asilo svizzera, asili frontalieri, custodia bambini ticino, confronto asili nido, sussidi asilo svizzera italia',
  ogTitle: 'Asili Nido Ticino vs Italia | Confronto per Frontalieri',
  ogDescription: '👶 Confronta costi, orari e sussidi asili nido tra Ticino e Italia per famiglie di frontalieri.',
  canonicalPath: '/vivere-in-ticino/confronta-asili-nido',
+ h1: 'Confronta asili nido Ticino vs Italia 2026 — costi, orari e liste d\'attesa',
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -3597,12 +3606,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  livability: {
- title: 'Migliori Comuni di Frontiera | Classifica Qualità',
+ title: 'Migliori Comuni di Frontiera 2026 | Classifica Qualità',
  description: 'Classifica dei migliori comuni italiani di frontiera dove vivere come frontaliere: qualità della vita, distanza dalla dogana, servizi, costi, trasporti e.',
  keywords: 'migliori comuni frontiera, comuni frontalieri classifica, vivere como varese, qualità vita frontaliere, comuni vicino svizzera, dove vivere frontaliere',
  ogTitle: 'Migliori Comuni di Frontiera | Classifica 2026',
  ogDescription: '🏡 Classifica dei migliori comuni italiani di frontiera: qualità della vita, distanza dogana e servizi.',
  canonicalPath: '/statistiche/migliori-comuni-frontiera',
+ h1: 'Migliori comuni di frontiera per frontalieri 2026 — classifica qualità e metodologia',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "Dataset",
