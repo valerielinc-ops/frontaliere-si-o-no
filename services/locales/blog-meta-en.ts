@@ -2439,6 +2439,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'New restrictions for foreign real estate investors in Switzerland',
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'The Federal Council proposes amendments to the Lex Koller to limit property purchases by non-resident foreigners',
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'View of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.title': 'Minimum wage in Ticino: new rules from 2027',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.excerpt': 'From 2027, the minimum wage in Ticino will be between 20.50 and 21 francs per hour, with gradual increases over the next two years.',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.imageAlt': 'Lugano skyline with view of Lake Lugano',
 };
 
 export default blogMetaEn;

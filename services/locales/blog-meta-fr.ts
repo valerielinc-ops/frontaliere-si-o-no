@@ -2439,6 +2439,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'Nouvelles restrictions pour les investisseurs immobiliers étrangers en Suisse',
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'Le Conseil fédéral propose des modifications à la Lex Koller pour limiter les achats de biens immobiliers par des étrangers non résidents',
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.title': 'Salaire minimum en Tessin : nouvelles règles à partir de 2027',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.excerpt': 'À partir de 2027, le salaire minimum en Tessin sera compris entre 20,50 et 21 francs de l\'heure, avec des augmentations progressives au cours des deux années suivantes.',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.imageAlt': 'Vue sur le lac de Lugano depuis le centre-ville de Lugano',
 };
 
 export default blogMetaFr;

@@ -6676,4 +6676,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/svizzera-chiude-investitori-immobiliari-stranieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'salario-minimo-ticino-2027-2029-nuove-regole',
+ category: 'novita',
+ date: '2026-04-21T08:25:59.165Z',
+ image: '/images/blog/salario-minimo-ticino-2027-2029-nuove-regole.jpg',
+ hasCalculator: true,
+ },
 ];
