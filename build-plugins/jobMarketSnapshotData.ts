@@ -73,6 +73,187 @@ export const JOB_MARKET_WEEK_PREFIX: Record<JobMarketSnapshotLocale, string> = {
   fr: 'semaine',
 };
 
+/** Sector-collection slug per locale (the "/settore/" segment). */
+export const JOB_MARKET_SECTOR_SEGMENT: Record<JobMarketSnapshotLocale, string> = {
+  it: 'settore',
+  en: 'sector',
+  de: 'branche',
+  fr: 'secteur',
+};
+
+/**
+ * Sector keys covered by the F4 per-sector snapshot pages (D-3A).
+ *
+ * These are the high-intent sector verticals for which we emit a dedicated
+ * hub under `/mercato-lavoro-ticino/settore/{slug}/`. The slug is locale-
+ * agnostic and identical in all 4 locales (keeps crawlable URLs stable
+ * across language switches and keeps the canonical structure predictable).
+ */
+export type JobMarketSectorKey =
+  | 'infermieri'
+  | 'educatori'
+  | 'case-anziani'
+  | 'sanita'
+  | 'amministrativo'
+  | 'vendite'
+  | 'finanza'
+  | 'informatica'
+  | 'retail'
+  | 'meccanica'
+  | 'edilizia'
+  | 'ristorazione'
+  | 'logistica'
+  | 'ingegneria';
+
+export const JOB_MARKET_SECTOR_KEYS: readonly JobMarketSectorKey[] = [
+  'infermieri',
+  'educatori',
+  'case-anziani',
+  'sanita',
+  'amministrativo',
+  'vendite',
+  'finanza',
+  'informatica',
+  'retail',
+  'meccanica',
+  'edilizia',
+  'ristorazione',
+  'logistica',
+  'ingegneria',
+] as const;
+
+/**
+ * Slug map per sector per locale. We intentionally keep the URL slug
+ * identical across all 4 locales (the slug lives inside
+ * `/mercato-lavoro-ticino/settore/<slug>/` IT → `.../branche/<slug>/` DE etc.,
+ * but the leaf slug itself stays in Italian for SEO continuity with the
+ * existing city + sector hubs under `/cerca-lavoro-ticino/<slug>/`).
+ */
+export const JOB_MARKET_SECTOR_SLUG: Record<JobMarketSectorKey, string> = {
+  infermieri: 'infermieri',
+  educatori: 'educatori',
+  'case-anziani': 'case-anziani',
+  sanita: 'sanita',
+  amministrativo: 'amministrativo',
+  vendite: 'vendite',
+  finanza: 'finanza',
+  informatica: 'informatica',
+  retail: 'retail',
+  meccanica: 'meccanica',
+  edilizia: 'edilizia',
+  ristorazione: 'ristorazione',
+  logistica: 'logistica',
+  ingegneria: 'ingegneria',
+};
+
+/** Human-friendly sector name per locale (used in H1, breadcrumbs, intro). */
+export const JOB_MARKET_SECTOR_DISPLAY: Record<
+  JobMarketSnapshotLocale,
+  Record<JobMarketSectorKey, string>
+> = {
+  it: {
+    infermieri: 'infermieri',
+    educatori: 'educatori',
+    'case-anziani': 'case anziani',
+    sanita: 'sanità',
+    amministrativo: 'impiegati amministrativi',
+    vendite: 'addetti alle vendite',
+    finanza: 'finanza',
+    informatica: 'informatica',
+    retail: 'retail',
+    meccanica: 'meccanica',
+    edilizia: 'edilizia',
+    ristorazione: 'ristorazione',
+    logistica: 'logistica',
+    ingegneria: 'ingegneria',
+  },
+  en: {
+    infermieri: 'nurses',
+    educatori: 'educators',
+    'case-anziani': 'elderly care',
+    sanita: 'healthcare',
+    amministrativo: 'administrative staff',
+    vendite: 'sales',
+    finanza: 'finance',
+    informatica: 'IT',
+    retail: 'retail',
+    meccanica: 'mechanical engineering',
+    edilizia: 'construction',
+    ristorazione: 'hospitality',
+    logistica: 'logistics',
+    ingegneria: 'engineering',
+  },
+  de: {
+    infermieri: 'Pflegepersonal',
+    educatori: 'Erzieher',
+    'case-anziani': 'Altenpflege',
+    sanita: 'Gesundheitswesen',
+    amministrativo: 'Verwaltung',
+    vendite: 'Verkauf',
+    finanza: 'Finanzen',
+    informatica: 'IT',
+    retail: 'Einzelhandel',
+    meccanica: 'Maschinenbau',
+    edilizia: 'Bauwesen',
+    ristorazione: 'Gastronomie',
+    logistica: 'Logistik',
+    ingegneria: 'Ingenieurwesen',
+  },
+  fr: {
+    infermieri: 'infirmiers',
+    educatori: 'éducateurs',
+    'case-anziani': 'maisons de retraite',
+    sanita: 'santé',
+    amministrativo: 'personnel administratif',
+    vendite: 'ventes',
+    finanza: 'finance',
+    informatica: 'informatique',
+    retail: 'commerce de détail',
+    meccanica: 'mécanique',
+    edilizia: 'construction',
+    ristorazione: 'restauration',
+    logistica: 'logistique',
+    ingegneria: 'ingénierie',
+  },
+};
+
+/**
+ * Case-insensitive multilingual keyword patterns used to filter the live
+ * `jobs.json` snapshot down to a sector's matching postings. Mirrors the
+ * pattern shape of `jobSectorLanding.ts::SECTOR_MATCHERS` but expands the
+ * coverage beyond the 3 existing sector hubs.
+ */
+export const JOB_MARKET_SECTOR_MATCHERS: Record<JobMarketSectorKey, RegExp> = {
+  infermieri:
+    /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
+  educatori:
+    /educator|educatric|educatrice|educatori|erzieher|erzieherin|p[aä]dagog|social[ -]pedagog|[eé]ducateur|[eé]ducatrice|educational[ -]assistant|operatore[ -]socio[ -]educativ/i,
+  'case-anziani':
+    /casa[ -]anzian|case[ -]anzian|altenpfleg|altersheim|pflegeheim|residenza[ -]per[ -]anzian|residenza[ -]anzian|elderly[ -]care|nursing[ -]home|maison[ -]de[ -]retraite|ehpad/i,
+  sanita:
+    /sanit[aà]|sanitari|ospedal|clinica|medico|medic[ao]|healthcare|hospital|clinic|physician|krankenhaus|klinik|arzt|m[eé]dical|m[eé]decin|hopital|h[oô]pital/i,
+  amministrativo:
+    /amministrativ|impiegat[ao][ -]amministrativ|administrative|secretary|secretar[iy]|back[ -]office|verwaltung|sachbearbeiter|sekret[aä]r|administratif|administrative|secr[eé]taire/i,
+  vendite:
+    /vendita|vendite|commercial|account[ -]manager|sales|sales[ -]representative|verkauf|verk[aä]ufer|au[ßs]endienst|vente|vendeur|commercial/i,
+  finanza:
+    /finanza|finanziari|contabil|ragioneria|controller|accountant|bookkeeper|finance|financial|buchhalt|finanzen|controlling|finance|comptabl|comptabilit[eé]/i,
+  informatica:
+    /informatica|software|sviluppator|programmatore|developer|engineer|devops|frontend|backend|fullstack|it[ -]support|informatik|softwareentwickler|programmierer|informatique|d[eé]veloppeur|ing[eé]nieur[ -]logiciel/i,
+  retail:
+    /retail|cassier|commess[ao]|addetto[ -]vendita|shop[ -]assistant|store[ -]manager|einzelhandel|verk[aä]ufer|kassier|magasin|caissi[eè]re/i,
+  meccanica:
+    /meccanic|meccanico|manutentor|tornitor|fresator|mechanical|maintenance[ -]technician|cnc|mechaniker|maschinenbau|wartungstechniker|m[eé]canicien|m[eé]canique|maintenance/i,
+  edilizia:
+    /edile|edilizia|muratore|carpentiere|capocantiere|construction|site[ -]manager|builder|bau|maurer|bauleiter|polier|construction|ma[çc]on|chef[ -]de[ -]chantier/i,
+  ristorazione:
+    /ristorazion|cuoc[ao]|chef|cameriere|cameriera|barista|pizzaiolo|hospitality|waiter|waitress|gastronomie|koch|kellner|kellnerin|restauration|cuisinier|serveur|serveuse/i,
+  logistica:
+    /logistic|magazzinier|autista|driver|warehouse|forklift|logistik|fahrer|lagerist|staplerfahrer|logistique|chauffeur|magasinier|cariste/i,
+  ingegneria:
+    /ingegner|ingegneri|engineer[- ]?\b|engineering|bauingenieur|elektroingenieur|maschineningenieur|ingenieur|ing[eé]nieur|ing[eé]nierie/i,
+};
+
 /** Month names per locale, 1-indexed (index 0 is a placeholder). */
 export const JOB_MARKET_MONTH_NAMES: Record<
   JobMarketSnapshotLocale,
@@ -222,6 +403,59 @@ export function buildMonthlyPath(
   ]);
 }
 
+/**
+ * Build the canonical path for a per-sector snapshot page (D-3A).
+ *
+ *   IT → /mercato-lavoro-ticino/settore/infermieri/
+ *   EN → /en/ticino-job-market/sector/infermieri/
+ *   DE → /de/tessiner-arbeitsmarkt/branche/infermieri/
+ *   FR → /fr/marche-travail-tessin/secteur/infermieri/
+ */
+export function buildSectorSnapshotPath(
+  locale: JobMarketSnapshotLocale,
+  sector: JobMarketSectorKey,
+): string {
+  const slug = JOB_MARKET_SECTOR_SLUG[sector];
+  if (!slug) {
+    throw new RangeError(`unknown sector key: ${sector}`);
+  }
+  return joinPath([
+    JOB_MARKET_LOCALE_PREFIX[locale],
+    JOB_MARKET_SECTION_SLUG[locale],
+    JOB_MARKET_SECTOR_SEGMENT[locale],
+    slug,
+  ]);
+}
+
+/**
+ * Parse a sector-snapshot path into `{ locale, sector }` or return null.
+ * Accepts paths with or without a trailing slash.
+ */
+export function parseSectorSnapshotPath(
+  pathname: string,
+): { locale: JobMarketSnapshotLocale; sector: JobMarketSectorKey } | null {
+  if (!pathname) return null;
+  const leading = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  const normalised = leading.endsWith('/') ? leading : `${leading}/`;
+  const parts = normalised.split('/').filter(Boolean);
+  if (parts.length < 3) return null;
+  let idx = 0;
+  let locale: JobMarketSnapshotLocale = 'it';
+  if (parts[0] === 'en' || parts[0] === 'de' || parts[0] === 'fr') {
+    locale = parts[0];
+    idx = 1;
+  }
+  if (parts[idx] !== JOB_MARKET_SECTION_SLUG[locale]) return null;
+  if (parts[idx + 1] !== JOB_MARKET_SECTOR_SEGMENT[locale]) return null;
+  const leaf = parts[idx + 2];
+  if (!leaf) return null;
+  const match = (JOB_MARKET_SECTOR_KEYS as ReadonlyArray<JobMarketSectorKey>).find(
+    (s) => JOB_MARKET_SECTOR_SLUG[s] === leaf,
+  );
+  if (!match) return null;
+  return { locale, sector: match };
+}
+
 // ── Route enumeration ─────────────────────────────────────────
 
 /**
@@ -272,6 +506,20 @@ export function isJobMarketSnapshotPath(pathname: string): boolean {
       }
     }
     if (allMonthNames.has(monthName)) return true;
+  }
+  // Sector form: /<sectorSegment>/<sector-slug>/ (D-3A)
+  // The section at parts[idx] is locale-matched above; sub must be the
+  // localised sector segment and parts[idx+2] the sector leaf.
+  const expectedSectorSeg = (JOB_MARKET_SNAPSHOT_LOCALES as ReadonlyArray<JobMarketSnapshotLocale>)
+    .find((loc) => JOB_MARKET_SECTION_SLUG[loc] === sectionCandidate);
+  if (expectedSectorSeg && sub === JOB_MARKET_SECTOR_SEGMENT[expectedSectorSeg]) {
+    const leaf = parts[idx + 2];
+    if (leaf) {
+      const known = (JOB_MARKET_SECTOR_KEYS as ReadonlyArray<JobMarketSectorKey>).some(
+        (s) => JOB_MARKET_SECTOR_SLUG[s] === leaf,
+      );
+      if (known) return true;
+    }
   }
   return false;
 }
