@@ -9,6 +9,7 @@
  * Usage:
  *   node scripts/load-rc-env.mjs && node scripts/sync-gsc-orphans.mjs
  *   node scripts/sync-gsc-orphans.mjs --dry-run
+ *   node scripts/sync-gsc-orphans.mjs --days=480   # custom lookback window
  *
  * Environment variables (required):
  *   GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN
@@ -16,6 +17,10 @@
  * Optional env flags:
  *   ENABLE_URL_INSPECTION=1   Enable URL Inspection API enrichment (max 500/run)
  *   ENABLE_WAYBACK=1          Enable Wayback Machine enrichment (max 200/run)
+ *
+ * CLI flags:
+ *   --dry-run      Skip all file writes
+ *   --days=N       Override GSC lookback window (default 480, max 540 — GSC retains ~16 months)
  */
 
 import fs from 'node:fs';
@@ -28,6 +33,20 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://frontaliereticino.ch';
 let resolvedSiteUrl = SITE_URL;
 const DRY_RUN = process.argv.includes('--dry-run');
+
+// Window configuration — GSC retains Search Analytics for ~16 months (~480 days).
+// Default to 480; allow override via --days=N for shorter ad-hoc runs.
+const DEFAULT_WINDOW_DAYS = 480;
+function parseWindowDays() {
+  const flag = process.argv.find((a) => a.startsWith('--days='));
+  if (flag) {
+    const n = parseInt(flag.slice('--days='.length), 10);
+    if (Number.isFinite(n) && n > 0 && n <= 540) return n;
+    console.warn(`⚠️  Invalid --days value; falling back to ${DEFAULT_WINDOW_DAYS}`);
+  }
+  return DEFAULT_WINDOW_DAYS;
+}
+const WINDOW_DAYS = parseWindowDays();
 
 // ── Env ──────────────────────────────────────────────────
 const GSC_CLIENT_ID = process.env.GSC_CLIENT_ID || '';
@@ -163,8 +182,9 @@ async function fetchGscJobUrls(accessToken) {
   console.log('🔍 Step 1: Querying GSC Search Analytics API...');
 
   const endDate = new Date().toISOString().slice(0, 10);
-  const startMs = Date.now() - 18 * 30 * 24 * 60 * 60 * 1000; // ~18 months
+  const startMs = Date.now() - WINDOW_DAYS * 24 * 60 * 60 * 1000;
   const startDate = new Date(startMs).toISOString().slice(0, 10);
+  console.log(`  📅 Window: ${startDate} → ${endDate} (${WINDOW_DAYS} days)`);
 
   /** @type {Map<string, { slug: string, locale: string, path: string, queries: {query: string, clicks: number, impressions: number}[], totalImpressions: number, totalClicks: number }>} */
   const slugMap = new Map();
