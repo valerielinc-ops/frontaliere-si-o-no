@@ -1,56 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-21T10:32:26.934Z",
-  "total": 4,
+  "generatedAt": "2026-04-21T22:07:54.612Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 2,
-  "durationMs": 16022,
-  "avgDurationMs": 16022,
+  "durationMs": 18971,
+  "avgDurationMs": 18971,
   "durationHistory": [
-    16022
+    18971
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "HR Business Partner",
-      "slug": "hr-business-partner-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7410901-hr-business-partner",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7410901-hr-business-partner",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-03-18",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "id": "mks-pamp-7eeb6ae36a39",
-      "firstSeenAt": "2026-04-13T22:10:50.570Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "title": "Metal &amp; Inventory Controller",
       "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
@@ -89,7 +52,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "HR Business Partner",
+      "slug": "risorse-umane-business-partner-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7410901-hr-business-partner",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7410901-hr-business-partner",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "hr",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-03-18",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "id": "mks-pamp-7eeb6ae36a39",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
