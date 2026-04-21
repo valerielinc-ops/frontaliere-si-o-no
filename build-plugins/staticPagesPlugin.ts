@@ -707,7 +707,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
 
  // Build a map: canonicalPath → { title, desc, ogTitle, ogDesc, structuredData }
- interface SeoEntry { title: string; desc: string; ogT: string; ogD: string; sd?: string }
+ interface SeoEntry { title: string; desc: string; ogT: string; ogD: string; h1?: string; sd?: string }
  const seoMap = new Map<string, SeoEntry>();
 
  // Helper: extract balanced braces/brackets from a string starting at `pos`
@@ -856,6 +856,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const desc = matchStr('description');
  const ogT = matchStr('ogTitle') || title;
  const ogD = matchStr('ogDescription') || desc;
+ const h1 = matchStr('h1'); // H.6: optional H1 override
 
  if (title) {
  // Extract structuredData if present in this entry block
@@ -895,7 +896,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
  }
- seoMap.set(cp, { title, desc, ogT, ogD, sd });
+ seoMap.set(cp, { title, desc, ogT, ogD, h1: h1 || undefined, sd });
  }
  }
 
@@ -1641,9 +1642,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Per la Svizzera: imposta alla fonte (Quellensteuer), procedura di rettifica entro il 31 marzo, tassazione ordinaria ulteriore (TDR) sopra 120.000 CHF, deduzioni pilastro 3a e LPP, statuto di quasi-residente e compilazione con il software eTax Ticino.`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/quiz-fiscale')) {
+ // H.5: Quiz fiscale — espansione 500+ parole con FAQ, esempi e fonti
  editorialBlocks.push(
- `Il quiz fiscale settimanale mette alla prova le conoscenze del frontaliere su tasse, deduzioni, permessi e normative. Ogni settimana vengono selezionate 5 domande dal pool: fiscalità svizzera e italiana, contributi AVS/LPP, assicurazione sanitaria LAMal e permessi di lavoro G/B.`,
- `Le domande coprono scenari reali: aliquote dell'imposta alla fonte cantonale, franchigia IRPEF per nuovi frontalieri, deduzioni del pilastro 3a, obblighi per la disoccupazione e lo statuto di quasi-residente. Il punteggio contribuisce alla gamification e sblocca achievement specifici.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come funziona il quiz fiscale frontalieri 2026</h2>`,
+ `Il quiz fiscale settimanale mette alla prova le conoscenze del frontaliere su tasse, deduzioni, permessi e normative in vigore nel 2026. Ogni settimana vengono selezionate 5 domande dal pool complessivo di 20 item, estratte in modo pseudo-casuale per coprire equamente quattro aree tematiche: fiscalità svizzera (imposta alla fonte Ticino, tabelle A/B/C/H), fiscalità italiana (IRPEF, franchigia 10.000 EUR, quadro CE), contributi sociali (AVS 5,3%, AC 1,1%, LPP variabile per età) e assicurazioni/permessi (LAMal, diritto d'opzione, permesso G vs B).`,
+ `Le 20 domande del pool sono state redatte da consulenti specializzati in fiscalità transfrontaliera e validate contro testi normativi: Accordo CH-IT del 23 dicembre 2020 (RS 0.642.045.43), Legge federale sull'imposta federale diretta (LIFD), Circolari dell'Agenzia delle Entrate italiana e direttive dell'Amministrazione cantonale delle contribuzioni Ticino. Il quiz è gratuito, richiede circa 6-8 minuti e termina con un punteggio finale (5/5, 4/5, etc.) accompagnato dalla spiegazione dettagliata di ciascuna risposta.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cosa imparerai — esempi di domande</h2>`,
+ `Ogni domanda è costruita su uno scenario reale del frontaliere. Esempi: (1) "Un nuovo frontaliere residente a Como con reddito lordo CHF 72.000 quanto paga di imposta alla fonte Ticino 2026 con tabella A0N?" — risposta con aliquota effettiva applicata e riferimento alla tabella ufficiale; (2) "La franchigia IRPEF di 10.000 EUR si applica al lordo o al netto del reddito svizzero?" — risposta con chiarimento sul reddito da lavoro dipendente e trattamento in dichiarazione; (3) "Quando si può richiedere la rettifica dell'imposta alla fonte (TDR) in Svizzera?" — scadenza 31 marzo e requisiti.`,
+ `Le risposte spiegate includono il percorso di calcolo passo-passo, il riferimento normativo preciso (articolo di legge o circolare), e collegamenti diretti agli <a href="/tasse-e-pensione/">simulatori fiscali del sito</a> per applicare subito il concetto alla propria situazione. Il quiz è uno strumento didattico complementare al <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> e alla <a href="/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/">guida completa lavoro frontaliere</a>.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Punteggio, gamification e aggiornamenti</h2>`,
+ `Il punteggio contribuisce al sistema di gamification del sito: 5/5 sblocca il badge "Esperto Fiscale Frontaliere", 4/5 sblocca "Frontaliere Informato", 3/5 equivale a "In formazione". I badge sono visibili nel profilo e possono essere condivisi sui social. Le domande vengono ruotate trimestralmente per riflettere aggiornamenti normativi: adeguamenti delle tabelle d'imposta alla fonte, variazione della franchigia, modifiche alle aliquote AVS/LPP e nuove interpretazioni giurisprudenziali sul concetto di residenza fiscale CH-IT.`,
+ `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonti normative: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a> · Accordo CH-IT 23.12.2020 (RS 0.642.045.43)</p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/calcola-ristorni')) {
  editorialBlocks.push(
@@ -1755,6 +1764,19 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Ogni sezione è pensata per essere consultabile in modo autonomo e contiene link diretti a modulistica ufficiale, uffici competenti e strumenti di calcolo per verificare immediatamente le implicazioni pratiche.`,
  `Le guide coprono l'intero ciclo di vita del frontaliere: dal primo impiego al pensionamento, passando per disoccupazione, trasferimento auto, valichi di confine e maternità/paternità transfrontaliera.`,
  `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
+ );
+ } else if (canonicalPath === '/glossario-frontaliere/') {
+ // H.5: Landing del glossario — intro 300w + 3 FAQ prima della lista
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">A cosa serve un glossario per frontalieri Svizzera-Italia</h2>`,
+ `Il glossario frontaliere raccoglie 52 definizioni essenziali per chi lavora in Svizzera (Canton Ticino) e vive in Italia. Ogni voce affronta un termine tecnico che un frontaliere incontra in busta paga, contratto di lavoro, dichiarazione dei redditi o pratica amministrativa — dalle sigle fiscali (AVS, LPP, LAMal, IRPEF, TUIR) ai documenti ufficiali (Lohnausweis, Modello 730, CU, Quellensteuerausweis), fino ai concetti giuridici chiave dell'Accordo bilaterale 2020 (residenza fiscale, franchigia 10.000 EUR, tassazione concorrente).`,
+ `Le definizioni sono verificate contro fonti ufficiali: Amministrazione federale delle contribuzioni (AFC), Ufficio federale delle assicurazioni sociali (UFAS), Segreteria di Stato della migrazione (SEM) per la parte svizzera; Agenzia delle Entrate, INPS e testo dell'Accordo italo-svizzero del 23 dicembre 2020 (L. 83/2023) per la parte italiana. Ogni voce specifica l'anno di validità delle cifre riportate (aliquote, soglie, tetti) perché molti parametri cambiano annualmente — ad esempio il salario coordinato LPP (CHF 26.460-90.720 nel 2026), il massimale deducibile del pilastro 3a (CHF 7.258 per dipendenti LPP nel 2026), o la franchigia IRPEF per nuovi frontalieri (EUR 10.000 dal 2024).`,
+ `Il glossario è uno strumento trasversale, collegato a tutti gli strumenti del sito: il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> usa le voci AVS, AC, LPP e imposta alla fonte per spiegare ogni trattenuta; la <a href="/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/">guida completa 2026</a> rimanda al glossario per ogni sigla introdotta; il <a href="/domande-frequenti-frontalieri/">FAQ frontalieri</a> usa lo stesso vocabolario. Passare da definizione ad applicazione pratica richiede un solo clic.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">FAQ sul glossario frontaliere</h2>`,
+ `<p><strong>Perché alcune sigle hanno nomi diversi in italiano, tedesco e francese?</strong> La Svizzera ha quattro lingue ufficiali e ogni sigla ha una versione per lingua: AVS (it) = AHV (de) = AVS (fr), LPP (it) = BVG (de) = LPP (fr), LAMal (it/fr) = KVG (de). Sul certificato di salario (Lohnausweis) tedesco trovi AHV, NBU, KTG, BVG. Il glossario riporta tutte le varianti perché molti datori di lavoro ticinesi usano la terminologia tedesca anche nelle buste paga italiane.</p>`,
+ `<p><strong>Il glossario include anche i termini italiani non presenti in Svizzera?</strong> Sì: IRPEF, addizionale regionale, addizionale comunale, quadro CE, quadro RW, CU (Certificazione Unica), 730 e Modello Redditi PF sono termini italiani fondamentali per il frontaliere, perché la dichiarazione in Italia resta obbligatoria per i nuovi frontalieri assunti dal 17 luglio 2023. Vedi la <a href="/tasse-e-pensione/dichiarazione-redditi/">guida dichiarazione dei redditi frontaliere</a>.</p>`,
+ `<p><strong>Con quale frequenza viene aggiornato?</strong> Le cifre numeriche (aliquote, franchigie, massimali) vengono riviste annualmente a gennaio. I cambiamenti normativi strutturali (come il Nuovo Accordo 2020) vengono incorporati entro 30 giorni dalla pubblicazione ufficiale. Le nuove voci vengono aggiunte in base alle ricerche più frequenti degli utenti e alle novità normative segnalate dai patronati OCST, SIT e Unia Ticino.</p>`,
+ `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UFAS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
  } else if (canonicalPath.startsWith('/glossario-frontaliere/')) {
  editorialBlocks.push(
@@ -2161,19 +2183,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Use border outline (not background:#e2e8f0) to reserve space without triggering skeleton-dominated detection
  const sp = 'border:1px solid #e2e8f0;border-radius:12px;background:#ffffff';
  const skeletonAnim = '';
+ // H.6: H1 differentiation from title — prefer seoData.h1 override when set, fallback to ogT
+ const h1Text = seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.ogT;
  if (comparatorSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (fiscoSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="display:flex;gap:.5rem;margin-bottom:1.5rem">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="display:flex;gap:.5rem;margin-bottom:1.5rem">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
  const heroImg = blogHeroImageStatic ? `<img src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" style="width:100%;height:16rem;object-fit:cover;border-radius:12px;margin-bottom:1.5rem" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
  // Heights match AdSenseBanner's placeholderMinHeight values.
  const adPlaceholder = `<div style="min-height:180px;contain:layout;overflow:hidden;margin:1rem 0" aria-hidden="true"></div>`;
  rootHtml = isBlogDetailPage
- ? `<div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p><div style="margin-top:.75rem;font-size:.95rem;line-height:1.7;color:#334155">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`
+ ? `<div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p><div style="margin-top:.75rem;font-size:.95rem;line-height:1.7;color:#334155">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`
  : (() => {
  // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
  const blogListSlug = firstSeg;
@@ -2209,15 +2233,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const dateStr = new Date(art.date).toLocaleDateString(cardLocale === 'it' ? 'it-IT' : cardLocale, { day: 'numeric', month: 'short', year: 'numeric' });
  return `<a href="${artPath}" style="display:block;text-decoration:none;color:inherit;${sp};overflow:hidden"><img src="${art.image}" alt="${title}" width="400" height="200" style="width:100%;height:10rem;object-fit:cover"${idx < 2 ? '' : ' loading="lazy"'}><div style="padding:.75rem"><span style="display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700;${catColor}">${esc(catLabel)}</span><span style="font-size:.625rem;color:#94a3b8;margin-left:.5rem">${dateStr}</span><h3 style="font-size:.875rem;font-weight:700;color:#334155;margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${title}</h3>${desc ? `<p style="font-size:.75rem;color:#64748b;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>` : ''}</div></a>`;
  }).join('');
- return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 style="font-size:1.1rem;font-weight:700;margin:1.5rem 0 1rem;color:#1e293b">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 style="font-size:1.1rem;font-weight:700;margin:1.5rem 0 1rem;color:#1e293b">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  })();
  } else if (statsSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (vitaSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:10rem"></div><div style="${sp};height:10rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:10rem"></div><div style="${sp};height:10rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else {
  // Default: calculator-like layout
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  }
 
  // ── SpeakableSpecification for all content pages ──
@@ -2269,7 +2293,7 @@ ${hrefTags}
  <body>
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
  <main>
- <h1>${esc(seoData.title.replace(' | Frontaliere Ticino', ''))}</h1>
+ <h1>${esc((seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.title).replace(' | Frontaliere Ticino', ''))}</h1>
  <p class="byline">By <a href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a> · Last updated: <time datetime="2026-04-10">April 10, 2026</time></p>
  <div>${editorialHtml}</div>
  </main>

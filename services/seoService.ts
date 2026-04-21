@@ -48,6 +48,8 @@ export interface SEOMetadata {
  ogDescription: string;
  canonicalPath: string;
  structuredData?: Record<string, any> | Record<string, any>[];
+ /** Optional H1 override — if set, static HTML renders this instead of ogTitle (H.6 SEO). */
+ h1?: string;
 }
 
 const BASE_URL = 'https://frontaliereticino.ch';

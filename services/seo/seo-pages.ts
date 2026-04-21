@@ -2724,7 +2724,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  quiz: {
- title: 'Quiz Fiscale Frontalieri | Testa le Tue Conoscenze',
+ title: 'Quiz Fiscale Frontalieri 2026 | Testa le Conoscenze',
+ h1: 'Quiz fiscale frontalieri 2026 — 20 domande sulle tasse CH-IT con risposte spiegate',
  description: 'Quiz settimanale sulla fiscalità transfrontaliera Svizzera-Italia. Verifica le tue conoscenze su tasse, deduzioni, permessi e normative per frontalieri in.',
  keywords: 'quiz frontalieri, test fiscale, quiz tasse svizzera, quiz permesso G, frontalieri ticino quiz, test conoscenze frontaliere',
  ogTitle: 'Quiz Fiscale Frontalieri | Testa le Tue Conoscenze',
@@ -2892,7 +2893,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── Glossario SEO ──────────────────────────────────────────────────────,
 
  glossario: {
- title: 'Glossario Frontaliere | 52 Termini Spiegati',
+ title: 'Glossario Frontaliere 2026 | 52 Termini CH-IT',
+ h1: 'Glossario frontaliere Svizzera-Italia 2026 — 52 termini fiscali, previdenziali e sanitari spiegati',
  description: 'Glossario completo per frontalieri: 52 termini fiscali, previdenziali, assicurativi e legali spiegati in modo semplice. AVS, LPP, LAMal, imposta alla.',
  keywords: 'glossario frontaliere, termini fiscali svizzera, avs significato, lpp secondo pilastro, lamal frontaliere, imposta alla fonte spiegazione, irpef frontaliere, glossario lavoro svizzera',
  ogTitle: 'Glossario Frontaliere | 52 Termini Spiegati',
