@@ -1,8 +1,12 @@
 import React, { Suspense } from 'react';
+import { Fuel, Heart, TrendingUp } from 'lucide-react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation } from '@/services/i18n';
 import { useNavigation } from '@/services/NavigationContext';
 import DataFreshness from '@/components/shared/DataFreshness';
+import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
+import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
+import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
@@ -17,8 +21,41 @@ const MortgageComparison = lazyRetry(() => import('@/components/comparators/Mort
 const FuelPriceStats = lazyRetry(() => import('@/components/pages/FuelPriceStats'));
 const HealthPremiumStats = lazyRetry(() => import('@/components/pages/HealthPremiumStats'));
 
+interface StatsSeoBannerProps {
+  readonly href: string;
+  readonly Icon: typeof Fuel;
+  readonly iconBgClass: string;
+  readonly iconColorClass: string;
+  readonly message: string;
+  readonly cta: string;
+  readonly ariaLabel: string;
+}
+
+function StatsSeoBanner({ href, Icon, iconBgClass, iconColorClass, message, cta, ariaLabel }: StatsSeoBannerProps) {
+  return (
+    <aside
+      aria-label={ariaLabel}
+      className="mb-4 rounded-xl border border-edge bg-surface px-4 py-3 flex items-start gap-3"
+      data-testid="stats-seo-banner"
+    >
+      <div className={`p-2 rounded-lg shrink-0 ${iconBgClass}`} aria-hidden="true">
+        <Icon size={18} className={iconColorClass} />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm text-body leading-snug m-0">{message}</p>
+        <a
+          href={href}
+          className="inline-block text-xs font-semibold text-accent hover:underline mt-1 no-underline"
+        >
+          {cta} →
+        </a>
+      </div>
+    </aside>
+  );
+}
+
 export default function StatsTabContent() {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const { statsSubTab } = useNavigation();
 
  return (
@@ -30,6 +67,40 @@ export default function StatsTabContent() {
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="stats" />
  </Suspense>
+ {/* Layer 2C — Internal linking: stats subtab banners pointing to static SEO pages */}
+ {statsSubTab === 'fuel-prices' && (
+ <StatsSeoBanner
+ href={buildFuelTodayPath(locale, 'diesel')}
+ Icon={Fuel}
+ iconBgClass="bg-warning-subtle"
+ iconColorClass="text-warning"
+ message={t('seoLinks.stats.fuelBanner')}
+ cta={t('seoLinks.stats.fuelBannerCta')}
+ ariaLabel={t('seoLinks.stats.fuelBannerCta')}
+ />
+ )}
+ {statsSubTab === 'health-premiums' && (
+ <StatsSeoBanner
+ href={buildHealthPremiumsCantonPath(locale, 'ticino')}
+ Icon={Heart}
+ iconBgClass="bg-success-subtle"
+ iconColorClass="text-success"
+ message={t('seoLinks.stats.healthBanner')}
+ cta={t('seoLinks.stats.healthBannerCta')}
+ ariaLabel={t('seoLinks.stats.healthBannerCta')}
+ />
+ )}
+ {statsSubTab === 'jobs-observatory' && (
+ <StatsSeoBanner
+ href={buildJobMarketHubPath(locale)}
+ Icon={TrendingUp}
+ iconBgClass="bg-accent-subtle"
+ iconColorClass="text-accent"
+ message={t('seoLinks.stats.jobsBanner')}
+ cta={t('seoLinks.stats.jobsBannerCta')}
+ ariaLabel={t('seoLinks.stats.jobsBannerCta')}
+ />
+ )}
  {statsSubTab === 'overview' ? (
  <StatsView />
  ) : statsSubTab === 'livability' ? (
