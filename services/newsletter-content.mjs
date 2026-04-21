@@ -593,11 +593,17 @@ export function buildSubjectPrompt(ctx) {
 /**
  * Fallback content when AI is unavailable.
  */
+// Evergreen fallbacks — used when AI subject generation fails or returns degenerate
+// output (empty, too short, emoji-only). Each MUST satisfy inlineQaCheck:
+//   - 10 <= length <= 60
+//   - no trailing "..." or "…"
+//   - non-empty word content (catches all-emoji/all-punct edge cases)
+// Validated by tests/newsletter-fallback-subjects.test.ts.
 export const FALLBACK_SUBJECT = {
   it: '\u26a1 Frontaliere: cambio, lavoro, zero fuffa',
-  en: '\u26a1 Your Monday briefing: rates, jobs',
-  de: '\u26a1 Dein Briefing: Kurs, Jobs, kein Quatsch',
-  fr: '\u26a1 Ton briefing: taux, emplois, z\u00e9ro blabla',
+  en: '\u26a1 Frontaliere: rates, jobs, no fluff',
+  de: '\u26a1 Frontaliere: Kurs, Jobs, kein Quatsch',
+  fr: '\u26a1 Frontaliere: taux, emplois, z\u00e9ro blabla',
 };
 
 export function getFallbackBriefing(locale, exchangeRate) {

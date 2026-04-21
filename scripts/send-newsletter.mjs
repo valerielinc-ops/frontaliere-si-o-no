@@ -413,6 +413,12 @@ async function generateAISubject(ctx) {
       { role: 'user', content: user },
     ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN });
     const raw = result.trim().replace(/^["']|["']$/g, '');
+    // Reject degenerate AI output (empty, too short, emoji-only) so the caller
+    // can fall back to FALLBACK_SUBJECT. Without this guard a 1-char emoji
+    // subject like "💼" sneaks past `subject || FALLBACK_SUBJECT[loc]` (truthy)
+    // and trips the inlineQaCheck `length < 10` gate, aborting the entire send.
+    // Require at least 10 chars AND a 3+ letter run to ensure real text.
+    if (raw.length < 10 || !/[\p{L}]{3,}/u.test(raw)) return null;
     // Ensure subject is a complete sentence — never truncate with ellipsis
     if (raw.length > 55) {
       // Too long — ask AI failed to respect limit, use as-is up to 55
@@ -420,7 +426,7 @@ async function generateAISubject(ctx) {
       const cutoff = raw.lastIndexOf(' ', 55);
       return cutoff > 30 ? raw.slice(0, cutoff) : raw.slice(0, 55);
     }
-    return raw || null;
+    return raw;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI subject failed:', e.message?.slice(0, 200));
     return null;
