@@ -1,0 +1,1599 @@
+/**
+ * Vite build plugin — emits static HTML for border-wait pages (F8).
+ *
+ * Reads a pre-snapshotted JSON state written by `scripts/snapshot-border-wait-
+ * history.mjs` (cron, daily 23:30 CET) so the plugin stays deterministic and
+ * doesn't hit Firestore at build time. If the snapshot files are missing, the
+ * plugin degrades gracefully and emits pages with the static `avgWait*` fallback
+ * from data/borderCrossings.ts plus a banner explaining that live data is
+ * temporarily unavailable.
+ *
+ * Page set (per build):
+ *   - /traffico-dogane/                                        root hub × 4 locales = 4
+ *   - /traffico-dogane/{region}/                               regional hubs × 4    = 8
+ *   - /traffico-dogane/{crossing}/oggi/                        24 × 4               = 96
+ *   - /traffico-dogane/{crossing}/{YYYY-MM}/ (top-5 past months)                    = 0 initially,
+ *                                                                                     grows progressively
+ *
+ * Each leaf page (≥400 words, hard-gated):
+ *   - Breadcrumb
+ *   - H1 + meta
+ *   - Live webcam (<figure>/<img loading="lazy" data-webcam-refresh>) when
+ *     data/borderCrossings.ts has a `webcams` entry for the crossing — always
+ *     with attribution + rel="nofollow noopener" on the source link
+ *   - Current status card with source badge (BAZG / TomTom / Google / static)
+ *   - Hourly SVG chart (today's pattern)
+ *   - Editorial best/worst hours paragraph auto-derived from the history
+ *   - 30-day weekly-pattern SVG
+ *   - Static crossing info (type, open24h, hours)
+ *   - Related-links block (shared helper, includes fuel-daily + weekly-
+ *     employers backlinks bidirectionally)
+ *   - FAQ (3-5 Q&A with JSON-LD FAQPage)
+ *   - JSON-LD: WebPage + Place (geo) + FAQPage + ImageObject when webcam present
+ *
+ * Env gate: `SKIP_BORDER_WAIT=1` to skip the plugin entirely (fast local builds).
+ */
+
+import type { Plugin } from 'vite';
+import fs from 'node:fs';
+import np from 'node:path';
+import {
+  ANALYTICS_SNIPPET,
+  BASE_URL,
+  FAVICON_LINKS,
+  MIN_INDEXABLE_WORDS,
+  countHtmlBodyWords,
+} from './constants';
+import { WriteCollector } from './batchWrite';
+import {
+  BORDER_WAIT_CROSSINGS,
+  BORDER_WAIT_LOCALES,
+  BORDER_WAIT_REGIONS,
+  BORDER_CROSSING_DISPLAY,
+  BORDER_REGION_DISPLAY,
+  BORDER_WAIT_SECTION,
+  BORDER_WAIT_LOCALE_PREFIX,
+  BORDER_WAIT_TODAY_SLUG,
+  CROSSING_TO_REGION,
+  CROSSING_TO_FUEL_ZONE,
+  CROSSING_TO_WEEKLY_CITY,
+  TOP_5_CROSSINGS,
+  buildArchivePath,
+  buildOggiPath,
+  buildRegionalHubPath,
+  buildRootHubPath,
+  type BorderCrossingRegion,
+  type BorderCrossingSlug,
+  type BorderWaitLocale,
+} from './borderWaitData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
+
+// ── Types ──────────────────────────────────────────────────────
+
+/** Source categories for a wait-time reading. */
+export type WaitSource = 'bazg' | 'tomtom' | 'google' | 'google-maps' | 'static';
+
+/** Shape of the "current snapshot" JSON written by scripts/snapshot-border-wait-history.mjs. */
+export interface BorderWaitCurrent {
+  updatedAt: string | null;
+  perCrossing: Partial<
+    Record<
+      BorderCrossingSlug,
+      {
+        waitTimeMinutes: number;
+        approachMinutes?: number;
+        totalCrossingMinutes?: number;
+        status?: 'green' | 'yellow' | 'red';
+        source: WaitSource;
+        lastUpdate: string;
+      }
+    >
+  >;
+}
+
+/** Shape of daily history file: per-crossing hour-bucketed aggregates. */
+export interface BorderWaitHistoryDay {
+  date: string; // YYYY-MM-DD
+  perCrossing: Partial<
+    Record<
+      BorderCrossingSlug,
+      Array<null | { min: number; avg: number; max: number; samples: number }>
+    >
+  >;
+}
+
+// ── Helpers ────────────────────────────────────────────────────
+
+function esc(s: unknown): string {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** Look up crossing static metadata from the registry (matches on slug). */
+function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined {
+  return borderCrossings.find(
+    (c) => slugifyName(c.name) === slug,
+  );
+}
+
+/**
+ * Mirror of functions/src/borderCrossingsData.js#slugifyCrossingName.
+ * Must stay in sync with that implementation — the Firestore document IDs
+ * depend on it.
+ * - Strips parentheses + their content (so "Gaggiolo (Cantello-Stabio)" → "gaggiolo")
+ * - Removes combining diacritics
+ * - Collapses non-alphanumerics into dashes
+ */
+function slugifyName(name: string): string {
+  return name
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .toLowerCase();
+}
+
+// Color tokens (semantic, no dark: prefixes — see CLAUDE.md)
+const COLOR_OK_BG = '#ecfdf5';
+const COLOR_OK_BORDER = '#86efac';
+const COLOR_OK_TEXT = '#047857';
+const COLOR_WARN_BG = '#fffbeb';
+const COLOR_WARN_BORDER = '#fde68a';
+const COLOR_WARN_TEXT = '#b45309';
+const COLOR_BAD_BG = '#fef2f2';
+const COLOR_BAD_BORDER = '#fecaca';
+const COLOR_BAD_TEXT = '#b91c1c';
+
+function statusColor(waitMinutes: number | null): {
+  bg: string;
+  border: string;
+  text: string;
+  label: 'ok' | 'warn' | 'bad';
+} {
+  if (waitMinutes === null || waitMinutes < 5) {
+    return { bg: COLOR_OK_BG, border: COLOR_OK_BORDER, text: COLOR_OK_TEXT, label: 'ok' };
+  }
+  if (waitMinutes < 15) {
+    return { bg: COLOR_WARN_BG, border: COLOR_WARN_BORDER, text: COLOR_WARN_TEXT, label: 'warn' };
+  }
+  return { bg: COLOR_BAD_BG, border: COLOR_BAD_BORDER, text: COLOR_BAD_TEXT, label: 'bad' };
+}
+
+// ── Localised copy ─────────────────────────────────────────────
+
+interface Copy {
+  leafH1: (crossing: string, date: string) => string;
+  rootH1: string;
+  regionalH1: (region: string) => string;
+  intro: (crossing: string, status: string, wait: string, date: string) => string;
+  paragraph: (crossing: string, direction: string, bestHour: string, worstHour: string) => string;
+  updatedLabel: string;
+  currentStatusLabel: string;
+  waitMinutesLabel: string;
+  approachLabel: string;
+  totalLabel: string;
+  sourceLabel: string;
+  sourceBazg: string;
+  sourceTomtom: string;
+  sourceGoogle: string;
+  sourceStatic: string;
+  hourlyTodayLabel: string;
+  weeklyPatternLabel: string;
+  bestHoursLabel: string;
+  worstHoursLabel: string;
+  infoValicoLabel: string;
+  webcamLabel: string;
+  webcamNote: string;
+  webcamSource: string;
+  faqTitle: string;
+  breadcrumbHome: string;
+  regionalLabelTicinoComo: string;
+  regionalLabelTicinoVarese: string;
+  noHistory: string;
+  staticFallbackBanner: string;
+  crossingTypeLabel: Record<'autostrada' | 'statale' | 'locale', string>;
+  open24h: string;
+  hoursLabel: string;
+  historicalAvg: string;
+  faq: Array<{ q: (crossing: string) => string; a: (crossing: string) => string }>;
+  rootIntro: string;
+  regionalIntro: (region: string, count: number) => string;
+}
+
+const COPY: Record<BorderWaitLocale, Copy> = {
+  it: {
+    leafH1: (c, d) => `Tempi attesa alla dogana ${c} — oggi ${d}`,
+    rootH1: 'Tempi di attesa alle dogane Ticino–Italia — live oggi',
+    regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
+    intro: (c, s, w, d) =>
+      `Aggiornamento del ${d}: il valico di ${c} presenta un'attesa ${s} di circa ${w}. Dati aggiornati ogni 15 minuti nelle ore di punta (06:00–10:00 e 16:00–20:00 CET) dalla nostra pipeline di monitoraggio.`,
+    paragraph: (c, direction, bestHour, worstHour) =>
+      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare (direzione ${direction}) è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in Italia dopo il lavoro, ricorda che il flusso serale inverte la direzione: tra le 17 e le 19 i valichi di Brogeda e Gaggiolo registrano tipicamente code nel senso opposto rispetto al mattino.`,
+    updatedLabel: 'Aggiornamento',
+    currentStatusLabel: 'Stato attuale',
+    waitMinutesLabel: 'Minuti di attesa',
+    approachLabel: 'Avvicinamento',
+    totalLabel: 'Totale',
+    sourceLabel: 'Fonte',
+    sourceBazg: 'Dato ufficiale Dogana Svizzera',
+    sourceTomtom: 'Stima TomTom (flusso veicolare)',
+    sourceGoogle: 'Stima Google Maps',
+    sourceStatic: 'Dati statistici — tempo reale non disponibile',
+    hourlyTodayLabel: 'Andamento orario di oggi',
+    weeklyPatternLabel: 'Pattern settimanale (ultimi 30 giorni)',
+    bestHoursLabel: 'Orari migliori',
+    worstHoursLabel: 'Orari peggiori',
+    infoValicoLabel: 'Informazioni valico',
+    webcamLabel: 'Webcam live',
+    webcamNote:
+      "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
+    webcamSource: 'Fonte',
+    faqTitle: 'Domande frequenti',
+    breadcrumbHome: 'Home',
+    regionalLabelTicinoComo: 'Ticino–Como',
+    regionalLabelTicinoVarese: 'Ticino–Varese',
+    noHistory:
+      'Storico in accumulo: gli archivi mensili e i pattern di 30 giorni appariranno non appena ci saranno dati sufficienti.',
+    staticFallbackBanner:
+      'Dati statistici — il monitoraggio real-time per questo valico non è disponibile. I valori mostrati sono medie storiche basate su rilevazioni passate.',
+    crossingTypeLabel: { autostrada: 'Autostrada', statale: 'Strada statale', locale: 'Strada locale' },
+    open24h: 'Aperto 24h',
+    hoursLabel: 'Orari',
+    historicalAvg: 'Media storica',
+    faq: [
+      {
+        q: (c) => `A che ora passa meno coda a ${c}?`,
+        a: (c) =>
+          `In media a ${c} le code più brevi si registrano a metà mattina (10:00–12:00) e a metà pomeriggio (14:00–16:00). Fuori dalle fasce di punta pendolare (06:30–08:30 e 17:00–19:00), l'attesa scende spesso sotto i 5 minuti.`,
+      },
+      {
+        q: () => "Come vengono calcolati i minuti di attesa?",
+        a: () =>
+          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico lato italiano) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta e salvati in Firestore.",
+      },
+      {
+        q: () => 'Cosa fare se la coda supera i 40 minuti?',
+        a: () =>
+          "Se il valico principale è congestionato, valuta un valico locale alternativo nella stessa zona (Maslianico-Pizzamiglio al posto di Chiasso Centro, Crociale dei Mulini al posto di Brogeda, Clivio-Ligornetto al posto di Gaggiolo). I valichi locali hanno capacità minore ma spesso restano fluidi quando quelli principali saturano.",
+      },
+      {
+        q: () => 'Le webcam funzionano anche di notte?',
+        a: () =>
+          "Le webcam del Dipartimento del territorio del Canton Ticino sono attive 24/7 ma la visibilità notturna dipende dall'illuminazione del valico. Brogeda ha illuminazione costante, i valichi locali potrebbero risultare scuri nelle ore notturne.",
+      },
+    ],
+    rootIntro:
+      'Panoramica completa dei 24 valichi Ticino–Italia monitorati in tempo reale dalla nostra pipeline. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT). I valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti — ideali per chi vuole evitare la coda autostradale.',
+    regionalIntro: (r, count) =>
+      `La regione ${r} raggruppa ${count} valichi di frontiera Ticino–Italia. Questo hub mostra lo stato live di ciascun passaggio e consiglia quello con attesa minore in questo momento. Ricorda che gli orari di punta pendolare concentrano i volumi sui valichi autostradali principali (Chiasso-Brogeda in zona Como, Gaggiolo in zona Varese), mentre i valichi locali restano fluidi anche nelle ore di traffico intenso.`,
+  },
+  en: {
+    leafH1: (c, d) => `${c} border wait times — today ${d}`,
+    rootH1: 'Ticino–Italy border wait times — live today',
+    regionalH1: (r) => `${r} border crossings — live wait times`,
+    intro: (c, s, w, d) =>
+      `Updated ${d}: the ${c} crossing currently shows a ${s} wait of approximately ${w}. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline.`,
+    paragraph: (c, direction, bestHour, worstHour) =>
+      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit (${direction} direction) has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to Italy after work, remember that the evening flow reverses direction: between 17:00 and 19:00 the main commercial crossings typically show queues in the opposite direction compared to the morning.`,
+    updatedLabel: 'Updated',
+    currentStatusLabel: 'Current status',
+    waitMinutesLabel: 'Wait minutes',
+    approachLabel: 'Approach delay',
+    totalLabel: 'Total',
+    sourceLabel: 'Source',
+    sourceBazg: 'Authoritative: Swiss Customs',
+    sourceTomtom: 'TomTom estimate (traffic flow)',
+    sourceGoogle: 'Google Maps estimate',
+    sourceStatic: 'Historical averages — live data unavailable',
+    hourlyTodayLabel: "Today's hourly trend",
+    weeklyPatternLabel: 'Weekly pattern (last 30 days)',
+    bestHoursLabel: 'Best hours',
+    worstHoursLabel: 'Worst hours',
+    infoValicoLabel: 'Crossing info',
+    webcamLabel: 'Live webcam',
+    webcamNote:
+      'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
+    webcamSource: 'Source',
+    faqTitle: 'Frequently asked questions',
+    breadcrumbHome: 'Home',
+    regionalLabelTicinoComo: 'Ticino–Como',
+    regionalLabelTicinoVarese: 'Ticino–Varese',
+    noHistory:
+      'History is being collected: monthly archives and 30-day weekly patterns will appear as soon as enough data is available.',
+    staticFallbackBanner:
+      'Historical averages — real-time monitoring for this crossing is unavailable. Values shown are averages based on past observations.',
+    crossingTypeLabel: { autostrada: 'Motorway', statale: 'Main road', locale: 'Local road' },
+    open24h: 'Open 24/7',
+    hoursLabel: 'Hours',
+    historicalAvg: 'Historical average',
+    faq: [
+      {
+        q: (c) => `When is ${c} least congested?`,
+        a: (c) =>
+          `On average the ${c} crossing shows the shortest queues mid-morning (10:00–12:00) and mid-afternoon (14:00–16:00). Outside the commuter peaks (06:30–08:30 and 17:00–19:00), wait times often drop below 5 minutes.`,
+      },
+      {
+        q: () => 'How are wait minutes calculated?',
+        a: () =>
+          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing on the Italian side) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours and persisted to Firestore.',
+      },
+      {
+        q: () => 'What should I do if the queue exceeds 40 minutes?',
+        a: () =>
+          "If the main crossing is congested, consider a nearby local crossing: Maslianico-Pizzamiglio instead of Chiasso Centro, Crociale dei Mulini instead of Brogeda, Clivio-Ligornetto instead of Gaggiolo. Local crossings have lower capacity but often remain fluid when the main ones saturate.",
+      },
+      {
+        q: () => 'Do the webcams work at night?',
+        a: () =>
+          'The Canton of Ticino Territory Department webcams are active 24/7, but night-time visibility depends on how the crossing is lit. Brogeda has constant lighting; smaller local crossings may appear dark during night hours.',
+      },
+    ],
+    rootIntro:
+      'Complete overview of the 24 Ticino–Italy border crossings monitored in real time by our pipeline. Picking the right crossing can save you 20–30 minutes per trip. On weekdays Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction). Smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes — ideal if you want to avoid the motorway backlog.',
+    regionalIntro: (r, count) =>
+      `The ${r} region groups ${count} Ticino–Italy border crossings. This hub shows the live status of each and recommends the one with the shortest wait right now. Keep in mind that commuter peaks concentrate traffic on the main motorway crossings (Chiasso-Brogeda in the Como area, Gaggiolo in the Varese area), while local crossings stay fluid even during heavy commute hours.`,
+  },
+  de: {
+    leafH1: (c, d) => `Wartezeiten am Grenzübergang ${c} — heute ${d}`,
+    rootH1: 'Wartezeiten an den Tessiner Grenzen zu Italien — live heute',
+    regionalH1: (r) => `Grenzübergänge ${r} — Wartezeiten live`,
+    intro: (c, s, w, d) =>
+      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit von rund ${w}. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert.`,
+    paragraph: (c, direction, bestHour, worstHour) =>
+      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit (Richtung ${direction}) ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach Italien zurückkehrt, sollte beachten, dass der Verkehr die Richtung wechselt: Zwischen 17:00 und 19:00 Uhr weisen die Hauptübergänge Brogeda und Gaggiolo typischerweise Rückstaus in Gegenrichtung zum Morgen auf.`,
+    updatedLabel: 'Aktualisiert',
+    currentStatusLabel: 'Aktueller Stand',
+    waitMinutesLabel: 'Wartezeit (Min.)',
+    approachLabel: 'Annäherungszeit',
+    totalLabel: 'Gesamt',
+    sourceLabel: 'Quelle',
+    sourceBazg: 'Offizielle Daten Schweizer Zoll',
+    sourceTomtom: 'TomTom-Schätzung (Verkehrsfluss)',
+    sourceGoogle: 'Google-Maps-Schätzung',
+    sourceStatic: 'Historischer Durchschnitt — keine Live-Daten',
+    hourlyTodayLabel: 'Stundentrend heute',
+    weeklyPatternLabel: 'Wochenmuster (letzte 30 Tage)',
+    bestHoursLabel: 'Beste Uhrzeiten',
+    worstHoursLabel: 'Schlechteste Uhrzeiten',
+    infoValicoLabel: 'Grenzübergang-Info',
+    webcamLabel: 'Live-Webcam',
+    webcamNote:
+      'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
+    webcamSource: 'Quelle',
+    faqTitle: 'Häufige Fragen',
+    breadcrumbHome: 'Startseite',
+    regionalLabelTicinoComo: 'Tessin–Como',
+    regionalLabelTicinoVarese: 'Tessin–Varese',
+    noHistory:
+      'Historie wird aufgebaut: Monatliche Archive und 30-Tage-Wochenmuster erscheinen, sobald genügend Daten vorhanden sind.',
+    staticFallbackBanner:
+      'Historischer Durchschnitt — Echtzeit-Überwachung für diesen Übergang ist nicht verfügbar. Die angezeigten Werte sind Durchschnitte aus vergangenen Messungen.',
+    crossingTypeLabel: { autostrada: 'Autobahn', statale: 'Hauptstrasse', locale: 'Lokale Strasse' },
+    open24h: 'Rund um die Uhr geöffnet',
+    hoursLabel: 'Öffnungszeiten',
+    historicalAvg: 'Historischer Durchschnitt',
+    faq: [
+      {
+        q: (c) => `Wann ist die Wartezeit bei ${c} am kürzesten?`,
+        a: (c) =>
+          `Im Durchschnitt sind die Wartezeiten bei ${c} am späten Vormittag (10:00–12:00) und am Nachmittag (14:00–16:00) am kürzesten. Ausserhalb der Pendler-Stosszeiten (06:30–08:30 und 17:00–19:00) sinken die Werte häufig unter 5 Minuten.`,
+      },
+      {
+        q: () => 'Wie werden die Wartezeiten berechnet?',
+        a: () =>
+          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang auf italienischer Seite) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst und in Firestore persistiert.',
+      },
+      {
+        q: () => 'Was tun, wenn die Wartezeit 40 Minuten überschreitet?',
+        a: () =>
+          'Bei Staus am Hauptübergang lohnt ein nahegelegener lokaler Übergang: Maslianico-Pizzamiglio statt Chiasso Centro, Crociale dei Mulini statt Brogeda, Clivio-Ligornetto statt Gaggiolo. Lokale Übergänge haben geringere Kapazität, bleiben aber oft flüssig, wenn die Hauptübergänge überlastet sind.',
+      },
+      {
+        q: () => 'Funktionieren die Webcams auch nachts?',
+        a: () =>
+          'Die Webcams des Departements für Bau, Verkehr und Umwelt des Kantons Tessin sind rund um die Uhr aktiv, aber die Nachtqualität hängt von der Beleuchtung ab. Brogeda ist permanent beleuchtet, kleinere Übergänge können nachts dunkel erscheinen.',
+      },
+    ],
+    rootIntro:
+      'Vollständiger Überblick über die 24 Grenzübergänge Tessin–Italien, die unsere Pipeline in Echtzeit überwacht. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. An Werktagen sind Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet. Kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten — ideal, um den Autobahnstau zu umgehen.',
+    regionalIntro: (r, count) =>
+      `Die Region ${r} umfasst ${count} Grenzübergänge Tessin–Italien. Dieser Hub zeigt den Live-Status jedes einzelnen und empfiehlt denjenigen mit der kürzesten Wartezeit im Moment. Beachten Sie, dass Pendlerspitzen den Verkehr auf die grossen Autobahnübergänge konzentrieren (Chiasso-Brogeda im Raum Como, Gaggiolo im Raum Varese), während lokale Übergänge auch in Stosszeiten flüssig bleiben.`,
+  },
+  fr: {
+    leafH1: (c, d) => `Temps d'attente à la douane ${c} — aujourd'hui ${d}`,
+    rootH1: "Temps d'attente aux douanes Tessin–Italie — en direct aujourd'hui",
+    regionalH1: (r) => `Douanes ${r} — temps d'attente en direct`,
+    intro: (c, s, w, d) =>
+      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s} d'environ ${w}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET).`,
+    paragraph: (c, direction, bestHour, worstHour) =>
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez en Italie après le travail, notez que le flux du soir inverse la direction : entre 17h et 19h les postes principaux de Brogeda et Gaggiolo affichent généralement des files dans le sens opposé à celui du matin.`,
+    updatedLabel: 'Mis à jour',
+    currentStatusLabel: 'État actuel',
+    waitMinutesLabel: "Minutes d'attente",
+    approachLabel: 'Retard à l\'approche',
+    totalLabel: 'Total',
+    sourceLabel: 'Source',
+    sourceBazg: 'Données officielles Douane suisse',
+    sourceTomtom: 'Estimation TomTom (flux de trafic)',
+    sourceGoogle: 'Estimation Google Maps',
+    sourceStatic: 'Moyennes historiques — données temps réel indisponibles',
+    hourlyTodayLabel: "Tendance horaire d'aujourd'hui",
+    weeklyPatternLabel: 'Tendance hebdomadaire (30 derniers jours)',
+    bestHoursLabel: 'Meilleures heures',
+    worstHoursLabel: 'Pires heures',
+    infoValicoLabel: 'Informations du poste',
+    webcamLabel: 'Webcam en direct',
+    webcamNote:
+      "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
+    webcamSource: 'Source',
+    faqTitle: 'Questions fréquentes',
+    breadcrumbHome: 'Accueil',
+    regionalLabelTicinoComo: 'Tessin–Côme',
+    regionalLabelTicinoVarese: 'Tessin–Varèse',
+    noHistory:
+      "Historique en construction : archives mensuelles et tendances 30 jours apparaîtront dès que suffisamment de données seront collectées.",
+    staticFallbackBanner:
+      'Moyennes historiques — la surveillance en temps réel pour ce passage est indisponible. Les valeurs affichées sont des moyennes basées sur des observations passées.',
+    crossingTypeLabel: { autostrada: 'Autoroute', statale: 'Route principale', locale: 'Route locale' },
+    open24h: 'Ouvert 24h/24',
+    hoursLabel: 'Horaires',
+    historicalAvg: 'Moyenne historique',
+    faq: [
+      {
+        q: (c) => `Quelle est l'heure la moins chargée à ${c} ?`,
+        a: (c) =>
+          `En moyenne le poste de ${c} affiche les files les plus courtes en milieu de matinée (10:00–12:00) et en milieu d'après-midi (14:00–16:00). En dehors des heures de pointe pendulaire (06:30–08:30 et 17:00–19:00), l'attente tombe souvent sous les 5 minutes.`,
+      },
+      {
+        q: () => "Comment les minutes d'attente sont-elles calculées ?",
+        a: () =>
+          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste côté italien) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe et persistées dans Firestore.",
+      },
+      {
+        q: () => "Que faire si la file dépasse 40 minutes ?",
+        a: () =>
+          "Si le poste principal est congestionné, envisagez un passage local à proximité : Maslianico-Pizzamiglio au lieu de Chiasso Centro, Crociale dei Mulini au lieu de Brogeda, Clivio-Ligornetto au lieu de Gaggiolo. Les passages locaux ont une capacité moindre mais restent souvent fluides quand les grands saturent.",
+      },
+      {
+        q: () => "Les webcams fonctionnent-elles la nuit ?",
+        a: () =>
+          "Les webcams du Département du territoire du Canton du Tessin sont actives 24h/24, mais la visibilité nocturne dépend de l'éclairage du poste. Brogeda est éclairé en permanence, les plus petits postes peuvent être sombres la nuit.",
+      },
+    ],
+    rootIntro:
+      "Vue d'ensemble complète des 24 passages frontière Tessin–Italie surveillés en temps réel par notre pipeline. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. En semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT). Les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes — idéaux pour éviter l'embouteillage autoroutier.",
+    regionalIntro: (r, count) =>
+      `La région ${r} regroupe ${count} passages frontière Tessin–Italie. Ce hub montre l'état en direct de chacun et recommande celui avec la file la plus courte en ce moment. Notez que les pointes pendulaires concentrent le trafic sur les grands postes autoroutiers (Chiasso-Brogeda dans la zone Côme, Gaggiolo dans la zone Varèse), tandis que les passages locaux restent fluides même en heures chargées.`,
+  },
+};
+
+const LOCALE_OG: Record<BorderWaitLocale, string> = {
+  it: 'it_IT',
+  en: 'en_US',
+  de: 'de_DE',
+  fr: 'fr_FR',
+};
+
+// ── Inline JS cache-buster for webcam refresh ──────────────────
+//
+// ~300 bytes, zero deps. Reads `data-webcam-refresh` (ms) and
+// `data-webcam-base-url` off each <img>, refreshes `src` with a
+// cache-busting query param at the configured interval. No Intersection
+// Observer — the page exists specifically to show the webcam, so it's
+// already in the viewport.
+
+const WEBCAM_REFRESH_JS = `<script>(function(){var imgs=document.querySelectorAll('[data-webcam-refresh]');imgs.forEach(function(img){var base=img.getAttribute('data-webcam-base-url');var interval=parseInt(img.getAttribute('data-webcam-refresh'),10);if(!base||!interval||interval<10000)return;setInterval(function(){img.src=base+(base.indexOf('?')>-1?'&':'?')+'v='+Date.now();},interval);});})();</script>`;
+
+// ── Section renderers ─────────────────────────────────────────
+
+function renderWebcamSection(
+  crossingLabel: string,
+  webcams: readonly WebcamRef[],
+  copy: Copy,
+): string {
+  if (!webcams || webcams.length === 0) return '';
+  const figures = webcams
+    .map((w) => {
+      const refreshMs = w.refreshIntervalMs ?? 60000;
+      const cacheBusted = `${w.imageUrl}${w.imageUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
+      const licenseHtml = w.license
+        ? `<div style="margin-top:4px;font-size:12px;color:#64748b">${esc(w.license)}</div>`
+        : '';
+      return `<figure style="margin:0 0 16px;padding:0">
+    <img
+      src="${esc(cacheBusted)}"
+      alt="${esc(w.label)} — ${esc(copy.updatedLabel)} ${new Date().toISOString().slice(0, 16).replace('T', ' ')}"
+      width="640"
+      height="360"
+      loading="lazy"
+      data-webcam-refresh="${refreshMs}"
+      data-webcam-base-url="${esc(w.imageUrl)}"
+      onerror="var f=this.closest('figure');if(f){f.style.display='none';}"
+      style="width:100%;max-width:640px;height:auto;border-radius:12px;border:1px solid #e2e8f0;background:#f1f5f9"
+    >
+    <figcaption style="margin-top:8px;font-size:14px;color:#475569">
+      <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
+      <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="color:#1d4ed8;text-decoration:underline">${esc(w.sourceName)}</a>
+      ${licenseHtml}
+    </figcaption>
+  </figure>`;
+    })
+    .join('\n');
+
+  return `<section aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}" style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.webcamLabel)}</h2>
+    ${figures}
+    <p style="margin:8px 0 0;font-size:13px;color:#64748b;line-height:1.5">${esc(copy.webcamNote)}</p>
+  </section>`;
+}
+
+function sourceLabel(source: WaitSource, copy: Copy): string {
+  switch (source) {
+    case 'bazg':
+      return copy.sourceBazg;
+    case 'tomtom':
+      return copy.sourceTomtom;
+    case 'google':
+    case 'google-maps':
+      return copy.sourceGoogle;
+    case 'static':
+    default:
+      return copy.sourceStatic;
+  }
+}
+
+function renderHourlySvg(buckets: Array<null | { avg: number }>, copy: Copy): string {
+  // 24-bar SVG chart, width 600, height 140
+  const width = 600;
+  const height = 140;
+  const maxAvg = Math.max(1, ...buckets.map((b) => (b ? b.avg : 0)));
+  const barWidth = width / 24 - 2;
+  const bars = buckets
+    .map((b, i) => {
+      const x = i * (width / 24) + 1;
+      const h = b ? Math.max(2, (b.avg / maxAvg) * (height - 20)) : 2;
+      const y = height - h - 10;
+      const color = !b ? '#e2e8f0' : b.avg < 5 ? '#10b981' : b.avg < 15 ? '#f59e0b' : '#ef4444';
+      const label = b ? `${b.avg} min @ ${String(i).padStart(2, '0')}:00` : `${String(i).padStart(2, '0')}:00 — no data`;
+      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" fill="${color}" rx="2"><title>${esc(label)}</title></rect>`;
+    })
+    .join('');
+  const hourLabels = [0, 6, 12, 18, 23]
+    .map(
+      (h) =>
+        `<text x="${h * (width / 24) + barWidth / 2}" y="${height - 2}" font-size="10" fill="#64748b" text-anchor="middle">${String(h).padStart(2, '0')}</text>`,
+    )
+    .join('');
+  return `<svg role="img" aria-label="${esc(copy.hourlyTodayLabel)}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${width}px;height:auto;display:block">
+    ${bars}
+    ${hourLabels}
+  </svg>`;
+}
+
+function renderWeeklySvg(matrix: Array<Array<null | { avg: number }>>, copy: Copy): string {
+  // 7×24 heatmap, width 600, height 200
+  const width = 600;
+  const height = 200;
+  const cellW = width / 24;
+  const cellH = (height - 24) / 7;
+  let maxAvg = 1;
+  for (const row of matrix) for (const c of row) if (c && c.avg > maxAvg) maxAvg = c.avg;
+  const cells = matrix
+    .map((row, d) =>
+      row
+        .map((cell, h) => {
+          const x = h * cellW;
+          const y = d * cellH + 16;
+          let color = '#f1f5f9';
+          if (cell) {
+            const intensity = Math.min(1, cell.avg / maxAvg);
+            if (cell.avg < 5) color = `rgba(16,185,129,${0.3 + intensity * 0.7})`;
+            else if (cell.avg < 15) color = `rgba(245,158,11,${0.3 + intensity * 0.7})`;
+            else color = `rgba(239,68,68,${0.3 + intensity * 0.7})`;
+          }
+          const label = cell
+            ? `${['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'][d]} ${String(h).padStart(2, '0')}:00 — ${cell.avg} min`
+            : `${['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'][d]} ${String(h).padStart(2, '0')}:00 — n/a`;
+          return `<rect x="${x}" y="${y}" width="${cellW - 1}" height="${cellH - 1}" fill="${color}"><title>${esc(label)}</title></rect>`;
+        })
+        .join(''),
+    )
+    .join('');
+  const hourLabels = [0, 6, 12, 18, 23]
+    .map(
+      (h) =>
+        `<text x="${h * cellW + cellW / 2}" y="12" font-size="10" fill="#64748b" text-anchor="middle">${String(h).padStart(2, '0')}</text>`,
+    )
+    .join('');
+  return `<svg role="img" aria-label="${esc(copy.weeklyPatternLabel)}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${width}px;height:auto;display:block">
+    ${cells}
+    ${hourLabels}
+  </svg>`;
+}
+
+// ── Aggregators ───────────────────────────────────────────────
+
+function aggregateToday(
+  crossing: BorderCrossingSlug,
+  history: BorderWaitHistoryDay[],
+): Array<null | { avg: number; min: number; max: number; samples: number }> {
+  const today = new Date().toISOString().slice(0, 10);
+  const todayFile = history.find((h) => h.date === today);
+  const buckets: Array<null | { avg: number; min: number; max: number; samples: number }> =
+    Array(24).fill(null);
+  if (!todayFile) return buckets;
+  const series = todayFile.perCrossing[crossing];
+  if (!Array.isArray(series)) return buckets;
+  for (let i = 0; i < 24; i++) {
+    const cell = series[i];
+    if (cell && typeof cell.avg === 'number') buckets[i] = cell;
+  }
+  return buckets;
+}
+
+function aggregateWeekly(
+  crossing: BorderCrossingSlug,
+  history: BorderWaitHistoryDay[],
+): Array<Array<null | { avg: number }>> {
+  // 7 rows (day of week 0–6, Sun–Sat), 24 cols (hour)
+  const acc: Array<Array<number[]>> = Array.from({ length: 7 }, () =>
+    Array.from({ length: 24 }, () => []),
+  );
+  for (const day of history) {
+    const series = day.perCrossing[crossing];
+    if (!Array.isArray(series)) continue;
+    const dow = new Date(day.date).getUTCDay();
+    for (let h = 0; h < 24; h++) {
+      const cell = series[h];
+      if (cell && typeof cell.avg === 'number') acc[dow][h].push(cell.avg);
+    }
+  }
+  return acc.map((row) =>
+    row.map((samples) =>
+      samples.length === 0
+        ? null
+        : { avg: Math.round(samples.reduce((a, b) => a + b, 0) / samples.length) },
+    ),
+  );
+}
+
+function findBestWorstHour(
+  weekly: Array<Array<null | { avg: number }>>,
+): { best: string; worst: string } {
+  // Flatten weekdays (Mon-Fri) to find commuter-relevant best/worst
+  let bestHour = -1;
+  let worstHour = -1;
+  let bestVal = Infinity;
+  let worstVal = -Infinity;
+  for (let h = 0; h < 24; h++) {
+    const samples: number[] = [];
+    for (let d = 1; d <= 5; d++) {
+      const cell = weekly[d]?.[h];
+      if (cell) samples.push(cell.avg);
+    }
+    if (samples.length === 0) continue;
+    const avg = samples.reduce((a, b) => a + b, 0) / samples.length;
+    if (avg < bestVal) {
+      bestVal = avg;
+      bestHour = h;
+    }
+    if (avg > worstVal) {
+      worstVal = avg;
+      worstHour = h;
+    }
+  }
+  const fmt = (h: number) => (h < 0 ? '—' : `${String(h).padStart(2, '0')}:00`);
+  return { best: fmt(bestHour), worst: fmt(worstHour) };
+}
+
+// ── Page renderers ─────────────────────────────────────────────
+
+interface LeafInputs {
+  locale: BorderWaitLocale;
+  crossing: BorderCrossingSlug;
+  current: BorderWaitCurrent;
+  history: BorderWaitHistoryDay[];
+  today: Date;
+  alternates: Record<BorderWaitLocale, string>;
+}
+
+function renderLeafPage(inp: LeafInputs): string {
+  const { locale, crossing, current, history, today, alternates } = inp;
+  const copy = COPY[locale];
+  const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
+  const region = CROSSING_TO_REGION[crossing];
+  const regionDisplay =
+    region === 'ticino-como' ? copy.regionalLabelTicinoComo : copy.regionalLabelTicinoVarese;
+  const reg = crossingRegistry(crossing);
+  const dateStamp = today.toISOString().slice(0, 10);
+  const canonicalPath = buildOggiPath(locale, crossing);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  // Live + derived data
+  const snapshot = current.perCrossing[crossing];
+  const liveWait = snapshot?.waitTimeMinutes ?? null;
+  const liveSource: WaitSource = snapshot?.source ?? 'static';
+  const staticFallback = liveWait === null;
+  const status = statusColor(liveWait);
+  const statusWord =
+    locale === 'it'
+      ? liveWait === null
+        ? 'non rilevata'
+        : status.label === 'ok'
+          ? 'breve'
+          : status.label === 'warn'
+            ? 'moderata'
+            : 'lunga'
+      : locale === 'en'
+        ? liveWait === null
+          ? 'unknown'
+          : status.label === 'ok'
+            ? 'short'
+            : status.label === 'warn'
+              ? 'moderate'
+              : 'long'
+        : locale === 'de'
+          ? liveWait === null
+            ? 'unbekannt'
+            : status.label === 'ok'
+              ? 'kurze'
+              : status.label === 'warn'
+                ? 'moderate'
+                : 'lange'
+          : liveWait === null
+            ? 'inconnue'
+            : status.label === 'ok'
+              ? 'brève'
+              : status.label === 'warn'
+                ? 'modérée'
+                : 'longue';
+  const waitFmt = liveWait === null ? '—' : `${liveWait} min`;
+  const direction = snapshot?.status === undefined
+    ? 'IT→CH'
+    : new Date().getUTCHours() < 12
+      ? 'IT→CH'
+      : 'CH→IT';
+
+  const todayBuckets = aggregateToday(crossing, history);
+  const weekly = aggregateWeekly(crossing, history);
+  const { best: bestHour, worst: worstHour } = findBestWorstHour(weekly);
+  /** Hourly chart needs at least today's data (1 day); weekly pattern needs ≥7. */
+  const hasToday = history.length >= 1 && todayBuckets.some((b) => b !== null);
+  const hasWeekly = history.length >= 7;
+
+  // Content pieces
+  const h1 = copy.leafH1(crossingDisplay, dateStamp);
+  const intro = copy.intro(crossingDisplay, statusWord, waitFmt, dateStamp);
+  const paragraph = copy.paragraph(crossingDisplay, direction, bestHour, worstHour);
+
+  // Webcam: prefer reg.webcams (data/borderCrossings.ts)
+  const webcams = reg?.webcams ?? [];
+  const webcamHtml = renderWebcamSection(crossingDisplay, webcams, copy);
+
+  // Current-status card
+  const sourceText = sourceLabel(liveSource, copy);
+  const staticBannerHtml = staticFallback
+    ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:#fef3c7;border:1px solid #fde68a;color:#78350f;font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
+    : '';
+
+  const currentCardHtml = `<section aria-labelledby="currentStatus" style="margin:0 0 24px">
+    <h2 id="currentStatus" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.currentStatusLabel)}</h2>
+    ${staticBannerHtml}
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
+      <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
+        <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
+        <div style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
+      </div>
+      <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
+        <div style="font-size:12px;color:#475569;font-weight:700;text-transform:uppercase">${esc(copy.sourceLabel)}</div>
+        <div style="margin-top:8px;font-size:14px;color:#0f172a;font-weight:700;line-height:1.4">${esc(sourceText)}</div>
+      </div>
+      <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
+        <div style="font-size:12px;color:#475569;font-weight:700;text-transform:uppercase">${esc(copy.updatedLabel)}</div>
+        <div style="margin-top:8px;font-size:14px;color:#0f172a;font-weight:700">${esc(dateStamp)}</div>
+      </div>
+    </div>
+  </section>`;
+
+  // Hourly chart (needs ≥1 day with samples)
+  const hourlyHtml = hasToday
+    ? `<section style="margin:0 0 24px" aria-labelledby="hourlyToday">
+    <h2 id="hourlyToday" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.hourlyTodayLabel)}</h2>
+    ${renderHourlySvg(todayBuckets, copy)}
+  </section>`
+    : '';
+
+  // Weekly chart (needs ≥7 days to be meaningful)
+  const weeklyHtml = hasWeekly
+    ? `<section style="margin:0 0 24px" aria-labelledby="weeklyPattern">
+    <h2 id="weeklyPattern" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.weeklyPatternLabel)}</h2>
+    ${renderWeeklySvg(weekly, copy)}
+    <p style="margin:12px 0 0;color:#334155;font-size:14px;line-height:1.55">
+      <strong>${esc(copy.bestHoursLabel)}:</strong> ${esc(bestHour)} &nbsp;·&nbsp;
+      <strong>${esc(copy.worstHoursLabel)}:</strong> ${esc(worstHour)}
+    </p>
+  </section>`
+    : `<p style="margin:0 0 24px;padding:14px 18px;border-radius:12px;background:#f1f5f9;color:#475569;font-size:14px;line-height:1.5">${esc(copy.noHistory)}</p>`;
+
+  // Static crossing info
+  const infoRows: string[] = [];
+  if (reg) {
+    infoRows.push(
+      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(
+        locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type',
+      )}:</strong> ${esc(copy.crossingTypeLabel[reg.type])}</li>`,
+    );
+    infoRows.push(
+      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
+    );
+    infoRows.push(
+      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(
+        locale === 'it'
+          ? 'Media mattina'
+          : locale === 'de'
+            ? 'Morgen-Durchschnitt'
+            : locale === 'fr'
+              ? 'Moyenne matin'
+              : 'Morning average',
+      )}:</strong> ${esc(reg.avgWaitMorning)}</li>`,
+    );
+    infoRows.push(
+      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(
+        locale === 'it'
+          ? 'Media sera'
+          : locale === 'de'
+            ? 'Abend-Durchschnitt'
+            : locale === 'fr'
+              ? 'Moyenne soir'
+              : 'Evening average',
+      )}:</strong> ${esc(reg.avgWaitEvening)}</li>`,
+    );
+  }
+  const infoHtml = infoRows.length
+    ? `<section style="margin:0 0 24px" aria-labelledby="infoValico">
+    <h2 id="infoValico" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.infoValicoLabel)}</h2>
+    <ul style="list-style:none;margin:0;padding:0;font-size:14px;color:#334155;line-height:1.5">${infoRows.join('')}</ul>
+  </section>`
+    : '';
+
+  // FAQ
+  const faqItems = copy.faq;
+  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="bwFaq">
+    <h2 id="bwFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) =>
+          `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q(crossingDisplay))}</summary>
+        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(crossingDisplay))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  // Alternates
+  const alternatesHtml = (Object.keys(alternates) as BorderWaitLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  // JSON-LD
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: regionDisplay,
+        item: `${BASE_URL}${buildRegionalHubPath(locale, region)}`,
+      },
+      { '@type': 'ListItem', position: 3, name: crossingDisplay, item: canonicalUrl },
+    ],
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q(crossingDisplay),
+      acceptedAnswer: { '@type': 'Answer', text: f.a(crossingDisplay) },
+    })),
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro,
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const placeLd = reg
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Place',
+        name: crossingDisplay,
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'CH',
+          addressRegion: reg.canton,
+          addressLocality: reg.italianSide,
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: reg.lat,
+          longitude: reg.lng,
+        },
+      })
+    : '';
+
+  const imageLd = webcams.length > 0
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ImageObject',
+        contentUrl: webcams[0].imageUrl,
+        description: webcams[0].label,
+        creditText: webcams[0].sourceName,
+        license: webcams[0].sourceUrl,
+      })
+    : '';
+
+  const title = `${h1} | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  // Related-links helper context
+  const relatedCtx = {
+    city: CROSSING_TO_WEEKLY_CITY[crossing],
+    weeklyCity: CROSSING_TO_WEEKLY_CITY[crossing],
+    fuelZone: CROSSING_TO_FUEL_ZONE[crossing],
+  };
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildRootHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.rootH1.split(' —')[0])}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildRegionalHubPath(locale, region)}" style="color:#1d4ed8;text-decoration:none">${esc(regionDisplay)}</a>
+    <span> / </span>
+    <span>${esc(crossingDisplay)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+  </header>
+  ${webcamHtml}
+  ${currentCardHtml}
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+  </section>
+  ${hourlyHtml}
+  ${weeklyHtml}
+  ${infoHtml}
+  ${faqHtml}
+  ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
+</main>`;
+
+  const html = `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternatesHtml}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${webPageLd}</script>
+    <script type="application/ld+json">${faqLd}</script>${placeLd ? `\n    <script type="application/ld+json">${placeLd}</script>` : ''}${imageLd ? `\n    <script type="application/ld+json">${imageLd}</script>` : ''}
+    ${ANALYTICS_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+${bodyHtml}
+    </div>
+    ${webcams.length > 0 ? WEBCAM_REFRESH_JS : ''}
+  </body>
+</html>`;
+
+  return html;
+}
+
+// ── Regional hub + root hub ───────────────────────────────────
+
+interface HubInputs {
+  locale: BorderWaitLocale;
+  region?: BorderCrossingRegion;
+  current: BorderWaitCurrent;
+  today: Date;
+  alternates: Record<BorderWaitLocale, string>;
+}
+
+function renderHubPage(inp: HubInputs): string {
+  const { locale, region, current, today, alternates } = inp;
+  const copy = COPY[locale];
+  const dateStamp = today.toISOString().slice(0, 10);
+  const canonicalPath = region ? buildRegionalHubPath(locale, region) : buildRootHubPath(locale);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  const crossingsInScope = region
+    ? BORDER_WAIT_CROSSINGS.filter((c) => CROSSING_TO_REGION[c] === region)
+    : BORDER_WAIT_CROSSINGS;
+
+  const regionDisplay = region
+    ? region === 'ticino-como'
+      ? copy.regionalLabelTicinoComo
+      : copy.regionalLabelTicinoVarese
+    : '';
+
+  const h1 = region ? copy.regionalH1(regionDisplay) : copy.rootH1;
+  const introParagraph = region
+    ? copy.regionalIntro(regionDisplay, crossingsInScope.length)
+    : copy.rootIntro;
+
+  // Build live table of all crossings in scope
+  const rows = crossingsInScope.map((c) => {
+    const snap = current.perCrossing[c];
+    const wait = snap?.waitTimeMinutes ?? null;
+    const src: WaitSource = snap?.source ?? 'static';
+    const sc = statusColor(wait);
+    const waitFmt = wait === null ? '—' : `${wait} min`;
+    return `<tr>
+      <td style="padding:10px 12px;border-bottom:1px solid #f1f5f9">
+        <a href="${BASE_URL}${buildOggiPath(locale, c)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+      </td>
+      <td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;text-align:right">
+        <span style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
+      </td>
+      <td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#64748b">${esc(sourceLabel(src, copy))}</td>
+    </tr>`;
+  });
+
+  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    <thead><tr>
+      <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(
+        locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
+      )}</th>
+      <th style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.waitMinutesLabel)}</th>
+      <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.sourceLabel)}</th>
+    </tr></thead>
+    <tbody>${rows.join('')}</tbody>
+  </table>`;
+
+  // "Best crossing right now"
+  let bestCrossing: BorderCrossingSlug | null = null;
+  let bestVal = Infinity;
+  for (const c of crossingsInScope) {
+    const snap = current.perCrossing[c];
+    if (snap && typeof snap.waitTimeMinutes === 'number' && snap.waitTimeMinutes < bestVal) {
+      bestVal = snap.waitTimeMinutes;
+      bestCrossing = c;
+    }
+  }
+  const bestBannerHtml = bestCrossing
+    ? `<div style="margin:0 0 20px;padding:14px 18px;border-radius:12px;background:${COLOR_OK_BG};border:1px solid ${COLOR_OK_BORDER};color:${COLOR_OK_TEXT};font-size:15px;line-height:1.5">
+       <strong>${esc(
+         locale === 'it'
+           ? 'Valico più veloce adesso'
+           : locale === 'de'
+             ? 'Schnellster Übergang jetzt'
+             : locale === 'fr'
+               ? 'Passage le plus rapide maintenant'
+               : 'Fastest crossing right now',
+       )}:</strong>
+       <a href="${BASE_URL}${buildOggiPath(locale, bestCrossing)}" style="color:${COLOR_OK_TEXT};text-decoration:underline;font-weight:700">${esc(BORDER_CROSSING_DISPLAY[bestCrossing])}</a>
+       · ${esc(bestVal)} min
+     </div>`
+    : '';
+
+  const alternatesHtml = (Object.keys(alternates) as BorderWaitLocale[])
+    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
+    .join('\n');
+
+  // JSON-LD
+  const breadcrumbItems = [
+    { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+  ];
+  if (region) {
+    breadcrumbItems.push(
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: copy.rootH1.split(' —')[0],
+        item: `${BASE_URL}${buildRootHubPath(locale)}`,
+      } as any,
+    );
+    breadcrumbItems.push(
+      { '@type': 'ListItem', position: 3, name: regionDisplay, item: canonicalUrl } as any,
+    );
+  } else {
+    breadcrumbItems.push(
+      { '@type': 'ListItem', position: 2, name: h1, item: canonicalUrl } as any,
+    );
+  }
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbItems,
+  });
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: introParagraph.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+  });
+
+  const title = `${h1} | Frontaliere Ticino`;
+  const description = introParagraph.slice(0, 180);
+
+  // Secondary editorial paragraph for word-count
+  const secondary =
+    locale === 'it'
+      ? `Questa pagina si aggiorna automaticamente ad ogni deploy del sito (tipicamente 4–8 volte al giorno). Le misure live provengono dalla stessa pipeline che alimenta la mappa interattiva del sito e la sezione Guida → Traffico dogane nel nostro SPA. Per ogni valico trovi una pagina dedicata con dato corrente, pattern orario oggi, pattern settimanale degli ultimi 30 giorni, webcam live quando disponibile (Brogeda, Stabio, Mendrisio, Chiasso) e FAQ mirate sul comportamento del traffico pendolare Ticino–Italia.`
+      : locale === 'en'
+        ? `This page is regenerated automatically on every deploy (typically 4–8 per day). Live readings come from the same pipeline that powers the site's interactive map and the Guide → Border traffic section in our SPA. For each crossing you get a dedicated page with current data, hourly pattern for today, 30-day weekly pattern, live webcam when available (Brogeda, Stabio, Mendrisio, Chiasso) and FAQs focused on commuter traffic behaviour between Ticino and Italy.`
+        : locale === 'de'
+          ? `Diese Seite wird bei jedem Deploy automatisch neu generiert (typischerweise 4–8 pro Tag). Live-Messwerte stammen aus derselben Pipeline, die die interaktive Karte der Seite und den Abschnitt Guida → Grenzverkehr in unserer SPA speist. Für jeden Übergang erhalten Sie eine eigene Seite mit aktuellen Daten, Stundenmuster von heute, Wochenmuster der letzten 30 Tage, Live-Webcam wo verfügbar (Brogeda, Stabio, Mendrisio, Chiasso) und FAQs zum Pendlerverkehr zwischen dem Tessin und Italien.`
+          : `Cette page est régénérée automatiquement à chaque déploiement (généralement 4–8 par jour). Les mesures live proviennent de la même pipeline qui alimente la carte interactive du site et la section Guide → Trafic douane dans notre SPA. Pour chaque passage vous obtenez une page dédiée avec les données actuelles, la tendance horaire du jour, la tendance hebdomadaire sur 30 jours, la webcam en direct quand disponible (Brogeda, Stabio, Mendrisio, Chiasso) et des FAQs centrées sur le trafic pendulaire entre le Tessin et l'Italie.`;
+
+  // Related links context based on "primary" crossing for the region
+  const primaryCrossing: BorderCrossingSlug = region === 'ticino-varese' ? 'gaggiolo' : 'chiasso-brogeda';
+  const relatedCtx = {
+    city: CROSSING_TO_WEEKLY_CITY[primaryCrossing],
+    weeklyCity: CROSSING_TO_WEEKLY_CITY[primaryCrossing],
+    fuelZone: CROSSING_TO_FUEL_ZONE[primaryCrossing],
+  };
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(introParagraph)}</p>
+  </header>
+  ${bestBannerHtml}
+  <section style="margin:0 0 24px" aria-labelledby="crossingTable">
+    <h2 id="crossingTable" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(
+      locale === 'it'
+        ? 'Tutti i valichi'
+        : locale === 'de'
+          ? 'Alle Übergänge'
+          : locale === 'fr'
+            ? 'Tous les passages'
+            : 'All crossings',
+    )}</h2>
+    ${tableHtml}
+  </section>
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(secondary)}</p>
+  </section>
+  ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
+</main>`;
+
+  return `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternatesHtml}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${webPageLd}</script>
+    ${ANALYTICS_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+${bodyHtml}
+    </div>
+  </body>
+</html>`;
+}
+
+// ── Monthly archive ────────────────────────────────────────────
+
+interface ArchiveInputs {
+  locale: BorderWaitLocale;
+  crossing: BorderCrossingSlug;
+  monthKey: string;
+  history: BorderWaitHistoryDay[];
+  today: Date;
+}
+
+function renderArchivePage(inp: ArchiveInputs): string {
+  const { locale, crossing, monthKey, history, today } = inp;
+  const copy = COPY[locale];
+  const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
+  const canonicalPath = buildArchivePath(locale, crossing, monthKey);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  // Aggregate all days in the month
+  const daysInMonth = history.filter((h) => h.date.startsWith(monthKey));
+  const perHour: number[][] = Array.from({ length: 24 }, () => []);
+  for (const d of daysInMonth) {
+    const series = d.perCrossing[crossing];
+    if (!Array.isArray(series)) continue;
+    for (let h = 0; h < 24; h++) {
+      const cell = series[h];
+      if (cell) perHour[h].push(cell.avg);
+    }
+  }
+  const hourAvgs = perHour.map((s) =>
+    s.length === 0 ? null : Math.round(s.reduce((a, b) => a + b, 0) / s.length),
+  );
+  const overallAvg =
+    perHour.flat().length === 0
+      ? null
+      : Math.round(
+          perHour.flat().reduce((a, b) => a + b, 0) / perHour.flat().length,
+        );
+
+  const h1 =
+    locale === 'it'
+      ? `Archivio tempi attesa ${crossingDisplay} — ${monthKey}`
+      : locale === 'de'
+        ? `Wartezeiten-Archiv ${crossingDisplay} — ${monthKey}`
+        : locale === 'fr'
+          ? `Archive temps d'attente ${crossingDisplay} — ${monthKey}`
+          : `${crossingDisplay} wait-time archive — ${monthKey}`;
+
+  const intro =
+    locale === 'it'
+      ? `Statistiche aggregate dei tempi di attesa al valico ${crossingDisplay} nel mese ${monthKey}. Media mensile: ${overallAvg === null ? '—' : overallAvg + ' min'}. I dati derivano dal monitoraggio TomTom ogni 15 minuti nelle ore di picco pendolare. Utile per pianificare viaggi futuri in base al comportamento storico osservato.`
+      : locale === 'de'
+        ? `Aggregierte Statistiken zu den Wartezeiten am Grenzübergang ${crossingDisplay} im Monat ${monthKey}. Monatsdurchschnitt: ${overallAvg === null ? '—' : overallAvg + ' Min.'}. Die Daten stammen aus der TomTom-Verkehrsüberwachung alle 15 Minuten während der Pendler-Stosszeiten. Nützlich, um zukünftige Fahrten basierend auf dem beobachteten historischen Verhalten zu planen.`
+        : locale === 'fr'
+          ? `Statistiques agrégées sur les temps d'attente au passage ${crossingDisplay} pour le mois ${monthKey}. Moyenne mensuelle : ${overallAvg === null ? '—' : overallAvg + ' min'}. Les données proviennent de la surveillance TomTom toutes les 15 minutes pendant les heures de pointe pendulaire. Utile pour planifier les futurs trajets en fonction du comportement historique observé.`
+          : `Aggregated wait-time statistics at the ${crossingDisplay} crossing for month ${monthKey}. Monthly average: ${overallAvg === null ? '—' : overallAvg + ' min'}. Data comes from TomTom traffic monitoring every 15 minutes during commuter peak hours. Useful to plan future trips based on observed historical behaviour.`;
+
+  const rows = hourAvgs
+    .map(
+      (v, h) => `<tr>
+      <td style="padding:8px 12px;border-bottom:1px solid #f1f5f9">${String(h).padStart(2, '0')}:00</td>
+      <td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;text-align:right;font-variant-numeric:tabular-nums">${v === null ? '—' : v + ' min'}</td>
+    </tr>`,
+    )
+    .join('');
+
+  const title = `${h1} | Frontaliere Ticino`;
+  const description = intro.slice(0, 180);
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: crossingDisplay,
+        item: `${BASE_URL}${buildOggiPath(locale, crossing)}`,
+      },
+      { '@type': 'ListItem', position: 3, name: monthKey, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro,
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+  });
+
+  return `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="${canonicalUrl}">
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${webPageLd}</script>
+    ${ANALYTICS_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+        <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
+          <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+          <span> / </span>
+          <a href="${BASE_URL}${buildOggiPath(locale, crossing)}" style="color:#1d4ed8;text-decoration:none">${esc(crossingDisplay)}</a>
+          <span> / </span>
+          <span>${esc(monthKey)}</span>
+        </nav>
+        <header style="margin-bottom:22px">
+          <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.5rem);line-height:1.1">${esc(h1)}</h1>
+          <p style="margin:0;font-size:17px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+        </header>
+        <section>
+          <h2 style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.hourlyTodayLabel)}</h2>
+          <table style="width:100%;border-collapse:collapse;font-size:14px">
+            <thead><tr>
+              <th style="text-align:left;padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">Ora</th>
+              <th style="text-align:right;padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.waitMinutesLabel)}</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>`;
+}
+
+// ── Data readers ──────────────────────────────────────────────
+
+function readJsonSafe<T>(filePath: string, fallback: T): T {
+  try {
+    if (!fs.existsSync(filePath)) return fallback;
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+function readHistory(rootDir: string): BorderWaitHistoryDay[] {
+  const dir = np.join(rootDir, 'data', 'border-wait-history');
+  if (!fs.existsSync(dir)) return [];
+  const files = fs.readdirSync(dir).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
+  const days: BorderWaitHistoryDay[] = [];
+  for (const f of files) {
+    try {
+      const raw = fs.readFileSync(np.join(dir, f), 'utf-8');
+      const parsed = JSON.parse(raw) as BorderWaitHistoryDay;
+      if (parsed && typeof parsed.date === 'string') days.push(parsed);
+    } catch {
+      // skip malformed snapshot
+    }
+  }
+  days.sort((a, b) => a.date.localeCompare(b.date));
+  return days;
+}
+
+// ── Pure generator ────────────────────────────────────────────
+
+export function generateBorderWaitPages(opts: {
+  current: BorderWaitCurrent;
+  history?: BorderWaitHistoryDay[];
+  today?: Date;
+}): Record<string, string> {
+  const current = opts.current;
+  const history = opts.history ?? [];
+  const today = opts.today ?? new Date();
+  const pages: Record<string, string> = {};
+
+  for (const locale of BORDER_WAIT_LOCALES) {
+    // Build alternates for root, regions, crossings
+    const buildRootAlternates = (): Record<BorderWaitLocale, string> => {
+      const out: Record<BorderWaitLocale, string> = { it: '', en: '', de: '', fr: '' };
+      for (const alt of BORDER_WAIT_LOCALES) out[alt] = buildRootHubPath(alt);
+      return out;
+    };
+    const buildRegionAlternates = (region: BorderCrossingRegion): Record<BorderWaitLocale, string> => {
+      const out: Record<BorderWaitLocale, string> = { it: '', en: '', de: '', fr: '' };
+      for (const alt of BORDER_WAIT_LOCALES) out[alt] = buildRegionalHubPath(alt, region);
+      return out;
+    };
+    const buildCrossingAlternates = (
+      crossing: BorderCrossingSlug,
+    ): Record<BorderWaitLocale, string> => {
+      const out: Record<BorderWaitLocale, string> = { it: '', en: '', de: '', fr: '' };
+      for (const alt of BORDER_WAIT_LOCALES) out[alt] = buildOggiPath(alt, crossing);
+      return out;
+    };
+
+    // Root hub
+    pages[buildRootHubPath(locale)] = renderHubPage({
+      locale,
+      current,
+      today,
+      alternates: buildRootAlternates(),
+    });
+
+    // Regional hubs
+    for (const region of BORDER_WAIT_REGIONS) {
+      pages[buildRegionalHubPath(locale, region)] = renderHubPage({
+        locale,
+        region,
+        current,
+        today,
+        alternates: buildRegionAlternates(region),
+      });
+    }
+
+    // Per-crossing leaf pages
+    for (const crossing of BORDER_WAIT_CROSSINGS) {
+      pages[buildOggiPath(locale, crossing)] = renderLeafPage({
+        locale,
+        crossing,
+        current,
+        history,
+        today,
+        alternates: buildCrossingAlternates(crossing),
+      });
+    }
+  }
+
+  return pages;
+}
+
+export function generateBorderWaitArchives(opts: {
+  history: BorderWaitHistoryDay[];
+  today?: Date;
+}): Record<string, string> {
+  const history = opts.history;
+  const today = opts.today ?? new Date();
+  const currentMonth = today.toISOString().slice(0, 7);
+  const pages: Record<string, string> = {};
+
+  const monthsInHistory = new Set<string>();
+  for (const d of history) {
+    if (typeof d.date === 'string' && d.date.length >= 7) {
+      monthsInHistory.add(d.date.slice(0, 7));
+    }
+  }
+
+  for (const monthKey of monthsInHistory) {
+    if (monthKey >= currentMonth) continue; // skip current/future months
+    for (const locale of BORDER_WAIT_LOCALES) {
+      for (const crossing of TOP_5_CROSSINGS) {
+        const path = buildArchivePath(locale, crossing, monthKey);
+        pages[path] = renderArchivePage({ locale, crossing, monthKey, history, today });
+      }
+    }
+  }
+
+  return pages;
+}
+
+// ── Plugin ────────────────────────────────────────────────────
+
+interface PluginResult {
+  pagesWritten: number;
+  archivesWritten: number;
+  skippedForWordCount: number;
+}
+
+export function borderWaitPagesPlugin(rootDir: string): Plugin {
+  return {
+    name: 'border-wait-pages',
+    apply: 'build',
+    async closeBundle() {
+      if (process.env.SKIP_BORDER_WAIT === '1') {
+        console.log('\x1b[33m[border-wait-pages]\x1b[0m Skipped (SKIP_BORDER_WAIT=1)');
+        return;
+      }
+
+      const distDir = np.resolve(rootDir, 'dist');
+      const currentPath = np.resolve(rootDir, 'data', 'border-wait-current.json');
+      const current = readJsonSafe<BorderWaitCurrent>(currentPath, {
+        updatedAt: null,
+        perCrossing: {},
+      });
+      const history = readHistory(rootDir);
+      const today = new Date();
+
+      const pages = generateBorderWaitPages({ current, history, today });
+      const archives = generateBorderWaitArchives({ history, today });
+
+      const collector = new WriteCollector({ distDir });
+      let pagesWritten = 0;
+      let archivesWritten = 0;
+      let skipped = 0;
+      const sitemapPaths: string[] = [];
+
+      for (const [path, html] of Object.entries(pages)) {
+        const words = countHtmlBodyWords(html);
+        if (words < MIN_INDEXABLE_WORDS) {
+          skipped++;
+          console.warn(`[border-wait-pages] thin content (${words} words) for ${path} — skipping`);
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        sitemapPaths.push(path);
+        pagesWritten++;
+      }
+
+      for (const [path, html] of Object.entries(archives)) {
+        const words = countHtmlBodyWords(html);
+        if (words < MIN_INDEXABLE_WORDS) {
+          skipped++;
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        sitemapPaths.push(path);
+        archivesWritten++;
+      }
+
+      await collector.flush();
+
+      // ── Emit sitemap-border-wait.xml ───────────────────────
+      if (sitemapPaths.length > 0) {
+        try {
+          const dateStamp = today.toISOString().slice(0, 10);
+          const urlEntries = sitemapPaths
+            .map(
+              (p) =>
+                `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
+            )
+            .join('\n');
+          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
+</urlset>
+`;
+          fs.writeFileSync(np.join(distDir, 'sitemap-border-wait.xml'), sitemapXml, 'utf-8');
+          console.log(
+            `\x1b[36m[border-wait-pages]\x1b[0m Wrote sitemap-border-wait.xml (${sitemapPaths.length} URLs)`,
+          );
+        } catch (err) {
+          console.warn('[border-wait-pages] failed to write sitemap-border-wait.xml', err);
+        }
+      }
+
+      const result: PluginResult = {
+        pagesWritten,
+        archivesWritten,
+        skippedForWordCount: skipped,
+      };
+      console.log(
+        `\x1b[36m[border-wait-pages]\x1b[0m Generated ${result.pagesWritten} pages + ${result.archivesWritten} archives (skipped ${result.skippedForWordCount})`,
+      );
+    },
+  };
+}

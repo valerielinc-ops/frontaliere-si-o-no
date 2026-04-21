@@ -44,6 +44,7 @@ import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/h
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
+import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 
 // ── Route types ──────────────────────────────────────────────
 
@@ -1627,6 +1628,30 @@ export function parsePath(pathname: string): ParseResult {
  // These are build-time static HTML; soft-nav lands users on the jobs-observatory stats tab.
  if (JOB_MARKET_SNAPSHOT_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isJobMarketSnapshotPath(pathname)) {
    return { route: { activeTab: 'stats', statsSubTab: 'jobs-observatory' }, locale };
+ }
+
+ // Border-wait static SEO pages (F8) — /traffico-dogane/{crossing}/oggi/, hubs, archives.
+ // Build-time static HTML; soft-nav resolves to the guida/border sub-tab (existing
+ // live-data view backed by TrafficAlerts.tsx / TrafficHistory.tsx). When the URL
+ // points to a specific crossing, we also hydrate the `borderCrossing` deep-link
+ // field so the SPA scrolls/focuses the right marker on the map.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (BORDER_WAIT_ROUTES.includes(normalized) || isBorderWaitPath(pathname)) {
+     const parsed = parseBorderWaitPath(pathname);
+     const targetLocale: Locale = (parsed?.locale as Locale) || locale;
+     if (parsed?.crossing && BORDER_CROSSING_ID_SET.has(parsed.crossing)) {
+       return {
+         route: {
+           activeTab: 'guida',
+           guidaSubTab: 'border',
+           borderCrossing: parsed.crossing as BorderCrossingId,
+         },
+         locale: targetLocale,
+       };
+     }
+     return { route: { activeTab: 'guida', guidaSubTab: 'border' }, locale: targetLocale };
+   }
  }
 
  if (parts.length === 0) {

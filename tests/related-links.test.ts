@@ -57,21 +57,44 @@ describe('generateRelatedLinks', () => {
     }
   });
 
-  it('fuel_daily page type links to weekly_employers AND job_market_snapshot', () => {
+  it('fuel_daily page type links to weekly_employers, job_market_snapshot AND border_wait', () => {
     const links = generateRelatedLinks('it', 'fuel_daily', { fuelType: 'diesel', fuelZone: 'chiasso' });
     const hrefs = links.map((l) => l.href);
     expect(hrefs.some((h) => h.includes('aziende-che-assumono'))).toBe(true);
     expect(hrefs.some((h) => h.includes('mercato-lavoro-ticino'))).toBe(true);
     // At least one sibling fuel zone link.
     expect(hrefs.some((h) => h.includes('prezzi-diesel/') && !h.includes('chiasso'))).toBe(true);
+    // F8: bidirectional fuel ↔ border-wait link for the same zone.
+    expect(hrefs.some((h) => h.includes('traffico-dogane/chiasso-brogeda/oggi/'))).toBe(true);
   });
 
-  it('weekly_employers page type links to fuel_daily, job_market_snapshot AND health_premiums', () => {
+  it('weekly_employers page type links to fuel_daily, job_market_snapshot AND border_wait', () => {
     const links = generateRelatedLinks('it', 'weekly_employers', { weeklyCity: 'lugano' });
     const hrefs = links.map((l) => l.href);
     expect(hrefs.some((h) => h.includes('prezzi-diesel'))).toBe(true);
     expect(hrefs.some((h) => h.includes('mercato-lavoro-ticino'))).toBe(true);
-    expect(hrefs.some((h) => h.includes('premi-cassa-malati'))).toBe(true);
+    // F8: weekly_employers now includes the border-wait crossing nearest
+    // the city (Lugano → ponte-tresa) as its 5th link, replacing the old
+    // health_premiums link. See build-plugins/shared/relatedLinks.ts.
+    expect(hrefs.some((h) => h.includes('traffico-dogane/'))).toBe(true);
+  });
+
+  it('border_wait page type links to fuel_daily, weekly_employers AND sibling crossings', () => {
+    const links = generateRelatedLinks('it', 'border_wait', {
+      borderCrossing: 'chiasso-brogeda',
+    });
+    const hrefs = links.map((l) => l.href);
+    // 1) Fuel for the closest zone (chiasso)
+    expect(hrefs.some((h) => h.includes('prezzi-diesel/chiasso/oggi/'))).toBe(true);
+    // 2) Weekly employers for the closest city (chiasso)
+    expect(hrefs.some((h) => h.includes('aziende-che-assumono/chiasso/'))).toBe(true);
+    // 3-4) At least 2 sibling border-wait crossings (not Brogeda itself)
+    const siblingLinks = hrefs.filter(
+      (h) => h.includes('/traffico-dogane/') && !h.includes('/chiasso-brogeda/'),
+    );
+    expect(siblingLinks.length).toBeGreaterThanOrEqual(2);
+    // Exactly 5 links total
+    expect(links.length).toBe(5);
   });
 
   it('job_market_snapshot page type links to weekly_employers and city hubs', () => {

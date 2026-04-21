@@ -33,6 +33,7 @@ import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
 import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPlugin';
+import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -77,6 +78,7 @@ export default defineConfig(({ mode }) => {
  weeklyEmployersPlugin(__dirname),
  jobMarketSnapshotPlugin(__dirname),
  healthPremiumsLandingPlugin(__dirname),
+ borderWaitPagesPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
