@@ -1128,6 +1128,11 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       let currentWeekCount = 0;
       let archiveCount = 0;
       let skipped = 0;
+      // Paths that should land in sitemap-weekly-employers.xml. Only indexable
+      // pages (current-week + last-12-weeks archives) are listed — noindex
+      // archives stay reachable but are excluded from the sitemap to keep
+      // crawl budget focused on fresh content.
+      const indexableSitemapPaths: string[] = [];
 
       // Classify by path — archive paths contain "settimana-NN-YYYY" etc.
       const archiveRe = /\/(?:settimana|week|woche|semaine)-\d{2}-\d{4}\/?$/;
@@ -1145,9 +1150,45 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         collector.add(np.join(outDir, 'index.html'), page.html);
         if (archiveRe.test(page.path)) archiveCount++;
         else currentWeekCount++;
+        if (page.indexable) indexableSitemapPaths.push(page.path);
       }
 
       const written = await collector.flush();
+
+      // ── Emit sitemap-weekly-employers.xml ───────────────────────
+      // Auto-discovered by sitemapAliasPlugin into dist/sitemap.xml.
+      if (indexableSitemapPaths.length > 0) {
+        try {
+          const dateStamp = today.toISOString().slice(0, 10);
+          const urlEntries = indexableSitemapPaths
+            .map((p) => {
+              // Current-week pages update weekly; archives update monthly.
+              const isCurrent = !archiveRe.test(p);
+              const changefreq = isCurrent ? 'weekly' : 'monthly';
+              const priority = isCurrent ? '0.8' : '0.5';
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+            })
+            .join('\n');
+          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
+</urlset>
+`;
+          fs.writeFileSync(
+            np.join(distDir, 'sitemap-weekly-employers.xml'),
+            sitemapXml,
+            'utf-8',
+          );
+          console.log(
+            `\x1b[36m[weekly-employers]\x1b[0m Wrote sitemap-weekly-employers.xml (${indexableSitemapPaths.length} URLs)`,
+          );
+        } catch (err) {
+          console.warn(
+            '[weekly-employers] failed to write sitemap-weekly-employers.xml',
+            err,
+          );
+        }
+      }
 
       const result: PluginResult = {
         pagesWritten: written,
