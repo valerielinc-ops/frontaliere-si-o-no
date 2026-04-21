@@ -41,9 +41,12 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
+  MAX_COMPANY_CITY_PAGES_PER_BUILD,
+  MIN_JOBS_PER_COMPANY_IN_CITY,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_CITY_DISPLAY,
+  WEEKLY_EMPLOYERS_COMPANY_CITY_LIST,
   WEEKLY_EMPLOYERS_CURRENT_SLUG,
   WEEKLY_EMPLOYERS_INDEXABLE_WEEKS,
   WEEKLY_EMPLOYERS_LOCALE_PREFIX,
@@ -51,10 +54,16 @@ import {
   WEEKLY_EMPLOYERS_OG_LOCALE,
   WEEKLY_EMPLOYERS_SECTION,
   buildArchiveWeekPath,
+  buildCompanyCityArchivePath,
+  buildCompanyCityCurrentPath,
   buildCurrentWeekPath,
+  canonicalCompanySlug,
   getIsoWeekAndYear,
   isoWeekKey,
+  parseCompanyCityPath,
+  type CompanyCityPair,
   type WeeklyEmployersCity,
+  type WeeklyEmployersCompanyCity,
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
@@ -297,6 +306,270 @@ export function buildCityWeeklyStats(opts: {
   };
 }
 
+// ── Company × City aggregation (D-2 Expansion B) ───────────────
+
+export interface CompanyCityActiveJob {
+  slug: string;
+  title: string;
+  detailPath: string;
+  postedDate?: string;
+}
+
+export interface CompanyCityStats {
+  city: WeeklyEmployersCompanyCity;
+  companySlug: string;
+  employer: string;
+  employerKey?: string;
+  activeJobs: CompanyCityActiveJob[];
+  activeJobsCount: number;
+  /** Delta vs previous snapshot (current - previous) for this (company, city). */
+  delta: number;
+  /** Previous snapshot count (for this company × city). 0 when no history. */
+  previousCount: number;
+  /** Top 3 role "families" (first 3 words, lowercased) for editorial copy. */
+  topRoles: Array<{ role: string; count: number }>;
+  /** Average advertised salary in CHF (rounded) when jobs expose a baseSalary. */
+  avgSalary?: number;
+}
+
+/**
+ * Job-detail section slug per locale — mirrors jobsSeoPagesPlugin.ts so
+ * the company-city page links to the actual static job HTML.
+ */
+const JOB_DETAIL_SECTION_BY_LOCALE: Record<WeeklyEmployersLocale, string> = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+
+function localizedJobSlug(
+  job: WeeklyCountableJob,
+  locale: WeeklyEmployersLocale,
+): string {
+  const byLocale = job.slugByLocale?.[locale];
+  if (byLocale && typeof byLocale === 'string' && byLocale.length > 0) return byLocale;
+  return String(job.slug || '');
+}
+
+function buildJobDetailPath(
+  job: WeeklyCountableJob,
+  locale: WeeklyEmployersLocale,
+): string {
+  const slug = localizedJobSlug(job, locale);
+  if (!slug) return '';
+  const prefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+  const section = JOB_DETAIL_SECTION_BY_LOCALE[locale];
+  return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
+}
+
+interface JobBaseSalaryLike {
+  baseSalary?: {
+    value?: {
+      minValue?: number;
+      maxValue?: number;
+      value?: number;
+    };
+  };
+  salaryMin?: number;
+  salaryMax?: number;
+}
+
+function extractSalaryMidpoint(job: WeeklyCountableJob): number | null {
+  const j = job as JobBaseSalaryLike;
+  const min = j.baseSalary?.value?.minValue ?? j.salaryMin;
+  const max = j.baseSalary?.value?.maxValue ?? j.salaryMax;
+  if (typeof min === 'number' && typeof max === 'number' && min > 0 && max > 0) {
+    return Math.round((min + max) / 2);
+  }
+  const single = j.baseSalary?.value?.value;
+  if (typeof single === 'number' && single > 0) return single;
+  if (typeof min === 'number' && min > 0) return min;
+  if (typeof max === 'number' && max > 0) return max;
+  return null;
+}
+
+/**
+ * Build a per (company × city) aggregation. Returns null when the gate
+ * {@link MIN_JOBS_PER_COMPANY_IN_CITY} isn't met — caller must check.
+ *
+ * `companySlug` is passed explicitly so the caller decides the canonical
+ * slug (keeps slug logic in one place).
+ */
+export function buildCompanyCityStats(opts: {
+  city: WeeklyEmployersCompanyCity;
+  companySlug: string;
+  employerKey: string;
+  locale: WeeklyEmployersLocale;
+  jobs: readonly WeeklyCountableJob[];
+  previousSnapshot?: JobsSnapshot | null;
+  limitJobs?: number;
+}): CompanyCityStats | null {
+  const {
+    city,
+    companySlug,
+    employerKey,
+    locale,
+    jobs,
+    previousSnapshot,
+    limitJobs = 10,
+  } = opts;
+
+  const matching = jobs.filter((j) => {
+    if (!jobIsActive(j, locale)) return false;
+    if (!jobMatchesCity(j, city)) return false;
+    const company = String(j.company || '').trim();
+    if (!company) return false;
+    const jobKey = normEmployerKey(company, j.companyKey);
+    return jobKey === employerKey;
+  });
+
+  if (matching.length < MIN_JOBS_PER_COMPANY_IN_CITY) return null;
+
+  // Canonical employer display name — take first job's company string.
+  const employer = String(matching[0].company || '').trim();
+
+  // Sort by recency desc (postedDate/datePosted descending, missing last).
+  const sorted = [...matching].sort((a, b) => {
+    const da = String(a.postedDate || a.datePosted || '');
+    const db = String(b.postedDate || b.datePosted || '');
+    return db.localeCompare(da);
+  });
+
+  const activeJobs: CompanyCityActiveJob[] = sorted.slice(0, limitJobs).map((j) => ({
+    slug: localizedJobSlug(j, locale) || String(j.slug || ''),
+    title: String(j.titleByLocale?.[locale] || j.title || '').trim(),
+    detailPath: buildJobDetailPath(j, locale),
+    postedDate: j.postedDate || j.datePosted,
+  }));
+
+  // Previous snapshot count for this (company, city).
+  let previousCount = 0;
+  if (previousSnapshot?.jobs) {
+    for (const row of previousSnapshot.jobs) {
+      if (!row.employer) continue;
+      const rowKey = normEmployerKey(row.employer, row.employerKey);
+      if (rowKey !== employerKey) continue;
+      if (
+        !String(row.city || '')
+          .toLowerCase()
+          .includes(WEEKLY_EMPLOYERS_CITY_DISPLAY[city].toLowerCase())
+      ) {
+        continue;
+      }
+      previousCount++;
+    }
+  }
+  const delta = matching.length - previousCount;
+
+  // Role families: first 3 words lowercase.
+  const roleCounts = new Map<string, number>();
+  for (const j of matching) {
+    const role = (j.titleByLocale?.[locale] || j.title || '').trim();
+    if (!role) continue;
+    const bucket = role.split(/\s+/).slice(0, 3).join(' ').toLowerCase();
+    roleCounts.set(bucket, (roleCounts.get(bucket) || 0) + 1);
+  }
+  const topRoles = Array.from(roleCounts.entries())
+    .map(([role, count]) => ({ role, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 3);
+
+  // Salary average.
+  const salaries: number[] = [];
+  for (const j of matching) {
+    const mid = extractSalaryMidpoint(j);
+    if (mid !== null) salaries.push(mid);
+  }
+  const avgSalary =
+    salaries.length > 0
+      ? Math.round(salaries.reduce((s, v) => s + v, 0) / salaries.length)
+      : undefined;
+
+  return {
+    city,
+    companySlug,
+    employer,
+    employerKey,
+    activeJobs,
+    activeJobsCount: matching.length,
+    delta,
+    previousCount,
+    topRoles,
+    avgSalary,
+  };
+}
+
+/**
+ * Enumerate the (company × city) pairs that satisfy the
+ * {@link MIN_JOBS_PER_COMPANY_IN_CITY} gate. A pair qualifies iff ≥3
+ * active jobs from that company are posted in that city (in the IT locale —
+ * we treat IT as the "does this company exist in this city?" oracle; EN/DE/FR
+ * pages still render from localised job fields).
+ *
+ * The result is ordered by (city ASC, active DESC, companySlug ASC) so the
+ * iteration order is deterministic across builds.
+ *
+ * Respects the {@link MAX_COMPANY_CITY_PAGES_PER_BUILD} cap — pairs beyond
+ * the cap are silently dropped.
+ */
+export function enumerateCompanyCityPairs(
+  jobs: readonly WeeklyCountableJob[],
+): Array<CompanyCityPair & { employerKey: string; employer: string; active: number }> {
+  const pairs = new Map<
+    string,
+    {
+      city: WeeklyEmployersCompanyCity;
+      companySlug: string;
+      employerKey: string;
+      employer: string;
+      active: number;
+    }
+  >();
+
+  for (const city of WEEKLY_EMPLOYERS_COMPANY_CITY_LIST) {
+    const counts = new Map<
+      string,
+      { employer: string; employerKey: string; active: number }
+    >();
+    for (const j of jobs) {
+      if (!jobIsActive(j, 'it')) continue;
+      if (!jobMatchesCity(j, city)) continue;
+      const company = String(j.company || '').trim();
+      if (!company) continue;
+      const key = normEmployerKey(company, j.companyKey);
+      if (!key) continue;
+      const rec = counts.get(key);
+      if (rec) rec.active++;
+      else counts.set(key, { employer: company, employerKey: key, active: 1 });
+    }
+    for (const [employerKey, rec] of counts.entries()) {
+      if (rec.active < MIN_JOBS_PER_COMPANY_IN_CITY) continue;
+      const companySlug = canonicalCompanySlug(rec.employer, employerKey);
+      if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
+      pairs.set(`${city}::${companySlug}`, {
+        city,
+        companySlug,
+        employerKey,
+        employer: rec.employer,
+        active: rec.active,
+      });
+    }
+  }
+
+  const pages = Array.from(pairs.values()).sort((a, b) => {
+    if (a.city !== b.city) return a.city < b.city ? -1 : 1;
+    if (b.active !== a.active) return b.active - a.active;
+    return a.companySlug < b.companySlug ? -1 : 1;
+  });
+
+  // 4 locales × pairs = page count. Cap at MAX_COMPANY_CITY_PAGES_PER_BUILD.
+  const maxPairs = Math.floor(
+    MAX_COMPANY_CITY_PAGES_PER_BUILD / WEEKLY_EMPLOYERS_LOCALES.length,
+  );
+  return pages.slice(0, maxPairs);
+}
+
 // ── Localised copy ──────────────────────────────────────────────
 
 interface WeeklyCopy {
@@ -335,6 +608,52 @@ interface WeeklyCopy {
   // Extra body copy — helps hit ≥300 words without feeling templatey
   editorialBlock: (city: string) => string;
   methodologyBlock: string;
+  // ── Company × City page copy (D-2 Expansion B) ────────────────
+  companyCityH1Current: (employer: string, city: string) => string;
+  companyCityH1Archive: (
+    employer: string,
+    city: string,
+    week: number,
+    year: number,
+  ) => string;
+  companyCityKicker: string;
+  /** Hero summary WITH delta. */
+  companyCityHeroWithDelta: (args: {
+    employer: string;
+    city: string;
+    jobsCount: number;
+    delta: number;
+  }) => string;
+  /** Hero summary WITHOUT delta (cold start). */
+  companyCityHeroNoDelta: (args: {
+    employer: string;
+    city: string;
+    jobsCount: number;
+  }) => string;
+  companyCityIntro: (args: {
+    employer: string;
+    city: string;
+    topRoles: string[];
+    avgSalary?: number;
+  }) => string;
+  companyCityJobsHeading: (employer: string, city: string) => string;
+  companyCityApplyCta: string;
+  companyCityBrandHubLabel: (employer: string) => string;
+  companyCityParentHubLabel: (city: string) => string;
+  companyCityCityHubLabel: (city: string) => string;
+  companyCitySiblingLabel: (employer: string, city: string) => string;
+  companyCityEditorial: (args: {
+    employer: string;
+    city: string;
+    jobsCount: number;
+    topRoles: string[];
+  }) => string;
+  companyCityFaqWhyQ: (employer: string) => string;
+  companyCityFaqWhyA: (employer: string, city: string) => string;
+  companyCityFaqHowApplyQ: string;
+  companyCityFaqHowApplyA: (employer: string) => string;
+  companyCityFaqUpdateQ: string;
+  companyCityFaqUpdateA: string;
 }
 
 const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
@@ -386,6 +705,54 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       `La fotografia settimanale delle aziende che assumono a ${city} è utile a più profili: frontalieri italiani che cercano il primo ingaggio, lavoratori già in Ticino che vogliono cambiare ruolo, residenti svizzeri che valutano offerte più competitive. Monitorare i picchi di pubblicazione aiuta a individuare i datori di lavoro che stanno espandendo l\'organico — e quindi quelli più aperti a candidature spontanee anche se al momento non c\'è una posizione esattamente in linea con il profilo.`,
     methodologyBlock:
       'Metodologia: ogni lunedì mattina alle 06:00 UTC la nostra pipeline confronta lo snapshot delle offerte attive con quello della settimana precedente e calcola un delta per azienda. Aziende con delta positivo salgono in classifica. Le aziende "nuove" sono quelle mai viste negli snapshot delle ultime 12 settimane. Il breakdown dei ruoli è costruito raggruppando le prime 3 parole del titolo offerta, con piccola tolleranza per varianti di formattazione.',
+    companyCityH1Current: (e, c) =>
+      `Aziende che assumono — ${e} a ${c}, settimana corrente`,
+    companyCityH1Archive: (e, c, w, y) =>
+      `Aziende che assumevano — ${e} a ${c}, settimana ${w} ${y}`,
+    companyCityKicker: 'Azienda × città',
+    companyCityHeroWithDelta: ({ employer, city, jobsCount, delta }) =>
+      delta > 0
+        ? `Questa settimana ${employer} ha ${jobsCount} offerte aperte a ${city} (+${delta} rispetto alla settimana scorsa).`
+        : delta < 0
+        ? `Questa settimana ${employer} ha ${jobsCount} offerte aperte a ${city} (${delta} rispetto alla settimana scorsa).`
+        : `Questa settimana ${employer} ha ${jobsCount} offerte aperte a ${city} — invariato rispetto alla settimana scorsa.`,
+    companyCityHeroNoDelta: ({ employer, city, jobsCount }) =>
+      `Questa settimana ${employer} ha ${jobsCount} offerte aperte a ${city}. Dati iniziali — il delta settimanale sarà disponibile dalla prossima rilevazione.`,
+    companyCityIntro: ({ employer, city, topRoles, avgSalary }) => {
+      const rolesText =
+        topRoles.length > 0
+          ? `I ruoli principali offerti da ${employer} a ${city} questa settimana sono: ${topRoles.slice(0, 3).join(', ')}.`
+          : `Le posizioni aperte coprono diversi profili professionali, dal supporto operativo alle funzioni specialistiche.`;
+      const salaryText =
+        typeof avgSalary === 'number'
+          ? ` La retribuzione lorda media indicata nelle offerte di questa settimana è di circa CHF ${avgSalary.toLocaleString('it-CH')} all'anno — utile come riferimento per valutare la competitività delle proposte ricevute.`
+          : '';
+      return `Elenco aggiornato delle offerte attive di ${employer} a ${city}, con link diretto ad ogni annuncio pubblicato sul nostro job-board. Aggiornato ogni settimana per aiutarti a capire come stanno evolvendo le assunzioni dell'azienda nella città e a individuare ruoli coerenti con il tuo profilo prima della concorrenza. ${rolesText}${salaryText}`;
+    },
+    companyCityJobsHeading: (e, c) =>
+      `Offerte aperte di ${e} a ${c} questa settimana`,
+    companyCityApplyCta: 'Apri l\'offerta',
+    companyCityBrandHubLabel: (e) => `Scheda azienda: ${e}`,
+    companyCityParentHubLabel: (c) =>
+      `Tutte le aziende che assumono a ${c} questa settimana`,
+    companyCityCityHubLabel: (c) => `Tutte le offerte di lavoro a ${c}`,
+    companyCitySiblingLabel: (e, c) => `${e} a ${c}`,
+    companyCityEditorial: ({ employer, city, jobsCount, topRoles }) => {
+      const roles =
+        topRoles.length > 0
+          ? topRoles.slice(0, 3).join(', ')
+          : 'ruoli operativi e specialistici';
+      return `La scheda settimanale dedicata a ${employer} a ${city} serve a chi sta valutando l'azienda come potenziale datore di lavoro: permette di vedere in un colpo d'occhio quante posizioni sono effettivamente aperte oggi (${jobsCount}), quali famiglie di ruoli sono più rappresentate (${roles}) e come cambia la dimensione del piano assunzioni da una settimana all'altra. È utile soprattutto per chi punta alla candidatura spontanea: un incremento del numero di offerte è spesso il segnale che l'azienda sta espandendo l'organico e valuta con più attenzione i profili inviati fuori da una posizione specifica. Questa pagina è rigenerata automaticamente ogni lunedì mattina: il contenuto riflette lo stato delle offerte al momento della generazione. Per candidarti, apri il singolo annuncio e segui le istruzioni dell'azienda — oppure usa la scheda employer brand (quando disponibile) per un quadro completo di benefit, sedi e FAQ.`;
+    },
+    companyCityFaqWhyQ: (e) => `Perché una pagina dedicata a ${e}?`,
+    companyCityFaqWhyA: (e, c) =>
+      `${e} è tra le aziende con più offerte attive a ${c} questa settimana: una pagina dedicata permette di seguire le posizioni aperte in città senza dover filtrare manualmente il job-board e di confrontare settimana dopo settimana l'evoluzione del piano assunzioni.`,
+    companyCityFaqHowApplyQ: 'Come ci si candida a queste offerte?',
+    companyCityFaqHowApplyA: (e) =>
+      `Ogni offerta in elenco porta alla pagina dettaglio sul nostro job-board, da cui si apre il link ufficiale ai canali di candidatura gestiti direttamente da ${e}. Non raccogliamo CV — la candidatura avviene sempre sul sito dell'azienda.`,
+    companyCityFaqUpdateQ: 'Quando viene aggiornata questa pagina?',
+    companyCityFaqUpdateA:
+      'Ogni lunedì mattina la pipeline genera un nuovo snapshot delle offerte attive e aggiorna delta, classifica e testo editoriale. Puoi tornare settimanalmente per vedere come evolve il quadro assunzioni.',
   },
   en: {
     sectionLabel: 'Companies hiring',
@@ -434,6 +801,51 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       `The weekly snapshot of companies hiring in ${city} is useful for multiple profiles: Italian cross-border workers looking for their first role, workers already in Ticino aiming to switch positions, and Swiss residents evaluating more competitive offers. Tracking publication spikes helps spot employers actively growing their workforce — and therefore those most open to spontaneous applications even when there is no posting that perfectly matches the profile.`,
     methodologyBlock:
       'Methodology: every Monday morning at 06:00 UTC our pipeline compares the snapshot of active openings with the previous week\'s and computes a per-company delta. Companies with a positive delta move up the leaderboard. "New" companies are those never seen in the last 12 weekly snapshots. The role breakdown groups the first 3 words of the job title, with small tolerance for formatting variants.',
+    companyCityH1Current: (e, c) => `Companies hiring — ${e} in ${c}, current week`,
+    companyCityH1Archive: (e, c, w, y) =>
+      `Companies hiring — ${e} in ${c}, week ${w} ${y}`,
+    companyCityKicker: 'Company × city',
+    companyCityHeroWithDelta: ({ employer, city, jobsCount, delta }) =>
+      delta > 0
+        ? `This week ${employer} has ${jobsCount} open positions in ${city} (+${delta} vs last week).`
+        : delta < 0
+        ? `This week ${employer} has ${jobsCount} open positions in ${city} (${delta} vs last week).`
+        : `This week ${employer} has ${jobsCount} open positions in ${city} — unchanged vs last week.`,
+    companyCityHeroNoDelta: ({ employer, city, jobsCount }) =>
+      `This week ${employer} has ${jobsCount} open positions in ${city}. Baseline data — the weekly delta will appear starting with the next snapshot.`,
+    companyCityIntro: ({ employer, city, topRoles, avgSalary }) => {
+      const rolesText =
+        topRoles.length > 0
+          ? `The most common roles ${employer} is hiring for in ${city} this week are: ${topRoles.slice(0, 3).join(', ')}.`
+          : `The open positions span multiple profiles, from operational support to specialist functions.`;
+      const salaryText =
+        typeof avgSalary === 'number'
+          ? ` The average gross salary quoted in this week's listings is about CHF ${avgSalary.toLocaleString('en-US')} per year — useful as a benchmark to evaluate any offer you receive.`
+          : '';
+      return `Up-to-date list of active ${employer} openings in ${city}, each linked to the individual listing on our job board. Refreshed weekly so you can see how the company's hiring plan evolves in the city and spot the roles that fit your profile before the competition. ${rolesText}${salaryText}`;
+    },
+    companyCityJobsHeading: (e, c) => `Open positions at ${e} in ${c} this week`,
+    companyCityApplyCta: 'View posting',
+    companyCityBrandHubLabel: (e) => `Employer page: ${e}`,
+    companyCityParentHubLabel: (c) => `All companies hiring in ${c} this week`,
+    companyCityCityHubLabel: (c) => `All jobs in ${c}`,
+    companyCitySiblingLabel: (e, c) => `${e} in ${c}`,
+    companyCityEditorial: ({ employer, city, jobsCount, topRoles }) => {
+      const roles =
+        topRoles.length > 0
+          ? topRoles.slice(0, 3).join(', ')
+          : 'operational and specialist roles';
+      return `This weekly overview of ${employer} in ${city} is aimed at anyone evaluating the company as a potential employer: it shows at a glance how many positions are actually open today (${jobsCount}), which role families are most represented (${roles}), and how the hiring plan shifts from one week to the next. It's especially useful if you're targeting a spontaneous application: a rise in open positions often signals the company is growing its headcount and will take a closer look at profiles sent outside a specific posting. The page is regenerated automatically every Monday morning — the content reflects the state of the openings at generation time. To apply, open the individual listing and follow the company's instructions, or use the employer brand page (when available) for a full overview of benefits, locations and FAQ.`;
+    },
+    companyCityFaqWhyQ: (e) => `Why a dedicated page for ${e}?`,
+    companyCityFaqWhyA: (e, c) =>
+      `${e} is among the companies with the most active openings in ${c} this week: a dedicated page makes it easy to track the open positions in the city without filtering the job board manually, and to compare how the hiring plan evolves week after week.`,
+    companyCityFaqHowApplyQ: 'How do I apply to these openings?',
+    companyCityFaqHowApplyA: (e) =>
+      `Every listing here links to the detail page on our job board, which in turn links to the official application channel managed by ${e}. We don't collect résumés — the application always happens on the company's website.`,
+    companyCityFaqUpdateQ: 'How often is this page updated?',
+    companyCityFaqUpdateA:
+      'Every Monday morning the pipeline regenerates the snapshot of active openings and updates the delta, ranking and editorial copy. Check back weekly to see how the hiring outlook shifts.',
   },
   de: {
     sectionLabel: 'Unternehmen mit offenen Stellen',
@@ -483,6 +895,54 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       `Die wöchentliche Aufnahme der Unternehmen, die in ${city} einstellen, ist für mehrere Zielgruppen nützlich: italienische Grenzgänger auf Jobsuche, Personen mit Arbeitsplatz im Tessin, die wechseln möchten, und Schweizer Einheimische, die attraktivere Angebote prüfen. Publikationsspitzen helfen dabei, Arbeitgeber zu erkennen, die gerade ihre Belegschaft ausbauen — und daher offener für Initiativbewerbungen sind, auch wenn aktuell keine exakt passende Stelle ausgeschrieben ist.`,
     methodologyBlock:
       'Methodik: Jeden Montagmorgen um 06:00 UTC vergleicht unsere Pipeline den Snapshot der aktiven Stellen mit dem der Vorwoche und berechnet eine firmenspezifische Veränderung. Unternehmen mit positiver Veränderung steigen in der Rangliste. "Neue" Unternehmen sind solche, die in den letzten 12 Wochen-Snapshots nie vorkamen. Die Rollenaufteilung gruppiert die ersten drei Wörter des Stellentitels mit geringer Toleranz für Formatvarianten.',
+    companyCityH1Current: (e, c) =>
+      `Unternehmen mit offenen Stellen — ${e} in ${c}, aktuelle Woche`,
+    companyCityH1Archive: (e, c, w, y) =>
+      `Unternehmen mit offenen Stellen — ${e} in ${c}, Woche ${w} ${y}`,
+    companyCityKicker: 'Unternehmen × Stadt',
+    companyCityHeroWithDelta: ({ employer, city, jobsCount, delta }) =>
+      delta > 0
+        ? `Diese Woche hat ${employer} ${jobsCount} offene Stellen in ${city} (+${delta} gegenüber letzter Woche).`
+        : delta < 0
+        ? `Diese Woche hat ${employer} ${jobsCount} offene Stellen in ${city} (${delta} gegenüber letzter Woche).`
+        : `Diese Woche hat ${employer} ${jobsCount} offene Stellen in ${city} — unverändert gegenüber letzter Woche.`,
+    companyCityHeroNoDelta: ({ employer, city, jobsCount }) =>
+      `Diese Woche hat ${employer} ${jobsCount} offene Stellen in ${city}. Basisdaten — die Wochenveränderung ist ab der nächsten Erhebung verfügbar.`,
+    companyCityIntro: ({ employer, city, topRoles, avgSalary }) => {
+      const rolesText =
+        topRoles.length > 0
+          ? `Die häufigsten Rollen, für die ${employer} in ${city} diese Woche sucht: ${topRoles.slice(0, 3).join(', ')}.`
+          : `Die offenen Stellen decken verschiedene Profile ab, von operativen Aufgaben bis zu Fachfunktionen.`;
+      const salaryText =
+        typeof avgSalary === 'number'
+          ? ` Das durchschnittliche Bruttogehalt in den Ausschreibungen dieser Woche liegt bei rund CHF ${avgSalary.toLocaleString('de-CH')} pro Jahr — nützlich als Orientierung, um ein Angebot einzuordnen.`
+          : '';
+      return `Aktuelle Liste der offenen Stellen bei ${employer} in ${city} mit direktem Link zu jeder Ausschreibung auf unserem Job-Board. Wöchentlich aktualisiert, damit Sie nachvollziehen können, wie sich der Personalplan des Unternehmens in der Stadt entwickelt und Rollen finden, die zu Ihrem Profil passen, bevor die Konkurrenz zuschlägt. ${rolesText}${salaryText}`;
+    },
+    companyCityJobsHeading: (e, c) =>
+      `Offene Stellen bei ${e} in ${c} diese Woche`,
+    companyCityApplyCta: 'Stelle ansehen',
+    companyCityBrandHubLabel: (e) => `Arbeitgeberseite: ${e}`,
+    companyCityParentHubLabel: (c) =>
+      `Alle Unternehmen mit offenen Stellen in ${c} diese Woche`,
+    companyCityCityHubLabel: (c) => `Alle Stellen in ${c}`,
+    companyCitySiblingLabel: (e, c) => `${e} in ${c}`,
+    companyCityEditorial: ({ employer, city, jobsCount, topRoles }) => {
+      const roles =
+        topRoles.length > 0
+          ? topRoles.slice(0, 3).join(', ')
+          : 'operative und Fachrollen';
+      return `Die wöchentliche Übersicht zu ${employer} in ${city} richtet sich an alle, die das Unternehmen als möglichen Arbeitgeber prüfen: Sie sehen auf einen Blick, wie viele Stellen aktuell offen sind (${jobsCount}), welche Rollenfamilien am stärksten vertreten sind (${roles}) und wie sich der Personalplan von Woche zu Woche verändert. Besonders hilfreich ist das für Initiativbewerbungen: Steigt die Zahl der Ausschreibungen, wächst meist der Personalbestand — und die Firma prüft Profile, die außerhalb einer konkreten Ausschreibung eingehen, genauer. Die Seite wird jeden Montagmorgen automatisch neu erstellt; der Inhalt spiegelt den Stand der Stellen zum Zeitpunkt der Erzeugung wider. Für eine Bewerbung die jeweilige Ausschreibung öffnen und den Anweisungen des Unternehmens folgen — oder die Arbeitgeberseite (sofern verfügbar) für einen Überblick zu Benefits, Standorten und FAQ nutzen.`;
+    },
+    companyCityFaqWhyQ: (e) => `Warum eine eigene Seite für ${e}?`,
+    companyCityFaqWhyA: (e, c) =>
+      `${e} zählt zu den Unternehmen mit den meisten offenen Stellen in ${c} diese Woche: Eine eigene Seite erlaubt es, die offenen Positionen in der Stadt ohne manuelles Filtern des Job-Boards zu verfolgen und den Personalplan Woche für Woche zu vergleichen.`,
+    companyCityFaqHowApplyQ: 'Wie bewerbe ich mich auf diese Stellen?',
+    companyCityFaqHowApplyA: (e) =>
+      `Jede Ausschreibung verlinkt auf die Detailseite auf unserem Job-Board, die wiederum auf den offiziellen Bewerbungskanal von ${e} führt. Wir sammeln keine Lebensläufe — die Bewerbung läuft immer über die Unternehmenswebsite.`,
+    companyCityFaqUpdateQ: 'Wie oft wird diese Seite aktualisiert?',
+    companyCityFaqUpdateA:
+      'Jeden Montagmorgen erstellt die Pipeline einen neuen Snapshot der offenen Stellen und aktualisiert Veränderung, Rangliste und redaktionellen Text. Schauen Sie wöchentlich vorbei, um die Entwicklung zu verfolgen.',
   },
   fr: {
     sectionLabel: 'Entreprises qui recrutent',
@@ -531,6 +991,54 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       `L\'image hebdomadaire des entreprises qui recrutent à ${city} est utile à plusieurs profils : frontaliers italiens en recherche de premier poste, personnes déjà installées au Tessin souhaitant changer de poste, et résidents suisses évaluant des offres plus compétitives. Surveiller les pics de publication aide à repérer les employeurs qui étoffent leurs équipes — et donc ceux qui sont les plus ouverts aux candidatures spontanées même lorsqu\'aucun poste ne correspond exactement au profil.`,
     methodologyBlock:
       'Méthodologie : chaque lundi matin à 06:00 UTC, notre pipeline compare le snapshot des offres actives avec celui de la semaine précédente et calcule une variation par entreprise. Les entreprises avec une variation positive montent dans le classement. Les "nouvelles" entreprises sont celles jamais observées dans les 12 derniers snapshots hebdomadaires. La répartition par rôle regroupe les trois premiers mots du titre de l\'offre, avec une petite tolérance aux variantes de formatage.',
+    companyCityH1Current: (e, c) =>
+      `Entreprises qui recrutent — ${e} à ${c}, semaine courante`,
+    companyCityH1Archive: (e, c, w, y) =>
+      `Entreprises qui recrutaient — ${e} à ${c}, semaine ${w} ${y}`,
+    companyCityKicker: 'Entreprise × ville',
+    companyCityHeroWithDelta: ({ employer, city, jobsCount, delta }) =>
+      delta > 0
+        ? `Cette semaine ${employer} a ${jobsCount} offres ouvertes à ${city} (+${delta} par rapport à la semaine dernière).`
+        : delta < 0
+        ? `Cette semaine ${employer} a ${jobsCount} offres ouvertes à ${city} (${delta} par rapport à la semaine dernière).`
+        : `Cette semaine ${employer} a ${jobsCount} offres ouvertes à ${city} — inchangé par rapport à la semaine dernière.`,
+    companyCityHeroNoDelta: ({ employer, city, jobsCount }) =>
+      `Cette semaine ${employer} a ${jobsCount} offres ouvertes à ${city}. Données initiales — la variation hebdomadaire apparaîtra dès le prochain snapshot.`,
+    companyCityIntro: ({ employer, city, topRoles, avgSalary }) => {
+      const rolesText =
+        topRoles.length > 0
+          ? `Les rôles les plus recherchés par ${employer} à ${city} cette semaine : ${topRoles.slice(0, 3).join(', ')}.`
+          : `Les postes ouverts couvrent plusieurs profils, du soutien opérationnel aux fonctions spécialisées.`;
+      const salaryText =
+        typeof avgSalary === 'number'
+          ? ` Le salaire brut moyen affiché dans les offres de cette semaine est d'environ CHF ${avgSalary.toLocaleString('fr-CH')} par an — un repère utile pour évaluer une proposition.`
+          : '';
+      return `Liste à jour des offres actives de ${employer} à ${city}, avec un lien direct vers chaque annonce sur notre tableau d'offres. Actualisée chaque semaine pour suivre l'évolution du plan de recrutement de l'entreprise dans la ville et repérer les rôles qui correspondent à votre profil avant la concurrence. ${rolesText}${salaryText}`;
+    },
+    companyCityJobsHeading: (e, c) =>
+      `Offres ouvertes chez ${e} à ${c} cette semaine`,
+    companyCityApplyCta: 'Voir l\'offre',
+    companyCityBrandHubLabel: (e) => `Page employeur : ${e}`,
+    companyCityParentHubLabel: (c) =>
+      `Toutes les entreprises qui recrutent à ${c} cette semaine`,
+    companyCityCityHubLabel: (c) => `Toutes les offres à ${c}`,
+    companyCitySiblingLabel: (e, c) => `${e} à ${c}`,
+    companyCityEditorial: ({ employer, city, jobsCount, topRoles }) => {
+      const roles =
+        topRoles.length > 0
+          ? topRoles.slice(0, 3).join(', ')
+          : 'rôles opérationnels et spécialisés';
+      return `Cette fiche hebdomadaire consacrée à ${employer} à ${city} s'adresse à celles et ceux qui évaluent l'entreprise comme employeur potentiel : elle montre d'un coup d'œil combien de postes sont réellement ouverts aujourd'hui (${jobsCount}), quelles familles de rôles sont les plus représentées (${roles}) et comment le plan de recrutement évolue d'une semaine à l'autre. Particulièrement utile pour les candidatures spontanées : une hausse du nombre d'offres signale souvent que l'entreprise accroît ses effectifs et examine avec plus d'attention les profils envoyés en dehors d'un poste précis. La page est régénérée automatiquement chaque lundi matin ; le contenu reflète l'état des offres au moment de la génération. Pour postuler, ouvrez l'annonce individuelle et suivez les instructions de l'entreprise — ou utilisez la page employeur (si disponible) pour un aperçu complet des avantages, des sites et de la FAQ.`;
+    },
+    companyCityFaqWhyQ: (e) => `Pourquoi une page dédiée à ${e} ?`,
+    companyCityFaqWhyA: (e, c) =>
+      `${e} fait partie des entreprises avec le plus d'offres actives à ${c} cette semaine : une page dédiée permet de suivre les postes ouverts dans la ville sans filtrer manuellement le tableau d'offres, et de comparer l'évolution du plan de recrutement semaine après semaine.`,
+    companyCityFaqHowApplyQ: 'Comment postuler à ces offres ?',
+    companyCityFaqHowApplyA: (e) =>
+      `Chaque annonce listée renvoie vers la page détail sur notre tableau d'offres, qui mène au canal de candidature officiel géré par ${e}. Nous ne collectons pas les CV — la candidature se fait toujours sur le site de l'entreprise.`,
+    companyCityFaqUpdateQ: 'À quelle fréquence cette page est-elle mise à jour ?',
+    companyCityFaqUpdateA:
+      'Chaque lundi matin, la pipeline régénère le snapshot des offres actives et met à jour la variation, le classement et le texte éditorial. Revenez chaque semaine pour voir comment évolue le plan d\'embauche.',
   },
 };
 
@@ -862,6 +1370,365 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   });
 }
 
+// ── Company × City page renderer (D-2 Expansion B) ────────────
+
+export interface CompanyCityPageInputs {
+  locale: WeeklyEmployersLocale;
+  city: WeeklyEmployersCompanyCity;
+  companySlug: string;
+  variant: 'current' | 'archive';
+  weekNum: number;
+  year: number;
+  stats: CompanyCityStats;
+  hasHistoricalDelta: boolean;
+  canonicalPath: string;
+  today: Date;
+  indexable: boolean;
+  distDir?: string;
+}
+
+/** JSON-LD `JobPosting` minimal shape — just enough for ItemList SEO value. */
+function jobToJsonLd(
+  job: CompanyCityActiveJob,
+  employer: string,
+  city: string,
+): Record<string, unknown> {
+  return {
+    '@type': 'JobPosting',
+    title: job.title || 'Posizione aperta',
+    url: `${BASE_URL}${job.detailPath}`,
+    datePosted: job.postedDate || undefined,
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: employer,
+    },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: city,
+        addressCountry: 'CH',
+      },
+    },
+  };
+}
+
+export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
+  const {
+    locale,
+    city,
+    companySlug,
+    variant,
+    weekNum,
+    year,
+    stats,
+    hasHistoricalDelta,
+    canonicalPath,
+    today,
+    indexable,
+    distDir,
+  } = inp;
+
+  const copy = COPY[locale];
+  const cityDisplay = WEEKLY_EMPLOYERS_CITY_DISPLAY[city];
+  const employer = stats.employer || '';
+  const dateStamp = today.toISOString().slice(0, 10);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  const h1 =
+    variant === 'current'
+      ? copy.companyCityH1Current(employer, cityDisplay)
+      : copy.companyCityH1Archive(employer, cityDisplay, weekNum, year);
+
+  const heroSummary = hasHistoricalDelta
+    ? copy.companyCityHeroWithDelta({
+        employer,
+        city: cityDisplay,
+        jobsCount: stats.activeJobsCount,
+        delta: stats.delta,
+      })
+    : copy.companyCityHeroNoDelta({
+        employer,
+        city: cityDisplay,
+        jobsCount: stats.activeJobsCount,
+      });
+
+  const topRoleLabels = stats.topRoles.map((r) => r.role);
+  const intro = copy.companyCityIntro({
+    employer,
+    city: cityDisplay,
+    topRoles: topRoleLabels,
+    avgSalary: stats.avgSalary,
+  });
+  const editorial = copy.companyCityEditorial({
+    employer,
+    city: cityDisplay,
+    jobsCount: stats.activeJobsCount,
+    topRoles: topRoleLabels,
+  });
+
+  // hreflang alternates to the same (city, companySlug, variant) in other locales.
+  const alternatesHtml = WEEKLY_EMPLOYERS_LOCALES.map((alt) => {
+    const p =
+      variant === 'current'
+        ? buildCompanyCityCurrentPath(alt, city, companySlug)
+        : buildCompanyCityArchivePath(alt, city, companySlug, weekNum, year);
+    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${p}">`;
+  }).join('\n');
+  const xDefaultPath =
+    variant === 'current'
+      ? buildCompanyCityCurrentPath('it', city, companySlug)
+      : buildCompanyCityArchivePath('it', city, companySlug, weekNum, year);
+
+  const hreflangHtml = `${alternatesHtml}\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">`;
+
+  // Job list (≤10).
+  const jobsListHtml =
+    stats.activeJobs.length > 0
+      ? `<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px">${stats.activeJobs
+          .map((job, idx) => {
+            const title = esc(job.title || `Posizione ${idx + 1}`);
+            const date = job.postedDate
+              ? `<span style="color:#64748b;font-size:13px">${esc(String(job.postedDate).slice(0, 10))}</span>`
+              : '';
+            const apply = esc(copy.companyCityApplyCta);
+            return `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff">
+      <a href="${esc(job.detailPath)}" style="display:block;color:inherit;text-decoration:none">
+        <div style="font-weight:700;font-size:16px;color:#0f172a">${idx + 1}. ${title}</div>
+        <div style="margin-top:4px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+          ${date}
+          <span style="color:#1d4ed8;font-weight:600;font-size:14px">${apply} →</span>
+        </div>
+      </a>
+    </li>`;
+          })
+          .join('')}</ol>`
+      : `<p style="padding:14px 16px;border-radius:12px;background:#fef3c7;color:#78350f">${esc(copy.topCompaniesEmpty)}</p>`;
+
+  // Related links (own + cross-feature via shared helper).
+  const parentHubHref = buildCurrentWeekPath(locale, city);
+  const cityJobsHref = cityJobsHubPath(locale, city);
+  const brandHref = employerBrandPath(stats.employerKey);
+
+  const ownRelated: string[] = [];
+  if (brandHref) {
+    ownRelated.push(
+      `<li style="margin:0;padding:0"><a href="${esc(brandHref)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(copy.companyCityBrandHubLabel(employer))} →</a></li>`,
+    );
+  }
+  ownRelated.push(
+    `<li style="margin:0;padding:0"><a href="${esc(parentHubHref)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(copy.companyCityParentHubLabel(cityDisplay))} →</a></li>`,
+  );
+  ownRelated.push(
+    `<li style="margin:0;padding:0"><a href="${esc(cityJobsHref)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(copy.companyCityCityHubLabel(cityDisplay))} →</a></li>`,
+  );
+
+  // Sibling company-city pages for the same company (other cities).
+  // Build the list of sibling cities that qualify — we rely on the calling
+  // generator to pass us `stats.employerKey`, and here we just try to emit
+  // links to other cities in the static hardcoded city list if a sibling
+  // stats was computed upstream and pinned on `_siblingCities` (optional).
+  // To keep this renderer dependency-free we expose a CSS grid of potential
+  // siblings; the generator below patches the DOM when siblings exist.
+  //
+  // For SEO simplicity we ALWAYS emit a stub `<section id="siblings">` so
+  // downstream injection is easy; the generator populates it with real
+  // sibling pairs after computing the global pair list.
+  const siblingsPlaceholder = '<!--SIBLING_LINKS_PLACEHOLDER-->';
+
+  // JSON-LD
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: copy.sectionLabel,
+        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/`.replace(/([^:])\/+/g, '$1/'),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: cityDisplay,
+        item: `${BASE_URL}${parentHubHref}`,
+      },
+      { '@type': 'ListItem', position: 4, name: employer, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: heroSummary,
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const itemListLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: h1,
+    numberOfItems: stats.activeJobs.length,
+    itemListElement: stats.activeJobs.map((job, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: jobToJsonLd(job, employer, cityDisplay),
+    })),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: copy.companyCityFaqWhyQ(employer),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: copy.companyCityFaqWhyA(employer, cityDisplay),
+        },
+      },
+      {
+        '@type': 'Question',
+        name: copy.companyCityFaqHowApplyQ,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: copy.companyCityFaqHowApplyA(employer),
+        },
+      },
+      {
+        '@type': 'Question',
+        name: copy.companyCityFaqUpdateQ,
+        acceptedAnswer: { '@type': 'Answer', text: copy.companyCityFaqUpdateA },
+      },
+    ],
+  });
+
+  const robots = indexable ? 'index,follow' : 'noindex,follow';
+  const title = `${h1} | Frontaliere Ticino`.slice(0, 160);
+  const description = heroSummary.slice(0, 180);
+
+  const archiveNote =
+    variant === 'archive' && !indexable
+      ? `<p style="margin:0 0 16px;color:#78350f;background:#fef3c7;padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      : '';
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.sectionLabel)}</a>
+    <span> / </span>
+    <a href="${esc(parentHubHref)}" style="color:#1d4ed8;text-decoration:none">${esc(cityDisplay)}</a>
+    <span> / </span>
+    <span>${esc(employer)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
+    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
+    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(heroSummary)}</p>
+    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(intro)}</p>
+  </header>
+  ${archiveNote}
+  <section style="margin:0 0 28px" aria-labelledby="companyCityJobs">
+    <h2 id="companyCityJobs" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.companyCityJobsHeading(employer, cityDisplay))}</h2>
+    ${jobsListHtml}
+  </section>
+  <section style="margin:0 0 28px" aria-labelledby="companyCityEditorial">
+    <h2 id="companyCityEditorial" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(employer)} · ${esc(cityDisplay)}</h2>
+    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(editorial)}</p>
+  </section>
+  <section style="margin:0 0 28px" aria-labelledby="companyCityLinks">
+    <h2 id="companyCityLinks" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.relatedLinksTitle)}</h2>
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 18px">${ownRelated.join('')}</ul>
+    ${siblingsPlaceholder}
+  </section>
+  <section style="margin:0 0 0" aria-labelledby="companyCityFaq">
+    <h2 id="companyCityFaq" style="margin:0 0 10px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.companyCityFaqWhyQ(employer))}</summary>
+      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.companyCityFaqWhyA(employer, cityDisplay))}</p>
+    </details>
+    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.companyCityFaqHowApplyQ)}</summary>
+      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.companyCityFaqHowApplyA(employer))}</p>
+    </details>
+    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
+      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.companyCityFaqUpdateQ)}</summary>
+      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.companyCityFaqUpdateA)}</p>
+    </details>
+  </section>
+  ${generateRelatedLinksBlock(locale, 'weekly_employer_company_city', {
+    city,
+    weeklyCity: city,
+    companySlug,
+    employer,
+  })}
+</main>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots,
+    ogType: 'website',
+    ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
+    hreflangHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
+}
+
+/**
+ * Inject sibling-city links into a company-city HTML page. Returns a new
+ * string — does not mutate.
+ *
+ * Kept out of `renderCompanyCityPage` because sibling discovery requires
+ * the full list of qualifying pairs, which only the generator has.
+ */
+export function injectSiblingLinks(
+  html: string,
+  locale: WeeklyEmployersLocale,
+  companySlug: string,
+  currentCity: WeeklyEmployersCompanyCity,
+  siblingCities: readonly WeeklyEmployersCompanyCity[],
+  employer: string,
+): string {
+  const copy = COPY[locale];
+  if (siblingCities.length === 0) {
+    return html.replace('<!--SIBLING_LINKS_PLACEHOLDER-->', '');
+  }
+  const items = siblingCities
+    .filter((c) => c !== currentCity)
+    .map((c) => {
+      const href = buildCompanyCityCurrentPath(locale, c, companySlug);
+      const label = copy.companyCitySiblingLabel(employer, WEEKLY_EMPLOYERS_CITY_DISPLAY[c]);
+      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(label)} →</a></li>`;
+    })
+    .join('');
+  if (!items) {
+    return html.replace('<!--SIBLING_LINKS_PLACEHOLDER-->', '');
+  }
+  const block = `<ul style="list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:4px 16px">${items}</ul>`;
+  return html.replace('<!--SIBLING_LINKS_PLACEHOLDER-->', block);
+}
+
 // ── Snapshot I/O ────────────────────────────────────────────────
 
 /** Read all snapshots from data/jobs-snapshots-history/*.json sorted by week asc. */
@@ -1072,6 +1939,65 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
     }
   }
 
+  // ── D-2 Expansion B: per-company × per-city pages ──────────────
+  // Runs AFTER the city-level loop so we can lean on the latest snapshot
+  // as the "previous week" for delta. Skipped for the regional "ticino"
+  // hub (already covered by per-city pages).
+  const pairs = enumerateCompanyCityPairs(opts.jobs);
+
+  // Group qualifying cities per companySlug so we can inject sibling
+  // links into each page.
+  const siblingsByCompany = new Map<string, WeeklyEmployersCompanyCity[]>();
+  for (const p of pairs) {
+    const list = siblingsByCompany.get(p.companySlug) ?? [];
+    list.push(p.city);
+    siblingsByCompany.set(p.companySlug, list);
+  }
+
+  for (const pair of pairs) {
+    for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      const stats = buildCompanyCityStats({
+        city: pair.city,
+        companySlug: pair.companySlug,
+        employerKey: pair.employerKey,
+        locale,
+        jobs: opts.jobs,
+        previousSnapshot,
+      });
+      if (!stats) continue;
+
+      const canonicalPath = buildCompanyCityCurrentPath(
+        locale,
+        pair.city,
+        pair.companySlug,
+      );
+      let html = renderCompanyCityPage({
+        locale,
+        city: pair.city,
+        companySlug: pair.companySlug,
+        variant: 'current',
+        weekNum: currentWeek,
+        year: currentYear,
+        stats,
+        hasHistoricalDelta,
+        canonicalPath,
+        today,
+        indexable: true,
+        distDir,
+      });
+      const siblings = siblingsByCompany.get(pair.companySlug) ?? [];
+      html = injectSiblingLinks(
+        html,
+        locale,
+        pair.companySlug,
+        pair.city,
+        siblings,
+        stats.employer,
+      );
+      pages.push({ path: canonicalPath, html, indexable: true });
+    }
+  }
+
   return pages;
 }
 
@@ -1081,6 +2007,7 @@ interface PluginResult {
   pagesWritten: number;
   currentWeekPages: number;
   archivePages: number;
+  companyCityPages: number;
   skippedForWordCount: number;
   degradedMode: boolean;
 }
@@ -1123,6 +2050,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
 
       let currentWeekCount = 0;
       let archiveCount = 0;
+      let companyCityCount = 0;
       let skipped = 0;
       // Paths that should land in sitemap-weekly-employers.xml. Only indexable
       // pages (current-week + last-12-weeks archives) are listed — noindex
@@ -1144,7 +2072,12 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, page.path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), page.html);
-        if (archiveRe.test(page.path)) archiveCount++;
+        // Company × city pages have 4 segments after the locale prefix (section,
+        // city, companySlug, when) vs. 3 segments for city-only pages. Use the
+        // parse helper so we don't re-derive the rule.
+        const companyCityMatch = parseCompanyCityPath(page.path);
+        if (companyCityMatch) companyCityCount++;
+        else if (archiveRe.test(page.path)) archiveCount++;
         else currentWeekCount++;
         if (page.indexable) indexableSitemapPaths.push(page.path);
       }
@@ -1190,12 +2123,13 @@ ${urlEntries}
         pagesWritten: written,
         currentWeekPages: currentWeekCount,
         archivePages: archiveCount,
+        companyCityPages: companyCityCount,
         skippedForWordCount: skipped,
         degradedMode: degraded,
       };
 
       console.log(
-        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
+        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
       );
     },
   };

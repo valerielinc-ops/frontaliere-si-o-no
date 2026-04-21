@@ -47,6 +47,30 @@ const translations: Record<string, string> = {
   'weeklyEmployers.breadcrumb.section': 'Companies hiring',
   'weeklyEmployers.archive.noindexNote':
     'Historical archive — kept for continuity, no longer updated.',
+  // Company × city page (D-2 Expansion B).
+  'weeklyEmployers.companyCity.h1.current':
+    'Companies hiring — {employer} in {city}, current week',
+  'weeklyEmployers.companyCity.h1.archive':
+    'Companies hiring — {employer} in {city}, week {week} {year}',
+  'weeklyEmployers.companyCity.kicker': 'Company × city',
+  'weeklyEmployers.companyCity.heroWithDelta':
+    'This week {employer} has {jobsCount} open positions in {city} ({deltaLabel}).',
+  'weeklyEmployers.companyCity.heroNoDelta':
+    'This week {employer} has {jobsCount} open positions in {city}. Baseline data — the weekly delta will appear starting with the next snapshot.',
+  'weeklyEmployers.companyCity.jobsHeading':
+    'Open positions at {employer} in {city} this week',
+  'weeklyEmployers.companyCity.applyCta': 'View posting',
+  'weeklyEmployers.companyCity.brandHubLabel': 'Employer page: {employer}',
+  'weeklyEmployers.companyCity.parentHubLabel':
+    'All companies hiring in {city} this week',
+  'weeklyEmployers.companyCity.cityHubLabel': 'All jobs in {city}',
+  'weeklyEmployers.companyCity.siblingLabel': '{employer} in {city}',
+  'weeklyEmployers.companyCity.faq.why.q':
+    'Why a dedicated page for {employer}?',
+  'weeklyEmployers.companyCity.faq.howApply.q':
+    'How do I apply to these openings?',
+  'weeklyEmployers.companyCity.faq.update.q':
+    'How often is this page updated?',
 };
 
 export default translations;

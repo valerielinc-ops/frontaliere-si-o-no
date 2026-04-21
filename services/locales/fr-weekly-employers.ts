@@ -53,6 +53,30 @@ const translations: Record<string, string> = {
   'weeklyEmployers.breadcrumb.section': 'Entreprises qui recrutent',
   'weeklyEmployers.archive.noindexNote':
     'Archive historique — conservée pour continuité, non mise à jour.',
+  // Company × city page (D-2 Expansion B).
+  'weeklyEmployers.companyCity.h1.current':
+    'Entreprises qui recrutent — {employer} à {city}, semaine courante',
+  'weeklyEmployers.companyCity.h1.archive':
+    'Entreprises qui recrutaient — {employer} à {city}, semaine {week} {year}',
+  'weeklyEmployers.companyCity.kicker': 'Entreprise × ville',
+  'weeklyEmployers.companyCity.heroWithDelta':
+    'Cette semaine {employer} a {jobsCount} offres ouvertes à {city} ({deltaLabel}).',
+  'weeklyEmployers.companyCity.heroNoDelta':
+    'Cette semaine {employer} a {jobsCount} offres ouvertes à {city}. Données initiales — la variation hebdomadaire apparaîtra dès le prochain snapshot.',
+  'weeklyEmployers.companyCity.jobsHeading':
+    'Offres ouvertes chez {employer} à {city} cette semaine',
+  'weeklyEmployers.companyCity.applyCta': 'Voir l\'offre',
+  'weeklyEmployers.companyCity.brandHubLabel': 'Page employeur : {employer}',
+  'weeklyEmployers.companyCity.parentHubLabel':
+    'Toutes les entreprises qui recrutent à {city} cette semaine',
+  'weeklyEmployers.companyCity.cityHubLabel': 'Toutes les offres à {city}',
+  'weeklyEmployers.companyCity.siblingLabel': '{employer} à {city}',
+  'weeklyEmployers.companyCity.faq.why.q':
+    'Pourquoi une page dédiée à {employer} ?',
+  'weeklyEmployers.companyCity.faq.howApply.q':
+    'Comment postuler à ces offres ?',
+  'weeklyEmployers.companyCity.faq.update.q':
+    'À quelle fréquence cette page est-elle mise à jour ?',
 };
 
 export default translations;

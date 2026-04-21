@@ -43,7 +43,7 @@ import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyDa
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
-import { WEEKLY_EMPLOYERS_ROUTES, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
+import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 
 // ── Route types ──────────────────────────────────────────────
@@ -1626,6 +1626,13 @@ export function parsePath(pathname: string): ParseResult {
    const weeklyEmployersMatch = parseWeeklyEmployersPath(pathname);
    if (weeklyEmployersMatch) {
      return { route: { activeTab: 'job-board' }, locale: weeklyEmployersMatch.locale as Locale };
+   }
+   // D-2 Expansion B: per-company × per-city hub (e.g.
+   // /aziende-che-assumono/lugano/eoc-ente-ospedaliero-cantonale/settimana-corrente/).
+   // Soft-nav resolves to the job-board tab so back/forward works without 404.
+   const companyCityMatch = parseCompanyCityPath(pathname);
+   if (companyCityMatch) {
+     return { route: { activeTab: 'job-board' }, locale: companyCityMatch.locale as Locale };
    }
  }
 
