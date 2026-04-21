@@ -3641,6 +3641,17 @@ ${alternates}
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
+ const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
+ const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
+ const pgBreadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: pgHomeUrl },
+ { '@type': 'ListItem', position: 2, name: pgListName, item: pgMainUrl },
+ { '@type': 'ListItem', position: 3, name: pgCopy.heading(pageNum), item: pgCanonicalUrl },
+ ],
+ });
  const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
  for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(totalListingPages, pageNum + 2); np2++) {
  if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
@@ -3655,7 +3666,7 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
- jsonLdScripts: [pgCollLd, pgItemLd],
+ jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>`,
