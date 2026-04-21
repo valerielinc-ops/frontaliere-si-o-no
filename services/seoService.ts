@@ -2057,6 +2057,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bellinzona-calcio-licenza-negata-finanze': { name: 'Bellinzona', path: '/articoli-frontaliere/bellinzona-calcio-licenza-negata-finanze', parent: 'blog' },
     'blog-mozione-salute-vigili-fuoco-lombardia': { name: 'Mozione salute', path: '/articoli-frontaliere/mozione-salute-vigili-fuoco-lombardia', parent: 'blog' },
     'blog-cuasso-monte-ospedale-frontalieri-chiusura': { name: 'Novità', path: '/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-lombardia-2026': { name: 'Tassa salute', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

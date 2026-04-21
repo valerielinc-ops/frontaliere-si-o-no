@@ -10732,6 +10732,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-lombardia-2026': {
+    title: 'Tassa salute per frontalieri: bocciata | Frontaliere Ticino',
+    description: 'La Regione Lombardia ha bocciato la mozione del Pd per abolire la tassa salute per i frontalieri, ma punta a detrazioni e aliquote minime. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, bocciata, abrogazione',
+    ogTitle: 'Tassa salute frontalieri: cosa cambia nel 2026',
+    ogDescription: 'La Regione Lombardia ha bocciato la mozione del Pd per abolire la tassa salute per i frontalieri, ma punta a detrazioni e aliquote minime.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: cosa cambia nel 2026",
+      "description": "La Regione Lombardia ha bocciato la mozione del Pd per abolire la tassa salute per i frontalieri, ma punta a detrazioni e aliquote minime. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le rive del Ticino e della Lombardia"
+      },
+      "datePublished": "2026-04-21T22:14:55+00:00",
+      "dateModified": "2026-04-21T22:14:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

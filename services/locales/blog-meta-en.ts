@@ -2469,6 +2469,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte: definitive closure of the cross-border workers\' hospital',
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'After twenty years of debate, the cross-border workers\' hospital in Cuasso al Monte is closing permanently. Services have been moved to the municipal building.',
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Lake Lugano with mountains and a boat',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Health tax for cross-border workers: repeal rejected, but cuts are coming',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'The Lombardy Region has rejected the Pd\'s motion to abolish the health tax for cross-border workers, but is aiming for deductions and minimum rates.',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino and Lombardy shores',
 };
 
 export default blogMetaEn;

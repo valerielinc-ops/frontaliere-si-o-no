@@ -2469,6 +2469,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte: chiusura definitiva dell\'ospedale dei frontalieri',
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'Dopo vent\'anni di dibattiti, l\'ospedale dei frontalieri di Cuasso al Monte chiude definitivamente. Servizi trasferiti nel palazzo comunale.',
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Lago di Lugano con montagne e barca',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Tassa salute per frontalieri: bocciata l\'abrogazione, ma arriva il taglio',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'La Regione Lombardia ha bocciato la mozione del Pd per abolire la tassa salute per i frontalieri, ma punta a detrazioni e aliquote minime.',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Vista aerea del Lago di Lugano con le rive del Ticino e della Lombardia',
 };
 
 export default blogMetaIt;

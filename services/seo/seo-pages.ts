@@ -4055,7 +4055,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 874,
+ "numberOfItems": 875,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4907,7 +4907,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 871, "name": "Frontalieri: mozione per contributo sanitario equo", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-contributo-sanitario-2026` },
           { "@type": "ListItem", "position": 872, "name": "Bellinzona: licenza negata, dubbi sulle finanze...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-calcio-licenza-negata-finanze` },
           { "@type": "ListItem", "position": 873, "name": "Mozione per la salute dei vigili del fuoco appr...", "url": `${BASE_URL}/articoli-frontaliere/mozione-salute-vigili-fuoco-lombardia` },
-          { "@type": "ListItem", "position": 874, "name": "Cuasso al Monte: chiusura ospedale frontalieri", "url": `${BASE_URL}/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura` }
+          { "@type": "ListItem", "position": 874, "name": "Cuasso al Monte: chiusura ospedale frontalieri", "url": `${BASE_URL}/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura` },
+          { "@type": "ListItem", "position": 875, "name": "Tassa salute frontalieri: cosa cambia nel 2026", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-2026` }
  ]
  }
  ]

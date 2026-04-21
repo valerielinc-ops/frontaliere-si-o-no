@@ -2469,6 +2469,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte: endgültige Schließung des Krankenhauses für Grenzgänger',
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'Nach zwanzig Jahren Diskussionen schließt das Krankenhaus für Grenzgänger in Cuasso al Monte endgültig. Die Einrichtungen werden ins Gemeindehaus verlegt.',
     'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Luganersee mit Bergen und einem Boot',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.title': 'Gesundheitssteuer für Grenzgänger: Abschaffung abgelehnt, aber Kürzung kommt',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.excerpt': 'Die Region Lombardei hat den Antrag der PD zur Abschaffung der Gesundheitssteuer für Grenzgänger abgelehnt, plant aber Abzüge und Mindestsätze.',
+    'blog.article.tassa-salute-frontalieri-lombardia-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Ufern des Tessin und der Lombardei',
 };
 
 export default blogMetaDe;
