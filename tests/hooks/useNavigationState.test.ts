@@ -45,7 +45,7 @@ vi.mock('@/services/analyticsProxy', () => ({
 }));
 
 import { useNavigationState } from '@/hooks/useNavigationState';
-import { pushRoute } from '@/services/router';
+import { pushRoute, parseHashToPath } from '@/services/router';
 import { prefetchTab } from '@/services/prefetch';
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
@@ -188,6 +188,48 @@ describe('useNavigationState', () => {
       // the ref prevents the sub-tab effect from pushing a duplicate route.
       expect(result.current.suppressNextRouteSyncForTabRef.current).toBeNull();
       expect(result.current.fiscoSubTab).toBe('pension');
+    });
+  });
+
+  // Regression: legacy-redirect useEffect must not drop ?ne=…&ac=… autologin
+  // params when canonicalizing legacy paths on mount. See commit 315e2ac0e.
+  describe('legacy-redirect query string preservation', () => {
+    const AUTOLOGIN_SEARCH = '?ne=user%40example.com&ac=deadbeef&utm_medium=newsletter';
+
+    it('preserves search when rewriting /calculator → /', () => {
+      window.history.replaceState({}, '', '/calculator' + AUTOLOGIN_SEARCH);
+      renderHook(() => useNavigationState());
+      expect(window.location.pathname).toBe('/');
+      expect(window.location.search).toBe(AUTOLOGIN_SEARCH);
+    });
+
+    it('preserves search when rewriting /stats → /statistiche', () => {
+      window.history.replaceState({}, '', '/stats' + AUTOLOGIN_SEARCH);
+      renderHook(() => useNavigationState());
+      expect(window.location.pathname).toBe('/statistiche');
+      expect(window.location.search).toBe(AUTOLOGIN_SEARCH);
+    });
+
+    it('preserves search when rewriting /guide → /guida-frontaliere', () => {
+      window.history.replaceState({}, '', '/guide' + AUTOLOGIN_SEARCH);
+      renderHook(() => useNavigationState());
+      expect(window.location.pathname).toBe('/guida-frontaliere');
+      expect(window.location.search).toBe(AUTOLOGIN_SEARCH);
+    });
+
+    it('preserves search when rewriting locale calc-home slug /calcola-stipendio → /', () => {
+      window.history.replaceState({}, '', '/calcola-stipendio' + AUTOLOGIN_SEARCH);
+      renderHook(() => useNavigationState());
+      expect(window.location.pathname).toBe('/');
+      expect(window.location.search).toBe(AUTOLOGIN_SEARCH);
+    });
+
+    it('preserves search when migrating legacy hash URL', () => {
+      vi.mocked(parseHashToPath).mockReturnValueOnce('/compara-servizi/cambio-franco-euro');
+      window.history.replaceState({}, '', '/' + AUTOLOGIN_SEARCH + '#/comparatori/cambio-valuta');
+      renderHook(() => useNavigationState());
+      expect(window.location.pathname).toBe('/compara-servizi/cambio-franco-euro');
+      expect(window.location.search).toBe(AUTOLOGIN_SEARCH);
     });
   });
 
