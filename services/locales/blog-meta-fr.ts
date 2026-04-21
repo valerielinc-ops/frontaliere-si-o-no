@@ -2466,6 +2466,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Motion pour la santé des pompiers approuvée à l\'unanimité',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'La Région Lombardie s\'engage à promouvoir des dépistages et des études épidémiologiques pour les pompiers, classés comme à risque cancérogène.',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Pompiers en action dans une caserne de pompiers en Lombardie, Italie',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte : fermeture définitive de l\'hôpital des frontaliers',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'Après vingt ans de débats, l\'hôpital des frontaliers de Cuasso al Monte ferme définitivement. Les services sont transférés dans le palais communal.',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Lac de Lugano avec des montagnes et un bateau',
 };
 
 export default blogMetaFr;

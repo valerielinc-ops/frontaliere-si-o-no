@@ -2466,6 +2466,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Motionsantrag zur Gesundheit der Feuerwehrleute einstimmig angenommen',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'Die Region Lombardei verpflichtet die Regierung, Screenings und epidemiologische Studien für Feuerwehrleute zu fördern, die als krebserregend eingestuft sind.',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Feuerwehrleute im Einsatz in einer Feuerwache in der Lombardei, Italien',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte: endgültige Schließung des Krankenhauses für Grenzgänger',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'Nach zwanzig Jahren Diskussionen schließt das Krankenhaus für Grenzgänger in Cuasso al Monte endgültig. Die Einrichtungen werden ins Gemeindehaus verlegt.',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Luganersee mit Bergen und einem Boot',
 };
 
 export default blogMetaDe;

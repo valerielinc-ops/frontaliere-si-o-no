@@ -2466,6 +2466,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Approvata all\'unanimità la mozione per la salute dei vigili del fuoco',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'Regione Lombardia impegna il Governo a promuovere screening e studi epidemiologici per i vigili del fuoco, classificati come a rischio cancerogeno.',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Vigili del fuoco in azione in una caserma in Lombardia',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte: chiusura definitiva dell\'ospedale dei frontalieri',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'Dopo vent\'anni di dibattiti, l\'ospedale dei frontalieri di Cuasso al Monte chiude definitivamente. Servizi trasferiti nel palazzo comunale.',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Lago di Lugano con montagne e barca',
 };
 
 export default blogMetaIt;

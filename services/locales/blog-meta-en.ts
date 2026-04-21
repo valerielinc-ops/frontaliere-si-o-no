@@ -2466,6 +2466,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Motion for firefighters\' health approved unanimously',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'Lombardy Region commits the Government to promoting screenings and epidemiological studies for firefighters, classified as at cancer risk.',
     'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Firefighters in action at a fire station in Lombardy, Italy',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.title': 'Cuasso al Monte: definitive closure of the cross-border workers\' hospital',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.excerpt': 'After twenty years of debate, the cross-border workers\' hospital in Cuasso al Monte is closing permanently. Services have been moved to the municipal building.',
+    'blog.article.cuasso-monte-ospedale-frontalieri-chiusura.imageAlt': 'Lake Lugano with mountains and a boat',
 };
 
 export default blogMetaEn;

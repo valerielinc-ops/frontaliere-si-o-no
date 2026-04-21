@@ -10703,6 +10703,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cuasso-monte-ospedale-frontalieri-chiusura': {
+    title: 'Cuasso al Monte: chiusura definitiva | Frontaliere Ticino',
+    description: 'Dopo vent\'anni di dibattiti, l\'ospedale dei frontalieri di Cuasso al Monte chiude definitivamente. Servizi trasferiti nel palazzo comunale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cuasso, monte, chiusura, definitiva',
+    ogTitle: 'Cuasso al Monte: chiusura ospedale frontalieri | Frontaliere',
+    ogDescription: 'Dopo vent\'anni di dibattiti, l\'ospedale dei frontalieri di Cuasso al Monte chiude definitivamente. Servizi trasferiti nel palazzo comunale.',
+    canonicalPath: '/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cuasso al Monte: chiusura ospedale frontalieri",
+      "description": "Dopo vent'anni di dibattiti, l'ospedale dei frontalieri di Cuasso al Monte chiude definitivamente. Servizi trasferiti nel palazzo comunale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cuasso-monte-ospedale-frontalieri-chiusura.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne e barca"
+      },
+      "datePublished": "2026-04-21T21:32:30+00:00",
+      "dateModified": "2026-04-21T21:32:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -6734,4 +6734,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/mozione-salute-vigili-fuoco-lombardia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cuasso-monte-ospedale-frontalieri-chiusura',
+ category: 'novita',
+ date: '2026-04-21T21:32:30.749Z',
+ image: '/images/blog/cuasso-monte-ospedale-frontalieri-chiusura.jpg',
+ hasCalculator: true,
+ },
 ];
