@@ -870,8 +870,8 @@
       "slug": "posizione-di-assistente-dottorando-a-usi",
       "slugByLocale": {
         "it": "posizione-di-assistente-dottorando-a-usi",
-        "en": "position-of-assistant-doctorate-student-usi-lugano",
-        "de": "assistenzarzt-doktorand-in-position-usi-lugano",
+        "en": "position-of-assistant-doctor-a-usi-universita-della-svizzera-italiana-lugano",
+        "de": "position-des-assistenten-usi-universita-della-svizzera-italiana-lugano",
         "fr": "position-d-assistant-doctorant-e-usi-lugano"
       },
       "department": "Facoltà di comunicazione, cultura e società – Istituto di studi italiani (ISI)",
@@ -907,7 +907,19 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-04-20T11:33:59.817Z",
       "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "position-of-assistant-doctorate-student-usi-lugano"
+        ],
+        "de": [
+          "assistenzarzt-doktorand-in-position-usi-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "position-of-assistant-doctorate-student-usi-lugano",
+        "assistenzarzt-doktorand-in-position-usi-lugano"
+      ]
     },
     {
       "url": "https://www.irsol.usi.ch/it/eventi-notizie/posizione-a-tempo-pieno-di-scienziatoingegnere-del-41206",
