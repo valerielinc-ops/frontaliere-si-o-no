@@ -2433,6 +2433,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-scomparsi-7-cantoni.title': 'In sette cantoni stanno scomparendo i giovani, anche il Ticino in prima fila',
     'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Le statistiche federali mostrano che nel 2024 la popolazione sotto i 65 anni è diminuita in sette cantoni, tra cui il Ticino, con effetti critici su economia e previdenza.',
     'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Panorama di Lugano con le Alpi sullo sfondo, scena in Ticino',
+    'blog.article.svizzeri-italiani-cucina-preferita.title': 'Svizzeri e italiani: la cucina italiana è la preferita',
+    'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'Un sondaggio rivela che il 79% degli svizzeri preferisce la cucina italiana quando mangia fuori, seguita dalla cucina elvetica al 71%.',
+    'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Ristorante sul lago di Lugano, Ticino',
 };
 
 export default blogMetaIt;

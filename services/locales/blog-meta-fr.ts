@@ -2433,6 +2433,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giovani-scomparsi-7-cantoni.title': 'Dans sept cantons, les jeunes disparaissent, le Tessin en première ligne',
     'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Les statistiques fédérales montrent qu\'en 2024, la population de moins de 65 ans a diminué dans sept cantons, dont le Tessin, avec des effets critiques sur l\'économie et la prévoyance.',
     'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Paysage de Lugano avec les Alpes suisses en arrière-plan, scène du Tessin',
+    'blog.article.svizzeri-italiani-cucina-preferita.title': 'Suisses et Italiens : la cuisine italienne est la préférée',
+    'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'Un sondage révèle que 79 % des Suisses préfèrent la cuisine italienne lorsqu\'ils mangent à l\'extérieur, suivie de la cuisine helvétique à 71 %.',
+    'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Restaurant au bord du lac à Lugano, Tessin',
 };
 
 export default blogMetaFr;

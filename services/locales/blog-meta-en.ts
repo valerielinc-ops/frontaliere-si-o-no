@@ -2433,6 +2433,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-scomparsi-7-cantoni.title': 'Young people are disappearing in seven cantons, Ticino at the forefront',
     'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Federal statistics show that in 2024 the population under 65 years has decreased in seven cantons, including Ticino, with critical effects on the economy and pensions.',
     'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Lugano landscape with the Swiss Alps in the background, Ticino scene',
+    'blog.article.svizzeri-italiani-cucina-preferita.title': 'Swiss and Italians: Italian cuisine is the favorite',
+    'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'A survey reveals that 79% of Swiss people prefer Italian cuisine when eating out, followed by Swiss cuisine at 71%.',
+    'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Lakeside restaurant in Lugano, Ticino',
 };
 
 export default blogMetaEn;

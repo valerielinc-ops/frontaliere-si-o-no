@@ -2433,6 +2433,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-scomparsi-7-cantoni.title': 'In sieben Kantonen verschwinden die Jungen, auch der Tessin steht an vorderster Front',
     'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Die Bundesstatistiken zeigen, dass im Jahr 2024 die Bevölkerung unter 65 Jahren in sieben Kantonen, darunter auch im Tessin, zurückging, mit kritischen Auswirkungen auf die Wirtschaft und die Altersvorsorge.',
     'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Lugano Landschaft mit den Schweizer Alpen im Hintergrund, Ticino Szene',
+    'blog.article.svizzeri-italiani-cucina-preferita.title': 'Schweizer und Italiener: die italienische Küche ist die beliebteste',
+    'blog.article.svizzeri-italiani-cucina-preferita.excerpt': 'Eine Umfrage zeigt, dass 79% der Schweizer die italienische Küche bevorzugen, wenn sie auswärts essen, gefolgt von der Schweizer Küche mit 71%.',
+    'blog.article.svizzeri-italiani-cucina-preferita.imageAlt': 'Seerestaurant in Lugano, Tessin',
 };
 
 export default blogMetaDe;

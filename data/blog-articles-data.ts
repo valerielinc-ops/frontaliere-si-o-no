@@ -6662,4 +6662,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/giovani-scomparsi-7-cantoni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzeri-italiani-cucina-preferita',
+ category: 'novita',
+ date: '2026-04-21T03:59:22.927Z',
+ image: '/images/blog/svizzeri-italiani-cucina-preferita.jpg',
+ hasCalculator: true,
+ },
 ];

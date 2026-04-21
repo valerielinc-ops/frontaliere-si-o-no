@@ -10411,6 +10411,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-italiani-cucina-preferita': {
+    title: 'Svizzeri e italiani: la cucina italiana | Frontaliere Ticino',
+    description: 'Un sondaggio rivela che il 79% degli svizzeri preferisce la cucina italiana quando mangia fuori, seguita dalla cucina elvetica al 71%. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, italiani, cucina, italiana',
+    ogTitle: 'Cucina italiana preferita dagli svizzeri | Frontaliere',
+    ogDescription: 'Un sondaggio rivela che il 79% degli svizzeri preferisce la cucina italiana quando mangia fuori, seguita dalla cucina elvetica al 71%.',
+    canonicalPath: '/articoli-frontaliere/svizzeri-italiani-cucina-preferita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cucina italiana preferita dagli svizzeri",
+      "description": "Un sondaggio rivela che il 79% degli svizzeri preferisce la cucina italiana quando mangia fuori, seguita dalla cucina elvetica al 71%. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzeri-italiani-cucina-preferita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ristorante sul lago di Lugano, Ticino"
+      },
+      "datePublished": "2026-04-21T03:59:22+00:00",
+      "dateModified": "2026-04-21T03:59:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-italiani-cucina-preferita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
