@@ -16,6 +16,7 @@ import { useTranslation, type Locale } from '@/services/i18n';
 import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
+import { useKillSwitches, type KillSwitchKey } from '@/hooks/useKillSwitches';
 
 interface BannerCard {
   readonly titleKey: string;
@@ -25,6 +26,7 @@ interface BannerCard {
   readonly Icon: typeof Fuel;
   readonly iconBgClass: string;
   readonly iconColorClass: string;
+  readonly killSwitch: KillSwitchKey;
 }
 
 export interface SeoDailyBannerProps {
@@ -40,6 +42,7 @@ export default function SeoDailyBanner({
 }: SeoDailyBannerProps) {
   const { t, locale: appLocale } = useTranslation();
   const locale = propLocale ?? appLocale;
+  const killSwitches = useKillSwitches();
 
   const cards: readonly BannerCard[] = [
     {
@@ -50,6 +53,7 @@ export default function SeoDailyBanner({
       Icon: Fuel,
       iconBgClass: 'bg-warning-subtle',
       iconColorClass: 'text-warning',
+      killSwitch: 'fuelDaily',
     },
     {
       titleKey: 'seoLinks.banner.jobsTitle',
@@ -59,6 +63,7 @@ export default function SeoDailyBanner({
       Icon: TrendingUp,
       iconBgClass: 'bg-accent-subtle',
       iconColorClass: 'text-accent',
+      killSwitch: 'jobMarket',
     },
     {
       titleKey: 'seoLinks.banner.employersTitle',
@@ -68,8 +73,16 @@ export default function SeoDailyBanner({
       Icon: Building2,
       iconBgClass: 'bg-success-subtle',
       iconColorClass: 'text-success',
+      killSwitch: 'weeklyEmployers',
     },
   ] as const;
+
+  const visibleCards = cards.filter((card) => !killSwitches[card.killSwitch]);
+
+  // If every card is killed, render nothing — avoids an empty <nav> shell.
+  if (visibleCards.length === 0) {
+    return null;
+  }
 
   return (
     <nav
@@ -78,7 +91,7 @@ export default function SeoDailyBanner({
       data-testid="seo-daily-banner"
     >
       <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 list-none p-0 m-0">
-        {cards.map((card) => (
+        {visibleCards.map((card) => (
           <li key={card.href} className="flex">
             <a
               href={card.href}

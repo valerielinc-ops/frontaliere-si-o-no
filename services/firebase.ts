@@ -64,6 +64,17 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  ENABLE_JOB_PERSONALIZATION: 'false',
  // FRO-323: LinkedIn Sign-In client ID (empty = feature disabled)
  LINKEDIN_SIGNIN_CLIENT_ID: '',
+ // A1: Runtime kill-switches for the 5 SEO feature plugin link surfaces.
+ // When any of these is 'true' (toggled in Firebase Remote Config console),
+ // the SPA hides every internal link to the corresponding feature within
+ // ~1 minute (RC cache). Static HTML pages in dist/ remain indexed — only
+ // the SPA link graph closes. Default 'false' = links SHOWN (safer on RC
+ // failure than hiding everything).
+ KILL_FUEL_DAILY_LINKS: 'false',
+ KILL_HEALTH_PREMIUMS_LINKS: 'false',
+ KILL_JOB_MARKET_LINKS: 'false',
+ KILL_WEEKLY_EMPLOYERS_LINKS: 'false',
+ KILL_ORPHAN_LANDINGS_LINKS: 'false',
 };
 
 const FIREBASE_RUNTIME_LOGS = import.meta.env.MODE !== 'test';
