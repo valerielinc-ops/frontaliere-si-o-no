@@ -746,8 +746,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <h3 className="text-sm font-bold text-subtle uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-accent"/> {t('input.familyHealth')}</h3>
  
  <div className="grid grid-cols-2 gap-4">
- <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-info" />
- <StepperInput inputId="input-children" label={t('input.dependentChildren')} value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-danger" tooltip={t('input.childrenTooltip')} />
+ <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} max={20} icon={Users} iconColor="text-info" />
+ <StepperInput inputId="input-children" label={t('input.dependentChildren')} value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} max={20} icon={Baby} iconColor="text-danger" tooltip={t('input.childrenTooltip')} />
  </div>
  </div>
 

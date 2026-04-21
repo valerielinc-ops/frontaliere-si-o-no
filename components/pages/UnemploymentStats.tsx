@@ -273,7 +273,7 @@ const UnemploymentStats: React.FC = () => {
  </h3>
  <div className="h-[320px] w-full">
  {trendData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%">
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
  <LineChart
  data={trendData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -322,7 +322,8 @@ const UnemploymentStats: React.FC = () => {
  <Calendar size={16} className="text-warning" /> {localeLabels.yearlyTitle}
  </h3>
  <div className="h-[260px] w-full">
- <ResponsiveContainer width="100%" height="100%">
+ {yearlyData.length > 0 ? (
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
  <BarChart
  data={yearlyData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -359,6 +360,11 @@ const UnemploymentStats: React.FC = () => {
  </Bar>
  </BarChart>
  </ResponsiveContainer>
+ ) : (
+ <div className="w-full h-full flex items-center justify-center text-muted text-xs italic">
+ {localeLabels.noData}
+ </div>
+ )}
  </div>
  </div>
  )}

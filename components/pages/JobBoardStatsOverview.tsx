@@ -483,7 +483,8 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  {copy.chartTitle}
  </h3>
  <div className="h-[320px] w-full">
- <ResponsiveContainer width="100%" height="100%">
+ {data.history.length > 0 ? (
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
  <ComposedChart
  data={data.history}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -501,6 +502,11 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  <Line yAxisId="right" type="monotone" dataKey="totalJobs" stroke={isDark ? CHART_DATA_COLORS.warning : CHART_DATA_COLORS.slate} strokeWidth={3} dot={false} name={copy.chartLine} />
  </ComposedChart>
  </ResponsiveContainer>
+ ) : (
+ <div className="w-full h-full flex items-center justify-center text-muted">
+ <span className="text-xs italic">{copy.empty}</span>
+ </div>
+ )}
  </div>
  </div>
 

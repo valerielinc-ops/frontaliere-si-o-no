@@ -149,7 +149,8 @@ const StatsViewInner: React.FC = () => {
  <TrendingUp size={16} className="text-accent"/> {t('stats.historicalTrend')}
  </h3>
  <div className="h-[300px] w-full">
- <ResponsiveContainer width="100%" height="100%">
+ {historicalData.length > 0 ? (
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
  <AreaChart
  data={historicalData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -171,6 +172,11 @@ const StatsViewInner: React.FC = () => {
  <Area type="monotone" dataKey="frontalieri" stroke={CHART_DATA_COLORS.warning} strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={800} />
  </AreaChart>
  </ResponsiveContainer>
+ ) : (
+ <div className="w-full h-full flex items-center justify-center text-muted">
+ {loading ? <Loader2 className="animate-spin" /> : <span className="text-xs italic">{t('stats.dataNotAvailable')}</span>}
+ </div>
+ )}
  </div>
  </div>
 
@@ -180,7 +186,8 @@ const StatsViewInner: React.FC = () => {
  <BarChart2 size={16} className="text-success"/> {t('stats.ageDistribution')}
  </h3>
  <div className="h-[250px] w-full">
- <ResponsiveContainer width="100%" height="100%">
+ {ageData.length > 0 ? (
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
  <BarChart
  data={ageData}
  layout="vertical"
@@ -199,6 +206,11 @@ const StatsViewInner: React.FC = () => {
  </Bar>
  </BarChart>
  </ResponsiveContainer>
+ ) : (
+ <div className="w-full h-full flex items-center justify-center text-muted">
+ {loading ? <Loader2 className="animate-spin" /> : <span className="text-xs italic">{t('stats.dataNotAvailable')}</span>}
+ </div>
+ )}
  </div>
  </div>
 
@@ -209,7 +221,7 @@ const StatsViewInner: React.FC = () => {
  </h3>
  <div className="h-[250px] w-full">
  {genderTrendData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%">
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
  <LineChart
  data={genderTrendData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}

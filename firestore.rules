@@ -35,6 +35,16 @@ service cloud.firestore {
     match /newsletter_subscribers/{email} {
       allow read, write: if true;
 
+      // Engagement events (subscribe, confirm, click, open) — public append
+      match /events/{eventId} {
+        allow read, write: if true;
+      }
+
+      // Campaign delivery tracking — public write (Cloud Functions + client beacons)
+      match /campaign_deliveries/{deliveryId} {
+        allow read, write: if true;
+      }
+
       // Private sub-collection — auth-gated, own data only
       match /private/{docId} {
         allow read, write: if request.auth != null

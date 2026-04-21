@@ -448,7 +448,7 @@ function loadSerpExperimentState(): void {
  serpExperimentState.variant !== SERP_EXPERIMENT_DEFAULTS.variant ||
  normalizedTargets !== SERP_EXPERIMENT_DEFAULTS.targets ||
  serpExperimentState.year !== SERP_EXPERIMENT_DEFAULTS.year;
- if (hasOverride) {
+ if (hasOverride && import.meta.env.DEV) {
  console.warn('[SEO SERP Experiment] Remote Config override detected', {
  remoteConfig: {
  enabled: serpExperimentState.enabled,

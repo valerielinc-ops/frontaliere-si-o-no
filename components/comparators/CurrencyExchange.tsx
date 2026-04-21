@@ -23,8 +23,11 @@ const LazyExchangeChart = lazyRetry(() =>
  default: ({ data }: { data: Array<{ date: string; rate: number }> }) => {
  const isDark = document.documentElement.classList.contains('dark');
  const chart = useChartColors(isDark);
+ if (!data || data.length === 0) {
+ return <div className="w-full h-[280px]" aria-hidden="true" />;
+ }
  return (
- <ResponsiveContainer width="100%" height={280}>
+ <ResponsiveContainer width="100%" height={280} minWidth={0} minHeight={0}>
  <AreaChart data={data}>
  <defs>
  <linearGradient id="colorRate" x1="0" y1="0" x2="0" y2="1">
@@ -521,6 +524,8 @@ const CurrencyExchange: React.FC = () => {
  id="exchange-amount"
  type="number"
  inputMode="numeric"
+ min={0}
+ max={10_000_000}
  value={amount}
  onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
  className="w-full pl-14 pr-4 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:border-success focus-visible:ring-2 focus-visible:ring-success/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-strong text-lg"

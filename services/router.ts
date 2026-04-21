@@ -1494,6 +1494,11 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  if (!map['calculator']) map['calculator'] = { tab: 'calculator' };
  if (!map['stats']) map['stats'] = { tab: 'stats' };
  if (!map['guide']) map['guide'] = { tab: 'guida' };
+ // Intuitive-URL aliases: users guess these slugs from the tab label
+ if (!map['fisco']) map['fisco'] = { tab: 'fisco' };
+ if (locale === 'en' && !map['taxes']) map['taxes'] = { tab: 'fisco' };
+ if (locale === 'de' && !map['steuern']) map['steuern'] = { tab: 'fisco' };
+ if (locale === 'fr' && !map['fiscalite']) map['fiscalite'] = { tab: 'fisco' };
  return map;
 }
 
