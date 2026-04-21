@@ -1649,7 +1649,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  body: `Questa URL legacy dell annuncio non e la versione principale. Usa la pagina canonica per contenuto e metadati aggiornati.`,
  ctaLabel: String(localizedTitle || 'Apri annuncio'),
  lang: locale,
- noindex: false,
+ noindex: true,
  });
  const legacyDir = np.join(distDir, legacyRel);
  if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
@@ -2283,7 +2283,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell azienda per gli annunci aggiornati.`,
  ctaLabel: String(companyName || 'Apri azienda'),
  lang: locale,
- noindex: false,
+ noindex: true,
  });
  const rawDir = np.join(distDir, rawRelPath);
  if (!fs.existsSync(np.join(rawDir, 'index.html'))) {
@@ -4043,6 +4043,18 @@ ${alternates}
  }
  searchBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
  }
+ const _sHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
+ const _sListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const _sListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
+ const searchBreadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: _sHomeUrl },
+ { '@type': 'ListItem', position: 2, name: _sListName, item: _sListUrl },
+ { '@type': 'ListItem', position: 3, name: copy.heading(name), item: canonicalUrl },
+ ],
+ });
  const searchHtml = buildSimplePage({
  locale,
  title,
@@ -4052,6 +4064,7 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  extraHeadHtml: twitterCards,
+ jsonLdScripts: [searchBreadcrumbLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(copy.heading(name))}</h1>\n <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`,
@@ -4145,6 +4158,18 @@ ${alternates}
  }
  comboBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
  }
+ const _cHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
+ const _cListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const _cListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
+ const comboBreadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: _cHomeUrl },
+ { '@type': 'ListItem', position: 2, name: _cListName, item: _cListUrl },
+ { '@type': 'ListItem', position: 3, name: copy.heading, item: canonicalUrl },
+ ],
+ });
  const comboHtml = buildSimplePage({
  locale,
  title: copy.title,
@@ -4153,6 +4178,7 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  extraHeadHtml: comboOgImage,
+ jsonLdScripts: [comboBreadcrumbLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(copy.heading)}</h1>\n <p>${esc(description)}</p>\n${comboBodyParts.join('\n')}`,
