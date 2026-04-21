@@ -1,18 +1,49 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-21T09:47:26.402Z",
-  "total": 11,
-  "newCount": 0,
+  "generatedAt": "2026-04-21T21:23:12.034Z",
+  "total": 12,
+  "newCount": 1,
   "updatedCount": 11,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1444,
-  "avgDurationMs": 1444,
+  "durationMs": 1486,
+  "avgDurationMs": 1486,
   "durationHistory": [
-    1444
+    1486
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "SEKRETÄRIN / SEKRETÄR, Arbeitssprache Deutsch",
+      "slug": "sekretarin-sekretar-arbeitssprache-deutsch-confederazione-bellinzona",
+      "url": "https://jobs.admin.ch/posti-vacanti/sekretaerin-sekretaer-arbeitssprache-deutsch/f3f9ed8e-c366-455d-acf0-521941f832db",
+      "applyUrl": "https://jobs.admin.ch/posti-vacanti/sekretaerin-sekretaer-arbeitssprache-deutsch/f3f9ed8e-c366-455d-acf0-521941f832db",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-21",
+      "validThrough": "2026-05-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
@@ -43,8 +74,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -267,8 +296,8 @@
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -426,44 +455,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
-      "slug": "apprendista-kauffrau-cfc-apprendista-kaufmann-cfc-confederazione-svizzera-bellinzona",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17852",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-22",
-      "validThrough": "2028-03-21",
-      "employmentType": "apprenticeship",
-      "contractType": "apprenticeship",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-9422c9bad281",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
