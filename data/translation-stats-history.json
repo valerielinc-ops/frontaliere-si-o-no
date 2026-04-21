@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T13:27:33.252Z",
-    "label": "before",
-    "total": 2175,
-    "needsRetranslation": 231,
-    "incomplete": 129,
-    "complete": 2046,
-    "missingByLocale": {
-      "it": 90,
-      "en": 122,
-      "de": 15,
-      "fr": 94
-    },
-    "topPending": [
-      {
-        "company": "Kantonsspital Graubünden",
-        "pending": 73
-      },
-      {
-        "company": "TALLY WEiJL",
-        "pending": 24
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 7
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T13:40:04.166Z",
-    "label": "after",
-    "total": 2175,
-    "needsRetranslation": 100,
-    "incomplete": 44,
-    "complete": 2131,
-    "missingByLocale": {
-      "it": 10,
-      "en": 42,
-      "de": 10,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "TALLY WEiJL",
-        "pending": 24
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "FNZ (Switzerland) AG",
-        "pending": 1
-      },
-      {
-        "company": "Otis SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T13:41:15.533Z",
     "label": "before",
     "total": 2177,
@@ -7369,6 +7257,62 @@
     "needsRetranslation": 39,
     "incomplete": 23,
     "complete": 2585,
+    "missingByLocale": {
+      "it": 22,
+      "en": 1,
+      "de": 22,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T08:19:22.820Z",
+    "label": "before",
+    "total": 2545,
+    "needsRetranslation": 39,
+    "incomplete": 23,
+    "complete": 2522,
+    "missingByLocale": {
+      "it": 22,
+      "en": 1,
+      "de": 22,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T08:38:33.736Z",
+    "label": "after",
+    "total": 2545,
+    "needsRetranslation": 26,
+    "incomplete": 23,
+    "complete": 2522,
     "missingByLocale": {
       "it": 22,
       "en": 1,
