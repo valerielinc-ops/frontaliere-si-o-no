@@ -38,12 +38,11 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 import {
-  ANALYTICS_SNIPPET,
   BASE_URL,
-  FAVICON_LINKS,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   BORDER_WAIT_CROSSINGS,
@@ -701,10 +700,12 @@ interface LeafInputs {
   history: BorderWaitHistoryDay[];
   today: Date;
   alternates: Record<BorderWaitLocale, string>;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, crossing, current, history, today, alternates } = inp;
+  const { locale, crossing, current, history, today, alternates, distDir } = inp;
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const region = CROSSING_TO_REGION[crossing];
@@ -959,7 +960,12 @@ function renderLeafPage(inp: LeafInputs): string {
     fuelZone: CROSSING_TO_FUEL_ZONE[crossing],
   };
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  // Webcam refresh script is plugin-specific behaviour — append it inside
+  // bodyHtml (after the closing </main>) so it loads on the static shell
+  // without bypassing buildSeoPageHtml's templating.
+  const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
+
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -984,46 +990,34 @@ function renderLeafPage(inp: LeafInputs): string {
   ${infoHtml}
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-</main>`;
+</main>${webcamRefreshScript}`;
 
-  const html = `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    <script type="application/ld+json">${faqLd}</script>${placeLd ? `\n    <script type="application/ld+json">${placeLd}</script>` : ''}${imageLd ? `\n    <script type="application/ld+json">${imageLd}</script>` : ''}
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-    ${webcams.length > 0 ? WEBCAM_REFRESH_JS : ''}
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
 
-  return html;
+  const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
+  if (placeLd) jsonLdScripts.push(placeLd);
+  if (imageLd) jsonLdScripts.push(imageLd);
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts,
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Regional hub + root hub ───────────────────────────────────
@@ -1034,10 +1028,12 @@ interface HubInputs {
   current: BorderWaitCurrent;
   today: Date;
   alternates: Record<BorderWaitLocale, string>;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderHubPage(inp: HubInputs): string {
-  const { locale, region, current, today, alternates } = inp;
+  const { locale, region, current, today, alternates, distDir } = inp;
   const copy = COPY[locale];
   const dateStamp = today.toISOString().slice(0, 10);
   const canonicalPath = region ? buildRegionalHubPath(locale, region) : buildRootHubPath(locale);
@@ -1174,7 +1170,7 @@ function renderHubPage(inp: HubInputs): string {
     fuelZone: CROSSING_TO_FUEL_ZONE[primaryCrossing],
   };
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1204,36 +1200,24 @@ function renderHubPage(inp: HubInputs): string {
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
 </main>`;
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta property="og:image:height" content="630">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Monthly archive ────────────────────────────────────────────
@@ -1244,10 +1228,12 @@ interface ArchiveInputs {
   monthKey: string;
   history: BorderWaitHistoryDay[];
   today: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderArchivePage(inp: ArchiveInputs): string {
-  const { locale, crossing, monthKey, history, today } = inp;
+  const { locale, crossing, monthKey, history, today, distDir } = inp;
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const canonicalPath = buildArchivePath(locale, crossing, monthKey);
@@ -1329,23 +1315,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     dateModified: today.toISOString(),
   });
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="${canonicalUrl}">
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
         <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
           <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
@@ -1367,10 +1337,20 @@ function renderArchivePage(inp: ArchiveInputs): string {
             <tbody>${rows}</tbody>
           </table>
         </section>
-      </main>
-    </div>
-  </body>
-</html>`;
+      </main>`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    jsonLdScripts: [breadcrumbLd, webPageLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Data readers ──────────────────────────────────────────────
@@ -1409,10 +1389,13 @@ export function generateBorderWaitPages(opts: {
   current: BorderWaitCurrent;
   history?: BorderWaitHistoryDay[];
   today?: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }): Record<string, string> {
   const current = opts.current;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
   const pages: Record<string, string> = {};
 
   for (const locale of BORDER_WAIT_LOCALES) {
@@ -1441,6 +1424,7 @@ export function generateBorderWaitPages(opts: {
       current,
       today,
       alternates: buildRootAlternates(),
+      distDir,
     });
 
     // Regional hubs
@@ -1451,6 +1435,7 @@ export function generateBorderWaitPages(opts: {
         current,
         today,
         alternates: buildRegionAlternates(region),
+        distDir,
       });
     }
 
@@ -1463,6 +1448,7 @@ export function generateBorderWaitPages(opts: {
         history,
         today,
         alternates: buildCrossingAlternates(crossing),
+        distDir,
       });
     }
   }
@@ -1473,9 +1459,12 @@ export function generateBorderWaitPages(opts: {
 export function generateBorderWaitArchives(opts: {
   history: BorderWaitHistoryDay[];
   today?: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }): Record<string, string> {
   const history = opts.history;
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
   const currentMonth = today.toISOString().slice(0, 7);
   const pages: Record<string, string> = {};
 
@@ -1491,7 +1480,7 @@ export function generateBorderWaitArchives(opts: {
     for (const locale of BORDER_WAIT_LOCALES) {
       for (const crossing of TOP_5_CROSSINGS) {
         const path = buildArchivePath(locale, crossing, monthKey);
-        pages[path] = renderArchivePage({ locale, crossing, monthKey, history, today });
+        pages[path] = renderArchivePage({ locale, crossing, monthKey, history, today, distDir });
       }
     }
   }
@@ -1526,8 +1515,8 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       const history = readHistory(rootDir);
       const today = new Date();
 
-      const pages = generateBorderWaitPages({ current, history, today });
-      const archives = generateBorderWaitArchives({ history, today });
+      const pages = generateBorderWaitPages({ current, history, today, distDir });
+      const archives = generateBorderWaitArchives({ history, today, distDir });
 
       const collector = new WriteCollector({ distDir });
       let pagesWritten = 0;
