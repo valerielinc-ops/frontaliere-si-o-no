@@ -35,6 +35,7 @@ import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandi
 import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPlugin';
 import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 import { marketReportPlugin } from './build-plugins/marketReportPlugin';
+import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -81,6 +82,7 @@ export default defineConfig(({ mode }) => {
  healthPremiumsLandingPlugin(__dirname),
  borderWaitPagesPlugin(__dirname),
  marketReportPlugin(__dirname),
+ borderWaitMapPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
