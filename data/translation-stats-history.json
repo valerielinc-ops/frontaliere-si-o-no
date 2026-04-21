@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T16:03:34.740Z",
-    "label": "before",
-    "total": 2177,
-    "needsRetranslation": 90,
-    "incomplete": 11,
-    "complete": 2166,
-    "missingByLocale": {
-      "it": 10,
-      "en": 9,
-      "de": 2,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T16:11:51.182Z",
-    "label": "after",
-    "total": 2177,
-    "needsRetranslation": 66,
-    "incomplete": 11,
-    "complete": 2166,
-    "missingByLocale": {
-      "it": 10,
-      "en": 9,
-      "de": 2,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T16:50:11.816Z",
     "label": "before",
     "total": 2177,
@@ -7326,6 +7238,118 @@
       },
       {
         "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T22:39:44.944Z",
+    "label": "before",
+    "total": 2639,
+    "needsRetranslation": 1153,
+    "incomplete": 80,
+    "complete": 2559,
+    "missingByLocale": {
+      "it": 53,
+      "en": 36,
+      "de": 51,
+      "fr": 68
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Lugano",
+        "pending": 8
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 6
+      },
+      {
+        "company": "PEMSA",
+        "pending": 5
+      },
+      {
+        "company": "Psychiatrische Dienste Graubünden",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 3
+      },
+      {
+        "company": "AFRY",
+        "pending": 2
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-21T23:55:34.359Z",
+    "label": "after",
+    "total": 2639,
+    "needsRetranslation": 63,
+    "incomplete": 35,
+    "complete": 2604,
+    "missingByLocale": {
+      "it": 27,
+      "en": 8,
+      "de": 29,
+      "fr": 33
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 3
+      },
+      {
+        "company": "AFRY",
+        "pending": 2
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
         "pending": 1
       },
       {
