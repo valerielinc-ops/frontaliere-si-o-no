@@ -2,8 +2,10 @@ name: Send Newsletter
 
 on:
   schedule:
-    # Daily 6:00 CET (4:00 UTC) — Monday starts new campaign, Tue–Sun resume if daily cap was hit
-    - cron: '0 4 * * *'
+    # Daily 05:33 UTC (07:33 CEST) — chosen via PostHog click data: peak read hour is 06:00 UTC (34 clicks/90d).
+    # Lead of ~25 min covers npm ci + AI generation + email delivery so the email lands in inbox right before peak engagement.
+    # Avoids :00/:15/:30/:45 minute slots which GitHub Actions cron deprioritizes under load (silent skips).
+    - cron: '33 5 * * *'
   workflow_dispatch:
     inputs:
       mode:
