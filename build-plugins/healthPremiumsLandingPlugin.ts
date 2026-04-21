@@ -27,12 +27,11 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 import {
-  ANALYTICS_SNIPPET,
   BASE_URL,
-  FAVICON_LINKS,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   HEALTH_PREMIUM_AGE_BRACKETS,
@@ -885,10 +884,12 @@ interface LeafInputs {
   today: Date;
   /** Year-over-year delta for this canton; null when prior-year data absent. */
   yoy: YoyCantonDelta | null;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy } = inp;
+  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, distDir } = inp;
   const copy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
   const ageLabel = HEALTH_PREMIUM_AGE_LABEL[locale][age];
@@ -1138,7 +1139,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1178,42 +1179,28 @@ function renderLeafPage(inp: LeafInputs): string {
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
 </main>`;
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
-    <script type="application/ld+json">${productLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd, productLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 interface CantonHubInputs {
@@ -1225,10 +1212,12 @@ interface CantonHubInputs {
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
   yoy: YoyCantonDelta | null;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderCantonHubPage(inp: CantonHubInputs): string {
-  const { locale, canton, dataset, stats, canonicalPath, alternates, today, yoy } = inp;
+  const { locale, canton, dataset, stats, canonicalPath, alternates, today, yoy, distDir } = inp;
   const copy = HUB_COPY[locale];
   const leafCopy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
@@ -1384,7 +1373,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1412,41 +1401,28 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
 </main>`;
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 interface RootHubInputs {
@@ -1456,10 +1432,12 @@ interface RootHubInputs {
   canonicalPath: string;
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderRootHubPage(inp: RootHubInputs): string {
-  const { locale, dataset, cantonStats, canonicalPath, alternates, today } = inp;
+  const { locale, dataset, cantonStats, canonicalPath, alternates, today, distDir } = inp;
   const copy = HUB_COPY[locale];
   const leafCopy = LEAF_COPY[locale];
   const year = dataset.year ?? today.getUTCFullYear();
@@ -1552,7 +1530,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1580,41 +1558,28 @@ function renderRootHubPage(inp: RootHubInputs): string {
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
 </main>`;
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Pure generator ─────────────────────────────────────────────
@@ -1640,10 +1605,13 @@ export function generateHealthPremiumsPages(opts: {
   /** Optional prior-year dataset (same schema) for YoY computation. */
   priorDataset?: HealthPremiumsDataset | null;
   today?: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }): GenerateHealthPremiumsResult {
   const dataset = opts.dataset;
   const priorDataset = opts.priorDataset ?? null;
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
 
   // Precompute per-canton stats once.
   const cantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null> = {
@@ -1698,6 +1666,7 @@ export function generateHealthPremiumsPages(opts: {
       canonicalPath: rootPath,
       alternates: rootAlternates,
       today,
+      distDir,
     });
 
     for (const canton of HEALTH_PREMIUM_CANTONS) {
@@ -1720,6 +1689,7 @@ export function generateHealthPremiumsPages(opts: {
         alternates: cantonAlternates,
         today,
         yoy: yoyByCanton[canton],
+        distDir,
       });
 
       for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
@@ -1741,6 +1711,7 @@ export function generateHealthPremiumsPages(opts: {
           alternates: leafAlternates,
           today,
           yoy: yoyByCanton[canton],
+          distDir,
         });
       }
     }
@@ -1863,6 +1834,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
         dataset,
         priorDataset,
         today,
+        distDir,
       });
       const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
 
