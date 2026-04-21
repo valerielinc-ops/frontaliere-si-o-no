@@ -32,6 +32,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl } from '../services/newsletter-content.mjs';
+import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -788,32 +789,18 @@ async function pickFeaturedArticle() {
         fetchTopArticles(),
         fetchRecentlyFeaturedArticles(),
       ]);
-      if (topArticles.length > 0) {
-        const byViewsThenRecency = (a, b) =>
-          b.views - a.views || (b.lastViewed || 0) - (a.lastViewed || 0);
-
-        const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-        const recentTop = topArticles
-          .filter((a) => a.lastViewed && a.lastViewed > weekAgo)
-          .sort(byViewsThenRecency);
-
-        const sorted = recentTop.length > 0 ? recentTop : topArticles.sort(byViewsThenRecency);
-
-        // Pick the best article that wasn't recently featured
-        const fresh = sorted.find(a => !recentlyFeatured.includes(a.id) && loadBlogMeta(a.id, 'it'));
-        // Fall back to the top article if all have been recently featured
-        const best = fresh || sorted.find(a => loadBlogMeta(a.id, 'it')) || sorted[0];
-
-        if (loadBlogMeta(best.id, 'it')) {
-          bestId = best.id;
-          const rotated = fresh ? '' : ' (rotation exhausted, reusing)';
-          console.log(`\ud83d\udcf0 Featured article: "${best.id}" (${best.views} views)${rotated}`);
-          if (recentlyFeatured.length > 0) {
-            console.log(`   Recently featured (excluded): ${recentlyFeatured.join(', ')}`);
-          }
-        } else {
-          console.warn(`\u26a0\ufe0f No blog meta for top article "${best.id}", using default`);
+      const hasMeta = (id) => !!loadBlogMeta(id, 'it');
+      const pick = selectFeaturedArticleId(topArticles, recentlyFeatured, hasMeta);
+      if (pick.id) {
+        bestId = pick.id;
+        const best = topArticles.find((a) => a.id === pick.id);
+        const rotated = pick.reason === 'fresh' ? '' : ' (rotation exhausted, reusing)';
+        console.log(`\ud83d\udcf0 Featured article: "${pick.id}" (${best?.views ?? '?'} views)${rotated}`);
+        if (recentlyFeatured.length > 0) {
+          console.log(`   Recently featured (excluded): ${recentlyFeatured.join(', ')}`);
         }
+      } else if (topArticles.length > 0) {
+        console.warn(`\u26a0\ufe0f No blog meta for any top article (${topArticles.length} candidates), using default`);
       }
     } catch (e) {
       console.warn('\u26a0\ufe0f Featured article pick failed:', e.message);
@@ -1715,4 +1702,7 @@ async function main() {
   if (flushScores) await flushScores();
 }
 
-main().catch((e) => { console.error('\u274c Fatal:', e); process.exit(1); });
+// Only run main() when executed directly — allows import for tests / dry-run.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((e) => { console.error('\u274c Fatal:', e); process.exit(1); });
+}
