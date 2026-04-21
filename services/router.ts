@@ -1137,26 +1137,12 @@ export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: P
  }
  _jobSlugMap = map;
 
- // Fix stale URL: if updatePathForLocale ran before the map was ready,
- // the job slug in the browser URL may not have been translated.
- // Re-translate it now that the map is available, and update history.state.route
- // so back/forward navigation restores the correct translated slug.
- if (typeof window !== 'undefined' && typeof history !== 'undefined') {
- const currentPath = window.location.pathname;
- const { route, locale: urlLocale } = parsePath(currentPath);
- if (route.activeTab === 'job-board' && route.jobSlug) {
- // Use the locale parsed from the URL, NOT getLocale() which may
- // still be 'it' if initLocale() hasn't run yet (race condition).
- const translated = translateJobSlug(route.jobSlug, urlLocale);
- if (translated && translated !== route.jobSlug) {
- const correctedRoute = { ...route, jobSlug: translated };
- const newPath = buildPath(correctedRoute, urlLocale);
- if (currentPath !== newPath) {
- history.replaceState({ route: correctedRoute }, '', newPath);
- }
- }
- }
- }
+ // Do NOT rewrite the browser URL when the slug belongs to a different
+ // locale than the current path. The content is resolved correctly by
+ // JobBoard via slugByLocale/previousSlugs, and the canonical <link>
+ // (built from buildPath with the current locale) already points to the
+ // properly localized URL. Rewriting here would cause indexed
+ // cross-locale URLs to visibly redirect, which we want to avoid.
 }
 
 /** Translate a job slug to the given locale (returns undefined if unknown). */
