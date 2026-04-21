@@ -12,8 +12,7 @@ import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 import { WriteCollector } from './batchWrite';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
-import { translateFaqPage } from '../services/seo/faq-translations';
-import { translateHowToSchema } from '../services/seo/howto-translations';
+import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import {
  buildJobBoardSeo,
  getActiveJobCountsByLocale,
@@ -2469,23 +2468,18 @@ ${hrefTags}
  locSeo.ogD = dyn.ogD;
  }
 
- // Translate FAQPage structured data for non-IT locale variants
- if (locSeo.sd) {
- const sdSeparator = '</script>\n <script type="application/ld+json">';
+ // Localize JSON-LD structured data for non-IT locale variants.
+ // Dispatcher in services/seo/schema-translators.ts routes @type to translator.
+ if (locSeo.sd && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
+ const lang: SupportedLocale = hl.lang;
+ const sdSeparator = '</script>\n    <script type="application/ld+json">';
  const sdParts = locSeo.sd.split(sdSeparator);
  const translated = sdParts.map(part => {
  try {
  const obj = JSON.parse(part);
- if (obj['@type'] === 'FAQPage' && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
- translateFaqPage(obj, hl.lang);
- if (typeof obj.inLanguage === 'string') obj.inLanguage = hl.lang;
+ translateSchema(obj, lang);
+ if (typeof obj.inLanguage === 'string') obj.inLanguage = lang;
  return JSON.stringify(obj);
- }
- if (obj['@type'] === 'HowTo' && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
- translateHowToSchema(obj, hl.lang);
- if (typeof obj.inLanguage === 'string') obj.inLanguage = hl.lang;
- return JSON.stringify(obj);
- }
  } catch { /* not valid JSON, pass through */ }
  return part;
  });
