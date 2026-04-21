@@ -863,6 +863,51 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>`
     : '';
 
+  // B.3 — Alternative routes section: suggest 2-3 nearby crossings per valico
+  // to help users reroute when congested. Brogeda/Chiasso/Gaggiolo get primary
+  // treatment (highest volume). Others get a generic fallback.
+  const ALT_ROUTES: Record<string, BorderCrossingSlug[]> = {
+    'chiasso-brogeda': ['chiasso-strada', 'bizzarone-novazzano', 'crociale-dei-mulini'],
+    'chiasso-centro': ['chiasso-brogeda', 'maslianico-pizzamiglio', 'bizzarone-novazzano'],
+    'chiasso-strada': ['chiasso-brogeda', 'chiasso-centro', 'bizzarone-novazzano'],
+    'gaggiolo': ['san-pietro', 'clivio-ligornetto', 'saltrio-arzo'],
+    'san-pietro': ['gaggiolo', 'clivio-ligornetto', 'rodero-stabio'],
+    'ponte-tresa': ['porto-ceresio-brusino', 'cremenaga-ponte-cremenaga', 'luino-fornasette'],
+    'luino-fornasette': ['cremenaga-ponte-cremenaga', 'ponte-tresa', 'zenna-dirinella'],
+    'maslianico-pizzamiglio': ['chiasso-centro', 'maslianico-roggiana', 'chiasso-brogeda'],
+    'bizzarone-novazzano': ['ronago-novazzano', 'chiasso-brogeda', 'chiasso-strada'],
+  };
+  const altLabelByLocale: Record<BorderWaitLocale, { h2: string; lead: string }> = {
+    it: { h2: 'Percorsi alternativi', lead: 'Se questo valico è congestionato, questi passaggi vicini sono spesso più fluidi:' },
+    en: { h2: 'Alternative routes', lead: 'If this crossing is congested, these nearby passages are often smoother:' },
+    de: { h2: 'Alternative Routen', lead: 'Wenn dieser Übergang überlastet ist, sind diese nahegelegenen Pässe oft fliessender:' },
+    fr: { h2: 'Itinéraires alternatifs', lead: "Si ce poste est congestionné, ces passages voisins sont souvent plus fluides :" },
+  };
+  const altSlugs = ALT_ROUTES[crossing];
+  const alternativeRoutesHtml = altSlugs && altSlugs.length
+    ? (() => {
+        const { h2, lead } = altLabelByLocale[locale];
+        const items = altSlugs
+          .map((slug) => {
+            const altReg = crossingRegistry(slug);
+            if (!altReg) return '';
+            const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
+            const altDisp = BORDER_CROSSING_DISPLAY[slug];
+            const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning)}`;
+            return `<li style="padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#ffffff;margin-bottom:8px"><a href="${href}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(altDisp)}</a><div style="font-size:13px;color:#475569;margin-top:2px">${detail}</div></li>`;
+          })
+          .filter(Boolean)
+          .join('');
+        return items
+          ? `<section style="margin:0 0 24px" aria-labelledby="altRoutes">
+    <h2 id="altRoutes" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(h2)}</h2>
+    <p style="margin:0 0 10px;color:#334155;font-size:14px;line-height:1.55">${esc(lead)}</p>
+    <ul style="list-style:none;margin:0;padding:0">${items}</ul>
+  </section>`
+          : '';
+      })()
+    : '';
+
   // FAQ
   const faqItems = copy.faq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="bwFaq">
@@ -920,11 +965,17 @@ function renderLeafPage(inp: LeafInputs): string {
     datePublished: today.toISOString(),
   });
 
+  // B.3 — Enhanced Place + TouristAttraction (@type array) schema with
+  // openingHoursSpecification, amenityFeature, publicAccess — richer signals
+  // for "valico" + "dogana" queries.
   const placeLd = reg
     ? JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Place',
+        '@type': ['Place', 'TouristAttraction'],
+        '@id': `${canonicalUrl}#place`,
         name: crossingDisplay,
+        description: intro,
+        url: canonicalUrl,
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'CH',
@@ -936,6 +987,47 @@ function renderLeafPage(inp: LeafInputs): string {
           latitude: reg.lat,
           longitude: reg.lng,
         },
+        containedInPlace: {
+          '@type': 'AdministrativeArea',
+          name: 'Canton Ticino',
+          address: { '@type': 'PostalAddress', addressRegion: 'TI', addressCountry: 'CH' },
+        },
+        openingHoursSpecification: reg.open24h
+          ? {
+              '@type': 'OpeningHoursSpecification',
+              opens: '00:00',
+              closes: '23:59',
+              dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+            }
+          : {
+              '@type': 'OpeningHoursSpecification',
+              description: reg.hours,
+              dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+            },
+        amenityFeature: [
+          {
+            '@type': 'LocationFeatureSpecification',
+            name: 'Dogana presente',
+            value: Boolean(reg.customsPresent),
+          },
+          {
+            '@type': 'LocationFeatureSpecification',
+            name: 'Webcam live',
+            value: Array.isArray(reg.webcams) && reg.webcams.length > 0,
+          },
+          {
+            '@type': 'LocationFeatureSpecification',
+            name: 'Copertura BAZG (dati ufficiali)',
+            value: Boolean(reg.bazgCoverage),
+          },
+          {
+            '@type': 'LocationFeatureSpecification',
+            name: 'Tipo strada',
+            value: reg.type,
+          },
+        ],
+        publicAccess: true,
+        isAccessibleForFree: true,
       })
     : '';
 
@@ -988,6 +1080,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${hourlyHtml}
   ${weeklyHtml}
   ${infoHtml}
+  ${alternativeRoutesHtml}
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
 </main>${webcamRefreshScript}`;
