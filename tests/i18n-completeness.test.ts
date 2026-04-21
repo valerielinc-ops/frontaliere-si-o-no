@@ -123,7 +123,10 @@ function extractDynamicTranslationKeys(files: string[]): Set<string> {
 
 function extractLocaleKeys(locale: string): Set<string> {
   const keys = new Set<string>();
-  const chunks = ['core', 'calculator', 'comparatori', 'fisco', 'guide', 'vita', 'stats'];
+  // Chunk names map 1:1 to `services/locales/{locale}-{chunk}.ts`. Dash-separated
+  // chunks (e.g. `seo-links`) are camelCased to build the exported variable name.
+  const chunks = ['core', 'calculator', 'comparatori', 'fisco', 'guide', 'vita', 'stats', 'seo-links'];
+  const toCamel = (s: string) => s.replace(/-([a-z])/g, (_m, c: string) => c.toUpperCase());
 
   // 1. Extract keys from all per-page chunk files
   for (const chunk of chunks) {
@@ -132,7 +135,8 @@ function extractLocaleKeys(locale: string): Set<string> {
     if (locale === 'it') {
       varName = 'translations';
     } else {
-      varName = `${locale}${chunk.charAt(0).toUpperCase()}${chunk.slice(1)}`;
+      const camel = toCamel(chunk);
+      varName = `${locale}${camel.charAt(0).toUpperCase()}${camel.slice(1)}`;
     }
     const searchStart = `const ${varName}: Record<string, string> = {`;
     extractKeysFromObject(chunkFile, searchStart, keys);
