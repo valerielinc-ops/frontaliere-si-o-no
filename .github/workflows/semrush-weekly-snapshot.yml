@@ -1,0 +1,120 @@
+name: SEMrush Weekly Snapshot (F.1 / F.3 / H.10)
+
+# Produces:
+#   • data/seo-snapshots/YYYY-MM-DD.json
+#   • data/seo-snapshots/latest.json
+#   • data/seo-snapshots/site-audit-YYYY-MM-DD.json
+#   • reports/site-audit-diff-YYYY-MM-DD.md
+#   • docs/seo-reports/week-YYYY-WW.md
+#
+# Runs every Monday 06:00 UTC. Commits+pushes with a rebase-retry loop so
+# concurrent scheduled workflows do not race each other.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Detect SEMRUSH_API_KEY
+        id: detect
+        env:
+          SEMRUSH_API_KEY: ${{ secrets.SEMRUSH_API_KEY }}
+        run: |
+          if [ -z "${SEMRUSH_API_KEY:-}" ]; then
+            echo "has_key=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::SEMRUSH_API_KEY not configured — running snapshot scripts in dry-run."
+          else
+            echo "has_key=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run SEMrush domain snapshot
+        env:
+          SEMRUSH_API_KEY: ${{ secrets.SEMRUSH_API_KEY }}
+        run: |
+          if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
+            node scripts/seo/semrush-snapshot.mjs
+          else
+            node scripts/seo/semrush-snapshot.mjs --dry-run
+          fi
+
+      - name: Run SEMrush site-audit snapshot
+        env:
+          SEMRUSH_API_KEY: ${{ secrets.SEMRUSH_API_KEY }}
+          SEMRUSH_PROJECT_ID: ${{ secrets.SEMRUSH_PROJECT_ID }}
+        run: |
+          if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
+            node scripts/seo/semrush-site-audit.mjs
+          else
+            node scripts/seo/semrush-site-audit.mjs --dry-run
+          fi
+
+      - name: Generate weekly report
+        run: node scripts/seo/generate-weekly-report.mjs
+
+      - name: Commit + push snapshots and report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/seo-snapshots/ reports/ docs/seo-reports/
+          if git diff --cached --quiet; then
+            echo "No SEO snapshot changes — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh weekly SEMrush snapshot + site-audit diff
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+          # Push with rebase-and-retry to survive concurrent pushes from
+          # other scheduled workflows (pattern ported from
+          # snapshot-jobs-weekly.yml / refresh-keyword-config.yml).
+          attempt=1
+          max_attempts=5
+          until git push origin HEAD:main; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "::error::Failed to push after $max_attempts attempts"
+              exit 1
+            fi
+            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main and retrying..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "Rebase conflict; regenerating snapshot on top of new base"
+              git rebase --abort
+              git reset --hard origin/main
+              if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
+                SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/semrush-snapshot.mjs || true
+                SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" SEMRUSH_PROJECT_ID="${{ secrets.SEMRUSH_PROJECT_ID }}" node scripts/seo/semrush-site-audit.mjs || true
+              else
+                node scripts/seo/semrush-snapshot.mjs --dry-run || true
+                node scripts/seo/semrush-site-audit.mjs --dry-run || true
+              fi
+              node scripts/seo/generate-weekly-report.mjs || true
+              git add data/seo-snapshots/ reports/ docs/seo-reports/
+              if git diff --cached --quiet; then
+                echo "No changes after regeneration; nothing to push"
+                exit 0
+              fi
+              git commit -m "chore(seo): refresh weekly SEMrush snapshot + site-audit diff
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            fi
+            attempt=$((attempt + 1))
+            sleep $((attempt * 2))
+          done
