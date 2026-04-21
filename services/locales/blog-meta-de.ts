@@ -2439,6 +2439,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.title': 'Neue Beschränkungen für ausländische Immobilieninvestoren in der Schweiz',
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.excerpt': 'Der Bundesrat schlägt Änderungen am Lex-Koller-Gesetz vor, um Immobilienkäufe durch nicht ansässige Ausländer einzuschränken',
     'blog.article.svizzera-chiude-investitori-immobiliari-stranieri.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.title': 'Mindestlohn im Tessin: Neue Regeln ab 2027',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.excerpt': 'Ab 2027 wird der Mindestlohn im Tessin zwischen 20,50 und 21 Franken pro Stunde liegen, mit schrittweisen Erhöhungen in den beiden folgenden Jahren.',
+    'blog.article.salario-minimo-ticino-2027-2029-nuove-regole.imageAlt': 'Skyline von Lugano mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

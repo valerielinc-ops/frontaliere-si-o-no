@@ -10469,6 +10469,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-ticino-2027-2029-nuove-regole': {
+    title: 'Salario minimo in Ticino: nuove regole | Frontaliere Ticino',
+    description: 'Dal 2027 il salario minimo in Ticino sarà tra i 20,50 e i 21 franchi all\'ora. Scopri le nuove regole e le implicazioni per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, nuove, regole',
+    ogTitle: 'Nuovo salario minimo in Ticino dal 2027',
+    ogDescription: 'Dal 2027 il salario minimo in Ticino sarà tra i 20,50 e i 21 franchi all\'ora. Scopri le nuove regole e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-2027-2029-nuove-regole',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo salario minimo in Ticino dal 2027",
+      "description": "Dal 2027 il salario minimo in Ticino sarà tra i 20,50 e i 21 franchi all'ora. Scopri le nuove regole e le implicazioni per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-2027-2029-nuove-regole.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Skyline di Lugano con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-21T08:25:59+00:00",
+      "dateModified": "2026-04-21T08:25:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-2027-2029-nuove-regole`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
