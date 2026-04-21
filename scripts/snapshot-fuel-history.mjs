@@ -22,10 +22,14 @@ const HISTORY_DIR = path.join(ROOT, 'data', 'fuel-prices-history');
 const RETENTION_DAYS = 90;
 
 const ZONES = ['chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno'];
-// Mirror of DIESEL_OFFSET_CHF from build-plugins/fuelDailyPagesPlugin.ts.
-// Duplicated here (not imported) because this script runs in plain Node —
-// no TS tooling in the update-fuel-prices.yml workflow.
-const DIESEL_OFFSET_CHF = 0.08;
+// Legacy fallback: the TCS Firestore feed now exposes per-station DIESEL prices
+// directly (ingested by scripts/generate-fuel-prices-dataset.mjs → `dieselPriceChf`),
+// so the SP95+offset derivation is no longer the primary path. We keep the
+// constant as a documented fallback for historical snapshot files emitted before
+// the real-diesel ingestion rolled out, and in case the DIESEL field
+// temporarily disappears from the upstream feed. Observed delta on Swiss retail
+// ≈ 0.08 CHF/L (diesel above SP95) as of 2026 — tune centrally if needed.
+const LEGACY_DIESEL_OFFSET_CHF = 0.08;
 
 function mean(nums) {
   if (nums.length === 0) return null;
@@ -54,14 +58,44 @@ function collectStations(dataset) {
   return out;
 }
 
+/**
+ * Resolve a per-station price for the target fuel. Reads the real
+ * `dieselPriceChf` field populated by the TCS Firestore feed when available;
+ * falls back to SP95 + observed offset only for stations that still lack a
+ * direct DIESEL record (reported in logs so coverage gaps stay visible).
+ */
+function stationPriceForFuel(station, fuel) {
+  const sp95 = station.sp95PriceChf;
+  if (typeof sp95 !== 'number' || Number.isNaN(sp95)) return null;
+  if (fuel === 'benzina') return Number(sp95.toFixed(3));
+  // fuel === 'diesel'
+  const real = station.dieselPriceChf;
+  if (typeof real === 'number' && Number.isFinite(real)) {
+    return Number(real.toFixed(3));
+  }
+  return Number((sp95 + LEGACY_DIESEL_OFFSET_CHF).toFixed(3));
+}
+
 function computeZoneAvg(stations, zone, fuel) {
   const filtered = zone ? stations.filter((s) => stationBelongsToZone(s, zone)) : stations;
-  const prices = filtered.map((s) => {
-    const sp95 = s.sp95PriceChf;
-    if (typeof sp95 !== 'number' || Number.isNaN(sp95)) return null;
-    return fuel === 'diesel' ? Number((sp95 + DIESEL_OFFSET_CHF).toFixed(3)) : Number(sp95.toFixed(3));
-  }).filter((p) => p !== null);
+  const prices = filtered
+    .map((s) => stationPriceForFuel(s, fuel))
+    .filter((p) => p !== null);
   return mean(prices);
+}
+
+/**
+ * Snapshot coverage diagnostics — included in the emitted snapshot so we can
+ * audit the proportion of "real" vs "derived" diesel prices day by day.
+ */
+function dieselCoverageStats(stations) {
+  const total = stations.length;
+  const real = stations.filter((s) => typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf)).length;
+  return {
+    totalStations: total,
+    realDieselStations: real,
+    realDieselPct: total ? Number(((real / total) * 100).toFixed(1)) : 0,
+  };
 }
 
 function pruneOldSnapshots() {
@@ -99,6 +133,12 @@ function main() {
 
   const stations = collectStations(dataset);
   const today = new Date().toISOString().slice(0, 10);
+  const coverage = dieselCoverageStats(stations);
+  const dieselSource = coverage.realDieselStations === 0
+    ? 'derived'
+    : coverage.realDieselStations === coverage.totalStations
+      ? 'api'
+      : 'mixed';
 
   const snapshot = {
     date: today,
@@ -107,6 +147,12 @@ function main() {
     regional: {
       diesel: computeZoneAvg(stations, null, 'diesel'),
       benzina: computeZoneAvg(stations, null, 'benzina'),
+    },
+    diesel: {
+      source: dieselSource,
+      realCoveragePct: coverage.realDieselPct,
+      realStationCount: coverage.realDieselStations,
+      totalStationCount: coverage.totalStations,
     },
   };
 
@@ -126,6 +172,9 @@ function main() {
     .join(' | ');
   console.log(`[snapshot-fuel-history] wrote ${out}`);
   console.log(`[snapshot-fuel-history] zones → ${zoneList}`);
+  console.log(
+    `[snapshot-fuel-history] diesel source=${dieselSource} real=${coverage.realDieselStations}/${coverage.totalStations} (${coverage.realDieselPct}%)`,
+  );
   if (pruned > 0) console.log(`[snapshot-fuel-history] pruned ${pruned} snapshots older than ${RETENTION_DAYS}d`);
 }
 

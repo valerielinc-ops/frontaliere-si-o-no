@@ -187,6 +187,7 @@ async function fetchSwissStations() {
     .map((doc) => {
       const fields = unwrapFirestoreValue({ mapValue: { fields: doc.fields || {} } }) || {};
       const sp95 = fields.fuelCollection?.SP95;
+      const diesel = fields.fuelCollection?.DIESEL;
       const lat = fields.location?.lat;
       const lng = fields.location?.lng;
       if (!sp95 || sp95.isDeleted || fields.isDeleted || !Number.isFinite(lat) || !Number.isFinite(lng)) return null;
@@ -195,6 +196,24 @@ async function fetchSwissStations() {
         const ageMs = now - new Date(updatedAt).getTime();
         if (Number.isFinite(ageMs) && ageMs > SWISS_MAX_PRICE_AGE_DAYS * 24 * 60 * 60 * 1000) return null;
       }
+
+      // Diesel is opt-in per station in the TCS feed. Include it when the
+      // station publishes a non-deleted DIESEL record with a fresh price; this
+      // is the authoritative per-station value — no SP95+offset approximation.
+      let dieselPriceChf = null;
+      let dieselSource = 'unknown';
+      let dieselUpdatedAt = null;
+      if (diesel && !diesel.isDeleted && Number.isFinite(Number(diesel.displayPrice))) {
+        const dUpdate = diesel.fiability?.lastPriceUpdate || diesel.lastCachedPriceRefresh || null;
+        const dAgeMs = dUpdate ? now - new Date(dUpdate).getTime() : 0;
+        const withinWindow = !dUpdate || (Number.isFinite(dAgeMs) && dAgeMs <= SWISS_MAX_PRICE_AGE_DAYS * 24 * 60 * 60 * 1000);
+        if (withinWindow) {
+          dieselPriceChf = Number(diesel.displayPrice);
+          dieselSource = 'api';
+          dieselUpdatedAt = dUpdate;
+        }
+      }
+
       const name = String(doc.name || '').split('/').pop() || '';
       return {
         id: name,
@@ -204,6 +223,9 @@ async function fetchSwissStations() {
         lat,
         lng,
         sp95PriceChf: Number(sp95.displayPrice),
+        dieselPriceChf,
+        dieselSource,
+        dieselUpdatedAt,
         updatedAt,
       };
     })
@@ -292,6 +314,10 @@ function buildSwissBorderStations(municipalities, swissStations, eurPerChf) {
       nearestMunicipality: closestMunicipality ? `${closestMunicipality.name} (${closestMunicipality.province})` : null,
       nearestMunicipalityDistanceKm: round(minDistance, 1),
       sp95PriceEur: round(station.sp95PriceChf * eurPerChf),
+      dieselPriceEur:
+        station.dieselPriceChf != null && Number.isFinite(station.dieselPriceChf)
+          ? round(station.dieselPriceChf * eurPerChf)
+          : null,
     });
   }
   return filtered.sort((a, b) => a.sp95PriceChf - b.sp95PriceChf);
@@ -386,6 +412,12 @@ function buildDataset({
     }));
 
   const swissUpdatedAtValues = swissStations.map((item) => item.updatedAt).filter(Boolean).sort();
+  const swissWithDiesel = swissStations.filter(
+    (s) => typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf),
+  ).length;
+  const swissDieselCoveragePct = swissStations.length
+    ? Math.round((swissWithDiesel / swissStations.length) * 1000) / 10
+    : 0;
 
   return {
     generatedAt: new Date().toISOString(),
@@ -401,6 +433,10 @@ function buildDataset({
         providerUrl: 'https://benzin.tcs.ch/de/map/SP95',
         stationCount: swissStations.length,
         latestObservedUpdate: swissUpdatedAtValues[swissUpdatedAtValues.length - 1] || null,
+        // F6 — real-diesel ingestion. See scripts/generate-fuel-prices-dataset.mjs
+        // `fetchSwissStations` for the DIESEL unwrap from the TCS Firestore feed.
+        dieselStationCount: swissWithDiesel,
+        dieselCoveragePct: swissDieselCoveragePct,
       },
       exchangeRate: {
         provider: 'ECB',
