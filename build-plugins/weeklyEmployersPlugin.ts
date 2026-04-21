@@ -58,6 +58,7 @@ import {
   type WeeklyEmployersCity,
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 
 // ── Types ───────────────────────────────────────────────────────
@@ -829,6 +830,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.faqApplyA)}</p>
     </details>
   </section>
+  ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
 </main>`;
 
   const html = `<!doctype html>
