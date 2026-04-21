@@ -2463,6 +2463,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'DNB Football: Bellinzona denied license over financial concerns',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Bellinzona fails to secure DNB license due to financial doubts, raising new concerns about the club\'s future.',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Bellinzona municipal stadium, panoramic view with mountains in the background',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Motion for firefighters\' health approved unanimously',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'Lombardy Region commits the Government to promoting screenings and epidemiological studies for firefighters, classified as at cancer risk.',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Firefighters in action at a fire station in Lombardy, Italy',
 };
 
 export default blogMetaEn;

@@ -10674,6 +10674,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mozione-salute-vigili-fuoco-lombardia': {
+    title: 'Approvata all\'unanimità la mozione per | Frontaliere Ticino',
+    description: 'Regione Lombardia approva mozione per screening e studi epidemiologici sui vigili del fuoco, classificati a rischio cancerogeno. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, approvata, unanimità, mozione, salute',
+    ogTitle: 'Mozione salute vigili fuoco | Frontaliere Ticino',
+    ogDescription: 'Regione Lombardia approva mozione per screening e studi epidemiologici sui vigili del fuoco, classificati a rischio cancerogeno.',
+    canonicalPath: '/articoli-frontaliere/mozione-salute-vigili-fuoco-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione per la salute dei vigili del fuoco approvata all'unanimità in Lombardia",
+      "description": "Regione Lombardia approva mozione per screening e studi epidemiologici sui vigili del fuoco, classificati a rischio cancerogeno. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mozione-salute-vigili-fuoco-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigili del fuoco in azione in una caserma in Lombardia"
+      },
+      "datePublished": "2026-04-21T20:16:25+00:00",
+      "dateModified": "2026-04-21T20:16:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mozione-salute-vigili-fuoco-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

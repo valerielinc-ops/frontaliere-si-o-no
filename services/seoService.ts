@@ -2055,6 +2055,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rapina-milano-frontaliere-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/rapina-milano-frontaliere-ticino-2026', parent: 'blog' },
     'blog-frontalieri-contributo-sanitario-2026': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-contributo-sanitario-2026', parent: 'blog' },
     'blog-bellinzona-calcio-licenza-negata-finanze': { name: 'Bellinzona', path: '/articoli-frontaliere/bellinzona-calcio-licenza-negata-finanze', parent: 'blog' },
+    'blog-mozione-salute-vigili-fuoco-lombardia': { name: 'Mozione salute', path: '/articoli-frontaliere/mozione-salute-vigili-fuoco-lombardia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

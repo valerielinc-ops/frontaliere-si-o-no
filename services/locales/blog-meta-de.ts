@@ -2463,6 +2463,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'Fussball DNB: Bellinzona erhält keine Lizenz wegen Finanzbedenken',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Der Bellinzona erhält keine DNB-Lizenz aufgrund von Bedenken bezüglich der Finanzen, was neue Sorgen über die Zukunft des Vereins aufwirft.',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Gemeindestadion Bellinzona, Panoramablick mit Bergen im Hintergrund',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Motionsantrag zur Gesundheit der Feuerwehrleute einstimmig angenommen',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'Die Region Lombardei verpflichtet die Regierung, Screenings und epidemiologische Studien für Feuerwehrleute zu fördern, die als krebserregend eingestuft sind.',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Feuerwehrleute im Einsatz in einer Feuerwache in der Lombardei, Italien',
 };
 
 export default blogMetaDe;

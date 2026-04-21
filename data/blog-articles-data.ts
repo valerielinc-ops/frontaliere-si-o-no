@@ -6727,4 +6727,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/bellinzona-calcio-licenza-negata-finanze.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mozione-salute-vigili-fuoco-lombardia',
+ category: 'novita',
+ date: '2026-04-21T20:16:25.439Z',
+ image: '/images/blog/mozione-salute-vigili-fuoco-lombardia.jpg',
+ hasCalculator: true,
+ },
 ];

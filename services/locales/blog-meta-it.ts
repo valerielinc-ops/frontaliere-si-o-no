@@ -2463,6 +2463,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'Calcio Dnb: licenza negata al Bellinzona per dubbi sulle finanze',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club.',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Stadio comunale di Bellinzona, vista panoramica con montagne sullo sfondo',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Approvata all\'unanimità la mozione per la salute dei vigili del fuoco',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'Regione Lombardia impegna il Governo a promuovere screening e studi epidemiologici per i vigili del fuoco, classificati come a rischio cancerogeno.',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Vigili del fuoco in azione in una caserma in Lombardia',
 };
 
 export default blogMetaIt;

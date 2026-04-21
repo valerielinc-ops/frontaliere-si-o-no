@@ -2463,6 +2463,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'Football DNB : permis refusé au Bellinzone en raison de doutes sur les finances',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Le Bellinzone n\'obtient pas le permis DNB en raison de doutes sur les finances, soulevant de nouvelles préoccupations quant à l\'avenir du club.',
     'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Stade communal de Bellinzone, vue panoramique avec les montagnes en arrière-plan',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.title': 'Motion pour la santé des pompiers approuvée à l\'unanimité',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.excerpt': 'La Région Lombardie s\'engage à promouvoir des dépistages et des études épidémiologiques pour les pompiers, classés comme à risque cancérogène.',
+    'blog.article.mozione-salute-vigili-fuoco-lombardia.imageAlt': 'Pompiers en action dans une caserne de pompiers en Lombardie, Italie',
 };
 
 export default blogMetaFr;
