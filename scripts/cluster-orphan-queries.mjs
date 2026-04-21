@@ -15,7 +15,11 @@
  *   - Merge queries sharing a signature into a cluster.
  *
  * Gates (applied here):
- *   - Cluster must reach ≥10 cumulative impressions.
+ *   - Cluster must reach ≥5 cumulative impressions (thin-content
+ *     guardrails live downstream in the build plugin:
+ *     `MIN_MATCHING_JOBS = 3` and `MIN_INDEXABLE_WORDS` decide
+ *     indexability, so we can afford a lower impression floor here
+ *     to surface more long-tail orphan queries as candidates).
  *   - Cluster canonical slug must NOT match a known job URL
  *     in `data/all-known-job-slugs.json` (skip to avoid doorway duplicates).
  *
@@ -36,7 +40,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DRY_RUN = process.argv.includes('--dry-run');
 
-const MIN_CLUSTER_IMPRESSIONS = 10;
+const MIN_CLUSTER_IMPRESSIONS = 5;
 
 // ─── Stopword sets (IT/EN/DE/FR) ──────────────────────────────────
 const STOPWORDS = new Set([

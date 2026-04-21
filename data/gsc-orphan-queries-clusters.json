@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-21T10:18:39.646Z",
+  "generatedAt": "2026-04-21T14:17:12.283Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 9,
+  "totalClusters": 17,
   "gates": {
-    "minClusterImpressions": 10
+    "minClusterImpressions": 5
   },
   "clusters": [
     {
@@ -266,6 +266,190 @@
           "query": "posti lavoro ticino",
           "clicks": 0,
           "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-da-ieri",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino da ieri",
+      "canonicalSlug": "lavoro-ticino-da-ieri",
+      "roleTokens": [
+        "ier",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 9,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro ticino da ieri",
+          "clicks": 0,
+          "impressions": 9
+        }
+      ]
+    },
+    {
+      "clusterId": "de-chauffeur-schweiz",
+      "locale": "de",
+      "canonicalQuery": "chauffeur schweiz",
+      "canonicalSlug": "chauffeur-schweiz",
+      "roleTokens": [
+        "chauff"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "chauffeur schweiz",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "schweiz chauffeurs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-cerco-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "cerco lavoro ticino",
+      "canonicalSlug": "cerco-lavoro-ticino",
+      "roleTokens": [
+        "cerc",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "cerco lavoro ticino",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavori-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavori ticino",
+      "canonicalSlug": "lavori-ticino",
+      "roleTokens": [
+        "lav"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavori ticino",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavori-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavori in svizzera",
+      "canonicalSlug": "lavori-in-svizzera",
+      "roleTokens": [
+        "lav"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavori in svizzera",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-mendrisio",
+      "locale": "it",
+      "canonicalQuery": "lavoro mendrisio",
+      "canonicalSlug": "lavoro-mendrisio",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "mendrisio"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-mendrisio",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro mendrisio",
+      "canonicalSlug": "offerte-di-lavoro-mendrisio",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "mendrisio"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino negli ultimi 3 giorni",
+      "canonicalSlug": "lavoro-ticino-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 5
         }
       ]
     }
