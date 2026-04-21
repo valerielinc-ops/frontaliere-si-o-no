@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-20T21:11:55.329Z",
+  "generatedAt": "2026-04-21T09:40:57.801Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16414,
-  "avgDurationMs": 16414,
+  "durationMs": 14617,
+  "avgDurationMs": 14617,
   "durationHistory": [
-    16414
+    14617
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -220,48 +220,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate--Landquart-Outlet_R_782019",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate--Landquart-Outlet_R_782019",
-      "title": "Sales Associate, Landquart Outlet",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "associato-vendite-landquart-outlet-capri-holdings-michael-kors-versace-graubunden",
-      "category": "retail",
-      "datePosted": "2026-01-02",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "id": "capri-holdings-0ab28ef10243",
-      "firstSeenAt": "2026-04-13T21:19:12.338Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
