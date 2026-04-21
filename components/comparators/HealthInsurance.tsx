@@ -128,11 +128,19 @@ const HealthInsurance: React.FC = () => {
  const [searchTerm, setSearchTerm] = useState('');
  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
- // Load health premiums JSON
+ // Load health premiums JSON. F2 A3 introduced multi-year storage under
+ // `/data/health-premiums/{year}.json`; we prefer the current-year file and
+ // fall back to the legacy flat path for older deploys still serving it.
  useEffect(() => {
- fetch('/data/health-premiums.json')
+ const year = new Date().getUTCFullYear();
+ const primary = `/data/health-premiums/${year}.json`;
+ const fallback = '/data/health-premiums.json';
+ fetch(primary)
  .then(r => r.ok ? r.json() : null)
- .then(d => { if (d) setData(d); })
+ .then(d => {
+ if (d) { setData(d); return; }
+ return fetch(fallback).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
+ })
  .catch(() => {});
  }, []);
 

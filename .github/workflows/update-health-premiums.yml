@@ -29,8 +29,10 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install xlsx parser
-        run: npm install xlsx
+      - name: Install xlsx + adm-zip parsers
+        # xlsx parses the priminfo region workbook; adm-zip is required for
+        # the F2-A3 historical backfill path (ZIPped archive years).
+        run: npm install xlsx adm-zip
 
       - name: Fetch health premiums
         run: node scripts/fetch-health-premiums.mjs
@@ -40,7 +42,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/health-premiums.json public/data/health-premiums.json
+          # F2-A3 multi-year storage: stage both the year-scoped directory and
+          # the legacy flat aliases the fetch script keeps refreshing.
+          git add data/health-premiums data/health-premiums.json public/data/health-premiums public/data/health-premiums.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "ℹ️ No health premium changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"

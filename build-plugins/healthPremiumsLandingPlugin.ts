@@ -47,10 +47,13 @@ import {
   buildHealthPremiumsCantonPath,
   buildHealthPremiumsLeafPath,
   buildHealthPremiumsRootPath,
+  computeYoyDelta,
+  loadPremiumsForYear,
   type HealthPremiumAgeBracket,
   type HealthPremiumCanton,
   type HealthPremiumLocale,
   type HealthPremiumRiskClass,
+  type YoyCantonDelta,
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
@@ -122,6 +125,17 @@ function formatCHF(n: number | null, locale: HealthPremiumLocale): string {
   if (n === null || Number.isNaN(n)) return '—';
   const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
   return n.toFixed(2).replace('.', sep);
+}
+
+/**
+ * Format a YoY delta percentage for display. Always include the sign so the
+ * direction is visible at a glance; returns '—' when the value is null.
+ */
+function formatPct(n: number | null, locale: HealthPremiumLocale): string {
+  if (n === null || Number.isNaN(n)) return '—';
+  const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
+  const sign = n > 0 ? '+' : n < 0 ? '' : '';
+  return `${sign}${n.toFixed(2).replace('.', sep)}%`;
 }
 
 const LOCALE_OG: Record<HealthPremiumLocale, string> = {
@@ -343,6 +357,14 @@ interface LeafCopy {
   faq: Array<{ q: (canton: string, age: string) => string; a: (canton: string, age: string, median: string, min: string, max: string) => string }>;
   priceUnit: string;
   rankingIntro: (canton: string) => string;
+  /** Localised copy for the "Variazione vs {priorYear}" section (F2 A3). */
+  yoy: {
+    sectionTitle: (priorYear: number) => string;
+    summary: (canton: string, age: string, medianPct: string, priorYear: number, insurersCount: number) => string;
+    tableCaption: (priorYear: number) => string;
+    tableHeaders: { rank: string; insurer: string; delta: string };
+    emptyPriorNote: (priorYear: number) => string;
+  };
 }
 
 interface HubCopy {
@@ -366,6 +388,13 @@ interface HubCopy {
   cantonFaq: Array<{ q: (canton: string) => string; a: (canton: string, median: string, year: number) => string }>;
   priceUnit: string;
   updatedLabel: string;
+  /** Canton-hub YoY summary copy (F2 A3). */
+  yoy: {
+    sectionTitle: (priorYear: number) => string;
+    cantonSummary: (canton: string, adultMedianPct: string, priorYear: number) => string;
+    gridCaption: (priorYear: number) => string;
+    gridHeaders: { age: string; delta: string };
+  };
 }
 
 const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
@@ -417,6 +446,15 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     priceUnit: 'CHF/mese',
     rankingIntro: (c) =>
       `Ecco come si posiziona ${c} rispetto agli altri cantoni target per la stessa fascia di età. I premi LAMal variano significativamente tra cantoni anche all'interno della stessa regione linguistica.`,
+    yoy: {
+      sectionTitle: (py) => `Variazione rispetto al ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Rispetto al ${py}, il premio mediano in ${c} per la fascia ${a} è variato di ${medPct} (${n} casse confrontate). Questa variazione riflette la revisione annuale delle tariffe approvata dal Consiglio federale e pubblicata a fine settembre. Nelle tabelle qui sotto confrontiamo, per ogni cassa con dati in entrambi gli anni, il premio attuale con quello dell'anno precedente per evidenziare gli aumenti e le riduzioni più significative.`,
+      tableCaption: (py) => `Top 20 casse per variazione percentuale rispetto al ${py}, dalla riduzione più marcata all'aumento più alto`,
+      tableHeaders: { rank: 'Posizione', insurer: 'Cassa malati', delta: `Δ vs anno prec.` },
+      emptyPriorNote: (py) =>
+        `I dati ${py} non sono disponibili per questa combinazione: la sezione di variazione verrà popolata al prossimo refresh dell'archivio BAG.`,
+    },
   },
   en: {
     breadcrumbHome: 'Home',
@@ -466,6 +504,15 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     priceUnit: 'CHF/month',
     rankingIntro: (c) =>
       `Here is how ${c} ranks against the other target cantons for the same age bracket. LAMal premiums vary significantly across cantons even within the same language region.`,
+    yoy: {
+      sectionTitle: (py) => `Change vs ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Compared with ${py}, the median premium in ${c} for bracket ${a} moved by ${medPct} (${n} funds compared). This change reflects the annual tariff review approved by the Federal Council and published in late September. The tables below compare every fund with data in both years to highlight the largest rises and falls.`,
+      tableCaption: (py) => `Top 20 funds by percentage change vs ${py}, from biggest drop to biggest rise`,
+      tableHeaders: { rank: 'Rank', insurer: 'Health fund', delta: `Δ vs prior year` },
+      emptyPriorNote: (py) =>
+        `${py} data is not available for this combination: the change section will populate on the next BAG archive refresh.`,
+    },
   },
   de: {
     breadcrumbHome: 'Startseite',
@@ -515,6 +562,15 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     priceUnit: 'CHF/Monat',
     rankingIntro: (c) =>
       `So positioniert sich ${c} gegenüber den anderen Zielkantonen für dieselbe Altersgruppe. KVG-Prämien unterscheiden sich auch innerhalb derselben Sprachregion erheblich zwischen den Kantonen.`,
+    yoy: {
+      sectionTitle: (py) => `Veränderung gegenüber ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Im Vergleich zu ${py} hat sich die Medianprämie in ${c} für die Gruppe ${a} um ${medPct} verändert (${n} Kassen verglichen). Diese Veränderung spiegelt die jährliche Tarifrevision wider, die der Bundesrat Ende September genehmigt. Die Tabellen unten vergleichen für jede Kasse mit Daten in beiden Jahren die aktuelle und die Vorjahresprämie und heben so die grössten Zunahmen und Abnahmen hervor.`,
+      tableCaption: (py) => `Top 20 Kassen nach prozentualer Veränderung vs ${py}, vom grössten Rückgang bis zur grössten Erhöhung`,
+      tableHeaders: { rank: 'Rang', insurer: 'Krankenkasse', delta: `Δ vs Vorjahr` },
+      emptyPriorNote: (py) =>
+        `${py}-Daten sind für diese Kombination nicht verfügbar: Der Veränderungsabschnitt wird beim nächsten BAG-Archiv-Refresh befüllt.`,
+    },
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -564,6 +620,15 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     priceUnit: 'CHF/mois',
     rankingIntro: (c) =>
       `Voici comment ${c} se positionne par rapport aux autres cantons cibles pour la même tranche d'âge. Les primes LAMal varient sensiblement d'un canton à l'autre, même au sein d'une même région linguistique.`,
+    yoy: {
+      sectionTitle: (py) => `Variation par rapport à ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Par rapport à ${py}, la prime médiane à ${c} pour la tranche ${a} a varié de ${medPct} (${n} caisses comparées). Cette évolution reflète la révision tarifaire annuelle approuvée par le Conseil fédéral et publiée fin septembre. Les tableaux ci-dessous comparent, pour chaque caisse disposant de données dans les deux années, la prime actuelle avec celle de l'année précédente afin de mettre en évidence les hausses et les baisses les plus significatives.`,
+      tableCaption: (py) => `Top 20 caisses par variation en pourcentage vs ${py}, de la plus forte baisse à la plus forte hausse`,
+      tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', delta: `Δ vs année préc.` },
+      emptyPriorNote: (py) =>
+        `Les données ${py} ne sont pas disponibles pour cette combinaison : la section variation sera remplie au prochain rafraîchissement de l'archive BAG.`,
+    },
   },
 };
 
@@ -619,6 +684,13 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
     ],
     priceUnit: 'CHF/mese',
     updatedLabel: 'Aggiornato',
+    yoy: {
+      sectionTitle: (py) => `Variazione rispetto al ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `La mediana dei premi adulti (26+) in ${c} è variata di ${adultPct} rispetto al ${py}. Nella tabella sotto vedi la variazione per ogni fascia di età, basata sulle casse con dati pubblicati in entrambi gli anni (fonte: archivio storico BAG/UFSP).`,
+      gridCaption: (py) => `Variazione mediana per fascia di età (${py} → anno corrente)`,
+      gridHeaders: { age: 'Fascia', delta: 'Δ vs anno precedente' },
+    },
   },
   en: {
     breadcrumbHome: 'Home',
@@ -671,6 +743,13 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
     ],
     priceUnit: 'CHF/month',
     updatedLabel: 'Updated',
+    yoy: {
+      sectionTitle: (py) => `Change vs ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `The adult (26+) median premium in ${c} moved by ${adultPct} vs ${py}. The table below breaks the change down by age bracket, using only funds that published data in both years (source: BAG/FOPH historical archive).`,
+      gridCaption: (py) => `Median change by age bracket (${py} → current year)`,
+      gridHeaders: { age: 'Bracket', delta: 'Δ vs prior year' },
+    },
   },
   de: {
     breadcrumbHome: 'Startseite',
@@ -723,6 +802,13 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
     ],
     priceUnit: 'CHF/Monat',
     updatedLabel: 'Aktualisiert',
+    yoy: {
+      sectionTitle: (py) => `Veränderung gegenüber ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `Die Erwachsenen-Medianprämie (26+) in ${c} hat sich gegenüber ${py} um ${adultPct} verändert. Die Tabelle unten schlüsselt die Veränderung nach Altersgruppe auf, basierend nur auf Kassen mit Daten in beiden Jahren (Quelle: historisches BAG/UFSP-Archiv).`,
+      gridCaption: (py) => `Mediane Veränderung nach Altersgruppe (${py} → laufendes Jahr)`,
+      gridHeaders: { age: 'Gruppe', delta: 'Δ vs Vorjahr' },
+    },
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -775,6 +861,13 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
     ],
     priceUnit: 'CHF/mois',
     updatedLabel: 'Mis à jour',
+    yoy: {
+      sectionTitle: (py) => `Variation par rapport à ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `La prime médiane adulte (26+) à ${c} a varié de ${adultPct} par rapport à ${py}. Le tableau ci-dessous détaille la variation par tranche d'âge, en ne retenant que les caisses avec des données publiées dans les deux années (source : archive historique BAG/OFSP).`,
+      gridCaption: (py) => `Variation médiane par tranche d'âge (${py} → année courante)`,
+      gridHeaders: { age: 'Tranche', delta: 'Δ vs année préc.' },
+    },
   },
 };
 
@@ -790,10 +883,12 @@ interface LeafInputs {
   canonicalPath: string;
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
+  /** Year-over-year delta for this canton; null when prior-year data absent. */
+  yoy: YoyCantonDelta | null;
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today } = inp;
+  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy } = inp;
   const copy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
   const ageLabel = HEALTH_PREMIUM_AGE_LABEL[locale][age];
@@ -889,7 +984,19 @@ function renderLeafPage(inp: LeafInputs): string {
       .join('')}</tbody>
   </table>`;
 
-  // Stats cards
+  // Stats cards — when YoY data is available for the current bracket we
+  // append a fifth tile showing the median delta. Only rendered when the
+  // prior-year dataset exposes ≥ 3 overlapping insurers so the median is not
+  // dominated by noise.
+  const bracketYoy = yoy?.byBracket[age] ?? null;
+  const showYoyTile = bracketYoy !== null && bracketYoy.medianPct !== null && bracketYoy.sourceInsurers >= 3;
+  const yoyTileHtml = showYoyTile && bracketYoy
+    ? `<div style="padding:18px;border-radius:18px;background:#fef2f2;border:1px solid #fecaca">
+      <div style="font-size:12px;color:#991b1b;font-weight:700;text-transform:uppercase">Δ vs ${yoy?.priorYear ?? ''}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:${(bracketYoy.medianPct ?? 0) >= 0 ? '#991b1b' : '#166534'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
+      <div style="margin-top:2px;font-size:13px;color:#475569">${bracketYoy.sourceInsurers} casse</div>
+    </div>`
+    : '';
   const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
     <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
       <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.median)}</div>
@@ -910,7 +1017,51 @@ function renderLeafPage(inp: LeafInputs): string {
       <div style="font-size:12px;color:#334155;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.insurers)}</div>
       <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${perInsurer.length}</div>
     </div>
+    ${yoyTileHtml}
   </section>`;
+
+  // YoY section — ranked table of top-20 insurers by absolute delta, plus an
+  // editorial summary. Rendered only when we have real prior-year data so
+  // A3's "no fake data" rule is honoured.
+  const yoyHtml = (() => {
+    if (!yoy || !bracketYoy || bracketYoy.medianPct === null) return '';
+    const rows = Object.entries(bracketYoy.perInsurer)
+      .filter((entry): entry is [string, number] => typeof entry[1] === 'number')
+      .map(([insurerId, delta]) => ({
+        insurerId,
+        insurerName: resolveInsurerName(dataset, insurerId),
+        delta,
+      }))
+      .sort((a, b) => a.delta - b.delta)
+      .slice(0, 20);
+    if (rows.length === 0) return '';
+    const medPctFmt = formatPct(bracketYoy.medianPct, locale);
+    const table = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+      <thead><tr>
+        <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.tableHeaders.rank)}</th>
+        <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.tableHeaders.insurer)}</th>
+        <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.tableHeaders.delta)}</th>
+      </tr></thead>
+      <tbody>${rows
+        .map((r, i) => {
+          const positive = r.delta > 0;
+          const neutral = r.delta === 0;
+          const deltaColor = neutral ? '#475569' : positive ? '#b91c1c' : '#15803d';
+          return `<tr>
+          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-variant-numeric:tabular-nums">${i + 1}</td>
+          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(r.insurerName)}</td>
+          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:${deltaColor};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.delta, locale))}</td>
+        </tr>`;
+        })
+        .join('')}</tbody>
+    </table>`;
+    return `<section style="margin:0 0 24px" aria-labelledby="yoy">
+      <h2 id="yoy" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
+      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.yoy.summary(cantonLabel, ageLabel, medPctFmt, yoy.priorYear, bracketYoy.sourceInsurers))}</p>
+      <p style="margin:0 0 12px;color:#475569;font-size:13px;line-height:1.5">${esc(copy.yoy.tableCaption(yoy.priorYear))}</p>
+      ${table}
+    </section>`;
+  })();
 
   // FAQ
   const faqItems = copy.faq;
@@ -1013,6 +1164,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.rankingIntro(cantonLabel))}</p>
     ${rankingHtml}
   </section>
+  ${yoyHtml}
   <section style="margin:0 0 24px" aria-labelledby="editorial">
     <h2 id="editorial" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.editorialTitle)}</h2>
     <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
@@ -1072,10 +1224,11 @@ interface CantonHubInputs {
   canonicalPath: string;
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
+  yoy: YoyCantonDelta | null;
 }
 
 function renderCantonHubPage(inp: CantonHubInputs): string {
-  const { locale, canton, dataset, stats, canonicalPath, alternates, today } = inp;
+  const { locale, canton, dataset, stats, canonicalPath, alternates, today, yoy } = inp;
   const copy = HUB_COPY[locale];
   const leafCopy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
@@ -1136,6 +1289,43 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
       <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${stats.ranked.length}</div>
     </div>
   </section>`;
+
+  // Canton-level YoY grid — one row per age bracket with the bracket's
+  // median percent change. Rendered only when prior-year data is available.
+  const yoyHubHtml = (() => {
+    if (!yoy) return '';
+    const rows = HEALTH_PREMIUM_AGE_BRACKETS.map((ab) => {
+      const slice = yoy.byBracket[ab.id];
+      return {
+        ab,
+        pct: slice?.medianPct ?? null,
+        n: slice?.sourceInsurers ?? 0,
+      };
+    }).filter((r) => r.pct !== null);
+    if (rows.length === 0) return '';
+    const adultPctFmt = formatPct(yoy.adultMedianPct, locale);
+    const gridTable = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+      <thead><tr>
+        <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.gridHeaders.age)}</th>
+        <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.gridHeaders.delta)}</th>
+      </tr></thead>
+      <tbody>${rows
+        .map((r) => {
+          const color = (r.pct ?? 0) > 0 ? '#b91c1c' : (r.pct ?? 0) < 0 ? '#15803d' : '#475569';
+          return `<tr>
+          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>
+        </tr>`;
+        })
+        .join('')}</tbody>
+    </table>`;
+    return `<section style="margin:0 0 24px" aria-labelledby="yoy">
+      <h2 id="yoy" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
+      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.yoy.cantonSummary(cantonLabel, adultPctFmt, yoy.priorYear))}</p>
+      <p style="margin:0 0 12px;color:#475569;font-size:13px;line-height:1.5">${esc(copy.yoy.gridCaption(yoy.priorYear))}</p>
+      ${gridTable}
+    </section>`;
+  })();
 
   // Canton FAQ
   const faqItems = copy.cantonFaq;
@@ -1212,6 +1402,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <h2 id="ageGrid" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.ageGridTitle(cantonLabel))}</h2>
     ${ageGridHtml}
   </section>
+  ${yoyHubHtml}
   <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
     <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
@@ -1436,17 +1627,33 @@ ${bodyHtml}
 export interface GenerateHealthPremiumsResult {
   pages: Record<string, string>;
   skippedCantons: HealthPremiumCanton[];
+  /**
+   * Per-canton YoY delta computed against the optional `priorDataset`.
+   * Empty record when no prior-year data was provided — the plugin then
+   * renders leaves and hubs without the "Variazione vs {priorYear}" section.
+   */
+  yoyByCanton: Record<HealthPremiumCanton, YoyCantonDelta | null>;
 }
 
 export function generateHealthPremiumsPages(opts: {
   dataset: HealthPremiumsDataset;
+  /** Optional prior-year dataset (same schema) for YoY computation. */
+  priorDataset?: HealthPremiumsDataset | null;
   today?: Date;
 }): GenerateHealthPremiumsResult {
   const dataset = opts.dataset;
+  const priorDataset = opts.priorDataset ?? null;
   const today = opts.today ?? new Date();
 
   // Precompute per-canton stats once.
   const cantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null> = {
+    ticino: null,
+    grigioni: null,
+    uri: null,
+    vallese: null,
+    zurigo: null,
+  };
+  const yoyByCanton: Record<HealthPremiumCanton, YoyCantonDelta | null> = {
     ticino: null,
     grigioni: null,
     uri: null,
@@ -1462,6 +1669,14 @@ export function generateHealthPremiumsPages(opts: {
       console.warn(
         `[health-premiums] no premium data for canton ${c} (BAG code ${HEALTH_PREMIUM_CANTON_BAG_CODE[c]}) — skipping its pages`,
       );
+      continue;
+    }
+    if (priorDataset) {
+      yoyByCanton[c] = computeYoyDelta({
+        current: dataset,
+        prior: priorDataset,
+        cantonBagCode: HEALTH_PREMIUM_CANTON_BAG_CODE[c],
+      });
     }
   }
 
@@ -1504,6 +1719,7 @@ export function generateHealthPremiumsPages(opts: {
         canonicalPath: cantonPath,
         alternates: cantonAlternates,
         today,
+        yoy: yoyByCanton[canton],
       });
 
       for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
@@ -1524,12 +1740,13 @@ export function generateHealthPremiumsPages(opts: {
           canonicalPath: leafPath,
           alternates: leafAlternates,
           today,
+          yoy: yoyByCanton[canton],
         });
       }
     }
   }
 
-  return { pages, skippedCantons };
+  return { pages, skippedCantons, yoyByCanton };
 }
 
 // ── Sitemap ────────────────────────────────────────────────────
@@ -1603,23 +1820,51 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const dataPath = np.resolve(rootDir, 'data', 'health-premiums.json');
+      // Locate the canonical current-year dataset. Preferred path is the
+      // F2-A3 multi-year directory (`data/health-premiums/{year}.json`); we
+      // fall back to the legacy flat file when the directory is not present
+      // so older deployments keep working.
+      const today = new Date();
+      const preferredYear = today.getUTCFullYear();
+      const dirCandidate = np.resolve(rootDir, 'data', 'health-premiums', `${preferredYear}.json`);
+      const legacyCandidate = np.resolve(rootDir, 'data', 'health-premiums.json');
+      let dataPath: string | null = null;
+      if (fs.existsSync(dirCandidate)) dataPath = dirCandidate;
+      else if (fs.existsSync(legacyCandidate)) dataPath = legacyCandidate;
+
       let dataset: HealthPremiumsDataset = {};
+      if (!dataPath) {
+        console.warn(`[health-premiums] no dataset found at ${dirCandidate} or ${legacyCandidate} — skipping plugin`);
+        return;
+      }
       try {
-        if (fs.existsSync(dataPath)) {
-          const raw = fs.readFileSync(dataPath, 'utf-8');
-          dataset = JSON.parse(raw) as HealthPremiumsDataset;
-        } else {
-          console.warn('[health-premiums] data/health-premiums.json missing — skipping plugin');
-          return;
-        }
+        const raw = fs.readFileSync(dataPath, 'utf-8');
+        dataset = JSON.parse(raw) as HealthPremiumsDataset;
       } catch (err) {
-        console.warn('[health-premiums] failed to read data/health-premiums.json', err);
+        console.warn(`[health-premiums] failed to read ${dataPath}`, err);
         return;
       }
 
-      const today = new Date();
-      const { pages, skippedCantons } = generateHealthPremiumsPages({ dataset, today });
+      // Optional prior-year dataset for YoY rendering (F2 A3). When absent
+      // the generator silently skips the "Variazione vs {priorYear}"
+      // section — never fabricates data.
+      let priorDataset: HealthPremiumsDataset | null = null;
+      const currentYear = dataset.year ?? preferredYear;
+      const priorYear = currentYear - 1;
+      const priorLoaded = loadPremiumsForYear(rootDir, priorYear);
+      if (priorLoaded) {
+        priorDataset = priorLoaded as HealthPremiumsDataset;
+        console.log(`[health-premiums] loaded prior-year dataset ${priorYear} for YoY`);
+      } else {
+        console.log(`[health-premiums] no ${priorYear}.json archive — YoY section will be skipped`);
+      }
+
+      const { pages, skippedCantons, yoyByCanton } = generateHealthPremiumsPages({
+        dataset,
+        priorDataset,
+        today,
+      });
+      const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
 
       const collector = new WriteCollector({ distDir, skipExisting: false });
       let pagesWritten = 0;
@@ -1665,7 +1910,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       }
 
       console.log(
-        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'})`,
+        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
       );
     },
   };

@@ -15,8 +15,14 @@ describe('loadDashboardMetrics', () => {
   });
 
   it('health premiums data file exists and has Lugano premiums', () => {
-    const filePath = path.join(ROOT, 'data', 'health-premiums.json');
-    expect(fs.existsSync(filePath)).toBe(true);
+    // F2-A3 multi-year storage; fall back to legacy flat path when absent.
+    const candidates = [
+      path.join(ROOT, 'data', 'health-premiums', `${new Date().getUTCFullYear()}.json`),
+      path.join(ROOT, 'data', 'health-premiums.json'),
+    ];
+    const filePath = candidates.find((p) => fs.existsSync(p));
+    expect(filePath, 'no health-premiums dataset found').toBeDefined();
+    if (!filePath) return;
     const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     expect(data.year).toBeTypeOf('number');
     expect(data.premiums['6823-Lugano']).toBeDefined();

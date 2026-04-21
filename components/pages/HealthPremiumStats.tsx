@@ -35,9 +35,16 @@ const HealthPremiumStats: React.FC = () => {
  const [showAll, setShowAll] = useState(false);
 
  useEffect(() => {
- fetch('/data/health-premiums.json')
+ // Prefer F2-A3 year-scoped dataset, fall back to legacy flat path.
+ const year = new Date().getUTCFullYear();
+ const primary = `/data/health-premiums/${year}.json`;
+ const fallback = '/data/health-premiums.json';
+ fetch(primary)
  .then(r => r.ok ? r.json() : null)
- .then(d => { if (d) setData(d); })
+ .then(d => {
+ if (d) { setData(d); return; }
+ return fetch(fallback).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
+ })
  .catch(() => {});
  }, []);
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { resolve } from 'path';
 import {
   FRANCHISES,
@@ -8,8 +8,15 @@ import {
   CANTONS,
 } from '@/components/comparators/HealthInsurance';
 
-// Load the generated health premiums data
-const dataPath = resolve(__dirname, '..', 'data', 'health-premiums.json');
+// Load the generated health premiums data. F2-A3 migrated storage to
+// `data/health-premiums/{year}.json`; fall back to the legacy flat path
+// when the directory is not present so older checkouts still resolve.
+const candidates = [
+  resolve(__dirname, '..', 'data', 'health-premiums', `${new Date().getUTCFullYear()}.json`),
+  resolve(__dirname, '..', 'data', 'health-premiums.json'),
+];
+const dataPath = candidates.find((p) => existsSync(p));
+if (!dataPath) throw new Error('no health-premiums dataset found for tests');
 const data = JSON.parse(readFileSync(dataPath, 'utf8'));
 
 // Inline the calculation logic for testing (mirrors component's calculatePremiumFromData)

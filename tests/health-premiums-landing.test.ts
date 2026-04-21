@@ -34,6 +34,13 @@ import {
   generateHealthPremiumsPages,
   type HealthPremiumsDataset,
 } from '../build-plugins/healthPremiumsLandingPlugin';
+import {
+  computeYoyDelta,
+  loadPremiumsForYear,
+} from '../build-plugins/healthPremiumsData';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 /**
  * Minimal but realistic dataset covering the 5 target cantons.
@@ -970,5 +977,254 @@ describe('generateHealthPremiumsPages — missing data resilience', () => {
     expect(skippedCantons).toHaveLength(5);
     // Only roots remain (4 locales × 1 root)
     expect(Object.keys(pages)).toHaveLength(4);
+  });
+});
+
+// ── F2 A3 — YoY variation "vs 2025" ────────────────────────────
+
+/**
+ * Prior-year (2025) fixture — same insurer ids and canton blocks as DATASET,
+ * but with every adult premium exactly 10 CHF lower than the 2026 counterpart.
+ * This lets us assert deterministic YoY percentage deltas.
+ */
+function buildPriorFixture(): HealthPremiumsDataset {
+  // Shallow-clone the TI / GR / UR / ZH blocks and subtract 10 CHF from each
+  // insurer's ERW standard. We preserve KIN/JUG so the fixture exercises
+  // per-bracket YoY (not just adult).
+  const subtract10 = (value: number | undefined): number | undefined =>
+    typeof value === 'number' ? Math.round((value - 10) * 100) / 100 : value;
+  const cloneInsurers = (block: HealthPremiumsDataset['premiums'] extends Record<string, infer B> ? B : never) => {
+    const next: typeof block = { ...block, insurers: {} };
+    for (const [id, models] of Object.entries(block.insurers)) {
+      const bac = models.byAgeClass;
+      next.insurers[id] = {
+        ...models,
+        standard: subtract10(models.standard),
+        hausarzt: subtract10(models.hausarzt),
+        telmed: subtract10(models.telmed),
+        hmo: subtract10(models.hmo),
+        byAgeClass: bac
+          ? {
+              KIN: bac.KIN
+                ? { ...bac.KIN, standard: subtract10(bac.KIN.standard) }
+                : undefined,
+              JUG: bac.JUG
+                ? { ...bac.JUG, standard: subtract10(bac.JUG.standard) }
+                : undefined,
+              ERW: bac.ERW
+                ? { ...bac.ERW, standard: subtract10(bac.ERW.standard) }
+                : undefined,
+            }
+          : undefined,
+      };
+    }
+    return next;
+  };
+  const prior: HealthPremiumsDataset = {
+    fetchedAt: '2025-04-20T06:00:00Z',
+    year: 2025,
+    insurers: DATASET.insurers,
+    premiums: {},
+  };
+  for (const [key, block] of Object.entries(DATASET.premiums!)) {
+    prior.premiums![key] = cloneInsurers(block);
+  }
+  return prior;
+}
+
+describe('computeYoyDelta', () => {
+  const prior = buildPriorFixture();
+
+  it('returns a percentage delta per insurer for the ERW bracket', () => {
+    const delta = computeYoyDelta({ current: DATASET, prior, cantonBagCode: 'TI' });
+    expect(delta).not.toBeNull();
+    if (!delta) return;
+    expect(delta.currentYear).toBe(2026);
+    expect(delta.priorYear).toBe(2025);
+    const erw = delta.byBracket['31-45'];
+    expect(erw).not.toBeNull();
+    // CSS (insurer 8) TI ERW: current 691.9, prior 681.9 → +10 / 681.9 ≈ 1.47%.
+    expect(erw!.perInsurer['8']).toBeCloseTo(1.47, 1);
+    // Median across all insurers must be positive (every premium rose).
+    expect(erw!.medianPct).toBeGreaterThan(0);
+    expect(erw!.sourceInsurers).toBe(Object.keys(erw!.perInsurer).length);
+  });
+
+  it('computes a YoY delta for the KIN bracket when both years expose byAgeClass', () => {
+    const delta = computeYoyDelta({ current: DATASET, prior, cantonBagCode: 'TI' });
+    expect(delta).not.toBeNull();
+    if (!delta) return;
+    const kin = delta.byBracket['0-18'];
+    expect(kin).not.toBeNull();
+    // Insurer 8 KIN: current 152.2, prior 142.2 → +10/142.2 ≈ 7.03%.
+    expect(kin!.perInsurer['8']).toBeCloseTo(7.03, 1);
+    expect(kin!.medianPct).toBeGreaterThan(0);
+  });
+
+  it('returns null when the prior dataset is missing', () => {
+    expect(computeYoyDelta({ current: DATASET, prior: null, cantonBagCode: 'TI' })).toBeNull();
+  });
+
+  it('returns null when current and prior years are identical', () => {
+    const samePrior = { ...prior, year: 2026 };
+    expect(computeYoyDelta({ current: DATASET, prior: samePrior, cantonBagCode: 'TI' })).toBeNull();
+  });
+
+  it('marks per-insurer entries null when the prior year is missing that insurer', () => {
+    // Remove insurer 1562 (Helsana) from the prior dataset's TI block.
+    const partialPrior = JSON.parse(JSON.stringify(prior)) as HealthPremiumsDataset;
+    delete partialPrior.premiums!['6500-Bellinzona'].insurers['1562'];
+    const delta = computeYoyDelta({ current: DATASET, prior: partialPrior, cantonBagCode: 'TI' });
+    expect(delta).not.toBeNull();
+    if (!delta) return;
+    const erw = delta.byBracket['31-45'];
+    expect(erw).not.toBeNull();
+    expect(erw!.perInsurer['1562']).toBeNull();
+    // Other insurers still have numeric deltas.
+    expect(erw!.perInsurer['8']).toBeTypeOf('number');
+  });
+});
+
+describe('generateHealthPremiumsPages — YoY section', () => {
+  const prior = buildPriorFixture();
+  const gen = generateHealthPremiumsPages({ dataset: DATASET, priorDataset: prior, today });
+
+  it('exposes yoyByCanton for every canton when prior data is present', () => {
+    for (const c of HEALTH_PREMIUM_CANTONS) {
+      expect(gen.yoyByCanton[c], c).not.toBeNull();
+    }
+  });
+
+  it('leaf IT TI adulto-31-45 contains the "Variazione rispetto al 2025" section', () => {
+    const page = gen.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    expect(page).toBeTypeOf('string');
+    expect(page).toMatch(/Variazione rispetto al 2025/);
+    // The summary sentence names the canton and mentions 2025.
+    expect(page).toMatch(/rispetto al 2025/);
+    // Delta percentages use the Italian comma decimal separator and include
+    // a sign character.
+    expect(page).toMatch(/\+\d+,\d{2}%/);
+  });
+
+  it('EN / DE / FR leaf pages render localised YoY headings', () => {
+    expect(gen.pages['/en/health-insurance-premiums/ticino/adult-31-45/']).toMatch(
+      /Change vs 2025/,
+    );
+    expect(gen.pages['/de/krankenkassenpraemien/tessin/erwachsene-31-45/']).toMatch(
+      /Veränderung gegenüber 2025/,
+    );
+    expect(gen.pages['/fr/primes-assurance-maladie/tessin/adulte-31-45/']).toMatch(
+      /Variation par rapport à 2025/,
+    );
+  });
+
+  it('canton hub page renders the "Variazione vs 2025" grid with one row per bracket', () => {
+    const hub = gen.pages['/premi-cassa-malati/ticino/'];
+    expect(hub).toBeTypeOf('string');
+    expect(hub).toMatch(/Variazione rispetto al 2025/);
+    // The grid table has one Δ cell per age bracket when both years expose
+    // real data — we assert at least 4 percentage strings (one per
+    // ERW bracket: 26-30/31-45/46-55/56+) plus KIN/JUG when real.
+    const pctMatches = hub.match(/\+\d+,\d{2}%/g) ?? [];
+    expect(pctMatches.length, 'expected ≥ 4 YoY percentage cells').toBeGreaterThanOrEqual(4);
+  });
+
+  it('omits the YoY section when priorDataset is null (silent skip)', () => {
+    const genNoPrior = generateHealthPremiumsPages({ dataset: DATASET, today });
+    const page = genNoPrior.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    expect(page).toBeTypeOf('string');
+    expect(page).not.toMatch(/Variazione rispetto al 2025/);
+    const hub = genNoPrior.pages['/premi-cassa-malati/ticino/'];
+    expect(hub).not.toMatch(/Variazione rispetto al 2025/);
+    for (const c of HEALTH_PREMIUM_CANTONS) {
+      expect(genNoPrior.yoyByCanton[c], c).toBeNull();
+    }
+  });
+
+  it('omits the YoY tile from the stats grid when no prior data is provided', () => {
+    const genNoPrior = generateHealthPremiumsPages({ dataset: DATASET, today });
+    const page = genNoPrior.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    // No "Δ vs" tile in the stats cards.
+    expect(page).not.toMatch(/Δ vs 2025/);
+  });
+
+  it('leaf page with YoY still hits ≥400 words (section grows content, never shrinks)', () => {
+    const page = gen.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    const text = page.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const words = text.split(' ').filter((w) => w.length > 0).length;
+    expect(words).toBeGreaterThanOrEqual(400);
+  });
+
+  it('YoY tables contain no dark: color prefixes', () => {
+    for (const [path, html] of Object.entries(gen.pages)) {
+      expect(html, path).not.toMatch(/\sdark:(bg|text|border|fill|stroke|from|to|via)-/);
+    }
+  });
+});
+
+// ── F2 A3 — loadPremiumsForYear ────────────────────────────────
+
+describe('loadPremiumsForYear', () => {
+  it('returns null when no dataset is found for the requested year', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hp-a3-'));
+    try {
+      expect(loadPremiumsForYear(tmpDir, 2025)).toBeNull();
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('prefers data/health-premiums/{year}.json over the legacy flat path', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hp-a3-'));
+    try {
+      fs.mkdirSync(path.join(tmpDir, 'data', 'health-premiums'), { recursive: true });
+      const yearFile = {
+        year: 2025,
+        insurers: [{ id: '8', name: 'CSS' }],
+        premiums: {},
+      };
+      const legacyFile = {
+        year: 2026,
+        insurers: [{ id: '8', name: 'CSS' }],
+        premiums: {},
+      };
+      fs.writeFileSync(
+        path.join(tmpDir, 'data', 'health-premiums', '2025.json'),
+        JSON.stringify(yearFile),
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, 'data', 'health-premiums.json'),
+        JSON.stringify(legacyFile),
+      );
+      const loaded = loadPremiumsForYear(tmpDir, 2025);
+      expect(loaded).not.toBeNull();
+      expect(loaded?.year).toBe(2025);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('falls back to the legacy flat path when its embedded year matches', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hp-a3-'));
+    try {
+      fs.mkdirSync(path.join(tmpDir, 'data'), { recursive: true });
+      const legacyFile = {
+        year: 2026,
+        insurers: [{ id: '8', name: 'CSS' }],
+        premiums: {},
+      };
+      fs.writeFileSync(
+        path.join(tmpDir, 'data', 'health-premiums.json'),
+        JSON.stringify(legacyFile),
+      );
+      // Directory missing → fallback kicks in.
+      const loaded = loadPremiumsForYear(tmpDir, 2026);
+      expect(loaded).not.toBeNull();
+      expect(loaded?.year).toBe(2026);
+      // Year mismatch on the legacy file → null.
+      expect(loadPremiumsForYear(tmpDir, 2025)).toBeNull();
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
   });
 });
