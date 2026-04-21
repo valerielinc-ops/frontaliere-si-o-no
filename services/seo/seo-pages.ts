@@ -2202,23 +2202,115 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa Comuni di Frontiera | Addizionali IRPEF e Costi',
- description: 'Mappa interattiva dei comuni italiani di frontiera con la Svizzera. Confronta addizionali IRPEF, distanza dal confine, affitti e popolazione per ogni comune.',
- keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
- ogTitle: 'Mappa Interattiva Comuni di Frontiera',
- ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',
+ title: 'Mappa Valichi Confine Ticino-Italia 2026 | Tempi Attesa + Webcam',
+ description: 'Mappa interattiva dei valichi di confine Ticino-Italia: Chiasso, Brogeda, Gaggiolo, Ponte Tresa. Tempi di attesa, orari, webcam live, coordinate GPS.',
+ keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, addizionale irpef comuni confine, affitti comuni frontiera',
+ ogTitle: 'Mappa Valichi Ticino-Italia | Tempi Attesa + Webcam Live',
+ ogDescription: 'Mappa interattiva dei valichi di confine tra Ticino e Italia con tempi di attesa, webcam e consigli di percorso.',
  canonicalPath: '/guida-frontaliere/mappa-confine',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "WebApplication",
- "name": "Mappa Comuni di Frontiera Italia-Svizzera",
+ "name": "Mappa Valichi e Comuni di Frontiera Italia-Svizzera",
  "url": `${BASE_URL}/guida-frontaliere/mappa-confine`,
- "description": "Mappa interattiva dei comuni italiani di frontiera: addizionali IRPEF, distanza dal confine, costo affitti",
- "applicationCategory": "FinanceApplication",
+ "description": "Mappa interattiva dei valichi di confine Ticino-Italia con tempi di attesa, webcam live, orari, e comuni di frontiera con addizionali IRPEF",
+ "applicationCategory": "UtilitiesApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ // B.2 — Place schema per valico principale con geo coordinates (Ticino-Italia).
+ // Source: data/borderCrossings.ts (lat/lng/hours/customsPresent).
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso-Brogeda (A2)",
+ "alternateName": ["Brogeda", "Chiasso Autostrada", "Brogeda Merci"],
+ "description": "Principale valico autostradale A2 tra Como (Italia) e Ticino (Svizzera). Apertura 24h, dogana presente, copertura BAZG. Tempi medi attesa: 8-15 min mattina, 12-25 min sera.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8409, "longitude": 9.0376 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso Centro (Ponte Chiasso)",
+ "alternateName": ["Ponte Chiasso", "Chiasso Strada"],
+ "description": "Valico stradale SS35 Como-Chiasso, 24h con dogana. Tempi medi attesa: 15-30 min mattina, 20-40 min sera. Alternativa consigliata: Brogeda autostrada.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8326, "longitude": 9.0340 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Gaggiolo (Cantello-Stabio)",
+ "alternateName": ["Gaggiolo", "Stabio Confine", "Cantello-Stabio"],
+ "description": "Valico stradale SS344 Varese-Mendrisio, 24h con dogana. Traffico alto, seconda via d'accesso più importante al Mendrisiotto. Tempi medi attesa: 10-20 min mattina, 15-30 min sera.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8411, "longitude": 8.9134 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Stabio", "addressRegion": "TI", "postalCode": "6855", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Ponte Tresa",
+ "alternateName": ["Ponte Tresa", "Lavena Ponte Tresa"],
+ "description": "Valico stradale SS233 tra Lavena Ponte Tresa (Varese) e Ponte Tresa (Ticino), aperto 24h. Accesso a Luganese ovest e Malcantone. Tempi medi attesa: 5-15 min mattina.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.9670, "longitude": 8.8589 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Ponte Tresa", "addressRegion": "TI", "postalCode": "6988", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/ponte-tresa`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso-Strada",
+ "alternateName": ["Chiasso Strada", "Strada Regina Brogeda"],
+ "description": "Valico stradale parallelo all'autostrada Brogeda, 24h senza dogana permanente. Utile come alternativa quando Brogeda A2 è congestionato. Tempi medi attesa: 5-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8361, "longitude": 9.0300 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-strada`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Bizzarone-Novazzano",
+ "alternateName": ["Bizzarone", "Novazzano"],
+ "description": "Valico stradale tra Bizzarone (Como) e Novazzano (Ticino), 24h. Alternativa locale a Brogeda per accedere al Mendrisiotto. Tempi medi attesa: 4-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8523, "longitude": 8.9748 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Novazzano", "addressRegion": "TI", "postalCode": "6883", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/bizzarone-novazzano`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Luino-Fornasette",
+ "alternateName": ["Luino", "Fornasette"],
+ "description": "Valico stradale tra Luino (Varese) e Fornasette (Malcantone), aperto 24h. Accesso al Luganese nord-ovest e Valle del Vedeggio. Tempi medi attesa: 4-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.9931, "longitude": 8.7878 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Fornasette", "addressRegion": "TI", "postalCode": "6989", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/luino-fornasette`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Zenna-Dirinella",
+ "alternateName": ["Zenna", "Dirinella"],
+ "description": "Valico stradale sul Lago Maggiore tra Zenna (Varese) e Dirinella (Gambarogno), aperto 24h. Accesso al Locarnese da sud. Tempi medi attesa: 2-5 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 46.1040, "longitude": 8.7579 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Dirinella", "addressRegion": "TI", "postalCode": "6573", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/zenna-dirinella`
  }
+ ]
  },
 
  morning: {
