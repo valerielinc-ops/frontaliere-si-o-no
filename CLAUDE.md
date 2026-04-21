@@ -69,7 +69,7 @@ services/               — 40 service modules (stateless, exported functions)
 scripts/                — 170+ Node.js scripts for CI/CD, crawling, data generation
   lib/                  — Shared infrastructure (ai-models, crawler-common, trigger-deploy)
 data/                   — 34+ JSON data files (jobs, fuel prices, translations cache)
-build-plugins/          — Vite build plugins (ogPages, jobsSeoPages, staticPages)
+build-plugins/          — Vite build plugins (ogPages, jobsSeoPages, staticPages, fuelDailyPages, weeklyEmployers, jobMarketSnapshot, healthPremiumsLanding, orphanQueryLanding)
 tests/                  — 163 test files (~21,842 LOC)
 .github/workflows/      — 117 GitHub Actions workflows
 ```
@@ -143,6 +143,18 @@ For detailed SEO rules (JobPosting structured data, validation gates, fallback r
 |------|---------|---------|
 | `ENABLE_JOB_ALERTS` | Job Alert Form UI + email sending | `false` |
 
+## Build-time env gates (SEO feature skip flags)
+
+For fast local builds only. CI (`npm run build:ci`) exercises all plugins and must always exit 0 with every plugin enabled — never set any of these in CI.
+
+| Env var | Skips |
+|---------|-------|
+| `SKIP_FUEL_DAILY=1` | F6 daily fuel-price pages (`fuelDailyPages` plugin) |
+| `SKIP_WEEKLY_EMPLOYERS=1` | F5 "aziende che assumono" weekly per-city hub (`weeklyEmployers` plugin) |
+| `SKIP_JOB_MARKET_SNAPSHOT=1` | F4 weekly/monthly Ticino job-market snapshot (`jobMarketSnapshot` plugin) |
+| `SKIP_HEALTH_PREMIUMS=1` | F2 LAMal premiums-per-canton landing (`healthPremiumsLanding` plugin) |
+| `SKIP_ORPHAN_LANDINGS=1` | F3b GSC orphan-query landing pages (`orphanQueryLanding` plugin) |
+
 ---
 
 # Completion Checklist — Before Every PR
@@ -184,7 +196,7 @@ Key routing rules:
 
 | Topic | File |
 |-------|------|
-| CI/CD pipeline, workflows, data files | [docs/CI-CD-PIPELINE.md](docs/CI-CD-PIPELINE.md) |
+| CI/CD pipeline, workflows, data files | [docs/CI-CD-PIPELINE.md](docs/CI-CD-PIPELINE.md) — includes `snapshot-jobs-weekly.yml` (Monday 06:00 UTC) which feeds F4 job-market-snapshot + F5 weekly-employers delta computation |
 | SEO rules, structured data, validation | [docs/SEO-RULES.md](docs/SEO-RULES.md) |
 | Job crawlers, slugs, translation cache | [docs/CRAWLERS.md](docs/CRAWLERS.md) |
 | Design context, brand, users, principles | [docs/DESIGN-CONTEXT.md](docs/DESIGN-CONTEXT.md) |
