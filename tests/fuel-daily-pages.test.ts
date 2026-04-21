@@ -30,6 +30,9 @@ import {
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
 // target zone + enough copy seeds to clear the 250-word gate).
+// Diesel fixtures: all stations carry a real `dieselPriceChf` (TCS Firestore
+// feed exposes per-station DIESEL) — this exercises the primary code path.
+// `c9` intentionally omits diesel to exercise the SP95+offset fallback.
 const DATASET = {
   generatedAt: '2026-04-20T06:00:00.000Z',
   municipalities: [
@@ -38,16 +41,17 @@ const DATASET = {
       province: 'CO',
       swiss: {
         nearbyStations: [
-          { id: 'c1', name: 'Piccadilly Chiasso', brand: 'PICCADILLY', address: 'Via San Gottardo 12, 6830 Chiasso', sp95PriceChf: 1.78 },
-          { id: 'c2', name: 'Pemoil Chiasso', brand: 'PEMOIL', address: 'Corso San Gottardo 100, 6830 Chiasso', sp95PriceChf: 1.81 },
-          { id: 'c3', name: 'Station Allo Svincolo', brand: 'UNDEFINED', address: 'Via Francesco Borromini 6, 6850 Mendrisio', sp95PriceChf: 1.80 },
-          { id: 'c4', name: 'SOCAR Mendrisio', brand: 'PICCADILLY', address: 'Via Franco Zorzi 4, 6850 Mendrisio', sp95PriceChf: 1.82 },
-          { id: 'c5', name: 'Migrol Lugano', brand: 'MIGROL', address: 'Via Pioda 2, 6900 Lugano', sp95PriceChf: 1.84 },
-          { id: 'c6', name: 'Coop Lugano', brand: 'COOP', address: 'Via Zurigo 15, 6900 Lugano', sp95PriceChf: 1.86 },
-          { id: 'c7', name: 'AVIA Bellinzona', brand: 'AVIA', address: 'Viale Portone 3, 6500 Bellinzona', sp95PriceChf: 1.83 },
-          { id: 'c8', name: 'Shell Bellinzona', brand: 'SHELL', address: 'Via San Gottardo 20, 6500 Bellinzona', sp95PriceChf: 1.85 },
+          { id: 'c1', name: 'Piccadilly Chiasso', brand: 'PICCADILLY', address: 'Via San Gottardo 12, 6830 Chiasso', sp95PriceChf: 1.78, dieselPriceChf: 1.95, dieselSource: 'api' as const },
+          { id: 'c2', name: 'Pemoil Chiasso', brand: 'PEMOIL', address: 'Corso San Gottardo 100, 6830 Chiasso', sp95PriceChf: 1.81, dieselPriceChf: 1.99, dieselSource: 'api' as const },
+          { id: 'c3', name: 'Station Allo Svincolo', brand: 'UNDEFINED', address: 'Via Francesco Borromini 6, 6850 Mendrisio', sp95PriceChf: 1.80, dieselPriceChf: 1.97, dieselSource: 'api' as const },
+          { id: 'c4', name: 'SOCAR Mendrisio', brand: 'PICCADILLY', address: 'Via Franco Zorzi 4, 6850 Mendrisio', sp95PriceChf: 1.82, dieselPriceChf: 2.01, dieselSource: 'api' as const },
+          { id: 'c5', name: 'Migrol Lugano', brand: 'MIGROL', address: 'Via Pioda 2, 6900 Lugano', sp95PriceChf: 1.84, dieselPriceChf: 2.03, dieselSource: 'api' as const },
+          { id: 'c6', name: 'Coop Lugano', brand: 'COOP', address: 'Via Zurigo 15, 6900 Lugano', sp95PriceChf: 1.86, dieselPriceChf: 2.06, dieselSource: 'api' as const },
+          { id: 'c7', name: 'AVIA Bellinzona', brand: 'AVIA', address: 'Viale Portone 3, 6500 Bellinzona', sp95PriceChf: 1.83, dieselPriceChf: 2.02, dieselSource: 'api' as const },
+          { id: 'c8', name: 'Shell Bellinzona', brand: 'SHELL', address: 'Via San Gottardo 20, 6500 Bellinzona', sp95PriceChf: 1.85, dieselPriceChf: 2.04, dieselSource: 'api' as const },
+          // c9: no dieselPriceChf — exercises SP95+offset fallback
           { id: 'c9', name: 'Tamoil Locarno', brand: 'TAMOIL', address: 'Viale Balli 4, 6600 Locarno', sp95PriceChf: 1.87 },
-          { id: 'c10', name: 'BP Locarno', brand: 'BP', address: 'Via San Gottardo 80, 6600 Locarno', sp95PriceChf: 1.89 },
+          { id: 'c10', name: 'BP Locarno', brand: 'BP', address: 'Via San Gottardo 80, 6600 Locarno', sp95PriceChf: 1.89, dieselPriceChf: 2.08, dieselSource: 'api' as const },
         ],
       },
     },
@@ -221,6 +225,76 @@ describe('fuel-daily page generation — content quality', () => {
     for (const loc of ['it', 'en', 'de', 'fr']) {
       expect(byLocale[loc]).toBe(12); // 2 fuels × (1 regional + 5 zones)
     }
+  });
+});
+
+describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+
+  it('uses real per-station dieselPriceChf when available (not SP95+offset)', () => {
+    // Isolated dataset: single Chiasso station with a non-derivable diesel
+    // price. If the plugin derived diesel from SP95+0.08 we'd get 2.000 — the
+    // real value is 2.123, which the rendered price must reflect.
+    const isolated = {
+      generatedAt: '2026-04-20T06:00:00.000Z',
+      municipalities: [
+        {
+          municipality: 'Test',
+          province: 'CO',
+          swiss: {
+            nearbyStations: [
+              { id: 'real-1', name: 'Real Diesel Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.92, dieselPriceChf: 2.123, dieselSource: 'api' as const },
+            ],
+          },
+        },
+      ],
+    };
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-diesel-test', dataset: isolated, history: [], today });
+    const chiassoDiesel = pages['/prezzi-diesel/chiasso/oggi/'];
+    // Real diesel average = 2.123. SP95+offset would be 2.000.
+    expect(chiassoDiesel).toContain('2,123');
+    expect(chiassoDiesel).not.toContain('2,000 CHF');
+  });
+
+  it('falls back to SP95 + legacy offset when dieselPriceChf is missing', () => {
+    const isolated = {
+      generatedAt: '2026-04-20T06:00:00.000Z',
+      municipalities: [
+        {
+          municipality: 'Test',
+          province: 'CO',
+          swiss: {
+            nearbyStations: [
+              { id: 'fallback-1', name: 'Legacy Station', brand: 'TEST', address: 'Via Test 1, 6600 Locarno', sp95PriceChf: 1.90 },
+            ],
+          },
+        },
+      ],
+    };
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-diesel-fallback', dataset: isolated, history: [], today });
+    const locarnoDiesel = pages['/prezzi-diesel/locarno/oggi/'];
+    // Fallback: 1.90 + 0.08 = 1.98
+    expect(locarnoDiesel).toContain('1,980');
+  });
+
+  it('benzina price is unaffected by dieselPriceChf absence', () => {
+    const isolated = {
+      generatedAt: '2026-04-20T06:00:00.000Z',
+      municipalities: [
+        {
+          municipality: 'Test',
+          province: 'CO',
+          swiss: {
+            nearbyStations: [
+              { id: 'b1', name: 'Benzina Only', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.777 },
+            ],
+          },
+        },
+      ],
+    };
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-benzina-test', dataset: isolated, history: [], today });
+    const chiassoBenzina = pages['/prezzi-benzina/chiasso/oggi/'];
+    expect(chiassoBenzina).toContain('1,777');
   });
 });
 
