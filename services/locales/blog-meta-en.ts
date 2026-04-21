@@ -2460,6 +2460,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-contributo-sanitario-2026.title': 'Cross-border workers: motion approved for fair healthcare contribution',
     'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'Zocchi\'s (FdI) motion aims to make the healthcare contribution less burdensome and to distribute resources in the territories where cross-border workers reside.',
     'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'DNB Football: Bellinzona denied license over financial concerns',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Bellinzona fails to secure DNB license due to financial doubts, raising new concerns about the club\'s future.',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Bellinzona municipal stadium, panoramic view with mountains in the background',
 };
 
 export default blogMetaEn;

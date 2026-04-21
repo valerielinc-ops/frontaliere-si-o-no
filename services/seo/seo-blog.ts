@@ -10645,6 +10645,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-calcio-licenza-negata-finanze': {
+    title: 'Calcio Dnb: licenza negata al | Frontaliere Ticino',
+    description: 'Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcio, licenza, negata, bellinzona',
+    ogTitle: 'Bellinzona: licenza negata, dubbi sulle finanze |',
+    ogDescription: 'Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-calcio-licenza-negata-finanze',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona: licenza negata, dubbi sulle finanze | Frontaliere Ticino",
+      "description": "Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-calcio-licenza-negata-finanze.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio comunale di Bellinzona, vista panoramica con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-21T18:45:52+00:00",
+      "dateModified": "2026-04-21T18:45:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-calcio-licenza-negata-finanze`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -6720,4 +6720,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/frontalieri-contributo-sanitario-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bellinzona-calcio-licenza-negata-finanze',
+ category: 'novita',
+ date: '2026-04-21T18:45:52.419Z',
+ image: '/images/blog/bellinzona-calcio-licenza-negata-finanze.jpg',
+ hasCalculator: true,
+ },
 ];

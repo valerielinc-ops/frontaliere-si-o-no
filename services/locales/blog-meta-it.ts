@@ -2460,6 +2460,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-contributo-sanitario-2026.title': 'Frontalieri: approvata mozione per contributo sanitario equo',
     'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'La mozione di Zocchi (FdI) mira a rendere il contributo sanitario meno gravoso e a distribuire le risorse nei territori di residenza dei frontalieri.',
     'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'Calcio Dnb: licenza negata al Bellinzona per dubbi sulle finanze',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club.',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Stadio comunale di Bellinzona, vista panoramica con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

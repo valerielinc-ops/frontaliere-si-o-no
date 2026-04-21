@@ -2460,6 +2460,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-contributo-sanitario-2026.title': 'Grenzgänger: Motion für faire Krankenversicherungsbeiträge genehmigt',
     'blog.article.frontalieri-contributo-sanitario-2026.excerpt': 'Die Motion von Zocchi (FdI) zielt darauf ab, die Krankenversicherungsbeiträge weniger belastend zu gestalten und die Ressourcen in den Wohngebieten der Grenzgänger zu verteilen.',
     'blog.article.frontalieri-contributo-sanitario-2026.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.title': 'Fussball DNB: Bellinzona erhält keine Lizenz wegen Finanzbedenken',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.excerpt': 'Der Bellinzona erhält keine DNB-Lizenz aufgrund von Bedenken bezüglich der Finanzen, was neue Sorgen über die Zukunft des Vereins aufwirft.',
+    'blog.article.bellinzona-calcio-licenza-negata-finanze.imageAlt': 'Gemeindestadion Bellinzona, Panoramablick mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
