@@ -1839,7 +1839,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  companies: {
- title: 'Aziende che Assumono in Ticino | Frontaliere Ticino',
+ title: 'Aziende che Assumono Frontalieri in Ticino 2026',
+ h1: 'Aziende che assumono frontalieri in Ticino — settori, dimensioni aziendali e stipendi medi 2026',
  description: 'Scopri le principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi. Link diretti alle.',
  keywords: 'aziende ticino lavoro, aziende che assumono svizzera, lavoro canton ticino, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino',
  ogTitle: 'Aziende che Assumono in Ticino | Opportunità per Frontalieri',
@@ -1926,7 +1927,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  places: {
- title: 'Posti da Visitare in Ticino | Natura, Cultura e Attività',
+ title: 'Attrazioni Ticino 2026 | Cosa Visitare in Svizzera Italiana',
+ h1: 'Attrazioni in Ticino e Svizzera italiana 2026 — laghi, montagne, castelli UNESCO e grotti',
  description: 'Guida ai posti più belli del Canton Ticino: montagne, laghi, città, cultura, attività per famiglie e shopping. Consigli per frontalieri che vivono e.',
  keywords: 'posti da visitare ticino, cosa fare ticino, lugano attrazioni, monte san salvatore, lago lugano, bellinzona castelli unesco, foxtown mendrisio, swissminiatur, locarno film festival, grotti ticinesi',
  ogTitle: 'Posti da Visitare in Ticino | Natura, Cultura e Famiglia',
