@@ -29,11 +29,20 @@ import {
 import {
  CITY_HUB_KEYS,
  CITY_HUB_SLUG,
+ CITY_HUB_DISPLAY_NAME,
  buildCityHubPath,
  buildCityHubSeo,
  countCityJobsByLocale,
+ jobMatchesCity,
  type CityHubKey,
 } from './cityJobsHub';
+import {
+ SECTOR_HUB_KEYS,
+ SECTOR_HUB_DISPLAY,
+ buildSectorHubPath,
+ jobMatchesSector,
+ type SectorHubKey,
+} from './jobSectorLanding';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
 // 140-160 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and
@@ -1568,7 +1577,27 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  de: `<section class="section"><h4>Häufig gestellte Fragen</h4><dl><dt><strong>Wie hoch ist das Nettogehalt für Grenzgänger ${esc(deCantonPrep)}?</strong></dt><dd>Das Nettogehalt hängt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(dc)} liegt die Quellensteuer zwischen ca. 2% und 15%. ${sectorName ? `In der Branche ${sectorName} ${esc(deCantonPrep)} ` : ''}Nutzen Sie unseren Simulator für eine individuelle Berechnung.</dd><dt><strong>Brauchen Grenzgänger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren je nach Kanton, Versicherungsmodell und Franchise. Vergleichen Sie die Prämien mit unserem <a href="${BASE_URL}/de/dienste-vergleichen/krankenversicherung/">KVG-Vergleich</a>.</dd></dl></section>`,
  fr: `<section class="section"><h4>Questions fréquentes</h4><dl><dt><strong>Quel est le salaire net pour un frontalier ${esc(frCantonPrep)} ?</strong></dt><dd>Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. Dans le Canton du ${esc(dc)}, l'impôt à la source varie d'environ 2% à 15%. ${sectorName ? `Dans le secteur ${sectorName} ${esc(frCantonPrep)} ` : ''}Utilisez notre simulateur pour un calcul personnalisé.</dd><dt><strong>Les frontaliers doivent-ils souscrire à la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois suivant le début du travail. Les primes varient selon le canton, le modèle d'assurance et la franchise. Comparez les primes avec notre <a href="${BASE_URL}/fr/comparer-services/assurance-maladie/">comparateur LAMal</a>.</dd></dl></section>`,
  };
- return (frontalierInfo[locale] || '') + (faqSection[locale] || '');
+ const hubLinks = (() => {
+ const matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
+ const matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s));
+ if (!matchedCity && !matchedSector) return '';
+ const heading: Record<string, string> = { it: 'Esplora annunci simili', en: 'Explore similar jobs', de: 'Ähnliche Stellen entdecken', fr: 'Explorer des offres similaires' };
+ const cityCopy: Record<string, string> = { it: 'Tutti i lavori a', en: 'All jobs in', de: 'Alle Jobs in', fr: 'Tous les emplois à' };
+ const sectorCopy: Record<string, string> = { it: 'Tutti gli annunci', en: 'All jobs in', de: 'Alle Jobs in', fr: 'Toutes les offres' };
+ const links: string[] = [];
+ if (matchedCity) {
+ const href = `${BASE_URL}${buildCityHubPath(locale as never, matchedCity)}`;
+ links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:#eef2ff;color:#3730a3;text-decoration:none;font-weight:700;font-size:13px">${esc(cityCopy[locale] || cityCopy.it)} ${esc(CITY_HUB_DISPLAY_NAME[matchedCity])} &rarr;</a>`);
+ }
+ if (matchedSector) {
+ const href = `${BASE_URL}${buildSectorHubPath(locale as never, matchedSector)}`;
+ const label = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
+ const prefix = locale === 'it' || locale === 'fr' ? `${sectorCopy[locale]} ${label}` : `${sectorCopy[locale]} ${label}`;
+ links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:#fef3c7;color:#92400e;text-decoration:none;font-weight:700;font-size:13px">${esc(prefix)} &rarr;</a>`);
+ }
+ return `<section class="section"><h4>${esc(heading[locale] || heading.it)}</h4><div style="display:flex;flex-wrap:wrap;gap:10px">${links.join('')}</div></section>`;
+ })();
+ return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
  <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid #e2e8f0;font-size:14px">
  <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
