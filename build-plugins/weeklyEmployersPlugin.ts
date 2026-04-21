@@ -34,12 +34,11 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 import {
-  ANALYTICS_SNIPPET,
   BASE_URL,
-  FAVICON_LINKS,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
@@ -551,6 +550,8 @@ export interface WeeklyEmployersPageInputs {
   indexable: boolean;
   /** Enable the auto-employer-stub attribute markers (default false). */
   enableAutoStubs?: boolean;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function cityJobsHubPath(locale: WeeklyEmployersLocale, city: WeeklyEmployersCity): string {
@@ -600,6 +601,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     today,
     indexable,
     enableAutoStubs = false,
+    distDir,
   } = inp;
 
   const copy = COPY[locale];
@@ -778,7 +780,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       ? `<p style="margin:0 0 16px;color:#78350f;background:#fef3c7;padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -833,45 +835,31 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
 </main>`;
 
-  const html = `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="${robots}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${WEEKLY_EMPLOYERS_OG_LOCALE[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  // Extra head: OG image dims + twitter card — matches pre-shell-wrap output.
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    <script type="application/ld+json">${itemListLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
 
-  return html;
+  const hreflangHtml = `${alternatesHtml}\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots,
+    ogType: 'website',
+    ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
+    hreflangHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Snapshot I/O ────────────────────────────────────────────────
@@ -959,6 +947,8 @@ export interface GenerationOptions {
   snapshots: readonly JobsSnapshot[];
   today?: Date;
   enableAutoStubs?: boolean;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 /**
@@ -967,6 +957,7 @@ export interface GenerationOptions {
  */
 export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedPage[] {
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
   const { week: currentWeek, year: currentYear } = getIsoWeekAndYear(today);
 
   const latestSnapshot: JobsSnapshot | null =
@@ -1002,6 +993,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         today,
         indexable: true,
         enableAutoStubs: opts.enableAutoStubs,
+        distDir,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
     }
@@ -1072,6 +1064,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             today,
             indexable,
             enableAutoStubs: opts.enableAutoStubs,
+            distDir,
           });
           pages.push({ path: canonicalPath, html, indexable });
         }
@@ -1123,6 +1116,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         snapshots,
         today,
         enableAutoStubs,
+        distDir,
       });
 
       const collector = new WriteCollector({ distDir, skipExisting: false });

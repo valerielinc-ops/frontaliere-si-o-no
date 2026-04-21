@@ -77,6 +77,14 @@ export interface SimplePageOpts {
  entryJs?: string;
  entryCss?: string;
  bodyHtml: string;
+ /**
+  * When true, `bodyHtml` is inserted directly inside `<div id="root">` without
+  * being wrapped in an inner `<main class="static-job-page">`. Use this when
+  * the caller emits its own `<main>` element (e.g. SEO feature plugins that
+  * need custom layout markup). Default: false (preserves legacy job SEO
+  * pages that pass raw inner content and rely on the default wrapper).
+  */
+ skipMainWrap?: boolean;
 }
 
 export function buildSimplePage(opts: SimplePageOpts): string {
@@ -94,6 +102,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  entryJs,
  entryCss,
  bodyHtml,
+ skipMainWrap = false,
  } = opts;
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
@@ -102,6 +111,17 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const cssLink = entryCss ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : '';
  const jsScript = entryJs ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
 
+ // Inner wrap — either the default `<main class="static-job-page">` (legacy
+ // job SEO pages) or the caller's own `<main>` element (new SEO feature
+ // plugins that bring custom layout markup).
+ const innerHtml = skipMainWrap
+ ? bodyHtml
+ : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`;
+
+ // `bg-surface-alt text-heading overflow-x-hidden` mirrors the canonical
+ // SPA body class from index.html — ensures theme tokens apply before React
+ // hydrates so the static shell never flashes a bare white page with
+ // system-ui font.
  return `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -121,11 +141,9 @@ ${ldTags}${cssLink}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
- <body>
+ <body class="bg-surface-alt text-heading overflow-x-hidden">
  <div id="root">
- <main class="static-job-page">
- ${bodyHtml}
- </main>
+${innerHtml}
  </div>${jsScript}
  </body>
 </html>`;

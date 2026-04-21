@@ -39,12 +39,10 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import {
   BASE_URL,
-  FAVICON_LINKS,
-  GTAG_SNIPPET,
-  ADSENSE_SNIPPET,
   countHtmlBodyWords,
   MIN_INDEXABLE_WORDS,
 } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   ORPHAN_LANDING_LOCALES,
   ORPHAN_LANDING_SECTION,
@@ -201,8 +199,10 @@ function renderPage(opts: {
   strings: Record<string, string>;
   dateStamp: string;
   knownSlugsByLocale: Map<OrphanLandingLocale, Set<string>>;
+  /** dist directory for entry-asset resolution. Omit in tests. */
+  distDir?: string;
 }): RenderedPageResult {
-  const { cluster, matchingJobs, strings, dateStamp, knownSlugsByLocale } = opts;
+  const { cluster, matchingJobs, strings, dateStamp, knownSlugsByLocale, distDir } = opts;
   const locale = cluster.locale;
   const urlPath = buildOrphanLandingPath(locale, cluster.canonicalSlug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -369,47 +369,46 @@ function renderPage(opts: {
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const robotsMeta = (indexable && wordCount >= MIN_INDEXABLE_WORDS)
-    ? '<meta name="robots" content="index,follow">'
-    : '<meta name="robots" content="noindex,follow">';
+  const robots = (indexable && wordCount >= MIN_INDEXABLE_WORDS)
+    ? 'index,follow'
+    : 'noindex,follow';
 
-  const html = `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(cluster.canonicalQuery)} | Frontaliere Ticino</title>
-    <meta name="description" content="${esc(editorialBody.slice(0, 155))}">
-    ${robotsMeta}
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${ORPHAN_LANDING_OG_LOCALE[locale]}">
-    <meta property="og:title" content="${esc(cluster.canonicalQuery)}">
-    <meta property="og:description" content="${esc(editorialBody.slice(0, 155))}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  const description = editorialBody.slice(0, 155);
+  // Extra <head> tags (OG image + Twitter card) that buildSimplePage doesn't
+  // emit by default — keeps the social-share preview identical to the
+  // pre-shell-wrap HTML.
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(cluster.canonicalQuery)}">
-    <meta name="twitter:description" content="${esc(editorialBody.slice(0, 155))}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternates}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}
-    ${GTAG_SNIPPET}
-    ${ADSENSE_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);font-family:system-ui,-apple-system,sans-serif;background:var(--bg,#f8fafc)">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  const jsonLdScripts = [breadcrumbLd, webPageLd];
+  if (itemListLd) jsonLdScripts.push(itemListLd);
+
+  // Keep the existing inline-styled `<main>` so the static shell still renders
+  // something readable before React hydrates. buildSimplePage wraps this in
+  // `<div id="root">` with `skipMainWrap: true` to avoid nested <main>.
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">
         ${body}
-      </main>
-    </div>
-  </body>
-</html>`;
+      </main>`;
+
+  const html = buildSeoPageHtml({
+    locale,
+    title: `${cluster.canonicalQuery} | Frontaliere Ticino`,
+    description,
+    canonicalUrl,
+    robots,
+    ogType: 'website',
+    ogLocale: ORPHAN_LANDING_OG_LOCALE[locale],
+    hreflangHtml: alternates,
+    extraHeadHtml: extraHead,
+    jsonLdScripts,
+    bodyHtml,
+    distDir,
+  });
 
   return {
     urlPath,
@@ -497,6 +496,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           strings: localeStrings[cluster.locale] || {},
           dateStamp,
           knownSlugsByLocale,
+          distDir,
         });
 
         // Enforce quality gates. We still WRITE the page (so existing

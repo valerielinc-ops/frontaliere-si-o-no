@@ -25,12 +25,11 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 import {
-  ANALYTICS_SNIPPET,
   BASE_URL,
-  FAVICON_LINKS,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   FUEL_DAILY_LOCALES,
@@ -457,6 +456,8 @@ interface PageInputs {
   today: Date;
   /** Precomputed alternates: map from locale → path */
   alternates: Record<FuelDailyLocale, string>;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 const LOCALE_OG: Record<FuelDailyLocale, string> = {
@@ -467,7 +468,7 @@ const LOCALE_OG: Record<FuelDailyLocale, string> = {
 };
 
 function renderPage(inp: PageInputs): string {
-  const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates } = inp;
+  const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir } = inp;
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = zone ? FUEL_ZONE_DISPLAY[zone] : copy.regionalLabel;
@@ -610,7 +611,7 @@ function renderPage(inp: PageInputs): string {
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -654,42 +655,34 @@ function renderPage(inp: PageInputs): string {
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
 </main>`;
 
-  // Word count sanity check (hard-gated later by the caller)
-  const html = `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  // Extra head: OG image dimensions + twitter card — kept for parity with the
+  // pre-shell-wrap emission so social-share previews are unchanged.
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternatesHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    <script type="application/ld+json">${faqLd}</script>${productLd ? `\n    <script type="application/ld+json">${productLd}</script>` : ''}
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-${bodyHtml}
-    </div>
-  </body>
-</html>`;
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
+  if (productLd) jsonLdScripts.push(productLd);
+
+  // Word count sanity check (hard-gated later by the caller)
+  const html = buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts,
+    bodyHtml,
+    distDir,
+  });
 
   return html;
 }
@@ -704,10 +697,12 @@ interface ArchiveInputs {
   snapshots: HistorySnapshot[]; // filtered to the target month
   canonicalPath: string;
   today: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
 }
 
 function renderArchive(inp: ArchiveInputs): string {
-  const { locale, fuel, zone, monthKey, snapshots, canonicalPath, today } = inp;
+  const { locale, fuel, zone, monthKey, snapshots, canonicalPath, today, distDir } = inp;
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = FUEL_ZONE_DISPLAY[zone];
@@ -772,23 +767,7 @@ function renderArchive(inp: ArchiveInputs): string {
     dateModified: dateStamp,
   });
 
-  return `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="${canonicalUrl}">
-    <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${webPageLd}</script>
-    ${ANALYTICS_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
         <nav style="margin:0 0 14px;font-size:13px;color:#475569">
           <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
@@ -802,10 +781,20 @@ function renderArchive(inp: ArchiveInputs): string {
           <p style="margin:0;font-size:17px;line-height:1.55;max-width:860px">${esc(intro)}</p>
         </header>
         <section>${tableHtml}</section>
-      </main>
-    </div>
-  </body>
-</html>`;
+      </main>`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    jsonLdScripts: [breadcrumbLd, webPageLd],
+    bodyHtml,
+    distDir,
+  });
 }
 
 // ── Plugin ─────────────────────────────────────────────────────
@@ -825,10 +814,13 @@ export function generateFuelDailyPages(opts: {
   dataset: FuelPricesDataset;
   history?: HistorySnapshot[];
   today?: Date;
+  /** dist directory; when provided the page renders with hydration tags. */
+  distDir?: string;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
 
   const pages: Record<string, string> = {};
 
@@ -854,6 +846,7 @@ export function generateFuelDailyPages(opts: {
         canonicalPath: regionalPath,
         today,
         alternates: buildAlternates(null),
+        distDir,
       });
 
       // Per-zone pages
@@ -868,6 +861,7 @@ export function generateFuelDailyPages(opts: {
           canonicalPath: zonePath,
           today,
           alternates: buildAlternates(zone),
+          distDir,
         });
       }
     }
@@ -884,9 +878,11 @@ export function generateFuelDailyPages(opts: {
 export function generateFuelArchivePages(opts: {
   history: HistorySnapshot[];
   today?: Date;
+  distDir?: string;
 }): Record<string, string> {
   const history = opts.history;
   const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
   const currentMonth = today.toISOString().slice(0, 7);
 
   const pages: Record<string, string> = {};
@@ -911,6 +907,7 @@ export function generateFuelArchivePages(opts: {
             snapshots: history,
             canonicalPath: path,
             today,
+            distDir,
           });
         }
       }
@@ -945,8 +942,8 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const history = readHistory(rootDir);
       const today = new Date();
 
-      const pages = generateFuelDailyPages({ rootDir, dataset, history, today });
-      const archives = generateFuelArchivePages({ history, today });
+      const pages = generateFuelDailyPages({ rootDir, dataset, history, today, distDir });
+      const archives = generateFuelArchivePages({ history, today, distDir });
 
       const collector = new WriteCollector({ distDir });
 
