@@ -6741,4 +6741,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cuasso-monte-ospedale-frontalieri-chiusura.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-salute-frontalieri-lombardia-2026',
+ category: 'fiscale',
+ date: '2026-04-21T22:14:55.003Z',
+ image: '/images/blog/tassa-salute-frontalieri-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ];

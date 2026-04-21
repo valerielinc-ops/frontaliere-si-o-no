@@ -1,21 +1,56 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-04-21T10:38:26.216Z",
+  "generatedAt": "2026-04-21T22:13:53.576Z",
   "total": 4,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 22153,
-  "avgDurationMs": 22153,
+  "durationMs": 13552,
+  "avgDurationMs": 13552,
   "durationHistory": [
-    22153
+    13552
   ],
   "newJobs": [
     {
+      "id": "company-q14jnx",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "title": "Consulente clientela privata individuale",
+      "location": "Gravesano, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-privata-individuale/e2c8937c-104e-4234-8353-3b21a3a51b46",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
+      "companyDomain": "raiffeisen.ch",
+      "crawledAt": "2026-04-21T22:13:53.201Z",
+      "firstSeenAt": "2026-04-21T22:13:53.201Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "company-53i58",
-      "slug": "consulente-clientela-privata-base-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-053i58",
+      "slug": "consulente-clientela-privata-base-banca-raiffeisen-vedeggio-cassarate-cadempino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata base",
       "location": "Gravesano, Ticino",
@@ -36,18 +71,26 @@
       "companyDomain": "raiffeisen.ch",
       "crawledAt": "2026-04-21T10:38:25.829Z",
       "firstSeenAt": "2026-04-21T10:38:25.829Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 73,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-yifl2t",
       "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
@@ -71,49 +114,6 @@
       "companyDomain": "raiffeisen.ch",
       "crawledAt": "2026-04-20T22:09:12.315Z",
       "firstSeenAt": "2026-04-20T22:09:12.315Z",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Piazza Indipendenza",
-      "postalCode": "6814",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-q14jnx",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
-      "company": "Banca Raiffeisen Vedeggio Cassarate",
-      "title": "Consulente clientela privata individuale",
-      "location": "Gravesano, Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-12",
-      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-privata-individuale/e2c8937c-104e-4234-8353-3b21a3a51b46",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Gravesano",
-        "canton": "TI"
-      },
-      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
-      "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-04-19T21:58:40.140Z",
-      "firstSeenAt": "2026-04-19T21:58:40.140Z",
       "sourceLang": "it",
       "salaryMin": 85500,
       "salaryMax": 150000,

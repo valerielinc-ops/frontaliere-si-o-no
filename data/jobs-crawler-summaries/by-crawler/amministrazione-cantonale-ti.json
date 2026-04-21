@@ -1,21 +1,22 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-21T10:54:55.070Z",
+  "generatedAt": "2026-04-21T22:30:18.371Z",
   "total": 21,
-  "newCount": 3,
-  "updatedCount": 12,
+  "newCount": 0,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 29637,
-  "avgDurationMs": 29637,
+  "durationMs": 21082,
+  "avgDurationMs": 21082,
   "durationHistory": [
-    29637
+    21082
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213ich",
-      "slug": "operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro-professionale-e-sociale-gerra-piano-e-al-funzionamento",
+      "slug": "operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro-professionale-e-sociale-gerra-piano-e-al-funzionamento-213ich",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Operatore/trice sociale I a tempo parziale (80%) presso l’Ufficio degli invalidi, Centro professionale e sociale, Gerra Piano",
       "location": "Bellinzona",
@@ -33,19 +34,25 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-21T10:54:48.862Z",
       "firstSeenAt": "2026-04-21T10:54:48.862Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-213icg",
-      "slug": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-os",
+      "slug": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsich",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Psicologo/a I oppure Psicologo/a II a tempo parziale (30%), incaricato/a (art. 15 e 16 LORD) presso l’Organizzazione sociopsichiatrica cantonale (OSC), Servizio psicologia clinica e psicoterapia, Servizio psico-sociale (SPS) liaison, Locarno",
       "location": "Locarno",
@@ -63,19 +70,25 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-21T10:54:48.862Z",
       "firstSeenAt": "2026-04-21T10:54:48.862Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-213icf",
-      "slug": "capo-servizio-ii-oppure-capo-servizio-iii-a-tempo-pieno-100-presso-l-ufficio-degli-automezzi-e-delle-macchine-dello-stato-camorino-orario-di",
+      "slug": "capo-servizio-ii-oppure-capo-servizio-iii-a-tempo-pieno-100-presso-l-ufficio-degli-automezzi-e-delle-macchine-dello-stat",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Capo servizio II oppure Capo servizio III a tempo pieno (100%) presso l’Ufficio degli automezzi e delle macchine dello Stato, Camorino",
       "location": "Camorino",
@@ -93,18 +106,22 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-21T10:54:48.862Z",
       "firstSeenAt": "2026-04-21T10:54:48.862Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-213ick",
       "slug": "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitati",
@@ -133,7 +150,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
