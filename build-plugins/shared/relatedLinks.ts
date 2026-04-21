@@ -50,6 +50,15 @@ import {
   type HealthPremiumCanton,
   type HealthPremiumAgeBracket,
 } from '../healthPremiumsData';
+import {
+  buildOggiPath as buildBorderOggiPath,
+  buildRootHubPath as buildBorderRootHubPath,
+  BORDER_CROSSING_DISPLAY,
+  CROSSING_TO_FUEL_ZONE,
+  CROSSING_TO_WEEKLY_CITY,
+  type BorderCrossingSlug,
+  type BorderWaitLocale,
+} from '../borderWaitData';
 
 // ── Types ────────────────────────────────────────────────────────
 
@@ -58,7 +67,8 @@ export type SeoPageType =
   | 'weekly_employers'
   | 'job_market_snapshot'
   | 'health_premiums'
-  | 'orphan_landing';
+  | 'orphan_landing'
+  | 'border_wait';
 
 export type LinkLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -75,6 +85,8 @@ export interface RelatedLinksContext {
   readonly fuelZone?: FuelZone;
   /** Weekly-employers current city (regional "ticino" hub is the default). */
   readonly weeklyCity?: WeeklyEmployersCity;
+  /** Border crossing for the border_wait page type (context for sibling links). */
+  readonly borderCrossing?: BorderCrossingSlug;
 }
 
 // ── Evergreen paths (not covered by feature-specific builders) ──
@@ -137,6 +149,9 @@ interface Copy {
   readonly healthPremiumAgeBracket: (label: string) => string;
   readonly salaryBenchmarks: string;
   readonly costOfLiving: string;
+  readonly borderWaitCrossing: (crossing: string) => string;
+  readonly borderWaitHub: string;
+  readonly frontierGuide: string;
 }
 
 /**
@@ -163,6 +178,9 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumAgeBracket: (l) => `Premi cassa malati ${l}`,
     salaryBenchmarks: 'Benchmark salari frontalieri 2026',
     costOfLiving: 'Costo della vita Svizzera vs Italia',
+    borderWaitCrossing: (c) => `Coda dogana ${c} adesso`,
+    borderWaitHub: 'Tempi attesa dogane Ticino — live',
+    frontierGuide: 'Guida frontaliere: permessi e fisco',
   },
   en: {
     heading: 'Related reading',
@@ -183,6 +201,9 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumAgeBracket: (l) => `Premiums for ${l}`,
     salaryBenchmarks: 'Cross-border salary benchmarks 2026',
     costOfLiving: 'Cost of living Switzerland vs Italy',
+    borderWaitCrossing: (c) => `${c} border wait right now`,
+    borderWaitHub: 'Ticino border wait times — live',
+    frontierGuide: 'Cross-border worker guide: permits & tax',
   },
   de: {
     heading: 'Weiterführende Seiten',
@@ -203,6 +224,9 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumAgeBracket: (l) => `Prämien für ${l}`,
     salaryBenchmarks: 'Lohn-Benchmarks für Grenzgänger 2026',
     costOfLiving: 'Lebenshaltungskosten Schweiz vs. Italien',
+    borderWaitCrossing: (c) => `Wartezeit ${c} jetzt`,
+    borderWaitHub: 'Tessin-Wartezeiten an den Grenzen — live',
+    frontierGuide: 'Grenzgänger-Leitfaden: Bewilligungen & Steuern',
   },
   fr: {
     heading: 'Pour aller plus loin',
@@ -223,6 +247,9 @@ const COPY: Record<LinkLocale, Copy> = {
     healthPremiumAgeBracket: (l) => `Primes pour ${l}`,
     salaryBenchmarks: 'Benchmarks salariaux frontaliers 2026',
     costOfLiving: 'Coût de la vie Suisse vs Italie',
+    borderWaitCrossing: (c) => `File à ${c} en ce moment`,
+    borderWaitHub: 'Temps d\'attente aux douanes du Tessin — direct',
+    frontierGuide: 'Guide frontalier : permis & fiscalité',
   },
 };
 
@@ -276,6 +303,42 @@ function normalizeWeeklyCity(raw: string | undefined): WeeklyEmployersCity {
   return 'ticino';
 }
 
+/**
+ * Pick the primary border-wait crossing for a given fuel zone / city context.
+ * Used when we want to add one border-wait link inside the fuel-daily and
+ * weekly-employers related-links blocks.
+ */
+function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSlug {
+  if (!cityOrZone) return 'chiasso-brogeda';
+  const lc = cityOrZone.toLowerCase();
+  if (lc === 'mendrisio' || lc === 'stabio') return 'gaggiolo';
+  if (lc === 'lugano' || lc === 'bellinzona' || lc === 'locarno') return 'ponte-tresa';
+  // Default: chiasso-brogeda (covers chiasso zone + regional fallback)
+  return 'chiasso-brogeda';
+}
+
+/** Pick 2 sibling crossings (not the one passed) in the same region when possible. */
+function pickSiblingCrossings(
+  current: BorderCrossingSlug,
+  count: number,
+): BorderCrossingSlug[] {
+  // Prefer traffic-heavy siblings: pick from the top-5 list first
+  const top5: BorderCrossingSlug[] = [
+    'chiasso-brogeda',
+    'chiasso-centro',
+    'gaggiolo',
+    'oria-gandria',
+    'ponte-tresa',
+  ];
+  const out: BorderCrossingSlug[] = [];
+  for (const c of top5) {
+    if (c === current) continue;
+    out.push(c);
+    if (out.length >= count) break;
+  }
+  return out;
+}
+
 // ── Link builders per page type ─────────────────────────────────
 
 function linksForFuelDaily(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
@@ -301,8 +364,20 @@ function linksForFuelDaily(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksCon
   // 2) Job-market snapshot hub.
   out.push({ href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot });
 
-  // 3-4) Sibling fuel zones (same fuel, same locale).
-  for (const sib of siblings) {
+  // 3) Border-wait for the crossing closest to this zone — bidirectional
+  //    internal link (fuel-zone ↔ border-wait) that satisfies the F8 test
+  //    gate and gives commuters a quick "check queue before you fill up"
+  //    path.
+  {
+    const borderCrossing = crossingForCityOrZone(zone ?? ctx?.city);
+    out.push({
+      href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
+    });
+  }
+
+  // 4) One sibling fuel zone (same fuel, same locale).
+  for (const sib of siblings.slice(0, 1)) {
     out.push({
       href: buildFuelTodayPath(fuelDailyLocale, fuel, sib),
       title: copy.fuelToday(fuelL, zoneLabel(sib)),
@@ -352,11 +427,58 @@ function linksForWeeklyEmployers(locale: LinkLocale, copy: Copy, ctx?: RelatedLi
     title: copy.fuelToday(fuelLabel(locale, 'diesel'), fuelZoneForCity ? zoneLabel(fuelZoneForCity) : undefined),
   });
 
-  // 5) Health premiums (cross-sell for people considering a Swiss move).
+  // 5) Border-wait for the crossing closest to this city — "check the queue
+  //    before you commute to the job" is a natural cross-link.
+  {
+    const borderCrossing = crossingForCityOrZone(weeklyCity);
+    out.push({
+      href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
+    });
+  }
+
+  return out.slice(0, 5);
+}
+
+function linksForBorderWait(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksContext): RelatedLink[] {
+  const weeklyLocale = locale as WeeklyEmployersLocale;
+  const fuelDailyLocale = locale as FuelDailyLocale;
+  const borderLocale = locale as BorderWaitLocale;
+  const currentCrossing = ctx?.borderCrossing ?? 'chiasso-brogeda';
+  const fuelZone = ctx?.fuelZone ?? CROSSING_TO_FUEL_ZONE[currentCrossing];
+  const weeklyCity = normalizeWeeklyCity(ctx?.city ?? CROSSING_TO_WEEKLY_CITY[currentCrossing]);
+
+  const out: RelatedLink[] = [];
+
+  // 1) Fuel daily for the closest zone — commuters fill up on the Swiss side.
   out.push({
-    href: buildHealthPremiumsCantonPath(locale as HealthPremiumLocale, 'ticino'),
-    title: copy.healthPremiumsTicino,
+    href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone),
+    title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)),
   });
+
+  // 2) Weekly employers for the closest city.
+  out.push({
+    href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
+    title: copy.weeklyEmployers(
+      weeklyCity === 'ticino'
+        ? locale === 'de' || locale === 'fr'
+          ? 'Tessin'
+          : 'Ticino'
+        : FUEL_ZONE_DISPLAY[weeklyCity as FuelZone] || weeklyCity,
+    ),
+  });
+
+  // 3-4) Two sibling crossings — same region traffic alternatives.
+  const siblings = pickSiblingCrossings(currentCrossing, 2);
+  for (const sib of siblings) {
+    out.push({
+      href: buildBorderOggiPath(borderLocale, sib),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[sib]),
+    });
+  }
+
+  // 5) Frontier worker guide (generic evergreen anchor).
+  out.push({ href: JOB_LISTING_ROOT[locale], title: copy.frontierGuide });
 
   return out.slice(0, 5);
 }
@@ -478,6 +600,8 @@ export function generateRelatedLinks(
       return linksForHealthPremiums(locale, copy, context);
     case 'orphan_landing':
       return linksForOrphanLanding(locale, copy, context);
+    case 'border_wait':
+      return linksForBorderWait(locale, copy, context);
     default: {
       const exhaustive: never = pageType;
       throw new Error(`unknown SeoPageType: ${String(exhaustive)}`);
