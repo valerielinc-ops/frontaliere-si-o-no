@@ -1,18 +1,53 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-21T09:58:19.303Z",
-  "total": 167,
-  "newCount": 3,
-  "updatedCount": 0,
+  "generatedAt": "2026-04-21T21:33:18.607Z",
+  "total": 168,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 164,
-  "durationMs": 483614,
-  "avgDurationMs": 483614,
+  "unchangedCount": 166,
+  "durationMs": 440574,
+  "avgDurationMs": 440574,
   "durationHistory": [
-    483614
+    440574
   ],
   "newJobs": [
+    {
+      "id": "company-ke4f2c",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/88b7c251-8463-4cfe-acb1-f0b6083d3824",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-21T21:30:10.756Z",
+      "firstSeenAt": "2026-04-21T21:30:10.756Z",
+      "needsRetranslation": true,
+      "addressLocality": "Bellinzona",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-ricett",
       "slug": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
@@ -36,17 +71,22 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-21T09:55:02.164Z",
       "firstSeenAt": "2026-04-21T09:55:02.164Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 78,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -70,15 +110,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-21T09:55:02.164Z",
       "firstSeenAt": "2026-04-21T09:55:02.164Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -104,21 +146,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-21T09:55:02.164Z",
       "firstSeenAt": "2026-04-21T09:55:02.164Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-wdtls",
       "slug": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-riazzino-ticino",
@@ -1112,79 +1152,6 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "firstSeenAt": "2026-04-02T07:16:01.587Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-5t9qhe",
-      "slug": "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie",
-      "location": "Landquart",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/511c949c-7196-4b5b-96f7-3a113ac3a8d9",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-02T07:16:01.587Z",
-      "addressLocality": "Landquart",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-04-02T07:16:01.587Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-bs45mj",
-      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Inventuren",
-      "location": "Basel",
-      "canton": "BS",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/83600992-4755-4dfa-b53c-360bf39d94f0",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-01T07:24:33.443Z",
-      "addressLocality": "Basel",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "addressRegion": "BS",
-      "firstSeenAt": "2026-04-01T07:24:33.443Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
