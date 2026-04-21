@@ -6655,4 +6655,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/asili-nido-bellinzona-sussidi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'giovani-scomparsi-7-cantoni',
+ category: 'novita',
+ date: '2026-04-21T00:12:55.443Z',
+ image: '/images/blog/giovani-scomparsi-7-cantoni.jpg',
+ hasCalculator: true,
+ },
 ];

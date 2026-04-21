@@ -10382,6 +10382,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-scomparsi-7-cantoni': {
+    title: 'In sette cantoni stanno scomparendo i | Frontaliere Ticino',
+    description: 'Dal 2024, in sette cantoni, tra cui il Ticino, si registra un calo della popolazione under 65. Impatti su economia, previdenza e servizi pubblici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sette, cantoni, stanno, scomparendo',
+    ogTitle: 'Giovani in calo in 7 cantoni svizzeri: il caso Ticino',
+    ogDescription: 'Nel 2024, i dati ufficiali mostrano una diminuzione della popolazione under 65 in sette cantoni, con gravi conseguenze per l\'economia e la previdenza nel',
+    canonicalPath: '/articoli-frontaliere/giovani-scomparsi-7-cantoni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Discesa giovani Ticino",
+      "description": "Dal 2024, in sette cantoni, tra cui il Ticino, si registra un calo della popolazione under 65. Impatti su economia, previdenza e servizi pubblici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovani-scomparsi-7-cantoni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con le Alpi sullo sfondo, scena in Ticino"
+      },
+      "datePublished": "2026-04-21T00:12:55+00:00",
+      "dateModified": "2026-04-21T00:12:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-scomparsi-7-cantoni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

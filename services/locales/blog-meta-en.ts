@@ -2430,6 +2430,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Daycare subsidies in Bellinzona: controversy over the system',
     'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'The subsidy system for daycare centers in Bellinzona is at the heart of a heated debate between the municipality and the Department of Education.',
     'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Daycare center in Bellinzona with children playing and parents interacting with staff',
+    'blog.article.giovani-scomparsi-7-cantoni.title': 'Young people are disappearing in seven cantons, Ticino at the forefront',
+    'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Federal statistics show that in 2024 the population under 65 years has decreased in seven cantons, including Ticino, with critical effects on the economy and pensions.',
+    'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Lugano landscape with the Swiss Alps in the background, Ticino scene',
 };
 
 export default blogMetaEn;

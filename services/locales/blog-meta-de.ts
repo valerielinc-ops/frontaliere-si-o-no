@@ -2430,6 +2430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Kindergärten in Bellinzona: Kontroversen um das Subventionssystem',
     'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'Das Subventionssystem für Kindergärten in Bellinzona steht im Mittelpunkt einer hitzigen Debatte zwischen der Gemeinde und dem Bildungsdepartement.',
     'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Kindergarten in Bellinzona mit spielenden Kindern und Eltern, die mit dem Personal interagieren',
+    'blog.article.giovani-scomparsi-7-cantoni.title': 'In sieben Kantonen verschwinden die Jungen, auch der Tessin steht an vorderster Front',
+    'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Die Bundesstatistiken zeigen, dass im Jahr 2024 die Bevölkerung unter 65 Jahren in sieben Kantonen, darunter auch im Tessin, zurückging, mit kritischen Auswirkungen auf die Wirtschaft und die Altersvorsorge.',
+    'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Lugano Landschaft mit den Schweizer Alpen im Hintergrund, Ticino Szene',
 };
 
 export default blogMetaDe;

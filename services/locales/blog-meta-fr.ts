@@ -2430,6 +2430,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Crèches à Bellinzone: polémique autour du système de subventions',
     'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'Le système de subventions pour les crèches à Bellinzone est au centre d\'un débat animé entre la commune et le Département de l\'éducation.',
     'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Crèche à Bellinzone avec des enfants qui jouent et des parents qui interagissent avec le personnel',
+    'blog.article.giovani-scomparsi-7-cantoni.title': 'Dans sept cantons, les jeunes disparaissent, le Tessin en première ligne',
+    'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Les statistiques fédérales montrent qu\'en 2024, la population de moins de 65 ans a diminué dans sept cantons, dont le Tessin, avec des effets critiques sur l\'économie et la prévoyance.',
+    'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Paysage de Lugano avec les Alpes suisses en arrière-plan, scène du Tessin',
 };
 
 export default blogMetaFr;

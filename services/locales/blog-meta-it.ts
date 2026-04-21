@@ -2430,6 +2430,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-sussidi-2026.title': 'Asili nido a Bellinzona: polemiche sul sistema di sussidi',
     'blog.article.asili-nido-bellinzona-sussidi-2026.excerpt': 'Il sistema di sussidi per gli asili nido a Bellinzona è al centro di un acceso dibattito tra il Comune e il Dipartimento dell\'educazione.',
     'blog.article.asili-nido-bellinzona-sussidi-2026.imageAlt': 'Asilo nido a Bellinzona con bambini che giocano e genitori che interagiscono con il personale',
+    'blog.article.giovani-scomparsi-7-cantoni.title': 'In sette cantoni stanno scomparendo i giovani, anche il Ticino in prima fila',
+    'blog.article.giovani-scomparsi-7-cantoni.excerpt': 'Le statistiche federali mostrano che nel 2024 la popolazione sotto i 65 anni è diminuita in sette cantoni, tra cui il Ticino, con effetti critici su economia e previdenza.',
+    'blog.article.giovani-scomparsi-7-cantoni.imageAlt': 'Panorama di Lugano con le Alpi sullo sfondo, scena in Ticino',
 };
 
 export default blogMetaIt;

@@ -2088,6 +2088,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salario-minimo-ticino-2027-2029': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-2027-2029', parent: 'blog' },
     'blog-cure-domocilio-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/cure-domocilio-ticino-2026', parent: 'blog' },
     'blog-asili-nido-bellinzona-sussidi-2026': { name: 'Asili nido Bellinzona', path: '/articoli-frontaliere/asili-nido-bellinzona-sussidi-2026', parent: 'blog' },
+    'blog-giovani-scomparsi-7-cantoni': { name: 'In sette cantoni stanno scomparendo i', path: '/articoli-frontaliere/giovani-scomparsi-7-cantoni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
