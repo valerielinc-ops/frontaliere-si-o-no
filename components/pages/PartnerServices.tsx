@@ -24,7 +24,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
 
  const handleClick = () => {
  Analytics.trackExternalLink(partner.url, `partner_page_${partner.id}`);
- Analytics.trackSelectContent('affiliate_click', `${partner.id}_partner_page`);
+ Analytics.trackAffiliateClick(partner.id, 'partner_page');
  };
 
  return (

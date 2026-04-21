@@ -1731,7 +1731,7 @@ function BlogArticles({
  const SideRailCard: FC<{ partner: AffiliatePartner; idx: number }> = ({ partner, idx }) => {
  const handleAffClick = () => {
  Analytics.trackExternalLink(partner.url, `affiliate_${partner.id}`);
- Analytics.trackSelectContent('affiliate_click', `${partner.id}_blog_${article.category}`);
+ Analytics.trackAffiliateClick(partner.id, `blog_${article.category}`);
  };
  return (
  <a

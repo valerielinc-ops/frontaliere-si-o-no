@@ -439,7 +439,7 @@ const CurrencyExchange: React.FC = () => {
  href={appendUtm(topAffiliate.provider.referralUrl!, topAffiliate.provider.name)}
  target="_blank"
  rel="noopener noreferrer"
- onClick={() => Analytics.trackExternalLink(topAffiliate.provider.referralUrl!, topAffiliate.provider.name)}
+ onClick={() => { Analytics.trackExternalLink(topAffiliate.provider.referralUrl!, topAffiliate.provider.name); Analytics.trackAffiliateClick(topAffiliate.provider.name, 'exchange'); }}
  aria-label={`${t('currency.best_offer_cta')} — ${topAffiliate.provider.name}`}
  className="block rounded-2xl border-2 border-success bg-gradient-to-r from-success-subtle to-info-subtle p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-success-strong transition-all"
  >
@@ -611,7 +611,7 @@ const CurrencyExchange: React.FC = () => {
  href={appendUtm(best.provider.referralUrl, best.provider.name)}
  target="_blank"
  rel="noopener noreferrer"
- onClick={() => Analytics.trackExternalLink(best.provider.referralUrl!, best.provider.name)}
+ onClick={() => { Analytics.trackExternalLink(best.provider.referralUrl!, best.provider.name); Analytics.trackAffiliateClick(best.provider.name, 'exchange'); }}
  className="bg-success-subtle rounded-xl sm:rounded-2xl border border-success-border p-3 sm:p-5 hover:shadow-md hover:border-success transition-[color,background-color,border-color,box-shadow] cursor-pointer"
  >
  <div className="flex items-center gap-2 mb-2">
@@ -684,7 +684,7 @@ const CurrencyExchange: React.FC = () => {
  href: appendUtm(result.provider.referralUrl, result.provider.name),
  target: '_blank',
  rel: 'noopener noreferrer',
- onClick: () => Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name),
+ onClick: () => { Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name); Analytics.trackAffiliateClick(result.provider.name, 'exchange'); },
  'aria-label': result.provider.name,
  className: `block min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
  isBest ? 'border-success ring-2 ring-success/20 hover:ring-success/40' : isWorst ? 'border-danger ring-2 ring-danger/20' : 'border-edge hover:border-success'
