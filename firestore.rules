@@ -100,5 +100,11 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+
+    // Article page views — public increment for newsletter "Most read" rotation
+    match /article_views/{articleId} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }

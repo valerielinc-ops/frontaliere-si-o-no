@@ -52,8 +52,9 @@ async function trackArticleView(articleId: string): Promise<void> {
 
  const { doc, setDoc, increment } = await import('firebase/firestore');
  await setDoc(doc(_viewDb, 'article_views', articleId), { views: increment(1), lastViewed: new Date() }, { merge: true });
- } catch {
- // Non-blocking — never break article loading
+ } catch (e) {
+ // Non-blocking; warn so a silent Firestore-rules deny doesn't go unnoticed.
+ console.warn('[trackArticleView] Firestore write failed', e);
  }
 }
 

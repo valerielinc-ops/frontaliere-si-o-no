@@ -767,7 +767,7 @@ async function fetchRecentlyFeaturedArticles() {
 
 async function saveRecentlyFeaturedArticle(articleId) {
   if (!db) return;
-  const MAX_HISTORY = 4; // exclude last 4 articles → guarantees rotation with 5+ articles
+  const MAX_HISTORY = 12; // exclude last 12 articles → ~3 months of variety with weekly sends
   try {
     const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
     const doc = await metaRef.get();
