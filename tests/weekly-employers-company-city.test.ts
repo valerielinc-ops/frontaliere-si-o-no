@@ -522,6 +522,64 @@ describe('renderCompanyCityPage', () => {
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
 
+  // ── CLAUDE.md rule #3: every JobPosting emits all 9 mandatory fields ──
+  it('emits all mandatory JobPosting fields (CLAUDE.md rule #3)', () => {
+    const html = renderCompanyCityPage(fixture);
+    // Extract the ItemList JSON-LD block and locate the first JobPosting item.
+    const itemListMatch = html.match(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList"[^<]+)<\/script>/);
+    expect(itemListMatch).toBeTruthy();
+    const itemList = JSON.parse(itemListMatch![1]);
+    expect(Array.isArray(itemList.itemListElement)).toBe(true);
+    expect(itemList.itemListElement.length).toBeGreaterThan(0);
+    const firstPosting = itemList.itemListElement[0].item;
+    // All 9 mandatory fields must be present AND non-empty.
+    expect(firstPosting['@type']).toBe('JobPosting');
+    expect(firstPosting.title?.length ?? 0).toBeGreaterThan(0);
+    expect(firstPosting.description?.length ?? 0).toBeGreaterThanOrEqual(30);
+    expect(firstPosting.datePosted?.length ?? 0).toBeGreaterThan(0);
+    expect(firstPosting.employmentType?.length ?? 0).toBeGreaterThan(0);
+    expect(firstPosting.hiringOrganization?.name?.length ?? 0).toBeGreaterThan(0);
+    // jobLocation.address with streetAddress + postalCode + addressLocality
+    expect(firstPosting.jobLocation?.address?.streetAddress?.length ?? 0).toBeGreaterThan(0);
+    expect(firstPosting.jobLocation?.address?.postalCode?.length ?? 0).toBeGreaterThan(0);
+    expect(firstPosting.jobLocation?.address?.addressLocality?.length ?? 0).toBeGreaterThan(0);
+    // baseSalary with currency + value.{min,max,unitText}
+    expect(firstPosting.baseSalary?.currency?.length ?? 0).toBeGreaterThan(0);
+    const bsValue = firstPosting.baseSalary?.value;
+    expect(bsValue).toBeTruthy();
+    expect(Number(bsValue.minValue)).toBeGreaterThan(0);
+    expect(Number(bsValue.maxValue)).toBeGreaterThanOrEqual(Number(bsValue.minValue));
+    expect(bsValue.unitText?.length ?? 0).toBeGreaterThan(0);
+  });
+
+  it('fills JobPosting description via editorial fallback when source is missing', () => {
+    // Fixture's activeJobs have no `description` field → fallback kicks in.
+    const html = renderCompanyCityPage(fixture);
+    // Editorial fallback references the employer name + city.
+    expect(html).toContain('EOC - Ente Ospedaliero Cantonale');
+    expect(html).toContain('Lugano');
+  });
+
+  it('uses COMPANY_HQ_ADDRESSES fallback when job has no streetAddress/postalCode', () => {
+    // fixture.stats.companySlug === 'eoc-ente-ospedaliero-cantonale' → HQ in Bellinzona.
+    // Individual activeJobs have no streetAddress/postalCode — so the JSON-LD
+    // must pull the HQ address from the shared registry.
+    const withCompanySlug = {
+      ...fixture,
+      stats: {
+        ...fixture.stats,
+        activeJobs: fixture.stats.activeJobs.map((j) => ({
+          ...j,
+          companySlug: 'eoc-ente-ospedaliero-cantonale',
+        })),
+      },
+    };
+    const html = renderCompanyCityPage(withCompanySlug);
+    // Expect EOC HQ data: Viale Officina 3, 6500 Bellinzona.
+    expect(html).toContain('Viale Officina 3');
+    expect(html).toContain('6500');
+  });
+
   it('links each listed job to the canonical detail path', () => {
     const html = renderCompanyCityPage(fixture);
     for (const job of fixture.stats.activeJobs) {
