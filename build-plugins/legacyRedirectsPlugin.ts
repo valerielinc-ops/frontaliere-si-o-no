@@ -145,6 +145,13 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/calcola-stipendio/what-if-scenario/': '/calcola-stipendio/cosa-cambia-se/',
  '/guida-frontaliere/comuni-confine/': '/vivere-in-ticino/comuni-di-frontiera/',
  '/contatti/': '/chi-siamo/',
+ // H.9 (Workstream H, SEMrush issue 4) — archival cleanup of four "Pagina archiviata"
+ // entries that previously resolved via SECTION_FALLBACKS to section roots. Each now
+ // redirects to its active equivalent with a proper "Pagina spostata" bridge page.
+ '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
+ '/statistiche/traffico-dogane/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
+ '/calcola-stipendio/confronta-permesso-g-vs-b/': '/guida-frontaliere/confronta-permesso-g-vs-b/',
  // EN: old slugs
  '/en/salary-calculator/': '/en/calculate-salary/',
  '/en/job-search-ticino/': '/en/find-jobs-ticino/',
