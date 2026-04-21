@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-20T21:18:36.385Z",
-  "total": 12,
+  "generatedAt": "2026-04-21T09:47:26.402Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 12,
-  "removedCount": 0,
+  "updatedCount": 11,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 1661,
-  "avgDurationMs": 1661,
+  "durationMs": 1444,
+  "avgDurationMs": 1444,
   "durationHistory": [
-    1661
+    1444
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,7 @@
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -165,43 +165,6 @@
       }
     },
     {
-      "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
-      "slug": "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17852",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-22",
-      "validThrough": "2028-03-21",
-      "employmentType": "apprenticeship",
-      "contractType": "apprenticeship",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-9422c9bad281",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Netzwerk Spezialist/-in Professional",
       "slug": "netzwerk-spezialist-in-professional-confederazione-locarno",
       "url": "https://jobs.admin.ch/posti-vacanti/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
@@ -304,8 +267,8 @@
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -463,6 +426,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
+      "slug": "apprendista-kauffrau-cfc-apprendista-kaufmann-cfc-confederazione-svizzera-bellinzona",
+      "url": "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17852",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-03-22",
+      "validThrough": "2028-03-21",
+      "employmentType": "apprenticeship",
+      "contractType": "apprenticeship",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "id": "confederazione-ticino-9422c9bad281",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
