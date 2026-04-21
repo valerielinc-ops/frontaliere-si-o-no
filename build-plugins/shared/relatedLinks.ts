@@ -34,8 +34,11 @@ import {
   type FuelZone,
 } from '../fuelDailyData';
 import {
+  WEEKLY_EMPLOYERS_COMPANY_CITY_LIST,
+  buildCompanyCityCurrentPath,
   buildCurrentWeekPath,
   type WeeklyEmployersCity,
+  type WeeklyEmployersCompanyCity,
   type WeeklyEmployersLocale,
 } from '../weeklyEmployersData';
 import {
@@ -68,6 +71,7 @@ import {
 export type SeoPageType =
   | 'fuel_daily'
   | 'weekly_employers'
+  | 'weekly_employer_company_city'
   | 'job_market_snapshot'
   | 'health_premiums'
   | 'orphan_landing'
@@ -100,6 +104,14 @@ export interface RelatedLinksContext {
   readonly italianCitySlug?: string;
   /** Italian city display name. */
   readonly italianCityDisplay?: string;
+  /**
+   * Company slug for the weekly_employer_company_city page type — enables
+   * generating a cross-link from other feature pages back to a specific
+   * company × city hub when the context carries one.
+   */
+  readonly companySlug?: string;
+  /** Canonical employer display name for copy interpolation. */
+  readonly employer?: string;
 }
 
 // ── Evergreen paths (not covered by feature-specific builders) ──
@@ -517,6 +529,90 @@ function linksForBorderWait(locale: LinkLocale, copy: Copy, ctx?: RelatedLinksCo
   return out.slice(0, 5);
 }
 
+function linksForWeeklyEmployerCompanyCity(
+  locale: LinkLocale,
+  copy: Copy,
+  ctx?: RelatedLinksContext,
+): RelatedLink[] {
+  const weeklyLocale = locale as WeeklyEmployersLocale;
+  const fuelDailyLocale = locale as FuelDailyLocale;
+  const jobMarketLocale = locale as JobMarketSnapshotLocale;
+  const city = normalizeWeeklyCity(ctx?.weeklyCity ?? ctx?.city);
+  const out: RelatedLink[] = [];
+
+  // 1) Parent F5 city hub.
+  out.push({
+    href: buildCurrentWeekPath(weeklyLocale, city),
+    title: copy.weeklyEmployers(WEEKLY_EMPLOYERS_CITY_DISPLAY_FOR_LINK(city)),
+  });
+
+  // 2) Job-market snapshot hub.
+  out.push({ href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot });
+
+  // 3) Fuel price in same city (diesel — most common commuter fuel).
+  const fuelZoneForCity: FuelZone | undefined =
+    city === 'lugano'
+      || city === 'mendrisio'
+      || city === 'chiasso'
+      || city === 'bellinzona'
+      || city === 'locarno'
+      ? (city as FuelZone)
+      : undefined;
+  out.push({
+    href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZoneForCity),
+    title: copy.fuelToday(
+      fuelLabel(locale, 'diesel'),
+      fuelZoneForCity ? zoneLabel(fuelZoneForCity) : undefined,
+    ),
+  });
+
+  // 4) Sibling city for same company (picks first other company-city city from the canonical list).
+  const companySlug = ctx?.companySlug;
+  if (companySlug && /^[a-z0-9][a-z0-9-]*$/.test(companySlug)) {
+    const sibling = WEEKLY_EMPLOYERS_COMPANY_CITY_LIST.find(
+      (c) => c !== city,
+    ) as WeeklyEmployersCompanyCity | undefined;
+    if (sibling) {
+      out.push({
+        href: buildCompanyCityCurrentPath(weeklyLocale, sibling, companySlug),
+        title: copy.weeklyEmployers(WEEKLY_EMPLOYERS_CITY_DISPLAY_FOR_LINK(sibling)),
+      });
+    }
+  }
+
+  // 5) Border-wait for the closest crossing.
+  {
+    const borderCrossing = crossingForCityOrZone(city);
+    out.push({
+      href: buildBorderOggiPath(locale as BorderWaitLocale, borderCrossing),
+      title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[borderCrossing]),
+    });
+  }
+
+  // Guarantee exactly 5 entries (fallbacks to city hub / recency hub if missing).
+  while (out.length < 5) {
+    out.push({ href: JOB_LISTING_ROOT[locale], title: copy.allJobs });
+  }
+  return out.slice(0, 5);
+}
+
+/**
+ * Display label for a weekly-employers city (used inside localized copy
+ * templates that render "Companies hiring in {city} this week").
+ */
+function WEEKLY_EMPLOYERS_CITY_DISPLAY_FOR_LINK(city: WeeklyEmployersCity): string {
+  const map: Record<WeeklyEmployersCity, string> = {
+    ticino: 'Ticino',
+    lugano: 'Lugano',
+    mendrisio: 'Mendrisio',
+    chiasso: 'Chiasso',
+    stabio: 'Stabio',
+    bellinzona: 'Bellinzona',
+    locarno: 'Locarno',
+  };
+  return map[city];
+}
+
 function linksForJobMarketSnapshot(locale: LinkLocale, copy: Copy, _ctx?: RelatedLinksContext): RelatedLink[] {
   const weeklyLocale = locale as WeeklyEmployersLocale;
   const out: RelatedLink[] = [];
@@ -722,6 +818,8 @@ export function generateRelatedLinks(
       return linksForFuelDaily(locale, copy, context);
     case 'weekly_employers':
       return linksForWeeklyEmployers(locale, copy, context);
+    case 'weekly_employer_company_city':
+      return linksForWeeklyEmployerCompanyCity(locale, copy, context);
     case 'job_market_snapshot':
       return linksForJobMarketSnapshot(locale, copy, context);
     case 'health_premiums':

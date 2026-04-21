@@ -52,6 +52,30 @@ const translations: Record<string, string> = {
   'weeklyEmployers.breadcrumb.section': 'Unternehmen mit offenen Stellen',
   'weeklyEmployers.archive.noindexNote':
     'Historisches Archiv — zur Kontinuität aufbewahrt, nicht mehr aktualisiert.',
+  // Company × city page (D-2 Expansion B).
+  'weeklyEmployers.companyCity.h1.current':
+    'Unternehmen mit offenen Stellen — {employer} in {city}, aktuelle Woche',
+  'weeklyEmployers.companyCity.h1.archive':
+    'Unternehmen mit offenen Stellen — {employer} in {city}, Woche {week} {year}',
+  'weeklyEmployers.companyCity.kicker': 'Unternehmen × Stadt',
+  'weeklyEmployers.companyCity.heroWithDelta':
+    'Diese Woche hat {employer} {jobsCount} offene Stellen in {city} ({deltaLabel}).',
+  'weeklyEmployers.companyCity.heroNoDelta':
+    'Diese Woche hat {employer} {jobsCount} offene Stellen in {city}. Basisdaten — die Wochenveränderung ist ab der nächsten Erhebung verfügbar.',
+  'weeklyEmployers.companyCity.jobsHeading':
+    'Offene Stellen bei {employer} in {city} diese Woche',
+  'weeklyEmployers.companyCity.applyCta': 'Stelle ansehen',
+  'weeklyEmployers.companyCity.brandHubLabel': 'Arbeitgeberseite: {employer}',
+  'weeklyEmployers.companyCity.parentHubLabel':
+    'Alle Unternehmen mit offenen Stellen in {city} diese Woche',
+  'weeklyEmployers.companyCity.cityHubLabel': 'Alle Stellen in {city}',
+  'weeklyEmployers.companyCity.siblingLabel': '{employer} in {city}',
+  'weeklyEmployers.companyCity.faq.why.q':
+    'Warum eine eigene Seite für {employer}?',
+  'weeklyEmployers.companyCity.faq.howApply.q':
+    'Wie bewerbe ich mich auf diese Stellen?',
+  'weeklyEmployers.companyCity.faq.update.q':
+    'Wie oft wird diese Seite aktualisiert?',
 };
 
 export default translations;

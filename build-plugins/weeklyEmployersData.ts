@@ -304,3 +304,213 @@ export function isoWeekKey(d: Date): string {
 export function isWeeklyEmployersPath(pathname: string): boolean {
   return parseWeeklyEmployersPath(pathname) !== null;
 }
+
+// ─────────────────────────────────────────────────────────────────────
+// D-2 Expansion B — per-company × per-city hubs (F5 sub-feature).
+//
+// URL pattern (current):
+//   IT:  /aziende-che-assumono/{city}/{company-slug}/settimana-corrente/
+//   EN:  /en/companies-hiring/{city}/{company-slug}/current-week/
+//   DE:  /de/unternehmen-einstellen/{city}/{company-slug}/aktuelle-woche/
+//   FR:  /fr/entreprises-recrutent/{city}/{company-slug}/semaine-courante/
+//
+// Archives mirror the section-level archive slug:
+//   IT:  /aziende-che-assumono/{city}/{company-slug}/settimana-16-2026/
+//
+// The regional "ticino" hub is SKIPPED for per-company pages because the
+// city coverage (lugano/mendrisio/...) already aggregates the same data
+// and a duplicate Ticino-wide per-company page would be low-value.
+// ─────────────────────────────────────────────────────────────────────
+
+/** Cities eligible for company-city pages (regional "ticino" hub excluded). */
+export type WeeklyEmployersCompanyCity = Exclude<WeeklyEmployersCity, 'ticino'>;
+
+export const WEEKLY_EMPLOYERS_COMPANY_CITY_LIST: readonly WeeklyEmployersCompanyCity[] = [
+  'lugano',
+  'mendrisio',
+  'chiasso',
+  'stabio',
+  'bellinzona',
+  'locarno',
+] as const;
+
+/** Hard gate: min active jobs for a company to qualify for a per-company × per-city page. */
+export const MIN_JOBS_PER_COMPANY_IN_CITY = 3;
+
+/** Per-build cap so the sitemap can't balloon if a crawler mis-aggregates. */
+export const MAX_COMPANY_CITY_PAGES_PER_BUILD = 1500;
+
+/**
+ * Canonicalise a company name + optional companyKey into a URL-safe slug.
+ * Mirrors the build-side `canonicalCompanySlugBuild` used by
+ * jobsSeoPagesPlugin.ts (Lidl special-case + ASCII slugify).
+ */
+export function canonicalCompanySlug(
+  company: string,
+  companyKey?: string,
+): string {
+  const norm = (s: string): string =>
+    String(s || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  const keyNorm = norm(companyKey || '');
+  const nameNorm = norm(company);
+  if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
+  // Fall back to slugified company name.
+  return norm(company).replace(/\s+/g, '-');
+}
+
+/**
+ * Build canonical path for the "current week" company-city hub.
+ * Example: /aziende-che-assumono/lugano/eoc-ente-ospedaliero-cantonale/settimana-corrente/
+ */
+export function buildCompanyCityCurrentPath(
+  locale: WeeklyEmployersLocale,
+  city: WeeklyEmployersCompanyCity,
+  companySlug: string,
+): string {
+  return joinPath([
+    WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale],
+    WEEKLY_EMPLOYERS_SECTION[locale],
+    city,
+    companySlug,
+    WEEKLY_EMPLOYERS_CURRENT_SLUG[locale],
+  ]);
+}
+
+/** Build canonical path for an archive company-city page. */
+export function buildCompanyCityArchivePath(
+  locale: WeeklyEmployersLocale,
+  city: WeeklyEmployersCompanyCity,
+  companySlug: string,
+  weekNum: number,
+  year: number,
+): string {
+  return joinPath([
+    WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale],
+    WEEKLY_EMPLOYERS_SECTION[locale],
+    city,
+    companySlug,
+    buildArchiveSlug(locale, weekNum, year),
+  ]);
+}
+
+const COMPANY_CITY_SET: ReadonlySet<WeeklyEmployersCompanyCity> = new Set(
+  WEEKLY_EMPLOYERS_COMPANY_CITY_LIST,
+);
+
+/** Parsed descriptor for a /aziende-che-assumono/{city}/{company}/{when}/ URL. */
+export interface WeeklyEmployersCompanyCityParsed {
+  locale: WeeklyEmployersLocale;
+  city: WeeklyEmployersCompanyCity;
+  companySlug: string;
+  variant: 'current' | 'archive';
+  weekNum?: number;
+  year?: number;
+}
+
+/**
+ * Parse a company-city URL. Returns null if the shape is wrong or the
+ * city / locale combo does not match.
+ */
+export function parseCompanyCityPath(
+  urlPath: string,
+): WeeklyEmployersCompanyCityParsed | null {
+  if (!urlPath) return null;
+  const leading = urlPath.startsWith('/') ? urlPath : `/${urlPath}`;
+  const withSlash = leading.endsWith('/') ? leading : `${leading}/`;
+
+  const parts = withSlash.split('/').filter(Boolean);
+  // Need at least: section + city + company + when  → 4 segments (IT)
+  // or locale + 4 more (EN/DE/FR).
+  if (parts.length < 4) return null;
+
+  let idx = 0;
+  let locale: WeeklyEmployersLocale = 'it';
+  if (parts[0] === 'en' || parts[0] === 'de' || parts[0] === 'fr') {
+    locale = parts[0] as WeeklyEmployersLocale;
+    idx = 1;
+  }
+
+  if (parts[idx] !== WEEKLY_EMPLOYERS_SECTION[locale]) return null;
+
+  const citySeg = parts[idx + 1];
+  const companySeg = parts[idx + 2];
+  const tailSeg = parts[idx + 3];
+  if (!citySeg || !companySeg || !tailSeg) return null;
+  if (idx + 4 !== parts.length) return null;
+
+  if (!COMPANY_CITY_SET.has(citySeg as WeeklyEmployersCompanyCity)) return null;
+  const city = citySeg as WeeklyEmployersCompanyCity;
+
+  // Guard: companySeg must be a sluggy string, not a known archive/current slug.
+  if (companySeg === WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]) return null;
+  if (ARCHIVE_SLUG_RE.test(companySeg)) return null;
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(companySeg)) return null;
+
+  if (tailSeg === WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]) {
+    return { locale, city, companySlug: companySeg, variant: 'current' };
+  }
+
+  const m = ARCHIVE_SLUG_RE.exec(tailSeg);
+  if (!m) return null;
+  if (!tailSeg.startsWith(`${WEEKLY_EMPLOYERS_ARCHIVE_PREFIX[locale]}-`)) return null;
+
+  const weekNum = Number.parseInt(m[1], 10);
+  const year = Number.parseInt(m[2], 10);
+  if (!Number.isFinite(weekNum) || !Number.isFinite(year)) return null;
+  return {
+    locale,
+    city,
+    companySlug: companySeg,
+    variant: 'archive',
+    weekNum,
+    year,
+  };
+}
+
+/** Boolean form of {@link parseCompanyCityPath}. */
+export function isCompanyCityPath(pathname: string): boolean {
+  return parseCompanyCityPath(pathname) !== null;
+}
+
+/**
+ * Enumerate every (locale × city × companySlug) current-week path given
+ * a list of qualifying (city, companySlug) pairs.
+ *
+ * Pure helper — no file I/O; consumed by the plugin after it has resolved
+ * the gate-passing company set from jobs.json.
+ */
+export interface CompanyCityPair {
+  city: WeeklyEmployersCompanyCity;
+  companySlug: string;
+}
+
+export interface CompanyCityCurrentPath {
+  locale: WeeklyEmployersLocale;
+  city: WeeklyEmployersCompanyCity;
+  companySlug: string;
+  variant: 'current';
+  path: string;
+}
+
+export function listCompanyCityCurrentPaths(
+  pairs: readonly CompanyCityPair[],
+): CompanyCityCurrentPath[] {
+  const out: CompanyCityCurrentPath[] = [];
+  for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    for (const pair of pairs) {
+      out.push({
+        locale,
+        city: pair.city,
+        companySlug: pair.companySlug,
+        variant: 'current',
+        path: buildCompanyCityCurrentPath(locale, pair.city, pair.companySlug),
+      });
+    }
+  }
+  return out;
+}

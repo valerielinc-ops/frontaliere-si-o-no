@@ -50,6 +50,31 @@ const translations: Record<string, string> = {
   'weeklyEmployers.breadcrumb.section': 'Aziende che assumono',
   'weeklyEmployers.archive.noindexNote':
     'Archivio storico — mantenuto per continuità, non più aggiornato.',
+  // Company × city page (D-2 Expansion B).
+  'weeklyEmployers.companyCity.h1.current':
+    'Aziende che assumono — {employer} a {city}, settimana corrente',
+  'weeklyEmployers.companyCity.h1.archive':
+    'Aziende che assumevano — {employer} a {city}, settimana {week} {year}',
+  'weeklyEmployers.companyCity.kicker': 'Azienda × città',
+  'weeklyEmployers.companyCity.heroWithDelta':
+    'Questa settimana {employer} ha {jobsCount} offerte aperte a {city} ({deltaLabel}).',
+  'weeklyEmployers.companyCity.heroNoDelta':
+    'Questa settimana {employer} ha {jobsCount} offerte aperte a {city}. Dati iniziali — il delta settimanale sarà disponibile dalla prossima rilevazione.',
+  'weeklyEmployers.companyCity.jobsHeading':
+    'Offerte aperte di {employer} a {city} questa settimana',
+  'weeklyEmployers.companyCity.applyCta': 'Apri l\'offerta',
+  'weeklyEmployers.companyCity.brandHubLabel': 'Scheda azienda: {employer}',
+  'weeklyEmployers.companyCity.parentHubLabel':
+    'Tutte le aziende che assumono a {city} questa settimana',
+  'weeklyEmployers.companyCity.cityHubLabel':
+    'Tutte le offerte di lavoro a {city}',
+  'weeklyEmployers.companyCity.siblingLabel': '{employer} a {city}',
+  'weeklyEmployers.companyCity.faq.why.q':
+    'Perché una pagina dedicata a {employer}?',
+  'weeklyEmployers.companyCity.faq.howApply.q':
+    'Come ci si candida a queste offerte?',
+  'weeklyEmployers.companyCity.faq.update.q':
+    'Quando viene aggiornata questa pagina?',
 };
 
 export default translations;
