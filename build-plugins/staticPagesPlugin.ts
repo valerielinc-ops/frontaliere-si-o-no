@@ -2472,7 +2472,7 @@ ${hrefTags}
  // Dispatcher in services/seo/schema-translators.ts routes @type to translator.
  if (locSeo.sd && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
  const lang: SupportedLocale = hl.lang;
- const sdSeparator = '</script>\n    <script type="application/ld+json">';
+ const sdSeparator = '</script>\n <script type="application/ld+json">';
  const sdParts = locSeo.sd.split(sdSeparator);
  const translated = sdParts.map(part => {
  try {
