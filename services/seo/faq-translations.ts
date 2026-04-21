@@ -2828,7 +2828,925 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  q: "Le simulateur inclut-il le 13e mois et les allocations familiales ?",
  a: "Le salaire brut annuel saisi inclut deja le 13e mois (divise par 13 pour obtenir le brut mensuel). Les allocations familiales cantonales (environ CHF 200-300 par mois et par enfant au Tessin) ne sont pas incluses dans la simulation car elles ne sont pas soumises aux cotisations sociales ni a l'impot a la source : ajoutez-les au net calcule."
  }
+ },
+ // ── New coverage: seo-pages.ts (tax/cost/stats/jobs/13th/maternity/comparison) ──
+ "Come si calcolano le tasse per i nuovi frontalieri 2026?": {
+ en: {
+ q: "How are taxes calculated for new cross-border workers in 2026?",
+ a: "The calculation follows three steps: first, Swiss social contributions are deducted (AVS 5.3%, unemployment insurance 1.1%, BVG based on age), then the cantonal withholding tax is applied at 80% of the ordinary rate under table A/B/C/H, finally Italian IRPEF is calculated on the EUR-converted income minus the €10,000 exemption, with a tax credit for taxes already paid in Switzerland."
+ },
+ de: {
+ q: "Wie werden die Steuern fuer neue Grenzgaenger 2026 berechnet?",
+ a: "Die Berechnung erfolgt in drei Schritten: zuerst werden die Schweizer Sozialabgaben abgezogen (AHV 5,3 %, ALV 1,1 %, BVG je nach Alter), dann wird die kantonale Quellensteuer zu 80 % des ordentlichen Tarifs nach Tabelle A/B/C/H angewandt, zum Schluss wird die italienische IRPEF auf das in EUR umgerechnete Einkommen abzueglich des Freibetrags von 10.000 EUR berechnet, unter Anrechnung der in der Schweiz bereits gezahlten Steuern."
+ },
+ fr: {
+ q: "Comment sont calculees les impots pour les nouveaux frontaliers en 2026 ?",
+ a: "Le calcul suit trois etapes : d'abord les cotisations sociales suisses sont deduites (AVS 5,3 %, AC 1,1 %, LPP selon l'age), puis l'impot a la source cantonal est applique a 80 % du taux ordinaire selon le bareme A/B/C/H, enfin l'IRPEF italien est calcule sur le revenu converti en EUR diminue de la franchise de 10 000 EUR, avec un credit d'impot pour les impots deja payes en Suisse."
  }
+ },
+
+ "Qual è la franchigia per nuovi frontalieri?": {
+ en: {
+ q: "What is the exemption amount for new cross-border workers?",
+ a: "The exemption for new cross-border workers is €10,000 per year. This means that the first €10,000 of income earned in Switzerland is exempt from Italian IRPEF. The exemption is applied automatically when filing the tax return and significantly reduces the Italian tax burden compared to ordinary taxation."
+ },
+ de: {
+ q: "Wie hoch ist der Freibetrag fuer neue Grenzgaenger?",
+ a: "Der Freibetrag fuer neue Grenzgaenger betraegt 10.000 EUR pro Jahr. Das bedeutet, dass die ersten 10.000 EUR des in der Schweiz erzielten Einkommens von der italienischen IRPEF befreit sind. Der Freibetrag wird bei der Steuererklaerung automatisch beruecksichtigt und senkt die italienische Steuerlast gegenueber der normalen Besteuerung erheblich."
+ },
+ fr: {
+ q: "Quelle est la franchise pour les nouveaux frontaliers ?",
+ a: "La franchise pour les nouveaux frontaliers est de 10 000 EUR par an. Cela signifie que les premiers 10 000 EUR de revenu tire du travail en Suisse sont exoneres d'IRPEF en Italie. La franchise s'applique automatiquement lors de la declaration de revenus et reduit sensiblement la charge fiscale italienne par rapport a l'imposition ordinaire."
+ }
+ },
+
+ "Differenza tra vecchi e nuovi frontalieri per le tasse?": {
+ en: {
+ q: "What is the tax difference between old and new cross-border workers?",
+ a: "Old cross-border workers (hired before 17/07/2023 and resident within 20 km of the border) pay only Swiss withholding tax and are exempt from Italian IRPEF. New cross-border workers pay both Swiss withholding tax (reduced to 80%) and Italian IRPEF, but benefit from the €10,000 exemption and the tax credit. For salaries below €35,000, the net difference is often less than €100/month."
+ },
+ de: {
+ q: "Was ist der steuerliche Unterschied zwischen alten und neuen Grenzgaengern?",
+ a: "Alte Grenzgaenger (vor dem 17.07.2023 eingestellt und wohnhaft innerhalb von 20 km zur Grenze) zahlen nur die Quellensteuer in der Schweiz und sind von der italienischen IRPEF befreit. Neue Grenzgaenger zahlen sowohl die Schweizer Quellensteuer (auf 80 % reduziert) als auch die italienische IRPEF, profitieren aber vom Freibetrag von 10.000 EUR und der Steuergutschrift. Bei Gehaeltern unter 35.000 EUR ist der Nettounterschied oft geringer als 100 EUR/Monat."
+ },
+ fr: {
+ q: "Quelle est la difference fiscale entre anciens et nouveaux frontaliers ?",
+ a: "Les anciens frontaliers (embauches avant le 17/07/2023 et residant dans un rayon de 20 km de la frontiere) paient uniquement l'impot a la source suisse et sont exoneres de l'IRPEF italien. Les nouveaux frontaliers paient a la fois l'impot a la source suisse (reduit a 80 %) et l'IRPEF italien, mais beneficient de la franchise de 10 000 EUR et du credit d'impot. Pour les salaires inferieurs a 35 000 EUR, l'ecart net est souvent inferieur a 100 EUR/mois."
+ }
+ },
+
+ "Conviene vivere in Svizzera o in Italia come frontaliere?": {
+ en: {
+ q: "Is it better to live in Switzerland or Italy as a cross-border worker?",
+ a: "It depends on priorities: living in Switzerland (B permit) means no commuting, Swiss services and no double taxation, but living costs 40–60% higher. Living in Italy (G permit) cuts fixed costs by 30–45%, preserves access to the Italian SSN healthcare and Italian public schools, but adds 1–2 hours of daily commuting and the fiscal complexity of the 2026 New Agreement."
+ },
+ de: {
+ q: "Lohnt es sich, als Grenzgaenger in der Schweiz oder in Italien zu wohnen?",
+ a: "Das haengt von den Prioritaeten ab: Wohnen in der Schweiz (Bewilligung B) bedeutet kein Pendeln, Schweizer Dienstleistungen und keine Doppelbesteuerung, jedoch 40–60 % hoehere Lebenshaltungskosten. Wohnen in Italien (Bewilligung G) senkt die Fixkosten um 30–45 %, erhaelt den Zugang zum italienischen Gesundheitssystem SSN und zu oeffentlichen Schulen in Italien, bringt aber 1–2 Stunden taegliches Pendeln und die steuerliche Komplexitaet des Neuen Abkommens 2026 mit sich."
+ },
+ fr: {
+ q: "Vaut-il mieux vivre en Suisse ou en Italie comme frontalier ?",
+ a: "Cela depend des priorites : vivre en Suisse (permis B) evite les trajets, offre les services suisses et evite la double imposition, mais le cout de la vie est 40–60 % plus eleve. Vivre en Italie (permis G) reduit les couts fixes de 30–45 %, conserve l'acces au SSN italien et aux ecoles publiques italiennes, mais ajoute 1–2 heures de trajet quotidien et la complexite fiscale du Nouvel Accord 2026."
+ }
+ },
+
+ "Quali sono i migliori comuni italiani per frontalieri?": {
+ en: {
+ q: "Which are the best Italian municipalities for cross-border workers?",
+ a: "The most popular municipalities are those within 20 km of the Swiss border in the provinces of Como, Varese and Verbano-Cusio-Ossola. Towns such as Cantu, Olgiate Comasco, Luino, Lavena Ponte Tresa and Ponte Tresa offer good transport links, affordable costs and family services. The ranking varies based on the border crossing used and the workplace in Ticino."
+ },
+ de: {
+ q: "Welche sind die besten italienischen Gemeinden fuer Grenzgaenger?",
+ a: "Die beliebtesten Gemeinden liegen innerhalb von 20 km zur Schweizer Grenze in den Provinzen Como, Varese und Verbano-Cusio-Ossola. Orte wie Cantu, Olgiate Comasco, Luino, Lavena Ponte Tresa und Ponte Tresa bieten gute Verkehrsanbindungen, moderate Kosten und Familienangebote. Das Ranking variiert je nach Grenzuebergang und Arbeitsort im Tessin."
+ },
+ fr: {
+ q: "Quelles sont les meilleures communes italiennes pour les frontaliers ?",
+ a: "Les communes les plus choisies se trouvent dans un rayon de 20 km de la frontiere suisse, dans les provinces de Come, Varese et Verbano-Cusio-Ossola. Des villes comme Cantu, Olgiate Comasco, Luino, Lavena Ponte Tresa et Ponte Tresa offrent de bonnes liaisons, des couts maitrises et des services pour les familles. Le classement varie selon le poste-frontiere utilise et le lieu de travail au Tessin."
+ }
+ },
+
+ "Quanto costa il pendolarismo da frontaliere?": {
+ en: {
+ q: "How much does cross-border commuting cost?",
+ a: "The average commuting cost ranges from CHF 200–400/month by car (fuel + motorway + parking) to CHF 100–250/month by public transport (TILO/FerrovieNord season pass). Average travel time is 45–90 minutes each way, with peaks during rush hour at the main crossings (Chiasso, Stabio, Gaggiolo)."
+ },
+ de: {
+ q: "Wie viel kostet das Pendeln als Grenzgaenger?",
+ a: "Die durchschnittlichen Pendelkosten liegen zwischen CHF 200–400/Monat mit dem Auto (Benzin + Autobahn + Parkplatz) und CHF 100–250/Monat mit oeffentlichen Verkehrsmitteln (TILO/FerrovieNord-Abo). Die durchschnittliche Fahrzeit betraegt 45–90 Minuten pro Weg, mit Spitzen in den Stosszeiten an den Hauptgrenzuebergaengen (Chiasso, Stabio, Gaggiolo)."
+ },
+ fr: {
+ q: "Combien coute le trajet domicile-travail pour un frontalier ?",
+ a: "Le cout moyen des trajets varie de CHF 200–400/mois en voiture (carburant + autoroute + parking) a CHF 100–250/mois en transports publics (abonnement TILO/FerrovieNord). La duree moyenne du trajet est de 45–90 minutes par sens, avec des pics aux heures de pointe aux principaux postes-frontieres (Chiasso, Stabio, Gaggiolo)."
+ }
+ },
+
+ "Come funziona l'assicurazione sanitaria per i frontalieri?": {
+ en: {
+ q: "How does health insurance work for cross-border workers?",
+ a: "Cross-border workers with a G permit have the right of option: they can choose Swiss LAMal (premiums from CHF 300–500/month) or the Italian SSN (much lower INPS contributions). The choice must be made within 3 months of starting work and is generally irrevocable. The SSN is cheaper but only covers Italy; LAMal covers the whole of Switzerland."
+ },
+ de: {
+ q: "Wie funktioniert die Krankenversicherung fuer Grenzgaenger?",
+ a: "Grenzgaenger mit Bewilligung G haben das Optionsrecht: sie koennen zwischen der Schweizer KVG (LAMal) waehlen (Praemien ab CHF 300–500/Monat) oder dem italienischen SSN (deutlich niedrigere INPS-Beitraege). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsaufnahme erfolgen und ist in der Regel unwiderruflich. Der SSN ist guenstiger, deckt aber nur Italien ab; die LAMal deckt die gesamte Schweiz ab."
+ },
+ fr: {
+ q: "Comment fonctionne l'assurance maladie pour les frontaliers ?",
+ a: "Les frontaliers avec permis G disposent du droit d'option : ils peuvent choisir la LAMal suisse (primes de CHF 300–500/mois) ou le SSN italien (cotisations INPS bien inferieures). Le choix doit etre fait dans les 3 mois suivant le debut du travail et est en general irrevocable. Le SSN est moins cher mais ne couvre que l'Italie ; la LAMal couvre toute la Suisse."
+ }
+ },
+
+ "Quanti frontalieri lavorano in Canton Ticino nel 2026?": {
+ en: {
+ q: "How many cross-border workers work in Canton Ticino in 2026?",
+ a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (BFS 2025 data). Ticino is the canton with the highest concentration of cross-border workers, around 30% of the cantonal workforce."
+ },
+ de: {
+ q: "Wie viele Grenzgaenger arbeiten 2026 im Kanton Tessin?",
+ a: "Rund 79.000 Grenzgaenger pendeln taeglich aus Italien in den Kanton Tessin (Daten BFS 2025). Das Tessin ist der Kanton mit der hoechsten Grenzgaengerdichte, rund 30 % der kantonalen Erwerbsbevoelkerung."
+ },
+ fr: {
+ q: "Combien de frontaliers travaillent dans le canton du Tessin en 2026 ?",
+ a: "Environ 79 000 travailleurs frontaliers font quotidiennement la navette depuis l'Italie vers le canton du Tessin (donnees OFS 2025). Le Tessin est le canton avec la plus forte concentration de frontaliers, environ 30 % de la main-d'oeuvre cantonale."
+ }
+ },
+
+ "Quali settori offrono più lavoro in Ticino?": {
+ en: {
+ q: "Which sectors offer the most jobs in Ticino?",
+ a: "The sectors with the most active openings on the job board are: IT and software development, mechanical and electrical engineering, healthcare and pharma, finance and banking, and construction. IT has seen the biggest growth over the past 12 months."
+ },
+ de: {
+ q: "Welche Branchen bieten im Tessin die meisten Stellen?",
+ a: "Die Branchen mit den meisten aktiven Stellen im Job-Board sind: IT und Softwareentwicklung, Maschinen- und Elektrotechnik, Gesundheitswesen und Pharma, Finanz und Banking sowie Baugewerbe. Die IT-Branche verzeichnete in den letzten 12 Monaten das groesste Wachstum."
+ },
+ fr: {
+ q: "Quels secteurs offrent le plus d'emplois au Tessin ?",
+ a: "Les secteurs avec le plus d'offres actives sur la plateforme sont : IT et developpement logiciel, ingenierie mecanique et electrotechnique, sante et pharma, finance et banque, et construction. Le secteur IT a connu la plus forte croissance au cours des 12 derniers mois."
+ }
+ },
+
+ "Come vengono calcolate le statistiche degli stipendi?": {
+ en: {
+ q: "How are the salary statistics calculated?",
+ a: "Salary statistics combine official BFS data (Swiss Earnings Structure Survey) with salary ranges published in job board listings. Medians and ranges are calculated by sector, role and seniority level."
+ },
+ de: {
+ q: "Wie werden die Lohnstatistiken berechnet?",
+ a: "Die Lohnstatistiken kombinieren offizielle BFS-Daten (Schweizerische Lohnstrukturerhebung) mit Lohnspannen aus den Stellenanzeigen des Job-Boards. Mediane und Spannbreiten werden nach Branche, Funktion und Erfahrungsstufe berechnet."
+ },
+ fr: {
+ q: "Comment les statistiques salariales sont-elles calculees ?",
+ a: "Les statistiques salariales combinent les donnees officielles de l'OFS (Enquete suisse sur la structure des salaires) avec les fourchettes publiees dans les annonces de la plateforme. Les medianes et fourchettes sont calculees par secteur, fonction et niveau d'experience."
+ }
+ },
+
+ "Con quale frequenza vengono aggiornati i dati?": {
+ en: {
+ q: "How often is the data updated?",
+ a: "The job-board observatory is updated twice a day with new listings. BFS data on cross-border workers is updated quarterly. Fuel prices are updated hourly. The SECO unemployment rate is updated monthly."
+ },
+ de: {
+ q: "Wie oft werden die Daten aktualisiert?",
+ a: "Das Job-Board-Observatorium wird zweimal taeglich mit neuen Stellen aktualisiert. Die BFS-Daten zu Grenzgaengern werden vierteljaehrlich aktualisiert. Die Treibstoffpreise werden stuendlich aktualisiert. Die Arbeitslosenquote des SECO wird monatlich aktualisiert."
+ },
+ fr: {
+ q: "A quelle frequence les donnees sont-elles mises a jour ?",
+ a: "L'observatoire de la plateforme emploi est mis a jour deux fois par jour avec les nouvelles offres. Les donnees OFS sur les frontaliers sont mises a jour trimestriellement. Les prix des carburants sont mis a jour toutes les heures. Le taux de chomage du SECO est mis a jour mensuellement."
+ }
+ },
+
+ "Quanto costa vivere in Svizzera rispetto all'Italia?": {
+ en: {
+ q: "How much does it cost to live in Switzerland compared to Italy?",
+ a: "The cost of living in Switzerland is on average 40–60% higher than in Italy. Rent, groceries and LAMal health insurance show the biggest gaps. A two-room flat in Lugano costs around CHF 1,400–1,800/month versus €500–800 in Como."
+ },
+ de: {
+ q: "Was kostet das Leben in der Schweiz im Vergleich zu Italien?",
+ a: "Die Lebenshaltungskosten in der Schweiz sind im Schnitt 40–60 % hoeher als in Italien. Mieten, Lebensmittel und Krankenversicherung (LAMal) weisen die groessten Unterschiede auf. Eine Zweizimmerwohnung in Lugano kostet rund CHF 1.400–1.800/Monat, in Como 500–800 EUR."
+ },
+ fr: {
+ q: "Quel est le cout de la vie en Suisse par rapport a l'Italie ?",
+ a: "Le cout de la vie en Suisse est en moyenne 40–60 % plus eleve qu'en Italie. Les loyers, l'alimentation et l'assurance maladie (LAMal) presentent les ecarts les plus importants. Un deux-pieces a Lugano coute environ CHF 1 400–1 800/mois contre 500–800 EUR a Come."
+ }
+ },
+
+ "Conviene vivere in Italia e lavorare in Svizzera?": {
+ en: {
+ q: "Is it worth living in Italy and working in Switzerland?",
+ a: "For many cross-border workers yes: the Swiss salary combined with the Italian cost of living allows a higher net saving, especially on rent and groceries. However, you should factor in transport costs, travel time and the applicable tax regime."
+ },
+ de: {
+ q: "Lohnt es sich, in Italien zu wohnen und in der Schweiz zu arbeiten?",
+ a: "Fuer viele Grenzgaenger ja: Der Schweizer Lohn in Verbindung mit den italienischen Lebenshaltungskosten ermoeglicht eine hoehere Nettoersparnis, insbesondere bei Miete und Lebensmitteln. Zu beruecksichtigen sind jedoch Transportkosten, Fahrzeiten und das geltende Steuerregime."
+ },
+ fr: {
+ q: "Vaut-il la peine de vivre en Italie et de travailler en Suisse ?",
+ a: "Pour beaucoup de frontaliers, oui : le salaire suisse combine au cout de la vie italien permet une epargne nette plus elevee, en particulier sur le loyer et les courses. Il faut cependant considerer les frais de transport, le temps de trajet et le regime fiscal applicable."
+ }
+ },
+
+ "Quali sono le città più economiche vicino al confine svizzero?": {
+ en: {
+ q: "Which are the cheapest cities near the Swiss border?",
+ a: "Among Italian border towns, Varese and parts of the Como province offer moderate costs with good links to Ticino. On the Swiss side, Mendrisio and Chiasso are slightly cheaper than Lugano."
+ },
+ de: {
+ q: "Welches sind die guenstigsten Staedte in Grenznaehe zur Schweiz?",
+ a: "Auf italienischer Seite bieten Varese und Teile der Provinz Como moderate Kosten bei guter Anbindung ans Tessin. Auf Schweizer Seite sind Mendrisio und Chiasso etwas guenstiger als Lugano."
+ },
+ fr: {
+ q: "Quelles sont les villes les plus abordables pres de la frontiere suisse ?",
+ a: "Cote italien, Varese et les zones de la province de Come offrent des couts contenus avec de bonnes liaisons vers le Tessin. Cote suisse, Mendrisio et Chiasso sont legerement moins chers que Lugano."
+ }
+ },
+
+ "Qual è la differenza tra RAL italiana e salario lordo svizzero?": {
+ en: {
+ q: "What is the difference between the Italian RAL and the Swiss gross salary?",
+ a: "The Italian RAL (Retribuzione Annua Lorda) is the total gross before taxes and employee social contributions. The Swiss equivalent is the annual gross salary (Bruttolohn), but the composition differs: INPS (9.19% employee) and IRPEF are replaced by AVS (5.3%), unemployment insurance (1.1%), BVG (variable by age) and withholding tax. At an equivalent RAL of CHF 80,000, the Swiss net is typically 25–35% higher."
+ },
+ de: {
+ q: "Was ist der Unterschied zwischen italienischem RAL und Schweizer Bruttolohn?",
+ a: "Der italienische RAL (Retribuzione Annua Lorda) ist der Gesamtbrutto vor Steuern und Arbeitnehmer-Sozialbeitraegen. In der Schweiz entspricht dies dem jaehrlichen Bruttolohn, die Zusammensetzung ist jedoch anders: INPS (9,19 % Arbeitnehmer) und IRPEF werden durch AHV (5,3 %), ALV (1,1 %), BVG (altersabhaengig) und Quellensteuer ersetzt. Bei vergleichbarem RAL von CHF 80.000 ist der Schweizer Nettolohn typischerweise 25–35 % hoeher."
+ },
+ fr: {
+ q: "Quelle est la difference entre le RAL italien et le salaire brut suisse ?",
+ a: "Le RAL italien (Retribuzione Annua Lorda) est le brut total avant impots et cotisations sociales salarie. En Suisse, l'equivalent est le salaire brut annuel (Bruttolohn), mais la composition differe : l'INPS (9,19 % salarie) et l'IRPEF sont remplaces par l'AVS (5,3 %), l'AC (1,1 %), la LPP (variable selon l'age) et l'impot a la source. A RAL equivalent de CHF 80 000, le net suisse est typiquement 25–35 % plus eleve."
+ }
+ },
+
+ "Come si confronta il netto tra Italia e Svizzera?": {
+ en: {
+ q: "How do you compare net pay between Italy and Switzerland?",
+ a: "A proper comparison considers: 1) RAL in local currency (EUR in Italy, CHF in Switzerland), 2) mandatory social contributions, 3) taxes (IRPEF + regional surcharges in Italy, withholding tax in Switzerland), 4) cost of living. A cross-border worker with CHF 70,000 gross/year has about CHF 4,600/month net; the same professional in Milan with a €45,000 RAL earns about €2,300/month net. The actual gap also depends on rent, transport and insurance."
+ },
+ de: {
+ q: "Wie vergleicht man den Nettolohn zwischen Italien und der Schweiz?",
+ a: "Ein korrekter Vergleich beruecksichtigt: 1) RAL in Landeswaehrung (EUR in Italien, CHF in der Schweiz), 2) obligatorische Sozialbeitraege, 3) Steuern (IRPEF + Regional- und Gemeindeaufschlaege in Italien, Quellensteuer in der Schweiz), 4) Lebenshaltungskosten. Ein Grenzgaenger mit CHF 70.000 brutto/Jahr hat rund CHF 4.600/Monat netto; derselbe Berufstaetige in Mailand mit 45.000 EUR RAL hat rund 2.300 EUR/Monat netto. Die tatsaechliche Differenz haengt auch von Miete, Transport und Versicherung ab."
+ },
+ fr: {
+ q: "Comment comparer le net entre l'Italie et la Suisse ?",
+ a: "Une comparaison correcte prend en compte : 1) le RAL en monnaie locale (EUR en Italie, CHF en Suisse), 2) les cotisations sociales obligatoires, 3) les impots (IRPEF + additionnelles en Italie, impot a la source en Suisse), 4) le cout de la vie. Un frontalier avec CHF 70 000 brut/an a environ CHF 4 600/mois net ; le meme professionnel a Milan avec 45 000 EUR de RAL a environ 2 300 EUR/mois net. L'ecart reel depend aussi du loyer, du transport et de l'assurance."
+ }
+ },
+
+ "Per un nuovo frontaliere, il confronto cambia?": {
+ en: {
+ q: "Does the comparison change for a new cross-border worker?",
+ a: "Yes. A new cross-border worker with CHF 70,000 gross in Switzerland (concurrent taxation regime) earns about CHF 4,100–4,300/month net after withholding tax reduced to 80%, Italian IRPEF with tax credit and a €10,000 exemption. The net differential versus Italy stays around +60–80%, about CHF 1,000/month less than under the old regime, but still significant."
+ },
+ de: {
+ q: "Aendert sich der Vergleich fuer einen neuen Grenzgaenger?",
+ a: "Ja. Ein neuer Grenzgaenger mit CHF 70.000 brutto in der Schweiz (konkurrierendes Besteuerungsregime) verdient rund CHF 4.100–4.300/Monat netto nach auf 80 % reduzierter Quellensteuer, italienischer IRPEF mit Steuergutschrift und Freibetrag von 10.000 EUR. Der Nettounterschied zu Italien liegt weiterhin bei +60–80 % und damit rund CHF 1.000/Monat unter dem alten Regime, bleibt aber erheblich."
+ },
+ fr: {
+ q: "La comparaison change-t-elle pour un nouveau frontalier ?",
+ a: "Oui. Un nouveau frontalier avec CHF 70 000 brut en Suisse (regime d'imposition concurrente) gagne environ CHF 4 100–4 300/mois net apres impot a la source reduit a 80 %, IRPEF italien avec credit d'impot et franchise de 10 000 EUR. L'ecart net par rapport a l'Italie reste d'environ +60–80 %, soit environ CHF 1 000/mois de moins que sous l'ancien regime, mais toujours significatif."
+ }
+ },
+
+ "Il 13° stipendio è incluso nella RAL?": {
+ en: {
+ q: "Is the 13th-month salary included in the RAL?",
+ a: "In Italy yes: the RAL typically includes the 13th month (and the 14th where the national collective agreement provides for it). In Switzerland the 13th month is not required by law but is usually contractual: the contract may state 12 months plus a 13th (total package) or an explicit 13 months. Always check the contract and the sector CLA: the difference between 12 and 13 months is worth about CHF 5,000–7,000/year."
+ },
+ de: {
+ q: "Ist der 13. Monatslohn im RAL enthalten?",
+ a: "In Italien ja: Der RAL umfasst in der Regel den 13. Monatslohn (und den 14., wo der Kollektivvertrag ihn vorsieht). In der Schweiz ist der 13. Monatslohn gesetzlich nicht vorgeschrieben, aber in der Regel vertraglich geregelt: Der Vertrag kann 12 Monate plus 13. (Gesamtpaket) oder explizit 13 Monate nennen. Immer Vertrag und Branchen-GAV pruefen: Der Unterschied zwischen 12 und 13 Monatsloehnen betraegt rund CHF 5.000–7.000/Jahr."
+ },
+ fr: {
+ q: "Le 13e salaire est-il inclus dans le RAL ?",
+ a: "En Italie, oui : le RAL inclut generalement la 13e (et la 14e lorsque la convention collective la prevoit). En Suisse, le 13e mois n'est pas obligatoire par la loi mais est generalement contractuel : le contrat peut indiquer 12 mois plus un 13e (package global) ou explicitement 13 mois. Toujours verifier le contrat et la CCT sectorielle : la difference entre 12 et 13 mois represente environ CHF 5 000–7 000/an."
+ }
+ },
+
+ "Come incide il comune di residenza italiana sul confronto?": {
+ en: {
+ q: "How does the Italian municipality of residence affect the comparison?",
+ a: "For new cross-border workers, the Italian municipality of residence determines the municipal IRPEF surcharge (0–0.9%) and indirectly other local taxes (IMU, TARI, TASI). A cross-border worker resident in Como (0.8% surcharge) pays hundreds of euros more than a resident in a municipality where the surcharge has been zeroed out by tax rebates. The simulator includes data for the main border municipalities for an accurate comparison."
+ },
+ de: {
+ q: "Wie wirkt sich die italienische Wohnsitzgemeinde auf den Vergleich aus?",
+ a: "Fuer neue Grenzgaenger bestimmt die italienische Wohnsitzgemeinde den kommunalen IRPEF-Zuschlag (0–0,9 %) und indirekt weitere lokale Abgaben (IMU, TARI, TASI). Ein Grenzgaenger mit Wohnsitz in Como (Zuschlag 0,8 %) zahlt Hunderte Euro mehr als ein Einwohner einer Gemeinde mit dank Steuerrueckverguetungen auf null gesetztem Zuschlag. Der Simulator enthaelt Daten zu den wichtigsten Grenzgemeinden fuer einen praezisen Vergleich."
+ },
+ fr: {
+ q: "Comment la commune italienne de residence influence-t-elle la comparaison ?",
+ a: "Pour les nouveaux frontaliers, la commune italienne de residence determine l'additionnelle communale IRPEF (0–0,9 %) et indirectement d'autres taxes locales (IMU, TARI, TASI). Un frontalier resident a Come (additionnelle 0,8 %) paie des centaines d'euros de plus qu'un resident d'une commune dont l'additionnelle est ramenee a zero grace aux ristournes fiscales. Le simulateur inclut les donnees des principales communes frontalieres pour une comparaison precise."
+ }
+ },
+
+ "Come si usa il confronto RAL per una trattativa salariale?": {
+ en: {
+ q: "How do you use the RAL comparison in a salary negotiation?",
+ a: "Simulate the monthly net in euros with your current gross and the one proposed by the Swiss employer. Add the extra costs of cross-border work: LAMal or SSN, commuting, fuel, time spent commuting. Ask for a Swiss RAL increase that covers at least 120% of the differential (safety margin). A precise comparison prevents emotional decisions: many people think they earn double, but the actual net advantage is often 30–60%."
+ },
+ de: {
+ q: "Wie verwendet man den RAL-Vergleich in einer Gehaltsverhandlung?",
+ a: "Simulieren Sie den monatlichen Nettolohn in Euro mit Ihrem aktuellen Brutto und dem vom Schweizer Arbeitgeber vorgeschlagenen. Addieren Sie die Zusatzkosten des Grenzgaengerdaseins: LAMal oder SSN, Pendlerkosten, Benzin, Pendelzeit. Fordern Sie eine Schweizer RAL-Erhoehung, die mindestens 120 % der Differenz abdeckt (Sicherheitsmarge). Ein praeziser Vergleich verhindert emotionale Entscheidungen: viele glauben, das Doppelte zu verdienen, doch der reale Nettovorteil liegt oft bei 30–60 %."
+ },
+ fr: {
+ q: "Comment utiliser la comparaison RAL dans une negociation salariale ?",
+ a: "Simulez le net mensuel en euros avec votre brut actuel et celui propose par l'employeur suisse. Ajoutez les couts supplementaires du frontalierat : LAMal ou SSN, transport domicile-travail, carburant, temps de trajet. Demandez une augmentation du RAL suisse couvrant au moins 120 % du differentiel (marge de securite). Une comparaison precise evite les decisions emotionnelles : beaucoup pensent gagner le double, mais l'avantage net reel est souvent de 30–60 %."
+ }
+ },
+
+ "Quale congedo maternità spetta a una frontaliera in Svizzera?": {
+ en: {
+ q: "What maternity leave is a female cross-border worker entitled to in Switzerland?",
+ a: "A female cross-border worker with a Swiss contract is entitled to federal APG (loss-of-earnings allowance): 14 weeks of maternity leave at 80% of salary (max CHF 220/day, about CHF 6,600/month). It starts on the day of childbirth. Some Ticino collective agreements improve coverage to 100% of the first few weeks. The leave can only be extended via an unpaid company agreement."
+ },
+ de: {
+ q: "Welchen Mutterschaftsurlaub hat eine Grenzgaengerin in der Schweiz?",
+ a: "Die Grenzgaengerin mit Schweizer Arbeitsvertrag hat Anspruch auf die bundesrechtliche EO (Erwerbsersatzordnung): 14 Wochen Mutterschaftsurlaub zu 80 % des Lohnes (max. CHF 220/Tag, rund CHF 6.600/Monat). Beginn am Tag der Geburt. Einige Tessiner GAV verbessern die Deckung auf 100 % in den ersten Wochen. Eine Verlaengerung ist nur per unbezahltem Betriebsvereinbarung moeglich."
+ },
+ fr: {
+ q: "A quel conge maternite une frontaliere a-t-elle droit en Suisse ?",
+ a: "La frontaliere avec contrat suisse a droit a l'APG federale (allocation pour perte de gain) : 14 semaines de maternite a 80 % du salaire (max CHF 220/jour, environ CHF 6 600/mois). Debut au jour de l'accouchement. Certaines CCT tessinoises ameliorent la couverture a 100 % pour les premieres semaines. Le conge ne peut etre prolonge que via un accord d'entreprise non remunere."
+ }
+ },
+
+ "La frontaliera riceve anche qualcosa dall'INPS italiano?": {
+ en: {
+ q: "Does the female cross-border worker also receive anything from the Italian INPS?",
+ a: "No for compulsory maternity leave: the lex loci laboris applies, so the Swiss system is used. Italian INPS only intervenes if the cross-border worker is unemployed (at birth) or at the end of the Swiss leave during the optional parental leave period. Some mothers may combine mixed allowances if they also work part-time in Italy: a patronato check is required."
+ },
+ de: {
+ q: "Erhaelt die Grenzgaengerin auch etwas von der italienischen INPS?",
+ a: "Nein, nicht fuer den obligatorischen Mutterschaftsurlaub: Es gilt die lex loci laboris, daher kommt das Schweizer System zur Anwendung. Die italienische INPS tritt nur ein, wenn die Grenzgaengerin zum Zeitpunkt der Geburt arbeitslos ist oder nach Ende des Schweizer Urlaubs waehrend der fakultativen Elternzeit. Einige Muetter koennen Mischleistungen kumulieren, wenn sie auch in Italien Teilzeit arbeiten: eine Pruefung durch ein Patronat ist noetig."
+ },
+ fr: {
+ q: "La frontaliere recoit-elle aussi quelque chose de l'INPS italien ?",
+ a: "Non pour le conge maternite obligatoire : c'est la lex loci laboris qui s'applique, donc le systeme suisse est utilise. L'INPS italien intervient uniquement si la frontaliere est au chomage (au moment de l'accouchement) ou apres le conge suisse pendant la periode de conge parental facultatif. Certaines meres peuvent cumuler des indemnites mixtes si elles travaillent aussi a temps partiel en Italie : verification avec un patronato indispensable."
+ }
+ },
+
+ "Quanto dura il congedo di paternità in Svizzera per frontalieri?": {
+ en: {
+ q: "How long is paternity leave in Switzerland for cross-border workers?",
+ a: "Since 2021, a cross-border father has been entitled to 2 weeks (10 working days) of paternity leave at 80% of salary through federal APG, to be taken within 6 months of birth. The leave is much shorter than the Italian version (10 Swiss days vs. 10 Italian days plus 6 months of optional parental leave at 30%). Some collective agreements improve it to 3–4 weeks."
+ },
+ de: {
+ q: "Wie lange dauert der Vaterschaftsurlaub fuer Grenzgaenger in der Schweiz?",
+ a: "Seit 2021 hat der Grenzgaenger-Vater Anspruch auf 2 Wochen (10 Arbeitstage) Vaterschaftsurlaub zu 80 % des Lohnes ueber die bundesrechtliche EO, zu beziehen innerhalb von 6 Monaten nach der Geburt. Der Urlaub ist deutlich kuerzer als der italienische (10 Tage Schweiz gegenueber 10 Tage Italien + fakultativem 6-monatigem Elternurlaub zu 30 %). Einige GAV verbessern ihn auf 3–4 Wochen."
+ },
+ fr: {
+ q: "Quelle est la duree du conge paternite en Suisse pour les frontaliers ?",
+ a: "Depuis 2021, le pere frontalier a droit a 2 semaines (10 jours ouvres) de conge paternite a 80 % du salaire via l'APG federale, a prendre dans les 6 mois suivant la naissance. Le conge est beaucoup plus court que celui italien (10 jours suisses contre 10 jours italiens + conge parental facultatif de 6 mois a 30 %). Certaines CCT l'ameliorent a 3–4 semaines."
+ }
+ },
+
+ "Posso estendere il congedo con la normativa italiana?": {
+ en: {
+ q: "Can I extend the leave under Italian rules?",
+ a: "Italian parental leave (up to 10 months combinable between parents, 30% INPS allowance for the first 6 months, optional) does not apply to cross-border workers because of the lex loci laboris. However, some Swiss companies grant unpaid company parental leave of up to 12 months. The choice between returning to work and extending leave is an individual economic decision."
+ },
+ de: {
+ q: "Kann ich den Urlaub nach italienischem Recht verlaengern?",
+ a: "Die italienische Elternzeit (bis 10 Monate zwischen den Eltern aufteilbar, INPS-Leistung von 30 % fuer die ersten 6 Monate, fakultativ) gilt fuer Grenzgaenger nicht, da die lex loci laboris Anwendung findet. Einige Schweizer Unternehmen gewaehren jedoch bis zu 12 Monate unbezahlten betrieblichen Elternurlaub. Die Entscheidung zwischen Rueckkehr und Verlaengerung ist eine individuelle wirtschaftliche Frage."
+ },
+ fr: {
+ q: "Puis-je prolonger le conge en vertu de la reglementation italienne ?",
+ a: "Le conge parental italien (jusqu'a 10 mois cumulables entre parents, indemnite INPS a 30 % les 6 premiers mois, facultatif) ne s'applique pas aux frontaliers en raison de la lex loci laboris. Certaines entreprises suisses accordent toutefois un conge parental d'entreprise non remunere jusqu'a 12 mois. Le choix entre la reprise du travail et la prolongation en conge sans solde est une decision economique personnelle."
+ }
+ },
+
+ "Come si calcola l'indennità IPG per la maternità?": {
+ en: {
+ q: "How is the APG maternity allowance calculated?",
+ a: "Swiss APG is 80% of the average AVS salary over the months preceding childbirth, capped at CHF 220/day (max CHF 6,600/month gross). The calculation considers all AVS contributions of the previous 12 months divided by the number of days worked. The allowance is subject to withholding tax like an ordinary salary. No BVG contributions are paid on the allowance (the 2nd pillar is suspended for that period)."
+ },
+ de: {
+ q: "Wie wird die EO-Mutterschaftsentschaedigung berechnet?",
+ a: "Die Schweizer EO entspricht 80 % des durchschnittlichen AHV-Lohnes der Monate vor der Geburt, hoechstens CHF 220/Tag (max. CHF 6.600/Monat brutto). Der Berechnung liegen alle AHV-Beitraege der letzten 12 Monate geteilt durch die Anzahl der gearbeiteten Tage zugrunde. Die Entschaedigung unterliegt wie der ordentliche Lohn der Quellensteuer. Auf der Entschaedigung werden keine BVG-Beitraege erhoben (Unterbruch der 2. Saeule fuer diesen Zeitraum)."
+ },
+ fr: {
+ q: "Comment l'APG maternite est-elle calculee ?",
+ a: "L'APG suisse est de 80 % du salaire AVS moyen des mois precedant l'accouchement, plafonnee a CHF 220/jour (max CHF 6 600/mois brut). Le calcul prend en compte toutes les cotisations AVS des 12 derniers mois divisees par le nombre de jours travailles. L'indemnite est soumise a l'impot a la source comme un salaire ordinaire. Aucune cotisation LPP n'est percue sur l'indemnite (le 2e pilier est interrompu pour cette periode)."
+ }
+ },
+
+ "Perdo il posto di lavoro se prendo il congedo maternità svizzero?": {
+ en: {
+ q: "Do I lose my job if I take Swiss maternity leave?",
+ a: "No. The Swiss Code of Obligations (art. 336c) forbids dismissal during pregnancy and for the 16 weeks following childbirth. A dismissal notified in this period is null and void. The employment relationship and contract continue normally. On return, the employer must offer tasks compatible with the previous role. Protection is similar to but not identical to the Italian one."
+ },
+ de: {
+ q: "Verliere ich meine Stelle, wenn ich den Schweizer Mutterschaftsurlaub nehme?",
+ a: "Nein. Das Schweizer Obligationenrecht (Art. 336c OR) verbietet die Kuendigung waehrend der Schwangerschaft und in den 16 Wochen nach der Geburt. Eine in diesem Zeitraum ausgesprochene Kuendigung ist nichtig. Arbeitsverhaeltnis und Vertrag laufen normal weiter. Bei der Rueckkehr muss der Arbeitgeber Aufgaben anbieten, die mit der vorherigen Funktion kompatibel sind. Der Schutz ist aehnlich, aber nicht identisch mit dem italienischen."
+ },
+ fr: {
+ q: "Est-ce que je perds mon emploi si je prends le conge maternite suisse ?",
+ a: "Non. Le Code des obligations suisse (art. 336c) interdit le licenciement pendant la grossesse et les 16 semaines suivant l'accouchement. Un licenciement notifie pendant cette periode est nul. La relation de travail et le contrat se poursuivent normalement. Au retour, l'employeur doit proposer des taches compatibles avec le poste precedent. La protection est similaire mais non identique a celle prevue en Italie."
+ }
+ },
+
+ "Quante offerte di lavoro ci sono in Ticino?": {
+ en: {
+ q: "How many job offers are there in Ticino?",
+ a: "Frontaliere Ticino lists more than 1,500 active job offers in Canton Ticino, updated daily via automatic crawlers from over 100 companies. Positions cover Lugano, Mendrisio, Bellinzona, Locarno and Chiasso, with ads in all major sectors: pharma, finance, IT, healthcare, logistics and industry."
+ },
+ de: {
+ q: "Wie viele Stellenangebote gibt es im Tessin?",
+ a: "Auf Frontaliere Ticino sind ueber 1.500 aktive Stellenangebote im Kanton Tessin aufgefuehrt, taeglich aktualisiert durch automatische Crawler von ueber 100 Unternehmen. Die Stellen betreffen Lugano, Mendrisio, Bellinzona, Locarno und Chiasso und decken alle Hauptbranchen ab: Pharma, Finanzen, IT, Gesundheitswesen, Logistik und Industrie."
+ },
+ fr: {
+ q: "Combien d'offres d'emploi y a-t-il au Tessin ?",
+ a: "Frontaliere Ticino publie plus de 1 500 offres d'emploi actives dans le canton du Tessin, mises a jour quotidiennement par des crawlers automatiques depuis plus de 100 entreprises. Les postes couvrent Lugano, Mendrisio, Bellinzona, Locarno et Chiasso, dans tous les secteurs principaux : pharma, finance, IT, sante, logistique et industrie."
+ }
+ },
+
+ "Quali sono le offerte di lavoro più richieste in Ticino nel 2026?": {
+ en: {
+ q: "Which are the most sought-after jobs in Ticino in 2026?",
+ a: "In 2026, the most sought-after profiles in Ticino are: software developers and IT specialists, nurses and social-health workers (OSS), pharmaceutical laboratory technicians, accountants and financial analysts, and mechanical engineers. Pharma and life science positions offer the highest pay, followed by finance and tech."
+ },
+ de: {
+ q: "Welche Stellen sind 2026 im Tessin am gefragtesten?",
+ a: "2026 sind im Tessin die gefragtesten Profile: Softwareentwickler und IT-Spezialisten, Pflegefachpersonen und Sozialpflege (OSS), Labortechniker in der Pharmaindustrie, Buchhalter und Finanzanalysten sowie Maschinenbauingenieure. Stellen in Pharma und Life Sciences bieten die hoechsten Gehaelter, gefolgt von Finanzen und Technologie."
+ },
+ fr: {
+ q: "Quels sont les emplois les plus demandes au Tessin en 2026 ?",
+ a: "En 2026, les profils les plus recherches au Tessin sont : developpeurs logiciels et specialistes IT, infirmiers et operateurs socio-sanitaires (OSS), techniciens de laboratoire pharmaceutique, comptables et analystes financiers, et ingenieurs mecaniques. Les postes dans la pharma et les sciences de la vie offrent les meilleures remunerations, suivis de la finance et de la tech."
+ }
+ },
+
+ "Come candidarsi per offerte di lavoro in Ticino come frontaliere?": {
+ en: {
+ q: "How do you apply for jobs in Ticino as a cross-border worker?",
+ a: "Search the listings by filtering on sector, location or contract type. Each ad includes a direct link to the official application page on the company's website. No account is needed: select the offer, click 'Apply' and you are redirected to the company HR page. Your employer will then initiate the G-permit procedure."
+ },
+ de: {
+ q: "Wie bewirbt man sich als Grenzgaenger auf Stellen im Tessin?",
+ a: "Durchsuchen Sie die Anzeigen nach Branche, Ort oder Vertragsart. Jede Anzeige enthaelt einen direkten Link zur offiziellen Bewerbung auf der Unternehmenswebsite. Ein Account ist nicht noetig: Anzeige auswaehlen, auf 'Bewerben' klicken und Sie werden auf die HR-Seite des Unternehmens weitergeleitet. Der Arbeitgeber startet dann das Verfahren fuer die G-Bewilligung."
+ },
+ fr: {
+ q: "Comment postuler a des offres d'emploi au Tessin en tant que frontalier ?",
+ a: "Cherchez parmi les offres en filtrant par secteur, lieu ou type de contrat. Chaque annonce comprend un lien direct vers la candidature officielle sur le site de l'entreprise. Aucun compte n'est requis : selectionnez l'offre, cliquez sur 'Postuler' et vous etes redirige vers la page RH de l'entreprise. Votre employeur lancera ensuite la demande de permis G."
+ }
+ },
+
+ "Ci sono posti vacanti in Ticino per italiani?": {
+ en: {
+ q: "Are there job vacancies in Ticino for Italian citizens?",
+ a: "Yes, there are hundreds of job vacancies in Ticino accessible to Italian citizens thanks to the G permit for cross-border workers. Sectors with the most openings: pharma (Mendrisiotto), finance (Lugano), IT and healthcare. Frontaliere Ticino publishes vacancies daily from over 100 Ticino companies with a direct link to applications."
+ },
+ de: {
+ q: "Gibt es im Tessin offene Stellen fuer Italiener?",
+ a: "Ja, im Tessin gibt es Hunderte offener Stellen, die italienischen Staatsbuergern dank der G-Bewilligung fuer Grenzgaenger zugaenglich sind. Branchen mit den meisten Stellen: Pharma (Mendrisiotto), Finanzen (Lugano), IT und Gesundheitswesen. Frontaliere Ticino veroeffentlicht taeglich Stellen von ueber 100 Tessiner Unternehmen mit direktem Bewerbungslink."
+ },
+ fr: {
+ q: "Y a-t-il des postes vacants au Tessin pour les Italiens ?",
+ a: "Oui, le Tessin compte des centaines de postes vacants accessibles aux citoyens italiens grace au permis G pour frontaliers. Secteurs avec le plus d'offres : pharma (Mendrisiotto), finance (Lugano), IT et sante. Frontaliere Ticino publie quotidiennement les postes de plus de 100 entreprises tessinoises avec un lien direct vers la candidature."
+ }
+ },
+
+ "Dove cercare lavoro a Lugano?": {
+ en: {
+ q: "Where can I search for jobs in Lugano?",
+ a: "Lugano is the economic hub of Ticino with the highest concentration of openings. Major employers in Lugano include banks (BSI, BancaStato, EFG), IT firms, law firms and consulting companies. On Frontaliere Ticino you can filter offers by location Lugano and apply directly on the company website."
+ },
+ de: {
+ q: "Wo findet man Stellen in Lugano?",
+ a: "Lugano ist das Wirtschaftszentrum des Tessins mit der hoechsten Stellenkonzentration. Wichtige Arbeitgeber in Lugano sind Banken (BSI, BancaStato, EFG), IT-Firmen, Anwaltskanzleien und Beratungsunternehmen. Auf Frontaliere Ticino koennen Sie Stellenangebote nach Standort Lugano filtern und sich direkt auf der Unternehmenswebsite bewerben."
+ },
+ fr: {
+ q: "Ou chercher un emploi a Lugano ?",
+ a: "Lugano est le pole economique du Tessin avec la plus forte concentration d'offres. Les principaux employeurs a Lugano incluent des banques (BSI, BancaStato, EFG), des societes IT, des cabinets d'avocats et des societes de conseil. Sur Frontaliere Ticino, vous pouvez filtrer les offres par localite Lugano et postuler directement sur le site de l'entreprise."
+ }
+ },
+
+ "Come trovare offerte di lavoro in Svizzera per italiani?": {
+ en: {
+ q: "How can Italians find jobs in Switzerland?",
+ a: "Canton Ticino is the main destination for Italians looking for jobs in Switzerland, thanks to the Italian language and geographical proximity. On Frontaliere Ticino you can find over 1,500 up-to-date offers from Ticino companies. You can search by sector, location and contract type. Every ad includes an estimated salary and a direct application link."
+ },
+ de: {
+ q: "Wie finden Italiener Stellen in der Schweiz?",
+ a: "Der Kanton Tessin ist das wichtigste Ziel fuer Italiener, die Arbeit in der Schweiz suchen, dank italienischer Sprache und geografischer Naehe. Auf Frontaliere Ticino findest du ueber 1.500 aktuelle Stellen von Tessiner Unternehmen. Du kannst nach Branche, Standort und Vertragsart suchen. Jede Anzeige enthaelt ein geschaetztes Gehalt und einen direkten Bewerbungslink."
+ },
+ fr: {
+ q: "Comment les Italiens peuvent-ils trouver du travail en Suisse ?",
+ a: "Le canton du Tessin est la destination principale pour les Italiens qui cherchent un emploi en Suisse, grace a la langue italienne et a la proximite geographique. Sur Frontaliere Ticino, vous trouvez plus de 1 500 offres actualisees d'entreprises tessinoises. Vous pouvez rechercher par secteur, lieu et type de contrat. Chaque annonce inclut un salaire estime et un lien direct pour postuler."
+ }
+ },
+
+ "La tredicesima è obbligatoria per i frontalieri in Svizzera?": {
+ en: {
+ q: "Is the 13th month mandatory for cross-border workers in Switzerland?",
+ a: "The 13th month is not required by Swiss law, but it is widely included in collective labour agreements (CLA) and individual contracts in Canton Ticino. Many sectors provide for it contractually: banks, insurance, public administration and many industrial companies. Always check your contract: if provided, it is usually paid in December together with the monthly salary or as a separate instalment."
+ },
+ de: {
+ q: "Ist der 13. Monatslohn fuer Grenzgaenger in der Schweiz obligatorisch?",
+ a: "Der 13. Monatslohn ist in der Schweiz gesetzlich nicht vorgeschrieben, aber in Gesamtarbeitsvertraegen (GAV) und Einzelarbeitsvertraegen im Kanton Tessin weit verbreitet. Viele Branchen sehen ihn vertraglich vor: Banken, Versicherungen, oeffentliche Verwaltung und zahlreiche Industrieunternehmen. Pruefen Sie immer Ihren Vertrag: wenn vorgesehen, wird er typischerweise im Dezember zusammen mit dem Monatslohn oder als separate Auszahlung ausbezahlt."
+ },
+ fr: {
+ q: "Le 13e salaire est-il obligatoire pour les frontaliers en Suisse ?",
+ a: "Le 13e mois n'est pas obligatoire par la loi en Suisse, mais il est largement diffuse dans les conventions collectives (CCT) et les contrats individuels du canton du Tessin. De nombreux secteurs le prevoient contractuellement : banques, assurances, administration publique et beaucoup d'entreprises industrielles. Verifiez toujours votre contrat : s'il est prevu, il est generalement verse en decembre avec le salaire mensuel ou comme mensualite separee."
+ }
+ },
+
+ "Come si calcola la tredicesima del frontaliere assunto a metà anno?": {
+ en: {
+ q: "How is the 13th salary calculated for a cross-border worker hired mid-year?",
+ a: "The 13th is pro-rated on the months actually worked in the year: monthly gross divided by 12, multiplied by the months of service. A cross-border worker hired on 1 June with CHF 6,000 gross/month receives 7/12 of a month as 13th, i.e. CHF 3,500 gross. The 13th is also subject to withholding tax, AVS/AI/APG (5.3%), unemployment insurance (1.1%) and BVG if above the BVG contribution threshold."
+ },
+ de: {
+ q: "Wie wird der 13. Monatslohn bei Einstellung mitten im Jahr berechnet?",
+ a: "Der 13. wird pro rata auf die tatsaechlich im Jahr gearbeiteten Monate berechnet: Monatsbrutto geteilt durch 12, multipliziert mit der Anzahl Dienstmonate. Ein am 1. Juni eingestellter Grenzgaenger mit CHF 6.000 brutto/Monat erhaelt 7/12 eines Monatslohns als 13., also CHF 3.500 brutto. Der 13. unterliegt ebenfalls der Quellensteuer, AHV/IV/EO (5,3 %), ALV (1,1 %) und BVG, sofern ueber der BVG-Eintrittsschwelle."
+ },
+ fr: {
+ q: "Comment calcule-t-on le 13e salaire d'un frontalier embauche en cours d'annee ?",
+ a: "Le 13e est calcule au prorata des mois effectivement travailles dans l'annee : salaire brut mensuel divise par 12, multiplie par les mois de service. Un frontalier embauche le 1er juin a CHF 6 000 brut/mois recoit 7/12 d'un mois comme 13e, soit CHF 3 500 bruts. Le 13e est aussi soumis a l'impot a la source, a l'AVS/AI/APG (5,3 %), a l'AC (1,1 %) et a la LPP s'il est au-dessus du seuil de cotisation LPP."
+ }
+ },
+
+ "Esiste la quattordicesima per i frontalieri in Ticino?": {
+ en: {
+ q: "Is there a 14th-month salary for cross-border workers in Ticino?",
+ a: "The 14th month is rare in Switzerland but exists in some sectors and companies as a performance bonus or as a contractual extra instalment. More common is a discretionary bonus by the employer, linked to company or individual results, which may equal an extra monthly salary. Unlike Italy where 14th and bonuses are widespread, Swiss bonuses are volatile and not guaranteed, so they should not be counted as fixed income in payslip calculations."
+ },
+ de: {
+ q: "Gibt es fuer Grenzgaenger im Tessin einen 14. Monatslohn?",
+ a: "Der 14. Monatslohn ist in der Schweiz selten, existiert jedoch in einigen Branchen und Unternehmen als Leistungsbonus oder als vertragliche Zusatzzahlung. Verbreiteter ist ein diskretionaerer Bonus des Arbeitgebers, geknuepft an Unternehmens- oder Einzelergebnisse, der einem zusaetzlichen Monatslohn entsprechen kann. Im Gegensatz zu Italien, wo 14. und Praemien verbreitet sind, sind Boni in der Schweiz volatil und nicht garantiert; sie sollten daher nicht als Fixeinkommen in die Lohnberechnung einfliessen."
+ },
+ fr: {
+ q: "Existe-t-il un 14e salaire pour les frontaliers au Tessin ?",
+ a: "Le 14e mois est rare en Suisse mais existe dans certains secteurs et entreprises comme bonus de performance ou comme mensualite contractuelle. Plus frequent est le bonus discretionnaire de l'employeur, lie aux resultats de l'entreprise ou individuels, qui peut equivaloir a un mois supplementaire. Contrairement a l'Italie ou 14e et primes sont repandues, les bonus suisses sont volatils et non garantis : ils ne doivent donc pas etre consideres comme un revenu fixe dans le calcul de la fiche de paie."
+ }
+ },
+
+ "La tredicesima svizzera va dichiarata in Italia dal nuovo frontaliere?": {
+ en: {
+ q: "Does the Swiss 13th month need to be declared in Italy by a new cross-border worker?",
+ a: "Yes: the 13th month is an integral part of employment income and must be included in the total annual amount declared in the Redditi PF form (RC section). For new cross-border workers under the concurrent regime, it is part of taxable IRPEF income, net of the €10,000 exemption and the tax credit for taxes paid in Switzerland. The Lohnausweis issued by the employer already reports the full annual amount including 13th and bonuses."
+ },
+ de: {
+ q: "Muss der Schweizer 13. Monatslohn vom neuen Grenzgaenger in Italien deklariert werden?",
+ a: "Ja: der 13. Monatslohn ist integraler Bestandteil des Einkommens aus unselbstaendiger Taetigkeit und muss im jaehrlichen Gesamtbetrag im Modell Redditi PF (Quadro RC) angegeben werden. Fuer neue Grenzgaenger im konkurrierenden Regime faellt er unter das IRPEF-pflichtige Einkommen, abzueglich des Freibetrags von 10.000 EUR und der Steuergutschrift fuer die in der Schweiz gezahlten Steuern. Der vom Arbeitgeber ausgestellte Lohnausweis weist bereits den Jahresgesamtbetrag inkl. 13. und Boni aus."
+ },
+ fr: {
+ q: "Le 13e suisse doit-il etre declare en Italie par le nouveau frontalier ?",
+ a: "Oui : le 13e fait partie integrante du revenu du travail salarie et doit etre inclus dans le montant annuel total declare au Modele Redditi PF (cadre RC). Pour les nouveaux frontaliers sous le regime concurrent, il entre dans le revenu imposable IRPEF, deduction faite de la franchise de 10 000 EUR et du credit d'impot pour les impots payes en Suisse. Le Lohnausweis emis par l'employeur indique deja le montant annuel total y compris le 13e et les bonus."
+ }
+ },
+
+ "Quali sono i requisiti per lavorare come frontaliere in Svizzera nel 2026?": {
+ en: {
+ q: "What are the requirements to work as a cross-border worker in Switzerland in 2026?",
+ a: "To work as a cross-border worker in Switzerland you need: EU/EFTA citizenship, residence in an Italian municipality (preferably within 20 km of the border for the transitional regime), an employment contract with a Swiss employer, and the G permit issued by the canton. The G permit is valid for 5 years for open-ended contracts and is issued within 5–10 working days of the application."
+ },
+ de: {
+ q: "Welche Voraussetzungen gelten 2026 fuer die Arbeit als Grenzgaenger in der Schweiz?",
+ a: "Um als Grenzgaenger in der Schweiz zu arbeiten, sind erforderlich: Staatsangehoerigkeit EU/EFTA, Wohnsitz in einer italienischen Gemeinde (vorzugsweise innerhalb von 20 km zur Grenze fuer das Uebergangsregime), ein Arbeitsvertrag mit einem Schweizer Arbeitgeber und die G-Bewilligung des Kantons. Die G-Bewilligung ist bei unbefristeten Vertraegen 5 Jahre gueltig und wird innerhalb von 5–10 Arbeitstagen nach Antragstellung ausgestellt."
+ },
+ fr: {
+ q: "Quelles sont les conditions pour travailler comme frontalier en Suisse en 2026 ?",
+ a: "Pour travailler comme frontalier en Suisse, il faut : la citoyennete UE/AELE, la residence dans une commune italienne (de preference dans un rayon de 20 km de la frontiere pour le regime transitoire), un contrat de travail avec un employeur suisse, et le permis G delivre par le canton. Le permis G est valable 5 ans pour les contrats a duree indeterminee et est delivre dans un delai de 5 a 10 jours ouvres apres la demande."
+ }
+ },
+
+ "Come funziona la tassazione dei frontalieri con il nuovo accordo 2026?": {
+ en: {
+ q: "How does cross-border worker taxation work under the 2026 New Agreement?",
+ a: "New cross-border workers (hired from 17 July 2023) pay Swiss withholding tax at 80% of the ordinary rate and Italian IRPEF on Swiss income, with a €10,000 exemption and a tax credit for taxes paid in Switzerland. Old cross-border workers (pre-July 2023, within 20 km) pay only Swiss withholding tax at 100% until 2033."
+ },
+ de: {
+ q: "Wie funktioniert die Besteuerung der Grenzgaenger nach dem Neuen Abkommen 2026?",
+ a: "Neue Grenzgaenger (ab 17. Juli 2023 eingestellt) zahlen die Schweizer Quellensteuer zu 80 % des ordentlichen Tarifs und die italienische IRPEF auf das Schweizer Einkommen, mit einem Freibetrag von 10.000 EUR und einer Steuergutschrift fuer die in der Schweiz gezahlten Steuern. Alte Grenzgaenger (vor Juli 2023, innerhalb von 20 km) zahlen bis 2033 nur die Schweizer Quellensteuer zu 100 %."
+ },
+ fr: {
+ q: "Comment fonctionne l'imposition des frontaliers selon le Nouvel Accord 2026 ?",
+ a: "Les nouveaux frontaliers (embauches des le 17 juillet 2023) paient l'impot a la source suisse a 80 % du taux ordinaire et l'IRPEF italien sur le revenu suisse, avec une franchise de 10 000 EUR et un credit d'impot pour les impots payes en Suisse. Les anciens frontaliers (avant juillet 2023, dans un rayon de 20 km) paient uniquement l'impot a la source suisse a 100 % jusqu'en 2033."
+ }
+ },
+
+ "Quanto costa l'assicurazione sanitaria LAMal per i frontalieri?": {
+ en: {
+ q: "How much does LAMal health insurance cost for cross-border workers?",
+ a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month in 2026, depending on the insurer and the model chosen. The cheapest options are Assura and Agrisano with Telmed model (around CHF 270–300/month). Cross-border workers have 3 months from the start of work to choose between Swiss LAMal and the Italian SSN (irrevocable right of option)."
+ },
+ de: {
+ q: "Wie viel kostet die LAMal-Krankenversicherung fuer Grenzgaenger?",
+ a: "Die LAMal-Praemien fuer Grenzgaenger im Kanton Tessin liegen 2026 zwischen CHF 270 und CHF 560/Monat, je nach Versicherer und gewaehltem Modell. Die guenstigsten Angebote bieten Assura und Agrisano mit Telmed-Modell (rund CHF 270–300/Monat). Grenzgaenger haben ab Arbeitsbeginn 3 Monate Zeit, zwischen der Schweizer LAMal und dem italienischen SSN zu waehlen (unwiderrufliches Optionsrecht)."
+ },
+ fr: {
+ q: "Combien coute l'assurance maladie LAMal pour les frontaliers ?",
+ a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 a CHF 560/mois en 2026, selon l'assureur et le modele choisi. Les options les moins cheres sont Assura et Agrisano avec modele Telmed (environ CHF 270–300/mois). Les frontaliers disposent de 3 mois a compter du debut du travail pour choisir entre LAMal suisse et SSN italien (droit d'option irrevocable)."
+ }
+ },
+
+ "Quanti frontalieri lavorano in Canton Ticino e quanto guadagnano?": {
+ en: {
+ q: "How many cross-border workers work in Canton Ticino and how much do they earn?",
+ a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (BFS 2025), roughly 30% of the cantonal workforce. The median gross salary in Ticino is about CHF 5,200/month (CHF 62,400/year). The main sectors are manufacturing, construction, finance, healthcare, hospitality and IT. The number grows by 2–3% per year."
+ },
+ de: {
+ q: "Wie viele Grenzgaenger arbeiten im Kanton Tessin und wie viel verdienen sie?",
+ a: "Rund 79.000 Grenzgaenger pendeln taeglich aus Italien in den Kanton Tessin (BFS 2025), rund 30 % der kantonalen Erwerbsbevoelkerung. Der Medianbruttolohn im Tessin liegt bei rund CHF 5.200/Monat (CHF 62.400/Jahr). Hauptbranchen sind Industrie, Bauwesen, Finanzen, Gesundheitswesen, Gastgewerbe und IT. Die Zahl waechst jaehrlich um 2–3 %."
+ },
+ fr: {
+ q: "Combien de frontaliers travaillent dans le canton du Tessin et combien gagnent-ils ?",
+ a: "Environ 79 000 frontaliers font la navette quotidienne depuis l'Italie vers le canton du Tessin (OFS 2025), soit environ 30 % de la main-d'oeuvre cantonale. Le salaire brut median au Tessin est d'environ CHF 5 200/mois (CHF 62 400/an). Les principaux secteurs sont l'industrie, la construction, la finance, la sante, l'hotellerie-restauration et l'IT. Le nombre croit de 2–3 % par an."
+ }
+ },
+
+ // ── Blog: Mortgages ──
+ "Posso ottenere un mutuo in Italia con stipendio svizzero?": {
+ en: {
+ q: "Can I get a mortgage in Italy with a Swiss salary?",
+ a: "Yes, several Italian banks accept Swiss income for mortgages. Among the most active: Intesa Sanpaolo, Credit Agricole Italia and BancaStato (for properties in the border zone). Additional documentation is needed such as the salary certificate and the Swiss employer's statement."
+ },
+ de: {
+ q: "Kann ich mit einem Schweizer Lohn eine Hypothek in Italien erhalten?",
+ a: "Ja, mehrere italienische Banken akzeptieren Schweizer Einkommen fuer Hypotheken. Zu den aktivsten gehoeren Intesa Sanpaolo, Credit Agricole Italia und BancaStato (fuer Immobilien in der Grenzzone). Zusaetzliche Unterlagen sind noetig, wie Lohnausweis und Arbeitgeberbescheinigung des Schweizer Arbeitgebers."
+ },
+ fr: {
+ q: "Puis-je obtenir un pret hypothecaire en Italie avec un salaire suisse ?",
+ a: "Oui, plusieurs banques italiennes acceptent les revenus suisses pour les prets hypothecaires. Parmi les plus actives : Intesa Sanpaolo, Credit Agricole Italia et BancaStato (pour les biens en zone frontaliere). Une documentation supplementaire est necessaire, comme le certificat de salaire et l'attestation de l'employeur suisse."
+ }
+ },
+
+ "Quali documenti servono per un mutuo da frontaliere?": {
+ en: {
+ q: "Which documents are needed for a cross-border worker's mortgage?",
+ a: "In addition to the standard documents (ID card, tax code, cadastral extract), cross-border workers must submit: Swiss salary certificate, work permit (G or B), last 3 payslips, AVS extract and Italian tax return."
+ },
+ de: {
+ q: "Welche Unterlagen sind fuer eine Grenzgaenger-Hypothek noetig?",
+ a: "Zusaetzlich zu den Standardunterlagen (Personalausweis, Steuernummer, Grundbuchauszug) muessen Grenzgaenger folgende Dokumente einreichen: Schweizer Lohnausweis, Arbeitsbewilligung (G oder B), die letzten 3 Lohnabrechnungen, AHV-Auszug und italienische Steuererklaerung."
+ },
+ fr: {
+ q: "Quels documents sont necessaires pour un pret hypothecaire de frontalier ?",
+ a: "En plus des documents standards (carte d'identite, code fiscal, extrait cadastral), les frontaliers doivent presenter : certificat de salaire suisse, permis de travail (G ou B), les 3 dernieres fiches de paie, extrait AVS et declaration de revenus italienne."
+ }
+ },
+
+ "Conviene fare il mutuo in CHF o in EUR?": {
+ en: {
+ q: "Is it better to take out a mortgage in CHF or EUR?",
+ a: "It depends on the currency of your income. If you earn in CHF, a CHF mortgage eliminates exchange-rate risk, but Italian banks almost always issue mortgages in EUR. Some Swiss banks (e.g. BancaStato) offer CHF mortgages for properties in the Italian border zone."
+ },
+ de: {
+ q: "Ist eine Hypothek in CHF oder in EUR guenstiger?",
+ a: "Das haengt von der Waehrung Ihres Einkommens ab. Wer in CHF verdient, eliminiert mit einer CHF-Hypothek das Waehrungsrisiko, italienische Banken vergeben Hypotheken jedoch fast ausschliesslich in EUR. Einige Schweizer Banken (z.B. BancaStato) bieten CHF-Hypotheken fuer Immobilien in der italienischen Grenzzone an."
+ },
+ fr: {
+ q: "Vaut-il mieux contracter un pret hypothecaire en CHF ou en EUR ?",
+ a: "Cela depend de la monnaie de votre revenu. Si vous percevez des CHF, un pret en CHF elimine le risque de change, mais les banques italiennes accordent presque exclusivement des prets en EUR. Certaines banques suisses (p. ex. BancaStato) offrent des prets en CHF pour les biens en zone frontaliere italienne."
+ }
+ },
+
+ // ── Blog: G permit, LAMal/SSN, Ticino job market, etc. ──
+ "Quali sono i principali vantaggi del permesso G?": {
+ en: {
+ q: "What are the main advantages of the G permit?",
+ a: "The G permit allows you to work in Switzerland while keeping residence in Italy: favourable taxation for old cross-border workers (withholding tax only), Swiss AVS/BVG contributions, the same employment rights as residents, and the possibility of daily return."
+ },
+ de: {
+ q: "Welches sind die wichtigsten Vorteile der G-Bewilligung?",
+ a: "Die G-Bewilligung ermoeglicht die Arbeit in der Schweiz bei Beibehaltung des Wohnsitzes in Italien: vorteilhafte Besteuerung fuer alte Grenzgaenger (nur Quellensteuer), Schweizer AHV-/BVG-Beitraege, dieselben Arbeitsrechte wie Ansaessige und taegliche Rueckkehrmoeglichkeit."
+ },
+ fr: {
+ q: "Quels sont les principaux avantages du permis G ?",
+ a: "Le permis G permet de travailler en Suisse tout en conservant la residence en Italie : fiscalite avantageuse pour les anciens frontaliers (impot a la source uniquement), cotisations suisses AVS/LPP, memes droits du travail que les residents, et possibilite de retour quotidien."
+ }
+ },
+
+ "I nuovi frontalieri pagano le tasse due volte?": {
+ en: {
+ q: "Do new cross-border workers pay tax twice?",
+ a: "Cross-border workers hired after 17 July 2023 pay Swiss withholding tax and Italian IRPEF, but a €10,000 exemption and a tax credit prevent effective double taxation."
+ },
+ de: {
+ q: "Zahlen neue Grenzgaenger doppelt Steuern?",
+ a: "Nach dem 17. Juli 2023 eingestellte Grenzgaenger zahlen die Schweizer Quellensteuer und die italienische IRPEF, doch dank eines Freibetrags von 10.000 EUR und einer Steuergutschrift wird eine effektive Doppelbesteuerung vermieden."
+ },
+ fr: {
+ q: "Les nouveaux frontaliers paient-ils deux fois l'impot ?",
+ a: "Les frontaliers embauches apres le 17 juillet 2023 paient l'impot a la source suisse et l'IRPEF italien, mais grace a une franchise de 10 000 EUR et a un credit d'impot, la double imposition effective est evitee."
+ }
+ },
+
+ "Posso passare da permesso G a permesso B?": {
+ en: {
+ q: "Can I switch from a G permit to a B permit?",
+ a: "Yes, you can move your residence to Switzerland and switch to the B permit at any time, provided you find accommodation in Switzerland and notify the competent authorities of the change."
+ },
+ de: {
+ q: "Kann ich von der G-Bewilligung zur B-Bewilligung wechseln?",
+ a: "Ja, der Wohnsitz kann jederzeit in die Schweiz verlegt und auf die B-Bewilligung umgestellt werden, sofern in der Schweiz eine Unterkunft gefunden und der Wechsel den zustaendigen Behoerden gemeldet wird."
+ },
+ fr: {
+ q: "Puis-je passer du permis G au permis B ?",
+ a: "Oui, il est possible de transferer la residence en Suisse et de passer au permis B a tout moment, a condition de trouver un logement en Suisse et de communiquer le changement aux autorites competentes."
+ }
+ },
+
+ "Qual è la differenza tra LAMal e SSN per un frontaliere?": {
+ en: {
+ q: "What is the difference between LAMal and the Italian SSN for a cross-border worker?",
+ a: "LAMal is the mandatory Swiss health insurance with fixed premiums (CHF 200–600/month) and a deductible; the Italian SSN is based on income-proportional contributions (~7.5%) with no deductible. The cross-border worker has the right of option within 3 months of starting work."
+ },
+ de: {
+ q: "Was ist der Unterschied zwischen LAMal und SSN fuer einen Grenzgaenger?",
+ a: "LAMal ist die obligatorische Schweizer Krankenversicherung mit fixen Praemien (CHF 200–600/Monat) und Franchise; der italienische SSN basiert auf einkommensproportionalen Beitraegen (rund 7,5 %) ohne Franchise. Der Grenzgaenger hat innerhalb von 3 Monaten nach Arbeitsaufnahme das Optionsrecht."
+ },
+ fr: {
+ q: "Quelle est la difference entre la LAMal et le SSN pour un frontalier ?",
+ a: "La LAMal est l'assurance maladie obligatoire suisse avec primes fixes (CHF 200–600/mois) et franchise ; le SSN italien repose sur des cotisations proportionnelles au revenu (environ 7,5 %) sans franchise. Le frontalier dispose du droit d'option dans les 3 mois suivant le debut de l'activite."
+ }
+ },
+
+ "Quanto costa la LAMal per un frontaliere in Ticino?": {
+ en: {
+ q: "How much does LAMal cost for a cross-border worker in Ticino?",
+ a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 200 to CHF 600 per month depending on the health insurer, the insurance model (standard, Telmed, HMO) and the chosen deductible (CHF 300–2,500 for adults)."
+ },
+ de: {
+ q: "Wie viel kostet die LAMal fuer einen Grenzgaenger im Tessin?",
+ a: "Die LAMal-Praemien fuer Grenzgaenger im Kanton Tessin liegen zwischen CHF 200 und CHF 600 pro Monat, je nach Krankenkasse, Versicherungsmodell (Standard, Telmed, HMO) und gewaehlter Franchise (CHF 300–2.500 fuer Erwachsene)."
+ },
+ fr: {
+ q: "Combien coute la LAMal pour un frontalier au Tessin ?",
+ a: "Les primes LAMal pour les frontaliers au Tessin varient de CHF 200 a CHF 600 par mois selon la caisse maladie, le modele d'assurance (standard, Telmed, HMO) et la franchise choisie (CHF 300–2 500 pour les adultes)."
+ }
+ },
+
+ "Posso curarmi in Svizzera con il SSN italiano?": {
+ en: {
+ q: "Can I get medical care in Switzerland with the Italian SSN?",
+ a: "With the Italian SSN and the TEAM/EHIC card you are covered for emergencies throughout the EU and Switzerland, but planned care in Switzerland is not covered. For non-urgent care you need LAMal or a private insurance."
+ },
+ de: {
+ q: "Kann ich mich mit dem italienischen SSN in der Schweiz behandeln lassen?",
+ a: "Mit dem italienischen SSN und der TEAM-/EHIC-Karte sind Sie in der gesamten EU und Schweiz fuer Notfaelle abgedeckt, doch geplante Behandlungen in der Schweiz sind nicht gedeckt. Fuer nicht dringende Behandlungen ist eine LAMal oder eine Privatversicherung noetig."
+ },
+ fr: {
+ q: "Puis-je me faire soigner en Suisse avec le SSN italien ?",
+ a: "Avec le SSN italien et la carte TEAM/EHIC vous etes couvert pour les urgences dans toute l'UE et en Suisse, mais les soins programmes en Suisse ne sont pas couverts. Pour les soins non urgents, il faut la LAMal ou une assurance privee."
+ }
+ },
+
+ "Quando conviene scegliere la LAMal rispetto al SSN?": {
+ en: {
+ q: "When is it better to choose LAMal over the SSN?",
+ a: "LAMal is worthwhile for singles with income above CHF 5,000/month, for those who need frequent care in Switzerland, and for those who want direct access to Swiss specialists without long waiting times."
+ },
+ de: {
+ q: "Wann lohnt sich die LAMal gegenueber dem SSN?",
+ a: "Die LAMal lohnt sich fuer Alleinstehende mit einem Einkommen ueber CHF 5.000/Monat, fuer Personen, die haeufig medizinische Versorgung in der Schweiz benoetigen, und fuer jene, die einen direkten Zugang zu Schweizer Spezialisten ohne lange Wartezeiten wuenschen."
+ },
+ fr: {
+ q: "Quand vaut-il la peine de choisir la LAMal plutot que le SSN ?",
+ a: "La LAMal est avantageuse pour les celibataires avec un revenu superieur a CHF 5 000/mois, pour ceux qui ont besoin de soins frequents en Suisse, et pour ceux qui veulent un acces direct aux specialistes suisses sans longues attentes."
+ }
+ },
+
+ "Il diritto di opzione LAMal/SSN è irreversibile?": {
+ en: {
+ q: "Is the LAMal/SSN right of option irreversible?",
+ a: "The initial choice is valid for the entire period of work in Switzerland with the same employer. You can change it in case of a new employment relationship, a cantonal change or significant family changes."
+ },
+ de: {
+ q: "Ist das Optionsrecht LAMal/SSN unwiderruflich?",
+ a: "Die anfaengliche Wahl gilt fuer die gesamte Dauer der Beschaeftigung in der Schweiz bei demselben Arbeitgeber. Ein Wechsel ist bei einem neuen Arbeitsverhaeltnis, einem Kantonswechsel oder bei wesentlichen familiaeren Veraenderungen moeglich."
+ },
+ fr: {
+ q: "Le droit d'option LAMal/SSN est-il irreversible ?",
+ a: "Le choix initial est valable pour toute la duree du travail en Suisse chez le meme employeur. Il peut etre modifie en cas de nouvelle relation de travail, de changement de canton ou de modifications familiales significatives."
+ }
+ },
+
+ "Quali sono i portali migliori per cercare lavoro in Ticino?": {
+ en: {
+ q: "Which are the best portals to look for jobs in Ticino?",
+ a: "The main portals are job.ticino.ch (cantonal), jobs.ch and jobup.ch (national), LinkedIn, and the Frontaliere Ticino job board with over 4,000 offers. Temp agencies such as Adecco, Manpower and Randstad have branches in Lugano and Mendrisio."
+ },
+ de: {
+ q: "Welches sind die besten Portale fuer die Stellensuche im Tessin?",
+ a: "Die wichtigsten Portale sind job.ticino.ch (kantonal), jobs.ch und jobup.ch (national), LinkedIn und das Job-Board von Frontaliere Ticino mit ueber 4.000 Angeboten. Personalvermittlungen wie Adecco, Manpower und Randstad haben Niederlassungen in Lugano und Mendrisio."
+ },
+ fr: {
+ q: "Quels sont les meilleurs portails pour chercher un emploi au Tessin ?",
+ a: "Les principaux portails sont job.ticino.ch (cantonal), jobs.ch et jobup.ch (nationaux), LinkedIn et la plateforme emploi de Frontaliere Ticino avec plus de 4 000 offres. Les agences de travail temporaire comme Adecco, Manpower et Randstad ont des bureaux a Lugano et Mendrisio."
+ }
+ },
+
+ "Qual è lo stipendio medio in Ticino per un frontaliere?": {
+ en: {
+ q: "What is the average salary in Ticino for a cross-border worker?",
+ a: "The median salary in Canton Ticino is about CHF 5,400/month (BFS, 2024). It varies by sector: finance CHF 7,000–9,000, IT CHF 6,500–8,500, pharma CHF 6,000–8,000, retail CHF 5,000–6,500, hospitality CHF 4,500–5,500."
+ },
+ de: {
+ q: "Wie hoch ist der durchschnittliche Lohn eines Grenzgaengers im Tessin?",
+ a: "Der Medianlohn im Kanton Tessin betraegt rund CHF 5.400/Monat (BFS, 2024). Er variiert nach Branche: Finanzen CHF 7.000–9.000, IT CHF 6.500–8.500, Pharma CHF 6.000–8.000, Handel CHF 5.000–6.500, Gastgewerbe CHF 4.500–5.500."
+ },
+ fr: {
+ q: "Quel est le salaire moyen au Tessin pour un frontalier ?",
+ a: "Le salaire median au Tessin est d'environ CHF 5 400/mois (OFS, 2024). Il varie selon le secteur : finance CHF 7 000–9 000, IT CHF 6 500–8 500, pharma CHF 6 000–8 000, commerce CHF 5 000–6 500, hotellerie-restauration CHF 4 500–5 500."
+ }
+ },
+
+ "Il CV svizzero è diverso da quello italiano?": {
+ en: {
+ q: "Is the Swiss CV different from the Italian one?",
+ a: "Yes: the Swiss CV includes a photo, is 2–3 pages long, requires verifiable references, uses reverse-chronological format and includes work certificates (Arbeitszeugnis). A cover letter is almost always required."
+ },
+ de: {
+ q: "Unterscheidet sich der Schweizer Lebenslauf vom italienischen?",
+ a: "Ja: Der Schweizer Lebenslauf enthaelt ein Foto, ist 2–3 Seiten lang, erfordert ueberpruefbare Referenzen, folgt dem antichronologischen Format und enthaelt Arbeitszeugnisse. Ein Motivationsschreiben ist fast immer erforderlich."
+ },
+ fr: {
+ q: "Le CV suisse est-il different du CV italien ?",
+ a: "Oui : le CV suisse inclut une photo, fait 2 a 3 pages, demande des references verifiables, suit le format chronologique inverse et inclut les certificats de travail (Arbeitszeugnis). Une lettre de motivation est presque toujours requise."
+ }
+ },
+
+ "Quali settori assumono di più frontalieri in Ticino?": {
+ en: {
+ q: "Which sectors hire the most cross-border workers in Ticino?",
+ a: "The sectors with the highest demand are: financial and banking services, pharma and biotech, IT and software, engineering and manufacturing, retail, and healthcare. Lugano, Mendrisio and Chiasso concentrate most of the opportunities."
+ },
+ de: {
+ q: "Welche Branchen stellen im Tessin die meisten Grenzgaenger ein?",
+ a: "Die Branchen mit der groessten Nachfrage sind: Finanz- und Bankdienstleistungen, Pharma und Biotech, IT und Software, Ingenieurwesen und Industrie, Einzelhandel und Gesundheitswesen. Lugano, Mendrisio und Chiasso vereinen den Grossteil der Stellen."
+ },
+ fr: {
+ q: "Quels secteurs embauchent le plus de frontaliers au Tessin ?",
+ a: "Les secteurs a plus forte demande sont : services financiers et bancaires, pharma et biotech, IT et logiciels, ingenierie et industrie, commerce de detail et sante. Lugano, Mendrisio et Chiasso concentrent la majorite des opportunites."
+ }
+ },
+
+ "Serve parlare tedesco per lavorare in Ticino?": {
+ en: {
+ q: "Do you need to speak German to work in Ticino?",
+ a: "No, Ticino is Italian-speaking. Italian is the main language. However, knowing English and/or German is a competitive advantage, especially in finance, pharma and international companies."
+ },
+ de: {
+ q: "Muss man Deutsch sprechen, um im Tessin zu arbeiten?",
+ a: "Nein, das Tessin ist italienischsprachig. Italienisch ist die Hauptsprache. Kenntnisse in Englisch und/oder Deutsch sind jedoch ein Wettbewerbsvorteil, insbesondere in Finanzen, Pharma und internationalen Unternehmen."
+ },
+ fr: {
+ q: "Faut-il parler allemand pour travailler au Tessin ?",
+ a: "Non, le Tessin est italophone. L'italien est la langue principale. Connaitre l'anglais et/ou l'allemand reste cependant un atout competitif, en particulier dans la finance, la pharma et les entreprises internationales."
+ }
+ },
+
+ "Come si diventa frontaliere in Svizzera?": {
+ en: {
+ q: "How do you become a cross-border worker in Switzerland?",
+ a: "You need: a Swiss employment contract, residence in a municipality within 20 km of the border, the G permit issued by the cantonal migration office, and AVS/BVG registration. The process takes about 2–4 weeks from contract signature."
+ },
+ de: {
+ q: "Wie wird man Grenzgaenger in der Schweiz?",
+ a: "Benoetigt werden: ein Schweizer Arbeitsvertrag, Wohnsitz in einer Gemeinde innerhalb von 20 km zur Grenze, die G-Bewilligung des kantonalen Migrationsamtes sowie die Anmeldung bei AHV/BVG. Der Prozess dauert nach Vertragsunterzeichnung ca. 2–4 Wochen."
+ },
+ fr: {
+ q: "Comment devient-on frontalier en Suisse ?",
+ a: "Il faut : un contrat de travail suisse, la residence dans une commune situee dans un rayon de 20 km de la frontiere, le permis G delivre par le service cantonal de la migration et l'affiliation AVS/LPP. La procedure prend environ 2 a 4 semaines apres la signature du contrat."
+ }
+ },
+
+ "Quali documenti servono per il permesso G?": {
+ en: {
+ q: "Which documents are needed for the G permit?",
+ a: "Employment contract, valid passport or ID card, passport photo, residence certificate from the Italian municipality, and form 60-023 completed by the employer. The cantonal migration office issues the permit within 5–10 working days."
+ },
+ de: {
+ q: "Welche Unterlagen sind fuer die G-Bewilligung erforderlich?",
+ a: "Arbeitsvertrag, gueltiger Pass oder Personalausweis, Passfoto, Wohnsitzbescheinigung der italienischen Gemeinde und das vom Arbeitgeber ausgefuellte Formular 60-023. Das kantonale Migrationsamt stellt die Bewilligung innerhalb von 5–10 Arbeitstagen aus."
+ },
+ fr: {
+ q: "Quels documents sont necessaires pour le permis G ?",
+ a: "Contrat de travail, passeport ou carte d'identite valides, photo d'identite, attestation de domicile de la commune italienne et formulaire 60-023 rempli par l'employeur. Le service cantonal de la migration delivre le permis dans un delai de 5 a 10 jours ouvres."
+ }
+ },
+
+ "Quanto guadagna in media un frontaliere?": {
+ en: {
+ q: "How much does a cross-border worker earn on average?",
+ a: "The median salary in Canton Ticino is about CHF 5,400/month gross (BFS 2024). After social deductions (AVS 5.3%, unemployment 1.1%, LAA, BVG) and withholding tax (8–15%), the net is about CHF 3,800–4,500 for a single person."
+ },
+ de: {
+ q: "Wie viel verdient ein Grenzgaenger durchschnittlich?",
+ a: "Der Medianlohn im Kanton Tessin liegt bei rund CHF 5.400/Monat brutto (BFS 2024). Nach Sozialabgaben (AHV 5,3 %, ALV 1,1 %, UVG, BVG) und Quellensteuer (8–15 %) betraegt der Nettolohn fuer Alleinstehende rund CHF 3.800–4.500."
+ },
+ fr: {
+ q: "Combien gagne en moyenne un frontalier ?",
+ a: "Le salaire median au Tessin est d'environ CHF 5 400/mois brut (OFS 2024). Apres deductions sociales (AVS 5,3 %, AC 1,1 %, LAA, LPP) et impot a la source (8 a 15 %), le net se situe autour de CHF 3 800–4 500 pour un celibataire."
+ }
+ },
+
+ "Quali tasse paga un frontaliere nel 2026?": {
+ en: {
+ q: "Which taxes does a cross-border worker pay in 2026?",
+ a: "Old cross-border workers (pre-17/07/2023) pay only Swiss withholding tax (8–15%). New cross-border workers pay Swiss withholding tax plus Italian IRPEF with a €10,000 exemption and a tax credit to avoid double taxation."
+ },
+ de: {
+ q: "Welche Steuern zahlt ein Grenzgaenger 2026?",
+ a: "Alte Grenzgaenger (vor dem 17.07.2023) zahlen nur die Schweizer Quellensteuer (8–15 %). Neue Grenzgaenger zahlen die Schweizer Quellensteuer zusammen mit der italienischen IRPEF, mit einem Freibetrag von 10.000 EUR und einer Steuergutschrift zur Vermeidung der Doppelbesteuerung."
+ },
+ fr: {
+ q: "Quelles impots un frontalier paie-t-il en 2026 ?",
+ a: "Les anciens frontaliers (avant le 17/07/2023) paient uniquement l'impot a la source suisse (8 a 15 %). Les nouveaux frontaliers paient l'impot a la source suisse plus l'IRPEF italien avec une franchise de 10 000 EUR et un credit d'impot pour eviter la double imposition."
+ }
+ },
+
+ "Quanto costa vivere da frontaliere tra Italia e Svizzera?": {
+ en: {
+ q: "How much does it cost to live as a cross-border worker between Italy and Switzerland?",
+ a: "Fixed costs include: commuting €200–400/month, health insurance (LAMal CHF 200–600 or SSN ~7.5% of income), Swiss motorway vignette CHF 40/year. Living in Italy cuts housing costs by 40–60% compared with Switzerland."
+ },
+ de: {
+ q: "Was kostet es, als Grenzgaenger zwischen Italien und der Schweiz zu leben?",
+ a: "Zu den Fixkosten gehoeren: Pendeln 200–400 EUR/Monat, Krankenversicherung (LAMal CHF 200–600 oder SSN rund 7,5 % des Einkommens), Schweizer Autobahnvignette CHF 40/Jahr. Das Wohnen in Italien senkt die Wohnkosten gegenueber der Schweiz um 40–60 %."
+ },
+ fr: {
+ q: "Combien coute la vie de frontalier entre l'Italie et la Suisse ?",
+ a: "Les couts fixes comprennent : trajet domicile-travail 200–400 EUR/mois, assurance maladie (LAMal CHF 200–600 ou SSN environ 7,5 % du revenu), vignette autoroutiere suisse CHF 40/an. Vivre en Italie reduit les couts du logement de 40–60 % par rapport a la Suisse."
+ }
+ },
+
 };
 
 /**
