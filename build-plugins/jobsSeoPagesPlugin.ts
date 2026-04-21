@@ -1713,6 +1713,207 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  },
  };
  };
+
+ // ── Internal-linking + JobCard helpers (employer hub pages) ─────────
+ //
+ // Used to turn plain text (locations, job positions) into internal links
+ // pointing at city/sector hubs, and to render open-roles as visually-rich
+ // cards matching the in-app <JobCard> component (JobBoard.tsx).
+ const CITY_HUB_PATTERNS: ReadonlyArray<{ key: CityHubKey; regex: RegExp }> = [
+ { key: 'lugano', regex: /\blugano\b/i },
+ { key: 'mendrisio', regex: /\bmendrisio\b/i },
+ { key: 'bellinzona', regex: /\bbellinzona\b/i },
+ ];
+
+ /** Detect a known Ticino hub city in a raw location string. */
+ const detectCityHub = (text: string): CityHubKey | null => {
+ if (!text) return null;
+ for (const { key, regex } of CITY_HUB_PATTERNS) {
+ if (regex.test(text)) return key;
+ }
+ return null;
+ };
+
+ /** Wrap a recognized Ticino city inside `locationText` with an anchor
+ * pointing to the city hub. Escapes the full string first. */
+ const linkifyCityInLocation = (
+ locationText: string,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): string => {
+ const safe = esc(locationText || '');
+ if (!safe) return '';
+ const cityKey = detectCityHub(locationText);
+ if (!cityKey) return safe;
+ const display = CITY_HUB_DISPLAY_NAME[cityKey];
+ const href = `${BASE_URL}${buildCityHubPath(locale, cityKey)}`;
+ const rx = new RegExp(`\\b${display}\\b`, 'i');
+ return safe.replace(
+ rx,
+ (match) => `<a href="${href}" style="color:#4f46e5;text-decoration:none;font-weight:600">${match}</a>`,
+ );
+ };
+
+ /** Sectors matched by at least one of this company's jobs. */
+ const companySectorMatches = (
+ jobs: ReadonlyArray<unknown>,
+ ): SectorHubKey[] => {
+ const hits: SectorHubKey[] = [];
+ for (const sector of SECTOR_HUB_KEYS) {
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ if (jobs.some((j) => jobMatchesSector(j as any, sector))) hits.push(sector);
+ }
+ return hits;
+ };
+
+ /** Cities matched by at least one job's location. */
+ const companyCityMatches = (
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ jobs: ReadonlyArray<any>,
+ ): CityHubKey[] => {
+ const set = new Set<CityHubKey>();
+ for (const j of jobs) {
+ const key = detectCityHub(String(j?.location || ''));
+ if (key) set.add(key);
+ }
+ return [...set];
+ };
+
+ /** Localized contract labels mirroring the in-app `contractTranslationKey`. */
+ const CONTRACT_LABEL: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {
+ it: { 'full-time': 'Tempo pieno', 'part-time': 'Part-time', temporary: 'Temporaneo', internship: 'Stage', contract: 'Contratto', other: 'Altro' },
+ en: { 'full-time': 'Full-time', 'part-time': 'Part-time', temporary: 'Temporary', internship: 'Internship', contract: 'Contract', other: 'Other' },
+ de: { 'full-time': 'Vollzeit', 'part-time': 'Teilzeit', temporary: 'Befristet', internship: 'Praktikum', contract: 'Vertrag', other: 'Sonstige' },
+ fr: { 'full-time': 'Temps plein', 'part-time': 'Temps partiel', temporary: 'Temporaire', internship: 'Stage', contract: 'Contrat', other: 'Autre' },
+ };
+ const localizedContract = (contract: string, locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ const key = String(contract || '').toLowerCase();
+ return CONTRACT_LABEL[locale][key] || CONTRACT_LABEL[locale].other;
+ };
+
+ /** "2 days ago" style relative-date label; falls back to ISO date. */
+ const relativePostedLabel = (dateStr: string, locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ if (!dateStr) return '';
+ const d = new Date(dateStr);
+ if (Number.isNaN(d.getTime())) return '';
+ const diffDays = Math.max(0, Math.floor((Date.now() - d.getTime()) / 86400000));
+ const dict = {
+ it: { today: 'Oggi', one: '1 giorno fa', many: (n: number) => `${n} giorni fa` },
+ en: { today: 'Today', one: '1 day ago', many: (n: number) => `${n} days ago` },
+ de: { today: 'Heute', one: 'vor 1 Tag', many: (n: number) => `vor ${n} Tagen` },
+ fr: { today: "Aujourd'hui", one: 'il y a 1 jour', many: (n: number) => `il y a ${n} jours` },
+ } as const;
+ const l = dict[locale];
+ if (diffDays <= 0) return l.today;
+ if (diffDays === 1) return l.one;
+ if (diffDays < 60) return l.many(diffDays);
+ return d.toISOString().slice(0, 10);
+ };
+
+ const isJobNew = (dateStr: string): boolean => {
+ if (!dateStr) return false;
+ const d = new Date(dateStr);
+ if (Number.isNaN(d.getTime())) return false;
+ const diffDays = (Date.now() - d.getTime()) / 86400000;
+ return diffDays >= 0 && diffDays < 7;
+ };
+
+ const NEW_BADGE_LABEL: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'Nuovo',
+ en: 'New',
+ de: 'Neu',
+ fr: 'Nouveau',
+ };
+
+ // Tiny inline SVGs matching lucide-react Euro / MapPin / Clock icons.
+ const ICON_EURO = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M4 14h9M19 5.4A7 7 0 0 0 7.5 12a7 7 0 0 0 11.5 6.6"/></svg>';
+ const ICON_MAPPIN = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
+ const ICON_CLOCK = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+ const ICON_STAR = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#d97706" stroke="#d97706" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9L12 3Z"/></svg>';
+ const ICON_SPARKLE = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>';
+
+ /**
+  * Render a single open-role `<li>` card mirroring the JobBoard.tsx JobCard
+  * component. Uses inline styles (Tailwind classes from build-plugins are not
+  * scanned by the JIT). Colors match the app's semantic tokens in light mode.
+  */
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ const renderJobCardLi = (job: any, locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ const jSlug = localizedSlug(job, locale);
+ const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+ const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const logo = companyLogo(job);
+ const rawLocation = String(job.location || '');
+ const locationWithLink = linkifyCityInLocation(rawLocation, locale);
+ const cantonStr = job.canton ? ` (${esc(String(job.canton))})` : '';
+ const salaryMin = Number(job.salaryMin);
+ const salaryMax = Number(job.salaryMax);
+ const hasSalary = Number.isFinite(salaryMin) && Number.isFinite(salaryMax) && salaryMin > 0 && salaryMax >= salaryMin;
+ const salaryStr = hasSalary
+ ? `CHF ${Math.round(salaryMin / 1000)}k – ${Math.round(salaryMax / 1000)}k`
+ : '';
+ const contractLbl = localizedContract(String(job.contract || ''), locale);
+ const postedRaw = String(job.postedDate || job.datePosted || '');
+ const posted = relativePostedLabel(postedRaw, locale);
+ const fresh = isJobNew(postedRaw);
+ const featured = Boolean(job.featured);
+ const borderColor = featured ? '#fde68a' : '#e2e8f0';
+ const bgColor = featured ? '#fffbeb' : '#ffffff';
+ const featuredBadge = featured ? `<span style="display:inline-block;margin-left:6px;vertical-align:-2px">${ICON_STAR}</span>` : '';
+ const newBadge = fresh
+ ? `<span style="display:inline-flex;align-items:center;gap:3px;margin-left:6px;padding:2px 7px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;border-radius:9999px;background:#ecfdf5;color:#059669;vertical-align:1px">${ICON_SPARKLE}<span>${NEW_BADGE_LABEL[locale]}</span></span>`
+ : '';
+ const salaryHtml = salaryStr
+ ? `<span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;font-weight:600;color:#059669">${ICON_EURO}<span>${esc(salaryStr)}</span></span>`
+ : '';
+ const contractChip = contractLbl
+ ? `<span style="padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569">${esc(contractLbl)}</span>`
+ : '';
+ const postedChip = posted
+ ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_CLOCK}<span>${esc(posted)}</span></span>`
+ : '';
+ const locChip = rawLocation
+ ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_MAPPIN}<span>${esc(rawLocation)}</span></span>`
+ : '';
+ return `<li style="list-style:none;margin:0 0 10px 0"><a href="${jHref}" style="display:block;text-decoration:none;color:inherit;border:1px solid ${borderColor};background:${bgColor};border-radius:12px;padding:12px 14px;transition:border-color .15s"><div style="display:flex;align-items:flex-start;gap:12px"><div style="flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:#f1f5f9;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="${esc(logo)}" alt="Logo ${esc(String(job.company || ''))}" width="36" height="36" loading="lazy" style="width:36px;height:36px;object-fit:contain"></div><div style="flex:1 1 auto;min-width:0"><h3 style="margin:0;font-size:15px;font-weight:700;color:#0f172a;line-height:1.35">${esc(jTitle)}${featuredBadge}${newBadge}</h3><p style="margin:2px 0 0;font-size:13px;color:#475569;line-height:1.45">${esc(String(job.company || ''))} · ${locationWithLink}${cantonStr}</p>${salaryHtml}</div></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:#64748b">${locChip}${contractChip}${postedChip}</div></a></li>`;
+ };
+
+ /** Render a row of sector/city hub link chips for the company. */
+ const renderHubChipsHtml = (
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ jobs: ReadonlyArray<any>,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): string => {
+ const sectors = companySectorMatches(jobs);
+ const cities = companyCityMatches(jobs);
+ if (sectors.length === 0 && cities.length === 0) return '';
+ const labels = {
+ it: { intro: 'Esplora anche', sectorsLead: 'per settore', citiesLead: 'per città' },
+ en: { intro: 'Explore more', sectorsLead: 'by sector', citiesLead: 'by city' },
+ de: { intro: 'Mehr entdecken', sectorsLead: 'nach Branche', citiesLead: 'nach Stadt' },
+ fr: { intro: 'Explorez aussi', sectorsLead: 'par secteur', citiesLead: 'par ville' },
+ }[locale];
+ const chipStyle = 'display:inline-block;margin:0 6px 6px 0;padding:4px 10px;font-size:12px;font-weight:600;border-radius:9999px;background:#eef2ff;color:#4338ca;text-decoration:none;border:1px solid #e0e7ff';
+ const sectorChips = sectors
+ .map((s) => {
+ const href = `${BASE_URL}${buildSectorHubPath(locale, s)}`;
+ const name = SECTOR_HUB_DISPLAY[locale][s];
+ return `<a href="${href}" style="${chipStyle}">${esc(name)}</a>`;
+ })
+ .join('');
+ const cityChips = cities
+ .map((c) => {
+ const href = `${BASE_URL}${buildCityHubPath(locale, c)}`;
+ const name = CITY_HUB_DISPLAY_NAME[c];
+ return `<a href="${href}" style="${chipStyle}">${esc(name)}</a>`;
+ })
+ .join('');
+ const parts: string[] = [];
+ if (sectorChips) parts.push(`<div style="margin-top:10px"><span style="font-size:12px;color:#64748b;margin-right:8px">${esc(labels.sectorsLead)}:</span>${sectorChips}</div>`);
+ if (cityChips) parts.push(`<div style="margin-top:6px"><span style="font-size:12px;color:#64748b;margin-right:8px">${esc(labels.citiesLead)}:</span>${cityChips}</div>`);
+ return `<section style="margin-top:20px"><h3 style="margin:0 0 6px 0;font-size:14px;font-weight:700;color:#0f172a">${esc(labels.intro)}</h3>${parts.join('')}</section>`;
+ };
+
  // Collect unique companies by canonical slug (mirrors runtime grouping)
  const companyMap = new Map<string, { name: string; jobs: typeof validJobs; rawSlugs: Set<string> }>();
  for (const job of validJobs) {
@@ -1757,13 +1958,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  ...(xDefaultHrefC ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`] : []),
  ].join('\n');
 
- const jobListHtml = companyJobs.slice(0, 20).map((job) => {
- const jSlug = localizedSlug(job, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
- const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.location)} · ${esc(String(job.contract || 'other'))}</div></li>`;
- }).join('');
+ const jobListHtml = companyJobs.slice(0, 20).map((job) => renderJobCardLi(job, locale)).join('');
 
  const breadcrumbLd = JSON.stringify({
  '@context': 'https://schema.org',
@@ -1866,7 +2061,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  // Curated body HTML — replaces the generic company landing body.
  const paragraphsHtml = brandCopy.paragraphs.map((p) => `<p>${esc(p)}</p>`).join('');
  const locationsHtml = curatedBrand.locations
- .map((loc) => `<li>${esc(loc)}</li>`)
+ .map((loc) => `<li>${linkifyCityInLocation(loc, locale)}</li>`)
  .join('');
  const benefitsHtml = brandCopy.benefits
  .map((b) => `<li><strong>${esc(b.title)}.</strong> ${esc(b.desc)}</li>`)
@@ -1883,17 +2078,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  .join('');
  const openRolesListHtml = companyJobs
  .slice(0, 10)
- .map((job) => {
- const jSlug = localizedSlug(job, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
- const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 8px 0"><a href="${jHref}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(
- jTitle,
- )}</a><div style="font-size:13px;color:#64748b">${esc(job.location)}${
- job.canton ? ` · ${esc(job.canton)}` : ''
- }</div></li>`;
- })
+ .map((job) => renderJobCardLi(job, locale))
  .join('');
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
@@ -1926,7 +2111,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  openRolesListHtml
  ? `<ul style="list-style:none;padding:0;margin:16px 0">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
  hubLabels.viewAllLabel,
- )}</a></p>`
+ )}</a></p>${renderHubChipsHtml(companyJobs, locale)}`
  : `<p>${esc(brandCopy.emptyStateNote)}</p>`
  }</section>`,
  `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.faq)}</h2>${faqsHtml}</section>`,
@@ -1981,6 +2166,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const primaryLocation = companyLocations[0] || '';
  const displayCanton = companyDisplayCanton;
  const locationListStr = companyLocations.slice(0, 5).join(', ');
+ const locationListLinkedHtml = companyLocations
+ .slice(0, 5)
+ .map((loc) => linkifyCityInLocation(loc, locale))
+ .join(', ');
  const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
 
  const parts: string[] = [];
@@ -1989,7 +2178,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (locale === 'it') {
  parts.push(`<section style="margin-top:20px"><h2>Informazioni su ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} offre attualmente <strong>${companyJobs.length} posizioni aperte</strong> in Canton ${esc(displayCanton)}.`);
- if (locationListStr) parts[parts.length - 1] += ` Le sedi di lavoro includono: ${esc(locationListStr)}.`;
+ if (locationListStr) parts[parts.length - 1] += ` Le sedi di lavoro includono: ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` L'azienda opera nel settore ${esc(companySectors.slice(0, 3).join(', '))}.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Tipologie di contratto disponibili: ${esc(companyContracts.join(', '))}.</p>`);
@@ -1997,7 +2186,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  } else if (locale === 'en') {
  parts.push(`<section style="margin-top:20px"><h2>About ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} currently has <strong>${companyJobs.length} open positions</strong> in the Canton of ${esc(displayCanton)}.`);
- if (locationListStr) parts[parts.length - 1] += ` Work locations include: ${esc(locationListStr)}.`;
+ if (locationListStr) parts[parts.length - 1] += ` Work locations include: ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` The company operates in the ${esc(companySectors.slice(0, 3).join(', '))} sector.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Available contract types: ${esc(companyContracts.join(', '))}.</p>`);
@@ -2005,7 +2194,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  } else if (locale === 'de') {
  parts.push(`<section style="margin-top:20px"><h2>\u00dcber ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} bietet derzeit <strong>${companyJobs.length} offene Stellen</strong> im Kanton ${esc(displayCanton)} an.`);
- if (locationListStr) parts[parts.length - 1] += ` Arbeitsorte sind unter anderem: ${esc(locationListStr)}.`;
+ if (locationListStr) parts[parts.length - 1] += ` Arbeitsorte sind unter anderem: ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` Das Unternehmen ist in den Bereichen ${esc(companySectors.slice(0, 3).join(', '))} t\u00e4tig.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Verf\u00fcgbare Vertragsarten: ${esc(companyContracts.join(', '))}.</p>`);
@@ -2013,7 +2202,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  } else {
  parts.push(`<section style="margin-top:20px"><h2>\u00c0 propos de ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} propose actuellement <strong>${companyJobs.length} postes ouverts</strong> dans le Canton du ${esc(displayCanton)}.`);
- if (locationListStr) parts[parts.length - 1] += ` Les lieux de travail incluent : ${esc(locationListStr)}.`;
+ if (locationListStr) parts[parts.length - 1] += ` Les lieux de travail incluent : ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` L'entreprise op\u00e8re dans le secteur ${esc(companySectors.slice(0, 3).join(', '))}.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Types de contrat disponibles : ${esc(companyContracts.join(', '))}.</p>`);
@@ -2025,6 +2214,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  parts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${jobListHtml}</ul>`);
  parts.push(`<p><a href="${listingUrl}">${esc(copy.viewAll)}</a></p>`);
  parts.push('</section>');
+
+ // Internal-linking chips (city + sector hubs)
+ const hubChips = renderHubChipsHtml(companyJobs, locale);
+ if (hubChips) parts.push(hubChips);
 
  // Frontalier info section
  if (locale === 'it') {
