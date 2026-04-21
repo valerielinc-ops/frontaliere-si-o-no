@@ -62,6 +62,7 @@ const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest
 const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
 const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
 const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
+const SeoDailyBanner = lazyRetry(() => import('@/components/shared/SeoDailyBanner'));
 
 // Lazy tab content components (FRO-367): each owns its own sub-components + rendering.
 // This moves InputCard, MobileCalcLayout, FrontierGuide, and 40+ other components
@@ -87,6 +88,11 @@ initPostHog();
 // SEO helpers live in hooks/seoHelpers.ts — shared between App.tsx and extracted hooks.
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
+// Static-page path builders for footer SEO cross-links (Layer 2A — internal linking).
+import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
+import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
+import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
+import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import { pushRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
@@ -2032,7 +2038,14 @@ const App: React.FC = () => {
  />
  </div>
  ) : activeTab === 'calculator' ? (
+ <>
+ {calcolatoreSubTab === 'calculator' && !seoLanding && (
+ <Suspense fallback={null}>
+ <SeoDailyBanner className="mb-4" />
+ </Suspense>
+ )}
  <CalcolatoreTabContent />
+ </>
  ) : activeTab === 'confronti' ? (
  <ConfrontiTabContent />
  ) : activeTab === 'fisco' ? (
@@ -2285,9 +2298,74 @@ const App: React.FC = () => {
  <div className="text-center text-muted text-sm space-y-3">
  <p className="font-medium">
  {t('footer.copyright')}
- <span className="text-subtle mx-2">|</span> 
+ <span className="text-subtle mx-2">|</span>
  {t('footer.disclaimer')}
  </p>
+ {/* Layer 2A — Internal linking: freshly-updated SEO resources, desktop + mobile */}
+ <nav
+ aria-label={t('seoLinks.footer.title')}
+ data-testid="footer-seo-links"
+ className="pt-3 pb-2 border-t border-edge/50"
+ >
+ <h3 className="text-xs font-bold uppercase tracking-wider text-subtle mb-2">
+ {t('seoLinks.footer.title')}
+ </h3>
+ <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 list-none p-0 m-0">
+ <li>
+ <a
+ href={buildFuelTodayPath(locale, 'diesel')}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
+ >
+ <Fuel className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.fuelToday')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={buildCurrentWeekPath(locale, 'ticino')}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.weeklyEmployers')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={buildJobMarketHubPath(locale)}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <TrendingUp className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.jobMarket')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={buildHealthPremiumsCantonPath(locale, 'ticino')}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-success transition-colors no-underline"
+ >
+ <Heart className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.healthPremiums')}
+ </a>
+ </li>
+ <li>
+ <a
+ href={
+ locale === 'it'
+ ? '/cerca-lavoro-ticino/da-ieri/'
+ : locale === 'en'
+ ? '/en/find-jobs-ticino/since-yesterday/'
+ : locale === 'de'
+ ? '/de/jobs-im-tessin/seit-gestern/'
+ : '/fr/trouver-emploi-tessin/depuis-hier/'
+ }
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.newYesterday')}
+ </a>
+ </li>
+ </ul>
+ </nav>
  {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
  <div className="hidden md:flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
  <a
