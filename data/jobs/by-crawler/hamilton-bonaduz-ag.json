@@ -47,7 +47,6 @@
       },
       "crawledAt": "2026-04-21T21:45:45.124Z",
       "id": "hamilton-bonaduz-ag-fcc143b0d7bb",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -64,7 +63,6 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-04-21T21:45:45.124Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "lean-project-manager-80-100-w-m-d-jr-5560"
@@ -803,9 +801,7 @@
           "materiel-de-test-allrounder-robotics-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:40:18.347Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T10:40:18.347Z"
     },
     {
       "title": "Electrical Engineer 80 - 100 % (w/m/d)",
