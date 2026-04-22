@@ -3449,7 +3449,6 @@
           "pflegefachperson-60-80-rehabilitation-2-west-hopital-du-valais-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3463,8 +3462,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-cf22ec3bc8da",

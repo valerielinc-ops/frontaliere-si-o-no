@@ -192,7 +192,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -204,8 +203,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "kulm-hotel-b94b20f04f54",
@@ -776,7 +774,6 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:54:13.102Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2014,7 +2011,6 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "firstSeenAt": "2026-04-21T21:57:25.089Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz"
@@ -2126,7 +2122,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
