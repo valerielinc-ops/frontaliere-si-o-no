@@ -16,6 +16,11 @@ import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
+ BRAND_CANONICAL_MAP,
+ isBrandAlias,
+ listAllBrandAliases,
+} from './shared/brandCanonicalMap';
+import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
  buildJobLocationSectorLandingModel,
@@ -2261,11 +2266,53 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  _qw(rawFlat, redirectHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
  }
+ // Declarative brand-alias bridge pages (P5 dedup).
+ // When `cSlug` is a declared canonical primary, emit noindex canonical
+ // bridges for every alias slug registered in BRAND_CANONICAL_MAP so
+ // alternative company-hub URLs (e.g. /azienda-guess/, /azienda-guess-europe/)
+ // cannot cannibalise the brand query against the primary hub.
+ const brandEntry = BRAND_CANONICAL_MAP[cSlug];
+ if (brandEntry) {
+ for (const aliasSlug of brandEntry.aliases) {
+ const aliasFullSlug = `${prefix}-${aliasSlug}`;
+ const aliasRelPath = `${localePrefix[locale]}/${sectionSlug}/${aliasFullSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const aliasHreflang = localeList.map((l) => {
+ const aliasL = `${companyRoutePrefix[l]}-${brandEntry.canonical}`;
+ const p = `${localePrefix[l]}/${sectionByLocale[l]}/${aliasL}`.replace(/\/+/g, '/');
+ return { hreflang: l, href: `${BASE_URL}${withSlash(p)}` };
+ });
+ const aliasHtml = buildCanonicalBridgePage({
+ canonicalUrl,
+ pathLabel: canonicalPath,
+ title: `${esc(companyName)} | Frontaliere Ticino`,
+ description: `Pagina alternativa per ${companyName}. Apri la pagina canonica per gli annunci aggiornati.`,
+ body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell'azienda per gli annunci aggiornati.`,
+ ctaLabel: String(companyName || 'Apri azienda'),
+ lang: locale,
+ noindex: true,
+ hreflangEntries: aliasHreflang,
+ });
+ const aliasDir = np.join(distDir, aliasRelPath);
+ if (!fs.existsSync(np.join(aliasDir, 'index.html'))) {
+ _md(aliasDir);
+ _qw(np.join(aliasDir, 'index.html'), aliasHtml);
+ }
+ const aliasFlat = np.join(distDir, aliasRelPath + '.html');
+ if (!fs.existsSync(aliasFlat)) {
+ _md(np.dirname(aliasFlat));
+ _qw(aliasFlat, aliasHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ }
+ }
+ }
  companyPagesCount++;
  }
  }
  if (companyPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyPagesCount} company landing pages for ${companyMap.size} companies`);
+ const aliasCount = listAllBrandAliases().length * localeList.length;
+ if (aliasCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Emitted ${aliasCount} brand-alias bridge pages from BRAND_CANONICAL_MAP`);
+ }
  }
 
  const editorialLocations = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'] as const;
@@ -4486,8 +4533,9 @@ ${alternates}
  }
  const prevSlugSitemap = prevSlugEntries.length > 0 ? '\n' + prevSlugEntries.join('\n') : '';
 
- // Company sitemap entries
- const companyEntries = [...companyMap.keys()].map((cSlug) => {
+ // Company sitemap entries — skip known brand aliases so the primary
+ // canonical is the only company-hub URL advertised for dedup (P5).
+ const companyEntries = [...companyMap.keys()].filter((cSlug) => !isBrandAlias(cSlug)).map((cSlug) => {
  const itSlug = `${companyRoutePrefix.it}-${cSlug}`;
  const itPath = withSlash(`/${sectionByLocale.it}/${itSlug}`.replace(/\/+/g, '/'));
  const alternateLinks = localeList.map((l) => {
