@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usi-universita-della-svizzera-italiana",
-  "assembledAt": "2026-04-22T10:54:30.491Z",
+  "assembledAt": "2026-04-22T22:37:03.004Z",
   "jobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
@@ -372,7 +372,7 @@
       "slugByLocale": {
         "it": "invito-a-presentare-candidatura-per-una-posizione-di-docente-a-contratto-in-economia-e-pro",
         "en": "call-for-applications-for-a-contract-lecturer-position-in-economics-and-market-design-usi-",
-        "de": "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesign-usi-universita-della-svizze",
+        "de": "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi",
         "fr": "appel-a-candidatures-pour-un-poste-de-conferencier-contractuel-en-economie-et-conception-d"
       },
       "department": "Faculty of Economics",
@@ -390,8 +390,7 @@
       "previousSlugs": [
         "call-for-applications-for-a-contract-lecturer-position-in-economics-and-market-design-usi",
         "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-del-mercato-usi-uni",
-        "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro",
-        "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi"
+        "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -419,9 +418,6 @@
         "it": [
           "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-del-mercato-usi-uni",
           "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro"
-        ],
-        "de": [
-          "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi"
         ]
       },
       "firstSeenAt": "2026-04-13T22:38:02.110Z"
@@ -1525,7 +1521,8 @@
           "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:38:02.110Z"
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-postdoc-isat-2025.pdf",
