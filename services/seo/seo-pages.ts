@@ -2101,11 +2101,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  holidays: {
- title: 'Festività Ticino 2026 | Calendario Giorni Festivi Canton Ticino',
- description: 'Festività Ticino 2026: calendario dei 15 giorni festivi del Canton Ticino con date, confronto con resto Svizzera e impatto su busta paga frontaliere.',
- keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, festività canton ticino, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino 2026, ponti svizzera 2026, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026',
- ogTitle: 'Festività Ticino 2026 | Calendario Completo Giorni Festivi',
- ogDescription: 'Festività Ticino 2026: 15 giorni festivi con date, ponti, calendario stampabile, confronto con Italia e impatto sulla busta paga del frontaliere.',
+ title: 'Festività Ticino 2026: Calendario Ufficiale Giorni Festivi',
+ description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi cantonali + ponti, maggiorazioni CCL, impatto su 13ª e straordinari del frontaliere.',
+ keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, calendario festività ticino 2026, calendario ufficiale giorni festivi ticino, festività canton ticino, giorni festivi canton ticino, festività cantonali ticino, ponti ticino 2026, ferie svizzera frontalieri, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026, assunzione ticino festivo',
+ ogTitle: 'Festività Ticino 2026: Calendario Ufficiale e Ponti Frontalieri',
+ ogDescription: 'Calendario ufficiale festività Canton Ticino 2026: 15 giorni festivi, ponti, maggiorazioni CCL su straordinari festivi e impatto su 13ª del frontaliere.',
  canonicalPath: '/tasse-e-pensione/festivita-ticino',
  structuredData: [
  {
