@@ -2505,6 +2505,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como: der ideale Partner für unkomplizierte Vermietungen',
     'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'Die Agentur SoloAffitti Como, spezialisiert auf die Vermietung von Wohnungen und Gewerbeimmobilien, bietet einen umfassenden Service für Eigentümer, die ohne Sorgen vermieten möchten.',
     'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Immobilienmakler in Como zeigt einem Paar eine Immobilie mit dem Comer See im Hintergrund',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': '20% mehr für Ärzte und Krankenschwestern an der Grenze',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'Lombardei stellt 10.000 Franken für Ärzte und 5.400 Franken für Krankenschwestern bereit, die in den Grenzgebieten zur Schweiz arbeiten',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -2505,6 +2505,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como: il partner ideale per affitti senza complicazioni',
     'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'L\'agenzia SoloAffitti Como, specializzata in locazioni di abitazioni e locali commerciali, offre un servizio completo per proprietari che vogliono affittare senza preoccupazioni.',
     'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Agente immobiliare a Como mostra una proprietà a una coppia con il Lago di Como sullo sfondo',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': 'Aumenti del 20% per medici e infermieri al confine',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'Lombardia stanzia 10.000 euro per medici e 5.400 euro per infermieri che operano nelle zone di confine con la Svizzera',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

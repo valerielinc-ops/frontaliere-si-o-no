@@ -2505,6 +2505,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como: the ideal partner for hassle-free rentals',
     'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'SoloAffitti Como, specializing in residential and commercial property rentals, offers a comprehensive service for owners looking to rent out their properties without any worries.',
     'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Real estate agent in Como showing a property to a couple with Lake Como in the background',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': '20% Increase for Doctors and Nurses at the Border',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'Lombardy allocates 10,000 euros for doctors and 5,400 euros for nurses working in the border areas with Switzerland',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

@@ -4257,7 +4257,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 886,
+ "numberOfItems": 887,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5121,7 +5121,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 883, "name": "Salario minimo Ticino 2029: 4.000 franchi", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi` },
           { "@type": "ListItem", "position": 884, "name": "Guasti Trenord: ritardi e cancellazioni in Lomb...", "url": `${BASE_URL}/articoli-frontaliere/guasti-trenord-aprile-2026` },
           { "@type": "ListItem", "position": 885, "name": "Ponte Chiasso: prelievi in parrocchia grazie a ...", "url": `${BASE_URL}/articoli-frontaliere/ponte-chiasso-sanita-2026` },
-          { "@type": "ListItem", "position": 886, "name": "SoloAffitti Como: il partner ideale per affitti...", "url": `${BASE_URL}/articoli-frontaliere/soloaffitti-como-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 886, "name": "SoloAffitti Como: il partner ideale per affitti...", "url": `${BASE_URL}/articoli-frontaliere/soloaffitti-como-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 887, "name": "Aumenti del 20% per medici e infermieri al confine", "url": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-medici-infermieri-lombardia` }
  ]
  },
  {

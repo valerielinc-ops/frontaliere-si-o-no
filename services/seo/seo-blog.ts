@@ -11080,6 +11080,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumenti-stipendi-medici-infermieri-lombardia': {
+    title: 'Aumenti del 20% per medici e infermieri | Frontaliere Ticino',
+    description: 'Lombardia stanzia 10.000 euro per medici e 5.400 euro per infermieri che operano nelle zone di confine con la Svizzera. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumenti, medici, infermieri, confine',
+    ogTitle: 'Aumenti del 20% per medici e infermieri al confine',
+    ogDescription: 'Lombardia stanzia 10.000 euro per medici e 5.400 euro per infermieri che operano nelle zone di confine con la Svizzera',
+    canonicalPath: '/articoli-frontaliere/aumenti-stipendi-medici-infermieri-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumenti del 20% per medici e infermieri al confine",
+      "description": "Lombardia stanzia 10.000 euro per medici e 5.400 euro per infermieri che operano nelle zone di confine con la Svizzera. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumenti-stipendi-medici-infermieri-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-22T18:57:31+00:00",
+      "dateModified": "2026-04-22T18:57:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-medici-infermieri-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

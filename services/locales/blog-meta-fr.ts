@@ -2505,6 +2505,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como : le partenaire idéal pour des locations sans complications',
     'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'L\'agence SoloAffitti Como, spécialisée dans la location d\'habitations et de locaux commerciaux, propose un service complet pour les propriétaires qui souhaitent louer sans tracas.',
     'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Agent immobilier à Côme montrant une propriété à un couple avec le lac de Côme en arrière-plan',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': 'Augmentation de 20% pour les médecins et les infirmières à la frontière',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'La Lombardie alloue 10.000 euros pour les médecins et 5.400 euros pour les infirmières qui travaillent dans les zones frontalières avec la Suisse',
+    'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

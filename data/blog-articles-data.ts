@@ -6825,4 +6825,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/soloaffitti-como-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aumenti-stipendi-medici-infermieri-lombardia',
+ category: 'novita',
+ date: '2026-04-22T18:57:31.758Z',
+ image: '/images/blog/aumenti-stipendi-medici-infermieri-lombardia.jpg',
+ hasCalculator: true,
+ },
 ];
