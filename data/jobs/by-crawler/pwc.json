@@ -292,7 +292,7 @@
         "it": "senior-manager-director-in-sap-supply-chain-operations-consulting-pwc-zurich",
         "en": "senior-manager-director-in-sap-supply-chain-operations-consulting-pwc-zurich",
         "de": "senior-manager-direktor-in-sap-lieferkette-operations-consulting-pwc-switzerland-zurich",
-        "fr": "gestionnaire-principal-directeur-de-sap-supply-chain-operations-consulting-pwc-switzerland-zurich"
+        "fr": "senior-manager-directeur-in-sap-chaine-d-approvisionnement-operations-consulting-pwc-switzerland-zurich"
       },
       "id": "pwc-597964ecdd95",
       "salaryMin": 75500,
@@ -309,7 +309,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-21T22:13:20.002Z"
+      "firstSeenAt": "2026-04-21T22:13:20.002Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-principal-directeur-de-sap-supply-chain-operations-consulting-pwc-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-principal-directeur-de-sap-supply-chain-operations-consulting-pwc-switzerland-zurich"
+      ]
     },
     {
       "title": "Associate Strategy & Business Transformation Public Sector",

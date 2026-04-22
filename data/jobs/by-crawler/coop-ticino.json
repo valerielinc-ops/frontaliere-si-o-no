@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-632dx5",
-      "slug": "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
+      "slug": "personale-nella-gastronomia-coop-genossenschaft-landquart",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Landquart",
@@ -50,8 +50,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-landquart-graubunden-632dx5",
-        "en": "associate-gastronomie-coop-landquart-graubunden-632dx5",
+        "it": "personale-nella-gastronomia-coop-genossenschaft-landquart",
+        "en": "staff-in-gastronomy-coop-genossenschaft-landquart",
         "de": "mitarbeiter-in-gastronomie-coop-landquart-graubunden-632dx5",
         "fr": "collaborateur-trice-gastronomie-coop-landquart-graubunden-632dx5"
       },
@@ -68,11 +68,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-gastronomie-coop-landquart-graubunden-632dx5",
+          "mitarbeiter-in-gastronomie-coop-landquart-graubunden"
+        ],
+        "en": [
+          "associate-gastronomie-coop-landquart-graubunden-632dx5"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-gastronomie-coop-landquart-graubunden-632dx5",
+        "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
+        "associate-gastronomie-coop-landquart-graubunden-632dx5"
+      ]
     },
     {
       "id": "company-b5lnff",
-      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden",
+      "slug": "personale-nella-gastronomia-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Chur",
@@ -118,8 +132,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-ristorante-chur-graubunden-b5lnff",
-        "en": "associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff",
+        "it": "personale-nella-gastronomia-coop-genossenschaft-chur",
+        "en": "staff-in-gastronomy-coop-genossenschaft-chur",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden-b5lnff",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-chur-graubunden-b5lnff"
       },
@@ -136,11 +150,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-gastronomie-coop-ristorante-chur-graubunden-b5lnff",
+          "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-gastronomie-coop-ristorante-chur-graubunden-b5lnff",
+        "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden",
+        "associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff"
+      ]
     },
     {
       "id": "company-zb8ot5",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Chur",
@@ -177,10 +205,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
+        "en": "butcher-meat-specialist-coop-genossenschaft-chur",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -195,11 +223,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden"
+      ]
     },
     {
       "id": "company-hy7w7d",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -225,10 +269,10 @@
       "crawledAt": "2026-04-22T09:48:22.005Z",
       "firstSeenAt": "2026-04-22T09:48:22.005Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -263,11 +307,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ],
+        "fr": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-tyijpe",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -293,10 +353,10 @@
       "crawledAt": "2026-04-22T09:48:22.005Z",
       "firstSeenAt": "2026-04-22T09:48:22.005Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -331,7 +391,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-ke4f2c",
@@ -482,7 +558,7 @@
     },
     {
       "id": "company-g6dub0",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -508,10 +584,10 @@
       "crawledAt": "2026-04-21T09:55:02.164Z",
       "firstSeenAt": "2026-04-21T09:55:02.164Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -550,30 +626,30 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ],
         "de": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
       "id": "company-3br90q",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -599,10 +675,10 @@
       "crawledAt": "2026-04-21T09:55:02.164Z",
       "firstSeenAt": "2026-04-21T09:55:02.164Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -641,25 +717,25 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ],
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
-        "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
@@ -3071,7 +3147,7 @@
     },
     {
       "id": "company-v2cid8",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Chur",
@@ -3094,10 +3170,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
+        "en": "butcher-meat-specialist-coop-genossenschaft-chur",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-chur"
       },
       "titleByLocale": {
         "de": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
@@ -3141,12 +3217,10 @@
         "macellai-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-gx7ppw",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
         "butcher-meat-specialist-butcher-coop-genossenschaft-chur",
-        "macellaio-a-specialista-in-carne-macellaio-coop-genossenschaft-chur",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
-        "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
-        "butcher-meat-specialist-coop-genossenschaft-chur",
-        "boucher-ere-specialiste-en-viande-coop-genossenschaft-chur"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3164,7 +3238,8 @@
           "macellai-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-gx7ppw",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur",
-          "macellaio-a-specialista-in-carne-coop-genossenschaft-chur"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-v2cid8",
@@ -3183,7 +3258,7 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-gx7ppw",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
-          "butcher-meat-specialist-coop-genossenschaft-chur"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-v2cid8",
@@ -3218,7 +3293,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-gx7ppw",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
-          "boucher-ere-specialiste-en-viande-coop-genossenschaft-chur"
+          "boucher-ere-specialiste-en-viande-coop-genossenschaft-chur",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
         ]
       },
       "firstSeenAt": "2026-03-31T07:18:28.826Z"

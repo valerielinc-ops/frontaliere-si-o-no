@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "cedes-095fd9bf3819",
-      "slug": "sales-manager-elevator-escalator-cedes-landquart",
+      "slug": "sales-manager-ascensore-scala-mobile-cedes-ag-landquart",
       "slugByLocale": {
         "en": "sales-manager-elevator-escalator-cedes-landquart",
-        "it": "sales-manager-elevator-escalator-cedes-landquart",
-        "de": "sales-manager-elevator-escalator-cedes-landquart",
-        "fr": "sales-manager-elevator-escalator-cedes-landquart"
+        "it": "sales-manager-ascensore-scala-mobile-cedes-ag-landquart",
+        "de": "vertriebsleiter-aufzug-und-eskalator-cedes-ag-landquart",
+        "fr": "gestionnaire-des-ventes-ascenseur-escalator-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes",
@@ -59,7 +59,21 @@
         }
       },
       "postalCode": "7302",
-      "firstSeenAt": "2026-04-22T09:37:08.541Z"
+      "firstSeenAt": "2026-04-22T09:37:08.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-elevator-escalator-cedes-landquart"
+        ],
+        "de": [
+          "sales-manager-elevator-escalator-cedes-landquart"
+        ],
+        "fr": [
+          "sales-manager-elevator-escalator-cedes-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-elevator-escalator-cedes-landquart"
+      ]
     },
     {
       "id": "cedes-08f2188aed4b",
