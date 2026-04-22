@@ -2069,6 +2069,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-integrazione-lavoro-stranieri-ticino-2026': { name: 'Integrazione lavorativa', path: '/articoli-frontaliere/integrazione-lavoro-stranieri-ticino-2026', parent: 'blog' },
     'blog-salario-minimo-ticino-2029-4000-franchi': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi', parent: 'blog' },
     'blog-guasti-trenord-aprile-2026': { name: 'Trasporti Lombardia', path: '/articoli-frontaliere/guasti-trenord-aprile-2026', parent: 'blog' },
+    'blog-ponte-chiasso-sanita-2026': { name: 'Sanità Ponte Chiasso', path: '/articoli-frontaliere/ponte-chiasso-sanita-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2499,6 +2499,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guasti-trenord-aprile-2026.title': 'Trenord-Störungen: Verspätungen und Zugausfälle in der Lombardei am 21. April',
     'blog.article.guasti-trenord-aprile-2026.excerpt': 'Zwei technische Defekte in Albizzate und Milano Certosa führen am Dienstag, den 21. April 2026, zu weitreichenden Störungen im lombardischen Eisenbahnnetz.',
     'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Bahnhof im Tessin, Pendlerkontext',
+    'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso: Blutentnahmen in der Pfarrei dank einem Krankenpfleger',
+    'blog.article.ponte-chiasso-sanita-2026.excerpt': 'In Ponte Chiasso bietet ein freiwilliger Krankenpfleger Blutentnahmedienste in der örtlichen Pfarrei an, während der Komitee Obiettivo Salute eine dauerhafte Gesundheitsstation fordert.',
+    'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, Krankenschwester in der Pfarrei, ältere Einwohner',
 };
 
 export default blogMetaDe;

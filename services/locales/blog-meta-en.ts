@@ -2499,6 +2499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guasti-trenord-aprile-2026.title': 'Trenord malfunctions: delays and cancellations in Lombardy on April 21',
     'blog.article.guasti-trenord-aprile-2026.excerpt': 'A double technical failure at Albizzate and Milano Certosa caused widespread disruption across the Lombardy rail network on Tuesday, April 21, 2026.',
     'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Railway station in Ticino, commuter context',
+    'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso: blood draws at the parish thanks to a nurse',
+    'blog.article.ponte-chiasso-sanita-2026.excerpt': 'In Ponte Chiasso, a volunteer nurse offers blood draw services at the local parish, while the Obiettivo Salute Committee calls for a permanent healthcare facility.',
+    'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, nurse in parish, elderly residents',
 };
 
 export default blogMetaEn;

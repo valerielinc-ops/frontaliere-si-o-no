@@ -6811,4 +6811,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/guasti-trenord-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ponte-chiasso-sanita-2026',
+ category: 'novita',
+ date: '2026-04-22T16:25:00.422Z',
+ image: '/images/blog/ponte-chiasso-sanita-2026.jpg',
+ hasCalculator: true,
+ },
 ];

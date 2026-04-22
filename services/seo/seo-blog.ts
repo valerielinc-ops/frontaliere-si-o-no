@@ -11022,6 +11022,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ponte-chiasso-sanita-2026': {
+    title: 'Ponte Chiasso: prelievi in parrocchia | Frontaliere Ticino',
+    description: 'A Ponte Chiasso, un infermiere volontario offre servizi di prelievo nella parrocchia locale, mentre il Comitato Obiettivo Salute chiede un presidio sanitario',
+    keywords: 'frontalieri, ticino, svizzera, italia, ponte, chiasso, prelievi, parrocchia',
+    ogTitle: 'Ponte Chiasso: prelievi in parrocchia | Frontaliere Ticino',
+    ogDescription: 'A Ponte Chiasso, un infermiere volontario offre servizi di prelievo nella parrocchia locale, mentre il Comitato Obiettivo Salute chiede un presidio sanitario',
+    canonicalPath: '/articoli-frontaliere/ponte-chiasso-sanita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ponte Chiasso: prelievi in parrocchia grazie a un infermiere",
+      "description": "A Ponte Chiasso, un infermiere volontario offre servizi di prelievo nella parrocchia locale, mentre il Comitato Obiettivo Salute chiede un presidio sanitario",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ponte-chiasso-sanita-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ponte Chiasso, infermiere in parrocchia, anziani"
+      },
+      "datePublished": "2026-04-22T16:25:00+00:00",
+      "dateModified": "2026-04-22T16:25:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ponte-chiasso-sanita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

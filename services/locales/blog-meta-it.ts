@@ -2499,6 +2499,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guasti-trenord-aprile-2026.title': 'Guasti Trenord: ritardi e cancellazioni in Lombardia il 21 aprile',
     'blog.article.guasti-trenord-aprile-2026.excerpt': 'Doppio guasto tecnico ad Albizzate e Milano Certosa causa disagi diffusi sulla rete ferroviaria lombarda nella giornata di martedì 21 aprile 2026.',
     'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Stazione ferroviaria in Ticino, contesto pendolari',
+    'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso: prelievi in parrocchia grazie a un infermiere',
+    'blog.article.ponte-chiasso-sanita-2026.excerpt': 'A Ponte Chiasso, un infermiere volontario offre servizi di prelievo nella parrocchia locale, mentre il Comitato Obiettivo Salute chiede un presidio sanitario permanente.',
+    'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, infermiere in parrocchia, anziani',
 };
 
 export default blogMetaIt;

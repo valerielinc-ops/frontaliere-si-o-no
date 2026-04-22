@@ -2499,6 +2499,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guasti-trenord-aprile-2026.title': 'Pannes Trenord : retards et suppressions en Lombardie le 21 avril',
     'blog.article.guasti-trenord-aprile-2026.excerpt': 'Double panne technique à Albizzate et Milan Certosa cause des perturbations généralisées sur le réseau ferroviaire lombard lors de la journée du mardi 21 avril 2026.',
     'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Gare ferroviaire au Tessin, contexte des navetteurs',
+    'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso : prélèvements à la paroisse grâce à un infirmier',
+    'blog.article.ponte-chiasso-sanita-2026.excerpt': 'À Ponte Chiasso, un infirmier volontaire propose des services de prélèvements dans la paroisse locale, tandis que le Comité Obiettivo Salute demande un poste sanitaire permanent.',
+    'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, infirmière dans la paroisse, résidents âgés',
 };
 
 export default blogMetaFr;
