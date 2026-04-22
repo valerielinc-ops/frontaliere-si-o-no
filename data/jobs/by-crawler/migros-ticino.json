@@ -1,10 +1,10 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-04-21T22:04:52.948Z",
+  "assembledAt": "2026-04-22T10:24:04.130Z",
   "jobs": [
     {
       "id": "company-fen68k",
-      "slug": "franchisee-per-lugano-migrolino-lugano",
+      "slug": "franchisee-per-lugano-migrolino-bellinzona",
       "company": "migrolino",
       "title": "Franchisee per Lugano",
       "location": "Lugano",
@@ -81,7 +81,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "franchisee-per-lugano-migrolino-lugano",
+        "it": "franchisee-per-lugano-migrolino-bellinzona",
         "en": "franchisee-per-lugano-migrolino-lugano-fen68k",
         "de": "franchisee-per-lugano-migrolino-lugano-fen68k",
         "fr": "franchise-pour-lugano-migrolino-lugano"
@@ -89,14 +89,16 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
-          "franchisee-per-lugano-migrolino-lugano-fen68k"
+          "franchisee-per-lugano-migrolino-lugano-fen68k",
+          "franchisee-per-lugano-migrolino-lugano"
         ],
         "fr": [
           "franchisee-per-lugano-migrolino-lugano-fen68k"
         ]
       },
       "previousSlugs": [
-        "franchisee-per-lugano-migrolino-lugano-fen68k"
+        "franchisee-per-lugano-migrolino-lugano-fen68k",
+        "franchisee-per-lugano-migrolino-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -115,7 +117,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-p98up5",
@@ -218,7 +221,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-752d7f",
@@ -369,7 +373,8 @@
           "enseignant-e-en-allemand-f-h-x-club-ecole-migros-bellinzona-scuola-club-migros-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:46:43.833Z"
+      "firstSeenAt": "2026-04-09T21:46:43.833Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlbz63",
@@ -475,7 +480,8 @@
           "pilates-reformer-und-cadillac-lehrer-f-m-d-scuola-club-bellinzona-scuola-club-migros-belli"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -591,7 +597,8 @@
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -723,7 +730,8 @@
           "enseignant-cardio-h-f-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     }
   ]
 }
