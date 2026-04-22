@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T19:24:33.657Z",
-    "label": "before",
-    "total": 2471,
-    "needsRetranslation": 110,
-    "incomplete": 19,
-    "complete": 2452,
-    "missingByLocale": {
-      "it": 17,
-      "en": 17,
-      "de": 3,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 9
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T19:25:46.510Z",
-    "label": "after",
-    "total": 2471,
-    "needsRetranslation": 88,
-    "incomplete": 19,
-    "complete": 2452,
-    "missingByLocale": {
-      "it": 17,
-      "en": 17,
-      "de": 3,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 9
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T19:27:49.356Z",
     "label": "before",
     "total": 2471,
@@ -7295,6 +7207,66 @@
       {
         "company": "Fust | Swiss Household Services AG",
         "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-22T08:16:57.908Z",
+    "label": "before",
+    "total": 2582,
+    "needsRetranslation": 51,
+    "incomplete": 25,
+    "complete": 2557,
+    "missingByLocale": {
+      "it": 23,
+      "en": 2,
+      "de": 24,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 3
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-22T08:48:24.654Z",
+    "label": "after",
+    "total": 2582,
+    "needsRetranslation": 38,
+    "incomplete": 24,
+    "complete": 2558,
+    "missingByLocale": {
+      "it": 23,
+      "en": 1,
+      "de": 23,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 3
       },
       {
         "company": "Spital Davos",
