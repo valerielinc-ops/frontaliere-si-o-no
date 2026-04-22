@@ -6790,4 +6790,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/dogana-chiasso-traffico-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'integrazione-lavoro-stranieri-ticino-2026',
+ category: 'novita',
+ date: '2026-04-22T11:22:18.642Z',
+ image: '/images/blog/integrazione-lavoro-stranieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

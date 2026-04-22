@@ -2066,6 +2066,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-trasporto-pubblico-priorita': { name: 'Trasporto pubblico', path: '/articoli-frontaliere/ticino-trasporto-pubblico-priorita', parent: 'blog' },
     'blog-omaggio-angeli-ponte-chiasso': { name: 'Omaggio Angeli', path: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso', parent: 'blog' },
     'blog-dogana-chiasso-traffico-2026': { name: 'Dogana Chiasso', path: '/articoli-frontaliere/dogana-chiasso-traffico-2026', parent: 'blog' },
+    'blog-integrazione-lavoro-stranieri-ticino-2026': { name: 'Integrazione lavorativa', path: '/articoli-frontaliere/integrazione-lavoro-stranieri-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

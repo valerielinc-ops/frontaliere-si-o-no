@@ -2490,6 +2490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dogana-chiasso-traffico-2026.title': 'Chiasso Customs: Traffic Restrictions for Event',
     'blog.article.dogana-chiasso-traffico-2026.excerpt': 'On Friday, April 24, 2026, from 9:20 AM to 10:00 AM, traffic will be diverted towards Maslianico/Pizzamiglio for a ceremony honoring the Angels of Ponte Chiasso',
     'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Aerial view of Chiasso border crossing with traffic and pedestrians',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berna promotes the labor market integration of foreigners',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'Switzerland is amending its foreign nationals law to support integration in the job market, with specific measures for family reunification.',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Group of people from different nationalities working in an office in Lugano',
 };
 
 export default blogMetaEn;

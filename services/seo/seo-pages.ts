@@ -4257,7 +4257,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 881,
+ "numberOfItems": 882,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5116,7 +5116,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 878, "name": "Basiletti accede al main draw: vittoria a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/basiletti-main-draw-chiasso-2026` },
           { "@type": "ListItem", "position": 879, "name": "Trasporto pubblico: la sfida per il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ticino-trasporto-pubblico-priorita` },
           { "@type": "ListItem", "position": 880, "name": "Omaggio agli Angeli di Ponte Chiasso: posata la...", "url": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso` },
-          { "@type": "ListItem", "position": 881, "name": "Dogana Chiasso: limitazioni traffico 2026", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-traffico-2026` }
+          { "@type": "ListItem", "position": 881, "name": "Dogana Chiasso: limitazioni traffico 2026", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-traffico-2026` },
+          { "@type": "ListItem", "position": 882, "name": "Integrazione lavorativa stranieri Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/integrazione-lavoro-stranieri-ticino-2026` }
  ]
  },
  {

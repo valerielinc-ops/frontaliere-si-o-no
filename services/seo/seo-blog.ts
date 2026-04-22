@@ -10935,6 +10935,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-integrazione-lavoro-stranieri-ticino-2026': {
+    title: 'Berna spinge per l\'integrazione | Frontaliere Ticino',
+    description: 'Scopri le nuove misure per l\'integrazione lavorativa degli stranieri in Ticino. Supporto nella formazione e nella ricerca di un impiego. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, spinge, integrazione, lavorativa',
+    ogTitle: 'Integrazione lavorativa stranieri Ticino 2026',
+    ogDescription: 'Scopri le nuove misure per l\'integrazione lavorativa degli stranieri in Ticino. Supporto nella formazione e nella ricerca di un impiego.',
+    canonicalPath: '/articoli-frontaliere/integrazione-lavoro-stranieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Integrazione lavorativa stranieri Ticino 2026",
+      "description": "Scopri le nuove misure per l'integrazione lavorativa degli stranieri in Ticino. Supporto nella formazione e nella ricerca di un impiego. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/integrazione-lavoro-stranieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone di diverse nazionalità che lavorano in un ufficio a Lugano"
+      },
+      "datePublished": "2026-04-22T11:22:18+00:00",
+      "dateModified": "2026-04-22T11:22:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/integrazione-lavoro-stranieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2490,6 +2490,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dogana-chiasso-traffico-2026.title': 'Douane de Chiasso : restrictions de circulation pour une manifestation',
     'blog.article.dogana-chiasso-traffico-2026.excerpt': 'Vendredi 24 avril 2026, de 9h20 à 10h00, la circulation sera détournée vers Maslianico/Pizzamiglio pour une cérémonie en l\'honneur des Anges de Ponte Chiasso',
     'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Vue aérienne du passage frontalier de Chiasso avec circulation et piétons',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berne pousse pour l\'intégration professionnelle des étrangers',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'La Suisse modifie la loi sur les étrangers pour soutenir l\'intégration dans le monde du travail, avec des mesures spécifiques pour le regroupement familial.',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Groupe de personnes de différentes nationalités travaillant dans un bureau à Lugano',
 };
 
 export default blogMetaFr;

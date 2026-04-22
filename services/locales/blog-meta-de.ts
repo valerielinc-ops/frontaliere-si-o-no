@@ -2490,6 +2490,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dogana-chiasso-traffico-2026.title': 'Zollamt Chiasso: Verkehrsbeschränkungen aufgrund einer Veranstaltung',
     'blog.article.dogana-chiasso-traffico-2026.excerpt': 'Freitag, 24. April 2026, von 9:20 bis 10:00 Uhr, wird der Verkehr nach Maslianico/Pizzamiglio umgeleitet für eine Zeremonie zu Ehren der Engel von Ponte Chiasso',
     'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Luftaufnahme des Zollübergangs Chiasso mit Verkehr und Fußgängern',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berna fördert die Arbeitsintegration von Ausländern',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'Die Schweiz ändert das Ausländergesetz, um die Integration in die Arbeitswelt zu unterstützen, mit spezifischen Maßnahmen für die Familienzusammenführung.',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Gruppe von Menschen verschiedener Nationalitäten, die in einem Büro in Lugano arbeiten',
 };
 
 export default blogMetaDe;

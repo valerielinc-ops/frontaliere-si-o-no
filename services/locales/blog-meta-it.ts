@@ -2490,6 +2490,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dogana-chiasso-traffico-2026.title': 'Dogana di Chiasso: limitazioni al traffico per manifestazione',
     'blog.article.dogana-chiasso-traffico-2026.excerpt': 'Venerdì 24 aprile 2026, dalle 9:20 alle 10:00, traffico deviato verso Maslianico/Pizzamiglio per cerimonia in onore degli Angeli di Ponte Chiasso',
     'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Vista aerea del valico doganale di Chiasso con traffico e pedoni',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berna spinge per l\'integrazione lavorativa degli stranieri',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'La Svizzera modifica la legge sugli stranieri per sostenere l\'integrazione nel mondo del lavoro, con misure specifiche per il ricongiungimento familiare.',
+    'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Gruppo di persone di diverse nazionalità che lavorano in un ufficio a Lugano',
 };
 
 export default blogMetaIt;
