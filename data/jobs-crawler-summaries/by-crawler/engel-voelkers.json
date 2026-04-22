@@ -1,18 +1,50 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-22T09:54:24.792Z",
-  "total": 4,
+  "generatedAt": "2026-04-22T21:37:13.358Z",
+  "total": 5,
   "newCount": 1,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19903,
-  "avgDurationMs": 19903,
+  "durationMs": 18889,
+  "avgDurationMs": 18889,
   "durationHistory": [
-    19903
+    18889
   ],
   "newJobs": [
+    {
+      "title": "Specialista in marketing, social media e grafica | Ascona/Lugano",
+      "slug": "specialista-in-marketing-social-media-e-grafica-ascona-lugano-engel-voelkers-ascona",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/e0f270ca-b90d-4518-966b-39615a6b13a3",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/e0f270ca-b90d-4518-966b-39615a6b13a3",
+      "company": "Ticino Premium Properties SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "marketing",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 20,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Posizione aperta: consulente immobiliare (m/w/d) – 100% | Lugano",
       "slug": "posizione-aperta-consulente-immobiliare-m-w-d-100-lugano-engel-voelkers-lugano",
@@ -35,16 +67,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 66,
+      "id": "engel-voelkers-d0aa19ee3854",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-04-22T09:54:24.792Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 20,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Assistente Team 100% (m/f) | Lugano",
       "slug": "assistente-team-100-m-f-lugano-engel-voelkers-lugano",
