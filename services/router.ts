@@ -45,6 +45,7 @@ import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-pl
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
+import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 
 // ── Route types ──────────────────────────────────────────────
 
@@ -1686,6 +1687,20 @@ export function parsePath(pathname: string): ParseResult {
        };
      }
      return { route: { activeTab: 'guida', guidaSubTab: 'border', staticOverlay: true }, locale: targetLocale };
+   }
+ }
+
+ // Nursing / healthcare SEO landings (P2) — /lavoro-infermieri-svizzera/,
+ // /lavoro-oss-svizzera/, /lavoro-sanitario-ticino/ + locale variants. Pages
+ // are statically generated with `seoContentOutsideRoot: true`; staticOverlay
+ // keeps the per-landing content visible so the SPA doesn't replace it.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (NURSING_LANDING_ROUTES.includes(normalized) || isNursingLandingPath(pathname)) {
+     const parsed = parseNursingLandingPath(pathname);
+     if (parsed) {
+       return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+     }
    }
  }
 
