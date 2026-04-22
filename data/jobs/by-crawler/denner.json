@@ -188,12 +188,12 @@
     },
     {
       "id": "denner-24b062bc7216",
-      "slug": "verkaufer-in-im-stundenlohn-denner-zofingen",
+      "slug": "venditore-in-salario-orario-denner-zofingen",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-zofingen",
-        "en": "verkaufer-in-im-stundenlohn-denner-zofingen",
+        "it": "venditore-in-salario-orario-denner-zofingen",
+        "en": "seller-in-in-hourly-wage-denner-zofingen",
         "de": "verkaufer-in-im-stundenlohn-denner-zofingen",
-        "fr": "verkaufer-in-im-stundenlohn-denner-zofingen"
+        "fr": "vendeur-en-salaire-horaire-denner-zofingen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -252,20 +252,24 @@
       "crawledAt": "2026-04-22T21:33:13.630Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-zofingen"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-zofingen"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-zofingen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-zofingen",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -750,12 +754,12 @@
     },
     {
       "id": "denner-715fe24559e1",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-bubendorf",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "en": "assistant-in-branch-management-denner-bubendorf",
         "de": "assistent-in-filialleitung-denner-bubendorf",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-des-directions-generales-denner-bubendorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -815,10 +819,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1307,12 +1322,12 @@
     },
     {
       "id": "denner-6888cd0ced68",
-      "slug": "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg",
+      "slug": "studente-in-come-aiuto-di-vacanza-nel-salario-orario-denner-steffisburg",
       "slugByLocale": {
-        "it": "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg",
+        "it": "studente-in-come-aiuto-di-vacanza-nel-salario-orario-denner-steffisburg",
         "en": "student-in-als-ferienaushilfe-im-stundenlohn-denner",
         "de": "student-in-als-ferienaushilfe-im-stundenlohn-denner",
-        "fr": "student-in-als-ferienaushilfe-im-stundenlohn-denner"
+        "fr": "etudiant-dans-comme-aide-de-vacances-dans-le-salaire-horaire-denner-steffisburg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1369,11 +1384,16 @@
       "crawledAt": "2026-04-22T21:33:09.048Z",
       "previousSlugsByLocale": {
         "it": [
+          "student-in-als-ferienaushilfe-im-stundenlohn-denner",
+          "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg"
+        ],
+        "fr": [
           "student-in-als-ferienaushilfe-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-als-ferienaushilfe-im-stundenlohn-denner"
+        "student-in-als-ferienaushilfe-im-stundenlohn-denner",
+        "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

@@ -23,9 +23,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-22T21:58:29.199Z",
-      "slug": "mitarbeiter-in-arzneimittelherstelllung-kantonsspital-graubunden-chur",
+      "slug": "personale-in-preparazione-farmaceutica-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-arzneimittelherstelllung-kantonsspital-graubunden-chur"
+        "de": "mitarbeiter-in-arzneimittelherstelllung-kantonsspital-graubunden-chur",
+        "it": "personale-in-preparazione-farmaceutica-kantonsspital-graubunden-chur",
+        "en": "staff-in-pharmaceutical-production-kantonsspital-graubunden-chur",
+        "fr": "personnel-en-preparation-pharmaceutique-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Arzneimittelherstelllung",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-22T21:58:29.199Z"
+      "firstSeenAt": "2026-04-22T21:58:29.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-arzneimittelherstelllung-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-arzneimittelherstelllung-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10005062",
@@ -5081,8 +5092,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

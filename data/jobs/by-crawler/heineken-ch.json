@@ -363,7 +363,7 @@
       "slugByLocale": {
         "it": "titolo-consulente-commerciale-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "en": "sales-advisor-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
-        "de": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
+        "de": "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "fr": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-switzerland-content-width-device-width"
       },
       "company": "Heineken Switzerland",
@@ -407,7 +407,7 @@
         "de": [
           "verkaufsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
           "verkaufsberater-in-riviera-chablais-f-m-d-heineken-switzerland-content-width-device-width",
-          "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width"
+          "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt"
         ],
         "it": [
           "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
@@ -418,7 +418,6 @@
         "verkaufsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "verkaufsberater-in-riviera-chablais-f-m-d-heineken-switzerland-content-width-device-width",
         "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
-        "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width"
       ],
       "requirementsByLocale": {
@@ -988,9 +987,9 @@
     },
     {
       "id": "heineken-ch-6c780064509f",
-      "slug": "logisticher-in-nell-area-supply-chain-heineken-switzerland-content-width-device-width",
+      "slug": "bezeichnung-impiegata-impiegato-in-logistica-heineken-switzerland-content-width-device-width",
       "slugByLocale": {
-        "it": "logisticher-in-nell-area-supply-chain-heineken-switzerland-content-width-device-width",
+        "it": "bezeichnung-impiegata-impiegato-in-logistica-heineken-switzerland-content-width-device-width",
         "en": "logistics-specialist-in-supply-chain-heineken-switzerland-content-width-device-width",
         "de": "bezeichnung-logistiker-in-heineken-ch-content-width-device-width",
         "fr": "specialiste-de-la-logistique-en-chaine-d-approvisionnement-heineken-switzerland-content-width-device-width"
@@ -1034,12 +1033,12 @@
       "crawledAt": "2026-04-22T21:49:02.874Z",
       "previousSlugs": [
         "bezeichnung-logistiker-in-heineken-ch-content-width-device-width",
-        "bezeichnung-impiegata-impiegato-in-logistica-heineken-switzerland-content-width-device-width"
+        "logisticher-in-nell-area-supply-chain-heineken-switzerland-content-width-device-width"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bezeichnung-logistiker-in-heineken-ch-content-width-device-width",
-          "bezeichnung-impiegata-impiegato-in-logistica-heineken-switzerland-content-width-device-width"
+          "logisticher-in-nell-area-supply-chain-heineken-switzerland-content-width-device-width"
         ],
         "en": [
           "bezeichnung-logistiker-in-heineken-ch-content-width-device-width"

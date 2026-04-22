@@ -1067,9 +1067,9 @@
       "crawledAt": "2026-04-22T21:35:51.350Z",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-        "en": "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano",
-        "de": "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
-        "fr": "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano"
+        "en": "afc-bank-commercial-trainee-efg-international-ag-lugano",
+        "de": "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
+        "fr": "stagiaire-commercial-afc-banque-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -1093,22 +1093,28 @@
       "previousSlugsByLocale": {
         "de": [
           "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-          "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano"
+          "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
+          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
         ],
         "fr": [
           "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
-          "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano"
+          "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
+          "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano"
         ],
         "en": [
-          "commercial-apprentice-afc-bank-efg-international-ag-lugano"
+          "commercial-apprentice-afc-bank-efg-international-ag-lugano",
+          "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
         "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
+        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
         "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
         "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
-        "commercial-apprentice-afc-bank-efg-international-ag-lugano"
+        "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano",
+        "commercial-apprentice-afc-bank-efg-international-ag-lugano",
+        "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z"
     },
