@@ -398,10 +398,12 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
 
   it('every body contains the full hub name (branding check)', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      // Every page links back to its own hub so the hub name must appear in the body
-      const bodyMatch = html.match(/<div id="root">([\s\S]*?)<\/div>\s*<\/body>/);
+      // Every page links back to its own hub so the hub name must appear in the body.
+      // SEO content is now emitted OUTSIDE `#root` (empty) inside a sibling
+      // `<main class="seo-static-content">` — see seoPageShell.ts.
+      const bodyMatch = html.match(/<main class="seo-static-content">([\s\S]*?)<\/main>/);
       const body = bodyMatch?.[1] ?? '';
-      expect(body.length, `empty body on ${path}`).toBeGreaterThan(0);
+      expect(body.length, `empty seo-static-content body on ${path}`).toBeGreaterThan(0);
     }
   });
 });

@@ -189,10 +189,12 @@ describe('generateFuelItalianCityPages() — content quality', () => {
     expect(luinoPage).toContain('/prezzi-benzina/locarno/oggi/');
   });
 
-  it('uses SPA shell (bg-surface-alt + #root)', () => {
+  it('uses SPA shell (bg-surface-alt) with empty #root + static seo-content sibling', () => {
     const comoPage = pages['/prezzi-benzina/italia/como/oggi/'];
     expect(comoPage).toContain('bg-surface-alt');
-    expect(comoPage).toContain('<div id="root">');
+    // Empty `#root` so React hydration cannot replace static SEO content.
+    expect(comoPage).toMatch(/<div id="root"><\/div>/);
+    expect(comoPage).toContain('<main class="seo-static-content">');
   });
 
   it('does not leak any dark: color prefix classes', () => {

@@ -464,10 +464,14 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toMatch(/Chiasso/);
   });
 
-  it('uses <body class="bg-surface-alt"> SPA shell (no bare inline-only body)', () => {
+  it('uses <body class="bg-surface-alt"> SPA shell with empty #root + static seo-content sibling', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
     expect(sample).toContain('bg-surface-alt');
-    expect(sample).toContain('<div id="root">');
+    // #root is left EMPTY on SEO pages so React's hydration cannot visually
+    // replace the static SEO content (bait-and-switch fix).
+    expect(sample).toMatch(/<div id="root"><\/div>/);
+    // SEO content lives in a sibling `<main class="seo-static-content">`.
+    expect(sample).toContain('<main class="seo-static-content">');
   });
 
   it('does not leak any dark: color prefix classes', () => {
