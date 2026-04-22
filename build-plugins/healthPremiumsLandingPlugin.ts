@@ -47,12 +47,15 @@ import {
   buildHealthPremiumsLeafPath,
   buildHealthPremiumsRootPath,
   computeYoyDelta,
+  computeTriYearDelta,
   loadPremiumsForYear,
   type HealthPremiumAgeBracket,
   type HealthPremiumCanton,
   type HealthPremiumLocale,
   type HealthPremiumRiskClass,
   type YoyCantonDelta,
+  type TriYearCantonDelta,
+  type BracketTrend,
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 
@@ -135,6 +138,69 @@ function formatPct(n: number | null, locale: HealthPremiumLocale): string {
   const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
   const sign = n > 0 ? '+' : n < 0 ? '' : '';
   return `${sign}${n.toFixed(2).replace('.', sep)}%`;
+}
+
+/**
+ * Render a small inline SVG sparkline plotting the bracket median across the
+ * 2- or 3-year window. Returns an empty string when fewer than 2 points are
+ * available (no curve to draw).
+ *
+ * The sparkline is fully self-contained (no external CSS, no `dark:` prefix
+ * because dark-mode tokens come from `index.css`) and uses semantic `aria-*`
+ * markup so screen readers narrate the trend.
+ */
+function renderSparkline(
+  trend: BracketTrend,
+  locale: HealthPremiumLocale,
+  ariaLabel: string,
+): string {
+  const pts = trend.points.filter((p) => p.median !== null) as Array<{
+    year: number;
+    median: number;
+    insurers: number;
+  }>;
+  if (pts.length < 2) return '';
+  const W = 220;
+  const H = 60;
+  const PAD = 12;
+  const minY = Math.min(...pts.map((p) => p.median));
+  const maxY = Math.max(...pts.map((p) => p.median));
+  const span = maxY - minY || 1;
+  const stepX = (W - 2 * PAD) / (pts.length - 1);
+  const coords = pts.map((p, i) => {
+    const x = PAD + i * stepX;
+    // Higher CHF → lower y so the chart reads "up = more expensive".
+    const y = H - PAD - ((p.median - minY) / span) * (H - 2 * PAD);
+    return { x, y, p };
+  });
+  const linePath = coords.map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
+  const dots = coords
+    .map(
+      (c) =>
+        `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="3.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="1.5" />`,
+    )
+    .join('');
+  const labels = coords
+    .map((c, i) => {
+      const isFirst = i === 0;
+      const isLast = i === coords.length - 1;
+      const anchor = isFirst ? 'start' : isLast ? 'end' : 'middle';
+      const dx = isFirst ? -2 : isLast ? 2 : 0;
+      return `<text x="${(c.x + dx).toFixed(1)}" y="${H - 1}" font-size="9" fill="#475569" text-anchor="${anchor}">${c.p.year}</text>`;
+    })
+    .join('');
+  const tooltips = coords
+    .map((c) => {
+      const valueLabel = `${c.p.year}: ${formatCHF(roundCHF(c.p.median), locale)} CHF`;
+      return `<title>${esc(valueLabel)}</title>`;
+    })
+    .join('');
+  return `<svg role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="display:block;margin-top:6px">
+    ${tooltips}
+    <path d="${linePath}" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    ${dots}
+    ${labels}
+  </svg>`;
 }
 
 const LOCALE_OG: Record<HealthPremiumLocale, string> = {
@@ -364,6 +430,25 @@ interface LeafCopy {
     tableHeaders: { rank: string; insurer: string; delta: string };
     emptyPriorNote: (priorYear: number) => string;
   };
+  /**
+   * Localised copy for the tri-year trend section (B-cont-4). Renders only
+   * when 2024 + 2025 + current data are all available. Falls back silently
+   * when 2024 is missing (the YoY block above already covers the 2-year case).
+   */
+  triYear: {
+    sectionTitle: (oldestYear: number, currentYear: number) => string;
+    summary: (
+      canton: string,
+      age: string,
+      oldestYear: number,
+      priorYear: number,
+      currentYear: number,
+      yoyOlder: string,
+      yoyRecent: string,
+      cumulative: string,
+    ) => string;
+    sparklineLabel: (canton: string, age: string) => string;
+  };
 }
 
 interface HubCopy {
@@ -393,6 +478,16 @@ interface HubCopy {
     cantonSummary: (canton: string, adultMedianPct: string, priorYear: number) => string;
     gridCaption: (priorYear: number) => string;
     gridHeaders: { age: string; delta: string };
+  };
+  /** Canton-hub tri-year trend copy (B-cont-4). */
+  triYear: {
+    sectionTitle: (oldestYear: number, currentYear: number) => string;
+    cantonSummary: (
+      canton: string,
+      oldestYear: number,
+      currentYear: number,
+      cumulative: string,
+    ) => string;
   };
 }
 
@@ -454,6 +549,12 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       emptyPriorNote: (py) =>
         `I dati ${py} non sono disponibili per questa combinazione: la sezione di variazione verrà popolata al prossimo refresh dell'archivio BAG.`,
     },
+    triYear: {
+      sectionTitle: (oy, cy) => `Trend triennale ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `Andamento dei premi LAMal in ${c} per la fascia ${a} negli ultimi tre anni: ${oy} → ${py} → ${cy}, con variazioni ${yoyOlder} e ${yoyRecent}, per un totale cumulato di ${cum} sul biennio. La traiettoria mostra come la revisione tariffaria annuale del Consiglio federale si sia stratificata: un singolo aumento può sembrare contenuto, ma la somma su due esercizi è la lettura corretta per pianificare il budget familiare.`,
+      sparklineLabel: (c, a) => `Mediana dei premi mensili in ${c} per la fascia ${a} negli ultimi tre anni (CHF/mese)`,
+    },
   },
   en: {
     breadcrumbHome: 'Home',
@@ -511,6 +612,12 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       tableHeaders: { rank: 'Rank', insurer: 'Health fund', delta: `Δ vs prior year` },
       emptyPriorNote: (py) =>
         `${py} data is not available for this combination: the change section will populate on the next BAG archive refresh.`,
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Three-year trend ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `LAMal premium trajectory in ${c} for ${a} over the last three years: ${oy} → ${py} → ${cy}, with consecutive year-over-year changes of ${yoyOlder} and ${yoyRecent} for a cumulative ${cum} over the two-year window. Looking at a single annual revision can mask the picture — the two-step compound is the right reading for planning a household budget.`,
+      sparklineLabel: (c, a) => `Median monthly premium in ${c} for ${a} over the last three years (CHF/month)`,
     },
   },
   de: {
@@ -570,6 +677,12 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       emptyPriorNote: (py) =>
         `${py}-Daten sind für diese Kombination nicht verfügbar: Der Veränderungsabschnitt wird beim nächsten BAG-Archiv-Refresh befüllt.`,
     },
+    triYear: {
+      sectionTitle: (oy, cy) => `Dreijahres-Trend ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `KVG-Prämienverlauf in ${c} für ${a} in den letzten drei Jahren: ${oy} → ${py} → ${cy}, mit Veränderungen ${yoyOlder} und ${yoyRecent}, kumuliert ${cum} über das Zweijahresfenster. Die jährliche Revision allein vermittelt nicht das Gesamtbild — die zweistufige Summation ist die richtige Grösse für die Budgetplanung eines Haushalts.`,
+      sparklineLabel: (c, a) => `Medianprämie pro Monat in ${c} für ${a} in den letzten drei Jahren (CHF/Monat)`,
+    },
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -627,6 +740,12 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', delta: `Δ vs année préc.` },
       emptyPriorNote: (py) =>
         `Les données ${py} ne sont pas disponibles pour cette combinaison : la section variation sera remplie au prochain rafraîchissement de l'archive BAG.`,
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Tendance triennale ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `Trajectoire des primes LAMal à ${c} pour la tranche ${a} sur les trois dernières années : ${oy} → ${py} → ${cy}, avec des variations consécutives ${yoyOlder} puis ${yoyRecent}, soit un total cumulé de ${cum} sur la fenêtre biennale. Une seule révision annuelle peut paraître modeste, mais la somme composée sur deux exercices reste la lecture pertinente pour planifier le budget familial.`,
+      sparklineLabel: (c, a) => `Prime mensuelle médiane à ${c} pour ${a} sur les trois dernières années (CHF/mois)`,
     },
   },
 };
@@ -690,6 +809,11 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       gridCaption: (py) => `Variazione mediana per fascia di età (${py} → anno corrente)`,
       gridHeaders: { age: 'Fascia', delta: 'Δ vs anno precedente' },
     },
+    triYear: {
+      sectionTitle: (oy, cy) => `Trend triennale ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Sul biennio ${oy} → ${cy} la mediana adulti (26+) in ${c} è cresciuta complessivamente di ${cum}. Il dato cumulato è il riferimento corretto per stimare l'impatto sul budget familiare a 24 mesi, perché smorza la volatilità della singola revisione tariffaria annuale.`,
+    },
   },
   en: {
     breadcrumbHome: 'Home',
@@ -748,6 +872,11 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
         `The adult (26+) median premium in ${c} moved by ${adultPct} vs ${py}. The table below breaks the change down by age bracket, using only funds that published data in both years (source: BAG/FOPH historical archive).`,
       gridCaption: (py) => `Median change by age bracket (${py} → current year)`,
       gridHeaders: { age: 'Bracket', delta: 'Δ vs prior year' },
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Three-year trend ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Across the ${oy} → ${cy} window the adult (26+) median in ${c} compounded by ${cum}. The two-year cumulative is the right reference to size the budget impact, because it smooths the noise of a single annual tariff revision.`,
     },
   },
   de: {
@@ -808,6 +937,11 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       gridCaption: (py) => `Mediane Veränderung nach Altersgruppe (${py} → laufendes Jahr)`,
       gridHeaders: { age: 'Gruppe', delta: 'Δ vs Vorjahr' },
     },
+    triYear: {
+      sectionTitle: (oy, cy) => `Dreijahres-Trend ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Im Zeitraum ${oy} → ${cy} hat sich der Erwachsenen-Median (26+) in ${c} kumuliert um ${cum} verändert. Der Zweijahres-Saldo ist der richtige Massstab für die Budgetplanung, weil er die Schwankung einer einzelnen jährlichen Tarifrevision glättet.`,
+    },
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -867,6 +1001,11 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       gridCaption: (py) => `Variation médiane par tranche d'âge (${py} → année courante)`,
       gridHeaders: { age: 'Tranche', delta: 'Δ vs année préc.' },
     },
+    triYear: {
+      sectionTitle: (oy, cy) => `Tendance triennale ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Sur la fenêtre ${oy} → ${cy}, la prime médiane adulte (26+) à ${c} a évolué cumulativement de ${cum}. Le cumul biennal est la bonne référence pour anticiper l'impact sur le budget familial : il lisse la volatilité d'une révision tarifaire annuelle isolée.`,
+    },
   },
 };
 
@@ -884,12 +1023,14 @@ interface LeafInputs {
   today: Date;
   /** Year-over-year delta for this canton; null when prior-year data absent. */
   yoy: YoyCantonDelta | null;
+  /** Tri-year trend (oldest→prior→current); null when no archive available. */
+  triYear: TriYearCantonDelta | null;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, distDir } = inp;
+  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
   const copy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
   const ageLabel = HEALTH_PREMIUM_AGE_LABEL[locale][age];
@@ -1064,6 +1205,38 @@ function renderLeafPage(inp: LeafInputs): string {
     </section>`;
   })();
 
+  // Tri-year trend section (B-cont-4) — renders only when 3 years of data
+  // are available for this bracket; falls back to silence (the YoY section
+  // above already covers the 2-year case) when 2024 is missing. Per
+  // CLAUDE.md rule #6: no fake data, no fabricated values.
+  const triYearHtml = (() => {
+    if (!triYear) return '';
+    const trend = triYear.byBracket[age];
+    if (!trend) return '';
+    if (trend.points.length < 3) return '';
+    const oldestYear = trend.points[0].year;
+    const priorYear = trend.points[trend.points.length - 2].year;
+    const currentYear = trend.points[trend.points.length - 1].year;
+    const yoyOlderFmt = formatPct(trend.yoyPct[0] ?? null, locale);
+    const yoyRecentFmt = formatPct(trend.yoyPct[trend.yoyPct.length - 1] ?? null, locale);
+    const cumFmt = formatPct(trend.cumulativePct, locale);
+    const sparkAria = copy.triYear.sparklineLabel(cantonLabel, ageLabel);
+    const sparkHtml = renderSparkline(trend, locale, sparkAria);
+    const sequence = `${oldestYear} → ${priorYear} → ${currentYear}`;
+    return `<section style="margin:0 0 24px" aria-labelledby="triYear">
+      <h2 id="triYear" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
+      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin:6px 0 0">
+        <div style="padding:14px 18px;border-radius:14px;background:#eef2ff;border:1px solid #c7d2fe">
+          <div style="font-size:11px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(sequence)}</div>
+          <div style="margin-top:6px;font-size:20px;font-weight:700;color:#1e293b;font-variant-numeric:tabular-nums">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
+          <div style="margin-top:2px;font-size:13px;color:#475569;font-variant-numeric:tabular-nums">${esc(cumFmt)}</div>
+        </div>
+        ${sparkHtml}
+      </div>
+    </section>`;
+  })();
+
   // FAQ
   const faqItems = copy.faq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
@@ -1166,6 +1339,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ${rankingHtml}
   </section>
   ${yoyHtml}
+  ${triYearHtml}
   <section style="margin:0 0 24px" aria-labelledby="editorial">
     <h2 id="editorial" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.editorialTitle)}</h2>
     <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
@@ -1212,12 +1386,14 @@ interface CantonHubInputs {
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
   yoy: YoyCantonDelta | null;
+  /** Tri-year trend (oldest→prior→current); null when no archive available. */
+  triYear: TriYearCantonDelta | null;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
 }
 
 function renderCantonHubPage(inp: CantonHubInputs): string {
-  const { locale, canton, dataset, stats, canonicalPath, alternates, today, yoy, distDir } = inp;
+  const { locale, canton, dataset, stats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
   const copy = HUB_COPY[locale];
   const leafCopy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
@@ -1316,6 +1492,25 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     </section>`;
   })();
 
+  // Tri-year trend on the canton hub — short headline + adult sparkline.
+  // Renders only when 3 distinct years feed the adult bracket; falls back to
+  // silence when 2024 archive is missing for this canton.
+  const triYearHubHtml = (() => {
+    if (!triYear) return '';
+    const adult = triYear.byBracket['31-45'];
+    if (!adult || adult.points.length < 3) return '';
+    const oldestYear = adult.points[0].year;
+    const currentYear = adult.points[adult.points.length - 1].year;
+    const cumFmt = formatPct(adult.cumulativePct, locale);
+    const sparkAria = HUB_COPY[locale].triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt);
+    const sparkHtml = renderSparkline(adult, locale, sparkAria);
+    return `<section style="margin:0 0 24px" aria-labelledby="triYearHub">
+      <h2 id="triYearHub" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
+      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt))}</p>
+      ${sparkHtml}
+    </section>`;
+  })();
+
   // Canton FAQ
   const faqItems = copy.cantonFaq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
@@ -1392,6 +1587,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     ${ageGridHtml}
   </section>
   ${yoyHubHtml}
+  ${triYearHubHtml}
   <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
     <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
@@ -1598,18 +1794,31 @@ export interface GenerateHealthPremiumsResult {
    * renders leaves and hubs without the "Variazione vs {priorYear}" section.
    */
   yoyByCanton: Record<HealthPremiumCanton, YoyCantonDelta | null>;
+  /**
+   * Per-canton tri-year trend computed against the optional `oldestDataset`
+   * (e.g. 2024) plus `priorDataset` (e.g. 2025). Empty record when neither
+   * archive was provided — leaves and hubs then skip the tri-year block.
+   */
+  triYearByCanton: Record<HealthPremiumCanton, TriYearCantonDelta | null>;
 }
 
 export function generateHealthPremiumsPages(opts: {
   dataset: HealthPremiumsDataset;
   /** Optional prior-year dataset (same schema) for YoY computation. */
   priorDataset?: HealthPremiumsDataset | null;
+  /**
+   * Optional oldest dataset (typically 2024) used together with
+   * `priorDataset` to render the tri-year trend (B-cont-4). When absent the
+   * tri-year block is omitted but the YoY block still renders.
+   */
+  oldestDataset?: HealthPremiumsDataset | null;
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
 }): GenerateHealthPremiumsResult {
   const dataset = opts.dataset;
   const priorDataset = opts.priorDataset ?? null;
+  const oldestDataset = opts.oldestDataset ?? null;
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
 
@@ -1622,6 +1831,13 @@ export function generateHealthPremiumsPages(opts: {
     zurigo: null,
   };
   const yoyByCanton: Record<HealthPremiumCanton, YoyCantonDelta | null> = {
+    ticino: null,
+    grigioni: null,
+    uri: null,
+    vallese: null,
+    zurigo: null,
+  };
+  const triYearByCanton: Record<HealthPremiumCanton, TriYearCantonDelta | null> = {
     ticino: null,
     grigioni: null,
     uri: null,
@@ -1643,6 +1859,18 @@ export function generateHealthPremiumsPages(opts: {
       yoyByCanton[c] = computeYoyDelta({
         current: dataset,
         prior: priorDataset,
+        cantonBagCode: HEALTH_PREMIUM_CANTON_BAG_CODE[c],
+      });
+    }
+    // Tri-year trend: needs at least the current dataset; oldestDataset and
+    // priorDataset are optional. When only the current dataset is available
+    // computeTriYearDelta returns null because no consecutive YoY can
+    // be computed — keeping the leaf rendering clean.
+    if (priorDataset || oldestDataset) {
+      triYearByCanton[c] = computeTriYearDelta({
+        current: dataset,
+        prior: priorDataset,
+        oldest: oldestDataset,
         cantonBagCode: HEALTH_PREMIUM_CANTON_BAG_CODE[c],
       });
     }
@@ -1689,6 +1917,7 @@ export function generateHealthPremiumsPages(opts: {
         alternates: cantonAlternates,
         today,
         yoy: yoyByCanton[canton],
+        triYear: triYearByCanton[canton],
         distDir,
       });
 
@@ -1711,13 +1940,14 @@ export function generateHealthPremiumsPages(opts: {
           alternates: leafAlternates,
           today,
           yoy: yoyByCanton[canton],
+          triYear: triYearByCanton[canton],
           distDir,
         });
       }
     }
   }
 
-  return { pages, skippedCantons, yoyByCanton };
+  return { pages, skippedCantons, yoyByCanton, triYearByCanton };
 }
 
 // ── Sitemap ────────────────────────────────────────────────────
@@ -1830,13 +2060,28 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
         console.log(`[health-premiums] no ${priorYear}.json archive — YoY section will be skipped`);
       }
 
-      const { pages, skippedCantons, yoyByCanton } = generateHealthPremiumsPages({
+      // Optional oldest-year dataset for tri-year trend (B-cont-4). Same
+      // graceful-degradation contract: missing archive → silent skip of the
+      // tri-year block, YoY block still renders.
+      let oldestDataset: HealthPremiumsDataset | null = null;
+      const oldestYear = currentYear - 2;
+      const oldestLoaded = loadPremiumsForYear(rootDir, oldestYear);
+      if (oldestLoaded) {
+        oldestDataset = oldestLoaded as HealthPremiumsDataset;
+        console.log(`[health-premiums] loaded oldest-year dataset ${oldestYear} for tri-year trend`);
+      } else {
+        console.log(`[health-premiums] no ${oldestYear}.json archive — tri-year trend section will be skipped`);
+      }
+
+      const { pages, skippedCantons, yoyByCanton, triYearByCanton } = generateHealthPremiumsPages({
         dataset,
         priorDataset,
+        oldestDataset,
         today,
         distDir,
       });
       const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
+      const triYearActive = Object.values(triYearByCanton).filter((y) => y !== null).length;
 
       const collector = new WriteCollector({ distDir, skipExisting: false });
       let pagesWritten = 0;
@@ -1882,7 +2127,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       }
 
       console.log(
-        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
+        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons; tri-year trend active on ${triYearActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
       );
     },
   };

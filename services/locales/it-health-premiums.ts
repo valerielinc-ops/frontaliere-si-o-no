@@ -25,6 +25,10 @@ const translations: Record<string, string> = {
   'healthPremiums.ageGridTitle': 'Mediane per fascia di età',
   'healthPremiums.cantonGridTitle': 'Mediane per cantone — fascia adulti (26+)',
   'healthPremiums.openLeaf': 'Apri',
+  // B-cont-4 — tri-year trend editorial
+  'healthPremiums.triYear.sectionTitle': 'Trend triennale',
+  'healthPremiums.triYear.summary': 'Andamento dei premi LAMal degli ultimi tre anni con variazioni anno su anno e cumulato biennale.',
+  'healthPremiums.triYear.cantonSummary': 'Variazione cumulata della mediana adulti negli ultimi tre anni.',
 };
 
 export default translations;

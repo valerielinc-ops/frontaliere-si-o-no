@@ -23,6 +23,10 @@ const translations: Record<string, string> = {
   'healthPremiums.ageGridTitle': 'Median by age bracket',
   'healthPremiums.cantonGridTitle': 'Median by canton — adult bracket (26+)',
   'healthPremiums.openLeaf': 'Open',
+  // B-cont-4 — tri-year trend editorial
+  'healthPremiums.triYear.sectionTitle': 'Three-year trend',
+  'healthPremiums.triYear.summary': 'LAMal premium trajectory over the last three years with year-over-year change and two-year cumulative.',
+  'healthPremiums.triYear.cantonSummary': 'Cumulative change of the adult median premium over the last three years.',
 };
 
 export default translations;
