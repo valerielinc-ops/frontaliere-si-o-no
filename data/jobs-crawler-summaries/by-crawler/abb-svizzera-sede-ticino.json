@@ -1,18 +1,59 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-04-21T20:56:24.544Z",
+  "generatedAt": "2026-04-22T09:15:22.291Z",
   "total": 13,
   "newCount": 1,
   "updatedCount": 10,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 2,
-  "durationMs": 39867,
-  "avgDurationMs": 39867,
+  "durationMs": 33586,
+  "avgDurationMs": 33586,
   "durationHistory": [
-    39867
+    33586
   ],
   "newJobs": [
+    {
+      "id": "company-tooege",
+      "slug": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Technical Support Engineer (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-11",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00030206EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-31T20:45:35.471Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-03-31T20:45:35.471Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-u0g8m6",
       "slug": "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino-u0g8m6",
@@ -36,19 +77,25 @@
       "companyDomain": "abb.ch",
       "crawledAt": "2026-04-21T20:56:23.973Z",
       "firstSeenAt": "2026-04-21T20:56:23.973Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 53,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-2jc587",
       "slug": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
@@ -257,47 +304,6 @@
       }
     },
     {
-      "id": "company-tooege",
-      "slug": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Technical Support Engineer (80-100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-28",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00018528EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-31T20:45:35.471Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T20:45:35.471Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-noo56s",
       "slug": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
       "company": "ABB Svizzera (sede Ticino)",
@@ -462,7 +468,49 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "company-tooege",
+      "slug": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Technical Support Engineer (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-28",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00018528EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-31T20:45:35.471Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-03-31T20:45:35.471Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "company-n0py3i",
