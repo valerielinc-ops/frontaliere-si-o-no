@@ -11167,6 +11167,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-academy-fnma-autisti-bus-2026': {
+    title: 'Diventare autista di bus a costo zero | Frontaliere Ticino',
+    description: 'Scopri come diventare autista di bus con l’Academy di FNM Autoservizi. Formazione gratuita, assunzione a tempo indeterminato e bonus di 3.000 euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, diventare, autista, costo, zero',
+    ogTitle: 'Academy FNMA: autisti bus a costo zero | Frontaliere Ticino',
+    ogDescription: 'Scopri come diventare autista di bus con l’Academy di FNM Autoservizi. Formazione gratuita, assunzione a tempo indeterminato e bonus di 3.000 euro.',
+    canonicalPath: '/articoli-frontaliere/academy-fnma-autisti-bus-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diventare autista di bus a costo zero: torna l’Academy di FNM Autoservizi",
+      "description": "Scopri come diventare autista di bus con l’Academy di FNM Autoservizi. Formazione gratuita, assunzione a tempo indeterminato e bonus di 3.000 euro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/academy-fnma-autisti-bus-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autobus FNM Autoservizi su strada ticinese con Lago di Lugano"
+      },
+      "datePublished": "2026-04-22T22:37:09+00:00",
+      "dateModified": "2026-04-22T22:37:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/academy-fnma-autisti-bus-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2514,6 +2514,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salari-svizzera-aumentati-2025.title': 'Salaires en Suisse augmentés en 2025 : +1,8% en moyenne',
     'blog.article.salari-svizzera-aumentati-2025.excerpt': 'L\'Office fédéral de statistique annonce une augmentation moyenne des salaires de 1,8%, avec des différences significatives entre les secteurs.',
     'blog.article.salari-svizzera-aumentati-2025.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes',
+    'blog.article.academy-fnma-autisti-bus-2026.title': 'Devenir chauffeur de bus à coût zéro : le retour de l\'Academy de FNM Autoservizi',
+    'blog.article.academy-fnma-autisti-bus-2026.excerpt': 'Sélections ouvertes pour les aspirants conducteurs en Lombardie. FNMA couvre les coûts du permis D et CQC, offre un emploi à durée indéterminée et une prime de 3.000 euros.',
+    'blog.article.academy-fnma-autisti-bus-2026.imageAlt': 'Bus FNM Autoservizi sur route du Tessin avec Lac de Lugano',
 };
 
 export default blogMetaFr;

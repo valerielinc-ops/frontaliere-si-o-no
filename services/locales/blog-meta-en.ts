@@ -2514,6 +2514,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salari-svizzera-aumentati-2025.title': 'Salaries in Switzerland increased in 2025: +1.8% on average',
     'blog.article.salari-svizzera-aumentati-2025.excerpt': 'The Federal Statistical Office announces an average salary increase of 1.8%, with significant differences between sectors.',
     'blog.article.salari-svizzera-aumentati-2025.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains',
+    'blog.article.academy-fnma-autisti-bus-2026.title': 'Become a bus driver at no cost: FNM Autoservizi\'s Academy is back',
+    'blog.article.academy-fnma-autisti-bus-2026.excerpt': 'Open selections for aspiring drivers in Lombardy. FNMA covers the costs of the D license and CQC, offers permanent employment and a 3,000 euro bonus.',
+    'blog.article.academy-fnma-autisti-bus-2026.imageAlt': 'FNM Autoservizi bus on Ticino road with Lake Lugano',
 };
 
 export default blogMetaEn;
