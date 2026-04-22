@@ -85,6 +85,27 @@ export interface SimplePageOpts {
   * pages that pass raw inner content and rely on the default wrapper).
   */
  skipMainWrap?: boolean;
+ /**
+  * When true, `bodyHtml` is emitted OUTSIDE `<div id="root">` (which is left
+  * empty). The static SEO content is wrapped in a `<main class="seo-static-content">`
+  * sibling element so the React SPA hydrating into `#root` cannot overwrite it.
+  *
+  * This is the fix for the bait-and-switch bug where the SPA router would
+  * resolve a per-station/per-canton SEO URL to a generic comparator tab and
+  * render that tab's React component INSIDE `#root` — visually replacing
+  * the static SEO content the user came to read.
+  *
+  * The hosting page also signals to App.tsx (via the presence of
+  * `main.seo-static-content` in the DOM at boot time) that it should render
+  * a "lite shell" with header + footer only, and skip the main router area.
+  *
+  * Implies {@link skipMainWrap} (the caller's bodyHtml must already contain
+  * its own `<main>` element semantics — but we still wrap it in
+  * `<main class="seo-static-content">` for the lite-shell detection hook).
+  *
+  * Default: false (legacy behavior — content stays inside `#root`).
+  */
+ seoContentOutsideRoot?: boolean;
 }
 
 export function buildSimplePage(opts: SimplePageOpts): string {
@@ -103,6 +124,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  entryCss,
  bodyHtml,
  skipMainWrap = false,
+ seoContentOutsideRoot = false,
  } = opts;
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
@@ -111,12 +133,30 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const cssLink = entryCss ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : '';
  const jsScript = entryJs ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
 
- // Inner wrap — either the default `<main class="static-job-page">` (legacy
- // job SEO pages) or the caller's own `<main>` element (new SEO feature
- // plugins that bring custom layout markup).
- const innerHtml = skipMainWrap
- ? bodyHtml
- : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`;
+ // Body composition — three modes:
+ //
+ // 1. seoContentOutsideRoot=true (NEW, used by 6 SEO feature plugins):
+ //    `<div id="root">` is empty. Static SEO content is emitted as a
+ //    `<main class="seo-static-content">` SIBLING element so the React SPA
+ //    hydrating into `#root` cannot visually replace it. App.tsx detects
+ //    `main.seo-static-content` at boot and renders only header+footer
+ //    chrome (lite shell), leaving the static content untouched.
+ //
+ // 2. skipMainWrap=true (existing — used by SEO feature plugins until now):
+ //    Caller's bodyHtml lives inside `<div id="root">` directly. Kept for
+ //    backward compat, but bait-and-switch bug applies — prefer mode 1.
+ //
+ // 3. default (skipMainWrap=false, seoContentOutsideRoot=false):
+ //    Caller's bodyHtml gets wrapped in `<main class="static-job-page">`
+ //    inside `<div id="root">` — legacy job SEO pages.
+ const bodySection = seoContentOutsideRoot
+   ? ` <div id="root"></div>
+ <main class="seo-static-content">
+${bodyHtml}
+ </main>`
+   : ` <div id="root">
+${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`}
+ </div>`;
 
  // `bg-surface-alt text-heading overflow-x-hidden` mirrors the canonical
  // SPA body class from index.html — ensures theme tokens apply before React
@@ -142,9 +182,7 @@ ${ldTags}${cssLink}
  ${ADSENSE_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root">
-${innerHtml}
- </div>${jsScript}
+${bodySection}${jsScript}
  </body>
 </html>`;
 }

@@ -492,6 +492,23 @@ export interface AppRoute {
  hash?: string;
  /** Salary Hub slug — pre-computed scenario page loaded from static HTML, routed to calculator tab. */
  salaryHubSlug?: string;
+ /**
+  * When true, this route was matched against a build-time static SEO page
+  * (fuel-daily, weekly-employers, job-market-snapshot, health-premiums,
+  * border-wait, orphan-query, plus per-station / IT-city / sector /
+  * company-city extensions). The URL is already canonical and the page
+  * body is statically rendered as a sibling of `#root` (see
+  * `seoContentOutsideRoot` in build-plugins/htmlTemplate.ts).
+  *
+  * Effects:
+  *   - `pushRoute()` becomes a no-op (so the SPA doesn't rewrite the URL
+  *     to the generic comparator/tab path on initial render).
+  *   - App.tsx detects the static `<main class="seo-static-content">` and
+  *     renders only the header+footer chrome, never the route's full tab
+  *     content — preventing the bait-and-switch where the per-station/
+  *     per-canton page would visually flip to the generic comparator.
+  */
+ staticOverlay?: boolean;
 }
 
 // ── Internationalized slug maps ──────────────────────────────
@@ -1602,51 +1619,56 @@ export function parsePath(pathname: string): ParseResult {
  const revTop = REVERSE_TOP[locale];
 
  // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
- // These are build-time static HTML; soft-nav resolves to the fuel-prices Statistiche tab.
+ // These are build-time static HTML rendered OUTSIDE `#root` (see
+ // build-plugins/htmlTemplate.ts seoContentOutsideRoot). Soft-nav still
+ // resolves to the fuel-prices Statistiche tab so internal SPA <a> clicks
+ // land on a usable view, but `staticOverlay: true` tells App.tsx + pushRoute
+ // to leave the URL alone and skip the React main render so the static
+ // content stays visible.
  if (FUEL_DAILY_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isFuelDailyPath(pathname)) {
-   return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices' }, locale };
+   return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices', staticOverlay: true }, locale };
  }
 
  // Health-premium landings (F2) — /premi-cassa-malati/{canton}/{age}/ + localised variants.
- // Build-time static HTML; soft-nav lands on the health-premiums Statistiche sub-tab.
+ // Build-time static HTML; staticOverlay leaves the per-canton/per-age content
+ // visible so the SPA doesn't replace it with the generic Statistiche sub-tab.
  if (HEALTH_PREMIUMS_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isHealthPremiumsPath(pathname)) {
-   return { route: { activeTab: 'stats', statsSubTab: 'health-premiums' }, locale };
+   return { route: { activeTab: 'stats', statsSubTab: 'health-premiums', staticOverlay: true }, locale };
  }
 
  // Weekly "Aziende che assumono" per-city hub (F5) — build-time static HTML.
- // Soft-nav resolves to the job-board tab so back/forward works without 404.
+ // staticOverlay keeps the per-city/per-company content visible (otherwise
+ // the SPA would render the generic job-board listing in its place).
  {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    if (WEEKLY_EMPLOYERS_ROUTES.includes(normalized)) {
      const parsed = parseWeeklyEmployersPath(pathname);
      if (parsed) {
-       return { route: { activeTab: 'job-board' }, locale: parsed.locale as Locale };
+       return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
      }
    }
    const weeklyEmployersMatch = parseWeeklyEmployersPath(pathname);
    if (weeklyEmployersMatch) {
-     return { route: { activeTab: 'job-board' }, locale: weeklyEmployersMatch.locale as Locale };
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: weeklyEmployersMatch.locale as Locale };
    }
    // D-2 Expansion B: per-company × per-city hub (e.g.
    // /aziende-che-assumono/lugano/eoc-ente-ospedaliero-cantonale/settimana-corrente/).
-   // Soft-nav resolves to the job-board tab so back/forward works without 404.
    const companyCityMatch = parseCompanyCityPath(pathname);
    if (companyCityMatch) {
-     return { route: { activeTab: 'job-board' }, locale: companyCityMatch.locale as Locale };
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: companyCityMatch.locale as Locale };
    }
  }
 
  // Job-market snapshot static SEO pages (F4) — /mercato-lavoro-ticino/, weekly + monthly archives.
- // These are build-time static HTML; soft-nav lands users on the jobs-observatory stats tab.
+ // staticOverlay keeps the per-snapshot/per-sector page content visible.
  if (JOB_MARKET_SNAPSHOT_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isJobMarketSnapshotPath(pathname)) {
-   return { route: { activeTab: 'stats', statsSubTab: 'jobs-observatory' }, locale };
+   return { route: { activeTab: 'stats', statsSubTab: 'jobs-observatory', staticOverlay: true }, locale };
  }
 
  // Border-wait static SEO pages (F8) — /traffico-dogane/{crossing}/oggi/, hubs, archives.
- // Build-time static HTML; soft-nav resolves to the guida/border sub-tab (existing
- // live-data view backed by TrafficAlerts.tsx / TrafficHistory.tsx). When the URL
- // points to a specific crossing, we also hydrate the `borderCrossing` deep-link
- // field so the SPA scrolls/focuses the right marker on the map.
+ // staticOverlay keeps the per-crossing static content visible. The
+ // borderCrossing deep-link is preserved so a future popstate (back into
+ // the SPA from elsewhere) lands on the right marker.
  {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    if (BORDER_WAIT_ROUTES.includes(normalized) || isBorderWaitPath(pathname)) {
@@ -1658,11 +1680,12 @@ export function parsePath(pathname: string): ParseResult {
            activeTab: 'guida',
            guidaSubTab: 'border',
            borderCrossing: parsed.crossing as BorderCrossingId,
+           staticOverlay: true,
          },
          locale: targetLocale,
        };
      }
-     return { route: { activeTab: 'guida', guidaSubTab: 'border' }, locale: targetLocale };
+     return { route: { activeTab: 'guida', guidaSubTab: 'border', staticOverlay: true }, locale: targetLocale };
    }
  }
 
@@ -1671,10 +1694,11 @@ export function parsePath(pathname: string): ParseResult {
  }
 
  // Orphan-query cluster landings (F3b): /ricerca/<slug>/, /en/search/<slug>/, …
- // Pages are statically generated; on SPA back/forward we just land users on the job-board tab.
+ // Pages are statically generated; staticOverlay keeps the per-cluster static
+ // content visible (otherwise the SPA would render the generic job-board listing).
  const orphanMatch = ORPHAN_LANDING_ROUTES(pathname);
  if (orphanMatch) {
- return { route: { activeTab: 'job-board' }, locale: orphanMatch.locale as Locale };
+ return { route: { activeTab: 'job-board', staticOverlay: true }, locale: orphanMatch.locale as Locale };
  }
 
  const first = parts[0];
@@ -2310,6 +2334,12 @@ function isDefaultHome(route: AppRoute): boolean {
 }
 
 export function pushRoute(route: AppRoute): void {
+ // Static SEO overlay routes (per-station fuel, per-canton health, per-city
+ // employers, per-cluster orphan landings, etc.) are matched against URLs
+ // that already canonicalise the page. Rewriting the URL to the generic
+ // tab path on hydration was the root cause of the bait-and-switch UX bug
+ // — see AppRoute.staticOverlay for the full design.
+ if (route.staticOverlay) return;
  const newUrl = buildPath(route);
  const [newPath, newHash] = newUrl.split('#');
  const currentPath = window.location.pathname;
@@ -2324,6 +2354,7 @@ export function pushRoute(route: AppRoute): void {
 }
 
 export function replaceRoute(route: AppRoute): void {
+ if (route.staticOverlay) return;
  const newUrl = buildPath(route);
  const [newPath, newHash] = newUrl.split('#');
  const currentPath = window.location.pathname;
@@ -2340,6 +2371,13 @@ export function updatePathForLocale(newLocale: Locale): void {
  const currentPath = window.location.pathname;
  const search = window.location.search;
  const { route } = parsePath(currentPath);
+ // Static SEO overlay routes (per-station, per-canton, etc.) are matched
+ // against URLs that ALREADY canonicalise the page in the visited locale.
+ // Rewriting them on locale boot would resurrect the bait-and-switch bug
+ // — the URL would flip to e.g. `/statistiche/prezzi-benzina-confine/` even
+ // though the static SEO content is the per-station detail. Preserve the
+ // canonical URL; the per-locale alternates are emitted as <link rel="alternate">.
+ if (route.staticOverlay) return;
  let nextRoute = route;
  // When switching locale from a root path on the homepage, navigate to the new locale's root
  if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
