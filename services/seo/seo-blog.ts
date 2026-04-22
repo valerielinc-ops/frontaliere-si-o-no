@@ -10964,6 +10964,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-ticino-2029-4000-franchi': {
+    title: 'Salario minimo in Ticino: 4.000 franchi | Frontaliere Ticino',
+    description: 'Il Parlamento cantonale ticinese ha approvato l\'aumento del salario minimo a 4.000 franchi lordi al mese dal 2029, beneficiando 23.000 lavoratori, di cui 15.000',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, franchi, lordi',
+    ogTitle: 'Salario minimo Ticino 2029: 4.000 franchi | Frontaliere',
+    ogDescription: 'Il Parlamento cantonale ticinese ha approvato l\'aumento del salario minimo a 4.000 franchi lordi al mese dal 2029, beneficiando 23.000 lavoratori, di cui 15.000',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo Ticino 2029: 4.000 franchi",
+      "description": "Il Parlamento cantonale ticinese ha approvato l'aumento del salario minimo a 4.000 franchi lordi al mese dal 2029, beneficiando 23.000 lavoratori, di cui 15.000",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-2029-4000-franchi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-04-22T12:51:12+00:00",
+      "dateModified": "2026-04-22T12:51:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

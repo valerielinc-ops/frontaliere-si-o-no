@@ -6797,4 +6797,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/integrazione-lavoro-stranieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'salario-minimo-ticino-2029-4000-franchi',
+ category: 'novita',
+ date: '2026-04-22T12:51:12.131Z',
+ image: '/images/blog/salario-minimo-ticino-2029-4000-franchi.jpg',
+ hasCalculator: true,
+ },
 ];

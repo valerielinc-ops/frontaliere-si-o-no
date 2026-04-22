@@ -2493,6 +2493,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berna spinge per l\'integrazione lavorativa degli stranieri',
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'La Svizzera modifica la legge sugli stranieri per sostenere l\'integrazione nel mondo del lavoro, con misure specifiche per il ricongiungimento familiare.',
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Gruppo di persone di diverse nazionalità che lavorano in un ufficio a Lugano',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.title': 'Salario minimo in Ticino: 4.000 franchi lordi al mese dal 2029',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.excerpt': 'Il Parlamento cantonale ticinese ha approvato l\'aumento del salario minimo a 4.000 franchi lordi al mese dal 2029, beneficiando 23.000 lavoratori, di cui 15.000 frontalieri.',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

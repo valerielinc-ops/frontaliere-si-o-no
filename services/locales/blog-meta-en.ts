@@ -2493,6 +2493,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berna promotes the labor market integration of foreigners',
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'Switzerland is amending its foreign nationals law to support integration in the job market, with specific measures for family reunification.',
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Group of people from different nationalities working in an office in Lugano',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.title': 'Minimum wage in Ticino: 4,000 CHF gross per month from 2029',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.excerpt': 'The Ticino cantonal parliament has approved the increase of the minimum wage to 4,000 CHF gross per month from 2029, benefiting 23,000 workers, including 15,000 cross-border commuters.',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;

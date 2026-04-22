@@ -2493,6 +2493,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.title': 'Berne pousse pour l\'intégration professionnelle des étrangers',
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.excerpt': 'La Suisse modifie la loi sur les étrangers pour soutenir l\'intégration dans le monde du travail, avec des mesures spécifiques pour le regroupement familial.',
     'blog.article.integrazione-lavoro-stranieri-ticino-2026.imageAlt': 'Groupe de personnes de différentes nationalités travaillant dans un bureau à Lugano',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.title': 'Salaire minimum en Tessin : 4.000 francs bruts par mois à partir de 2029',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.excerpt': 'Le Parlement cantonal tessinois a approuvé l\'augmentation du salaire minimum à 4.000 francs bruts par mois à partir de 2029, bénéficiant à 23.000 travailleurs, dont 15.000 frontaliers.',
+    'blog.article.salario-minimo-ticino-2029-4000-franchi.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
 };
 
 export default blogMetaFr;
