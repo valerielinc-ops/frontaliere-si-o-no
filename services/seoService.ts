@@ -2063,6 +2063,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-donne-arte-chiasso-2026': { name: 'Donna in arte', path: '/articoli-frontaliere/donne-arte-chiasso-2026', parent: 'blog' },
     'blog-cameradi-commercio-2026-integrazione': { name: 'Varese', path: '/articoli-frontaliere/cameradi-commercio-2026-integrazione', parent: 'blog' },
     'blog-basiletti-main-draw-chiasso-2026': { name: 'Novità', path: '/articoli-frontaliere/basiletti-main-draw-chiasso-2026', parent: 'blog' },
+    'blog-ticino-trasporto-pubblico-priorita': { name: 'Trasporto pubblico', path: '/articoli-frontaliere/ticino-trasporto-pubblico-priorita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

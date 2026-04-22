@@ -2481,6 +2481,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti accede al main draw: vittoria in rimonta a Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'La ventenne italiana Noemi Basiletti supera l\'ex numero 60 del mondo Cagla Buyukakcay con un doppio 6-4 all\'Axion Open di Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Partita di tennis all\'Axion Open di Chiasso, con giocatrici in azione e pubblico in tribuna',
+    'blog.article.ticino-trasporto-pubblico-priorita.title': 'Trasporto pubblico: la sfida per il Ticino',
+    'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO di un\'azienda di trasporti, sottolinea l\'importanza di investire nel trasporto pubblico per affrontare le sfide del traffico in Ticino.',
+    'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Trasporto pubblico a Lugano con autobus e treni in primo piano',
 };
 
 export default blogMetaIt;

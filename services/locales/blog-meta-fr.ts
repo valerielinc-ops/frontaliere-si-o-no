@@ -2481,6 +2481,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti accède au tableau principal : victoire en remontée à Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'La jeune Italienne de 20 ans Noemi Basiletti a battu l\'ex 60e mondiale Cagla Buyukakcay avec un double 6-4 à l\'Axion Open de Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Match de tennis à l\'Axion Open de Chiasso, avec des joueurs en action et des spectateurs dans les gradins',
+    'blog.article.ticino-trasporto-pubblico-priorita.title': 'Transports publics : le défi pour le Tessin',
+    'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO d\'une entreprise de transport, souligne l\'importance d\'investir dans les transports publics pour relever les défis de la circulation au Tessin.',
+    'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Transports publics à Lugano avec des bus et des trains en premier plan',
 };
 
 export default blogMetaFr;

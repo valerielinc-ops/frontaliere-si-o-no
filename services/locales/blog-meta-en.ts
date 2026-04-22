@@ -2481,6 +2481,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti reaches main draw: comeback victory in Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'Italian Noemi Basiletti, 20, overcomes former world No. 60 Cagla Buyukakcay with a double 6-4 win at the Axion Open in Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Tennis match at Axion Open in Chiasso, with players in action and spectators in the stands',
+    'blog.article.ticino-trasporto-pubblico-priorita.title': 'Public transport: the challenge for Ticino',
+    'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO of a transport company, emphasizes the importance of investing in public transport to tackle the traffic challenges in Ticino.',
+    'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Public transportation in Lugano with buses and trains in the foreground',
 };
 
 export default blogMetaEn;

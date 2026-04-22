@@ -6769,4 +6769,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/basiletti-main-draw-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ticino-trasporto-pubblico-priorita',
+ category: 'pratico',
+ date: '2026-04-22T05:44:35.132Z',
+ image: '/images/blog/ticino-trasporto-pubblico-priorita.jpg',
+ hasCalculator: true,
+ },
 ];

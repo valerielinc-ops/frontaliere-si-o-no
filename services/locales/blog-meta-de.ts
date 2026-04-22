@@ -2481,6 +2481,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti zieht ins Hauptfeld ein: Sieg in Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'Die 20-jährige Italienerin Noemi Basiletti besiegt die ehemalige Weltnummer 60 Cagla Buyukakcay mit einem Doppelsieg von 6-4 bei den Axion Open in Chiasso',
     'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Tennismatch bei Axion Open in Chiasso, mit Spielern in Aktion und Zuschauern auf den Tribünen',
+    'blog.article.ticino-trasporto-pubblico-priorita.title': 'Öffentlicher Verkehr: die Herausforderung für den Tessin',
+    'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO eines Verkehrsunternehmens, betont die Wichtigkeit von Investitionen in den öffentlichen Verkehr, um die Verkehrsherausforderungen im Tessin zu bewältigen.',
+    'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Öffentlicher Verkehr in Lugano mit Bussen und Zügen im Vordergrund',
 };
 
 export default blogMetaDe;

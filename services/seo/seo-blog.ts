@@ -10848,6 +10848,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-trasporto-pubblico-priorita': {
+    title: 'Trasporto pubblico: la sfida per il | Frontaliere Ticino',
+    description: 'Nils Planzer, CEO di un\'azienda di trasporti, sottolinea l\'importanza di investire nel trasporto pubblico per affrontare le sfide del traffico in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporto, pubblico, sfida, nils',
+    ogTitle: 'Trasporto pubblico: la sfida per il Ticino',
+    ogDescription: 'Nils Planzer, CEO di un\'azienda di trasporti, sottolinea l\'importanza di investire nel trasporto pubblico per affrontare le sfide del traffico in Ticino.',
+    canonicalPath: '/articoli-frontaliere/ticino-trasporto-pubblico-priorita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporto pubblico: la sfida per il Ticino",
+      "description": "Nils Planzer, CEO di un'azienda di trasporti, sottolinea l'importanza di investire nel trasporto pubblico per affrontare le sfide del traffico in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-trasporto-pubblico-priorita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Trasporto pubblico a Lugano con autobus e treni in primo piano"
+      },
+      "datePublished": "2026-04-22T05:44:35+00:00",
+      "dateModified": "2026-04-22T05:44:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-trasporto-pubblico-priorita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
