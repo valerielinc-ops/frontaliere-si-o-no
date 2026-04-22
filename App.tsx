@@ -1903,6 +1903,11 @@ const App: React.FC = () => {
  </div>
  </nav>
 
+ {/* Sub-navigation bars — suppressed in lite-shell mode so static SEO pages
+  * render only the top nav (logo + 6 top tabs) without secondary tab clutter.
+  * Static SEO content (<main class="seo-static-content">) becomes the page body.
+  */}
+ {!staticOverlay && (<>
  {/* Sub-navigation for Calcolatore */}
  {activeTab === 'calculator' && (
  <SubTabNav
@@ -2028,6 +2033,7 @@ const App: React.FC = () => {
  }}
  />
  )}
+ </>)}
 
  {/* Main Content
   *
