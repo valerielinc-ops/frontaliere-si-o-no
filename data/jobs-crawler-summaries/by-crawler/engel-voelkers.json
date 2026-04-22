@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-21T21:35:15.667Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-04-22T09:54:24.792Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18811,
-  "avgDurationMs": 18811,
+  "durationMs": 19903,
+  "avgDurationMs": 19903,
   "durationHistory": [
-    18811
+    19903
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Posizione aperta: consulente immobiliare (m/w/d) – 100% | Lugano",
+      "slug": "posizione-aperta-consulente-immobiliare-m-w-d-100-lugano-engel-voelkers-lugano",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/da8aa31b-7f06-4058-86c1-2d0c58bf5d86",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/da8aa31b-7f06-4058-86c1-2d0c58bf5d86",
+      "company": "Ticino Premium Properties SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 7,
+        "translation": 20,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Assistente Team 100% (m/f) | Lugano",
@@ -32,7 +63,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-21",
+      "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +100,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-21",
+      "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +137,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-21",
+      "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
