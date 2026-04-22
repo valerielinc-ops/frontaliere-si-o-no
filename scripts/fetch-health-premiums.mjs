@@ -284,7 +284,23 @@ async function fetchPremiumsCsv(targetYear) {
     throw new NoArchiveError(targetYear, `failed to open ZIP: ${err.message}`);
   }
   const entries = zip.getEntries();
-  const csvEntry = entries.find((e) => /Pr[äa]mien_CH\.csv$/i.test(e.entryName));
+  // BAG ZIP entry names use CP437/CP850 (the ZIP default), so the German
+  // umlaut "ä" in "Prämien_CH.csv" comes through as a single non-ASCII byte
+  // when adm-zip decodes the central directory as UTF-8. Match any single
+  // character in that position (including the replacement char U+FFFD that
+  // adm-zip substitutes for invalid sequences). We anchor on the canonical
+  // top-level filename "Pr?mien_CH.csv" — must end with .csv (not .xlsx) and
+  // must NOT include a date range like "gültig_von_..." (those are partial
+  // half-year dumps; the canonical file already aggregates both halves).
+  const csvEntry = entries.find((e) => {
+    const name = e.entryName;
+    // Skip half-year partials (filename contains "von" or "bis").
+    if (/_von_|_bis_/i.test(name)) return false;
+    // Skip non-CH territories (Prämien_EU.csv, Prämien_CHEU.csv).
+    if (/Pr.?mien_(EU|CHEU)\.csv$/i.test(name)) return false;
+    // Match Prämien_CH.csv with any single character where the umlaut sits.
+    return /(?:^|\/)Pr.?mien_CH\.csv$/i.test(name);
+  });
   if (!csvEntry) {
     throw new NoArchiveError(
       targetYear,
