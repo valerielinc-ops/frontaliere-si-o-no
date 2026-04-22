@@ -55,6 +55,13 @@ export interface NavigationState {
  showApiStatus: boolean;
  notFoundPath: string | undefined;
  jobBoardFilterParams: { location?: string; query?: string } | null;
+ /**
+  * True when the current URL is a build-time static SEO page that renders
+  * its own content OUTSIDE `#root` (see AppRoute.staticOverlay). App.tsx
+  * uses this to render only header+nav (no main, no footer) so the static
+  * SEO content stays visible without React's SPA tab content overwriting it.
+  */
+ staticOverlay: boolean;
 
  // Setters
  setActiveTab: Dispatch<SetStateAction<ActiveTab>>;
@@ -105,6 +112,16 @@ export function useNavigationState(): NavigationState {
  const [showApiStatus, setShowApiStatus] = useState(false);
  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
  const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
+ // Lite-shell mode: starts true if the URL parses to a staticOverlay route
+ // OR the DOM contains the static SEO marker `<main class="seo-static-content">`.
+ // Goes back to false when the user navigates to any non-static route — at
+ // which point we also remove the static SEO markup from the DOM so it doesn't
+ // linger below the React shell.
+ const [staticOverlay, setStaticOverlay] = useState<boolean>(() => {
+ if (initialRoute.route.staticOverlay) return true;
+ if (typeof document === 'undefined') return false;
+ return !!document.querySelector('main.seo-static-content');
+ });
 
  // Refs
  const isInitialMount = useRef(true);
@@ -164,7 +181,29 @@ export function useNavigationState(): NavigationState {
  const applyRoute = useCallback((pathname: string) => {
  enableRuntimeSeo();
  const { route, locale: urlLocale, notFoundPath: parsedNotFoundPath } = parsePath(pathname);
+ // Static SEO routes own their full HTML (rendered outside `#root`). When
+ // navigating BACK into one (popstate) from elsewhere in the SPA, the
+ // static content is no longer in the DOM and we cannot reconstruct it
+ // client-side without re-fetching the per-page HTML. The cleanest
+ // resolution is a full reload so the browser fetches the canonical
+ // static page. This keeps URL/content always consistent and is rare in
+ // practice (back-button after navigating away from an SEO landing).
+ if (route.staticOverlay && typeof document !== 'undefined' && !document.querySelector('main.seo-static-content')) {
+   window.location.reload();
+   return;
+ }
  setNotFoundPath(parsedNotFoundPath);
+ // Toggle lite-shell mode based on the new route. When leaving a static
+ // SEO page, we also remove the static `<main class="seo-static-content">`
+ // from the DOM so it doesn't appear below the React shell.
+ const nextOverlay = !!route.staticOverlay;
+ setStaticOverlay(nextOverlay);
+ if (!nextOverlay && typeof document !== 'undefined') {
+   const staticMain = document.querySelector('main.seo-static-content');
+   if (staticMain && staticMain.parentElement) {
+     staticMain.parentElement.removeChild(staticMain);
+   }
+ }
  setActiveTab(route.activeTab);
  if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
  if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
@@ -451,7 +490,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -474,7 +513,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -496,7 +535,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -514,7 +553,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -539,7 +578,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -558,7 +597,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -576,7 +615,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) {
+ if (!isInitialMount.current && !staticOverlay) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -594,7 +633,7 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current) pushRoute(route);
+ if (!isInitialMount.current && !staticOverlay) pushRoute(route);
  if (!window.location.hash) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
@@ -634,7 +673,7 @@ export function useNavigationState(): NavigationState {
  guidaSubTab, vitaSubTab, statsSubTab,
  blogArticle, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, taxReturnCountry, showApiStatus,
- notFoundPath, jobBoardFilterParams,
+ notFoundPath, jobBoardFilterParams, staticOverlay,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
