@@ -108,6 +108,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     'dialetto',
     'email-confirmed',
     'chi-siamo',
+    'tassazione-hub',
   ];
   for (const tab of standalones) {
     routes.push({ route: { activeTab: tab }, label: tab });
