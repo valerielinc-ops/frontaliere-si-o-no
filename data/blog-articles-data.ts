@@ -6853,4 +6853,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/academy-fnma-autisti-bus-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'patentino-digitale-lombardia-2026',
+ category: 'novita',
+ date: '2026-04-22T23:38:37.535Z',
+ image: '/images/blog/patentino-digitale-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ];

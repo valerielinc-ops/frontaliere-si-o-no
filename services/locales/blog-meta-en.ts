@@ -2517,6 +2517,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.academy-fnma-autisti-bus-2026.title': 'Become a bus driver at no cost: FNM Autoservizi\'s Academy is back',
     'blog.article.academy-fnma-autisti-bus-2026.excerpt': 'Open selections for aspiring drivers in Lombardy. FNMA covers the costs of the D license and CQC, offers permanent employment and a 3,000 euro bonus.',
     'blog.article.academy-fnma-autisti-bus-2026.imageAlt': 'FNM Autoservizi bus on Ticino road with Lake Lugano',
+    'blog.article.patentino-digitale-lombardia-2026.title': 'Digital Badge: Green Light in Lombardy',
+    'blog.article.patentino-digitale-lombardia-2026.excerpt': 'The first regional bill for the establishment of the Digital Badge has been approved to combat bullying and technological addiction among young people',
+    'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Digital Certificate ceremony in a Ticino school',
 };
 
 export default blogMetaEn;

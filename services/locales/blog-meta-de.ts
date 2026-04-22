@@ -2517,6 +2517,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.academy-fnma-autisti-bus-2026.title': 'Busfahrer werden – kostenlos: FNM Autoservizi Academy kehrt zurück',
     'blog.article.academy-fnma-autisti-bus-2026.excerpt': 'Auswahlverfahren für angehende Fahrer in der Lombardei. FNMA übernimmt die Kosten für den Führerschein D und CQC, bietet unbefristete Anstellung und einen Bonus von 3.000 Franken.',
     'blog.article.academy-fnma-autisti-bus-2026.imageAlt': 'FNM Autoservizi Bus auf Ticino Straße mit Luganersee',
+    'blog.article.patentino-digitale-lombardia-2026.title': 'Digitaler Ausweis: Freigabe in der Lombardei',
+    'blog.article.patentino-digitale-lombardia-2026.excerpt': 'Das erste regionale Gesetzesprojekt zur Einrichtung des Digitalen Ausweises wurde genehmigt, um Mobbing und technologische Abhängigkeit bei Jugendlichen zu bekämpfen',
+    'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Digitale Zertifikatszeremonie in einer Schule im Tessin',
 };
 
 export default blogMetaDe;

@@ -2075,6 +2075,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svincolo-a2-sigirino-ritardo': { name: 'Svincolo A2 Sigirino', path: '/articoli-frontaliere/svincolo-a2-sigirino-ritardo', parent: 'blog' },
     'blog-salari-svizzera-aumentati-2025': { name: 'Salari Svizzera', path: '/articoli-frontaliere/salari-svizzera-aumentati-2025', parent: 'blog' },
     'blog-academy-fnma-autisti-bus-2026': { name: 'Academy FNMA', path: '/articoli-frontaliere/academy-fnma-autisti-bus-2026', parent: 'blog' },
+    'blog-patentino-digitale-lombardia-2026': { name: 'Novità', path: '/articoli-frontaliere/patentino-digitale-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

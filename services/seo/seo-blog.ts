@@ -11196,6 +11196,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patentino-digitale-lombardia-2026': {
+    title: 'Patentino Digitale: via libera in | Frontaliere Ticino',
+    description: 'Approvato il primo progetto di legge regionale per l\'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani',
+    keywords: 'frontalieri, ticino, svizzera, italia, patentino, digitale, libera, lombardia',
+    ogTitle: 'Patentino Digitale: via libera in Lombardia',
+    ogDescription: 'Approvato il primo progetto di legge regionale per l\'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani',
+    canonicalPath: '/articoli-frontaliere/patentino-digitale-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patentino Digitale: via libera in Lombardia",
+      "description": "Approvato il primo progetto di legge regionale per l'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/patentino-digitale-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia del Patentino Digitale in una scuola del Ticino"
+      },
+      "datePublished": "2026-04-22T23:38:37+00:00",
+      "dateModified": "2026-04-22T23:38:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/patentino-digitale-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

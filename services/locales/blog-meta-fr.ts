@@ -2517,6 +2517,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.academy-fnma-autisti-bus-2026.title': 'Devenir chauffeur de bus à coût zéro : le retour de l\'Academy de FNM Autoservizi',
     'blog.article.academy-fnma-autisti-bus-2026.excerpt': 'Sélections ouvertes pour les aspirants conducteurs en Lombardie. FNMA couvre les coûts du permis D et CQC, offre un emploi à durée indéterminée et une prime de 3.000 euros.',
     'blog.article.academy-fnma-autisti-bus-2026.imageAlt': 'Bus FNM Autoservizi sur route du Tessin avec Lac de Lugano',
+    'blog.article.patentino-digitale-lombardia-2026.title': 'Permis numérique : feu vert en Lombardie',
+    'blog.article.patentino-digitale-lombardia-2026.excerpt': 'Le premier projet de loi régionale pour l\'instauration du permis numérique a été approuvé afin de lutter contre le harcèlement et la dépendance technologique chez les jeunes',
+    'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Cérémonie de certificat numérique dans une école du Tessin',
 };
 
 export default blogMetaFr;

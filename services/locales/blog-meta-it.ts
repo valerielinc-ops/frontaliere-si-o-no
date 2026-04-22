@@ -2517,6 +2517,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.academy-fnma-autisti-bus-2026.title': 'Diventare autista di bus a costo zero: torna l’Academy di FNM Autoservizi',
     'blog.article.academy-fnma-autisti-bus-2026.excerpt': 'Selezioni aperte per aspiranti conducenti in Lombardia. FNMA copre i costi della patente D e CQC, offre assunzione a tempo indeterminato e bonus di 3.000 euro.',
     'blog.article.academy-fnma-autisti-bus-2026.imageAlt': 'Autobus FNM Autoservizi su strada ticinese con Lago di Lugano',
+    'blog.article.patentino-digitale-lombardia-2026.title': 'Patentino Digitale: via libera in Lombardia',
+    'blog.article.patentino-digitale-lombardia-2026.excerpt': 'Approvato il primo progetto di legge regionale per l\'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani',
+    'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Cerimonia del Patentino Digitale in una scuola del Ticino',
 };
 
 export default blogMetaIt;
