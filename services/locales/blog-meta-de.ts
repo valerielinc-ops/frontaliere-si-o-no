@@ -2502,6 +2502,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso: Blutentnahmen in der Pfarrei dank einem Krankenpfleger',
     'blog.article.ponte-chiasso-sanita-2026.excerpt': 'In Ponte Chiasso bietet ein freiwilliger Krankenpfleger Blutentnahmedienste in der örtlichen Pfarrei an, während der Komitee Obiettivo Salute eine dauerhafte Gesundheitsstation fordert.',
     'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, Krankenschwester in der Pfarrei, ältere Einwohner',
+    'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como: der ideale Partner für unkomplizierte Vermietungen',
+    'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'Die Agentur SoloAffitti Como, spezialisiert auf die Vermietung von Wohnungen und Gewerbeimmobilien, bietet einen umfassenden Service für Eigentümer, die ohne Sorgen vermieten möchten.',
+    'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Immobilienmakler in Como zeigt einem Paar eine Immobilie mit dem Comer See im Hintergrund',
 };
 
 export default blogMetaDe;

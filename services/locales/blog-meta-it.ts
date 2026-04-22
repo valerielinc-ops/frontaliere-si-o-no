@@ -2502,6 +2502,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso: prelievi in parrocchia grazie a un infermiere',
     'blog.article.ponte-chiasso-sanita-2026.excerpt': 'A Ponte Chiasso, un infermiere volontario offre servizi di prelievo nella parrocchia locale, mentre il Comitato Obiettivo Salute chiede un presidio sanitario permanente.',
     'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, infermiere in parrocchia, anziani',
+    'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como: il partner ideale per affitti senza complicazioni',
+    'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'L\'agenzia SoloAffitti Como, specializzata in locazioni di abitazioni e locali commerciali, offre un servizio completo per proprietari che vogliono affittare senza preoccupazioni.',
+    'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Agente immobiliare a Como mostra una proprietà a una coppia con il Lago di Como sullo sfondo',
 };
 
 export default blogMetaIt;

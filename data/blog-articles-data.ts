@@ -6818,4 +6818,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ponte-chiasso-sanita-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'soloaffitti-como-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-04-22T17:55:22.389Z',
+ image: '/images/blog/soloaffitti-como-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ];

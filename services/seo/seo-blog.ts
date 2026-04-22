@@ -11051,6 +11051,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soloaffitti-como-frontalieri-ticino': {
+    title: 'SoloAffitti Como: il partner ideale per | Frontaliere Ticino',
+    description: 'Scopri come SoloAffitti Como offre un servizio completo per affitti di abitazioni e locali commerciali, garantendo sicurezza e professionalità. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, soloaffitti, como, partner, ideale',
+    ogTitle: 'SoloAffitti Como: il partner ideale per affitti senza',
+    ogDescription: 'Scopri come SoloAffitti Como offre un servizio completo per affitti di abitazioni e locali commerciali, garantendo sicurezza e professionalità.',
+    canonicalPath: '/articoli-frontaliere/soloaffitti-como-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SoloAffitti Como: il partner ideale per affitti senza complicazioni",
+      "description": "Scopri come SoloAffitti Como offre un servizio completo per affitti di abitazioni e locali commerciali, garantendo sicurezza e professionalità. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/soloaffitti-como-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agente immobiliare a Como mostra una proprietà a una coppia con il Lago di Como sullo sfondo"
+      },
+      "datePublished": "2026-04-22T17:55:22+00:00",
+      "dateModified": "2026-04-22T17:55:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/soloaffitti-como-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

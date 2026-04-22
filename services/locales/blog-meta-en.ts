@@ -2502,6 +2502,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ponte-chiasso-sanita-2026.title': 'Ponte Chiasso: blood draws at the parish thanks to a nurse',
     'blog.article.ponte-chiasso-sanita-2026.excerpt': 'In Ponte Chiasso, a volunteer nurse offers blood draw services at the local parish, while the Obiettivo Salute Committee calls for a permanent healthcare facility.',
     'blog.article.ponte-chiasso-sanita-2026.imageAlt': 'Ponte Chiasso, nurse in parish, elderly residents',
+    'blog.article.soloaffitti-como-frontalieri-ticino.title': 'SoloAffitti Como: the ideal partner for hassle-free rentals',
+    'blog.article.soloaffitti-como-frontalieri-ticino.excerpt': 'SoloAffitti Como, specializing in residential and commercial property rentals, offers a comprehensive service for owners looking to rent out their properties without any worries.',
+    'blog.article.soloaffitti-como-frontalieri-ticino.imageAlt': 'Real estate agent in Como showing a property to a couple with Lake Como in the background',
 };
 
 export default blogMetaEn;

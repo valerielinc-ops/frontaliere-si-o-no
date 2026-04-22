@@ -2070,6 +2070,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salario-minimo-ticino-2029-4000-franchi': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi', parent: 'blog' },
     'blog-guasti-trenord-aprile-2026': { name: 'Trasporti Lombardia', path: '/articoli-frontaliere/guasti-trenord-aprile-2026', parent: 'blog' },
     'blog-ponte-chiasso-sanita-2026': { name: 'Sanità Ponte Chiasso', path: '/articoli-frontaliere/ponte-chiasso-sanita-2026', parent: 'blog' },
+    'blog-soloaffitti-como-frontalieri-ticino': { name: 'Affitti Como', path: '/articoli-frontaliere/soloaffitti-como-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
