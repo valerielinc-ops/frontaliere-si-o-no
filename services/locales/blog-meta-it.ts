@@ -2478,6 +2478,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cameradi-commercio-2026-integrazione.title': 'Varese: Nuovi bandi 2026 della Camera di Commercio per l’integrazione dei cittadini stranieri',
     'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'La Camera di Commercio di Varese investe 150mila euro in due bandi per il 2026, focalizzati su formazione e mobilità, per favorire l’integrazione professionale dei cittadini stranieri.',
     'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Ufficio della Camera di Commercio di Varese in Ticino, ambiente moderno e professionale',
+    'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti accede al main draw: vittoria in rimonta a Chiasso',
+    'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'La ventenne italiana Noemi Basiletti supera l\'ex numero 60 del mondo Cagla Buyukakcay con un doppio 6-4 all\'Axion Open di Chiasso',
+    'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Partita di tennis all\'Axion Open di Chiasso, con giocatrici in azione e pubblico in tribuna',
 };
 
 export default blogMetaIt;

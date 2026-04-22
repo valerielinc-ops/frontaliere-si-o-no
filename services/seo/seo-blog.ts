@@ -10819,6 +10819,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-basiletti-main-draw-chiasso-2026': {
+    title: 'Basiletti accede al main draw: vittoria | Frontaliere Ticino',
+    description: 'La giovane tennista italiana Noemi Basiletti supera l\'ex numero 60 del mondo Cagla Buyukakcay all\'Axion Open di Chiasso, conquistando l\'accesso al main draw.',
+    keywords: 'frontalieri, ticino, svizzera, italia, basiletti, accede, main, draw',
+    ogTitle: 'Basiletti accede al main draw: vittoria a Chiasso',
+    ogDescription: 'La giovane tennista italiana Noemi Basiletti supera l\'ex numero 60 del mondo Cagla Buyukakcay all\'Axion Open di Chiasso, conquistando l\'accesso al main draw.',
+    canonicalPath: '/articoli-frontaliere/basiletti-main-draw-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basiletti accede al main draw: vittoria a Chiasso",
+      "description": "La giovane tennista italiana Noemi Basiletti supera l'ex numero 60 del mondo Cagla Buyukakcay all'Axion Open di Chiasso, conquistando l'accesso al main draw.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/basiletti-main-draw-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di tennis all'Axion Open di Chiasso, con giocatrici in azione e pubblico in tribuna"
+      },
+      "datePublished": "2026-04-22T03:43:21+00:00",
+      "dateModified": "2026-04-22T03:43:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/basiletti-main-draw-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

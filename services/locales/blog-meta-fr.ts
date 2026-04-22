@@ -2478,6 +2478,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cameradi-commercio-2026-integrazione.title': 'Varèse : Nouveaux appels à projets 2026 de la Chambre de Commerce pour l’intégration des citoyens étrangers',
     'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'La Chambre de Commerce de Varèse investit 150 000 euros dans deux appels à projets pour 2026, axés sur la formation et la mobilité, pour favoriser l’intégration professionnelle des citoyens étrangers.',
     'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Bureau de la Chambre de commerce de Varese en Tessin, environnement moderne et professionnel',
+    'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti accède au tableau principal : victoire en remontée à Chiasso',
+    'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'La jeune Italienne de 20 ans Noemi Basiletti a battu l\'ex 60e mondiale Cagla Buyukakcay avec un double 6-4 à l\'Axion Open de Chiasso',
+    'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Match de tennis à l\'Axion Open de Chiasso, avec des joueurs en action et des spectateurs dans les gradins',
 };
 
 export default blogMetaFr;

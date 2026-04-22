@@ -6762,4 +6762,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cameradi-commercio-2026-integrazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'basiletti-main-draw-chiasso-2026',
+ category: 'novita',
+ date: '2026-04-22T03:43:21.468Z',
+ image: '/images/blog/basiletti-main-draw-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ];

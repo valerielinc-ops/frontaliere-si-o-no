@@ -2478,6 +2478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cameradi-commercio-2026-integrazione.title': 'Varese: New 2026 Chamber of Commerce Grants for the Integration of Foreign Citizens',
     'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'The Varese Chamber of Commerce is investing 150,000 euros in two grants for 2026, focused on training and mobility, to promote the professional integration of foreign citizens.',
     'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Varese Chamber of Commerce office in Ticino, modern professional setting',
+    'blog.article.basiletti-main-draw-chiasso-2026.title': 'Basiletti reaches main draw: comeback victory in Chiasso',
+    'blog.article.basiletti-main-draw-chiasso-2026.excerpt': 'Italian Noemi Basiletti, 20, overcomes former world No. 60 Cagla Buyukakcay with a double 6-4 win at the Axion Open in Chiasso',
+    'blog.article.basiletti-main-draw-chiasso-2026.imageAlt': 'Tennis match at Axion Open in Chiasso, with players in action and spectators in the stands',
 };
 
 export default blogMetaEn;
