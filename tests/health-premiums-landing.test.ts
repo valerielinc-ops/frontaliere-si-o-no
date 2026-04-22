@@ -2,8 +2,8 @@
  * Tests for F2 LAMal health-premium SEO landings.
  *
  * Covers:
- *  - Slug tables + path builders for all 4 locales × 5 cantons × 6 age brackets
- *  - Route enumeration: 144 unique canonical paths (4 × 36)
+ *  - Slug tables + path builders for all 4 locales × 26 cantons × 6 age brackets
+ *  - Route enumeration: 732 unique canonical paths (4 × 183)
  *  - Stats computation (median / min / max) on both canton-level and
  *    commune-level source blocks
  *  - Page generation: ≥50 hard gate, ≥400 words for every leaf page,
@@ -11,6 +11,16 @@
  *    self-referent, hreflang alternates for all 4 locales, FAQ markup
  *  - Locale completeness (each page exists in all 4 locales)
  *  - No `dark:` color prefixes anywhere in the generated HTML
+ *
+ * Most generation tests run against a minimal 5-canton fixture (TI/GR/VS/UR/ZH)
+ * covering the original F2 target set. The 26-canton registry expansion
+ * (B-cont-2) is exercised by:
+ *   - slug / route enumeration tests (pure-data layer)
+ *   - an "all-26-stub" generation test below that confirms the plugin walks
+ *     the full registry when data is present for every canton
+ * With the minimal fixture the generator yields 144 pages (the original F2
+ * footprint) and reports the 21 new cantons as skipped, which is the exact
+ * graceful-degradation contract demanded by CLAUDE.md rules #4 and #6.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -503,8 +513,72 @@ describe('healthPremiumsData — slug tables', () => {
     expect(HEALTH_PREMIUM_LOCALES).toEqual(['it', 'en', 'de', 'fr']);
   });
 
-  it('exposes exactly 5 cantons', () => {
-    expect(HEALTH_PREMIUM_CANTONS).toEqual(['ticino', 'grigioni', 'uri', 'vallese', 'zurigo']);
+  it('exposes all 26 Swiss cantons with the original 5 first (slug stability)', () => {
+    // The original F2 target set MUST remain at index 0-4 — changing the
+    // order would change hub-grid rendering and could shift sibling pickers.
+    expect(HEALTH_PREMIUM_CANTONS.slice(0, 5)).toEqual([
+      'ticino',
+      'grigioni',
+      'uri',
+      'vallese',
+      'zurigo',
+    ]);
+    expect(HEALTH_PREMIUM_CANTONS).toHaveLength(26);
+    // Full canonical list — no duplicates, covers every BAG canton code.
+    const set = new Set(HEALTH_PREMIUM_CANTONS);
+    expect(set.size).toBe(26);
+  });
+
+  it('covers every BAG 2-letter canton code exactly once', () => {
+    const bagCodes = HEALTH_PREMIUM_CANTONS.map((c) => HEALTH_PREMIUM_CANTON_BAG_CODE[c]);
+    const expected = [
+      'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR',
+      'JU', 'LU', 'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG',
+      'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
+    ];
+    expect([...bagCodes].sort()).toEqual(expected);
+  });
+
+  it('preserves the original 5 canton URL slugs byte-for-byte (SEO stability)', () => {
+    // Any change to these exact strings would break already-indexed URLs.
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.ticino).toBe('ticino');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.grigioni).toBe('grigioni');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.uri).toBe('uri');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.vallese).toBe('vallese');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.zurigo).toBe('zurigo');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.en.grigioni).toBe('graubunden');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.en.vallese).toBe('valais');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.en.zurigo).toBe('zurich');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.de.ticino).toBe('tessin');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.de.grigioni).toBe('graubuenden');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.de.vallese).toBe('wallis');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.de.zurigo).toBe('zuerich');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.fr.ticino).toBe('tessin');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.fr.grigioni).toBe('grisons');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.fr.vallese).toBe('valais');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.fr.zurigo).toBe('zurich');
+  });
+
+  it('localises every new canton slug to its native exonym', () => {
+    // Spot-check: the 21 new cantons must use locale-appropriate exonyms so
+    // native-language long-tail queries ("krankenkassenpraemien aargau",
+    // "primes assurance maladie vaud") land on the right URL.
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.argovia).toBe('argovia');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.en.argovia).toBe('aargau');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.de.argovia).toBe('aargau');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.fr.argovia).toBe('argovie');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.it.ginevra).toBe('ginevra');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.en.ginevra).toBe('geneva');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.de.ginevra).toBe('genf');
+    expect(HEALTH_PREMIUM_CANTON_SLUG.fr.ginevra).toBe('geneve');
+    // All canton slugs must be ASCII-safe kebab-case (no diacritics, no
+    // percent-encoding surprises at the canonical layer).
+    for (const loc of HEALTH_PREMIUM_LOCALES) {
+      for (const c of HEALTH_PREMIUM_CANTONS) {
+        const slug = HEALTH_PREMIUM_CANTON_SLUG[loc][c];
+        expect(slug, `${loc}/${c}`).toMatch(/^[a-z][a-z0-9-]*[a-z0-9]$/);
+      }
+    }
   });
 
   it('exposes exactly 6 age brackets', () => {
@@ -588,19 +662,19 @@ describe('healthPremiumsData — path builders', () => {
 });
 
 describe('healthPremiumsData — route enumeration', () => {
-  it('generates exactly 144 paths (4 locales × (1 root + 5 canton hubs + 30 leaves))', () => {
+  it('generates exactly 732 paths (4 locales × (1 root + 26 canton hubs + 156 leaves))', () => {
     const paths = listHealthPremiumsPaths();
-    expect(paths).toHaveLength(144);
+    expect(paths).toHaveLength(732);
   });
 
-  it('all 144 paths are unique', () => {
+  it('all 732 paths are unique', () => {
     const paths = listHealthPremiumsPaths();
     const unique = new Set(paths.map((p) => p.path));
-    expect(unique.size).toBe(144);
+    expect(unique.size).toBe(732);
   });
 
   it('HEALTH_PREMIUMS_ROUTES mirrors listHealthPremiumsPaths()', () => {
-    expect(HEALTH_PREMIUMS_ROUTES).toHaveLength(144);
+    expect(HEALTH_PREMIUMS_ROUTES).toHaveLength(732);
   });
 
   it('isHealthPremiumsPath recognises every canonical path', () => {
@@ -614,21 +688,32 @@ describe('healthPremiumsData — route enumeration', () => {
     expect(isHealthPremiumsPath('/premi-cassa-malati/ticino/adulto-31-45')).toBe(true);
   });
 
+  it('isHealthPremiumsPath recognises new B-cont-2 canton paths', () => {
+    // Sanity: a handful of the 21 new cantons must resolve, otherwise the
+    // router will fall through to the SPA 404 handler.
+    expect(isHealthPremiumsPath('/premi-cassa-malati/zurigo/adulto-31-45/')).toBe(true);
+    expect(isHealthPremiumsPath('/premi-cassa-malati/berna/adulto-31-45/')).toBe(true);
+    expect(isHealthPremiumsPath('/premi-cassa-malati/ginevra/adulto-46-55/')).toBe(true);
+    expect(isHealthPremiumsPath('/en/health-insurance-premiums/zurich/adult-31-45/')).toBe(true);
+    expect(isHealthPremiumsPath('/de/krankenkassenpraemien/aargau/erwachsene-31-45/')).toBe(true);
+    expect(isHealthPremiumsPath('/fr/primes-assurance-maladie/vaud/adulte-31-45/')).toBe(true);
+  });
+
   it('isHealthPremiumsPath rejects unrelated paths', () => {
     expect(isHealthPremiumsPath('/')).toBe(false);
     expect(isHealthPremiumsPath('/compara-servizi/confronta-casse-malati/')).toBe(false);
     expect(isHealthPremiumsPath('/cerca-lavoro-ticino/lugano/')).toBe(false);
   });
 
-  it('locale coverage — exactly 36 paths per locale', () => {
+  it('locale coverage — exactly 183 paths per locale', () => {
     const byLocale: Record<string, number> = { it: 0, en: 0, de: 0, fr: 0 };
     for (const p of listHealthPremiumsPaths()) {
       byLocale[p.locale]++;
     }
-    expect(byLocale.it).toBe(36);
-    expect(byLocale.en).toBe(36);
-    expect(byLocale.de).toBe(36);
-    expect(byLocale.fr).toBe(36);
+    expect(byLocale.it).toBe(183);
+    expect(byLocale.en).toBe(183);
+    expect(byLocale.de).toBe(183);
+    expect(byLocale.fr).toBe(183);
   });
 });
 
@@ -673,12 +758,20 @@ const today = new Date('2026-04-20T06:00:00.000Z');
 const generation = generateHealthPremiumsPages({ dataset: DATASET, today });
 
 describe('generateHealthPremiumsPages — counts', () => {
-  it('generates exactly 144 pages when all 5 cantons have data', () => {
+  it('generates 144 pages from the 5-canton fixture and skips the 21 others', () => {
+    // 4 locales × (1 root + 5 canton hubs + 5×6 leaves) = 144.
+    // The minimal fixture intentionally exercises only the original F2
+    // target set; the new 21 cantons are reported as skipped per the
+    // graceful-degradation contract (no fake data — CLAUDE.md rule #6).
     expect(Object.keys(generation.pages)).toHaveLength(144);
-    expect(generation.skippedCantons).toHaveLength(0);
+    expect(generation.skippedCantons).toHaveLength(21);
+    // Original 5 must all be generated.
+    for (const c of ['ticino', 'grigioni', 'uri', 'vallese', 'zurigo'] as const) {
+      expect(generation.skippedCantons, c).not.toContain(c);
+    }
   });
 
-  it('locale coverage — exactly 36 pages per locale', () => {
+  it('locale coverage — exactly 36 pages per locale (5-canton fixture)', () => {
     const byLocale: Record<string, number> = { it: 0, en: 0, de: 0, fr: 0 };
     for (const path of Object.keys(generation.pages)) {
       if (path.startsWith('/en/')) byLocale.en++;
@@ -692,9 +785,13 @@ describe('generateHealthPremiumsPages — counts', () => {
     expect(byLocale.fr).toBe(36);
   });
 
-  it('every path in HEALTH_PREMIUMS_ROUTES is rendered', () => {
-    for (const p of HEALTH_PREMIUMS_ROUTES) {
-      expect(generation.pages[p], `missing ${p}`).toBeTypeOf('string');
+  it('every path for the 5-canton fixture appears in HEALTH_PREMIUMS_ROUTES', () => {
+    // With 21 cantons skipped the reverse inclusion does not hold any more
+    // (HEALTH_PREMIUMS_ROUTES has 732 entries, generation.pages has 144).
+    // We assert the weaker invariant: every generated path is a canonical
+    // health-premium route.
+    for (const p of Object.keys(generation.pages)) {
+      expect(HEALTH_PREMIUMS_ROUTES, p).toContain(p);
     }
   });
 });
@@ -715,7 +812,9 @@ describe('generateHealthPremiumsPages — content quality', () => {
 
   it('every leaf page has ≥400 words of visible content', () => {
     const leaves = Object.entries(generation.pages).filter(([p]) => classify(p) === 'leaf');
-    expect(leaves.length).toBe(120); // 5 cantons × 6 brackets × 4 locales
+    // 5 cantons × 6 brackets × 4 locales = 120 (minimal fixture; see the
+    // "all-26-stub" suite below for the 26-canton generation-count gate).
+    expect(leaves.length).toBe(120);
     for (const [path, html] of leaves) {
       const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
       const words = text.split(' ').filter((w) => w.length > 0).length;
@@ -873,8 +972,12 @@ describe('computeCantonStats — real byAgeClass data', () => {
     expect(jug?.byInsurer['8']).toBeCloseTo(384, 1);
   });
 
-  it('ERW bracket is real across all cantons (legacy datasets alias ERW in flat fields)', () => {
-    for (const canton of HEALTH_PREMIUM_CANTONS) {
+  it('ERW bracket is real across the original 5 cantons (legacy datasets alias ERW in flat fields)', () => {
+    // The 21 B-cont-2 cantons are not in DATASET — they exercise the
+    // graceful-degradation path (computeCantonStats returns null) and are
+    // covered by the "full 26-canton coverage" suite's stub fixture.
+    const fixtureCantons = ['ticino', 'grigioni', 'uri', 'vallese', 'zurigo'] as const;
+    for (const canton of fixtureCantons) {
       const s = computeCantonStats(DATASET, canton);
       expect(s, canton).not.toBeNull();
       if (!s) continue;
@@ -961,22 +1064,25 @@ describe('generateHealthPremiumsPages — missing data resilience', () => {
       insurers: DATASET.insurers,
       premiums: {
         '6500-Bellinzona': DATASET.premiums!['6500-Bellinzona'],
-        // no GR / UR / VS / ZH entries
+        // no other canton entries
       },
     };
     const { pages, skippedCantons } = generateHealthPremiumsPages({ dataset: partial, today });
-    expect(skippedCantons.sort()).toEqual(['grigioni', 'uri', 'vallese', 'zurigo']);
+    // Everything except TI is skipped — 25 cantons out of 26.
+    expect(skippedCantons).toHaveLength(25);
+    expect(skippedCantons).not.toContain('ticino');
     // Roots are still emitted (4 roots), TI canton hub + 6 TI leaves per locale = 7 × 4 = 28.
     // Total: 4 + 28 = 32.
     expect(Object.keys(pages)).toHaveLength(32);
   });
 
-  it('produces zero pages when dataset is empty but does not throw', () => {
+  it('produces roots-only when dataset is empty but does not throw', () => {
     const { pages, skippedCantons } = generateHealthPremiumsPages({
       dataset: { insurers: [], premiums: {} },
       today,
     });
-    expect(skippedCantons).toHaveLength(5);
+    // All 26 cantons skipped.
+    expect(skippedCantons).toHaveLength(26);
     // Only roots remain (4 locales × 1 root)
     expect(Object.keys(pages)).toHaveLength(4);
   });
@@ -1091,8 +1197,11 @@ describe('generateHealthPremiumsPages — YoY section', () => {
   const prior = buildPriorFixture();
   const gen = generateHealthPremiumsPages({ dataset: DATASET, priorDataset: prior, today });
 
-  it('exposes yoyByCanton for every canton when prior data is present', () => {
-    for (const c of HEALTH_PREMIUM_CANTONS) {
+  it('exposes yoyByCanton for every fixture canton when prior data is present', () => {
+    // Only the original 5 have data in DATASET + the prior fixture. The 21
+    // new cantons would be null (no data → no YoY) — that's the documented
+    // graceful-degradation contract, not a failure.
+    for (const c of ['ticino', 'grigioni', 'uri', 'vallese', 'zurigo'] as const) {
       expect(gen.yoyByCanton[c], c).not.toBeNull();
     }
   });
@@ -1370,8 +1479,10 @@ describe('generateHealthPremiumsPages — tri-year trend section', () => {
     today,
   });
 
-  it('exposes triYearByCanton for every canton when all 3 years are present', () => {
-    for (const c of HEALTH_PREMIUM_CANTONS) {
+  it('exposes triYearByCanton for every fixture canton when all 3 years are present', () => {
+    // Same scoping rationale as the YoY equivalent: DATASET only carries the
+    // original 5 cantons so only those 5 pass `not.toBeNull()`.
+    for (const c of ['ticino', 'grigioni', 'uri', 'vallese', 'zurigo'] as const) {
       expect(gen3.triYearByCanton[c], c).not.toBeNull();
     }
   });
@@ -1486,6 +1597,193 @@ describe('loadPriorTwoYearsForBracket', () => {
       expect(loaded.oldest?.year).toBe(2024);
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+});
+
+// ── B-cont-2 — 26-canton generation pipeline ───────────────────
+
+/**
+ * Build a minimal stub dataset that provides BAG-code-keyed canton-level
+ * blocks for every canton in HEALTH_PREMIUM_CANTONS. Each block carries a
+ * small set of insurers with real `byAgeClass` data so every leaf can hit the
+ * real-data path (no multiplier fallback, no derivation note).
+ *
+ * This fixture is not meant to validate premium accuracy — only to confirm
+ * that the plugin walks the full 26-canton registry and emits 732 pages
+ * when data is present for every canton.
+ */
+function build26CantonStubDataset(): HealthPremiumsDataset {
+  const insurers = [
+    { id: '8', name: 'CSS' },
+    { id: '290', name: 'Concordia' },
+    { id: '376', name: 'KPT' },
+    { id: '1509', name: 'Sanitas' },
+    { id: '1562', name: 'Helsana' },
+  ] as const;
+  const premiums: Record<string, {
+    type: 'canton';
+    canton: string;
+    region: null;
+    insurers: Record<string, {
+      standard: number;
+      byAgeClass: {
+        KIN: { standard: number };
+        JUG: { standard: number };
+        ERW: { standard: number };
+      };
+    }>;
+  }> = {};
+  // Import the BAG-code table directly — keeps the fixture in lock-step with
+  // the registry without duplicating the mapping.
+  const bagCodesByCanton = Object.fromEntries(
+    HEALTH_PREMIUM_CANTONS.map((c) => [c, HEALTH_PREMIUM_CANTON_BAG_CODE[c]]),
+  );
+  let offset = 0;
+  for (const canton of HEALTH_PREMIUM_CANTONS) {
+    const code = bagCodesByCanton[canton];
+    const base = 480 + offset * 7; // scatter so medians differ per canton
+    offset += 1;
+    const insurerBlock: (typeof premiums)[string]['insurers'] = {};
+    let insurerOffset = 0;
+    for (const ins of insurers) {
+      const adult = base + insurerOffset * 12;
+      const kin = Math.round(adult * 0.22 * 100) / 100; // deliberately ≠ 0.25
+      const jug = Math.round(adult * 0.78 * 100) / 100; // deliberately ≠ 0.80
+      insurerBlock[ins.id] = {
+        standard: adult,
+        byAgeClass: {
+          KIN: { standard: kin },
+          JUG: { standard: jug },
+          ERW: { standard: adult },
+        },
+      };
+      insurerOffset += 1;
+    }
+    premiums[code] = {
+      type: 'canton',
+      canton: code,
+      region: null,
+      insurers: insurerBlock,
+    };
+  }
+  return {
+    fetchedAt: '2026-04-20T06:00:00Z',
+    year: 2026,
+    insurers: insurers.map((i) => ({ id: i.id, name: i.name })),
+    premiums: premiums as unknown as HealthPremiumsDataset['premiums'],
+  };
+}
+
+describe('generateHealthPremiumsPages — full 26-canton coverage (B-cont-2)', () => {
+  const stub = build26CantonStubDataset();
+  const gen = generateHealthPremiumsPages({ dataset: stub, today });
+
+  it('generates exactly 732 pages when data is present for every canton', () => {
+    // 4 locales × (1 root + 26 canton hubs + 26×6 leaves) = 732.
+    expect(Object.keys(gen.pages)).toHaveLength(732);
+    expect(gen.skippedCantons).toHaveLength(0);
+  });
+
+  it('emits exactly 183 pages per locale', () => {
+    const byLocale: Record<string, number> = { it: 0, en: 0, de: 0, fr: 0 };
+    for (const path of Object.keys(gen.pages)) {
+      if (path.startsWith('/en/')) byLocale.en++;
+      else if (path.startsWith('/de/')) byLocale.de++;
+      else if (path.startsWith('/fr/')) byLocale.fr++;
+      else byLocale.it++;
+    }
+    expect(byLocale.it).toBe(183);
+    expect(byLocale.en).toBe(183);
+    expect(byLocale.de).toBe(183);
+    expect(byLocale.fr).toBe(183);
+  });
+
+  it('every canonical path in HEALTH_PREMIUMS_ROUTES is rendered', () => {
+    for (const p of HEALTH_PREMIUMS_ROUTES) {
+      expect(gen.pages[p], `missing ${p}`).toBeTypeOf('string');
+    }
+  });
+
+  it('preserves the original 5 canton URL paths exactly (SEO stability)', () => {
+    // These URLs are already indexed by Google — any drift would 404 them.
+    const mustExist = [
+      '/premi-cassa-malati/ticino/adulto-31-45/',
+      '/premi-cassa-malati/grigioni/adulto-31-45/',
+      '/premi-cassa-malati/uri/adulto-31-45/',
+      '/premi-cassa-malati/vallese/adulto-31-45/',
+      '/premi-cassa-malati/zurigo/adulto-31-45/',
+      '/en/health-insurance-premiums/ticino/adult-31-45/',
+      '/en/health-insurance-premiums/graubunden/adult-31-45/',
+      '/en/health-insurance-premiums/valais/adult-31-45/',
+      '/en/health-insurance-premiums/zurich/adult-31-45/',
+      '/de/krankenkassenpraemien/tessin/erwachsene-31-45/',
+      '/de/krankenkassenpraemien/graubuenden/erwachsene-31-45/',
+      '/de/krankenkassenpraemien/wallis/erwachsene-31-45/',
+      '/de/krankenkassenpraemien/zuerich/erwachsene-31-45/',
+      '/fr/primes-assurance-maladie/tessin/adulte-31-45/',
+      '/fr/primes-assurance-maladie/grisons/adulte-31-45/',
+      '/fr/primes-assurance-maladie/valais/adulte-31-45/',
+      '/fr/primes-assurance-maladie/zurich/adulte-31-45/',
+    ];
+    for (const p of mustExist) {
+      expect(gen.pages[p], `legacy canonical missing: ${p}`).toBeTypeOf('string');
+    }
+  });
+
+  it('emits canton hub + 6 leaves for each of the 21 new B-cont-2 cantons', () => {
+    const newCantons = HEALTH_PREMIUM_CANTONS.slice(5); // 21 entries after the original 5
+    expect(newCantons).toHaveLength(21);
+    for (const canton of newCantons) {
+      const itHub = `/premi-cassa-malati/${HEALTH_PREMIUM_CANTON_SLUG.it[canton]}/`;
+      expect(gen.pages[itHub], `missing hub for ${canton}`).toBeTypeOf('string');
+      for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
+        const itLeaf = `/premi-cassa-malati/${HEALTH_PREMIUM_CANTON_SLUG.it[canton]}/${HEALTH_PREMIUM_AGE_SLUG.it[ab.id]}/`;
+        expect(gen.pages[itLeaf], `missing leaf for ${canton}/${ab.id}`).toBeTypeOf('string');
+      }
+    }
+  });
+
+  it('localised canonical paths use the native exonym slug for new cantons', () => {
+    // Zurich / Bern / Geneva / Vaud — every locale's slug is covered.
+    expect(gen.pages['/en/health-insurance-premiums/aargau/adult-31-45/']).toBeTypeOf('string');
+    expect(gen.pages['/de/krankenkassenpraemien/waadt/erwachsene-31-45/']).toBeTypeOf('string');
+    expect(gen.pages['/fr/primes-assurance-maladie/geneve/adulte-31-45/']).toBeTypeOf('string');
+    expect(gen.pages['/it/premi-cassa-malati/ginevra/adulto-31-45/']).toBeUndefined(); // IT has no /it prefix
+    expect(gen.pages['/premi-cassa-malati/ginevra/adulto-31-45/']).toBeTypeOf('string');
+  });
+
+  it('every generated page still satisfies the ≥400 words / ≥300 words gate', () => {
+    for (const [path, html] of Object.entries(gen.pages)) {
+      const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      const words = text.split(' ').filter((w) => w.length > 0).length;
+      const parts = path.split('/').filter(Boolean);
+      const hasLocale = parts[0] === 'en' || parts[0] === 'de' || parts[0] === 'fr';
+      const depth = hasLocale ? parts.length - 1 : parts.length;
+      const min = depth >= 3 ? 400 : 300;
+      expect(words, `${path} has only ${words} words (need ≥${min})`).toBeGreaterThanOrEqual(min);
+    }
+  });
+
+  it('every page has self-referencing canonical', () => {
+    for (const [path, html] of Object.entries(gen.pages)) {
+      expect(html, path).toContain(
+        `<link rel="canonical" href="https://frontaliereticino.ch${path}">`,
+      );
+    }
+  });
+
+  it('every page has hreflang alternates for all 4 locales', () => {
+    for (const [path, html] of Object.entries(gen.pages)) {
+      for (const loc of HEALTH_PREMIUM_LOCALES) {
+        expect(html, `${path} missing hreflang=${loc}`).toContain(`hreflang="${loc}"`);
+      }
+    }
+  });
+
+  it('no page contains dark: color prefixes across the 26-canton output', () => {
+    for (const [path, html] of Object.entries(gen.pages)) {
+      expect(html, path).not.toMatch(/\sdark:(bg|text|border|fill|stroke|from|to|via)-/);
     }
   });
 });
