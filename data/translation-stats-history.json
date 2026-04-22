@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T19:27:49.356Z",
-    "label": "before",
-    "total": 2471,
-    "needsRetranslation": 110,
-    "incomplete": 19,
-    "complete": 2452,
-    "missingByLocale": {
-      "it": 17,
-      "en": 17,
-      "de": 3,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 9
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T19:29:02.261Z",
-    "label": "after",
-    "total": 2471,
-    "needsRetranslation": 88,
-    "incomplete": 19,
-    "complete": 2452,
-    "missingByLocale": {
-      "it": 17,
-      "en": 17,
-      "de": 3,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 9
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T19:31:53.851Z",
     "label": "before",
     "total": 2471,
@@ -7270,6 +7182,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-22T10:59:09.650Z",
+    "label": "before",
+    "total": 2647,
+    "needsRetranslation": 1162,
+    "incomplete": 113,
+    "complete": 2534,
+    "missingByLocale": {
+      "it": 50,
+      "en": 78,
+      "de": 83,
+      "fr": 102
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Denner",
+        "pending": 6
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 5
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "Lonza",
+        "pending": 4
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "PEMSA",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-22T12:17:43.340Z",
+    "label": "after",
+    "total": 2647,
+    "needsRetranslation": 76,
+    "incomplete": 31,
+    "complete": 2616,
+    "missingByLocale": {
+      "it": 23,
+      "en": 7,
+      "de": 27,
+      "fr": 28
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Capri Holdings (Michael Kors / Versace)",
+        "pending": 1
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 1
+      },
+      {
+        "company": "Hoval",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Union Bancaire Privée",
         "pending": 1
       }
     ]
