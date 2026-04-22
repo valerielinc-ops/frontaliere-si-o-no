@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-22T09:47:29.011Z",
+  "assembledAt": "2026-04-22T21:30:23.378Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T09:47:26.590Z",
+      "crawledAt": "2026-04-22T21:30:21.109Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "unsolicited-application-apprenticeship-corner-banca-switzerland",
@@ -83,6 +83,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -140,7 +141,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.589Z",
+      "crawledAt": "2026-04-22T21:30:21.108Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -196,6 +197,124 @@
           "@type": "QuantitativeValue",
           "minValue": 51500,
           "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-fe61b84a0935",
+      "slug": "employee-card-onboarding-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "employee-card-onboarding-corner-banca-lugano",
+        "en": "employee-card-onboarding-corner-banca-lugano",
+        "de": "kartenaufnahme-corner-banca-lugano",
+        "fr": "employee-card-onboarding-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Card Onboarding",
+      "titleByLocale": {
+        "it": "Onboarding della Carta di Credito",
+        "en": "Employee Card Onboarding",
+        "de": "Kartenaufnahme",
+        "fr": "Onboarding de la Carte de Paiement"
+      },
+      "description": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Manage payment card issuance requests for corporate customers\n\n• Analyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\n• Request and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\n• Define the most appropriate spending limit based on customer analysis and risk level\n\n• Enter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\n• Contact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\n• Collaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\n• Ensure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Administrative background\n\n• Privious experience in similar position\n\n• Good knowledge of Office package/ PC use\n\n• Languages: Italian / German native proficiency / Basic French / Basic English\n\n• Customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Il candidato sarà responsabile dell'implementazione del processo di emissione della carta di pagamento per i clienti aziendali, analisi e valutazione delle richieste, impostazione dei limiti di spesa e attivazione dei servizi complementari. Il ruolo prevede un contatto diretto con i potenziali clienti, compreso tramite telefono, al fine di raccogliere informazioni, chiarire le richieste e supportare il cliente durante tutto il processo. Le principali responsabilità sono: Rispondere alle chiamate in arrivo e gestire le richieste di informazione dei clienti e dei partner aziendali in tedesco, francese, italiano e inglese Gestire le richieste di emissione della carta di pagamento per i clienti aziendali Analizzare e valutare la validità della richiesta, verificando il profilo del cliente e la coerenza con le politiche aziendali Richiedere e verificare la documentazione necessaria (ad esempio documenti aziendali, finanziari e di identificazione) Definire il limite di spesa più adatto sulla base dell'analisi del cliente e del livello di rischio Inserire e configurare i servizi complementari associati alla carta (ad esempio assicurazioni, reporting, servizi digitali, controlli di spesa) Contattare i potenziali clienti tramite telefono per discutere le loro richieste in dettaglio, fornire chiarimenti e supporto commerciale Collaborare con le squadre interne (rischio di credito, operazioni) per garantire un processo liscio e efficace Assicurarsi che la conformità con le normative vigenti e le procedure interne (KYC, AML, politica di credito) Cosa offriamo? Flessibilità nel lavoro da remoto e gestione degli orari di lavoro per garantire un equilibrio lavoro-vita sano Numerosi benefici e incentivi Attività di benessere, motivazione e team building Per l'apertura di lavoro, stiamo cercando candidati che soddisfino i seguenti requisiti: Background amministrativo Esperienza precedente in posizione simile Buona conoscenza del pacchetto Office/uso del PC Lingue: italiano / tedesco nativo / francese base / inglese base Orientamento al cliente e capacità di lavorare in team Residente nel Ticino o disposto a trasferirsi",
+        "en": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services. The role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process. Key responsibilities: • Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English • Manage payment card issuance requests for corporate customers • Analyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies • Request and verify the necessary documentation (e.g. corporate, financial and identification documents) • Define the most appropriate spending limit based on customer analysis and risk level • Enter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls) • Contact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support • Collaborate with internal teams (credit risk, operations) to ensure a smooth and effective process • Ensure compliance with current regulations and internal procedures (KYC, AML, credit policy) What do we offer? • Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance • Numerous benefits and incentives • Well-being, motivational and team-building activities For the job opening, we are looking for candidates who meet the following requirements: • Administrative background • Privious experience in similar position • Good knowledge of Office package/ PC use • Languages: Italian / German native proficiency / Basic French / Basic English • Customer orientation and ability to work in team • Resident in Ticino or willing to relocate",
+        "de": "Der Kandidat wird für die Implementierung des Zahlungskarten-Ausgabeprozesses für Unternehmenskunden verantwortlich sein, Anfragen analysieren und bewerten, Ausgabegrenzen setzen und Zusatzdienste aktivieren. Die Rolle beinhaltet direkten Kontakt mit potenziellen Kunden, einschließlich Telefonkontakt, um Informationen zu sammeln, Anforderungen zu klären und den Kunden während des gesamten Prozesses zu unterstützen. Hauptverantwortlichkeiten: Antworten auf eingehende Anrufe und bearbeiten von Anfragen von Kunden und Geschäftspartnern auf Deutsch, Französisch, Italienisch und Englisch Verwalten Sie die Anfragen zur Ausgabe von Zahlungskarten für Unternehmenskunden Analysieren und bewerten Sie die Gültigkeit der Anfrage, überprüfen Sie das Kundenprofil und die Übereinstimmung mit den Unternehmenspolitiken Anfordern und überprüfen Sie die erforderliche Dokumentation (z.B. Unternehmensdokumente, Finanzdokumente und Identifikationsdokumente) Definieren Sie den geeigneten Ausgabegrenzen auf der Grundlage der Kundenanalyse und des Risikostands Einfügen und Konfigurieren Sie die Zusatzdienste, die mit der Karte verbunden sind (z.B. Versicherungen, Berichterstattung, digitale Dienste, Ausgabekontrollen) Kontaktieren Sie potenzielle Kunden per Telefon, um ihre Anfragen im Detail zu diskutieren, Klarstellungen und kommerziellen Unterstützung zu bieten Arbeiten Sie mit den internen Teams (Kreditrisiko, Operations) zusammen, um einen reibungslosen und effektiven Prozess zu gewährleisten Stellen Sie sicher, dass die Einhaltung der aktuellen Vorschriften und internen Verfahren (KYC, AML, Kreditpolitik) gewährleistet ist Was bieten wir? Flexibilität in der Arbeit von zu Hause und die Verwaltung der Arbeitszeiten, um ein gesundes Arbeit-Leben-Gleichgewicht zu gewährleisten Viele Vorteile und Anreize Wohlbefinden, Motivation und Teambuilding-Aktivitäten Für die Stellenanzeige suchen wir Kandidaten, die die folgenden Anforderungen erfüllen: Verwaltungshintergrund Vorherige Erfahrung in einer ähnlichen Position Gute Kenntnisse des Office-Pakets/PC-Verwendung Sprachen: Deutsch / Italienisch Muttersprache / Französisch Grundkenntnisse / Englisch Grundkenntnisse Kundenorientierung und Fähigkeit, in einem Team zu arbeiten Wohnort im Kanton Tessin oder bereit, sich umzuziehen",
+        "fr": "Le candidat sera responsable de l'implémentation du processus d'émission de la carte de paiement pour les clients d'entreprise, d'analyse et d'évaluation des demandes, de définition des limites de dépense et d'activation des services complémentaires. Le rôle implique un contact direct avec les clients potentiels, y compris par téléphone, pour recueillir des informations, clarifier les demandes et soutenir le client tout au long du processus. Les principales responsabilités sont: Répondre aux appels entrants et gérer les demandes d'informations des clients et des partenaires commerciaux en allemand, en français, en italien et en anglais Gérer les demandes d'émission de la carte de paiement pour les clients d'entreprise Analyser et évaluer la validité de la demande, vérifier le profil du client et la cohérence avec les politiques de l'entreprise Demander et vérifier la documentation nécessaire (par exemple, documents d'entreprise, documents financiers et documents d'identité) Définir les limites de dépense les plus appropriées en fonction de l'analyse du client et du niveau de risque Insérer et configurer les services complémentaires associés à la carte (par exemple, assurances, rapports, services numériques, contrôles de dépense) Contacter les clients potentiels par téléphone pour discuter de leurs demandes en détail, fournir des explications et un soutien commercial Collaborer avec les équipes internes (risque de crédit, opérations) pour garantir un processus fluide et efficace Assurer la conformité avec les réglementations actuelles et les procédures internes (KYC, AML, politique de crédit) Qu'est-ce que nous offrons? Flexibilité dans le travail à distance et la gestion des heures de travail pour garantir un équilibre travail-vie sain De nombreux avantages et incitations Activités de bien-être, de motivation et de team building Pour l'ouverture de poste, nous recherchons des candidats qui répondent aux exigences suivantes: Arrière-plan administratif Expérience précédente dans une position similaire Connaissances solides du paquet Office/usage du PC Langues : français / allemand natif / italien / anglais de base Orientement client et capacité de travailler en équipe Résident dans le canton du Tessin ou prêt à se déplacer"
+      },
+      "requirements": [
+        "Administrative background",
+        "Privious experience in similar position",
+        "Good knowledge of Office package/ PC use",
+        "Languages: Italian / German native proficiency / Basic French / Basic English",
+        "Customer orientation and ability to work in team",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Administrative background",
+          "Privious experience in similar position",
+          "Good knowledge of Office package/ PC use",
+          "Languages: Italian / German native proficiency / Basic French / Basic English",
+          "Customer orientation and ability to work in team",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Administrative background",
+          "Privious experience in similar position",
+          "Good knowledge of Office package/ PC use",
+          "Languages: Italian / German native proficiency / Basic French / Basic English",
+          "Customer orientation and ability to work in team",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "url": "https://jobs.corner.ch/o/employee-card-onboarding",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-22T21:30:21.106Z",
+      "previousSlugs": [
+        "addetto-all-emission-carte-cliente-corner-banca-lugano",
+        "employee-card-onboarding-corner-banca-lugano-a3j84m",
+        "onboarding-de-la-carte-de-paiement-corner-banca-lugano",
+        "kundenberater-corner-banca-lugano",
+        "mitarbeiterkarten-einrichtung-corner-banca-lugano",
+        "mitarbeiterkarten-onboarding-corner-banca-lugano",
+        "onboarding-carta-dipendente-corner-banca-lugano",
+        "onboarding-carte-dipendenti-corner-banca-lugano",
+        "onboarding-della-carta-dei-dipendenti-corner-banca-lugano",
+        "onboarding-della-carta-di-credito-corner-banca-lugano",
+        "onboarding-delle-carte-di-pagamento-corner-banca-lugano",
+        "onboarding-mitarbeiterkarte-corner-banca-lugano",
+        "onboarding-von-mitarbeiterkarten-corner-banca-lugano",
+        "kundenberater-100-corner-banca-lugano",
+        "mitarbeiter-fur-karten-onboarding-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        ],
+        "en": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano",
+          "employee-card-onboarding-corner-banca-lugano-a3j84m"
+        ],
+        "de": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano",
+          "employee-card-onboarding-corner-banca-lugano-a3j84m"
+        ],
+        "fr": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano",
+          "employee-card-onboarding-corner-banca-lugano-a3j84m"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -269,7 +388,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.588Z",
+      "crawledAt": "2026-04-22T21:30:21.106Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -285,6 +404,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -294,123 +414,6 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-fe61b84a0935",
-      "slug": "employee-card-onboarding-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "employee-card-onboarding-corner-banca-lugano",
-        "en": "employee-card-onboarding-corner-banca-lugano",
-        "de": "kartenaufnahme-corner-banca-lugano",
-        "fr": "employee-card-onboarding-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Card Onboarding",
-      "titleByLocale": {
-        "it": "Onboarding della Carta di Credito",
-        "en": "Employee Card Onboarding",
-        "de": "Kartenaufnahme",
-        "fr": "Onboarding de la Carte de Paiement"
-      },
-      "description": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Manage payment card issuance requests for corporate customers\n\n• Analyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\n• Request and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\n• Define the most appropriate spending limit based on customer analysis and risk level\n\n• Enter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\n• Contact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\n• Collaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\n• Ensure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Administrative background\n\n• Privious experience in similar position\n\n• Good knowledge of Office package/ PC use\n\n• Languages: Italian / German native proficiency / Basic French / Basic English\n\n• Customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Il candidato sarà responsabile dell'implementazione del processo di emissione della carta di pagamento per i clienti aziendali, analisi e valutazione delle richieste, impostazione dei limiti di spesa e attivazione dei servizi complementari. Il ruolo prevede un contatto diretto con i potenziali clienti, compreso tramite telefono, al fine di raccogliere informazioni, chiarire le richieste e supportare il cliente durante tutto il processo. Le principali responsabilità sono: Rispondere alle chiamate in arrivo e gestire le richieste di informazione dei clienti e dei partner aziendali in tedesco, francese, italiano e inglese Gestire le richieste di emissione della carta di pagamento per i clienti aziendali Analizzare e valutare la validità della richiesta, verificando il profilo del cliente e la coerenza con le politiche aziendali Richiedere e verificare la documentazione necessaria (ad esempio documenti aziendali, finanziari e di identificazione) Definire il limite di spesa più adatto sulla base dell'analisi del cliente e del livello di rischio Inserire e configurare i servizi complementari associati alla carta (ad esempio assicurazioni, reporting, servizi digitali, controlli di spesa) Contattare i potenziali clienti tramite telefono per discutere le loro richieste in dettaglio, fornire chiarimenti e supporto commerciale Collaborare con le squadre interne (rischio di credito, operazioni) per garantire un processo liscio e efficace Assicurarsi che la conformità con le normative vigenti e le procedure interne (KYC, AML, politica di credito) Cosa offriamo? Flessibilità nel lavoro da remoto e gestione degli orari di lavoro per garantire un equilibrio lavoro-vita sano Numerosi benefici e incentivi Attività di benessere, motivazione e team building Per l'apertura di lavoro, stiamo cercando candidati che soddisfino i seguenti requisiti: Background amministrativo Esperienza precedente in posizione simile Buona conoscenza del pacchetto Office/uso del PC Lingue: italiano / tedesco nativo / francese base / inglese base Orientamento al cliente e capacità di lavorare in team Residente nel Ticino o disposto a trasferirsi",
-        "en": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services. The role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process. Key responsibilities: • Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English • Manage payment card issuance requests for corporate customers • Analyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies • Request and verify the necessary documentation (e.g. corporate, financial and identification documents) • Define the most appropriate spending limit based on customer analysis and risk level • Enter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls) • Contact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support • Collaborate with internal teams (credit risk, operations) to ensure a smooth and effective process • Ensure compliance with current regulations and internal procedures (KYC, AML, credit policy) What do we offer? • Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance • Numerous benefits and incentives • Well-being, motivational and team-building activities For the job opening, we are looking for candidates who meet the following requirements: • Administrative background • Privious experience in similar position • Good knowledge of Office package/ PC use • Languages: Italian / German native proficiency / Basic French / Basic English • Customer orientation and ability to work in team • Resident in Ticino or willing to relocate",
-        "de": "Der Kandidat wird für die Implementierung des Zahlungskarten-Ausgabeprozesses für Unternehmenskunden verantwortlich sein, Anfragen analysieren und bewerten, Ausgabegrenzen setzen und Zusatzdienste aktivieren. Die Rolle beinhaltet direkten Kontakt mit potenziellen Kunden, einschließlich Telefonkontakt, um Informationen zu sammeln, Anforderungen zu klären und den Kunden während des gesamten Prozesses zu unterstützen. Hauptverantwortlichkeiten: Antworten auf eingehende Anrufe und bearbeiten von Anfragen von Kunden und Geschäftspartnern auf Deutsch, Französisch, Italienisch und Englisch Verwalten Sie die Anfragen zur Ausgabe von Zahlungskarten für Unternehmenskunden Analysieren und bewerten Sie die Gültigkeit der Anfrage, überprüfen Sie das Kundenprofil und die Übereinstimmung mit den Unternehmenspolitiken Anfordern und überprüfen Sie die erforderliche Dokumentation (z.B. Unternehmensdokumente, Finanzdokumente und Identifikationsdokumente) Definieren Sie den geeigneten Ausgabegrenzen auf der Grundlage der Kundenanalyse und des Risikostands Einfügen und Konfigurieren Sie die Zusatzdienste, die mit der Karte verbunden sind (z.B. Versicherungen, Berichterstattung, digitale Dienste, Ausgabekontrollen) Kontaktieren Sie potenzielle Kunden per Telefon, um ihre Anfragen im Detail zu diskutieren, Klarstellungen und kommerziellen Unterstützung zu bieten Arbeiten Sie mit den internen Teams (Kreditrisiko, Operations) zusammen, um einen reibungslosen und effektiven Prozess zu gewährleisten Stellen Sie sicher, dass die Einhaltung der aktuellen Vorschriften und internen Verfahren (KYC, AML, Kreditpolitik) gewährleistet ist Was bieten wir? Flexibilität in der Arbeit von zu Hause und die Verwaltung der Arbeitszeiten, um ein gesundes Arbeit-Leben-Gleichgewicht zu gewährleisten Viele Vorteile und Anreize Wohlbefinden, Motivation und Teambuilding-Aktivitäten Für die Stellenanzeige suchen wir Kandidaten, die die folgenden Anforderungen erfüllen: Verwaltungshintergrund Vorherige Erfahrung in einer ähnlichen Position Gute Kenntnisse des Office-Pakets/PC-Verwendung Sprachen: Deutsch / Italienisch Muttersprache / Französisch Grundkenntnisse / Englisch Grundkenntnisse Kundenorientierung und Fähigkeit, in einem Team zu arbeiten Wohnort im Kanton Tessin oder bereit, sich umzuziehen",
-        "fr": "Le candidat sera responsable de l'implémentation du processus d'émission de la carte de paiement pour les clients d'entreprise, d'analyse et d'évaluation des demandes, de définition des limites de dépense et d'activation des services complémentaires. Le rôle implique un contact direct avec les clients potentiels, y compris par téléphone, pour recueillir des informations, clarifier les demandes et soutenir le client tout au long du processus. Les principales responsabilités sont: Répondre aux appels entrants et gérer les demandes d'informations des clients et des partenaires commerciaux en allemand, en français, en italien et en anglais Gérer les demandes d'émission de la carte de paiement pour les clients d'entreprise Analyser et évaluer la validité de la demande, vérifier le profil du client et la cohérence avec les politiques de l'entreprise Demander et vérifier la documentation nécessaire (par exemple, documents d'entreprise, documents financiers et documents d'identité) Définir les limites de dépense les plus appropriées en fonction de l'analyse du client et du niveau de risque Insérer et configurer les services complémentaires associés à la carte (par exemple, assurances, rapports, services numériques, contrôles de dépense) Contacter les clients potentiels par téléphone pour discuter de leurs demandes en détail, fournir des explications et un soutien commercial Collaborer avec les équipes internes (risque de crédit, opérations) pour garantir un processus fluide et efficace Assurer la conformité avec les réglementations actuelles et les procédures internes (KYC, AML, politique de crédit) Qu'est-ce que nous offrons? Flexibilité dans le travail à distance et la gestion des heures de travail pour garantir un équilibre travail-vie sain De nombreux avantages et incitations Activités de bien-être, de motivation et de team building Pour l'ouverture de poste, nous recherchons des candidats qui répondent aux exigences suivantes: Arrière-plan administratif Expérience précédente dans une position similaire Connaissances solides du paquet Office/usage du PC Langues : français / allemand natif / italien / anglais de base Orientement client et capacité de travailler en équipe Résident dans le canton du Tessin ou prêt à se déplacer"
-      },
-      "requirements": [
-        "Administrative background",
-        "Privious experience in similar position",
-        "Good knowledge of Office package/ PC use",
-        "Languages: Italian / German native proficiency / Basic French / Basic English",
-        "Customer orientation and ability to work in team",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Administrative background",
-          "Privious experience in similar position",
-          "Good knowledge of Office package/ PC use",
-          "Languages: Italian / German native proficiency / Basic French / Basic English",
-          "Customer orientation and ability to work in team",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Administrative background",
-          "Privious experience in similar position",
-          "Good knowledge of Office package/ PC use",
-          "Languages: Italian / German native proficiency / Basic French / Basic English",
-          "Customer orientation and ability to work in team",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "url": "https://jobs.corner.ch/o/employee-card-onboarding",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.587Z",
-      "previousSlugs": [
-        "addetto-all-emission-carte-cliente-corner-banca-lugano",
-        "employee-card-onboarding-corner-banca-lugano-a3j84m",
-        "onboarding-de-la-carte-de-paiement-corner-banca-lugano",
-        "kundenberater-corner-banca-lugano",
-        "mitarbeiterkarten-einrichtung-corner-banca-lugano",
-        "mitarbeiterkarten-onboarding-corner-banca-lugano",
-        "onboarding-carta-dipendente-corner-banca-lugano",
-        "onboarding-carte-dipendenti-corner-banca-lugano",
-        "onboarding-della-carta-dei-dipendenti-corner-banca-lugano",
-        "onboarding-della-carta-di-credito-corner-banca-lugano",
-        "onboarding-delle-carte-di-pagamento-corner-banca-lugano",
-        "onboarding-mitarbeiterkarte-corner-banca-lugano",
-        "onboarding-von-mitarbeiterkarten-corner-banca-lugano",
-        "kundenberater-100-corner-banca-lugano",
-        "mitarbeiter-fur-karten-onboarding-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano"
-        ],
-        "en": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano",
-          "employee-card-onboarding-corner-banca-lugano-a3j84m"
-        ],
-        "de": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano",
-          "employee-card-onboarding-corner-banca-lugano-a3j84m"
-        ],
-        "fr": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano",
-          "employee-card-onboarding-corner-banca-lugano-a3j84m"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -487,7 +490,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T09:47:26.586Z",
+      "crawledAt": "2026-04-22T21:30:21.105Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -518,6 +521,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -594,7 +598,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.585Z",
+      "crawledAt": "2026-04-22T21:30:21.104Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
@@ -620,6 +624,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -706,7 +711,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.584Z",
+      "crawledAt": "2026-04-22T21:30:21.103Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -740,6 +745,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -829,7 +835,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.583Z",
+      "crawledAt": "2026-04-22T21:30:21.101Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
@@ -842,6 +848,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -928,7 +935,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.582Z",
+      "crawledAt": "2026-04-22T21:30:21.100Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen"
       ],
@@ -941,6 +948,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -950,6 +958,87 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-97d8d7e51ea2",
+      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+        "en": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+        "de": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+        "fr": "agent-d-autorisation-et-de-prevention-de-la-fraude-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "IT Authorizazion and Fraud Prevention Officer",
+      "titleByLocale": {
+        "it": "IT Authorizazion e Fraud Prevention Officer",
+        "en": "IT Authorizazion and Fraud Prevention Officer",
+        "de": "IT Autorizazion und Fraud Prevention Officer",
+        "fr": "Agent d'autorisation et de prévention de la fraude"
+      },
+      "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+      "descriptionByLocale": {
+        "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di “trattamento delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l’emissione delle carte, la gestione del ciclo di vita, la liquidazione e la liquidazione, le frodi e i riscatti) • Raccogliere, analizzare e valutare le richieste regolari (ad es. cambiamenti, conformità, ...) dai programmi di carta (ad es. VISA, MC, ...) • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
+        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) • Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications • Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models • Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping) • Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management • Support the analysis and management of application incidents and production issues Must Have • Resident in Ticino or willing to relocate • Experience in banking or financial contexts • Experience in functional and technical analysis in IT • Knowledge of credit and debit card payment systems, including payment tokenization. • Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+        "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. • Analyse und Analyse von Funktionen und Prozessen • Analyse und Verständnis von “Kartenzahlungen Verarbeitung, Zahlung Tokenization und Betrugsprävention” Prozessen und verwandten (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Sammeln, Analysieren und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC,...) • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
+        "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Responsabilités clés Analyse fonctionnelle et processus • Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus d'émission de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) • Collecte, analyse et évaluation des demandes régulières (c'est-à-dire des modifications, de la conformité, ...) des systèmes de cartes (par exemple VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques • Collecte, analyse et formalisation des exigences opérationnelles (le cas échéant), les transformant en spécifications fonctionnelles et techniques • Appui à l'entreprise dans la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres parties prenantes internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec les équipes de développement internes et externes pendant les phases de développement, d'essai et de libération, exécuter directement (le cas échéant) testing et gestion de la mainlevée • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
+      },
+      "requirements": [
+        "Resident in Ticino or willing to relocate",
+        "Experience in banking or financial contexts",
+        "Experience in functional and technical analysis in IT",
+        "Knowledge of credit and debit card payment systems, including payment tokenization.",
+        "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Resident in Ticino or willing to relocate",
+          "Experience in banking or financial contexts",
+          "Experience in functional and technical analysis in IT",
+          "Knowledge of credit and debit card payment systems, including payment tokenization.",
+          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
+        ],
+        "en": [
+          "Resident in Ticino or willing to relocate",
+          "Experience in banking or financial contexts",
+          "Experience in functional and technical analysis in IT",
+          "Knowledge of credit and debit card payment systems, including payment tokenization.",
+          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-22T21:30:21.098Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -1031,7 +1120,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.581Z",
+      "crawledAt": "2026-04-22T21:30:21.098Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "conseiller-client-a-100-corner-banca-lugano",
@@ -1061,6 +1150,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1077,88 +1167,6 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-97d8d7e51ea2",
-      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "en": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "de": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "fr": "agent-d-autorisation-et-de-prevention-de-la-fraude-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Authorizazion and Fraud Prevention Officer",
-      "titleByLocale": {
-        "it": "IT Authorizazion e Fraud Prevention Officer",
-        "en": "IT Authorizazion and Fraud Prevention Officer",
-        "de": "IT Autorizazion und Fraud Prevention Officer",
-        "fr": "Agent d'autorisation et de prévention de la fraude"
-      },
-      "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
-      "descriptionByLocale": {
-        "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di “trattamento delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l’emissione delle carte, la gestione del ciclo di vita, la liquidazione e la liquidazione, le frodi e i riscatti) • Raccogliere, analizzare e valutare le richieste regolari (ad es. cambiamenti, conformità, ...) dai programmi di carta (ad es. VISA, MC, ...) • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related\n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks)\n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …)\n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly\n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
-        "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. • Analyse und Analyse von Funktionen und Prozessen • Analyse und Verständnis von “Kartenzahlungen Verarbeitung, Zahlung Tokenization und Betrugsprävention” Prozessen und verwandten (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Sammeln, Analysieren und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC,...) • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
-        "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Responsabilités clés Analyse fonctionnelle et processus • Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus d'émission de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) • Collecte, analyse et évaluation des demandes régulières (c'est-à-dire des modifications, de la conformité, ...) des systèmes de cartes (par exemple VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques • Collecte, analyse et formalisation des exigences opérationnelles (le cas échéant), les transformant en spécifications fonctionnelles et techniques • Appui à l'entreprise dans la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres parties prenantes internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec les équipes de développement internes et externes pendant les phases de développement, d'essai et de libération, exécuter directement (le cas échéant) testing et gestion de la mainlevée • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
-      },
-      "requirements": [
-        "Resident in Ticino or willing to relocate",
-        "Experience in banking or financial contexts",
-        "Experience in functional and technical analysis in IT",
-        "Knowledge of credit and debit card payment systems, including payment tokenization.",
-        "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Resident in Ticino or willing to relocate",
-          "Experience in banking or financial contexts",
-          "Experience in functional and technical analysis in IT",
-          "Knowledge of credit and debit card payment systems, including payment tokenization.",
-          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ],
-        "en": [
-          "Resident in Ticino or willing to relocate",
-          "Experience in banking or financial contexts",
-          "Experience in functional and technical analysis in IT",
-          "Knowledge of credit and debit card payment systems, including payment tokenization.",
-          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.580Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
     },
     {
       "id": "corner-banca-acebb12b2bb7",
@@ -1224,7 +1232,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.578Z",
+      "crawledAt": "2026-04-22T21:30:21.096Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen"
@@ -1241,6 +1249,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.257Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1322,7 +1331,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:47:26.577Z",
+      "crawledAt": "2026-04-22T21:30:21.095Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-corner-banca-lugano"
       ],
@@ -1335,6 +1344,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
