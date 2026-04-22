@@ -2508,6 +2508,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': '20% Increase for Doctors and Nurses at the Border',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'Lombardy allocates 10,000 euros for doctors and 5,400 euros for nurses working in the border areas with Switzerland',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.svincolo-a2-sigirino-ritardo.title': 'A2 Svincolo at Sigirino: Potential Delays Possible',
+    'blog.article.svincolo-a2-sigirino-ritardo.excerpt': 'The new permit office has not resolved the doubts, possibility of slippage beyond 2030',
+    'blog.article.svincolo-a2-sigirino-ritardo.imageAlt': 'A2 highway construction in Sigirino',
 };
 
 export default blogMetaEn;

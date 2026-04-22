@@ -2508,6 +2508,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': '20% mehr für Ärzte und Krankenschwestern an der Grenze',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'Lombardei stellt 10.000 Franken für Ärzte und 5.400 Franken für Krankenschwestern bereit, die in den Grenzgebieten zur Schweiz arbeiten',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.svincolo-a2-sigirino-ritardo.title': 'Ausfahrt A2 von Sigirino: möglicher Verspätung',
+    'blog.article.svincolo-a2-sigirino-ritardo.excerpt': 'Die neue Schallgutachten konnten die Zweifel nicht ausräumen, möglicher Verschiebung jenseits des Jahres 2030',
+    'blog.article.svincolo-a2-sigirino-ritardo.imageAlt': 'A2 Autobahn Bau in Sigirino',
 };
 
 export default blogMetaDe;

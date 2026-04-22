@@ -2508,6 +2508,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': 'Aumenti del 20% per medici e infermieri al confine',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'Lombardia stanzia 10.000 euro per medici e 5.400 euro per infermieri che operano nelle zone di confine con la Svizzera',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.svincolo-a2-sigirino-ritardo.title': 'Svincolo A2 di Sigirino: ritardo possibile',
+    'blog.article.svincolo-a2-sigirino-ritardo.excerpt': 'La nuova perizia fonica non ha risolto i dubbi, possibilità di slittamento oltre il 2030',
+    'blog.article.svincolo-a2-sigirino-ritardo.imageAlt': 'Lavori autostrada A2 Sigirino',
 };
 
 export default blogMetaIt;

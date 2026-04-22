@@ -6832,4 +6832,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/aumenti-stipendi-medici-infermieri-lombardia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svincolo-a2-sigirino-ritardo',
+ category: 'novita',
+ date: '2026-04-22T20:46:14.744Z',
+ image: '/images/blog/svincolo-a2-sigirino-ritardo.jpg',
+ hasCalculator: true,
+ },
 ];

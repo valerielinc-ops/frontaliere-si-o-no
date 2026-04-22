@@ -2072,6 +2072,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ponte-chiasso-sanita-2026': { name: 'Sanità Ponte Chiasso', path: '/articoli-frontaliere/ponte-chiasso-sanita-2026', parent: 'blog' },
     'blog-soloaffitti-como-frontalieri-ticino': { name: 'Affitti Como', path: '/articoli-frontaliere/soloaffitti-como-frontalieri-ticino', parent: 'blog' },
     'blog-aumenti-stipendi-medici-infermieri-lombardia': { name: 'Novità', path: '/articoli-frontaliere/aumenti-stipendi-medici-infermieri-lombardia', parent: 'blog' },
+    'blog-svincolo-a2-sigirino-ritardo': { name: 'Svincolo A2 Sigirino', path: '/articoli-frontaliere/svincolo-a2-sigirino-ritardo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

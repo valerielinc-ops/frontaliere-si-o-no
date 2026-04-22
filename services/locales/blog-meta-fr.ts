@@ -2508,6 +2508,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.title': 'Augmentation de 20% pour les médecins et les infirmières à la frontière',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.excerpt': 'La Lombardie alloue 10.000 euros pour les médecins et 5.400 euros pour les infirmières qui travaillent dans les zones frontalières avec la Suisse',
     'blog.article.aumenti-stipendi-medici-infermieri-lombardia.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.svincolo-a2-sigirino-ritardo.title': 'Svincolo A2 de Sigirino: retard possible',
+    'blog.article.svincolo-a2-sigirino-ritardo.excerpt': 'La nouvelle perizia fonique n\'a pas résolu les doutes, possibilité de slittamento au-delà de 2030',
+    'blog.article.svincolo-a2-sigirino-ritardo.imageAlt': 'Travaux d\'autoroute A2 à Sigirino',
 };
 
 export default blogMetaFr;

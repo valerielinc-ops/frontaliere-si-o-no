@@ -11109,6 +11109,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svincolo-a2-sigirino-ritardo': {
+    title: 'Svincolo A2 di Sigirino: ritardo | Frontaliere Ticino',
+    description: 'Lo svincolo A2 di Sigirino potrebbe slittare a dopo il 2030. Scopri le implicazioni per i frontalieri e come seguire l\'evoluzione del progetto. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, svincolo, sigirino, ritardo, possibile',
+    ogTitle: 'Svincolo A2 Sigirino: ritardo possibile',
+    ogDescription: 'Lo svincolo A2 di Sigirino potrebbe slittare a dopo il 2030. Scopri le implicazioni per i frontalieri e come seguire l\'evoluzione del progetto',
+    canonicalPath: '/articoli-frontaliere/svincolo-a2-sigirino-ritardo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svincolo A2 Sigirino: ritardo possibile",
+      "description": "Lo svincolo A2 di Sigirino potrebbe slittare a dopo il 2030. Scopri le implicazioni per i frontalieri e come seguire l'evoluzione del progetto. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svincolo-a2-sigirino-ritardo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori autostrada A2 Sigirino"
+      },
+      "datePublished": "2026-04-22T20:46:14+00:00",
+      "dateModified": "2026-04-22T20:46:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svincolo-a2-sigirino-ritardo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
