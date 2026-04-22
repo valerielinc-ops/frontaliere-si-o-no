@@ -1,48 +1,18 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-04-22T09:37:10.568Z",
+  "generatedAt": "2026-04-22T21:20:00.971Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4774,
-  "avgDurationMs": 4774,
+  "durationMs": 3846,
+  "avgDurationMs": 3846,
   "durationHistory": [
-    4774
+    3846
   ],
-  "newJobs": [
-    {
-      "id": "cedes-095fd9bf3819",
-      "slug": "sales-manager-elevator-escalator-cedes-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes",
-      "companyDomain": "cedes.com",
-      "title": "Sales Manager Elevator & Escalator",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:37:08.541Z",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "cedes-3fa516c3ca31",
@@ -64,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:37:07.447Z",
+      "crawledAt": "2026-04-22T21:19:58.298Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -94,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:37:08.051Z",
+      "crawledAt": "2026-04-22T21:19:58.596Z",
       "firstSeenAt": "2026-04-13T10:12:15.192Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -103,10 +73,7 @@
         "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "cedes-095fd9bf3819",
       "slug": "sales-manager-elevator-escalator-cedes-landquart",
@@ -127,16 +94,49 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:37:08.541Z",
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "postalCode": "7302",
-      "_qualityScore": 83,
+      "crawledAt": "2026-04-22T21:19:58.885Z",
+      "firstSeenAt": "2026-04-22T09:37:08.541Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "cedes-095fd9bf3819",
+      "slug": "sales-manager-ascensore-scala-mobile-cedes-ag-landquart",
+      "company": "CEDES AG",
+      "companyKey": "cedes",
+      "companyDomain": "cedes.com",
+      "title": "Sales Manager Elevator & Escalator",
+      "location": "Landquart",
+      "canton": "GR",
+      "addressLocality": "Landquart",
+      "addressCountry": "CH",
+      "category": "technology",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
+      "source": "CEDES Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-22T21:19:58.885Z",
+      "firstSeenAt": "2026-04-22T09:37:08.541Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "postalCode": "7302",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -160,7 +160,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:37:08.051Z",
+      "crawledAt": "2026-04-22T21:19:58.596Z",
       "firstSeenAt": "2026-04-13T10:12:15.192Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -194,7 +194,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T09:37:07.447Z",
+      "crawledAt": "2026-04-22T21:19:58.298Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
