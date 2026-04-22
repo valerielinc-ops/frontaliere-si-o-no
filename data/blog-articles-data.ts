@@ -6804,4 +6804,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/salario-minimo-ticino-2029-4000-franchi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guasti-trenord-aprile-2026',
+ category: 'pratico',
+ date: '2026-04-22T15:19:04.078Z',
+ image: '/images/blog/guasti-trenord-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ];

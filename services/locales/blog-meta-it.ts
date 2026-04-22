@@ -2496,6 +2496,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2029-4000-franchi.title': 'Salario minimo in Ticino: 4.000 franchi lordi al mese dal 2029',
     'blog.article.salario-minimo-ticino-2029-4000-franchi.excerpt': 'Il Parlamento cantonale ticinese ha approvato l\'aumento del salario minimo a 4.000 franchi lordi al mese dal 2029, beneficiando 23.000 lavoratori, di cui 15.000 frontalieri.',
     'blog.article.salario-minimo-ticino-2029-4000-franchi.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.guasti-trenord-aprile-2026.title': 'Guasti Trenord: ritardi e cancellazioni in Lombardia il 21 aprile',
+    'blog.article.guasti-trenord-aprile-2026.excerpt': 'Doppio guasto tecnico ad Albizzate e Milano Certosa causa disagi diffusi sulla rete ferroviaria lombarda nella giornata di martedì 21 aprile 2026.',
+    'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Stazione ferroviaria in Ticino, contesto pendolari',
 };
 
 export default blogMetaIt;

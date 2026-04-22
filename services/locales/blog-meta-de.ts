@@ -2496,6 +2496,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2029-4000-franchi.title': 'Mindestlohn im Tessin: 4.000 Franken brutto pro Monat ab 2029',
     'blog.article.salario-minimo-ticino-2029-4000-franchi.excerpt': 'Das kantonale Parlament des Tessins hat die Erhöhung des Mindestlohns auf 4.000 Franken brutto pro Monat ab 2029 genehmigt, was 23.000 Arbeitnehmer, darunter 15.000 Grenzgänger, zugutekommt.',
     'blog.article.salario-minimo-ticino-2029-4000-franchi.imageAlt': 'Luftansicht des Luganer Sees mit Bergen und Gebäuden',
+    'blog.article.guasti-trenord-aprile-2026.title': 'Trenord-Störungen: Verspätungen und Zugausfälle in der Lombardei am 21. April',
+    'blog.article.guasti-trenord-aprile-2026.excerpt': 'Zwei technische Defekte in Albizzate und Milano Certosa führen am Dienstag, den 21. April 2026, zu weitreichenden Störungen im lombardischen Eisenbahnnetz.',
+    'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Bahnhof im Tessin, Pendlerkontext',
 };
 
 export default blogMetaDe;

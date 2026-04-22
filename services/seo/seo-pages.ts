@@ -4257,7 +4257,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 883,
+ "numberOfItems": 884,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5118,7 +5118,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 880, "name": "Omaggio agli Angeli di Ponte Chiasso: posata la...", "url": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso` },
           { "@type": "ListItem", "position": 881, "name": "Dogana Chiasso: limitazioni traffico 2026", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-traffico-2026` },
           { "@type": "ListItem", "position": 882, "name": "Integrazione lavorativa stranieri Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/integrazione-lavoro-stranieri-ticino-2026` },
-          { "@type": "ListItem", "position": 883, "name": "Salario minimo Ticino 2029: 4.000 franchi", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi` }
+          { "@type": "ListItem", "position": 883, "name": "Salario minimo Ticino 2029: 4.000 franchi", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-2029-4000-franchi` },
+          { "@type": "ListItem", "position": 884, "name": "Guasti Trenord: ritardi e cancellazioni in Lomb...", "url": `${BASE_URL}/articoli-frontaliere/guasti-trenord-aprile-2026` }
  ]
  },
  {

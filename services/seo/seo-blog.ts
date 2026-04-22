@@ -10993,6 +10993,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guasti-trenord-aprile-2026': {
+    title: 'Guasti Trenord: ritardi e cancellazioni | Frontaliere Ticino',
+    description: 'Doppio guasto ferroviario ad Albizzate e Milano Certosa causa ritardi e disagi diffusi in Lombardia il 21 aprile 2026. Informazioni per i pendolari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasti, trenord, ritardi, cancellazioni',
+    ogTitle: 'Guasti Trenord: ritardi e cancellazioni in Lombardia il 21',
+    ogDescription: 'Doppio guasto tecnico ad Albizzate e Milano Certosa causa disagi diffusi sulla rete ferroviaria lombarda nella giornata di martedì 21 aprile 2026.',
+    canonicalPath: '/articoli-frontaliere/guasti-trenord-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guasti Trenord: ritardi e cancellazioni in Lombardia il 21 aprile",
+      "description": "Doppio guasto ferroviario ad Albizzate e Milano Certosa causa ritardi e disagi diffusi in Lombardia il 21 aprile 2026. Informazioni per i pendolari.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guasti-trenord-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria in Ticino, contesto pendolari"
+      },
+      "datePublished": "2026-04-22T15:19:04+00:00",
+      "dateModified": "2026-04-22T15:19:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guasti-trenord-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

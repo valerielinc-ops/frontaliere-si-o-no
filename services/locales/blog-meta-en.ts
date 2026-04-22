@@ -2496,6 +2496,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-minimo-ticino-2029-4000-franchi.title': 'Minimum wage in Ticino: 4,000 CHF gross per month from 2029',
     'blog.article.salario-minimo-ticino-2029-4000-franchi.excerpt': 'The Ticino cantonal parliament has approved the increase of the minimum wage to 4,000 CHF gross per month from 2029, benefiting 23,000 workers, including 15,000 cross-border commuters.',
     'blog.article.salario-minimo-ticino-2029-4000-franchi.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.guasti-trenord-aprile-2026.title': 'Trenord malfunctions: delays and cancellations in Lombardy on April 21',
+    'blog.article.guasti-trenord-aprile-2026.excerpt': 'A double technical failure at Albizzate and Milano Certosa caused widespread disruption across the Lombardy rail network on Tuesday, April 21, 2026.',
+    'blog.article.guasti-trenord-aprile-2026.imageAlt': 'Railway station in Ticino, commuter context',
 };
 
 export default blogMetaEn;
