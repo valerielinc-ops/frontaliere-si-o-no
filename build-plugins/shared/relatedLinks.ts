@@ -42,8 +42,11 @@
  */
 
 import {
+  FUEL_ITALIAN_CITIES,
   FUEL_ZONES,
   FUEL_ZONE_DISPLAY,
+  buildFuelItalianCityPath,
+  buildFuelStationPath as buildLocalizedFuelStationPath,
   buildFuelTodayPath,
   type FuelDailyLocale,
   type FuelType,
@@ -202,17 +205,17 @@ const SALARY_SIM_ROOT: Record<LinkLocale, string> = {
 
 /** Salary hub (distinct from home — more content-heavy benchmark page). */
 const SALARY_HUB_PATH: Record<LinkLocale, string> = {
-  it: '/stipendi-frontalieri-ticino/',
-  en: '/en/cross-border-salaries-ticino/',
-  de: '/de/grenzgaenger-loehne-tessin/',
-  fr: '/fr/salaires-frontaliers-tessin/',
+  it: '/statistiche/confronta-stipendi/',
+  en: '/en/statistics/compare-salaries/',
+  de: '/de/statistiken/gehaelter-vergleichen/',
+  fr: '/fr/statistiques/comparer-salaires/',
 };
 
 /** Frontier-worker guide (permits + tax). */
 const FRONTIER_GUIDE_PATH: Record<LinkLocale, string> = {
   it: '/guida-frontaliere/',
-  en: '/en/cross-border-worker-guide/',
-  de: '/de/grenzgaenger-leitfaden/',
+  en: '/en/cross-border-guide/',
+  de: '/de/grenzgaenger-ratgeber/',
   fr: '/fr/guide-frontalier/',
 };
 
@@ -220,6 +223,25 @@ const FRONTIER_GUIDE_PATH: Record<LinkLocale, string> = {
 function cityHubPath(locale: LinkLocale, city: 'lugano' | 'mendrisio' | 'bellinzona'): string {
   return `${JOB_LISTING_ROOT[locale].replace(/\/$/, '')}/${city}/`;
 }
+
+/**
+ * Only link to Italian fuel-city hubs that are actually emitted in the current
+ * build pipeline. Some curated cities exist in the master list for future
+ * expansion but do not currently generate static landing pages.
+ */
+const RELATED_FUEL_ITALIAN_CITY_SLUGS = new Set([
+  'como',
+  'varese',
+  'luino',
+  'gallarate',
+  'cantu',
+  'saronno',
+  'menaggio',
+  'sondrio',
+  'tirano',
+  'chiavenna',
+  'morbegno',
+]);
 
 // ── Fuel station path builder (hub-and-spoke URL pattern) ────────
 
@@ -234,8 +256,7 @@ function buildFuelStationPath(
   zone: FuelZone,
   stationSlug: string,
 ): string {
-  const root = buildFuelTodayPath(locale, fuel, zone).replace(/oggi\/$|today\/$|heute\/$|aujourd-hui\/$/, '');
-  return `${root}stazioni/${stationSlug}/`.replace(/\/+/g, '/');
+  return buildLocalizedFuelStationPath(locale, fuel, zone, stationSlug);
 }
 
 /** `/prezzi-{fuel}/italia/{city}/` — IT city landing. */
@@ -244,8 +265,7 @@ function buildItalianCityPath(
   fuel: FuelType,
   italianCity: string,
 ): string {
-  const root = buildFuelTodayPath(locale, fuel, undefined).replace(/oggi\/$|today\/$|heute\/$|aujourd-hui\/$/, '');
-  return `${root}italia/${italianCity}/`.replace(/\/+/g, '/');
+  return buildFuelItalianCityPath(locale, fuel, italianCity);
 }
 
 /** `/aziende-che-assumono/{city}/{company}/settimana-corrente/` — F5 per-company. */
@@ -701,16 +721,24 @@ function clustersForFuelStation(
   const fuelDailyLocale = locale as FuelDailyLocale;
   const stationSlug = ctx.stationSlug ?? 'stazione';
 
-  // Sibling: 4-5 other stations in the same zone (pseudo — real data fed by
-  // plugin; we synthesise slugs from the zone + an enumerator so even without
-  // real context the structure is sound).
-  const stationSiblings: string[] = ['eni', 'agip', 'tamoil', 'shell', 'migrol']
-    .filter((brand) => `${zone}-${brand}` !== stationSlug)
-    .slice(0, 5);
-  const sibling: RelatedLink[] = stationSiblings.map((brand) => ({
-    href: buildFuelStationPath(fuelDailyLocale, fuel, zone, `${zone}-${brand}`),
-    title: copy.fuelStation(humanizeSlug(brand), zoneLabel(zone)),
-  }));
+  // Prefer real sibling station slugs provided by the page generator. When the
+  // richer context is unavailable, fall back to placeholder siblings so callers
+  // outside the fuel build pipeline still get a populated section.
+  const sibling: RelatedLink[] = (ctx.siblingStations?.length
+    ? ctx.siblingStations
+        .filter((station) => station.slug !== stationSlug)
+        .slice(0, 5)
+        .map((station) => ({
+          href: buildFuelStationPath(fuelDailyLocale, fuel, zone, station.slug),
+          title: copy.fuelStation(station.brand, zoneLabel(zone)),
+        }))
+    : ['eni', 'agip', 'tamoil', 'shell', 'migrol']
+        .filter((brand) => `${zone}-${brand}` !== stationSlug)
+        .slice(0, 5)
+        .map((brand) => ({
+          href: buildFuelStationPath(fuelDailyLocale, fuel, zone, `${zone}-${brand}`),
+          title: copy.fuelStation(humanizeSlug(brand), zoneLabel(zone)),
+        })));
 
   // Hubs: zone hub + regional hub.
   const hubs: RelatedLink[] = [
@@ -748,13 +776,15 @@ function clustersForFuelItalianCity(
   ctx: RelatedLinksContext,
 ): ClusterResult {
   const fuel: FuelType = ctx.fuelType ?? 'diesel';
-  const italianCity = ctx.italianCity ?? 'como';
+  const italianCity = ctx.italianCity ?? ctx.italianCitySlug ?? 'como';
   const fuelDailyLocale = locale as FuelDailyLocale;
   const fuelL = fuelLabel(locale, fuel);
 
   // Sibling: 4 other Italian cities near the border.
-  const otherItCities = ['como', 'varese', 'luino', 'ponte-tresa-italia', 'gallarate']
-    .filter((c) => c !== italianCity)
+  const otherItCities = FUEL_ITALIAN_CITIES
+    .map((city) => city.slug)
+    .filter((slug) => RELATED_FUEL_ITALIAN_CITY_SLUGS.has(slug))
+    .filter((slug) => slug !== italianCity)
     .slice(0, 4);
   const sibling: RelatedLink[] = otherItCities.map((c) => ({
     href: buildItalianCityPath(fuelDailyLocale, fuel, c),

@@ -4,8 +4,8 @@
  * Emits a single localized "live valichi" hub page at:
  *   IT: /guida-frontaliere/mappa-live-valichi/
  *   EN: /en/cross-border-guide/live-border-crossings-map/
- *   DE: /de/grenzgaenger-leitfaden/live-grenzuebergaenge-karte/
- *   FR: /fr/guide-frontaliers/carte-live-passages-frontaliers/
+ *   DE: /de/grenzgaenger-ratgeber/live-grenzuebergaenge-karte/
+ *   FR: /fr/guide-frontalier/carte-live-passages-frontaliers/
  *
  * Each page reuses the border-wait dataset (24 crossings, 2 regions) from
  * build-plugins/borderWaitData.ts — no new data source needed.
@@ -51,8 +51,8 @@ import {
 const MAP_PATH: Record<BorderWaitLocale, string> = {
   it: 'guida-frontaliere/mappa-live-valichi',
   en: 'cross-border-guide/live-border-crossings-map',
-  de: 'grenzgaenger-leitfaden/live-grenzuebergaenge-karte',
-  fr: 'guide-frontaliers/carte-live-passages-frontaliers',
+  de: 'grenzgaenger-ratgeber/live-grenzuebergaenge-karte',
+  fr: 'guide-frontalier/carte-live-passages-frontaliers',
 };
 
 const OG_LOCALE: Record<BorderWaitLocale, string> = {
@@ -349,7 +349,7 @@ function renderPage(opts: {
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const guideUrl = locale === 'it'
     ? `${BASE_URL}/guida-frontaliere/`
-    : `${BASE_URL}/${locale}/${locale === 'en' ? 'cross-border-guide' : locale === 'de' ? 'grenzgaenger-leitfaden' : 'guide-frontaliers'}/`;
+    : `${BASE_URL}/${locale}/${locale === 'en' ? 'cross-border-guide' : locale === 'de' ? 'grenzgaenger-ratgeber' : 'guide-frontalier'}/`;
 
   const crossingsTable = renderCrossingsTable(locale, copy);
 

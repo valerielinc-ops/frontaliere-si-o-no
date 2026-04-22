@@ -405,6 +405,10 @@ function renderBackPage(doc: PDFKit.PDFDocument): void {
 function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: string): string {
  const canonical = `${BASE_URL}/guides/${guide.filename}/`;
  const pdfUrl = `${BASE_URL}/guides/${guide.filename}.pdf`;
+ const hreflangLinks = [
+ `<link rel="alternate" hreflang="it" href="${canonical}">`,
+ `<link rel="alternate" hreflang="x-default" href="${canonical}">`,
+ ].join('\n');
  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
  const jsonLd = JSON.stringify({
@@ -443,6 +447,7 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta name="description" content="${esc(guide.subtitle)}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="${canonical}">
+${hreflangLinks}
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(guide.title)}">
 <meta property="og:description" content="${esc(guide.subtitle)}">

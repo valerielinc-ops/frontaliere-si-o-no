@@ -56,6 +56,7 @@ const REGISTRY: Record<string, SchemaTranslator> = {
  NewsArticle: translateNewsArticleSchema,
  Organization: translateOrganization,
  Review: translateReview,
+ SoftwareApplication: translateWebApplication,
  WebApplication: translateWebApplication,
  WebPage: translateWebPage,
 };

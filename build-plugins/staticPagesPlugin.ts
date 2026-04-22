@@ -12,6 +12,7 @@ import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 import { WriteCollector } from './batchWrite';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
+import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import {
  buildJobBoardSeo,
@@ -888,6 +889,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  parsed = parsed.filter((item: Record<string, unknown>) => String(item['@type'] || '') !== 'WebPage');
  }
  }
+ parsed = normalizeStructuredData(parsed);
  // Serialize as compact JSON for injection into HTML
  sd = Array.isArray(parsed)
  ? parsed.map((item: Record<string, unknown>) => JSON.stringify(item)).join('</script>\n <script type="application/ld+json">')
@@ -2651,7 +2653,7 @@ ${hrefTags}
  const sdParts = locSeo.sd.split(sdSeparator);
  const translated = sdParts.map(part => {
  try {
- const obj = JSON.parse(part);
+ const obj = normalizeStructuredData(JSON.parse(part));
  translateSchema(obj, lang);
  if (typeof obj.inLanguage === 'string') obj.inLanguage = lang;
  return JSON.stringify(obj);
