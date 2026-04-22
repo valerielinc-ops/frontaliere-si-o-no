@@ -2073,6 +2073,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-soloaffitti-como-frontalieri-ticino': { name: 'Affitti Como', path: '/articoli-frontaliere/soloaffitti-como-frontalieri-ticino', parent: 'blog' },
     'blog-aumenti-stipendi-medici-infermieri-lombardia': { name: 'Novità', path: '/articoli-frontaliere/aumenti-stipendi-medici-infermieri-lombardia', parent: 'blog' },
     'blog-svincolo-a2-sigirino-ritardo': { name: 'Svincolo A2 Sigirino', path: '/articoli-frontaliere/svincolo-a2-sigirino-ritardo', parent: 'blog' },
+    'blog-salari-svizzera-aumentati-2025': { name: 'Salari Svizzera', path: '/articoli-frontaliere/salari-svizzera-aumentati-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

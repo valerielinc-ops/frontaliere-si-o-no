@@ -11138,6 +11138,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-svizzera-aumentati-2025': {
+    title: 'Salari in Svizzera aumentati nel 2025 | Frontaliere Ticino',
+    description: 'Scopri come i salari in Svizzera sono aumentati del 1,8% nel 2025 e quali sono le implicazioni per i frontalieri che lavorano in Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, aumentati, 2025, media',
+    ogTitle: 'Salari in Svizzera aumentati nel 2025: +1,8% in media',
+    ogDescription: 'Scopri come i salari in Svizzera sono aumentati del 1,8% nel 2025 e quali sono le implicazioni per i frontalieri che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/salari-svizzera-aumentati-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari in Svizzera aumentati nel 2025: +1,8% in media",
+      "description": "Scopri come i salari in Svizzera sono aumentati del 1,8% nel 2025 e quali sono le implicazioni per i frontalieri che lavorano in Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salari-svizzera-aumentati-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne circostanti"
+      },
+      "datePublished": "2026-04-22T21:52:56+00:00",
+      "dateModified": "2026-04-22T21:52:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-svizzera-aumentati-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -6839,4 +6839,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/svincolo-a2-sigirino-ritardo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'salari-svizzera-aumentati-2025',
+ category: 'novita',
+ date: '2026-04-22T21:52:56.635Z',
+ image: '/images/blog/salari-svizzera-aumentati-2025.jpg',
+ hasCalculator: true,
+ },
 ];

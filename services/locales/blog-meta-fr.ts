@@ -2511,6 +2511,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svincolo-a2-sigirino-ritardo.title': 'Svincolo A2 de Sigirino: retard possible',
     'blog.article.svincolo-a2-sigirino-ritardo.excerpt': 'La nouvelle perizia fonique n\'a pas résolu les doutes, possibilité de slittamento au-delà de 2030',
     'blog.article.svincolo-a2-sigirino-ritardo.imageAlt': 'Travaux d\'autoroute A2 à Sigirino',
+    'blog.article.salari-svizzera-aumentati-2025.title': 'Salaires en Suisse augmentés en 2025 : +1,8% en moyenne',
+    'blog.article.salari-svizzera-aumentati-2025.excerpt': 'L\'Office fédéral de statistique annonce une augmentation moyenne des salaires de 1,8%, avec des différences significatives entre les secteurs.',
+    'blog.article.salari-svizzera-aumentati-2025.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;

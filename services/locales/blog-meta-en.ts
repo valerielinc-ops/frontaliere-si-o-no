@@ -2511,6 +2511,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svincolo-a2-sigirino-ritardo.title': 'A2 Svincolo at Sigirino: Potential Delays Possible',
     'blog.article.svincolo-a2-sigirino-ritardo.excerpt': 'The new permit office has not resolved the doubts, possibility of slippage beyond 2030',
     'blog.article.svincolo-a2-sigirino-ritardo.imageAlt': 'A2 highway construction in Sigirino',
+    'blog.article.salari-svizzera-aumentati-2025.title': 'Salaries in Switzerland increased in 2025: +1.8% on average',
+    'blog.article.salari-svizzera-aumentati-2025.excerpt': 'The Federal Statistical Office announces an average salary increase of 1.8%, with significant differences between sectors.',
+    'blog.article.salari-svizzera-aumentati-2025.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;
