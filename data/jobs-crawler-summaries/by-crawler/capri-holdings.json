@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-22T09:35:37.137Z",
+  "generatedAt": "2026-04-22T21:18:42.903Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17597,
-  "avgDurationMs": 17597,
+  "durationMs": 18043,
+  "avgDurationMs": 18043,
   "durationHistory": [
-    17597
+    18043
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Store-Maintenance-Helpdesk-Coordinator_R_783682",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Store-Maintenance-Helpdesk-Coordinator_R_783682",
@@ -41,17 +42,20 @@
         "location": "Manno"
       },
       "crawledAt": "",
+      "id": "capri-holdings-9a26ce8c3e26",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-22T09:35:37.136Z",
       "needsRetranslation": true,
-      "_qualityScore": 66,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 15
+        "translation": 25,
+        "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-50----Landquart_R_783737",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-50----Landquart_R_783737",
