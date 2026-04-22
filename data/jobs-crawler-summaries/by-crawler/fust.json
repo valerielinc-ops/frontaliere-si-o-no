@@ -1,21 +1,22 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-04-21T21:41:03.227Z",
+  "generatedAt": "2026-04-22T10:00:14.601Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 14586,
-  "avgDurationMs": 14586,
+  "durationMs": 16122,
+  "avgDurationMs": 16122,
   "durationHistory": [
-    14586
+    16122
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-ke4f2c",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-cadenazzo",
       "company": "Fust",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
       "location": "Bellinzona, Ticino",
@@ -36,18 +37,24 @@
       "companyDomain": "fust.ch",
       "crawledAt": "2026-04-21T21:41:02.274Z",
       "firstSeenAt": "2026-04-21T21:41:02.274Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 75,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
