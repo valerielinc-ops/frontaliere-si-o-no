@@ -702,7 +702,8 @@
     "divieto-cellulari-scuola-ticino",
     "incendi-nel-luganese-arrestato-un-piromane",
     "lavoro-sommerso-varesotto",
-    "blocco-droga-confine-brogeda-2026"
+    "blocco-droga-confine-brogeda-2026",
+    "best-cross-border-worker-calculator-switzerland"
   ],
   "failed": [
     {
@@ -6379,8 +6380,13 @@
       "id": "guida-completa-frontaliere",
       "error": "Body too short",
       "at": "2026-04-17T03:51:07.931Z"
+    },
+    {
+      "id": "guida-completa-frontaliere",
+      "error": "Only 1 pairs (need ≥3)",
+      "at": "2026-04-22T03:47:45.099Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-17T03:51:07.931Z"
+  "updatedAt": "2026-04-22T03:47:45.099Z"
 }
