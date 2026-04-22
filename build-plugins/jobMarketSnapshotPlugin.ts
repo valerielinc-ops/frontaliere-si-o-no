@@ -1027,6 +1027,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const datasetLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
+    inLanguage: locale,
     name: h1,
     description: intro,
     url: canonicalUrl,
@@ -1051,6 +1052,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: copy.faq.map((f) => ({
       '@type': 'Question',
       name: f.q,
@@ -1224,6 +1226,7 @@ function renderHubPage(inp: HubPageInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: copy.faq.map((f) => ({
       '@type': 'Question',
       name: f.q,
@@ -2003,6 +2006,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
   const datasetLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
+    inLanguage: locale,
     name: h1,
     description: metaDesc,
     url: canonicalUrl,
@@ -2026,6 +2030,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: faqEntries.map((f) => ({
       '@type': 'Question',
       name: f.q,

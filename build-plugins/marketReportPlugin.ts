@@ -567,9 +567,11 @@ function renderReport(opts: {
     datePublished: dateStamp,
     dateModified: dateStamp,
     inLanguage: locale,
-    keywords: [
-      'frontalieri', 'Ticino', 'stipendi', 'job market', 'cross-border', 'Swiss salaries',
-    ],
+    keywords:
+      locale === 'en' ? ['cross-border workers', 'Ticino', 'salaries', 'job market', 'Swiss salaries']
+      : locale === 'de' ? ['Grenzgänger', 'Tessin', 'Gehälter', 'Arbeitsmarkt', 'Schweizer Löhne']
+      : locale === 'fr' ? ['frontaliers', 'Tessin', 'salaires', 'marché du travail', 'salaires suisses']
+      : ['frontalieri', 'Ticino', 'stipendi', 'mercato del lavoro', 'salari svizzeri'],
     variableMeasured: [
       { '@type': 'PropertyValue', name: copy.headlineActiveJobsLabel, value: activeJobs },
       { '@type': 'PropertyValue', name: copy.headlineCompaniesLabel, value: activeCompanies },

@@ -1112,6 +1112,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q(cantonLabel, ageLabel),
@@ -1363,6 +1364,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q(cantonLabel),
@@ -1520,6 +1522,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q,

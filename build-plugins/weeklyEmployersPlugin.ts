@@ -1373,6 +1373,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     '@type': 'ItemList',
     name: h1,
     numberOfItems: stats.topCompanies.length,
+    inLanguage: locale,
     itemListElement: stats.topCompanies.map((c, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
@@ -1400,6 +1401,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: [
       { '@type': 'Question', name: copy.faqHowOftenQ, acceptedAnswer: { '@type': 'Answer', text: copy.faqHowOftenA } },
       { '@type': 'Question', name: copy.faqDeltaQ, acceptedAnswer: { '@type': 'Answer', text: copy.faqDeltaA } },
@@ -1528,10 +1530,25 @@ export interface CompanyCityPageInputs {
  * The validator (scripts/validate-structured-data-completeness.mjs) rejects
  * empty strings as missing — therefore every field MUST be non-empty.
  */
+const OPEN_POSITION_LABEL: Record<WeeklyEmployersLocale, string> = {
+  it: 'Posizione aperta',
+  en: 'Open position',
+  de: 'Offene Stelle',
+  fr: 'Poste ouvert',
+};
+
+const JOB_DESC_FALLBACK: Record<WeeklyEmployersLocale, (title: string, employer: string, city: string) => string> = {
+  it: (t, e, c) => `${t} presso ${e} a ${c}. Candidatura diretta tramite il nostro portale, con dettagli, requisiti e informazioni complete sulla pagina dell'offerta di lavoro.`,
+  en: (t, e, c) => `${t} at ${e} in ${c}. Apply directly through our portal — full details, requirements and information are available on the job posting page.`,
+  de: (t, e, c) => `${t} bei ${e} in ${c}. Direkte Bewerbung über unser Portal mit allen Details, Anforderungen und Informationen auf der Stellenanzeige.`,
+  fr: (t, e, c) => `${t} chez ${e} à ${c}. Candidature directe via notre portail, avec tous les détails, exigences et informations sur la page de l'offre.`,
+};
+
 function jobToJsonLd(
   job: CompanyCityActiveJob,
   employer: string,
   city: string,
+  locale: WeeklyEmployersLocale = 'it',
 ): Record<string, unknown> {
   const fallbackAddr = resolveFallbackAddress(job.companySlug, city.toLowerCase());
 
@@ -1550,10 +1567,11 @@ function jobToJsonLd(
   // Build an editorial fallback that references the role + employer + city
   // so even ad-slots with empty source descriptions pass validation.
   const rawDesc = (job.description || '').trim();
+  const titleFallback = job.title || OPEN_POSITION_LABEL[locale];
   const description =
     rawDesc.length >= 30
       ? rawDesc.slice(0, 5000)
-      : `${job.title || 'Posizione aperta'} presso ${employer} a ${addressLocality}. Candidatura diretta tramite il nostro portale, con dettagli, requisiti e informazioni complete sulla pagina dell'offerta di lavoro.`;
+      : JOB_DESC_FALLBACK[locale](titleFallback, employer, addressLocality);
 
   const employmentType = job.employmentType && job.employmentType.length > 0
     ? job.employmentType
@@ -1574,8 +1592,9 @@ function jobToJsonLd(
 
   return {
     '@type': 'JobPosting',
-    title: job.title || 'Posizione aperta',
+    title: job.title || OPEN_POSITION_LABEL[locale],
     description,
+    inLanguage: locale,
     url: `${BASE_URL}${job.detailPath}`,
     datePosted,
     employmentType,
@@ -1767,16 +1786,18 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     '@type': 'ItemList',
     name: h1,
     numberOfItems: stats.activeJobs.length,
+    inLanguage: locale,
     itemListElement: stats.activeJobs.map((job, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      item: jobToJsonLd(job, employer, cityDisplay),
+      item: jobToJsonLd(job, employer, cityDisplay, locale),
     })),
   });
 
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: [
       {
         '@type': 'Question',

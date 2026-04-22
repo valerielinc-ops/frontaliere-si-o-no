@@ -1,6 +1,7 @@
 // French translations — orphan-query cluster landings chunk.
 const translations: Record<string, string> = {
  'orphanLanding.breadcrumbHome': 'Accueil',
+ 'orphanLanding.openPosition': 'Poste ouvert',
  'orphanLanding.breadcrumbSection': 'Recherche d\'emploi',
  'orphanLanding.updatedLabel': 'Mis à jour le',
  'orphanLanding.resultsLabel': 'Offres pertinentes',

@@ -578,6 +578,7 @@ function renderPage(inp: PageInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q,
@@ -1374,6 +1375,7 @@ function renderItalianCityPage(opts: {
   const itemListLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    inLanguage: locale,
     name: h1,
     numberOfItems: sortedStations.length,
     itemListElement: sortedStations.map((s, i) => ({

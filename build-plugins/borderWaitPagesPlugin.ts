@@ -947,6 +947,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q(crossingDisplay),
@@ -989,7 +990,7 @@ function renderLeafPage(inp: LeafInputs): string {
         },
         containedInPlace: {
           '@type': 'AdministrativeArea',
-          name: 'Canton Ticino',
+          name: locale === 'de' ? 'Kanton Tessin' : locale === 'fr' ? 'Canton du Tessin' : locale === 'en' ? 'Canton of Ticino' : 'Canton Ticino',
           address: { '@type': 'PostalAddress', addressRegion: 'TI', addressCountry: 'CH' },
         },
         openingHoursSpecification: reg.open24h

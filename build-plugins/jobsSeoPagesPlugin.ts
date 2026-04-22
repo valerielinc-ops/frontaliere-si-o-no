@@ -209,6 +209,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: 'de_DE',
  fr: 'fr_FR',
  };
+ const homeLabel: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'Home',
+ en: 'Home',
+ de: 'Startseite',
+ fr: 'Accueil',
+ };
+ const openPositionsUnit: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'posizioni aperte',
+ en: 'open positions',
+ de: 'offene Stellen',
+ fr: 'postes ouverts',
+ };
  const localeCopy: Record<'it' | 'en' | 'de' | 'fr', {
  suffix: string;
  sectionName: string;
@@ -1277,7 +1289,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, dc), item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}` },
  { '@type': 'ListItem', position: 3, name: localizedTitle, item: canonicalUrl },
  ],
@@ -1464,7 +1476,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  </style>
 ${hreflangHtml}
 ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
+ <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
@@ -1927,7 +1939,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { '@type': 'ListItem', position: 2, name: copy.sectionName, item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}` },
  { '@type': 'ListItem', position: 3, name: companyName, item: canonicalUrl },
  ],
@@ -1954,7 +1966,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  orgLdObj.numberOfEmployees = {
  '@type': 'QuantitativeValue',
  value: companyJobs.length,
- unitText: 'open positions',
+ unitText: openPositionsUnit[locale],
  };
  }
  // Remove undefined values before serialization
@@ -1987,7 +1999,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  addressCountry: curatedBrand.headquarters.addressCountry,
  },
  description: brandCopy.paragraphs[0] ?? brandCopy.tagline,
- numberOfEmployees: { '@type': 'QuantitativeValue', value: companyJobs.length, unitText: 'open positions' },
+ numberOfEmployees: { '@type': 'QuantitativeValue', value: companyJobs.length, unitText: openPositionsUnit[locale] },
  ...(curatedBrand.sameAs && curatedBrand.sameAs.length > 0 ? { sameAs: [...curatedBrand.sameAs] } : {}),
  };
  organizationLd = JSON.stringify(curatedOrgLd);
@@ -2003,6 +2015,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const itemListLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
+ inLanguage: locale,
  name: `${curatedBrand.shortName} — ${brandCopy.sectionHeadings.openRoles}`,
  url: canonicalUrl,
  numberOfItems: companyJobs.length,
@@ -2011,6 +2024,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const faqLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
+ inLanguage: locale,
  mainEntity: brandCopy.faqs.map((f) => ({
  '@type': 'Question',
  name: f.q,
@@ -2113,7 +2127,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
 ${hreflangHtml}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${organizationLd}</script>
- <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g,'/'))}`,name:copy.sectionName}})}</script>${curatedExtraLd}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g,'/'))}`,name:copy.sectionName}})}</script>${curatedExtraLd}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -2303,6 +2317,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  ? JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
+ inLanguage: options.locale,
  name: options.name,
  itemListElement: options.items.slice(0, 10).map((item, index) => ({
  '@type': 'ListItem',
@@ -2373,7 +2388,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  description: model.description,
  isPartOf: sectionRootUrl,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
@@ -2508,7 +2523,7 @@ ${alternates}
  description: model.description,
  isPartOf: sectionRootUrl,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
@@ -2517,6 +2532,7 @@ ${alternates}
  const faqLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
+ inLanguage: locale,
  mainEntity: model.faq.map((entry) => ({
  '@type': 'Question',
  name: entry.question,
@@ -2661,7 +2677,7 @@ ${alternates}
  description: model.description,
  isPartOf: sectionRootUrl,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
@@ -2670,6 +2686,7 @@ ${alternates}
  const faqLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
+ inLanguage: locale,
  mainEntity: model.faq.map((entry) => ({
  '@type': 'Question',
  name: entry.question,
@@ -2816,7 +2833,7 @@ ${alternates}
  description: model.description,
  isPartOf: sectionRootUrl,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
@@ -2825,6 +2842,7 @@ ${alternates}
  const faqLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
+ inLanguage: locale,
  mainEntity: model.faq.map((entry) => ({
  '@type': 'Question',
  name: entry.question,
@@ -2982,7 +3000,7 @@ ${alternates}
  description: model.description,
  isPartOf: model.parentHubHref,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
  { name: locale === 'it' ? `Infermieri in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'en' ? `Nurses in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'de' ? `Pflege-Jobs ${germanCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}` : `Infirmiers ${frenchCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}`, item: model.parentHubHref },
  { name: model.heading, item: canonicalUrl },
@@ -3159,7 +3177,7 @@ ${alternates}
  description: pageDesc,
  isPartOf: sectionRootUrl,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
  { name: pageH1, item: canonicalUrl },
  ],
@@ -3339,7 +3357,7 @@ ${alternates}
  description: model.description,
  isPartOf: model.parentLocationHref,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
  { name: locale === 'it' ? `Lavoro a ${location} in Ticino` : locale === 'en' ? `Jobs in ${location}, Ticino` : locale === 'de' ? `Jobs in ${location}, Tessin` : `Emploi a ${location}, Tessin`, item: model.parentLocationHref },
  { name: model.heading, item: canonicalUrl },
@@ -3490,7 +3508,7 @@ ${alternates}
  description: model.description,
  isPartOf: model.parentLocationHref,
  breadcrumbs: [
- { name: 'Home', item: `${BASE_URL}/` },
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
  { name: locale === 'it' ? `Lavoro a ${location} in Ticino` : locale === 'en' ? `Jobs in ${location}, Ticino` : locale === 'de' ? `Jobs in ${location}, Tessin` : `Emploi a ${location}, Tessin`, item: model.parentLocationHref },
  { name: model.heading, item: canonicalUrl },
@@ -3639,7 +3657,7 @@ ${alternates}
  return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
  }).join('');
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
- const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
+ const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', inLanguage: locale, name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
@@ -3647,7 +3665,7 @@ ${alternates}
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: pgHomeUrl },
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: pgHomeUrl },
  { '@type': 'ListItem', position: 2, name: pgListName, item: pgMainUrl },
  { '@type': 'ListItem', position: 3, name: pgCopy.heading(pageNum), item: pgCanonicalUrl },
  ],
@@ -3751,7 +3769,7 @@ ${alternates}
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { '@type': 'ListItem', position: 2, name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: catSectionUrl },
  { '@type': 'ListItem', position: 3, name: catTitle.replace(' | Frontaliere Ticino', ''), item: catCanonicalUrl },
  ] });
@@ -4012,7 +4030,7 @@ ${alternates}
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: _sHomeUrl },
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: _sHomeUrl },
  { '@type': 'ListItem', position: 2, name: _sListName, item: _sListUrl },
  { '@type': 'ListItem', position: 3, name: copy.heading(name), item: canonicalUrl },
  ],
@@ -4127,7 +4145,7 @@ ${alternates}
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: _cHomeUrl },
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: _cHomeUrl },
  { '@type': 'ListItem', position: 2, name: _cListName, item: _cListUrl },
  { '@type': 'ListItem', position: 3, name: copy.heading, item: canonicalUrl },
  ],

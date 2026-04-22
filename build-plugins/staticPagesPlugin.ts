@@ -1358,7 +1358,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'servizi-partner': 'Servizi Partner',
  };
  const segments = canonicalPath.split('/').filter(Boolean);
- const breadcrumbs = [{ name: 'Home', url: BASE_URL + '/' }];
+ const HOME_LABEL: Record<string, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
+ const breadcrumbs = [{ name: HOME_LABEL[locale] || 'Home', url: BASE_URL + '/' }];
  let accumPath = '';
  for (const seg of segments) {
  accumPath += '/' + seg;
@@ -1368,6 +1369,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const breadcrumbJsonLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
+ inLanguage: locale,
  itemListElement: breadcrumbs.map((b, i) => ({
  '@type': 'ListItem', position: i + 1, name: b.name, item: b.url
  }))

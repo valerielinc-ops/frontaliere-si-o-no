@@ -2,6 +2,7 @@
 // Editorial strings used by build-plugins/orphanQueryLandingPlugin.ts.
 const translations: Record<string, string> = {
  'orphanLanding.breadcrumbHome': 'Home',
+ 'orphanLanding.openPosition': 'Posizione aperta',
  'orphanLanding.breadcrumbSection': 'Ricerca lavoro',
  'orphanLanding.updatedLabel': 'Aggiornato il',
  'orphanLanding.resultsLabel': 'Offerte pertinenti',
