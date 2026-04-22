@@ -1,7 +1,52 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-04-22T09:56:31.533Z",
+  "assembledAt": "2026-04-22T21:39:28.262Z",
   "jobs": [
+    {
+      "title": "Leiter/in Fachsupport Bahnapplikationen (50-60%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/leiter-in-fachsupport-bahnapplikationen-50-60_2026-2190/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "technology",
+      "description": "Hai una mentalità digitale, sai guidare con lungimiranza e ti piace assumerti responsabilità? Grazie al tuo approccio orientato al servizio, alla tua attenzione per i processi e al tuo entusiasmo per la digitalizzazione, sarai una figura di riferimento fondamentale per garantire il regolare svolgimento delle attività quotidiane nel settore ferroviario.\n\n Cosa puoi fare \n• Führung und Koordination des Teams \"Fachsupport Bahnapplikationen\" sowie Fachführung der Supportmitarbeitenden anderer Bereiche\n\n• Zusammenarbeit mit dem IT Support (inkl. Organisation von Einsätzen in der Fläche)\n\n• Sicherstellung des 1st Level Supports für Bahnapplikationen (inkl. Mitarbeit im Fachsupport)\n\n• Mitarbeit in Projekten mit Bezug zu Bahnapplikationen\n\n• regelmässige Abstimmung mit den Applikations- und Linienverantwortlichen\n Ecco perché sei la persona giusta \n• Führungserfahrung mit direkter und/oder fachlicher Führung von kleinen Teams\n\n• Erfahrung im 1st Level Support von Spezialapplikationen, idealerweise im öV-Umfeld\n\n• lösungsorientierte Arbeitsweise sowie Kommunikations- und Organisationsflair\n\n• ausgeprägte Dienstleistungsorientierung mit Fokus auf die Zielberufsgruppen\n\n• Hohe Affinität für Prozesse und Digitalisierung\n Cosa ti offriamo \n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "postedDate": "2026-04-22",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "leiter-in-fachsupport-bahnapplikationen-50-60-ferrovia-retica-rhb-chur",
+      "slugByLocale": {
+        "it": "leiter-in-fachsupport-bahnapplikationen-50-60-ferrovia-retica-rhb-chur",
+        "en": "leiter-in-fachsupport-bahnapplikationen-50-60-ferrovia-retica-rhb-chur",
+        "de": "leiter-in-fachsupport-bahnapplikationen-50-60-ferrovia-retica-rhb-chur",
+        "fr": "leiter-in-fachsupport-bahnapplikationen-50-60-ferrovia-retica-rhb-chur"
+      },
+      "titleByLocale": {
+        "de": "Leiter/in Fachsupport Bahnapplikationen (50-60%)"
+      },
+      "percentage": "50-60%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-22T21:39:28.262Z"
+    },
     {
       "title": "IT-Supporter/in (50-80%)",
       "company": "Ferrovia Retica (RhB)",
@@ -52,7 +97,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T10:35:55.076Z"
+      "firstSeenAt": "2026-04-20T10:35:55.076Z",
+      "needsRetranslation": true
     },
     {
       "title": "Betriebselektriker/in (50-100%)",
@@ -104,7 +150,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T10:35:55.076Z"
+      "firstSeenAt": "2026-04-20T10:35:55.076Z",
+      "needsRetranslation": true
     },
     {
       "title": "Produktmanager/in Sortiment und Preis (80-100%)",
@@ -156,7 +203,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T21:34:25.892Z"
+      "firstSeenAt": "2026-04-15T21:34:25.892Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter/in Planung/Disposition (80-100%)",
@@ -238,7 +286,8 @@
         "technical-buyer-50-100-ferrovia-retica-rhb-chur",
         "technical-inspector-50-100-ferrovia-retica-rhb-chur",
         "specialiste-comptabilite-des-immobilisations-50-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
@@ -543,72 +592,6 @@
       "previousSlugs": [
         "technische-r-einkaufer-in-50-100-ferrovia-retica-chur",
         "technische-r-einkaufer-in-50-100-ferrovia-retica-rhb-chur"
-      ]
-    },
-    {
-      "title": "Leiter/in Betrieb & Kundeninfo / Bernina Süd (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/leiter-in-betrieb-and-kundeninfo-bernina-sud-50-100_2026-2178/",
-      "location": "Bernina",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "description": "Pensi in modo sistemico, guidi con chiarezza e assumi responsabilità. In questa funzione dirigenziale all’interno del controllo operativo contribuisci attivamente allo sviluppo futuro della RhB. Guida un team di dirigenti della circolazione, applichi le tue competenze nel servizio operativo e garantisci sempre sicurezza, puntualità e un’informazione clienti affidabile.\n\n Cosa puoi fare \n• Du führst den Bereich fachlich, personell und organisatorisch und entwickelst ihn kontinuierlich entlang der strategischen Ziele und Führungsgrundsätze weiter.\n\n• Du stellst einen reibungslosen, sicheren und qualitativ hochwertigen Betrieb sicher und reagierst situationsgerecht auf Abweichungen und Störungen.\n\n• Du definierst, überprüfst und optimierst Prozesse und stellst deren Einhaltung sowie eine hohe Ausführungsqualität sicher.\n\n• Du arbeitest eng mit internen Schnittstellen und externen Partnern zusammen und sorgst für eine klare Abstimmung und transparente Kommunikation.\n\n• Du planst und steuerst den Einsatz von Personal und weiteren Ressourcen effizient und vorausschauend.\n\n• Du bringst dich aktiv in Projekte und Veränderungsprozesse ein und unterstützt die nachhaltige Weiterentwicklung von Organisation, Systemen und Arbeitsweisen.\n Ecco perché sei la persona giusta \n• Du verfügst über ausgewiesene Führungserfahrung/-Ausbildung und Erfahrung im operativen Bahnbetrieb (Fahrdienst, Betrieb oder ähnlich).\n\n• Du bringst eine Weiterbildung mit (Fachausweis, FH/HF, etc.).\n\n• Du verfügst über sehr gute Italienisch- und Deutschkenntnisse in Wort und Schrift.\n\n• Du bist eine gewinnende Persönlichkeit, welche als Brückenbauer zwischen Sprachregionen und Kulturen agiert.\n\n• Du bist ein Teamplayer und zeichnest dich aus durch eine hohe Kommunikationsfähigkeit, Flexibilität und Belastbarkeit. \nAnalytisches Denken und eine vernetzte Denkweise gehören zu deinen Stärken.\n Cosa ti offriamo \n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-04-22",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "responsabile-business-e-informazioni-sui-clienti-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
-      "slugByLocale": {
-        "it": "responsabile-business-e-informazioni-sui-clienti-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
-        "en": "head-of-business-customer-information-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
-        "de": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
-        "fr": "chef-d-entreprise-information-client-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
-      },
-      "titleByLocale": {
-        "de": "Leiter/in Betrieb & Kundeninfo / Bernina Süd (50-100%)",
-        "en": "Head of Business & Customer Information / Bernina Süd (50-100%)",
-        "it": "Responsabile business e informazioni sui clienti / Bernina Süd (50-100%)",
-        "fr": "Chef d'entreprise & Information client / Bernina Süd (50-100%)"
-      },
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "de": "## Mansioni\n- Du führst den Bereich fachlich, personell und organisatorisch und entwickelst ihn kontinuierlich entlang der strategischen Ziele und Führungsgrundsätze weiter.\n- Du stellst einen reibungslosen, sicheren und qualitativ hochwertigen Betrieb sicher und reagierst situationsgerecht auf Abweichungen und Störungen.\n- Du definierst, überprüfst und optimierst Prozesse und stellst deren Einhaltung sowie eine hohe Ausführungsqualität sicher.\n- Du arbeitest eng mit internen Schnittstellen und externen Partnern zusammen und sorgst für eine klare Abstimmung und transparente Kommunikation.\n- Du planst und steuerst den Einsatz von Personal und weiteren Ressourcen effizient und vorausschauend.\n- Du bringst dich aktiv in Projekte und Veränderungsprozesse ein und unterstützt die nachhaltige Weiterentwicklung von Organisation, Systemen und Arbeitsweisen.\n\n## Requisiti\n- Du verfügst über ausgewiesene Führungserfahrung/-Ausbildung und Erfahrung im operativen Bahnbetrieb (Fahrdienst, Betrieb oder ähnlich).\n- Du bringst eine Weiterbildung mit (Fachausweis, FH/HF, etc.).\n- Du verfügst über sehr gute Italienisch- und Deutschkenntnisse in Wort und Schrift.\n- Du bist eine gewinnende Persönlichkeit, welche als Brückenbauer zwischen Sprachregionen und Kulturen agiert.\n- Du bist ein Teamplayer und zeichnest dich aus durch eine hohe Kommunikationsfähigkeit, Flexibilität und Belastbarkeit.\n- Analytisches Denken und eine vernetzte Denkweise gehören zu deinen Stärken.\n\n## Cosa offriamo\n- 2. Klasse Generalabonnement\n- Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n- Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n- Flexible Teilzeitmodelle\n- Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n- zusätzlicher Kauf von Ferien\n- Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB\n\n## Contatto\n(Può essere lasciato vuoto se non specificato)",
-        "en": "Mansioni - You conduct the field professionally, humanly and organizationally and continuously develop it along the strategic goals and guiding principles. - You make a smooth, safe and high-quality operation safe and responsive to deviations and disturbances. - You define, check and optimize processes and ensure compliance and high performance quality. - You work closely with internal interfaces and external partners to ensure clear coordination and transparent communication. - You plan and tax the use of personnel and other resources efficiently and predictably. - You actively contribute to projects and change processes and support the sustainable development of organisation, systems and working methods. ## Requisiti - You have proven leadership experience/training and experience in operating railway operations (travel service, operation or similar). - You'll have a training course (special ID, FH/HF, etc.). - You have very good Italian and German knowledge in word and writing. - You are a winning personality who acts as a bridge builder between language regions and cultures. - You are a team player and you are characterized by high communication skills, flexibility and resilience. - Analytical thinking and a connected way of thinking belong to your strengths. ## Cosa offriamo - 2nd Class General Subscription - Free tickets and discounts on train trips abroad - Paid mobile phone and abo for business and private use - Flexible part-time models - Attractive social benefits and pension funds with very good services - additional purchase of holidays - possibility for internal and external training with financial support by RhB ## Contatto (Pucia nonu)",
-        "it": "Mansioni - Si conduce il campo professionalmente, umanamente e organizzativa e continuamente svilupparlo lungo gli obiettivi strategici e principi guida. - No. Fai un funzionamento liscio, sicuro e di alta qualità sicuro e reattivo a deviazioni e disturbi. - No. Definire, controllare e ottimizzare i processi e garantire la conformità e l'alta qualità delle prestazioni. - No. Lavorate a stretto contatto con le interfacce interne e i partner esterni per garantire un coordinamento chiaro e una comunicazione trasparente. - No. Pianifichi e imponi l'uso del personale e di altre risorse in modo efficiente e prevedibile. - No. Contribuisci attivamente a progetti e processi di cambiamento e supporta lo sviluppo sostenibile di organizzazione, sistemi e metodi di lavoro. ## Requisiti - Hai dimostrato esperienza di leadership / formazione e esperienza nelle operazioni ferroviarie operative (servizio di viaggio, funzionamento o simili). - Avrai un corso di formazione (ID speciale, FH/HF, ecc.). - No. Hai una buona conoscenza italiana e tedesca in parola e scrittura. - Sei una personalità vincente che agisce come costruttore di ponti tra le regioni linguistiche e le culture. - No. Sei un giocatore di squadra e sei caratterizzato da elevate capacità di comunicazione, flessibilità e resilienza. - Il pensiero analitico e un modo di pensare collegato appartengono ai vostri punti di forza. # Cosa# offriamo - 2° Classe Abbonamento Generale - Biglietti e sconti gratuiti su viaggi in treno all'estero - Telefono a pagamento e abo per affari e uso privato - Modelli part-time flessibili - Prestazioni sociali attraenti e fondi pensione con servizi molto buoni - acquisto aggiuntivo di vacanze - possibilità di formazione interna ed esterna con supporto finanziario di RhB # Contatto (Pucia nonu)",
-        "fr": "Autres Vous dirigez le terrain de manière professionnelle, humaine et organisationnelle et vous le développez continuellement selon les objectifs stratégiques et les principes directeurs. - Oui. Vous faites un fonctionnement lisse, sûr et de haute qualité sûr et sensible aux déviations et aux perturbations. - Oui. Vous définissez, vérifiez et optimisez les processus et assurez la conformité et la qualité haute performance. - Oui. Vous travaillez en étroite collaboration avec les interfaces internes et les partenaires externes pour assurer une coordination claire et une communication transparente. - Oui. Vous planifiez et taxez l'utilisation efficace et prévisible du personnel et des autres ressources. - Oui. Vous contribuez activement aux projets et aux processus de changement et soutenez le développement durable de l'organisation, des systèmes et des méthodes de travail. ## Requisiti - Vous avez prouvé votre expérience/formation en leadership et votre expérience en exploitation ferroviaire (service de voyage, exploitation ou similaire). - Vous aurez un cours de formation (ID spécial, FH/HF, etc.). - Oui. Vous avez une très bonne connaissance italienne et allemande en paroles et en écriture. - Vous êtes une personnalité gagnante qui agit comme un pont entre les régions linguistiques et les cultures. - Oui. Vous êtes un joueur d'équipe et vous êtes caractérisé par de hautes compétences en communication, flexibilité et résilience. - La pensée analytique et une façon de penser connectée appartiennent à vos forces. ## Cosa offriamo - 2ème Classe Abonnement Général - Billets gratuits et rabais sur les voyages en train à l'étranger - Téléphone mobile payant et abo pour les affaires et privés - Modèles flexibles à temps partiel - Prestations sociales et fonds de pension attrayants avec de très bons services - achat supplémentaire de vacances - possibilité de formation interne et externe avec soutien financier par RhB ## Contatto (Pucia nonu)"
-      },
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-22T09:56:31.533Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
-        ],
-        "en": [
-          "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
-        ],
-        "fr": [
-          "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
-        ]
-      },
-      "previousSlugs": [
-        "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
       ]
     }
   ]
