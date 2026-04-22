@@ -2487,6 +2487,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.omaggio-angeli-ponte-chiasso.title': 'Como, Hommage an die Engel von Ponte Chiasso: Symbolische Plakette angebracht',
     'blog.article.omaggio-angeli-ponte-chiasso.excerpt': 'Endlich wird in Ponte Chiasso eine Plakette zu Ehren der Engel angebracht, die während des Zweiten Weltkriegs Leben retteten. Hier sind die Details.',
     'blog.article.omaggio-angeli-ponte-chiasso.imageAlt': 'Ansicht der Grenze von Ponte Chiasso mit dem Zollgebäude',
+    'blog.article.dogana-chiasso-traffico-2026.title': 'Zollamt Chiasso: Verkehrsbeschränkungen aufgrund einer Veranstaltung',
+    'blog.article.dogana-chiasso-traffico-2026.excerpt': 'Freitag, 24. April 2026, von 9:20 bis 10:00 Uhr, wird der Verkehr nach Maslianico/Pizzamiglio umgeleitet für eine Zeremonie zu Ehren der Engel von Ponte Chiasso',
+    'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Luftaufnahme des Zollübergangs Chiasso mit Verkehr und Fußgängern',
 };
 
 export default blogMetaDe;

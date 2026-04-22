@@ -10906,6 +10906,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dogana-chiasso-traffico-2026': {
+    title: 'Dogana di Chiasso: limitazioni al | Frontaliere Ticino',
+    description: 'Venerdì 24 aprile 2026, dalle 9:20 alle 10:00, traffico deviato verso Maslianico/Pizzamiglio per cerimonia in onore degli Angeli di Ponte Chiasso',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogana, chiasso, limitazioni, traffico',
+    ogTitle: 'Dogana Chiasso: limitazioni traffico 2026 | Frontaliere',
+    ogDescription: 'Venerdì 24 aprile 2026, dalle 9:20 alle 10:00, traffico deviato verso Maslianico/Pizzamiglio per cerimonia in onore degli Angeli di Ponte Chiasso',
+    canonicalPath: '/articoli-frontaliere/dogana-chiasso-traffico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dogana Chiasso: limitazioni traffico 2026",
+      "description": "Venerdì 24 aprile 2026, dalle 9:20 alle 10:00, traffico deviato verso Maslianico/Pizzamiglio per cerimonia in onore degli Angeli di Ponte Chiasso",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dogana-chiasso-traffico-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del valico doganale di Chiasso con traffico e pedoni"
+      },
+      "datePublished": "2026-04-22T09:51:11+00:00",
+      "dateModified": "2026-04-22T09:51:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-traffico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

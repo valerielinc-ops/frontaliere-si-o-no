@@ -2487,6 +2487,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.omaggio-angeli-ponte-chiasso.title': 'Como, omaggio agli Angeli di Ponte Chiasso: posata la targa simbolica',
     'blog.article.omaggio-angeli-ponte-chiasso.excerpt': 'Finalmente a Ponte Chiasso viene posata la targa in onore degli Angeli che salvarono vite durante la Seconda Guerra Mondiale. Ecco i dettagli.',
     'blog.article.omaggio-angeli-ponte-chiasso.imageAlt': 'Vista del confine di Ponte Chiasso con l\'edificio della Dogana',
+    'blog.article.dogana-chiasso-traffico-2026.title': 'Dogana di Chiasso: limitazioni al traffico per manifestazione',
+    'blog.article.dogana-chiasso-traffico-2026.excerpt': 'Venerdì 24 aprile 2026, dalle 9:20 alle 10:00, traffico deviato verso Maslianico/Pizzamiglio per cerimonia in onore degli Angeli di Ponte Chiasso',
+    'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Vista aerea del valico doganale di Chiasso con traffico e pedoni',
 };
 
 export default blogMetaIt;

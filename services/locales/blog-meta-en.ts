@@ -2487,6 +2487,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.omaggio-angeli-ponte-chiasso.title': 'Como, tribute to the Angels of Ponte Chiasso: symbolic plaque unveiled',
     'blog.article.omaggio-angeli-ponte-chiasso.excerpt': 'Finally, a plaque in honor of the Angels who saved lives during World War II has been unveiled in Ponte Chiasso. Here are the details.',
     'blog.article.omaggio-angeli-ponte-chiasso.imageAlt': 'View of the Ponte Chiasso border with the Customs building',
+    'blog.article.dogana-chiasso-traffico-2026.title': 'Chiasso Customs: Traffic Restrictions for Event',
+    'blog.article.dogana-chiasso-traffico-2026.excerpt': 'On Friday, April 24, 2026, from 9:20 AM to 10:00 AM, traffic will be diverted towards Maslianico/Pizzamiglio for a ceremony honoring the Angels of Ponte Chiasso',
+    'blog.article.dogana-chiasso-traffico-2026.imageAlt': 'Aerial view of Chiasso border crossing with traffic and pedestrians',
 };
 
 export default blogMetaEn;

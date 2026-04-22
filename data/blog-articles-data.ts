@@ -6783,4 +6783,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/omaggio-angeli-ponte-chiasso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dogana-chiasso-traffico-2026',
+ category: 'pratico',
+ date: '2026-04-22T09:51:11.934Z',
+ image: '/images/blog/dogana-chiasso-traffico-2026.jpg',
+ hasCalculator: true,
+ },
 ];
