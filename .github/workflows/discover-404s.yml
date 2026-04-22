@@ -87,6 +87,7 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         id: commit
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
@@ -96,16 +97,40 @@ jobs:
           if git diff --cached --quiet; then
             echo "📭 No changes to commit"
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "chore: discover 404s via URL Inspection sweep
+            exit 0
+          fi
+
+          git commit -m "chore: discover 404s via URL Inspection sweep
 
           Automated sweep via GSC URL Inspection API. Paths flagged as
           NOT_FOUND/SOFT_404 are added to seo-404-compat-paths.json so
           the next build generates a soft-landing page at those URLs.
           URLs that recovered are dropped from compat."
-            git push
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          fi
+
+          # Push with rebase-and-retry to survive concurrent pushes from other
+          # workflows (pattern ported from refresh-keyword-config.yml).
+          # The two staged files are exclusively owned by this workflow, so
+          # rebasing onto a newer main is always safe — there cannot be a
+          # conflict on our changes.
+          attempt=1
+          max_attempts=5
+          until git push origin HEAD:main; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "::error::Failed to push after $max_attempts attempts"
+              exit 1
+            fi
+            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main and retrying..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "::error::Unexpected rebase conflict on workflow-owned files"
+              git rebase --abort
+              exit 1
+            fi
+            attempt=$((attempt + 1))
+            sleep $((attempt * 2))
+          done
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger deploy if compat changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
