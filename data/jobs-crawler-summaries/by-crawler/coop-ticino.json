@@ -1,21 +1,193 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-21T21:33:18.607Z",
+  "generatedAt": "2026-04-22T09:51:37.957Z",
   "total": 168,
-  "newCount": 1,
+  "newCount": 5,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 166,
-  "durationMs": 440574,
-  "avgDurationMs": 440574,
+  "unchangedCount": 162,
+  "durationMs": 401179,
+  "avgDurationMs": 401179,
   "durationHistory": [
-    440574
+    401179
   ],
   "newJobs": [
     {
+      "id": "company-632dx5",
+      "slug": "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Gastronomie",
+      "location": "Landquart",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/f4696eff-f078-41e8-b832-ea29650d8d08",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-22T09:48:22.005Z",
+      "firstSeenAt": "2026-04-22T09:48:22.005Z",
+      "needsRetranslation": true,
+      "addressLocality": "Landquart",
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-b5lnff",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Gastronomie",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/3db5d97e-7e45-45aa-8184-1c9e907ba490",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-22T09:48:22.005Z",
+      "firstSeenAt": "2026-04-22T09:48:22.005Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-zb8ot5",
+      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-20",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/37d5e4fe-2dae-42bd-8f3a-bcf71538fef5",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-22T09:48:22.005Z",
+      "firstSeenAt": "2026-04-22T09:48:22.005Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-hy7w7d",
+      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Verkaufsberater:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/9387ca3f-1857-4cb0-b0a3-a3e72d1b5260",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-22T09:48:22.005Z",
+      "firstSeenAt": "2026-04-22T09:48:22.005Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-tyijpe",
+      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/a8335acd-f697-4017-b464-402f8be3d85f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-22T09:48:22.005Z",
+      "firstSeenAt": "2026-04-22T09:48:22.005Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "company-ke4f2c",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c",
       "company": "Fust | Swiss Household Services AG",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
       "location": "Bellinzona",
@@ -36,18 +208,20 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-21T21:30:10.756Z",
       "firstSeenAt": "2026-04-21T21:30:10.756Z",
-      "needsRetranslation": true,
       "addressLocality": "Bellinzona",
-      "_qualityScore": 67,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-ricett",
       "slug": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
@@ -83,10 +257,7 @@
         "translation": 25,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -190,78 +361,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-hy7w7d",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Verkaufsberater:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/9387ca3f-1857-4cb0-b0a3-a3e72d1b5260",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-20T10:29:08.873Z",
-      "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-tyijpe",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Geschäftsführer:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/a8335acd-f697-4017-b464-402f8be3d85f",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-20T10:29:08.873Z",
-      "firstSeenAt": "2026-04-20T10:29:08.873Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -1126,18 +1225,18 @@
       }
     },
     {
-      "id": "company-jri4bo",
-      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden",
+      "id": "company-bs45mj",
+      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
       "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie",
-      "location": "Chur",
-      "canton": "GR",
+      "title": "Mitarbeiter:in Inventuren",
+      "location": "Basel",
+      "canton": "BS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/9b06158b-0888-4d05-95a2-ea4ab747260e",
+      "postedDate": "2026-03-31",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/83600992-4755-4dfa-b53c-360bf39d94f0",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1146,17 +1245,52 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-02T07:16:01.587Z",
-      "addressLocality": "Chur",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "addressLocality": "Basel",
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "firstSeenAt": "2026-04-02T07:16:01.587Z",
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-04-01T07:24:33.443Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-45zfce",
+      "slug": "responsabile-service-center-ticino-f-m-d-coop-castione-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Responsabile Service Center Ticino (f/m/d)",
+      "location": "Castione",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-service-center-ticino-f-m-d/940922fb-0428-4d66-a84e-646bd732b8b7",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Castione",
+      "salaryMin": 94000,
+      "salaryMax": 127000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
