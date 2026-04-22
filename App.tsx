@@ -1903,6 +1903,11 @@ const App: React.FC = () => {
  </div>
  </nav>
 
+ {/* Sub-navigation bars — suppressed in lite-shell mode so static SEO pages
+  * render only the top nav (logo + 6 top tabs) without secondary tab clutter.
+  * Static SEO content (<main class="seo-static-content">) becomes the page body.
+  */}
+ {!staticOverlay && (<>
  {/* Sub-navigation for Calcolatore */}
  {activeTab === 'calculator' && (
  <SubTabNav
@@ -2028,18 +2033,21 @@ const App: React.FC = () => {
  }}
  />
  )}
+ </>)}
 
  {/* Main Content
   *
   * Lite-shell mode (staticOverlay): when the URL matches a build-time static
   * SEO page (per-station fuel, per-canton health premium, per-city employer
   * hub, etc.), the SEO content is emitted OUTSIDE `#root` as
-  * `<main class="seo-static-content">`. We skip the React `<main>` AND the
-  * React `<footer>` so the SPA never visually replaces the static SEO page.
-  * The static content stays in place; only the top nav/header chrome
-  * hydrates inside `#root`.
+  * `<main class="seo-static-content">`. We skip the React `<main>` so the
+  * SPA never visually replaces the static SEO page. The React `<footer>` is
+  * kept so the lite shell still has bottom chrome (copyright, SEO links,
+  * newsletter signup) below the static content.
+  * The static content stays in place; only the top nav/header chrome and
+  * footer hydrate inside `#root`.
   */}
- {!staticOverlay && (<>
+ {!staticOverlay && (
  <main id="main-content" data-no-auto-ads="inside" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
  }`}>
@@ -2283,6 +2291,7 @@ const App: React.FC = () => {
  </p>
  )}
  </main>
+ )}
 
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
  <div className="max-w-7xl mx-auto px-4 space-y-6">
@@ -2887,7 +2896,6 @@ const App: React.FC = () => {
  </div>
  </div>
  </footer>
- </>)}
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">
