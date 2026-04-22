@@ -702,10 +702,18 @@ interface LeafInputs {
   alternates: Record<BorderWaitLocale, string>;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+  /**
+   * Absolute URL for the per-crossing OG image (webcam snapshot). When
+   * provided and the snapshot exists on disk, the page emits it as
+   * `og:image` / `twitter:image` at 640×360 — a live preview of the
+   * crossing traffic state that drives viral social sharing. When omitted,
+   * the page falls back to the site default OG image (`/og-image.png`).
+   */
+  ogImageUrl?: string;
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, crossing, current, history, today, alternates, distDir } = inp;
+  const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl } = inp;
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const region = CROSSING_TO_REGION[crossing];
@@ -1086,12 +1094,31 @@ function renderLeafPage(inp: LeafInputs): string {
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
 </main>${webcamRefreshScript}`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+  // Per-page OG image: when the build-time webcam snapshot is available, use
+  // the 640×360 JPEG so social shares show the REAL traffic state at the
+  // crossing. Fallback to the generic site OG image (1200×630) otherwise.
+  const hasWebcamOg = typeof ogImageUrl === 'string' && ogImageUrl.length > 0;
+  const ogImageTag = hasWebcamOg ? ogImageUrl! : `${BASE_URL}/og-image.png`;
+  const ogImageWidth = hasWebcamOg ? '640' : '1200';
+  const ogImageHeight = hasWebcamOg ? '360' : '630';
+  const ogImageAlt = hasWebcamOg
+    ? (locale === 'it'
+        ? `Webcam live — ${crossingDisplay}`
+        : locale === 'de'
+          ? `Live-Webcam — ${crossingDisplay}`
+          : locale === 'fr'
+            ? `Webcam en direct — ${crossingDisplay}`
+            : `Live webcam — ${crossingDisplay}`)
+    : title;
+
+  const extraHead = `    <meta property="og:image" content="${esc(ogImageTag)}">
+    <meta property="og:image:width" content="${ogImageWidth}">
+    <meta property="og:image:height" content="${ogImageHeight}">
+    <meta property="og:image:alt" content="${esc(ogImageAlt)}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:image" content="${esc(ogImageTag)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
@@ -1479,17 +1506,49 @@ function readHistory(rootDir: string): BorderWaitHistoryDay[] {
 
 // ── Pure generator ────────────────────────────────────────────
 
+/**
+ * Resolve the per-crossing webcam OG image URL.
+ *
+ * Looks up `dist/og/border-wait/{slug}.jpg` — written at build time by
+ * `scripts/fetch-webcam-snapshots-for-og.mjs`. Returns the absolute canonical
+ * URL when the file exists, else `undefined` (page falls back to site default
+ * OG image). Safe to call from tests (returns `undefined` if distDir is
+ * missing or the file cannot be stat'd).
+ */
+export function getWebcamOgImageUrl(
+  crossing: BorderCrossingSlug,
+  distDir: string | undefined,
+): string | undefined {
+  if (!distDir) return undefined;
+  try {
+    const filePath = np.join(distDir, 'og', 'border-wait', `${crossing}.jpg`);
+    const stat = fs.statSync(filePath);
+    if (!stat.isFile() || stat.size === 0) return undefined;
+    return `${BASE_URL}/og/border-wait/${crossing}.jpg`;
+  } catch {
+    return undefined;
+  }
+}
+
 export function generateBorderWaitPages(opts: {
   current: BorderWaitCurrent;
   history?: BorderWaitHistoryDay[];
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+  /**
+   * Optional override for the per-crossing OG image lookup. Tests can inject
+   * a fake map to simulate "snapshot present" without touching the filesystem.
+   * When omitted, the plugin resolves snapshots from `{distDir}/og/border-wait/`.
+   */
+  ogImageUrlResolver?: (crossing: BorderCrossingSlug) => string | undefined;
 }): Record<string, string> {
   const current = opts.current;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const resolveOgImage =
+    opts.ogImageUrlResolver ?? ((c: BorderCrossingSlug) => getWebcamOgImageUrl(c, distDir));
   const pages: Record<string, string> = {};
 
   for (const locale of BORDER_WAIT_LOCALES) {
@@ -1543,6 +1602,7 @@ export function generateBorderWaitPages(opts: {
         today,
         alternates: buildCrossingAlternates(crossing),
         distDir,
+        ogImageUrl: resolveOgImage(crossing),
       });
     }
   }
@@ -1608,6 +1668,25 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       });
       const history = readHistory(rootDir);
       const today = new Date();
+
+      // ── F8 social-virality: snapshot webcam frames for per-page og:image ──
+      // Runs BEFORE page generation so `renderLeafPage` can detect the
+      // produced JPEGs at `dist/og/border-wait/{slug}.jpg`. Errors are
+      // logged and swallowed — the site's default og-image.png is a safe
+      // fallback and the build must never be blocked by a transient webcam
+      // outage. See scripts/fetch-webcam-snapshots-for-og.mjs for details.
+      try {
+        const { snapshotWebcamsForOg } = await import(
+          '../scripts/fetch-webcam-snapshots-for-og.mjs'
+        );
+        const ogOutDir = np.join(distDir, 'og', 'border-wait');
+        await snapshotWebcamsForOg({ crossings: borderCrossings, outDir: ogOutDir });
+      } catch (err) {
+        console.warn(
+          '\x1b[33m[border-wait-pages]\x1b[0m og-webcam snapshot step failed (non-fatal):',
+          err instanceof Error ? err.message : err,
+        );
+      }
 
       const pages = generateBorderWaitPages({ current, history, today, distDir });
       const archives = generateBorderWaitArchives({ history, today, distDir });
