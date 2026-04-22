@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-04-22T10:33:21.905Z",
+  "assembledAt": "2026-04-22T22:15:57.898Z",
   "jobs": [
     {
       "id": "rapelli-e814dcbd9214",
@@ -43,12 +43,13 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Collaboratrice-Vendita-Interna-Front-Office%2C-100-TI/1368995433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:19.984Z",
+      "crawledAt": "2026-04-22T22:15:56.004Z",
       "previousSlugs": [
         "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-orior-food-ag-stabio",
         "collaboratore-collaboratrice-vente-interna-front-office-100-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-04-13T11:08:40.716Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -104,7 +105,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Controller%2C-100-TI/1373974233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:19.746Z",
+      "crawledAt": "2026-04-22T22:15:55.767Z",
       "previousSlugs": [
         "controller-100-rapelli-stabio",
         "controller-100-rapelli-orior-food-ag-stabio"
@@ -124,6 +125,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:42.525Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -179,12 +181,13 @@
       "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:19.505Z",
+      "crawledAt": "2026-04-22T22:15:55.538Z",
       "previousSlugs": [
         "buyer-ingredienti-trade-100-rapelli-orior-food-ag-stabio",
         "ingredienti-d-acquisto-e-commercio-100-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-04-13T11:08:41.140Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -240,7 +243,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:19.295Z",
+      "crawledAt": "2026-04-22T22:15:55.319Z",
       "previousSlugs": [
         "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio"
       ],
@@ -314,7 +317,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:19.038Z",
+      "crawledAt": "2026-04-22T22:15:55.085Z",
       "previousSlugs": [
         "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
         "manutentore-maintenance-technician-100-rapelli-orior-food-ag-stabio"
@@ -325,6 +328,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.714Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -380,7 +384,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:18.742Z",
+      "crawledAt": "2026-04-22T22:15:54.831Z",
       "previousSlugs": [
         "tecnologia-alimentare-100-rapelli-orior-food-ag-stabio",
         "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
@@ -401,6 +405,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.972Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -456,7 +461,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-22T10:33:18.424Z",
+      "crawledAt": "2026-04-22T22:15:54.518Z",
       "previousSlugs": [
         "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio",
         "pianificatore-della-supply-chain-al-100-rapelli-orior-food-ag-stabio",
@@ -478,6 +483,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.431Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -491,6 +497,66 @@
         }
       },
       "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-cf96231d684f",
+      "slug": "chief-financial-officer-100-m-w-d-rapelli-stabio",
+      "slugByLocale": {
+        "it": "chief-financial-officer-100-m-w-d-rapelli-stabio",
+        "en": "chief-financial-officer-100-m-w-d-rapelli-stabio",
+        "de": "chief-financial-officer-100-m-w-d-rapelli-stabio",
+        "fr": "chief-financial-officer-100-m-w-d-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Chief Financial Officer, 100% (m/w/d)",
+      "titleByLocale": {
+        "it": "Chief Financial Officer, 100% (m/w/d)",
+        "de": "Chief Financial Officer, 100% (m/w/d)",
+        "en": "Chief Financial Officer, 100% (m/w/d)",
+        "fr": "Chief Financial Officer, 100% (m/w/d)"
+      },
+      "description": "Rapelli steht seit 1929 für die Tessiner Salumi-Tradition und ist bekannt für hochwertige Produkte, hergestellt aus ausgewählten Zutaten mit einem klaren Fokus auf Qualität, Tradition und Innovation. Mit den Marken «Rapelli» und «Ticinella» gilt das Unternehmen als kulinarischer Botschafter des Tessins in der Schweiz. Rapelli ist Teil der ORIOR Gruppe, einem international tätigen Schweizer Food & Beverage Unternehmen, das an der SIX Swiss Exchange kotiert ist und sich auf hochwertige Spezialitäten mit starker regionaler Verankerung fokussiert. \n\n \n \n\n \n In einem Kontext der Weiterentwicklung und Stärkung innerhalb der Gruppe verfolgt Rapelli eine klare Ausrichtung auf Performance, Effizienz und verstärkte Zusammenarbeit auf Gruppenebene. In diesem Zusammenhang suchen wir im Rahmen einer Nachfolgeregelung eine Persönlichkeit als \n\n \n \n\n \n Chief Financial Officer, 100% (m/w/d) \n\n \n \n\n \n Sie übernehmen die strategische und operative Verantwortung für Finanzen, Controlling und Administration und berichten direkt an den CEO. Zudem fungieren Sie als zentrale Schnittstelle zum Group CFO am Hauptsitz in Zürich. Der CFO unterstützt den CEO in der Führung der Rapelli mit dem Ziel, eine stetige Wertsteigerung zu erzielen. Insbesondere konzentriert sich der CFO auf das Kosten-Management sowie die Verbesserung der Effizienz entlang der ganzen P&L. \n\n \n \n\n \n Ihre Hauptaufgaben \n\n \n \n\n• Gesamtverantwortung für Finanzen, Controlling, Rechnungswesen und Administration \n \n\n• Verantwortlich für die Investitionsrechnung und -planung \n \n\n• Aktive Mitgestaltung der Weiterentwicklung von Rapelli und Leitung entsprechender Projekte \n \n\n• Unterstützung und Mitgestaltung von gruppenweiten Projekten \n \n\n• Führung der Budgetierungs-, Forecasting- und Reportingprozesse sowie der 3-Jahresplanung gemäss den Vorgaben der Gruppe \n \n\n• Erstellung und Konsolidierung der Monats- und Jahresabschlüsse nach Swiss GAAP FER. \n \n\n• Analyse von Kosten, Margen und Produktionsleistungen. \n \n\n• Unterstützung des CEO bei strategischen Entscheidungen \n \n\n• Führung und Förderung des Finance & Administration Teams \n \n\n• Sicherstellung des Cashflow-Managements und der Compliance \n \n\n• Förderung der Digitalisierung und Optimierung von Prozessen. \n \n\n• Stellvertretung des CEO bei dessen Abwesenheit. \n \n \n \n\n \n Ihr Profil \n\n \n \n\n• Abgeschlossene betriebswirtschaftliche Ausbildung (Hochschulabschluss oder gleichwertig) \n \n\n• Mehrjährige Berufserfahrung (5+) in der Schweiz in einer vergleichbaren Funktion im industriellen Umfeld oder der Konsumgüterindustrie \n \n\n• Sehr gute Kenntnisse in SAP und Excel \n \n\n• Ausgezeichnete Italienischkenntnisse (Niveau Muttersprache) sowie verhandlungssichere Deutsch- und/oder Englischkenntnisse \n \n\n• Hohe Führungskompetenz, analytisches Denken und ausgeprägte Entscheidungsfähigkeit. \n \n \n \n\n \n Wir bieten \n\n \n \n\n• Eine Schlüsselrolle in der Geschäftsleitung mit hoher Eigenverantwortung \n \n\n• Ein dynamisches, wachstumsorientiertes Umfeld innerhalb einer erfolgreichen Schweizer Unternehmensgruppe \n \n\n• Attraktive Anstellungsbedingungen und sehr gute Sozialleistungen \n \n \n \n\n \n \n\n \n Der Arbeitsort befindet sich in Stabio. Haben wir Ihr Interesse geweckt? Dann bewerben Sie sich direkt über den Button \"Jetzt bewerben\". Unser motiviertes Team freut sich auf Sie! \n\n \n \n\n \n Bei Fragen steht Ihnen Frau Annalisa Sattin per E-Mail unter jobs@rapelli.com gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Rapelli steht seit 1929 für die Tessiner Salumi-Tradition und ist bekannt für hochwertige Produkte, hergestellt aus ausgewählten Zutaten mit einem klaren Fokus auf Qualität, Tradition und Innovation. Mit den Marken «Rapelli» und «Ticinella» gilt das Unternehmen als kulinarischer Botschafter des Tessins in der Schweiz. Rapelli ist Teil der ORIOR Gruppe, einem international tätigen Schweizer Food & Beverage Unternehmen, das an der SIX Swiss Exchange kotiert ist und sich auf hochwertige Spezialitäten mit starker regionaler Verankerung fokussiert. \n\n \n \n\n \n In einem Kontext der Weiterentwicklung und Stärkung innerhalb der Gruppe verfolgt Rapelli eine klare Ausrichtung auf Performance, Effizienz und verstärkte Zusammenarbeit auf Gruppenebene. In diesem Zusammenhang suchen wir im Rahmen einer Nachfolgeregelung eine Persönlichkeit als \n\n \n \n\n \n Chief Financial Officer, 100% (m/w/d) \n\n \n \n\n \n Sie übernehmen die strategische und operative Verantwortung für Finanzen, Controlling und Administration und berichten direkt an den CEO. Zudem fungieren Sie als zentrale Schnittstelle zum Group CFO am Hauptsitz in Zürich. Der CFO unterstützt den CEO in der Führung der Rapelli mit dem Ziel, eine stetige Wertsteigerung zu erzielen. Insbesondere konzentriert sich der CFO auf das Kosten-Management sowie die Verbesserung der Effizienz entlang der ganzen P&L. \n\n \n \n\n \n Ihre Hauptaufgaben \n\n \n \n\n• Gesamtverantwortung für Finanzen, Controlling, Rechnungswesen und Administration \n \n\n• Verantwortlich für die Investitionsrechnung und -planung \n \n\n• Aktive Mitgestaltung der Weiterentwicklung von Rapelli und Leitung entsprechender Projekte \n \n\n• Unterstützung und Mitgestaltung von gruppenweiten Projekten \n \n\n• Führung der Budgetierungs-, Forecasting- und Reportingprozesse sowie der 3-Jahresplanung gemäss den Vorgaben der Gruppe \n \n\n• Erstellung und Konsolidierung der Monats- und Jahresabschlüsse nach Swiss GAAP FER. \n \n\n• Analyse von Kosten, Margen und Produktionsleistungen. \n \n\n• Unterstützung des CEO bei strategischen Entscheidungen \n \n\n• Führung und Förderung des Finance & Administration Teams \n \n\n• Sicherstellung des Cashflow-Managements und der Compliance \n \n\n• Förderung der Digitalisierung und Optimierung von Prozessen. \n \n\n• Stellvertretung des CEO bei dessen Abwesenheit. \n \n \n \n\n \n Ihr Profil \n\n \n \n\n• Abgeschlossene betriebswirtschaftliche Ausbildung (Hochschulabschluss oder gleichwertig) \n \n\n• Mehrjährige Berufserfahrung (5+) in der Schweiz in einer vergleichbaren Funktion im industriellen Umfeld oder der Konsumgüterindustrie \n \n\n• Sehr gute Kenntnisse in SAP und Excel \n \n\n• Ausgezeichnete Italienischkenntnisse (Niveau Muttersprache) sowie verhandlungssichere Deutsch- und/oder Englischkenntnisse \n \n\n• Hohe Führungskompetenz, analytisches Denken und ausgeprägte Entscheidungsfähigkeit. \n \n \n \n\n \n Wir bieten \n\n \n \n\n• Eine Schlüsselrolle in der Geschäftsleitung mit hoher Eigenverantwortung \n \n\n• Ein dynamisches, wachstumsorientiertes Umfeld innerhalb einer erfolgreichen Schweizer Unternehmensgruppe \n \n\n• Attraktive Anstellungsbedingungen und sehr gute Sozialleistungen \n \n \n \n\n \n \n\n \n Der Arbeitsort befindet sich in Stabio. Haben wir Ihr Interesse geweckt? Dann bewerben Sie sich direkt über den Button \"Jetzt bewerben\". Unser motiviertes Team freut sich auf Sie! \n\n \n \n\n \n Bei Fragen steht Ihnen Frau Annalisa Sattin per E-Mail unter jobs@rapelli.com gerne zur Verfügung.",
+        "de": "Rapelli steht seit 1929 für die Tessiner Salumi-Tradition und ist bekannt für hochwertige Produkte, hergestellt aus ausgewählten Zutaten mit einem klaren Fokus auf Qualität, Tradition und Innovation. Mit den Marken «Rapelli» und «Ticinella» gilt das Unternehmen als kulinarischer Botschafter des Tessins in der Schweiz. Rapelli ist Teil der ORIOR Gruppe, einem international tätigen Schweizer Food & Beverage Unternehmen, das an der SIX Swiss Exchange kotiert ist und sich auf hochwertige Spezialitäten mit starker regionaler Verankerung fokussiert. \n\n \n \n\n \n In einem Kontext der Weiterentwicklung und Stärkung innerhalb der Gruppe verfolgt Rapelli eine klare Ausrichtung auf Performance, Effizienz und verstärkte Zusammenarbeit auf Gruppenebene. In diesem Zusammenhang suchen wir im Rahmen einer Nachfolgeregelung eine Persönlichkeit als \n\n \n \n\n \n Chief Financial Officer, 100% (m/w/d) \n\n \n \n\n \n Sie übernehmen die strategische und operative Verantwortung für Finanzen, Controlling und Administration und berichten direkt an den CEO. Zudem fungieren Sie als zentrale Schnittstelle zum Group CFO am Hauptsitz in Zürich. Der CFO unterstützt den CEO in der Führung der Rapelli mit dem Ziel, eine stetige Wertsteigerung zu erzielen. Insbesondere konzentriert sich der CFO auf das Kosten-Management sowie die Verbesserung der Effizienz entlang der ganzen P&L. \n\n \n \n\n \n Ihre Hauptaufgaben \n\n \n \n\n• Gesamtverantwortung für Finanzen, Controlling, Rechnungswesen und Administration \n \n\n• Verantwortlich für die Investitionsrechnung und -planung \n \n\n• Aktive Mitgestaltung der Weiterentwicklung von Rapelli und Leitung entsprechender Projekte \n \n\n• Unterstützung und Mitgestaltung von gruppenweiten Projekten \n \n\n• Führung der Budgetierungs-, Forecasting- und Reportingprozesse sowie der 3-Jahresplanung gemäss den Vorgaben der Gruppe \n \n\n• Erstellung und Konsolidierung der Monats- und Jahresabschlüsse nach Swiss GAAP FER. \n \n\n• Analyse von Kosten, Margen und Produktionsleistungen. \n \n\n• Unterstützung des CEO bei strategischen Entscheidungen \n \n\n• Führung und Förderung des Finance & Administration Teams \n \n\n• Sicherstellung des Cashflow-Managements und der Compliance \n \n\n• Förderung der Digitalisierung und Optimierung von Prozessen. \n \n\n• Stellvertretung des CEO bei dessen Abwesenheit. \n \n \n \n\n \n Ihr Profil \n\n \n \n\n• Abgeschlossene betriebswirtschaftliche Ausbildung (Hochschulabschluss oder gleichwertig) \n \n\n• Mehrjährige Berufserfahrung (5+) in der Schweiz in einer vergleichbaren Funktion im industriellen Umfeld oder der Konsumgüterindustrie \n \n\n• Sehr gute Kenntnisse in SAP und Excel \n \n\n• Ausgezeichnete Italienischkenntnisse (Niveau Muttersprache) sowie verhandlungssichere Deutsch- und/oder Englischkenntnisse \n \n\n• Hohe Führungskompetenz, analytisches Denken und ausgeprägte Entscheidungsfähigkeit. \n \n \n \n\n \n Wir bieten \n\n \n \n\n• Eine Schlüsselrolle in der Geschäftsleitung mit hoher Eigenverantwortung \n \n\n• Ein dynamisches, wachstumsorientiertes Umfeld innerhalb einer erfolgreichen Schweizer Unternehmensgruppe \n \n\n• Attraktive Anstellungsbedingungen und sehr gute Sozialleistungen \n \n \n \n\n \n \n\n \n Der Arbeitsort befindet sich in Stabio. Haben wir Ihr Interesse geweckt? Dann bewerben Sie sich direkt über den Button \"Jetzt bewerben\". Unser motiviertes Team freut sich auf Sie! \n\n \n \n\n \n Bei Fragen steht Ihnen Frau Annalisa Sattin per E-Mail unter jobs@rapelli.com gerne zur Verfügung.",
+        "en": "Rapelli steht seit 1929 für die Tessiner Salumi-Tradition und ist bekannt für hochwertige Produkte, hergestellt aus ausgewählten Zutaten mit einem klaren Fokus auf Qualität, Tradition und Innovation. Mit den Marken «Rapelli» und «Ticinella» gilt das Unternehmen als kulinarischer Botschafter des Tessins in der Schweiz. Rapelli ist Teil der ORIOR Gruppe, einem international tätigen Schweizer Food & Beverage Unternehmen, das an der SIX Swiss Exchange kotiert ist und sich auf hochwertige Spezialitäten mit starker regionaler Verankerung fokussiert. \n\n \n \n\n \n In einem Kontext der Weiterentwicklung und Stärkung innerhalb der Gruppe verfolgt Rapelli eine klare Ausrichtung auf Performance, Effizienz und verstärkte Zusammenarbeit auf Gruppenebene. In diesem Zusammenhang suchen wir im Rahmen einer Nachfolgeregelung eine Persönlichkeit als \n\n \n \n\n \n Chief Financial Officer, 100% (m/w/d) \n\n \n \n\n \n Sie übernehmen die strategische und operative Verantwortung für Finanzen, Controlling und Administration und berichten direkt an den CEO. Zudem fungieren Sie als zentrale Schnittstelle zum Group CFO am Hauptsitz in Zürich. Der CFO unterstützt den CEO in der Führung der Rapelli mit dem Ziel, eine stetige Wertsteigerung zu erzielen. Insbesondere konzentriert sich der CFO auf das Kosten-Management sowie die Verbesserung der Effizienz entlang der ganzen P&L. \n\n \n \n\n \n Ihre Hauptaufgaben \n\n \n \n\n• Gesamtverantwortung für Finanzen, Controlling, Rechnungswesen und Administration \n \n\n• Verantwortlich für die Investitionsrechnung und -planung \n \n\n• Aktive Mitgestaltung der Weiterentwicklung von Rapelli und Leitung entsprechender Projekte \n \n\n• Unterstützung und Mitgestaltung von gruppenweiten Projekten \n \n\n• Führung der Budgetierungs-, Forecasting- und Reportingprozesse sowie der 3-Jahresplanung gemäss den Vorgaben der Gruppe \n \n\n• Erstellung und Konsolidierung der Monats- und Jahresabschlüsse nach Swiss GAAP FER. \n \n\n• Analyse von Kosten, Margen und Produktionsleistungen. \n \n\n• Unterstützung des CEO bei strategischen Entscheidungen \n \n\n• Führung und Förderung des Finance & Administration Teams \n \n\n• Sicherstellung des Cashflow-Managements und der Compliance \n \n\n• Förderung der Digitalisierung und Optimierung von Prozessen. \n \n\n• Stellvertretung des CEO bei dessen Abwesenheit. \n \n \n \n\n \n Ihr Profil \n\n \n \n\n• Abgeschlossene betriebswirtschaftliche Ausbildung (Hochschulabschluss oder gleichwertig) \n \n\n• Mehrjährige Berufserfahrung (5+) in der Schweiz in einer vergleichbaren Funktion im industriellen Umfeld oder der Konsumgüterindustrie \n \n\n• Sehr gute Kenntnisse in SAP und Excel \n \n\n• Ausgezeichnete Italienischkenntnisse (Niveau Muttersprache) sowie verhandlungssichere Deutsch- und/oder Englischkenntnisse \n \n\n• Hohe Führungskompetenz, analytisches Denken und ausgeprägte Entscheidungsfähigkeit. \n \n \n \n\n \n Wir bieten \n\n \n \n\n• Eine Schlüsselrolle in der Geschäftsleitung mit hoher Eigenverantwortung \n \n\n• Ein dynamisches, wachstumsorientiertes Umfeld innerhalb einer erfolgreichen Schweizer Unternehmensgruppe \n \n\n• Attraktive Anstellungsbedingungen und sehr gute Sozialleistungen \n \n \n \n\n \n \n\n \n Der Arbeitsort befindet sich in Stabio. Haben wir Ihr Interesse geweckt? Dann bewerben Sie sich direkt über den Button \"Jetzt bewerben\". Unser motiviertes Team freut sich auf Sie! \n\n \n \n\n \n Bei Fragen steht Ihnen Frau Annalisa Sattin per E-Mail unter jobs@rapelli.com gerne zur Verfügung.",
+        "fr": "Rapelli steht seit 1929 für die Tessiner Salumi-Tradition und ist bekannt für hochwertige Produkte, hergestellt aus ausgewählten Zutaten mit einem klaren Fokus auf Qualität, Tradition und Innovation. Mit den Marken «Rapelli» und «Ticinella» gilt das Unternehmen als kulinarischer Botschafter des Tessins in der Schweiz. Rapelli ist Teil der ORIOR Gruppe, einem international tätigen Schweizer Food & Beverage Unternehmen, das an der SIX Swiss Exchange kotiert ist und sich auf hochwertige Spezialitäten mit starker regionaler Verankerung fokussiert. \n\n \n \n\n \n In einem Kontext der Weiterentwicklung und Stärkung innerhalb der Gruppe verfolgt Rapelli eine klare Ausrichtung auf Performance, Effizienz und verstärkte Zusammenarbeit auf Gruppenebene. In diesem Zusammenhang suchen wir im Rahmen einer Nachfolgeregelung eine Persönlichkeit als \n\n \n \n\n \n Chief Financial Officer, 100% (m/w/d) \n\n \n \n\n \n Sie übernehmen die strategische und operative Verantwortung für Finanzen, Controlling und Administration und berichten direkt an den CEO. Zudem fungieren Sie als zentrale Schnittstelle zum Group CFO am Hauptsitz in Zürich. Der CFO unterstützt den CEO in der Führung der Rapelli mit dem Ziel, eine stetige Wertsteigerung zu erzielen. Insbesondere konzentriert sich der CFO auf das Kosten-Management sowie die Verbesserung der Effizienz entlang der ganzen P&L. \n\n \n \n\n \n Ihre Hauptaufgaben \n\n \n \n\n• Gesamtverantwortung für Finanzen, Controlling, Rechnungswesen und Administration \n \n\n• Verantwortlich für die Investitionsrechnung und -planung \n \n\n• Aktive Mitgestaltung der Weiterentwicklung von Rapelli und Leitung entsprechender Projekte \n \n\n• Unterstützung und Mitgestaltung von gruppenweiten Projekten \n \n\n• Führung der Budgetierungs-, Forecasting- und Reportingprozesse sowie der 3-Jahresplanung gemäss den Vorgaben der Gruppe \n \n\n• Erstellung und Konsolidierung der Monats- und Jahresabschlüsse nach Swiss GAAP FER. \n \n\n• Analyse von Kosten, Margen und Produktionsleistungen. \n \n\n• Unterstützung des CEO bei strategischen Entscheidungen \n \n\n• Führung und Förderung des Finance & Administration Teams \n \n\n• Sicherstellung des Cashflow-Managements und der Compliance \n \n\n• Förderung der Digitalisierung und Optimierung von Prozessen. \n \n\n• Stellvertretung des CEO bei dessen Abwesenheit. \n \n \n \n\n \n Ihr Profil \n\n \n \n\n• Abgeschlossene betriebswirtschaftliche Ausbildung (Hochschulabschluss oder gleichwertig) \n \n\n• Mehrjährige Berufserfahrung (5+) in der Schweiz in einer vergleichbaren Funktion im industriellen Umfeld oder der Konsumgüterindustrie \n \n\n• Sehr gute Kenntnisse in SAP und Excel \n \n\n• Ausgezeichnete Italienischkenntnisse (Niveau Muttersprache) sowie verhandlungssichere Deutsch- und/oder Englischkenntnisse \n \n\n• Hohe Führungskompetenz, analytisches Denken und ausgeprägte Entscheidungsfähigkeit. \n \n \n \n\n \n Wir bieten \n\n \n \n\n• Eine Schlüsselrolle in der Geschäftsleitung mit hoher Eigenverantwortung \n \n\n• Ein dynamisches, wachstumsorientiertes Umfeld innerhalb einer erfolgreichen Schweizer Unternehmensgruppe \n \n\n• Attraktive Anstellungsbedingungen und sehr gute Sozialleistungen \n \n \n \n\n \n \n\n \n Der Arbeitsort befindet sich in Stabio. Haben wir Ihr Interesse geweckt? Dann bewerben Sie sich direkt über den Button \"Jetzt bewerben\". Unser motiviertes Team freut sich auf Sie! \n\n \n \n\n \n Bei Fragen steht Ihnen Frau Annalisa Sattin per E-Mail unter jobs@rapelli.com gerne zur Verfügung."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "url": "https://careers.orior.ch/job/Stabio-Chief-Financial-Officer%2C-100-%28mwd%29-TI/1386501233/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-22T22:15:54.204Z",
+      "needsRetranslation": true,
+      "salaryMin": 98000,
+      "salaryMax": 132000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 98000,
+          "maxValue": 132000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855",
+      "firstSeenAt": "2026-04-22T22:15:54.204Z"
     }
   ]
 }
