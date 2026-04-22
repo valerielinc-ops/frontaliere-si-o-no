@@ -22,6 +22,10 @@ const translations: Record<string, string> = {
   'healthPremiums.ageGridTitle': 'Médiane par tranche d\'âge',
   'healthPremiums.cantonGridTitle': 'Médiane par canton — adultes (26+)',
   'healthPremiums.openLeaf': 'Ouvrir',
+  // B-cont-4 — tendance triennale
+  'healthPremiums.triYear.sectionTitle': 'Tendance triennale',
+  'healthPremiums.triYear.summary': 'Trajectoire des primes LAMal sur les trois dernières années avec variation annuelle et cumul biennal.',
+  'healthPremiums.triYear.cantonSummary': 'Variation cumulée de la prime médiane adulte sur les trois dernières années.',
 };
 
 export default translations;

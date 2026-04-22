@@ -22,6 +22,10 @@ const translations: Record<string, string> = {
   'healthPremiums.ageGridTitle': 'Median nach Altersgruppe',
   'healthPremiums.cantonGridTitle': 'Median nach Kanton — Erwachsene (26+)',
   'healthPremiums.openLeaf': 'Öffnen',
+  // B-cont-4 — tri-year trend editorial
+  'healthPremiums.triYear.sectionTitle': 'Dreijahres-Trend',
+  'healthPremiums.triYear.summary': 'Verlauf der KVG-Prämien der letzten drei Jahre mit Veränderungen Jahr über Jahr und Zweijahres-Saldo.',
+  'healthPremiums.triYear.cantonSummary': 'Kumulierte Veränderung des Erwachsenen-Medians der letzten drei Jahre.',
 };
 
 export default translations;

@@ -36,7 +36,9 @@ import {
 } from '../build-plugins/healthPremiumsLandingPlugin';
 import {
   computeYoyDelta,
+  computeTriYearDelta,
   loadPremiumsForYear,
+  loadPriorTwoYearsForBracket,
 } from '../build-plugins/healthPremiumsData';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -1223,6 +1225,265 @@ describe('loadPremiumsForYear', () => {
       expect(loaded?.year).toBe(2026);
       // Year mismatch on the legacy file → null.
       expect(loadPremiumsForYear(tmpDir, 2025)).toBeNull();
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+});
+
+// ── B-cont-4 — tri-year trend (2024 + 2025 + 2026) ─────────────
+
+/**
+ * Build an "oldest" (2024) fixture: take the 2026 dataset and subtract
+ * 25 CHF from every adult premium so the consecutive YoY pair (2024 → 2025
+ * @ +15, 2025 → 2026 @ +10 in CHF terms) gives realistic positive deltas
+ * with a known cumulative trend.
+ */
+function buildOldestFixture(): HealthPremiumsDataset {
+  const subtract25 = (value: number | undefined): number | undefined =>
+    typeof value === 'number' ? Math.round((value - 25) * 100) / 100 : value;
+  const cloneInsurers = (
+    block: HealthPremiumsDataset['premiums'] extends Record<string, infer B> ? B : never,
+  ) => {
+    const next: typeof block = { ...block, insurers: {} };
+    for (const [id, models] of Object.entries(block.insurers)) {
+      const bac = models.byAgeClass;
+      next.insurers[id] = {
+        ...models,
+        standard: subtract25(models.standard),
+        hausarzt: subtract25(models.hausarzt),
+        telmed: subtract25(models.telmed),
+        hmo: subtract25(models.hmo),
+        byAgeClass: bac
+          ? {
+              KIN: bac.KIN
+                ? { ...bac.KIN, standard: subtract25(bac.KIN.standard) }
+                : undefined,
+              JUG: bac.JUG
+                ? { ...bac.JUG, standard: subtract25(bac.JUG.standard) }
+                : undefined,
+              ERW: bac.ERW
+                ? { ...bac.ERW, standard: subtract25(bac.ERW.standard) }
+                : undefined,
+            }
+          : undefined,
+      };
+    }
+    return next;
+  };
+  const oldest: HealthPremiumsDataset = {
+    fetchedAt: '2024-04-20T06:00:00Z',
+    year: 2024,
+    insurers: DATASET.insurers,
+    premiums: {},
+  };
+  for (const [key, block] of Object.entries(DATASET.premiums!)) {
+    oldest.premiums![key] = cloneInsurers(block);
+  }
+  return oldest;
+}
+
+describe('computeTriYearDelta', () => {
+  const prior = buildPriorFixture();
+  const oldest = buildOldestFixture();
+
+  it('returns three points per bracket when all three years carry data', () => {
+    const trend = computeTriYearDelta({ current: DATASET, prior, oldest, cantonBagCode: 'TI' });
+    expect(trend).not.toBeNull();
+    if (!trend) return;
+    expect(trend.oldestYear).toBe(2024);
+    expect(trend.priorYear).toBe(2025);
+    expect(trend.currentYear).toBe(2026);
+    const erw = trend.byBracket['31-45'];
+    expect(erw).not.toBeNull();
+    expect(erw!.points).toHaveLength(3);
+    expect(erw!.points.map((p) => p.year)).toEqual([2024, 2025, 2026]);
+    // Two consecutive YoY %s plus a non-null cumulative.
+    expect(erw!.yoyPct).toHaveLength(2);
+    expect(erw!.yoyPct[0]).not.toBeNull();
+    expect(erw!.yoyPct[1]).not.toBeNull();
+    expect(erw!.cumulativePct).not.toBeNull();
+    // Cumulative > recent-YoY because both YoYs are positive.
+    expect(erw!.cumulativePct!).toBeGreaterThan(erw!.yoyPct[1] as number);
+  });
+
+  it('falls back to YoY-only when the 2024 archive is absent', () => {
+    const trend = computeTriYearDelta({
+      current: DATASET,
+      prior,
+      oldest: null,
+      cantonBagCode: 'TI',
+    });
+    expect(trend).not.toBeNull();
+    if (!trend) return;
+    const erw = trend.byBracket['31-45'];
+    expect(erw).not.toBeNull();
+    // Only 2 anchor points (prior + current) → 1 YoY delta and a cumulative
+    // that equals the YoY (single step).
+    expect(erw!.points).toHaveLength(2);
+    expect(erw!.yoyPct).toHaveLength(1);
+    expect(erw!.cumulativePct).toBeCloseTo(erw!.yoyPct[0] as number, 2);
+  });
+
+  it('returns null when neither prior nor oldest are present (single-year)', () => {
+    const trend = computeTriYearDelta({
+      current: DATASET,
+      prior: null,
+      oldest: null,
+      cantonBagCode: 'TI',
+    });
+    // Only 1 point per bracket → < 2 → every byBracket entry null →
+    // hasAnyTrend false → null overall.
+    expect(trend).toBeNull();
+  });
+
+  it('returns null when the current dataset has no year metadata', () => {
+    const orphan = { insurers: [], premiums: {} } as HealthPremiumsDataset;
+    expect(computeTriYearDelta({ current: orphan, prior, oldest, cantonBagCode: 'TI' })).toBeNull();
+  });
+
+  it('handles a missing byAgeClass on a single insurer without throwing', () => {
+    // Drop byAgeClass entirely on insurer 8 in the oldest fixture so KIN
+    // medians are computed from the remaining insurers only.
+    const partialOldest = JSON.parse(JSON.stringify(oldest)) as HealthPremiumsDataset;
+    delete partialOldest.premiums!['6500-Bellinzona'].insurers['8'].byAgeClass;
+    const trend = computeTriYearDelta({
+      current: DATASET,
+      prior,
+      oldest: partialOldest,
+      cantonBagCode: 'TI',
+    });
+    expect(trend).not.toBeNull();
+    if (!trend) return;
+    // Adult bracket still has 3 points (ERW comes from the flat alias).
+    expect(trend.byBracket['31-45']!.points).toHaveLength(3);
+  });
+});
+
+describe('generateHealthPremiumsPages — tri-year trend section', () => {
+  const prior = buildPriorFixture();
+  const oldest = buildOldestFixture();
+  const gen3 = generateHealthPremiumsPages({
+    dataset: DATASET,
+    priorDataset: prior,
+    oldestDataset: oldest,
+    today,
+  });
+
+  it('exposes triYearByCanton for every canton when all 3 years are present', () => {
+    for (const c of HEALTH_PREMIUM_CANTONS) {
+      expect(gen3.triYearByCanton[c], c).not.toBeNull();
+    }
+  });
+
+  it('IT TI adulto-31-45 leaf renders the "Trend triennale 2024 → 2026" heading', () => {
+    const page = gen3.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    expect(page).toBeTypeOf('string');
+    expect(page).toMatch(/Trend triennale 2024 → 2026/);
+    // Sequence summary mentions the three years explicitly.
+    expect(page).toMatch(/2024 → 2025 → 2026/);
+    // Inline SVG sparkline must be present.
+    expect(page).toMatch(/<svg[^>]+aria-label[^>]+>/);
+    // Sparkline contains all three year labels in <text> nodes.
+    expect(page).toMatch(/>2024<\/text>/);
+    expect(page).toMatch(/>2025<\/text>/);
+    expect(page).toMatch(/>2026<\/text>/);
+  });
+
+  it('localised tri-year headings render on EN / DE / FR leaves', () => {
+    expect(gen3.pages['/en/health-insurance-premiums/ticino/adult-31-45/']).toMatch(
+      /Three-year trend 2024 → 2026/,
+    );
+    expect(gen3.pages['/de/krankenkassenpraemien/tessin/erwachsene-31-45/']).toMatch(
+      /Dreijahres-Trend 2024 → 2026/,
+    );
+    expect(gen3.pages['/fr/primes-assurance-maladie/tessin/adulte-31-45/']).toMatch(
+      /Tendance triennale 2024 → 2026/,
+    );
+  });
+
+  it('canton hub renders the tri-year sparkline + cumulative summary', () => {
+    const hub = gen3.pages['/premi-cassa-malati/ticino/'];
+    expect(hub).toBeTypeOf('string');
+    expect(hub).toMatch(/Trend triennale 2024 → 2026/);
+    // Adult cumulative summary references the cumulative figure.
+    expect(hub).toMatch(/cumulativamente|cumulato|complessivamente/);
+    expect(hub).toMatch(/<svg[^>]+aria-label[^>]+>/);
+  });
+
+  it('falls back to YoY-only rendering when only 2 years are available', () => {
+    const gen2 = generateHealthPremiumsPages({
+      dataset: DATASET,
+      priorDataset: prior,
+      oldestDataset: null,
+      today,
+    });
+    const page = gen2.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    expect(page).toBeTypeOf('string');
+    // YoY block stays rendered.
+    expect(page).toMatch(/Variazione rispetto al 2025/);
+    // Tri-year block must NOT appear (no 2024 anchor → no trend).
+    expect(page).not.toMatch(/Trend triennale/);
+  });
+
+  it('omits tri-year section entirely when both prior and oldest are absent', () => {
+    const gen0 = generateHealthPremiumsPages({ dataset: DATASET, today });
+    const page = gen0.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    expect(page).not.toMatch(/Trend triennale/);
+    for (const c of HEALTH_PREMIUM_CANTONS) {
+      expect(gen0.triYearByCanton[c], c).toBeNull();
+    }
+  });
+
+  it('every leaf with tri-year still hits ≥400 words (no thin-content regression)', () => {
+    const path = '/premi-cassa-malati/ticino/adulto-31-45/';
+    const text = gen3.pages[path].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const words = text.split(' ').filter((w) => w.length > 0).length;
+    expect(words).toBeGreaterThanOrEqual(400);
+  });
+
+  it('tri-year section contains no dark: color prefixes', () => {
+    for (const [path, html] of Object.entries(gen3.pages)) {
+      expect(html, path).not.toMatch(/\sdark:(bg|text|border|fill|stroke|from|to|via)-/);
+    }
+  });
+
+  it('cumulative percentage is displayed with a sign character', () => {
+    const page = gen3.pages['/premi-cassa-malati/ticino/adulto-31-45/'];
+    // The sequence card embeds "<yoyOlder> · <yoyRecent>" then "<cum>" —
+    // every value must include a properly-signed Italian percentage.
+    expect(page).toMatch(/[+-]?\d+,\d{2}%/);
+  });
+});
+
+describe('loadPriorTwoYearsForBracket', () => {
+  it('returns three null slots when the data directory is empty', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hp-trio-'));
+    try {
+      const loaded = loadPriorTwoYearsForBracket(tmpDir, 2026);
+      expect(loaded.current).toBeNull();
+      expect(loaded.prior).toBeNull();
+      expect(loaded.oldest).toBeNull();
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('returns the correct year per slot when all three datasets exist on disk', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hp-trio-'));
+    try {
+      const dir = path.join(tmpDir, 'data', 'health-premiums');
+      fs.mkdirSync(dir, { recursive: true });
+      for (const y of [2024, 2025, 2026]) {
+        fs.writeFileSync(
+          path.join(dir, `${y}.json`),
+          JSON.stringify({ year: y, insurers: [], premiums: {} }),
+        );
+      }
+      const loaded = loadPriorTwoYearsForBracket(tmpDir, 2026);
+      expect(loaded.current?.year).toBe(2026);
+      expect(loaded.prior?.year).toBe(2025);
+      expect(loaded.oldest?.year).toBe(2024);
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
