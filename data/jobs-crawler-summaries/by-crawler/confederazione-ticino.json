@@ -1,18 +1,19 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-21T21:23:12.034Z",
+  "generatedAt": "2026-04-22T09:42:16.112Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 11,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1486,
-  "avgDurationMs": 1486,
+  "durationMs": 1850,
+  "avgDurationMs": 1850,
   "durationHistory": [
-    1486
+    1850
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "SEKRETÄRIN / SEKRETÄR, Arbeitssprache Deutsch",
       "slug": "sekretarin-sekretar-arbeitssprache-deutsch-confederazione-bellinzona",
@@ -35,16 +36,21 @@
       "validThrough": "2026-05-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 61,
+      "id": "confederazione-ticino-d4ac34c9aac1",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "firstSeenAt": "2026-04-21T21:23:12.032Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Fachspezialist/-in Planung und Controlling / Stv Chef/-in",
       "slug": "fachspezialist-in-planung-und-controlling-stv-chef-in-confederazione-monteceneri",
@@ -74,6 +80,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -296,8 +304,8 @@
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
