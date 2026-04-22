@@ -206,6 +206,39 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
+  it('fuel Product JSON-LD includes merchant listing support fields', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      if (!html.includes('"@type":"Product"')) continue;
+      const match = html.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
+      if (!match) continue;
+      const parsed = JSON.parse(match[1]);
+      expect(Array.isArray(parsed.image) ? parsed.image.length : 0, `page ${path}`).toBeGreaterThan(0);
+      expect(typeof parsed.description, `page ${path}`).toBe('string');
+      expect(parsed.description.length, `page ${path}`).toBeGreaterThan(20);
+      expect(parsed.brand?.name, `page ${path}`).toBeTruthy();
+      expect(parsed.offers.hasMerchantReturnPolicy?.returnPolicyCategory, `page ${path}`).toBe(
+        'https://schema.org/MerchantReturnNotPermitted',
+      );
+      expect(parsed.offers.shippingDetails?.shippingDestination?.addressCountry, `page ${path}`).toBe('CH');
+      expect(parsed.offers.shippingDetails?.shippingRate?.currency, `page ${path}`).toBe('CHF');
+    }
+  });
+
+  it('fuel Product JSON-LD includes aggregateRating and review snippets', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      if (!html.includes('"@type":"Product"')) continue;
+      const match = html.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
+      if (!match) continue;
+      const parsed = JSON.parse(match[1]);
+      expect(parsed.aggregateRating?.ratingValue, `page ${path}`).toBeTruthy();
+      expect(parsed.aggregateRating?.reviewCount ?? parsed.aggregateRating?.ratingCount, `page ${path}`).toBeTruthy();
+      expect(parsed.review?.author?.name, `page ${path}`).toBe('Frontaliere Ticino');
+      expect(parsed.review?.reviewBody, `page ${path}`).toContain('Frontaliere Ticino');
+      expect(parsed.review?.reviewRating?.ratingValue, `page ${path}`).toBeTruthy();
+      expect(html, `page ${path}`).toMatch(/Valutazione editoriale|Editorial assessment|Redaktionelle Bewertung|Évaluation éditoriale/);
+    }
+  });
+
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
     expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel Svizzera oggi/i);

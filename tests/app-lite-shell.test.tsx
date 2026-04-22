@@ -5,7 +5,7 @@
  * static SEO page (per-station fuel, per-canton health premiums, per-city
  * employer hubs, etc.). The SEO HTML lives in a sibling
  * `<main class="seo-static-content">` OUTSIDE `#root`, so the React SPA must
- * render ONLY minimal chrome (header/top-nav + footer). It must NOT render:
+ * render ONLY minimal chrome (header/top-nav). It must NOT render:
  *  - the React `<main id="main-content">` (would replace the static page)
  *  - the per-tab `SubTabNav` (adds visual clutter + empty space below header)
  *
@@ -147,7 +147,7 @@ describe('App lite-shell (staticOverlay) rendering', () => {
     ).toBeGreaterThanOrEqual(2);
   });
 
-  it('lite-shell: SEO static page renders top nav + footer but NO SubTabNav and NO React <main>', () => {
+  it('lite-shell: SEO static page renders top nav only, with NO footer, NO SubTabNav and NO React <main>', () => {
     // Inject the static SEO marker that lite-shell detection looks for.
     const staticMain = document.createElement('main');
     staticMain.className = 'seo-static-content';
@@ -166,8 +166,9 @@ describe('App lite-shell (staticOverlay) rendering', () => {
     expect(screen.getAllByText('nav.simulator').length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText('nav.stats').length).toBeGreaterThanOrEqual(1);
 
-    // Footer is rendered in lite shell for bottom chrome / seo cross-links.
-    expect(screen.getAllByText('footer.improveTitle').length).toBeGreaterThan(0);
+    // Footer must stay suppressed in lite shell so static SEO content starts
+    // immediately after the hydrated top chrome.
+    expect(screen.queryByText('footer.improveTitle')).toBeNull();
 
     // React <main id="main-content"> is NOT rendered (static content owns the page body).
     const reactMain = document.querySelector('main#main-content');

@@ -1525,7 +1525,7 @@ const App: React.FC = () => {
   * header comment). Anchor auto ads (~€16/day) remain. Manual slots remain.
   * SEO impact: removes the biggest CLS contributor, unblocking ranking
   * improvements on job/blog pages. */}
- <div data-no-auto-ads="inside" className={`min-h-screen relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+ <div data-no-auto-ads="inside" className={`${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
  <div className="absolute inset-0 bg-surface-alt -z-20" style={{ contain: 'strict' }}></div>
 
  {/* LinkedIn OAuth2 callback processing overlay */}
@@ -2041,11 +2041,11 @@ const App: React.FC = () => {
   * SEO page (per-station fuel, per-canton health premium, per-city employer
   * hub, etc.), the SEO content is emitted OUTSIDE `#root` as
   * `<main class="seo-static-content">`. We skip the React `<main>` so the
-  * SPA never visually replaces the static SEO page. The React `<footer>` is
-  * kept so the lite shell still has bottom chrome (copyright, SEO links,
-  * newsletter signup) below the static content.
-  * The static content stays in place; only the top nav/header chrome and
-  * footer hydrate inside `#root`.
+  * SPA never visually replaces the static SEO page, and we suppress the React
+  * footer so the shell does not inject a large block of chrome before the
+  * static content.
+  * The static content stays in place; only the top nav/header chrome
+  * hydrates inside `#root`.
   */}
  {!staticOverlay && (
  <main id="main-content" data-no-auto-ads="inside" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
@@ -2293,6 +2293,7 @@ const App: React.FC = () => {
  </main>
  )}
 
+ {!staticOverlay && (
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
@@ -2896,6 +2897,7 @@ const App: React.FC = () => {
  </div>
  </div>
  </footer>
+ )}
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">

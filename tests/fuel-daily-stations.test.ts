@@ -448,6 +448,39 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(typeof parsed.offers.price).toBe('string');
   });
 
+  it('Product JSON-LD includes image, description, brand, return policy and shipping details', () => {
+    const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
+    const m = sample.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
+    expect(m).toBeTruthy();
+    const parsed = JSON.parse(m![1]);
+    expect(parsed.image).toEqual(['https://frontaliereticino.ch/og-image.png']);
+    expect(parsed.description).toMatch(/Eni/);
+    expect(parsed.brand?.name).toBe('Eni');
+    expect(parsed.sku).toBe('fuel-diesel-chiasso-eni-via-compolongo');
+    expect(parsed.offers.availability).toBe('https://schema.org/InStoreOnly');
+    expect(parsed.offers.hasMerchantReturnPolicy?.applicableCountry).toBe('CH');
+    expect(parsed.offers.hasMerchantReturnPolicy?.returnPolicyCategory).toBe(
+      'https://schema.org/MerchantReturnNotPermitted',
+    );
+    expect(parsed.offers.shippingDetails?.shippingDestination?.addressCountry).toBe('CH');
+    expect(parsed.offers.shippingDetails?.shippingRate?.value).toBe(0);
+    expect(parsed.offers.shippingDetails?.shippingRate?.currency).toBe('CHF');
+    expect(parsed.offers.shippingDetails?.deliveryTime?.handlingTime?.unitCode).toBe('DAY');
+  });
+
+  it('Product JSON-LD includes aggregateRating and visible editorial review', () => {
+    const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
+    const m = sample.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
+    expect(m).toBeTruthy();
+    const parsed = JSON.parse(m![1]);
+    expect(parsed.aggregateRating?.ratingValue).toBeTruthy();
+    expect(parsed.aggregateRating?.reviewCount ?? parsed.aggregateRating?.ratingCount).toBeTruthy();
+    expect(parsed.review?.author?.name).toBe('Frontaliere Ticino');
+    expect(parsed.review?.reviewBody).toMatch(/Frontaliere Ticino/);
+    expect(parsed.review?.reviewRating?.ratingValue).toBeTruthy();
+    expect(sample).toMatch(/Recensione editoriale della stazione/);
+  });
+
   it('every page links back to the zone hub', () => {
     for (const [path, html] of Object.entries(pages)) {
       const zoneMatch = path.match(/\/(chiasso|mendrisio|lugano|bellinzona|locarno)\//);

@@ -85,6 +85,9 @@ function isNonEmpty(v) {
 
 function classifyPage(filePath) {
   const rel = relative(DIST, filePath);
+  if (/(^|\/)(prezzi-(diesel|benzina)|diesel-price-switzerland|gasoline-price-switzerland|dieselpreis-schweiz|benzinpreis-schweiz|prix-gasoil-suisse|prix-essence-suisse)\//.test(rel)) {
+    return 'fuel';
+  }
   if (/cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin/.test(rel)) {
     // Check if it's an expired page by reading content
     return 'job'; // will refine below
@@ -285,6 +288,206 @@ function validateWebApplication(schema, filePath) {
   return errors;
 }
 
+function validateFuelMerchantProduct(schema, filePath) {
+  const errors = [];
+  const types = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
+  if (!types.includes('Product')) return errors;
+
+  const rel = relative(DIST, filePath);
+  if (!/(^|\/)(prezzi-(diesel|benzina)|diesel-price-switzerland|gasoline-price-switzerland|dieselpreis-schweiz|benzinpreis-schweiz|prix-gasoil-suisse|prix-essence-suisse)\//.test(rel)) {
+    return errors;
+  }
+
+  const hasImage = Array.isArray(schema.image)
+    ? schema.image.some((img) => isNonEmpty(img))
+    : isNonEmpty(schema.image);
+  if (!hasImage) {
+    errors.push({ file: filePath, type: 'Product', field: 'image', message: 'Fuel Product missing "image"' });
+  }
+
+  if (!isNonEmpty(schema.description)) {
+    errors.push({ file: filePath, type: 'Product', field: 'description', message: 'Fuel Product missing "description"' });
+  }
+
+  const brandName = typeof schema.brand === 'string' ? schema.brand : schema.brand?.name;
+  const hasGlobalIdentifier =
+    isNonEmpty(brandName) ||
+    isNonEmpty(schema.gtin) ||
+    isNonEmpty(schema.gtin8) ||
+    isNonEmpty(schema.gtin12) ||
+    isNonEmpty(schema.gtin13) ||
+    isNonEmpty(schema.gtin14) ||
+    isNonEmpty(schema.isbn) ||
+    isNonEmpty(schema.mpn);
+  if (!hasGlobalIdentifier) {
+    errors.push({
+      file: filePath,
+      type: 'Product',
+      field: 'brand_or_global_identifier',
+      message: 'Fuel Product missing brand or global identifier (gtin/mpn/isbn)',
+    });
+  }
+
+  const aggregateRating = schema.aggregateRating;
+  if (!aggregateRating || typeof aggregateRating !== 'object') {
+    errors.push({
+      file: filePath,
+      type: 'Product',
+      field: 'aggregateRating',
+      message: 'Fuel Product missing "aggregateRating"',
+    });
+  } else {
+    if (!isNonEmpty(aggregateRating.ratingValue)) {
+      errors.push({
+        file: filePath,
+        type: 'Product',
+        field: 'aggregateRating.ratingValue',
+        message: 'Fuel Product aggregateRating missing "ratingValue"',
+      });
+    }
+    if (!isNonEmpty(aggregateRating.reviewCount) && !isNonEmpty(aggregateRating.ratingCount)) {
+      errors.push({
+        file: filePath,
+        type: 'Product',
+        field: 'aggregateRating.reviewCount',
+        message: 'Fuel Product aggregateRating missing "reviewCount" or "ratingCount"',
+      });
+    }
+    if (!isNonEmpty(aggregateRating.bestRating) || !isNonEmpty(aggregateRating.worstRating)) {
+      errors.push({
+        file: filePath,
+        type: 'Product',
+        field: 'aggregateRating.scale',
+        message: 'Fuel Product aggregateRating missing "bestRating" or "worstRating"',
+      });
+    }
+  }
+
+  const review = Array.isArray(schema.review) ? schema.review[0] : schema.review;
+  if (!review || typeof review !== 'object') {
+    errors.push({
+      file: filePath,
+      type: 'Product',
+      field: 'review',
+      message: 'Fuel Product missing "review"',
+    });
+  } else {
+    if (!isNonEmpty(review.reviewBody)) {
+      errors.push({
+        file: filePath,
+        type: 'Product',
+        field: 'review.reviewBody',
+        message: 'Fuel Product review missing "reviewBody"',
+      });
+    }
+    if (!isNonEmpty(review.author?.name || review.author)) {
+      errors.push({
+        file: filePath,
+        type: 'Product',
+        field: 'review.author',
+        message: 'Fuel Product review missing "author"',
+      });
+    }
+    if (!isNonEmpty(review.reviewRating?.ratingValue)) {
+      errors.push({
+        file: filePath,
+        type: 'Product',
+        field: 'review.reviewRating.ratingValue',
+        message: 'Fuel Product review missing "reviewRating.ratingValue"',
+      });
+    }
+  }
+
+  const offer = schema.offers;
+  if (!offer || typeof offer !== 'object') return errors;
+
+  const returnPolicy = offer.hasMerchantReturnPolicy;
+  if (!returnPolicy || typeof returnPolicy !== 'object') {
+    errors.push({
+      file: filePath,
+      type: 'Offer',
+      field: 'hasMerchantReturnPolicy',
+      message: 'Fuel Offer missing "hasMerchantReturnPolicy"',
+    });
+  } else {
+    if (!isNonEmpty(returnPolicy.applicableCountry)) {
+      errors.push({
+        file: filePath,
+        type: 'Offer',
+        field: 'hasMerchantReturnPolicy.applicableCountry',
+        message: 'Fuel Offer return policy missing "applicableCountry"',
+      });
+    }
+    if (!isNonEmpty(returnPolicy.returnPolicyCategory)) {
+      errors.push({
+        file: filePath,
+        type: 'Offer',
+        field: 'hasMerchantReturnPolicy.returnPolicyCategory',
+        message: 'Fuel Offer return policy missing "returnPolicyCategory"',
+      });
+    }
+  }
+
+  const shipping = offer.shippingDetails;
+  if (!shipping || typeof shipping !== 'object') {
+    errors.push({
+      file: filePath,
+      type: 'Offer',
+      field: 'shippingDetails',
+      message: 'Fuel Offer missing "shippingDetails"',
+    });
+  } else {
+    if (!isNonEmpty(shipping.shippingDestination?.addressCountry)) {
+      errors.push({
+        file: filePath,
+        type: 'Offer',
+        field: 'shippingDetails.shippingDestination.addressCountry',
+        message: 'Fuel Offer shippingDetails missing "shippingDestination.addressCountry"',
+      });
+    }
+    if (!isNonEmpty(shipping.shippingRate?.currency)) {
+      errors.push({
+        file: filePath,
+        type: 'Offer',
+        field: 'shippingDetails.shippingRate.currency',
+        message: 'Fuel Offer shippingDetails missing "shippingRate.currency"',
+      });
+    }
+    if (!isNonEmpty(shipping.shippingRate?.value) && !isNonEmpty(shipping.shippingRate?.maxValue)) {
+      errors.push({
+        file: filePath,
+        type: 'Offer',
+        field: 'shippingDetails.shippingRate.value',
+        message: 'Fuel Offer shippingDetails missing shipping rate value/maxValue',
+      });
+    }
+
+    const handling = shipping.deliveryTime?.handlingTime;
+    const transit = shipping.deliveryTime?.transitTime;
+    if (!handling || !transit) {
+      errors.push({
+        file: filePath,
+        type: 'Offer',
+        field: 'shippingDetails.deliveryTime',
+        message: 'Fuel Offer shippingDetails missing "deliveryTime.handlingTime" or "deliveryTime.transitTime"',
+      });
+    } else {
+      for (const [label, value] of [['handlingTime', handling], ['transitTime', transit]]) {
+        if (!isNonEmpty(value.minValue) || !isNonEmpty(value.maxValue) || !isNonEmpty(value.unitCode)) {
+          errors.push({
+            file: filePath,
+            type: 'Offer',
+            field: `shippingDetails.deliveryTime.${label}`,
+            message: `Fuel Offer ${label} missing minValue/maxValue/unitCode`,
+          });
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
 // ── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -298,7 +501,7 @@ async function main() {
   console.log(`[structured-data-completeness] Found ${allFiles.length} HTML files`);
 
   // Categorize files for targeted sampling
-  const byCategory = { job: [], statistics: [], blog: [], company: [], other: [] };
+  const byCategory = { fuel: [], job: [], statistics: [], blog: [], company: [], other: [] };
   for (const f of allFiles) {
     const cat = classifyPage(f);
     (byCategory[cat] || byCategory.other).push(f);
@@ -309,6 +512,11 @@ async function main() {
 
   // Always include ALL statistics pages (small count, critical for Dataset validation)
   for (const f of byCategory.statistics) sampled.add(f);
+
+  // Always include ALL fuel pages. These pages emit Product merchant listing
+  // markup and should hard-fail if a template drops required or warning-prone
+  // fields such as image, brand, shipping or returns.
+  for (const f of byCategory.fuel) sampled.add(f);
 
   // Always include ALL blog pages (Event schema validation requires checking every Event article)
   for (const f of byCategory.blog) sampled.add(f);
@@ -333,7 +541,7 @@ async function main() {
     }
   }
 
-  console.log(`[structured-data-completeness] Sampling ${sampled.size} pages (statistics: ${byCategory.statistics.length}, jobs: ${byCategory.job.length}, blog: ${byCategory.blog.length}, company: ${byCategory.company.length}, other: ${byCategory.other.length})`);
+  console.log(`[structured-data-completeness] Sampling ${sampled.size} pages (fuel: ${byCategory.fuel.length}, statistics: ${byCategory.statistics.length}, jobs: ${byCategory.job.length}, blog: ${byCategory.blog.length}, company: ${byCategory.company.length}, other: ${byCategory.other.length})`);
 
   let totalSchemas = 0;
   let datasetCount = 0;
@@ -390,6 +598,9 @@ async function main() {
         const schemaTypes = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
         if (schemaTypes.includes('WebApplication') || schemaTypes.includes('SoftwareApplication')) {
           errors.push(...validateWebApplication(schema, file));
+        }
+        if (schemaTypes.includes('Product')) {
+          errors.push(...validateFuelMerchantProduct(schema, file));
         }
       }
       return { errors, schemas: schemas_, datasets: datasets_, jobs: jobs_, events: events_ };

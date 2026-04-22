@@ -477,6 +477,208 @@ const LOCALE_OG: Record<FuelDailyLocale, string> = {
   fr: 'fr_FR',
 };
 
+const FUEL_PRODUCT_IMAGE_URL = `${BASE_URL}/og-image.png`;
+
+function buildFuelOfferSchema(price: number, canonicalUrl: string, today: Date) {
+  return {
+    '@type': 'Offer',
+    priceCurrency: 'CHF',
+    price: price.toFixed(3),
+    priceValidUntil: new Date(today.getTime() + 24 * 3600 * 1000).toISOString().slice(0, 10),
+    availability: 'https://schema.org/InStoreOnly',
+    itemCondition: 'https://schema.org/NewCondition',
+    url: canonicalUrl,
+    shippingDetails: {
+      '@type': 'OfferShippingDetails',
+      shippingRate: {
+        '@type': 'MonetaryAmount',
+        value: 0,
+        currency: 'CHF',
+      },
+      shippingDestination: {
+        '@type': 'DefinedRegion',
+        addressCountry: 'CH',
+      },
+      // Fuel is sold on-site only, so we model pickup-like same-day fulfillment.
+      deliveryTime: {
+        '@type': 'ShippingDeliveryTime',
+        handlingTime: {
+          '@type': 'QuantitativeValue',
+          minValue: 0,
+          maxValue: 0,
+          unitCode: 'DAY',
+        },
+        transitTime: {
+          '@type': 'QuantitativeValue',
+          minValue: 0,
+          maxValue: 0,
+          unitCode: 'DAY',
+        },
+      },
+    },
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy',
+      applicableCountry: 'CH',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+    },
+  };
+}
+
+function buildFuelCollectionBrand(locale: FuelDailyLocale, zoneLabel: string): string {
+  if (locale === 'it') return `Stazioni carburante ${zoneLabel}`;
+  if (locale === 'de') return `Tankstellen ${zoneLabel}`;
+  if (locale === 'fr') return `Stations-service ${zoneLabel}`;
+  return `${zoneLabel} fuel stations`;
+}
+
+function clampRating(value: number): number {
+  return Number(Math.min(5, Math.max(1, value)).toFixed(1));
+}
+
+function formatRatingValue(value: number, locale: FuelDailyLocale): string {
+  const base = value.toFixed(1);
+  return locale === 'it' || locale === 'fr' ? base.replace('.', ',') : base;
+}
+
+interface EditorialAssessment {
+  heading: string;
+  body: string;
+  ratingValue: number;
+}
+
+function buildAggregateRatingSchema(ratingValue: number) {
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: ratingValue.toFixed(1),
+    ratingCount: 1,
+    reviewCount: 1,
+    bestRating: 5,
+    worstRating: 1,
+  };
+}
+
+function buildReviewSchema(name: string, body: string, ratingValue: number, today: Date, canonicalUrl: string) {
+  return {
+    '@type': 'Review',
+    name,
+    reviewBody: body,
+    url: canonicalUrl,
+    datePublished: today.toISOString().slice(0, 10),
+    author: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: ratingValue.toFixed(1),
+      bestRating: 5,
+      worstRating: 1,
+    },
+  };
+}
+
+function buildDailyEditorialAssessment(
+  locale: FuelDailyLocale,
+  fuelLabel: string,
+  zoneLabel: string,
+  priceFmt: string,
+  deltaYest: number | null,
+  delta7: number | null,
+  cheapestCount: number,
+): EditorialAssessment {
+  const dayTrend =
+    deltaYest === null ? 'unknown' : deltaYest <= 0 ? 'stable_or_down' : 'up';
+  const weekTrend =
+    delta7 === null ? 'unknown' : delta7 <= 0 ? 'stable_or_down' : 'up';
+  const score = clampRating(
+    4.2 +
+      (dayTrend === 'stable_or_down' ? 0.2 : dayTrend === 'up' ? -0.1 : 0) +
+      (weekTrend === 'stable_or_down' ? 0.2 : weekTrend === 'up' ? -0.1 : 0) +
+      (cheapestCount >= 3 ? 0.1 : 0),
+  );
+  const scoreFmt = formatRatingValue(score, locale);
+
+  if (locale === 'it') {
+    return {
+      heading: 'Valutazione editoriale del prezzo di oggi',
+      body: `Frontaliere Ticino assegna ${scoreFmt}/5 al prezzo medio del ${fuelLabel.toLowerCase()} a ${zoneLabel}: oggi il livello è ${dayTrend === 'stable_or_down' ? 'stabile o in calo rispetto a ieri' : dayTrend === 'up' ? 'in aumento rispetto a ieri' : 'ancora senza confronto vs ieri'} e ${weekTrend === 'stable_or_down' ? 'resta competitivo anche sul confronto con 7 giorni fa' : weekTrend === 'up' ? 'risulta meno competitivo rispetto a 7 giorni fa' : 'ha uno storico settimanale ancora limitato'}. La valutazione combina prezzo medio di giornata (${priceFmt} CHF/litro), direzione del trend recente e presenza di stazioni economiche nella short list locale.`,
+      ratingValue: score,
+    };
+  }
+  if (locale === 'de') {
+    return {
+      heading: 'Redaktionelle Bewertung des heutigen Preises',
+      body: `Frontaliere Ticino vergibt ${scoreFmt}/5 für den durchschnittlichen ${fuelLabel}preis in ${zoneLabel}: heute ist das Niveau ${dayTrend === 'stable_or_down' ? 'stabil oder niedriger als gestern' : dayTrend === 'up' ? 'höher als gestern' : 'noch nicht mit gestern vergleichbar'} und ${weekTrend === 'stable_or_down' ? 'bleibt auch im 7-Tage-Vergleich wettbewerbsfähig' : weekTrend === 'up' ? 'ist im Vergleich zu vor 7 Tagen weniger attraktiv' : 'hat noch wenig Wochenhistorie'}. Die Bewertung kombiniert Tagesdurchschnitt (${priceFmt} CHF/Liter), kurzfristige Trendrichtung und die Präsenz günstiger Stationen in der lokalen Auswahl.`,
+      ratingValue: score,
+    };
+  }
+  if (locale === 'fr') {
+    return {
+      heading: "Évaluation éditoriale du prix du jour",
+      body: `Frontaliere Ticino attribue ${scoreFmt}/5 au prix moyen du ${fuelLabel.toLowerCase()} à ${zoneLabel} : aujourd'hui le niveau est ${dayTrend === 'stable_or_down' ? 'stable ou en baisse par rapport à hier' : dayTrend === 'up' ? "en hausse par rapport à hier" : "encore sans comparaison avec hier"} et ${weekTrend === 'stable_or_down' ? 'reste compétitif sur 7 jours' : weekTrend === 'up' ? 'est moins compétitif qu’il y a 7 jours' : 'dispose encore de peu d’historique hebdomadaire'}. L’évaluation combine le prix moyen du jour (${priceFmt} CHF/litre), la direction récente de la tendance et la présence de stations avantageuses dans la sélection locale.`,
+      ratingValue: score,
+    };
+  }
+  return {
+    heading: "Editorial assessment for today's price",
+    body: `Frontaliere Ticino assigns ${scoreFmt}/5 to the average ${fuelLabel.toLowerCase()} price in ${zoneLabel}: today's level is ${dayTrend === 'stable_or_down' ? 'stable or down vs yesterday' : dayTrend === 'up' ? 'up vs yesterday' : 'not yet comparable with yesterday'} and ${weekTrend === 'stable_or_down' ? 'still competitive against the 7-day comparison' : weekTrend === 'up' ? 'less competitive than 7 days ago' : 'still building weekly history'}. The assessment combines the current daily average (${priceFmt} CHF/litre), recent trend direction and the presence of low-price stations in the local shortlist.`,
+    ratingValue: score,
+  };
+}
+
+function buildStationEditorialAssessment(
+  locale: FuelDailyLocale,
+  fuelLabel: string,
+  brandDisplay: string,
+  city: string,
+  priceFmt: string,
+  zoneAvgFmt: string,
+  rankIndex: number,
+  total: number,
+  deltaZone: number | null,
+): EditorialAssessment {
+  let score = 4.0;
+  if (rankIndex === 0) score += 0.8;
+  else if (rankIndex <= 2) score += 0.6;
+  else if (rankIndex <= 5) score += 0.3;
+  else score += 0.1;
+  if (deltaZone !== null) score += deltaZone <= 0 ? 0.2 : -0.2;
+  score = clampRating(score);
+  const scoreFmt = formatRatingValue(score, locale);
+  const rankText = `${rankIndex + 1}/${total}`;
+
+  if (locale === 'it') {
+    return {
+      heading: 'Recensione editoriale della stazione',
+      body: `Frontaliere Ticino assegna ${scoreFmt}/5 a ${brandDisplay} ${city} per il ${fuelLabel.toLowerCase()}: oggi la stazione è in posizione ${rankText} nel ranking locale, con prezzo ${priceFmt} CHF/litro contro una media zona di ${zoneAvgFmt} CHF/litro. Il giudizio riflette competitività di prezzo giornaliera e posizionamento della stazione rispetto alle alternative vicine.`,
+      ratingValue: score,
+    };
+  }
+  if (locale === 'de') {
+    return {
+      heading: 'Redaktionelle Bewertung der Tankstelle',
+      body: `Frontaliere Ticino vergibt ${scoreFmt}/5 an ${brandDisplay} ${city} für ${fuelLabel}: heute liegt die Station auf Rang ${rankText} im lokalen Vergleich, mit einem Preis von ${priceFmt} CHF/Liter gegenüber einem Zonendurchschnitt von ${zoneAvgFmt} CHF/Liter. Das Urteil spiegelt die Preiswettbewerbsfähigkeit des Tages und die Position der Station gegenüber nahen Alternativen wider.`,
+      ratingValue: score,
+    };
+  }
+  if (locale === 'fr') {
+    return {
+      heading: 'Évaluation éditoriale de la station',
+      body: `Frontaliere Ticino attribue ${scoreFmt}/5 à ${brandDisplay} ${city} pour le ${fuelLabel.toLowerCase()} : aujourd'hui la station occupe la position ${rankText} dans le classement local, avec un prix de ${priceFmt} CHF/litre contre une moyenne de zone de ${zoneAvgFmt} CHF/litre. Cette note reflète la compétitivité du prix du jour et le positionnement de la station face aux alternatives proches.`,
+      ratingValue: score,
+    };
+  }
+  return {
+    heading: 'Editorial station review',
+    body: `Frontaliere Ticino assigns ${scoreFmt}/5 to ${brandDisplay} ${city} for ${fuelLabel.toLowerCase()}: today the station ranks ${rankText} in the local comparison, with a price of ${priceFmt} CHF/litre versus a zone average of ${zoneAvgFmt} CHF/litre. The score reflects day-of-price competitiveness and the station's position against nearby alternatives.`,
+    ratingValue: score,
+  };
+}
+
 function renderPage(inp: PageInputs): string {
   const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir } = inp;
   const copy = COPY[locale];
@@ -508,6 +710,15 @@ function renderPage(inp: PageInputs): string {
 
   // Top 3 stations
   const top3 = zonePrice.minStations;
+  const editorialAssessment = buildDailyEditorialAssessment(
+    locale,
+    fuelLabel,
+    zoneLabel,
+    priceFmt,
+    deltaYest,
+    delta7,
+    top3.length,
+  );
   const stationsHtml = top3.length > 0
     ? `<ol style="list-style:decimal inside;padding:0;margin:0">${top3
         .map(
@@ -604,16 +815,23 @@ function renderPage(inp: PageInputs): string {
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: `${fuelLabel} ${zoneLabel}`,
+        image: [FUEL_PRODUCT_IMAGE_URL],
         description: intro,
-        category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'CHF',
-          price: avg.toFixed(3),
-          priceValidUntil: new Date(today.getTime() + 24 * 3600 * 1000).toISOString().slice(0, 10),
-          availability: 'https://schema.org/InStock',
-          url: canonicalUrl,
+        sku: `fuel-${fuel}-${zone ?? 'ticino'}`,
+        brand: {
+          '@type': 'Brand',
+          name: buildFuelCollectionBrand(locale, zoneLabel),
         },
+        category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
+        aggregateRating: buildAggregateRatingSchema(editorialAssessment.ratingValue),
+        review: buildReviewSchema(
+          editorialAssessment.heading,
+          editorialAssessment.body,
+          editorialAssessment.ratingValue,
+          today,
+          canonicalUrl,
+        ),
+        offers: buildFuelOfferSchema(avg, canonicalUrl, today),
       })
     : '';
 
@@ -652,6 +870,10 @@ function renderPage(inp: PageInputs): string {
   </section>
   <section style="margin:0 0 24px">
     <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+  </section>
+  <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="fuelReview">
+    <h2 id="fuelReview" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(editorialAssessment.heading)}</h2>
+    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="top3">
     <h2 id="top3" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.top3Label)}</h2>
@@ -1041,6 +1263,17 @@ function renderStationPage(opts: {
   const intro = copy.intro(ctx.brandDisplay, ctx.city, priceFmt, fuelLabel);
   const paragraph = copy.paragraph(ctx.brandDisplay, ctx.city, priceFmt, zoneAvgFmt, fuelLabel);
   const rankingLine = copy.ranking(rankLabel, total, ctx.city);
+  const editorialAssessment = buildStationEditorialAssessment(
+    locale,
+    fuelLabel,
+    ctx.brandDisplay,
+    ctx.city,
+    priceFmt,
+    zoneAvgFmt,
+    Math.max(rankIdx, 0),
+    total,
+    deltaZone,
+  );
 
   // Alternates
   const alternatesHtml = (Object.keys(alternates) as FuelDailyLocale[])
@@ -1104,15 +1337,23 @@ function renderStationPage(opts: {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: `${fuelLabel} — ${ctx.brandDisplay} ${ctx.city}`,
-    category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'CHF',
-      price: price.toFixed(3),
-      priceValidUntil: new Date(today.getTime() + 24 * 3600 * 1000).toISOString().slice(0, 10),
-      availability: 'https://schema.org/InStock',
-      url: canonicalUrl,
+    image: [FUEL_PRODUCT_IMAGE_URL],
+    description: intro,
+    sku: `fuel-${fuel}-${ctx.zone}-${ctx.slug}`,
+    brand: {
+      '@type': 'Brand',
+      name: ctx.brandDisplay,
     },
+    category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
+    aggregateRating: buildAggregateRatingSchema(editorialAssessment.ratingValue),
+    review: buildReviewSchema(
+      editorialAssessment.heading,
+      editorialAssessment.body,
+      editorialAssessment.ratingValue,
+      today,
+      canonicalUrl,
+    ),
+    offers: buildFuelOfferSchema(price, canonicalUrl, today),
   });
 
   const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
@@ -1150,6 +1391,10 @@ function renderStationPage(opts: {
   </section>
   <section style="margin:0 0 24px">
     <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+  </section>
+  <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="stationReview">
+    <h2 id="stationReview" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(editorialAssessment.heading)}</h2>
+    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
   </section>
   <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="stationInfo">
     <h2 id="stationInfo" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.infoHeading)}</h2>

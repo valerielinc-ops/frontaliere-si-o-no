@@ -158,6 +158,7 @@
     "optimize:blog-images": "node scripts/optimize-blog-images.mjs",
     "test:post-build": "vitest run --config vitest.post-build.config.ts",
     "validate:structured-data": "node scripts/validate-structured-data.mjs",
+    "validate:structured-data-completeness": "node scripts/validate-structured-data-completeness.mjs",
     "validate:jobs-rich-results": "node scripts/validate-jobs-rich-results-sample.mjs",
     "validate:jobs-quality": "node scripts/validate-jobs-quality.mjs",
     "validate:jobs-crawler-keys": "node scripts/validate-jobs-crawler-keys.mjs",
