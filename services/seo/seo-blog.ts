@@ -10790,6 +10790,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cameradi-commercio-2026-integrazione': {
+    title: 'Varese: Nuovi bandi 2026 della Camera | Frontaliere Ticino',
+    description: 'La Camera di Commercio di Varese investe 150mila euro in due bandi per il 2026, focalizzati su formazione e mobilità, per favorire l’integrazione professionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, nuovi, bandi, camera',
+    ogTitle: 'Varese: Nuovi bandi 2026 della Camera di Commercio per l’',
+    ogDescription: 'La Camera di Commercio di Varese investe 150mila euro in due bandi per il 2026, focalizzati su formazione e mobilità, per favorire l’integrazione professionale',
+    canonicalPath: '/articoli-frontaliere/cameradi-commercio-2026-integrazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Nuovi bandi 2026 della Camera di Commercio per l’",
+      "description": "La Camera di Commercio di Varese investe 150mila euro in due bandi per il 2026, focalizzati su formazione e mobilità, per favorire l’integrazione professionale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cameradi-commercio-2026-integrazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della Camera di Commercio di Varese in Ticino, ambiente moderno e professionale"
+      },
+      "datePublished": "2026-04-22T00:24:05+00:00",
+      "dateModified": "2026-04-22T00:24:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cameradi-commercio-2026-integrazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

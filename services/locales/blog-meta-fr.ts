@@ -2475,6 +2475,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.donne-arte-chiasso-2026.title': 'De la vie à la toile : sept femmes dans l\'art à Chiasso',
     'blog.article.donne-arte-chiasso-2026.excerpt': 'Une exposition à Chiasso célèbre l\'art de sept femmes, apportant culture et inclusion au Centre de jour OSC',
     'blog.article.donne-arte-chiasso-2026.imageAlt': 'Exposition d\'art à Chiasso avec des œuvres de sept artistes femmes',
+    'blog.article.cameradi-commercio-2026-integrazione.title': 'Varèse : Nouveaux appels à projets 2026 de la Chambre de Commerce pour l’intégration des citoyens étrangers',
+    'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'La Chambre de Commerce de Varèse investit 150 000 euros dans deux appels à projets pour 2026, axés sur la formation et la mobilité, pour favoriser l’intégration professionnelle des citoyens étrangers.',
+    'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Bureau de la Chambre de commerce de Varese en Tessin, environnement moderne et professionnel',
 };
 
 export default blogMetaFr;

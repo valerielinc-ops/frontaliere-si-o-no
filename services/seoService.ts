@@ -2061,6 +2061,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cuasso-monte-ospedale-frontalieri-chiusura': { name: 'Novità', path: '/articoli-frontaliere/cuasso-monte-ospedale-frontalieri-chiusura', parent: 'blog' },
     'blog-tassa-salute-frontalieri-lombardia-2026': { name: 'Tassa salute', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-2026', parent: 'blog' },
     'blog-donne-arte-chiasso-2026': { name: 'Donna in arte', path: '/articoli-frontaliere/donne-arte-chiasso-2026', parent: 'blog' },
+    'blog-cameradi-commercio-2026-integrazione': { name: 'Varese', path: '/articoli-frontaliere/cameradi-commercio-2026-integrazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

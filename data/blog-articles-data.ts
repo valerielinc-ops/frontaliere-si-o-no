@@ -6755,4 +6755,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/donne-arte-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cameradi-commercio-2026-integrazione',
+ category: 'novita',
+ date: '2026-04-22T00:24:05.869Z',
+ image: '/images/blog/cameradi-commercio-2026-integrazione.jpg',
+ hasCalculator: true,
+ },
 ];

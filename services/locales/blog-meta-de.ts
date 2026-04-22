@@ -2475,6 +2475,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.donne-arte-chiasso-2026.title': 'Vom Leben zur Leinwand: sieben Künstlerinnen in Chiasso',
     'blog.article.donne-arte-chiasso-2026.excerpt': 'Eine Ausstellung in Chiasso feiert die Kunst von sieben Frauen und bringt Kultur und Inklusion ins Tageszentrum OSC',
     'blog.article.donne-arte-chiasso-2026.imageAlt': 'Kunstausstellung in Chiasso mit Werken von sieben Künstlerinnen',
+    'blog.article.cameradi-commercio-2026-integrazione.title': 'Varese: Neue Ausschreibungen 2026 der Handelskammer zur Integration der ausländischen Bürger',
+    'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'Die Handelskammer von Varese investiert 150.000 Franken in zwei Ausschreibungen für 2026, die sich auf Ausbildung und Mobilität konzentrieren, um die berufliche Integration der ausländischen Bürger zu fördern.',
+    'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Büro der Handelskammer Varese in Tessin, modernes professionelles Umfeld',
 };
 
 export default blogMetaDe;

@@ -2475,6 +2475,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.donne-arte-chiasso-2026.title': 'From life to canvas: seven women in art in Chiasso',
     'blog.article.donne-arte-chiasso-2026.excerpt': 'An exhibition in Chiasso celebrates the art of seven women, bringing culture and inclusion to the OSC Day Center',
     'blog.article.donne-arte-chiasso-2026.imageAlt': 'Art exhibition in Chiasso featuring works by seven women artists',
+    'blog.article.cameradi-commercio-2026-integrazione.title': 'Varese: New 2026 Chamber of Commerce Grants for the Integration of Foreign Citizens',
+    'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'The Varese Chamber of Commerce is investing 150,000 euros in two grants for 2026, focused on training and mobility, to promote the professional integration of foreign citizens.',
+    'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Varese Chamber of Commerce office in Ticino, modern professional setting',
 };
 
 export default blogMetaEn;

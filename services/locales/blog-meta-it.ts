@@ -2475,6 +2475,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.donne-arte-chiasso-2026.title': 'Dalla vita alla tela: sette donne in arte a Chiasso',
     'blog.article.donne-arte-chiasso-2026.excerpt': 'Una mostra a Chiasso celebra l\'arte di sette donne, portando cultura e inclusione nel Centro diurno OSC',
     'blog.article.donne-arte-chiasso-2026.imageAlt': 'Mostra d\'arte a Chiasso con opere di sette artiste donne',
+    'blog.article.cameradi-commercio-2026-integrazione.title': 'Varese: Nuovi bandi 2026 della Camera di Commercio per l’integrazione dei cittadini stranieri',
+    'blog.article.cameradi-commercio-2026-integrazione.excerpt': 'La Camera di Commercio di Varese investe 150mila euro in due bandi per il 2026, focalizzati su formazione e mobilità, per favorire l’integrazione professionale dei cittadini stranieri.',
+    'blog.article.cameradi-commercio-2026-integrazione.imageAlt': 'Ufficio della Camera di Commercio di Varese in Ticino, ambiente moderno e professionale',
 };
 
 export default blogMetaIt;
