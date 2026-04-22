@@ -6634,6 +6634,157 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ]
  },
 
+ 'tassazione-hub': {
+ title: 'Tassazione Frontalieri Svizzera 2026: Guida Completa',
+ description: 'Guida completa alla tassazione frontalieri Italia-Svizzera 2026: nuovo accordo, doppia imposizione, aliquote Ticino, deduzioni, permesso G/B e dichiarazione dei redditi.',
+ keywords: 'tassazione svizzera, tassazione frontalieri svizzera, doppia tassazione svizzera, permesso g, nuovo accordo frontalieri, tassazione nuovi frontalieri 2023, aliquote imposta alla fonte ticino 2026, franchigia 10000 euro frontalieri, credito imposta frontalieri, irpef frontalieri',
+ ogTitle: 'Tassazione Frontalieri Svizzera 2026 — Guida Completa',
+ ogDescription: 'Tutto sulla tassazione dei frontalieri nel 2026: nuovo accordo Italia-Svizzera, doppia imposizione, permesso G vs B, aliquote Ticino, deduzioni fiscali e dichiarazione redditi.',
+ canonicalPath: '/guida-tassazione-frontalieri-2026',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Tassazione Frontalieri Svizzera 2026: Guida Completa",
+ "description": "Guida esaustiva alla tassazione dei frontalieri Italia-Svizzera nel 2026: Nuovo Accordo del 17 luglio 2023, doppia imposizione, confronto permesso G vs B, aliquote d'imposta alla fonte Ticino, deduzioni fiscali, casi particolari e dichiarazione dei redditi.",
+ "url": `${BASE_URL}/guida-tassazione-frontalieri-2026`,
+ "datePublished": "2026-04-22T08:00:00+02:00",
+ "dateModified": BUILD_DATE_ISO,
+ "inLanguage": "it",
+ "author": { "@id": "https://frontaliereticino.ch/#organization" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "mainEntityOfPage": `${BASE_URL}/guida-tassazione-frontalieri-2026`,
+ "image": {
+ "@type": "ImageObject",
+ "url": `${BASE_URL}/og-guida-frontaliere.png`,
+ "width": 1200,
+ "height": 630
+ },
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true,
+ "wordCount": 2800,
+ "about": [
+ { "@type": "Thing", "name": "Tassazione frontalieri", "sameAs": "https://it.wikipedia.org/wiki/Lavoratore_frontaliero" },
+ { "@type": "Thing", "name": "Imposta alla fonte", "sameAs": "https://it.wikipedia.org/wiki/Imposta_alla_fonte" },
+ { "@type": "Thing", "name": "Doppia imposizione", "sameAs": "https://it.wikipedia.org/wiki/Doppia_imposizione" },
+ { "@type": "Thing", "name": "Canton Ticino", "sameAs": "https://it.wikipedia.org/wiki/Canton_Ticino" }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Qual è la differenza fiscale tra vecchi e nuovi frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I vecchi frontalieri (assunti prima del 17 luglio 2023, residenti entro 20 km dal confine) pagano solo l'imposta alla fonte in Svizzera al 100% dell'aliquota ordinaria; il regime transitorio è valido fino al 2033. I nuovi frontalieri (assunti dal 17 luglio 2023 o residenti oltre 20 km) sono soggetti a tassazione concorrente: imposta alla fonte in Svizzera all'80% dell'aliquota più IRPEF italiana con franchigia di 10.000 EUR e credito d'imposta per le tasse pagate in Svizzera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si evita la doppia imposizione fiscale Italia-Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La doppia imposizione è evitata grazie all'Accordo CH-IT del 23 dicembre 2020 (RS 0.642.045.43), che stabilisce la tassazione concorrente per i nuovi frontalieri: il reddito svizzero viene tassato in entrambi i paesi, ma l'Italia concede un credito d'imposta pari alle imposte versate in Svizzera, fino a concorrenza dell'IRPEF dovuta sulla quota di reddito estero. Inoltre, i primi 10.000 EUR di reddito svizzero sono esenti da IRPEF (franchigia)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono le aliquote dell'imposta alla fonte in Canton Ticino nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Le aliquote dell'imposta alla fonte Ticino 2026 variano in base allo stato civile e al numero di figli, secondo quattro tabelle principali: A (celibe/nubile senza figli), B (celibe/nubile con figli), C (coniugato/a), H (famiglia monoparentale). Per un reddito lordo di CHF 72.000 con tabella A, l'aliquota effettiva è circa 11-13%. Per i nuovi frontalieri, l'aliquota è ridotta all'80% di quella ordinaria. Le tabelle ufficiali sono pubblicate dalla Divisione delle contribuzioni del Cantone Ticino."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quale permesso conviene: G o B per motivi fiscali?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G è destinato ai frontalieri che mantengono la residenza in Italia e rientrano almeno settimanalmente: tassazione in Italia sul reddito svizzero con credito d'imposta. Il permesso B richiede il trasferimento della residenza fiscale in Svizzera: tassazione esclusiva in Svizzera, niente IRPEF italiana ma LAMal obbligatoria (CHF 270-560/mese), perdita del diritto d'opzione sanitario. La convenienza dipende dal reddito: sopra CHF 100.000 lordi il permesso B è generalmente più vantaggioso, sotto spesso il G resta preferibile."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali deduzioni fiscali possono richiedere i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "In Svizzera, i frontalieri possono richiedere la Tassazione Ordinaria Ulteriore (TOU, ex TDR) entro il 31 marzo dell'anno successivo per dedurre: contributi al terzo pilastro 3a (fino a CHF 7.258/anno nel 2026), spese di trasporto effettive casa-lavoro, costi di formazione continua, premi assicurativi complementari e spese mediche. In Italia, i nuovi frontalieri possono dedurre oneri sanitari, contributi previdenziali, mutuo prima casa, spese scolastiche e ristrutturazioni edilizie tramite Modello 730 o Redditi PF."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcola il credito d'imposta per le tasse pagate in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il credito d'imposta si calcola come rapporto tra reddito estero e reddito complessivo, moltiplicato per l'IRPEF lorda dovuta. Il limite massimo del credito è la minore tra (a) l'imposta svizzera effettivamente pagata e (b) la quota proporzionale di IRPEF relativa al reddito svizzero. La franchigia di 10.000 EUR (art. 1 c. 175 L.213/2023) riduce la base imponibile prima del calcolo. Il credito si richiede nel Modello 730/Redditi PF compilando il Quadro CE (redditi esteri)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il telelavoro è regolato dall'Accordo integrativo del 6 giugno 2024: fino al 25% del tempo lavorativo dall'Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono gli errori fiscali più comuni dei frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Errori frequenti: (1) non presentare la dichiarazione dei redditi italiana come nuovi frontalieri, pensando di essere esenti come i vecchi; (2) applicare la franchigia di 10.000 EUR sul netto invece che sul lordo convertito in EUR; (3) calcolare erroneamente il credito d'imposta senza considerare il rapporto reddito estero/complessivo; (4) non richiedere la rettifica dell'imposta alla fonte (TOU) entro il 31 marzo per dedurre il pilastro 3a; (5) non dichiarare la posizione AIRE all'Italia; (6) sottovalutare la tassazione sui rendimenti del capitale estero."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si compila la dichiarazione dei redditi per frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I nuovi frontalieri utilizzano il Modello 730 (scadenza 30 settembre) o Redditi PF (scadenza 30 novembre). Quadro da compilare: Quadro CE (Crediti d'imposta per redditi prodotti all'estero) con l'importo del reddito svizzero lordo convertito in EUR, l'imposta alla fonte pagata in Svizzera e il credito d'imposta richiesto. La franchigia di 10.000 EUR si applica automaticamente. I documenti necessari: certificato di salario svizzero (Lohnausweis), ricevute TOU, documentazione per deduzioni italiane."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quando conviene il regime transitorio vecchi frontalieri fino al 2033?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il regime transitorio dei vecchi frontalieri (tassazione esclusiva in Svizzera al 100% dell'aliquota) è generalmente più vantaggioso sotto CHF 90.000 lordi annui, perché evita la doppia dichiarazione e l'IRPEF italiana. Sopra i CHF 100.000 il regime nuovi frontalieri può essere più conveniente grazie al credito d'imposta che abbatte l'IRPEF italiana e alla franchigia. Il regime transitorio termina al raggiungimento del pensionamento o alla cessazione del rapporto di lavoro. I ristorni fiscali ai comuni italiani di confine diminuiranno progressivamente fino al 2033."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cosa cambia con il Nuovo Accordo del 17 luglio 2023?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il Nuovo Accordo fiscale Italia-Svizzera (firmato il 23 dicembre 2020, in vigore dal 17 luglio 2023) sostituisce il precedente accordo del 1974. Principali novità: (1) tassazione concorrente per i nuovi frontalieri (Svizzera 80% + Italia con credito d'imposta); (2) franchigia di 10.000 EUR sul reddito svizzero per l'IRPEF; (3) eliminazione progressiva dei ristorni ai comuni italiani entro il 2033; (4) esteso il perimetro oltre i 20 km per il permesso G con regime fiscale nuovo; (5) cooperazione amministrativa rafforzata tra Svizzera e Italia sullo scambio di informazioni fiscali. Fonte: Gazzetta Ufficiale 161 del 12.07.2023, L. 83/2023."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ {
+ "@type": "ListItem",
+ "position": 1,
+ "name": "Home",
+ "item": `${BASE_URL}/`
+ },
+ {
+ "@type": "ListItem",
+ "position": 2,
+ "name": "Tassazione Frontalieri 2026",
+ "item": `${BASE_URL}/guida-tassazione-frontalieri-2026/`
+ }
+ ]
+ }
+ ]
+ },
+
  'sindacati': {
  title: 'Sindacati Frontalieri Svizzera 2026 | Guida',
  description: 'UNIA, Syndicom, SEV, OCST: sindacati per frontalieri in Ticino. Costi, sedi, servizi legali, CCL e assistenza su licenziamento, busta paga e controversie.',
