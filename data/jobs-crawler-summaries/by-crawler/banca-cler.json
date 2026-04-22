@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-04-21T21:21:26.883Z",
-  "total": 6,
+  "generatedAt": "2026-04-22T09:40:28.747Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 20129,
-  "avgDurationMs": 20129,
+  "durationMs": 19642,
+  "avgDurationMs": 19642,
   "durationHistory": [
-    20129
+    19642
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-21T21:21:08.469Z",
+      "crawledAt": "2026-04-22T09:40:11.039Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -78,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-21T21:21:08.943Z",
+      "crawledAt": "2026-04-22T09:40:11.588Z",
       "id": "company-ymmgcx",
       "contract": "part-time",
       "currency": "CHF",
@@ -119,7 +119,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-21T21:21:09.485Z",
+      "crawledAt": "2026-04-22T09:40:12.133Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -160,7 +160,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-21T21:21:09.996Z",
+      "crawledAt": "2026-04-22T09:40:12.675Z",
       "id": "company-67xwtt",
       "contract": "full-time",
       "currency": "CHF",
@@ -201,7 +201,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-21T21:21:10.511Z",
+      "crawledAt": "2026-04-22T09:40:13.173Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
@@ -211,8 +211,6 @@
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-13T10:15:25.306Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -220,10 +218,12 @@
         "translation": 15,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Kundenberaterin Basis Basel (w/m)",
-      "slug": "kundenberaterin-basis-basel-w-m-banca-cler",
+      "slug": "consulente-clienti-base-basilea-m-f-banca-cler-bellinzona",
       "url": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-basel-w-m-2633",
       "applyUrl": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-basel-w-m-2633",
       "company": "Banca Cler",
@@ -238,7 +238,7 @@
       "category": "finance",
       "sector": "Banca / Servizi finanziari",
       "department": "Private Banking und Privatkunden",
-      "source": "cler-dedicated-crawler",
+      "source": "Company Careers Crawler",
       "sourceLang": "de",
       "postedDate": "2026-03-25",
       "validThrough": "",
@@ -263,6 +263,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
