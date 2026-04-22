@@ -40,6 +40,7 @@ import {
   HEALTH_PREMIUM_BRACKET_RISK_CLASS,
   HEALTH_PREMIUM_CANTON_BAG_CODE,
   HEALTH_PREMIUM_CANTON_DISPLAY,
+  HEALTH_PREMIUM_CANTON_SLUG,
   HEALTH_PREMIUM_CANTONS,
   HEALTH_PREMIUM_COMPARATOR_PATH,
   HEALTH_PREMIUM_LOCALES,
@@ -1825,28 +1826,21 @@ export function generateHealthPremiumsPages(opts: {
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
 
-  // Precompute per-canton stats once.
-  const cantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null> = {
-    ticino: null,
-    grigioni: null,
-    uri: null,
-    vallese: null,
-    zurigo: null,
-  };
-  const yoyByCanton: Record<HealthPremiumCanton, YoyCantonDelta | null> = {
-    ticino: null,
-    grigioni: null,
-    uri: null,
-    vallese: null,
-    zurigo: null,
-  };
-  const triYearByCanton: Record<HealthPremiumCanton, TriYearCantonDelta | null> = {
-    ticino: null,
-    grigioni: null,
-    uri: null,
-    vallese: null,
-    zurigo: null,
-  };
+  // Precompute per-canton stats once. Records are initialised from the
+  // canonical canton list so adding new cantons in healthPremiumsData.ts
+  // automatically lights up the full pipeline (no hand-maintained partial
+  // record to keep in sync).
+  const makeNullCantonRecord = <T>(): Record<HealthPremiumCanton, T | null> =>
+    HEALTH_PREMIUM_CANTONS.reduce(
+      (acc, c) => {
+        acc[c] = null;
+        return acc;
+      },
+      {} as Record<HealthPremiumCanton, T | null>,
+    );
+  const cantonStats = makeNullCantonRecord<CantonPremiumStats>();
+  const yoyByCanton = makeNullCantonRecord<YoyCantonDelta>();
+  const triYearByCanton = makeNullCantonRecord<TriYearCantonDelta>();
   const skippedCantons: HealthPremiumCanton[] = [];
   for (const c of HEALTH_PREMIUM_CANTONS) {
     const stats = computeCantonStats(dataset, c);
@@ -2160,13 +2154,15 @@ function deriveAltPath(itPath: string, targetLocale: HealthPremiumLocale): strin
     'adulto-46-55': '46-55',
     'adulto-56-piu': '56-plus',
   };
-  const cantonMap: Record<string, HealthPremiumCanton> = {
-    ticino: 'ticino',
-    grigioni: 'grigioni',
-    uri: 'uri',
-    vallese: 'vallese',
-    zurigo: 'zurigo',
-  };
+  // Build the IT-slug → canton identifier lookup dynamically from the
+  // canonical slug table so new cantons added to healthPremiumsData.ts are
+  // recognised here without a hand-edit. The IT slug is used because this
+  // function only consumes IT-locale canonical paths (the sitemap emits IT
+  // canonicals and derives alternates from them).
+  const cantonMap: Record<string, HealthPremiumCanton> = {};
+  for (const c of Object.keys(HEALTH_PREMIUM_CANTON_SLUG.it) as HealthPremiumCanton[]) {
+    cantonMap[HEALTH_PREMIUM_CANTON_SLUG.it[c]] = c;
+  }
   if (parts.length === 1) return buildHealthPremiumsRootPath(targetLocale);
   const canton = cantonMap[parts[1]];
   if (!canton) return null;

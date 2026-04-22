@@ -5,8 +5,9 @@
  *
  * GSC evidence: ~10 imp/month on "premi cassa malati ticino 2026",
  * "lamal preise tessin", "primes lamal 2026". Low-volume but evergreen with
- * annual refresh + long-tail compounding. Generates 36 pages per locale
- * (5 canton hubs + 30 leaves + 1 root) × 4 locales = 144 static HTML pages.
+ * annual refresh + long-tail compounding. Generates 183 pages per locale
+ * (26 canton hubs + 156 leaves + 1 root) × 4 locales = 732 static HTML pages
+ * covering every Swiss canton published by BAG open-data.
  *
  * URL shape:
  *   IT: /premi-cassa-malati/ , /premi-cassa-malati/{canton}/, /premi-cassa-malati/{canton}/{age}/
@@ -14,9 +15,11 @@
  *   DE: /de/krankenkassenpraemien/ , ...
  *   FR: /fr/primes-assurance-maladie/ , ...
  *
- * Canton slugs are intentionally stable across locales (proper nouns) to
- * preserve URL equity when Google discovers alternates. Age slugs are
- * locale-specific to match native-language search queries.
+ * Canton slugs are localized to the native exonym where it differs across
+ * locales (zurigo/zurich/zuerich, grigioni/grisons/graubuenden). For the
+ * original 5 target cantons (ticino, grigioni, uri, vallese, zurigo) the
+ * exact slug strings shipped pre-expansion are preserved byte-for-byte to
+ * protect URL equity on already-indexed pages.
  *
  * Kept standalone (no dep on jobsSeoPagesPlugin etc.) so parallel worktrees
  * merge cleanly — see memory/feedback_worktree_merge_router_duplicates.
@@ -25,10 +28,43 @@
 export type HealthPremiumLocale = 'it' | 'en' | 'de' | 'fr';
 
 /**
- * BAG canton 2-letter codes we cover. Ticino is the primary target; the four
- * neighbours (GR, UR, VS) plus ZH as benchmark round out the moat.
+ * Internal canton identifier. Uses the Italian exonym / stable short form so
+ * the identifier itself is locale-neutral — the URL slug, display label and
+ * BAG 2-letter code are all derived via the lookup tables below.
+ *
+ * The first five values (ticino, grigioni, uri, vallese, zurigo) are the
+ * original F2 target set; their URL slugs in every locale are frozen for
+ * backward compatibility with already-indexed pages. The remaining 21 canton
+ * identifiers were introduced by B-cont-2 to expand coverage to every Swiss
+ * canton published by BAG open-data.
  */
-export type HealthPremiumCanton = 'ticino' | 'grigioni' | 'uri' | 'vallese' | 'zurigo';
+export type HealthPremiumCanton =
+  | 'ticino'
+  | 'grigioni'
+  | 'uri'
+  | 'vallese'
+  | 'zurigo'
+  | 'argovia'
+  | 'appenzello-interno'
+  | 'appenzello-esterno'
+  | 'berna'
+  | 'basilea-campagna'
+  | 'basilea-citta'
+  | 'friborgo'
+  | 'ginevra'
+  | 'glarona'
+  | 'giura'
+  | 'lucerna'
+  | 'neuchatel'
+  | 'nidvaldo'
+  | 'obvaldo'
+  | 'san-gallo'
+  | 'sciaffusa'
+  | 'soletta'
+  | 'svitto'
+  | 'turgovia'
+  | 'vaud'
+  | 'zugo';
 
 /**
  * LAMal age brackets. Under Swiss LAMal law the adult premium (26+) is flat —
@@ -65,12 +101,41 @@ export interface HealthPremiumAgeDef {
 
 export const HEALTH_PREMIUM_LOCALES: readonly HealthPremiumLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
+/**
+ * Canonical ordering: the original 5 target cantons first (so their index in
+ * the array is unchanged from pre-B-cont-2 builds), followed by the 21 new
+ * cantons in alphabetical order of the internal identifier. Keep this order
+ * stable — tests, hub grids and related-links sibling pickers walk it.
+ */
 export const HEALTH_PREMIUM_CANTONS: readonly HealthPremiumCanton[] = [
+  // Original F2 target set — slugs frozen for backward compatibility.
   'ticino',
   'grigioni',
   'uri',
   'vallese',
   'zurigo',
+  // B-cont-2 expansion — remaining 21 Swiss cantons.
+  'argovia',
+  'appenzello-interno',
+  'appenzello-esterno',
+  'berna',
+  'basilea-campagna',
+  'basilea-citta',
+  'friborgo',
+  'ginevra',
+  'glarona',
+  'giura',
+  'lucerna',
+  'neuchatel',
+  'nidvaldo',
+  'obvaldo',
+  'san-gallo',
+  'sciaffusa',
+  'soletta',
+  'svitto',
+  'turgovia',
+  'vaud',
+  'zugo',
 ] as const;
 
 export const HEALTH_PREMIUM_AGE_BRACKETS: readonly HealthPremiumAgeDef[] = [
@@ -93,6 +158,27 @@ export const HEALTH_PREMIUM_CANTON_BAG_CODE: Record<HealthPremiumCanton, string>
   uri: 'UR',
   vallese: 'VS',
   zurigo: 'ZH',
+  argovia: 'AG',
+  'appenzello-interno': 'AI',
+  'appenzello-esterno': 'AR',
+  berna: 'BE',
+  'basilea-campagna': 'BL',
+  'basilea-citta': 'BS',
+  friborgo: 'FR',
+  ginevra: 'GE',
+  glarona: 'GL',
+  giura: 'JU',
+  lucerna: 'LU',
+  neuchatel: 'NE',
+  nidvaldo: 'NW',
+  obvaldo: 'OW',
+  'san-gallo': 'SG',
+  sciaffusa: 'SH',
+  soletta: 'SO',
+  svitto: 'SZ',
+  turgovia: 'TG',
+  vaud: 'VD',
+  zugo: 'ZG',
 };
 
 /**
@@ -107,6 +193,27 @@ export const HEALTH_PREMIUM_CANTON_DISPLAY: Record<HealthPremiumLocale, Record<H
     uri: 'Uri',
     vallese: 'Vallese',
     zurigo: 'Zurigo',
+    argovia: 'Argovia',
+    'appenzello-interno': 'Appenzello Interno',
+    'appenzello-esterno': 'Appenzello Esterno',
+    berna: 'Berna',
+    'basilea-campagna': 'Basilea Campagna',
+    'basilea-citta': 'Basilea Città',
+    friborgo: 'Friborgo',
+    ginevra: 'Ginevra',
+    glarona: 'Glarona',
+    giura: 'Giura',
+    lucerna: 'Lucerna',
+    neuchatel: 'Neuchâtel',
+    nidvaldo: 'Nidvaldo',
+    obvaldo: 'Obvaldo',
+    'san-gallo': 'San Gallo',
+    sciaffusa: 'Sciaffusa',
+    soletta: 'Soletta',
+    svitto: 'Svitto',
+    turgovia: 'Turgovia',
+    vaud: 'Vaud',
+    zugo: 'Zugo',
   },
   en: {
     ticino: 'Ticino',
@@ -114,6 +221,27 @@ export const HEALTH_PREMIUM_CANTON_DISPLAY: Record<HealthPremiumLocale, Record<H
     uri: 'Uri',
     vallese: 'Valais',
     zurigo: 'Zurich',
+    argovia: 'Aargau',
+    'appenzello-interno': 'Appenzell Innerrhoden',
+    'appenzello-esterno': 'Appenzell Ausserrhoden',
+    berna: 'Bern',
+    'basilea-campagna': 'Basel-Landschaft',
+    'basilea-citta': 'Basel-Stadt',
+    friborgo: 'Fribourg',
+    ginevra: 'Geneva',
+    glarona: 'Glarus',
+    giura: 'Jura',
+    lucerna: 'Lucerne',
+    neuchatel: 'Neuchâtel',
+    nidvaldo: 'Nidwalden',
+    obvaldo: 'Obwalden',
+    'san-gallo': 'St. Gallen',
+    sciaffusa: 'Schaffhausen',
+    soletta: 'Solothurn',
+    svitto: 'Schwyz',
+    turgovia: 'Thurgau',
+    vaud: 'Vaud',
+    zugo: 'Zug',
   },
   de: {
     ticino: 'Tessin',
@@ -121,6 +249,27 @@ export const HEALTH_PREMIUM_CANTON_DISPLAY: Record<HealthPremiumLocale, Record<H
     uri: 'Uri',
     vallese: 'Wallis',
     zurigo: 'Zürich',
+    argovia: 'Aargau',
+    'appenzello-interno': 'Appenzell Innerrhoden',
+    'appenzello-esterno': 'Appenzell Ausserrhoden',
+    berna: 'Bern',
+    'basilea-campagna': 'Basel-Landschaft',
+    'basilea-citta': 'Basel-Stadt',
+    friborgo: 'Freiburg',
+    ginevra: 'Genf',
+    glarona: 'Glarus',
+    giura: 'Jura',
+    lucerna: 'Luzern',
+    neuchatel: 'Neuenburg',
+    nidvaldo: 'Nidwalden',
+    obvaldo: 'Obwalden',
+    'san-gallo': 'St. Gallen',
+    sciaffusa: 'Schaffhausen',
+    soletta: 'Solothurn',
+    svitto: 'Schwyz',
+    turgovia: 'Thurgau',
+    vaud: 'Waadt',
+    zugo: 'Zug',
   },
   fr: {
     ticino: 'Tessin',
@@ -128,42 +277,162 @@ export const HEALTH_PREMIUM_CANTON_DISPLAY: Record<HealthPremiumLocale, Record<H
     uri: 'Uri',
     vallese: 'Valais',
     zurigo: 'Zurich',
+    argovia: 'Argovie',
+    'appenzello-interno': 'Appenzell Rhodes-Intérieures',
+    'appenzello-esterno': 'Appenzell Rhodes-Extérieures',
+    berna: 'Berne',
+    'basilea-campagna': 'Bâle-Campagne',
+    'basilea-citta': 'Bâle-Ville',
+    friborgo: 'Fribourg',
+    ginevra: 'Genève',
+    glarona: 'Glaris',
+    giura: 'Jura',
+    lucerna: 'Lucerne',
+    neuchatel: 'Neuchâtel',
+    nidvaldo: 'Nidwald',
+    obvaldo: 'Obwald',
+    'san-gallo': 'Saint-Gall',
+    sciaffusa: 'Schaffhouse',
+    soletta: 'Soleure',
+    svitto: 'Schwytz',
+    turgovia: 'Thurgovie',
+    vaud: 'Vaud',
+    zugo: 'Zoug',
   },
 };
 
 /**
- * URL slug per locale × canton. We keep proper-noun slugs stable where they
- * coincide (ticino, uri, zurigo) and use native forms where different
- * languages diverge (grigioni/grisons/graubuenden).
+ * URL slug per locale × canton. All slugs are ASCII-safe kebab-case (no
+ * diacritics, no spaces, no uppercase) to match search-engine URL hygiene
+ * and avoid percent-encoding in the canonical path.
+ *
+ * CRITICAL — do NOT change the slug strings for the original 5 cantons
+ * (ticino, grigioni, uri, vallese, zurigo). They are already indexed by
+ * Google under these exact URLs and any change would cause a 404 / de-index
+ * cascade. The 21 B-cont-2 cantons use native exonyms per locale (sciaffusa
+ * / schaffhausen / schaffhouse, etc.) to catch long-tail queries in each
+ * market's search language.
  */
 export const HEALTH_PREMIUM_CANTON_SLUG: Record<HealthPremiumLocale, Record<HealthPremiumCanton, string>> = {
   it: {
+    // Original 5 — slugs frozen, do NOT edit.
     ticino: 'ticino',
     grigioni: 'grigioni',
     uri: 'uri',
     vallese: 'vallese',
     zurigo: 'zurigo',
+    // B-cont-2 additions — Italian exonyms.
+    argovia: 'argovia',
+    'appenzello-interno': 'appenzello-interno',
+    'appenzello-esterno': 'appenzello-esterno',
+    berna: 'berna',
+    'basilea-campagna': 'basilea-campagna',
+    'basilea-citta': 'basilea-citta',
+    friborgo: 'friborgo',
+    ginevra: 'ginevra',
+    glarona: 'glarona',
+    giura: 'giura',
+    lucerna: 'lucerna',
+    neuchatel: 'neuchatel',
+    nidvaldo: 'nidvaldo',
+    obvaldo: 'obvaldo',
+    'san-gallo': 'san-gallo',
+    sciaffusa: 'sciaffusa',
+    soletta: 'soletta',
+    svitto: 'svitto',
+    turgovia: 'turgovia',
+    vaud: 'vaud',
+    zugo: 'zugo',
   },
   en: {
+    // Original 5 — slugs frozen.
     ticino: 'ticino',
     grigioni: 'graubunden',
     uri: 'uri',
     vallese: 'valais',
     zurigo: 'zurich',
+    // B-cont-2 additions — English forms.
+    argovia: 'aargau',
+    'appenzello-interno': 'appenzell-innerrhoden',
+    'appenzello-esterno': 'appenzell-ausserrhoden',
+    berna: 'bern',
+    'basilea-campagna': 'basel-landschaft',
+    'basilea-citta': 'basel-stadt',
+    friborgo: 'fribourg',
+    ginevra: 'geneva',
+    glarona: 'glarus',
+    giura: 'jura',
+    lucerna: 'lucerne',
+    neuchatel: 'neuchatel',
+    nidvaldo: 'nidwalden',
+    obvaldo: 'obwalden',
+    'san-gallo': 'st-gallen',
+    sciaffusa: 'schaffhausen',
+    soletta: 'solothurn',
+    svitto: 'schwyz',
+    turgovia: 'thurgau',
+    vaud: 'vaud',
+    zugo: 'zug',
   },
   de: {
+    // Original 5 — slugs frozen.
     ticino: 'tessin',
     grigioni: 'graubuenden',
     uri: 'uri',
     vallese: 'wallis',
     zurigo: 'zuerich',
+    // B-cont-2 additions — German forms (umlaut → oe/ae/ue transliteration).
+    argovia: 'aargau',
+    'appenzello-interno': 'appenzell-innerrhoden',
+    'appenzello-esterno': 'appenzell-ausserrhoden',
+    berna: 'bern',
+    'basilea-campagna': 'basel-landschaft',
+    'basilea-citta': 'basel-stadt',
+    friborgo: 'freiburg',
+    ginevra: 'genf',
+    glarona: 'glarus',
+    giura: 'jura',
+    lucerna: 'luzern',
+    neuchatel: 'neuenburg',
+    nidvaldo: 'nidwalden',
+    obvaldo: 'obwalden',
+    'san-gallo': 'st-gallen',
+    sciaffusa: 'schaffhausen',
+    soletta: 'solothurn',
+    svitto: 'schwyz',
+    turgovia: 'thurgau',
+    vaud: 'waadt',
+    zugo: 'zug',
   },
   fr: {
+    // Original 5 — slugs frozen.
     ticino: 'tessin',
     grigioni: 'grisons',
     uri: 'uri',
     vallese: 'valais',
     zurigo: 'zurich',
+    // B-cont-2 additions — French forms (accents stripped for URL hygiene).
+    argovia: 'argovie',
+    'appenzello-interno': 'appenzell-rhodes-interieures',
+    'appenzello-esterno': 'appenzell-rhodes-exterieures',
+    berna: 'berne',
+    'basilea-campagna': 'bale-campagne',
+    'basilea-citta': 'bale-ville',
+    friborgo: 'fribourg',
+    ginevra: 'geneve',
+    glarona: 'glaris',
+    giura: 'jura',
+    lucerna: 'lucerne',
+    neuchatel: 'neuchatel',
+    nidvaldo: 'nidwald',
+    obvaldo: 'obwald',
+    'san-gallo': 'saint-gall',
+    sciaffusa: 'schaffhouse',
+    soletta: 'soleure',
+    svitto: 'schwytz',
+    turgovia: 'thurgovie',
+    vaud: 'vaud',
+    zugo: 'zoug',
   },
 };
 
@@ -321,7 +590,7 @@ export interface HealthPremiumsPath {
 
 /**
  * Enumerate every canonical health-premium path across all locales.
- * Count: 4 locales × (1 root + 5 canton hubs + 30 leaves) = 144.
+ * Count: 4 locales × (1 root + 26 canton hubs + 156 leaves) = 732.
  */
 export function listHealthPremiumsPaths(): HealthPremiumsPath[] {
   const out: HealthPremiumsPath[] = [];
