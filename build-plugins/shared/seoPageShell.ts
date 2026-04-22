@@ -120,8 +120,22 @@ export interface SeoPageShellOpts {
    * `<div id="root">` without the default inner `<main class="static-job-page">`
    * wrap. Use this when `bodyHtml` already contains its own `<main>`
    * element (all 6 SEO feature plugins do).
+   *
+   * Ignored when {@link seoContentOutsideRoot} is true (the outside-root mode
+   * always emits its own `<main class="seo-static-content">` wrapper).
    */
   skipMainWrap?: boolean;
+  /**
+   * When true (DEFAULT for {@link buildSeoPageHtml}), the SEO content is
+   * emitted OUTSIDE `<div id="root">` so React's SPA hydration cannot
+   * visually replace it. See SimplePageOpts.seoContentOutsideRoot for the
+   * full rationale (fixes the bait-and-switch UX bug where a per-station
+   * fuel page would get replaced by the generic fuel comparator on hydrate).
+   *
+   * Set to false only for callers that genuinely need React to hydrate
+   * the SEO content area as part of the SPA tree (none currently).
+   */
+  seoContentOutsideRoot?: boolean;
 }
 
 /**
@@ -153,6 +167,10 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogType = 'website',
     distDir,
     skipMainWrap = true,
+    // Default ON for all SEO feature pages — keeps the static SEO content
+    // safe from React's hydration overwriting it inside `#root`. See
+    // SimplePageOpts.seoContentOutsideRoot for the full rationale.
+    seoContentOutsideRoot = true,
   } = opts;
 
   const assets = distDir ? resolveEntryAssets(distDir) : { entryJs: '', entryCss: '' };
@@ -172,6 +190,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     entryCss: assets.entryCss || undefined,
     bodyHtml,
     skipMainWrap,
+    seoContentOutsideRoot,
   };
 
   return buildSimplePage(simpleOpts);
