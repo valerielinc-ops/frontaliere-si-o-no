@@ -583,6 +583,154 @@ export function computeYoyDelta(opts: {
   };
 }
 
+// ── 3-year tri-year trend (B-cont-4) ───────────────────────────
+//
+// Wave A3 added a 2-year YoY (current vs prior). B-cont-4 extends the same
+// pattern to a 3-year trend (oldest → prior → current) that lets each
+// canton × age leaf show two consecutive YoY deltas plus a cumulative
+// 2-year percentage. The earliest year is OPTIONAL: callers must gracefully
+// degrade to the existing YoY-only rendering when no 2024 dataset is
+// available, exactly per CLAUDE.md rule #6 (no fake data).
+
+/**
+ * Median premium per age bracket across all insurers, both for the prior and
+ * the oldest years. Used by leaf and hub trend sparklines so we can plot
+ * the 3-year trajectory of the bracket median without recomputing inside the
+ * renderer.
+ */
+export interface BracketTrendPoint {
+  /** Calendar year (e.g. 2024). */
+  year: number;
+  /** Median standard premium across insurers (CHF/month). */
+  median: number | null;
+  /** Insurers that contributed to the median. */
+  insurers: number;
+}
+
+export interface BracketTrend {
+  riskClass: HealthPremiumRiskClass;
+  /** Always sorted oldest → newest (e.g. [2024, 2025, 2026]). */
+  points: BracketTrendPoint[];
+  /** Year-over-year percent: index i is `points[i+1]` vs `points[i]`. */
+  yoyPct: Array<number | null>;
+  /** Cumulative percent change from the oldest to the newest point. */
+  cumulativePct: number | null;
+}
+
+export interface TriYearCantonDelta {
+  /** Oldest year in the window (e.g. 2024). */
+  oldestYear: number;
+  priorYear: number;
+  currentYear: number;
+  byBracket: Record<HealthPremiumAgeBracket, BracketTrend | null>;
+  /** Median 2-year cumulative % across the adult bracket (ERW 31-45). */
+  adultCumulativePct: number | null;
+}
+
+function bracketMedian(
+  dataset: PremiumsJsonShape | null,
+  cantonCode: string,
+  riskClass: HealthPremiumRiskClass,
+): { median: number | null; insurers: number } {
+  if (!dataset) return { median: null, insurers: 0 };
+  const perInsurer = averageRealPremiumsForCanton(dataset, cantonCode, riskClass);
+  const values = Object.values(perInsurer).filter((v): v is number => Number.isFinite(v));
+  return { median: medianOf(values), insurers: values.length };
+}
+
+/**
+ * Compute the 3-year trend for a canton. The function tolerates a missing
+ * `oldest` dataset — when only `prior` + `current` are available it returns
+ * the same 2-point series so callers can still render a YoY arc but no
+ * tri-year cumulative point. Returns `null` when neither prior nor current
+ * carry data for the canton (no point worth plotting).
+ */
+export function computeTriYearDelta(opts: {
+  current: PremiumsJsonShape;
+  prior: PremiumsJsonShape | null;
+  oldest: PremiumsJsonShape | null;
+  cantonBagCode: string;
+}): TriYearCantonDelta | null {
+  const { current, prior, oldest, cantonBagCode } = opts;
+  if (!current.year) return null;
+
+  const byBracket = {} as Record<HealthPremiumAgeBracket, BracketTrend | null>;
+  let hasAnyTrend = false;
+
+  for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
+    const rc = HEALTH_PREMIUM_BRACKET_RISK_CLASS[ab.id];
+    const points: BracketTrendPoint[] = [];
+
+    if (oldest?.year) {
+      const m = bracketMedian(oldest, cantonBagCode, rc);
+      if (m.median !== null) points.push({ year: oldest.year, median: m.median, insurers: m.insurers });
+    }
+    if (prior?.year) {
+      const m = bracketMedian(prior, cantonBagCode, rc);
+      if (m.median !== null) points.push({ year: prior.year, median: m.median, insurers: m.insurers });
+    }
+    {
+      const m = bracketMedian(current, cantonBagCode, rc);
+      if (m.median !== null) points.push({ year: current.year, median: m.median, insurers: m.insurers });
+    }
+
+    // Need at least 2 anchor points (one YoY) to render a trend; otherwise
+    // there is nothing meaningful and the bracket gets a null.
+    if (points.length < 2) {
+      byBracket[ab.id] = null;
+      continue;
+    }
+    points.sort((a, b) => a.year - b.year);
+    const yoyPct: Array<number | null> = [];
+    for (let i = 1; i < points.length; i++) {
+      yoyPct.push(pctDelta(points[i].median!, points[i - 1].median!));
+    }
+    const first = points[0].median!;
+    const last = points[points.length - 1].median!;
+    const cumulativePct = pctDelta(last, first);
+    byBracket[ab.id] = {
+      riskClass: rc,
+      points,
+      yoyPct,
+      cumulativePct,
+    };
+    hasAnyTrend = true;
+  }
+
+  if (!hasAnyTrend) return null;
+
+  const oldestYear = oldest?.year ?? prior?.year ?? current.year;
+  const priorYear = prior?.year ?? current.year;
+  const adult = byBracket['31-45'];
+  return {
+    oldestYear,
+    priorYear,
+    currentYear: current.year,
+    byBracket,
+    adultCumulativePct: adult?.cumulativePct ?? null,
+  };
+}
+
+/**
+ * Convenience helper: load up to 3 years of premium datasets. Returns the
+ * raw datasets so callers can compose richer views without re-reading from
+ * disk. `currentYear` defaults to the calendar year.
+ */
+export function loadPriorTwoYearsForBracket(
+  rootDir: string,
+  currentYear: number = new Date().getUTCFullYear(),
+): {
+  current: PremiumsJsonShape | null;
+  prior: PremiumsJsonShape | null;
+  oldest: PremiumsJsonShape | null;
+} {
+  return {
+    current: loadPremiumsForYear(rootDir, currentYear),
+    prior: loadPremiumsForYear(rootDir, currentYear - 1),
+    oldest: loadPremiumsForYear(rootDir, currentYear - 2),
+  };
+}
+
 // ── BAG age-bracket multipliers (FALLBACK ONLY) ────────────────
 //
 // Since F2-LAMal real data wiring, the dataset persists per-insurer premiums
