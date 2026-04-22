@@ -1,18 +1,49 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-22T10:27:06.688Z",
+  "generatedAt": "2026-04-22T22:09:47.778Z",
   "total": 3,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 14667,
-  "avgDurationMs": 14667,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 13108,
+  "avgDurationMs": 13108,
   "durationHistory": [
-    14667
+    13108
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Operatore Trattamenti Reflui",
+      "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "production",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-22",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Metal &amp; Inventory Controller",
@@ -52,8 +83,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
       "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro",
@@ -90,7 +120,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
       "slug": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro",
