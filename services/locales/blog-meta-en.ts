@@ -2484,6 +2484,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-trasporto-pubblico-priorita.title': 'Public transport: the challenge for Ticino',
     'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO of a transport company, emphasizes the importance of investing in public transport to tackle the traffic challenges in Ticino.',
     'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Public transportation in Lugano with buses and trains in the foreground',
+    'blog.article.omaggio-angeli-ponte-chiasso.title': 'Como, tribute to the Angels of Ponte Chiasso: symbolic plaque unveiled',
+    'blog.article.omaggio-angeli-ponte-chiasso.excerpt': 'Finally, a plaque in honor of the Angels who saved lives during World War II has been unveiled in Ponte Chiasso. Here are the details.',
+    'blog.article.omaggio-angeli-ponte-chiasso.imageAlt': 'View of the Ponte Chiasso border with the Customs building',
 };
 
 export default blogMetaEn;

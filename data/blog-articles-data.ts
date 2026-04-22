@@ -6776,4 +6776,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ticino-trasporto-pubblico-priorita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'omaggio-angeli-ponte-chiasso',
+ category: 'novita',
+ date: '2026-04-22T08:10:25.220Z',
+ image: '/images/blog/omaggio-angeli-ponte-chiasso.jpg',
+ hasCalculator: true,
+ },
 ];

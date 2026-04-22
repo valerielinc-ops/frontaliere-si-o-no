@@ -2484,6 +2484,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-trasporto-pubblico-priorita.title': 'Trasporto pubblico: la sfida per il Ticino',
     'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO di un\'azienda di trasporti, sottolinea l\'importanza di investire nel trasporto pubblico per affrontare le sfide del traffico in Ticino.',
     'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Trasporto pubblico a Lugano con autobus e treni in primo piano',
+    'blog.article.omaggio-angeli-ponte-chiasso.title': 'Como, omaggio agli Angeli di Ponte Chiasso: posata la targa simbolica',
+    'blog.article.omaggio-angeli-ponte-chiasso.excerpt': 'Finalmente a Ponte Chiasso viene posata la targa in onore degli Angeli che salvarono vite durante la Seconda Guerra Mondiale. Ecco i dettagli.',
+    'blog.article.omaggio-angeli-ponte-chiasso.imageAlt': 'Vista del confine di Ponte Chiasso con l\'edificio della Dogana',
 };
 
 export default blogMetaIt;

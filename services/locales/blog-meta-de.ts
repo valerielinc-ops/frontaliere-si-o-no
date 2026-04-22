@@ -2484,6 +2484,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-trasporto-pubblico-priorita.title': 'Öffentlicher Verkehr: die Herausforderung für den Tessin',
     'blog.article.ticino-trasporto-pubblico-priorita.excerpt': 'Nils Planzer, CEO eines Verkehrsunternehmens, betont die Wichtigkeit von Investitionen in den öffentlichen Verkehr, um die Verkehrsherausforderungen im Tessin zu bewältigen.',
     'blog.article.ticino-trasporto-pubblico-priorita.imageAlt': 'Öffentlicher Verkehr in Lugano mit Bussen und Zügen im Vordergrund',
+    'blog.article.omaggio-angeli-ponte-chiasso.title': 'Como, Hommage an die Engel von Ponte Chiasso: Symbolische Plakette angebracht',
+    'blog.article.omaggio-angeli-ponte-chiasso.excerpt': 'Endlich wird in Ponte Chiasso eine Plakette zu Ehren der Engel angebracht, die während des Zweiten Weltkriegs Leben retteten. Hier sind die Details.',
+    'blog.article.omaggio-angeli-ponte-chiasso.imageAlt': 'Ansicht der Grenze von Ponte Chiasso mit dem Zollgebäude',
 };
 
 export default blogMetaDe;

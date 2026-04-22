@@ -10877,6 +10877,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-omaggio-angeli-ponte-chiasso': {
+    title: 'Como, omaggio agli Angeli di Ponte | Frontaliere Ticino',
+    description: 'Finalmente a Ponte Chiasso viene posata la targa in onore degli Angeli che salvarono vite durante la Seconda Guerra Mondiale. Ecco i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, omaggio, agli, angeli',
+    ogTitle: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    ogDescription: 'Finalmente a Ponte Chiasso viene posata la targa in onore degli Angeli che salvarono vite durante la Seconda Guerra Mondiale. Ecco i dettagli.',
+    canonicalPath: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Omaggio agli Angeli di Ponte Chiasso: posata la targa simbolica",
+      "description": "Finalmente a Ponte Chiasso viene posata la targa in onore degli Angeli che salvarono vite durante la Seconda Guerra Mondiale. Ecco i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/omaggio-angeli-ponte-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del confine di Ponte Chiasso con l'edificio della Dogana"
+      },
+      "datePublished": "2026-04-22T08:10:25+00:00",
+      "dateModified": "2026-04-22T08:10:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

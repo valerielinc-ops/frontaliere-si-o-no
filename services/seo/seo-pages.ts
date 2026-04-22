@@ -4257,7 +4257,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 879,
+ "numberOfItems": 880,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5114,7 +5114,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 876, "name": "Donna in arte a Chiasso | Frontaliere Ticino", "url": `${BASE_URL}/articoli-frontaliere/donne-arte-chiasso-2026` },
           { "@type": "ListItem", "position": 877, "name": "Varese: Nuovi bandi 2026 della Camera di Commer...", "url": `${BASE_URL}/articoli-frontaliere/cameradi-commercio-2026-integrazione` },
           { "@type": "ListItem", "position": 878, "name": "Basiletti accede al main draw: vittoria a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/basiletti-main-draw-chiasso-2026` },
-          { "@type": "ListItem", "position": 879, "name": "Trasporto pubblico: la sfida per il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ticino-trasporto-pubblico-priorita` }
+          { "@type": "ListItem", "position": 879, "name": "Trasporto pubblico: la sfida per il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ticino-trasporto-pubblico-priorita` },
+          { "@type": "ListItem", "position": 880, "name": "Omaggio agli Angeli di Ponte Chiasso: posata la...", "url": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso` }
  ]
  },
  {
