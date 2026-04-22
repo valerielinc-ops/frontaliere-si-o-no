@@ -1,18 +1,19 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-04-21T21:41:59.771Z",
+  "generatedAt": "2026-04-22T10:01:07.562Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3845,
-  "avgDurationMs": 3845,
+  "durationMs": 4108,
+  "avgDurationMs": 4108,
   "durationHistory": [
-    3845
+    4108
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "giardino-c0a1ee2b00de",
       "slug": "demichef-de-partie-giardino-group-ascona",
@@ -25,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-21T21:41:57.797Z",
+      "crawledAt": "2026-04-22T10:01:05.569Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-04-21",
       "applyUrl": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-04-21T21:41:57.797Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "giardino-4c0dd2545c09",
       "slug": "steward-giardino-group-ascona",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-21T21:41:57.798Z",
+      "crawledAt": "2026-04-22T10:01:05.570Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -98,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-21T21:41:57.798Z",
+      "crawledAt": "2026-04-22T10:01:05.570Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -134,7 +134,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-21T21:41:57.797Z",
+      "crawledAt": "2026-04-22T10:01:05.569Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
