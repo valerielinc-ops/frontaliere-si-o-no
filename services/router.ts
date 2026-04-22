@@ -49,7 +49,7 @@ import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath }
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati' | 'chi-siamo';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -627,6 +627,8 @@ interface SlugTable {
  sindacati: string;
  // Definitive guide page (SEO pillar content)
  guidaCompleta: string;
+ // Taxation hub pillar page (SEO pillar content — P4)
+ tassazioneHub: string;
  // legacy slugs (for backward compat parsing)
  costs: string;
  salarySurvey: string;
@@ -718,6 +720,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contracts: 'contratti-lavoro-svizzera',
  sindacati: 'sindacati-frontalieri',
  guidaCompleta: 'guida-completa-lavoro-frontaliere-svizzera-2026',
+ tassazioneHub: 'guida-tassazione-frontalieri-2026',
  tfrCalculator: 'tfr-liquidazione-frontaliere',
  permitQuiz: 'quiz-permesso-b-o-g',
  tredicesima: 'calcolo-tredicesima-frontaliere',
@@ -822,6 +825,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  chiSiamo: 'about-us',
  sindacati: 'trade-unions-cross-border-workers',
  guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
+ tassazioneHub: 'cross-border-taxation-guide-2026',
  costs: 'commuting-costs',
  salarySurvey: 'salary-survey',
  comparatori: 'comparators',
@@ -918,6 +922,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  chiSiamo: 'ueber-uns',
  sindacati: 'gewerkschaften-grenzgaenger',
  guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
+ tassazioneHub: 'grenzgaenger-besteuerung-leitfaden-2026',
  costs: 'pendelkosten',
  salarySurvey: 'gehaltsumfrage',
  comparatori: 'vergleiche',
@@ -1014,6 +1019,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  chiSiamo: 'a-propos',
  sindacati: 'syndicats-frontaliers',
  guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
+ tassazioneHub: 'guide-imposition-frontaliers-2026',
  costs: 'couts-pendulaire',
  salarySurvey: 'sondage-salaires',
  comparatori: 'comparateurs',
@@ -1490,6 +1496,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.emailConfirmed]: { tab: 'email-confirmed' },
  [table.admin]: { tab: 'admin' },
  [table.sindacati]: { tab: 'sindacati' },
+ [table.tassazioneHub]: { tab: 'tassazione-hub' },
  [table.whatif]: { tab: 'calculator', sub: 'whatif' },
  [table.payslip]: { tab: 'calculator', sub: 'payslip' },
  };
@@ -2164,6 +2171,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
  case 'sindacati':
  return finish(`${prefix}/${table.sindacati}${hashSuffix}`);
+ case 'tassazione-hub':
+ return finish(`${prefix}/${table.tassazioneHub}${hashSuffix}`);
  case 'data-deletion':
  return finish(`${prefix}/${table.dataDeletion}${hashSuffix}`);
  case 'api-status':
@@ -2333,6 +2342,8 @@ export function getSeoSection(route: AppRoute): string {
  return 'tool-of-week';
  case 'email-confirmed':
  return 'email-confirmed';
+ case 'tassazione-hub':
+ return 'tassazione-hub';
  default:
  return route.activeTab;
  }
