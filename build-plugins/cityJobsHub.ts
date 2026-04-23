@@ -16,23 +16,25 @@ import type { JobBoardLocale } from './jobBoardSeo';
 import { buildCityHubTitle } from '../services/seo/job-board-titles';
 import { buildCityHubMeta } from '../services/seo/meta-descriptions';
 
-export type CityHubKey = 'lugano' | 'mendrisio' | 'bellinzona';
+export type CityHubKey = 'lugano' | 'mendrisio' | 'bellinzona' | 'locarno' | 'chiasso';
 
-export const CITY_HUB_KEYS: readonly CityHubKey[] = ['lugano', 'mendrisio', 'bellinzona'] as const;
+export const CITY_HUB_KEYS: readonly CityHubKey[] = ['lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso'] as const;
 
 /** Display name for each city (used in breadcrumbs and headings). */
 export const CITY_HUB_DISPLAY_NAME: Record<CityHubKey, string> = {
   lugano: 'Lugano',
   mendrisio: 'Mendrisio',
   bellinzona: 'Bellinzona',
+  locarno: 'Locarno',
+  chiasso: 'Chiasso',
 };
 
 /** Per-locale URL slug for each city. Italian-friendly proper nouns — same across locales. */
 export const CITY_HUB_SLUG: Record<JobBoardLocale, Record<CityHubKey, string>> = {
-  it: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona' },
-  en: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona' },
-  de: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona' },
-  fr: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona' },
+  it: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
+  en: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
+  de: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
+  fr: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
 };
 
 /** Section root slug per locale (same as job-board landing). */
@@ -212,7 +214,7 @@ export function jobMatchesCity(job: CityCountableJob, city: CityHubKey): boolean
 export function countCityJobsByLocale(
   jobs: readonly CityCountableJob[],
 ): Record<JobBoardLocale, Record<CityHubKey, number>> {
-  const empty: Record<CityHubKey, number> = { lugano: 0, mendrisio: 0, bellinzona: 0 };
+  const empty: Record<CityHubKey, number> = { lugano: 0, mendrisio: 0, bellinzona: 0, locarno: 0, chiasso: 0 };
   const counts: Record<JobBoardLocale, Record<CityHubKey, number>> = {
     it: { ...empty },
     en: { ...empty },

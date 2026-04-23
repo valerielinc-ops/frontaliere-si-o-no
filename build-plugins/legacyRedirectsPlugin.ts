@@ -170,6 +170,17 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // FR: old slugs
  '/fr/calculateur-salaire/': '/fr/calculer-salaire/',
 
+ // ── Semrush 4xx (2026-04-23) — FR legacy paths reported as 404 ──
+ // Cluster B: missing FR slugs + slug variants Google indexed.
+ '/fr/glossaire/': '/fr/glossaire-frontalier/',
+ '/fr/comparer-services/assurance-maladie/': '/fr/comparer-services/comparer-caisses-maladie/',
+ '/fr/salaires-frontaliers-tessin/': '/fr/statistiques/comparer-salaires/',
+ '/fr/primes-assurance-maladie/ticino/': '/fr/primes-assurance-maladie-communes/ticino/',
+ '/fr/prix-diesel/aujourdhui/': '/fr/prix-gasoil-suisse/aujourd-hui/',
+ '/fr/prix-diesel/aujourd-hui/': '/fr/prix-gasoil-suisse/aujourd-hui/',
+ // FR recency-hub slug variant Google indexed (/3-derniers-jours/ → canonical /derniers-3-jours/)
+ '/fr/trouver-emploi-tessin/3-derniers-jours/': '/fr/trouver-emploi-tessin/derniers-3-jours/',
+
  // Job slugs migrated from German to Italian
  '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni/',
  '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni/',
