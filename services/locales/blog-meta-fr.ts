@@ -2541,6 +2541,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Les Grisons changent de pratique pour les permis de séjour : nouvelles règles après l\'affaire Roveredo',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Déclaration obligatoire des antécédents pénaux et des procédures en cours pour les demandeurs de permis de séjour dans le canton des Grisons',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'En Ticino, l\'écart salarial entre résidents et frontaliers est de 19%',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'L\'étude de l\'Office de statistique du canton du Ticino révèle un écart salarial de 19,4% entre frontaliers et résidents, avec une légère réduction par rapport à 2022.',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et paysage urbain',
 };
 
 export default blogMetaFr;

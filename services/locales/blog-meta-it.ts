@@ -2541,6 +2541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Grigioni cambia prassi per i permessi di dimora: nuove regole dopo l\'affaire Roveredo',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Dichiarazione obbligatoria di precedenti penali e procedimenti in corso per i richiedenti permessi di dimora nel Canton Grigioni',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'In Ticino il divario salariale tra residenti e frontalieri è del 19%',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'Lo studio dell\'Ufficio di statistica del Canton Ticino rivela un divario salariale del 19,4% tra frontalieri e residenti, con una lieve riduzione rispetto al 2022.',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Vista aerea del lago di Lugano con montagne e paesaggio urbano',
 };
 
 export default blogMetaIt;

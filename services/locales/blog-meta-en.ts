@@ -2541,6 +2541,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Graubünden changes residence permit procedures: new rules following the Roveredo affair',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Mandatory declaration of criminal records and ongoing proceedings for residence permit applicants in the Canton of Graubünden',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'In Ticino, the wage gap between residents and cross-border workers is 19%',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'The study by the Canton Ticino\'s Statistical Office reveals a 19.4% wage gap between cross-border workers and residents, with a slight reduction compared to 2022.',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and cityscape',
 };
 
 export default blogMetaEn;

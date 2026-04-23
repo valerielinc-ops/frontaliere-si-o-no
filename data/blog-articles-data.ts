@@ -6909,4 +6909,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/permessi-dimora-grigioni-cambia-prassi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'divario-salariale-frontalieri-ticino-2026',
+ category: 'novita',
+ date: '2026-04-23T16:05:48.097Z',
+ image: '/images/blog/divario-salariale-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ];

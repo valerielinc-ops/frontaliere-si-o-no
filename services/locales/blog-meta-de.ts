@@ -2541,6 +2541,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Graubünden ändert Praxis für Aufenthaltsbewilligungen: Neue Regeln nach dem Fall Roveredo',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Verpflichtende Erklärung von Vorstrafen und laufenden Verfahren für Antragsteller von Aufenthaltsbewilligungen im Kanton Graubünden',
     'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'In Ticino beträgt die Lohnlücke zwischen Grenzgängern und Einheimischen 19%',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'Die Studie des Statistischen Amtes des Kantons Ticino zeigt eine Lohnlücke von 19,4% zwischen Grenzgängern und Einheimischen, mit einer leichten Reduktion im Vergleich zu 2022.',
+    'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Stadtpanorama',
 };
 
 export default blogMetaDe;

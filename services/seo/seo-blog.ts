@@ -11428,6 +11428,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divario-salariale-frontalieri-ticino-2026': {
+    title: 'In Ticino il divario salariale tra | Frontaliere Ticino',
+    description: 'Scopri il divario salariale tra frontalieri e residenti in Ticino nel 2026, con dati e analisi dell\'Ufficio di statistica del Canton Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, residenti, studio',
+    ogTitle: 'Divario salariale frontalieri Ticino 2026',
+    ogDescription: 'Scopri il divario salariale tra frontalieri e residenti in Ticino nel 2026, con dati e analisi dell\'Ufficio di statistica del Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/divario-salariale-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale frontalieri Ticino 2026",
+      "description": "Scopri il divario salariale tra frontalieri e residenti in Ticino nel 2026, con dati e analisi dell'Ufficio di statistica del Canton Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divario-salariale-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano con montagne e paesaggio urbano"
+      },
+      "datePublished": "2026-04-23T16:05:48+00:00",
+      "dateModified": "2026-04-23T16:05:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divario-salariale-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
