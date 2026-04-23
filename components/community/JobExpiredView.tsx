@@ -17,6 +17,7 @@ import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, save
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
+import { handleCompanyLogoError } from '@/services/logoService';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
@@ -318,7 +319,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  height={48}
  className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
  loading="lazy"
- onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
+ onError={handleCompanyLogoError}
  />
  )}
  <div className="flex-1 min-w-0">
@@ -364,7 +365,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
  {logoUrl ? (
- <img src={logoUrl} alt={`Logo ${job.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ <img src={logoUrl} alt={`Logo ${job.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-4 h-4 text-muted" />
  )}
@@ -403,7 +404,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
  {rjLogo ? (
- <img src={rjLogo} alt={`Logo ${rj.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ <img src={rjLogo} alt={`Logo ${rj.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}

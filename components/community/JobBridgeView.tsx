@@ -16,6 +16,7 @@ import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, save
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
+import { handleCompanyLogoError } from '@/services/logoService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
 
@@ -376,7 +377,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
  {companyLogo ? (
- <img src={companyLogo} alt={`Logo ${jobData.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ <img src={companyLogo} alt={`Logo ${jobData.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-4 h-4 text-muted" />
  )}
@@ -417,7 +418,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
  {rjLogo ? (
- <img src={rjLogo} alt={`Logo ${rj.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ <img src={rjLogo} alt={`Logo ${rj.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}

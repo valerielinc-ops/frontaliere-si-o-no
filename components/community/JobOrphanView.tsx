@@ -18,6 +18,7 @@ import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, save
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
+import { handleCompanyLogoError } from '@/services/logoService';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -380,14 +381,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  width={28}
  height={28}
  loading="lazy"
- onError={(e) => {
- const el = e.currentTarget;
- if (el.src.includes('logo.clearbit.com')) {
- el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`;
- } else {
- el.style.visibility = 'hidden';
- }
- }}
+ onError={handleCompanyLogoError}
  />
  ) : (
  <Building2 className="w-4 h-4 text-muted" />

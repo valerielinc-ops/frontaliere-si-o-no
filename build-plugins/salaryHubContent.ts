@@ -147,7 +147,7 @@ const IT: Labels = {
     return `Su base mensile, un residente in Svizzera con questo reddito netta circa CHF ${fmtCHF(monthCH)}, mentre un frontaliere italiano riceve uno stipendio netto svizzero che convertito corrisponde a circa EUR ${fmtEUR(monthIT * rate)}/mese (al cambio CHF/EUR ${rate.toFixed(3)}). La differenza mensile è di circa ${r.savingsCHF > 0 ? `CHF ${fmtCHF(Math.abs(r.savingsCHF / 12))} a favore del frontaliere` : `CHF ${fmtCHF(Math.abs(r.savingsCHF / 12))} a favore del residente`}.`;
   },
   tipsExplain: (_s, _r) =>
-    `Per ottimizzare il cambio CHF-EUR sullo stipendio, servizi come <a href="/go/wise/" rel="nofollow">Wise</a> o <a href="/go/fineco/" rel="nofollow">Fineco</a> offrono tassi di cambio più vantaggiosi rispetto alle banche tradizionali, con commissioni trasparenti. Se ricevi lo stipendio in CHF, convertire tramite questi servizi può farti risparmiare centinaia di euro all'anno rispetto al cambio bancario standard.`,
+    `Per ottimizzare il cambio CHF-EUR sullo stipendio, servizi come <a href="/go/wise/" rel="sponsored">Wise</a> o <a href="/go/fineco/" rel="sponsored">Fineco</a> offrono tassi di cambio più vantaggiosi rispetto alle banche tradizionali, con commissioni trasparenti. Se ricevi lo stipendio in CHF, convertire tramite questi servizi può farti risparmiare centinaia di euro all'anno rispetto al cambio bancario standard.`,
   metaTitle: (s) => {
     const parts = [`Stipendio netto ${fmtCHF(s.salary)} CHF frontaliere`];
     if (s.maritalStatus === 'MARRIED') parts.push('sposato');
@@ -241,7 +241,7 @@ const EN: Labels = {
   budgetExplain: (s, r) =>
     `Monthly, a Swiss resident nets approximately CHF ${fmtCHF(r.chResident.netIncomeMonthly)}, while an Italian cross-border worker receives about EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month (at CHF/EUR ${r.exchangeRate.toFixed(3)}).`,
   tipsExplain: (_s, _r) =>
-    `To optimize your CHF-EUR conversion, services like <a href="/go/wise/" rel="nofollow">Wise</a> or <a href="/go/fineco/" rel="nofollow">Fineco</a> offer better exchange rates than traditional banks.`,
+    `To optimize your CHF-EUR conversion, services like <a href="/go/wise/" rel="sponsored">Wise</a> or <a href="/go/fineco/" rel="sponsored">Fineco</a> offer better exchange rates than traditional banks.`,
   metaTitle: (s) => `Net salary ${fmtCHF(s.salary)} CHF cross-border worker${s.maritalStatus === 'MARRIED' ? ' married' : ''}${s.children > 0 ? ` ${s.children} children` : ''} | 2026 Simulation`,
   metaDesc: (s, r) => `With CHF ${fmtCHF(s.salary)} gross, a ${s.frontierType === 'OLD' ? 'old' : 'new'} cross-border worker nets approximately EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month. 2026 simulation with full tax breakdown.`,
   h1: (s) => {
