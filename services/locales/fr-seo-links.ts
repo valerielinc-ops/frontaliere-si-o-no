@@ -9,6 +9,18 @@ const frSeoLinks: Record<string, string> = {
   'seoLinks.footer.healthPremiums': 'Primes assurance-maladie',
   'seoLinks.footer.newYesterday': 'Nouvelles offres depuis hier',
 
+  // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
+  'seoLinks.footer.weeklyEmployersTeaser.title': 'Entreprises qui recrutent cette semaine',
+
+  // Homepage Quick Links grid (reduces crawl depth of border-wait + fuel pages)
+  'seoLinks.quickLinks.title': 'Liens rapides',
+  'seoLinks.quickLinks.ariaLabel': 'Liens rapides vers les pages les plus consultées',
+  'seoLinks.quickLinks.trafficHub': 'Temps d\'attente aux douanes',
+  'seoLinks.quickLinks.trafficHubDesc': 'Temps d\'attente en temps réel aux passages frontaliers',
+  'seoLinks.quickLinks.fuelToday': 'Prix du gasoil aujourd\'hui',
+  'seoLinks.quickLinks.fuelTodayDesc': 'Mis à jour chaque matin',
+  'seoLinks.quickLinks.crossingDesc': 'Temps d\'attente aujourd\'hui',
+
   // Home banner (SeoDailyBanner)
   'seoLinks.banner.fuelTitle': 'Prix du gasoil aujourd\'hui',
   'seoLinks.banner.fuelDesc': 'Mis à jour chaque matin pour tout le Tessin',

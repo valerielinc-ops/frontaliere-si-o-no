@@ -64,6 +64,8 @@ const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWe
 const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
 const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
 const SeoDailyBanner = lazyRetry(() => import('@/components/shared/SeoDailyBanner'));
+const QuickLinksGrid = lazyRetry(() => import('@/components/shared/QuickLinksGrid'));
+const WeeklyEmployersTeaser = lazyRetry(() => import('@/components/shared/WeeklyEmployersTeaser'));
 
 // Lazy tab content components (FRO-367): each owns its own sub-components + rendering.
 // This moves InputCard, MobileCalcLayout, FrontierGuide, and 40+ other components
@@ -2088,9 +2090,14 @@ const App: React.FC = () => {
  ) : activeTab === 'calculator' ? (
  <>
  {calcolatoreSubTab === 'calculator' && !seoLanding && (
+ <>
  <Suspense fallback={null}>
  <SeoDailyBanner className="mb-4" />
  </Suspense>
+ <Suspense fallback={null}>
+ <QuickLinksGrid className="mb-6" />
+ </Suspense>
+ </>
  )}
  <CalcolatoreTabContent />
  </>
@@ -2355,6 +2362,10 @@ const App: React.FC = () => {
  <span className="text-subtle mx-2">|</span>
  {t('footer.disclaimer')}
  </p>
+ {/* Layer 2B — Close orphan sitemap: top weekly {company × city} pages. */}
+ <Suspense fallback={null}>
+ <WeeklyEmployersTeaser />
+ </Suspense>
  {/* Layer 2A — Internal linking: freshly-updated SEO resources, desktop + mobile */}
  <nav
  aria-label={t('seoLinks.footer.title')}

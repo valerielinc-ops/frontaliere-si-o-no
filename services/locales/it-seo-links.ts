@@ -15,6 +15,18 @@ const translations: Record<string, string> = {
   'seoLinks.footer.healthPremiums': 'Premi cassa malati',
   'seoLinks.footer.newYesterday': 'Nuove offerte da ieri',
 
+  // Footer weekly-employers teaser (closes 4.5k orphan sitemap entries)
+  'seoLinks.footer.weeklyEmployersTeaser.title': 'Aziende che assumono questa settimana',
+
+  // Homepage Quick Links grid (reduces crawl depth of /traffico-dogane/* + fuel)
+  'seoLinks.quickLinks.title': 'Link veloci',
+  'seoLinks.quickLinks.ariaLabel': 'Link veloci alle pagine più richieste',
+  'seoLinks.quickLinks.trafficHub': 'Traffico dogane',
+  'seoLinks.quickLinks.trafficHubDesc': 'Tempi di attesa ai valichi in tempo reale',
+  'seoLinks.quickLinks.fuelToday': 'Prezzi diesel oggi',
+  'seoLinks.quickLinks.fuelTodayDesc': 'Aggiornati ogni mattina',
+  'seoLinks.quickLinks.crossingDesc': 'Tempi di attesa oggi',
+
   // Home banner (SeoDailyBanner)
   'seoLinks.banner.fuelTitle': 'Prezzo diesel oggi',
   'seoLinks.banner.fuelDesc': 'Aggiornato ogni mattina per tutto il Ticino',
