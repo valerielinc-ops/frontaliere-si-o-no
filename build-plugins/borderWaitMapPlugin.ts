@@ -34,6 +34,13 @@ import {
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
+  TABLE_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
+  CTA_PRIMARY_STYLE,
+  LINK_ACCENT_STYLE,
+} from './shared/seoContentTokens';
+import {
   BORDER_WAIT_CROSSINGS,
   BORDER_CROSSING_DISPLAY,
   CROSSING_TO_REGION,
@@ -304,18 +311,18 @@ function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
     const regionLabel = region === 'ticino-como' ? copy.comoRegionLabel : copy.vareseRegionLabel;
     const liveUrl = buildCrossingLiveUrl(slug, locale);
     return `<tr>
-      <td style="padding:10px 14px;border-bottom:1px solid var(--surface-border,#e2e8f0);font-weight:600;color:var(--text-base,#0f172a)">${esc(name)}</td>
-      <td style="padding:10px 14px;border-bottom:1px solid var(--surface-border,#e2e8f0);color:var(--text-muted,#475569);font-size:14px">${esc(regionLabel)}</td>
-      <td style="padding:10px 14px;border-bottom:1px solid var(--surface-border,#e2e8f0)"><a href="${esc(liveUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none;font-weight:600">${esc(copy.liveLink)}</a></td>
+      <td style="${TABLE_CELL_STYLE};font-weight:600">${esc(name)}</td>
+      <td style="${TABLE_CELL_STYLE};color:var(--color-subtle)">${esc(regionLabel)}</td>
+      <td style="${TABLE_CELL_STYLE}"><a href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.liveLink)}</a></td>
     </tr>`;
   }).join('');
 
-  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff);margin:12px 0 24px">
-    <table style="width:100%;border-collapse:collapse;font-size:15px">
+  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface);margin:12px 0 24px">
+    <table style="${TABLE_STYLE};font-size:15px">
       <thead><tr>
-        <th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--surface-border,#e2e8f0);font-size:13px;color:var(--text-muted,#475569);text-transform:uppercase">${esc(copy.crossingColumn)}</th>
-        <th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--surface-border,#e2e8f0);font-size:13px;color:var(--text-muted,#475569);text-transform:uppercase">${esc(copy.regionColumn)}</th>
-        <th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--surface-border,#e2e8f0);font-size:13px;color:var(--text-muted,#475569);text-transform:uppercase">${esc(copy.liveColumn)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.crossingColumn)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.regionColumn)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.liveColumn)}</th>
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
@@ -356,7 +363,7 @@ function renderPage(opts: {
   // Embed iframe snippet — points to the hub (not the map hub itself) so the
   // widget stays generic and can be placed on any third-party site.
   const iframeSnippet = `&lt;iframe src="${hubUrl}" width="100%" height="680" style="border:0;border-radius:12px;box-shadow:0 2px 8px rgba(15,23,42,0.08)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(copy.h1)}"&gt;&lt;/iframe&gt;
-&lt;p style="font-size:12px;color:#64748b;margin-top:4px"&gt;Source: &lt;a href="${canonicalUrl}" rel="nofollow noopener"&gt;Frontaliere Ticino&lt;/a&gt;&lt;/p&gt;`;
+&lt;p style="font-size:12px;color:var(--color-subtle);margin-top:4px"&gt;Source: &lt;a href="${canonicalUrl}" rel="nofollow noopener"&gt;Frontaliere Ticino&lt;/a&gt;&lt;/p&gt;`;
 
   // Embed JSON-LD
   const breadcrumbLd = JSON.stringify({
@@ -411,28 +418,28 @@ function renderPage(opts: {
   });
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <nav style="margin:0 0 14px;font-size:13px;color:var(--color-subtle)">
+      <a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(guideUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbGuide)}</a>
+      <a href="${esc(guideUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbGuide)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
     <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
       <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0 0 14px;color:var(--text-base,#0f172a);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.ledeP1)}</p>
-      <p style="margin:0;color:var(--text-base,#0f172a);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.ledeP2)}</p>
+      <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.ledeP1)}</p>
+      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.ledeP2)}</p>
     </header>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.crossingsH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.crossingsP)}</p>
+      <h2 style="margin:0 0 10px;font-size:24px;color:var(--color-heading)">${esc(copy.crossingsH2)}</h2>
+      <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.65;max-width:860px">${esc(copy.crossingsP)}</p>
       ${crossingsTable}
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.bestTimesH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.bestTimesP)}</p>
-      <ul style="margin:0 0 0 20px;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">
+      <h2 style="margin:0 0 10px;font-size:24px;color:var(--color-heading)">${esc(copy.bestTimesH2)}</h2>
+      <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.65;max-width:860px">${esc(copy.bestTimesP)}</p>
+      <ul style="margin:0 0 0 20px;color:var(--color-body);line-height:1.65;max-width:860px">
         <li style="margin:0 0 10px">${esc(copy.bestTime1)}</li>
         <li style="margin:0 0 10px">${esc(copy.bestTime2)}</li>
         <li style="margin:0 0 10px">${esc(copy.bestTime3)}</li>
@@ -440,39 +447,39 @@ function renderPage(opts: {
       </ul>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.historyH2)}</h2>
-      <p style="margin:0;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">${esc(copy.historyP)}</p>
+      <h2 style="margin:0 0 10px;font-size:24px;color:var(--color-heading)">${esc(copy.historyH2)}</h2>
+      <p style="margin:0;color:var(--color-body);line-height:1.65;max-width:860px">${esc(copy.historyP)}</p>
     </section>
-    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--surface-accent,#eef2ff);border:1px solid var(--surface-border,#c7d2fe)">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.embedH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">${esc(copy.embedP)}</p>
-      <p style="margin:0 0 8px;font-weight:700;color:var(--text-base,#0f172a)">${esc(copy.embedSnippetLabel)}</p>
-      <pre style="margin:0;padding:14px;border-radius:10px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);overflow-x:auto;font-size:13px;line-height:1.6;color:var(--text-base,#0f172a)"><code>${iframeSnippet}</code></pre>
-      <h3 style="margin:16px 0 4px;font-size:16px;color:var(--text-base,#0f172a)">${esc(copy.linkBackH3)}</h3>
-      <p style="margin:0;color:var(--text-muted,#475569);line-height:1.6;font-size:14px">${esc(copy.linkBackP)}</p>
+    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)">
+      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.embedH2)}</h2>
+      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.65;max-width:860px">${esc(copy.embedP)}</p>
+      <p style="margin:0 0 8px;font-weight:700;color:var(--color-heading)">${esc(copy.embedSnippetLabel)}</p>
+      <pre style="margin:0;padding:14px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);overflow-x:auto;font-size:13px;line-height:1.6;color:var(--color-body)"><code>${iframeSnippet}</code></pre>
+      <h3 style="margin:16px 0 4px;font-size:16px;color:var(--color-heading)">${esc(copy.linkBackH3)}</h3>
+      <p style="margin:0;color:var(--color-subtle);line-height:1.6;font-size:14px">${esc(copy.linkBackP)}</p>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.faqH2)}</h2>
-      <details style="padding:12px 14px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;margin-bottom:8px;background:var(--surface,#ffffff)">
+      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.faqH2)}</h2>
+      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
         <summary style="font-weight:700;cursor:pointer">${esc(copy.faqQ1)}</summary>
-        <p style="margin:8px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(copy.faqA1)}</p>
+        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(copy.faqA1)}</p>
       </details>
-      <details style="padding:12px 14px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;margin-bottom:8px;background:var(--surface,#ffffff)">
+      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
         <summary style="font-weight:700;cursor:pointer">${esc(copy.faqQ2)}</summary>
-        <p style="margin:8px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(copy.faqA2)}</p>
+        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(copy.faqA2)}</p>
       </details>
-      <details style="padding:12px 14px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;margin-bottom:8px;background:var(--surface,#ffffff)">
+      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
         <summary style="font-weight:700;cursor:pointer">${esc(copy.faqQ3)}</summary>
-        <p style="margin:8px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(copy.faqA3)}</p>
+        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(copy.faqA3)}</p>
       </details>
     </section>
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(hubUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.ctaAll)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(copy.ctaCalculator)}</a>
+      <a href="${esc(hubUrl)}" style="${CTA_PRIMARY_STYLE};padding:12px 18px;border-radius:12px;font-weight:700">${esc(copy.ctaAll)}</a>
+      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-heading);text-decoration:none;font-weight:700">${esc(copy.ctaCalculator)}</a>
     </section>
   `;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);background:var(--color-surface-alt)">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
