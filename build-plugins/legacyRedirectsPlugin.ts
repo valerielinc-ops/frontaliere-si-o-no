@@ -131,6 +131,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/vivere-in-ticino/prezzi-benzina-confine/': '/statistiche/prezzi-benzina-confine/',
  '/vivere-in-ticino/permessi-lavoro-svizzera/': '/guida-frontaliere/permessi-di-lavoro/',
  '/statistiche/osservatorio-stipendi-ticino/': '/statistiche/osservatorio-stipendi-lavori-ticino/',
+ // Legacy SALARY_HUB_PATH (renamed to /statistiche/confronta-stipendi/).
+ // Previously linked from ~6.9k /premi-cassa-malati/{canton}/{fascia}/ pages via
+ // build-plugins/shared/relatedLinks.ts. Commit ad103562c renamed the canonical,
+ // but already-deployed HTML retained the broken anchor. Redirect closes the 404.
+ '/stipendi-frontalieri-ticino/': '/statistiche/confronta-stipendi/',
+ '/en/cross-border-salaries-ticino/': '/en/statistics/compare-salaries/',
+ '/de/grenzgaenger-loehne-tessin/': '/de/statistiken/gehaelter-vergleichen/',
+ '/fr/salaires-frontaliers-tessin/': '/fr/statistiques/comparer-salaires/',
  '/statistiche/panoramica-mercato-lavoro/': '/statistiche/',
  '/statistiche/tasso-disoccupazione/': '/statistiche/disoccupazione-svizzera/',
  '/tasse-e-pensione/aliquote-imposta-fonte/': '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/',
