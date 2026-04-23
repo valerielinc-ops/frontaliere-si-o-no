@@ -55,6 +55,24 @@ import {
 } from './fuelDailyData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CARD_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
+  LINK_ACCENT_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_LABEL,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_VALUE,
+  STAT_TILE_WARNING,
+  TABLE_CELL_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_STYLE,
+} from './shared/seoContentTokens';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -723,14 +741,14 @@ function renderPage(inp: PageInputs): string {
   const stationsHtml = top3.length > 0
     ? `<ol style="list-style:decimal inside;padding:0;margin:0">${top3
         .map(
-          (s) => `<li style="padding:12px 16px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;margin-bottom:10px">
-        <div style="font-weight:700;font-size:16px;color:#0f172a">${esc(s.name)}</div>
-        <div style="margin-top:4px;color:#475569;font-size:14px">${esc(s.address)}</div>
-        <div style="margin-top:6px;font-size:15px;color:#1d4ed8;font-weight:700">${formatPrice(s.priceChf, locale)} ${esc(copy.currencyLabel)}</div>
+          (s) => `<li style="${CARD_STYLE};margin-bottom:10px">
+        <div style="font-weight:700;font-size:16px;color:var(--color-heading)">${esc(s.name)}</div>
+        <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(s.address)}</div>
+        <div style="margin-top:6px;font-size:15px;color:var(--color-link);font-weight:700">${formatPrice(s.priceChf, locale)} ${esc(copy.currencyLabel)}</div>
       </li>`,
         )
         .join('')}</ol>`
-    : `<p style="padding:12px 16px;border-radius:12px;background:#fef3c7;color:#78350f">${esc(copy.trendEmpty)}</p>`;
+    : `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.trendEmpty)}</p>`;
 
   // Trend table: last 7 days from history
   const trendRows: Array<{ date: string; price: number | null }> = [];
@@ -744,15 +762,15 @@ function renderPage(inp: PageInputs): string {
       trendRows.push({ date: key, price: val });
     }
   }
-  const trendHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const trendHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
-      <th style="text-align:right;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.avgLabel)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
     </tr></thead>
     <tbody>${trendRows
       .map((r) => `<tr>
-        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(r.date)}</td>
-        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
+        <td style="${TABLE_CELL_STYLE}">${esc(r.date)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
       </tr>`)
       .join('')}</tbody>
   </table>`;
@@ -760,12 +778,12 @@ function renderPage(inp: PageInputs): string {
   // FAQ section
   const faqItems = copy.faq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="fuelDailyFaq">
-    <h2 id="fuelDailyFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <h2 id="fuelDailyFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q)}</summary>
-        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(fuelLabel, zoneLabel))}</p>
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(fuelLabel, zoneLabel))}</p>
       </details>`,
       )
       .join('')}
@@ -841,48 +859,48 @@ function renderPage(inp: PageInputs): string {
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(fuelLabel)}</span>
     <span> / </span>
     <span>${esc(zoneLabel)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.updatedLabel)} · ${dateStamp}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
-    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
-      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(copy.avgLabel)}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${priceFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.currencyLabel)}</div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.avgLabel)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.currencyLabel)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:${deltaYest !== null && deltaYest < 0 ? '#ecfccb' : '#fef3c7'};border:1px solid ${deltaYest !== null && deltaYest < 0 ? '#bef264' : '#fde68a'}">
-      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(copy.vsYesterday)}</div>
-      <div style="margin-top:8px;font-size:22px;font-weight:700;color:#1e293b">${esc(deltaYestFmt)}</div>
+    <div style="${deltaYest !== null && deltaYest < 0 ? STAT_TILE_SUCCESS : STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.vsYesterday)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(deltaYestFmt)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:${delta7 !== null && delta7 < 0 ? '#ecfccb' : '#fef3c7'};border:1px solid ${delta7 !== null && delta7 < 0 ? '#bef264' : '#fde68a'}">
-      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(copy.vs7d)}</div>
-      <div style="margin-top:8px;font-size:22px;font-weight:700;color:#1e293b">${esc(delta7Fmt)}</div>
+    <div style="${delta7 !== null && delta7 < 0 ? STAT_TILE_SUCCESS : STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.vs7d)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(delta7Fmt)}</div>
     </div>
   </section>
   <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
-  <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="fuelReview">
-    <h2 id="fuelReview" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(editorialAssessment.heading)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
+  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="fuelReview">
+    <h2 id="fuelReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="top3">
-    <h2 id="top3" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.top3Label)}</h2>
+    <h2 id="top3" style="${H2_STYLE}">${esc(copy.top3Label)}</h2>
     ${stationsHtml}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="trend7">
-    <h2 id="trend7" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.trendLabel)}</h2>
-    <p style="margin:0 0 12px;color:#475569;line-height:1.6">${esc(historyCopy)}</p>
+    <h2 id="trend7" style="${H2_STYLE}">${esc(copy.trendLabel)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.6">${esc(historyCopy)}</p>
     ${trendHtml}
   </section>
   ${faqHtml}
@@ -967,14 +985,14 @@ function renderArchive(inp: ArchiveInputs): string {
     ? `Diese Seite sammelt den täglichen ${fuelLabel}preis in ${zoneLabel} für den Monat ${monthKey}, mit einem Monatsdurchschnitt von ${formatPrice(avg, locale)} CHF/Liter. Nutzen Sie sie, um den historischen Verlauf einzuordnen und zu beurteilen, ob der aktuelle Preis hoch oder niedrig ist. Die Daten stammen von Schweizer Tankstellen, die täglich von unserer Pipeline auf Basis TCS Benzinpreis erfasst werden.`
     : `Cette page rassemble le prix quotidien du ${fuelLabel.toLowerCase()} à ${zoneLabel} pour le mois ${monthKey}, avec une moyenne mensuelle de ${formatPrice(avg, locale)} CHF/litre. Utile pour évaluer la tendance historique et déterminer si le prix actuel est haut ou bas. Les données viennent des stations suisses surveillées chaque jour par notre pipeline basée sur TCS Benzinpreis.`;
 
-  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
-      <th style="text-align:right;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.avgLabel)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
     </tr></thead>
     <tbody>${rows.map((r) => `<tr>
-      <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(r.date)}</td>
-      <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
+      <td style="${TABLE_CELL_STYLE}">${esc(r.date)}</td>
+      <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
     </tr>`).join('')}</tbody>
   </table>`;
 
@@ -1002,18 +1020,18 @@ function renderArchive(inp: ArchiveInputs): string {
     dateModified: dateStamp,
   });
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-        <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-          <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+        <nav style="${BREADCRUMB_STYLE}">
+          <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
-          <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}" style="color:#1d4ed8;text-decoration:none">${esc(zoneLabel)}</a>
+          <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}" style="${BREADCRUMB_LINK_STYLE}">${esc(zoneLabel)}</a>
           <span> / </span>
           <span>${esc(monthKey)}</span>
         </nav>
         <header style="margin-bottom:22px">
-          <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.archiveLabel)} · ${esc(monthKey)}</p>
-          <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.5rem);line-height:1.1">${esc(h1)}</h1>
-          <p style="margin:0;font-size:17px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+          <p style="${HERO_EYEBROW_STYLE}">${esc(copy.archiveLabel)} · ${esc(monthKey)}</p>
+          <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+          <p style="${LEDE_STYLE}">${esc(intro)}</p>
         </header>
         <section>${tableHtml}</section>
       </article>`;
@@ -1183,7 +1201,7 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     contextHeading: 'Conviene rifornirsi qui come frontaliere?',
     contextParagraphs: (b, c, z, _f) => [
       `La stazione ${b} a ${c} (zona ${z}) si valuta rispetto a tre parametri: posizione rispetto al valico più vicino, differenza di prezzo rispetto al lato italiano e orario di apertura. Un frontaliere lombardo che rientra la sera trova conveniente rifornirsi in Ticino solo se il prezzo qui è almeno 0,05 CHF/litro inferiore al prezzo italiano medio a Como, Varese o Chiasso: sotto questa soglia il tempo perso in coda al valico o la deviazione di 1-2 km riducono il vantaggio netto.`,
-      `Se usi la vettura per il pendolarismo quotidiano (40-120 km/giorno) il rifornimento in Svizzera va pianificato in base alla tariffa CO₂ applicata sul carburante e all'eventuale sovrattassa dei distributori di frontiera. Per una stima aggiornata del costo globale del tragitto consulta la panoramica carburanti Ticino e il <a href="/calcola-stipendio/" style="color:#2563eb">calcolatore stipendio</a>.`,
+      `Se usi la vettura per il pendolarismo quotidiano (40-120 km/giorno) il rifornimento in Svizzera va pianificato in base alla tariffa CO₂ applicata sul carburante e all'eventuale sovrattassa dei distributori di frontiera. Per una stima aggiornata del costo globale del tragitto consulta la panoramica carburanti Ticino e il <a href="/calcola-stipendio/" style="color:var(--color-link)">calcolatore stipendio</a>.`,
     ],
   },
   en: {
@@ -1207,7 +1225,7 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     contextHeading: 'Is it worth refueling here as a cross-border commuter?',
     contextParagraphs: (b, c, z, _f) => [
       `The ${b} station in ${c} (${z} zone) should be evaluated against three factors: distance from the nearest border crossing, price gap with the Italian side, and opening hours. An Italian frontaliere driving home in the evening benefits only if the price here is at least 0.05 CHF/litre lower than the average Italian price in Como, Varese or Chiasso; below that gap, the border queue or a 1-2 km detour eats into the net saving.`,
-      `If you use the car for daily commuting (40-120 km/day) refueling in Switzerland should account for the CO₂ levy and the possible border-station premium. For a full view of commuting costs see the Ticino fuel overview and the <a href="/en/calculate-salary/" style="color:#2563eb">salary calculator</a>.`,
+      `If you use the car for daily commuting (40-120 km/day) refueling in Switzerland should account for the CO₂ levy and the possible border-station premium. For a full view of commuting costs see the Ticino fuel overview and the <a href="/en/calculate-salary/" style="color:var(--color-link)">salary calculator</a>.`,
     ],
   },
   de: {
@@ -1231,7 +1249,7 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     contextHeading: 'Lohnt sich das Tanken hier als Grenzgänger?',
     contextParagraphs: (b, c, z, _f) => [
       `Die Tankstelle ${b} in ${c} (Zone ${z}) bewertet sich nach drei Faktoren: Distanz zum nächsten Grenzübergang, Preisdifferenz zur italienischen Seite und Öffnungszeiten. Ein italienischer Grenzgänger, der abends heimfährt, profitiert nur, wenn der Preis hier mindestens 0,05 CHF/Liter unter dem italienischen Durchschnitt in Como, Varese oder Chiasso liegt; darunter zehrt die Grenzwartezeit oder ein 1-2 km-Umweg den Nettovorteil auf.`,
-      `Wer das Auto täglich für 40-120 km pendeln nutzt, sollte die CO₂-Abgabe und den möglichen Zuschlag der Grenztankstellen mitrechnen. Für eine vollständige Kostenübersicht siehe den Tessin-Überblick und den <a href="/de/gehalt-berechnen/" style="color:#2563eb">Gehaltsrechner</a>.`,
+      `Wer das Auto täglich für 40-120 km pendeln nutzt, sollte die CO₂-Abgabe und den möglichen Zuschlag der Grenztankstellen mitrechnen. Für eine vollständige Kostenübersicht siehe den Tessin-Überblick und den <a href="/de/gehalt-berechnen/" style="color:var(--color-link)">Gehaltsrechner</a>.`,
     ],
   },
   fr: {
@@ -1255,7 +1273,7 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     contextHeading: 'Faire le plein ici vaut-il la peine pour un frontalier ?',
     contextParagraphs: (b, c, z, _f) => [
       `La station ${b} à ${c} (zone ${z}) s'évalue selon trois facteurs : distance du poste-frontière le plus proche, écart de prix avec le côté italien et horaires d'ouverture. Un frontalier italien qui rentre le soir n'y gagne que si le prix y est inférieur d'au moins 0,05 CHF/litre à la moyenne italienne à Côme, Varèse ou Chiasso ; en deçà, l'attente à la frontière ou un détour d'1-2 km grignote l'économie nette.`,
-      `Pour un usage quotidien de la voiture (40-120 km/jour), le plein en Suisse doit tenir compte de la taxe CO₂ et d'un éventuel supplément des stations de frontière. Pour une vue d'ensemble voir l'aperçu Tessin et le <a href="/fr/calculer-salaire/" style="color:#2563eb">calculateur de salaire</a>.`,
+      `Pour un usage quotidien de la voiture (40-120 km/jour), le plein en Suisse doit tenir compte de la taxe CO₂ et d'un éventuel supplément des stations de frontière. Pour une vue d'ensemble voir l'aperçu Tessin et le <a href="/fr/calculer-salaire/" style="color:var(--color-link)">calculateur de salaire</a>.`,
     ],
   },
 };
@@ -1400,58 +1418,58 @@ function renderStationPage(opts: {
   const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(fuelLabel)}</a>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="color:#1d4ed8;text-decoration:none">${esc(zoneLabel)}</a>
+    <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${BREADCRUMB_LINK_STYLE}">${esc(zoneLabel)}</a>
     <span> / </span>
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(dateStamp)}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.15">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
-    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
-      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(fuel === 'diesel' ? copy.priceDiesel : copy.priceBenzina)}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${priceFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.currency)}</div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(fuel === 'diesel' ? copy.priceDiesel : copy.priceBenzina)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.currency)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#fef3c7;border:1px solid #fde68a">
-      <div style="font-size:12px;color:#92400e;font-weight:700;text-transform:uppercase">${esc(copy.deltaVsZone)}</div>
-      <div style="margin-top:8px;font-size:22px;font-weight:700;color:#1e293b">${esc(deltaZoneFmt)}</div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.deltaVsZone)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(deltaZoneFmt)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
-      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(rankLabel)}</div>
-      <div style="margin-top:8px;font-size:18px;color:#1e293b">${esc(rankingLine)}</div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(rankLabel)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:18px">${esc(rankingLine)}</div>
     </div>
   </section>
   <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
-  <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="stationReview">
-    <h2 id="stationReview" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(editorialAssessment.heading)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
+  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationReview">
+    <h2 id="stationReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
   </section>
-  <section style="margin:0 0 24px;padding:18px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0" aria-labelledby="stationInfo">
-    <h2 id="stationInfo" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.infoHeading)}</h2>
-    <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:#334155">
+  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationInfo">
+    <h2 id="stationInfo" style="${H2_STYLE}">${esc(copy.infoHeading)}</h2>
+    <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:var(--color-body)">
       <dt style="font-weight:600">${esc(copy.infoBrand)}</dt><dd style="margin:0">${esc(ctx.brandDisplay)}</dd>
       <dt style="font-weight:600">${esc(copy.infoAddress)}</dt><dd style="margin:0">${esc(ctx.station.address ?? '—')}</dd>
       ${ctx.station.updatedAt ? `<dt style="font-weight:600">${esc(copy.infoUpdated)}</dt><dd style="margin:0">${esc(String(ctx.station.updatedAt).slice(0, 10))}</dd>` : ''}
     </dl>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="stationContext">
-    <h2 id="stationContext" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.contextHeading)}</h2>
+    <h2 id="stationContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
     ${copy.contextParagraphs(ctx.brandDisplay, ctx.city, zoneLabel, fuelLabel)
-      .map((p) => `<p style="margin:0 0 12px;color:#334155;line-height:1.7;max-width:860px">${p}</p>`)
+      .map((p) => `<p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${p}</p>`)
       .join('')}
   </section>
-  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
+  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_station', {
     fuelType: fuel,
     fuelZone: ctx.zone,
@@ -1559,7 +1577,7 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     contextParagraphs: (f, c, nz) => [
       `Il prezzo del ${f.toLowerCase()} in Italia dipende da tre componenti: prezzo industriale (legato al Brent e al cambio EUR/USD), accisa fissa (circa 0,617 EUR/litro dopo l'allineamento 2024) e IVA al 22 %. In Svizzera la tassazione è strutturalmente diversa: accisa più bassa ma tassa CO₂ e sovrattassa sui carburanti importati portano il prezzo finale a oscillare in un intervallo diverso da quello italiano. Per un frontaliere che percorre 80-120 km al giorno, fare il pieno dal lato giusto del confine può valere 15-35 EUR al mese.`,
       `A ${c} il confronto corretto è con la zona Ticino di ${nz}, il punto di ingresso svizzero più vicino. Se il prezzo italiano qui è inferiore di almeno 0,10-0,15 EUR/litro alla media di zona svizzera, conviene rifornirsi prima del valico; se invece il Ticino è più basso, è più efficiente fare il pieno al ritorno. Considera anche la capacità del serbatoio: con 50 litri un gap di 0,20 EUR/litro vale 10 EUR a pieno, con 70 litri arriva a 14 EUR.`,
-      `Il costo reale del pendolarismo non si esaurisce nel carburante. Un frontaliere sostiene anche bollo auto, assicurazione, manutenzione, pneumatici e il costo opportunità del tempo. La guida frontalieri e il <a href="/calcola-stipendio/" style="color:#2563eb">simulatore busta paga</a> integrano questi costi con lo stipendio netto per calcolare il guadagno reale del lavoro in Svizzera.`,
+      `Il costo reale del pendolarismo non si esaurisce nel carburante. Un frontaliere sostiene anche bollo auto, assicurazione, manutenzione, pneumatici e il costo opportunità del tempo. La guida frontalieri e il <a href="/calcola-stipendio/" style="color:var(--color-link)">simulatore busta paga</a> integrano questi costi con lo stipendio netto per calcolare il guadagno reale del lavoro in Svizzera.`,
     ],
     tipsHeading: 'Consigli pratici per il rifornimento',
     tipsItems: [
@@ -1585,7 +1603,7 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     contextParagraphs: (f, c, nz) => [
       `${f} prices in Italy depend on three components: industrial price (linked to Brent and EUR/USD), fixed excise duty (around 0.617 EUR/litre after the 2024 alignment) and 22% VAT. In Switzerland the tax structure is different: lower excise, but CO₂ tax and import surcharges push the final price into a distinct band. For a frontaliere driving 80-120 km per day, refueling on the right side of the border can be worth 15-35 EUR per month.`,
       `In ${c} the meaningful comparison is with the ${nz} Ticino zone, the closest Swiss entry point. If the Italian price here is at least 0.10-0.15 EUR/litre lower than the Swiss zone average, refuel before crossing; if Ticino is cheaper, fill up on the way back. Tank size matters: 50 litres at a 0.20 EUR/litre gap is worth 10 EUR per fill-up, 70 litres is 14 EUR.`,
-      `The real cost of cross-border commuting goes beyond fuel. A frontaliere also pays road tax, insurance, maintenance, tyres, and the opportunity cost of time. The <a href="/en/calculate-salary/" style="color:#2563eb">salary calculator</a> integrates these costs with net pay to show the real gain of a Swiss job versus an equivalent Italian role.`,
+      `The real cost of cross-border commuting goes beyond fuel. A frontaliere also pays road tax, insurance, maintenance, tyres, and the opportunity cost of time. The <a href="/en/calculate-salary/" style="color:var(--color-link)">salary calculator</a> integrates these costs with net pay to show the real gain of a Swiss job versus an equivalent Italian role.`,
     ],
     tipsHeading: 'Practical refueling tips',
     tipsItems: [
@@ -1611,7 +1629,7 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     contextParagraphs: (f, c, nz) => [
       `Der ${f}-Preis in Italien hängt von drei Komponenten ab: Industriepreis (gekoppelt an Brent und EUR/USD-Kurs), feste Verbrauchsteuer (rund 0,617 EUR/Liter nach der Angleichung 2024) und 22 % MwSt. In der Schweiz ist die Steuerstruktur anders: tiefere Verbrauchsteuer, aber CO₂-Abgabe und Zuschläge auf importierte Kraftstoffe führen zu einem anderen Endpreisniveau. Für einen Grenzgänger mit 80-120 km pro Tag kann das Tanken auf der richtigen Seite 15-35 EUR pro Monat wert sein.`,
       `In ${c} ist der richtige Vergleich mit der Tessiner Zone ${nz}, dem nächsten Schweizer Grenzübergang. Liegt der italienische Preis hier mindestens 0,10-0,15 EUR/Liter unter dem Schweizer Zonendurchschnitt, lohnt sich das Tanken vor der Grenze; ist das Tessin günstiger, auf der Rückfahrt tanken. Tankgrösse zählt: 50 Liter bei 0,20 EUR/Liter Differenz ergeben 10 EUR pro Füllung, 70 Liter ergeben 14 EUR.`,
-      `Die tatsächlichen Pendelkosten reichen über den Treibstoff hinaus: Autosteuer, Versicherung, Wartung, Reifen und Opportunitätskosten der Zeit. Der <a href="/de/gehalt-berechnen/" style="color:#2563eb">Gehaltsrechner</a> kombiniert diese Kosten mit dem Nettolohn, um den tatsächlichen Gewinn einer Schweizer Stelle zu zeigen.`,
+      `Die tatsächlichen Pendelkosten reichen über den Treibstoff hinaus: Autosteuer, Versicherung, Wartung, Reifen und Opportunitätskosten der Zeit. Der <a href="/de/gehalt-berechnen/" style="color:var(--color-link)">Gehaltsrechner</a> kombiniert diese Kosten mit dem Nettolohn, um den tatsächlichen Gewinn einer Schweizer Stelle zu zeigen.`,
     ],
     tipsHeading: 'Praktische Tipps zum Tanken',
     tipsItems: [
@@ -1637,7 +1655,7 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     contextParagraphs: (f, c, nz) => [
       `Le prix du ${f.toLowerCase()} en Italie dépend de trois composantes : prix industriel (lié au Brent et au taux EUR/USD), accise fixe (environ 0,617 EUR/litre après l'alignement 2024) et TVA à 22 %. En Suisse la structure fiscale est différente : accise plus basse, mais taxe CO₂ et surtaxe sur les carburants importés portent le prix final dans une fourchette distincte. Pour un frontalier parcourant 80-120 km par jour, faire le plein du bon côté de la frontière peut valoir 15-35 EUR par mois.`,
       `À ${c} la bonne comparaison est avec la zone tessinoise ${nz}, le poste-frontière suisse le plus proche. Si le prix italien y est inférieur d'au moins 0,10-0,15 EUR/litre à la moyenne de zone suisse, il vaut mieux faire le plein avant la frontière ; si le Tessin est moins cher, mieux vaut attendre le retour. Capacité du réservoir : 50 litres à 0,20 EUR/litre d'écart valent 10 EUR par plein, 70 litres 14 EUR.`,
-      `Le coût réel du trajet quotidien ne se limite pas au carburant : taxe auto, assurance, entretien, pneus et coût d'opportunité du temps comptent aussi. Le <a href="/fr/calculer-salaire/" style="color:#2563eb">calculateur salarial</a> intègre ces coûts avec le salaire net pour montrer le gain réel d'un emploi suisse.`,
+      `Le coût réel du trajet quotidien ne se limite pas au carburant : taxe auto, assurance, entretien, pneus et coût d'opportunité du temps comptent aussi. Le <a href="/fr/calculer-salaire/" style="color:var(--color-link)">calculateur salarial</a> intègre ces coûts avec le salaire net pour montrer le gain réel d'un emploi suisse.`,
     ],
     tipsHeading: 'Conseils pratiques pour faire le plein',
     tipsItems: [
@@ -1685,18 +1703,18 @@ function renderItalianCityPage(opts: {
   const tableRows = sortedStations.length > 0
     ? sortedStations
         .map((s) => `<tr>
-        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(s.stationName || s.brand || '—')}</td>
-        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#475569">${esc(s.address || '—')}</td>
-        <td style="padding:8px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) + ' EUR' : '—'}</td>
+        <td style="${TABLE_CELL_STYLE}">${esc(s.stationName || s.brand || '—')}</td>
+        <td style="${TABLE_CELL_STYLE};color:var(--color-subtle)">${esc(s.address || '—')}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) + ' EUR' : '—'}</td>
       </tr>`)
         .join('')
-    : `<tr><td colspan="3" style="padding:18px;color:#78350f;background:#fef3c7">${esc(copy.noData)}</td></tr>`;
+    : `<tr><td colspan="3" style="${TABLE_CELL_STYLE};background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.noData)}</td></tr>`;
 
-  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableStation)}</th>
-      <th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableAddress)}</th>
-      <th style="text-align:right;padding:8px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tablePrice)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableStation)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableAddress)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tablePrice)}</th>
     </tr></thead>
     <tbody>${tableRows}</tbody>
   </table>`;
@@ -1747,53 +1765,53 @@ function renderItalianCityPage(opts: {
   const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(fuelLabel)}</a>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
     <span> / </span>
     <span>${esc(entry.display)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(dateStamp)}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.15">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 24px">
-    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
-      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(locale === 'it' ? 'Prezzo minimo' : locale === 'de' ? 'Mindestpreis' : locale === 'fr' ? 'Prix minimum' : 'Minimum price')}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${esc(minPriceFmt)}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.currency)}</div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(locale === 'it' ? 'Prezzo minimo' : locale === 'de' ? 'Mindestpreis' : locale === 'fr' ? 'Prix minimum' : 'Minimum price')}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px">${esc(minPriceFmt)}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.currency)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
-      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(locale === 'it' ? 'Zona Ticino più vicina' : locale === 'de' ? 'Nächste Tessiner Zone' : locale === 'fr' ? 'Zone tessinoise la plus proche' : 'Nearest Ticino zone')}</div>
-      <div style="margin-top:8px;font-size:22px;font-weight:700;color:#1e293b"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:#1e293b;text-decoration:underline">${esc(nearestZoneLabel)}</a></div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(locale === 'it' ? 'Zona Ticino più vicina' : locale === 'de' ? 'Nächste Tessiner Zone' : locale === 'fr' ? 'Zone tessinoise la plus proche' : 'Nearest Ticino zone')}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:inherit;text-decoration:underline">${esc(nearestZoneLabel)}</a></div>
     </div>
   </section>
   <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="itCityTable">
-    <h2 id="itCityTable" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.tableTitle(entry.display))}</h2>
+    <h2 id="itCityTable" style="${H2_STYLE}">${esc(copy.tableTitle(entry.display))}</h2>
     ${tableHtml}
   </section>
-  <section style="margin:0 0 24px;padding:16px 18px;border-radius:14px;background:#fef3c7;border:1px solid #fde68a;color:#78350f">
+  <section style="margin:0 0 24px;padding:16px 18px;border-radius:14px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning-border)">
     <p style="margin:0;line-height:1.6">${esc(copy.crossBorderTip)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="itCityContext">
-    <h2 id="itCityContext" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.contextHeading)}</h2>
+    <h2 id="itCityContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
     ${copy.contextParagraphs(fuelLabel, entry.display, nearestZoneLabel)
-      .map((p) => `<p style="margin:0 0 12px;color:#334155;line-height:1.7;max-width:860px">${p}</p>`)
+      .map((p) => `<p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${p}</p>`)
       .join('')}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="itCityTips">
-    <h2 id="itCityTips" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.tipsHeading)}</h2>
-    <ul style="margin:0;padding-left:22px;color:#334155;line-height:1.7;max-width:860px">
+    <h2 id="itCityTips" style="${H2_STYLE}">${esc(copy.tipsHeading)}</h2>
+    <ul style="margin:0;padding-left:22px;color:var(--color-body);line-height:1.7;max-width:860px">
       ${copy.tipsItems.map((t) => `<li style="margin:0 0 8px">${esc(t)}</li>`).join('')}
     </ul>
   </section>
-  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
+  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="${LINK_ACCENT_STYLE};font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_italian_city', {
     fuelType: fuel,
     italianCitySlug: entry.slug,
