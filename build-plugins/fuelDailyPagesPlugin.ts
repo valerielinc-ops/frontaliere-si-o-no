@@ -1138,6 +1138,10 @@ interface StationCopy {
   deltaVsCity: string;
   priceDiesel: string;
   priceBenzina: string;
+  /** Extended commuter-context section (Sprint 2). */
+  contextHeading: string;
+  /** 2 paragraphs of contextual copy. May contain inline HTML (<a>). */
+  contextParagraphs: (brand: string, city: string, zone: string, fuelLabel: string) => string[];
 }
 
 const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
@@ -1159,6 +1163,11 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     deltaVsCity: 'vs media città',
     priceDiesel: 'Prezzo diesel',
     priceBenzina: 'Prezzo benzina',
+    contextHeading: 'Conviene rifornirsi qui come frontaliere?',
+    contextParagraphs: (b, c, z, _f) => [
+      `La stazione ${b} a ${c} (zona ${z}) si valuta rispetto a tre parametri: posizione rispetto al valico più vicino, differenza di prezzo rispetto al lato italiano e orario di apertura. Un frontaliere lombardo che rientra la sera trova conveniente rifornirsi in Ticino solo se il prezzo qui è almeno 0,05 CHF/litro inferiore al prezzo italiano medio a Como, Varese o Chiasso: sotto questa soglia il tempo perso in coda al valico o la deviazione di 1-2 km riducono il vantaggio netto.`,
+      `Se usi la vettura per il pendolarismo quotidiano (40-120 km/giorno) il rifornimento in Svizzera va pianificato in base alla tariffa CO₂ applicata sul carburante e all'eventuale sovrattassa dei distributori di frontiera. Per una stima aggiornata del costo globale del tragitto consulta la panoramica carburanti Ticino e il <a href="/calcola-stipendio/" style="color:#2563eb">calcolatore stipendio</a>.`,
+    ],
   },
   en: {
     h1: (b, st, c, f) => `${f} price ${b} ${st} in ${c}`,
@@ -1178,6 +1187,11 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     deltaVsCity: 'vs city avg',
     priceDiesel: 'Diesel price',
     priceBenzina: 'Gasoline price',
+    contextHeading: 'Is it worth refueling here as a cross-border commuter?',
+    contextParagraphs: (b, c, z, _f) => [
+      `The ${b} station in ${c} (${z} zone) should be evaluated against three factors: distance from the nearest border crossing, price gap with the Italian side, and opening hours. An Italian frontaliere driving home in the evening benefits only if the price here is at least 0.05 CHF/litre lower than the average Italian price in Como, Varese or Chiasso; below that gap, the border queue or a 1-2 km detour eats into the net saving.`,
+      `If you use the car for daily commuting (40-120 km/day) refueling in Switzerland should account for the CO₂ levy and the possible border-station premium. For a full view of commuting costs see the Ticino fuel overview and the <a href="/en/calculate-salary/" style="color:#2563eb">salary calculator</a>.`,
+    ],
   },
   de: {
     h1: (b, st, c, f) => `${f}preis ${b} ${st} in ${c}`,
@@ -1197,6 +1211,11 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     deltaVsCity: 'vs Stadt-Ø',
     priceDiesel: 'Dieselpreis',
     priceBenzina: 'Benzinpreis',
+    contextHeading: 'Lohnt sich das Tanken hier als Grenzgänger?',
+    contextParagraphs: (b, c, z, _f) => [
+      `Die Tankstelle ${b} in ${c} (Zone ${z}) bewertet sich nach drei Faktoren: Distanz zum nächsten Grenzübergang, Preisdifferenz zur italienischen Seite und Öffnungszeiten. Ein italienischer Grenzgänger, der abends heimfährt, profitiert nur, wenn der Preis hier mindestens 0,05 CHF/Liter unter dem italienischen Durchschnitt in Como, Varese oder Chiasso liegt; darunter zehrt die Grenzwartezeit oder ein 1-2 km-Umweg den Nettovorteil auf.`,
+      `Wer das Auto täglich für 40-120 km pendeln nutzt, sollte die CO₂-Abgabe und den möglichen Zuschlag der Grenztankstellen mitrechnen. Für eine vollständige Kostenübersicht siehe den Tessin-Überblick und den <a href="/de/gehalt-berechnen/" style="color:#2563eb">Gehaltsrechner</a>.`,
+    ],
   },
   fr: {
     h1: (b, st, c, f) => `Prix du ${f.toLowerCase()} ${b} ${st} à ${c}`,
@@ -1216,6 +1235,11 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     deltaVsCity: 'vs moy. ville',
     priceDiesel: 'Prix du gasoil',
     priceBenzina: 'Prix de l\'essence',
+    contextHeading: 'Faire le plein ici vaut-il la peine pour un frontalier ?',
+    contextParagraphs: (b, c, z, _f) => [
+      `La station ${b} à ${c} (zone ${z}) s'évalue selon trois facteurs : distance du poste-frontière le plus proche, écart de prix avec le côté italien et horaires d'ouverture. Un frontalier italien qui rentre le soir n'y gagne que si le prix y est inférieur d'au moins 0,05 CHF/litre à la moyenne italienne à Côme, Varèse ou Chiasso ; en deçà, l'attente à la frontière ou un détour d'1-2 km grignote l'économie nette.`,
+      `Pour un usage quotidien de la voiture (40-120 km/jour), le plein en Suisse doit tenir compte de la taxe CO₂ et d'un éventuel supplément des stations de frontière. Pour une vue d'ensemble voir l'aperçu Tessin et le <a href="/fr/calculer-salaire/" style="color:#2563eb">calculateur de salaire</a>.`,
+    ],
   },
 };
 
@@ -1404,6 +1428,12 @@ function renderStationPage(opts: {
       ${ctx.station.updatedAt ? `<dt style="font-weight:600">${esc(copy.infoUpdated)}</dt><dd style="margin:0">${esc(String(ctx.station.updatedAt).slice(0, 10))}</dd>` : ''}
     </dl>
   </section>
+  <section style="margin:0 0 24px" aria-labelledby="stationContext">
+    <h2 id="stationContext" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.contextHeading)}</h2>
+    ${copy.contextParagraphs(ctx.brandDisplay, ctx.city, zoneLabel, fuelLabel)
+      .map((p) => `<p style="margin:0 0 12px;color:#334155;line-height:1.7;max-width:860px">${p}</p>`)
+      .join('')}
+  </section>
   <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_station', {
     fuelType: fuel,
@@ -1485,6 +1515,13 @@ interface ItalianCityCopy {
   currency: string;
   backLink: string;
   noData: string;
+  /** Heading for the extended commuter-context section (Sprint 2). */
+  contextHeading: string;
+  /** 2-3 paragraphs of contextual copy. May contain inline HTML (<a>). */
+  contextParagraphs: (fuelLabel: string, city: string, nearestZoneLabel: string) => string[];
+  /** Heading for the practical tips list. */
+  tipsHeading: string;
+  tipsItems: string[];
 }
 
 const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
@@ -1500,6 +1537,19 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     currency: 'EUR/litro',
     backLink: 'Vedi il prezzo medio in Ticino',
     noData: 'Nessuna stazione disponibile per oggi — dati in aggiornamento.',
+    contextHeading: 'Come leggere i prezzi carburante per un frontaliere',
+    contextParagraphs: (f, c, nz) => [
+      `Il prezzo del ${f.toLowerCase()} in Italia dipende da tre componenti: prezzo industriale (legato al Brent e al cambio EUR/USD), accisa fissa (circa 0,617 EUR/litro dopo l'allineamento 2024) e IVA al 22 %. In Svizzera la tassazione è strutturalmente diversa: accisa più bassa ma tassa CO₂ e sovrattassa sui carburanti importati portano il prezzo finale a oscillare in un intervallo diverso da quello italiano. Per un frontaliere che percorre 80-120 km al giorno, fare il pieno dal lato giusto del confine può valere 15-35 EUR al mese.`,
+      `A ${c} il confronto corretto è con la zona Ticino di ${nz}, il punto di ingresso svizzero più vicino. Se il prezzo italiano qui è inferiore di almeno 0,10-0,15 EUR/litro alla media di zona svizzera, conviene rifornirsi prima del valico; se invece il Ticino è più basso, è più efficiente fare il pieno al ritorno. Considera anche la capacità del serbatoio: con 50 litri un gap di 0,20 EUR/litro vale 10 EUR a pieno, con 70 litri arriva a 14 EUR.`,
+      `Il costo reale del pendolarismo non si esaurisce nel carburante. Un frontaliere sostiene anche bollo auto, assicurazione, manutenzione, pneumatici e il costo opportunità del tempo. La guida frontalieri e il <a href="/calcola-stipendio/" style="color:#2563eb">simulatore busta paga</a> integrano questi costi con lo stipendio netto per calcolare il guadagno reale del lavoro in Svizzera.`,
+    ],
+    tipsHeading: 'Consigli pratici per il rifornimento',
+    tipsItems: [
+      'Usa sempre app ufficiali MIMIT Osservaprezzi o il tracker interno per vedere il prezzo aggiornato prima di fermarti.',
+      'Evita le stazioni self-service nelle ore di punta del mattino: il prezzo è uguale ma l\'attesa aumenta.',
+      'In prossimità del valico i distributori applicano spesso un premio frontaliero di 0,03-0,07 EUR/litro — fai il pieno 5-10 km prima.',
+      'Conserva le ricevute del carburante: se usi l\'auto per trasferte di lavoro documentabili sono deducibili nella dichiarazione dei redditi italiana.',
+    ],
   },
   en: {
     h1: (f, c) => `${f} price in ${c} — cheapest stations`,
@@ -1513,6 +1563,19 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     currency: 'EUR/litre',
     backLink: 'See the Ticino average price',
     noData: 'No station data for today — refresh pending.',
+    contextHeading: 'How to read fuel prices as a cross-border commuter',
+    contextParagraphs: (f, c, nz) => [
+      `${f} prices in Italy depend on three components: industrial price (linked to Brent and EUR/USD), fixed excise duty (around 0.617 EUR/litre after the 2024 alignment) and 22% VAT. In Switzerland the tax structure is different: lower excise, but CO₂ tax and import surcharges push the final price into a distinct band. For a frontaliere driving 80-120 km per day, refueling on the right side of the border can be worth 15-35 EUR per month.`,
+      `In ${c} the meaningful comparison is with the ${nz} Ticino zone, the closest Swiss entry point. If the Italian price here is at least 0.10-0.15 EUR/litre lower than the Swiss zone average, refuel before crossing; if Ticino is cheaper, fill up on the way back. Tank size matters: 50 litres at a 0.20 EUR/litre gap is worth 10 EUR per fill-up, 70 litres is 14 EUR.`,
+      `The real cost of cross-border commuting goes beyond fuel. A frontaliere also pays road tax, insurance, maintenance, tyres, and the opportunity cost of time. The <a href="/en/calculate-salary/" style="color:#2563eb">salary calculator</a> integrates these costs with net pay to show the real gain of a Swiss job versus an equivalent Italian role.`,
+    ],
+    tipsHeading: 'Practical refueling tips',
+    tipsItems: [
+      'Check the official MIMIT Osservaprezzi app or our tracker for the live price before you stop.',
+      'Avoid self-service stations during the morning rush: same price, longer queues.',
+      'Stations right at the border often charge a 0.03-0.07 EUR/litre premium — fill up 5-10 km earlier.',
+      'Keep fuel receipts: if you use the car for documented business travel, they are deductible on the Italian tax return.',
+    ],
   },
   de: {
     h1: (f, c) => `${f}preis in ${c} — günstigste Tankstellen`,
@@ -1526,6 +1589,19 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     currency: 'EUR/Liter',
     backLink: 'Tessiner Durchschnittspreis anzeigen',
     noData: 'Keine Tankstellendaten für heute — Aktualisierung ausstehend.',
+    contextHeading: 'Kraftstoffpreise als Grenzgänger richtig lesen',
+    contextParagraphs: (f, c, nz) => [
+      `Der ${f}-Preis in Italien hängt von drei Komponenten ab: Industriepreis (gekoppelt an Brent und EUR/USD-Kurs), feste Verbrauchsteuer (rund 0,617 EUR/Liter nach der Angleichung 2024) und 22 % MwSt. In der Schweiz ist die Steuerstruktur anders: tiefere Verbrauchsteuer, aber CO₂-Abgabe und Zuschläge auf importierte Kraftstoffe führen zu einem anderen Endpreisniveau. Für einen Grenzgänger mit 80-120 km pro Tag kann das Tanken auf der richtigen Seite 15-35 EUR pro Monat wert sein.`,
+      `In ${c} ist der richtige Vergleich mit der Tessiner Zone ${nz}, dem nächsten Schweizer Grenzübergang. Liegt der italienische Preis hier mindestens 0,10-0,15 EUR/Liter unter dem Schweizer Zonendurchschnitt, lohnt sich das Tanken vor der Grenze; ist das Tessin günstiger, auf der Rückfahrt tanken. Tankgrösse zählt: 50 Liter bei 0,20 EUR/Liter Differenz ergeben 10 EUR pro Füllung, 70 Liter ergeben 14 EUR.`,
+      `Die tatsächlichen Pendelkosten reichen über den Treibstoff hinaus: Autosteuer, Versicherung, Wartung, Reifen und Opportunitätskosten der Zeit. Der <a href="/de/gehalt-berechnen/" style="color:#2563eb">Gehaltsrechner</a> kombiniert diese Kosten mit dem Nettolohn, um den tatsächlichen Gewinn einer Schweizer Stelle zu zeigen.`,
+    ],
+    tipsHeading: 'Praktische Tipps zum Tanken',
+    tipsItems: [
+      'Nutze die offizielle MIMIT-App Osservaprezzi oder unseren Tracker für den aktuellen Preis vor dem Stopp.',
+      'Vermeide Selbstbedienungstankstellen in der morgendlichen Stosszeit: gleicher Preis, längere Wartezeit.',
+      'Tankstellen direkt an der Grenze verlangen oft einen Aufschlag von 0,03-0,07 EUR/Liter — lieber 5-10 km früher tanken.',
+      'Bewahre die Quittungen auf: bei dokumentierten Dienstfahrten sind sie in der italienischen Steuererklärung absetzbar.',
+    ],
   },
   fr: {
     h1: (f, c) => `Prix du ${f.toLowerCase()} à ${c} — stations les moins chères`,
@@ -1539,6 +1615,19 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     currency: 'EUR/litre',
     backLink: 'Voir le prix moyen au Tessin',
     noData: 'Aucune donnée de station disponible aujourd\'hui — mise à jour en attente.',
+    contextHeading: 'Comment lire les prix du carburant en tant que frontalier',
+    contextParagraphs: (f, c, nz) => [
+      `Le prix du ${f.toLowerCase()} en Italie dépend de trois composantes : prix industriel (lié au Brent et au taux EUR/USD), accise fixe (environ 0,617 EUR/litre après l'alignement 2024) et TVA à 22 %. En Suisse la structure fiscale est différente : accise plus basse, mais taxe CO₂ et surtaxe sur les carburants importés portent le prix final dans une fourchette distincte. Pour un frontalier parcourant 80-120 km par jour, faire le plein du bon côté de la frontière peut valoir 15-35 EUR par mois.`,
+      `À ${c} la bonne comparaison est avec la zone tessinoise ${nz}, le poste-frontière suisse le plus proche. Si le prix italien y est inférieur d'au moins 0,10-0,15 EUR/litre à la moyenne de zone suisse, il vaut mieux faire le plein avant la frontière ; si le Tessin est moins cher, mieux vaut attendre le retour. Capacité du réservoir : 50 litres à 0,20 EUR/litre d'écart valent 10 EUR par plein, 70 litres 14 EUR.`,
+      `Le coût réel du trajet quotidien ne se limite pas au carburant : taxe auto, assurance, entretien, pneus et coût d'opportunité du temps comptent aussi. Le <a href="/fr/calculer-salaire/" style="color:#2563eb">calculateur salarial</a> intègre ces coûts avec le salaire net pour montrer le gain réel d'un emploi suisse.`,
+    ],
+    tipsHeading: 'Conseils pratiques pour faire le plein',
+    tipsItems: [
+      'Consultez l\'appli officielle MIMIT Osservaprezzi ou notre tracker pour le prix en direct avant de vous arrêter.',
+      'Évitez les stations self-service aux heures de pointe du matin : prix identique mais file plus longue.',
+      'Les stations en bordure de frontière appliquent souvent un supplément de 0,03-0,07 EUR/litre — faites le plein 5-10 km plus tôt.',
+      'Conservez les reçus : en cas de déplacements professionnels documentables, ils sont déductibles dans la déclaration fiscale italienne.',
+    ],
   },
 };
 
@@ -1673,6 +1762,18 @@ function renderItalianCityPage(opts: {
   </section>
   <section style="margin:0 0 24px;padding:16px 18px;border-radius:14px;background:#fef3c7;border:1px solid #fde68a;color:#78350f">
     <p style="margin:0;line-height:1.6">${esc(copy.crossBorderTip)}</p>
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="itCityContext">
+    <h2 id="itCityContext" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.contextHeading)}</h2>
+    ${copy.contextParagraphs(fuelLabel, entry.display, nearestZoneLabel)
+      .map((p) => `<p style="margin:0 0 12px;color:#334155;line-height:1.7;max-width:860px">${p}</p>`)
+      .join('')}
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="itCityTips">
+    <h2 id="itCityTips" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.tipsHeading)}</h2>
+    <ul style="margin:0;padding-left:22px;color:#334155;line-height:1.7;max-width:860px">
+      ${copy.tipsItems.map((t) => `<li style="margin:0 0 8px">${esc(t)}</li>`).join('')}
+    </ul>
   </section>
   <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_italian_city', {
