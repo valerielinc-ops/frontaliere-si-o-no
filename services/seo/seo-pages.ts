@@ -1948,11 +1948,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'cost-of-living': {
- title: 'Costo Vita Svizzera vs Italia 2026 | Confronto',
- description: 'Costo vita svizzera vs italia 2026: confronto affitti, spesa, trasporti e sanità tra Lugano, Mendrisio e Como. Dati aggiornati per frontalieri.',
- keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
- ogTitle: 'Costo Vita Svizzera vs Italia | Confronto Completo 2026',
- ogDescription: '🏠 Costo vita Svizzera vs Italia: confronta affitti, spesa, trasporti e sanità tra città di frontiera. Dati aggiornati 2026.',
+ title: 'Costo Vita Svizzera vs Italia 2026: Lugano e Como',
+ description: 'Costo vita Svizzera vs Italia 2026: confronto Lugano-Como su affitto, spesa, LAMal e trasporti. Tabelle per frontaliere (risparmio 40-50%) e per espatriato.',
+ keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera, costo vita lugano vs como',
+ ogTitle: 'Costo Vita Svizzera vs Italia 2026 | Lugano vs Como',
+ ogDescription: '🏠 Costo vita Svizzera vs Italia 2026: confronto Lugano-Como su affitto, spesa, LAMal e trasporti. Tabelle 2026 per frontaliere ed espatriato.',
  canonicalPath: '/compara-servizi/costo-della-vita',
  structuredData: [
  {
@@ -2005,6 +2005,21 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Question",
  "name": "Quanto si spende mediamente per la spesa alimentare in Ticino?",
  "acceptedAnswer": { "@type": "Answer", "text": "Un single ticinese spende CHF 400–550/mese di spesa alimentare (Migros/Coop), una coppia CHF 650–850, una famiglia con 2 figli CHF 950–1.250. I discount Aldi e Lidl riducono il conto del 20–30%. Un frontaliere che fa la spesa in Italia (Como, Varese) risparmia il 30–40%: una spesa settimanale da 150 € in IT corrisponde a 210–240 CHF a Lugano. Attenzione al limite franchigia doganale CHF 150/persona/giorno." }
+ },
+ {
+ "@type": "Question",
+ "name": "Costo vita Svizzera vs Italia 2026: confronto Lugano-Como per un single?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Confronto 2026 costo vita Svizzera vs Italia per un single: un residente a Lugano spende CHF 4.500-5.500/mese (bilocale CHF 1.400-1.800, LAMal CHF 380-500, spesa Migros CHF 600-800, trasporti Tessin-abo CHF 75, utenze CHF 180-250, svaghi CHF 400-600); un residente a Como spende 2.100-2.700 €/mese (bilocale 500-800 €, SSN gratuito, spesa 350-500 €, abbonamento trasporti 35 €, utenze 120-180 €, svaghi 250-400 €). Un frontaliere ticinese che risiede a Como paga i costi italiani ma incassa lo stipendio svizzero: risparmia 40-50% rispetto al residente luganese, netto dei costi di pendolarismo (treno TILO CHF 80-150/mese). Fonti: [UST/BFS — Indice prezzi al consumo](https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-prezzi-consumo.html), [ISTAT — Statistiche territoriali Como](https://www.istat.it/it/archivio/statistiche+territoriali)." }
+ },
+ {
+ "@type": "Question",
+ "name": "Costo vita Lugano vs Como: quanto costa davvero un frontaliere?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il costo vita Lugano vs Como per un frontaliere che lavora a Lugano e risiede a Como si ferma su 2.300-2.900 €/mese netti nel 2026: affitto bilocale Como 500-800 €, utenze 120-180 €, spesa 350-500 € (possibile riduzione del 20% comprando metà in Svizzera entro franchigia doganale CHF 150/giorno), SSN gratuito + eventuale integrazione sanitaria 25-60 €/mese, trasporto pendolare TILO S10 Como-Lugano CHF 80-110 (abbonamento mensile), svaghi 250-400 €. A parità di qualità della vita, lo stesso profilo a Lugano costa CHF 4.500-5.500 (+95-110%). Il differenziale netto per un frontaliere è CHF 1.800-2.200/mese risparmiati. Il dato cambia con figli (scuola pubblica italiana gratuita vs Ticino con rette materna), animali (veterinario IT 30-50% meno) e assistenza anziani. Fonte: [USTAT — Osservatorio prezzi Canton Ticino](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)." }
+ },
+ {
+ "@type": "Question",
+ "name": "Perché il costo vita in Svizzera è più alto di quello in Italia?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il costo vita in Svizzera è più alto di quello in Italia per 5 fattori strutturali quantificati da UST e ISTAT: (1) salari medi 2,1x l'Italia (CHF 6.788 mediano 2024 vs 2.369 € lordi mediani Istat 2024), che spingono al rialzo tutti i servizi labour-intensive (ristorazione, artigianato, sanità privata); (2) affitti regolamentati ma con indicizzazione al tasso di riferimento BNS (rent stress 25-30% su redditi medi); (3) LAMal obbligatoria pagata interamente dall'assicurato (CHF 380-500/mese a Lugano vs SSN gratuito IT); (4) IVA 8,1% (2024) contro il 22% italiano: la differenza si trasmette solo a metà perché i margini svizzeri restano piu' alti (prezzi 50-70% superiori); (5) produttività e QoL (infrastrutture, puntualità trasporti, sicurezza) premiate dal mercato del lavoro. Il frontaliere vive a cavallo dei due sistemi e ne ottimizza il differenziale: per questo il suo vantaggio economico è il piu' alto d'Europa. Fonte: [UST — Indice prezzi al consumo 2026](https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-prezzi-consumo.html), [ISTAT — Stime dei prezzi al consumo 2026](https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo)." }
  }
  ],
  "speakable": SPEAKABLE_SECTION
