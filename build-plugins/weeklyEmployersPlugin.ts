@@ -68,7 +68,7 @@ import {
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
-import { resolveFallbackAddress } from './shared/companyHqAddresses';
+import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
 
 // ── Types ───────────────────────────────────────────────────────
 
@@ -361,6 +361,15 @@ export interface CompanyCityActiveJob {
    * actual locality over the hub-city parameter.
    */
   addressLocality?: string;
+  /**
+   * Schema.org-compliant Swiss canton code (`TI`, `GR`, …) from source
+   * data. When absent we derive it from `addressLocality`.
+   */
+  addressRegion?: string;
+  /** ISO datetime when the job was last verified active by the crawler. */
+  crawledAt?: string;
+  /** Source-provided validThrough date — overrides the computed default. */
+  validThrough?: string;
   /**
    * Canonicalised company slug — consumed by `jobToJsonLd` to look up
    * `COMPANY_HQ_ADDRESSES` fallback when the job lacks valid HQ data.
@@ -1547,6 +1556,44 @@ const JOB_DESC_FALLBACK: Record<WeeklyEmployersLocale, (title: string, employer:
   fr: (t, e, c) => `${t} chez ${e} à ${c}. Candidature directe via notre portail, avec tous les détails, exigences et informations sur la page de l'offre.`,
 };
 
+/**
+ * Compute a future ISO `validThrough` value for JobPosting rich-results.
+ * Source-provided value wins, then crawledAt + 60 days, then datePosted + 90 days.
+ * Falls back to now + 60 days when every input is invalid — never returns empty.
+ */
+function computeValidThrough(
+  explicit: string | undefined,
+  crawledAt: string | undefined,
+  datePosted: string,
+): string {
+  const tryParse = (s: string | undefined): Date | null => {
+    if (!s) return null;
+    const d = new Date(s);
+    return Number.isNaN(d.getTime()) ? null : d;
+  };
+
+  const explicitDate = tryParse(explicit);
+  if (explicitDate) return explicitDate.toISOString();
+
+  const crawled = tryParse(crawledAt);
+  if (crawled) {
+    const out = new Date(crawled);
+    out.setUTCDate(out.getUTCDate() + 60);
+    return out.toISOString();
+  }
+
+  const posted = tryParse(datePosted);
+  if (posted) {
+    const out = new Date(posted);
+    out.setUTCDate(out.getUTCDate() + 90);
+    return out.toISOString();
+  }
+
+  const fallback = new Date();
+  fallback.setUTCDate(fallback.getUTCDate() + 60);
+  return fallback.toISOString();
+}
+
 function jobToJsonLd(
   job: CompanyCityActiveJob,
   employer: string,
@@ -1593,6 +1640,19 @@ function jobToJsonLd(
 
   const datePosted = job.postedDate || new Date().toISOString().slice(0, 10);
 
+  // addressRegion: source field → derived from addressLocality → fallback HQ canton.
+  // Required by GSC for JobPosting rich-result quality (no empty values allowed).
+  const explicitRegion = (job.addressRegion || '').trim().toUpperCase();
+  const addressRegion =
+    /^[A-Z]{2}$/.test(explicitRegion)
+      ? explicitRegion
+      : deriveCantonFromCity(addressLocality) || fallbackAddr.addressRegion;
+
+  // validThrough: source field → crawledAt + 60d → postedDate + 90d → now + 60d.
+  // Always emit a future ISO datetime — Google requires validThrough to be
+  // present and in the future for active JobPosting rich-results.
+  const validThrough = computeValidThrough(job.validThrough, job.crawledAt, datePosted);
+
   return {
     '@type': 'JobPosting',
     title: job.title || OPEN_POSITION_LABEL[locale],
@@ -1600,6 +1660,7 @@ function jobToJsonLd(
     inLanguage: locale,
     url: `${BASE_URL}${job.detailPath}`,
     datePosted,
+    validThrough,
     employmentType,
     hiringOrganization: {
       '@type': 'Organization',
@@ -1612,6 +1673,7 @@ function jobToJsonLd(
         streetAddress,
         postalCode,
         addressLocality,
+        addressRegion,
         addressCountry: 'CH',
       },
     },
