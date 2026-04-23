@@ -74,6 +74,22 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { SECTOR_HUB_KEYS } from './jobSectorLanding';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CARD_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
+  LINK_ACCENT_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_VALUE,
+  STAT_TILE_WARNING,
+} from './shared/seoContentTokens';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -774,7 +790,7 @@ function renderSvgTrendChart(
   trendEmptyCopy: string,
 ): string {
   if (series.length < 2) {
-    return `<p style="padding:14px 16px;border-radius:12px;background:#fef3c7;color:#78350f;margin:0">${esc(trendEmptyCopy)}</p>`;
+    return `<p style="${STAT_TILE_WARNING};padding:14px 16px;border-radius:12px;margin:0">${esc(trendEmptyCopy)}</p>`;
   }
   const values = series.map((s) => s.value);
   const maxValue = Math.max(...values);
@@ -799,7 +815,7 @@ function renderSvgTrendChart(
       return `<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="11" fill="#475569">${esc(s.periodLabel)}</text>`;
     })
     .join('');
-  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trend chart" style="width:100%;max-width:100%;height:auto;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px">
+  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trend chart" style="width:100%;max-width:100%;height:auto;background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px">
     <polygon points="${areaPoints}" fill="#c7d2fe" fill-opacity="0.5" />
     <polyline points="${points}" fill="none" stroke="#4338ca" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     ${series.map((s, i) => {
@@ -814,12 +830,12 @@ function renderSvgTrendChart(
 }
 
 function renderRelatedLinks(copy: LocalisedCopy): string {
-  return `<aside style="margin:28px 0 0;padding:18px 20px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0" aria-labelledby="relatedLinks">
-    <h2 id="relatedLinks" style="margin:0 0 10px;font-size:18px;color:#0f172a">${esc(copy.relatedLinksHeading)}</h2>
+  return `<aside style="margin:28px 0 0;${CARD_STYLE}" aria-labelledby="relatedLinks">
+    <h2 id="relatedLinks" style="${H2_STYLE};font-size:18px;margin-bottom:10px">${esc(copy.relatedLinksHeading)}</h2>
     <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px">
       ${copy.relatedLinks
         .map(
-          (l) => `<li><a href="${esc(l.href)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">${esc(l.label)} →</a></li>`,
+          (l) => `<li><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(l.label)} →</a></li>`,
         )
         .join('')}
     </ul>
@@ -829,12 +845,12 @@ function renderRelatedLinks(copy: LocalisedCopy): string {
 function renderFaq(copy: LocalisedCopy): string {
   if (copy.faq.length === 0) return '';
   return `<section style="margin:32px 0 0" aria-labelledby="jobMarketFaq">
-    <h2 id="jobMarketFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <h2 id="jobMarketFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${copy.faq
       .map(
-        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q)}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a)}</p>
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a)}</p>
     </details>`,
       )
       .join('')}
@@ -846,17 +862,17 @@ function renderStatTile(
   value: string,
   variant: 'primary' | 'success' | 'warning' | 'neutral' = 'primary',
 ): string {
-  const palette =
+  const tileStyle =
     variant === 'success'
-      ? { bg: '#ecfccb', border: '#bef264', text: '#365314' }
+      ? STAT_TILE_SUCCESS
       : variant === 'warning'
-      ? { bg: '#fef3c7', border: '#fde68a', text: '#78350f' }
+      ? STAT_TILE_WARNING
       : variant === 'neutral'
-      ? { bg: '#f1f5f9', border: '#cbd5e1', text: '#0f172a' }
-      : { bg: '#eef2ff', border: '#c7d2fe', text: '#4338ca' };
-  return `<div style="padding:18px;border-radius:18px;background:${palette.bg};border:1px solid ${palette.border}">
-    <div style="font-size:12px;color:${palette.text};font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(label)}</div>
-    <div style="margin-top:8px;font-size:28px;font-weight:800;color:#1e293b">${esc(value)}</div>
+      ? STAT_TILE_BASE
+      : STAT_TILE_ACCENT;
+  return `<div style="${tileStyle}">
+    <div style="${STAT_TILE_LABEL}">${esc(label)}</div>
+    <div style="${STAT_TILE_VALUE}">${esc(value)}</div>
   </div>`;
 }
 
@@ -867,23 +883,23 @@ function renderTopList(
 ): string {
   if (items.length === 0) {
     return `<section style="margin:22px 0 0" aria-labelledby="${esc(heading)}">
-      <h2 style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(heading)}</h2>
-      <p style="margin:0;color:#475569">—</p>
+      <h2 style="margin:0 0 10px;${H2_STYLE}">${esc(heading)}</h2>
+      <p style="margin:0;color:var(--color-subtle)">—</p>
     </section>`;
   }
   const rows = items
     .map((item, idx) => {
       const nameHtml = item.url
-        ? `<a href="${esc(item.url)}" style="color:#0f172a;text-decoration:none;font-weight:700">${esc(item.name)}</a>`
-        : `<span style="color:#0f172a;font-weight:700">${esc(item.name)}</span>`;
-      return `<li style="padding:12px 16px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px">
-      <span style="display:flex;align-items:center;gap:10px"><span style="background:#eef2ff;color:#4338ca;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12px">#${idx + 1}</span>${nameHtml}</span>
-      <span style="color:#1d4ed8;font-weight:700">${esc(String(item.added))} ${esc(suffixLabel)}</span>
+        ? `<a href="${esc(item.url)}" style="color:var(--color-body);text-decoration:none;font-weight:700">${esc(item.name)}</a>`
+        : `<span style="color:var(--color-body);font-weight:700">${esc(item.name)}</span>`;
+      return `<li style="${CARD_STYLE};margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <span style="display:flex;align-items:center;gap:10px"><span style="background:var(--color-accent-subtle);color:var(--color-accent);border-radius:999px;padding:2px 10px;font-weight:700;font-size:12px">#${idx + 1}</span>${nameHtml}</span>
+      <span style="color:var(--color-link);font-weight:700">${esc(String(item.added))} ${esc(suffixLabel)}</span>
     </li>`;
     })
     .join('');
   return `<section style="margin:22px 0 0" aria-labelledby="${esc(heading)}">
-    <h2 style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(heading)}</h2>
+    <h2 style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(heading)}</h2>
     <ol style="margin:0;padding:0;list-style:none">${rows}</ol>
   </section>`;
 }
@@ -904,21 +920,21 @@ function renderCityBreakdown(
   const rows = items
     .map((c) => {
       const label = hubKeys.has(c.key)
-        ? `<a href="${esc(cityLinkBase[locale])}/${esc(c.key)}/" style="color:#0f172a;text-decoration:none;font-weight:700">${esc(c.name)}</a>`
-        : `<span style="color:#0f172a;font-weight:700">${esc(c.name)}</span>`;
-      return `<li style="padding:12px 16px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;margin-bottom:8px">
+        ? `<a href="${esc(cityLinkBase[locale])}/${esc(c.key)}/" style="color:var(--color-body);text-decoration:none;font-weight:700">${esc(c.name)}</a>`
+        : `<span style="color:var(--color-body);font-weight:700">${esc(c.name)}</span>`;
+      return `<li style="${CARD_STYLE};margin-bottom:8px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
       ${label}
-      <span style="color:#475569;font-weight:600">${esc(String(c.added))} · ${esc(c.percentage.toFixed(1))}%</span>
+      <span style="color:var(--color-subtle);font-weight:600">${esc(String(c.added))} · ${esc(c.percentage.toFixed(1))}%</span>
     </div>
-    <div style="margin-top:8px;background:#e2e8f0;border-radius:999px;height:6px;overflow:hidden">
-      <div style="width:${esc(c.percentage.toFixed(1))}%;height:100%;background:#4f46e5"></div>
+    <div style="margin-top:8px;background:var(--color-edge);border-radius:999px;height:6px;overflow:hidden">
+      <div style="width:${esc(c.percentage.toFixed(1))}%;height:100%;background:var(--color-accent)"></div>
     </div>
   </li>`;
     })
     .join('');
   return `<section style="margin:22px 0 0" aria-labelledby="cityBreakdown">
-    <h2 id="cityBreakdown" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(heading)}</h2>
+    <h2 id="cityBreakdown" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(heading)}</h2>
     <ol style="margin:0;padding:0;list-style:none">${rows}</ol>
   </section>`;
 }
@@ -951,7 +967,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       : `${formatDate(stats.startDate, locale)} – ${formatDate(stats.endDate, locale)}`;
 
   const degradedNote = degraded
-    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:#fef3c7;color:#78350f;border:1px solid #fcd34d">${esc(copy.degradedNote)}</p>`
+    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
     : '';
 
   const statTiles = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(copy.seriesKicker)}">
@@ -980,13 +996,13 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const cityBreakdown = renderCityBreakdown(copy.cityBreakdownHeading, stats.cityBreakdown, locale);
 
   const trendSection = `<section style="margin:24px 0 0" aria-labelledby="trendChart">
-    <h2 id="trendChart" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.trendHeading)}</h2>
+    <h2 id="trendChart" style="${H2_STYLE};font-size:20px;margin-bottom:12px">${esc(copy.trendHeading)}</h2>
     ${renderSvgTrendChart(stats.trendSeries, copy.trendEmpty)}
   </section>`;
 
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
-    <h2 id="methodology" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.65">${esc(copy.methodologyBody)}</p>
+    <h2 id="methodology" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
   </section>`;
 
   const faqHtml = renderFaq(copy);
@@ -1114,24 +1130,24 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-    <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-      <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${BASE_URL}${buildHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
+      <a href="${BASE_URL}${buildHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
       <span> / </span>
       <span>${esc(periodRange)}</span>
     </nav>
     <header style="margin-bottom:22px">
-      <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.seriesKicker)} · ${esc(periodRange)}</p>
-      <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-      <p style="margin:0 0 10px;color:#475569;font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
-      <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.seriesKicker)} · ${esc(periodRange)}</p>
+      <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+      <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p style="${LEDE_STYLE}">${esc(intro)}</p>
     </header>
     ${degradedNote}
     ${statTiles}
     <section style="margin:0 0 22px">
-      <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
     </section>
     ${topRolesList}
     ${topEmployersList}
@@ -1189,7 +1205,7 @@ function renderHubPage(inp: HubPageInputs): string {
   const h1 = copy.hubHeading;
 
   const degradedNote = degraded
-    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:#fef3c7;color:#78350f;border:1px solid #fcd34d">${esc(copy.degradedNote)}</p>`
+    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
     : '';
 
   const heroStatsHtml = heroStats
@@ -1203,15 +1219,15 @@ function renderHubPage(inp: HubPageInputs): string {
 
   const latestWeeksHtml = latestWeeks.length > 0
     ? `<section style="margin:24px 0 0" aria-labelledby="latestWeeks">
-        <h2 id="latestWeeks" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.hubLatestLabel)}</h2>
+        <h2 id="latestWeeks" style="${H2_STYLE}">${esc(copy.hubLatestLabel)}</h2>
         <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
           ${latestWeeks
             .map(
-              (w) => `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff">
-                <a href="${esc(w.href)}" style="color:#0f172a;text-decoration:none;display:block">
+              (w) => `<li style="${CARD_STYLE}">
+                <a href="${esc(w.href)}" style="color:var(--color-body);text-decoration:none;display:block">
                   <div style="font-weight:700;font-size:16px">${esc(copy.weeklyHeading(w.week, w.year))}</div>
-                  <div style="margin-top:4px;color:#475569;font-size:13px">${esc(w.rangeLabel)}</div>
-                  <div style="margin-top:10px;display:flex;gap:14px;font-size:14px;color:#334155">
+                  <div style="margin-top:4px;color:var(--color-subtle);font-size:13px">${esc(w.rangeLabel)}</div>
+                  <div style="margin-top:10px;display:flex;gap:14px;font-size:14px;color:var(--color-body)">
                     <span><strong>${esc(String(w.newJobs))}</strong> ${esc(copy.statNewJobs.toLowerCase())}</span>
                     <span><strong>${esc(String(w.activeEmployers))}</strong> ${esc(copy.statActiveEmployers.toLowerCase())}</span>
                   </div>
@@ -1225,11 +1241,11 @@ function renderHubPage(inp: HubPageInputs): string {
 
   const archiveHtml = monthlyArchive.length > 0
     ? `<section style="margin:24px 0 0" aria-labelledby="monthlyArchive">
-        <h2 id="monthlyArchive" style="margin:0 0 10px;font-size:22px;color:#0f172a">${esc(copy.hubArchiveLabel)}</h2>
+        <h2 id="monthlyArchive" style="${H2_STYLE}">${esc(copy.hubArchiveLabel)}</h2>
         <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px">
           ${monthlyArchive
             .map(
-              (m) => `<li><a href="${esc(m.href)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">${esc(m.monthLabel)} →</a></li>`,
+              (m) => `<li><a href="${esc(m.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(m.monthLabel)} →</a></li>`,
             )
             .join('')}
         </ul>
@@ -1237,12 +1253,12 @@ function renderHubPage(inp: HubPageInputs): string {
     : '';
 
   const ctaHtml = latestWeekHref
-    ? `<p style="margin:0 0 20px"><a href="${esc(latestWeekHref)}" style="display:inline-block;padding:12px 22px;border-radius:12px;background:#4f46e5;color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.hubSeeCurrentWeek)} →</a></p>`
+    ? `<p style="margin:0 0 20px"><a href="${esc(latestWeekHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:700">${esc(copy.hubSeeCurrentWeek)} →</a></p>`
     : '';
 
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
-    <h2 id="methodology" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.65">${esc(copy.methodologyBody)}</p>
+    <h2 id="methodology" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
   </section>`;
 
   const faqHtml = renderFaq(copy);
@@ -1346,23 +1362,23 @@ function renderHubPage(inp: HubPageInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = copy.hubIntro.length > 180 ? `${copy.hubIntro.slice(0, 177)}...` : copy.hubIntro;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-    <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-      <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <span>${esc(JOB_MARKET_HUB_NAME[locale])}</span>
     </nav>
     <header style="margin-bottom:22px">
-      <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.seriesKicker)}</p>
-      <h1 style="margin:0 0 14px;font-size:clamp(2rem,4.5vw,3rem);line-height:1.1">${esc(h1)}</h1>
-      <p style="margin:0 0 10px;color:#475569;font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
-      <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(copy.hubIntro)}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.seriesKicker)}</p>
+      <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+      <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p style="${LEDE_STYLE}">${esc(copy.hubIntro)}</p>
     </header>
     ${degradedNote}
     ${ctaHtml}
     ${heroStatsHtml}
     <section style="margin:0 0 22px">
-      <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.hubParagraph)}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.hubParagraph)}</p>
     </section>
     ${latestWeeksHtml}
     ${archiveHtml}
@@ -2049,7 +2065,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
   );
 
   const trendSection = `<section style="margin:24px 0 0" aria-labelledby="sectorTrend">
-    <h2 id="sectorTrend" style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.trendHeading)}</h2>
+    <h2 id="sectorTrend" style="${H2_STYLE};font-size:20px;margin-bottom:12px">${esc(copy.trendHeading)}</h2>
     ${renderSvgTrendChart(stats.trendSeries, copy.trendEmpty)}
   </section>`;
 
@@ -2060,24 +2076,24 @@ function renderSectorPage(inp: SectorPageInputs): string {
   const snapshotHubHref = buildHubPath(locale);
 
   const ctaHtml = `<p style="margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap">
-    <a href="${esc(sectorHubHref)}" style="display:inline-block;padding:12px 22px;border-radius:12px;background:#4f46e5;color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.sectorHubCta(sectorLabel))} →</a>
-    <a href="${esc(snapshotHubHref)}" style="display:inline-block;padding:12px 22px;border-radius:12px;background:#ffffff;border:1px solid #c7d2fe;color:#4338ca;text-decoration:none;font-weight:700">${esc(copy.snapshotRootCta)} →</a>
+    <a href="${esc(sectorHubHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:700">${esc(copy.sectorHubCta(sectorLabel))} →</a>
+    <a href="${esc(snapshotHubHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-accent-border);color:var(--color-accent);text-decoration:none;font-weight:700">${esc(copy.snapshotRootCta)} →</a>
   </p>`;
 
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="sectorMethodology">
-    <h2 id="sectorMethodology" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.65">${esc(copy.methodologyBody(sectorLabel))}</p>
+    <h2 id="sectorMethodology" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody(sectorLabel))}</p>
   </section>`;
 
   const faqEntries = copy.faq(sectorLabel, stats);
   const faqHtml = faqEntries.length > 0
     ? `<section style="margin:32px 0 0" aria-labelledby="sectorFaq">
-        <h2 id="sectorFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+        <h2 id="sectorFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
         ${faqEntries
           .map(
-            (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-              <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q)}</summary>
-              <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a)}</p>
+            (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+              <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
+              <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a)}</p>
             </details>`,
           )
           .join('')}
@@ -2187,25 +2203,25 @@ function renderSectorPage(inp: SectorPageInputs): string {
     })),
   });
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-    <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-      <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${BASE_URL}${buildHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
+      <a href="${BASE_URL}${buildHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
       <span> / </span>
       <span>${esc(sectorLabel)}</span>
     </nav>
     <header style="margin-bottom:22px">
-      <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.kicker)} · ${esc(sectorLabel)}</p>
-      <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-      <p style="margin:0 0 10px;color:#475569;font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
-      <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kicker)} · ${esc(sectorLabel)}</p>
+      <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+      <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p style="${LEDE_STYLE}">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
     </header>
     ${ctaHtml}
     ${statTiles}
     <section style="margin:0 0 22px">
-      <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
-      <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.paragraph2(sectorLabel))}</p>
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.paragraph2(sectorLabel))}</p>
     </section>
     ${topEmployersList}
     ${trendSection}
