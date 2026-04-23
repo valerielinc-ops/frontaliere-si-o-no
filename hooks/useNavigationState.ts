@@ -285,14 +285,37 @@ export function useNavigationState(): NavigationState {
  // Skip static file links (sitemap.xml, robots.txt, etc.)
  if (/\.(xml|txt|json|pdf|png|jpg|jpeg|gif|svg|ico|webp|woff2?|css|js)(\?|$)/i.test(href)) return;
 
- // This is an internal SPA route — intercept it
- e.preventDefault();
-
  const [pathname, hash] = href.split('#');
  const search = a.search || '';
 
- // Push the new URL and apply the route via SPA navigation
+ // Resolve the target route from the URL.
  const { route } = parsePath(pathname);
+
+ // BUG-1 fix (docs/seo/ROADMAP.md): programmatic SEO landings
+ // (fuel-daily F6, LAMal F2, weekly-employers F5, job-market-snapshot F4,
+ // border-wait F8, orphan-query F3b, SemRush, nursing landings) are
+ // static HTML emitted OUTSIDE `#root` (see AppRoute.staticOverlay).
+ // They are not part of the SPA component tree — there is no React
+ // view that can render the per-station / per-canton / per-city body
+ // client-side. The only way to display them is a full-page navigation
+ // that loads the static HTML for that exact URL. Intercepting them in
+ // the SPA click handler would either no-op (pushRoute early-returns
+ // on staticOverlay) or, worse, swap the URL and leave the user
+ // stranded on the home view (the bug observed live 2026-04-23).
+ //
+ // Detection: if the target is a staticOverlay route AND we're not
+ // currently on that same static page, let the browser handle the
+ // navigation natively (fall through without preventDefault).
+ const targetIsStaticOverlay = !!route.staticOverlay;
+ const onSamePath = window.location.pathname.replace(/\/$/, '') === pathname.replace(/\/$/, '');
+ if (targetIsStaticOverlay && !onSamePath) {
+ return;
+ }
+
+ // This is an internal SPA route — intercept it
+ e.preventDefault();
+
+ // Push the new URL and apply the route via SPA navigation
  pushRoute(route);
 
  // If the href included a query string, preserve it
