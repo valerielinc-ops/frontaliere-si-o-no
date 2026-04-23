@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-04-23T09:54:04.514Z",
+  "assembledAt": "2026-04-23T21:27:46.117Z",
   "jobs": [
     {
       "id": "coopers-775622e91e4e",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:54:02.158Z",
+      "crawledAt": "2026-04-23T21:27:43.968Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -62,7 +62,9 @@
           "Project Management"
         ]
       },
-      "firstSeenAt": "2026-04-22T21:30:00.616Z",
+      "previousSlugs": [
+        "project-engineer-m-w-d-coopers-wallis"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "project-engineer-m-w-d-coopers-wallis"
@@ -71,9 +73,8 @@
           "project-engineer-m-w-d-coopers-wallis"
         ]
       },
-      "previousSlugs": [
-        "project-engineer-m-w-d-coopers-wallis"
-      ],
+      "firstSeenAt": "2026-04-22T21:30:00.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -119,7 +120,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-23T09:54:00.729Z",
+      "crawledAt": "2026-04-23T21:27:41.711Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
