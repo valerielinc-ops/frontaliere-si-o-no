@@ -612,15 +612,8 @@ export function generatePageHtml(
     }
   </script>
 
-  <!-- AdSense loader is injected globally via ANALYTICS_SNIPPET in <head>. -->
-  <script>
-    (function(){
-      var slots=document.querySelectorAll('.adsbygoogle');
-      for(var i=0;i<slots.length;i++){
-        try{(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
-      }
-    })();
-  </script>
+  <!-- AdSense: lazy loader in ANALYTICS_SNIPPET (constants.ts) handles script
+       injection + slot push via IntersectionObserver. No per-page push needed. -->
 
   <!-- SPA redirect for deep links -->
   <script>

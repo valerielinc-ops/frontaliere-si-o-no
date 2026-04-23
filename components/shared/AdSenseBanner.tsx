@@ -140,11 +140,43 @@ export default function AdSenseBanner({
  document.head.appendChild(script);
  }, [adSlot]);
 
- // ── Start script loading when enabled ────────────────────
+ // ── Lazy-load script via IntersectionObserver ─────────────
+ // Only load adsbygoogle.js when the ad slot is within 200px of the viewport.
+ // This eliminates Semrush "uncompressed JS" flags on pages where the ad
+ // never enters view, and defers the ~45KB third-party payload past LCP.
  useEffect(() => {
  if (!IS_PROD || !enabled || !adSlot) return;
+ const wrapper = wrapperRef.current;
+ if (!wrapper) return;
+
+ // If the script is already present (e.g. another banner already triggered
+ // load on this page), skip the observer and proceed to width-wait.
+ if (typeof document !== 'undefined' &&
+ document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
  loadAdSenseScript();
  setState('waiting_width');
+ return;
+ }
+
+ if (typeof IntersectionObserver === 'undefined') {
+ // Older browsers — fall back to immediate load.
+ loadAdSenseScript();
+ setState('waiting_width');
+ return;
+ }
+
+ const io = new IntersectionObserver((entries) => {
+ for (const entry of entries) {
+ if (entry.isIntersecting) {
+ io.disconnect();
+ loadAdSenseScript();
+ setState('waiting_width');
+ return;
+ }
+ }
+ }, { rootMargin: '200px 0px' });
+ io.observe(wrapper);
+ return () => io.disconnect();
  }, [enabled, adSlot, loadAdSenseScript]);
 
  // ── Wait for measurable width, then push ─────────────────

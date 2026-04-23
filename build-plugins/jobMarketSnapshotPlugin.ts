@@ -1164,6 +1164,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     jsonLdScripts: [breadcrumbLd, articleLd, datasetLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'jobs-observatory' },
   });
 }
 
@@ -1392,6 +1393,7 @@ function renderHubPage(inp: HubPageInputs): string {
     jsonLdScripts: [breadcrumbLd, collectionLd, hubDatasetLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'jobs-observatory' },
   });
 }
 
@@ -2233,6 +2235,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd, datasetLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'jobs-observatory' },
   });
 }
 

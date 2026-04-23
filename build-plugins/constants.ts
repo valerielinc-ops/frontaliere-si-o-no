@@ -210,10 +210,77 @@ export const POSTHOG_SNIPPET = `<script>
  * (job detail, hubs, fuel, health premiums, orphan queries, etc.) so Auto Ads
  * can serve on pages that do not mount the <AdSenseBanner> React component.
  * The client ID must match the meta `google-adsense-account` in index.html.
+ *
+ * LAZY LOADING (2026-04-23): adsbygoogle.js is no longer eagerly injected in
+ * <head>. Semrush flagged 8129 "uncompressed JS" notices because every static
+ * crawl fetched the script synchronously. Instead we ship:
+ *  - preconnect hints to pagead2 so when we do load it's fast
+ *  - google-adsense-account meta (required for AdSense site verification)
+ *  - an inline IntersectionObserver loader that injects the script and pushes
+ *    each <ins class="adsbygoogle"> slot the first time it scrolls within
+ *    200px of the viewport. If no slot ever becomes visible, the script is
+ *    never loaded — Semrush/Google crawlers stop seeing it in audits.
+ *  - a requestIdleCallback fallback that still loads the script after idle so
+ *    Auto Ads (anchor, vignette, in-page) continue to earn on pages with no
+ *    manual <ins> slots.
  */
 export const ADSENSE_CLIENT_ID = 'ca-pub-8628054934855353';
+export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`;
+
+/**
+ * Inline lazy-loader injected at the bottom of every static page (and also
+ * emitted from index.html). Runs once per page and:
+ *  1. Watches every <ins class="adsbygoogle"> with IntersectionObserver
+ *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
+ *  2. Falls back to requestIdleCallback (4s timeout) for pages without manual
+ *     slots so Auto Ads still serve.
+ *  3. On script load, pushes {} for every slot currently in the DOM.
+ */
+export const ADSENSE_LAZY_LOADER = `<script>
+(function(){
+  var loaded=false;
+  function loadScript(){
+    if(loaded)return;loaded=true;
+    var s=document.createElement('script');
+    s.async=true;s.crossOrigin='anonymous';
+    s.src='${ADSENSE_SCRIPT_SRC}';
+    s.setAttribute('data-overlays','bottom');
+    s.setAttribute('data-ad-frequency-hint','120s');
+    s.onload=function(){
+      var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+      for(var i=0;i<slots.length;i++){
+        try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
+      }
+    };
+    document.head.appendChild(s);
+  }
+  function observe(){
+    var slots=document.querySelectorAll('ins.adsbygoogle');
+    if(!('IntersectionObserver' in window)||slots.length===0){
+      // No manual slots or old browser — still load for Auto Ads, but deferred.
+      (window.requestIdleCallback||function(cb){return setTimeout(cb,2000);})(loadScript,{timeout:4000});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      for(var i=0;i<entries.length;i++){
+        if(entries[i].isIntersecting){io.disconnect();loadScript();return;}
+      }
+    },{rootMargin:'200px 0px'});
+    for(var j=0;j<slots.length;j++)io.observe(slots[j]);
+    // Always also schedule an idle fallback so Auto Ads can run even if no
+    // manual slot ever enters the viewport (e.g. short pages above the fold).
+    (window.requestIdleCallback||function(cb){return setTimeout(cb,3000);})(loadScript,{timeout:6000});
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',observe,{once:true});
+  }else{observe();}
+})();
+</script>`;
+
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous" data-overlays="bottom" data-ad-frequency-hint="120s"></script>`;
+ <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+ <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+ ${ADSENSE_LAZY_LOADER}`;
 
 /** Combined analytics snippet (GA4 + PostHog + AdSense) for static pages without the SPA bundle. */
 export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}

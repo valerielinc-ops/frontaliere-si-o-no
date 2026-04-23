@@ -96,9 +96,14 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
-    <!-- Google AdSense -->
+    <!-- Google AdSense — preconnect only. The adsbygoogle.js script is lazy-loaded
+         via IntersectionObserver by the SPA (components/shared/AdSenseBanner.tsx) or
+         the inline loader in statically-generated pages (build-plugins/constants.ts).
+         This eliminates the Semrush "uncompressed JavaScript" flag that fired on
+         every crawled page when the script was eagerly included in <head>. -->
     <meta name="google-adsense-account" content="ca-pub-8628054934855353">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8628054934855353" crossorigin="anonymous" data-overlays="bottom" data-ad-frequency-hint="120s"></script>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
     <!-- Favicon (Calculator with CH/IT flags) -->
     <!-- ICO for Google Search & legacy browsers (most reliable for SERP favicon) -->

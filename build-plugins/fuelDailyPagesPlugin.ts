@@ -916,6 +916,7 @@ function renderPage(inp: PageInputs): string {
     jsonLdScripts,
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
   });
 
   return html;
@@ -1028,6 +1029,7 @@ function renderArchive(inp: ArchiveInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
   });
 }
 
@@ -1465,6 +1467,7 @@ function renderStationPage(opts: {
     jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd, productLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
   });
 }
 
@@ -1806,6 +1809,7 @@ function renderItalianCityPage(opts: {
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
   });
 }
 

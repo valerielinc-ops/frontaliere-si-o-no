@@ -39,6 +39,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
+import { renderHubChrome, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
@@ -136,6 +137,22 @@ export interface SeoPageShellOpts {
    * the SEO content area as part of the SPA tree (none currently).
    */
   seoContentOutsideRoot?: boolean;
+  /**
+   * When provided, the caller's `bodyHtml` is wrapped in the canonical hub
+   * sub-navigation bar (and optional hero strip) so the static first-paint
+   * matches the SPA chrome for the target hub. See {@link renderHubChrome}
+   * for the full rationale (BUG-2 fix).
+   *
+   * The wrapping is applied to `bodyHtml` BEFORE the outer
+   * `<main class="seo-static-content">` sibling emitted by
+   * `seoContentOutsideRoot` mode. That keeps the existing lite-shell
+   * detection hook (`main.seo-static-content` presence) working unchanged.
+   */
+  hubChrome?: {
+    readonly hubKey: HubKey;
+    readonly activeSubTab: string;
+    readonly hero?: HubHero;
+  };
 }
 
 /**
@@ -171,9 +188,20 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     // safe from React's hydration overwriting it inside `#root`. See
     // SimplePageOpts.seoContentOutsideRoot for the full rationale.
     seoContentOutsideRoot = true,
+    hubChrome,
   } = opts;
 
   const assets = distDir ? resolveEntryAssets(distDir) : { entryJs: '', entryCss: '' };
+
+  const wrappedBody = hubChrome
+    ? renderHubChrome({
+        hubKey: hubChrome.hubKey,
+        activeSubTab: hubChrome.activeSubTab,
+        locale: locale as HubLocale,
+        hero: hubChrome.hero,
+        innerHtml: bodyHtml,
+      })
+    : bodyHtml;
 
   const simpleOpts: SimplePageOpts = {
     locale,
@@ -188,7 +216,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     jsonLdScripts: jsonLdScripts ?? [],
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
-    bodyHtml,
+    bodyHtml: wrappedBody,
     skipMainWrap,
     seoContentOutsideRoot,
   };
