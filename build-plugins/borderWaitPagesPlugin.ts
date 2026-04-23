@@ -1103,7 +1103,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // without bypassing buildSeoPageHtml's templating.
   const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1129,7 +1129,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${alternativeRoutesHtml}
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-</main>${webcamRefreshScript}`;
+</article>${webcamRefreshScript}`;
 
   // Per-page OG image: when the build-time webcam snapshot is available, use
   // the 640×360 JPEG so social shares show the REAL traffic state at the
@@ -1330,7 +1330,7 @@ function renderHubPage(inp: HubInputs): string {
     fuelZone: CROSSING_TO_FUEL_ZONE[primaryCrossing],
   };
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1358,7 +1358,7 @@ function renderHubPage(inp: HubInputs): string {
     <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(secondary)}</p>
   </section>
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -1476,7 +1476,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     dateModified: today.toISOString(),
   });
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
         <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
           <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
@@ -1498,7 +1498,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
             <tbody>${rows}</tbody>
           </table>
         </section>
-      </main>`;
+      </article>`;
 
   return buildSeoPageHtml({
     locale,

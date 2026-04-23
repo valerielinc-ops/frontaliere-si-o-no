@@ -387,9 +387,9 @@ function renderPage(opts: {
   // Keep the existing inline-styled `<main>` so the static shell still renders
   // something readable before React hydrates. buildSimplePage wraps this in
   // `<div id="root">` with `skipMainWrap: true` to avoid nested <main>.
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">
         ${body}
-      </main>`;
+      </article>`;
 
   const html = buildSeoPageHtml({
     locale,

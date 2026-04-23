@@ -1438,7 +1438,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       ? `<p style="margin:0 0 16px;color:#78350f;background:#fef3c7;padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1491,7 +1491,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     </details>
   </section>
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
-</main>`;
+</article>`;
 
   // Extra head: OG image dims + twitter card — matches pre-shell-wrap output.
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -1907,7 +1907,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       ? `<p style="margin:0 0 16px;color:#78350f;background:#fef3c7;padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1959,7 +1959,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     employer,
     companySiblingCities,
   })}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

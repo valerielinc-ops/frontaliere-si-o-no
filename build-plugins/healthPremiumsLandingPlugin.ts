@@ -1315,7 +1315,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1354,7 +1354,7 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -1573,7 +1573,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1600,7 +1600,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -1733,7 +1733,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1759,7 +1759,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

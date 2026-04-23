@@ -841,7 +841,7 @@ function renderPage(inp: PageInputs): string {
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -887,7 +887,7 @@ function renderPage(inp: PageInputs): string {
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
-</main>`;
+</article>`;
 
   // Extra head: OG image dimensions + twitter card — kept for parity with the
   // pre-shell-wrap emission so social-share previews are unchanged.
@@ -1002,7 +1002,7 @@ function renderArchive(inp: ArchiveInputs): string {
     dateModified: dateStamp,
   });
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
         <nav style="margin:0 0 14px;font-size:13px;color:#475569">
           <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
@@ -1016,7 +1016,7 @@ function renderArchive(inp: ArchiveInputs): string {
           <p style="margin:0;font-size:17px;line-height:1.55;max-width:860px">${esc(intro)}</p>
         </header>
         <section>${tableHtml}</section>
-      </main>`;
+      </article>`;
 
   return buildSeoPageHtml({
     locale,
@@ -1400,7 +1400,7 @@ function renderStationPage(opts: {
   const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
     <span> / </span>
@@ -1458,7 +1458,7 @@ function renderStationPage(opts: {
     stationSlug: ctx.slug,
     siblingStations,
   })}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -1747,7 +1747,7 @@ function renderItalianCityPage(opts: {
   const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
   <nav style="margin:0 0 14px;font-size:13px;color:#475569">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
     <span> / </span>
@@ -1800,7 +1800,7 @@ function renderItalianCityPage(opts: {
     italianCityDisplay: entry.display,
     fuelZone: entry.nearestZone,
   })}
-</main>`;
+</article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

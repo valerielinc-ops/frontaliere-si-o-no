@@ -1114,7 +1114,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
     <nav style="margin:0 0 14px;font-size:13px;color:#475569">
       <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -1141,7 +1141,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${faqHtml}
     ${relatedHtml}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
-  </main>`;
+  </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -1346,7 +1346,7 @@ function renderHubPage(inp: HubPageInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = copy.hubIntro.length > 180 ? `${copy.hubIntro.slice(0, 177)}...` : copy.hubIntro;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
     <nav style="margin:0 0 14px;font-size:13px;color:#475569">
       <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -1370,7 +1370,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ${faqHtml}
     ${relatedHtml}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
-  </main>`;
+  </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -2187,7 +2187,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     })),
   });
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
     <nav style="margin:0 0 14px;font-size:13px;color:#475569">
       <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -2212,7 +2212,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ${methodology}
     ${faqHtml}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
-  </main>`;
+  </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
