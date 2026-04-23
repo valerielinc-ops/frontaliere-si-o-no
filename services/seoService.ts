@@ -2117,6 +2117,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-assegno-educativo-mendrisio-2026': { name: 'Assegno educativo', path: '/articoli-frontaliere/assegno-educativo-mendrisio-2026', parent: 'blog' },
     'blog-grigioni-permessi-dimora-2026': { name: 'Novità', path: '/articoli-frontaliere/grigioni-permessi-dimora-2026', parent: 'blog' },
     'blog-aumento-stipendi-medici-infermieri-lombardia-2026': { name: 'Aumento stipendi', path: '/articoli-frontaliere/aumento-stipendi-medici-infermieri-lombardia-2026', parent: 'blog' },
+    'blog-dividere-lavoratori-salari-2026': { name: 'Novità', path: '/articoli-frontaliere/dividere-lavoratori-salari-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

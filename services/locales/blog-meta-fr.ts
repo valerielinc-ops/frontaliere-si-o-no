@@ -2559,6 +2559,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'La Lombardie augmente les salaires des médecins et infirmiers pour stopper l\'exode vers la Suisse',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'À partir de septembre 2026, les médecins et infirmiers des zones frontalières avec la Suisse verront leurs salaires augmenter jusqu\'à 10.000 euros bruts par an. La Lombardie investit 45 millions pour retenir le personnel soignant.',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Médecin et infirmière travaillant dans un hôpital près de la frontière suisse-italienne',
+    'blog.article.dividere-lavoratori-salari-2026.title': 'Diviser les travailleurs signifie baisser les salaires : le message du Premier Mai à Lugano',
+    'blog.article.dividere-lavoratori-salari-2026.excerpt': 'Le Premier Mai revient à Lugano avec un focus sur les droits des travailleurs, indépendamment de l\'origine, du contrat ou du secteur économique.',
+    'blog.article.dividere-lavoratori-salari-2026.imageAlt': 'Manifestation à Lugano avec des travailleurs tenant des pancartes sur les salaires équitables, en arrière-plan du lac et de l\'architecture de la ville',
 };
 
 export default blogMetaFr;

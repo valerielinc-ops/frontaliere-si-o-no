@@ -2559,6 +2559,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'Lombardei erhöht Gehälter für Ärzte und Krankenschwestern, um Abwanderung in die Schweiz zu stoppen',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'Ab September 2026 werden Ärzte und Krankenschwestern in den Grenzregionen zur Schweiz Gehaltserhöhungen von bis zu 10.000 Euro brutto pro Jahr erhalten. Die Lombardei investiert 45 Millionen, um das medizinische Personal zu halten.',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Arzt und Krankenschwester arbeiten in einem Krankenhaus an der Schweizer-Italienischen Grenze',
+    'blog.article.dividere-lavoratori-salari-2026.title': 'Arbeitnehmer zu spalten bedeutet, die Löhne zu senken: Die Botschaft des 1. Mai in Lugano',
+    'blog.article.dividere-lavoratori-salari-2026.excerpt': 'Der 1. Mai kehrt nach Lugano zurück mit einem Fokus auf die Rechte der Arbeitnehmer, unabhängig von Herkunft, Vertrag oder Wirtschaftszweig.',
+    'blog.article.dividere-lavoratori-salari-2026.imageAlt': 'Protest in Lugano mit Arbeitnehmern, die Schilder über faire Löhne halten, vor dem Hintergrund des Luganer Sees und der Architektur der Stadt',
 };
 
 export default blogMetaDe;

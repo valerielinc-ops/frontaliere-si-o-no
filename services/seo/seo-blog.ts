@@ -11602,6 +11602,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dividere-lavoratori-salari-2026': {
+    title: 'Dividere i lavoratori significa | Frontaliere Ticino',
+    description: 'Il Primo Maggio torna a Lugano con un focus sui diritti dei lavoratori, indipendentemente dall\'origine, dal contratto o dal settore economico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, dividere, lavoratori, significa, abbassare',
+    ogTitle: 'Dividere i lavoratori significa abbassare i salari |',
+    ogDescription: 'Il Primo Maggio torna a Lugano con un focus sui diritti dei lavoratori, indipendentemente dall\'origine, dal contratto o dal settore economico.',
+    canonicalPath: '/articoli-frontaliere/dividere-lavoratori-salari-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dividere i lavoratori significa abbassare i salari: il messaggio del Primo Maggio a Lugano",
+      "description": "Il Primo Maggio torna a Lugano con un focus sui diritti dei lavoratori, indipendentemente dall'origine, dal contratto o dal settore economico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dividere-lavoratori-salari-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione a Lugano con lavoratori che tengono cartelli sui salari equi, sullo sfondo del lago e dell'architettura cittadina"
+      },
+      "datePublished": "2026-04-23T23:31:00+00:00",
+      "dateModified": "2026-04-23T23:31:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dividere-lavoratori-salari-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

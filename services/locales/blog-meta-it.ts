@@ -2559,6 +2559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'Lombardia aumenta stipendi a medici e infermieri per fermare la fuga in Svizzera',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'Dal settembre 2026, medici e infermieri delle zone di confine con la Svizzera vedranno aumenti fino a 10.000 euro lordi annui. La Lombardia investe 45 milioni per trattenere il personale sanitario.',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Medico e infermiera che lavorano in un ospedale al confine con la Svizzera',
+    'blog.article.dividere-lavoratori-salari-2026.title': 'Dividere i lavoratori significa abbassare i salari: il messaggio del Primo Maggio a Lugano',
+    'blog.article.dividere-lavoratori-salari-2026.excerpt': 'Il Primo Maggio torna a Lugano con un focus sui diritti dei lavoratori, indipendentemente dall\'origine, dal contratto o dal settore economico.',
+    'blog.article.dividere-lavoratori-salari-2026.imageAlt': 'Manifestazione a Lugano con lavoratori che tengono cartelli sui salari equi, sullo sfondo del lago e dell\'architettura cittadina',
 };
 
 export default blogMetaIt;

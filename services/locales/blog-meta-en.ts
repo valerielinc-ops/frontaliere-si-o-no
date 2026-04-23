@@ -2559,6 +2559,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'Lombardy increases doctors\' and nurses\' salaries to stop the exodus to Switzerland',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'As of September 2026, doctors and nurses in border areas with Switzerland will see increases of up to 10,000 euros gross per year. Lombardy is investing 45 million to retain healthcare personnel.',
     'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Doctor and nurse working in a hospital near the Swiss-Italian border',
+    'blog.article.dividere-lavoratori-salari-2026.title': 'Dividing workers means lowering wages: the May Day message in Lugano',
+    'blog.article.dividere-lavoratori-salari-2026.excerpt': 'May Day returns to Lugano with a focus on workers\' rights, regardless of origin, contract, or economic sector.',
+    'blog.article.dividere-lavoratori-salari-2026.imageAlt': 'Protest in Lugano with workers holding signs about fair wages, against the backdrop of Lake Lugano and the city\'s architecture',
 };
 
 export default blogMetaEn;

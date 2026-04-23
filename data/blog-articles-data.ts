@@ -6951,4 +6951,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/aumento-stipendi-medici-infermieri-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dividere-lavoratori-salari-2026',
+ category: 'novita',
+ date: '2026-04-23T23:31:00.285Z',
+ image: '/images/blog/dividere-lavoratori-salari-2026.jpg',
+ hasCalculator: true,
+ },
 ];
