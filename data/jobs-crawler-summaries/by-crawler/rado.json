@@ -1,21 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-04-23T10:54:11.952Z",
+  "generatedAt": "2026-04-23T22:27:52.911Z",
   "total": 1,
   "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28116,
-  "avgDurationMs": 28116,
+  "durationMs": 18008,
+  "avgDurationMs": 18008,
   "durationHistory": [
-    28116
+    18008
   ],
   "newJobs": [
     {
       "id": "company-7uauky",
-      "slug": "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address",
+      "slug": "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time 20 ore - Modena - contratto temporaneo",
       "location": "41121 Modena (Emilia Romagna) Italy Company address The Swatch Group (Italia) S",
@@ -31,14 +31,22 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-04-23T10:54:11.832Z",
       "firstSeenAt": "2026-04-23T10:54:11.832Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 75,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Lengnau",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {

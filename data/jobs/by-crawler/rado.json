@@ -1,10 +1,10 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-04-23T10:54:11.951Z",
+  "assembledAt": "2026-04-23T22:27:52.911Z",
   "jobs": [
     {
       "id": "company-7uauky",
-      "slug": "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky",
+      "slug": "assistente-vendite-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-lengnau",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time 20 ore - Modena - contratto temporaneo",
       "location": "41121 Modena (Emilia Romagna) Italy Company address The Swatch Group (Italia) S",
@@ -45,25 +45,30 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky",
-        "en": "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky",
+        "it": "assistente-vendite-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-lengnau",
+        "en": "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-lengnau",
         "de": "vertriebsassistent-teilzeit-20-stunden-modena-befristeter-vertrag-the-swatch-group-italia-s-p-a-41121-modena-emilia-roma",
         "fr": "assistant-commercial-temps-partiel-20-heures-modene-contrat-temporaire-the-swatch-group-italia-s-p-a-41121-modena-emilia"
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
-          "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address"
+          "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address",
+          "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky"
         ],
         "de": [
           "sales-assistent-teilzeit-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky"
         ],
         "fr": [
           "sales-assistant-temps-partiel-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-add-7uauky"
+        ],
+        "en": [
+          "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky"
         ]
       },
       "previousSlugs": [
         "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address",
+        "sales-assistant-part-time-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky",
         "sales-assistent-teilzeit-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-address-7uauky",
         "sales-assistant-temps-partiel-20-ore-modena-contratto-temporaneo-the-swatch-group-italia-s-p-a-41121-modena-emilia-romagna-italy-company-add-7uauky"
       ],
@@ -84,7 +89,8 @@
       "addressLocality": "Lengnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
