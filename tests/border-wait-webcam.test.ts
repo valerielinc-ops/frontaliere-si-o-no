@@ -88,10 +88,16 @@ describe('webcam rendering — attribution + accessibility', () => {
     expect(joined.toLowerCase()).toMatch(/brogeda|chiasso/);
   });
 
-  it('webcam <img> has onerror handler that hides the parent <figure>', () => {
+  it('webcam <img> uses referrerpolicy=no-referrer to bypass ti.ch hotlink 403', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toContain("closest('figure')");
-    expect(html).toContain("style.display='none'");
+    expect(html).toContain('referrerpolicy="no-referrer"');
+  });
+
+  it('webcam <img> onerror swaps to an inline SVG placeholder (not hide)', () => {
+    const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
+    expect(html).toContain("this.onerror=null");
+    expect(html).toContain("data:image/svg+xml");
+    expect(html).not.toContain("style.display='none'");
   });
 });
 
