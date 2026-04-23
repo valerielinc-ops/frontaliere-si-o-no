@@ -775,6 +775,8 @@ interface WeeklyCopy {
   deltaPositive: (count: number) => string;
   deltaZero: string;
   coldStart: string;
+  /** Single page-level banner shown when the whole page is in initial-data state (no delta history). */
+  coldStartBanner: string;
   faqTitle: string;
   faqHowOftenQ: string;
   faqHowOftenA: string;
@@ -868,6 +870,7 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     deltaPositive: (n) => `+${n} questa settimana`,
     deltaZero: 'invariato',
     coldStart: 'Dati iniziali — delta disponibile dalla settimana prossima',
+    coldStartBanner: 'Prima settimana di dati — dalla prossima settimana vedrai la variazione per ogni azienda.',
     faqTitle: 'Domande frequenti',
     faqHowOftenQ: 'Ogni quanto viene aggiornata questa classifica?',
     faqHowOftenA:
@@ -964,6 +967,7 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     deltaPositive: (n) => `+${n} this week`,
     deltaZero: 'unchanged',
     coldStart: 'Baseline data — delta available starting next week',
+    coldStartBanner: 'First week of data — from next week you will see the change for each company.',
     faqTitle: 'Frequently asked questions',
     faqHowOftenQ: 'How often is this leaderboard updated?',
     faqHowOftenA:
@@ -1058,6 +1062,7 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     deltaPositive: (n) => `+${n} diese Woche`,
     deltaZero: 'unverändert',
     coldStart: 'Basisdaten — Wochenveränderung ab nächster Woche verfügbar',
+    coldStartBanner: 'Erste Datenwoche — ab nächster Woche sehen Sie die Veränderung für jedes Unternehmen.',
     faqTitle: 'Häufige Fragen',
     faqHowOftenQ: 'Wie oft wird diese Rangliste aktualisiert?',
     faqHowOftenA:
@@ -1154,6 +1159,7 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     deltaPositive: (n) => `+${n} cette semaine`,
     deltaZero: 'inchangé',
     coldStart: 'Données initiales — variation disponible dès la semaine prochaine',
+    coldStartBanner: 'Première semaine de données — dès la semaine prochaine vous verrez la variation pour chaque entreprise.',
     faqTitle: 'Questions fréquentes',
     faqHowOftenQ: 'À quelle fréquence ce classement est-il mis à jour ?',
     faqHowOftenA:
@@ -1328,23 +1334,34 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       ? buildCurrentWeekPath('it', city)
       : buildArchiveWeekPath('it', city, weekNum, year);
 
+  // Single cold-start banner: shown once above the list when ALL cards are in
+  // initial-data state (no historical delta available yet). Suppresses the
+  // per-card "coldStart" label to avoid 20× repetition of the same sentence.
+  const coldStartBannerHtml = !hasHistoricalDelta
+    ? `<aside style="margin:0 0 16px;padding:14px 16px;border-radius:12px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);font-size:14px;line-height:1.6" role="note">${esc(copy.coldStartBanner)}</aside>`
+    : '';
+
   // Top companies rendering
   const topCompaniesHtml =
     stats.topCompanies.length > 0
-      ? `<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px">${stats.topCompanies
+      ? `${coldStartBannerHtml}<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px">${stats.topCompanies
           .map((c, idx) => {
             const brandHref = employerBrandPath(c.employerKey);
+            // When no historical delta exists at all, suppress the per-card
+            // coldStart label (shown once above as a banner instead).
             const deltaLabel =
-              hasHistoricalDelta && c.delta > 0
+              !hasHistoricalDelta
+                ? null
+                : c.delta > 0
                 ? copy.deltaPositive(c.delta)
-                : hasHistoricalDelta
-                ? copy.deltaZero
-                : copy.coldStart;
+                : copy.deltaZero;
             const needsReview =
               enableAutoStubs && !brandHref && c.active >= 3 && idx < 3 ? ' data-needs-editorial-review="true"' : '';
             const employerEsc = esc(c.employer);
             const badge =
-              hasHistoricalDelta && c.delta > 0
+              deltaLabel === null
+                ? ''
+                : c.delta > 0
                 ? `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-border);font-size:12px;font-weight:700">${esc(deltaLabel)}</span>`
                 : `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-subtle);font-size:12px">${esc(deltaLabel)}</span>`;
             const content = `<div style="font-weight:700;font-size:16px;color:var(--color-heading)">${idx + 1}. ${employerEsc}${badge}</div>
