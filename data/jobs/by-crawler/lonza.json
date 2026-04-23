@@ -2255,7 +2255,7 @@
       "id": "lonza-b16037c6a4a3",
       "slug": "projektleiter-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "manufacturing-specialista-m-w-d-lonza-ch",
+        "it": "projektleiter-m-w-d-lonza-ch",
         "en": "manufacturing-specialist-m-w-d-lonza-ch",
         "de": "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
         "fr": "projektleiter-m-m-j-lonza-ch"
@@ -2303,7 +2303,8 @@
           "manufacturing-specialist-m-w-d-lonza-ch"
         ],
         "it": [
-          "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
+          "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
+          "manufacturing-specialista-m-w-d-lonza-ch"
         ],
         "en": [
           "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
@@ -2316,9 +2317,8 @@
       "previousSlugs": [
         "manufacturing-specialist-m-w-d-lonza-ch",
         "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
-        "manufacturing-specialiste-m-w-d-lonza-ch",
-        "projektleiter-m-w-d-lonza-ch",
-        "projektleiter-m-m-j-lonza-ch"
+        "manufacturing-specialista-m-w-d-lonza-ch",
+        "manufacturing-specialiste-m-w-d-lonza-ch"
       ],
       "firstSeenAt": "2026-04-23T10:27:00.309Z",
       "salaryMin": 66500,
@@ -2674,12 +2674,12 @@
     },
     {
       "id": "lonza-b1ff77543296",
-      "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
+      "slug": "ingegneria-aziendale-di-stage-per-6-12-mesi-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
+        "it": "ingegneria-aziendale-di-stage-per-6-12-mesi-m-w-d-lonza-ch",
         "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "fr": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch"
+        "fr": "stage-en-genie-des-affaires-pendant-6-a-12-mois-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2723,11 +2723,16 @@
       "jobReqId": "R75798",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
+          "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch"
+        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
+        "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

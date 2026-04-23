@@ -1802,12 +1802,12 @@
     },
     {
       "id": "otis-dd28c0864d38",
-      "slug": "quality-specialist-otis-fribourg",
+      "slug": "specialista-di-qualita-otis-sa-fribourg",
       "slugByLocale": {
         "en": "quality-specialist-otis-fribourg",
-        "it": "quality-specialist-otis-fribourg",
-        "de": "quality-specialist-otis-fribourg",
-        "fr": "quality-specialist-otis-fribourg"
+        "it": "specialista-di-qualita-otis-sa-fribourg",
+        "de": "qualitat-spezialist-otis-sa-fribourg",
+        "fr": "qualite-specialiste-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1857,7 +1857,21 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-04-23T22:10:34.167Z"
+      "firstSeenAt": "2026-04-23T22:10:34.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-specialist-otis-fribourg"
+        ],
+        "de": [
+          "quality-specialist-otis-fribourg"
+        ],
+        "fr": [
+          "quality-specialist-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "quality-specialist-otis-fribourg"
+      ]
     },
     {
       "id": "otis-40bff711697f",

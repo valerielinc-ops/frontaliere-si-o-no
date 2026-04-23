@@ -2642,12 +2642,12 @@
     },
     {
       "id": "marriott-ffe56a923f06",
-      "slug": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slug": "supervisore-m-club-lounge-marriott-international-zurich",
       "slugByLocale": {
         "en": "m-club-lounge-supervisor-marriott-zurich",
-        "it": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
-        "de": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
+        "it": "supervisore-m-club-lounge-marriott-international-zurich",
+        "de": "m-club-lounge-vorgesetzter-marriott-international-zurich",
+        "fr": "directeur-du-salon-m-club-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2713,7 +2713,23 @@
         }
       },
       "firstSeenAt": "2026-04-23T22:02:49.619Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "de": [
+          "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
+        "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
+        "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
+      ]
     },
     {
       "id": "marriott-558ddb5714f2",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-eab5807f139b",
-      "slug": "collaboratore-trice-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
+      "slug": "tecnico-operativo-tecnologia-operativa-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
-        "it": "collaboratore-trice-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
+        "it": "tecnico-operativo-tecnologia-operativa-bell-schweiz-ag-basel",
         "en": "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
-        "fr": "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
+        "fr": "specialiste-en-technologie-operationnelle-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -48,14 +48,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel"
+          "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel",
+          "collaboratore-trice-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
         ],
         "de": [
           "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel"
+        "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel",
+        "collaboratore-trice-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
+        "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

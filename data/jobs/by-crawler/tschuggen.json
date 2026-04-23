@@ -473,7 +473,7 @@
         "de": "floor-supervisor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "it": "floor-supervisor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "en": "floor-supervisor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "floor-supervisor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "fr": "superviseur-de-piso-m-w-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -535,12 +535,12 @@
     },
     {
       "id": "tschuggen-01d1354d56c4",
-      "slug": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "account-manager-m-w-d-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "it": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "it": "account-manager-m-w-d-tschuggen-collection-st-moritz",
         "en": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -598,15 +598,26 @@
         }
       },
       "firstSeenAt": "2026-04-23T22:32:28.478Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-8d1a677afc27",
-      "slug": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "head-of-party-rotating-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "it": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "en": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "it": "head-of-party-rotating-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+        "en": "head-de-partie-tournant-m-w-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
         "fr": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
@@ -665,7 +676,18 @@
         }
       },
       "firstSeenAt": "2026-04-23T22:32:27.610Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "en": [
+          "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-58b53acabf42",

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-hkdide",
-      "slug": "collaboratore-trice-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
+      "slug": "operatore-di-impianti-tecnici-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Gebäudebetrieb Chur",
       "location": "Bern",
@@ -41,19 +41,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "collaboratore-trice-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
-        "en": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
+        "it": "operatore-di-impianti-tecnici-swiss-armed-forces-vtg-bern",
+        "en": "facility-operations-technician-swiss-armed-forces-vtg-bern",
         "de": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
-        "fr": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
+        "fr": "technicien-en-installations-techniques-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern"
+          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern",
+          "collaboratore-trice-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
+        ],
+        "fr": [
+          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern"
+        "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern",
+        "collaboratore-trice-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
+        "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

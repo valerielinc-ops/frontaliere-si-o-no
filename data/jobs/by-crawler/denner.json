@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-2a8f7fd2020e",
-      "slug": "verkaufer-in-im-stundenlohn-denner-liestal",
+      "slug": "venditore-in-salario-orario-denner-liestal",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-liestal",
-        "en": "verkaufer-in-im-stundenlohn-denner-liestal",
+        "it": "venditore-in-salario-orario-denner-liestal",
+        "en": "seller-in-in-hourly-wage-denner-liestal",
         "de": "verkaufer-in-im-stundenlohn-denner-liestal",
-        "fr": "verkaufer-in-im-stundenlohn-denner-liestal"
+        "fr": "vendeur-en-salaire-horaire-denner-liestal"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,20 +68,24 @@
       "crawledAt": "2026-04-23T21:30:55.655Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-liestal"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-liestal"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-liestal"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-liestal",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -1239,11 +1243,11 @@
     },
     {
       "id": "denner-6e60f486fb18",
-      "slug": "adjoint-e-gerant-e-denner-morges",
+      "slug": "amministratore-delegato-denner-morges",
       "slugByLocale": {
-        "it": "adjoint-e-gerant-e-denner-morges",
-        "en": "adjoint-e-gerant-e-denner",
-        "de": "adjoint-e-gerant-e-denner",
+        "it": "amministratore-delegato-denner-morges",
+        "en": "deputy-managing-officer-denner-morges",
+        "de": "stellvertretender-direktor-denner-morges",
         "fr": "adjoint-e-gerant-e-denner-morges"
       },
       "company": "Denner",
@@ -1304,15 +1308,23 @@
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-gerant-e-denner-renens-vd",
-          "adjoint-e-gerant-e-denner"
+          "adjoint-e-gerant-e-denner",
+          "adjoint-e-gerant-e-denner-morges"
         ],
         "fr": [
           "adjoint-e-gerant-e-denner-renens-vd"
+        ],
+        "en": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "de": [
+          "adjoint-e-gerant-e-denner"
         ]
       },
       "previousSlugs": [
         "adjoint-e-gerant-e-denner-renens-vd",
-        "adjoint-e-gerant-e-denner"
+        "adjoint-e-gerant-e-denner",
+        "adjoint-e-gerant-e-denner-morges"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1330,12 +1342,12 @@
     },
     {
       "id": "denner-2ae02198261a",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-in-stundenlohn-denner-niederuzwil",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-in-stundenlohn-denner-niederuzwil",
         "en": "student-in-im-stundenlohn-denner-niederuzwil",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiante-a-l-ecole-stundenlohn-denner-niederuzwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1395,10 +1407,17 @@
       "previousSlugsByLocale": {
         "en": [
           "student-in-im-stundenlohn-denner-biel-bienne"
+        ],
+        "it": [
+          "student-in-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-im-stundenlohn-denner-biel-bienne"
+        "student-in-im-stundenlohn-denner-biel-bienne",
+        "student-in-im-stundenlohn-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1416,11 +1435,11 @@
     },
     {
       "id": "denner-04297a0d7b93",
-      "slug": "vendeur-vendeuse-denner-vernier",
+      "slug": "venditore-venditore-denner-vernier",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-vernier",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-vernier",
+        "en": "seller-seller-denner-vernier",
+        "de": "verkaufer-denner-vernier",
         "fr": "vendeur-vendeuse-denner-vernier"
       },
       "company": "Denner",
@@ -1481,15 +1500,23 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-vernier"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-vernier"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-23T21:56:31.667Z",
-      "slug": "teamleiter-in-pflege-schlafmedizin-kantonsspital-graubunden-chur",
+      "slug": "responsabile-del-team-di-medicina-del-sonno-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "teamleiter-in-pflege-schlafmedizin-kantonsspital-graubunden-chur"
+        "de": "teamleiter-in-pflege-schlafmedizin-kantonsspital-graubunden-chur",
+        "it": "responsabile-del-team-di-medicina-del-sonno-kantonsspital-graubunden-chur",
+        "en": "sleep-medicine-team-leader-kantonsspital-graubunden-chur",
+        "fr": "responsable-d-equipe-en-medecine-du-sommeil-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Teamleiter:in Pflege Schlafmedizin",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-23T21:56:31.667Z"
+      "firstSeenAt": "2026-04-23T21:56:31.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-pflege-schlafmedizin-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-pflege-schlafmedizin-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10010254",
@@ -77,9 +88,11 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-23T21:56:31.667Z",
-      "slug": "projektleiter-in-ict-kantonsspital-graubunden-chur",
+      "slug": "project-manager-in-ict-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "projektleiter-in-ict-kantonsspital-graubunden-chur"
+        "de": "projektleiter-in-ict-kantonsspital-graubunden-chur",
+        "it": "project-manager-in-ict-kantonsspital-graubunden-chur",
+        "fr": "directeur-de-projet-dans-les-tic-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Projektleiter:in ICT",
@@ -108,7 +121,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-23T21:56:31.667Z"
+      "firstSeenAt": "2026-04-23T21:56:31.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-ict-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-ict-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10008071",
@@ -5132,8 +5153,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
