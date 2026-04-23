@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-04-23T09:49:09.947Z",
+  "assembledAt": "2026-04-23T21:23:00.729Z",
   "jobs": [
     {
       "title": "SEKRETÄRIN / SEKRETÄR, Arbeitssprache Deutsch",
@@ -141,8 +141,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Inspektor/in",
@@ -541,7 +541,8 @@
         "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       ],
-      "firstSeenAt": "2026-04-13T21:25:51.212Z"
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -622,8 +623,7 @@
         "logistiker-in-lager-ambri-andermatt-confederazione-svizzera-ambri"
       ],
       "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "retranslationAttempts": 1
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
