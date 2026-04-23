@@ -202,7 +202,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { '@type': 'Question', name: "Come funziona il credito d'imposta per la doppia tassazione?", acceptedAnswer: { '@type': 'Answer', text: "Il credito d'imposta permette di detrarre dall'IRPEF italiana le imposte già pagate in Svizzera sullo stesso reddito. Il credito è limitato alla quota di IRPEF proporzionalmente riferita al reddito estero. In pratica si paga la differenza tra IRPEF italiana teorica e imposta alla fonte svizzera effettivamente versata, evitando la doppia imposizione come previsto dalla Convenzione contro le doppie imposizioni." } },
  { '@type': 'Question', name: "Cos'è l'acconto IRPEF e devo pagarlo anche come frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Sì. L'acconto IRPEF è un anticipo sulle tasse dell'anno in corso, pari al 100% dell'imposta dell'anno precedente (se superiore a €51,65), diviso in due rate: 40% a giugno e 60% a novembre. I nuovi frontalieri sono soggetti all'acconto a partire dal secondo anno di dichiarazione. Se non si paga, si applicano sanzioni e interessi." } },
  { '@type': 'Question', name: "Il vecchio frontaliere paga IRPEF sul reddito svizzero?", acceptedAnswer: { '@type': 'Answer', text: "No. I vecchi frontalieri (residenti entro 20 km dal confine assunti prima del 17 luglio 2023) sono esenti da IRPEF italiana sul reddito di lavoro svizzero per tutta la durata del regime transitorio, fino al 31 dicembre 2033. Devono però dichiarare altri redditi italiani (affitti, investimenti) con aliquote ordinarie." } }
- ]
+ ],
+ speakable: SPEAKABLE_SECTION,
  }
  ],
  },
@@ -226,7 +227,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { '@type': 'Question', name: "La franchigia vale anche per la tredicesima e i bonus?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La franchigia si applica sul reddito complessivo da lavoro dipendente svizzero dichiarato in un anno fiscale, quindi include stipendio base, tredicesima, bonus, gratifiche e indennità tassabili. Non si applica invece ai redditi di capitale, a quelli da fabbricati o ai riscatti del 2° pilastro LPP, che seguono regole proprie." } },
  { '@type': 'Question', name: "Se vivo oltre 20 km dal confine posso usare la franchigia?", acceptedAnswer: { '@type': 'Answer', text: "No. La franchigia €10.000 è riservata ai frontalieri che risiedono nei comuni italiani entro 20 km dal confine svizzero. Chi vive oltre 20 km non è considerato frontaliere ai sensi dell'accordo e paga l'IRPEF italiana sul reddito svizzero secondo le regole ordinarie, senza esenzioni né tassazione concorrente." } },
  { '@type': 'Question', name: "La franchigia verrà mantenuta anche negli anni successivi?", acceptedAnswer: { '@type': 'Answer', text: "L'accordo bilaterale del 2020, ratificato nel 2023, prevede la franchigia come misura strutturale del nuovo regime. Non ha scadenza prevista, ma l'importo potrebbe essere rivalutato da futuri negoziati bilaterali. Al momento per il 2026 resta confermata a €10.000 annui per contribuente." } }
- ]
+ ],
+ speakable: SPEAKABLE_SECTION,
  }
  ],
  },
@@ -250,7 +252,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { '@type': 'Question', name: "Quali comuni italiani ricevono i ristorni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani entro 20 km dal confine svizzero nelle province di Como, Varese, Verbano-Cusio-Ossola, Sondrio (per il Canton Ticino e Grigioni) e i comuni confinanti per Canton Vallese e Giura. L'elenco è stabilito dalla Convenzione CH-IT del 1974 e aggiornato periodicamente. I principali beneficiari storici sono Como, Chiasso, Ponte Tresa, Luino e Varese." } },
  { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "Negli ultimi anni la Svizzera ha retrocesso tra €70 milioni e €90 milioni l'anno all'Italia per i ristorni dei frontalieri. La quota è cresciuta con l'aumento del numero di frontalieri, ma si prevede una riduzione progressiva nel prossimo decennio per effetto del nuovo accordo che sposta il gettito direttamente nelle casse italiane tramite l'IRPEF." } },
  { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "In misura molto ridotta. Per i nuovi frontalieri, la Svizzera trattiene solo l'80% dell'imposta alla fonte ordinaria e non c'è retrocessione significativa ai comuni italiani, perché l'Italia incassa direttamente l'IRPEF dal lavoratore. Il modello di finanziamento dei comuni di frontiera è in fase di ridisegno tramite negoziati bilaterali." } }
- ]
+ ],
+ speakable: SPEAKABLE_SECTION,
  }
  ],
  },
@@ -299,7 +302,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { '@type': 'Question', name: "Come si attiva il diritto di opzione verso il SSN?", acceptedAnswer: { '@type': 'Answer', text: "Entro 3 mesi dall'inizio del lavoro in Svizzera occorre presentare alla cassa cantonale di compensazione il modulo di opzione per il SSN (spesso tramite il datore di lavoro o un broker). Serve certificato di iscrizione al SSN italiano (tessera sanitaria) e attestato di residenza. L'opzione è irrevocabile per la durata del contratto svizzero." } },
  { '@type': 'Question', name: "Se scelgo il SSN posso farmi curare in Svizzera?", acceptedAnswer: { '@type': 'Answer', text: "Solo per urgenze durante l'orario di lavoro o emergenze in transito. Per cure programmate (visite specialistiche, ricoveri elettivi) bisogna tornare in Italia. Se serve copertura ampia in Svizzera, meglio LAMal o un'assicurazione complementare privata. Alcuni datori di lavoro offrono LAMal convenzionata a prezzi scontati come benefit." } },
  { '@type': 'Question', name: "Cosa succede se non scelgo entro 3 mesi?", acceptedAnswer: { '@type': 'Answer', text: "Se il frontaliere non esercita il diritto di opzione entro 3 mesi dall'inizio del lavoro, viene iscritto d'ufficio alla LAMal svizzera con una cassa malati a sorte scelta dal Cantone. La scelta LAMal di default può essere costosa: è fortemente consigliato confrontare le casse e scegliere attivamente prima della scadenza dei 3 mesi." } }
- ]
+ ],
+ speakable: SPEAKABLE_SECTION,
  }
  ],
  },
