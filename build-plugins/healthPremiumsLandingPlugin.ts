@@ -60,6 +60,27 @@ import {
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CARD_STYLE,
+  CTA_PRIMARY_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
+  LINK_ACCENT_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_BASE,
+  STAT_TILE_DANGER,
+  STAT_TILE_LABEL,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_VALUE,
+  STAT_TILE_WARNING,
+  TABLE_CELL_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_STYLE,
+} from './shared/seoContentTokens';
 
 // ── Types (dataset shape) ──────────────────────────────────────
 
@@ -1070,18 +1091,18 @@ function renderLeafPage(inp: LeafInputs): string {
   const intro = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
 
   // Top-20 table
-  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableHeaders.rank)}</th>
-      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableHeaders.insurer)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.tableHeaders.premium)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableHeaders.rank)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableHeaders.insurer)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tableHeaders.premium)}</th>
     </tr></thead>
     <tbody>${top20
       .map(
         (r, i) => `<tr>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-variant-numeric:tabular-nums">${i + 1}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(r.insurerName)}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#1d4ed8;font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.price, locale)} ${esc(copy.priceUnit)}</td>
+        <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
+        <td style="${TABLE_CELL_STYLE};color:var(--color-link);font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.price, locale)} ${esc(copy.priceUnit)}</td>
       </tr>`,
       )
       .join('')}</tbody>
@@ -1111,18 +1132,18 @@ function renderLeafPage(inp: LeafInputs): string {
     if (b.price === null) return -1;
     return a.price - b.price;
   });
-  const rankingHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const rankingHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">#</th>
-      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
+      <th style="${TABLE_HEAD_STYLE}">#</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
     </tr></thead>
     <tbody>${rankingRows
       .map(
-        (r, i) => `<tr${r.canton === canton ? ' style="background:#eef2ff"' : ''}>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-variant-numeric:tabular-nums">${i + 1}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a${r.canton === canton ? ';font-weight:700' : ''}">${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
+        (r, i) => `<tr${r.canton === canton ? ' style="background:var(--color-accent-subtle)"' : ''}>
+        <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td style="${TABLE_CELL_STYLE}${r.canton === canton ? ';font-weight:700' : ''}">${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
       </tr>`,
       )
       .join('')}</tbody>
@@ -1135,31 +1156,31 @@ function renderLeafPage(inp: LeafInputs): string {
   const bracketYoy = yoy?.byBracket[age] ?? null;
   const showYoyTile = bracketYoy !== null && bracketYoy.medianPct !== null && bracketYoy.sourceInsurers >= 3;
   const yoyTileHtml = showYoyTile && bracketYoy
-    ? `<div style="padding:18px;border-radius:18px;background:#fef2f2;border:1px solid #fecaca">
-      <div style="font-size:12px;color:#991b1b;font-weight:700;text-transform:uppercase">Δ vs ${yoy?.priorYear ?? ''}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:${(bracketYoy.medianPct ?? 0) >= 0 ? '#991b1b' : '#166534'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${bracketYoy.sourceInsurers} casse</div>
+    ? `<div style="${STAT_TILE_DANGER}">
+      <div style="${STAT_TILE_LABEL}">Δ vs ${yoy?.priorYear ?? ''}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger-border)' : 'var(--color-success-border)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${bracketYoy.sourceInsurers} casse</div>
     </div>`
     : '';
   const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
-    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
-      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.median)}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${medFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.median)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
-      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.min)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${minFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.min)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#fef3c7;border:1px solid #fde68a">
-      <div style="font-size:12px;color:#78350f;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.max)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${maxFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.max)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
-      <div style="font-size:12px;color:#334155;font-weight:700;text-transform:uppercase">${esc(copy.statsLabels.insurers)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${perInsurer.length}</div>
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.insurers)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${perInsurer.length}</div>
     </div>
     ${yoyTileHtml}
   </section>`;
@@ -1180,29 +1201,29 @@ function renderLeafPage(inp: LeafInputs): string {
       .slice(0, 20);
     if (rows.length === 0) return '';
     const medPctFmt = formatPct(bracketYoy.medianPct, locale);
-    const table = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    const table = `<table style="${TABLE_STYLE};font-size:14px">
       <thead><tr>
-        <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.tableHeaders.rank)}</th>
-        <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.tableHeaders.insurer)}</th>
-        <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.tableHeaders.delta)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.tableHeaders.rank)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.tableHeaders.insurer)}</th>
+        <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.yoy.tableHeaders.delta)}</th>
       </tr></thead>
       <tbody>${rows
         .map((r, i) => {
           const positive = r.delta > 0;
           const neutral = r.delta === 0;
-          const deltaColor = neutral ? '#475569' : positive ? '#b91c1c' : '#15803d';
+          const deltaColor = neutral ? 'var(--color-subtle)' : positive ? 'var(--color-danger-border)' : 'var(--color-success-border)';
           return `<tr>
-          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-variant-numeric:tabular-nums">${i + 1}</td>
-          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(r.insurerName)}</td>
-          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:${deltaColor};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.delta, locale))}</td>
+          <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
+          <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
+          <td style="${TABLE_CELL_STYLE};color:${deltaColor};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.delta, locale))}</td>
         </tr>`;
         })
         .join('')}</tbody>
     </table>`;
     return `<section style="margin:0 0 24px" aria-labelledby="yoy">
-      <h2 id="yoy" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
-      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.yoy.summary(cantonLabel, ageLabel, medPctFmt, yoy.priorYear, bracketYoy.sourceInsurers))}</p>
-      <p style="margin:0 0 12px;color:#475569;font-size:13px;line-height:1.5">${esc(copy.yoy.tableCaption(yoy.priorYear))}</p>
+      <h2 id="yoy" style="${H2_STYLE}">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
+      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.yoy.summary(cantonLabel, ageLabel, medPctFmt, yoy.priorYear, bracketYoy.sourceInsurers))}</p>
+      <p style="margin:0 0 12px;color:var(--color-subtle);font-size:13px;line-height:1.5">${esc(copy.yoy.tableCaption(yoy.priorYear))}</p>
       ${table}
     </section>`;
   })();
@@ -1226,13 +1247,13 @@ function renderLeafPage(inp: LeafInputs): string {
     const sparkHtml = renderSparkline(trend, locale, sparkAria);
     const sequence = `${oldestYear} → ${priorYear} → ${currentYear}`;
     return `<section style="margin:0 0 24px" aria-labelledby="triYear">
-      <h2 id="triYear" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
-      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
+      <h2 id="triYear" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
+      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
       <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin:6px 0 0">
-        <div style="padding:14px 18px;border-radius:14px;background:#eef2ff;border:1px solid #c7d2fe">
-          <div style="font-size:11px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(sequence)}</div>
-          <div style="margin-top:6px;font-size:20px;font-weight:700;color:#1e293b;font-variant-numeric:tabular-nums">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
-          <div style="margin-top:2px;font-size:13px;color:#475569;font-variant-numeric:tabular-nums">${esc(cumFmt)}</div>
+        <div style="${STAT_TILE_ACCENT};padding:14px 18px;border-radius:14px">
+          <div style="${STAT_TILE_LABEL};font-size:11px">${esc(sequence)}</div>
+          <div style="margin-top:6px;font-size:20px;font-weight:700;color:var(--color-heading);font-variant-numeric:tabular-nums">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
+          <div style="margin-top:2px;font-size:13px;color:var(--color-subtle);font-variant-numeric:tabular-nums">${esc(cumFmt)}</div>
         </div>
         ${sparkHtml}
       </div>
@@ -1242,12 +1263,12 @@ function renderLeafPage(inp: LeafInputs): string {
   // FAQ
   const faqItems = copy.faq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
-    <h2 id="hpFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q(cantonLabel, ageLabel))}</summary>
-        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q(cantonLabel, ageLabel))}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
       </details>`,
       )
       .join('')}
@@ -1315,42 +1336,42 @@ function renderLeafPage(inp: LeafInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbRoot)}</a>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbRoot)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" style="color:#1d4ed8;text-decoration:none">${esc(cantonLabel)}</a>
+    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" style="${BREADCRUMB_LINK_STYLE}">${esc(cantonLabel)}</a>
     <span> / </span>
     <span>${esc(ageLabel)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">LAMal ${year}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   ${statsHtml}
   <section style="margin:0 0 24px" aria-labelledby="top20">
-    <h2 id="top20" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
+    <h2 id="top20" style="${H2_STYLE}">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
     ${tableHtml}
-    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p style="margin:12px 0 0;color:#78350f;font-size:13px;line-height:1.5;padding:12px;background:#fef3c7;border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
+    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p style="margin:12px 0 0;color:var(--color-warning-border);font-size:13px;line-height:1.5;padding:12px;background:var(--color-warning-subtle);border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="ranking">
-    <h2 id="ranking" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.rankingTitle)}</h2>
-    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.rankingIntro(cantonLabel))}</p>
+    <h2 id="ranking" style="${H2_STYLE}">${esc(copy.rankingTitle)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.rankingIntro(cantonLabel))}</p>
     ${rankingHtml}
   </section>
   ${yoyHtml}
   ${triYearHtml}
   <section style="margin:0 0 24px" aria-labelledby="editorial">
-    <h2 id="editorial" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.editorialTitle)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
+    <h2 id="editorial" style="${H2_STYLE}">${esc(copy.editorialTitle)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="comparatorCta">
-    <h2 id="comparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(comparatorHref)}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
@@ -1421,18 +1442,18 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
     return { ab, med, leafPath };
   });
-  const ageGridHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const ageGridHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.ageGridHeaders.age)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.ageGridHeaders.median)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.ageGridHeaders.slug)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.ageGridHeaders.age)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.ageGridHeaders.median)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.ageGridHeaders.slug)}</th>
     </tr></thead>
     <tbody>${ageGridRows
       .map(
         (r) => `<tr>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.med, locale)} ${esc(copy.priceUnit)}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;text-align:right"><a href="${esc(r.leafPath)}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(copy.openLeafCTA)} →</a></td>
+        <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.med, locale)} ${esc(copy.priceUnit)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right"><a href="${esc(r.leafPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.openLeafCTA)} →</a></td>
       </tr>`,
       )
       .join('')}</tbody>
@@ -1440,22 +1461,22 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
 
   // Stats cards
   const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
-    <div style="padding:18px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe">
-      <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.median)}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:#1e293b">${medFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:#475569">${esc(copy.priceUnit)}</div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.median)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#ecfccb;border:1px solid #bef264">
-      <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.min)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${minFmt}</div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.min)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#fef3c7;border:1px solid #fde68a">
-      <div style="font-size:12px;color:#78350f;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.max)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${maxFmt}</div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.max)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
     </div>
-    <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
-      <div style="font-size:12px;color:#334155;font-weight:700;text-transform:uppercase">${esc(leafCopy.statsLabels.insurers)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:#1e293b">${stats.ranked.length}</div>
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.insurers)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${stats.ranked.length}</div>
     </div>
   </section>`;
 
@@ -1473,25 +1494,25 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     }).filter((r) => r.pct !== null);
     if (rows.length === 0) return '';
     const adultPctFmt = formatPct(yoy.adultMedianPct, locale);
-    const gridTable = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+    const gridTable = `<table style="${TABLE_STYLE};font-size:14px">
       <thead><tr>
-        <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.gridHeaders.age)}</th>
-        <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.yoy.gridHeaders.delta)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.gridHeaders.age)}</th>
+        <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.yoy.gridHeaders.delta)}</th>
       </tr></thead>
       <tbody>${rows
         .map((r) => {
-          const color = (r.pct ?? 0) > 0 ? '#b91c1c' : (r.pct ?? 0) < 0 ? '#15803d' : '#475569';
+          const color = (r.pct ?? 0) > 0 ? 'var(--color-danger-border)' : (r.pct ?? 0) < 0 ? 'var(--color-success-border)' : 'var(--color-subtle)';
           return `<tr>
-          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
-          <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>
+          <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+          <td style="${TABLE_CELL_STYLE};color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>
         </tr>`;
         })
         .join('')}</tbody>
     </table>`;
     return `<section style="margin:0 0 24px" aria-labelledby="yoy">
-      <h2 id="yoy" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
-      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.yoy.cantonSummary(cantonLabel, adultPctFmt, yoy.priorYear))}</p>
-      <p style="margin:0 0 12px;color:#475569;font-size:13px;line-height:1.5">${esc(copy.yoy.gridCaption(yoy.priorYear))}</p>
+      <h2 id="yoy" style="${H2_STYLE}">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
+      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.yoy.cantonSummary(cantonLabel, adultPctFmt, yoy.priorYear))}</p>
+      <p style="margin:0 0 12px;color:var(--color-subtle);font-size:13px;line-height:1.5">${esc(copy.yoy.gridCaption(yoy.priorYear))}</p>
       ${gridTable}
     </section>`;
   })();
@@ -1509,8 +1530,8 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     const sparkAria = HUB_COPY[locale].triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt);
     const sparkHtml = renderSparkline(adult, locale, sparkAria);
     return `<section style="margin:0 0 24px" aria-labelledby="triYearHub">
-      <h2 id="triYearHub" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
-      <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt))}</p>
+      <h2 id="triYearHub" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
+      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt))}</p>
       ${sparkHtml}
     </section>`;
   })();
@@ -1518,12 +1539,12 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   // Canton FAQ
   const faqItems = copy.cantonFaq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
-    <h2 id="hpFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q(cantonLabel))}</summary>
-        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(cantonLabel, medFmt, year))}</p>
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q(cantonLabel))}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(cantonLabel, medFmt, year))}</p>
       </details>`,
       )
       .join('')}
@@ -1573,30 +1594,30 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(leafCopy.breadcrumbRoot)}</a>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(leafCopy.breadcrumbRoot)}</a>
     <span> / </span>
     <span>${esc(cantonLabel)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   ${statsHtml}
   <section style="margin:0 0 24px" aria-labelledby="ageGrid">
-    <h2 id="ageGrid" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.ageGridTitle(cantonLabel))}</h2>
+    <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
     ${ageGridHtml}
   </section>
   ${yoyHubHtml}
   ${triYearHubHtml}
   <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
-    <h2 id="cantonComparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(comparatorHref)}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
@@ -1655,24 +1676,24 @@ function renderRootHubPage(inp: RootHubInputs): string {
       max: s.adultMax,
     };
   });
-  const cantonGridHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const cantonGridHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.canton)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.median)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.min)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.cantonGridHeaders.max)}</th>
-      <th style="text-align:right;padding:10px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">&nbsp;</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.cantonGridHeaders.canton)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.median)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.min)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.max)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">&nbsp;</th>
     </tr></thead>
     <tbody>${cantonRows
       .map((r) => {
         const cantonPath = buildHealthPremiumsCantonPath(locale, r.canton);
         const name = HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton];
         return `<tr>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;font-weight:700"><a href="${esc(cantonPath)}" style="color:#1d4ed8;text-decoration:none">${esc(name)}</a></td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.med === null ? '—' : formatCHF(r.med, locale) + ' ' + esc(copy.priceUnit)}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.min === null ? '—' : formatCHF(r.min, locale)}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;color:#0f172a;text-align:right;font-variant-numeric:tabular-nums">${r.max === null ? '—' : formatCHF(r.max, locale)}</td>
-        <td style="padding:10px;border-bottom:1px solid #f1f5f9;text-align:right"><a href="${esc(cantonPath)}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(copy.viewCantonCTA(name))} →</a></td>
+        <td style="${TABLE_CELL_STYLE};font-weight:700"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE}">${esc(name)}</a></td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.med === null ? '—' : formatCHF(r.med, locale) + ' ' + esc(copy.priceUnit)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.min === null ? '—' : formatCHF(r.min, locale)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.max === null ? '—' : formatCHF(r.max, locale)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.viewCantonCTA(name))} →</a></td>
       </tr>`;
       })
       .join('')}</tbody>
@@ -1680,12 +1701,12 @@ function renderRootHubPage(inp: RootHubInputs): string {
 
   const faqItems = copy.rootFaq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
-    <h2 id="hpFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q)}</summary>
-        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(year))}</p>
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(year))}</p>
       </details>`,
       )
       .join('')}
@@ -1733,29 +1754,29 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(leafCopy.breadcrumbRoot)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">LAMal ${year}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   <section style="margin:0 0 24px" aria-labelledby="cantonGrid">
-    <h2 id="cantonGrid" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.cantonGridTitle)}</h2>
+    <h2 id="cantonGrid" style="${H2_STYLE}">${esc(copy.cantonGridTitle)}</h2>
     ${cantonGridHtml}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="background">
-    <h2 id="background" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.rootBackgroundTitle)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(copy.rootBackground)}</p>
+    <h2 id="background" style="${H2_STYLE}">${esc(copy.rootBackgroundTitle)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootBackground)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
-    <h2 id="rootComparatorCta" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:#334155;line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="display:inline-block;padding:12px 22px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
