@@ -54,9 +54,15 @@ const WHITELIST_PREFIXES = [
  'net salary',
  'nettogehalt',
  'salaire net',
+ // Salary-hub 20km variants (entro-20km / oltre-20km templated pair)
+ 'confronto netto',
+ 'confronto permit',
+ 'confronto permesso',
  // Job-market snapshot weekly archives
  'snapshot settimanale',
  'weekly snapshot',
+ 'ticino job market',
+ 'mercato del lavoro ticino',
 ];
 
 /**
@@ -78,6 +84,29 @@ function isJobPath(urlPath) {
 }
 
 const MIN_CLUSTER_SIZE = 2;
+
+/** Locale URL prefixes; paths under these are treated as localized siblings. */
+const LOCALE_PREFIXES = ['/en/', '/de/', '/fr/'];
+
+/**
+ * Extract a locale-agnostic "page key" from the URL path by stripping the
+ * locale prefix and any trailing /year-week/YYYY-MM-DD/page-N segments we
+ * know to be pagination/time variants.
+ * Two URLs sharing the same key are hreflang siblings or time-variants —
+ * NOT cannibalization, so the audit should ignore clusters where all URLs
+ * collapse to the same key.
+ */
+function localeAgnosticKey(urlPath) {
+ let p = urlPath;
+ for (const pref of LOCALE_PREFIXES) if (p.startsWith(pref)) { p = '/' + p.slice(pref.length); break; }
+ // Strip /week-NN-YYYY/, /settimana-NN-YYYY/, /YYYY-MM-DD/, /marzo-2026/…
+ p = p.replace(/\/(week|semaine|settimana|woche)-\d+-\d{4}\/?$/, '/');
+ p = p.replace(/\/(january|february|march|april|may|june|july|august|september|october|november|december)-\d{4}\/?$/, '/');
+ p = p.replace(/\/(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)-\d{4}\/?$/, '/');
+ p = p.replace(/\/(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)-\d{4}\/?$/, '/');
+ p = p.replace(/\/(januar|februar|märz|april|mai|juni|juli|august|september|oktober|november|dezember)-\d{4}\/?$/, '/');
+ return p;
+}
 
 function walk(dir, acc = []) {
  for (const entry of readdirSync(dir)) {
@@ -163,8 +192,15 @@ function main() {
   clusters.get(phrase).push({ canonical, title, file: rel });
  }
 
+ // Drop clusters whose URLs all collapse to the same locale-agnostic key —
+ // those are cross-locale hreflang siblings or time-variants of a single
+ // logical page, not cannibalization.
  const flagged = [...clusters.entries()]
-  .filter(([, urls]) => urls.length >= MIN_CLUSTER_SIZE)
+  .filter(([, urls]) => {
+   if (urls.length < MIN_CLUSTER_SIZE) return false;
+   const keys = new Set(urls.map((u) => localeAgnosticKey(u.canonical.replace(/^https?:\/\/[^/]+/, ''))));
+   return keys.size > 1;
+  })
   .sort((a, b) => b[1].length - a[1].length);
 
  if (flagged.length === 0) {
