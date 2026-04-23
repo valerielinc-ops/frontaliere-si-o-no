@@ -40,6 +40,7 @@ import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
+import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -92,6 +93,9 @@ export default defineConfig(({ mode }) => {
  annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
+ // AE-4 — cost-of-living city landings (6 cities × 4 locales = 24 HTML).
+ // FSO + ISTAT public data; Place + LocalBusiness JSON-LD + sitemap.
+ costOfLivingLandingsPlugin(__dirname),
  // AE-7 — comparisons hub (static HTML × 4 locales + sitemap-comparisons.xml).
  // Must run AFTER annualReportPlugin so the CSV path referenced in the
  // DataDownload JSON-LD (/data/jobs-salary-aggregate.csv) already exists.

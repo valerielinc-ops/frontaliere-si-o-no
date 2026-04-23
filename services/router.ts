@@ -46,6 +46,12 @@ import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugin
 import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
+import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
+import {
+  COST_OF_LIVING_LANDING_ROUTES,
+  isCostOfLivingLandingPath,
+  parseCostOfLivingLandingPath,
+} from '../build-plugins/costOfLivingLandingsData';
 import {
   COMPARISONS_HUB_ROUTES,
   isComparisonsHubPath,
@@ -1733,6 +1739,37 @@ export function parsePath(pathname: string): ParseResult {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    if (NURSING_LANDING_ROUTES.includes(normalized) || isNursingLandingPath(pathname)) {
      const parsed = parseNursingLandingPath(pathname);
+     if (parsed) {
+       return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+     }
+   }
+ }
+
+ // AE-4 — Cost-of-living city landings (/costo-vita-<city>-ticino/ + locale
+ // variants). 6 cities × 4 locales = 24 URLs. Pages are generated with
+ // `seoContentOutsideRoot: true`; staticOverlay keeps the per-city content
+ // visible so the SPA does not replace it with the generic confronti hub.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (COST_OF_LIVING_LANDING_ROUTES.includes(normalized) || isCostOfLivingLandingPath(pathname)) {
+     const parsed = parseCostOfLivingLandingPath(pathname);
+     if (parsed) {
+       return {
+         route: { activeTab: 'confronti', confrontiSubTab: 'cost-of-living', staticOverlay: true },
+         locale: parsed.locale as Locale,
+       };
+     }
+   }
+ }
+
+ // AE-3 — Profession landings (10 professions × 4 locales = 40 URLs). Same
+ // static-overlay pattern as nursing: the plugin renders a 500+ word page
+ // outside `#root` and this staticOverlay route prevents the SPA from
+ // replacing it with the generic job-board UI.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (PROFESSION_LANDING_ROUTES.includes(normalized) || isProfessionLandingPath(pathname)) {
+     const parsed = parseProfessionLandingPath(pathname);
      if (parsed) {
        return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
      }

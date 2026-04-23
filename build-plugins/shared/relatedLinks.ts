@@ -88,6 +88,13 @@ import {
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from '../borderWaitData';
+import {
+  buildCostOfLivingLandingPath,
+  COL_CITY_DISPLAY,
+  COL_CITY_IDS,
+  type ColCityId,
+  type ColLocale,
+} from '../costOfLivingLandingsData';
 
 // ── Public types ─────────────────────────────────────────────────
 
@@ -326,6 +333,7 @@ interface Copy {
   readonly salaryBenchmarks: string;
   readonly salaryHub: string;
   readonly costOfLiving: string;
+  readonly costOfLivingCity: (cityLabel: string) => string;
   readonly borderWaitCrossing: (crossing: string) => string;
   readonly borderWaitRegion: (region: string) => string;
   readonly borderWaitHub: string;
@@ -377,6 +385,7 @@ const COPY: Record<LinkLocale, Copy> = {
     salaryBenchmarks: 'Benchmark salari frontalieri 2026',
     salaryHub: 'Stipendi frontalieri Ticino',
     costOfLiving: 'Costo della vita Svizzera vs Italia',
+    costOfLivingCity: (c) => `Costo della vita a ${c}: affitti, spesa, trasporti`,
     borderWaitCrossing: (c) => `Coda dogana ${c} adesso`,
     borderWaitRegion: (r) => `Tempi attesa ${r}`,
     borderWaitHub: 'Tempi attesa dogane Ticino — live',
@@ -420,6 +429,7 @@ const COPY: Record<LinkLocale, Copy> = {
     salaryBenchmarks: 'Cross-border salary benchmarks 2026',
     salaryHub: 'Cross-border salaries Ticino',
     costOfLiving: 'Cost of living Switzerland vs Italy',
+    costOfLivingCity: (c) => `Cost of living in ${c}: rents, groceries, transport`,
     borderWaitCrossing: (c) => `${c} border wait right now`,
     borderWaitRegion: (r) => `${r} border wait times`,
     borderWaitHub: 'Ticino border wait times — live',
@@ -463,6 +473,7 @@ const COPY: Record<LinkLocale, Copy> = {
     salaryBenchmarks: 'Lohn-Benchmarks für Grenzgänger 2026',
     salaryHub: 'Grenzgänger-Löhne Tessin',
     costOfLiving: 'Lebenshaltungskosten Schweiz vs. Italien',
+    costOfLivingCity: (c) => `Lebenshaltungskosten in ${c}: Mieten, Einkauf, Verkehr`,
     borderWaitCrossing: (c) => `Wartezeit ${c} jetzt`,
     borderWaitRegion: (r) => `Wartezeit ${r}`,
     borderWaitHub: 'Tessin-Wartezeiten an den Grenzen — live',
@@ -506,6 +517,7 @@ const COPY: Record<LinkLocale, Copy> = {
     salaryBenchmarks: 'Benchmarks salariaux frontaliers 2026',
     salaryHub: 'Salaires frontaliers Tessin',
     costOfLiving: 'Coût de la vie Suisse vs Italie',
+    costOfLivingCity: (c) => `Coût de la vie à ${c} : loyers, courses, transports`,
     borderWaitCrossing: (c) => `File à ${c} en ce moment`,
     borderWaitRegion: (r) => `Temps d'attente ${r}`,
     borderWaitHub: 'Temps d\'attente aux douanes du Tessin — direct',
@@ -1035,9 +1047,10 @@ function clustersForBorderWait(
   ];
 
   // Cross-category: fuel (nearest zone) + weekly employers (nearest city) +
-  // job-market hub + frontier guide.
+  // cost-of-living (AE-4 nearest city) + job-market hub + frontier guide.
   const fuelZone = CROSSING_TO_FUEL_ZONE[currentCrossing];
   const weeklyCity = CROSSING_TO_WEEKLY_CITY[currentCrossing] as WeeklyEmployersCity;
+  const colCity = mapWeeklyCityToColCity(weeklyCity);
   const cross: RelatedLink[] = [
     {
       href: buildFuelTodayPath(locale as FuelDailyLocale, 'diesel', fuelZone),
@@ -1048,6 +1061,10 @@ function clustersForBorderWait(
       title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
     },
     {
+      href: buildCostOfLivingLandingPath(locale as ColLocale, colCity),
+      title: copy.costOfLivingCity(COL_CITY_DISPLAY[colCity][locale as ColLocale]),
+    },
+    {
       href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
       title: copy.jobMarketSnapshot,
     },
@@ -1055,6 +1072,20 @@ function clustersForBorderWait(
   ];
 
   return { sibling, hubs, cross, siblingHeadingKey: 'siblingCrossings' };
+}
+
+/**
+ * Map a weekly-employers city slug to the nearest AE-4 cost-of-living
+ * landing city. Most weekly-employers cities are direct hits; those that
+ * are not (e.g. `stabio`, `agno`) resolve to the closest commuter city.
+ */
+function mapWeeklyCityToColCity(weeklyCity: WeeklyEmployersCity): ColCityId {
+  const normalized = String(weeklyCity).toLowerCase();
+  for (const id of COL_CITY_IDS) {
+    if (normalized === id) return id;
+  }
+  // Fallback: Lugano (largest Ticino city, safest default for unmapped slugs).
+  return 'lugano';
 }
 
 function clustersForOrphanLanding(
