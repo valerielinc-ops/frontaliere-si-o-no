@@ -208,15 +208,32 @@ body { overflow-x: hidden; }
 
 /* Prevent Google AdSense side-rail auto-ads from overriding page layout.
    AdSense injects display:grid + max-width:1120px on <main> for side-rail ads. */
-main { display: block !important; }
+main:not(.seo-static-content) { display: block !important; }
 
 /* Leave room for AdSense side-rail ads (160px wide, placed ~130px from viewport edge).
-   On wide screens, shrink main so side-rails sit outside the content area. */
+   On wide screens, shrink main so side-rails sit outside the content area.
+   Scoped to non-SEO pages so static feature pages retain their natural width. */
 @media (min-width: 1400px) {
-  main { max-width: calc(100vw - 360px) !important; }
+  main:not(.seo-static-content) { max-width: calc(100vw - 360px) !important; }
 }
 @media (min-width: 1800px) {
-  main { max-width: calc(100vw - 420px) !important; }
+  main:not(.seo-static-content) { max-width: calc(100vw - 420px) !important; }
+}
+
+/* Static SEO feature pages — align to site container width. */
+main.seo-static-content {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  main.seo-static-content { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  main.seo-static-content { padding-left: 2rem; padding-right: 2rem; }
 }
 
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
