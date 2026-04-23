@@ -183,7 +183,7 @@ const CATEGORY_CONFIG: { key: CompareCategory; icon: React.ReactNode; colorIT: s
 ];
 
 const CostOfLiving: React.FC = () => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const { rate: liveRate, loading: rateLoading } = useExchangeRate();
  const [exchangeRateOverride, setExchangeRateOverride] = useState<number | null>(null);
  const exchangeRate = exchangeRateOverride ?? liveRate;
@@ -428,7 +428,126 @@ const CostOfLiving: React.FC = () => {
  </div>
  <p className="text-xs text-muted mt-2">{t('costOfLiving.disclaimer')}</p>
  </div>
+ <CostOfLivingCityLinks locale={locale} />
  <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
+ </div>
+ );
+};
+
+/**
+ * AE-4 — Inbound links to the 6 city-specific cost-of-living landings
+ * (`/costo-vita-<city>-ticino/` + locale variants). Kept inside this file
+ * to avoid creating a new component for a 6-card grid. See
+ * `build-plugins/costOfLivingLandingsPlugin.ts` for the target pages.
+ */
+interface CityLinkEntry {
+ readonly id: string;
+ readonly it: { readonly label: string; readonly blurb: string };
+ readonly en: { readonly label: string; readonly blurb: string };
+ readonly de: { readonly label: string; readonly blurb: string };
+ readonly fr: { readonly label: string; readonly blurb: string };
+ readonly paths: { readonly it: string; readonly en: string; readonly de: string; readonly fr: string };
+}
+
+const COST_OF_LIVING_CITY_LINKS: readonly CityLinkEntry[] = [
+ {
+ id: 'lugano',
+ it: { label: 'Lugano', blurb: 'Bilocale CHF 1.410/mese (mediana FSO)' },
+ en: { label: 'Lugano', blurb: '2.5-room flat CHF 1,410/mo (FSO median)' },
+ de: { label: 'Lugano', blurb: '2,5-Zi CHF 1.410/Monat (BFS-Median)' },
+ fr: { label: 'Lugano', blurb: '2,5 pièces CHF 1 410/mois (médiane OFS)' },
+ paths: { it: '/costo-vita-lugano-ticino/', en: '/en/cost-of-living-lugano-ticino/', de: '/de/lebenshaltungskosten-lugano-tessin/', fr: '/fr/cout-vie-lugano-tessin/' },
+ },
+ {
+ id: 'mendrisio',
+ it: { label: 'Mendrisio', blurb: 'Bilocale CHF 1.200/mese — hub frontalieri' },
+ en: { label: 'Mendrisio', blurb: '2.5-room flat CHF 1,200/mo — border hub' },
+ de: { label: 'Mendrisio', blurb: '2,5-Zi CHF 1.200/Monat — Grenzhub' },
+ fr: { label: 'Mendrisio', blurb: '2,5 pièces CHF 1 200/mois — pôle frontalier' },
+ paths: { it: '/costo-vita-mendrisio-ticino/', en: '/en/cost-of-living-mendrisio-ticino/', de: '/de/lebenshaltungskosten-mendrisio-tessin/', fr: '/fr/cout-vie-mendrisio-tessin/' },
+ },
+ {
+ id: 'chiasso',
+ it: { label: 'Chiasso', blurb: 'Bilocale CHF 1.150/mese — valico primario' },
+ en: { label: 'Chiasso', blurb: '2.5-room flat CHF 1,150/mo — main crossing' },
+ de: { label: 'Chiasso', blurb: '2,5-Zi CHF 1.150/Monat — Hauptgrenze' },
+ fr: { label: 'Chiasso', blurb: '2,5 pièces CHF 1 150/mois — passage principal' },
+ paths: { it: '/costo-vita-chiasso-ticino/', en: '/en/cost-of-living-chiasso-ticino/', de: '/de/lebenshaltungskosten-chiasso-tessin/', fr: '/fr/cout-vie-chiasso-tessin/' },
+ },
+ {
+ id: 'bellinzona',
+ it: { label: 'Bellinzona', blurb: 'Bilocale CHF 1.100/mese — capitale cantonale' },
+ en: { label: 'Bellinzona', blurb: '2.5-room flat CHF 1,100/mo — cantonal capital' },
+ de: { label: 'Bellinzona', blurb: '2,5-Zi CHF 1.100/Monat — Kantonshauptort' },
+ fr: { label: 'Bellinzona', blurb: '2,5 pièces CHF 1 100/mois — chef-lieu cantonal' },
+ paths: { it: '/costo-vita-bellinzona-ticino/', en: '/en/cost-of-living-bellinzona-ticino/', de: '/de/lebenshaltungskosten-bellinzona-tessin/', fr: '/fr/cout-vie-bellinzona-tessin/' },
+ },
+ {
+ id: 'locarno',
+ it: { label: 'Locarno', blurb: 'Bilocale CHF 1.180/mese — area Lago Maggiore' },
+ en: { label: 'Locarno', blurb: '2.5-room flat CHF 1,180/mo — Lake Maggiore' },
+ de: { label: 'Locarno', blurb: '2,5-Zi CHF 1.180/Monat — Lago Maggiore' },
+ fr: { label: 'Locarno', blurb: '2,5 pièces CHF 1 180/mois — Lac Majeur' },
+ paths: { it: '/costo-vita-locarno-ticino/', en: '/en/cost-of-living-locarno-ticino/', de: '/de/lebenshaltungskosten-locarno-tessin/', fr: '/fr/cout-vie-locarno-tessin/' },
+ },
+ {
+ id: 'ticino',
+ it: { label: 'Canton Ticino', blurb: 'Rollup regionale — 6 cantoni + Lombardia' },
+ en: { label: 'Canton Ticino', blurb: 'Regional rollup — Ticino vs Lombardy' },
+ de: { label: 'Kanton Tessin', blurb: 'Regionaler Rollup — Tessin vs Lombardei' },
+ fr: { label: 'Canton du Tessin', blurb: 'Agrégat régional — Tessin vs Lombardie' },
+ paths: { it: '/costo-vita-ticino/', en: '/en/cost-of-living-ticino/', de: '/de/lebenshaltungskosten-tessin/', fr: '/fr/cout-vie-tessin/' },
+ },
+];
+
+interface CostOfLivingCityLinksProps {
+ readonly locale: 'it' | 'en' | 'de' | 'fr';
+}
+
+const CITY_LINKS_HEADING: Record<CostOfLivingCityLinksProps['locale'], { heading: string; subheading: string }> = {
+ it: {
+ heading: 'Costo della vita per città — guide dedicate',
+ subheading: 'Dati FSO + ISTAT ufficiali per Lugano, Mendrisio, Chiasso, Bellinzona, Locarno e il Ticino regionale.',
+ },
+ en: {
+ heading: 'Cost of living by city — dedicated guides',
+ subheading: 'Official FSO + ISTAT data for Lugano, Mendrisio, Chiasso, Bellinzona, Locarno and the Ticino rollup.',
+ },
+ de: {
+ heading: 'Lebenshaltungskosten nach Stadt — Ratgeber',
+ subheading: 'Offizielle BFS- + ISTAT-Daten für Lugano, Mendrisio, Chiasso, Bellinzona, Locarno und den Tessin-Rollup.',
+ },
+ fr: {
+ heading: 'Coût de la vie par ville — guides dédiés',
+ subheading: 'Données officielles OFS + ISTAT pour Lugano, Mendrisio, Chiasso, Bellinzona, Locarno et le Tessin régional.',
+ },
+};
+
+const CostOfLivingCityLinks: React.FC<CostOfLivingCityLinksProps> = ({ locale }) => {
+ const copy = CITY_LINKS_HEADING[locale];
+ return (
+ <div className="bg-surface rounded-xl p-4 border border-edge">
+ <h4 className="font-bold text-sm text-body mb-1 flex items-center gap-2">
+ <MapPin size={14} /> {copy.heading}
+ </h4>
+ <p className="text-xs text-muted mb-3">{copy.subheading}</p>
+ <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+ {COST_OF_LIVING_CITY_LINKS.map((c) => {
+ const label = c[locale].label;
+ const blurb = c[locale].blurb;
+ const href = c.paths[locale];
+ return (
+ <a
+ key={c.id}
+ href={href}
+ className="block px-3 py-2 rounded-lg bg-surface-raised hover:bg-warning-subtle transition-colors"
+ >
+ <div className="text-sm font-bold text-body">{label}</div>
+ <div className="text-xs text-muted leading-snug">{blurb}</div>
+ </a>
+ );
+ })}
+ </div>
  </div>
  );
 };
