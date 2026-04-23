@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-04-22T21:31:55.411Z",
+  "generatedAt": "2026-04-23T09:55:40.087Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4270,
-  "avgDurationMs": 4270,
+  "durationMs": 3135,
+  "avgDurationMs": 3135,
   "durationHistory": [
-    4270
+    3135
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-04-22",
+      "validThrough": "2026-04-23",
       "id": "damiani-group-1e3bfdd1100f",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -89,44 +89,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "IT Business Intelligence Developer (Microsoft Ecosystem)",
-      "slug": "it-business-intelligence-sviluppatore-microsoft-ecosystem-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-IT-Business-Intelligence-Developer-%28Microsoft-Ecosystem%29/1337028555/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1337028555/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-04-22",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "id": "damiani-group-57aabbd0ac2b",
-      "firstSeenAt": "2026-04-13T21:32:28.163Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
