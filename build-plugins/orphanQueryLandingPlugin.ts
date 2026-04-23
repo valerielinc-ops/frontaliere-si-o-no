@@ -44,6 +44,16 @@ import {
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CTA_PRIMARY_STYLE,
+  CARD_STYLE,
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_VALUE,
+  LINK_ACCENT_STYLE,
+} from './shared/seoContentTokens';
+import {
   ORPHAN_LANDING_LOCALES,
   ORPHAN_LANDING_SECTION,
   ORPHAN_LANDING_LOCALE_PREFIX,
@@ -294,16 +304,16 @@ function renderPage(opts: {
     const city = String(j.addressLocality || j.location || '');
     const href = jobLocalizedUrl(j, locale);
     const posted = String(j.postedDate || j.datePosted || '').slice(0, 10);
-    return `<li style="padding:14px 16px;border:1px solid var(--surface-border,#e2e8f0);border-radius:14px;background:var(--surface,#ffffff);margin-bottom:10px;list-style:none">
-  <a href="${esc(href)}" style="color:var(--text-base,#0f172a);text-decoration:none;display:block">
+    return `<li style="${CARD_STYLE};margin-bottom:10px;list-style:none">
+  <a href="${esc(href)}" style="color:var(--color-body);text-decoration:none;display:block">
     <div style="font-weight:700;font-size:16px;line-height:1.35">${esc(title)}</div>
-    <div style="margin-top:4px;color:var(--text-muted,#475569);font-size:14px">${esc(company)}${company && city ? ' · ' : ''}${esc(city)}</div>
-    ${posted ? `<div style="margin-top:4px"><time datetime="${esc(posted)}" style="color:var(--text-subtle,#64748b);font-size:13px">${esc(posted)}</time></div>` : ''}
+    <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(company)}${company && city ? ' · ' : ''}${esc(city)}</div>
+    ${posted ? `<div style="margin-top:4px"><time datetime="${esc(posted)}" style="color:var(--color-subtle);font-size:13px">${esc(posted)}</time></div>` : ''}
   </a>
 </li>`;
   }).join('');
 
-  const similarList = similar.map((q) => `<li style="margin:4px 0"><a href="${esc(jobBoardRoot[locale])}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(q.query)}</a> <span style="color:var(--text-muted,#475569);font-size:12px">(${q.impressions})</span></li>`).join('');
+  const similarList = similar.map((q) => `<li style="margin:4px 0"><a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">${esc(q.query)}</a> <span style="color:var(--color-subtle);font-size:12px">(${q.impressions})</span></li>`).join('');
 
   const employerList = topEmployers.length > 0
     ? topEmployers.map((e) => `<li>${esc(e.name)} (${e.count})</li>`).join('')
@@ -353,36 +363,36 @@ function renderPage(opts: {
   const indexable = matchingJobs.length >= MIN_MATCHING_JOBS;
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${BASE_URL}/" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(t('orphanLanding.breadcrumbHome', 'Home'))}</a>
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(t('orphanLanding.breadcrumbHome', 'Home'))}</a>
       <span> / </span>
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
     <header style="margin-bottom:20px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
+      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
       <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
-      <p style="margin:0 0 14px;color:var(--text-base,#0f172a);font-size:17px;line-height:1.6;max-width:860px">${esc(editorialBody)}</p>
-      <p style="margin:0;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(genericBody)}</p>
+      <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.6;max-width:860px">${esc(editorialBody)}</p>
+      <p style="margin:0;color:var(--color-subtle);line-height:1.65;max-width:860px">${esc(genericBody)}</p>
     </header>
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 24px">
-      <div style="padding:16px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(t('orphanLanding.medianSalary', 'Median salary'))}</div>
-        <div style="margin-top:6px;font-size:22px;font-weight:800;color:var(--text-base,#0f172a)">${medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : esc(t('orphanLanding.medianSalaryNA', 'N/A'))}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(t('orphanLanding.medianSalary', 'Median salary'))}</div>
+        <div style="${STAT_TILE_VALUE}">${medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : esc(t('orphanLanding.medianSalaryNA', 'N/A'))}</div>
       </div>
-      ${topEmployers.length > 0 ? `<div style="padding:16px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(t('orphanLanding.topEmployers', 'Top employers'))}</div>
-        <ul style="margin:8px 0 0;padding:0 0 0 18px;line-height:1.5;font-size:14px;color:var(--text-base,#0f172a)">${employerList}</ul>
+      ${topEmployers.length > 0 ? `<div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(t('orphanLanding.topEmployers', 'Top employers'))}</div>
+        <ul style="margin:8px 0 0;padding:0 0 0 18px;line-height:1.5;font-size:14px;color:var(--color-body)">${employerList}</ul>
       </div>` : ''}
-      ${topCities.length > 0 ? `<div style="padding:16px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(t('orphanLanding.topCities', 'Top cities'))}</div>
-        <ul style="margin:8px 0 0;padding:0 0 0 18px;line-height:1.5;font-size:14px;color:var(--text-base,#0f172a)">${cityList}</ul>
+      ${topCities.length > 0 ? `<div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(t('orphanLanding.topCities', 'Top cities'))}</div>
+        <ul style="margin:8px 0 0;padding:0 0 0 18px;line-height:1.5;font-size:14px;color:var(--color-body)">${cityList}</ul>
       </div>` : ''}
     </section>
     <section style="margin:0 0 28px">
       <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.resultsLabel', 'Openings'))}</h2>
       ${matchingJobs.length > 0
         ? `<ul style="margin:0;padding:0">${jobCards}</ul>`
-        : `<p style="margin:0;padding:16px;border-radius:12px;background:var(--surface-warn,#fef3c7);color:var(--text-warn,#78350f)">${esc(t('orphanLanding.noResults', 'No openings.'))}</p>`}
+        : `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading)">${esc(t('orphanLanding.noResults', 'No openings.'))}</p>`}
     </section>
     ${similar.length > 1 ? `<section style="margin:0 0 28px">
       <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.similarQueries', 'Similar searches'))}</h2>
@@ -390,18 +400,18 @@ function renderPage(opts: {
     </section>` : ''}
     <section style="margin:0 0 28px">
       <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.faqH2', 'FAQ'))}</h2>
-      <details style="padding:12px 14px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;margin-bottom:8px;background:var(--surface,#ffffff)">
+      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
         <summary style="font-weight:700;cursor:pointer">${esc(t('orphanLanding.faqQ1', ''))}</summary>
-        <p style="margin:8px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(t('orphanLanding.faqA1', ''))}</p>
+        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(t('orphanLanding.faqA1', ''))}</p>
       </details>
-      <details style="padding:12px 14px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;margin-bottom:8px;background:var(--surface,#ffffff)">
+      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
         <summary style="font-weight:700;cursor:pointer">${esc(t('orphanLanding.faqQ2', ''))}</summary>
-        <p style="margin:8px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(t('orphanLanding.faqA2', ''))}</p>
+        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(t('orphanLanding.faqA2', ''))}</p>
       </details>
     </section>
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(jobBoardRoot[locale])}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
-      <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
+      <a href="${esc(jobBoardRoot[locale])}" style="${CTA_PRIMARY_STYLE}">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
+      <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
     </section>
     ${generateRelatedLinksBlock(locale, 'orphan_landing', { city: topCities[0]?.name })}
   `;
@@ -431,7 +441,7 @@ function renderPage(opts: {
   // Keep the existing inline-styled `<main>` so the static shell still renders
   // something readable before React hydrates. buildSimplePage wraps this in
   // `<div id="root">` with `skipMainWrap: true` to avoid nested <main>.
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
         ${body}
       </article>`;
 
