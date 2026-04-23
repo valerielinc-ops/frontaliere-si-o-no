@@ -53,6 +53,16 @@ import {
   buildFaqs,
   getLocaleStrings,
 } from './costOfLivingLandingsCopy';
+import {
+  BREADCRUMB_STYLE,
+  BREADCRUMB_LINK_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  CARD_STYLE,
+  LINK_ACCENT_STYLE,
+  CTA_PRIMARY_STYLE,
+  HERO_EYEBROW_STYLE,
+} from './shared/seoContentTokens';
 
 // ── Escape ─────────────────────────────────────────────────────────
 
@@ -227,7 +237,7 @@ function renderPage(opts: {
     .map(
       (s) => `
         <section style="margin:0 0 28px;max-width:960px">
-          <h2 style="margin:0 0 12px;font-size:24px;color:var(--text-base,#0f172a)">${esc(s.title)}</h2>
+          <h2 style="${H2_STYLE}">${esc(s.title)}</h2>
           ${s.html}
         </section>`,
     )
@@ -236,9 +246,9 @@ function renderPage(opts: {
   const faqHtml = faqs
     .map(
       (f) => `
-      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface,#ffffff)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--text-base,#0f172a);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(f.answer)}</p>
+      <details style="margin:0 0 10px;${CARD_STYLE};border-radius:12px">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
       </details>`,
     )
     .join('');
@@ -246,37 +256,37 @@ function renderPage(opts: {
   const relatedHtml = L.related
     .map(
       (r) =>
-        `<li style="margin:0 0 8px"><a href="${esc(r.href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(r.label)}</a></li>`,
+        `<li style="margin:0 0 8px"><a href="${esc(r.href)}" style="${LINK_ACCENT_STYLE}">${esc(r.label)}</a></li>`,
     )
     .join('');
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(L.breadcrumbHome)}</a>
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(L.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(hubUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(L.breadcrumbHub)}</a>
+      <a href="${esc(hubUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(L.breadcrumbHub)}</a>
       <span> / </span>
       <span>${esc(cityName)}</span>
     </nav>
     <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(L.updatedLabel)} · ${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(h1)}</h1>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(L.updatedLabel)} · ${esc(dateStamp)}</p>
+      <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     </header>
     ${sectionsHtml}
     <section style="margin:0 0 28px;max-width:960px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--text-base,#0f172a)">${esc(L.faqTitle)}</h2>
+      <h2 style="${H2_STYLE}">${esc(L.faqTitle)}</h2>
       ${faqHtml}
     </section>
     <section style="margin:0 0 28px;max-width:960px">
-      <h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(L.relatedLabel)}</h2>
-      <ul style="margin:0 0 0 20px;padding:0;color:var(--text-base,#0f172a);line-height:1.55">${relatedHtml}</ul>
+      <h2 style="${H2_STYLE}">${esc(L.relatedLabel)}</h2>
+      <ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55">${relatedHtml}</ul>
     </section>
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(L.ctaSimulator)}</a>
-      <a href="${esc(hubUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(L.ctaCompare)}</a>
+      <a href="${esc(homeUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(L.ctaSimulator)}</a>
+      <a href="${esc(hubUrl)}" style="${CARD_STYLE};padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700">${esc(L.ctaCompare)}</a>
     </section>`;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

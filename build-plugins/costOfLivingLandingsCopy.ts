@@ -22,6 +22,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { ColCityId, ColLocale } from './costOfLivingLandingsData';
 import { COL_CITY_DISPLAY } from './costOfLivingLandingsData';
+import {
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
+} from './shared/seoContentTokens';
 
 // ── Types for the JSON payloads (narrowed at load time) ────────────
 
@@ -442,7 +446,7 @@ export function buildCitySections(
         ${L.rentTableHeaders
           .map(
             (h) =>
-              `<th style="text-align:left;padding:10px 12px;border-bottom:2px solid #cbd5e1;background:#f1f5f9">${h}</th>`,
+              `<th style="${TABLE_HEAD_STYLE}">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -451,16 +455,16 @@ export function buildCitySections(
           .map(
             ([key, val]) => `
             <tr>
-              <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${L.rows[key as keyof typeof L.rows]}</td>
-              <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0"><strong>${rtFmtChf(val)}</strong>/${locale === 'it' ? 'mese' : locale === 'en' ? 'month' : locale === 'de' ? 'Monat' : 'mois'}</td>
-              <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${citeFso(FSO_LABEL)}</td>
+              <td style="${TABLE_CELL_STYLE}">${L.rows[key as keyof typeof L.rows]}</td>
+              <td style="${TABLE_CELL_STYLE}"><strong>${rtFmtChf(val)}</strong>/${locale === 'it' ? 'mese' : locale === 'en' ? 'month' : locale === 'de' ? 'Monat' : 'mois'}</td>
+              <td style="${TABLE_CELL_STYLE}">${citeFso(FSO_LABEL)}</td>
             </tr>
           `,
           )
           .join('')}
       </tbody>
     </table>
-    <p style="font-size:14px;color:#475569;margin:8px 0 0">
+    <p style="font-size:14px;color:var(--color-subtle);margin:8px 0 0">
       ${locale === 'it' ? `Dato: prezzo per m² a ${cityName} = ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/mese (affitto netto, anno di riferimento ${fso.reference_year}). Fonte: ${citeFso('FSO — Loyers par commune')}.` : locale === 'en' ? `Data: price per m² in ${cityName} = ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/month (net rent, reference year ${fso.reference_year}). Source: ${citeFso('FSO — Rents by commune')}.` : locale === 'de' ? `Preis pro m² in ${cityName}: ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/Monat (Nettomiete, Referenzjahr ${fso.reference_year}). Quelle: ${citeFso('BFS — Mieten nach Gemeinde')}.` : `Prix par m² à ${cityName} : ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/mois (loyer net, année de référence ${fso.reference_year}). Source : ${citeFso('OFS — Loyers par commune')}.`}
     </p>`;
 
@@ -482,7 +486,7 @@ export function buildCitySections(
         ${L.basketTableHeaders
           .map(
             (h) =>
-              `<th style="text-align:left;padding:10px 12px;border-bottom:2px solid #cbd5e1;background:#f1f5f9">${h}</th>`,
+              `<th style="${TABLE_HEAD_STYLE}">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -491,9 +495,9 @@ export function buildCitySections(
           .map(
             ([key, val, src]) => `
             <tr>
-              <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${L.rows[key as keyof typeof L.rows]}</td>
-              <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0"><strong>${key === 'cpi' ? val.toFixed(1) : rtFmtEur(val as number)}</strong>${key === 'cpi' ? '' : key === 'restaurant' ? '' : locale === 'it' ? '/mese' : locale === 'en' ? '/month' : locale === 'de' ? '/Monat' : '/mois'}</td>
-              <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${src === 'OMI' ? citeOmi(src) : citeIstat(src)}</td>
+              <td style="${TABLE_CELL_STYLE}">${L.rows[key as keyof typeof L.rows]}</td>
+              <td style="${TABLE_CELL_STYLE}"><strong>${key === 'cpi' ? val.toFixed(1) : rtFmtEur(val as number)}</strong>${key === 'cpi' ? '' : key === 'restaurant' ? '' : locale === 'it' ? '/mese' : locale === 'en' ? '/month' : locale === 'de' ? '/Monat' : '/mois'}</td>
+              <td style="${TABLE_CELL_STYLE}">${src === 'OMI' ? citeOmi(src) : citeIstat(src)}</td>
             </tr>
           `,
           )
@@ -542,35 +546,35 @@ export function buildCitySections(
     return `
       <table class="seo-table" style="width:100%;border-collapse:collapse;margin:16px 0;font-size:15px">
         <thead><tr>
-          <th style="text-align:left;padding:10px 12px;border-bottom:2px solid #cbd5e1;background:#f1f5f9">${r.voice}</th>
-          <th style="text-align:left;padding:10px 12px;border-bottom:2px solid #cbd5e1;background:#f1f5f9">${r.ch}</th>
-          <th style="text-align:left;padding:10px 12px;border-bottom:2px solid #cbd5e1;background:#f1f5f9">${r.it}</th>
-          <th style="text-align:left;padding:10px 12px;border-bottom:2px solid #cbd5e1;background:#f1f5f9">${r.delta}</th>
+          <th style="${TABLE_HEAD_STYLE}">${r.voice}</th>
+          <th style="${TABLE_HEAD_STYLE}">${r.ch}</th>
+          <th style="${TABLE_HEAD_STYLE}">${r.it}</th>
+          <th style="${TABLE_HEAD_STYLE}">${r.delta}</th>
         </tr></thead>
         <tbody>
           <tr>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${r.rent}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtChf(fso.rooms_2_5.median_chf_month)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtEur(istat.rent_eur_month.rooms_2)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0"><strong>−${rentPct}%</strong></td>
+            <td style="${TABLE_CELL_STYLE}">${r.rent}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtChf(fso.rooms_2_5.median_chf_month)}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtEur(istat.rent_eur_month.rooms_2)}</td>
+            <td style="${TABLE_CELL_STYLE}"><strong>−${rentPct}%</strong></td>
           </tr>
           <tr>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${r.lamal}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtChf(380)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${locale === 'it' ? 'SSN gratuito' : locale === 'en' ? 'SSN free' : locale === 'de' ? 'SSN kostenlos' : 'SSN gratuit'}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0"><strong>−100%</strong></td>
+            <td style="${TABLE_CELL_STYLE}">${r.lamal}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtChf(380)}</td>
+            <td style="${TABLE_CELL_STYLE}">${locale === 'it' ? 'SSN gratuito' : locale === 'en' ? 'SSN free' : locale === 'de' ? 'SSN kostenlos' : 'SSN gratuit'}</td>
+            <td style="${TABLE_CELL_STYLE}"><strong>−100%</strong></td>
           </tr>
           <tr>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${r.grocery}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtChf(700)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtEur(istat.grocery_basket_eur_month_single)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0"><strong>−${groceryPct}%</strong></td>
+            <td style="${TABLE_CELL_STYLE}">${r.grocery}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtChf(700)}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtEur(istat.grocery_basket_eur_month_single)}</td>
+            <td style="${TABLE_CELL_STYLE}"><strong>−${groceryPct}%</strong></td>
           </tr>
           <tr>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${r.transport}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtChf(75)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">${rtFmtEur(istat.transport_monthly_pass_eur)}</td>
-            <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0"><strong>~par</strong></td>
+            <td style="${TABLE_CELL_STYLE}">${r.transport}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtChf(75)}</td>
+            <td style="${TABLE_CELL_STYLE}">${rtFmtEur(istat.transport_monthly_pass_eur)}</td>
+            <td style="${TABLE_CELL_STYLE}"><strong>~par</strong></td>
           </tr>
         </tbody>
       </table>`;
