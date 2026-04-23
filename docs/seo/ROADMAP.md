@@ -103,9 +103,67 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
 
 ---
 
+## 🔴 P0 BUGS — found live 2026-04-23 (must fix before AE-N work)
+
+Screenshots from user show two structural problems on production `https://frontaliereticino.ch/` affecting every programmatic SEO page shipped in 2026-04.
+
+### BUG-1. SPA navigation to programmatic landings dead-ends on home
+
+**Symptom**: Clicking the home page cards/links for `/prezzi-diesel/oggi/`, LAMal landings, `/aziende-che-assumono/...`, and similar programmatic URLs does NOT navigate. URL changes but content stays on home (React re-renders home component).
+
+**Root cause hypothesis**: `services/router.ts` does not recognize these slug patterns, so the SPA router falls back to home on click. Only `window.location.assign` / new-tab works (because that forces full page load against the generated static HTML in `dist/`).
+
+**Affected surfaces** (verify each):
+- F6 fuel daily: `/prezzi-diesel/oggi/`, `/prezzi-diesel/oggi/<city>/`, `/prezzi-diesel/stazione/<slug>/`
+- F2 LAMal: `/lamal-frontalieri/`, `/lamal-frontalieri/<canton>/`
+- F5 weekly employers: `/aziende-che-assumono/<city>/`, `/aziende-che-assumono/<company>/<city>/`
+- F4 job market snapshot: `/mercato-lavoro-ticino/`, `/mercato-lavoro-ticino/<sector>/`
+- F8 border wait: `/traffico-dogane/<crossing>/oggi/`
+- F3b orphan-query landings: `/ricerca/...`
+- Any SemRush landing that was classified `staticOverlay: true`
+
+**Fix plan**:
+1. Audit `services/router.ts` — enumerate patterns handled by SPA vs patterns that exist as static HTML in `dist/` but not in the SPA router.
+2. For every programmatic landing, decide: (a) add SPA route that renders a full-page React component with the same chrome as other hub pages, OR (b) mark the link as "external to SPA" so click-handling does a hard navigation (`window.location.href = ...` bypassing React Router).
+3. Strong preference for (a) — the SPA chrome is what users expect; static HTML is only there for SEO/crawlers.
+4. Add E2E test (Playwright per CLAUDE.md workflow rule #8): build + serve `dist/`, click each affected home-page link, assert URL changes AND content changes.
+
+**End gates**: E2E test green; `npx vitest run` green; manual browser verification on `npm run build && npx serve dist`.
+
+**Commit**: `fix(spa): route programmatic landings through SPA with full hub chrome`.
+
+### BUG-2. Programmatic landing pages miss the SPA chrome / visual system
+
+**Symptom**: When `/prezzi-diesel/oggi/` is opened in a new tab, the page renders with the generic top header (logo + 6 nav tabs + search/lang/theme/CTA) but is missing the **sub-navigation bar** that hub pages like `/confronti/cambio-valuta` have (Cambio Valuta / Conti Correnti / Assicurazione Sanitaria / Telefonia Mobile / Spesa / Costo / Offerte Lavoro / Ristrutturazione tabs). Content cards render, but without the hub integration the page feels like a detached static island.
+
+**Screenshots**:
+- `/prezzi-diesel/oggi/` — breadcrumb "Home / Diesel / Chiasso", three data cards, NO sub-nav, NO pattern-matched hero.
+- `/confronti/cambio-valuta` (reference) — sub-nav with 8 hub tabs, big green hero, "Avviso Importante" callout, pattern comparatori.
+
+**Root cause hypothesis**: Build plugins (`fuelDailyPagesPlugin`, `healthPremiumsLandingPlugin`, `weeklyEmployersPlugin`, `borderWaitPagesPlugin`, `jobMarketSnapshotPlugin`, `orphanQueryLandingPlugin`) emit their own HTML bodies with a simplified layout. They use the shared header + footer (good), but skip the sub-tab bar and the hero/hub visual system. SPA hubs read sub-tab config from `services/navigation.ts` (or equivalent); the plugins don't.
+
+**Fix plan**:
+1. Extract the hub-chrome layout used by `/confronti/*` into a reusable component (`components/HubLayout.tsx` or similar) OR identify the existing shared layout module.
+2. Classify each programmatic-landing family into a parent hub:
+   - Prezzi diesel → new hub `/prezzi-carburante/` under Vita Quotidiana (or nest under Confronti if more appropriate)
+   - LAMal → under Confronti → Assicurazione Sanitaria (sub-tab already exists)
+   - Aziende che assumono → under Statistiche or Vita → new sub-tab
+   - Mercato lavoro → under Statistiche → sub-tab already exists
+   - Traffico dogane → under Vita Quotidiana / Guida
+3. Either (a) render the sub-tab bar + hero via shared layout in each plugin's HTML emission, OR (b) if BUG-1 is fixed by SPA routing, the SPA will render these pages with the standard chrome automatically — plugins only need to emit seed HTML for SEO/first paint.
+4. Verify the 6-tab hard cap in CLAUDE.md is not exceeded — new sub-tabs are fine, new top-level tabs are NOT.
+
+**End gates**: Visual diff test (Playwright screenshot-based) on one page per affected family vs `/confronti/cambio-valuta` layout parity; `npx vitest run` green.
+
+**Commit**: `refactor(ui): unify programmatic landings under shared hub chrome`.
+
+---
+
 ## Outstanding work — AGENT-EXECUTABLE
 
 Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliverable). All must pass the standard gates: `npx tsc --noEmit`, `npx vite build`, `npx vitest run`, `node scripts/validate-internal-links.mjs`, `node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any`, `node scripts/validate-canonical.mjs`, `node scripts/validate-hreflang.mjs`, `node scripts/validate-structured-data.mjs`, FAQ uniqueness test. Launch each subagent with `model: "opus"`.
+
+**Execution order enforced**: BUG-1 and BUG-2 MUST land before AE-1..AE-9 — otherwise new landings will inherit the same broken chrome.
 
 ### AE-1. Striking-distance optimisation, 6 existing pages (F4-B)
 
