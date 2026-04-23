@@ -460,6 +460,14 @@ function makeResubscribeUrl(email) {
   return `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}`;
 }
 
+function makePreferencesUrl(email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  const base = `${BASE_URL}/preferenze-newsletter?email=${encodeURIComponent(email.toLowerCase())}`;
+  if (!secret) return base;
+  const token = createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
+  return `${base}&token=${token}`;
+}
+
 // Generate a deterministic HMAC-based autologin code for a subscriber.
 // Unlike Firebase custom tokens (which expire in 1 hour), this code never
 // expires — the client exchanges it for a fresh token via Cloud Function.
@@ -950,6 +958,8 @@ async function fetchSubscribers() {
         source: row.source || null,
         preferences: row.preferences || {},
         type: row.type || null,
+        // Default true: only skip autologin if user explicitly opted out
+        autologinEnabled: row.autologin_enabled !== false,
         createdAt: row.createdAt?.toDate?.() || (row.created_at ? new Date(row.created_at) : null),
       });
     });
@@ -1580,10 +1590,16 @@ async function main() {
   // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
   console.log('🔑 Phase 4: Autologin codes (HMAC)...');
   const codeMap = new Map();
+  let optedOutCount = 0;
   for (const subscriber of subscribers) {
-    codeMap.set(subscriber.email, generateAutologinCode(subscriber.email));
+    if (subscriber.autologinEnabled === false) {
+      codeMap.set(subscriber.email, null);
+      optedOutCount++;
+    } else {
+      codeMap.set(subscriber.email, generateAutologinCode(subscriber.email));
+    }
   }
-  console.log(`  ✓ ${codeMap.size} autologin codes generated`);
+  console.log(`  ✓ ${codeMap.size} autologin codes processed (${optedOutCount} opted out)`);
 
   // ── Phase 5: Assemble emails (CPU-only, no async) ──
   console.log('📦 Phase 5: Assembling emails...');
@@ -1607,6 +1623,7 @@ async function main() {
       issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
+      preferencesUrl: makePreferencesUrl(subscriber.email),
     });
 
     // Personalize links with pre-generated HMAC autologin code (never expires)

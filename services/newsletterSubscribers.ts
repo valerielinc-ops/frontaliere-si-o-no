@@ -782,6 +782,57 @@ export async function exchangeNewsletterAuthCode(
  }
 }
 
+/**
+ * Read the autologin-enabled flag for a subscriber.
+ * Uses the same HMAC token as unsubscribe (just the email, no prefix).
+ * Returns { enabled: true } by default for subscribers without the field set.
+ */
+export async function getAutologinStatus(
+ email: string,
+ token: string,
+): Promise<{ success: boolean; enabled?: boolean; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=get_autologin_status&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return { success: true, enabled: data.enabled !== false };
+ }
+ return { success: false, error: data.error || 'read_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] Read autologin status failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Toggle the autologin-enabled flag for a subscriber (HMAC-authed).
+ * When enabled=false, scheduled newsletter + job alert emails to this
+ * address will NOT include the `ac` autologin code in internal links.
+ */
+export async function toggleAutologin(
+ email: string,
+ token: string,
+ enabled: boolean,
+): Promise<{ success: boolean; enabled?: boolean; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=toggle_autologin&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&enabled=${enabled ? 'true' : 'false'}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return { success: true, enabled: data.enabled === true };
+ }
+ return { success: false, error: data.error || 'write_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] Toggle autologin failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
 // ─── Email provider helper (FRO-23) ─────────────────────────
 
 const EMAIL_PROVIDERS: Array<{ domains: string[]; name: string; url: string; mobileUrl?: string }> = [

@@ -39,6 +39,7 @@ const NL_I18N = {
     footerReason: 'Ricevi questa email perch\u00e9 ti sei iscritto su',
     unsubText: 'Non la vuoi pi\u00f9? {link} \u2014 giuro che non piangeremo. (Forse un po\u2019.)',
     unsubLink: 'Cancellati',
+    prefsLink: 'Gestisci preferenze',
     copyright: 'Newsletter artigianale, 0% spam, 100% frontaliere',
     jobsLabel: 'Lavoro',
     toolsLabel: 'Strumenti',
@@ -86,6 +87,7 @@ const NL_I18N = {
     footerReason: 'You receive this email because you subscribed on',
     unsubText: 'Had enough? {link} \u2014 no hard feelings. (Maybe a little.)',
     unsubLink: 'Unsubscribe',
+    prefsLink: 'Manage preferences',
     copyright: 'Handcrafted newsletter, 0% spam, 100% frontaliere',
     jobsLabel: 'Jobs',
     toolsLabel: 'Tools',
@@ -133,6 +135,7 @@ const NL_I18N = {
     footerReason: 'Du erh\u00e4ltst diese E-Mail, weil du dich angemeldet hast auf',
     unsubText: 'Genug? {link} \u2014 wir weinen nicht. (Vielleicht ein bisschen.)',
     unsubLink: 'Abmelden',
+    prefsLink: 'Einstellungen verwalten',
     copyright: 'Handgemachter Newsletter, 0% Spam, 100% Grenzg\u00e4nger',
     jobsLabel: 'Stellen',
     toolsLabel: 'Tools',
@@ -180,6 +183,7 @@ const NL_I18N = {
     footerReason: 'Tu re\u00e7ois cet email car tu t\u2019es inscrit sur',
     unsubText: 'Tu n\u2019en veux plus ? {link} \u2014 on ne pleurera pas. (Un peu peut-\u00eatre.)',
     unsubLink: 'Se d\u00e9sinscrire',
+    prefsLink: 'G\u00e9rer les pr\u00e9f\u00e9rences',
     copyright: 'Newsletter artisanale, 0% spam, 100% frontalier',
     jobsLabel: 'Emplois',
     toolsLabel: 'Outils',
@@ -640,9 +644,12 @@ function renderCloser(locale) {
     </td></tr>`;
 }
 
-function renderFooter(locale, unsubscribeUrl) {
+function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
   const unsubLink = `<a href="${unsubscribeUrl || '{{UNSUBSCRIBE_URL}}'}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'unsubLink')}</a>`;
   const unsubLine = nlT(locale, 'unsubText').replace('{link}', unsubLink);
+  const prefsLine = preferencesUrl
+    ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a href="${preferencesUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'prefsLink')}</a></div>`
+    : '';
   return `
     <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
       <div style="margin-bottom:12px;">
@@ -652,6 +659,7 @@ function renderFooter(locale, unsubscribeUrl) {
       </div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${nlT(locale, 'footerReason')} <a href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${unsubLine}</div>
+      ${prefsLine}
       <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 ${nlT(locale, 'copyright')}</div>
     </td></tr>`;
 }
@@ -738,7 +746,7 @@ export function buildNewsletter(data) {
   html += renderCloser(locale);
 
   // 13. Footer
-  html += renderFooter(locale, data.unsubscribeUrl);
+  html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);
 
   return `<!DOCTYPE html>
 <html lang="${locale}">

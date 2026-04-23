@@ -84,7 +84,7 @@ function buildResponseHtml({ title, message, showResubscribe, email, token, loca
 </html>`;
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -100,7 +100,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code'];
+ const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -124,6 +124,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 403, json: { success: false, error: 'invalid_auth_code' } };
  }
 
+ // Enforce opt-out: even with a valid HMAC, refuse to mint a custom token
+ // when the subscriber has disabled autologin. This invalidates previously
+ // sent links (forwarded/archived) the moment the flag flips.
+ try {
+ const optOutDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+ if (optOutDoc.exists && optOutDoc.data()?.autologin_enabled === false) {
+ return { status: 403, json: { success: false, error: 'autologin_disabled' } };
+ }
+ } catch { /* read failure → HMAC already authed, fall through */ }
+
  try {
  ensureAdminApp();
  let uid = null;
@@ -146,7 +156,48 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  if (!verifyHmacToken(normalizedEmail, token, secret)) {
+ // get_autologin_status/toggle_autologin return JSON on error (they're called from SPA)
+ if (action === 'get_autologin_status' || action === 'toggle_autologin') {
+ return { status: 403, json: { success: false, error: 'invalid_token' } };
+ }
  return { status: 403, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidToken'), showResubscribe: false, email: '', token: '', locale: lang }) };
+ }
+
+ if (action === 'get_autologin_status') {
+ try {
+ const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+ // Default: enabled (field absent = true for backward compat)
+ const isEnabled = subDoc.exists ? subDoc.data()?.autologin_enabled !== false : true;
+ return { status: 200, json: { success: true, enabled: isEnabled } };
+ } catch (err) {
+ console.error('[get_autologin_status] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'read_failed' } };
+ }
+ }
+
+ if (action === 'toggle_autologin') {
+ const desired = enabled === true || enabled === 'true' || enabled === '1';
+ try {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ autologin_enabled: desired,
+ updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: desired ? 'autologin_enabled' : 'autologin_disabled',
+ source_channel: 'preferences_link',
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+
+ return { status: 200, json: { success: true, enabled: desired } };
+ } catch (err) {
+ console.error('[toggle_autologin] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'write_failed' } };
+ }
  }
 
  if (action === 'unsubscribe') {
