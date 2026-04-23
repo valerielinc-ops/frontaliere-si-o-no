@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-04-23T09:29:29.100Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-04-23T21:03:10.022Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2968,
-  "avgDurationMs": 2968,
+  "durationMs": 5207,
+  "avgDurationMs": 5207,
   "durationHistory": [
-    2968
+    5207
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
+      "slug": "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Brig-Glis, CH, 3902",
+      "addressLocality": "Brig-Glis, CH, 3902",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-03-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-16",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "VERKAUFSBERATER/IN AUSSENDIENST (W/M) - REGION OBERWALLIS",
