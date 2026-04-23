@@ -4372,7 +4372,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 897,
+ "numberOfItems": 898,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5247,7 +5247,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 894, "name": "Aumento del 20% per medici e infermieri di fron...", "url": `${BASE_URL}/articoli-frontaliere/aumento-stipendi-frontalieri-lombardia-2026` },
           { "@type": "ListItem", "position": 895, "name": "Cantieri Sottoceneri: la situazione nel Sottoce...", "url": `${BASE_URL}/articoli-frontaliere/cantieri-sottoceneri-estate-2024` },
           { "@type": "ListItem", "position": 896, "name": "Nuove stazioni di ricarica ultraveloci a Campio...", "url": `${BASE_URL}/articoli-frontaliere/ricarica-auto-elettriche-campione-2026` },
-          { "@type": "ListItem", "position": 897, "name": "Cena di primavera per il Libano: AVSI organizza...", "url": `${BASE_URL}/articoli-frontaliere/cena-spring-avsi-libano-castiglione` }
+          { "@type": "ListItem", "position": 897, "name": "Cena di primavera per il Libano: AVSI organizza...", "url": `${BASE_URL}/articoli-frontaliere/cena-spring-avsi-libano-castiglione` },
+          { "@type": "ListItem", "position": 898, "name": "Grigioni cambia prassi per i permessi di dimora...", "url": `${BASE_URL}/articoli-frontaliere/permessi-dimora-grigioni-cambia-prassi` }
  ]
  },
  {

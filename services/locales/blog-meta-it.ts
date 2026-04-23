@@ -2538,6 +2538,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cena-spring-avsi-libano-castiglione.title': 'Cena di primavera per il Libano: AVSI organizza evento a Castiglione Olona',
     'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'Sabato 9 maggio a Castiglione Olona, la Fondazione AVSI promuove una cena benefica per le comunità libanesi colpite dalla guerra.',
     'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Evento di primavera a sostegno del Libano in una tenuta di campagna',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Grigioni cambia prassi per i permessi di dimora: nuove regole dopo l\'affaire Roveredo',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Dichiarazione obbligatoria di precedenti penali e procedimenti in corso per i richiedenti permessi di dimora nel Canton Grigioni',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

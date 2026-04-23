@@ -11399,6 +11399,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permessi-dimora-grigioni-cambia-prassi': {
+    title: 'Grigioni cambia prassi per i permessi | Frontaliere Ticino',
+    description: 'Nuove regole per i permessi di dimora nel Canton Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, cambia, prassi, permessi',
+    ogTitle: 'Grigioni cambia prassi per i permessi di dimora |',
+    ogDescription: 'Nuove regole per i permessi di dimora nel Canton Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso.',
+    canonicalPath: '/articoli-frontaliere/permessi-dimora-grigioni-cambia-prassi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni cambia prassi per i permessi di dimora: nuove regole dopo l'affaire Roveredo",
+      "description": "Nuove regole per i permessi di dimora nel Canton Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permessi-dimora-grigioni-cambia-prassi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-04-23T14:18:54+00:00",
+      "dateModified": "2026-04-23T14:18:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permessi-dimora-grigioni-cambia-prassi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

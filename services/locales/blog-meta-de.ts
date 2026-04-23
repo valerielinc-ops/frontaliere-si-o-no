@@ -2538,6 +2538,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cena-spring-avsi-libano-castiglione.title': 'Frühlingsessen für den Libanon: AVSI organisiert Event in Castiglione Olona',
     'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'Am Samstag, dem 9. Mai, organisiert die Stiftung AVSI in Castiglione Olona ein Benefizessen für die vom Krieg betroffenen libanesischen Gemeinden.',
     'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Frühlings-Wohltätigkeitsessen in einem Landgut zur Unterstützung des Libanon',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Graubünden ändert Praxis für Aufenthaltsbewilligungen: Neue Regeln nach dem Fall Roveredo',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Verpflichtende Erklärung von Vorstrafen und laufenden Verfahren für Antragsteller von Aufenthaltsbewilligungen im Kanton Graubünden',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
 };
 
 export default blogMetaDe;

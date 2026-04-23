@@ -2538,6 +2538,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cena-spring-avsi-libano-castiglione.title': 'Dîner de printemps pour le Liban : AVSI organise un événement à Castiglione Olona',
     'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'Samedi 9 mai à Castiglione Olona, la Fondation AVSI organise un dîner de bienfaisance pour les communautés libanaises touchées par la guerre.',
     'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Dîner de printemps de bienfaisance dans un domaine rural pour soutenir le Liban',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Les Grisons changent de pratique pour les permis de séjour : nouvelles règles après l\'affaire Roveredo',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Déclaration obligatoire des antécédents pénaux et des procédures en cours pour les demandeurs de permis de séjour dans le canton des Grisons',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
 };
 
 export default blogMetaFr;

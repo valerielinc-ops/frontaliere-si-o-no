@@ -6902,4 +6902,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cena-spring-avsi-libano-castiglione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'permessi-dimora-grigioni-cambia-prassi',
+ category: 'novita',
+ date: '2026-04-23T14:18:54.894Z',
+ image: '/images/blog/permessi-dimora-grigioni-cambia-prassi.jpg',
+ hasCalculator: true,
+ },
 ];

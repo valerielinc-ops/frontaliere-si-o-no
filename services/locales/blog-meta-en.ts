@@ -2538,6 +2538,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cena-spring-avsi-libano-castiglione.title': 'Spring dinner for Lebanon: AVSI organizes event in Castiglione Olona',
     'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'On Saturday, May 9th, in Castiglione Olona, the AVSI Foundation is promoting a charity dinner for the Lebanese communities affected by the war.',
     'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Spring charity dinner event in a countryside estate supporting Lebanon',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.title': 'Graubünden changes residence permit procedures: new rules following the Roveredo affair',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.excerpt': 'Mandatory declaration of criminal records and ongoing proceedings for residence permit applicants in the Canton of Graubünden',
+    'blog.article.permessi-dimora-grigioni-cambia-prassi.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;
