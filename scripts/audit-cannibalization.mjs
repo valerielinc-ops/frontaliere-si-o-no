@@ -17,10 +17,27 @@
  *   1 — at least one non-whitelisted cluster found
  */
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const DIST = path.resolve('dist');
+
+/**
+ * Semrush mode — when `--semrush` is passed (optionally with
+ * `--input=<path>` to override the default CSV location), group raw
+ * `domain_organic` rows by keyword and emit a URL-pairing CSV that
+ * identifies winners (best position) and losers (dilutive siblings).
+ *
+ * The input CSV is expected to be produced by the Semrush MCP
+ * `domain_organic` report with columns:
+ *   Keyword;Position;Search Volume;Url;Traffic (%)
+ *
+ * We don't call the MCP from here (Node has no MCP client in this
+ * project); a sibling agent/operator persists the raw export to
+ * `data/seo/semrush-organic-raw.csv` and this script pairs it.
+ */
+const SEMRUSH_DEFAULT_INPUT = path.resolve('data/seo/semrush-organic-raw.csv');
+const SEMRUSH_OUTPUT = path.resolve('data/seo/cannibalization-urls.csv');
 
 /** Phrases we know legitimately repeat across pages (templated clusters). */
 const WHITELIST_PREFIXES = [
@@ -151,7 +168,134 @@ function isNoindex(html) {
  return /<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html);
 }
 
+/**
+ * Parse the Semrush raw CSV. The Semrush export uses `;` as the column
+ * delimiter (to tolerate commas inside titles). Returns one row per
+ * keyword/URL pairing.
+ */
+function parseSemrushCsv(csvPath) {
+ const raw = readFileSync(csvPath, 'utf-8');
+ const lines = raw.split(/\r?\n/).filter((l) => l.trim().length > 0);
+ if (lines.length < 2) return [];
+ const [, ...rest] = lines; // drop header
+ const rows = [];
+ for (const line of rest) {
+  const parts = line.split(';');
+  if (parts.length < 4) continue;
+  const keyword = parts[0].trim();
+  const position = Number.parseInt(parts[1], 10);
+  const volume = Number.parseInt(parts[2], 10);
+  const url = parts[3].trim();
+  if (!keyword || !url || Number.isNaN(position)) continue;
+  rows.push({ keyword, position, volume: Number.isNaN(volume) ? 0 : volume, url });
+ }
+ return rows;
+}
+
+/**
+ * Normalize a URL to its canonical form so `www.` vs bare host and
+ * trailing-slash variants collapse into one entry.
+ */
+function canonicalizeUrl(url) {
+ return url
+  .replace(/^https?:\/\/(?:www\.)?/i, 'https://')
+  .replace(/\/+$/, '/');
+}
+
+/**
+ * Build the cannibalization report from parsed Semrush rows. Groups by
+ * keyword; flags any keyword where 2+ distinct canonical URLs from our
+ * domain appear. Winner = lowest position (best rank). Losers are all
+ * other URLs for that keyword.
+ */
+function buildCannibalizationReport(rows) {
+ const byKeyword = new Map();
+ for (const r of rows) {
+  const canon = canonicalizeUrl(r.url);
+  if (!byKeyword.has(r.keyword)) byKeyword.set(r.keyword, new Map());
+  const urls = byKeyword.get(r.keyword);
+  // Keep the best (lowest) position per (keyword, canonical URL) pair.
+  const prev = urls.get(canon);
+  if (!prev || r.position < prev.position) {
+   urls.set(canon, { ...r, url: canon });
+  }
+ }
+ const clusters = [];
+ for (const [keyword, urlMap] of byKeyword.entries()) {
+  if (urlMap.size < 2) continue;
+  const sorted = [...urlMap.values()].sort((a, b) => a.position - b.position);
+  const winner = sorted[0];
+  for (const entry of sorted) {
+   clusters.push({
+    keyword,
+    position: entry.position,
+    volume: entry.volume,
+    url: entry.url,
+    winnerHint: entry === winner ? 'WINNER' : `loser→${winner.url}`,
+   });
+  }
+ }
+ return clusters;
+}
+
+/** CSV-escape a field containing `"`, `,`, or newline. */
+function csvEscape(value) {
+ const s = String(value ?? '');
+ if (/[",\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+ return s;
+}
+
+function runSemrushMode() {
+ const args = process.argv.slice(2);
+ const inputArg = args.find((a) => a.startsWith('--input='));
+ const input = inputArg ? path.resolve(inputArg.slice('--input='.length)) : SEMRUSH_DEFAULT_INPUT;
+ if (!existsSync(input)) {
+  console.error(`Semrush input not found: ${input}`);
+  console.error('Expected a CSV produced by the Semrush MCP domain_organic report.');
+  console.error('Columns: Keyword;Position;Search Volume;Url;Traffic (%)');
+  process.exit(2);
+ }
+ const rows = parseSemrushCsv(input);
+ const clusters = buildCannibalizationReport(rows);
+
+ // Ensure output directory exists.
+ const outDir = path.dirname(SEMRUSH_OUTPUT);
+ if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
+
+ const header = 'keyword,position,volume,url,winner_hint\n';
+ const body = clusters
+  .map((c) => [c.keyword, c.position, c.volume, c.url, c.winnerHint].map(csvEscape).join(','))
+  .join('\n');
+ writeFileSync(SEMRUSH_OUTPUT, header + body + (body ? '\n' : ''));
+
+ const keywordCount = new Set(clusters.map((c) => c.keyword)).size;
+ if (keywordCount === 0) {
+  console.log(`No Semrush-driven cannibalization clusters detected (input: ${input}).`);
+  console.log(`Output: ${SEMRUSH_OUTPUT}`);
+  process.exit(0);
+ }
+ console.log(`${keywordCount} cannibalization cluster(s) detected across ${clusters.length} URL pairings.`);
+ console.log(`Output: ${SEMRUSH_OUTPUT}`);
+ // Print top 15 clusters by volume (winner row) for operator triage.
+ const byKw = new Map();
+ for (const c of clusters) {
+  if (!byKw.has(c.keyword)) byKw.set(c.keyword, { volume: c.volume, rows: [] });
+  byKw.get(c.keyword).rows.push(c);
+ }
+ const sortedKw = [...byKw.entries()].sort((a, b) => b[1].volume - a[1].volume).slice(0, 15);
+ for (const [kw, { volume, rows }] of sortedKw) {
+  console.log(`\n"${kw}" (vol ${volume}, ${rows.length} URLs)`);
+  for (const r of rows.slice(0, 5)) console.log(`  pos ${String(r.position).padStart(3)}  ${r.winnerHint === 'WINNER' ? '★' : ' '} ${r.url}`);
+  if (rows.length > 5) console.log(`  … +${rows.length - 5} more`);
+ }
+ process.exit(0);
+}
+
 function main() {
+ if (process.argv.includes('--semrush')) {
+  runSemrushMode();
+  return;
+ }
  if (!statSync(DIST, { throwIfNoEntry: false })?.isDirectory?.()) {
   console.error(`dist/ not found. Run \`npx vite build\` first.`);
   process.exit(2);
