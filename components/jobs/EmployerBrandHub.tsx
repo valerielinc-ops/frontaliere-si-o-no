@@ -266,14 +266,16 @@ export function EmployerBrandHub({
 
       <div>
         <h2 className="text-lg font-bold text-heading mb-3">{copy.sectionHeadings.faq}</h2>
-        <dl className="space-y-4">
+        <ul className="space-y-3 list-none p-0">
           {copy.faqs.map((faq) => (
-            <div key={faq.q} className="rounded-lg border border-edge bg-surface-raised p-4">
-              <dt className="text-sm font-semibold text-heading mb-1">{faq.q}</dt>
-              <dd className="text-sm text-body leading-relaxed">{faq.a}</dd>
-            </div>
+            <li key={faq.q}>
+              <details className="rounded-lg border border-edge bg-surface-raised p-4 [&_summary]:cursor-pointer">
+                <summary className="text-sm font-semibold text-heading">{faq.q}</summary>
+                <p className="text-sm text-body leading-relaxed mt-2">{faq.a}</p>
+              </details>
+            </li>
           ))}
-        </dl>
+        </ul>
       </div>
 
       {emitStructuredData && (
