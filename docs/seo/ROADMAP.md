@@ -323,22 +323,16 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
   Commit: feat(seo): comparison tables hub (AE-7). Auto-push on green.
   ```
 
-### AE-8. ClaimReview coverage expansion (Task 6.5)
+### AE-8. ClaimReview coverage expansion (Task 6.5) — SHIPPED 2026-04-23
 
 - **Source:** PLAN-SPRINT-6 Task 6.5, PLAN-SPRINT-6-FOLLOWUP
-- **Deliverable:** `ClaimReview` JSON-LD on 10 pages stating verifiable tax/fiscal claims, each citing AFC / Agenzia Entrate / bilateral-agreement text as the authoritative source.
-- **Why agent-executable:** claims are already in the pages; agent inventories and emits schema.
-- **Data inputs:** existing pillar pages (`/fisco/*`, `/guida/frontalieri-nuova-legge-2026/`, `/premi-cassa-malati/`).
-- **End gates:** New assertion in `tests/ai-seo-p0.test.ts` that ClaimReview JSON-LD validates against schema.org spec (itemReviewed.author.url + reviewRating + url). All 10 pages ship. Validator + structured-data gates pass.
-- **Estimated agent time:** 70 min.
-- **Prompt to dispatch:**
-  ```
-  Read CLAUDE.md + ROADMAP task AE-8.
-  Inventory 10 pages making verifiable claims (tax rates, law references, LAMal premium changes). Suggested seed: /fisco/, /fisco/avs/, /fisco/secondo-pilastro/, /guida/frontalieri-nuova-legge-2026/, /premi-cassa-malati/, /guida/permesso-g/, /calcolatore/, /stipendi-svizzera-vs-italia/, /tasse-svizzere-guida-frontaliere/, /nuova-legge-frontalieri-2026/.
-  For each, add ClaimReview JSON-LD: claimReviewed (the text claim), author (frontaliereticino.ch Organization), itemReviewed.author.url (AFC/Agenzia Entrate/bilateral-agreement URL), reviewRating (5/5 for verified claims), url (page URL).
-  Add assertion in tests/ai-seo-p0.test.ts that ClaimReview entries validate schema.org-required fields.
-  Gates: validate-structured-data + vitest + build. Commit: feat(ai-seo): ClaimReview coverage on 10 fiscal pages (AE-8). Auto-push on green.
-  ```
+- **Deliverable:** ClaimReview JSON-LD now emitted on 11 pillar/hub pages (previously only `fisco`). New groups added this sprint: `pension`, `permits`, `pillar3`, `withholdingRates`, `holidays`, `healthPremiums` (AE-8), on top of Sprint-6 baseline `fisco` + pillars (pillarTasseSvizzere, pillarNuovaLegge2026, pillarStipendiChVsIt, pillarLavoroLugano, pillarOssSvizzera). Every claim cites an authoritative source (AFC Ticino, UFAS, UFSP/Priminfo, SEM, INPS, Normattiva, Agenzia Entrate, Fedlex, CCL Sanità Ticino).
+- **Utility:** `services/seo/claim-review.ts::buildClaimReview` with typed inputs, 5-bucket rating map, pure immutable output. Tested by `tests/claim-review-builder.test.ts` (16 tests).
+- **Candidates inventory:** `data/seo/claim-review-candidates.csv` — 11 page groups, 28 claims total, with source authority + notes.
+- **Schema shape:** `@type: ClaimReview` + `url` + `claimReviewed` + `author.url` (Frontaliere Ticino Org) + `reviewRating` (1-5 scale + alternateName) + `itemReviewed` (Claim + appearance CreativeWork with source url).
+- **New test gate:** `tests/ai-seo-p0.test.ts` iterates all pages and asserts every ClaimReview has url/claimReviewed/datePublished/author.url/reviewRating.ratingValue/itemReviewed.author + `>= 10` entries shipped site-wide. Also added `ClaimReview` to `VALID_SCHEMA_TYPES` in `tests/seo-completeness.test.ts`.
+- **Gates passed:** `npx tsc --noEmit` 0 errors · `npm run build:fast` exit 0 · `npx vitest run tests/ai-seo-p0.test.ts tests/claim-review-builder.test.ts tests/seo-*.test.ts tests/seo/*.test.ts` 13.7k tests green · `node scripts/validate-structured-data.mjs` — 2 pre-existing errors (index.html + admin page) unrelated to ClaimReview changes.
+- **Follow-up:** 4-locale parity via `services/seo/schema-translators.ts` runtime translation (already applied to existing ClaimReview blocks in Sprint 6); EN/DE/FR surfaces auto-localise via the `translateClaimReview` path.
 
 ### AE-9. Eni Caslano fuel-station dedup (Sprint 3 cluster E) — SHIPPED 2026-04-23
 
