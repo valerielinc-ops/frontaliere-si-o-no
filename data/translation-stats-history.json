@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T20:05:30.732Z",
-    "label": "before",
-    "total": 2471,
-    "needsRetranslation": 135,
-    "incomplete": 57,
-    "complete": 2414,
-    "missingByLocale": {
-      "it": 9,
-      "en": 56,
-      "de": 48,
-      "fr": 56
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T20:06:58.514Z",
-    "label": "after",
-    "total": 2471,
-    "needsRetranslation": 79,
-    "incomplete": 10,
-    "complete": 2461,
-    "missingByLocale": {
-      "it": 9,
-      "en": 9,
-      "de": 1,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T20:11:14.077Z",
     "label": "before",
     "total": 2471,
@@ -7211,6 +7127,102 @@
       {
         "company": "EFG International AG",
         "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 2
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-23T22:40:33.396Z",
+    "label": "before",
+    "total": 2660,
+    "needsRetranslation": 1144,
+    "incomplete": 63,
+    "complete": 2597,
+    "missingByLocale": {
+      "it": 49,
+      "en": 31,
+      "de": 39,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Fusalp",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Graubünden",
+        "pending": 2
+      },
+      {
+        "company": "Otis SA",
+        "pending": 2
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-23T23:52:15.886Z",
+    "label": "after",
+    "total": 2660,
+    "needsRetranslation": 76,
+    "incomplete": 27,
+    "complete": 2633,
+    "missingByLocale": {
+      "it": 23,
+      "en": 6,
+      "de": 25,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
       },
       {
         "company": "Fusalp",
