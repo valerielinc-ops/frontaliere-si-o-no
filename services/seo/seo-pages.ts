@@ -2183,8 +2183,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  holidays: {
- title: 'Festività Ticino 2026: Calendario Ufficiale Giorni Festivi',
- description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi cantonali + ponti, maggiorazioni CCL, impatto su 13ª e straordinari del frontaliere.',
+ title: 'Festivi in Ticino 2026: Calendario Festività Ufficiali',
+ description: 'Festivi in Ticino 2026 — calendario ufficiale delle feste del Canton Ticino: 15 giorni festivi, ponti, maggiorazioni CCL frontaliere, sabato/domenica.',
  keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, calendario festività ticino 2026, calendario ufficiale giorni festivi ticino, festività canton ticino, giorni festivi canton ticino, festività cantonali ticino, ponti ticino 2026, ferie svizzera frontalieri, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026, assunzione ticino festivo',
  ogTitle: 'Festività Ticino 2026: Calendario Ufficiale e Ponti Frontalieri',
  ogDescription: 'Calendario ufficiale festività Canton Ticino 2026: 15 giorni festivi, ponti, maggiorazioni CCL su straordinari festivi e impatto su 13ª del frontaliere.',
@@ -2240,7 +2240,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Il frontaliere segue il calendario festivo svizzero/ticinese perché il rapporto di lavoro è regolato dal diritto del lavoro svizzero (lex loci laboris). Le festività italiane (25 aprile Liberazione, 2 giugno Festa della Repubblica, santo patrono locale, 8 dicembre, ecc.) non sono riconosciute come giorni non lavorativi dal datore svizzero: per non andare al lavoro il frontaliere deve prendere un giorno di ferie ordinarie." } },
  { "@type": "Question", "name": "Come viene pagato il frontaliere nei giorni festivi in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il Codice delle Obbligazioni e la Legge sul Lavoro stabiliscono che il datore svizzero debba pagare i festivi che cadono in un giorno lavorativo anche se il lavoratore è assente. Il lavoratore in Stundenlohn (orario) riceve il compenso regolare, quello in salario mensile riceve lo stipendio pieno. Se il frontaliere lavora in un giorno festivo, la maggior parte dei CCL ticinesi prevede una maggiorazione del 50% o un giorno di recupero; alcuni settori (sanità, ospitalità, trasporti) arrivano al 100% di maggiorazione." } },
  { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i ponti più convenienti sono: Pasqua (Venerdì Santo 3 aprile + Pasquetta 6 aprile — già 4 giorni), Ascensione (giovedì 14 maggio, ponte con un giorno di ferie venerdì 15), Corpus Domini (giovedì 4 giugno, ponte con venerdì 5), SS. Pietro e Paolo (lunedì 29 giugno, weekend lungo). Meno fortunati i festivi 2026: il 1° agosto cade di sabato e il 15 agosto pure." } },
- { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera (CO art. 329a) il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime." } }
+ { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera (CO art. 329a) il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime." } },
+ { "@type": "Question", "name": "Qual è la festa del Canton Ticino più sentita?", "acceptedAnswer": { "@type": "Answer", "text": "La festa del Canton Ticino più sentita è il 1° agosto (Festa Nazionale Svizzera) con falò sulle montagne di Lugano, Mendrisio, Chiasso e Bellinzona, più il Ferragosto (Assunzione, 15 agosto) con processioni nei borghi cattolici del Mendrisiotto e del Malcantone. Storicamente anche San Giuseppe (19 marzo) è festa patronale in diversi comuni ticinesi. Il Canton Ticino non ha una festa 'cantonale' unica analoga al Giura: la sua identità festiva combina calendario federale svizzero e tradizioni cattoliche italofone." } },
+ { "@type": "Question", "name": "Quali sono i prossimi festivi in Ticino 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I prossimi festivi in Ticino nel 2026 — partendo dalla metà dell'anno — sono: SS. Pietro e Paolo (lunedì 29 giugno), Festa Nazionale Svizzera (sabato 1 agosto), Assunzione (sabato 15 agosto), Ognissanti (domenica 1 novembre), Immacolata Concezione (martedì 8 dicembre), Natale (venerdì 25 dicembre) e Santo Stefano (sabato 26 dicembre). Tre di questi cadono nel weekend e non danno giorno di recupero nelle aziende ticinesi senza CCL migliorativo." } },
+ { "@type": "Question", "name": "I festivi in Ticino sono uguali a quelli della Svizzera italiana?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: il Canton Ticino e le valli italofone del Canton Grigioni (Mesolcina, Calanca, Bregaglia, Poschiavo) condividono lo stesso calendario festivo cattolico, con Epifania, San Giuseppe, Corpus Domini, Assunzione, Ognissanti e Immacolata. La differenza emerge rispetto ai cantoni protestanti (Zurigo, Berna, Basilea Città) dove queste ricorrenze non sono giorni festivi ufficiali. Un frontaliere trasferito da Lugano a Zurigo perde in media 5-7 giorni festivi all'anno." } }
  ],
  "speakable": SPEAKABLE_SECTION
  }
@@ -7430,6 +7433,54 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Cosa succede se cambio datore di lavoro in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Un cambio di datore di lavoro svizzero dopo il 17/07/2023 fa passare il frontaliere al regime dei nuovi frontalieri anche se era vecchio frontaliere con il contratto precedente. Per questo chi beneficia ancora del regime pre-2024 deve ponderare attentamente una transizione: il passaggio al nuovo regime comporta una tassazione italiana aggiuntiva fra 1.500 e 3.500 euro annui su un lordo di CHF 70.000, da confrontare con l'eventuale aumento di stipendio del nuovo datore." } },
  { "@type": "Question", "name": "Come si recupera l'imposta alla fonte pagata in eccesso in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il frontaliere con lordo annuo superiore a CHF 120.000 o con spese professionali elevate può chiedere la correzione dell'imposta alla fonte (Taxation Ordinaire Ultérieure, TOU) presentando la dichiarazione ordinaria cantonale entro il 31 marzo dell'anno successivo. Sono deducibili contributi 3° pilastro, spese di pendolarismo reali (chilometri casa-lavoro × CHF 0,70/km), pasti fuori casa e costi di formazione professionale. Il rimborso medio tipico è di CHF 1.500-4.500 annui." } }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri`,
+ "claimReviewed": "L'imposta alla fonte in Canton Ticino per frontalieri varia dal 3% al 35% in base a reddito, stato civile e figli (2026).",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "AFC — Divisione delle contribuzioni Ticino" },
+ "datePublished": "2026-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/", "name": "AFC Ticino — Imposta alla fonte: tabelle A/B/C/H 2026" }
+ },
+ "reviewBody": "Tabelle cantonali AFC Ticino 2026: aliquote progressive dal 3% (redditi bassi, coniugati con figli) al 35% (redditi molto alti) per tabelle A, B, C, H."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri`,
+ "claimReviewed": "I nuovi frontalieri (assunti dal 17/07/2023) beneficiano di una franchigia IRPEF di 10.000 euro annui in Italia.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge 13 giugno 2023 n. 83 — Ratifica Accordo Italia-Svizzera" },
+ "datePublished": "2023-06-13",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-06-13;83", "name": "Legge n. 83/2023 — Ratifica ed esecuzione dell'Accordo tra la Repubblica italiana e la Confederazione svizzera" }
+ },
+ "reviewBody": "La franchigia di 10.000 € è prevista dall'art. 2 della Legge 83/2023 e si applica esclusivamente ai nuovi frontalieri (assunti dal 17/07/2023); i vecchi frontalieri restano nel regime pre-2024 fino al 2033."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri`,
+ "claimReviewed": "Il credito d'imposta per frontalieri elimina la doppia imposizione fra Svizzera e Italia.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Convenzione Italia-Svizzera contro le doppie imposizioni (art. 15 e 24)" },
+ "datePublished": "1978-03-09",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/schede/normativa/convenzione-per-evitare-le-doppie-imposizioni-italia-svizzera", "name": "Agenzia Entrate — Convenzione Italia-Svizzera contro le doppie imposizioni" }
+ },
+ "reviewBody": "L'art. 24 della Convenzione Italia-Svizzera 9/3/1976 (ratificata con L. 943/1978) prevede il credito d'imposta: l'imposta alla fonte pagata in Svizzera si detrae dall'IRPEF italiana sullo stesso reddito, evitando la doppia imposizione."
  }
  ]
  },
@@ -7506,6 +7557,54 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Cambia qualcosa per la tredicesima e i bonus dei nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "No, la tredicesima e i bonus di risultato sono tassati come il resto del reddito lordo svizzero: imposta alla fonte al momento del pagamento e inclusi nella base IRPEF italiana del nuovo frontaliere. La franchigia di 10.000 euro si applica al reddito complessivo annuo (stipendio + tredicesima + bonus) e non può essere frazionata per singola voce. Nella dichiarazione 730/Redditi va indicato l'importo lordo totale percepito nell'anno." } },
  { "@type": "Question", "name": "I contributi LPP del 2° pilastro sono deducibili in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, i contributi LPP obbligatori trattenuti in busta paga svizzera sono già esclusi dalla base imponibile svizzera e vanno esclusi anche dal reddito dichiarato in Italia: si dichiara lo stipendio lordo al netto di LPP, LAINF e AVS/AI/IPG. I versamenti volontari al 3° pilastro A non sono deducibili in Italia secondo la circolare AdE 25/2024, ma restano deducibili in Svizzera nella Taxation Ordinaire Ultérieure (TOU) fino a CHF 7.258 annui." } }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026`,
+ "claimReviewed": "Il Nuovo Accordo fiscale Italia-Svizzera è entrato in vigore il 17 luglio 2023 e ha introdotto il regime dei \"nuovi frontalieri\" pienamente applicato dal 2024.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Accordo Italia-Svizzera relativo all'imposizione dei lavoratori frontalieri, firmato 23/12/2020, in vigore 17/07/2023" },
+ "datePublished": "2020-12-23",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.esteri.it/wp-content/uploads/2021/01/ACCORDO-FRONTALIERI-ITALIA-SVIZZERA.pdf", "name": "Ministero degli Esteri — Accordo Italia-Svizzera sui lavoratori frontalieri (23/12/2020)" }
+ },
+ "reviewBody": "L'Accordo è stato firmato il 23/12/2020, ratificato con Legge 83/2023 ed è entrato in vigore il 17/07/2023. Il regime transitorio per i vecchi frontalieri resta in vigore fino al 2033."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026`,
+ "claimReviewed": "I frontalieri possono lavorare in telelavoro dall'Italia fino al 25% del tempo senza perdere lo status fiscale di frontaliere.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Accordo amichevole Italia-Svizzera sul telelavoro dei frontalieri, 23/12/2023" },
+ "datePublished": "2023-12-23",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.finanze.gov.it/it/inevidenza/Accordo-amichevole-Italia-Svizzera-telelavoro-frontalieri/", "name": "MEF — Accordo amichevole Italia-Svizzera sul telelavoro dei lavoratori frontalieri (23/12/2023)" }
+ },
+ "reviewBody": "L'accordo amichevole Italia-Svizzera del 23/12/2023 consente fino al 25% di telelavoro dall'Italia senza compromettere lo status fiscale di frontaliere né l'applicazione dell'Accordo fiscale 2020."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026`,
+ "claimReviewed": "I vecchi frontalieri (assunti prima del 17/07/2023) pagano le tasse solo in Svizzera fino al 31 dicembre 2033.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Agenzia delle Entrate — Circolare n. 25/E del 2024" },
+ "datePublished": "2024-07-18",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/-/circolare-n-25-e-del-18-luglio-2024", "name": "Agenzia Entrate — Circolare n. 25/E del 18 luglio 2024, nuovo regime frontalieri" }
+ },
+ "reviewBody": "Regime transitorio art. 9 Accordo 23/12/2020: i vecchi frontalieri mantengono il regime pre-2024 (imposizione esclusiva in Svizzera) fino al 31/12/2033, come confermato dalla Circolare AdE 25/E del 18/07/2024."
  }
  ]
  },
