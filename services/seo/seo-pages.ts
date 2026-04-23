@@ -177,7 +177,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { '@type': 'Question', name: "Le tabelle dell'imposta alla fonte cambiano ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La Divisione delle Contribuzioni del Canton Ticino aggiorna le tabelle ogni anno fiscale (tipicamente a fine dicembre per l'anno successivo). Le aliquote 2026 riflettono il nuovo accordo fiscale CH-IT e la riduzione dell'80% per i nuovi frontalieri. È importante verificare che il datore di lavoro applichi la tabella corretta in busta paga." } },
  { '@type': 'Question', name: "Posso chiedere un rimborso dell'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Sì, tramite la procedura di rettifica (domanda di tassazione ordinaria ulteriore, TOU) entro il 31 marzo dell'anno successivo. Si può richiedere il rimborso se si sono sostenuti oneri deducibili non considerati (riscatto LPP, 3° pilastro, spese di formazione, alimenti). Il modulo si presenta alla Divisione delle Contribuzioni di Bellinzona." } },
  { '@type': 'Question', name: "Il nuovo accordo 2026 ha cambiato l'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Sì. Per i nuovi frontalieri (assunti dal 17 luglio 2023), l'imposta alla fonte in Svizzera è ridotta all'80% dell'aliquota ordinaria: la Svizzera trattiene meno, e l'Italia tassa ulteriormente in dichiarazione dei redditi tramite IRPEF (con credito d'imposta e franchigia €10.000). Per i vecchi frontalieri resta il regime pieno svizzero fino al 2033." } }
- ]
+ ],
+ speakable: SPEAKABLE_SECTION,
  }
  ],
  },
@@ -273,8 +274,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { '@type': 'Question', name: "Come si sceglie la franchigia LAMal più conveniente?", acceptedAnswer: { '@type': 'Answer', text: "La franchigia è la soglia annua sotto cui il paziente paga integralmente le cure. Le opzioni 2026 sono CHF 300, 500, 1.000, 1.500, 2.000 e 2.500. Franchigia alta = premio più basso ma rischio di spese vive maggiori. Regola pratica: chi prevede poche visite mediche conviene CHF 2.500 (risparmio premi fino a CHF 1.540/anno); chi ha patologie croniche o bambini conviene CHF 300." } },
  { '@type': 'Question', name: "Qual è la differenza tra LAMal e LAMal complementare?", acceptedAnswer: { '@type': 'Answer', text: "La LAMal di base (obbligatoria) copre cure ambulatoriali, ospedaliere in reparto comune cantonale, farmaci LS e maternità. La LAMal complementare (LCA, facoltativa) aggiunge reparto semi-privato o privato in ospedale, medicine alternative, occhiali, dentista. I premi complementari variano da CHF 30 a CHF 400/mese e richiedono questionario sanitario di adesione." } },
  { '@type': 'Question', name: "Posso cambiare cassa malati LAMal ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La LAMal di base si può disdire entro il 30 novembre per cambiare cassa dal 1° gennaio successivo. La disdetta va inviata con raccomandata. Il cambio non comporta esami sanitari (franchise dei premi) perché la LAMal di base è obbligatoria e non discriminante. La LAMal complementare invece può rifiutare l'adesione in base allo stato di salute." } }
- ]
- }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ },
  ],
  },
 
@@ -1810,6 +1812,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Confronto Costo della Vita Svizzera-Italia",
  "url": `${BASE_URL}/compara-servizi/costo-della-vita`,
  "description": "Confronto interattivo del costo della vita tra città di frontiera svizzere e italiane",
+ "abstract": "Il costo della vita in Svizzera è mediamente 40-60% più alto rispetto all'Italia: affitti, spesa e LAMal sono le voci con le differenze maggiori. Un bilocale a Lugano costa CHF 1.400-1.800/mese contro 500-800 € a Como. Per un frontaliere residente in Italia il differenziale si riduce al 10-20% grazie a salario CH + costi IT.",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": {
@@ -1817,7 +1820,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "price": "0",
  "priceCurrency": "CHF"
  },
- "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
  },
  {
  "@context": "https://schema.org",
@@ -1853,7 +1857,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto si spende mediamente per la spesa alimentare in Ticino?",
  "acceptedAnswer": { "@type": "Answer", "text": "Un single ticinese spende CHF 400–550/mese di spesa alimentare (Migros/Coop), una coppia CHF 650–850, una famiglia con 2 figli CHF 950–1.250. I discount Aldi e Lidl riducono il conto del 20–30%. Un frontaliere che fa la spesa in Italia (Como, Varese) risparmia il 30–40%: una spesa settimanale da 150 € in IT corrisponde a 210–240 CHF a Lugano. Attenzione al limite franchigia doganale CHF 150/persona/giorno." }
  }
- ]
+ ],
+ "speakable": SPEAKABLE_SECTION
  }
  ]
  },
