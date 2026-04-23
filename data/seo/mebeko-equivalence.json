@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-04-23T17:32:19.583Z",
+  "sources": [
+    {
+      "authority": "MEBEKO",
+      "url": "https://www.bag.admin.ch/bag/it/home/berufe-im-gesundheitswesen/medizinalberufe/mebeko.html",
+      "label": "Commissione federale delle professioni mediche (MEBEKO) — BAG",
+      "reachable": false,
+      "bytes": 0,
+      "probedAt": "2026-04-23T17:32:14.823Z",
+      "elapsedMs": 319
+    },
+    {
+      "authority": "SRK / Croce Rossa Svizzera",
+      "url": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "label": "Croce Rossa Svizzera — Riconoscimento dei diplomi esteri non universitari",
+      "reachable": false,
+      "bytes": 0,
+      "probedAt": "2026-04-23T17:32:17.424Z",
+      "elapsedMs": 1597
+    },
+    {
+      "authority": "SEFRI — professioni sanitarie non universitarie",
+      "url": "https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html",
+      "label": "SEFRI — Riconoscimento di diplomi esteri",
+      "reachable": false,
+      "bytes": 0,
+      "probedAt": "2026-04-23T17:32:18.581Z",
+      "elapsedMs": 156
+    }
+  ],
+  "professions": {
+    "infermiere": {
+      "itTitle": "Infermiere / Infermiera",
+      "authority": "SRK (delega MEBEKO)",
+      "authorityUrl": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "diplomaTypeIt": "Laurea triennale in Infermieristica (L/SNT1) o DUO pre-Bologna",
+      "swissEquivalent": "Diploma Bachelor SUP in Cure infermieristiche (HF/SUPSI)",
+      "leadTimeMonths": [
+        4,
+        9
+      ],
+      "compensationMeasures": "Modulo di adattamento 3–12 mesi in struttura accreditata, oppure esame attitudinale",
+      "canStartBeforeRecognition": true,
+      "notes": "Possibile avviare contratto di lavoro \"sotto supervisione\" in alcune cliniche durante l'iter; assunzione indeterminata richiede riconoscimento definitivo."
+    },
+    "educatore": {
+      "itTitle": "Educatore sociale / Operatore socio-pedagogico",
+      "authority": "SEFRI (non sanitaria) — in alcuni contesti SRK",
+      "authorityUrl": "https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html",
+      "diplomaTypeIt": "Laurea triennale in Scienze dell'Educazione, Servizio Sociale, Educazione Professionale",
+      "swissEquivalent": "Bachelor SUP in Lavoro sociale o Educatore sociale HF (Scuola specializzata superiore)",
+      "leadTimeMonths": [
+        3,
+        8
+      ],
+      "compensationMeasures": "Integrazione curricolare o tirocinio supervisionato in struttura ticinese",
+      "canStartBeforeRecognition": true,
+      "notes": "SUPSI Dipartimento Economia Aziendale, Sanità e Sociale (DEASS) offre programmi di allineamento."
+    }
+  },
+  "note": "Curated, hand-verified equivalence summary. Live fetch is used only for source probing (citation freshness). Update HEALTHCARE_PROFESSIONS when MEBEKO/SRK publish procedural changes."
+}
