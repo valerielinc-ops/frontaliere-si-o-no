@@ -73,9 +73,13 @@ export class WriteCollector {
  const manifest = getManifest();
  if (manifest && this._distDir) {
  const rel = path.relative(this._distDir, filePath);
- if (!manifest.shouldWrite(rel, content)) {
+ const fileExists = fs.existsSync(filePath);
+ if (fileExists && !manifest.shouldWrite(rel, content)) {
  this._skippedByHash++;
  return;
+ }
+ if (!fileExists) {
+  manifest.shouldWrite(rel, content);
  }
  }
  this.writes.push({ filePath, content });

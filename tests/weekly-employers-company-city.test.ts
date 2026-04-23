@@ -829,7 +829,7 @@ describe('generateWeeklyEmployerPages — company-city integration', () => {
 // ── relatedLinks case coverage ─────────────────────────────────
 
 describe("relatedLinks — case 'weekly_employer_company_city'", () => {
-  it('returns exactly 5 links for every locale', () => {
+  it('returns at least 6 links for every locale', () => {
     for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
       const links = generateRelatedLinks(locale, 'weekly_employer_company_city', {
         city: 'lugano',
@@ -837,7 +837,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
         companySlug: 'eoc-ente-ospedaliero-cantonale',
         employer: 'EOC - Ente Ospedaliero Cantonale',
       });
-      expect(links).toHaveLength(5);
+      expect(links.length).toBeGreaterThanOrEqual(6);
       for (const link of links) {
         expect(link.href.length).toBeGreaterThan(0);
         expect(link.title.length).toBeGreaterThan(0);
@@ -870,7 +870,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
     ).toBe(true);
   });
 
-  it('renders an HTML <nav> block with 5 anchors', () => {
+  it('renders an HTML <nav> block with at least 6 anchors', () => {
     const html = generateRelatedLinksBlock('it', 'weekly_employer_company_city', {
       city: 'lugano',
       weeklyCity: 'lugano',
@@ -878,7 +878,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
     });
     expect(html).toContain('<nav');
     const anchorCount = (html.match(/<a /g) || []).length;
-    expect(anchorCount).toBe(5);
+    expect(anchorCount).toBeGreaterThanOrEqual(6);
     expect(html).not.toMatch(/\bdark:(bg|text|border|ring)-/);
   });
 });

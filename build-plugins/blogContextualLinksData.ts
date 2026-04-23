@@ -153,25 +153,25 @@ const RULES_EN: readonly BlogContextualLinkRule[] = [
   {
     id: 'en.fuel.diesel.prices',
     keywordPattern: /\b(?:price|prices|cost|costs|increase|increases)\s+(?:of\s+)?diesel\b/i,
-    targetUrl: '/en/diesel-prices/today/',
+    targetUrl: '/en/diesel-price-switzerland/today/',
     priority: 12,
   },
   {
     id: 'en.fuel.diesel.generic',
     keywordPattern: /\bdiesel\s+(?:price|prices)\b/i,
-    targetUrl: '/en/diesel-prices/today/',
+    targetUrl: '/en/diesel-price-switzerland/today/',
     priority: 10,
   },
   {
     id: 'en.fuel.gasoline',
     keywordPattern: /\b(?:gasoline|petrol)\s+(?:price|prices|cost|costs)\b/i,
-    targetUrl: '/en/gasoline-prices/today/',
+    targetUrl: '/en/gasoline-price-switzerland/today/',
     priority: 11,
   },
   {
     id: 'en.fuel.fuel',
     keywordPattern: /\bfuel\s+(?:price|prices|cost|costs)(?:\s+(?:in\s+)?(?:ticino|switzerland))?\b/i,
-    targetUrl: '/en/diesel-prices/today/',
+    targetUrl: '/en/diesel-price-switzerland/today/',
     priority: 9,
   },
 
@@ -234,19 +234,19 @@ const RULES_DE: readonly BlogContextualLinkRule[] = [
   {
     id: 'de.fuel.diesel.prices',
     keywordPattern: /\b(?:Diesel|Dieselpreis(?:e)?|Dieselpreiserhöhung)\s*(?:preise|kosten|anstieg)?\b/i,
-    targetUrl: '/de/dieselpreise/heute/',
+    targetUrl: '/de/dieselpreis-schweiz/heute/',
     priority: 12,
   },
   {
     id: 'de.fuel.benzin.prices',
     keywordPattern: /\b(?:Benzin|Benzinpreis(?:e)?)(?:\s+(?:in\s+)?(?:tessin|schweiz))?\b/i,
-    targetUrl: '/de/benzinpreise/heute/',
+    targetUrl: '/de/benzinpreis-schweiz/heute/',
     priority: 11,
   },
   {
     id: 'de.fuel.treibstoff',
     keywordPattern: /\bTreibstoff(?:preise|kosten)\b/i,
-    targetUrl: '/de/dieselpreise/heute/',
+    targetUrl: '/de/dieselpreis-schweiz/heute/',
     priority: 9,
   },
 
@@ -303,19 +303,19 @@ const RULES_FR: readonly BlogContextualLinkRule[] = [
   {
     id: 'fr.fuel.diesel.prices',
     keywordPattern: /\b(?:prix|coût|coûts|hausse|augmentation)s?\s+(?:du\s+|des\s+)?(?:diesel|gasoil)\b/i,
-    targetUrl: '/fr/prix-diesel/aujourdhui/',
+    targetUrl: '/fr/prix-gasoil-suisse/aujourd-hui/',
     priority: 12,
   },
   {
     id: 'fr.fuel.essence',
     keywordPattern: /\b(?:prix|coût|coûts|hausse)\s+(?:de\s+l'|des?\s+)?essence\b/i,
-    targetUrl: '/fr/prix-essence/aujourdhui/',
+    targetUrl: '/fr/prix-essence-suisse/aujourd-hui/',
     priority: 11,
   },
   {
     id: 'fr.fuel.carburant',
     keywordPattern: /\b(?:prix|coûts)\s+(?:des\s+|du\s+)?carburants?\b/i,
-    targetUrl: '/fr/prix-diesel/aujourdhui/',
+    targetUrl: '/fr/prix-gasoil-suisse/aujourd-hui/',
     priority: 9,
   },
 
@@ -351,7 +351,7 @@ const RULES_FR: readonly BlogContextualLinkRule[] = [
   {
     id: 'fr.employers.recrutent',
     keywordPattern: /\b(?:entreprises|employeurs)\s+qui\s+recrutent(?:\s+(?:au\s+)?(?:tessin|lugano|mendrisio|bellinzona))?\b/i,
-    targetUrl: '/fr/entreprises-qui-recrutent/ticino/semaine-actuelle/',
+    targetUrl: '/fr/entreprises-recrutent/ticino/semaine-actuelle/',
     priority: 11,
   },
 

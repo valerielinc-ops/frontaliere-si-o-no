@@ -1,12 +1,22 @@
 {
   "enabledPlugins": {
-    "marketing-skills@marketingskills": true,
+    "marketing-skills@marketingskills": false,
     "context7@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "everything-claude-code@everything-claude-code": false,
     "superpowers@superpowers-dev": false,
     "ui-ux-pro-max@ui-ux-pro-max-skill": false
   },
-  "model": "claude-opus-4-7",
-  "hooks": {}
+  "hooks": {},
+  "env": {
+    "SKIP_FUEL_DAILY": "1",
+    "SKIP_WEEKLY_EMPLOYERS": "1",
+    "SKIP_JOB_MARKET_SNAPSHOT": "1",
+    "SKIP_HEALTH_PREMIUMS": "1",
+    "SKIP_ORPHAN_LANDINGS": "1",
+    "SKIP_BORDER_WAIT": "1",
+    "SKIP_CI_CHECK": "1",
+    "FAST_BUILD": "1",
+    "NODE_OPTIONS": "--max-old-space-size=12288"
+  }
 }

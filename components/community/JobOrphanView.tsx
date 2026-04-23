@@ -17,6 +17,7 @@ import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -180,6 +181,14 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
 
  const slugParts = useMemo(() => parseSlug(slug), [slug]);
+
+ // Derive companyKey from slug by matching the longest known key contained in it
+ // (CRAWLED_COMPANY_LOGOS is keyed by the same companyKey used in adapters/jobs).
+ const companyLogoUrl = useMemo(() => {
+ const keys = Object.keys(CRAWLED_COMPANY_LOGOS).sort((a, b) => b.length - a.length);
+ const derivedKey = keys.find((k) => slug.includes(k)) || '';
+ return resolveCompanyLogoUrl({ company: slugParts.company || undefined, companyKey: derivedKey });
+ }, [slug, slugParts.company]);
  const activeJobLinks = useMemo(
  () => staticBodyHtml ? extractActiveJobLinks(staticBodyHtml) : [],
  [staticBodyHtml],
@@ -363,7 +372,26 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
+ {companyLogoUrl ? (
+ <img
+ src={companyLogoUrl}
+ alt={`Logo ${slugParts.company ?? ''}`.trim()}
+ className="w-7 h-7 object-contain"
+ width={28}
+ height={28}
+ loading="lazy"
+ onError={(e) => {
+ const el = e.currentTarget;
+ if (el.src.includes('logo.clearbit.com')) {
+ el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`;
+ } else {
+ el.style.visibility = 'hidden';
+ }
+ }}
+ />
+ ) : (
  <Building2 className="w-4 h-4 text-muted" />
+ )}
  </div>
  <div className="min-w-0">
  <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3>

@@ -12,6 +12,9 @@
     "build:prod": "NODE_OPTIONS='--max-old-space-size=12288' vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:fast": "vitest run --bail 1",
+    "build:fast": "SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 NODE_OPTIONS='--max-old-space-size=12288' FAST_BUILD=1 vite build",
+    "prepush:fast": "SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 node scripts/assemble-jobs-dataset.mjs --stats && vitest run --bail 1 && NODE_OPTIONS='--max-old-space-size=12288' FAST_BUILD=1 vite build",
     "test:articles": "vitest run tests/article-seo-fallback.test.ts tests/static-pages-blog-skip.test.ts tests/article-duplicate-detection.test.ts tests/related-articles.test.ts tests/whats-new.test.tsx",
     "test:watch": "vitest",
     "new-article": "node scripts/create-article.mjs",
@@ -164,6 +167,10 @@
     "validate:jobs-crawler-keys": "node scripts/validate-jobs-crawler-keys.mjs",
     "validate:crawler-summaries": "node scripts/validate-crawler-summaries.mjs",
     "validate:third-party-secrets": "node scripts/validate-third-party-secrets.mjs",
+    "validate:hreflang": "node scripts/validate-hreflang.mjs",
+    "validate:internal-links": "node scripts/validate-internal-links.mjs",
+    "validate:thin-pages": "node scripts/find-thin-pages.mjs --fail-on-any",
+    "validate:sitemap": "node scripts/validate-sitemap.mjs",
     "validate:sitemap-links": "node scripts/validate-sitemap-links.mjs",
     "validate:page-seo": "node scripts/validate-page-seo-quality.mjs",
     "validate:spa-render": "node scripts/validate-spa-render.mjs",
@@ -215,7 +222,8 @@
     "jobs:update:hilcona": "node scripts/update-hilcona-jobs.mjs",
     "jobs:update:cedes": "node scripts/update-cedes-jobs.mjs",
     "jobs:update:davos-klosters-bergbahnen": "node scripts/update-davos-klosters-bergbahnen-jobs.mjs",
-    "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build:ci && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
+    "validate:thin-pages": "node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any",
+    "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build:ci && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && npm run validate:sitemap && npm run validate:hreflang && npm run validate:internal-links && npm run validate:thin-pages && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.44.0",

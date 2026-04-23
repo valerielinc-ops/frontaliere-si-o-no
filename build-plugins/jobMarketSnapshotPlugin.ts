@@ -71,6 +71,8 @@ import {
   type JobMarketSnapshotLocale,
 } from './jobMarketSnapshotData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { CITY_HUB_KEYS } from './cityJobsHub';
+import { SECTOR_HUB_KEYS } from './jobSectorLanding';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -897,18 +899,22 @@ function renderCityBreakdown(
     de: '/de/jobs-im-tessin',
     fr: '/fr/trouver-emploi-tessin',
   };
+  const hubKeys = new Set<string>(CITY_HUB_KEYS as readonly string[]);
   const rows = items
-    .map(
-      (c) => `<li style="padding:12px 16px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;margin-bottom:8px">
+    .map((c) => {
+      const label = hubKeys.has(c.key)
+        ? `<a href="${esc(cityLinkBase[locale])}/${esc(c.key)}/" style="color:#0f172a;text-decoration:none;font-weight:700">${esc(c.name)}</a>`
+        : `<span style="color:#0f172a;font-weight:700">${esc(c.name)}</span>`;
+      return `<li style="padding:12px 16px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;margin-bottom:8px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-      <a href="${esc(cityLinkBase[locale])}/${esc(c.key)}/" style="color:#0f172a;text-decoration:none;font-weight:700">${esc(c.name)}</a>
+      ${label}
       <span style="color:#475569;font-weight:600">${esc(String(c.added))} · ${esc(c.percentage.toFixed(1))}%</span>
     </div>
     <div style="margin-top:8px;background:#e2e8f0;border-radius:999px;height:6px;overflow:hidden">
       <div style="width:${esc(c.percentage.toFixed(1))}%;height:100%;background:#4f46e5"></div>
     </div>
-  </li>`,
-    )
+  </li>`;
+    })
     .join('');
   return `<section style="margin:22px 0 0" aria-labelledby="cityBreakdown">
     <h2 id="cityBreakdown" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(heading)}</h2>
@@ -962,7 +968,11 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const topEmployersList = renderTopList(
     copy.topEmployersHeading,
-    stats.topEmployers.map((e) => ({ name: e.name, added: e.added, url: e.url })),
+    // Drop the stats-provided `url`: it's heuristically derived from the raw
+    // employer name (e.g. `azienda-hilcona-ag-bell-food-group`) and does not
+    // match the canonical brand slugs emitted under `/cerca-lavoro-ticino/
+    // azienda-*/`. Render plain employer names to avoid broken links.
+    stats.topEmployers.map((e) => ({ name: e.name, added: e.added })),
     locale === 'it' ? 'nuove offerte' : locale === 'de' ? 'neue Stellen' : locale === 'fr' ? 'nouvelles offres' : 'new openings',
   );
 
@@ -1943,7 +1953,10 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ${renderSvgTrendChart(stats.trendSeries, copy.trendEmpty)}
   </section>`;
 
-  const sectorHubHref = `${CITY_SECTOR_HUB_PREFIX[locale]}/${JOB_MARKET_SECTOR_SLUG[sector]}/`;
+  const sectorHasHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sector);
+  const sectorHubHref = sectorHasHub
+    ? `${CITY_SECTOR_HUB_PREFIX[locale]}/${JOB_MARKET_SECTOR_SLUG[sector]}/`
+    : `${CITY_SECTOR_HUB_PREFIX[locale]}/`;
   const snapshotHubHref = buildHubPath(locale);
 
   const ctaHtml = `<p style="margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap">

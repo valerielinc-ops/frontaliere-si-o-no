@@ -8,6 +8,7 @@ import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './rout
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
+import { normalizeStructuredData } from './seo/schema-normalizers';
 import { translateSchema } from './seo/schema-translators';
 
 /**
@@ -53,7 +54,6 @@ export interface SEOMetadata {
 }
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -604,28 +604,20 @@ function isSearchReferrer(): { fromSearch: boolean; host: string } {
  }
 }
 
-function addDatasetLicense(value: any): any {
- if (Array.isArray(value)) return value.map(addDatasetLicense);
- if (!value || typeof value !== 'object') return value;
-
- const cloned: Record<string, any> = {};
- for (const [k, v] of Object.entries(value)) cloned[k] = addDatasetLicense(v);
-
- const typeValue = cloned['@type'];
- const isDataset = typeValue === 'Dataset' || (Array.isArray(typeValue) && typeValue.includes('Dataset'));
- if (isDataset && !cloned.license) cloned.license = DEFAULT_DATASET_LICENSE;
-
- return cloned;
-}
-
-function withDatasetLicenses(map: Record<string, SEOMetadata>): Record<string, SEOMetadata> {
+function withNormalizedStructuredData(map: Record<string, SEOMetadata>): Record<string, SEOMetadata> {
  const out: Record<string, SEOMetadata> = {};
  for (const [key, meta] of Object.entries(map)) {
  out[key] = meta.structuredData
- ? { ...meta, structuredData: addDatasetLicense(meta.structuredData) }
+ ? { ...meta, structuredData: normalizeStructuredData(meta.structuredData) }
  : meta;
  }
  return out;
+}
+
+function normalizeSeoEntry(meta: SEOMetadata): SEOMetadata {
+ return meta.structuredData
+ ? { ...meta, structuredData: normalizeStructuredData(meta.structuredData) }
+ : meta;
 }
 
 // ─── speakable removed ─────────────────────────────────────────────────
@@ -755,7 +747,7 @@ const BORDER_CROSSING_SEO_OVERRIDES: Record<string, SEOMetadata> = {
 // ─── Core SEO entries (eagerly loaded) ───────────────────────────────
 // Contains glossary + border-crossing entries (generated from data).
 // Page, blog, and landing entries are lazy-loaded from services/seo/ chunks.
-export const SEO_METADATA: Record<string, SEOMetadata> = withSpeakable(withDatasetLicenses({
+export const SEO_METADATA: Record<string, SEOMetadata> = withSpeakable(withNormalizedStructuredData({
  ...buildGlossarySeoMetadata(),
  ...buildBorderCrossingSeoMetadata(),
  ...BORDER_CROSSING_SEO_OVERRIDES,
@@ -808,7 +800,7 @@ async function getSeoEntry(sectionKey: string): Promise<SEOMetadata> {
  try {
  const blogEntries = await loadBlogSeoChunk();
  const entry = blogEntries[sectionKey];
- if (entry) return entry;
+ if (entry) return normalizeSeoEntry(entry);
  } catch { /* fall through to default */ }
  }
 
@@ -817,7 +809,7 @@ async function getSeoEntry(sectionKey: string): Promise<SEOMetadata> {
  try {
  const landingEntries = await loadLandingSeoChunk();
  const entry = landingEntries[sectionKey];
- if (entry) return entry;
+ if (entry) return normalizeSeoEntry(entry);
  } catch { /* fall through to default */ }
  }
 
@@ -825,13 +817,13 @@ async function getSeoEntry(sectionKey: string): Promise<SEOMetadata> {
  try {
  const pagesEntries = await loadPagesSeoChunk();
  const entry = pagesEntries[sectionKey];
- if (entry) return entry;
+ if (entry) return normalizeSeoEntry(entry);
  } catch { /* fall through to default */ }
 
  // 5. Fallback to calculator from pages chunk
  try {
  const pagesEntries = await loadPagesSeoChunk();
- if (pagesEntries.calculator) return pagesEntries.calculator;
+ if (pagesEntries.calculator) return normalizeSeoEntry(pagesEntries.calculator);
  } catch { /* ignore */ }
 
  return SEO_METADATA.calculator ?? { title: 'Frontaliere Ticino', description: '', keywords: '', ogTitle: '', ogDescription: '', canonicalPath: '/' };
@@ -849,9 +841,9 @@ export async function getAllSeoMetadata(): Promise<Record<string, SEOMetadata>> 
  ]);
  return {
  ...SEO_METADATA,
- ...pagesEntries,
- ...blogEntries,
- ...landingEntries,
+ ...withNormalizedStructuredData(pagesEntries),
+ ...withNormalizedStructuredData(blogEntries),
+ ...withNormalizedStructuredData(landingEntries),
  };
 }
 

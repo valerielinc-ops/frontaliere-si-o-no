@@ -110,7 +110,7 @@ const SLUG_PARTS: Record<Locale, SlugParts> = {
 };
 
 /** URL path prefix per locale (IT has no prefix). */
-const LOCALE_CALC_PREFIX: Record<Locale, string> = {
+export const LOCALE_CALC_PREFIX: Record<Locale, string> = {
   it: '/calcola-stipendio',
   en: '/en/calculate-salary',
   de: '/de/gehalt-berechnen',

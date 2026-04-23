@@ -1359,7 +1359,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
         '@type': 'ListItem',
         position: 2,
         name: copy.sectionLabel,
-        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/`.replace(
+        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(
           /([^:])\/+/g,
           '$1/',
         ),
@@ -1518,6 +1518,9 @@ export interface CompanyCityPageInputs {
   today: Date;
   indexable: boolean;
   distDir?: string;
+  /** Cities where the same company has a generated page in this locale.
+   *  Used to keep related-links sibling cluster honest (no broken links). */
+  companySiblingCities?: readonly WeeklyEmployersCompanyCity[];
 }
 
 /**
@@ -1639,6 +1642,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     today,
     indexable,
     distDir,
+    companySiblingCities,
   } = inp;
 
   const copy = COPY[locale];
@@ -1758,7 +1762,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
         '@type': 'ListItem',
         position: 2,
         name: copy.sectionLabel,
-        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/`.replace(/([^:])\/+/g, '$1/'),
+        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(/([^:])\/+/g, '$1/'),
       },
       {
         '@type': 'ListItem',
@@ -1836,7 +1840,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.sectionLabel)}</a>
+    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.sectionLabel)}</a>
     <span> / </span>
     <a href="${esc(parentHubHref)}" style="color:#1d4ed8;text-decoration:none">${esc(cityDisplay)}</a>
     <span> / </span>
@@ -1882,6 +1886,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     weeklyCity: city,
     companySlug,
     employer,
+    companySiblingCities,
   })}
 </main>`;
 
@@ -2159,15 +2164,15 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   // hub (already covered by per-city pages).
   const pairs = enumerateCompanyCityPairs(opts.jobs);
 
-  // Group qualifying cities per companySlug so we can inject sibling
-  // links into each page.
-  const siblingsByCompany = new Map<string, WeeklyEmployersCompanyCity[]>();
-  for (const p of pairs) {
-    const list = siblingsByCompany.get(p.companySlug) ?? [];
-    list.push(p.city);
-    siblingsByCompany.set(p.companySlug, list);
-  }
-
+  // Pass 1: compute stats per (pair, locale) to know which pages will be
+  // generated. Both the older <!--SIBLING_LINKS_PLACEHOLDER--> block and the
+  // shared 3-cluster related-links block (which renders a `sibling` cluster
+  // via `pickSiblingCities`) need to be constrained to real pages to avoid
+  // broken cross-city links.
+  type PairLocaleKey = string;
+  const pairLocaleStats = new Map<PairLocaleKey, ReturnType<typeof buildCompanyCityStats>>();
+  const pairLocaleKey = (companySlug: string, city: WeeklyEmployersCompanyCity, locale: WeeklyEmployersLocale) =>
+    `${companySlug}::${city}::${locale}`;
   for (const pair of pairs) {
     for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
       const stats = buildCompanyCityStats({
@@ -2178,13 +2183,38 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         jobs: opts.jobs,
         previousSnapshot,
       });
-      if (!stats) continue;
+      pairLocaleStats.set(pairLocaleKey(pair.companySlug, pair.city, locale), stats);
+    }
+  }
 
+  // Build per-locale sibling map from the eligible pairs.
+  const siblingsByLocaleCompany = new Map<string, Map<string, WeeklyEmployersCompanyCity[]>>();
+  for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    siblingsByLocaleCompany.set(locale, new Map());
+  }
+  for (const pair of pairs) {
+    for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      if (!pairLocaleStats.get(pairLocaleKey(pair.companySlug, pair.city, locale))) continue;
+      const localeMap = siblingsByLocaleCompany.get(locale)!;
+      const list = localeMap.get(pair.companySlug) ?? [];
+      list.push(pair.city);
+      localeMap.set(pair.companySlug, list);
+    }
+  }
+
+  // Pass 2: render each eligible page with the correct sibling list baked in,
+  // then patch the legacy sibling-placeholder for the in-page sibling section.
+  for (const pair of pairs) {
+    for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      const stats = pairLocaleStats.get(pairLocaleKey(pair.companySlug, pair.city, locale));
+      if (!stats) continue;
       const canonicalPath = buildCompanyCityCurrentPath(
         locale,
         pair.city,
         pair.companySlug,
       );
+      const companySiblingCities =
+        siblingsByLocaleCompany.get(locale)?.get(pair.companySlug) ?? [];
       let html = renderCompanyCityPage({
         locale,
         city: pair.city,
@@ -2198,14 +2228,14 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         today,
         indexable: true,
         distDir,
+        companySiblingCities,
       });
-      const siblings = siblingsByCompany.get(pair.companySlug) ?? [];
       html = injectSiblingLinks(
         html,
         locale,
         pair.companySlug,
         pair.city,
-        siblings,
+        companySiblingCities,
         stats.employer,
       );
       pages.push({ path: canonicalPath, html, indexable: true });

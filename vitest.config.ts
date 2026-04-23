@@ -17,6 +17,12 @@ export default defineConfig({
  exclude: ['tests/post-build/**', 'tests/e2e/**'],
  testTimeout: 15000,
  css: false,
+ pool: 'threads',
+ poolOptions: {
+ threads: {
+ isolate: false,
+ },
+ },
  server: {
  deps: {
  inline: ['unpdf'],

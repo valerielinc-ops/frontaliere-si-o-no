@@ -1504,12 +1504,18 @@ export function buildJobTodayLandingModel(options: {
  map.set(location, (map.get(location) || 0) + 1);
  return map;
  }, new Map<string, number>()),
- )
- .map(([name, count]) => ({
- name,
- count,
- href: buildSearchHref(baseUrl, options.localePrefix, options.sectionSlug, locale, name),
- }))
+ ) .map(([name, count]) => {
+ // Only the 5 main Ticino hub cities have `/cerca-lavoro-ticino/ricerca-{city}/`
+ // search pages generated. For any other city (Grigioni/Vallese villages,
+ // Ticino rural locations, multi-word location strings) we leave href empty
+ // so the template renders a plain-text card (no broken links).
+ const slug = slugifyTerm(name) || '';
+ const TICINO_RICERCA_HUBS = new Set(['lugano', 'bellinzona', 'mendrisio', 'locarno', 'chiasso']);
+ const href = cantonCode === 'TI' && TICINO_RICERCA_HUBS.has(slug)
+ ? buildSearchHref(baseUrl, options.localePrefix, options.sectionSlug, locale, name)
+ : '';
+ return { name, count, href };
+ })
  .sort((a, b) => (b.count - a.count) || a.name.localeCompare(b.name, 'it', { sensitivity: 'base' }))
  .slice(0, 8);
 
@@ -1937,11 +1943,14 @@ export function buildJobPartTimeLandingModel(options: {
  }
  }
  const cityLinks: CityLeader[] = Array.from(cityCountMap.entries())
- .map(([name, count]) => ({
- name,
- count,
- href: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationTypeSlug(locale, name, 'partTime')}`.replace(/\/+/g, '/')}`),
- }))
+ .map(([name, count]) => {
+ // Only Ticino `/ricerca-{city}-part-time/` pages are generated. For other
+ // cantons, render plain-text city cards to avoid broken links.
+ const href = cantonCode === 'TI'
+ ? ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationTypeSlug(locale, name, 'partTime')}`.replace(/\/+/g, '/')}`)
+ : '';
+ return { name, count, href };
+ })
  .sort((a, b) => b.count - a.count);
 
  return {

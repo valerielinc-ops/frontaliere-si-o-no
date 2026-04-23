@@ -10,7 +10,7 @@
  */
 
 import { SimulationResult } from '../types';
-import { SalaryHubScenario, buildFullPath, getRelatedScenarios } from './salaryHubScenarios';
+import { SalaryHubScenario, buildFullPath, getRelatedScenarios, LOCALE_CALC_PREFIX } from './salaryHubScenarios';
 import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
 import { BASE_URL, ANALYTICS_SNIPPET, FAVICON_LINKS, GA4_MEASUREMENT_ID } from './constants';
 
@@ -464,7 +464,7 @@ export function generatePageHtml(
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: l.home, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: l.breadcrumbCalc, item: `${BASE_URL}${locale === 'it' ? '/calcola-stipendio/' : `/${locale}/`}` },
+      { '@type': 'ListItem', position: 2, name: l.breadcrumbCalc, item: `${BASE_URL}${LOCALE_CALC_PREFIX[locale]}/` },
       { '@type': 'ListItem', position: 3, name: l.h1(scenario) },
     ],
   });
@@ -474,7 +474,7 @@ export function generatePageHtml(
     return `<a href="${path}" class="related-card"><strong>CHF ${fmtCHF(s.salary)}</strong><br>${scenarioDesc(s, l)}</a>`;
   }).join('\n');
 
-  const ctaUrl = `${locale === 'it' ? '' : `/${locale}`}/calcola-stipendio/?reddito=${scenario.salary}&tipo=${scenario.frontierType}&stato=${scenario.maritalStatus}&figli=${scenario.children}&zona=${scenario.distanceZone}`;
+  const ctaUrl = `${LOCALE_CALC_PREFIX[locale]}/?reddito=${scenario.salary}&tipo=${scenario.frontierType}&stato=${scenario.maritalStatus}&figli=${scenario.children}&zona=${scenario.distanceZone}`;
 
   const title = l.metaTitle(scenario);
   const description = l.metaDesc(scenario, result);
@@ -547,7 +547,7 @@ export function generatePageHtml(
       <div class="content">
         <nav class="breadcrumb">
           <a href="/">${l.home}</a> &rsaquo;
-          <a href="${locale === 'it' ? '/calcola-stipendio/' : `/${locale}/`}">${l.breadcrumbCalc}</a> &rsaquo;
+          <a href="${LOCALE_CALC_PREFIX[locale]}/">${l.breadcrumbCalc}</a> &rsaquo;
           ${l.h1(scenario)}
         </nav>
 
