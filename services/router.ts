@@ -37,6 +37,7 @@ import {
  buildJobSectorRegionLandingModel,
  buildJobTodayLandingModel,
  resolveEditorialJobLandingDescriptor,
+ isJobTodayLandingSlug,
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS, isJobRecencyLandingSlug } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
@@ -2013,6 +2014,12 @@ export function parsePath(pathname: string): ParseResult {
  // Must be checked before the generic jobSlug fallthrough so these URLs
  // don't get routed to a job detail view and show "not found" banner.
  if (rawSecond && isJobRecencyLandingSlug(rawSecond)) {
+ return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
+ }
+ // Today-landing slugs (oggi / today / heute / aujourd'hui, all cantons).
+ // Same guard as recency — prevents "Annuncio non trovato" banner when the
+ // SPA hydrates over the static oggi page and mis-routes it as a job detail.
+ if (rawSecond && isJobTodayLandingSlug(rawSecond)) {
  return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
  }
  const jobSlug = rawSecond;
