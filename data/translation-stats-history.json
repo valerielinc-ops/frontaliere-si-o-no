@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T19:54:53.957Z",
-    "label": "before",
-    "total": 2471,
-    "needsRetranslation": 135,
-    "incomplete": 57,
-    "complete": 2414,
-    "missingByLocale": {
-      "it": 9,
-      "en": 56,
-      "de": 48,
-      "fr": 56
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T19:56:25.150Z",
-    "label": "after",
-    "total": 2471,
-    "needsRetranslation": 79,
-    "incomplete": 10,
-    "complete": 2461,
-    "missingByLocale": {
-      "it": 9,
-      "en": 9,
-      "de": 1,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T19:58:30.458Z",
     "label": "before",
     "total": 2471,
@@ -7190,6 +7106,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-23T11:06:44.597Z",
+    "label": "before",
+    "total": 2672,
+    "needsRetranslation": 1186,
+    "incomplete": 148,
+    "complete": 2524,
+    "missingByLocale": {
+      "it": 85,
+      "en": 112,
+      "de": 96,
+      "fr": 135
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Kantonale Verwaltung Graubünden",
+        "pending": 13
+      },
+      {
+        "company": "Lonza",
+        "pending": 7
+      },
+      {
+        "company": "Hubers Landhendl GmbH",
+        "pending": 5
+      },
+      {
+        "company": "Prada Group",
+        "pending": 4
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 3
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-23T12:12:47.054Z",
+    "label": "after",
+    "total": 2672,
+    "needsRetranslation": 100,
+    "incomplete": 53,
+    "complete": 2619,
+    "missingByLocale": {
+      "it": 41,
+      "en": 26,
+      "de": 34,
+      "fr": 42
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 3
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Fusalp",
+        "pending": 2
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
         "pending": 1
       }
     ]
