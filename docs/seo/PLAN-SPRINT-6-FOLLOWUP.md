@@ -4,6 +4,8 @@
 **Status opened:** 2026-04-23
 **Focus:** Content-side work and ongoing monitoring — infrastructure is already shipped.
 
+> **Note 2026-04-23:** Two autonomous agent attempts to generate the 100-Q&A hub (~40,000 translated words across 4 locales) stalled at the `Write` step — single-call content volume exceeded the sub-agent stream budget. Per CLAUDE.md §4 + §6, tax/legal/medical Q&A requires human fact-check anyway (AFC, LAMal, MEBEKO, bilateral agreements, CO articles). The hub authoring is therefore scoped as a **human-led task** with the following protocol: (1) author 10 Q&A per category in batches via the normal commit flow, (2) `services/seo/faq-translations.ts` + existing FAQPage JSON-LD pattern is the landing surface, (3) use `data/seo/semrush-organic-raw.csv` (top-200 IT keywords, generated 2026-04-23) to prioritize which Q to write first.
+
 ---
 
 ## Infrastructure shipped (reference)
