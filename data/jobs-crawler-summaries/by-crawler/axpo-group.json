@@ -1,18 +1,19 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-04-23T09:32:35.524Z",
+  "generatedAt": "2026-04-23T21:06:13.336Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1693,
-  "avgDurationMs": 1693,
+  "durationMs": 630,
+  "avgDurationMs": 630,
   "durationHistory": [
-    1693
+    630
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Stakeholder &amp; Asset Manager Hydroenergie &amp; Biomasse Graubünden  (w/m/d)",
       "slug": "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
@@ -36,17 +37,22 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T09:32:35.456Z",
-      "_qualityScore": 58,
+      "crawledAt": "2026-04-23T21:06:13.280Z",
+      "id": "axpo-group-8e7945d74b5c",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "currency": "CHF",
+      "streetAddress": "Viale Stazione 31",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-04-23T09:32:35.456Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 0,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Logisticien de Maintenance (f/m/d)",
       "slug": "logisticien-de-maintenance-f-m-d-feca2680-9ce8-49e2-af09-ac77e3fab9ff",
@@ -70,7 +76,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T09:32:35.467Z",
+      "crawledAt": "2026-04-23T21:06:13.296Z",
       "id": "axpo-group-8fe260efb3ca",
       "salaryMin": 49500,
       "salaryMax": 75000,
