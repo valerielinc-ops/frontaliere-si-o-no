@@ -236,6 +236,11 @@ main.seo-static-content {
   main.seo-static-content { padding-left: 2rem; padding-right: 2rem; }
 }
 
+/* Static SEO card hover state (used by seoContentTokens renderers) */
+.seo-card-link { transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease; }
+.seo-card-link:hover { border-color: var(--color-accent-border); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.seo-card-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
