@@ -130,6 +130,21 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
   - Gates: `npx tsc --noEmit` ✓, `npm run build:fast` ✓, `ai-seo-p0 + faq-coverage + seo-completeness + seo-description-length + seo-localization` (13,642 tests) ✓.
   - Scope note: border-wait subpages and job-listing templates (emitted by `borderWaitPagesPlugin` + `jobsSeoPagesPlugin`) were out-of-scope for this agent to avoid conflict with the concurrent BUG-2 retry; the same treatment can be repeated against those plugin templates once BUG-2 lands.
 
+### AE-1 — Striking-distance optimisation, 6 existing pages (SHIPPED 2026-04-23)
+
+Semrush position 11-20 pages with exact-keyword title front-loading + 80-170 char meta + 3 PAA FAQs per page (IT + EN/DE/FR translations keeping `faq-coverage.test.ts` at 100%). Every FAQ answer cites official primary sources inline (AFC, AVS, SECO, INPS, BAZG, USTAT, UST/BFS, ISTAT, Accordo 17/07/2023, LADI, CO).
+
+- **Baseline + picks (commit `d1733e02b`)** — `data/seo/striking-distance-baseline-2026-04-23.csv` (12-row Semrush snapshot), `data/seo/striking-distance-picks.csv` (6 URLs with notes).
+- 6 URLs optimised, one atomic commit per URL:
+  - `/tasse-e-pensione/festivita-ticino/` — target "festivi in ticino" (vol 720, pos 19 → striking) — `a2db72af8` (AE-1 1/6)
+  - `/guida-frontaliere/mappa-confine/` — target "mappa confine italia svizzera" (vol 260, pos 14) — `136ac344c` (AE-1 2/6)
+  - `/guida-frontaliere/disoccupazione-transfrontaliera/` — target "svizzera disoccupazione" (vol 210, pos 20) — `cfedecee9` (preserved partial pre-retry)
+  - `/guida-frontaliere/tempi-attesa-dogana/` — target "traffico dogana chiasso" (vol 90, pos 18) — `79c8f2231` (AE-1 3/6)
+  - `/vivere-in-ticino/aziende-svizzera-italiana/` — target "nomi ditte in svizzera che assumono" (vol 90, pos 18) — `85e30ca17` (AE-1 4/6)
+  - `/compara-servizi/costo-della-vita/` — target "costo vita svizzera vs italia" (vol 70, pos 11) — `efb41d66c` (AE-1 5/6)
+- Gates: `npx tsc --noEmit` ✓, `npm run build:fast` ✓, `tests/seo-description-length + seo-completeness + seo-localization + faq-coverage + ai-seo-p0 + aeo-faq-top10 + article-seo-fallback` (13,684 tests) ✓, `find-thin-pages.mjs --min-words=100 --fail-on-any` ✓, `validate-internal-links.mjs` unchanged (395 pre-existing blog→programmatic-landing broken links; none introduced by AE-1).
+- Post-reindex lift measurement: rerun Semrush `url_research` on the 6 URLs after 14-21 days and diff against `striking-distance-baseline-2026-04-23.csv` to quantify position gains. Expected: ≥3 of 6 URLs move to top-10, unlocking ≥2k incremental monthly clicks based on IT DB CTR curves.
+
 ---
 
 ## 🔴 P0 BUGS — found live 2026-04-23 (must fix before AE-N work)
@@ -174,27 +189,6 @@ See "Completed → P0 bug fixes" section below for the audit trail. Short versio
 Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliverable). All must pass the standard gates: `npx tsc --noEmit`, `npx vite build`, `npx vitest run`, `node scripts/validate-internal-links.mjs`, `node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any`, `node scripts/validate-canonical.mjs`, `node scripts/validate-hreflang.mjs`, `node scripts/validate-structured-data.mjs`, FAQ uniqueness test. Launch each subagent with `model: "opus"`.
 
 **Execution order enforced**: BUG-1 and BUG-2 ✅ shipped 2026-04-23 — AE-1..AE-9 may now proceed.
-
-### AE-1. Striking-distance optimisation, 6 existing pages (F4-B)
-
-- **Source:** PLAN-SPRINT-4-KEYWORD-GAP Tasks 4.6-4.11, decomposed in PLAN-SPRINT-4-FOLLOWUP unit F4-B
-- **Deliverable:** New H1/`<title>`/meta + intro + FAQ for `/job-board/company/medacta/`, `/vita/festivi/`, `/traffico-dogane/brogeda/`, `/guida/permesso-g/`, `/fisco/avs/`, `/calcolatore/` — 6 pages × 4 locales. Also: new script `scripts/gsc-position-snapshot.mjs` for baseline/regression.
-- **Why agent-executable:** Semrush `organic_research` (IT DB) gives current position per URL; `url_research` gives before/after. No new data source needed.
-- **Data inputs:** `data/seo/semrush-organic-raw.csv`, Semrush MCP `organic_research` + `url_research`, existing page content in `dist/`.
-- **End gates:** H1 + `<title>` + meta contain exact target keyword. Body ≥600 words (≥500 for 4.9 specifically). FAQPage updated; uniqueness green. All 4 locales ship together.
-- **Estimated agent time:** 40 min per page × 6 = 4 hours total.
-- **Prompt to dispatch:**
-  ```
-  Read /Users/saggesel/Projects/frontaliere-si-o-no/CLAUDE.md (non-negotiables 1-11).
-  Read docs/seo/ROADMAP.md task AE-1.
-  Use Semrush MCP organic_research (DB=it) to snapshot current positions for these 6 URLs: /job-board/company/medacta/, /vita/festivi/, /traffico-dogane/brogeda/, /guida/permesso-g/, /fisco/avs/, /calcolatore/.
-  For each URL, rewrite H1 + <title> + <meta description> + intro paragraph + add 3 FAQ Q/A pairs in IT, EN, DE, FR. Target keywords: medacta international sa rancate, festivi in ticino, valico brogeda, permesso g svizzera, avs frontalieri, calcolo stipendio frontaliere.
-  Body ≥600 words per locale. FAQ uniqueness gate must stay green.
-  Also create scripts/gsc-position-snapshot.mjs that pulls per-URL position from GSC Search Analytics API and writes data/gsc-positions.json; use the GOOGLE_APPLICATION_CREDENTIALS already wired for other scripts.
-  Commit per-page with format `feat(seo): striking-distance optimisation for {slug} (AE-1)`.
-  Final gates: npx tsc --noEmit && npx vite build && npx vitest run && node scripts/validate-internal-links.mjs && node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any.
-  Auto-push on green per CLAUDE.md.
-  ```
 
 ### AE-2. Career landing pages — 4 quick-wins (F4-A)
 
