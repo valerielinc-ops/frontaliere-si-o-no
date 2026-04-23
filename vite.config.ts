@@ -39,6 +39,7 @@ import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
+import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -99,6 +100,10 @@ export default defineConfig(({ mode }) => {
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
+ // AE-7 — after static pages are written, inject a contextual link into
+ // a handful of parent pages so the comparisons hub has inbound links
+ // from homepage + confronti hub + salary pillars. Idempotent.
+ comparisonsHubLinksPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),
