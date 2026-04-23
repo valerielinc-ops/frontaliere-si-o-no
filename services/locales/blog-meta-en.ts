@@ -2520,6 +2520,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.patentino-digitale-lombardia-2026.title': 'Digital Badge: Green Light in Lombardy',
     'blog.article.patentino-digitale-lombardia-2026.excerpt': 'The first regional bill for the establishment of the Digital Badge has been approved to combat bullying and technological addiction among young people',
     'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Digital Certificate ceremony in a Ticino school',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.title': 'Scams targeting the elderly: two arrests in the Locarno area',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.excerpt': 'Two Czech citizens arrested for telephone scams targeting the elderly in Gordola. Stolen goods recovered.',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.imageAlt': 'View of Locarno, with the lake and mountains in the background',
 };
 
 export default blogMetaEn;

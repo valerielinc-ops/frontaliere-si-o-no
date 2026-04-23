@@ -11225,6 +11225,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiamate-shock-arresti-locarnese-2024': {
+    title: 'Truffe agli anziani: due arresti nel | Frontaliere Ticino',
+    description: 'Due cittadini cechi arrestati per truffe telefoniche ai danni di anziani a Gordola. Recuperata la refurtiva. Scopri di più su Frontaliere Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, truffe, agli, anziani, arresti',
+    ogTitle: 'Truffe agli anziani: due arresti nel Locarnese | Frontaliere',
+    ogDescription: 'Due cittadini cechi arrestati per truffe telefoniche ai danni di anziani a Gordola. Recuperata la refurtiva. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/chiamate-shock-arresti-locarnese-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Truffe agli anziani: due arresti nel Locarnese",
+      "description": "Due cittadini cechi arrestati per truffe telefoniche ai danni di anziani a Gordola. Recuperata la refurtiva. Scopri di più su Frontaliere Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiamate-shock-arresti-locarnese-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Locarno, con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-23T00:25:14+00:00",
+      "dateModified": "2026-04-23T00:25:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-locarnese-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

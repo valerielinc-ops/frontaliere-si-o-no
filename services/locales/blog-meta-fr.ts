@@ -2520,6 +2520,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.patentino-digitale-lombardia-2026.title': 'Permis numérique : feu vert en Lombardie',
     'blog.article.patentino-digitale-lombardia-2026.excerpt': 'Le premier projet de loi régionale pour l\'instauration du permis numérique a été approuvé afin de lutter contre le harcèlement et la dépendance technologique chez les jeunes',
     'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Cérémonie de certificat numérique dans une école du Tessin',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.title': 'Arnaques aux personnes âgées : deux arrestations dans le Locarnese',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.excerpt': 'Deux citoyens tchèques arrêtés pour des arnaques téléphoniques aux dépens de personnes âgées à Gordola. La marchandise volée a été récupérée.',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.imageAlt': 'Vue de Locarno, avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

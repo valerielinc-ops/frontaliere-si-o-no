@@ -6860,4 +6860,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/patentino-digitale-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiamate-shock-arresti-locarnese-2024',
+ category: 'novita',
+ date: '2026-04-23T00:25:14.811Z',
+ image: '/images/blog/chiamate-shock-arresti-locarnese-2024.jpg',
+ hasCalculator: true,
+ },
 ];

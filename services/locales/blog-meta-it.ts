@@ -2520,6 +2520,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.patentino-digitale-lombardia-2026.title': 'Patentino Digitale: via libera in Lombardia',
     'blog.article.patentino-digitale-lombardia-2026.excerpt': 'Approvato il primo progetto di legge regionale per l\'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani',
     'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Cerimonia del Patentino Digitale in una scuola del Ticino',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.title': 'Truffe agli anziani: due arresti nel Locarnese',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.excerpt': 'Due cittadini cechi arrestati per truffe telefoniche ai danni di anziani a Gordola. Recuperata la refurtiva.',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.imageAlt': 'Veduta di Locarno, con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaIt;

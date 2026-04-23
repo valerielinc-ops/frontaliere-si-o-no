@@ -4257,7 +4257,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 891,
+ "numberOfItems": 892,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5126,7 +5126,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 888, "name": "Svincolo A2 Sigirino: ritardo possibile", "url": `${BASE_URL}/articoli-frontaliere/svincolo-a2-sigirino-ritardo` },
           { "@type": "ListItem", "position": 889, "name": "Salari in Svizzera aumentati nel 2025: +1,8% in...", "url": `${BASE_URL}/articoli-frontaliere/salari-svizzera-aumentati-2025` },
           { "@type": "ListItem", "position": 890, "name": "Diventare autista di bus a costo zero: torna l’...", "url": `${BASE_URL}/articoli-frontaliere/academy-fnma-autisti-bus-2026` },
-          { "@type": "ListItem", "position": 891, "name": "Patentino Digitale: via libera in Lombardia", "url": `${BASE_URL}/articoli-frontaliere/patentino-digitale-lombardia-2026` }
+          { "@type": "ListItem", "position": 891, "name": "Patentino Digitale: via libera in Lombardia", "url": `${BASE_URL}/articoli-frontaliere/patentino-digitale-lombardia-2026` },
+          { "@type": "ListItem", "position": 892, "name": "Truffe agli anziani: due arresti nel Locarnese", "url": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-locarnese-2024` }
  ]
  },
  {

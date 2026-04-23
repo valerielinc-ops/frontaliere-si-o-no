@@ -2520,6 +2520,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.patentino-digitale-lombardia-2026.title': 'Digitaler Ausweis: Freigabe in der Lombardei',
     'blog.article.patentino-digitale-lombardia-2026.excerpt': 'Das erste regionale Gesetzesprojekt zur Einrichtung des Digitalen Ausweises wurde genehmigt, um Mobbing und technologische Abhängigkeit bei Jugendlichen zu bekämpfen',
     'blog.article.patentino-digitale-lombardia-2026.imageAlt': 'Digitale Zertifikatszeremonie in einer Schule im Tessin',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.title': 'Betrug an älteren Menschen: Zwei Festnahmen im Locarnese',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.excerpt': 'Zwei tschechische Staatsbürger wurden wegen Telefonbetrug an älteren Menschen in Gordola festgenommen. Die gestohlenen Gegenstände wurden sichergestellt.',
+    'blog.article.chiamate-shock-arresti-locarnese-2024.imageAlt': 'Ansicht von Locarno, mit dem See und den Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
