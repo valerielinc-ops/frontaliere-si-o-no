@@ -79,6 +79,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
   it: [
     { href: '/cerca-lavoro-ticino/infermieri/', label: 'Offerte infermieri in Ticino' },
     { href: '/cerca-lavoro-ticino/case-anziani/', label: 'Lavoro nelle case anziani' },
+    { href: '/concorsi-pubblici-lugano/', label: 'Concorsi pubblici OSC e EOC aperti' },
+    { href: '/contratti-lavoro-frontalieri/', label: 'Contratti lavoro frontalieri: CCL e accordo fiscale' },
     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio frontaliero' },
     { href: '/statistiche/confronta-stipendi/', label: 'Confronto stipendi Italia vs Svizzera' },
     { href: '/cerca-lavoro-ticino/', label: 'Tutte le offerte lavoro in Ticino' },
@@ -86,6 +88,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
   en: [
     { href: '/en/find-jobs-ticino/nurses/', label: 'Nursing jobs in Ticino' },
     { href: '/en/find-jobs-ticino/elderly-care/', label: 'Elderly-care jobs' },
+    { href: '/en/public-sector-jobs-lugano/', label: 'Open public-sector jobs (OSC, EOC)' },
+    { href: '/en/cross-border-work-contracts/', label: 'Cross-border employment contracts' },
     { href: '/en/calculate-salary/', label: 'Cross-border salary calculator' },
     { href: '/en/statistics/compare-salaries/', label: 'Italy vs Switzerland salary comparison' },
     { href: '/en/find-jobs-ticino/', label: 'All Ticino job openings' },
@@ -93,6 +97,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
   de: [
     { href: '/de/jobs-im-tessin/nurses/', label: 'Pflegestellen im Tessin' },
     { href: '/de/jobs-im-tessin/case-anziani/', label: 'Altenpflegestellen' },
+    { href: '/de/oeffentliche-stellen-lugano/', label: 'Offene öffentliche Stellen (OSC, EOC)' },
+    { href: '/de/grenzgaenger-arbeitsvertraege/', label: 'Grenzgänger-Arbeitsverträge' },
     { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Gehaltsrechner' },
     { href: '/de/statistiken/gehaelter-vergleichen/', label: 'Lohnvergleich Italien vs Schweiz' },
     { href: '/de/jobs-im-tessin/', label: 'Alle Tessin-Stellenangebote' },
@@ -100,6 +106,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
   fr: [
     { href: '/fr/trouver-emploi-tessin/nurses/', label: 'Emplois infirmiers au Tessin' },
     { href: '/fr/trouver-emploi-tessin/case-anziani/', label: 'Emplois en EMS' },
+    { href: '/fr/concours-publics-lugano/', label: 'Concours publics ouverts (OSC, EOC)' },
+    { href: '/fr/contrats-travail-frontaliers/', label: 'Contrats de travail frontaliers' },
     { href: '/fr/calculer-salaire/', label: 'Calculateur salaire frontalier' },
     { href: '/fr/statistiques/comparer-salaires/', label: 'Comparaison salaires Italie vs Suisse' },
     { href: '/fr/trouver-emploi-tessin/', label: 'Toutes les offres Tessin' },
