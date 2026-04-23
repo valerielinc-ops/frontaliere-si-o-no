@@ -7352,7 +7352,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ── Sprint 2 pillar pages ─────────────────────────────────────
  pillarTasseSvizzere: {
  title: 'Tasse Svizzere per Frontalieri 2026 — Guida Completa',
- description: 'Guida completa alle tasse svizzere per frontalieri italiani: imposta alla fonte Ticino, Nuovo Accordo 2026, doppia imposizione, dichiarazione redditi Italia, credito d\'imposta. Aliquote, esempi pratici, FAQ.',
+ description: 'Tasse svizzere per frontalieri italiani 2026: imposta alla fonte Ticino, Nuovo Accordo, doppia imposizione, credito d\'imposta. Aliquote, esempi, FAQ.',
  keywords: 'tasse svizzere, tasse frontalieri, imposta alla fonte ticino, nuovo accordo 2026, doppia imposizione italia svizzera, dichiarazione redditi frontaliere, credito imposta frontaliere',
  ogTitle: 'Tasse Svizzere per Frontalieri 2026 — Guida Completa',
  ogDescription: 'Imposta alla fonte Ticino, Nuovo Accordo 2026, doppia imposizione e credito d\'imposta: tutto quello che serve a un frontaliere italiano per capire le tasse svizzere.',
@@ -7387,7 +7387,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  pillarLavoroLugano: {
  title: 'Lavoro a Lugano per Frontalieri 2026 — Offerte e Stipendi',
- description: 'Lavoro a Lugano per frontalieri italiani: settori che assumono (banche, sanità, logistica), stipendi medi CHF, aziende principali, come arrivare da Como e Varese. Aggiornato settimanalmente.',
+ description: 'Lavoro a Lugano per frontalieri: settori che assumono (banche, sanità, logistica), stipendi medi CHF, aziende principali, come arrivare da Como e Varese.',
  keywords: 'lavoro lugano, lavoro frontalieri lugano, offerte lavoro lugano, stipendi lugano, aziende lugano, lavoro banca lugano, lavoro logistica lugano, lavoro sanità lugano',
  ogTitle: 'Lavoro a Lugano per Frontalieri — Offerte, Stipendi, Aziende',
  ogDescription: 'Cerchi lavoro a Lugano come frontaliere? Settori, stipendi medi, top aziende, come arrivare dai valichi e tutte le posizioni aperte della settimana.',
@@ -7422,7 +7422,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  pillarNuovaLegge2026: {
  title: 'Nuova Legge Frontalieri 2026 — Cosa Cambia, Tabelle, Impatti',
- description: 'Nuova legge frontalieri 2026: Nuovo Accordo Italia-Svizzera in vigore, impatto su tasse e stipendio netto, differenze fra nuovi e vecchi frontalieri, tabelle IRPEF, esempi di calcolo.',
+ description: 'Nuova legge frontalieri 2026: Nuovo Accordo Italia-Svizzera, impatto su tasse e stipendio netto, nuovi vs vecchi frontalieri, tabelle IRPEF ed esempi.',
  keywords: 'nuova legge frontalieri 2026, nuovo accordo frontalieri, accordo italia svizzera 2026, tasse frontalieri 2026, nuovi frontalieri 2023, vecchi frontalieri, franchigia 10000',
  ogTitle: 'Nuova Legge Frontalieri 2026 — Guida Completa al Nuovo Accordo',
  ogDescription: 'Nuovo Accordo fiscale Italia-Svizzera: cosa cambia nel 2026, chi è nuovo e chi è vecchio frontaliere, tabelle IRPEF, impatto sul netto mensile.',
@@ -7457,7 +7457,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  pillarOssSvizzera: {
  title: 'OSS in Svizzera 2026 — Stipendi, Riconoscimento Titolo, Offerte',
- description: 'OSS (operatore socio-sanitario) in Svizzera per italiani: stipendi medi, riconoscimento titolo SRK, offerte attive in Ticino, formazione, iter burocratico e confronto con OSS Italia.',
+ description: 'OSS (operatore socio-sanitario) in Svizzera per italiani: stipendi medi, riconoscimento SRK, offerte in Ticino, formazione, confronto con OSS Italia.',
  keywords: 'oss svizzera, operatore socio sanitario svizzera, oss ticino, stipendio oss svizzera, riconoscimento titolo oss srk, lavoro oss lugano, lavoro oss bellinzona',
  ogTitle: 'OSS in Svizzera — Stipendi, Riconoscimento SRK, Offerte 2026',
  ogDescription: 'Vuoi lavorare come OSS in Svizzera? Stipendi, riconoscimento titolo SRK, aziende sanitarie che assumono frontalieri italiani, iter pratico.',
@@ -7492,7 +7492,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  pillarStipendiChVsIt: {
  title: 'Stipendi Svizzera vs Italia 2026 — Confronto per Settore',
- description: 'Confronto stipendi Svizzera vs Italia nel 2026: tabelle per settore (infermiere, ingegnere, impiegato banca, logistica), netto reale, costo della vita, potere d\'acquisto, ROI del frontaliere.',
+ description: 'Confronto stipendi Svizzera vs Italia 2026: tabelle per settore (infermiere, ingegnere, banca, logistica), netto reale, costo vita, ROI del frontaliere.',
  keywords: 'stipendi svizzera italia, confronto stipendi ticino lombardia, differenza stipendio svizzera italia, stipendi per settore svizzera, costo della vita lugano milano, vale la pena fare il frontaliere',
  ogTitle: 'Stipendi Svizzera vs Italia 2026 — Confronto per Settore',
  ogDescription: 'Quanto si guadagna in più in Svizzera? Tabelle per settore, netto reale post-tasse, costo della vita Lugano vs Milano, matrice di decisione.',
