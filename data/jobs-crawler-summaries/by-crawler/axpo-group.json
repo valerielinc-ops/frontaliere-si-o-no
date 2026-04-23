@@ -1,18 +1,51 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-04-22T21:08:30.157Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-04-23T09:32:35.524Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 458,
-  "avgDurationMs": 458,
+  "durationMs": 1693,
+  "avgDurationMs": 1693,
   "durationHistory": [
-    458
+    1693
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Stakeholder &amp; Asset Manager Hydroenergie &amp; Biomasse Graubünden  (w/m/d)",
+      "slug": "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
+      "url": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubuenden-w-m-d",
+      "applyUrl": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubuenden-w-m-d",
+      "company": "Axpo Group",
+      "companyKey": "axpo-group",
+      "companyDomain": "axpo.com",
+      "location": "Domat/Ems",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "energy",
+      "sector": "Energia & Utilities",
+      "department": "Strategy / Business Development",
+      "source": "axpo-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-23",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "crawledAt": "2026-04-23T09:32:35.456Z",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 24,
+        "translation": 0,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Logisticien de Maintenance (f/m/d)",
@@ -37,7 +70,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-22T21:08:30.131Z",
+      "crawledAt": "2026-04-23T09:32:35.467Z",
       "id": "axpo-group-8fe260efb3ca",
       "salaryMin": 49500,
       "salaryMax": 75000,
