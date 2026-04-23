@@ -19,6 +19,22 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
 } from './constants';
+import {
+  STAT_TILE_ACCENT,
+  STAT_TILE_WARNING,
+  STAT_TILE_LABEL,
+  STAT_TILE_VALUE,
+  CARD_STYLE,
+  BREADCRUMB_STYLE,
+  BREADCRUMB_LINK_STYLE,
+  HERO_EYEBROW_STYLE,
+  H1_STYLE,
+  LEDE_STYLE,
+  BODY_STYLE,
+  LINK_ACCENT_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
+} from './shared/seoContentTokens';
 import type { JobBoardLocale } from './jobBoardSeo';
 import {
   SECTOR_HUB_KEYS,
@@ -100,12 +116,12 @@ function renderJobCard(j: {
   datePosted?: string;
 }): string {
   const datePart = j.datePosted
-    ? `<time datetime="${esc(j.datePosted)}" style="color:#64748b;font-size:13px">${esc(String(j.datePosted).slice(0, 10))}</time>`
+    ? `<time datetime="${esc(j.datePosted)}" style="color:var(--color-subtle);font-size:13px">${esc(String(j.datePosted).slice(0, 10))}</time>`
     : '';
-  return `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:10px;list-style:none">
-  <a href="${esc(j.href)}" style="color:#0f172a;text-decoration:none;display:block">
+  return `<li style="${CARD_STYLE};margin-bottom:10px;list-style:none">
+  <a href="${esc(j.href)}" style="color:var(--color-heading);text-decoration:none;display:block">
     <div style="font-weight:700;font-size:16px;line-height:1.35">${esc(j.title)}</div>
-    <div style="margin-top:4px;color:#475569;font-size:14px">${esc(j.company)}${j.company && j.location ? ' · ' : ''}${esc(j.location)}</div>
+    <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(j.company)}${j.company && j.location ? ' · ' : ''}${esc(j.location)}</div>
     ${datePart ? `<div style="margin-top:4px">${datePart}</div>` : ''}
   </a>
 </li>`;
@@ -192,12 +208,12 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           }[locale];
           const jobsHtml = jobCards.length > 0
             ? `<ul style="margin:0;padding:0">${jobCards.map(renderJobCard).join('')}</ul>`
-            : `<p style="margin:0;padding:16px;border-radius:12px;background:#fef3c7;color:#78350f">${esc(noResultsLabel)}</p>`;
+            : `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border)">${esc(noResultsLabel)}</p>`;
 
           const faqHtml = seo.faq.length > 0
             ? `<section style="margin:28px 0 0">
     <h2 style="margin:0 0 12px;font-size:22px">FAQ</h2>
-    ${seo.faq.map((f) => `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff"><summary style="font-weight:700;cursor:pointer">${esc(f.question)}</summary><p style="margin:8px 0 0;color:#334155;line-height:1.6">${esc(f.answer)}</p></details>`).join('')}
+    ${seo.faq.map((f) => `<details style="${CARD_STYLE};margin-bottom:8px"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.question)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(f.answer)}</p></details>`).join('')}
   </section>`
             : '';
 
@@ -310,26 +326,26 @@ ${alternates}
   </head>
   <body>
     <div id="root">
-      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
-        <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-          <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);font-family:system-ui,-apple-system,sans-serif">
+        <nav style="${BREADCRUMB_STYLE}">
+          <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
           <span> / </span>
-          <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none">${esc(SECTION_NAME[locale])}</a>
+          <a href="${sectionRootUrl}" style="${BREADCRUMB_LINK_STYLE}">${esc(SECTION_NAME[locale])}</a>
           <span> / </span>
           <span>${esc(seo.h1)}</span>
         </nav>
         <header style="margin-bottom:24px">
-          <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
-          <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.1">${esc(seo.h1)}</h1>
-          <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(seo.desc)}</p>
-          <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(seo.intro)}</p>
+          <p style="${HERO_EYEBROW_STYLE}">${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
+          <h1 style="${H1_STYLE}">${esc(seo.h1)}</h1>
+          <p style="${LEDE_STYLE}">${esc(seo.desc)}</p>
+          <p style="${BODY_STYLE}">${esc(seo.intro)}</p>
         </header>
         <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 22px">
-          <div style="padding:18px;border-radius:20px;background:#eef2ff;border:1px solid #c7d2fe">
-            <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(countsLabelByLocale[locale])}</div>
-            <div style="margin-top:8px;font-size:32px;font-weight:800">${count}</div>
+          <div style="${STAT_TILE_ACCENT}">
+            <div style="${STAT_TILE_LABEL}">${esc(countsLabelByLocale[locale])}</div>
+            <div style="${STAT_TILE_VALUE};font-size:32px">${count}</div>
           </div>
-          <a href="${sectionRootUrl}" style="padding:18px;border-radius:20px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
+          <a href="${sectionRootUrl}" style="${STAT_TILE_WARNING};text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
         </section>
         <section style="margin:0 0 24px">
           <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
