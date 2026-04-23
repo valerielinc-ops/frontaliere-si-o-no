@@ -1052,6 +1052,40 @@ function renderLeafPage(inp: LeafInputs): string {
       })
     : '';
 
+  // VideoObject — live refresh webcam feed. Modeled as a live broadcast:
+  // the Canton Ticino Territory Department webcams refresh every few seconds
+  // and the crossing page re-fetches them via the client-side refresh script
+  // added in WEBCAM_REFRESH_JS. `contentUrl` points to the image feed so
+  // crawlers can follow it; `embedUrl` points to the crossing page itself
+  // (where the webcam is embedded). `publication.BroadcastEvent` with
+  // `isLiveBroadcast: true` signals the live nature of the feed.
+  const videoLd = webcams.length > 0
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: `${copy.webcamLabel} — ${crossingDisplay}`,
+        description: `${copy.webcamLabel} ${crossingDisplay} — ${copy.webcamNote}`,
+        thumbnailUrl: webcams[0].imageUrl,
+        uploadDate: `${dateStamp}T00:00:00Z`,
+        contentUrl: webcams[0].imageUrl,
+        embedUrl: canonicalUrl,
+        inLanguage: locale,
+        isFamilyFriendly: true,
+        creditText: webcams[0].sourceName,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Frontaliere Ticino',
+          url: BASE_URL,
+        },
+        publication: {
+          '@type': 'BroadcastEvent',
+          isLiveBroadcast: true,
+          startDate: `${dateStamp}T00:00:00Z`,
+          endDate: `${dateStamp}T23:59:59Z`,
+        },
+      })
+    : '';
+
   const title = `${h1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
@@ -1125,6 +1159,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
   if (placeLd) jsonLdScripts.push(placeLd);
   if (imageLd) jsonLdScripts.push(imageLd);
+  if (videoLd) jsonLdScripts.push(videoLd);
 
   return buildSeoPageHtml({
     locale,
