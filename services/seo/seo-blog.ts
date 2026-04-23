@@ -11312,6 +11312,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantieri-sottoceneri-estate-2024': {
+    title: 'Cantieri in Ticino: la situazione nel | Frontaliere Ticino',
+    description: '11 cantieri attivi nel Sottoceneri, tra cui il Tunnel di Genzana a Lugano. Lavori notturni e viabilità modificata fino al 2027. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantieri, situazione, sottoceneri, estate',
+    ogTitle: 'Cantieri Sottoceneri | Frontaliere Ticino',
+    ogDescription: '11 cantieri attivi nel Sottoceneri, tra cui il Tunnel di Genzana a Lugano. Lavori notturni e viabilità modificata fino al 2027',
+    canonicalPath: '/articoli-frontaliere/cantieri-sottoceneri-estate-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantieri Sottoceneri: la situazione nel Sottoceneri per l'estate 2024",
+      "description": "11 cantieri attivi nel Sottoceneri, tra cui il Tunnel di Genzana a Lugano. Lavori notturni e viabilità modificata fino al 2027. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantieri-sottoceneri-estate-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con cantieri lungo la riva, giornata estiva limpida"
+      },
+      "datePublished": "2026-04-23T08:32:48+00:00",
+      "dateModified": "2026-04-23T08:32:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-sottoceneri-estate-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

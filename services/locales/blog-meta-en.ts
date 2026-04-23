@@ -2529,6 +2529,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.title': '20% Increase for Cross-Border Doctors and Nurses',
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.excerpt': 'Lombardy introduces a 20% increase for doctors and nurses working on the border with Switzerland, to counter the flight of healthcare personnel.',
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.imageAlt': 'Aerial view of Lugano lake with mountains, boats, and clear blue sky',
+    'blog.article.cantieri-sottoceneri-estate-2024.title': 'Construction sites in Ticino: the situation in the Sottoceneri for summer 2024',
+    'blog.article.cantieri-sottoceneri-estate-2024.excerpt': '11 active construction sites in the Sottoceneri, including the Genzana Tunnel in Lugano. Night works and modified traffic until 2027',
+    'blog.article.cantieri-sottoceneri-estate-2024.imageAlt': 'Lake Lugano with construction sites along the shore, clear summer day',
 };
 
 export default blogMetaEn;

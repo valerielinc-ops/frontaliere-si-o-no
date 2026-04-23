@@ -6881,4 +6881,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/aumento-stipendi-frontalieri-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cantieri-sottoceneri-estate-2024',
+ category: 'novita',
+ date: '2026-04-23T08:32:48.319Z',
+ image: '/images/blog/cantieri-sottoceneri-estate-2024.jpg',
+ hasCalculator: true,
+ },
 ];

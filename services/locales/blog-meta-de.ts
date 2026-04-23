@@ -2529,6 +2529,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.title': '20% mehr für Ärzte und Pflegekräfte an der Grenze',
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.excerpt': 'Lombardei führt eine Erhöhung von 20% für Ärzte und Pflegekräfte ein, die an der Grenze zur Schweiz arbeiten, um die Abwanderung von medizinischem Personal zu bekämpfen.',
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen, Booten und klarem blauen Himmel',
+    'blog.article.cantieri-sottoceneri-estate-2024.title': 'Bauarbeiten im Tessin: Die Situation im Sottoceneri für den Sommer 2024',
+    'blog.article.cantieri-sottoceneri-estate-2024.excerpt': '11 aktive Baustellen im Sottoceneri, darunter der Tunnel von Genzana in Lugano. Nachtsarbeiten und veränderte Verkehrsführung bis 2027',
+    'blog.article.cantieri-sottoceneri-estate-2024.imageAlt': 'Luganersee mit Baustellen am Ufer, klarer Sommertag',
 };
 
 export default blogMetaDe;

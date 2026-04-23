@@ -2529,6 +2529,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.title': 'Aumento del 20% per medici e infermieri di frontiera',
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.excerpt': 'La Lombardia introduce un aumento del 20% per medici e infermieri che lavorano al confine con la Svizzera, per contrastare la fuga di personale sanitario.',
     'blog.article.aumento-stipendi-frontalieri-lombardia-2026.imageAlt': 'Vista aerea del lago di Lugano con montagne, barche e cielo azzurro cristallino',
+    'blog.article.cantieri-sottoceneri-estate-2024.title': 'Cantieri in Ticino: la situazione nel Sottoceneri per l\'estate 2024',
+    'blog.article.cantieri-sottoceneri-estate-2024.excerpt': '11 cantieri attivi nel Sottoceneri, tra cui il Tunnel di Genzana a Lugano. Lavori notturni e viabilità modificata fino al 2027',
+    'blog.article.cantieri-sottoceneri-estate-2024.imageAlt': 'Lago di Lugano con cantieri lungo la riva, giornata estiva limpida',
 };
 
 export default blogMetaIt;
