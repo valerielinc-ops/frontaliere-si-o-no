@@ -4,38 +4,37 @@
  * Runs only Migros Ticino jobs and enforces full locale coverage
  * for SEO-critical fields.
  *
- * The Migros careers portal at jobs.migros.ch is a Nuxt.js SSR
- * application. The listing pages are server-side rendered and
- * contain all job detail URLs directly in the HTML.
+ * The Migros careers portal at jobs.migros.ch is a Nuxt.js SPA.
+ * The listing page renders ~7 pinned jobs in the SSR HTML, but the
+ * full result set (54+ positions across Ticino/Grigioni) is only
+ * visible after client-side hydration and pagination clicks.
  *
  * This script:
- *   1. Fetches the Migros listing page HTML for Ticino (REGION=871)
- *      and Grigioni (REGION=868) to discover job detail URLs.
- *   2. Sets those SSR detail URLs as adapter seed URLs.
+ *   1. Launches a headless Chromium via Playwright on the listing
+ *      URL with REGION=868,871,878 (Ticino + Svizzera meridionale
+ *      + Grigioni Italiani), accepts the cookie banner, then clicks
+ *      "Pagina successiva" repeatedly until the button is disabled.
+ *   2. Collects every job detail href (any locale prefix) and sets
+ *      them as adapter seed URLs.
  *   3. Runs the base crawler which fetches each detail page and
  *      parses the HTML content (no JSON-LD — Migros uses Nuxt
  *      with __NUXT_DATA__ hydration payloads).
  *
  * Listing URL pattern:
- *   https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti?REGION={id}
+ *   https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti?REGION={ids}
  *
  * Detail page URL pattern:
- *   https://jobs.migros.ch/it/le-nostre-imprese/job/{company-slug}/{job-slug}/{uuid}
+ *   https://jobs.migros.ch/{it|de|fr|en}/{le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies}/job/{company-slug}/{job-slug}/{uuid}
  *
- * Locale URL variants (same UUID, different prefix):
- *   IT: /it/le-nostre-imprese/job/...
- *   DE: /de/unsere-unternehmen/job/...
- *   FR: /fr/nos-entreprises/job/...
- *   EN: /en/our-companies/job/...
- *
- * Region IDs:
- *   871 = Svizzera meridionale (Southern Switzerland — includes Ticino)
- *   872 = Ticino
+ * Region IDs (Migros internal taxonomy):
  *   868 = Grigioni
+ *   871 = Svizzera meridionale (includes Ticino area)
+ *   878 = Regione bilingue Grigioni italiano
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { chromium } from 'playwright';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -53,24 +52,21 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const MIGROS_KEY = 'migros-ticino';
 
 /**
- * Migros listing page base and region IDs.
+ * Migros listing page URL with all Italian-speaking/adjacent region IDs combined.
  *
- * REGION=871 — "Svizzera meridionale" (Southern Switzerland), covers Ticino
- * REGION=868 — "Grigioni" (Graubünden)
- *
- * Both are fetched to maximise coverage for Italian-speaking regions.
+ *   868 = Grigioni
+ *   871 = Svizzera meridionale (includes Ticino)
+ *   878 = Regione bilingue Grigioni italiano
  */
-const LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti';
-const REGION_IDS = {
-  'Svizzera meridionale': '871',
-  Grigioni: '868',
-};
+const LISTING_URL =
+  'https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti?REGION=868,871,878';
 
 /**
- * Regex to extract job detail hrefs from the listing HTML.
- * Matches: href="/it/le-nostre-imprese/job/{company}/{slug}/{uuid}"
+ * Regex matching a Migros job detail href in any of the four locale prefixes.
+ * Pattern: /{locale}/{segment}/job/{company-slug}/{job-slug}/{uuid}
  */
-const JOB_DETAIL_HREF_RE = /href="(\/it\/le-nostre-imprese\/job\/[^"]+)"/g;
+const JOB_DETAIL_HREF_RE =
+  /^\/(it|de|fr|en)\/(le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^/]+\/[^/]+\/[a-f0-9-]{36}$/;
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -129,93 +125,104 @@ function isTrustedMigrosDomain(rawUrl = '') {
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Fetch Migros job detail URLs from the SSR listing pages
- * for the specified regions (Svizzera meridionale + Grigioni).
+ * Discover Migros job detail URLs via headless Chromium (Playwright).
  *
- * The listing pages are Nuxt.js SSR and contain <a href="..."> links
- * to each job detail page directly in the HTML.
+ * The listing is a Nuxt.js SPA: SSR only renders ~7 pinned jobs; the full
+ * search result set is populated after client-side hydration, and pagination
+ * is driven by a "Pagina successiva" button (no query-string paging).
  *
- * Handles pagination by following "next page" links if present.
+ * This function:
+ *   1. Opens the listing with REGION=868,871,878 in Chromium.
+ *   2. Accepts the OneTrust cookie banner (required — without it, the results
+ *      panel renders only a handful of "suggested" jobs).
+ *   3. Collects every anchor matching {locale}/{segment}/job/... .
+ *   4. Clicks "Pagina successiva" until disabled, merging results each time.
  *
- * Returns an array of absolute job detail URLs.
+ * Returns absolute job detail URLs in whatever locale Migros served them
+ * (mixed IT/DE is normal — individual job sourceLang is detected downstream).
  */
 async function fetchMigrosJobDetailUrls() {
+  const headless = process.env.JOBS_MIGROS_HEADLESS !== '0';
+  const navTimeoutMs = Number(process.env.JOBS_MIGROS_NAV_TIMEOUT_MS) || 30000;
+  const paginationTimeoutMs = Number(process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS) || 2000;
+  const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 25;
+
+  const browser = await chromium.launch({
+    headless,
+    args: ['--disable-blink-features=AutomationControlled'],
+  });
+  const context = await browser.newContext({
+    userAgent:
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    locale: 'it-CH',
+    viewport: { width: 1400, height: 900 },
+    extraHTTPHeaders: { 'Accept-Language': 'it-CH,it;q=0.9' },
+  });
+  const page = await context.newPage();
+
   const allUrls = new Set();
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
-  const userAgent = process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-  for (const [regionName, regionId] of Object.entries(REGION_IDS)) {
-    let page = 0;
-    let hasMore = true;
+  try {
+    console.log(`🔍 Opening Migros listing (${LISTING_URL})`);
+    await page.goto(LISTING_URL, { waitUntil: 'networkidle', timeout: navTimeoutMs });
 
-    while (hasMore) {
-      const listUrl = page === 0
-        ? `${LISTING_BASE}?REGION=${regionId}`
-        : `${LISTING_BASE}?REGION=${regionId}&page=${page}`;
-
-      console.log(`🔍 Fetching Migros ${regionName} jobs (page ${page}): ${listUrl}`);
-
-      try {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-        const res = await fetch(listUrl, {
-          signal: controller.signal,
-          headers: {
-            Accept: 'text/html',
-            'User-Agent': userAgent,
-          },
-        });
-        clearTimeout(timer);
-
-        if (!res.ok) {
-          console.warn(`⚠️ Listing returned ${res.status} for ${regionName} page ${page} — skipping.`);
-          break;
-        }
-
-        const html = await res.text();
-
-        // Extract all job detail href paths
-        const pageUrls = new Set();
-        let match;
-        while ((match = JOB_DETAIL_HREF_RE.exec(html)) !== null) {
-          const relPath = match[1];
-          const fullUrl = `https://jobs.migros.ch${relPath}`;
-          if (!allUrls.has(fullUrl)) {
-            pageUrls.add(fullUrl);
-            allUrls.add(fullUrl);
-          }
-        }
-        // Reset lastIndex for reuse
-        JOB_DETAIL_HREF_RE.lastIndex = 0;
-
-        console.log(`  📦 ${regionName} page ${page}: ${pageUrls.size} new job URL(s) found`);
-
-        // Check for next page: Migros uses @start - @end dei risultati @count pattern
-        // If no new URLs found on this page, stop pagination
-        if (pageUrls.size === 0) {
-          hasMore = false;
-        } else {
-          // Check if there's a "next page" link
-          // The pagination in Migros Nuxt uses a "Pagina successiva" link
-          const nextPageExists = html.includes(`REGION=${regionId}&amp;page=${page + 1}`) ||
-            html.includes(`REGION=${regionId}&page=${page + 1}`);
-          if (nextPageExists) {
-            page++;
-          } else {
-            hasMore = false;
-          }
-        }
-      } catch (err) {
-        console.warn(`⚠️ Listing fetch failed for ${regionName} page ${page}: ${err.message}`);
-        break;
-      }
+    // Accept cookies — without this the results panel stays at ~4 suggested items
+    const consent = page
+      .locator(
+        'button:has-text("Accetta tutti i cookie"), #onetrust-accept-btn-handler, button:has-text("Accetta")',
+      )
+      .first();
+    if (await consent.isVisible().catch(() => false)) {
+      await consent.click().catch(() => {});
+      await page.waitForTimeout(1500);
+      console.log('  🍪 Cookie consent accepted');
     }
+
+    // Wait for hydration — result panel populates a second or two after consent
+    await page.waitForTimeout(3000);
+
+    const collect = () =>
+      page.evaluate((reSrc) => {
+        const re = new RegExp(reSrc);
+        const out = new Set();
+        for (const a of document.querySelectorAll('a[href]')) {
+          const p = a.getAttribute('href');
+          if (p && re.test(p)) out.add(p);
+        }
+        return [...out];
+      }, JOB_DETAIL_HREF_RE.source);
+
+    let pageIdx = 1;
+    for (const u of await collect()) allUrls.add(u);
+    console.log(`  📄 Page ${pageIdx}: ${allUrls.size} unique URLs so far`);
+
+    while (pageIdx < maxPages) {
+      const nextBtn = page
+        .locator('button[aria-label*="successiva" i], button:has-text("Pagina successiva")')
+        .first();
+
+      const visible = await nextBtn.isVisible().catch(() => false);
+      const disabled = await nextBtn.isDisabled().catch(() => true);
+      if (!visible || disabled) break;
+
+      await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
+      await nextBtn.click().catch(() => {});
+      await page.waitForTimeout(paginationTimeoutMs);
+      pageIdx += 1;
+
+      const before = allUrls.size;
+      for (const u of await collect()) allUrls.add(u);
+      const added = allUrls.size - before;
+      console.log(`  📄 Page ${pageIdx}: +${added} (${allUrls.size} total)`);
+      if (added === 0) break;
+    }
+  } finally {
+    await browser.close();
   }
 
-  console.log(`✅ Total unique Migros detail URLs discovered: ${allUrls.size}`);
-  return [...allUrls];
+  const absoluteUrls = [...allUrls].map((p) => `https://jobs.migros.ch${p}`);
+  console.log(`✅ Total unique Migros detail URLs discovered: ${absoluteUrls.length}`);
+  return absoluteUrls;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -344,8 +351,8 @@ async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(MIGROS_KEY, 'Migros');
   console.log('🛒 Running dedicated Migros Ticino jobs crawler...');
-  console.log('   Platform: Nuxt.js SSR (jobs.migros.ch)');
-  console.log('   Regions: Svizzera meridionale (871) + Grigioni (868)');
+  console.log('   Platform: Nuxt.js SPA (jobs.migros.ch) via Playwright');
+  console.log('   Regions: 868 (Grigioni) + 871 (Svizzera meridionale) + 878 (bilingue)');
   console.log('');
 
   // Step 1: Fetch job detail URLs from the SSR listing pages
