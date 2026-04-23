@@ -293,7 +293,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:18:55.268Z",
-      "needsRetranslation": true,
       "salaryMin": 66500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -305,8 +304,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-428f519801a1",
@@ -2161,7 +2159,6 @@
       "crawledAt": "2026-04-22T22:02:45.758Z",
       "jobReqId": "R75426",
       "firstSeenAt": "2026-04-22T10:20:02.469Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2173,8 +2170,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-98fdf6c318e6",
