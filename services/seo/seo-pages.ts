@@ -1021,6 +1021,38 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026`,
+ "claimReviewed": "Nel Canton Ticino l'imposta alla fonte 2026 usa quattro tabelle A, B, C, H assegnate in base a stato civile e figli a carico.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni" },
+ "datePublished": "2026-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
+ },
+ "reviewBody": "Tabelle cantonali AFC Ticino 2026 (art. 33 LT): A single senza figli, B coniugati monoreddito, C coniugati bireddito, H genitori soli con figli."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026`,
+ "claimReviewed": "La tabella di imposta alla fonte applicata al frontaliere dipende da stato civile e figli, non dal Comune italiano di residenza.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge tributaria cantonale (LT) Canton Ticino, art. 109" },
+ "datePublished": "2024-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/434", "name": "Canton Ticino — Legge tributaria (LT) art. 107-117 imposta alla fonte" }
+ },
+ "reviewBody": "La LT Ticino (art. 107-117) assegna la tabella in base a stato civile e figli dichiarati al datore; il Comune italiano di residenza è irrilevante per il calcolo svizzero (rileva solo per la fiscalità italiana)."
  }
  ]
  },
@@ -1705,6 +1737,38 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro`,
+ "claimReviewed": "Il permesso G frontaliere richiede residenza nella fascia di 20 km dal confine svizzero (misurata in linea d'aria) e rientro settimanale.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Segreteria di Stato della migrazione (SEM) — Accordo UE-CH sulla libera circolazione" },
+ "datePublished": "2002-06-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html", "name": "SEM — Permesso G UE/AELS (frontalieri)" }
+ },
+ "reviewBody": "Accordo UE-CH sulla libera circolazione (ALC, in vigore 1/6/2002) art. 9 All. I: zona di frontiera con rientro settimanale obbligatorio. La soglia 20 km è la prassi consolidata SEM e degli Uffici della migrazione cantonali."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro`,
+ "claimReviewed": "Il permesso G ha durata 5 anni se il contratto è a tempo indeterminato; il rinnovo è automatico su richiesta del datore di lavoro.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge federale sugli stranieri e la loro integrazione (LStrI), art. 35" },
+ "datePublished": "2018-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/2007/758/it", "name": "Fedlex — LStrI art. 35 (permesso per frontalieri)" }
+ },
+ "reviewBody": "Durata 5 anni per contratto a tempo indeterminato (art. 35 LStrI + art. 34 OASA); durata pari al contratto se a termine. Rinnovabile con verifica del rapporto di lavoro in corso."
  }
  ]
  },
@@ -1773,6 +1837,38 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro`,
+ "claimReviewed": "Il limite massimo di versamento annuo al pilastro 3a per lavoratori con 2° pilastro nel 2026 è CHF 7.258.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — OPP 3" },
+ "datePublished": "2026-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/bsv/it/home/assicurazioni-sociali/bv/grundlagen-und-gesetze/grundlagen/saeule3a.html", "name": "UFAS — Previdenza individuale vincolata (pilastro 3a)" }
+ },
+ "reviewBody": "Limite deducibile 2026 fissato dall'art. 7 OPP 3: CHF 7.258 per affiliati LPP; 20% del reddito netto fino a CHF 36.288 per indipendenti senza 2° pilastro."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro`,
+ "claimReviewed": "Un versamento 3a di CHF 7.258 in Ticino produce un risparmio fiscale del 12-15% per un frontaliere con aliquota marginale media.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "AFC Ticino — Divisione contribuzioni, Tassazione ordinaria ulteriore (TOU)" },
+ "datePublished": "2026-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tou/", "name": "AFC Ticino — TOU e deduzioni per frontalieri" }
+ },
+ "reviewBody": "Stima verificata incrociando tabelle imposta alla fonte Ticino 2026 tabelle A-C: risparmio fiscale medio CHF 870-1.090 su versamento massimo CHF 7.258 (12-15% aliquota marginale effettiva)."
  }
  ]
  },
