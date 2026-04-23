@@ -24,6 +24,32 @@ shippable and keeps the test baseline green.
   - `isBasedOn` linking to Canton Ticino DFE + GU Italiana law sources.
   No further action required on the homepage. Sprint 4 plan can mark 4.16(a) done.
 
+- **Unit F4-F1 — Dataset schema on /mercato-lavoro-ticino/** — shipped 2026-04-23
+  (commit `50419ae79`). Weekly, monthly, sector and hub pages now emit a
+  `Dataset` JSON-LD with `name`, `description`, `creator`, `publisher`,
+  `license`, `dateModified`, `temporalCoverage`, `spatialCoverage`
+  (Canton Ticino), `keywords`, `distribution` (DataDownload to
+  `/data/jobs-stats.json` + HTML) and `variableMeasured`. All 4 locales.
+
+- **Unit F4-F3 — VideoObject schema on border-wait webcam pages** — shipped
+  2026-04-23 (commit `5065182b6`). Per-crossing `/traffico-dogane/.../oggi/`
+  pages that embed a live webcam now emit a `VideoObject` with `name`,
+  `description`, `thumbnailUrl`, `uploadDate`, `contentUrl`, `embedUrl`,
+  `publisher`, `inLanguage`, and `publication: BroadcastEvent` with
+  `isLiveBroadcast: true`. Only emitted when the crossing has ≥1 registered
+  webcam in `data/borderCrossings.ts`.
+
+- **Unit F4-E1 — 6 FAQ additions on existing pages** — shipped 2026-04-23
+  (commits `d392876d2` + `829ed2b30`). 18 PAA-targeted Q/A added (3 per page
+  × 6 pages): `/`, `/guida-frontaliere`, `/calcola-stipendio`,
+  `/tasse-e-pensione`, `/compara-servizi/costo-della-vita`,
+  `/compara-servizi/confronta-casse-malati`. All Italian questions have
+  matching EN/DE/FR entries in `FAQ_TRANSLATIONS`; FAQ uniqueness gate
+  green (distinct answers; `/tasse-e-pensione` Q renamed to avoid
+  signature collision with the Sprint 2 `nuova-legge-frontalieri-2026`
+  pillar that reuses the pre-existing `Cosa succede se non dichiaro...`
+  wording).
+
 ---
 
 ## Unit F4-A — Part A quick-win static pages (4 pages × 4 locales = 16 HTML outputs)
@@ -206,45 +232,46 @@ as unit F4-E1, and defer the Sprint-2-dependent 14 as F4-E2.
 (VideoObject on webcam pages).
 
 **Sub-tasks:**
-- F4-F1: Add `Dataset` JSON-LD to `/mercato-lavoro-ticino/` (F4 plugin
-  output). Property set: name, description, creator, distribution (link
-  to the canonical JSON the plugin emits at
-  `dist/mercato-lavoro-ticino/snapshot.json` if emitted — verify), temporal
-  coverage, spatial coverage, license, keywords.
-  Effort: 2 hours.
+- ✅ F4-F1: Shipped 2026-04-23 (commit `50419ae79`). Dataset JSON-LD emitted
+  on weekly, monthly, sector AND hub pages with name, description, creator,
+  publisher, license, dateModified, temporalCoverage, spatialCoverage
+  (Canton Ticino), keywords, distribution (DataDownload to
+  `/data/jobs-stats.json` + HTML), variableMeasured. All 4 locales.
 - F4-F2: Add `Place` JSON-LD to `/costo-della-vita/` — but only once the
   city sub-pages from Unit F4-D land, because at that point each page is
   about a specific `Place` (addressLocality). The parent page is not a
   single place, so `Place` there is wrong; better to add `ItemList` of
   the 6 cities.
   Effort: 1 hour, blocked by F4-D.
-- F4-F3: Add `VideoObject` JSON-LD to `/traffico-dogane/{crossing}/oggi/`
-  pages that embed a live webcam. Review `borderWaitPagesPlugin.ts` to
-  see which crossings have webcam embeds today; only those get the
-  VideoObject. Required fields: `name`, `description`, `thumbnailUrl`
-  (screenshot from webcam vendor), `uploadDate` (build date),
-  `contentUrl` (webcam stream URL if hotlink policy allows — most vendors
-  forbid deep-link to the raw stream so this field may need to be
-  omitted, leaving only `embedUrl`). `publication` → `BroadcastEvent`
-  with `isLiveBroadcast: true`.
-  Effort: 0.5 day, includes hotlink-policy audit per vendor.
+- ✅ F4-F3: Shipped 2026-04-23 (commit `5065182b6`). VideoObject JSON-LD
+  on per-crossing `/traffico-dogane/.../oggi/` pages, emitted only when
+  `data/borderCrossings.ts` has ≥1 webcam. Fields: name, description,
+  thumbnailUrl, uploadDate (build date), contentUrl (image feed URL),
+  embedUrl (canonical page URL), publisher (Organization), inLanguage,
+  publication.BroadcastEvent with isLiveBroadcast: true. ImageObject
+  block kept in parallel for non-video crawlers.
 
 ---
 
 ## Suggested landing order (smallest risk first)
 
-1. **F4-F1** (Dataset schema on F4) — 2h, self-contained, one file.
-2. **F4-F3** (VideoObject on border-wait pages) — 0.5d, one plugin edit.
-3. **F4-E1** (6 FAQ additions on existing pages) — 1d, authorial.
+1. ✅ **F4-F1** (Dataset schema on F4) — shipped 2026-04-23.
+2. ✅ **F4-F3** (VideoObject on border-wait pages) — shipped 2026-04-23.
+3. ✅ **F4-E1** (6 FAQ additions on existing pages) — shipped 2026-04-23.
 4. **F4-B** (6 striking-distance optimisations, one at a time) — 0.5d each.
 5. **F4-A** (4 quick-win static pages via new careerLandings plugin) — 1.5d.
 6. **F4-C** (professionLandings plugin + 40 pages) — 2.5d.
-7. **F4-E2** (remaining 14 FAQ additions) — blocked by Sprint 2.
+7. **F4-E2** (remaining 14 FAQ additions) — Sprint 2 pillars landed
+   (commit `d392876d2`), so the target slugs now exist. Unblocked.
 8. **F4-D** (cost-of-living cities) — blocked on data-source decision.
 9. **F4-F2** (Place/ItemList on cost-of-living hub) — blocked by F4-D.
 
-Total sequencable-now work: ~8 working days. Total blocked work: ~3 days
-waiting on Sprint 2 + 1 data-source spike.
+Remaining sequenceable-now work: ~6 working days (F4-B 3d + F4-A 1.5d +
+F4-C 2.5d + F4-E2 1d). Total blocked work: ~1 day on Sprint 2 pillar
+phantom-entry cleanup (Sprint 2 left `pillarTasseSvizzere`,
+`pillarLavoroLugano`, `pillarNuovaLegge2026`, `pillarOssSvizzera`,
+`pillarStipendiChVsIt` without routes — `seo-completeness` test fails
+on those 5 keys; owner is Sprint 2) + data-source spike for F4-D.
 
 ---
 
