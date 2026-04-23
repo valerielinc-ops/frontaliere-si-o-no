@@ -67,6 +67,17 @@ import {
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CARD_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
+  LINK_ACCENT_STYLE,
+  SMALL_HEADING_STYLE,
+} from './shared/seoContentTokens';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
@@ -1307,10 +1318,10 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
             const employerEsc = esc(c.employer);
             const badge =
               hasHistoricalDelta && c.delta > 0
-                ? `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:#ecfccb;color:#365314;font-size:12px;font-weight:700">${esc(deltaLabel)}</span>`
-                : `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:#f1f5f9;color:#475569;font-size:12px">${esc(deltaLabel)}</span>`;
-            const content = `<div style="font-weight:700;font-size:16px;color:#0f172a">${idx + 1}. ${employerEsc}${badge}</div>
-      <div style="margin-top:4px;color:#475569;font-size:14px">${esc(copy.jobsCountLabel(c.active))}</div>`;
+                ? `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-border);font-size:12px;font-weight:700">${esc(deltaLabel)}</span>`
+                : `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-subtle);font-size:12px">${esc(deltaLabel)}</span>`;
+            const content = `<div style="font-weight:700;font-size:16px;color:var(--color-heading)">${idx + 1}. ${employerEsc}${badge}</div>
+      <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(copy.jobsCountLabel(c.active))}</div>`;
             const jobBoardSection: Record<WeeklyEmployersLocale, string> = {
               it: 'cerca-lavoro-ticino',
               en: 'find-jobs-ticino',
@@ -1321,24 +1332,24 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
             const companyFallbackHref = (`${localePrefix}/${jobBoardSection[locale]}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
             const href = brandHref ?? companyFallbackHref;
             const inner = `<a href="${esc(href)}" style="color:inherit;text-decoration:none;display:block"${needsReview}>${content}</a>`;
-            return `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff">${inner}</li>`;
+            return `<li style="${CARD_STYLE}">${inner}</li>`;
           })
           .join('')}</ol>`
-      : `<p style="padding:14px 16px;border-radius:12px;background:#fef3c7;color:#78350f">${esc(copy.topCompaniesEmpty)}</p>`;
+      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.topCompaniesEmpty)}</p>`;
 
   const newcomersHtml =
     stats.newcomers.length > 0
-      ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:#0f172a;line-height:1.7">${stats.newcomers
+      ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.newcomers
           .map(
             (n) =>
               `<li><strong>${esc(n.employer)}</strong> — ${esc(copy.jobsCountLabel(n.active))}</li>`,
           )
           .join('')}</ul>`
-      : `<p style="color:#475569;line-height:1.7">${esc(copy.newcomersEmpty)}</p>`;
+      : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.newcomersEmpty)}</p>`;
 
   const rolesHtml =
     stats.topRoles.length > 0
-      ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:#0f172a;line-height:1.7">${stats.topRoles
+      ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.topRoles
           .map(
             (r) =>
               `<li><span style="text-transform:capitalize">${esc(r.role)}</span> — ${esc(
@@ -1346,12 +1357,12 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
               )}</li>`,
           )
           .join('')}</ul>`
-      : `<p style="color:#475569;line-height:1.7">${esc(copy.rolesEmpty)}</p>`;
+      : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.rolesEmpty)}</p>`;
 
   // Related links: city hub + first employer brand (if present)
   const relatedLinks: string[] = [];
   relatedLinks.push(
-    `<a href="${esc(cityJobsHubPath(locale, city))}" style="color:#1d4ed8;text-decoration:none">${esc(copy.relatedLinksCityHub(cityDisplay))}</a>`,
+    `<a href="${esc(cityJobsHubPath(locale, city))}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinksCityHub(cityDisplay))}</a>`,
   );
   const firstEmployerWithBrand = stats.topCompanies.find(
     (c) => !!employerBrandPath(c.employerKey),
@@ -1359,7 +1370,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   if (firstEmployerWithBrand) {
     const href = employerBrandPath(firstEmployerWithBrand.employerKey)!;
     relatedLinks.push(
-      `<a href="${esc(href)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.relatedLinksEmployerBrand(firstEmployerWithBrand.employer))}</a>`,
+      `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinksEmployerBrand(firstEmployerWithBrand.employer))}</a>`,
     );
   }
   const relatedHtml = `<ul style="list-style:none;padding:0;margin:0;display:flex;gap:14px;flex-wrap:wrap">${relatedLinks
@@ -1435,59 +1446,59 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
 
   const archiveNote =
     variant === 'archive' && !indexable
-      ? `<p style="margin:0 0 16px;color:#78350f;background:#fef3c7;padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      ? `<p style="margin:0 0 16px;color:var(--color-warning-border);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(copy.sectionLabel)}</span>
     <span> / </span>
     <span>${esc(cityDisplay)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(kicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(heroSummary)}</p>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(kicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
   </header>
   ${archiveNote}
   <section style="margin:0 0 28px" aria-labelledby="topCompanies">
-    <h2 id="topCompanies" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.topCompaniesTitle)}</h2>
+    <h2 id="topCompanies" style="${H2_STYLE}">${esc(copy.topCompaniesTitle)}</h2>
     ${topCompaniesHtml}
   </section>
   <section style="margin:0 0 28px" aria-labelledby="newcomers">
-    <h2 id="newcomers" style="margin:0 0 10px;font-size:22px;color:#0f172a">${esc(copy.newcomersTitle)}</h2>
-    <p style="margin:0 0 10px;color:#334155;line-height:1.65;max-width:860px">${esc(copy.newcomersDesc)}</p>
+    <h2 id="newcomers" style="${H2_STYLE}">${esc(copy.newcomersTitle)}</h2>
+    <p style="margin:0 0 10px;color:var(--color-body);line-height:1.65;max-width:860px">${esc(copy.newcomersDesc)}</p>
     ${newcomersHtml}
   </section>
   <section style="margin:0 0 28px" aria-labelledby="roles">
-    <h2 id="roles" style="margin:0 0 10px;font-size:22px;color:#0f172a">${esc(copy.rolesTitle)}</h2>
+    <h2 id="roles" style="${H2_STYLE}">${esc(copy.rolesTitle)}</h2>
     ${rolesHtml}
   </section>
   <section style="margin:0 0 28px" aria-labelledby="editorial">
-    <h2 id="editorial" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(cityDisplay)}</h2>
-    <p style="margin:0 0 10px;color:#334155;line-height:1.7;max-width:860px">${esc(editorial)}</p>
-    <p style="margin:0;color:#475569;line-height:1.7;max-width:860px;font-size:14px">${esc(methodology)}</p>
+    <h2 id="editorial" style="${H2_STYLE}">${esc(cityDisplay)}</h2>
+    <p style="margin:0 0 10px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
+    <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px;font-size:14px">${esc(methodology)}</p>
   </section>
   <section style="margin:0 0 28px" aria-labelledby="relatedLinks">
-    <h2 id="relatedLinks" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.relatedLinksTitle)}</h2>
+    <h2 id="relatedLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
     ${relatedHtml}
   </section>
   <section style="margin:0 0 0" aria-labelledby="weeklyFaq">
-    <h2 id="weeklyFaq" style="margin:0 0 10px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
-    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.faqHowOftenQ)}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.faqHowOftenA)}</p>
+    <h2 id="weeklyFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.faqHowOftenQ)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqHowOftenA)}</p>
     </details>
-    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.faqDeltaQ)}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.faqDeltaA)}</p>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.faqDeltaQ)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqDeltaA)}</p>
     </details>
-    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.faqApplyQ)}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.faqApplyA)}</p>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.faqApplyQ)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqApplyA)}</p>
     </details>
   </section>
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
@@ -1776,21 +1787,21 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
           .map((job, idx) => {
             const title = esc(job.title || `Posizione ${idx + 1}`);
             const date = job.postedDate
-              ? `<span style="color:#64748b;font-size:13px">${esc(String(job.postedDate).slice(0, 10))}</span>`
+              ? `<span style="color:var(--color-subtle);font-size:13px">${esc(String(job.postedDate).slice(0, 10))}</span>`
               : '';
             const apply = esc(copy.companyCityApplyCta);
-            return `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff">
+            return `<li style="${CARD_STYLE}">
       <a href="${esc(job.detailPath)}" style="display:block;color:inherit;text-decoration:none">
-        <div style="font-weight:700;font-size:16px;color:#0f172a">${idx + 1}. ${title}</div>
+        <div style="font-weight:700;font-size:16px;color:var(--color-heading)">${idx + 1}. ${title}</div>
         <div style="margin-top:4px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
           ${date}
-          <span style="color:#1d4ed8;font-weight:600;font-size:14px">${apply} →</span>
+          <span style="color:var(--color-link);font-weight:600;font-size:14px">${apply} →</span>
         </div>
       </a>
     </li>`;
           })
           .join('')}</ol>`
-      : `<p style="padding:14px 16px;border-radius:12px;background:#fef3c7;color:#78350f">${esc(copy.topCompaniesEmpty)}</p>`;
+      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.topCompaniesEmpty)}</p>`;
 
   // Related links (own + cross-feature via shared helper).
   const parentHubHref = buildCurrentWeekPath(locale, city);
@@ -1800,14 +1811,14 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const ownRelated: string[] = [];
   if (brandHref) {
     ownRelated.push(
-      `<li style="margin:0;padding:0"><a href="${esc(brandHref)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(copy.companyCityBrandHubLabel(employer))} →</a></li>`,
+      `<li style="margin:0;padding:0"><a href="${esc(brandHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityBrandHubLabel(employer))} →</a></li>`,
     );
   }
   ownRelated.push(
-    `<li style="margin:0;padding:0"><a href="${esc(parentHubHref)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(copy.companyCityParentHubLabel(cityDisplay))} →</a></li>`,
+    `<li style="margin:0;padding:0"><a href="${esc(parentHubHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityParentHubLabel(cityDisplay))} →</a></li>`,
   );
   ownRelated.push(
-    `<li style="margin:0;padding:0"><a href="${esc(cityJobsHref)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(copy.companyCityCityHubLabel(cityDisplay))} →</a></li>`,
+    `<li style="margin:0;padding:0"><a href="${esc(cityJobsHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityCityHubLabel(cityDisplay))} →</a></li>`,
   );
 
   // Sibling company-city pages for the same company (other cities).
@@ -1904,52 +1915,52 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
 
   const archiveNote =
     variant === 'archive' && !indexable
-      ? `<p style="margin:0 0 16px;color:#78350f;background:#fef3c7;padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      ? `<p style="margin:0 0 16px;color:var(--color-warning-border);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="breadcrumb">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.sectionLabel)}</a>
+    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.sectionLabel)}</a>
     <span> / </span>
-    <a href="${esc(parentHubHref)}" style="color:#1d4ed8;text-decoration:none">${esc(cityDisplay)}</a>
+    <a href="${esc(parentHubHref)}" style="${BREADCRUMB_LINK_STYLE}">${esc(cityDisplay)}</a>
     <span> / </span>
     <span>${esc(employer)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(heroSummary)}</p>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
   </header>
   ${archiveNote}
   <section style="margin:0 0 28px" aria-labelledby="companyCityJobs">
-    <h2 id="companyCityJobs" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.companyCityJobsHeading(employer, cityDisplay))}</h2>
+    <h2 id="companyCityJobs" style="${H2_STYLE}">${esc(copy.companyCityJobsHeading(employer, cityDisplay))}</h2>
     ${jobsListHtml}
   </section>
   <section style="margin:0 0 28px" aria-labelledby="companyCityEditorial">
-    <h2 id="companyCityEditorial" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(employer)} · ${esc(cityDisplay)}</h2>
-    <p style="margin:0;color:#334155;line-height:1.7;max-width:860px">${esc(editorial)}</p>
+    <h2 id="companyCityEditorial" style="${H2_STYLE}">${esc(employer)} · ${esc(cityDisplay)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
   </section>
   <section style="margin:0 0 28px" aria-labelledby="companyCityLinks">
-    <h2 id="companyCityLinks" style="margin:0 0 10px;font-size:20px;color:#0f172a">${esc(copy.relatedLinksTitle)}</h2>
+    <h2 id="companyCityLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
     <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 18px">${ownRelated.join('')}</ul>
     ${siblingsPlaceholder}
   </section>
   <section style="margin:0 0 0" aria-labelledby="companyCityFaq">
-    <h2 id="companyCityFaq" style="margin:0 0 10px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
-    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.companyCityFaqWhyQ(employer))}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.companyCityFaqWhyA(employer, cityDisplay))}</p>
+    <h2 id="companyCityFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqWhyQ(employer))}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqWhyA(employer, cityDisplay))}</p>
     </details>
-    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.companyCityFaqHowApplyQ)}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.companyCityFaqHowApplyA(employer))}</p>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqHowApplyQ)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqHowApplyA(employer))}</p>
     </details>
-    <details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-      <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(copy.companyCityFaqUpdateQ)}</summary>
-      <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(copy.companyCityFaqUpdateA)}</p>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqUpdateQ)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqUpdateA)}</p>
     </details>
   </section>
   ${generateRelatedLinksBlock(locale, 'weekly_employer_company_city', {
@@ -2010,7 +2021,7 @@ export function injectSiblingLinks(
     .map((c) => {
       const href = buildCompanyCityCurrentPath(locale, c, companySlug);
       const label = copy.companyCitySiblingLabel(employer, WEEKLY_EMPLOYERS_CITY_DISPLAY[c]);
-      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:8px 0;color:#1d4ed8;text-decoration:none;font-weight:600">${esc(label)} →</a></li>`;
+      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(label)} →</a></li>`;
     })
     .join('');
   if (!items) {
