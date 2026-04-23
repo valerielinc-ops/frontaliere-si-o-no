@@ -12,7 +12,7 @@
 import type { SimulationResult } from '../types';
 import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
 import { BASE_URL, ANALYTICS_SNIPPET, FAVICON_LINKS } from './constants';
-import { buildFullPath, type SalaryHubScenario } from './salaryHubScenarios';
+import { buildFullPath, LOCALE_CALC_PREFIX, type SalaryHubScenario } from './salaryHubScenarios';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -638,7 +638,7 @@ export function generateArticleHtml(
 
         <div class="cta-box">
           <p>${locale === 'it' ? 'Calcola il tuo stipendio netto personalizzato' : 'Calculate your personalized net salary'}</p>
-          <a href="${locale === 'it' ? '/calcola-stipendio/' : `/${locale}/`}">${locale === 'it' ? 'Apri il calcolatore' : 'Open calculator'} &rarr;</a>
+          <a href="${LOCALE_CALC_PREFIX[locale]}/">${locale === 'it' ? 'Apri il calcolatore' : 'Open calculator'} &rarr;</a>
         </div>
 
         <div class="faq-section">

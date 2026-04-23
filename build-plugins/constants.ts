@@ -50,7 +50,7 @@ export function buildCanonicalBridgePage(options: {
  body = 'Questa URL ha una versione aggiornata. Apri la pagina canonica per consultare il contenuto corretto.',
  ctaLabel = 'Apri la pagina corretta',
  lang = 'it',
- noindex = true,
+ noindex = false,
  hreflangEntries,
  } = options;
 

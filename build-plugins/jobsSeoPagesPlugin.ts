@@ -1553,10 +1553,10 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const deCantonPrep = germanCantonPrep(dc);
  const frCantonPrep = frenchCantonPrep(dc);
  const faqSection: Record<string, string> = {
- it: `<section class="section"><h4>Domande frequenti</h4><dl><dt><strong>Qual è lo stipendio netto per un frontaliere in ${esc(dc)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa. ${sectorName ? `Nel settore ${sectorName} in ${esc(dc)} ` : ''}Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. Confronta i premi con il nostro <a href="${BASE_URL}/compara-servizi/assicurazione-malattia/">comparatore LAMal</a>.</dd></dl></section>`,
- en: `<section class="section"><h4>Frequently asked questions</h4><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(dc)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%. ${sectorName ? `In the ${sectorName} sector in ${esc(dc)} ` : ''}Use our simulator for a personalised calculation.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work. Premiums vary by canton, insurance model and deductible. Compare premiums with our <a href="${BASE_URL}/en/compare-services/health-insurance/">LAMal comparator</a>.</dd></dl></section>`,
- de: `<section class="section"><h4>Häufig gestellte Fragen</h4><dl><dt><strong>Wie hoch ist das Nettogehalt für Grenzgänger ${esc(deCantonPrep)}?</strong></dt><dd>Das Nettogehalt hängt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(dc)} liegt die Quellensteuer zwischen ca. 2% und 15%. ${sectorName ? `In der Branche ${sectorName} ${esc(deCantonPrep)} ` : ''}Nutzen Sie unseren Simulator für eine individuelle Berechnung.</dd><dt><strong>Brauchen Grenzgänger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren je nach Kanton, Versicherungsmodell und Franchise. Vergleichen Sie die Prämien mit unserem <a href="${BASE_URL}/de/dienste-vergleichen/krankenversicherung/">KVG-Vergleich</a>.</dd></dl></section>`,
- fr: `<section class="section"><h4>Questions fréquentes</h4><dl><dt><strong>Quel est le salaire net pour un frontalier ${esc(frCantonPrep)} ?</strong></dt><dd>Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. Dans le Canton du ${esc(dc)}, l'impôt à la source varie d'environ 2% à 15%. ${sectorName ? `Dans le secteur ${sectorName} ${esc(frCantonPrep)} ` : ''}Utilisez notre simulateur pour un calcul personnalisé.</dd><dt><strong>Les frontaliers doivent-ils souscrire à la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois suivant le début du travail. Les primes varient selon le canton, le modèle d'assurance et la franchise. Comparez les primes avec notre <a href="${BASE_URL}/fr/comparer-services/assurance-maladie/">comparateur LAMal</a>.</dd></dl></section>`,
+ it: `<section class="section"><h4>Domande frequenti</h4><dl><dt><strong>Qual è lo stipendio netto per un frontaliere in ${esc(dc)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa. ${sectorName ? `Nel settore ${sectorName} in ${esc(dc)} ` : ''}Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. Confronta i premi con il nostro <a href="${BASE_URL}/premi-cassa-malati/">comparatore LAMal</a>.</dd></dl></section>`,
+ en: `<section class="section"><h4>Frequently asked questions</h4><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(dc)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%. ${sectorName ? `In the ${sectorName} sector in ${esc(dc)} ` : ''}Use our simulator for a personalised calculation.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work. Premiums vary by canton, insurance model and deductible. Compare premiums with our <a href="${BASE_URL}/en/health-insurance-premiums/">LAMal comparator</a>.</dd></dl></section>`,
+ de: `<section class="section"><h4>Häufig gestellte Fragen</h4><dl><dt><strong>Wie hoch ist das Nettogehalt für Grenzgänger ${esc(deCantonPrep)}?</strong></dt><dd>Das Nettogehalt hängt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(dc)} liegt die Quellensteuer zwischen ca. 2% und 15%. ${sectorName ? `In der Branche ${sectorName} ${esc(deCantonPrep)} ` : ''}Nutzen Sie unseren Simulator für eine individuelle Berechnung.</dd><dt><strong>Brauchen Grenzgänger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren je nach Kanton, Versicherungsmodell und Franchise. Vergleichen Sie die Prämien mit unserem <a href="${BASE_URL}/de/krankenkassenpraemien/">KVG-Vergleich</a>.</dd></dl></section>`,
+ fr: `<section class="section"><h4>Questions fréquentes</h4><dl><dt><strong>Quel est le salaire net pour un frontalier ${esc(frCantonPrep)} ?</strong></dt><dd>Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. Dans le Canton du ${esc(dc)}, l'impôt à la source varie d'environ 2% à 15%. ${sectorName ? `Dans le secteur ${sectorName} ${esc(frCantonPrep)} ` : ''}Utilisez notre simulateur pour un calcul personnalisé.</dd><dt><strong>Les frontaliers doivent-ils souscrire à la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois suivant le début du travail. Les primes varient selon le canton, le modèle d'assurance et la franchise. Comparez les primes avec notre <a href="${BASE_URL}/fr/primes-assurance-maladie/">comparateur LAMal</a>.</dd></dl></section>`,
  };
  const hubLinks = (() => {
  const matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
@@ -1605,7 +1605,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
 
- // Legacy redirect: if non-IT locale and Italian slug differs from locale slug,
+ // Legacy redirect: if non-IT locale and Italian slug differs
  // generate redirect from Italian-slug-in-non-IT-locale → canonical URL
  if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
  const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
@@ -1617,7 +1617,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  body: `Questa URL legacy dell annuncio non e la versione principale. Usa la pagina canonica per contenuto e metadati aggiornati.`,
  ctaLabel: String(localizedTitle || 'Apri annuncio'),
  lang: locale,
- noindex: true,
+ noindex: false,
  });
  const legacyDir = np.join(distDir, legacyRel);
  if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
@@ -2253,7 +2253,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell azienda per gli annunci aggiornati.`,
  ctaLabel: String(companyName || 'Apri azienda'),
  lang: locale,
- noindex: true,
+ noindex: false,
  });
  const rawDir = np.join(distDir, rawRelPath);
  if (!fs.existsSync(np.join(rawDir, 'index.html'))) {
@@ -2424,7 +2424,9 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  .join('\n');
  const openAllHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.sections.cities.length > 0
- ? model.sections.cities.map((city) => `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`).join('')
+ ? model.sections.cities.map((city) => city.href
+     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`
+     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></div>`).join('')
  : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
  const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:#eef2ff;color:#3730a3;text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -2871,7 +2873,9 @@ ${alternates}
  .join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.cityLinks.length > 0
- ? model.cityLinks.map((city) => `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`).join('')
+ ? model.cityLinks.map((city) => city.href
+     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`
+     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></div>`).join('')
  : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -5389,10 +5393,10 @@ ${hreflangLinks}
 
  // --- FAQ section (always shown — adds ~80 words of unique Q&A content) ---
  const lamalUrl: Record<string, string> = {
- it: `${BASE_URL}/compara-servizi/assicurazione-malattia/`,
- en: `${BASE_URL}/en/compare-services/health-insurance/`,
- de: `${BASE_URL}/de/dienste-vergleichen/krankenversicherung/`,
- fr: `${BASE_URL}/fr/comparer-services/assurance-maladie/`,
+ it: `${BASE_URL}/premi-cassa-malati/`,
+ en: `${BASE_URL}/en/health-insurance-premiums/`,
+ de: `${BASE_URL}/de/krankenkassenpraemien/`,
+ fr: `${BASE_URL}/fr/primes-assurance-maladie/`,
  };
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Domande frequenti</h2><dl><dt><strong>Qual \u00e8 lo stipendio netto per un frontaliere in ${esc(displayCanton)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(displayCanton)} l'imposta alla fonte varia dal 2% al 15% circa. Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. <a href="${lamalUrl.it}">Confronta i premi LAMal</a>.</dd></dl></section>`);

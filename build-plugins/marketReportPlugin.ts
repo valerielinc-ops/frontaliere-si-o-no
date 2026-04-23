@@ -40,6 +40,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { CITY_HUB_KEYS } from './cityJobsHub';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -470,11 +471,21 @@ function renderReport(opts: {
     `<a href="${esc(e.url ?? '#')}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(e.name)}</a>`,
     formatNumber(e.count),
   ]);
-  const topCitiesRows = topCities.map((c, i) => [
-    `#${i + 1}`,
-    `<a href="${esc(c.url ?? '#')}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(c.name)}</a>`,
-    formatNumber(c.count),
-  ]);
+  const cityHubSet = new Set<string>(CITY_HUB_KEYS as readonly string[]);
+  const cityHubBase: Record<Locale, string> = {
+    it: '/cerca-lavoro-ticino',
+    en: '/en/find-jobs-ticino',
+    de: '/de/jobs-im-tessin',
+    fr: '/fr/trouver-emploi-tessin',
+  };
+  const cityHubHref = (key: string): string | null => cityHubSet.has(key) ? `${cityHubBase[locale]}/${key}/` : null;
+  const topCitiesRows = topCities.map((c, i) => {
+    const href = cityHubHref(c.key);
+    const cell = href
+      ? `<a href="${esc(href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(c.name)}</a>`
+      : `<span style="color:#0f172a;font-weight:600">${esc(c.name)}</span>`;
+    return [`#${i + 1}`, cell, formatNumber(c.count)];
+  });
 
   const topEmployersTable = topEmployers.length > 0
     ? renderTable([copy.rankLabel, copy.employerLabel, copy.openingsLabel], topEmployersRows)
@@ -488,11 +499,13 @@ function renderReport(opts: {
     `<a href="${esc(e.url ?? '#')}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(e.name)}</a>`,
     esc(formatCHF(e.avgMid)),
   ]);
-  const topSalaryLocationsRows = topSalaryLocations.map((l, i) => [
-    `#${i + 1}`,
-    `<a href="${esc(l.url ?? '#')}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(l.name)}</a>`,
-    esc(formatCHF(l.avgMid)),
-  ]);
+  const topSalaryLocationsRows = topSalaryLocations.map((l, i) => {
+    const href = cityHubHref(l.key);
+    const cell = href
+      ? `<a href="${esc(href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(l.name)}</a>`
+      : `<span style="color:#0f172a;font-weight:600">${esc(l.name)}</span>`;
+    return [`#${i + 1}`, cell, esc(formatCHF(l.avgMid))];
+  });
   const topSalaryCompaniesTable = topSalaryCompanies.length > 0
     ? renderTable([copy.rankLabel, copy.employerLabel, copy.avgSalaryLabel], topSalaryCompaniesRows)
     : '';
@@ -512,15 +525,13 @@ function renderReport(opts: {
 
   // Breadcrumbs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
-  const reportsUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/reports/`.replace(/\/+$/, '/');
 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbReports, item: reportsUrl },
-      { '@type': 'ListItem', position: 3, name: copy.h1, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: copy.h1, item: canonicalUrl },
     ],
   });
 
@@ -594,8 +605,6 @@ function renderReport(opts: {
   const body = `
     <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
       <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
-      <span> / </span>
-      <a href="${esc(reportsUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbReports)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>

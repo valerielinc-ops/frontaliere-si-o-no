@@ -221,8 +221,6 @@ function renderPage(opts: {
     return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
   }).filter(Boolean).join('\n');
 
-  const sectionRoot = `${BASE_URL}${ORPHAN_LANDING_LOCALE_PREFIX[locale]}/${ORPHAN_LANDING_SECTION[locale]}/`.replace(/([^:])\/+/g, '$1/');
-
   const jobBoardRoot: Record<OrphanLandingLocale, string> = {
     it: '/cerca-lavoro-ticino/',
     en: '/en/find-jobs-ticino/',
@@ -293,8 +291,7 @@ function renderPage(opts: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: t('orphanLanding.breadcrumbHome', 'Home'), item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: t('orphanLanding.breadcrumbSection', 'Ricerca'), item: sectionRoot },
-      { '@type': 'ListItem', position: 3, name: cluster.canonicalQuery, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: cluster.canonicalQuery, item: canonicalUrl },
     ],
   });
 
@@ -316,8 +313,6 @@ function renderPage(opts: {
   const body = `
     <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
       <a href="${BASE_URL}/" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(t('orphanLanding.breadcrumbHome', 'Home'))}</a>
-      <span> / </span>
-      <a href="${esc(sectionRoot)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(t('orphanLanding.breadcrumbSection', 'Ricerca'))}</a>
       <span> / </span>
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
