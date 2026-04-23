@@ -11254,6 +11254,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore': {
+    title: 'Valbianca in forti difficoltà: Airolo | Frontaliere Ticino',
+    description: 'Il comune di Airolo investe 1,5 milioni di franchi per salvare Valbianca, un\'azienda in difficoltà. Scopri le implicazioni per i frontalieri e come monitorare',
+    keywords: 'frontalieri, ticino, svizzera, italia, valbianca, forti, difficoltà, airolo',
+    ogTitle: 'Valbianca in forti difficoltà: Airolo mette 1,5 milioni e',
+    ogDescription: 'Il comune di Airolo investe 1,5 milioni di franchi per salvare Valbianca, un\'azienda in difficoltà. Scopri le implicazioni per i frontalieri e come monitorare',
+    canonicalPath: '/articoli-frontaliere/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Valbianca in forti difficoltà: Airolo mette 1,5 milioni e aumenta il moltiplicatore",
+      "description": "Il comune di Airolo investe 1,5 milioni di franchi per salvare Valbianca, un'azienda in difficoltà. Scopri le implicazioni per i frontalieri e come monitorare",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio panoramico di Bellinzona con architettura tipica Ticino"
+      },
+      "datePublished": "2026-04-23T04:03:56+00:00",
+      "dateModified": "2026-04-23T04:03:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

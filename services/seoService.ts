@@ -2077,6 +2077,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-academy-fnma-autisti-bus-2026': { name: 'Academy FNMA', path: '/articoli-frontaliere/academy-fnma-autisti-bus-2026', parent: 'blog' },
     'blog-patentino-digitale-lombardia-2026': { name: 'Novità', path: '/articoli-frontaliere/patentino-digitale-lombardia-2026', parent: 'blog' },
     'blog-chiamate-shock-arresti-locarnese-2024': { name: 'Novità', path: '/articoli-frontaliere/chiamate-shock-arresti-locarnese-2024', parent: 'blog' },
+    'blog-valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore', parent: 'blog' },
  };
 
  const info = sectionNames[section];

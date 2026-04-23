@@ -2523,6 +2523,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiamate-shock-arresti-locarnese-2024.title': 'Truffe agli anziani: due arresti nel Locarnese',
     'blog.article.chiamate-shock-arresti-locarnese-2024.excerpt': 'Due cittadini cechi arrestati per truffe telefoniche ai danni di anziani a Gordola. Recuperata la refurtiva.',
     'blog.article.chiamate-shock-arresti-locarnese-2024.imageAlt': 'Veduta di Locarno, con il lago e le montagne sullo sfondo',
+    'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.title': 'Valbianca in forti difficoltà: Airolo mette 1,5 milioni e aumenta il moltiplicatore',
+    'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.excerpt': 'Il comune di Airolo risponde con un contributo di 1,5 milioni per salvare Valbianca, un\'azienda in difficoltà.',
+    'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.imageAlt': 'Paesaggio panoramico di Bellinzona con architettura tipica Ticino',
 };
 
 export default blogMetaIt;

@@ -2523,6 +2523,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiamate-shock-arresti-locarnese-2024.title': 'Scams targeting the elderly: two arrests in the Locarno area',
     'blog.article.chiamate-shock-arresti-locarnese-2024.excerpt': 'Two Czech citizens arrested for telephone scams targeting the elderly in Gordola. Stolen goods recovered.',
     'blog.article.chiamate-shock-arresti-locarnese-2024.imageAlt': 'View of Locarno, with the lake and mountains in the background',
+    'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.title': 'Airolo steps in with 1.5 million to save Valbianca',
+    'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.excerpt': 'The municipality of Airolo responds with a contribution of 1.5 million to save Valbianca, a company in difficulty.',
+    'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.imageAlt': 'Panoramic view of Bellinzona with typical Ticino architecture',
 };
 
 export default blogMetaEn;

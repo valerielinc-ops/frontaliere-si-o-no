@@ -6867,4 +6867,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/chiamate-shock-arresti-locarnese-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore',
+ category: 'novita',
+ date: '2026-04-23T04:03:56.607Z',
+ image: '/images/blog/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.jpg',
+ hasCalculator: true,
+ },
 ];
