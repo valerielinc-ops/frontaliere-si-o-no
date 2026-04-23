@@ -753,6 +753,7 @@ const translations: Record<string, string> = {
  'jobBoard.adviceTitle': 'Consiglio candidatura',
  'jobBoard.adviceDescription': 'Personalizza CV e lettera in base a ruolo, località e requisiti sopra: migliora la qualità della candidatura.',
  'jobBoard.adviceCta': 'Vai alla candidatura',
+ 'jobBoard.expiredAdviceCta': 'Vedi offerte simili attive',
  'jobBoard.salaryEstimate.frontaliere': 'Netto Frontaliere (Permesso G)',
  'jobBoard.salaryEstimate.resident': 'Netto Residente CH (Permesso B)',
  'jobBoard.salaryEstimate.monthly': '{min} – {max} /mese',
