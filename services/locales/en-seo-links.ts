@@ -9,6 +9,18 @@ const enSeoLinks: Record<string, string> = {
   'seoLinks.footer.healthPremiums': 'Health-insurance premiums',
   'seoLinks.footer.newYesterday': 'New jobs since yesterday',
 
+  // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
+  'seoLinks.footer.weeklyEmployersTeaser.title': 'Companies hiring this week',
+
+  // Homepage Quick Links grid (reduces crawl depth of border-wait + fuel pages)
+  'seoLinks.quickLinks.title': 'Quick links',
+  'seoLinks.quickLinks.ariaLabel': 'Quick links to top pages',
+  'seoLinks.quickLinks.trafficHub': 'Border wait times',
+  'seoLinks.quickLinks.trafficHubDesc': 'Live wait times at Swiss-Italian crossings',
+  'seoLinks.quickLinks.fuelToday': "Today's diesel price",
+  'seoLinks.quickLinks.fuelTodayDesc': 'Updated every morning',
+  'seoLinks.quickLinks.crossingDesc': "Today's wait time",
+
   // Home banner (SeoDailyBanner)
   'seoLinks.banner.fuelTitle': "Today's diesel price",
   'seoLinks.banner.fuelDesc': 'Updated every morning for all of Ticino',

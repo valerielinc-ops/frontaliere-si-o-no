@@ -9,6 +9,18 @@ const deSeoLinks: Record<string, string> = {
   'seoLinks.footer.healthPremiums': 'Krankenkassenprämien',
   'seoLinks.footer.newYesterday': 'Neue Stellen seit gestern',
 
+  // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
+  'seoLinks.footer.weeklyEmployersTeaser.title': 'Arbeitgeber, die diese Woche einstellen',
+
+  // Homepage Quick Links grid (reduces crawl depth of border-wait + fuel pages)
+  'seoLinks.quickLinks.title': 'Schnellzugriff',
+  'seoLinks.quickLinks.ariaLabel': 'Schnellzugriff auf meistbesuchte Seiten',
+  'seoLinks.quickLinks.trafficHub': 'Wartezeiten an der Grenze',
+  'seoLinks.quickLinks.trafficHubDesc': 'Aktuelle Wartezeiten an den Tessiner Grenzübergängen',
+  'seoLinks.quickLinks.fuelToday': 'Dieselpreis heute',
+  'seoLinks.quickLinks.fuelTodayDesc': 'Jeden Morgen aktualisiert',
+  'seoLinks.quickLinks.crossingDesc': 'Wartezeit heute',
+
   // Home banner (SeoDailyBanner)
   'seoLinks.banner.fuelTitle': 'Dieselpreis heute',
   'seoLinks.banner.fuelDesc': 'Jeden Morgen im ganzen Tessin aktualisiert',
