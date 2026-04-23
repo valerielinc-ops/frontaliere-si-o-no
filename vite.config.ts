@@ -35,6 +35,7 @@ import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandi
 import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPlugin';
 import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 import { marketReportPlugin } from './build-plugins/marketReportPlugin';
+import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 
@@ -83,6 +84,10 @@ export default defineConfig(({ mode }) => {
  healthPremiumsLandingPlugin(__dirname),
  borderWaitPagesPlugin(__dirname),
  marketReportPlugin(__dirname),
+ // Sprint 5.1 — annual salary report. Must run AFTER jobMarketSnapshotPlugin
+ // so the job-market hub HTML is already on disk when we patch it with a
+ // callout linking to the annual report.
+ annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
