@@ -1,4 +1,4 @@
-import { useCallback, useRef, type KeyboardEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface SubTabItem<K extends string = string> {
@@ -15,6 +15,30 @@ interface SubTabNavProps<K extends string> {
 
 export function SubTabNav<K extends string>({ items, activeKey, onSelect }: SubTabNavProps<K>) {
  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+ const scrollRef = useRef<HTMLDivElement | null>(null);
+ const [hasScrollEnd, setHasScrollEnd] = useState(false);
+
+ // Track whether the scroll container is scrolled to the rightmost end.
+ // When at the end, hide the right-edge gradient fade so users know there
+ // are no more tabs hidden to the right.
+ useEffect(() => {
+  const el = scrollRef.current;
+  if (!el) return;
+
+  const update = () => {
+   const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+   setHasScrollEnd(atEnd);
+  };
+
+  update();
+  el.addEventListener('scroll', update, { passive: true });
+  const ro = new ResizeObserver(update);
+  ro.observe(el);
+  return () => {
+   el.removeEventListener('scroll', update);
+   ro.disconnect();
+  };
+ }, []);
 
  const handleKeyDown = useCallback((e: KeyboardEvent<HTMLButtonElement>, index: number) => {
  let nextIndex: number | null = null;
@@ -48,7 +72,7 @@ export function SubTabNav<K extends string>({ items, activeKey, onSelect }: SubT
  <div className="border-t border-edge bg-surface">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-3">
  <div className="relative md:static">
- <div role="tablist" className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-8 md:pr-0 py-1">
+ <div ref={scrollRef} role="tablist" className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-8 md:pr-0 py-1">
  {items.map(({ key, icon: Icon, label }, index) => (
  <button
  key={key}
@@ -70,7 +94,12 @@ export function SubTabNav<K extends string>({ items, activeKey, onSelect }: SubT
  </button>
  ))}
  </div>
- <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-surface to-transparent md:hidden" />
+ {/* Right-edge gradient fade — signals more tabs to the right on mobile.
+      Hidden once the user has scrolled to the end of the list. */}
+ <div
+  aria-hidden="true"
+  className={`pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-surface to-transparent md:hidden transition-opacity duration-200 ${hasScrollEnd ? 'opacity-0' : 'opacity-100'}`}
+ />
  </div>
  </div>
  </div>
