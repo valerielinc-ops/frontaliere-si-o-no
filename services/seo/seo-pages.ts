@@ -4307,7 +4307,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Premi Malattia per Comune | Frontaliere Ticino',
  ogDescription: 'Scopri come variano i premi della cassa malati tra comuni svizzeri e quanto potresti risparmiare cambiando comune di residenza.',
  canonicalPath: '/statistiche/premi-malattia-comuni',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "Dataset",
  "name": "Premi cassa malati per comune svizzero",
@@ -4325,7 +4326,40 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "PropertyValue", "name": "Risparmio potenziale", "value": "Differenza cambiando comune di residenza" }
  ],
  "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/health-premiums.json` }]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/premi-malattia-comuni`,
+ "claimReviewed": "I premi LAMal variano sensibilmente tra cantoni e comuni svizzeri a parità di fascia d'età e modello assicurativo.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale della sanità pubblica (UFSP) — Premi dell'assicurazione malattie" },
+ "datePublished": "2025-09-30",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.priminfo.admin.ch/it/praemien", "name": "UFSP — Priminfo, confronto premi LAMal per regione" }
+ },
+ "reviewBody": "Dati ufficiali UFSP Priminfo 2026: variazione regionale documentata fino a +120% tra cantone con premio mediano più basso (Appenzello Interno) e più alto (Basilea Città), e differenze significative tra regioni di premio nello stesso cantone."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/premi-malattia-comuni`,
+ "claimReviewed": "Il residente in Svizzera può risparmiare centinaia di franchi l'anno cambiando comune o regione di premio all'interno dello stesso cantone.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge federale sull'assicurazione malattie (LAMal) art. 61 + OAMal art. 91" },
+ "datePublished": "1994-03-18",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1995/1328_1328_1328/it", "name": "Fedlex — LAMal art. 61 (fissazione dei premi per regione)" }
+ },
+ "reviewBody": "Art. 61 LAMal e art. 91 OAMal: le casse malati possono fissare premi diversi per regioni di premio riconosciute dall'UFSP. Esempio verificato 2026: in Canton Ticino passaggio Regione 1 (Lugano) → Regione 2 (comuni montani) comporta risparmio CHF 40-80/mese = CHF 500-1.000/anno per adulto."
  }
+ ]
  },
 
  ristorni: {
