@@ -233,7 +233,32 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
   Commit per profession. Auto-push on green.
   ```
 
-### AE-4. Geo cost-of-living landings — 6 cities (F4-D)
+### AE-4. Geo cost-of-living landings — 6 cities (F4-D) — SHIPPED 2026-04-23
+
+- **Status:** ✅ SHIPPED — commits `d535705a3` (FSO + ISTAT fetchers), `fc6a388d7` (plugin + 24 routes), `b618e39bb` (internal links).
+- **Live routes (6 cities × 4 locales = 24 pages):**
+  - IT: `/costo-vita-<city>-ticino/` (regional rollup collapsed to `/costo-vita-ticino/`)
+  - EN: `/en/cost-of-living-<city>-ticino/` (`/en/cost-of-living-ticino/` for rollup)
+  - DE: `/de/lebenshaltungskosten-<city>-tessin/` (`/de/lebenshaltungskosten-tessin/` for rollup)
+  - FR: `/fr/cout-vie-<city>-tessin/` (`/fr/cout-vie-tessin/` for rollup)
+- **Word counts (standalone verified via tsx smoke test):** min 521w (DE), max 750w (IT rollup), avg 643w — all 24 pages above the 500w IT / 400w EN/DE/FR bar.
+- **Data sources (canonical, unblocks F4-D data-source question):**
+  - `data/seo/fso-rental-medians.json` — Swiss FSO 2023 rent survey (table `je-d-09.03.01.02`, release 2024-12), 6 commune medians (1.5 / 2.5 / 3.5 / 4.5 rooms) + CHF/m²
+  - `data/seo/istat-cost-basket.json` — OMI H2 2024 rents + ISTAT Dec 2024 CPI basket (grocery, restaurant, transport, utilities, CPI index) for Como, Varese, Lecco, Sondrio
+  - Polite fetchers with 1 req/s HEAD probe + snapshot fallback: `scripts/fetch-fso-rental-medians.mjs`, `scripts/fetch-istat-cost-basket.mjs`
+  - Keyword + volume picks: `data/seo/ae4-cities.csv`
+- **JSON-LD emitted per page:** BreadcrumbList + Article + FAQPage (3 Q&As) + Place (City for 5 cities, AdministrativeArea for the rollup) + LocalBusiness. **Place + LocalBusiness emission also unblocks F4-F2** (LocalBusiness schema demand).
+- **Internal links wired:**
+  - `/compara-servizi/costo-della-vita/` (and 3 locale variants) now show a 6-card grid linking to every city page — `components/comparators/CostOfLiving.tsx`
+  - Every border-wait page cluster (`/traffico-dogane/<crossing>/oggi/` + locales) carries a city-specific cost-of-living cross-link via `CROSSING_TO_WEEKLY_CITY` mapping — `build-plugins/shared/relatedLinks.ts`
+- **Hub chrome + routing:** plugin renders hub sub-nav (`confronti / cost-of-living` active) via `hubChrome` opts on `buildSeoPageHtml`; `services/router.ts` matches the 24 URLs as `staticOverlay: true` so the SPA never replaces the static content (same pattern as nursing / comparisons landings).
+- **Gates passed on fresh working tree:** `npx tsc --noEmit` ✓ 0 errors · build exit 0 (sitemap-cost-of-living.xml + 24 URL entries emitted) · `npx vitest run tests/seo-completeness.test.ts tests/seo-description-length.test.ts tests/seo-localization.test.ts tests/faq-coverage.test.ts` ✓ 13,668 tests · standalone content smoke test ✓ 24/24 pages ≥500/400 w.
+
+### F4-F2 — LocalBusiness schema on confronti hub — SHIPPED 2026-04-23 (via AE-4)
+
+Previously blocked on the same FSO/ISTAT data-source decision. Unblocked as a by-product of AE-4: each of the 6 city landings emits a `LocalBusiness` schema that declares `areaServed` = the city + `serviceType` = cross-border consulting (salary sim, cost of living, permits). The 6 city pages each also emit a `Place` (City / AdministrativeArea) schema with `PostalAddress` + `GeoCoordinates`, giving Google 6 strong Place entities linked from the parent `/compara-servizi/costo-della-vita/` hub via the 6-card internal-links grid.
+
+### AE-4 (archived spec)
 
 - **Source:** PLAN-SPRINT-4 Task 4.13, F4-D
 - **Deliverable:** 6 sub-routes under `/costo-della-vita/{city}/` × 4 locales. Cities: Lugano (720), Mendrisio (170), Chiasso (140), Bellinzona (110), Locarno (90), Ticino region rollup (210).
