@@ -2535,6 +2535,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricarica-auto-elettriche-campione-2026.title': 'New ultra-fast charging stations for electric cars in Campione d\'Italia',
     'blog.article.ricarica-auto-elettriche-campione-2026.excerpt': 'Ewiva, an operator of the Enel Group, activates 3 ultra-fast charging stations in Campione d\'Italia, with 6 charging points for cross-border workers and tourists',
     'blog.article.ricarica-auto-elettriche-campione-2026.imageAlt': 'Electric car charging station in Campione d\'Italia by Lake Lugano',
+    'blog.article.cena-spring-avsi-libano-castiglione.title': 'Spring dinner for Lebanon: AVSI organizes event in Castiglione Olona',
+    'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'On Saturday, May 9th, in Castiglione Olona, the AVSI Foundation is promoting a charity dinner for the Lebanese communities affected by the war.',
+    'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Spring charity dinner event in a countryside estate supporting Lebanon',
 };
 
 export default blogMetaEn;

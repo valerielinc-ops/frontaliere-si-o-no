@@ -6895,4 +6895,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/ricarica-auto-elettriche-campione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cena-spring-avsi-libano-castiglione',
+ category: 'novita',
+ date: '2026-04-23T11:48:32.418Z',
+ image: '/images/blog/cena-spring-avsi-libano-castiglione.jpg',
+ hasCalculator: true,
+ },
 ];

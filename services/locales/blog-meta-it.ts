@@ -2535,6 +2535,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricarica-auto-elettriche-campione-2026.title': 'Nuove stazioni di ricarica ultraveloci per auto elettriche a Campione d\'Italia',
     'blog.article.ricarica-auto-elettriche-campione-2026.excerpt': 'Ewiva, operatore del Gruppo Enel, attiva 3 colonnine ultraveloci a Campione d\'Italia, con 6 punti di ricarica per frontalieri e turisti',
     'blog.article.ricarica-auto-elettriche-campione-2026.imageAlt': 'Stazione di ricarica per auto elettriche a Campione d\'Italia sul lago di Lugano',
+    'blog.article.cena-spring-avsi-libano-castiglione.title': 'Cena di primavera per il Libano: AVSI organizza evento a Castiglione Olona',
+    'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'Sabato 9 maggio a Castiglione Olona, la Fondazione AVSI promuove una cena benefica per le comunità libanesi colpite dalla guerra.',
+    'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Evento di primavera a sostegno del Libano in una tenuta di campagna',
 };
 
 export default blogMetaIt;

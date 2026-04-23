@@ -11370,6 +11370,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cena-spring-avsi-libano-castiglione': {
+    title: 'Cena di primavera per il Libano: AVSI | Frontaliere Ticino',
+    description: 'Sabato 9 maggio 2026 a Castiglione Olona, la Fondazione AVSI organizza una cena benefica per le comunità libanesi colpite dalla guerra. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cena, primavera, libano, avsi',
+    ogTitle: 'Cena di primavera per il Libano | Frontaliere Ticino',
+    ogDescription: 'Sabato 9 maggio 2026 a Castiglione Olona, la Fondazione AVSI organizza una cena benefica per le comunità libanesi colpite dalla guerra.',
+    canonicalPath: '/articoli-frontaliere/cena-spring-avsi-libano-castiglione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cena di primavera per il Libano: AVSI organizza evento a Castiglione Olona",
+      "description": "Sabato 9 maggio 2026 a Castiglione Olona, la Fondazione AVSI organizza una cena benefica per le comunità libanesi colpite dalla guerra. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cena-spring-avsi-libano-castiglione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di primavera a sostegno del Libano in una tenuta di campagna"
+      },
+      "datePublished": "2026-04-23T11:48:32+00:00",
+      "dateModified": "2026-04-23T11:48:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cena-spring-avsi-libano-castiglione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

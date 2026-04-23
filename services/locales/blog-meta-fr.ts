@@ -2535,6 +2535,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ricarica-auto-elettriche-campione-2026.title': 'Nouvelles stations de recharge ultra-rapides pour voitures électriques à Campione d\'Italie',
     'blog.article.ricarica-auto-elettriche-campione-2026.excerpt': 'Ewiva, opérateur du Groupe Enel, active 3 bornes ultra-rapides à Campione d\'Italie, avec 6 points de recharge pour les frontaliers et les touristes',
     'blog.article.ricarica-auto-elettriche-campione-2026.imageAlt': 'Station de recharge pour voitures électriques à Campione d\'Italie au lac de Lugano',
+    'blog.article.cena-spring-avsi-libano-castiglione.title': 'Dîner de printemps pour le Liban : AVSI organise un événement à Castiglione Olona',
+    'blog.article.cena-spring-avsi-libano-castiglione.excerpt': 'Samedi 9 mai à Castiglione Olona, la Fondation AVSI organise un dîner de bienfaisance pour les communautés libanaises touchées par la guerre.',
+    'blog.article.cena-spring-avsi-libano-castiglione.imageAlt': 'Dîner de printemps de bienfaisance dans un domaine rural pour soutenir le Liban',
 };
 
 export default blogMetaFr;
