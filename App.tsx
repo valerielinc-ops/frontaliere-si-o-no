@@ -2089,8 +2089,12 @@ const App: React.FC = () => {
  </div>
  ) : activeTab === 'calculator' ? (
  <>
+ <CalcolatoreTabContent />
  {calcolatoreSubTab === 'calculator' && !seoLanding && (
  <>
+ <h2 className="text-sm font-bold uppercase tracking-wider text-subtle mt-12 mb-4">
+ Hub rapidi frontaliere
+ </h2>
  <Suspense fallback={null}>
  <SeoDailyBanner className="mb-4" />
  </Suspense>
@@ -2099,7 +2103,6 @@ const App: React.FC = () => {
  </Suspense>
  </>
  )}
- <CalcolatoreTabContent />
  </>
  ) : activeTab === 'confronti' ? (
  <ConfrontiTabContent />
