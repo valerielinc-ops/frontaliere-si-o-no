@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-04-22T22:00:30.743Z",
-  "total": 4,
-  "newCount": 4,
+  "generatedAt": "2026-04-23T10:24:48.659Z",
+  "total": 3,
+  "newCount": 3,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16765,
-  "avgDurationMs": 16765,
+  "durationMs": 17357,
+  "avgDurationMs": 17357,
   "durationHistory": [
-    16765
+    17357
   ],
   "newJobs": [
     {
@@ -40,48 +40,6 @@
       "sourceLang": "en",
       "salaryMin": 94000,
       "salaryMax": 127000,
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T21:27:48.251Z",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-us91lh",
-      "slug": "client-affiliation-partner-chiasso",
-      "company": "lastminute.com",
-      "title": "Client Affiliation Partner",
-      "location": "Chiasso",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000116463807&jobName=Client+Affiliation+Partner",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-31T21:27:48.251Z",
-      "addressLocality": "Chiasso",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "addressRegion": "TI",
