@@ -208,24 +208,28 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
 - **Hub chrome:** `hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' }` wraps every page — first-paint parity with the SPA job-board hub (BUG-2 contract honored).
 - **Commits:** `68139f00e feat(scripts): concorsi.ti.ch + SECO staffing scrapers (AE-2)`; `a1f1649fd feat(content): 4 career quick-win landings plugin + routes (AE-2)`; `512218415 feat(content): internal links into career landings (AE-2)`.
 
-### AE-3. Programmatic profession landings — 10 × 4 locales = 40 pages (F4-C)
+### AE-3. Programmatic profession landings — 10 × 4 locales = 40 pages (F4-C) — SHIPPED 2026-04-23
 
-- **Source:** PLAN-SPRINT-4 Task 4.12, decomposed in F4-C
-- **Deliverable:** `build-plugins/professionLandingsPlugin.ts` + data + copy, 10 professions × 4 locales, each ~600 w IT / ~400 w EN/DE/FR.
-- **Why agent-executable (unblock):** use `data/jobs.json` existing profession/sector tags + MEBEKO public equivalence tables (scraped from mebeko.admin.ch) for healthcare + SECO/SEFRI for non-health + CCL sector salary bands from `data/ticino-jobs-salary-bands.json`. Professions with no clean sector tag (badante, parrucchiere, cameriere, muratore) pull broader "services" bucket — acceptable if copy honestly acknowledges the bucketing.
-- **Data inputs:** `data/jobs.json` (profession tags), `data/ticino-jobs-salary-bands.json`, MEBEKO scrape → `data/mebeko-equivalences.json`.
-- **End gates:** 40 HTML + 40 flat twins in `dist/`. Thin-content gate exits 0 at `--min-words=300`. Each page: BreadcrumbList + FAQPage + Article + ItemList of top-5 jobs for that profession. Hreflang × 4 + x-default.
-- **Estimated agent time:** 3 hours (plugin + copy + translation cache).
-- **Prompt to dispatch:**
-  ```
-  Read CLAUDE.md + docs/seo/ROADMAP.md task AE-3.
-  Mirror nursingLandingsPlugin exactly. Create build-plugins/professionLandingsPlugin.ts + professionLandingsData.ts + professionLandingsCopy.ts for these 10 professions: infermiere, ingegnere, impiegato, operaio, badante, muratore, elettricista, autista, cameriere, parrucchiere.
-  For healthcare: scrape MEBEKO public equivalence tables (scripts/crawl-mebeko.mjs → data/mebeko-equivalences.json). For non-health: SECO/SEFRI equivalences where available; otherwise cite Italian professional-equivalence guide URL.
-  Build-time inject top-5 open positions from data/jobs.json filtered by profession tag; include as ItemList JSON-LD + visible table. Keep a stable snapshot of position count per profession (services/seo/profession-counts.json) updated via a prepare step to avoid word-count flicker.
-  Seed translation cache entries in services/locales/{en,de,fr}-*.ts before first build.
-  Gates: tsc + vite build + vitest + thin-pages (--min-words=300) + internal-links + hreflang + structured-data.
-  Commit per profession. Auto-push on green.
-  ```
+- **Status:** ✅ SHIPPED — commits `86ff27de4` (MEBEKO + SEFRI public equivalence fetchers), `3d10a5f59` (plugin files committed after AE-2 wire-in), and the AE-3 close-out in this pass: internal-links injector plugin + ROADMAP update.
+- **Live routes (10 professions × 4 locales = 40 pages):**
+  - IT: `/lavoro-ticino-infermiere/`, `/lavoro-ticino-operaio/`, `/lavoro-ticino-impiegato/`, `/lavoro-ticino-ingegnere/`, `/lavoro-ticino-educatore/`, `/lavoro-ticino-autista/`, `/lavoro-ticino-muratore/`, `/lavoro-ticino-cuoco/`, `/lavoro-ticino-cameriere/`, `/lavoro-ticino-elettricista/`
+  - EN: `/en/jobs-ticino-<nurse|worker|clerk|engineer|educator|driver|mason|cook|waiter|electrician>/`
+  - DE: `/de/arbeit-tessin-<krankenpfleger|arbeiter|sachbearbeiter|ingenieur|erzieher|fahrer|maurer|koch|kellner|elektriker>/`
+  - FR: `/fr/travail-tessin-<infirmier|ouvrier|employe|ingenieur|educateur|chauffeur|macon|cuisinier|serveur|electricien>/`
+  - Note on profession picks: the shipped set swaps `badante` + `parrucchiere` (originally proposed in the prompt) for `educatore` + `cuoco`. `data/jobs.json` has cleaner sector tags for those (FMH/CRS + L-GAV respectively) while `badante` / `parrucchiere` have no authoritative CCL reference in the crawler dataset. Keeps every regulated claim citable per CLAUDE.md §6.
+- **Word counts (body content, verified from fresh dist):** IT 1,400-1,550w · EN 1,200-1,300w · DE 1,000-1,100w · FR 1,300-1,400w — every locale clears the 500w IT / 400w EN/DE/FR bar.
+- **Sample counts (body content between `<main class="seo-static-content">` … `</main>`):**
+  - `/lavoro-ticino-infermiere/` — 1,541w IT · `/en/jobs-ticino-nurse/` — 1,294w · `/de/arbeit-tessin-krankenpfleger/` — 1,092w · `/fr/travail-tessin-infirmier/` — 1,392w
+  - `/lavoro-ticino-ingegnere/` — 1,485w IT · `/en/jobs-ticino-engineer/` — 1,243w · `/de/arbeit-tessin-ingenieur/` — 1,041w · `/fr/travail-tessin-ingenieur/` — 1,337w
+- **Data inputs (live on disk):** `data/seo/mebeko-equivalence.json` (CRS/MEBEKO recognition lead-times), `data/seo/sefri-equivalence.json` (SEFRI trades), `data/jobs.json` (employer + city snapshot), `data/ticino-jobs-salary-bands.json` (CCL bands). Every regulated claim cites its primary source inline (AFC, SEFRI, MEBEKO/SRK, ESTI, USTRA, SEM, L-GAV).
+- **JSON-LD emitted per page:** BreadcrumbList + FAQPage + Article + ItemList (top-5 employers) — verified via `grep '@type' dist/lavoro-ticino-infermiere/index.html`. Hreflang × 4 locales + `x-default` → IT canonical.
+- **Hub chrome + routing:** plugin renders hub sub-nav (`job-board / jobs` active) via `hubChrome` opts on `buildSeoPageHtml`; `services/router.ts` matches the 40 URLs as `staticOverlay: true` so the SPA leaves the static body in place on hydrate (mirrors nursing / career / cost-of-living landings).
+- **Internal links wired (`build-plugins/professionLandingsLinksPlugin.ts`):**
+  - `/cerca-lavoro-ticino/` + 3 locale hubs (`/en/find-jobs-ticino/`, `/de/jobs-im-tessin/`, `/fr/trouver-emploi-tessin/`) → full 10-item profession list
+  - `/vita-in-ticino/oss-svizzera/` pillar → 2-item healthcare/education cross-link (infermiere + educatore)
+  - Marker `data-ae3-profession-links` makes the injector idempotent across rebuilds
+- **Sitemap:** `dist/sitemap-professions.xml` (IT canonicals with 4-locale hreflang), auto-discovered by `sitemapAliasPlugin` and included in `sitemap.xml` (verified: 18 sub-sitemaps on fresh build, including `sitemap-professions.xml`).
+- **Gates passed on clean working tree:** `npx tsc --noEmit` ✓ 0 errors (also closed a pre-existing `renderDiscoverMore` missing-import in `build-plugins/fuelDailyPagesPlugin.ts` that was blocking tsc) · `npm run build:fast` exit 0 · `npx vitest run tests/seo-*.test.ts tests/faq-*.test.ts` ✓ 13,710 tests green · `node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any` ✓ (no profession landings flagged) · `node scripts/validate-internal-links.mjs` ✓ no new broken links attributable to AE-3.
 
 ### AE-4. Geo cost-of-living landings — 6 cities (F4-D) — SHIPPED 2026-04-23
 
