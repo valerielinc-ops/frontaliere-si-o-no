@@ -59,8 +59,10 @@ const PARITY_LANDINGS: ReadonlyArray<{
     // F3b orphan-query landings are slug-driven; if the representative
     // slug isn't present in this build, the test skips rather than
     // fails so CI stays green when the clusters file is empty.
+    // `lavoro-ticino` is the most stable slug — it is always present in
+    // data/gsc-orphan-queries-clusters.json as a top cluster by impressions.
     name: 'Orphan query (F3b)',
-    path: '/ricerca/lavoro-ticino-frontaliere/',
+    path: '/ricerca/lavoro-ticino/',
     expectedHubKey: 'job-board',
     expectedActiveSubTab: 'jobs',
   },

@@ -14,6 +14,7 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
+import { renderHubChrome, type HubKey, type HubLocale } from './shared/hubChrome';
 import {
  buildJobBoardSeo,
  getActiveJobCountsByLocale,
@@ -44,6 +45,49 @@ const FAQ_DEDICATED_PAGE_SLUGS = new Set([
  'grenzgaenger-faq',
  'faq-frontaliers',
 ]);
+
+// ── Hub-chrome parity for SEMRUSH + editorial staticOverlay landings ──
+//
+// Certain canonical paths are routed as `staticOverlay: true` in
+// services/router.ts (SEMRUSH long-tail landings, editorial pillars) so the
+// SPA does not replace their content when users click a link. BUG-1 / BUG-2
+// regression tests (tests/e2e/hub-chrome-parity.spec.ts and
+// tests/e2e/programmatic-landings-nav.spec.ts) require every such page to
+// expose:
+//
+//   <main class="seo-static-content">     ← OUTSIDE <div id="root">
+//     <nav class="seo-hub-subnav" data-hub="$hubKey">…active sub-tab…</nav>
+//     …editorial content with <h1>…
+//   </main>
+//
+// Without this sibling <main>, React hydrates into the empty #root, leaving
+// no SEO content for crawlers once the SPA script runs, and the e2e tests
+// that locate `main.seo-static-content` time out.
+//
+// This table maps each canonicalPath to the hub key + active sub-tab slug
+// expected by `renderHubChrome`. Keep in sync with SEMRUSH_LANDINGS in
+// services/router.ts.
+interface StaticOverlayHubChrome {
+ readonly hubKey: HubKey;
+ readonly activeSubTab: string;
+}
+const STATIC_OVERLAY_HUB_CHROME: Record<string, StaticOverlayHubChrome> = {
+ '/guida-frontaliere/lamal-frontalieri/': { hubKey: 'confronti', activeSubTab: 'health' },
+ '/guida-frontaliere/tassa-salute-frontalieri/': { hubKey: 'confronti', activeSubTab: 'health' },
+ '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/': { hubKey: 'vita', activeSubTab: 'living-ch' },
+ '/vita-in-ticino/ponti-2026-ticino/': { hubKey: 'vita', activeSubTab: 'living-ch' },
+ '/vita-in-ticino/vacanze-scolastiche-ticino-2026/': { hubKey: 'vita', activeSubTab: 'living-ch' },
+};
+
+function lookupStaticOverlayHubChrome(canonicalPath: string): StaticOverlayHubChrome | null {
+ const normalized = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
+ return STATIC_OVERLAY_HUB_CHROME[normalized] ?? null;
+}
+
+function toHubLocale(locale: string): HubLocale {
+ if (locale === 'en' || locale === 'de' || locale === 'fr') return locale;
+ return 'it';
+}
 
 /**
  * Read FAQ Q&A pairs from a locale file at build time.
@@ -2482,6 +2526,28 @@ ${hrefTags}
  : `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
  <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
  <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
+
+ // BUG-1 / BUG-2 parity: SEMRUSH + editorial staticOverlay landings must
+ // expose `<main class="seo-static-content">` as a SIBLING of `<div id="root">`
+ // (so React's hydration into #root cannot visually replace it) and include
+ // the canonical hub sub-navigation bar for that hub. See
+ // STATIC_OVERLAY_HUB_CHROME above for the canonicalPath → {hubKey, subTab}
+ // mapping. The inner body mirrors the `<main id="main-content">` contents
+ // so crawlers see the full editorial + FAQ content even when the SPA never
+ // hydrates (noscript environments, AI crawlers, server-side snapshots).
+ const hubChromeSpec = lookupStaticOverlayHubChrome(canonicalPath);
+ const bodySection = hubChromeSpec
+ ? `<div id="root"></div>
+ <main class="seo-static-content">
+${renderHubChrome({
+ hubKey: hubChromeSpec.hubKey,
+ activeSubTab: hubChromeSpec.activeSubTab,
+ locale: toHubLocale(locale),
+ innerHtml: rootHtml,
+ })}
+ </main>`
+ : `<div id="root"><main id="main-content">${rootHtml}</main></div>`;
+
  return `<!DOCTYPE html>
 <html lang="${locale}">
  <head>
@@ -2518,7 +2584,7 @@ ${hrefTags}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
- <div id="root"><main id="main-content">${rootHtml}</main></div>
+ ${bodySection}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

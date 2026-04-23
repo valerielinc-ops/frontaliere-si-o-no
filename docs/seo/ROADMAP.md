@@ -47,6 +47,8 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
 
   `tests/e2e/hub-chrome-parity.spec.ts` asserts the `<nav class="seo-hub-subnav" data-hub="…">` + `[data-subtab-active="true"]` contract for each family.
 
+- **BUG-1/BUG-2 follow-up — SEMRUSH editorial staticOverlay landings**: `build-plugins/staticPagesPlugin.ts` now wraps the 5 SEMRUSH long-tail landings (`/guida-frontaliere/lamal-frontalieri/`, `/guida-frontaliere/tassa-salute-frontalieri/`, `/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/`, `/vita-in-ticino/ponti-2026-ticino/`, `/vita-in-ticino/vacanze-scolastiche-ticino-2026/`) in `<main class="seo-static-content">` *outside* `<div id="root">` with the canonical hub sub-navigation bar rendered via `renderHubChrome` (new `STATIC_OVERLAY_HUB_CHROME` registry in `staticPagesPlugin.ts`). Closes the gap where these editorial pillars — routed as `staticOverlay: true` but emitted by `staticPagesPlugin`, not by a programmatic-landing plugin — lacked the BUG-2 DOM contract. Also fixed the F3b test slug (`/ricerca/lavoro-ticino/`) and preserved BUG-1 regression coverage for LAMal.
+
 ### Technical fixes (Sprint 1 + extensions 1-3)
 
 - **Broken internal links 2051 → 0** — salary hub locale prefixes, nursing landings paths, weekly employers sibling filtering, job market snapshot employer URLs, editorial cross-links (commits `aa41cfe4e`, `7bdad31cb`)
