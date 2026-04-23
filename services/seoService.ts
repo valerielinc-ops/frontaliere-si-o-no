@@ -2112,6 +2112,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cena-spring-avsi-libano-castiglione': { name: 'Eventi', path: '/articoli-frontaliere/cena-spring-avsi-libano-castiglione', parent: 'blog' },
     'blog-permessi-dimora-grigioni-cambia-prassi': { name: 'Novità', path: '/articoli-frontaliere/permessi-dimora-grigioni-cambia-prassi', parent: 'blog' },
     'blog-divario-salariale-frontalieri-ticino-2026': { name: 'Divario salariale', path: '/articoli-frontaliere/divario-salariale-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-bandecchi-quarti-chiasso-2026': { name: 'Sport', path: '/articoli-frontaliere/bandecchi-quarti-chiasso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

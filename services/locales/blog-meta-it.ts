@@ -2544,6 +2544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'In Ticino il divario salariale tra residenti e frontalieri è del 19%',
     'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'Lo studio dell\'Ufficio di statistica del Canton Ticino rivela un divario salariale del 19,4% tra frontalieri e residenti, con una lieve riduzione rispetto al 2022.',
     'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Vista aerea del lago di Lugano con montagne e paesaggio urbano',
+    'blog.article.bandecchi-quarti-chiasso-2026.title': 'Bandecchi ai quarti a Chiasso: \'Qui mi sento a casa\'',
+    'blog.article.bandecchi-quarti-chiasso-2026.excerpt': 'La ticinese Susan Bandecchi raggiunge i quarti di finale dell\'Axion Open, sconfiggendo la croata Lucija Ciric Bagaric in due set.',
+    'blog.article.bandecchi-quarti-chiasso-2026.imageAlt': 'Susan Bandecchi celebra la vittoria agli Axion Open di Chiasso',
 };
 
 export default blogMetaIt;

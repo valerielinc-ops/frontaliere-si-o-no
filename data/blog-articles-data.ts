@@ -6916,4 +6916,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/divario-salariale-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bandecchi-quarti-chiasso-2026',
+ category: 'novita',
+ date: '2026-04-23T17:45:12.917Z',
+ image: '/images/blog/bandecchi-quarti-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ];

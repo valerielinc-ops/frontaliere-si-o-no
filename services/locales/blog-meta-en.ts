@@ -2544,6 +2544,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'In Ticino, the wage gap between residents and cross-border workers is 19%',
     'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'The study by the Canton Ticino\'s Statistical Office reveals a 19.4% wage gap between cross-border workers and residents, with a slight reduction compared to 2022.',
     'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and cityscape',
+    'blog.article.bandecchi-quarti-chiasso-2026.title': 'Bandecchi in the quarterfinals in Chiasso: \'I feel at home here\'',
+    'blog.article.bandecchi-quarti-chiasso-2026.excerpt': 'The Ticinese Susan Bandecchi reaches the quarterfinals of the Axion Open, defeating the Croatian Lucija Ciric Bagaric in two sets.',
+    'blog.article.bandecchi-quarti-chiasso-2026.imageAlt': 'Susan Bandecchi celebrates victory at Axion Open in Chiasso',
 };
 
 export default blogMetaEn;

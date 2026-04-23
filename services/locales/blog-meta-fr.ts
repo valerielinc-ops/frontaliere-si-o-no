@@ -2544,6 +2544,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'En Ticino, l\'écart salarial entre résidents et frontaliers est de 19%',
     'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'L\'étude de l\'Office de statistique du canton du Ticino révèle un écart salarial de 19,4% entre frontaliers et résidents, avec une légère réduction par rapport à 2022.',
     'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et paysage urbain',
+    'blog.article.bandecchi-quarti-chiasso-2026.title': 'Bandecchi en quart de finale à Chiasso : \'Je me sens comme chez moi\'',
+    'blog.article.bandecchi-quarti-chiasso-2026.excerpt': 'La Tessinoise Susan Bandecchi atteint les quarts de finale de l\'Axion Open, battant la Croate Lucija Ciric Bagaric en deux sets.',
+    'blog.article.bandecchi-quarti-chiasso-2026.imageAlt': 'Susan Bandecchi célèbre sa victoire aux Axion Open de Chiasso',
 };
 
 export default blogMetaFr;

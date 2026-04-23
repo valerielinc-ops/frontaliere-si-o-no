@@ -2544,6 +2544,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divario-salariale-frontalieri-ticino-2026.title': 'In Ticino beträgt die Lohnlücke zwischen Grenzgängern und Einheimischen 19%',
     'blog.article.divario-salariale-frontalieri-ticino-2026.excerpt': 'Die Studie des Statistischen Amtes des Kantons Ticino zeigt eine Lohnlücke von 19,4% zwischen Grenzgängern und Einheimischen, mit einer leichten Reduktion im Vergleich zu 2022.',
     'blog.article.divario-salariale-frontalieri-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Stadtpanorama',
+    'blog.article.bandecchi-quarti-chiasso-2026.title': 'Bandecchi im Viertelfinale in Chiasso: \'Hier fühle ich mich wie zu Hause\'',
+    'blog.article.bandecchi-quarti-chiasso-2026.excerpt': 'Die Tessinerin Susan Bandecchi erreicht das Viertelfinale der Axion Open, indem sie die Kroatin Lucija Ciric Bagaric in zwei Sätzen besiegt.',
+    'blog.article.bandecchi-quarti-chiasso-2026.imageAlt': 'Susan Bandecchi feiert den Sieg bei den Axion Open in Chiasso',
 };
 
 export default blogMetaDe;
