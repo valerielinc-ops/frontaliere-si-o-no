@@ -331,6 +331,14 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'outlet-fox-town-mendrisio',
       'ponti-2026-ticino',
       'vacanze-scolastiche-ticino-2026',
+      // Sprint 2 pillar pages — static HTML only, deep-link accessible,
+      // generated from `canonicalPath` by staticPagesPlugin (same pattern
+      // as the SemRush landings above). Not reachable via SPA sub-tab nav.
+      'pillarTasseSvizzere',
+      'pillarLavoroLugano',
+      'pillarNuovaLegge2026',
+      'pillarOssSvizzera',
+      'pillarStipendiChVsIt',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {
