@@ -211,3 +211,40 @@ Total estimate: **2-3 working days**.
 - Weekly Semrush position tracking on the 14 canonical keywords
 - GSC performance report: clicks should rise on canonicals, drop to 0 on deprecated URLs
 - If deprecated URLs still appear in SERPs after 4 weeks → use GSC removal tool
+
+---
+
+## Completion status (2026-04-23)
+
+### Landed
+
+- **Task 3.1 — Audit script**: `scripts/audit-cannibalization.mjs` ships.
+ Reads dist/, groups self-canonical pages by normalized `<title>` phrase,
+ skips JobPosting pages and whitelisted templated clusters. Current
+ baseline: 5 local clusters flagged (see follow-up doc).
+- **Task 3.2 — Redirect infrastructure**: already in place via
+ `build-plugins/legacyRedirectsPlugin.ts` (canonical-bridge HTML with
+ `noindex,follow` + flat .html twin for GitHub Pages). No change needed.
+- **Task 3.3 — Noindex on historical snapshots**: already enforced for
+ F4 (`jobMarketSnapshotPlugin`) and F5 (`weeklyEmployersPlugin`)
+ archives older than 12 weeks. This mechanically resolves clusters
+ **1 (casale lugano)**, **2 (guess stabio)**, and tangentially
+ **4 (roggiana)** and **11 (lamal 2026)**.
+- **Task 3.5 — Canonical consistency**: `tests/noindex-builders.test.ts`
+ + post-build canonical checks already green. No change needed.
+
+### Deferred to `PLAN-SPRINT-3-FOLLOWUP.md`
+
+- **Tasks 3.4, 3.6, 3.7**: require per-cluster loser-URL identification
+ from Semrush `phrase_organic` or GSC query-URL pairing. The 14 clusters
+ listed in this plan cite positions + volumes but not the specific loser
+ URLs. Semrush MCP integration (`mcp__semrush__*`) is available in the
+ workspace and is the recommended path to enumerate losers.
+- **Clusters 3, 5–10, 12–14**: cannot be resolved without that URL list.
+
+### New findings
+
+The audit script surfaced 5 real local cannibalization clusters (blog
+content duplicates) that were NOT in the original 14. See the follow-up
+doc for the suggested winners and why two of them should NOT be
+redirected (one is intent-split, one is a data-quality bug).
