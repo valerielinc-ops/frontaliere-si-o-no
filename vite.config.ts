@@ -40,6 +40,7 @@ import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
+import { professionLandingsLinksPlugin } from './build-plugins/professionLandingsLinksPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -121,6 +122,12 @@ export default defineConfig(({ mode }) => {
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
  comparisonsHubLinksPlugin(__dirname),
+ // AE-3 — inject profession-landings list into /cerca-lavoro-ticino/ (+ 3 locale
+ // job-board hubs) and a healthcare/education cross-link into the
+ // /vita-in-ticino/oss-svizzera/ pillar. Must run after staticPagesPlugin so
+ // the target HTML files already exist on disk. Idempotent via
+ // `data-ae3-profession-links` marker.
+ professionLandingsLinksPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),
