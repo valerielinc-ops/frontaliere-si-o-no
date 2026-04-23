@@ -39,6 +39,21 @@ shippable and keeps the test baseline green.
   `isLiveBroadcast: true`. Only emitted when the crossing has ≥1 registered
   webcam in `data/borderCrossings.ts`.
 
+- **Unit F4-E2 — 14 additional FAQ on Sprint 2 pillar pages** — shipped
+  2026-04-23 (commit `dd838ccb1`). 14 PAA-targeted Q/A added:
+  `pillarTasseSvizzere` +3 (dichiarazione redditi IT, cambio datore,
+  recupero imposta alla fonte TOU); `pillarLavoroLugano` +3 (zone di
+  Lugano, lingue richieste, smart working accordo 23/12/2023);
+  `pillarNuovaLegge2026` +3 (applicazione fuori Ticino, tredicesima
+  e bonus, deducibilità LPP in Italia); `pillarOssSvizzera` +3
+  (formazione ASSC 3 anni duale, differenze OSS/ASSC/infermiere,
+  turni e indennità CCL Sanità); `pillarStipendiChVsIt` +2 (potere
+  d'acquisto reale, ruoli dove non conviene il frontalierato). All
+  14 IT questions have matching EN/DE/FR entries in
+  `FAQ_TRANSLATIONS`. FAQ uniqueness gate green; seo-completeness
+  gate (13,615 tests) green; seo-description-length gate green;
+  tsc --noEmit clean.
+
 - **Unit F4-E1 — 6 FAQ additions on existing pages** — shipped 2026-04-23
   (commits `d392876d2` + `829ed2b30`). 18 PAA-targeted Q/A added (3 per page
   × 6 pages): `/`, `/guida-frontaliere`, `/calcola-stipendio`,
@@ -261,8 +276,8 @@ as unit F4-E1, and defer the Sprint-2-dependent 14 as F4-E2.
 4. **F4-B** (6 striking-distance optimisations, one at a time) — 0.5d each.
 5. **F4-A** (4 quick-win static pages via new careerLandings plugin) — 1.5d.
 6. **F4-C** (professionLandings plugin + 40 pages) — 2.5d.
-7. **F4-E2** (remaining 14 FAQ additions) — Sprint 2 pillars landed
-   (commit `d392876d2`), so the target slugs now exist. Unblocked.
+7. ✅ **F4-E2** (remaining 14 FAQ additions) — shipped 2026-04-23
+   (commit `dd838ccb1`). Sprint 2 pillars + FAQ translations landed.
 8. **F4-D** (cost-of-living cities) — blocked on data-source decision.
 9. **F4-F2** (Place/ItemList on cost-of-living hub) — blocked by F4-D.
 
