@@ -1,7 +1,75 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-04-22T21:46:15.360Z",
+  "assembledAt": "2026-04-23T10:10:20.448Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3984?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3984?c=groupemutuel&lang=fr-FR",
+      "title": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "description": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+        "it": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+        "en": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+        "de": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois"
+      },
+      "slug": "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-fribourg",
+      "slugByLocale": {
+        "fr": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "en": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "it": "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-fribourg",
+        "de": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+      },
+      "category": "claims",
+      "datePosted": "2026-04-23",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "jobReqId": "3984",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-2863b41f0fd1",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700",
+      "firstSeenAt": "2026-04-23T10:10:20.448Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3988?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3988?c=groupemutuel&lang=fr-FR",
@@ -224,7 +292,8 @@
       },
       "previousSlugs": [
         "sachbearbeiter-leistungen-m-w-100-temporar-6-monate-groupe-mutuel"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3944?c=groupemutuel&lang=fr-FR",
@@ -322,7 +391,8 @@
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -397,7 +467,8 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-16T21:40:55.557Z"
+      "firstSeenAt": "2026-04-16T21:40:55.557Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3962?c=groupemutuel&lang=fr-FR",
@@ -541,7 +612,8 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-04-15T21:41:29.166Z"
+      "firstSeenAt": "2026-04-15T21:41:29.166Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3971?c=groupemutuel&lang=fr-FR",
@@ -791,7 +863,8 @@
           "gestionnaire-sante-laa-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3967?c=groupemutuel&lang=fr-FR",
@@ -893,7 +966,8 @@
           "responsable-vente-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3927?c=groupemutuel&lang=fr-FR",
@@ -983,7 +1057,8 @@
           "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3926?c=groupemutuel&lang=fr-FR",
@@ -1081,7 +1156,8 @@
           "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3916?c=groupemutuel&lang=fr-FR",
@@ -1186,7 +1262,8 @@
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -1261,7 +1338,8 @@
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -1351,7 +1429,8 @@
           "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -1454,7 +1533,8 @@
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3765?c=groupemutuel&lang=fr-FR",
@@ -1634,7 +1714,8 @@
           "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3722?c=groupemutuel&lang=fr-FR",
@@ -1725,7 +1806,8 @@
         }
       },
       "postalCode": "6900",
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3696?c=groupemutuel&lang=fr-FR",
@@ -1827,7 +1909,8 @@
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
