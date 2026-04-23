@@ -11515,6 +11515,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegno-educativo-mendrisio-2026': {
+    title: 'Assegno educativo Mendrisio 2026 | Frontaliere Ticino',
+    description: 'Scadenza 30 giugno 2026 per richiedere l\'Assegno educativo, Contributo per colonie e Sussidio all\'alloggio a Mendrisio. Requisiti e procedure. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegno, educativo, mendrisio, scadenza',
+    ogTitle: 'Assegno educativo Mendrisio 2026: scadenza 30 giugno',
+    ogDescription: 'Scadenza 30 giugno 2026 per richiedere l\'Assegno educativo, Contributo per colonie e Sussidio all\'alloggio a Mendrisio. Requisiti e procedure.',
+    canonicalPath: '/articoli-frontaliere/assegno-educativo-mendrisio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegno educativo Mendrisio 2026: scadenza 30 giugno",
+      "description": "Scadenza 30 giugno 2026 per richiedere l'Assegno educativo, Contributo per colonie e Sussidio all'alloggio a Mendrisio. Requisiti e procedure. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/assegno-educativo-mendrisio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della città di Mendrisio con edifici svizzeri e italiani, famiglie che camminano per le strade."
+      },
+      "datePublished": "2026-04-23T20:41:29+00:00",
+      "dateModified": "2026-04-23T20:41:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assegno-educativo-mendrisio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

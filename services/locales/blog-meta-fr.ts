@@ -2550,6 +2550,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cantello-peduncolo-gaggiolo-2026.title': 'Cantello : Administration et Legambiente unies pour annuler le projet du \'pédoncule de Gaggiolo\'',
     'blog.article.cantello-peduncolo-gaggiolo-2026.excerpt': 'L\'administration communale et Legambiente Cantello demandent le retrait du projet de la super route à quatre voies entre l\'Italie et la Suisse.',
     'blog.article.cantello-peduncolo-gaggiolo-2026.imageAlt': 'Vue aérienne de Cantello, Italie, près de la frontière suisse, avec des champs agricoles et des infrastructures.',
+    'blog.article.assegno-educativo-mendrisio-2026.title': 'Allocation éducative Mendrisio 2026 : date limite le 30 juin',
+    'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Jusqu\'au 30 juin 2026 pour demander l\'Allocation éducative, la Contribution pour colonies et la Subvention de logement à Mendrisio. Conditions et procédures.',
+    'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Vue de la ville de Mendrisio avec l\'architecture suisse et italienne, des familles marchant dans les rues.',
 };
 
 export default blogMetaFr;

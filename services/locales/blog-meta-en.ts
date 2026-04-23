@@ -2550,6 +2550,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantello-peduncolo-gaggiolo-2026.title': 'Cantello: Administration and Legambiente united to cancel the \'Gaggiolo peduncle\' project',
     'blog.article.cantello-peduncolo-gaggiolo-2026.excerpt': 'The municipal administration and Legambiente Cantello request the removal of the project for the four-lane superhighway between Italy and Switzerland.',
     'blog.article.cantello-peduncolo-gaggiolo-2026.imageAlt': 'Aerial view of Cantello, Italy, near the Swiss border, with agricultural fields and infrastructure.',
+    'blog.article.assegno-educativo-mendrisio-2026.title': 'Mendrisio Educational Allowance 2026: Deadline June 30',
+    'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Until June 30, 2026, to apply for the Educational Allowance, Contribution for Camps, and Housing Subsidy in Mendrisio. Requirements and procedures.',
+    'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Mendrisio cityscape with Swiss and Italian architecture, families walking down the streets.',
 };
 
 export default blogMetaEn;

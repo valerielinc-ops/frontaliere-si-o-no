@@ -2550,6 +2550,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantello-peduncolo-gaggiolo-2026.title': 'Cantello: Verwaltung und Legambiente vereint, um das Projekt des \'Gaggiolo-Pedunculus\' zu streichen',
     'blog.article.cantello-peduncolo-gaggiolo-2026.excerpt': 'Die Gemeindeverwaltung und Legambiente Cantello fordern die Streichung des Projekts der vierstreifigen Superstraße zwischen Italien und der Schweiz.',
     'blog.article.cantello-peduncolo-gaggiolo-2026.imageAlt': 'Luftaufnahme von Cantello, Italien, in der Nähe der Schweizer Grenze, mit landwirtschaftlichen Feldern und Infrastruktur.',
+    'blog.article.assegno-educativo-mendrisio-2026.title': 'Bildungsgutschrift Mendrisio 2026: Frist 30. Juni',
+    'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Bis zum 30. Juni 2026 können die Bildungsgutschrift, der Beitrag für Ferienlager und die Wohnbeihilfe in Mendrisio beantragt werden. Voraussetzungen und Verfahren.',
+    'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Stadtbild von Mendrisio mit Schweizer und italienischer Architektur, Familien, die durch die Straßen gehen.',
 };
 
 export default blogMetaDe;

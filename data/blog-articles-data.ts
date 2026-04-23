@@ -6930,4 +6930,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cantello-peduncolo-gaggiolo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'assegno-educativo-mendrisio-2026',
+ category: 'pratico',
+ date: '2026-04-23T20:41:29.509Z',
+ image: '/images/blog/assegno-educativo-mendrisio-2026.jpg',
+ hasCalculator: true,
+ },
 ];

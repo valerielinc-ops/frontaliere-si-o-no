@@ -2550,6 +2550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantello-peduncolo-gaggiolo-2026.title': 'Cantello: Amministrazione e Legambiente unite per cancellare il progetto del \'peduncolo di Gaggiolo\'',
     'blog.article.cantello-peduncolo-gaggiolo-2026.excerpt': 'Amministrazione comunale e Legambiente Cantello chiedono lo stralcio del progetto della superstrada a quattro corsie tra Italia e Svizzera.',
     'blog.article.cantello-peduncolo-gaggiolo-2026.imageAlt': 'Vista aerea di Cantello, Italia, vicino al confine svizzero, con campi agricoli e infrastrutture.',
+    'blog.article.assegno-educativo-mendrisio-2026.title': 'Assegno educativo Mendrisio 2026: scadenza 30 giugno',
+    'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Fino al 30 giugno 2026 per richiedere l\'Assegno educativo, Contributo per colonie e Sussidio all\'alloggio a Mendrisio. Requisiti e procedure.',
+    'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Panorama della città di Mendrisio con edifici svizzeri e italiani, famiglie che camminano per le strade.',
 };
 
 export default blogMetaIt;
