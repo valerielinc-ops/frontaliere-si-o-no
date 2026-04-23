@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-23T11:00:26.796Z",
+  "generatedAt": "2026-04-23T22:34:11.748Z",
   "total": 19,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 29072,
-  "avgDurationMs": 29072,
+  "durationMs": 20397,
+  "avgDurationMs": 20397,
   "durationHistory": [
-    29072
+    20397
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,48 +55,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-stagiaire-fmaa-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-stagiaire-fmaa-2026.pdf",
-      "title": "Internship in Architecture and Technology",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "internship-in-architecture-and-technology-usi-mendrisio",
-      "department": "Academy of Architecture",
-      "category": "internship",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-0513d3b4e1fb",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
