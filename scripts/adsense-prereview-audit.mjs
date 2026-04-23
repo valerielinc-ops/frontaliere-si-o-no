@@ -117,7 +117,7 @@ function isLikelyUtilityOrErrorPage(url, html) {
     try { return new URL(url).pathname.toLowerCase(); } catch { return ''; }
   })();
   if (p.includes('/404') || p.includes('/errore') || p.includes('/not-found')) return true;
-  const t = String(html || '').toLowerCase();
+  const t = normalizeTextFromHtml(html).toLowerCase();
   return (
     t.includes('pagina non trovata') ||
     t.includes('page not found') ||
