@@ -34,6 +34,15 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CTA_PRIMARY_STYLE,
+  CARD_STYLE,
+  LINK_ACCENT_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
+} from './shared/seoContentTokens';
+import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
   buildProfessionLandingPath,
@@ -67,7 +76,7 @@ function inlineFormat(s: string): string {
   // (the attribute is already safe because the quote-escape happened before).
   const linked = bolded.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text: string, url: string) => {
     const safeUrl = url.replace(/&amp;/g, '&');
-    return `<a href="${esc(safeUrl)}" rel="noopener" style="color:var(--link,#1d4ed8);text-decoration:underline">${text}</a>`;
+    return `<a href="${esc(safeUrl)}" rel="noopener" style="color:var(--color-link);text-decoration:underline">${text}</a>`;
   });
   return linked;
 }
@@ -122,10 +131,10 @@ function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${inlineFormat(p)}</p>`,
+        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${inlineFormat(p)}</p>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--text-base,#0f172a)">${esc(title)}</h2>${ps}</section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderEmployersTable(
@@ -139,19 +148,19 @@ function renderEmployersTable(
     .map(
       (emp, i) => `
         <tr>
-          <td style="padding:8px 10px;border-bottom:1px solid var(--surface-border,#e2e8f0)">${esc(emp)}</td>
-          <td style="padding:8px 10px;border-bottom:1px solid var(--surface-border,#e2e8f0)">${esc(facts.topCities[i % facts.topCities.length])}</td>
+          <td style="${TABLE_CELL_STYLE}">${esc(emp)}</td>
+          <td style="${TABLE_CELL_STYLE}">${esc(facts.topCities[i % facts.topCities.length])}</td>
         </tr>`,
     )
     .join('');
   return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(title)}</h2>
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(title)}</h2>
     <div style="overflow-x:auto;max-width:860px">
-      <table style="border-collapse:collapse;width:100%;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);border-radius:12px">
+      <table style="border-collapse:collapse;width:100%;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px">
         <thead>
-          <tr style="background:var(--surface-alt,#f8fafc)">
-            <th style="padding:10px;text-align:left;border-bottom:1px solid var(--surface-border,#e2e8f0)">${esc(headings.employer)}</th>
-            <th style="padding:10px;text-align:left;border-bottom:1px solid var(--surface-border,#e2e8f0)">${esc(headings.city)}</th>
+          <tr>
+            <th style="${TABLE_HEAD_STYLE}">${esc(headings.employer)}</th>
+            <th style="${TABLE_HEAD_STYLE}">${esc(headings.city)}</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>
@@ -168,11 +177,11 @@ function renderSalaryBandTable(
   const facts = PROFESSION_FACTS[id];
   const [min, max] = facts.typicalSalaryRange;
   return `<section style="margin:0 0 28px;max-width:860px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(title)}</h2>
-    <div style="background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;padding:16px 18px">
-      <p style="margin:0 0 6px;color:var(--text-muted,#475569);font-size:13px">${esc(salaryLabel)}</p>
-      <p style="margin:0;font-size:22px;font-weight:700;color:var(--text-base,#0f172a)">CHF ${min.toLocaleString('en-CH')} &ndash; ${max.toLocaleString('en-CH')}</p>
-      <p style="margin:6px 0 0;color:var(--text-muted,#475569);font-size:12px">Mediana: CHF ${facts.medianSalaryChf.toLocaleString('en-CH')} &middot; dataset Frontaliere Ticino, ${facts.jobsCount} campioni</p>
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(title)}</h2>
+    <div style="${CARD_STYLE};padding:16px 18px">
+      <p style="margin:0 0 6px;color:var(--color-subtle);font-size:13px">${esc(salaryLabel)}</p>
+      <p style="margin:0;font-size:22px;font-weight:700;color:var(--color-body)">CHF ${min.toLocaleString('en-CH')} &ndash; ${max.toLocaleString('en-CH')}</p>
+      <p style="margin:6px 0 0;color:var(--color-subtle);font-size:12px">Mediana: CHF ${facts.medianSalaryChf.toLocaleString('en-CH')} &middot; dataset Frontaliere Ticino, ${facts.jobsCount} campioni</p>
     </div>
   </section>`;
 }
@@ -181,9 +190,9 @@ function renderFaqBlock(faqs: Array<{ question: string; answer: string }>): stri
   return faqs
     .map(
       (f) => `
-      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface,#ffffff)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--text-base,#0f172a);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${inlineFormat(f.answer)}</p>
+      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-body);line-height:1.45">${esc(f.question)}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${inlineFormat(f.answer)}</p>
       </details>`,
     )
     .join('');
@@ -203,12 +212,12 @@ function renderSourcesBlock(id: ProfessionId, label: string): string {
   const lis = items
     .map(
       (it) =>
-        `<li style="margin:0 0 6px"><a href="${esc(it.url)}" rel="noopener" style="color:var(--link,#1d4ed8)">${esc(it.label)}</a></li>`,
+        `<li style="margin:0 0 6px"><a href="${esc(it.url)}" rel="noopener" style="${LINK_ACCENT_STYLE}">${esc(it.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 24px;padding:14px 18px;border-left:4px solid var(--accent,#4f46e5);background:var(--surface,#ffffff);max-width:860px">
-    <h2 style="margin:0 0 8px;font-size:18px;color:var(--text-base,#0f172a)">${esc(label)}</h2>
-    <ul style="margin:0 0 0 20px;padding:0;color:var(--text-base,#0f172a);line-height:1.55;font-size:14px">${lis}</ul>
+  return `<section style="margin:0 0 24px;padding:14px 18px;border-left:4px solid var(--color-accent);background:var(--color-surface);max-width:860px">
+    <h2 style="margin:0 0 8px;font-size:18px;color:var(--color-body)">${esc(label)}</h2>
+    <ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;font-size:14px">${lis}</ul>
   </section>`;
 }
 
@@ -216,10 +225,10 @@ function renderRelatedLinks(locale: ProfessionLocale, label: string): string {
   const items = RELATED_LINKS[locale]
     .map(
       (l) =>
-        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(l.label)}</a></li>`,
+        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--text-base,#0f172a);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
 }
 
 function renderPage(opts: {
@@ -329,33 +338,33 @@ function renderPage(opts: {
   const sourcesHtml = renderSourcesBlock(id, copy.sourcesLabel);
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(jobBoardUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbJobs)}</a>
+      <a href="${esc(jobBoardUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbJobs)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
     <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
       <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0;color:var(--text-base,#0f172a);font-size:17px;line-height:1.65;max-width:860px">${inlineFormat(copy.lede)}</p>
+      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.65;max-width:860px">${inlineFormat(copy.lede)}</p>
     </header>
     ${salaryTable}
     ${sectionsHtml}
     ${employersTable}
     ${sourcesHtml}
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.faqTitle)}</h2>
+      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
     ${relatedHtml}
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(jobBoardUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
     </section>`;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
