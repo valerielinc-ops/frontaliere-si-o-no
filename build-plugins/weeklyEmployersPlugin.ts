@@ -1510,6 +1510,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
   });
 }
 
@@ -1974,6 +1975,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
   });
 }
 

@@ -1377,6 +1377,7 @@ function renderLeafPage(inp: LeafInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd, faqLd, productLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },
   });
 }
 
@@ -1622,6 +1623,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },
   });
 }
 
@@ -1780,6 +1782,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },
   });
 }
 

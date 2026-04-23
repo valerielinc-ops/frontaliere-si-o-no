@@ -404,6 +404,7 @@ function renderPage(opts: {
     jsonLdScripts,
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
   });
 
   return {

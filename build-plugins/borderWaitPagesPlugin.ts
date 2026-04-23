@@ -1175,6 +1175,7 @@ function renderLeafPage(inp: LeafInputs): string {
     jsonLdScripts,
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'guida', activeSubTab: 'border' },
   });
 }
 
@@ -1375,6 +1376,7 @@ function renderHubPage(inp: HubInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'guida', activeSubTab: 'border' },
   });
 }
 
@@ -1508,6 +1510,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     jsonLdScripts: [breadcrumbLd, webPageLd],
     bodyHtml,
     distDir,
+    hubChrome: { hubKey: 'guida', activeSubTab: 'border' },
   });
 }
 
