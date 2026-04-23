@@ -379,24 +379,46 @@ const App: React.FC = () => {
  return () => { cancelled = true; };
  }, []);
 
- // LinkedIn OAuth2 callback handler — processes /auth/linkedin/callback?code=XXX&state=YYY
+ // LinkedIn OAuth2 callback handler — processes ?code=XXX&state=YYY returned by LinkedIn.
+ // Expected path is /auth/linkedin/callback (restored client-side via sessionStorage after
+ // GitHub Pages' static callback page redirects to /). If the sessionStorage restoration fails
+ // (browser-specific quirks have been observed), the user lands on / with the query preserved.
+ // We detect the LinkedIn callback by (code|error)+state where state decodes to a path — our
+ // encoding signature — so the handler fires regardless of which pathname the browser ended up on.
  useEffect(() => {
  let cancelled = false;
  (async () => {
  try {
  const currentUrl = new URL(window.location.href);
- const path = currentUrl.pathname.replace(/\/+$/, '');
- if (path !== '/auth/linkedin/callback') return;
-
  const code = currentUrl.searchParams.get('code');
  const state = currentUrl.searchParams.get('state');
  const errorParam = currentUrl.searchParams.get('error');
 
+ // LinkedIn always returns a `state` param because we always send one.
+ // Absence of state → not our callback, bail early.
+ if (!state) return;
+ if (!code && !errorParam) return;
+
+ // Guard against accidental triggering on unrelated ?code=&state= params:
+ // our state is always encodeURIComponent(path) — so it must decode to a
+ // string starting with `/`. If it doesn't, this isn't our callback.
+ let decodedState: string;
+ try {
+ decodedState = decodeURIComponent(state);
+ } catch {
+ return;
+ }
+ if (!decodedState.startsWith('/')) return;
+
+ // Only handle on expected callback path OR on root (fallback when the
+ // sessionStorage-based SPA restoration from /auth/linkedin/callback/ fails).
+ const path = currentUrl.pathname.replace(/\/+$/, '') || '/';
+ if (path !== '/auth/linkedin/callback' && path !== '/') return;
+
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
- const redirectTo = state ? decodeURIComponent(state) : '/';
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'cancelled');
- window.history.replaceState(null, '', redirectTo);
+ window.history.replaceState(null, '', decodedState);
  return;
  }
 
@@ -438,9 +460,8 @@ const App: React.FC = () => {
  // Navigate to original path (from state param) or homepage.
  // Use location.replace so the SPA router re-parses the target route;
  // replaceState alone would leave stale tab/subtab state.
- const redirectTo = state ? decodeURIComponent(state) : '/';
  setLinkedInCallbackProcessing(false);
- window.location.replace(redirectTo);
+ window.location.replace(decodedState || '/');
  } catch (error) {
  if (cancelled) return;
  reportCaughtError(error, 'app.linkedInCallback');

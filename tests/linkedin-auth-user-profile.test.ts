@@ -123,6 +123,40 @@ describe('Frontend App.tsx — LinkedIn profile saving', () => {
   });
 });
 
+describe('App.tsx — LinkedIn callback path resilience', () => {
+  const source = readFileSync(resolve(root, 'App.tsx'), 'utf8');
+
+  const handlerStart = source.indexOf('// LinkedIn OAuth2 callback handler');
+  // The handler's own `useEffect(() => {` is the first match after the comment.
+  // We want the NEXT useEffect after the handler closes — skip two occurrences.
+  const firstUseEffect = source.indexOf('useEffect(() => {', handlerStart);
+  const handlerEnd = source.indexOf('useEffect(() => {', firstUseEffect + 1);
+  const callbackHandler = source.slice(handlerStart, handlerEnd);
+
+  it('does not hard-fail when pathname is / instead of /auth/linkedin/callback', () => {
+    // Regression: users whose browsers fail the sessionStorage-based SPA restoration
+    // land on /?code=...&state=... instead of /auth/linkedin/callback. The handler
+    // must still process the code in that case.
+    expect(callbackHandler).toContain("path !== '/auth/linkedin/callback' && path !== '/'");
+  });
+
+  it('requires state param to decode to a path (guards against false positives)', () => {
+    expect(callbackHandler).toContain("if (!decodedState.startsWith('/')) return;");
+  });
+
+  it('requires state param to be present', () => {
+    expect(callbackHandler).toContain('if (!state) return;');
+  });
+
+  it('returns early when neither code nor error is present', () => {
+    expect(callbackHandler).toContain('if (!code && !errorParam) return;');
+  });
+
+  it('uses the decoded state as redirect target after successful sign-in', () => {
+    expect(callbackHandler).toContain("window.location.replace(decodedState || '/')");
+  });
+});
+
 describe('UserProfile.tsx — profile persistence', () => {
   const source = readFileSync(resolve(root, 'components/pages/UserProfile.tsx'), 'utf8');
 
