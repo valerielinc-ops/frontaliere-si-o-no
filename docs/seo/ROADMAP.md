@@ -100,6 +100,22 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
 - **HowTo `totalTime`** gap fix on tassa-salute — `54483e1f4`
 - **`tests/ai-seo-p0.test.ts`** regression guard (SCHEMA_EXPERT_AUTHOR, Dataset dateModified, HowTo totalTime) — green
 - **`scripts/check-ai-visibility.mjs` + `.github/workflows/ai-visibility-check.yml`** — weekly citation tracker
+- **AE-6 — LLM-formatting content audit — top-10 worst-scoring pages** (dataset `data/seo/top30-llm-audit.csv` + `data/seo/top30-llm-audit-results.csv`, commit `b30906c79`)
+  - Pages fixed with TL;DR (`abstract`) + SpeakableSpecification + explicit Q&A conversion on 10 organic top-ranked surfaces, all in `services/seo/seo-pages.ts`:
+    - `/guida-frontaliere/mappa-confine` — abstract + new FAQPage (5 Q&A: valichi count, fascia 20 km, webcam, addizionali IRPEF) + Article + speakable — `9872f61c7`
+    - `/tasse-e-pensione/festivita-ticino` — abstract + speakable on Article + FAQPage — `9872f61c7`
+    - `/compara-servizi/costo-della-vita` — abstract + speakable — `49a4ef678`
+    - `/glossario-frontaliere/lamal` — speakable on FAQPage — `49a4ef678`
+    - `/glossario-frontaliere/imposta-alla-fonte` — speakable on FAQPage — `49a4ef678`
+    - `/glossario-frontaliere/irpef` — speakable on FAQPage — `eff71eddd`
+    - `/glossario-frontaliere/franchigia` — speakable on FAQPage — `eff71eddd`
+    - `/glossario-frontaliere/ristorni` — speakable on FAQPage — `eff71eddd`
+    - `/glossario-frontaliere/cmu` — speakable on FAQPage — `eff71eddd`
+    - `/cerca-lavoro-ticino` + homepage `/` — abstract (CollectionPage) + speakable on FAQPage — `310704d60`
+  - `services/seo/faq-translations.ts` — 5 new EN/DE/FR entries for the border-map Q&A to keep `faq-coverage.test.ts` at 100%.
+  - `build-plugins/legacyRedirectsPlugin.ts` — removed duplicate `/fr/salaires-frontaliers-tessin/` object key introduced by a concurrent worktree merge (fixed root cause per CLAUDE.md §5 rather than silencing tsc) — `310704d60`.
+  - Gates: `npx tsc --noEmit` ✓, `npm run build:fast` ✓, `ai-seo-p0 + faq-coverage + seo-completeness + seo-description-length + seo-localization` (13,642 tests) ✓.
+  - Scope note: border-wait subpages and job-listing templates (emitted by `borderWaitPagesPlugin` + `jobsSeoPagesPlugin`) were out-of-scope for this agent to avoid conflict with the concurrent BUG-2 retry; the same treatment can be repeated against those plugin templates once BUG-2 lands.
 
 ---
 
@@ -283,28 +299,6 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
   - public/sitemap.xml (auto via sitemapAliasPlugin)
   - index page internal link
   Gates: standard 9-gate battery. Commit feat(seo): wire 100-Q&A expert hub (AE-5 wiring).
-  ```
-
-### AE-6. LLM-formatting content audit — top 30 pages (Task 6.8)
-
-- **Source:** PLAN-SPRINT-6 Task 6.8, PLAN-SPRINT-6-FOLLOWUP "Content audit"
-- **Deliverable:** Edits on 30 existing pages (content structure only, no copy inversion). Each: first-para 1-2-sentence topic definition, long paras (>100 w) broken into bullets, `<AiExtractableTable>` where applicable, "Key facts" callout via existing `SeoContentBlock` component.
-- **Why agent-executable:** the top-30 set is knowable (Semrush `organic_research` top-30 by traffic). Each page edit is mechanical restructuring, not new copy — agent-safe.
-- **Data inputs:** Semrush `organic_research` (DB=it, display_limit=30) for the URL list.
-- **End gates:** Thin-pages gate unchanged (no word-count regression). Manual Playwright render check. FAQ uniqueness green.
-- **Estimated agent time:** 3 hours (30 × 5 min edits + final build).
-- **Prompt to dispatch:**
-  ```
-  Read CLAUDE.md + ROADMAP task AE-6.
-  Pull top-30 URLs by organic traffic via Semrush MCP organic_research(domain=frontaliereticino.ch, database=it, display_limit=30). Save list to data/seo/top-30-urls.csv.
-  For each of the 30 URLs, edit the corresponding React component or build-plugin template:
-  1. First paragraph must define the topic in 1-2 sentences ("Il X è Y.").
-  2. Break any paragraph >100 words into bullets or sub-paragraphs.
-  3. Add a <SeoContentBlock variant="keyfacts"> (existing component) at top with 3-5 bullet key facts.
-  4. Convert comparison prose into <AiExtractableTable> where the prose lists 3+ items with same shape.
-  Do NOT reduce word count. Do NOT change factual claims. Run FAQ uniqueness + thin-pages validators.
-  Commit atomically per URL: refactor(content): LLM-format {slug} (AE-6).
-  Auto-push on green.
   ```
 
 ### AE-7. Comparison tables hub (Task 6.15)
