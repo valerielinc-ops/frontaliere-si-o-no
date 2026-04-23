@@ -225,15 +225,27 @@ main.seo-static-content {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* Symmetric inline padding — explicit shorthand avoids any cascade asymmetry
+     that arose from scrollbar-gutter adding space on the right of the viewport. */
+  padding-inline: 1.25rem;
   box-sizing: border-box;
 }
 @media (min-width: 640px) {
-  main.seo-static-content { padding-left: 1.5rem; padding-right: 1.5rem; }
+  main.seo-static-content { padding-inline: 1.5rem; }
 }
 @media (min-width: 1024px) {
-  main.seo-static-content { padding-left: 2rem; padding-right: 2rem; }
+  main.seo-static-content { padding-inline: 2rem; }
+}
+/* At ≥1280px reserve a right-rail column (≥180px) so AdSense auto-ads
+   that are injected as fixed/absolute overlays outside main do not
+   cover the reading area. Content is left-aligned within max-width to
+   give the ad rail its own space outside the content column. */
+@media (min-width: 1280px) {
+  main.seo-static-content {
+    margin-left: 0;
+    margin-right: auto;
+    max-width: calc(100vw - 200px);
+  }
 }
 
 /* Static SEO card hover state (used by seoContentTokens renderers) */
