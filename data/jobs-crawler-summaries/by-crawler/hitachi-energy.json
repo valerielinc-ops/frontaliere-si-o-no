@@ -1,18 +1,49 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-04-22T21:50:58.169Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-04-23T10:15:19.506Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 39108,
-  "avgDurationMs": 39108,
+  "durationMs": 42192,
+  "avgDurationMs": 42192,
   "durationHistory": [
-    39108
+    42192
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Factory Digitalization and Automation Engineer 80 - 100% (f/m/d)",
+      "slug": "factory-digitalization-and-automation-engineer-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-190057",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Molinazzo-di-Monteggio-Ticino-Switzerland/Factory-Digitalization-and-Automation-Engineer-80---100---f-m-d-_R0122589/apply",
+      "company": "Hitachi Energy",
+      "companyKey": "hitachi-energy",
+      "companyDomain": "hitachienergy.com",
+      "location": "Molinazzo di Monteggio, Switzerland",
+      "addressLocality": "Molinazzo di Monteggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Management",
+      "source": "hitachi-energy-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-23",
+      "employmentType": "full-time",
+      "contractType": "regular",
+      "validThrough": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Technical Project Manager 80 – 100% (f/m/d)",
