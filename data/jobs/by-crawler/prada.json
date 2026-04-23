@@ -9,7 +9,7 @@
         "en": "prada-assistant-store-manager-prada-group-macau",
         "it": "prada-assistant-store-manager-prada-group-macau",
         "de": "prada-assistant-store-manager-prada-group-macau",
-        "fr": "prada-assistant-store-manager-prada-group-macau"
+        "fr": "gestionnaire-de-magasin-adjoint-prada-prada-group-macau"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -63,10 +63,10 @@
     },
     {
       "id": "prada-7072013fcc31",
-      "slug": "prada-sales-assistant-m-f-d-prada-group-roermond",
+      "slug": "assistente-alle-vendite-prada-m-f-g-prada-group-roermond",
       "slugByLocale": {
         "en": "prada-sales-assistant-m-f-d-prada-group-roermond",
-        "it": "prada-sales-assistant-m-f-d-prada-group-roermond",
+        "it": "assistente-alle-vendite-prada-m-f-g-prada-group-roermond",
         "de": "prada-sales-assistant-m-f-d-prada-group-roermond",
         "fr": "prada-sales-assistant-m-f-d-prada-group-roermond"
       },
@@ -118,7 +118,15 @@
         }
       },
       "postalCode": "6500",
-      "firstSeenAt": "2026-04-23T10:39:13.330Z"
+      "firstSeenAt": "2026-04-23T10:39:13.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-sales-assistant-m-f-d-prada-group-roermond"
+        ]
+      },
+      "previousSlugs": [
+        "prada-sales-assistant-m-f-d-prada-group-roermond"
+      ]
     },
     {
       "id": "prada-ed2c1fa6de42",

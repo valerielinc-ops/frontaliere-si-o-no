@@ -9,7 +9,7 @@
         "it": "student-in-come-ferienaushilfe-denner-thun",
         "en": "student-in-als-ferienaushilfe-denner-thun",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-thun"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -71,6 +71,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
@@ -1410,12 +1413,12 @@
     },
     {
       "id": "denner-39e0d4f74cba",
-      "slug": "ceo-assistent-in-denner",
+      "slug": "amministratore-delegato-denner-zurich",
       "slugByLocale": {
-        "it": "ceo-assistent-in-denner",
-        "en": "ceo-assistent-in-denner",
+        "it": "amministratore-delegato-denner-zurich",
+        "en": "ceo-assistant-in-denner-zurich",
         "de": "ceo-assistent-in-denner-zurich",
-        "fr": "ceo-assistent-in-denner"
+        "fr": "directeur-general-adjoint-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1488,7 +1491,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-23T09:57:09.166Z"
+      "firstSeenAt": "2026-04-23T09:57:09.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ceo-assistent-in-denner"
+        ],
+        "en": [
+          "ceo-assistent-in-denner"
+        ],
+        "fr": [
+          "ceo-assistent-in-denner"
+        ]
+      },
+      "previousSlugs": [
+        "ceo-assistent-in-denner"
+      ]
     },
     {
       "id": "denner-add5d94b9d66",

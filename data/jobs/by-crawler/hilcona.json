@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "it": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "en": "deputy-head-of-production-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "chef-adjoint-de-la-production-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -148,8 +148,8 @@
       "slugByLocale": {
         "de": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "it": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "en": "operating-electronics-maintenance-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "fonctionnement-de-l-electronique-entretien-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -218,8 +218,8 @@
       "slugByLocale": {
         "de": "installateur-m-w-d-hilcona-pfaffstatt",
         "it": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "installateur-m-w-d-hilcona-pfaffstatt",
-        "fr": "installateur-m-w-d-hilcona-pfaffstatt"
+        "en": "installer-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "installation-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -259,6 +259,12 @@
       "previousSlugsByLocale": {
         "it": [
           "installateur-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "installateur-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
+          "installateur-m-w-d-hilcona-pfaffstatt"
         ]
       },
       "previousSlugs": [
@@ -281,12 +287,12 @@
     },
     {
       "id": "hilcona-830cdae9a82a",
-      "slug": "mechatroniker-m-w-d-hilcona-pfaffstatt",
+      "slug": "meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "mechatroniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "it": "mechatroniker-m-w-d-hilcona-pfaffstatt",
-        "en": "mechatroniker-m-w-d-hilcona-pfaffstatt",
-        "fr": "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        "it": "meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "mechatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "mecatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -336,7 +342,21 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-23T10:14:48.458Z"
+      "firstSeenAt": "2026-04-23T10:14:48.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
+          "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        ]
+      },
+      "previousSlugs": [
+        "mechatroniker-m-w-d-hilcona-pfaffstatt"
+      ]
     },
     {
       "id": "hilcona-8df9f0f52268",

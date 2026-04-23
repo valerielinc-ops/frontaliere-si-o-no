@@ -891,8 +891,8 @@
       "slugByLocale": {
         "de": "administrator-in-im-staatsarchiv-kanton-gr-ch",
         "it": "administrator-in-im-staatsarchiv-kantonale-verwaltung-graubunden-chur",
-        "en": "administrator-in-im-staatsarchiv-kanton-gr-ch",
-        "fr": "administrator-in-im-staatsarchiv-kanton-gr-ch"
+        "en": "administrator-in-the-state-archive-kantonale-verwaltung-graubunden-chur",
+        "fr": "administrateur-in-im-staatsarchiv-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -941,6 +941,12 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
+          "administrator-in-im-staatsarchiv-kanton-gr-ch"
+        ],
+        "en": [
+          "administrator-in-im-staatsarchiv-kanton-gr-ch"
+        ],
+        "fr": [
           "administrator-in-im-staatsarchiv-kanton-gr-ch"
         ]
       },
@@ -1125,8 +1131,8 @@
       "slugByLocale": {
         "de": "assistent-in-der-amtsleitung-mit-personalverantwortung-kantonale-verwaltung-graubunden-chur",
         "it": "assistent-in-der-amtsleitung-mit-personalverantwortung-kantonale-verwaltung-graubunden-chur",
-        "en": "assistent-in-der-amtsleitung-mit-personalverantwortung-kantonale-verwaltung-graubunden-chur",
-        "fr": "assistent-in-der-amtsleitung-mit-personalverantwortung-kantonale-verwaltung-graubunden-chur"
+        "en": "assistant-in-the-head-of-mission-kantonale-verwaltung-graubunden-chur",
+        "fr": "assistant-chef-de-mission-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1200,12 +1206,12 @@
     },
     {
       "id": "kanton-gr-7444d0a02513",
-      "slug": "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur",
+      "slug": "project-manager-project-manager-location-development-innovation-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur",
-        "it": "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur",
+        "it": "project-manager-project-manager-location-development-innovation-kantonale-verwaltung-graubunden-chur",
         "en": "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur",
-        "fr": "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-lieu-developpement-innovation-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1255,14 +1261,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch"
+          "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch",
+          "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch"
+        ],
+        "fr": [
+          "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch"
+        "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch",
+        "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1281,12 +1292,12 @@
     },
     {
       "id": "kanton-gr-c6cfce1d7e19",
-      "slug": "ict-system-spezialist-in-kanton-gr-ch",
+      "slug": "specialista-del-sistema-ict-in-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "ict-system-spezialist-in-kantonale-verwaltung-graubunden-chur",
-        "it": "ict-system-spezialist-in-kanton-gr-ch",
-        "en": "ict-system-spezialist-in-kanton-gr-ch",
-        "fr": "ict-system-spezialist-in-kanton-gr-ch"
+        "it": "specialista-del-sistema-ict-in-kantonale-verwaltung-graubunden-chur",
+        "en": "ict-system-specialist-in-kantonale-verwaltung-graubunden-chur",
+        "fr": "specialiste-des-systemes-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1345,7 +1356,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-23T10:20:44.599Z"
+      "firstSeenAt": "2026-04-23T10:20:44.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-spezialist-in-kanton-gr-ch"
+        ],
+        "en": [
+          "ict-system-spezialist-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "ict-system-spezialist-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-spezialist-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-ed77e8400949",
@@ -1353,8 +1378,8 @@
       "slugByLocale": {
         "de": "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur",
         "it": "technische-n-collaboratore-trice-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur",
-        "en": "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur",
-        "fr": "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur"
+        "en": "technical-n-staff-in-heavy-traffic-control-kantonale-verwaltung-graubunden-chur",
+        "fr": "technique-n-personnel-controle-de-la-circulation-lourde-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1407,10 +1432,17 @@
         ],
         "de": [
           "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kanton-gr-ch"
+        ],
+        "en": [
+          "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kanton-gr-ch"
+        "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kanton-gr-ch",
+        "technische-n-mitarbeiter-in-schwerverkehrskontrolle-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1432,8 +1464,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-lagerlogistik-und-betreuung-kantonale-verwaltung-graubunden-chur",
         "it": "collaboratore-trice-in-lagerlogistik-e-betreuung-kantonale-verwaltung-graubunden-chur",
-        "en": "mitarbeiter-in-lagerlogistik-und-betreuung-kantonale-verwaltung-graubunden-chur",
-        "fr": "mitarbeiter-in-lagerlogistik-und-betreuung-kantonale-verwaltung-graubunden-chur"
+        "en": "staff-in-warehouse-logistics-and-care-kantonale-verwaltung-graubunden-chur",
+        "fr": "personnel-en-entrepot-logistique-et-soins-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1486,10 +1518,17 @@
         ],
         "de": [
           "mitarbeiter-in-lagerlogistik-und-betreuung-kanton-gr-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-lagerlogistik-und-betreuung-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-lagerlogistik-und-betreuung-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-lagerlogistik-und-betreuung-kanton-gr-ch"
+        "mitarbeiter-in-lagerlogistik-und-betreuung-kanton-gr-ch",
+        "mitarbeiter-in-lagerlogistik-und-betreuung-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1507,12 +1546,12 @@
     },
     {
       "id": "kanton-gr-1bf95d64e71a",
-      "slug": "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
+      "slug": "assistente-amministrativo-in-tassazione-dei-titoli-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
-        "it": "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
-        "en": "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
-        "fr": "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
+        "it": "assistente-amministrativo-in-tassazione-dei-titoli-kantonale-verwaltung-graubunden-chur",
+        "en": "administrative-assistant-in-securities-taxation-kantonale-verwaltung-graubunden-chur",
+        "fr": "assistant-administratif-fiscalite-des-valeurs-mobilieres-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1561,14 +1600,22 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-wertschriftenbesteuerung-kanton-gr-ch"
+          "verwaltungsassistent-in-wertschriftenbesteuerung-kanton-gr-ch",
+          "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "verwaltungsassistent-in-wertschriftenbesteuerung-kanton-gr-ch"
+        ],
+        "en": [
+          "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistent-in-wertschriftenbesteuerung-kanton-gr-ch"
+        "verwaltungsassistent-in-wertschriftenbesteuerung-kanton-gr-ch",
+        "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1590,8 +1637,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur",
         "it": "projektleiter-in-per-la-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur",
-        "en": "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur",
-        "fr": "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur"
+        "en": "project-manager-for-the-implementation-of-the-graubunden-slow-transport-strategy-kantonale-verwaltung-graubunden-chur",
+        "fr": "directeur-de-projet-pour-la-mise-en-uvre-de-la-strategie-de-transport-lent-graubunden-kantonale-verwaltung-graubunden-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1645,10 +1692,17 @@
         ],
         "de": [
           "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kanton-gr-ch"
+        ],
+        "en": [
+          "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kanton-gr-ch"
+        "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kanton-gr-ch",
+        "projektleiter-in-fur-die-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1671,8 +1725,8 @@
       "slugByLocale": {
         "de": "strassenwart-in-kanton-gr-ch",
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-chur",
-        "en": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "en": "road-maintenance-in-kantonale-verwaltung-graubunden-chur",
+        "fr": "tranche-en-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1721,6 +1775,12 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "en": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "fr": [
           "strassenwart-in-kanton-gr-ch"
         ]
       },

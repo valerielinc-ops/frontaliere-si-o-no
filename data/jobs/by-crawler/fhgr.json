@@ -422,8 +422,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fachhochschule-graubunden-chur",
         "it": "apprendistato-come-informatiker-in-specializzazione-plattformentwicklung-fachhochschule-graubunden-chur",
-        "en": "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fachhochschule-graubunden-chur",
-        "fr": "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fachhochschule-graubunden-chur"
+        "en": "teaching-place-as-a-computer-scientist-focusing-on-platform-development-fachhochschule-graubunden-chur",
+        "fr": "lieu-d-enseignement-en-tant-qu-informaticien-axe-sur-le-developpement-de-plateformes-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -473,10 +473,17 @@
         ],
         "de": [
           "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fhgr-ch"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fhgr-ch"
+        "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fhgr-ch",
+        "lehrstelle-als-informatiker-in-fachrichtung-plattformentwicklung-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -498,8 +505,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur",
         "it": "apprendistato-come-kauffrau-kaufmann-cfc-fachhochschule-graubunden-chur",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur"
+        "en": "apprenticeship-as-a-merchant-efz-fachhochschule-graubunden-chur",
+        "fr": "apprentissage-en-tant-que-commercant-efz-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -549,10 +556,17 @@
         ],
         "de": [
           "lehrstelle-als-kauffrau-kaufmann-efz-fhgr-ch"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-fhgr-ch"
+        "lehrstelle-als-kauffrau-kaufmann-efz-fhgr-ch",
+        "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
