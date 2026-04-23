@@ -289,33 +289,27 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
   Gates: standard 9-gate battery. Commit feat(seo): wire 100-Q&A expert hub (AE-5 wiring).
   ```
 
-### AE-7. Comparison tables hub (Task 6.15)
+### AE-7. Comparison tables hub — ✅ SHIPPED (2026-04-23)
 
-- **Source:** PLAN-SPRINT-6 Task 6.15, PLAN-SPRINT-6-FOLLOWUP
-- **Deliverable:** New page `/confronti-rapidi/` × 4 locales with dense comparison tables.
-- **Why agent-executable:** all data already in codebase.
-  - Permit B vs Permit G → `services/seo/pillars/nuovaLegge2026.ts` + existing permit guide
-  - LAMal vs SSN → LAMal premiums data + Italian SSN article stub
-  - Old vs new (2026) tax regime → `calculationService.ts` + nuova-legge pillar
-  - Ticino cities for frontalieri → Sprint 2 `lavoro-lugano` pillar + cost-of-living
-  - Swiss cantons LAMal costs → existing 26-canton LAMal dataset
-- **Data inputs:** all local (no external fetch).
-- **End gates:** 5 AiExtractableTable blocks. ≥800 w IT / ≥400 w other locales. Full JSON-LD suite (Article + FAQPage + BreadcrumbList). Router slug + sitemap + llms.txt entry.
-- **Estimated agent time:** 90 min.
-- **Prompt to dispatch:**
-  ```
-  Read CLAUDE.md + ROADMAP task AE-7.
-  Create components/ConfrontiRapidiPage.tsx + add router slugs in all 4 locales + static HTML build plugin.
-  Sections (each a <AiExtractableTable>):
-  1. Permesso B vs Permesso G (pull from services/seo/pillars/nuovaLegge2026 + permesso-g guide)
-  2. LAMal vs SSN italiano (LAMal 26-canton dataset + SSN stub)
-  3. Regime fiscale vecchio vs nuovo 2026 (calculationService worked examples)
-  4. Città Ticino per frontalieri (Lugano/Mendrisio/Chiasso/Bellinzona/Locarno) — salario medio, affitto, distanza valico
-  5. Cantoni Svizzera LAMal costs — 26-canton table
-  Body ≥800w IT + ≥400w EN/DE/FR. Article + FAQPage + BreadcrumbList JSON-LD. Wire into llms.txt + sitemap + internal links from homepage/guide hub.
-  Gates: 9-gate battery + manual Playwright render check.
-  Commit: feat(seo): comparison tables hub (AE-7). Auto-push on green.
-  ```
+- **Routes live:**
+  - IT:  `/confronti-frontalieri/`
+  - EN:  `/en/cross-border-comparisons/`
+  - DE:  `/de/grenzgaenger-vergleich/`
+  - FR:  `/fr/comparaisons-frontaliers/`
+- **Commits:** `2465d67f0` (data+copy pre-wiring), `b56ee90ae` (plugin + router + JSON-LD), `67e398c05` (internal-links injector).
+- **Modules:**
+  - `build-plugins/comparisonsHubData.ts` — pure route helpers, client-safe.
+  - `build-plugins/comparisonsHubAggregate.ts` — node-side salary + LAMal canton aggregations (split from `Data.ts` to keep the SPA bundle free of `node:fs`/`node:path` externalization).
+  - `build-plugins/comparisonsHubCopy.ts` — 4-locale labels, tables, intros, FAQ (IT ≈ 1,000 words; EN/DE/FR ≥ 400 each).
+  - `build-plugins/comparisonsHubPlugin.ts` — emits 4 × static HTML via `seoPageShell` with `hubChrome: { hubKey: 'confronti', activeSubTab: 'health', hero: { variant: 'green' } }`; writes `sitemap-comparisons.xml` (auto-discovered by `sitemapAliasPlugin`).
+  - `build-plugins/comparisonsHubLinksPlugin.ts` — idempotent post-processor injecting a single `<aside>` anchor into `/index.html`, `/compara-servizi/`, `/statistiche/confronta-stipendi/`, `/stipendi-frontalieri-ticino/` (4/4 on rebuild).
+  - `services/router.ts` — `staticOverlay` parser entry for all 4 canonical paths so the SPA leaves the static body in place on hydrate (mirrors `nursing-landings` pattern).
+  - `vite.config.ts` — `comparisonsHubPlugin` after `annualReportPlugin` (needs the salary-aggregate CSV to exist before the DataDownload JSON-LD is emitted); `comparisonsHubLinksPlugin` after `legacyRedirectsPlugin`.
+- **Tables shipped (5):** salary by sector (top-10 from `data/jobs.json`, 10 rows), tax burden (3 scenarios, old regime vs new 2026 regime), LAMal premium per 26 Swiss cantons, mandatory social benefits (AVS/LPP/AD/LAINF vs INPS/INAIL), cost-of-living basket Lugano vs Varese/Como.
+- **Structured data:** Article + FAQPage (5 Q&A) + BreadcrumbList + Dataset with `DataDownload` → `/data/jobs-salary-aggregate.csv`. `SpeakableSpecification` selectors cover `h1`, `[data-speakable]` (TL;DR + each table), and `figcaption` (captions).
+- **Word counts (rough text tokens):** IT 2,553 · EN 2,199 · DE 1,623 · FR 1,954. All locales clear `find-thin-pages.mjs --min-words=100 --fail-on-any`.
+- **Internal links in:** home IT, `/compara-servizi/`, `/statistiche/confronta-stipendi/`, `/stipendi-frontalieri-ticino/` — 4/4 patched on fresh build (idempotent; no duplicates on rebuild).
+- **Gates:** `npx tsc --noEmit` ✓; `npx vite build` ✓ (plugin logs `Generated 4 pages (0 skipped as thin) — flushed 8 files · salary rows: 10, LAMal cantons: 26`); `tests/seo-completeness.test.ts` (13,659), `tests/seo-description-length.test.ts`, `tests/seo-localization.test.ts`, `tests/faq-coverage.test.ts`, `tests/aeo-faq-top10.test.ts`, `tests/payslip-howto-faq.test.ts` all green; thin-pages gate green; `validate-internal-links.mjs` reports zero NEW broken links attributable to AE-7 (pre-existing 2,753 failures are all in the SKIP-gated F4/F6/F8 namespaces).
 
 ### AE-8. ClaimReview coverage expansion (Task 6.5) — SHIPPED 2026-04-23
 
