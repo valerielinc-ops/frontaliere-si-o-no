@@ -1402,6 +1402,54 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza`,
+ "claimReviewed": "La rendita AVS massima in Svizzera nel 2026 è CHF 2.450 al mese (CHF 29.400 annui) con la scala 44 di contribuzione completa.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — AVS 1° pilastro" },
+ "datePublished": "2026-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/bsv/it/home/assicurazioni-sociali/ahv.html", "name": "UFAS — Assicurazione vecchiaia e superstiti (AVS) 2026" }
+ },
+ "reviewBody": "Adeguamento rendite AVS/AI 2026 deciso dal Consiglio federale: rendita minima CHF 1.225/mese, rendita massima CHF 2.450/mese alla scala 44 (art. 34 LAVS)."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza`,
+ "claimReviewed": "Le aliquote LPP del 2° pilastro crescono con l'età: 7% (25-34), 10% (35-44), 15% (45-54), 18% (55-65) del salario assicurato.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge federale sulla previdenza professionale (LPP), art. 16" },
+ "datePublished": "1982-06-25",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1983/797_797_797/it", "name": "Fedlex — LPP art. 16 (accrediti di vecchiaia)" }
+ },
+ "reviewBody": "Aliquote minime LPP definite dall'art. 16 LPP: 7/10/15/18% per fasce 25-34/35-44/45-54/55-65. Le casse pensione possono applicare aliquote superiori (piani sovraobbligatori)."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza`,
+ "claimReviewed": "Grazie alla totalizzazione bilaterale Italia-Svizzera i periodi contributivi AVS e INPS si sommano per raggiungere il diritto alla pensione in ciascun Paese (pro-rata).",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Accordo bilaterale sulla libera circolazione delle persone (ALC) — Regolamento (CE) 883/2004" },
+ "datePublished": "2002-06-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.50285.totalizzazione-internazionale-dei-periodi-assicurativi.html", "name": "INPS — Totalizzazione internazionale dei periodi assicurativi" }
+ },
+ "reviewBody": "Applicabile ai frontalieri italiani in Svizzera dall'entrata in vigore dell'ALC (1/6/2002) e confermato dal Regolamento (CE) 883/2004 e dalla decisione del Comitato misto CH-UE del 2012. Ogni Paese paga la quota pro-rata in base agli anni effettivi."
  }
  ]
  },
@@ -1962,12 +2010,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  companies: {
- title: 'Aziende che Assumono Frontalieri in Ticino 2026',
- h1: 'Aziende che assumono frontalieri in Ticino — settori, dimensioni aziendali e stipendi medi 2026',
- description: 'Scopri le principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi. Link diretti alle.',
- keywords: 'aziende ticino lavoro, aziende che assumono svizzera, lavoro canton ticino, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino',
- ogTitle: 'Aziende che Assumono in Ticino | Opportunità per Frontalieri',
- ogDescription: '🏢 Scopri le migliori aziende che assumono nel Canton Ticino: settori, stipendi e link alle pagine carriere.',
+ title: 'Aziende che Assumono in Ticino 2026: Lista Settori',
+ h1: 'Aziende che assumono in Ticino — lista per settore, sede (Lugano, Mendrisio, Chiasso) e stipendi medi frontalieri 2026',
+ description: 'Aziende che assumono in Ticino 2026: lista per settore (banche, farmaceutico, industria, ICT) con sede Lugano/Mendrisio/Chiasso e stipendi medi frontalieri.',
+ keywords: 'aziende che assumono in ticino, nomi ditte in svizzera che assumono, aziende canton ticino, aziende ticino lavoro, aziende che assumono svizzera italiana, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino, lista aziende ticino',
+ ogTitle: 'Aziende che Assumono in Ticino 2026 | Lista per Settore',
+ ogDescription: '🏢 Aziende che assumono in Ticino nel 2026: lista per settore e città, sedi Lugano/Mendrisio/Chiasso e stipendi medi frontalieri.',
  canonicalPath: '/vivere-in-ticino/aziende-svizzera-italiana',
  structuredData: [
  {
@@ -2008,6 +2056,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "position": 5,
  "item": { "@type": "Organization", "name": "IBSA Institut Biochimique", "url": "https://www.ibsa.ch" }
  }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali sono i nomi delle ditte in Svizzera che assumono frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 le principali ditte in Svizzera italiana che assumono frontalieri sono concentrate in 5 settori: banche-finanza (UBS, BancaStato, Raiffeisen Svizzera italiana, EFG), farmaceutico/biotech (Helsinn a Lugano, IBSA a Lamone, Cosmo Pharmaceuticals a Lainate-Mendrisio, Cerbios-Pharma a Barbengo), industria medtech (Medacta International a Castel San Pietro, Dätwyler a Schattdorf-Altdorf con stabilimento in Ticino), ICT e servizi (PostFinance, SUPSI, Swisscom business, Rhenus logistica a Stabio), retail-lusso (VF International a Stabio, Gucci Logistica a Cadempino). Per l'elenco completo ufficiale delle aziende autorizzate ad assumere frontalieri consulta [SECO — Registro aziende prestatrici](https://www.sem.admin.ch/sem/it/home/themen/arbeit/berufsvermittlung-und-personalverleih/zugelassene_personalverleiher.html)." } },
+ { "@type": "Question", "name": "Aziende in Canton Ticino: quante sono e dove cercarle nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel Canton Ticino sono registrate circa 36.700 aziende attive (fonte: [USTAT — Censimento aziende 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), di cui oltre 5.300 con almeno 10 dipendenti. Il 52% ha sede nel Distretto di Lugano, il 22% nel Mendrisiotto, l'11% nel Luganese-Malcantone e il 15% nel Bellinzonese-Locarnese. Per cercarle: Registro di Commercio (zefix.ch) per dati ufficiali, Orell-Füssli per bilanci, Moneyhouse per network aziendali, SUPSI Alumni per contatti diretti. Le offerte di lavoro aziendali sono raccolte su JobUp, JobScout24 e sul nostro aggregatore [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). I frontalieri italiani (oltre 74.000 secondo UST) rappresentano quasi il 30% della forza lavoro ticinese." } },
+ { "@type": "Question", "name": "Come candidarsi alle aziende svizzero-italiane che assumono frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per candidarsi efficacemente alle aziende svizzero-italiane nel 2026 servono 4 documenti: CV in formato Europass o svizzero (1-2 pagine, foto-tessera, dettaglio scolastico EFZ/maturità, lingue con livello CEFR), lettera di motivazione personalizzata per la ditta, copia del permesso G in corso di validità (o dichiarazione di richiesta), casellario giudiziale italiano tradotto. I canali principali: pagine carriere corporate (UBS Careers, Medacta Careers, Helsinn Careers), LinkedIn con filtro 'Canton Ticino', JobUp/JobScout24, agenzie interinali SECO-autorizzate (Adecco, Manpower, Randstad, Kelly Services). Per i lavoratori OSS/infermieri la candidatura passa per MEBEKO con riconoscimento titolo. Tempo medio di selezione: 3-6 settimane. Fonte: [SECO — Orientamento al mercato del lavoro](https://www.sem.admin.ch/sem/it/home/themen/arbeit.html)." } }
  ]
  }
  ]
