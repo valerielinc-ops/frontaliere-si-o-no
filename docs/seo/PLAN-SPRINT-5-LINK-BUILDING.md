@@ -5,6 +5,19 @@
 **Expected impact:** +20 RD, +50 editorial backlinks, AScore +9 points
 **Files touched:** new content assets (data studies, tools), outreach tracker (external doc)
 
+## Code-shippable assets — SHIPPED 2026-04-23
+
+| Task | Deliverable | Path |
+|---|---|---|
+| 5.1 | Annual salary report page generator (4 locales) | `build-plugins/annualReportPlugin.ts` → `/report/frontalieri-2026/` + hub callout |
+| 5.2 | Public salary aggregate CSV (CC BY 4.0) | `dist/data/jobs-salary-aggregate.csv` (emitted by 5.1 plugin) |
+| 5.3 | Embeddable currency widget for external sites | `public/embed/currency-widget.html` + `widget-data.json` |
+| 5.4 | Outreach tracker scaffold with 30 Tier A/B/C targets | `docs/seo/outreach-tracker.csv` |
+| 5.5 | Press release drafts (IT primary + EN stub) | `docs/seo/press-releases/{annual-report-2026,2026-new-tax-agreement,health-insurance-trends}.md` |
+| 5.6 | Broken-link scout script | `scripts/find-broken-competitor-links.mjs` → `data/seo/broken-competitor-links.json` |
+
+The outreach tasks (Part B / C / D) below remain a running checklist — manual, ongoing work.
+
 ---
 
 ## Current state (baseline)
@@ -33,20 +46,23 @@
 
 ## Part A — Build linkable assets (content investment)
 
-### Task 5.1 — Annual salary report "Report Frontalieri {year}"
+### Task 5.1 — Annual salary report "Report Frontalieri {year}" — SHIPPED
 
-- [ ] Aggregate salary data from `jobs.json` across sectors
-- [ ] Produce PDF + web version `/report/frontalieri-{year}/`
-- [ ] Key findings to highlight:
+- [x] Aggregate salary data from `jobs.json` across sectors — `build-plugins/annualReportPlugin.ts`
+- [x] Produce web version `/report/frontalieri-{year}/` (IT) + `/en/` `/de/` `/fr/` locales
+- [x] Key findings included:
   - Median salary by sector (top 10)
-  - YoY delta vs prior year
-  - Regional differences (Lugano vs Chiasso vs Mendrisio)
+  - YoY delta (estimated; dataset-to-dataset comparison once 2027 snapshot exists)
+  - Regional breakdown (Lugano / Chiasso / Mendrisio / Bellinzona / Locarno)
   - Purchasing power parity IT vs CH
-- [ ] Include shareable infographics (SVG, downloadable PNG)
-- [ ] Include CSV download of raw data (encourages citation)
-- [ ] Press release copy ready for distribution
+- [ ] Shareable infographics (SVG + PNG) — followed up: placeholders in page, real artwork separate
+- [x] CSV download of raw data (`/data/jobs-salary-aggregate.csv`, CC BY 4.0) — Sprint 5.2
+- [x] Dataset JSON-LD + Article JSON-LD + BreadcrumbList emitted
+- [x] Sitemap entry + hreflang
+- [x] Internal link from /mercato-lavoro-ticino/ hub (all 4 locales) — idempotent callout patched by plugin
+- [x] Press release copy — see `docs/seo/press-releases/annual-report-2026.md`
 
-**Outreach target:** laregione.ch, tio.ch, cdt.ch, ticinonline, Corriere del Ticino, Il Sole 24 Ore (economia frontiera section)
+**Outreach target:** laregione.ch, tio.ch, cdt.ch, ticinonline, Corriere del Ticino, Il Sole 24 Ore (economia frontiera section) — see `docs/seo/outreach-tracker.csv`
 
 ### Task 5.2 — Data study "Costo della vita Lugano vs Milano"
 
@@ -67,12 +83,13 @@
 
 **Outreach target:** Italian fiscal blogs, commercialisti associations, Italian unions
 
-### Task 5.4 — Interactive calculator widget embed
+### Task 5.4 — Interactive calculator widget embed — SHIPPED (5.3 in execution order)
 
-- [ ] Allow embedding the fiscal calculator as `<iframe src="https://frontaliereticino.ch/embed/calculator">` on third-party sites
-- [ ] Each embed surfaces `frontaliereticino.ch` in footer with link
-- [ ] Host `/embed/calculator` route with minimal shell
-- [ ] Promote in guest posts + outreach
+- [x] Lightweight embed widget at `public/embed/currency-widget.html` (no React dependency)
+- [x] Attribution link back to `frontaliereticino.ch` with `rel="noopener"` (NOT nofollow — editorial link is the point)
+- [x] Data snapshot in `public/embed/widget-data.json` — widget degrades gracefully when missing
+- [x] Copy-paste `<iframe>` embed snippet documented inline in the HTML comment block
+- [ ] Fiscal calculator embed (richer) — followed up as separate task; starts with the currency/stats teaser
 
 **Outreach target:** commercialisti, expatriate blogs, union websites
 
@@ -88,9 +105,13 @@
 
 ## Part B — Outreach pipeline
 
-### Task 5.6 — Build prospect database
+### Task 5.6 — Build prospect database — SHIPPED (scaffold)
 
-- [ ] Create Airtable/Notion outreach tracker
+- [x] Outreach tracker at `docs/seo/outreach-tracker.csv` with ~30 pre-populated Tier A/B/C targets
+- [x] Columns: date, target_domain, contact_name, contact_email, topic, asset_offered, status, link_url, notes
+- [x] Status values documented in CSV header: `new | sent | replied | link_acquired | declined | bounced`
+- [ ] Continue populating with additional targets as outreach progresses (ongoing, human task)
+- [ ] Create Airtable/Notion outreach tracker (optional upgrade — CSV is source of truth today)
 - [ ] Seed with:
   - All Italian regional newspapers within 100km of border (Varese, Como, Lecco, Verbano-Cusio-Ossola, Piemonte border)
   - Swiss Italian newspapers (Corriere del Ticino, La Regione, tio.ch, ticinonline)
@@ -119,12 +140,14 @@
 - [ ] 2 follow-ups per cold target (day 4, day 10)
 - [ ] Target: 10% reply rate, 5% link placement → 5 new RDs from wave 1
 
-### Task 5.9 — Broken link building campaign
+### Task 5.9 — Broken link building campaign — SHIPPED (scout)
 
-- [ ] Use Semrush `backlinks` on top 10 competitors (ocst.ch, ticinoinforma.md, ticinoonline.ch, laregione.ch, etc.)
-- [ ] Identify broken outbound links (404) on their pages about frontalieri/Ticino/LAMal/tax
-- [ ] For each broken link, find our equivalent content (or create if missing)
-- [ ] Outreach: "Hi, noticed link X on page Y is broken. We have similar content at Z, if useful."
+- [x] Scout script at `scripts/find-broken-competitor-links.mjs`
+- [x] Hardcoded seed list of ~13 competitor/citation pages (OCST, SIT, beecare, laregione, cdt, tio, rsi, varesenews, Wikipedia IT/DE, Agenzia Entrate frontalieri)
+- [x] HEAD + GET fallback probe per outbound link with 10s timeout, polite 2s pause between sources
+- [x] Keyword-matched replacement suggestions drawing from our asset inventory (report, calcolatori, guide, LAMal, fuel, border wait)
+- [x] Output: `data/seo/broken-competitor-links.json` — machine-readable pipeline for outreach copy
+- [ ] Outreach: "Hi, noticed link X on page Y is broken. We have similar content at Z, if useful." (human task, use scout output)
 - [ ] Target: 20 broken-link outreaches → 3-5 conversions
 
 ### Task 5.10 — HARO / Italian press equivalents
