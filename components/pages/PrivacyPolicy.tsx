@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Lock, Database, Eye, CheckCircle2, ArrowLeft, BarChart3, ExternalLink } from 'lucide-react';
+import { Shield, Lock, Database, Eye, CheckCircle2, ArrowLeft, BarChart3, ExternalLink, Key } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 
 export const PrivacyPolicy: React.FC = () => {
@@ -23,7 +23,7 @@ export const PrivacyPolicy: React.FC = () => {
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-light font-display text-heading">Privacy Policy</h1>
- <p className="text-sm text-muted mt-1">Ultimo aggiornamento: Aprile 2026</p>
+ <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 23 aprile 2026</p>
  </div>
  </div>
  <p className="text-subtle leading-relaxed">
@@ -165,6 +165,33 @@ export const PrivacyPolicy: React.FC = () => {
  strettamente necessario all'espletamento delle funzionalità richieste (iscrizione newsletter,
  accesso alla community e alla dashboard personale). Tali dati sono trattati conformemente alla
  presente informativa e alla policy di Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent underline">policies.google.com/privacy</a>).
+ </p>
+ </div>
+ <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
+ <h3 className="font-medium text-heading mb-2 flex items-center gap-2">
+ <Key className="text-accent flex-shrink-0" size={18} />
+ Accesso automatico dai link email (autologin)
+ </h3>
+ <p className="text-sm">
+ I link contenuti nelle nostre email (newsletter e job alert) includono due parametri — <code>ne</code> (il
+ tuo indirizzo e-mail) e <code>ac</code> (un codice di autenticazione HMAC-SHA256 legato al tuo indirizzo) —
+ che ti permettono di aprire il sito già autenticato, senza dover reinserire le credenziali.
+ Il codice <code>ac</code> viene scambiato con un token Firebase Auth a breve durata (1 ora) al primo
+ utilizzo e non contiene dati personali oltre al legame con il tuo indirizzo.
+ </p>
+ <p className="text-sm mt-2">
+ <strong>Rischio da conoscere.</strong> Se inoltri un'email della newsletter a terzi, o se qualcuno ha
+ accesso alla cronologia del tuo browser, quella persona potrà aprire le pagine del sito già autenticata
+ con il tuo profilo. L'accesso è limitato alle funzionalità utente (dashboard, preferenze, forum), non
+ consente di modificare la password né di accedere ad aree amministrative.
+ </p>
+ <p className="text-sm mt-2">
+ <strong>Come disattivarlo.</strong> Puoi disabilitare l'accesso automatico in qualsiasi momento:
+ (i) dalla pagina <em>Profilo</em> se sei autenticato via Google/Facebook/LinkedIn, oppure
+ (ii) dal link <em>"Gestisci preferenze"</em> presente in fondo a ogni nostra email. Dopo la
+ disattivazione, i link nelle email non conterranno più il codice <code>ac</code> e dovrai effettuare
+ il login manuale per accedere alle aree riservate. L'impostazione si applica sia alla newsletter
+ sia ai job alert.
  </p>
  </div>
  </div>
@@ -323,7 +350,7 @@ export const PrivacyPolicy: React.FC = () => {
  su questa pagina.
  </p>
  <p className="text-sm italic">
- Data ultimo aggiornamento: <strong>Aprile 2026</strong>
+ Data ultimo aggiornamento: <strong>23 aprile 2026</strong>
  </p>
  </div>
  </div>

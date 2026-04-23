@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T14:17:12.283Z",
+  "generatedAt": "2026-04-23T08:48:59.772Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 17,
+  "totalClusters": 18,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -314,6 +314,27 @@
           "query": "schweiz chauffeurs",
           "clicks": 0,
           "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-coop-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "coop lavora con noi",
+      "canonicalSlug": "coop-lavora-con-noi",
+      "roleTokens": [
+        "coop",
+        "lavor",
+        "noi"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "coop lavora con noi",
+          "clicks": 0,
+          "impressions": 6
         }
       ]
     },

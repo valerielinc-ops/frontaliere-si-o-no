@@ -181,6 +181,15 @@ function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'job_
   return url.toString();
 }
 
+function makePreferencesUrl(email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  const normalized = email.toLowerCase().trim();
+  const base = `${BASE_URL}/preferenze-newsletter?email=${encodeURIComponent(normalized)}`;
+  if (!secret) return base;
+  const token = createHmac('sha256', secret).update(normalized).digest('hex');
+  return `${base}&token=${token}`;
+}
+
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
 
 let _db = null;
@@ -264,11 +273,16 @@ function matchJobToAlert(job, alert) {
 
 // ── Email template ───────────────────────────────────────────
 
-function buildAlertEmail(alert, matchedJobs) {
+function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const locale = alert.locale || 'it';
   const s = getStrings(locale);
   const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
-  const autologinCode = generateAutologinCode(alert.email);
+  const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
+  const preferencesUrl = makePreferencesUrl(alert.email);
+  const prefsLabel = locale === 'en' ? 'Manage preferences'
+    : locale === 'de' ? 'Einstellungen verwalten'
+    : locale === 'fr' ? 'Gérer les préférences'
+    : 'Gestisci preferenze';
 
   const keyword = alert.keywords?.join(', ') || '';
   const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
@@ -418,6 +432,9 @@ function buildAlertEmail(alert, matchedJobs) {
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
             <a href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
+          </div>
+          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
+            <a href="${preferencesUrl}" style="color:#94a3b8;text-decoration:underline;">${prefsLabel}</a>
           </div>
           <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
         </td></tr>
@@ -639,19 +656,27 @@ async function main() {
   const now = Date.now();
   const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
   const newsletterCooldownSet = new Set();
+  const autologinDisabledSet = new Set();
   for (const email of alertEmails) {
     try {
       const subDoc = await db.collection('newsletter_subscribers').doc(email).get();
       if (subDoc.exists) {
-        const lastSentAt = subDoc.data()?.last_sent_at;
+        const data = subDoc.data() || {};
+        const lastSentAt = data.last_sent_at;
         if (lastSentAt) {
           const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
           if (now - ts < NEWSLETTER_COOLDOWN_MS) {
             newsletterCooldownSet.add(email.toLowerCase());
           }
         }
+        if (data.autologin_enabled === false) {
+          autologinDisabledSet.add(email.toLowerCase());
+        }
       }
     } catch {}
+  }
+  if (autologinDisabledSet.size > 0) {
+    console.log(`   🔒 Autologin opt-out: ${autologinDisabledSet.size} subscriber(s) will receive email without autologin token`);
   }
   if (newsletterCooldownSet.size > 0) {
     const before = alerts.length;
@@ -685,7 +710,8 @@ async function main() {
     if (matched.length === 0) continue;
 
     totalMatches += matched.length;
-    const { subject, html, unsubscribeUrl } = buildAlertEmail(alert, matched);
+    const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
+    const { subject, html, unsubscribeUrl } = buildAlertEmail(alert, matched, autologinEnabled);
 
     emailsToSend.push({
       to: alert.email,

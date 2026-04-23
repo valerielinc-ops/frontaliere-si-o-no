@@ -32,6 +32,7 @@ const TermsOfService = lazyRetry(() => import('@/components/pages/TermsOfService
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
+const NewsletterPreferences = lazyRetry(() => import('@/components/pages/NewsletterPreferences').then(m => ({ default: m.NewsletterPreferences })));
 const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
 const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
@@ -2111,6 +2112,10 @@ const App: React.FC = () => {
  <div>
  <EmailConfirmed />
  </div>
+ ) : activeTab === 'newsletter-preferences' ? (
+ <div>
+ <NewsletterPreferences />
+ </div>
  ) : activeTab === 'gamification' ? (
  <div className="max-w-7xl mx-auto">
  <GamificationPage />
@@ -2283,7 +2288,7 @@ const App: React.FC = () => {
  </Suspense>
 
  {/* Visible"last updated" date — AI freshness signal + user trust */}
- {!(['admin', 'profile', 'email-confirmed', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
+ {!(['admin', 'profile', 'email-confirmed', 'newsletter-preferences', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
  <p className="text-sm text-muted text-center mt-6">
  <time dateTime={footerDateStr.dateTimeAttr}>
  {t('stats.lastUpdate')}: {footerDateStr.display}

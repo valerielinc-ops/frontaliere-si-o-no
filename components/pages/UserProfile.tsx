@@ -494,6 +494,54 @@ const UserProfile: React.FC = () => {
  }
  }, []);
 
+ // Load autologin-enabled flag for the current user
+ useEffect(() => {
+ const email = user ? getAuthEmail(user) : null;
+ if (!email) return;
+ (async () => {
+ try {
+ const db = await initFirestore();
+ if (!db) return;
+ const { doc, getDoc } = await import('firebase/firestore');
+ const key = email.trim().toLowerCase();
+ const snap = await getDoc(doc(db, 'newsletter_subscribers', key));
+ if (snap.exists()) {
+ setAutologinEnabled(snap.data()?.autologin_enabled !== false);
+ }
+ } catch { /* ignore */ }
+ })();
+ }, [user?.uid]);
+
+ const handleToggleAutologin = async (next: boolean) => {
+ const email = user ? getAuthEmail(user) : null;
+ if (!email) return;
+ setAutologinSaving(true);
+ try {
+ const db = await initFirestore();
+ if (!db) return;
+ const { doc, setDoc, collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+ const key = email.trim().toLowerCase();
+ await setDoc(doc(db, 'newsletter_subscribers', key), {
+ email: key,
+ autologin_enabled: next,
+ updated_at: serverTimestamp(),
+ updatedAt: serverTimestamp(),
+ }, { merge: true });
+ await addDoc(collection(db, 'newsletter_subscribers', key, 'events'), {
+ email: key,
+ event_type: next ? 'autologin_enabled' : 'autologin_disabled',
+ source_channel: 'user_profile',
+ timestamp: serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ }).catch(() => {});
+ setAutologinEnabled(next);
+ } catch (e) {
+ console.warn('[Profile] Toggle autologin failed:', e);
+ } finally {
+ setAutologinSaving(false);
+ }
+ };
+
  // When user signs in, try loading from Firestore (cloud sync)
  useEffect(() => {
  const email = user ? getAuthEmail(user) : null;
@@ -610,6 +658,8 @@ const UserProfile: React.FC = () => {
  const [deleting, setDeleting] = useState(false);
  const [privacyOpen, setPrivacyOpen] = useState(false);
  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+ const [autologinEnabled, setAutologinEnabled] = useState<boolean>(true);
+ const [autologinSaving, setAutologinSaving] = useState<boolean>(false);
 
  useEffect(() => {
  try {
@@ -1545,6 +1595,29 @@ const UserProfile: React.FC = () => {
  <Shield size={14} className="flex-shrink-0" />
  <p>{t('profile.dataPrivacy')}</p>
  </div>
+
+ {/* Autologin opt-out (email link auto-login) */}
+ {user && (
+ <div className="px-4 py-3 bg-surface-alt rounded-xl border border-edge">
+ <div className="flex items-start justify-between gap-3">
+ <div className="flex-1 min-w-0">
+ <div className="text-sm font-semibold text-body mb-1">{t('profile.autologin.title')}</div>
+ <p className="text-xs text-muted leading-relaxed">{t('profile.autologin.desc')}</p>
+ </div>
+ <button
+ onClick={() => handleToggleAutologin(!autologinEnabled)}
+ disabled={autologinSaving}
+ aria-label={autologinEnabled ? t('profile.autologin.disable') : t('profile.autologin.enable')}
+ aria-pressed={autologinEnabled}
+ className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors ${autologinEnabled ? 'bg-accent' : 'bg-surface-raised'} ${autologinSaving ? 'opacity-60 cursor-wait' : 'cursor-pointer'}`}
+ >
+ <span
+ className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${autologinEnabled ? 'translate-x-6' : 'translate-x-1'}`}
+ />
+ </button>
+ </div>
+ </div>
+ )}
 
  {/* GDPR Data Export */}
  <div className="flex items-center justify-between px-4 py-3 bg-accent-subtle rounded-xl border border-accent-border">

@@ -49,7 +49,7 @@ import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath }
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -619,6 +619,8 @@ interface SlugTable {
  toolOfWeek: string;
  // Email confirmed welcome page
  emailConfirmed: string;
+ // Newsletter preferences (HMAC-authed opt-out page)
+ newsletterPreferences: string;
  // hidden admin route
  admin: string;
  // About / Chi Siamo page (E-E-A-T)
@@ -727,6 +729,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  weeklyDigest: 'digest-settimanale',
  toolOfWeek: 'strumento-della-settimana',
  emailConfirmed: 'benvenuto-frontaliere',
+ newsletterPreferences: 'preferenze-newsletter',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'chi-siamo',
  costs: 'costi-pendolarismo',
@@ -821,6 +824,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  weeklyDigest: 'weekly-digest',
  toolOfWeek: 'tool-of-the-week',
  emailConfirmed: 'welcome',
+ newsletterPreferences: 'newsletter-preferences',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'about-us',
  sindacati: 'trade-unions-cross-border-workers',
@@ -918,6 +922,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  weeklyDigest: 'woechentlicher-bericht',
  toolOfWeek: 'werkzeug-der-woche',
  emailConfirmed: 'willkommen',
+ newsletterPreferences: 'newsletter-einstellungen',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'ueber-uns',
  sindacati: 'gewerkschaften-grenzgaenger',
@@ -1015,6 +1020,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  weeklyDigest: 'digest-hebdomadaire',
  toolOfWeek: 'outil-de-la-semaine',
  emailConfirmed: 'bienvenue',
+ newsletterPreferences: 'preferences-newsletter',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'a-propos',
  sindacati: 'syndicats-frontaliers',
@@ -1494,6 +1500,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.weeklyDigest]: { tab: 'weekly-digest' },
  [table.toolOfWeek]: { tab: 'tool-of-week' },
  [table.emailConfirmed]: { tab: 'email-confirmed' },
+ [table.newsletterPreferences]: { tab: 'newsletter-preferences' },
  [table.admin]: { tab: 'admin' },
  [table.sindacati]: { tab: 'sindacati' },
  [table.tassazioneHub]: { tab: 'tassazione-hub' },
@@ -2246,6 +2253,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.toolOfWeek}${hashSuffix}`);
  case 'email-confirmed':
  return finish(`${prefix}/${table.emailConfirmed}${hashSuffix}`);
+ case 'newsletter-preferences':
+ return finish(`${prefix}/${table.newsletterPreferences}${hashSuffix}`);
  default:
  return finish((prefix || '/') + hashSuffix);
  }
@@ -2342,6 +2351,8 @@ export function getSeoSection(route: AppRoute): string {
  return 'tool-of-week';
  case 'email-confirmed':
  return 'email-confirmed';
+ case 'newsletter-preferences':
+ return 'newsletter-preferences';
  case 'tassazione-hub':
  return 'tassazione-hub';
  default:
