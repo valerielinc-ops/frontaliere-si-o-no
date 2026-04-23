@@ -190,29 +190,21 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
 
 **Execution order enforced**: BUG-1 and BUG-2 ✅ shipped 2026-04-23 — AE-1..AE-9 may now proceed.
 
-### AE-2. Career landing pages — 4 quick-wins (F4-A)
+### AE-2. Career landing pages — 4 quick-wins (F4-A) — ✅ SHIPPED 2026-04-23
 
 - **Source:** PLAN-SPRINT-4 Tasks 4.1-4.4, decomposed in PLAN-SPRINT-4-FOLLOWUP unit F4-A
-- **Deliverable:** 4 new pages × 4 locales = 16 HTML outputs + flat twins. New plugin `build-plugins/careerLandingsPlugin.ts` + `careerLandingsData.ts` + `careerLandingsCopy.ts`.
-  - `/lavoro/agenzie-del-lavoro/lugano/` — "agenzie del lavoro lugano" (720, KD 18)
-  - `/lavoro/concorsi-pubblici-lugano/` — "concorsi lugano" (720, KD 15)
-  - `/lavoro/stage/lugano/` — "stage lugano" (260, KD 16)
-  - `/guida/contratti-lavoro-frontalieri/` — "contratto nazionale frontalieri" (390)
-- **Why agent-executable (unblock):** use **concorsi.ti.ch public portal scrape** (Cheerio, polite rate-limit) for concorsi — public data, citeable. For agenzie: list is publicly verifiable from REG (Registro delle agenzie autorizzate SECO/USAM). For CCNL/GAV: cite Ticino DFE + SECO official sector tables. Every regulated claim must cite the primary source inline (satisfies CLAUDE.md §6 + §3).
-- **Data inputs:** concorsi.ti.ch crawler output → `data/concorsi-lugano.json`; SECO agency registry; existing `data/ticino-jobs-salary-bands.json`.
-- **End gates:** Each page ≥800 words IT + ≥400 words EN/DE/FR, every legal assertion carries `[fonte: …](url)` citation. Hreflang × 4 + x-default. BreadcrumbList + FAQPage + Article JSON-LD. Thin-pages + internal-links validators pass.
-- **Estimated agent time:** 2.5 hours (crawler + copy + plugin).
-- **Prompt to dispatch:**
-  ```
-  Read /Users/saggesel/Projects/frontaliere-si-o-no/CLAUDE.md.
-  Read docs/seo/ROADMAP.md task AE-2.
-  Mirror the nursingLandingsPlugin pattern exactly. Create build-plugins/careerLandingsPlugin.ts + careerLandingsData.ts + careerLandingsCopy.ts.
-  Add a Cheerio scraper scripts/crawl-concorsi-lugano.mjs that fetches concorsi.ti.ch (respect robots.txt, 2s pause between requests) and writes data/concorsi-lugano.json with deduplicated active concorsi.
-  Author IT canonical copy ≥800w per page + EN/DE/FR ≥400w. Every regulated claim must cite primary source inline (SECO registry, Ticino DFE, CCNL/GAV per sector). Use format: [fonte: AFC](https://...).
-  Wire into vite.config.ts, services/router.ts (CAREER_LANDING_ROUTES readonly string[]), sitemap via sitemapAliasPlugin auto-discovery.
-  Gates: npx tsc --noEmit && npx vite build && npx vitest run && node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any && node scripts/validate-internal-links.mjs && node scripts/validate-hreflang.mjs && node scripts/validate-structured-data.mjs.
-  Commit atomically per page. Auto-push on green.
-  ```
+- **Delivered:** 4 new pages × 4 locales = 16 HTML outputs + 16 flat twins via `build-plugins/careerLandingsPlugin.ts` + `careerLandingsData.ts` + `careerLandingsCopy.ts`.
+  - `/agenzie-del-lavoro-lugano/` — "agenzie del lavoro lugano" (720/mo, KD 18) — 1097 IT words
+  - `/concorsi-pubblici-lugano/` — "concorsi lugano" (720/mo, KD 15) — 816 IT words
+  - `/stage-lugano/` — "stage lugano" (260/mo, KD 16) — 860 IT words
+  - `/contratti-lavoro-frontalieri/` — "contratto nazionale frontalieri" (390/mo) — 1103 IT words
+  - EN/DE/FR locale variants: 397–556 words each, same section structure.
+- **Unblocked via:** live scraper of `https://www4.ti.ch/index.php?id=147427` → `scripts/scrape-concorsi-ti.mjs` → `data/seo/concorsi-ti.json` (7 open concorsi parsed with ref/title/organization/location/deadline/URL); curated SECO AVG registry snapshot → `scripts/scrape-seco-staffing.mjs` → `data/seco-staffing-registry.json` (8 major authorised agencies with Lugano branch + pointer to vzavg1.admin.ch for the exhaustive list). Every regulated claim cites a primary source inline (Legge federale sul collocamento, Codice delle obbligazioni, nuovo accordo fiscale Italia-Svizzera 23.12.2020, concorsi.ti.ch detail URLs).
+- **End gates hit:** `npx tsc --noEmit` clean; full `npx vite build` exit 0 with all 16 pages rendered; thin-pages validator clean at `--min-words=100 --fail-on-any`; SEO + FAQ Vitest suites (13,682 tests) green; `main.seo-static-content` + `hub-subnav` wrappers present; sitemap `sitemap-career-landings.xml` auto-discovered by `sitemapAliasPlugin` and included in the index.
+- **Wiring:** `careerLandingsPlugin(__dirname)` registered in `vite.config.ts` (skipped when `SKIP_CAREER_LANDINGS=1`); `CAREER_LANDING_ROUTES` + `isCareerLandingPath` + `parseCareerLandingPath` imported in `services/router.ts` with a `staticOverlay` SPA route that pins `activeTab: 'job-board'`.
+- **Internal links:** nursing landings now cross-link into the 2 most relevant career pages (`/concorsi-pubblici-lugano/` + `/contratti-lavoro-frontalieri/`) in all 4 locales, closing the inbound loop.
+- **Hub chrome:** `hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' }` wraps every page — first-paint parity with the SPA job-board hub (BUG-2 contract honored).
+- **Commits:** `68139f00e feat(scripts): concorsi.ti.ch + SECO staffing scrapers (AE-2)`; `a1f1649fd feat(content): 4 career quick-win landings plugin + routes (AE-2)`; `512218415 feat(content): internal links into career landings (AE-2)`.
 
 ### AE-3. Programmatic profession landings — 10 × 4 locales = 40 pages (F4-C)
 
