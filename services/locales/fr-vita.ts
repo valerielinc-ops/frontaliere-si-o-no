@@ -148,6 +148,7 @@ const frVita: Record<string, string> = {
  'profile.personalInfo': 'Informations personnelles',
  'profile.workInfo': 'Informations professionnelles',
  'profile.privacySection': 'Confidentialité et gestion des données',
+ 'profile.emailSection': 'Email et notifications',
  'profile.autologin.title': 'Auto-connexion depuis les liens email',
  'profile.autologin.desc': 'Si activé, les liens dans nos emails te connectent sans mot de passe. Désactive-le si tu transfères ou partages des emails.',
  'profile.autologin.enable': 'Activer l\'auto-connexion',

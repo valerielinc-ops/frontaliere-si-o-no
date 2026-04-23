@@ -148,6 +148,7 @@ const enVita: Record<string, string> = {
  'profile.personalInfo': 'Personal information',
  'profile.workInfo': 'Work information',
  'profile.privacySection': 'Privacy & data management',
+ 'profile.emailSection': 'Email & notifications',
  'profile.autologin.title': 'Auto-login from email links',
  'profile.autologin.desc': 'When enabled, links in our emails sign you in without a password. Disable it if you forward or share emails.',
  'profile.autologin.enable': 'Enable auto-login',

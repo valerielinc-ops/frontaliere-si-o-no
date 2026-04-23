@@ -19,7 +19,7 @@ import {
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
  Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
  AlertCircle, Building2, Navigation, Globe, Banknote,
- Clock, FileCheck,
+ Clock, FileCheck, Mail,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
 import { useAuth, getUserDisplayName, getUserPhotoURL, promptOneTap, renderGoogleButton, cancelOneTap, deleteCurrentUser, signInWithFacebook, reAuthFacebook, getLinkedProviders, getAuthEmail, consumeFacebookProfilePrefill, eagerAuth, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
@@ -1565,6 +1565,38 @@ const UserProfile: React.FC = () => {
  </div>
  )}
 
+ {/* ─── Email & Notifications Section ─── */}
+ {user && (
+ <div className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-sm">
+ <div className="p-6 space-y-4">
+ <div className="flex items-center gap-2 text-lg font-bold text-strong">
+ <Mail size={18} className="text-muted" />
+ <span>{t('profile.emailSection')}</span>
+ </div>
+
+ <div className="px-4 py-3 bg-surface-alt rounded-xl border border-edge">
+ <div className="flex items-start justify-between gap-3">
+ <div className="flex-1 min-w-0">
+ <div className="text-sm font-semibold text-body mb-1">{t('profile.autologin.title')}</div>
+ <p className="text-xs text-muted leading-relaxed">{t('profile.autologin.desc')}</p>
+ </div>
+ <button
+ onClick={() => handleToggleAutologin(!autologinEnabled)}
+ disabled={autologinSaving}
+ aria-label={autologinEnabled ? t('profile.autologin.disable') : t('profile.autologin.enable')}
+ aria-pressed={autologinEnabled}
+ className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors ${autologinEnabled ? 'bg-accent' : 'bg-surface-raised'} ${autologinSaving ? 'opacity-60 cursor-wait' : 'cursor-pointer'}`}
+ >
+ <span
+ className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${autologinEnabled ? 'translate-x-6' : 'translate-x-1'}`}
+ />
+ </button>
+ </div>
+ </div>
+ </div>
+ </div>
+ )}
+
  {/* ─── Privacy & Data Management Section ─── */}
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-sm">
  <div className="p-6 space-y-4">
@@ -1595,29 +1627,6 @@ const UserProfile: React.FC = () => {
  <Shield size={14} className="flex-shrink-0" />
  <p>{t('profile.dataPrivacy')}</p>
  </div>
-
- {/* Autologin opt-out (email link auto-login) */}
- {user && (
- <div className="px-4 py-3 bg-surface-alt rounded-xl border border-edge">
- <div className="flex items-start justify-between gap-3">
- <div className="flex-1 min-w-0">
- <div className="text-sm font-semibold text-body mb-1">{t('profile.autologin.title')}</div>
- <p className="text-xs text-muted leading-relaxed">{t('profile.autologin.desc')}</p>
- </div>
- <button
- onClick={() => handleToggleAutologin(!autologinEnabled)}
- disabled={autologinSaving}
- aria-label={autologinEnabled ? t('profile.autologin.disable') : t('profile.autologin.enable')}
- aria-pressed={autologinEnabled}
- className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors ${autologinEnabled ? 'bg-accent' : 'bg-surface-raised'} ${autologinSaving ? 'opacity-60 cursor-wait' : 'cursor-pointer'}`}
- >
- <span
- className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${autologinEnabled ? 'translate-x-6' : 'translate-x-1'}`}
- />
- </button>
- </div>
- </div>
- )}
 
  {/* GDPR Data Export */}
  <div className="flex items-center justify-between px-4 py-3 bg-accent-subtle rounded-xl border border-accent-border">

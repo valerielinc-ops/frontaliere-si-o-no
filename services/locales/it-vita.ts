@@ -155,6 +155,7 @@ const translations: Record<string, string> = {
  'profile.personalInfo': 'Informazioni personali',
  'profile.workInfo': 'Informazioni lavorative',
  'profile.privacySection': 'Privacy e gestione dati',
+ 'profile.emailSection': 'Email e notifiche',
  'profile.autologin.title': 'Auto-login dai link email',
  'profile.autologin.desc': 'Se attivo, i link delle nostre email ti fanno entrare nel profilo senza password. Disattivalo se inoltri o condividi le email.',
  'profile.autologin.enable': 'Attiva auto-login',

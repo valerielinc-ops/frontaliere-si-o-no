@@ -148,6 +148,7 @@ const deVita: Record<string, string> = {
  'profile.personalInfo': 'Persönliche Informationen',
  'profile.workInfo': 'Arbeitsinformationen',
  'profile.privacySection': 'Datenschutz & Datenverwaltung',
+ 'profile.emailSection': 'E-Mail & Benachrichtigungen',
  'profile.autologin.title': 'Auto-Login über E-Mail-Links',
  'profile.autologin.desc': 'Wenn aktiviert, melden dich die Links in unseren E-Mails ohne Passwort an. Deaktiviere es, wenn du E-Mails weiterleitest oder teilst.',
  'profile.autologin.enable': 'Auto-Login aktivieren',
