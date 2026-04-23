@@ -2115,6 +2115,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bandecchi-quarti-chiasso-2026': { name: 'Sport', path: '/articoli-frontaliere/bandecchi-quarti-chiasso-2026', parent: 'blog' },
     'blog-cantello-peduncolo-gaggiolo-2026': { name: 'Novità', path: '/articoli-frontaliere/cantello-peduncolo-gaggiolo-2026', parent: 'blog' },
     'blog-assegno-educativo-mendrisio-2026': { name: 'Assegno educativo', path: '/articoli-frontaliere/assegno-educativo-mendrisio-2026', parent: 'blog' },
+    'blog-grigioni-permessi-dimora-2026': { name: 'Novità', path: '/articoli-frontaliere/grigioni-permessi-dimora-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2553,6 +2553,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assegno-educativo-mendrisio-2026.title': 'Bildungsgutschrift Mendrisio 2026: Frist 30. Juni',
     'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Bis zum 30. Juni 2026 können die Bildungsgutschrift, der Beitrag für Ferienlager und die Wohnbeihilfe in Mendrisio beantragt werden. Voraussetzungen und Verfahren.',
     'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Stadtbild von Mendrisio mit Schweizer und italienischer Architektur, Familien, die durch die Straßen gehen.',
+    'blog.article.grigioni-permessi-dimora-2026.title': 'Graubünden: Strafregister für Aufenthaltsbewilligungen',
+    'blog.article.grigioni-permessi-dimora-2026.excerpt': 'Ab Mai 2026 müssen Antragsteller für eine Aufenthaltsbewilligung in Graubünden etwaige Vorstrafen oder laufende Strafverfahren angeben.',
+    'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Luftaufnahme des Luganersee mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

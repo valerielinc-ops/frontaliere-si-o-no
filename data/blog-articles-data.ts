@@ -6937,4 +6937,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/assegno-educativo-mendrisio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grigioni-permessi-dimora-2026',
+ category: 'novita',
+ date: '2026-04-23T21:32:48.344Z',
+ image: '/images/blog/grigioni-permessi-dimora-2026.jpg',
+ hasCalculator: true,
+ },
 ];

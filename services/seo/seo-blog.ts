@@ -11544,6 +11544,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-permessi-dimora-2026': {
+    title: 'Grigioni: autocertificazione penali per | Frontaliere Ticino',
+    description: 'Da maggio 2026, chi richiede un permesso di dimora nei Grigioni dovrà dichiarare eventuali precedenti penali o procedimenti in corso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, autocertificazione, penali, permessi',
+    ogTitle: 'Grigioni: autocertificazione penali per permessi di dimora',
+    ogDescription: 'Da maggio 2026, chi richiede un permesso di dimora nei Grigioni dovrà dichiarare eventuali precedenti penali o procedimenti in corso.',
+    canonicalPath: '/articoli-frontaliere/grigioni-permessi-dimora-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: autocertificazione penali per permessi di dimora",
+      "description": "Da maggio 2026, chi richiede un permesso di dimora nei Grigioni dovrà dichiarare eventuali precedenti penali o procedimenti in corso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grigioni-permessi-dimora-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-04-23T21:32:48+00:00",
+      "dateModified": "2026-04-23T21:32:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-permessi-dimora-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

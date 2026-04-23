@@ -4636,7 +4636,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 902,
+ "numberOfItems": 903,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5516,7 +5516,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 899, "name": "Divario salariale frontalieri Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/divario-salariale-frontalieri-ticino-2026` },
           { "@type": "ListItem", "position": 900, "name": "Susan Bandecchi raggiunge i quarti di finale de...", "url": `${BASE_URL}/articoli-frontaliere/bandecchi-quarti-chiasso-2026` },
           { "@type": "ListItem", "position": 901, "name": "Cantello: Amministrazione e Legambiente contro ...", "url": `${BASE_URL}/articoli-frontaliere/cantello-peduncolo-gaggiolo-2026` },
-          { "@type": "ListItem", "position": 902, "name": "Assegno educativo Mendrisio 2026: scadenza 30 g...", "url": `${BASE_URL}/articoli-frontaliere/assegno-educativo-mendrisio-2026` }
+          { "@type": "ListItem", "position": 902, "name": "Assegno educativo Mendrisio 2026: scadenza 30 g...", "url": `${BASE_URL}/articoli-frontaliere/assegno-educativo-mendrisio-2026` },
+          { "@type": "ListItem", "position": 903, "name": "Grigioni: autocertificazione penali per permess...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-permessi-dimora-2026` }
  ]
  },
  {

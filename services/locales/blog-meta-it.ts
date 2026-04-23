@@ -2553,6 +2553,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assegno-educativo-mendrisio-2026.title': 'Assegno educativo Mendrisio 2026: scadenza 30 giugno',
     'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Fino al 30 giugno 2026 per richiedere l\'Assegno educativo, Contributo per colonie e Sussidio all\'alloggio a Mendrisio. Requisiti e procedure.',
     'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Panorama della città di Mendrisio con edifici svizzeri e italiani, famiglie che camminano per le strade.',
+    'blog.article.grigioni-permessi-dimora-2026.title': 'Grigioni: autocertificazione penali per permessi di dimora',
+    'blog.article.grigioni-permessi-dimora-2026.excerpt': 'Da maggio 2026, chi richiede un permesso di dimora nei Grigioni dovrà dichiarare eventuali precedenti penali o procedimenti in corso.',
+    'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

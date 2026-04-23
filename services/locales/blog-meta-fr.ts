@@ -2553,6 +2553,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assegno-educativo-mendrisio-2026.title': 'Allocation éducative Mendrisio 2026 : date limite le 30 juin',
     'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Jusqu\'au 30 juin 2026 pour demander l\'Allocation éducative, la Contribution pour colonies et la Subvention de logement à Mendrisio. Conditions et procédures.',
     'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Vue de la ville de Mendrisio avec l\'architecture suisse et italienne, des familles marchant dans les rues.',
+    'blog.article.grigioni-permessi-dimora-2026.title': 'Grisons : autocertification pénale pour les permis de séjour',
+    'blog.article.grigioni-permessi-dimora-2026.excerpt': 'À partir de mai 2026, toute personne demandant un permis de séjour dans les Grisons devra déclarer d\'éventuels antécédents pénaux ou procédures en cours.',
+    'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et bâtiments',
 };
 
 export default blogMetaFr;

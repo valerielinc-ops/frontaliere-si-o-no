@@ -2553,6 +2553,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assegno-educativo-mendrisio-2026.title': 'Mendrisio Educational Allowance 2026: Deadline June 30',
     'blog.article.assegno-educativo-mendrisio-2026.excerpt': 'Until June 30, 2026, to apply for the Educational Allowance, Contribution for Camps, and Housing Subsidy in Mendrisio. Requirements and procedures.',
     'blog.article.assegno-educativo-mendrisio-2026.imageAlt': 'Mendrisio cityscape with Swiss and Italian architecture, families walking down the streets.',
+    'blog.article.grigioni-permessi-dimora-2026.title': 'Grison: Self-declaration of criminal records for residence permits',
+    'blog.article.grigioni-permessi-dimora-2026.excerpt': 'From May 2026, anyone applying for a residence permit in Grison will need to declare any criminal records or ongoing proceedings.',
+    'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;
