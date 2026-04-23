@@ -716,6 +716,7 @@ const frCore: Record<string, string> = {
  'jobBoard.adviceTitle': 'Conseil candidature',
  'jobBoard.adviceDescription': 'Adaptez CV et lettre au poste, au lieu et aux exigences ci-dessus pour améliorer la pertinence.',
  'jobBoard.adviceCta': 'Accéder à la candidature',
+ 'jobBoard.expiredAdviceCta': 'Voir les offres similaires actives',
  'jobBoard.salaryEstimate.frontaliere': 'Net Frontalier (Permis G)',
  'jobBoard.salaryEstimate.resident': 'Net Résident CH (Permis B)',
  'jobBoard.salaryEstimate.monthly': '{min} – {max} /mois',

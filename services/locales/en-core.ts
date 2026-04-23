@@ -716,6 +716,7 @@ const enCore: Record<string, string> = {
  'jobBoard.adviceTitle': 'Application tip',
  'jobBoard.adviceDescription': 'Tailor your CV and cover letter to role, location and requirements above to improve fit.',
  'jobBoard.adviceCta': 'Go to application',
+ 'jobBoard.expiredAdviceCta': 'See similar active jobs',
  'jobBoard.salaryEstimate.frontaliere': 'Net Cross-Border (Permit G)',
  'jobBoard.salaryEstimate.resident': 'Net CH Resident (Permit B)',
  'jobBoard.salaryEstimate.monthly': '{min} – {max} /month',

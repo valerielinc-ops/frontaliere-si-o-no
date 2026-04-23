@@ -716,6 +716,7 @@ const deCore: Record<string, string> = {
  'jobBoard.adviceTitle': 'Bewerbungstipp',
  'jobBoard.adviceDescription': 'Passen Sie Lebenslauf und Anschreiben an Rolle, Ort und Anforderungen an, um die Passung zu verbessern.',
  'jobBoard.adviceCta': 'Zur Bewerbung',
+ 'jobBoard.expiredAdviceCta': 'Ähnliche offene Stellen ansehen',
  'jobBoard.salaryEstimate.frontaliere': 'Netto Grenzgänger (Bewilligung G)',
  'jobBoard.salaryEstimate.resident': 'Netto CH-Einwohner (Bewilligung B)',
  'jobBoard.salaryEstimate.monthly': '{min} – {max} /Monat',

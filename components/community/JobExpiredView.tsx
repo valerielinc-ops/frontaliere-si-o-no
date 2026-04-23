@@ -10,7 +10,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Building2, Calendar, CheckCircle2, Clock, Euro, Eye, Loader2, Mail, MapPin, Shield } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
 import { useLocale, t } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
@@ -18,9 +18,12 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { AD_SLOTS } from '@/services/adsenseSlots';
+import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { buildPath } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import Callout from '@/components/shared/Callout';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
@@ -57,6 +60,10 @@ interface JobExpiredViewProps {
  onNavigateToLocation?: (locationSlug: string) => void;
  /** SPA navigation: navigate to a job detail or listing (empty string = listing root). */
  onNavigateToJob?: (jobSlug: string) => void;
+ /** SPA navigation: open the "publish a job" flow. If omitted, the publish callout is hidden. */
+ onPostJob?: () => void;
+ /** SPA navigation: jump to a job-board search term (populates listing search). */
+ onNavigateToSearch?: (term: string) => void;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -127,9 +134,24 @@ const EXPIRED_AT_COPY: Record<string, string> = {
  fr: 'Expirée le',
 };
 
+const SEARCH_PREFIX_BY_LOCALE: Record<string, string> = {
+ it: 'ricerca',
+ en: 'search',
+ de: 'suche',
+ fr: 'recherche',
+};
+function slugifySearchTerm(term: string): string {
+ return term.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+function buildLocalSearchSlug(term: string, locale: string): string {
+ const prefix = SEARCH_PREFIX_BY_LOCALE[locale] ?? SEARCH_PREFIX_BY_LOCALE.it;
+ const core = slugifySearchTerm(term) || 'lavoro';
+ return `${prefix}-${core}`;
+}
+
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
-export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobExpiredViewProps) {
+export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
@@ -428,9 +450,28 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </a>
  );
 
- // ── Logged-in view: 2-column layout with full description + 5 ad slots ──
+ // ── Logged-in view: 2-column layout matching active job detail ──
 
  if (alreadySignedIn) {
+ const locationSnapshot = getJobLocationSnapshot({
+ location: job.location,
+ addressLocality: job.addressLocality,
+ });
+ const relatedSearchTerms: string[] = Array.from(
+ new Set(
+ [job.sector, jobLocation, 'frontaliere']
+ .map((v) => (v || '').trim())
+ .filter((v): v is string => v.length > 0)
+ )
+ ).slice(0, 3);
+
+ const handleSearchTermClick = (e: { preventDefault(): void }, term: string) => {
+ if (!onNavigateToSearch) return;
+ e.preventDefault();
+ Analytics.trackSelectContent('job_expired_related_search_click', term);
+ onNavigateToSearch(term);
+ };
+
  return (
  <div className="space-y-5">
  {backButton}
@@ -441,6 +482,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <article className="lg:col-span-8 space-y-5">
  <div className="rounded-stripe border border-edge bg-surface p-5">
  {jobHeader}
+ {job.sector && (
+ <div className="mt-4 flex flex-wrap gap-2 text-xs">
+ <span className="px-2 py-1 rounded-full bg-surface-raised text-body">{job.sector}</span>
+ </div>
+ )}
  </div>
 
  {descriptionPlain && (
@@ -472,15 +518,103 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  {/* ── Sidebar (4 cols, desktop only) ── */}
  <aside className="hidden lg:block lg:col-span-4">
- <div className="sticky top-6 space-y-4">
- {/* Job snapshot card */}
- <div className="rounded-stripe border border-edge bg-surface p-4 space-y-2">
- <h3 className="text-sm font-bold text-heading">{locale === 'it' ? 'Dettagli' : locale === 'de' ? 'Details' : locale === 'fr' ? 'Détails' : 'Details'}</h3>
- {job.company && <p className="text-xs text-subtle flex items-center gap-1.5"><Building2 size={12} />{job.company}</p>}
- {jobLocation && <p className="text-xs text-subtle flex items-center gap-1.5"><MapPin size={12} />{jobLocation}</p>}
- {expiredDate && <p className="text-xs text-subtle flex items-center gap-1.5"><Calendar size={12} />{EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}</p>}
+ <div className="sticky top-20 space-y-4">
+ {/* Snapshot annuncio */}
+ {(jobLocation || expiredDate || (locationSnapshot?.crossings && locationSnapshot.crossings.length > 0)) && (
+ <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl">
+ <div className="text-sm font-bold font-display text-heading">
+ {t('jobBoard.snapshotTitle')}
  </div>
+ <div className="mt-3 space-y-2 text-xs text-subtle">
+ {jobLocation && (
+ <div className="flex items-center justify-between gap-2">
+ <span>{t('jobBoard.snapshot.location')}</span>
+ <div className="text-right">
+ <div className="font-semibold font-display text-strong">
+ {locationSnapshot?.locality || jobLocation}
+ </div>
+ {locationSnapshot?.postalCode && (
+ <div className="text-[11px] text-muted leading-tight mt-0.5">
+ {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode}
+ </div>
+ )}
+ </div>
+ </div>
+ )}
+ {expiredDate && (
+ <div className="flex items-center justify-between gap-2">
+ <span>{EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it}</span>
+ <span className="font-semibold font-display text-strong">{expiredDate}</span>
+ </div>
+ )}
+ {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && (
+ <div className="pt-2 border-t border-edge/60">
+ <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted">
+ {t('jobBoard.snapshot.borderCrossings')}
+ </div>
+ <div className="space-y-1">
+ {locationSnapshot.crossings.map((crossing) => (
+ <a
+ key={crossing.id}
+ href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id }, locale)}
+ className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors"
+ >
+ <span className="font-medium font-display leading-tight">{crossing.name}</span>
+ <ArrowUpRight className="w-3 h-3 text-muted" />
+ </a>
+ ))}
+ </div>
+ </div>
+ )}
+ </div>
+ </Callout>
+ )}
 
+ {/* Advice (expired variant) */}
+ <Callout status="success" icon={<Users size={15} />} className="rounded-xl">
+ <div className="text-sm font-bold font-display text-heading">
+ {t('jobBoard.adviceTitle')}
+ </div>
+ <p className="mt-2 text-sm leading-relaxed text-subtle">
+ {t('jobBoard.adviceDescription')}
+ </p>
+ <button
+ type="button"
+ onClick={handleCtaClick}
+ className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg"
+ >
+ {t('jobBoard.expiredAdviceCta')}
+ </button>
+ </Callout>
+
+ {/* Related searches — only when we can actually navigate */}
+ {onNavigateToSearch && relatedSearchTerms.length > 0 && (
+ <Callout status="accent" icon={<Search size={15} />} className="rounded-xl">
+ <div className="text-sm font-bold font-display text-heading">
+ {RELATED_COPY[locale] ?? RELATED_COPY.it}
+ </div>
+ <div className="mt-2 flex flex-wrap gap-2">
+ {relatedSearchTerms.map((term, i) => {
+ const href = buildPath(
+ { activeTab: 'job-board', jobSlug: buildLocalSearchSlug(term, locale) },
+ locale,
+ );
+ return (
+ <a
+ key={i}
+ href={href}
+ onClick={(e) => handleSearchTermClick(e, term)}
+ className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border"
+ >
+ {term}
+ </a>
+ );
+ })}
+ </div>
+ </Callout>
+ )}
+
+ {/* Sidebar ad */}
  {AD_SLOTS.JOBDETAIL_SIDEBAR.slot && (
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot}
@@ -489,6 +623,24 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
+ {/* Publish job CTA — only when handler is wired */}
+ {onPostJob && (
+ <Callout status="accent" icon={<Mail size={15} />} className="rounded-xl">
+ <div className="text-sm font-bold font-display text-heading">
+ {t('jobBoard.publishTitle')}
+ </div>
+ <p className="mt-2 text-sm leading-relaxed text-subtle">
+ {t('jobBoard.publishDescription', { canton: 'Ticino' })}
+ </p>
+ <button
+ type="button"
+ onClick={onPostJob}
+ className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle"
+ >
+ {t('jobBoard.publishCta')}
+ </button>
+ </Callout>
+ )}
  </div>
  </aside>
  </div>
