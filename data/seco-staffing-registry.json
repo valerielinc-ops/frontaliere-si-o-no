@@ -1,0 +1,58 @@
+{
+  "source": "https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend",
+  "sourceLabel": "Registro SECO AVG — agenzie di collocamento e prestito di personale autorizzate",
+  "fetchedAt": "2026-04-23T17:33:02.383Z",
+  "curated": true,
+  "note": "Elenco curato non esaustivo di agenzie con autorizzazione SECO attive a Lugano. Per la lista completa e aggiornata consultare il registro ufficiale SECO AVG (link in 'source').",
+  "count": 8,
+  "agencies": [
+    {
+      "name": "Adecco Resources SA",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Filiale Lugano — operatore nazionale con mandato SECO; copre generalista e specializzato (IT, finanza, ingegneria)."
+    },
+    {
+      "name": "Manpower SA",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Filiale Lugano — specializzazioni industriale, commerciale, ingegneria, finanza."
+    },
+    {
+      "name": "Randstad (Switzerland) AG",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Filiale Lugano — generalista con divisione Finance & Accounting e Medical & Life Sciences."
+    },
+    {
+      "name": "Kelly Services (Suisse) SA",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Filiale Lugano — focus impiegatizio, commerciale e industriale."
+    },
+    {
+      "name": "Interiman SA",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Gruppo Interiman (oggi Interiman Group / The Adecco Group) — hub Lugano."
+    },
+    {
+      "name": "Sintex SA",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Agenzia ticinese storica con mandato SECO — generalista, industriale, logistica, sanitaria."
+    },
+    {
+      "name": "Axxon Services SA",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Agenzia ticinese con sede a Lugano — permanenti e interim."
+    },
+    {
+      "name": "Trenkwalder Personal AG",
+      "city": "Lugano",
+      "type": "placement-and-staffing",
+      "notes": "Branch ticinese del gruppo austriaco Trenkwalder."
+    }
+  ]
+}
