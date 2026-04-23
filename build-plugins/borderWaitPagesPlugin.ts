@@ -621,9 +621,10 @@ function renderWeeklySvg(matrix: Array<Array<null | { avg: number }>>, copy: Cop
 function aggregateToday(
   crossing: BorderCrossingSlug,
   history: BorderWaitHistoryDay[],
+  today?: Date,
 ): Array<null | { avg: number; min: number; max: number; samples: number }> {
-  const today = new Date().toISOString().slice(0, 10);
-  const todayFile = history.find((h) => h.date === today);
+  const todayIso = (today ?? new Date()).toISOString().slice(0, 10);
+  const todayFile = history.find((h) => h.date === todayIso);
   const buckets: Array<null | { avg: number; min: number; max: number; samples: number }> =
     Array(24).fill(null);
   if (!todayFile) return buckets;
@@ -769,7 +770,7 @@ function renderLeafPage(inp: LeafInputs): string {
       ? 'IT→CH'
       : 'CH→IT';
 
-  const todayBuckets = aggregateToday(crossing, history);
+  const todayBuckets = aggregateToday(crossing, history, inp.today);
   const weekly = aggregateWeekly(crossing, history);
   const { best: bestHour, worst: worstHour } = findBestWorstHour(weekly);
   /** Hourly chart needs at least today's data (1 day); weekly pattern needs ≥7. */
