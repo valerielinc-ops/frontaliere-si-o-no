@@ -263,7 +263,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const prefix = locale === 'it' ? '' : `/${locale}`;
  const href = `${BASE_URL}${prefix}/${blogSectionByLocale[locale]}/${slug}/`;
  const title = articleTitleByLocale.it[art.id] || art.id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
- return `<li style="margin:0 0 8px 0"><a href="${href}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(title)}</a></li>`;
+ return `<li style="margin:0 0 8px 0"><a href="${href}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(title)}</a></li>`;
  }).join('');
  return `<section class="related" style="margin-top:12px"><h2 style="margin:0 0 10px 0;font-size:16px">${esc(recentArticlesLabel[locale])}</h2><ul style="list-style:none;padding:0;margin:0">${items}</ul></section>`;
  };
@@ -1150,7 +1150,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const max = r.salaryMax ? (r.salaryMax / 1000).toFixed(0) : null;
  return max ? `${r.currency || 'CHF'} ${min}k – ${max}k` : `${r.currency || 'CHF'} ${min}k+`;
  })();
- return `<li style="margin:0 0 8px 0"><a href="${href}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;border:1px solid #e2e8f0;border-radius:12px"><img src="${esc(rLogo)}" alt="Logo ${esc(r.company)}" width="40" height="40" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;flex-shrink:0"><div style="min-width:0;flex:1"><div style="font-size:14px;font-weight:700;color:#0f172a;line-height:1.3">${esc(relatedTitle)}</div><div style="font-size:12px;color:#64748b;margin-top:2px">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div style="font-size:12px;font-weight:600;color:#16a34a;margin-top:4px">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ return `<li style="margin:0 0 8px 0"><a href="${href}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;border:1px solid var(--color-edge);border-radius:12px"><img src="${esc(rLogo)}" alt="Logo ${esc(r.company)}" width="40" height="40" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0"><div style="min-width:0;flex:1"><div style="font-size:14px;font-weight:700;color:var(--color-heading);line-height:1.3">${esc(relatedTitle)}</div><div style="font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div style="font-size:12px;font-weight:600;color:var(--color-success);margin-top:4px">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
  const summaryHtml = summaryParagraphs
@@ -1378,35 +1378,30 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" as="style" crossorigin>
  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" data-clarity-unmask="true"></noscript>
  <style>
- :root {
- --bg: #f5f8fd;
- --ink: #0f172a;
- --line: #d8e4f4;
- }
  * { box-sizing: border-box; }
  body {
  margin: 0;
  padding: 0;
  font-family: "Manrope", sans-serif;
- color: var(--ink);
+ color: var(--color-body);
  background:
  radial-gradient(1100px 600px at 0% -10%, rgba(14, 165, 233, 0.15), transparent 60%),
  radial-gradient(1000px 600px at 100% 0%, rgba(16, 185, 129, 0.12), transparent 60%),
- var(--bg);
+ var(--color-surface-alt);
  }
  /* Padding only for static pre-hydration content */
  body > #root > main.static-job-page { padding: 26px; }
  h1, h2, h3, h4 { margin: 0; font-family: "Outfit", sans-serif; }
  main { max-width: 1120px; margin: 0 auto; display: grid; gap: 12px; }
  .proposal {
- border: 1px solid var(--line);
- background: #fff;
+ border: 1px solid var(--color-edge);
+ background: var(--color-surface);
  border-radius: 20px;
  padding: 12px;
  overflow: hidden;
  }
  .hero {
- border: 1px solid #cae0ff;
+ border: 1px solid var(--color-accent-border);
  background:
  linear-gradient(130deg, rgba(229, 243, 255, 0.98), rgba(237, 252, 245, 0.98));
  border-radius: 16px;
@@ -1421,7 +1416,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .hero-sub {
  margin-top: 4px;
  font-size: 14px;
- color: #475569;
+ color: var(--color-subtle);
  }
  .hero-meta {
  margin-top: 10px;
@@ -1430,33 +1425,33 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  gap: 7px;
  }
  .hero-meta span {
- border: 1px solid #cfe0f7;
+ border: 1px solid var(--color-edge);
  background: rgba(255, 255, 255, 0.75);
  border-radius: 999px;
  padding: 5px 8px;
  font-size: 11px;
  font-weight: 800;
- color: #385171;
+ color: var(--color-body);
  }
  .section {
- border: 1px solid #dce6f5;
+ border: 1px solid var(--color-edge);
  border-radius: 14px;
  padding: 12px;
  margin-bottom: 9px;
- background: #fff;
+ background: var(--color-surface);
  }
  .section h4 {
  font-size: 14px;
  text-transform: uppercase;
  letter-spacing: 0.02em;
- color: #2f435f;
+ color: var(--color-subtle);
  margin-bottom: 8px;
  }
  .section p {
  margin: 0 0 8px 0;
  font-size: 14px;
  line-height: 1.58;
- color: #1f3149;
+ color: var(--color-body);
  }
  .section ul {
  margin: 0;
@@ -1466,7 +1461,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  margin-bottom: 7px;
  font-size: 14px;
  line-height: 1.52;
- color: #1f3149;
+ color: var(--color-body);
  }
  .section li.subhead {
  list-style: none;
@@ -1474,13 +1469,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  margin-top: 4px;
  margin-bottom: 6px;
  font-weight: 800;
- color: #234b87;
+ color: var(--color-heading);
  }
  .timeline {
  position: relative;
  margin-left: 6px;
  padding-left: 16px;
- border-left: 2px dashed #acc7ef;
+ border-left: 2px dashed var(--color-accent-border);
  }
  .timeline-step {
  margin-bottom: 10px;
@@ -1494,7 +1489,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  width: 9px;
  height: 9px;
  border-radius: 999px;
- background: #1769ff;
+ background: var(--color-accent);
  }
  .cta {
  display: inline-flex;
@@ -1506,13 +1501,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  text-decoration: none;
  font-size: 13px;
  font-weight: 800;
- background: linear-gradient(135deg, #1769ff, #0f8bff);
- color: #fff;
+ background: var(--color-accent);
+ color: var(--color-on-accent);
  }
  .related {
  margin-top: 8px;
- background: #fff;
- border: 1px solid #d8e4f4;
+ background: var(--color-surface);
+ border: 1px solid var(--color-edge);
  border-radius: 16px;
  padding: 14px;
  }
@@ -1536,7 +1531,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  <body>
  <div id="root">
  <main class="static-job-page">
- <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#4f46e5;text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
+ <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
@@ -1572,8 +1567,8 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  fr: `Toutes les offres ${job.company}${companyLoc ? ` à ${companyLoc}` : ''}`,
  };
  const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
- const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid #e2e8f0;border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="28" height="28" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:#0f172a">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:#475569;margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:#94a3b8;margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
- const ctaLink = `<p style="margin:12px 0 0;font-size:15px"><a href="${cHref}" style="color:#1e3a8a;text-decoration:underline;font-weight:700">${esc(anchorText)} &rarr;</a></p>`;
+ const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid var(--color-edge);border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="28" height="28" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:var(--color-heading)">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ const ctaLink = `<p style="margin:12px 0 0;font-size:15px"><a href="${cHref}" style="color:var(--color-link);text-decoration:underline;font-weight:700">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
@@ -1614,26 +1609,26 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const links: string[] = [];
  if (matchedCity) {
  const href = `${BASE_URL}${buildCityHubPath(locale as never, matchedCity)}`;
- links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:#eef2ff;color:#3730a3;text-decoration:none;font-weight:700;font-size:13px">${esc(cityCopy[locale] || cityCopy.it)} ${esc(CITY_HUB_DISPLAY_NAME[matchedCity])} &rarr;</a>`);
+ links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(cityCopy[locale] || cityCopy.it)} ${esc(CITY_HUB_DISPLAY_NAME[matchedCity])} &rarr;</a>`);
  }
  if (matchedSector) {
  const href = `${BASE_URL}${buildSectorHubPath(locale as never, matchedSector)}`;
  const label = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
  const prefix = locale === 'it' || locale === 'fr' ? `${sectorCopy[locale]} ${label}` : `${sectorCopy[locale]} ${label}`;
- links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:#fef3c7;color:#92400e;text-decoration:none;font-weight:700;font-size:13px">${esc(prefix)} &rarr;</a>`);
+ links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:var(--color-warning-subtle);color:var(--color-warning);text-decoration:none;font-weight:700;font-size:13px">${esc(prefix)} &rarr;</a>`);
  }
  return `<section class="section"><h4>${esc(heading[locale] || heading.it)}</h4><div style="display:flex;flex-wrap:wrap;gap:10px">${links.join('')}</div></section>`;
  })();
  return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
- <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid #e2e8f0;font-size:14px">
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
+ <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid var(--color-edge);font-size:14px">
+ <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
  const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
  if (!cSlug) return '';
  const cPrefix = companyRoutePrefix[locale];
  const cFullSlug = `${cPrefix}-${cSlug}`;
  const cPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${cFullSlug}`.replace(/\/+/g, '/'));
- return ` · <a href="${BASE_URL}${cPath}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(job.company)} &rarr;</a>`;
+ return ` · <a href="${BASE_URL}${cPath}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(job.company)} &rarr;</a>`;
  })()}
  </nav>
  </main>
@@ -1775,7 +1770,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const rx = new RegExp(`\\b${display}\\b`, 'i');
  return safe.replace(
  rx,
- (match) => `<a href="${href}" style="color:#4f46e5;text-decoration:none;font-weight:600">${match}</a>`,
+ (match) => `<a href="${href}" style="color:var(--color-accent);text-decoration:none;font-weight:600">${match}</a>`,
  );
  };
 
@@ -1854,7 +1849,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const ICON_EURO = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M4 14h9M19 5.4A7 7 0 0 0 7.5 12a7 7 0 0 0 11.5 6.6"/></svg>';
  const ICON_MAPPIN = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
  const ICON_CLOCK = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
- const ICON_STAR = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#d97706" stroke="#d97706" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9L12 3Z"/></svg>';
+ const ICON_STAR = '<svg viewBox="0 0 24 24" width="14" height="14" fill="var(--color-warning)" stroke="var(--color-warning)" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9L12 3Z"/></svg>';
  const ICON_SPARKLE = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>';
 
  /**
@@ -1883,17 +1878,17 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const posted = relativePostedLabel(postedRaw, locale);
  const fresh = isJobNew(postedRaw);
  const featured = Boolean(job.featured);
- const borderColor = featured ? '#fde68a' : '#e2e8f0';
- const bgColor = featured ? '#fffbeb' : '#ffffff';
+ const borderColor = featured ? 'var(--color-warning-border)' : 'var(--color-edge)';
+ const bgColor = featured ? 'var(--color-warning-subtle)' : 'var(--color-surface)';
  const featuredBadge = featured ? `<span style="display:inline-block;margin-left:6px;vertical-align:-2px">${ICON_STAR}</span>` : '';
  const newBadge = fresh
- ? `<span style="display:inline-flex;align-items:center;gap:3px;margin-left:6px;padding:2px 7px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;border-radius:9999px;background:#ecfdf5;color:#059669;vertical-align:1px">${ICON_SPARKLE}<span>${NEW_BADGE_LABEL[locale]}</span></span>`
+ ? `<span style="display:inline-flex;align-items:center;gap:3px;margin-left:6px;padding:2px 7px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;border-radius:9999px;background:var(--color-success-subtle);color:var(--color-success);vertical-align:1px">${ICON_SPARKLE}<span>${NEW_BADGE_LABEL[locale]}</span></span>`
  : '';
  const salaryHtml = salaryStr
- ? `<span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;font-weight:600;color:#059669">${ICON_EURO}<span>${esc(salaryStr)}</span></span>`
+ ? `<span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;font-weight:600;color:var(--color-success)">${ICON_EURO}<span>${esc(salaryStr)}</span></span>`
  : '';
  const contractChip = contractLbl
- ? `<span style="padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569">${esc(contractLbl)}</span>`
+ ? `<span style="padding:2px 8px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-subtle)">${esc(contractLbl)}</span>`
  : '';
  const postedChip = posted
  ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_CLOCK}<span>${esc(posted)}</span></span>`
@@ -1901,7 +1896,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const locChip = rawLocation
  ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_MAPPIN}<span>${esc(rawLocation)}</span></span>`
  : '';
- return `<li style="list-style:none;margin:0 0 10px 0"><a href="${jHref}" style="display:block;text-decoration:none;color:inherit;border:1px solid ${borderColor};background:${bgColor};border-radius:12px;padding:12px 14px;transition:border-color .15s"><div style="display:flex;align-items:flex-start;gap:12px"><div style="flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:#f1f5f9;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="${esc(logo)}" alt="Logo ${esc(String(job.company || ''))}" width="36" height="36" loading="lazy" style="width:36px;height:36px;object-fit:contain"></div><div style="flex:1 1 auto;min-width:0"><h3 style="margin:0;font-size:15px;font-weight:700;color:#0f172a;line-height:1.35">${esc(jTitle)}${featuredBadge}${newBadge}</h3><p style="margin:2px 0 0;font-size:13px;color:#475569;line-height:1.45">${esc(String(job.company || ''))} · ${locationWithLink}${cantonStr}</p>${salaryHtml}</div></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:#64748b">${locChip}${contractChip}${postedChip}</div></a></li>`;
+ return `<li style="list-style:none;margin:0 0 10px 0"><a href="${jHref}" style="display:block;text-decoration:none;color:inherit;border:1px solid ${borderColor};background:${bgColor};border-radius:12px;padding:12px 14px;transition:border-color .15s"><div style="display:flex;align-items:flex-start;gap:12px"><div style="flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:var(--color-surface-alt);border:1px solid var(--color-edge);display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="${esc(logo)}" alt="Logo ${esc(String(job.company || ''))}" width="36" height="36" loading="lazy" style="width:36px;height:36px;object-fit:contain"></div><div style="flex:1 1 auto;min-width:0"><h3 style="margin:0;font-size:15px;font-weight:700;color:var(--color-heading);line-height:1.35">${esc(jTitle)}${featuredBadge}${newBadge}</h3><p style="margin:2px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.45">${esc(String(job.company || ''))} · ${locationWithLink}${cantonStr}</p>${salaryHtml}</div></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:var(--color-subtle)">${locChip}${contractChip}${postedChip}</div></a></li>`;
  };
 
  /** Render a row of sector/city hub link chips for the company. */
@@ -1919,7 +1914,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  de: { intro: 'Mehr entdecken', sectorsLead: 'nach Branche', citiesLead: 'nach Stadt' },
  fr: { intro: 'Explorez aussi', sectorsLead: 'par secteur', citiesLead: 'par ville' },
  }[locale];
- const chipStyle = 'display:inline-block;margin:0 6px 6px 0;padding:4px 10px;font-size:12px;font-weight:600;border-radius:9999px;background:#eef2ff;color:#4338ca;text-decoration:none;border:1px solid #e0e7ff';
+ const chipStyle = 'display:inline-block;margin:0 6px 6px 0;padding:4px 10px;font-size:12px;font-weight:600;border-radius:9999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;border:1px solid var(--color-accent-border)';
  const sectorChips = sectors
  .map((s) => {
  const href = `${BASE_URL}${buildSectorHubPath(locale, s)}`;
@@ -1935,9 +1930,9 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  })
  .join('');
  const parts: string[] = [];
- if (sectorChips) parts.push(`<div style="margin-top:10px"><span style="font-size:12px;color:#64748b;margin-right:8px">${esc(labels.sectorsLead)}:</span>${sectorChips}</div>`);
- if (cityChips) parts.push(`<div style="margin-top:6px"><span style="font-size:12px;color:#64748b;margin-right:8px">${esc(labels.citiesLead)}:</span>${cityChips}</div>`);
- return `<section style="margin-top:20px"><h3 style="margin:0 0 6px 0;font-size:14px;font-weight:700;color:#0f172a">${esc(labels.intro)}</h3>${parts.join('')}</section>`;
+ if (sectorChips) parts.push(`<div style="margin-top:10px"><span style="font-size:12px;color:var(--color-subtle);margin-right:8px">${esc(labels.sectorsLead)}:</span>${sectorChips}</div>`);
+ if (cityChips) parts.push(`<div style="margin-top:6px"><span style="font-size:12px;color:var(--color-subtle);margin-right:8px">${esc(labels.citiesLead)}:</span>${cityChips}</div>`);
+ return `<section style="margin-top:20px"><h3 style="margin:0 0 6px 0;font-size:14px;font-weight:700;color:var(--color-heading)">${esc(labels.intro)}</h3>${parts.join('')}</section>`;
  };
 
  // Collect unique companies by canonical slug (mirrors runtime grouping)
@@ -2097,9 +2092,9 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const faqsHtml = brandCopy.faqs
  .map(
  (f) =>
- `<div style="margin:0 0 12px 0;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px"><h3 style="margin:0 0 6px 0;font-size:15px;color:#0f172a">${esc(
+ `<div style="margin:0 0 12px 0;padding:12px 14px;border:1px solid var(--color-edge);border-radius:10px"><h3 style="margin:0 0 6px 0;font-size:15px;color:var(--color-heading)">${esc(
  f.q,
- )}</h3><p style="margin:0;font-size:14px;color:#334155;line-height:1.55">${esc(
+ )}</h3><p style="margin:0;font-size:14px;color:var(--color-body);line-height:1.55">${esc(
  f.a,
  )}</p></div>`,
  )
@@ -2111,14 +2106,14 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
  )}`;
- const headerBadge = `<p style="margin:0 0 8px 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#4f46e5;font-weight:700">${esc(
+ const headerBadge = `<p style="margin:0 0 8px 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);font-weight:700">${esc(
  curatedBrand.shortName,
  )}</p>`;
  const hubLabels = {
  viewAllLabel: copy.viewAll,
  };
  curatedBodyHtml = [
- `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p style="font-size:16px;color:#475569;margin-top:4px">${esc(
+ `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p style="font-size:16px;color:var(--color-subtle);margin-top:4px">${esc(
  brandCopy.tagline,
  )}</p></header>`,
  `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.about)}</h2>${paragraphsHtml}</section>`,
@@ -2130,7 +2125,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  brandCopy.howToApply,
  )}</p>${
  curatedBrand.careersUrl
- ? `<p><a href="${esc(curatedBrand.careersUrl)}" rel="noopener noreferrer" target="_blank" style="color:#1e3a8a;font-weight:600;text-decoration:none">${esc(
+ ? `<p><a href="${esc(curatedBrand.careersUrl)}" rel="noopener noreferrer" target="_blank" style="color:var(--color-link);font-weight:600;text-decoration:none">${esc(
  curatedBrand.website.replace(/^https?:\/\//, ''),
  )} &rarr;</a></p>`
  : ''
@@ -2185,7 +2180,7 @@ ${hreflangHtml}
  <body>
  <div id="root">
  <main class="static-job-page">
- <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}" style="color:#4f46e5;text-decoration:none;font-weight:600">&larr; ${esc(copy.allJobsLink)}</a></nav>
+ <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(copy.allJobsLink)}</a></nav>
 ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName))}</h1>\n<p>${esc(description)}</p>\n`}${curatedBodyHtml ? '' : (() => {
  // Collect location info from company jobs
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
@@ -2267,10 +2262,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
 
  // Editorial
- parts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
+ parts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>`);
  return parts.join('\n');
  })()}
- ${curatedBodyHtml ? `<p style="margin-top:24px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>` : ''}
+ ${curatedBodyHtml ? `<p style="margin-top:24px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>` : ''}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -2376,8 +2371,8 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const editorialSitemapEntries: string[] = [];
  const renderJobList = (items: Array<{ title: string; company: string; location: string; href: string }>) =>
  items.length > 0
- ? `<ul style="list-style:none;padding:0;margin:0">${items.map((item) => `<li style="margin:0 0 12px 0;padding:0 0 12px;border-bottom:1px solid #e2e8f0"><a href="${item.href}" style="text-decoration:none;color:#1d4ed8;font-weight:700">${esc(item.title)}</a><div style="font-size:13px;color:#64748b;margin-top:4px">${esc(item.company)} · ${esc(item.location)}</div></li>`).join('')}</ul>`
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ ? `<ul style="list-style:none;padding:0;margin:0">${items.map((item) => `<li style="margin:0 0 12px 0;padding:0 0 12px;border-bottom:1px solid var(--color-edge)"><a href="${item.href}" style="text-decoration:none;color:var(--color-link);font-weight:700">${esc(item.title)}</a><div style="font-size:13px;color:var(--color-subtle);margin-top:4px">${esc(item.company)} · ${esc(item.location)}</div></li>`).join('')}</ul>`
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const buildEditorialJsonLd = (options: {
  locale: typeof localeList[number];
  name: string;
@@ -2471,10 +2466,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const openAllHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.sections.cities.length > 0
  ? model.sections.cities.map((city) => city.href
-     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`
-     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></div>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
- const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:#eef2ff;color:#3730a3;text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
+     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></a>`
+     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></div>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -2521,36 +2516,36 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.sections.last24Hours.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.last24Hours.jobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:#f0fdf4;border:1px solid #bbf7d0"><div style="font-size:12px;color:#15803d;font-weight:700;text-transform:uppercase">${esc(model.sections.last3Days.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.last3Days.jobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:#fff7ed;border:1px solid #fed7aa"><div style="font-size:12px;color:#c2410c;font-weight:700;text-transform:uppercase">${esc(model.sections.partTime.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.partTime.jobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.sections.last24Hours.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.last24Hours.jobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.sections.last3Days.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.last3Days.jobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)"><div style="font-size:12px;color:var(--color-warning);font-weight:700;text-transform:uppercase">${esc(model.sections.partTime.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.partTime.jobs.length}</div></div>
  </section>
  <nav style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px">${internalLinks}</nav>
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.sections.cityHubLabel)}</h2>
- <a href="${openAllHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${openAllHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cityCards}</div>
  </section>
- <section id="last-24-hours" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section id="last-24-hours" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.last24Hours.label)}</h2>
  ${renderJobList(model.sections.last24Hours.jobs)}
  </section>
- <section id="last-3-days" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section id="last-3-days" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.last3Days.label)}</h2>
  ${renderJobList(model.sections.last3Days.jobs)}
  </section>
- <section id="part-time" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section id="part-time" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
@@ -2637,9 +2632,9 @@ ${alternates}
  },
  })),
  });
- const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff"><h3 style="margin:0 0 8px;font-size:18px;color:#0f172a">${esc(card.title)}</h3><p style="margin:0;color:#475569;line-height:1.7">${esc(card.body)}</p></div>`).join('');
- const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:#eef2ff;color:#3730a3;text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
- const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff"><summary style="cursor:pointer;font-weight:700;color:#0f172a">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:#475569;line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+ const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><h3 style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(card.title)}</h3><p style="margin:0;color:var(--color-subtle);line-height:1.7">${esc(card.body)}</p></div>`).join('');
+ const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
+ const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><summary style="cursor:pointer;font-weight:700;color:var(--color-heading)">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:var(--color-subtle);line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -2672,31 +2667,31 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:#f8fafc;border:1px solid #cbd5e1"><div style="font-size:12px;color:#334155;font-weight:700;text-transform:uppercase">${esc(model.officialSourceLabel)}</div><div style="margin-top:8px;font-size:15px;font-weight:800"><a href="${model.officialSourceUrl}" style="color:#1d4ed8;text-decoration:none">concorsi.ti.ch</a></div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-surface-alt);border:1px solid var(--color-edge)"><div style="font-size:12px;color:var(--color-body);font-weight:700;text-transform:uppercase">${esc(model.officialSourceLabel)}</div><div style="margin-top:8px;font-size:15px;font-weight:800"><a href="${model.officialSourceUrl}" style="color:var(--color-link);text-decoration:none">concorsi.ti.ch</a></div></div>
  </section>
  <nav style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px">${internalLinks}</nav>
  <section style="margin:0 0 28px">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.explainerTitle)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">${explainerCards}</div>
  </section>
- <section id="official-competitions" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section id="official-competitions" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -2761,9 +2756,9 @@ ${alternates}
  })
  .join('\n');
  const variantLinks = model.variants.length > 0
- ? model.variants.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#1d4ed8">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
- const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff"><h3 style="margin:0 0 8px;font-size:18px;color:#0f172a">${esc(card.title)}</h3><p style="margin:0;color:#475569;line-height:1.7">${esc(card.body)}</p></div>`).join('');
+ ? model.variants.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><h3 style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(card.title)}</h3><p style="margin:0;color:var(--color-subtle);line-height:1.7">${esc(card.body)}</p></div>`).join('');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -2791,7 +2786,7 @@ ${alternates}
  },
  })),
  });
- const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff"><summary style="cursor:pointer;font-weight:700;color:#0f172a">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:#475569;line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+ const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><summary style="cursor:pointer;font-weight:700;color:var(--color-heading)">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:var(--color-subtle);line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -2824,17 +2819,17 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:#f0fdf4;border:1px solid #bbf7d0"><div style="font-size:12px;color:#15803d;font-weight:700;text-transform:uppercase">${esc(model.variantTitle)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.variants.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.variantTitle)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.variants.length}</div></div>
  </section>
  <section style="margin:0 0 28px">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.variantTitle)}</h2>
@@ -2846,11 +2841,11 @@ ${alternates}
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -2920,9 +2915,9 @@ ${alternates}
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.cityLinks.length > 0
  ? model.cityLinks.map((city) => city.href
-     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`
-     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></div>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></a>`
+     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></div>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
  name: model.heading,
@@ -2949,7 +2944,7 @@ ${alternates}
  },
  })),
  });
- const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff"><summary style="cursor:pointer;font-weight:700;color:#0f172a">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:#475569;line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+ const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><summary style="cursor:pointer;font-weight:700;color:var(--color-heading)">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:var(--color-subtle);line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -2982,16 +2977,16 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
  </section>
  <section style="margin:0 0 28px">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.cityHubLabel)}</h2>
@@ -3000,11 +2995,11 @@ ${alternates}
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -3087,8 +3082,8 @@ ${alternates}
  })
  .join('\n');
  const siblingLinks = model.siblingLinks.length > 0
- ? model.siblingLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#1d4ed8">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ ? model.siblingLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -3137,26 +3132,26 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
- <p style="margin:14px 0 0"><a href="${model.parentHubHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(backLabel)}</a></p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:14px 0 0"><a href="${model.parentHubHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(backLabel)}</a></p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
  </section>
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -3251,11 +3246,11 @@ ${alternates}
  })
  .join('\n');
  const typeLinks = model.relatedTypeLinks.length > 0
- ? model.relatedTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#1d4ed8">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ ? model.relatedTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const sectorLinks = model.relatedSectorLinks.length > 0
- ? model.relatedSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dcfce7;border-radius:16px;background:#f0fdf4;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#15803d">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ ? model.relatedSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-success-border);border-radius:16px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-success)">${link.count}</span></a>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  // For geo-hub cities, override title/description with boosted count+fire
  // copy to target high-intent queries like "lavoro lugano".
  const cityHubSeo = cityHubKey
@@ -3311,25 +3306,25 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(pageH1)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(pageDesc)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(pageDesc)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
  </section>
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -3443,8 +3438,8 @@ ${alternates}
  })
  .join('\n');
  const siblingLinks = model.siblingTypeLinks.length > 0
- ? model.siblingTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#1d4ed8">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ ? model.siblingTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const parentLabel = locale === 'it' ? `Torna a lavoro a ${location}` : locale === 'en' ? `Back to jobs in ${location}` : locale === 'de' ? `Zuruck zu Jobs in ${location}` : `Retour aux emplois a ${location}`;
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
@@ -3492,26 +3487,26 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
- <p style="margin:14px 0 0"><a href="${model.parentLocationHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(parentLabel)}</a></p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:14px 0 0"><a href="${model.parentLocationHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(parentLabel)}</a></p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
  </section>
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -3594,8 +3589,8 @@ ${alternates}
  })
  .join('\n');
  const siblingLinks = model.siblingSectorLinks.length > 0
- ? model.siblingSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dcfce7;border-radius:16px;background:#f0fdf4;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:#15803d">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+ ? model.siblingSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-success-border);border-radius:16px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-success)">${link.count}</span></a>`).join('')
+ : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const parentLabel = locale === 'it' ? `Torna a lavoro a ${location}` : locale === 'en' ? `Back to jobs in ${location}` : locale === 'de' ? `Zuruck zu Jobs in ${location}` : `Retour aux emplois a ${location}`;
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
@@ -3643,26 +3638,26 @@ ${alternates}
  </head>
  <body>
  <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+ <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
- <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
- <p style="margin:14px 0 0"><a href="${model.parentLocationHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(parentLabel)}</a></p>
+ <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
+ <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <p style="margin:14px 0 0"><a href="${model.parentLocationHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(parentLabel)}</a></p>
  </header>
  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+ <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
  </section>
  <section style="margin:0 0 28px">
  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
  <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+ <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
@@ -3751,7 +3746,7 @@ ${alternates}
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = `${BASE_URL}${withSlash(jPath)}`;
  const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
+ return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
  }).join('');
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', inLanguage: locale, name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
@@ -3861,8 +3856,8 @@ ${alternates}
  count: catJobs.length,
  });
  const catAlternates = localeList.map((al) => { const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`; const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/'); return ` <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`; }).join('\n');
- const catListHtml = catPageJobs.map((job: any) => { const jSlug = localizedSlug(job, locale); const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/'); const jTitle = String(job?.titleByLocale?.[locale] || job.title || ''); return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`; }).join('');
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:#1e3a8a;display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
+ const catListHtml = catPageJobs.map((job: any) => { const jSlug = localizedSlug(job, locale); const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/'); const jTitle = String(job?.titleByLocale?.[locale] || job.title || ''); return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`; }).join('');
+ const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -3976,7 +3971,7 @@ ${alternates}
  const jSlug = localizedSlug(job, locale);
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
  const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
+ return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
  }).join('');
  const kwCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const kwCtaCopy: Record<string, string> = {
@@ -4089,7 +4084,7 @@ ${alternates}
  const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
  const href = `${BASE_URL}${withSlash(path)}`;
  const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} · ${esc(job.location)}</div></li>`;
+ return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} · ${esc(job.location)}</div></li>`;
  }).join('');
 
  const twitterCards = ` <meta name="twitter:card" content="summary_large_image">\n <meta name="twitter:title" content="${esc(title)}">\n <meta name="twitter:description" content="${esc(description)}">\n <meta name="twitter:site" content="@frontaliereticino">`;
@@ -4118,7 +4113,7 @@ ${alternates}
  } else {
  searchBodyParts.push(`<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
  }
- searchBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
+ searchBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>`);
  }
  const _sHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _sListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -4204,7 +4199,7 @@ ${alternates}
  const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
  const href = `${BASE_URL}${withSlash(path)}`;
  const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} · ${esc(job.location)}</div></li>`;
+ return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} · ${esc(job.location)}</div></li>`;
  }).join('');
 
  const comboOgImage = ` <meta property="og:image" content="${BASE_URL}/og-image.png">\n <meta property="og:image:width" content="1200">\n <meta property="og:image:height" content="630">\n <meta property="og:image:type" content="image/png">`;
@@ -4233,7 +4228,7 @@ ${alternates}
  } else {
  comboBodyParts.push(`<section style="margin-top:20px"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
  }
- comboBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
+ comboBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
  }
  const _cHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _cListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -5190,18 +5185,18 @@ ${alternates}
  const sectionName = esc(localeCopy[l].sectionName);
  const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,240,.5);box-shadow:0 1px 2px rgba(0,0,0,.05);padding:0 16px">
  <div style="max-width:2400px;width:95%;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px">
- <a href="${BASE_URL}/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2563eb;font-weight:700;font-size:15px;font-family:system-ui,sans-serif">
+ <a href="${BASE_URL}/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--color-link);font-weight:700;font-size:15px;font-family:system-ui,sans-serif">
  ${navSvg}
  Frontaliere Ticino
  </a>
  <span style="flex:1"></span>
- <a href="${sectionLink}" style="font-size:13px;color:#4f46e5;text-decoration:none;font-family:system-ui,sans-serif">${sectionName}</a>
+ <a href="${sectionLink}" style="font-size:13px;color:var(--color-accent);text-decoration:none;font-family:system-ui,sans-serif">${sectionName}</a>
  </div>
  </nav>`;
- const footer = `<footer class="ft-static-footer" style="border-top:1px solid rgba(226,232,240,.6);background:rgba(255,255,255,.5);padding:24px 16px;margin-top:auto;font-family:system-ui,sans-serif;font-size:13px;color:#64748b;text-align:center">
+ const footer = `<footer class="ft-static-footer" style="border-top:1px solid var(--color-edge);background:var(--color-surface);padding:24px 16px;margin-top:auto;font-family:system-ui,sans-serif;font-size:13px;color:var(--color-subtle);text-align:center">
  <div style="max-width:1280px;margin:0 auto">
- &copy; ${currentYear} <a href="${BASE_URL}/" style="color:#4f46e5;text-decoration:none">Frontaliere Ticino</a> &mdash;
- <a href="${sectionLink}" style="color:#4f46e5;text-decoration:none">${sectionName}</a>
+ &copy; ${currentYear} <a href="${BASE_URL}/" style="color:var(--color-accent);text-decoration:none">Frontaliere Ticino</a> &mdash;
+ <a href="${sectionLink}" style="color:var(--color-accent);text-decoration:none">${sectionName}</a>
  </div>
  </footer>`;
  return [l, { nav, footer, listingPath: lp }];
@@ -5235,7 +5230,7 @@ ${hreflangLinks}
  <body>
  <div id="root">
  ${shell.nav}
- <article class="ft-static-article" style="max-width:1280px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif;color:#334155;">
+ <article class="ft-static-article" style="max-width:1280px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif;color:var(--color-body);">
  ${staticBody}
  </article>
  ${shell.footer}
