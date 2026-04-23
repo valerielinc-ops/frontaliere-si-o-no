@@ -1048,7 +1048,45 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       name: 'Frontaliere Ticino',
       url: BASE_URL,
     },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: BASE_URL,
+    },
+    dateModified: `${todayIso}T00:00:00.000Z`,
+    datePublished: stats.endDate.toISOString(),
     temporalCoverage: `${stats.startDate.toISOString().slice(0, 10)}/${stats.endDate.toISOString().slice(0, 10)}`,
+    spatialCoverage: {
+      '@type': 'Place',
+      name: 'Canton Ticino',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'CH',
+        addressRegion: 'TI',
+      },
+    },
+    keywords: [
+      'Canton Ticino',
+      'frontalieri',
+      'lavoro Ticino',
+      'mercato del lavoro',
+      'job market',
+      'cross-border workers',
+    ],
+    distribution: [
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${BASE_URL}/data/jobs-stats.json`,
+        name: 'Ticino jobs statistics (weekly snapshot)',
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'text/html',
+        contentUrl: canonicalUrl,
+        name: 'HTML report',
+      },
+    ],
     variableMeasured: [
       copy.statNewJobs,
       copy.statClosedJobs,
@@ -1233,6 +1271,65 @@ function renderHubPage(inp: HubPageInputs): string {
     },
   });
 
+  const hubDatasetLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    inLanguage: locale,
+    name: h1,
+    description: copy.hubIntro,
+    url: canonicalUrl,
+    isAccessibleForFree: true,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    creator: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: BASE_URL,
+    },
+    dateModified: `${todayIso}T00:00:00.000Z`,
+    spatialCoverage: {
+      '@type': 'Place',
+      name: 'Canton Ticino',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'CH',
+        addressRegion: 'TI',
+      },
+    },
+    keywords: [
+      'Canton Ticino',
+      'frontalieri',
+      'lavoro Ticino',
+      'mercato del lavoro',
+      'job market',
+      'cross-border workers',
+    ],
+    distribution: [
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${BASE_URL}/data/jobs-stats.json`,
+        name: 'Ticino jobs statistics (weekly snapshot)',
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'text/html',
+        contentUrl: canonicalUrl,
+        name: 'HTML hub',
+      },
+    ],
+    variableMeasured: [
+      copy.statNewJobs,
+      copy.statActiveEmployers,
+      copy.topRolesHeading,
+      copy.topEmployersHeading,
+    ],
+  });
+
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -1291,7 +1388,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ogLocale: JOB_MARKET_OG_LOCALE[locale],
     hreflangHtml: alternatesHtml,
     extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, collectionLd, faqLd],
+    jsonLdScripts: [breadcrumbLd, collectionLd, hubDatasetLd, faqLd],
     bodyHtml,
     distDir,
   });
@@ -2030,6 +2127,42 @@ function renderSectorPage(inp: SectorPageInputs): string {
       name: 'Frontaliere Ticino',
       url: BASE_URL,
     },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: BASE_URL,
+    },
+    dateModified: `${todayIso}T00:00:00.000Z`,
+    spatialCoverage: {
+      '@type': 'Place',
+      name: 'Canton Ticino',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'CH',
+        addressRegion: 'TI',
+      },
+    },
+    keywords: [
+      'Canton Ticino',
+      'frontalieri',
+      'lavoro Ticino',
+      sectorLabel,
+      'mercato del lavoro',
+    ],
+    distribution: [
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${BASE_URL}/data/jobs-stats.json`,
+        name: 'Ticino jobs statistics (weekly snapshot)',
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'text/html',
+        contentUrl: canonicalUrl,
+        name: 'HTML report',
+      },
+    ],
     variableMeasured: [
       copy.statActiveJobs,
       copy.statMedianSalary,
