@@ -1,7 +1,25 @@
 # SEO Sprint 1 Tech Fixes — Extension 3
 
 Data: 2026-04-23
-Stato: aperto — follow-up derivati dalla chiusura di Extension 2.
+Stato: **CHIUSO** — tutti e quattro i follow-up completati (commit
+`b5daf94b0` — `refactor: Sprint 1 Extension 3 tech debt cleanup`).
+
+Summary:
+- §1 SemRush wiring — aggiunto `SEMRUSH_LANDINGS` in
+  `services/router.ts` con `staticOverlay: true` (stesso pattern di
+  fuel-daily / weekly-employers). Le 5 URL non subiscono più phantom-entry
+  al boot SPA.
+- §2 Locale-mismatch pipeline — aggiunto step
+  `scripts/mark-locale-mismatched-jobs.mjs` in
+  `.github/workflows/translate-pending.yml` prima del passo di traduzione
+  (con `continue-on-error: true`).
+- §3 `dist/` namespace cleanup — nuovo helper
+  `build-plugins/shared/distNamespaceCleanup.ts` + wired in fuel-daily /
+  weekly-employers / job-market-snapshot / health-premiums / border-wait.
+  Skippati orphan-query (collisione `/ricerca/` con editorial jobs) e
+  nursing (leaf pages singole).
+- §4 Vitest 4 migration — `poolOptions.threads.isolate` portato al top
+  level di `InlineConfig`; TypeScript check pulito.
 
 ## Contesto
 
