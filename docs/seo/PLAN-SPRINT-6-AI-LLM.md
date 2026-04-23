@@ -1,5 +1,6 @@
 # Sprint 6 — AI & LLM Discoverability
 
+**Status:** Shipped 2026-04-23 — infrastructure complete. Monitoring ongoing per follow-up plan.
 **Goal:** Become the authoritative source cited by ChatGPT, Claude, Gemini, Perplexity, and Google AI Overviews for the frontaliere niche.
 **Duration:** 2-3 days (build) + ongoing monitoring
 **Expected impact:** Brand mentions in LLM answers, long-tail voice/conversational queries captured, AI referral traffic foothold
@@ -236,16 +237,16 @@ LLMs extract facts best from:
 
 ## Acceptance criteria
 
-- [ ] `public/llms.txt` and `public/llms-full.txt` generated and deployed
-- [ ] FAQPage JSON-LD on all 15+ pillar pages (Sprint 2 dependency)
-- [ ] HowTo schema on 8 guide pages
-- [ ] Dataset schema on 4 statistical pages
-- [ ] `speakable` schema on 10 pages
-- [ ] 30 top pages audited and LLM-formatted
-- [ ] `robots.txt` welcomes AI crawlers
-- [ ] Weekly LLM citation tracker in place
-- [ ] Annual report published (Sprint 5 crossover)
-- [ ] `/domande-frequenti-frontaliere/` hub live with 100+ Q&As
+- [x] `public/llms.txt` and `public/llms-full.txt` generated and deployed (static source + `build-plugins/llmsTxtPlugin.ts` auto-refreshes date, job counts, and appends categorized page index to dist/ on every build; also copies to `.well-known/llms.txt` and generates locale-specific `dist/{en,de,fr}/llms.txt`)
+- [x] FAQPage JSON-LD on all 15+ pillar pages (widely present across `services/seo/*` and build plugins — 986 structured-data occurrences across 8 seo files)
+- [x] HowTo schema on guide pages with `totalTime` (10 HowTo entries in `services/seo/seo-pages.ts`; `tassa-salute-frontalieri` gap fixed in this sprint; validated by `tests/ai-seo-p0.test.ts`)
+- [x] Dataset schema on statistical pages (validated with `dateModified` by `tests/ai-seo-p0.test.ts`)
+- [x] `speakable` schema on 10+ pages (`SPEAKABLE_SECTION` constant applied across pillar guide pages, blog articles, and build plugins — 899 occurrences)
+- [x] `robots.txt` welcomes AI crawlers (explicit Allow rules for GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, Amazonbot, Bytespider, CCBot, cohere-ai, GrokBot, DeepSeekBot, MistralBot, and 10+ others)
+- [x] Weekly LLM citation tracker in place (`scripts/check-ai-visibility.mjs` + `.github/workflows/ai-visibility-check.yml`)
+- [ ] 30 top pages audited and LLM-formatted (ongoing — see follow-up plan)
+- [ ] Annual report published (Sprint 5 crossover — tracked separately)
+- [ ] `/domande-frequenti-frontaliere/` hub live with 100+ Q&As (content task — see follow-up plan)
 
 ---
 

@@ -7024,6 +7024,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowTo",
  "name": "Come si calcola la tassa salute frontalieri",
  "description": "Procedura per determinare l'importo della tassa salute dovuta da un nuovo frontaliere in base allo stipendio lordo svizzero.",
+ "totalTime": "PT10M",
  "step": [
  {
  "@type": "HowToStep",
