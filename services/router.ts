@@ -38,7 +38,7 @@ import {
  buildJobTodayLandingModel,
  resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
-import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
+import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS, isJobRecencyLandingSlug } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
@@ -2008,6 +2008,12 @@ export function parsePath(pathname: string): ParseResult {
  locale,
  };
  }
+ }
+ // Recency-landing slugs (last-3-days / since-yesterday in all 4 locales).
+ // Must be checked before the generic jobSlug fallthrough so these URLs
+ // don't get routed to a job detail view and show "not found" banner.
+ if (rawSecond && isJobRecencyLandingSlug(rawSecond)) {
+ return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
  }
  const jobSlug = rawSecond;
  return { route: { activeTab: 'job-board', ...(jobSlug ? { jobSlug } : {}) }, locale };

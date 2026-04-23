@@ -284,43 +284,42 @@ ${alternates}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
   </head>
-  <body>
-    <div id="root">
-      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
-        <nav style="margin:0 0 14px;font-size:13px;color:#475569">
-          <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
-          <span> / </span>
-          <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none">${esc(SECTION_NAME[locale])}</a>
-          <span> / </span>
-          <span>${esc(model.timeframeLabel)}</span>
-        </nav>
-        <header style="margin-bottom:24px">
-          <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(model.updatedLabel)} · ${dateStamp}</p>
-          <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.1">${esc(model.heading)}</h1>
-          <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
-          <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
-        </header>
-        <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 22px">
-          <div style="padding:18px;border-radius:20px;background:#eef2ff;border:1px solid #c7d2fe">
-            <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div>
-            <div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div>
-          </div>
-          <div style="padding:18px;border-radius:20px;background:#ecfccb;border:1px solid #bef264">
-            <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(model.timeframeLabel)}</div>
-            <div style="margin-top:8px;font-size:16px;font-weight:600;line-height:1.4">${esc(dateStamp)}</div>
-          </div>
-          <a href="${esc(model.sisterLinkHref)}" style="padding:18px;border-radius:20px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(model.sisterLinkLabel)} →</a>
-        </section>
-        <section style="margin:0 0 24px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
-            <h2 style="margin:0;font-size:24px">${esc(model.jobsLabel)}</h2>
-            <a href="${openAllHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)} →</a>
-          </div>
-          ${jobsHtml}
-        </section>
-        ${faqHtml}
-      </main>
-    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+  <body class="bg-surface-alt text-heading overflow-x-hidden">
+    <div id="root"></div>
+    <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a;font-family:system-ui,-apple-system,sans-serif">
+      <nav style="margin:0 0 14px;font-size:13px;color:#475569">
+        <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">Home</a>
+        <span> / </span>
+        <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none">${esc(SECTION_NAME[locale])}</a>
+        <span> / </span>
+        <span>${esc(model.timeframeLabel)}</span>
+      </nav>
+      <header style="margin-bottom:24px">
+        <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(model.updatedLabel)} · ${dateStamp}</p>
+        <h1 style="margin:0 0 14px;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.1">${esc(model.heading)}</h1>
+        <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
+        <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+      </header>
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 22px">
+        <div style="padding:18px;border-radius:20px;background:#eef2ff;border:1px solid #c7d2fe">
+          <div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div>
+          <div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div>
+        </div>
+        <div style="padding:18px;border-radius:20px;background:#ecfccb;border:1px solid #bef264">
+          <div style="font-size:12px;color:#365314;font-weight:700;text-transform:uppercase">${esc(model.timeframeLabel)}</div>
+          <div style="margin-top:8px;font-size:16px;font-weight:600;line-height:1.4">${esc(dateStamp)}</div>
+        </div>
+        <a href="${esc(model.sisterLinkHref)}" style="padding:18px;border-radius:20px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(model.sisterLinkLabel)} →</a>
+      </section>
+      <section style="margin:0 0 24px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
+          <h2 style="margin:0;font-size:24px">${esc(model.jobsLabel)}</h2>
+          <a href="${openAllHref}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)} →</a>
+        </div>
+        ${jobsHtml}
+      </section>
+      ${faqHtml}
+    </main>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
 
