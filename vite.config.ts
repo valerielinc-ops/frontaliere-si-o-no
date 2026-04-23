@@ -43,6 +43,7 @@ import { professionLandingsPlugin } from './build-plugins/professionLandingsPlug
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
+import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -108,6 +109,10 @@ export default defineConfig(({ mode }) => {
  // Must run AFTER annualReportPlugin so the CSV path referenced in the
  // DataDownload JSON-LD (/data/jobs-salary-aggregate.csv) already exists.
  comparisonsHubPlugin(__dirname),
+ // AE-5 — 100-Q&A FAQ hub (static HTML × 4 locales + FAQPage JSON-LD with
+ // 100 mainEntity). Pure content plugin: no data dependency, so it can
+ // run in any order after the other landing plugins.
+ faqHubPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),

@@ -58,6 +58,11 @@ import {
   isComparisonsHubPath,
   parseComparisonsHubPath,
 } from '../build-plugins/comparisonsHubData';
+import {
+  FAQ_HUB_ROUTES,
+  isFaqHubPath,
+  parseFaqHubPath,
+} from '../data/faq-hub/routes';
 
 // ── Workstream C SemRush landings ────────────────────────────
 // Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
@@ -1803,6 +1808,23 @@ export function parsePath(pathname: string): ParseResult {
      if (parsed) {
        return {
          route: { activeTab: 'confronti', confrontiSubTab: 'health', staticOverlay: true },
+         locale: parsed.locale as Locale,
+       };
+     }
+   }
+ }
+
+ // AE-5 — 100-Q&A FAQ hub (/domande-frequenti-frontalieri/ + locale variants).
+ // Hosted under the `guida` top-level tab with `permits` sub-tab pre-selected
+ // for the SPA chrome. staticOverlay keeps the build-time 100-entry HTML
+ // body visible outside `#root`.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (FAQ_HUB_ROUTES.includes(normalized) || isFaqHubPath(pathname)) {
+     const parsed = parseFaqHubPath(pathname);
+     if (parsed) {
+       return {
+         route: { activeTab: 'guida', guidaSubTab: 'permits', staticOverlay: true },
          locale: parsed.locale as Locale,
        };
      }
