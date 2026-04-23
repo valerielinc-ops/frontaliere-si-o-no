@@ -283,13 +283,20 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
     expect(sibling.links.length).toBeGreaterThanOrEqual(3);
   });
 
-  it('health_premiums cross-links include comparator (with nofollow) + salary + guide', () => {
+  it('health_premiums cross-links include comparator + salary + guide (all internal, no nofollow)', () => {
+    // Semrush audit fix: internal cross-links must NOT carry rel="nofollow",
+    // otherwise we waste internal link equity. The comparator stays reachable
+    // but is now a normal internal dofollow link.
     const { sections } = generateRelatedLinksStructured('it', 'health_premiums', {
       cantonSlug: 'ticino',
       age: '26-30',
     });
     const cross = sections.find((s) => s.kind === 'cross')!;
-    const comparatorLink = cross.links.find((l) => l.rel === 'nofollow');
+    // No internal link should carry rel="nofollow".
+    const nofollowLinks = cross.links.filter((l) => l.rel === 'nofollow');
+    expect(nofollowLinks).toHaveLength(0);
+    // Comparator link must still be present (just without nofollow).
+    const comparatorLink = cross.links.find((l) => l.href.includes('confronta-casse-malati'));
     expect(comparatorLink).toBeDefined();
     const hrefs = cross.links.map((l) => l.href);
     expect(hrefs.some((h) => h.includes('guida-frontaliere'))).toBe(true);

@@ -1,0 +1,71 @@
+name: Verify Company Logos (weekly)
+
+# Probes every unique companyLogo URL referenced in data/jobs.json and
+# data/jobs/by-crawler/*.json and writes broken ones to
+# data/company-logos-broken.json. Follow-up fix: replace broken ones with
+# the local /icons/company-placeholder.svg (handled at render time by
+# services/logoService.ts::handleCompanyLogoError).
+#
+# Runs every Sunday 04:00 UTC.
+
+on:
+  schedule:
+    - cron: '0 4 * * 0' # Every Sunday 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Verify company logos
+        run: node scripts/verify-company-logos.mjs
+
+      - name: Commit + push broken-logos report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/company-logos-broken.json
+          if git diff --cached --quiet; then
+            echo "No company-logo changes — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh company-logos broken-URL report"
+
+          # Push with rebase-retry to survive concurrent scheduled pushes.
+          attempt=1
+          max_attempts=5
+          until git push origin HEAD:main; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "::error::Failed to push after $max_attempts attempts"
+              exit 1
+            fi
+            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort
+              git reset --hard origin/main
+              node scripts/verify-company-logos.mjs || true
+              git add data/company-logos-broken.json
+              if git diff --cached --quiet; then
+                echo "No changes after regeneration; nothing to push"
+                exit 0
+              fi
+              git commit -m "chore(seo): refresh company-logos broken-URL report"
+            fi
+            attempt=$((attempt + 1))
+            sleep $((attempt * 2))
+          done

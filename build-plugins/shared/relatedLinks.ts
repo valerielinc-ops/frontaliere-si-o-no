@@ -990,11 +990,12 @@ function clustersForHealthPremiums(
 
   // Cross-category: comparator + salary sim + cost of living (guide) +
   // frontier guide.
+  // All cross-links are internal — no rel="nofollow" so we don't leak
+  // internal link equity (Semrush audit: "nofollow on internal links").
   const cross: RelatedLink[] = [
     {
       href: HEALTH_PREMIUM_COMPARATOR_PATH[hpLocale],
       title: copy.healthComparator,
-      rel: 'nofollow',
     },
     { href: SALARY_SIM_ROOT[locale], title: copy.salarySim },
     { href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks },
