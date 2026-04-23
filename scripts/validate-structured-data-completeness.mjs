@@ -243,9 +243,20 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // organizer
+  // image — GSC flags missing Event.image as a non-critical quality issue,
+  // but we treat it as blocking to keep rich-result eligibility stable.
+  const hasImage = Array.isArray(schema.image)
+    ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
+    : isNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
+  if (!hasImage) {
+    errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event missing "image"' });
+  }
+
+  // organizer (must include name AND url — GSC quality issue otherwise)
   if (!schema.organizer || !isNonEmpty(schema.organizer.name)) {
     errors.push({ file: filePath, type: 'Event', field: 'organizer', message: 'Event missing "organizer" or organizer.name' });
+  } else if (!isNonEmpty(schema.organizer.url)) {
+    errors.push({ file: filePath, type: 'Event', field: 'organizer.url', message: 'Event missing "organizer.url"' });
   }
 
   // performer
@@ -253,7 +264,7 @@ function validateEvent(schema, filePath) {
     errors.push({ file: filePath, type: 'Event', field: 'performer', message: 'Event missing "performer" or performer.name' });
   }
 
-  // offers
+  // offers (price, priceCurrency, availability, validFrom AND url)
   if (!schema.offers || typeof schema.offers !== 'object') {
     errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
   } else {
@@ -268,6 +279,9 @@ function validateEvent(schema, filePath) {
     }
     if (!isNonEmpty(schema.offers.validFrom)) {
       errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
+    }
+    if (!isNonEmpty(schema.offers.url)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
     }
   }
 
@@ -545,6 +559,19 @@ async function main() {
   const homepageFiles = ['index.html', 'en/index.html', 'de/index.html', 'fr/index.html'];
   for (const hp of homepageFiles) {
     const full = join(DIST, hp);
+    if (existsSync(full)) sampled.add(full);
+  }
+
+  // Always include Event-bearing pages (ItemList of Event schemas — must stay
+  // valid because GSC flags organizer.url / image / offers.url as quality issues)
+  const eventPages = [
+    'tasse-e-pensione/festivita-ticino/index.html',
+    'en/taxes-and-pension/ticino-public-holidays/index.html',
+    'de/steuern-und-vorsorge/tessin-feiertage/index.html',
+    'fr/impots-et-retraite/jours-feries-tessin/index.html',
+  ];
+  for (const ep of eventPages) {
+    const full = join(DIST, ep);
     if (existsSync(full)) sampled.add(full);
   }
 
