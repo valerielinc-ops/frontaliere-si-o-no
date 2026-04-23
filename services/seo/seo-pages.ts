@@ -131,7 +131,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Quanto guadagna un frontaliere in Svizzera al mese?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere in Canton Ticino guadagna in media CHF 5.600 lordi al mese (mediana USS), pari a circa CHF 4.300–4.600 netti dopo imposta alla fonte e contributi AVS/LPP/AC. Profili qualificati (IT, ingegneria, farma, finanza) arrivano a CHF 7.000–9.000 lordi, mentre operai e commercio si attestano intorno a CHF 4.200–4.800. Usa il simulatore gratuito su frontaliereticino.ch per stimare il netto esatto in base a stato civile, figli e comune." } },
  { "@type": "Question", "name": "Quali sono le differenze tra permesso G e permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G è per frontalieri che risiedono in Italia entro 20 km dal confine e rientrano almeno settimanalmente; paga le tasse alla fonte in CH e, per i nuovi assunti dal 17/07/2023, anche IRPEF in Italia con franchigia €10.000. Il permesso B è per residenti in Svizzera: paga tutte le imposte in CH (al superamento CHF 120.000 anche dichiarazione ordinaria) ma sostiene affitto, LAMal piena e costo della vita svizzero. Il break-even è tipicamente sopra i CHF 95.000 lordi." } },
  { "@type": "Question", "name": "Dove trovare lavoro da frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Le principali fonti di offerte per frontalieri sono il portale JobRoom della Confederazione, job-board cantonali (lavoro.swiss), siti privati come jobs.ch, jobup.ch e indeed.ch, agenzie interinali (Adecco, Manpower, Randstad, Kelly) e la job-board dedicata ai frontalieri su frontaliereticino.ch/cerca-lavoro-ticino con ~6.000 annunci aggiornati quotidianamente da ricerche specifiche per Ticino." } }
- ]
+ ],
+ "speakable": SPEAKABLE_SECTION
  },
  {
  "@context": "https://schema.org",
@@ -3109,6 +3110,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Offerte di Lavoro in Ticino",
  "url": `${BASE_URL}/cerca-lavoro-ticino`,
  "description": "Bacheca lavoro con oltre 1500 offerte aggiornate per frontalieri in Ticino. Posizioni in diversi settori: tecnologia, finanza, farmaceutica, sanit\u00e0, industria.",
+ "abstract": "La bacheca raccoglie 1500+ offerte di lavoro aggiornate ogni giorno da oltre 100 aziende ticinesi nelle città principali (Lugano, Mendrisio, Bellinzona, Locarno, Chiasso) e nei settori chiave per frontalieri: farmaceutica, finanza, IT, sanità, logistica e industria.",
  "inLanguage": "it",
  "speakable": SPEAKABLE_SECTION,
  "about": {
@@ -3163,7 +3165,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Ci sono posti vacanti in Ticino per italiani?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, in Ticino ci sono centinaia di posti vacanti accessibili a cittadini italiani grazie al permesso G per frontalieri. Settori con più offerte: farmaceutica (Mendrisiotto), finanza (Lugano), IT e sanità. Frontaliere Ticino pubblica quotidianamente i posti vacanti da oltre 100 aziende ticinesi con link diretto alla candidatura." } },
  { "@type": "Question", "name": "Dove cercare lavoro a Lugano?", "acceptedAnswer": { "@type": "Answer", "text": "Lugano è il polo economico del Ticino con la più alta concentrazione di offerte. I principali datori di lavoro a Lugano includono banche (BSI, BancaStato, EFG), società IT, studi legali e aziende di consulenza. Su Frontaliere Ticino puoi filtrare le offerte per località Lugano e candidarti direttamente sul sito aziendale." } },
  { "@type": "Question", "name": "Come trovare offerte di lavoro in Svizzera per italiani?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino è la destinazione principale per italiani che cercano lavoro in Svizzera, grazie alla lingua italiana e alla vicinanza geografica. Su Frontaliere Ticino trovi oltre 1.500 offerte aggiornate da aziende ticinesi. Puoi cercare per settore, località e tipo di contratto. Ogni annuncio include stipendio stimato e link diretto per candidarti." } }
- ]
+ ],
+ "speakable": SPEAKABLE_SECTION
  }
  ]
  },

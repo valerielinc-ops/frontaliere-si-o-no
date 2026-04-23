@@ -172,9 +172,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
 
  // ── Semrush 4xx (2026-04-23) — FR legacy paths reported as 404 ──
  // Cluster B: missing FR slugs + slug variants Google indexed.
+ // NOTE: '/fr/salaires-frontaliers-tessin/' is already declared above; do not duplicate.
  '/fr/glossaire/': '/fr/glossaire-frontalier/',
  '/fr/comparer-services/assurance-maladie/': '/fr/comparer-services/comparer-caisses-maladie/',
- '/fr/salaires-frontaliers-tessin/': '/fr/statistiques/comparer-salaires/',
  '/fr/primes-assurance-maladie/ticino/': '/fr/primes-assurance-maladie-communes/ticino/',
  '/fr/prix-diesel/aujourdhui/': '/fr/prix-gasoil-suisse/aujourd-hui/',
  '/fr/prix-diesel/aujourd-hui/': '/fr/prix-gasoil-suisse/aujourd-hui/',
