@@ -1617,10 +1617,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  body: `Questa URL legacy dell annuncio non e la versione principale. Usa la pagina canonica per contenuto e metadati aggiornati.`,
  ctaLabel: String(localizedTitle || 'Apri annuncio'),
  lang: locale,
- // Bridge pages declare a canonical to the primary URL for the job.
- // Keeping them `noindex,follow` avoids duplicate-content signals while
- // still letting crawlers traverse the canonical link.
- noindex: true,
+ noindex: false,
  });
  const legacyDir = np.join(distDir, legacyRel);
  if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
@@ -2256,9 +2253,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell azienda per gli annunci aggiornati.`,
  ctaLabel: String(companyName || 'Apri azienda'),
  lang: locale,
- // Bridge pages declare a canonical to the primary company hub — keep
- // them `noindex,follow` to avoid duplicate-content signals.
- noindex: true,
+ noindex: false,
  });
  const rawDir = np.join(distDir, rawRelPath);
  if (!fs.existsSync(np.join(rawDir, 'index.html'))) {

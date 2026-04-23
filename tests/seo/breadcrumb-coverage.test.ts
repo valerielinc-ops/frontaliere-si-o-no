@@ -44,6 +44,14 @@ const ALLOWED_MISSING: ReadonlySet<string> = new Set([
 
 const BREADCRUMB_JSONLD_RE = /"@type"\s*:\s*"BreadcrumbList"/;
 const NOINDEX_RE = /<meta[^>]*\bname\s*=\s*["']robots["'][^>]*\bcontent\s*=\s*["'][^"']*noindex/i;
+// Canonical bridge pages (built via `buildCanonicalBridgePage` in
+// build-plugins/constants.ts) ship the signature hero string
+// "Questa URL legacy" (or its localised variant) + a `<link rel="canonical">`
+// pointing at a different URL. They exist only to consolidate crawl signals
+// from legacy slugs/redirects into the primary canonical — BreadcrumbList on
+// them would confuse SERPs because they never surface directly. The
+// canonical target already carries the breadcrumb.
+const BRIDGE_PAGE_RE = /Questa URL\s+(?:legacy|azienda|alias|di ricerca|dell[’'\\s]annuncio)/i;
 
 function walkHtml(dir: string): string[] {
   if (!existsSync(dir)) return [];
@@ -101,6 +109,9 @@ describe('SEO: breadcrumb coverage (D.2)', () => {
     const html = readFileSync(f, 'utf-8');
     // Noindex pages never surface BreadcrumbList in SERPs — skip by design.
     if (NOINDEX_RE.test(html)) continue;
+    // Canonical bridge pages consolidate signals into their canonical target
+    // and are therefore exempt from the breadcrumb coverage requirement.
+    if (BRIDGE_PAGE_RE.test(html)) continue;
     if (!BREADCRUMB_JSONLD_RE.test(html)) {
       missing.push({ url, file: relative(REPO_ROOT, f) });
     }
