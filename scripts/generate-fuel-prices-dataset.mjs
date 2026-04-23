@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { dedupStations } from './lib/fuel-station-dedup.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const MUNICIPALITIES_PATH = path.join(ROOT, 'data', 'municipalities.ts');
@@ -530,7 +532,16 @@ async function main() {
     const stations = parseDelimited(stationsText);
     const exchangeRate = extractEcbRate(ecbXml);
     const italyByMunicipality = buildItalyStations(municipalities, stations.rows, prices.rows);
-    const swissStations = buildSwissBorderStations(municipalities, swissDocs, exchangeRate.eurPerChf);
+
+    // AE-9 — collapse duplicate TCS records (same name + address, drifted
+    // coords) before geo-filtering so every downstream consumer sees one
+    // canonical entry per physical station.
+    const { unique: dedupedSwissDocs, removed: swissRemoved } = dedupStations(swissDocs);
+    if (swissRemoved.length > 0) {
+      console.log(`⛽ Swiss station dedup: collapsed ${swissRemoved.length} duplicate record(s) (${swissDocs.length} → ${dedupedSwissDocs.length}).`);
+    }
+
+    const swissStations = buildSwissBorderStations(municipalities, dedupedSwissDocs, exchangeRate.eurPerChf);
 
     const payload = buildDataset({
       municipalities,
