@@ -2256,8 +2256,27 @@ export async function updateMetaTags(section: string): Promise<void> {
  updateOrCreateMetaTag('name', 'description', metaDescription);
  updateOrCreateMetaTag('name', 'keywords', metaKeywords);
 
- // Bing & AI-friendly directives: allow large snippets and image previews
- updateOrCreateMetaTag('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+ // Bing & AI-friendly directives: allow large snippets and image previews.
+ //
+ // Semrush 4xx (2026-04-23 / Cluster A): filter-style query variants like
+ //   /fr/comparateurs/comparer-caisses-maladie/?canton=TI&age=26-30
+ // are not emitted as static HTML and surface as 404s in Semrush audits.
+ // Mark such variants as `noindex, follow` so Google consolidates signals
+ // to the query-less canonical. The canonical link (set below) already
+ // strips query params because it's built from `route` + `buildPath()`.
+ const filterQueryKeys = ['canton', 'age'] as const;
+ const hasFilterQuery = (() => {
+ try {
+ const params = new URLSearchParams(window.location.search || '');
+ return filterQueryKeys.some((key) => params.has(key));
+ } catch {
+ return false;
+ }
+ })();
+ const robotsDirective = hasFilterQuery
+ ? 'noindex, follow'
+ : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+ updateOrCreateMetaTag('name', 'robots', robotsDirective);
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)
  updateOrCreateMetaTag('property', 'og:title', metaOgTitle);

@@ -497,7 +497,7 @@ export interface AppRoute {
   * rendering shows the full location landing UI. `jobBoardCity` takes
   * precedence in {@link buildPath} so the emitted URL uses the clean slug.
   */
- jobBoardCity?: 'lugano' | 'mendrisio' | 'bellinzona';
+ jobBoardCity?: 'lugano' | 'mendrisio' | 'bellinzona' | 'locarno' | 'chiasso';
  /**
   * Canonical sector-hub key when the URL matches a sector-hub path
   * (e.g. /cerca-lavoro-ticino/infermieri/ → `jobBoardSector: 'infermieri'`).

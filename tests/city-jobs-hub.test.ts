@@ -24,8 +24,8 @@ import {
 const YEAR = 2026;
 
 describe('cityJobsHub — paths', () => {
-  it('exposes exactly 3 city keys', () => {
-    expect(CITY_HUB_KEYS).toEqual(['lugano', 'mendrisio', 'bellinzona']);
+  it('exposes exactly 5 city keys', () => {
+    expect(CITY_HUB_KEYS).toEqual(['lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso']);
   });
 
   it('builds canonical path per locale', () => {
@@ -33,13 +33,17 @@ describe('cityJobsHub — paths', () => {
     expect(buildCityHubPath('en', 'lugano')).toBe('/en/find-jobs-ticino/lugano/');
     expect(buildCityHubPath('de', 'mendrisio')).toBe('/de/jobs-im-tessin/mendrisio/');
     expect(buildCityHubPath('fr', 'bellinzona')).toBe('/fr/trouver-emploi-tessin/bellinzona/');
+    expect(buildCityHubPath('fr', 'locarno')).toBe('/fr/trouver-emploi-tessin/locarno/');
+    expect(buildCityHubPath('fr', 'chiasso')).toBe('/fr/trouver-emploi-tessin/chiasso/');
+    expect(buildCityHubPath('en', 'locarno')).toBe('/en/find-jobs-ticino/locarno/');
+    expect(buildCityHubPath('de', 'chiasso')).toBe('/de/jobs-im-tessin/chiasso/');
   });
 
-  it('produces exactly 12 paths (3 cities × 4 locales)', () => {
+  it('produces exactly 20 paths (5 cities × 4 locales)', () => {
     const paths = allCityHubPaths();
-    expect(paths).toHaveLength(12);
+    expect(paths).toHaveLength(20);
     const unique = new Set(paths.map((p) => p.path));
-    expect(unique.size).toBe(12);
+    expect(unique.size).toBe(20);
     for (const p of paths) expect(p.path.endsWith('/')).toBe(true);
   });
 
@@ -54,7 +58,6 @@ describe('cityJobsHub — paths', () => {
 
   it('returns null for unrelated paths', () => {
     expect(parseCityHubPath('/cerca-lavoro-ticino/')).toBeNull();
-    expect(parseCityHubPath('/cerca-lavoro-ticino/locarno/')).toBeNull();
     expect(parseCityHubPath('/cerca-lavoro-ticino/software-engineer-eoc/')).toBeNull();
     expect(parseCityHubPath('/')).toBeNull();
   });
@@ -139,12 +142,15 @@ describe('cityJobsHub — job filtering', () => {
       { ...baseJob, location: 'Mendrisio' },
       { ...baseJob, location: 'Lugano', expired: true },
       { ...baseJob, location: 'Bellinzona', description: 'short' },
-      { ...baseJob, location: 'Locarno' }, // not a hub
+      { ...baseJob, location: 'Locarno' },
+      { ...baseJob, location: 'Chiasso' },
     ];
     const counts = countCityJobsByLocale(jobs);
     expect(counts.it.lugano).toBe(1);
     expect(counts.it.mendrisio).toBe(1);
     expect(counts.it.bellinzona).toBe(0);
+    expect(counts.it.locarno).toBe(1);
+    expect(counts.it.chiasso).toBe(1);
   });
 
   it('handles per-locale retranslation flags', () => {
@@ -198,6 +204,14 @@ describe('router — city hub URLs', () => {
     { locale: 'fr', city: 'lugano', path: '/fr/trouver-emploi-tessin/lugano/', editorialPrefix: 'recherche' },
     { locale: 'fr', city: 'mendrisio', path: '/fr/trouver-emploi-tessin/mendrisio/', editorialPrefix: 'recherche' },
     { locale: 'fr', city: 'bellinzona', path: '/fr/trouver-emploi-tessin/bellinzona/', editorialPrefix: 'recherche' },
+    { locale: 'it', city: 'locarno', path: '/cerca-lavoro-ticino/locarno/', editorialPrefix: 'ricerca' },
+    { locale: 'it', city: 'chiasso', path: '/cerca-lavoro-ticino/chiasso/', editorialPrefix: 'ricerca' },
+    { locale: 'en', city: 'locarno', path: '/en/find-jobs-ticino/locarno/', editorialPrefix: 'search' },
+    { locale: 'en', city: 'chiasso', path: '/en/find-jobs-ticino/chiasso/', editorialPrefix: 'search' },
+    { locale: 'de', city: 'locarno', path: '/de/jobs-im-tessin/locarno/', editorialPrefix: 'suche' },
+    { locale: 'de', city: 'chiasso', path: '/de/jobs-im-tessin/chiasso/', editorialPrefix: 'suche' },
+    { locale: 'fr', city: 'locarno', path: '/fr/trouver-emploi-tessin/locarno/', editorialPrefix: 'recherche' },
+    { locale: 'fr', city: 'chiasso', path: '/fr/trouver-emploi-tessin/chiasso/', editorialPrefix: 'recherche' },
   ] as const;
 
   for (const c of cases) {
@@ -220,10 +234,10 @@ describe('router — city hub URLs', () => {
   }
 
   it('non-hub slugs still resolve as legacy jobSlug', () => {
-    const r = parsePath('/cerca-lavoro-ticino/locarno/');
+    const r = parsePath('/cerca-lavoro-ticino/software-engineer-eoc/');
     expect(r.route.activeTab).toBe('job-board');
     expect(r.route.jobBoardCity).toBeUndefined();
-    expect(r.route.jobSlug).toBe('locarno');
+    expect(r.route.jobSlug).toBe('software-engineer-eoc');
   });
 
   it('job-board landing (no sub-slug) still works', () => {
