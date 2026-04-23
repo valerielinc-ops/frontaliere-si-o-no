@@ -46,6 +46,11 @@ import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugin
 import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
+import {
+  COMPARISONS_HUB_ROUTES,
+  isComparisonsHubPath,
+  parseComparisonsHubPath,
+} from '../build-plugins/comparisonsHubData';
 
 // ── Workstream C SemRush landings ────────────────────────────
 // Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
@@ -1730,6 +1735,23 @@ export function parsePath(pathname: string): ParseResult {
      const parsed = parseNursingLandingPath(pathname);
      if (parsed) {
        return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+     }
+   }
+ }
+
+ // AE-7 — Comparisons hub (/confronti-frontalieri/ + locale variants). Same
+ // static-overlay pattern as the nursing landings: the plugin renders a
+ // dense 5-table comparison page outside `#root` and this staticOverlay
+ // route prevents the SPA from replacing it with the generic confronti hub.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (COMPARISONS_HUB_ROUTES.includes(normalized) || isComparisonsHubPath(pathname)) {
+     const parsed = parseComparisonsHubPath(pathname);
+     if (parsed) {
+       return {
+         route: { activeTab: 'confronti', confrontiSubTab: 'health', staticOverlay: true },
+         locale: parsed.locale as Locale,
+       };
      }
    }
  }

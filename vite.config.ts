@@ -38,6 +38,7 @@ import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
+import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -90,6 +91,10 @@ export default defineConfig(({ mode }) => {
  annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
+ // AE-7 — comparisons hub (static HTML × 4 locales + sitemap-comparisons.xml).
+ // Must run AFTER annualReportPlugin so the CSV path referenced in the
+ // DataDownload JSON-LD (/data/jobs-salary-aggregate.csv) already exists.
+ comparisonsHubPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
