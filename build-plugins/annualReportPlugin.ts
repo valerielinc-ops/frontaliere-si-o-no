@@ -47,6 +47,24 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import {
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_VALUE,
+  STAT_TILE_ACCENT,
+  CARD_STYLE,
+  BREADCRUMB_STYLE,
+  BREADCRUMB_LINK_STYLE,
+  HERO_EYEBROW_STYLE,
+  H1_STYLE,
+  LEDE_STYLE,
+  BODY_STYLE,
+  H2_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
+  CTA_PRIMARY_STYLE,
+  LINK_ACCENT_STYLE,
+} from './shared/seoContentTokens';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -644,7 +662,7 @@ function renderTable(headers: readonly string[], rows: readonly (readonly string
   const h = headers
     .map(
       (x) =>
-        `<th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--surface-border,#e2e8f0);font-size:13px;color:var(--text-muted,#475569);text-transform:uppercase">${esc(x)}</th>`,
+        `<th style="${TABLE_HEAD_STYLE}">${esc(x)}</th>`,
     )
     .join('');
   const body = rows
@@ -652,13 +670,13 @@ function renderTable(headers: readonly string[], rows: readonly (readonly string
       const tds = r
         .map(
           (c, idx) =>
-            `<td style="padding:10px 14px;border-bottom:1px solid var(--surface-border,#e2e8f0);${idx === 0 ? 'color:var(--text-muted,#475569);font-weight:600' : 'color:var(--text-base,#0f172a)'}">${c}</td>`,
+            `<td style="${TABLE_CELL_STYLE}${idx === 0 ? ';font-weight:600' : ''}">${c}</td>`,
         )
         .join('');
       return `<tr>${tds}</tr>`;
     })
     .join('');
-  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff);margin:12px 0 24px"><table style="width:100%;border-collapse:collapse;font-size:15px"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface);margin:12px 0 24px"><table style="width:100%;border-collapse:collapse;font-size:15px"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function buildHreflang(): string {
@@ -712,17 +730,17 @@ function renderReport(opts: {
   // Headline stat cards.
   const statCards = `
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 28px">
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.medianLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${esc(formatCHF(agg.overallMedian))}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.medianLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${esc(formatCHF(agg.overallMedian))}</div>
       </div>
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.observationsLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${formatNumber(agg.salaryCoverageCount)}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.observationsLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${formatNumber(agg.salaryCoverageCount)}</div>
       </div>
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.yoyLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${esc(formatPct(agg.yoyPct))}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.yoyLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${esc(formatPct(agg.yoyPct))}</div>
       </div>
     </section>`;
 
@@ -817,72 +835,72 @@ function renderReport(opts: {
 
   // Body.
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <span>${esc(copy.breadcrumbReport)}</span>
     </nav>
     <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.kicker)} · ${esc(copy.updatedLabel)} ${esc(agg.generatedAt)}</p>
-      <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0;color:var(--text-base,#0f172a);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.introP)}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kicker)} · ${esc(copy.updatedLabel)} ${esc(agg.generatedAt)}</p>
+      <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
+      <p style="${LEDE_STYLE}">${esc(copy.introP)}</p>
     </header>
     ${statCards}
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.findingsH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.findingsP)}</p>
-      <ol style="margin:0 0 14px 22px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">
+      <h2 style="${H2_STYLE}">${esc(copy.findingsH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.findingsP)}</p>
+      <ol style="margin:0 0 14px 22px;color:var(--color-body);line-height:1.7;max-width:860px">
         <li style="margin:0 0 10px">${esc(copy.findingsBullet1)}</li>
         <li style="margin:0 0 10px">${esc(copy.findingsBullet2)}</li>
         <li style="margin:0">${esc(copy.findingsBullet3)}</li>
       </ol>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.sectorH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.sectorP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.sectorH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.sectorP)}</p>
       ${sectorTable}
-      <p style="margin:0;color:var(--text-muted,#475569);font-size:13px">[infographic placeholder — alt=${esc(copy.infographicAlt)}]</p>
+      <p style="margin:0;color:var(--color-subtle);font-size:13px">[infographic placeholder — alt=${esc(copy.infographicAlt)}]</p>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.regionH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.regionP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.regionH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.regionP)}</p>
       ${regionTable}
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.pppH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(copy.pppP)}</p>
-      <ul style="margin:0 0 14px 22px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">
+      <h2 style="${H2_STYLE}">${esc(copy.pppH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.pppP)}</p>
+      <ul style="margin:0 0 14px 22px;color:var(--color-body);line-height:1.7;max-width:860px">
         <li style="margin:0 0 10px">${esc(copy.pppBullet1)}</li>
         <li style="margin:0 0 10px">${esc(copy.pppBullet2)}</li>
         <li style="margin:0">${esc(copy.pppBullet3)}</li>
       </ul>
     </section>
-    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--surface-accent,#eef2ff);border:1px solid var(--surface-border,#c7d2fe)">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.downloadH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">${esc(copy.downloadP)}</p>
-      <a href="/data/jobs-salary-aggregate.csv" download style="display:inline-block;padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.downloadCsvLabel)}</a>
+    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)">
+      <h2 style="${H2_STYLE}">${esc(copy.downloadH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.downloadP)}</p>
+      <a href="/data/jobs-salary-aggregate.csv" download style="${CTA_PRIMARY_STYLE}">${esc(copy.downloadCsvLabel)}</a>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.shareH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">${esc(copy.shareP)}</p>
-      <h3 style="margin:8px 0 4px;font-size:16px;color:var(--text-base,#0f172a)">${esc(copy.citationH3)}</h3>
-      <p style="margin:0;color:var(--text-muted,#475569);line-height:1.6;font-size:14px">${esc(copy.citationText)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.shareH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.shareP)}</p>
+      <h3 style="margin:8px 0 4px;font-size:16px;color:var(--color-heading)">${esc(copy.citationH3)}</h3>
+      <p style="margin:0;color:var(--color-subtle);line-height:1.6;font-size:14px">${esc(copy.citationText)}</p>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.methodologyH2)}</h2>
-      <p style="margin:0;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.methodologyP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
     </section>
     <section style="margin:0 0 16px">
-      <h2 style="margin:0 0 10px;font-size:20px;color:var(--text-base,#0f172a)">${esc(copy.relatedH2)}</h2>
-      <ul style="margin:0 0 14px 22px;color:var(--text-base,#0f172a);line-height:1.8">
-        <li><a href="${esc(related.report)}" style="color:var(--link,#1d4ed8)">${esc(copy.relatedLinkReport)}</a></li>
-        <li><a href="${esc(related.fiscal)}" style="color:var(--link,#1d4ed8)">${esc(copy.relatedLinkFiscal)}</a></li>
-        <li><a href="${esc(related.jobs)}" style="color:var(--link,#1d4ed8)">${esc(copy.relatedLinkJobs)}</a></li>
+      <h2 style="${H2_STYLE}">${esc(copy.relatedH2)}</h2>
+      <ul style="margin:0 0 14px 22px;color:var(--color-body);line-height:1.8">
+        <li><a href="${esc(related.report)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinkReport)}</a></li>
+        <li><a href="${esc(related.fiscal)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinkFiscal)}</a></li>
+        <li><a href="${esc(related.jobs)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinkJobs)}</a></li>
       </ul>
     </section>
   `;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -941,10 +959,10 @@ function patchJobMarketHubs(distDir: string, logger: (msg: string) => void): voi
 
       const reportUrl = `/${REPORT_SLUG[locale]}/`.replace(/\/+/g, '/');
       const callout = `${SENTINEL}
-<aside style="margin:28px 0 0;padding:18px 20px;border-radius:18px;background:#eef2ff;border:1px solid #c7d2fe" aria-labelledby="annualReportCallout">
-  <h2 id="annualReportCallout" style="margin:0 0 8px;font-size:18px;color:#0f172a">${esc(copy.relatedCalloutTitle)}</h2>
-  <p style="margin:0 0 10px;color:#334155;line-height:1.6">${esc(copy.relatedCalloutBody)}</p>
-  <a href="${esc(reportUrl)}" style="display:inline-block;padding:10px 16px;border-radius:10px;background:#4f46e5;color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.relatedCalloutCta)}</a>
+<aside style="margin:28px 0 0;padding:18px 20px;border-radius:18px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)" aria-labelledby="annualReportCallout">
+  <h2 id="annualReportCallout" style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(copy.relatedCalloutTitle)}</h2>
+  <p style="margin:0 0 10px;color:var(--color-body);line-height:1.6">${esc(copy.relatedCalloutBody)}</p>
+  <a href="${esc(reportUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.relatedCalloutCta)}</a>
 </aside>`;
 
       // Inject right before </main> (first occurrence).
