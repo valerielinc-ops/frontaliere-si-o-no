@@ -6944,4 +6944,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/grigioni-permessi-dimora-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aumento-stipendi-medici-infermieri-lombardia-2026',
+ category: 'novita',
+ date: '2026-04-23T22:13:11.387Z',
+ image: '/images/blog/aumento-stipendi-medici-infermieri-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ];

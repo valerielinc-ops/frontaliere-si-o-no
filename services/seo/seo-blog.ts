@@ -11573,6 +11573,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-stipendi-medici-infermieri-lombardia-2026': {
+    title: 'Lombardia aumenta stipendi a medici e | Frontaliere Ticino',
+    description: 'Dal settembre 2026, medici e infermieri delle zone di confine con la Svizzera vedranno aumenti fino a 10.000 euro lordi annui. La Lombardia investe 45 milioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, aumenta, stipendi, medici',
+    ogTitle: 'Aumento stipendi medici e infermieri Lombardia 2026',
+    ogDescription: 'Dal settembre 2026, medici e infermieri delle zone di confine con la Svizzera vedranno aumenti fino a 10.000 euro lordi annui. La Lombardia investe 45 milioni',
+    canonicalPath: '/articoli-frontaliere/aumento-stipendi-medici-infermieri-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento stipendi medici e infermieri Lombardia 2026",
+      "description": "Dal settembre 2026, medici e infermieri delle zone di confine con la Svizzera vedranno aumenti fino a 10.000 euro lordi annui. La Lombardia investe 45 milioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-stipendi-medici-infermieri-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medico e infermiera che lavorano in un ospedale al confine con la Svizzera"
+      },
+      "datePublished": "2026-04-23T22:13:11+00:00",
+      "dateModified": "2026-04-23T22:13:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-stipendi-medici-infermieri-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

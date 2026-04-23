@@ -2556,6 +2556,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grigioni-permessi-dimora-2026.title': 'Grisons : autocertification pénale pour les permis de séjour',
     'blog.article.grigioni-permessi-dimora-2026.excerpt': 'À partir de mai 2026, toute personne demandant un permis de séjour dans les Grisons devra déclarer d\'éventuels antécédents pénaux ou procédures en cours.',
     'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et bâtiments',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'La Lombardie augmente les salaires des médecins et infirmiers pour stopper l\'exode vers la Suisse',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'À partir de septembre 2026, les médecins et infirmiers des zones frontalières avec la Suisse verront leurs salaires augmenter jusqu\'à 10.000 euros bruts par an. La Lombardie investit 45 millions pour retenir le personnel soignant.',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Médecin et infirmière travaillant dans un hôpital près de la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

@@ -2556,6 +2556,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-permessi-dimora-2026.title': 'Grigioni: autocertificazione penali per permessi di dimora',
     'blog.article.grigioni-permessi-dimora-2026.excerpt': 'Da maggio 2026, chi richiede un permesso di dimora nei Grigioni dovrà dichiarare eventuali precedenti penali o procedimenti in corso.',
     'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'Lombardia aumenta stipendi a medici e infermieri per fermare la fuga in Svizzera',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'Dal settembre 2026, medici e infermieri delle zone di confine con la Svizzera vedranno aumenti fino a 10.000 euro lordi annui. La Lombardia investe 45 milioni per trattenere il personale sanitario.',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Medico e infermiera che lavorano in un ospedale al confine con la Svizzera',
 };
 
 export default blogMetaIt;

@@ -2556,6 +2556,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grigioni-permessi-dimora-2026.title': 'Grison: Self-declaration of criminal records for residence permits',
     'blog.article.grigioni-permessi-dimora-2026.excerpt': 'From May 2026, anyone applying for a residence permit in Grison will need to declare any criminal records or ongoing proceedings.',
     'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'Lombardy increases doctors\' and nurses\' salaries to stop the exodus to Switzerland',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'As of September 2026, doctors and nurses in border areas with Switzerland will see increases of up to 10,000 euros gross per year. Lombardy is investing 45 million to retain healthcare personnel.',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Doctor and nurse working in a hospital near the Swiss-Italian border',
 };
 
 export default blogMetaEn;

@@ -2556,6 +2556,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-permessi-dimora-2026.title': 'Graubünden: Strafregister für Aufenthaltsbewilligungen',
     'blog.article.grigioni-permessi-dimora-2026.excerpt': 'Ab Mai 2026 müssen Antragsteller für eine Aufenthaltsbewilligung in Graubünden etwaige Vorstrafen oder laufende Strafverfahren angeben.',
     'blog.article.grigioni-permessi-dimora-2026.imageAlt': 'Luftaufnahme des Luganersee mit Bergen und Gebäuden',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.title': 'Lombardei erhöht Gehälter für Ärzte und Krankenschwestern, um Abwanderung in die Schweiz zu stoppen',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.excerpt': 'Ab September 2026 werden Ärzte und Krankenschwestern in den Grenzregionen zur Schweiz Gehaltserhöhungen von bis zu 10.000 Euro brutto pro Jahr erhalten. Die Lombardei investiert 45 Millionen, um das medizinische Personal zu halten.',
+    'blog.article.aumento-stipendi-medici-infermieri-lombardia-2026.imageAlt': 'Arzt und Krankenschwester arbeiten in einem Krankenhaus an der Schweizer-Italienischen Grenze',
 };
 
 export default blogMetaDe;
