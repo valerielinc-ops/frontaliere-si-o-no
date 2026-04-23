@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arxada",
-  "assembledAt": "2026-04-23T09:31:09.555Z",
+  "assembledAt": "2026-04-23T21:04:48.327Z",
   "jobs": [
     {
       "id": "arxada-2164c308ef65",
@@ -68,7 +68,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Scientist-Chemical-Synthesis---Laborwissenschaftler-in-chemische-Synthese_R50784-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-23T09:31:06.740Z",
+      "crawledAt": "2026-04-23T21:04:45.571Z",
       "jobReqId": "R50784",
       "previousSlugs": [
         "lab-scientist-chemical-synthesis-laborwissenschaftler-in-chemische-synthese-arxada-ch"
@@ -79,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:11.314Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -166,7 +167,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Laborant-in--synthetischer-Schwerpunkt-_R53188",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:06.075Z",
+      "crawledAt": "2026-04-23T21:04:44.877Z",
       "jobReqId": "R53188",
       "previousSlugs": [
         "laborant-in-synthetischer-schwerpunkt-arxada-ch"
@@ -177,6 +178,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:10.666Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -266,7 +268,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Laborant-in--analytischer-Schwerpunkt-_R53187-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:05.378Z",
+      "crawledAt": "2026-04-23T21:04:44.178Z",
       "jobReqId": "R53187",
       "previousSlugs": [
         "laborant-in-analytischer-schwerpunkt-arxada-ch"
@@ -277,6 +279,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:10.059Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -336,7 +339,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:04.701Z",
+      "crawledAt": "2026-04-23T21:04:43.483Z",
       "jobReqId": "R50117",
       "previousSlugs": [
         "operator-in-80-100-arxada-ch",
@@ -351,6 +354,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:09.463Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -432,7 +436,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/EMR-Engineer_R50338-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:04.040Z",
+      "crawledAt": "2026-04-23T21:04:42.772Z",
       "jobReqId": "R50338",
       "previousSlugs": [
         "emr-engineer-talent-pool-arxada-ch",
@@ -447,6 +451,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:08.842Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -537,7 +542,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Senior-Lab-Technician_R53395-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:03.393Z",
+      "crawledAt": "2026-04-23T21:04:41.773Z",
       "jobReqId": "R53395",
       "previousSlugs": [
         "senior-lab-technician-arxada-ch",
@@ -552,6 +557,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:08.240Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -561,105 +567,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3930"
-    },
-    {
-      "id": "arxada-6154c54099bb",
-      "slug": "supporto-strumentazione-laboratorio-supporto-arxada-visp",
-      "slugByLocale": {
-        "it": "supporto-strumentazione-laboratorio-supporto-arxada-visp",
-        "en": "gerate-support-laborant-in-support-arxada-ch",
-        "de": "gerate-support-laborant-in-support-arxada-ch",
-        "fr": "support-equipement-de-laboratoire-support-arxada-visp"
-      },
-      "company": "Arxada",
-      "companyKey": "arxada",
-      "companyDomain": "arxada.com",
-      "title": "Geräte-Support Laborant(in) / Support",
-      "titleByLocale": {
-        "it": "Supporto Strumentazione Laboratorio / Supporto",
-        "en": "Geräte-Support Laborant(in) / Support",
-        "de": "Geräte-Support Laborant(in) / Support",
-        "fr": "Support Équipement de Laboratoire / Support"
-      },
-      "description": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n \n Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz.\n Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind.\n \n Zur Verstärkung unseres Teams in Visp, Schweiz suchen wir aktuell eine/n\n Mitarbeiter für den Geräte-Support Laborant(in) Support in der Quality Control im Tagesbetrieb.\n \n Als Mitarbeiter:in im Geräte‑Support innerhalb der Quality Control tragen Sie entscheidend zur Sicherstellung stabiler und effizienter Laborabläufe bei. In dieser vielseitigen technischen Rolle unterstützen Sie unser QC‑Team, indem Sie die Funktionsfähigkeit unserer Laborinstrumente gewährleisten und dadurch einen direkten Beitrag zur Qualität unserer Produkte und zum Erfolg unserer Kund:innen leisten.\n \nSie arbeiten in einem Umfeld, das Zusammenarbeit fördert, technisches Interesse schätzt und Raum für kontinuierliche Verbesserung bietet. Hier gestalten Sie aktiv mit, treiben Themen voran und helfen uns, über das Gewohnte hinauszugehen.\n \n Hauptaufgaben und Verantwortung: \n \n• Unterstützung und Sicherstellung der reibungslosen operativen Abläufe innerhalb der QC\n\n• Hauptverantwortung für präventive Wartung, Troubleshooting und kleinere Reparaturen von Chromatographie‑Geräten\n\n• Sicherstellung der korrekten Funktionsfähigkeit sämtlicher Laborinstrumente\n\n• Verantwortung für die Instrumentenqualifizierung inkl. Organisation und Ablage der Dokumentation (elektronisch und physisch) gemäss Vorgaben im LIMS\n\n• Kommunikation mit Geräte‑Lieferanten sowie Organisation von Services und Reparaturen inkl. Starten der entsprechenden SAP‑Aufträge\n\n• Erstellung und Verbesserung relevanter Arbeitsanweisungen\n\n• Aktive Unterstützung der QC‑Strategie und Mitwirkung an kontinuierlichen Verbesserungsinitiativen\n \n \n Qualifikation & Erfahrung: \n \n• Abgeschlossene Berufsausbildung, bevorzugt als Chemielaborant:in oder in einem technischen/handwerklichen Beruf (z. B. Mechaniker:in)\n\n• Teamfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Kommunikationsstärke\n\n• Hohes Qualitätsbewusstsein sowie effiziente und zuverlässige Arbeitsweise\n\n• Gute Auffassungsgabe und selbstständige, strukturierte Arbeitsweise\n\n• Sicherer Umgang mit potenziell gefährlichen Stoffen\n\n• Gute PC‑Kenntnisse (Standardsoftware)\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischgrundkenntnisse von Vorteil\n\n• Technisches Interesse und Freude an der Arbeit mit feinen und empfindlichen Anlagen\n \n \n Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n \n Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz.\n \n Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen.\n \n Arxada ist ein Arbeitgeber, der Chancengleichheit fördert . Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n \n #LI-CM1 \n \n \n \nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-      "descriptionByLocale": {
-        "it": "Descrizione Arxada è un'azienda leader mondiale nelle soluzioni innovative per la protezione del nostro pianeta. Le nostre tecnologie rivoluzionarie, l'esperienza normativa approfondita e la competenza nella produzione e nello sviluppo dei processi aiutano i nostri clienti a proteggere in modo efficiente alimentazione, salute e infrastrutture – attraverso chimica e biotecnologia che promuovono la sostenibilità. Offriamo un ampio portafoglio di ingredienti e servizi per diversi mercati finali, tra cui salute & nutrizione, cura della casa e della persona, igiene professionale, vernici & rivestimenti e protezione del legno. Con clienti in oltre 100 paesi, l'azienda ha registrato nel 2024 un fatturato di 2 miliardi di CHF. La sede principale di Arxada si trova a Basilea (Svizzera). L'azienda impiega 3.200 collaboratori in 24 siti produttivi e 14 centri di R&S in tutto il mondo, tutti impegnati nel successo dei nostri clienti. Per rafforzare il nostro team a Visp, Svizzera, stiamo attualmente cercando un collaboratore per il Supporto Strumentazione Laboratorio / Supporto nel Controllo Qualità in regime diurno. Come collaboratore nel supporto strumentazione all'interno del Controllo Qualità, contribuisci in modo decisivo a garantire processi di laboratorio stabili ed efficienti. In questo ruolo tecnico versatile, supporti il nostro team QC assicurando la funzionalità degli strumenti di laboratorio e fornendo così un contributo diretto alla qualità dei nostri prodotti e al successo dei nostri clienti. Lavorerai in un ambiente che favorisce la collaborazione, apprezza l'interesse tecnico e offre spazio per il miglioramento continuo. Qui partecipi attivamente, promuovi temi e ci aiuti a superare i limiti del consueto. ## Principali compiti e responsabilità: - Supporto e garanzia del regolare svolgimento delle operazioni all'interno del QC - Responsabilità principale per la manutenzione preventiva, troubleshooting e piccole riparazioni degli strumenti di cromatografia - Garanzia della corretta funzionalità di tutti gli strumenti di laboratorio - Responsabilità per la qualificazione degli strumenti inclusa organizzazione e archiviazione della documentazione (elettronica e cartacea) secondo le direttive nel LIMS - Comunicazione con i fornitori degli strumenti e organizzazione di servizi e riparazioni, inclusa l'apertura dei relativi ordini SAP - Creazione e miglioramento delle istruzioni operative rilevanti - Supporto attivo alla strategia QC e partecipazione alle iniziative di miglioramento continuo ## Qualifiche & Esperienza: - Formazione professionale completata, preferibilmente come tecnico di laboratorio chimico o in una professione tecnica/artigianale (ad es. meccanico) - Capacità di lavorare in team, senso di responsabilità, resistenza e capacità comunicativa - Elevata attenzione alla qualità e metodo di lavoro efficiente e affidabile - Buona capacità di apprendimento e metodo di lavoro autonomo e strutturato - Sicurezza nella gestione di sostanze potenzialmente pericolose - Buone conoscenze informatiche (software standard) - Ottima conoscenza del tedesco parlato e scritto; conoscenza base dell'inglese preferibile - Interesse tecnico e piacere nel lavorare con apparecchiature delicate e sensibili ## Cosa offriamo Arxada offre soluzioni di eccellenza in due aree ben definite: - Microbial Control Solutions (MCS) si concentra sulle minacce dei microrganismi per l'uomo e l'ambiente. Questa area comprende cinque business unit indipendenti: igiene professionale, cura della casa e della persona, protezione del legno, vernici & rivestimenti e protezione dei materiali. - Nutrition, Care & Environmental (NCE) fornisce materiali per la produzione di compositi nell'elettronica, aerospaziale e altri settori. Inoltre, il portafoglio comprende vitamine e componenti nutritivi, intermedi chimici ad alte prestazioni e materie prime per numerose applicazioni esigenti. Arxada è un datore di lavoro che promuove pari opportunità. Tutti i candidati qualificati saranno considerati equamente indipendentemente da colore della pelle, religione, origine etnica, sesso, orientamento sessuale, identità di genere, età, disabilità, status di veterano protetto o altre caratteristiche legalmente tutelate. #LI-CM1 CH15",
-        "en": "Description Arxada is a global leader in innovative solutions to protect our world. Our groundbreaking technologies, comprehensive regulatory expertise, and proficiency in production and process development help our customers efficiently safeguard food, health, and infrastructure – through chemistry and biotechnology that promote sustainability. We offer a broad portfolio of ingredients and services for various end markets, including Health & Nutrition, Home & Personal Care, Professional Hygiene, Paints & Coatings, and Wood Protection. With customers in over 100 countries, the company achieved sales of 2 billion CHF in 2024. Arxada's headquarters are located in Basel, Switzerland. Worldwide, the company employs 3,200 people at 24 production sites and 14 R&D centers, all committed to the success of our customers. To strengthen our team in Visp, Switzerland, we are currently seeking an employee for Laboratory Equipment Support / Support in Quality Control during daytime operations. As a team member in Equipment Support within Quality Control, you play a crucial role in ensuring stable and efficient laboratory processes. In this versatile technical role, you support our QC team by ensuring the functionality of our laboratory instruments, thus making a direct contribution to the quality of our products and the success of our customers. You will work in an environment that fosters collaboration, values technical interest, and provides space for continuous improvement. Here, you actively participate, drive topics forward, and help us go beyond the ordinary. ## Main Tasks and Responsibilities: - Support and ensure smooth operational processes within QC - Main responsibility for preventive maintenance, troubleshooting, and minor repairs of chromatography equipment - Ensure correct functionality of all laboratory instruments - Responsible for instrument qualification including organization and filing of documentation (electronic and physical) according to LIMS requirements - Communication with equipment suppliers and organization of services and repairs, including initiating corresponding SAP orders - Creation and improvement of relevant work instructions - Active support of QC strategy and participation in continuous improvement initiatives ## Qualification & Experience: - Completed vocational training, preferably as a chemical laboratory technician or in a technical/craft profession (e.g., mechanic) - Teamwork skills, sense of responsibility, resilience, and strong communication skills - High quality awareness as well as efficient and reliable working methods - Good comprehension and independent, structured working style - Confident handling of potentially hazardous substances - Good PC skills (standard software) - Excellent German language skills, both spoken and written; basic English knowledge is an advantage - Technical interest and enjoyment in working with delicate and sensitive equipment ## What We Offer Arxada provides first-class solutions in two clearly defined areas: - Microbial Control Solutions (MCS) focuses on threats posed by microorganisms to humans and the environment. This area includes five independent business units: Professional Hygiene, Home & Personal Care, Wood Protection, Paints & Coatings, and Material Protection. - Nutrition, Care & Environmental (NCE) supplies materials for the production of composites in electronics, aerospace, and other industries. The portfolio also includes vitamins and nutritional components, high-performance chemical intermediates, and raw materials for a wide range of demanding applications. Arxada is an equal opportunity employer. All qualified applicants will be considered equally regardless of skin color, religion, ethnic origin, gender, sexual orientation, gender identity, age, disability, protected veteran status, or other legally protected characteristics. #LI-CM1 CH15",
-        "de": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz. Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind. Zur Verstärkung unseres Teams in Visp, Schweiz suchen wir aktuell eine/n Mitarbeiter für den Geräte-Support Laborant(in) Support in der Quality Control im Tagesbetrieb. Als Mitarbeiter:in im Geräte‑Support innerhalb der Quality Control tragen Sie entscheidend zur Sicherstellung stabiler und effizienter Laborabläufe bei. In dieser vielseitigen technischen Rolle unterstützen Sie unser QC‑Team, indem Sie die Funktionsfähigkeit unserer Laborinstrumente gewährleisten und dadurch einen direkten Beitrag zur Qualität unserer Produkte und zum Erfolg unserer Kund:innen leisten. Sie arbeiten in einem Umfeld, das Zusammenarbeit fördert, technisches Interesse schätzt und Raum für kontinuierliche Verbesserung bietet. Hier gestalten Sie aktiv mit, treiben Themen voran und helfen uns, über das Gewohnte hinauszugehen. Hauptaufgaben und Verantwortung: • Unterstützung und Sicherstellung der reibungslosen operativen Abläufe innerhalb der QC • Hauptverantwortung für präventive Wartung, Troubleshooting und kleinere Reparaturen von Chromatographie‑Geräten • Sicherstellung der korrekten Funktionsfähigkeit sämtlicher Laborinstrumente • Verantwortung für die Instrumentenqualifizierung inkl. Organisation und Ablage der Dokumentation (elektronisch und physisch) gemäss Vorgaben im LIMS • Kommunikation mit Geräte‑Lieferanten sowie Organisation von Services und Reparaturen inkl. Starten der entsprechenden SAP‑Aufträge • Erstellung und Verbesserung relevanter Arbeitsanweisungen • Aktive Unterstützung der QC‑Strategie und Mitwirkung an kontinuierlichen Verbesserungsinitiativen Qualifikation & Erfahrung: • Abgeschlossene Berufsausbildung, bevorzugt als Chemielaborant:in oder in einem technischen/handwerklichen Beruf (z. B. Mechaniker:in) • Teamfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Kommunikationsstärke • Hohes Qualitätsbewusstsein sowie effiziente und zuverlässige Arbeitsweise • Gute Auffassungsgabe und selbstständige, strukturierte Arbeitsweise • Sicherer Umgang mit potenziell gefährlichen Stoffen • Gute PC‑Kenntnisse (Standardsoftware) • Sehr gute Deutschkenntnisse in Wort und Schrift; Englischgrundkenntnisse von Vorteil • Technisches Interesse und Freude an der Arbeit mit feinen und empfindlichen Anlagen Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz. Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen. Arxada ist ein Arbeitgeber, der Chancengleichheit fördert . Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-CM1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "fr": "Description Arxada est une entreprise leader mondial dans les solutions innovantes pour protéger notre monde. Nos technologies révolutionnaires, notre expertise réglementaire approfondie et notre compétence en production et développement des procédés aident nos clients à protéger efficacement l’alimentation, la santé et les infrastructures – grâce à la chimie et à la biotechnologie qui favorisent la durabilité. Nous proposons un large portefeuille d’ingrédients et de services pour différents marchés finaux, notamment la santé & nutrition, l’entretien de la maison et des soins personnels, l’hygiène professionnelle, les peintures & revêtements et la protection du bois. Avec des clients dans plus de 100 pays, l’entreprise a réalisé un chiffre d’affaires de 2 milliards CHF en 2024. Le siège d’Arxada est situé à Bâle (Suisse). L’entreprise emploie 3 200 collaborateurs dans 24 sites de production et 14 centres de R&D à travers le monde, tous engagés dans la réussite de nos clients. Pour renforcer notre équipe à Visp, Suisse, nous recherchons actuellement un collaborateur pour le Support Équipement de Laboratoire / Support en contrôle qualité en journée. En tant que collaborateur au support équipement au sein du contrôle qualité, vous contribuez de manière décisive à garantir des processus de laboratoire stables et efficaces. Dans ce rôle technique polyvalent, vous soutenez notre équipe QC en assurant la fonctionnalité de nos instruments de laboratoire, apportant ainsi une contribution directe à la qualité de nos produits et au succès de nos clients. Vous travaillerez dans un environnement qui favorise la collaboration, valorise l’intérêt technique et offre un espace pour l’amélioration continue. Ici, vous participez activement, faites avancer les sujets et nous aidez à dépasser les habitudes. ## Principales tâches et responsabilités : - Soutien et garantie du bon déroulement des opérations au sein du QC - Responsabilité principale pour la maintenance préventive, le dépannage et les petites réparations des appareils de chromatographie - Garantie du bon fonctionnement de tous les instruments de laboratoire - Responsabilité de la qualification des instruments, y compris l’organisation et l’archivage de la documentation (électronique et physique) selon les directives du LIMS - Communication avec les fournisseurs d’équipements et organisation des services et réparations, y compris l’ouverture des commandes SAP correspondantes - Création et amélioration des instructions de travail pertinentes - Soutien actif à la stratégie QC et participation aux initiatives d’amélioration continue ## Qualifications & Expérience : - Formation professionnelle achevée, de préférence comme technicien de laboratoire en chimie ou dans un métier technique/artisanal (par ex. mécanicien) - Aptitude au travail en équipe, sens des responsabilités, résistance et capacité de communication - Sens élevé de la qualité ainsi que méthode de travail efficace et fiable - Bonne capacité de compréhension et méthode de travail autonome et structurée - Maîtrise des substances potentiellement dangereuses - Bonnes connaissances informatiques (logiciels standards) - Excellente maîtrise de l’allemand parlé et écrit ; connaissances de base en anglais appréciées - Intérêt technique et plaisir à travailler avec des équipements fins et sensibles ## Ce que nous offrons Arxada propose des solutions de premier ordre dans deux domaines clairement définis : - Microbial Control Solutions (MCS) se concentre sur les menaces des micro-organismes pour l’homme et l’environnement. Ce domaine comprend cinq unités commerciales indépendantes : hygiène professionnelle, entretien de la maison et soins personnels, protection du bois, peintures & revêtements et protection des matériaux. - Nutrition, Care & Environmental (NCE) fournit des matériaux pour la fabrication de composites dans l’électronique, l’aéronautique et d’autres secteurs. Le portefeuille comprend également des vitamines et composants nutritionnels, des intermédiaires chimiques haute performance et des matières premières pour une multitude d’applications exigeantes. Arxada est un employeur favorisant l’égalité des chances. Tous les candidats qualifiés seront considérés équitablement, indépendamment de la couleur de peau, de la religion, de l’origine ethnique, du sexe, de l’orientation sexuelle, de l’identité de genre, de l’âge, du handicap, du statut de vétéran protégé ou de toute autre caractéristique légalement protégée. #LI-CM1 CH15"
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Capacità di lavorare in team, senso di responsabilità, resistenza e capacità comunicativa",
-          "Elevata attenzione alla qualità e metodo di lavoro efficiente e affidabile",
-          "Buona capacità di apprendimento e metodo di lavoro autonomo e strutturato",
-          "Sicurezza nella gestione di sostanze potenzialmente pericolose",
-          "Buone conoscenze informatiche (software standard)",
-          "Ottima conoscenza del tedesco parlato e scritto; conoscenza base dell'inglese preferibile",
-          "Interesse tecnico e piacere nel lavorare con apparecchiature delicate e sensibili"
-        ],
-        "en": [
-          "Completed vocational training, preferably as a chemical laboratory technician or in a technical/craft profession",
-          "Teamwork skills, sense of responsibility, resilience, and strong communication skills",
-          "High quality awareness and efficient, reliable working methods",
-          "Good comprehension and independent, structured working style",
-          "Confident handling of potentially hazardous substances",
-          "Good PC skills (standard software)",
-          "Excellent German language skills; basic English knowledge is an advantage",
-          "Technical interest and enjoyment in working with delicate and sensitive equipment"
-        ],
-        "fr": [
-          "Aptitude au travail en équipe, sens des responsabilités, résistance et capacité de communication",
-          "Sens élevé de la qualité et méthode de travail efficace et fiable",
-          "Bonne capacité de compréhension et méthode de travail autonome et structurée",
-          "Maîtrise des substances potentiellement dangereuses",
-          "Bonnes connaissances informatiques (logiciels standards)",
-          "Excellente maîtrise de l’allemand parlé et écrit ; connaissances de base en anglais appréciées",
-          "Intérêt technique et plaisir à travailler avec des équipements fins et sensibles"
-        ]
-      },
-      "location": "Visp",
-      "canton": "VS",
-      "addressLocality": "Visp",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica / Specialty Chemicals",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "url": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Laborant-in--Support_R53268",
-      "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Laborant-in--Support_R53268",
-      "source": "Arxada Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:02.409Z",
-      "jobReqId": "R53268",
-      "previousSlugs": [
-        "gerate-support-laborant-in-support-arxada-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gerate-support-laborant-in-support-arxada-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T09:59:07.641Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -738,7 +645,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Elektroinstallateur-Automatiker--in-ab-August-2026_R53286",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:01.461Z",
+      "crawledAt": "2026-04-23T21:04:40.926Z",
       "jobReqId": "R53286",
       "previousSlugs": [
         "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
@@ -751,6 +658,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:07.022Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -835,7 +743,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rohrschlosser-in_R53279",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:00.799Z",
+      "crawledAt": "2026-04-23T21:04:40.236Z",
       "jobReqId": "R53279",
       "previousSlugs": [
         "pipe-fitter-rohrschlosser-in-arxada-ch"
@@ -846,6 +754,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:05.792Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -936,7 +845,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Process--Chemical-Engineer_R53196",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:31:00.134Z",
+      "crawledAt": "2026-04-23T21:04:39.541Z",
       "jobReqId": "R53196",
       "previousSlugs": [
         "manufacturing-manager-production-engineering-arxada-ch",
@@ -951,6 +860,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:05.180Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1038,7 +948,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Labormitarbeiter-in-4-Schicht_R53469",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:59.496Z",
+      "crawledAt": "2026-04-23T21:04:38.855Z",
       "jobReqId": "R53469",
       "previousSlugsByLocale": {
         "de": [
@@ -1052,6 +962,7 @@
         "labormitarbeiter-in-4-schicht-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:04.570Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1133,7 +1044,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:58.839Z",
+      "crawledAt": "2026-04-23T21:04:38.157Z",
       "jobReqId": "R53358",
       "previousSlugsByLocale": {
         "de": [
@@ -1147,6 +1058,7 @@
         "rangierdienst-spezialist-in-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1234,7 +1146,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Prozessanalytiker-in_R52966",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:58.192Z",
+      "crawledAt": "2026-04-23T21:04:37.470Z",
       "jobReqId": "R52966",
       "previousSlugs": [
         "laborant-in-online-prozessanalytik-arxada-ch",
@@ -1249,85 +1161,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:03.161Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3930"
-    },
-    {
-      "id": "arxada-a86cc9489881",
-      "slug": "specialista-amministrativo-tecnico-80-100-arxada-visp",
-      "slugByLocale": {
-        "it": "specialista-amministrativo-tecnico-80-100-arxada-visp",
-        "en": "technical-administrative-specialist-80-100-arxada-ch",
-        "de": "technical-administrative-specialist-80-100-arxada-ch",
-        "fr": "specialiste-administratif-technique-80-100-arxada-visp"
-      },
-      "company": "Arxada",
-      "companyKey": "arxada",
-      "companyDomain": "arxada.com",
-      "title": "Technical Administrative Specialist 80-100%",
-      "titleByLocale": {
-        "it": "Specialista Tecnico Amministrativo 80-100%",
-        "en": "Technical Administrative Specialist 80-100%",
-        "de": "Technical Administrative Spezialist 80-100%",
-        "fr": "Spécialiste administratif technique 80-100%"
-      },
-      "description": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n \n Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz.\n Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind.\n \n Zur Verstärkung unseres Teams in Visp, Schweiz wir suchen derzeit eine/n Technical Administrative Specialist /in. \n \n Als Technical Administrative Specialist bist du eine zentrale Stütze für unsere Bereiche Workshops und Engineering. Du sorgst dafür, dass administrative Prozesse, Systeme und personelle Abläufe zuverlässig funktionieren. Mit deiner strukturierten Arbeitsweise, deiner technischen Affinität und deinem Blick fürs Detail leistest du einen wichtigen Beitrag zur operativen Exzellenz und unterstützt unsere Teams dabei, jeden Tag ihr Bestes zu geben.\n \n Diese Rolle bietet dir Gestaltungsspielraum, hohe Sichtbarkeit im Tagesgeschäft und die Möglichkeit, Prozesse aktiv weiterzuentwickeln – ganz im Sinne von collaboration , decide & drive und go beyond .\n \n \n Hauptaufgaben und Verantwortung: \n \n• Du verantwortest die Pflege und Aktualisierung von Stammdaten und Dokumenten im Document Management System (SOPs, Arbeitsanweisungen, Prozesse)\n\n• Du koordinierst Schulungen und pflegst sowie entwickelst die Ausbildungsmatrix für Workshops, Engineering und Operations weiter\n\n• Du bist erste Ansprechperson für administrative Personalthemen (z. B. Requisitionen, Mutationen, Zugriffsrechte, Schonarbeitsplätze)\n\n• Du vergibst und verwaltest System- und Zugriffsberechtigungen für Mitarbeitende\n\n• Du begleitest das Onboarding neuer Mitarbeitender inklusive Systemzugängen\n\n• Du pflegst und aktualisierst den Workshop‑SharePoint\n\n• Du betreust das System TimeTool für Tagesarbeitskräfte\n \n \n Qualifikation und Erfahrung: \n \n• Abgeschlossene Berufsausbildung (EFZ)\n\n• Mehrjährige Berufserfahrung im Umfeld Workshops / Engineering von Vorteil\n\n• Sehr gute Kenntnisse in relevanten Systemen (z. B. DMS, SAP PM, TimeTool, O365)\n\n• Hohe technische Affinität und schnelle Auffassungsgabe\n\n• Exakte, zuverlässige und selbstständige Arbeitsweise\n\n• Stilsicheres Deutsch (Muttersprache), Englisch von Vorteil\n \n \n Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n \n Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz.\n \n Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen.\n \n Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n \n #LI-CM1\n \n \n \nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-      "descriptionByLocale": {
-        "it": "Descrizione Arxada è un'azienda leader a livello mondiale nel campo delle soluzioni innovative per proteggere il nostro pianeta. Le nostre tecnologie all'avanguardia, l'ampia competenza normativa e la nostra esperienza nella produzione e nello sviluppo di processi supportano i nostri clienti nel proteggere in modo efficiente la nutrizione, la salute e le infrastrutture, attraverso la chimica e la biotecnologia che promuovono la sostenibilità. Offriamo un'ampia gamma di ingredienti e servizi per vari mercati finali, tra cui salute e nutrizione, cura della casa e del corpo, igiene professionale, vernici e rivestimenti, e protezione del legno. Con clienti in oltre 100 paesi, l'azienda ha registrato un fatturato di 2 miliardi di CHF nel 2024. La sede principale di Arxada si trova a Basilea, in Svizzera. L'azienda impiega 3.200 persone in tutto il mondo, in 24 siti produttivi e 14 centri di ricerca e sviluppo, tutti dedicati al successo dei nostri clienti. Per rafforzare il nostro team a Visp, in Svizzera, stiamo attualmente cercando uno/a Specialista Amministrativo Tecnico/a. In qualità di Specialista Amministrativo Tecnico, sei un pilastro fondamentale per le nostre aree di officina e ingegneria. Garantisci che i processi amministrativi, i sistemi e i flussi di lavoro del personale funzionino in modo affidabile. Con il tuo approccio di lavoro strutturato, la tua affinità tecnica e la tua attenzione ai dettagli, contribuisci in modo significativo all'eccellenza operativa e supporti i nostri team nel dare il meglio di sé ogni giorno. Questo ruolo ti offre spazio per la creatività, alta visibilità nelle operazioni quotidiane e la possibilità di sviluppare ulteriormente i processi in modo attivo, in linea con i principi di collaborazione, decisione e guida, e di andare oltre. ## Mansioni e responsabilità principali: - Sei responsabile della manutenzione e dell'aggiornamento dei dati principali e dei documenti nel sistema di gestione dei documenti (SOP, istruzioni di lavoro, processi) - Coordini le attività di formazione e mantieni e sviluppi ulteriormente la matrice di formazione per officine, ingegneria e operazioni - Sei il primo punto di contatto per le questioni amministrative relative al personale (ad esempio, richieste, mutazioni, diritti di accesso, postazioni di lavoro protette) - Assegni e gestisci le autorizzazioni di sistema e di accesso per i dipendenti - Supporti l'inserimento di nuovi dipendenti, inclusi gli accessi ai sistemi - Mantieni e aggiorni lo SharePoint dell'officina - Gestisci il sistema TimeTool per i lavoratori giornalieri ## Qualifiche ed esperienza: - Formazione professionale completata (EFZ) - Esperienza lavorativa pluriennale nell'ambito di officine/ingegneria, preferibile - Ottima conoscenza dei sistemi rilevanti (ad esempio, DMS, SAP PM, TimeTool, O365) - Forte affinità tecnica e capacità di apprendimento rapido - Stile di lavoro preciso, affidabile e indipendente - Tedesco fluente (madrelingua), inglese vantaggioso ## Cosa offriamo Arxada offre soluzioni di prima classe in due aree ben definite: - Microbial Control Solutions (MCS) si concentra sulle minacce poste dai microrganismi agli esseri umani e all'ambiente. Questa area comprende cinque unità di business autonome: igiene professionale, cura della casa e del corpo, protezione del legno, vernici e rivestimenti, e protezione dei materiali. - Nutrition, Care & Environmental (NCE) fornisce materiali per la produzione di compositi nell'elettronica, nell'aerospaziale e in altre industrie. Il portafoglio include inoltre vitamine e componenti nutrizionali, intermedi chimici ad alte prestazioni e materie prime per una vasta gamma di applicazioni esigenti. Arxada è un datore di lavoro che promuove le pari opportunità. Tutti i candidati qualificati saranno presi in considerazione per l'impiego senza riguardo a razza, religione, origine etnica, sesso, orientamento sessuale, identità di genere, età, disabilità, status di veterano protetto o altre caratteristiche protette dalla legge. #LI-CM1 CH15 Arxada è un'azienda globale di prodotti chimici speciali con importanti impianti produttivi a Visp (Vallese), in Svizzera. L'azienda sviluppa soluzioni innovative per il controllo microbico, la nutrizione, la cura e le applicazioni ambientali. ## Contatto",
-        "en": "Arxada is a global leader in innovative solutions to protect our planet. Our cutting-edge technologies, extensive regulatory expertise, and experience in production and process development support our customers in efficiently protecting nutrition, health, and infrastructure through chemistry and biotechnology that promote sustainability. We offer a wide range of ingredients and services for various end markets, including health and nutrition, home and body care, professional hygiene, paints and coatings, and wood protection. With customers in over 100 countries, the company achieved a turnover of 2 billion CHF in 2024. Arxada’s headquarters is located in Basel, Switzerland. The company employs 3,200 people worldwide across 24 production sites and 14 research and development centers, all dedicated to the success of our customers. To strengthen our team in Visp, Switzerland, we are currently looking for a Technical Administrative Specialist. As a Technical Administrative Specialist, you are a key pillar for our workshop and engineering areas. You ensure that administrative processes, systems, and personnel workflows function reliably. With your structured approach, technical affinity, and attention to detail, you make a significant contribution to operational excellence and support our teams in giving their best every day. This role offers you space for creativity, high visibility in daily operations, and the opportunity to actively develop processes further in line with the principles of collaboration, decision-making, and leadership, and to go beyond. ## Main tasks and responsibilities: - You are responsible for maintaining and updating master data and documents in the document management system (SOP, work instructions, processes) - You coordinate training activities and maintain and further develop the training matrix for workshops, engineering, and operations - You are the first point of contact for administrative personnel-related matters (e.g., requests, changes, access rights, protected workstations) - You assign and manage system and access authorizations for employees - You support the onboarding of new employees, including system access - You maintain and update the workshop’s SharePoint - You manage the TimeTool system for daily workers ## Qualifications and experience: - Completed vocational training (EFZ) - Several years of work experience in workshop/engineering, preferably - Excellent knowledge of relevant systems (e.g., DMS, SAP PM, TimeTool, O365) - Strong technical affinity and ability to learn quickly - Precise, reliable, and independent working style - Fluent German (native), advantageous English ## What we offer Arxada offers first-class solutions in two well-defined areas: - Microbial Control Solutions (MCS) focuses on the threats posed by microorganisms to humans and the environment. This area comprises five autonomous business units: professional hygiene, home and body care, wood protection, paints and coatings, and material protection. - Nutrition, Care & Environmental (NCE) provides materials for the production of composites in electronics, aerospace, and other industries. The portfolio also includes vitamins and nutritional components, high-performance chemical intermediates, and raw materials for a wide range of demanding applications. Arxada is an equal opportunity employer. All qualified applicants will be considered for employment without regard to race, religion, national origin, sex, sexual orientation, gender identity, age, protected veteran status, or other characteristics protected by law. #LI-CM1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "de": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz. Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind. Zur Verstärkung unseres Teams in Visp, Schweiz wir suchen derzeit eine/n Technical Administrative Specialist /in. Als Technical Administrative Specialist bist du eine zentrale Stütze für unsere Bereiche Workshops und Engineering. Du sorgst dafür, dass administrative Prozesse, Systeme und personelle Abläufe zuverlässig funktionieren. Mit deiner strukturierten Arbeitsweise, deiner technischen Affinität und deinem Blick fürs Detail leistest du einen wichtigen Beitrag zur operativen Exzellenz und unterstützt unsere Teams dabei, jeden Tag ihr Bestes zu geben. Diese Rolle bietet dir Gestaltungsspielraum, hohe Sichtbarkeit im Tagesgeschäft und die Möglichkeit, Prozesse aktiv weiterzuentwickeln – ganz im Sinne von collaboration , decide & drive und go beyond . Hauptaufgaben und Verantwortung: • Du verantwortest die Pflege und Aktualisierung von Stammdaten und Dokumenten im Document Management System (SOPs, Arbeitsanweisungen, Prozesse) • Du koordinierst Schulungen und pflegst sowie entwickelst die Ausbildungsmatrix für Workshops, Engineering und Operations weiter • Du bist erste Ansprechperson für administrative Personalthemen (z. B. Requisitionen, Mutationen, Zugriffsrechte, Schonarbeitsplätze) • Du vergibst und verwaltest System- und Zugriffsberechtigungen für Mitarbeitende • Du begleitest das Onboarding neuer Mitarbeitender inklusive Systemzugängen • Du pflegst und aktualisierst den Workshop‑SharePoint • Du betreust das System TimeTool für Tagesarbeitskräfte Qualifikation und Erfahrung: • Abgeschlossene Berufsausbildung (EFZ) • Mehrjährige Berufserfahrung im Umfeld Workshops / Engineering von Vorteil • Sehr gute Kenntnisse in relevanten Systemen (z. B. DMS, SAP PM, TimeTool, O365) • Hohe technische Affinität und schnelle Auffassungsgabe • Exakte, zuverlässige und selbstständige Arbeitsweise • Stilsicheres Deutsch (Muttersprache), Englisch von Vorteil Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz. Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen. Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-CM1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "fr": "Arxada est un leader mondial des solutions innovantes pour protéger notre planète. Nos technologies de pointe, notre expertise réglementaire approfondie et notre expérience en production et développement de procédés soutiennent nos clients dans la protection efficace de la nutrition, de la santé et des infrastructures grâce à la chimie et à la biotechnologie favorisant la durabilité. Nous proposons une large gamme d’ingrédients et de services pour divers marchés finaux, notamment la santé et la nutrition, les soins à domicile et corporels, l’hygiène professionnelle, les peintures et revêtements, ainsi que la protection du bois. Avec des clients dans plus de 100 pays, l’entreprise a enregistré un chiffre d’affaires de 2 milliards de CHF en 2024. Le siège social d’Arxada est situé à Bâle, en Suisse. L’entreprise emploie 3 200 personnes dans le monde, réparties sur 24 sites de production et 14 centres de recherche et développement, tous dédiés au succès de nos clients. Pour renforcer notre équipe à Viège, en Suisse, nous recherchons actuellement un/e Spécialiste administratif technique. En tant que Spécialiste administratif technique, vous êtes un pilier essentiel pour nos ateliers et nos services d’ingénierie. Vous garantissez le bon fonctionnement des processus administratifs, des systèmes et des flux de travail du personnel. Grâce à votre approche structurée, votre affinité technique et votre sens du détail, vous contribuez de manière significative à l’excellence opérationnelle et soutenez nos équipes pour qu’elles donnent le meilleur d’elles-mêmes chaque jour. Ce poste vous offre un espace de créativité, une visibilité élevée dans les opérations quotidiennes et la possibilité de développer activement les processus, conformément aux principes de collaboration, de prise de décision et de leadership, tout en allant au-delà. ## Principales tâches et responsabilités : - Vous êtes responsable de la maintenance et de la mise à jour des données principales et des documents dans le système de gestion documentaire (SOP, instructions de travail, processus) - Vous coordonnez les activités de formation et entretenez et développez davantage la matrice de formation pour les ateliers, l’ingénierie et les opérations - Vous êtes le premier point de contact pour les questions administratives liées au personnel (par exemple, demandes, modifications, droits d’accès, postes de travail protégés) - Vous attribuez et gérez les autorisations d’accès et d’utilisation des systèmes pour les employés - Vous soutenez l’intégration des nouveaux employés, y compris l’accès aux systèmes - Vous entretenez et mettez à jour le SharePoint de l’atelier - Vous gérez le système TimeTool pour les travailleurs journaliers ## Qualifications et expérience : - Formation professionnelle achevée (EFZ) - Plusieurs années d’expérience professionnelle dans le domaine des ateliers/ingénierie, un atout - Excellente connaissance des systèmes pertinents (par exemple, DMS, SAP PM, TimeTool, O365) - Forte affinité technique et capacité d’apprentissage rapide - Style de travail précis, fiable et indépendant - Allemand courant (langue maternelle), l’anglais est un atout ## Ce que nous offrons Arxada propose des solutions de première classe dans deux domaines bien définis : - Microbial Control Solutions (MCS) se concentre sur les menaces posées par les micro-organismes pour les humains et l’environnement. Ce domaine comprend cinq unités commerciales autonomes : hygiène professionnelle, soins à domicile et corporels, protection du bois, peintures et revêtements, et protection des matériaux. - Nutrition, Care & Environmental (NCE) fournit des matériaux pour la production de composites dans l’électronique, l’aérospatial et d’autres industries. Le portefeuille comprend également des vitamines et des composants nutritionnels, des intermédiaires chimiques haute performance et des matières premières pour un large éventail d’applications exigeantes. Arxada est un employeur qui promeut l’égalité des chances. Tous les candidats qualifiés seront pris en considération pour l’emploi sans égard à la race, la religion, l’origine ethnique, le sexe, l’orientation sexuelle, l’identité de genre, l’âge, le statut de vétéran protégé ou toute autre caractéristique protégée par la loi. #LI-CM1 CH15 Arxada est une entreprise mondiale de produits chimiques de spécialité avec d’importantes installations de production à Viège (Valais), en Suisse. L’entreprise développe des solutions innovantes pour le contrôle microbien, la nutrition, les soins et les applications environnementales."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Visp",
-      "canton": "VS",
-      "addressLocality": "Visp",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica / Specialty Chemicals",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Technical-Administrative-Specialist-80-100-_R53483-1",
-      "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Technical-Administrative-Specialist-80-100-_R53483-1",
-      "source": "Arxada Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:57.533Z",
-      "jobReqId": "R53483",
-      "previousSlugs": [
-        "technical-administrative-specialist-80-100-arxada-ch",
-        "technischer-verwaltungsspezialist-80-100-arxada-visp",
-        "technische-r-sachbearbeiter-in-80-100-arxada-visp"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-administrative-specialist-80-100-arxada-ch"
-        ],
-        "de": [
-          "technischer-verwaltungsspezialist-80-100-arxada-visp",
-          "technische-r-sachbearbeiter-in-80-100-arxada-visp"
-        ],
-        "fr": [
-          "technical-administrative-specialist-80-100-arxada-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T09:59:02.561Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1412,7 +1246,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in-2-Schicht_R53499",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:56.871Z",
+      "crawledAt": "2026-04-23T21:04:36.710Z",
       "jobReqId": "R53499",
       "previousSlugsByLocale": {
         "de": [
@@ -1426,6 +1260,7 @@
         "operator-in-2-schicht-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:01.346Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1516,7 +1351,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator_R53498",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:56.028Z",
+      "crawledAt": "2026-04-23T21:04:36.007Z",
       "jobReqId": "R53498",
       "previousSlugsByLocale": {
         "de": [
@@ -1535,6 +1370,7 @@
         "operatore-a-2-schicht-arxada-visp"
       ],
       "firstSeenAt": "2026-04-13T09:59:00.705Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1594,7 +1430,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Supervisor-Shift-Schichtfhrer-in_R53445",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:55.375Z",
+      "crawledAt": "2026-04-23T21:04:35.303Z",
       "jobReqId": "R53445",
       "previousSlugs": [
         "supervisor-shift-schichtfuhrer-in-arxada-ch-2",
@@ -1668,7 +1504,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Senior-Chemical-Engineer--R-D_R53157-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:54.689Z",
+      "crawledAt": "2026-04-23T21:04:34.589Z",
       "jobReqId": "R53157",
       "previousSlugs": [
         "senior-chemical-engineer-r-d-arxada-ch",
@@ -1683,6 +1519,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:01.951Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1742,7 +1579,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lehrstelle-Elektroinstallateur-in-EFZ_R52727",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:54.041Z",
+      "crawledAt": "2026-04-23T21:04:33.899Z",
       "jobReqId": "R52727",
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
@@ -1772,108 +1609,6 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3930"
-    },
-    {
-      "id": "arxada-0ac9075580d2",
-      "slug": "metallbauer-in-cfc-arxada-visp",
-      "slugByLocale": {
-        "it": "metallbauer-in-cfc-arxada-visp",
-        "en": "plant-engineer-arxada-visp",
-        "de": "anlagen-und-apparatebauer-in-arxada-visp",
-        "fr": "ingenieur-de-l-usine-arxada-visp"
-      },
-      "company": "Arxada",
-      "companyKey": "arxada",
-      "companyDomain": "arxada.com",
-      "title": "Anlagen- und Apparatebauer/in",
-      "titleByLocale": {
-        "it": "Metallbauer/in CFC",
-        "en": "Plant Engineer",
-        "de": "Anlagen- und Apparatebauer/in",
-        "fr": "Ingénieur de l'usine"
-      },
-      "description": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n \n Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz.\n Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind.\n \n Als Anlagen- und Apparatebauer/in EFZ am Standort Visp, Schweiz, bist du ein zentraler Bestandteil unseres Engineering-Teams mittendrin statt nur dabei. In dieser Rolle trägst du entscheidend dazu bei, dass unsere Produktionsanlagen zuverlässig laufen, kontinuierlich verbessert werden und technologisch immer auf dem neuesten Stand bleiben.\n \n Hauptaufgaben und Verantwortung: \n \n• Planung und Umsetzung von Instandhaltungsmaßnahmen im zugeteilten Anlagenbereich.\n\n• Sicherstellung, Überprüfung und kontinuierliche Pflege der technischen Anlagendokumentation.\n\n• Unterstützung bei der Anlageverantwortung sowie Übernahme von Stellvertretungen und Diensten innerhalb der Abteilung.\n\n• Eigenständige Planung und Realisierung von Investitionsvorhaben sowie Mitarbeit bei Risikoanalysen, Betriebsversuchen und Anlagenoptimierungen.\n\n• Fachverantwortung als Spezialist/in für definierte technische Themengebiete sowie aktive Weitergabe von Know-how im Bereich Mechanik.\n \n Qualifikation und Erfahrung: \n \n• Abgeschlossene Ausbildung als Mechaniker/in oder Schlosser/in EFZ mit mehrjähriger Berufserfahrung oder Techniker/in HF (Maschinenbau oder Verfahrenstechnik).\n\n• Fundierte Berufserfahrung im Bereich Betriebsengineering.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse.\n\n• Ausgeprägte Kommunikationsfähigkeit sowie Freude an der Arbeit im Team.\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit.\n \n Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\n \n Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz.\n \n Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen.\n \n Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n \n #LI-CM1\n \n \n \nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-      "descriptionByLocale": {
-        "it": "Descrizione Arxada è un'azienda leader a livello mondiale nel campo delle soluzioni innovative per la protezione del nostro pianeta. Le nostre tecnologie all'avanguardia, l'ampia competenza normativa e la nostra esperienza nella e nello sviluppo di processi supportano i nostri clienti nel proteggere in modo corretto la nutrizione, produzione e le infrastrutture, attraverso la chimica e la biotecnologia somministra un'ampia gamma di ingredienti e servizi per vari mercati finali, tra cui saluto e nutrizione, cura della casa e del corpo, igiene professionale, vernici e rivestimento, e protezione del legno. Con clienti in oltre 100 paesi, l'azienda ha registrato un rilevamento di 2 miliardi di CHF nel 2024. La sede principale di Arxada si trova a Basilea, in Svizzera. A livello globale, l'azienda impiega 3.200 dipendenti in 24 siti produttivi e 14 centri di ricerca e sviluppo, tutti impegnati nel successo dei nostri clienti. In qualità di ingegnere di impianto presso la sede di Visp, in Svizzera, sarai un membro fondamentale del nostro team di ingegneria, collegato nelle operazioni. In questo ruolo, contribuirai in modo significativo a garantire che i nostri impianti di funzionino in modo attendibile, altrimenti migliorati e rimaneno sempre all'avanguardia dal punto di vista tecnologico. ## Mansioni - Pianificazione e implementazione di misure di manutenzione nell'area dell'impianto assegnata. - Garantire, verificare e mantenere la documentazione tecnica dell'impianto. - Supporto nella responsabilità dell'impianto, assunzione di ruoli sostitutivi e servizi all'interno del dipartimento. - Pianificazione e realizzazione autonoma di progetti di investimento, nonché partecipazione ad analisi dei rischi, test operativi e ottimizzazioni degli impianti. - Responsabilità tecnica come specialista in aree tematiche tecniche definite e trasmissione attiva del know-how nel campo della meccanica. ## Requisiti - Formazione completata come meccanico o fabbro EFZ con diversi anni di esperienza professionale o tecnico HF (ingegneria meccanica o ingegneria dei processi). - Solida esperienza professionale nel campo dell'ingegneria operativa. - Ottima conoscenza del tedesco e buona conoscenza dell'inglese. - Spiccate capacità di comunicazione e piacere di lavorare in team. - Modo di lavorare indipendente, strutturato e orientale a tutte le soluzioni, nonché elevata capacità di resistenza allo stress. # Cosa ## offerta Arxada offre soluzioni di prima classe in due aree ben definite: - Microbial Control Solutions (MCS) si concentra sulle minacce poste dai microrganismi agli esseri umani e all'ambiente. Questa area comprende cinque settori di attività autonomi: igiene professionale, cura della casa e del corpo, protezione del legno, vernici e rivestimenti, e protezione dei materiali - Nutrition, Care & Environmental (NCE) fornisce materiali per la produzione di compositi nell'etronica, inoltre il portafoglio includono vitamine e componenti nutrizionali, intermedi chimici ad antiche prestazioni e materiali prime per una vasta gamma di applicazioni esigenti. Arxada è un datore di lavoro che promuove l'uguaglianza delle opportunità. Tutti i candidati qualificati saranno presi in considerazione senza distinzioni basate su razza, religioni, etnica, sesso, orientamento sessuale, identità di genere, età, disabilità, stato di veterano protetto o altre caratteristiche protette dalla legge. #LI-CM1 CH15 Arxada è un'azienda specializzata a livello globale con importanti impianti di produzione a Visp (Vallese), in Svizzera. L'azienda sviluppa soluzioni innovative per il controllo microbico, la nutrizione, la cura e le applicazioni ambientali.",
-        "en": "Description Arxada is a global leader in innovative solutions for protecting our planet. Our cutting-edge technologies, extensive regulatory expertise, and experience in process production and development support our customers in efficiently protecting nutrition, health, and infrastructure through chemistry and biotechnology that promote sustainability. We offer a wide range of ingredients and services for various end markets, including health and nutrition, home and body care, professional hygiene, paints and coatings, and wood protection. With customers in over 100 countries, the company recorded a revenue of 2 billion CHF in 2024. The headquarters of Arxada is located in Basel, Switzerland. Globally, the company employs 3,200 people in 24 production sites and 14 research and development centers, all dedicated to the success of our customers. As a Plant Engineer at the Visp site in Switzerland, you will be a key member of our engineering team, directly involved in operations. In this role, you will significantly contribute to ensuring that our production facilities operate reliably, are continuously improved, and remain at the forefront of technological advancements. ## Responsibilities - Planning and implementing maintenance measures in the assigned plant area. - Ensuring, verifying, and maintaining the plant's technical documentation. - Supporting plant responsibility, assuming substitute roles, and providing services within the department. - Planning and executing independent investment projects, as well as participating in risk analyses, operational tests, and plant optimizations. - Technical responsibility as a specialist in defined technical areas and active knowledge transfer in the field of mechanics. ## Requirements - Completed training as a mechanic or fitter EFZ with several years of work experience or HF technician (mechanical engineering or process engineering). - Solid professional experience in the field of operational engineering. - Excellent knowledge of German and good knowledge of English. - Excellent communication skills and enjoyment of teamwork. - Independent, structured, and solution-oriented way of working, as well as high stress resistance. ## What We Offer Arxada offers top-tier solutions in two well-defined areas: - Microbial Control Solutions (MCS) focuses on the threats posed by microorganisms to humans and the environment. This area includes five autonomous business segments: professional hygiene, home and body care, wood protection, paints and coatings, and material protection. - Nutrition, Care & Environmental (NCE) provides materials for the production of composites in electronics, aerospace, and other industries. Additionally, the portfolio includes vitamins and nutritional components, high-performance chemical intermediates, and raw materials for a wide range of demanding applications. Arxada is an equal opportunity employer. All qualified candidates will be considered without regard to race, religion, ethnic origin, gender, sexual orientation, gender identity, age, disability, veteran status, or other legally protected characteristics. #LI-CM1 CH15 Arxada is a globally specialized chemical company with significant production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "de": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz. Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind. Als Anlagen- und Apparatebauer/in EFZ am Standort Visp, Schweiz, bist du ein zentraler Bestandteil unseres Engineering-Teams mittendrin statt nur dabei. In dieser Rolle trägst du entscheidend dazu bei, dass unsere Produktionsanlagen zuverlässig laufen, kontinuierlich verbessert werden und technologisch immer auf dem neuesten Stand bleiben. Hauptaufgaben und Verantwortung: • Planung und Umsetzung von Instandhaltungsmaßnahmen im zugeteilten Anlagenbereich. • Sicherstellung, Überprüfung und kontinuierliche Pflege der technischen Anlagendokumentation. • Unterstützung bei der Anlageverantwortung sowie Übernahme von Stellvertretungen und Diensten innerhalb der Abteilung. • Eigenständige Planung und Realisierung von Investitionsvorhaben sowie Mitarbeit bei Risikoanalysen, Betriebsversuchen und Anlagenoptimierungen. • Fachverantwortung als Spezialist/in für definierte technische Themengebiete sowie aktive Weitergabe von Know-how im Bereich Mechanik. Qualifikation und Erfahrung: • Abgeschlossene Ausbildung als Mechaniker/in oder Schlosser/in EFZ mit mehrjähriger Berufserfahrung oder Techniker/in HF (Maschinenbau oder Verfahrenstechnik). • Fundierte Berufserfahrung im Bereich Betriebsengineering. • Sehr gute Deutsch- und gute Englischkenntnisse. • Ausgeprägte Kommunikationsfähigkeit sowie Freude an der Arbeit im Team. • Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit. Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz. Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen. Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-CM1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "fr": "Description Arxada est un leader mondial dans les solutions innovantes pour la protection de notre planète. Nos technologies de pointe, notre expertise réglementaire étendue et notre expérience dans la production et le développement de processus soutiennent nos clients dans la protection efficace de la nutrition, de la santé et des infrastructures grâce à la chimie et à la biotechnologie qui favorisent la durabilité. Nous offrons une large gamme d'ingrédients et de services pour divers marchés finaux, y compris la santé et la nutrition, la soins de la maison et du corps, l'hygiène professionnelle, les peintures et les revêtements, et la protection du bois. Avec des clients dans plus de 100 pays, l'entreprise a enregistré un chiffre d'affaires de 2 milliards de CHF en 2024. Le siège social d'Arxada est situé à Bâle, en Suisse. À l'échelle mondiale, l'entreprise emploie 3 200 personnes dans 24 sites de production et 14 centres de recherche et développement, tous dédiés au succès de nos clients. En tant qu'ingénieur de l'usine au site de Visp, en Suisse, vous serez un membre clé de notre équipe d'ingénierie, directement impliqué dans les opérations. Dans ce rôle, vous contribuerez de manière significative à garantir que nos installations de production fonctionnent de manière fiable, sont continuellement améliorées et restent à la pointe des avancées technologiques. ## Responsabilités - Planification et mise en œuvre de mesures de maintenance dans la zone de l'usine assignée. - Garantir, vérifier et maintenir la documentation technique de l'usine. - Soutien à la responsabilité de l'usine, prise de rôles de remplacement et prestation de services au sein du département. - Planification et réalisation autonome de projets d'investissement, ainsi que participation aux analyses de risques, tests opérationnels et optimisations des installations. - Responsabilité technique en tant que spécialiste dans des domaines techniques définis et transfert actif des connaissances dans le domaine de la mécanique. ## Exigences - Formation terminée en tant que mécanicien ou ajusteur EFZ avec plusieurs années d'expérience professionnelle ou technicien HF (génie mécanique ou génie des procédés). - Expérience professionnelle solide dans le domaine de l'ingénierie opérationnelle. - Excellente connaissance de l'allemand et bonne connaissance de l'anglais. - Excellentes compétences en communication et plaisir de travailler en équipe. - Mode de travail indépendant, structuré et orienté vers les solutions, ainsi qu'une grande résistance au stress. ## Ce que nous offrons Arxada offre des solutions de premier ordre dans deux domaines bien définis : - Microbial Control Solutions (MCS) se concentre sur les menaces posées par les micro-organismes aux êtres humains et à l'environnement. Ce domaine comprend cinq segments d'activité autonomes : hygiène professionnelle, soins de la maison et du corps, protection du bois, peintures et revêtements, et protection des matériaux. - Nutrition, Care & Environmental (NCE) fournit des matériaux pour la production de composites dans l'électronique, l'aérospatiale et d'autres industries. De plus, le portefeuille comprend des vitamines et des composants nutritionnels, des intermédiaires chimiques à haute performance et des matières premières pour une large gamme d'applications exigeantes. Arxada est un employeur qui promeut l'égalité des chances. Tous les candidats qualifiés seront pris en considération sans distinction de race, de religion, d'origine ethnique, de sexe, d'orientation sexuelle, d'identité de genre, d'âge, de handicap, de statut de vétéran protégé ou d'autres caractéristiques protégées par la loi. #LI-CM1 CH15 Arxada est une entreprise chimique spécialisée à l'échelle mondiale avec des installations de production importantes à Visp (Valais), en Suisse. L'entreprise développe des solutions innovantes pour le contrôle microbien, la nutrition, les soins et les applications environnementales."
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Solida esperienza professionale nel campo dell'ingegneria operativa",
-          "Ottima conoscenza del tedesco e buona conoscenza dell'inglese",
-          "Spiccate capacità di comunicazione e piacere di lavorare in team",
-          "Modo di lavorare indipendente, strutturato e orientato alle soluzioni, nonché elevata capacità di resistenza allo stress",
-          "Solida esperienza professionale nel campo dell'ingegneria operativa.",
-          "Ottima conoscenza del tedesco e buona conoscenza dell'inglese."
-        ],
-        "en": [
-          "Solid professional experience in the field of operational engineering",
-          "Excellent knowledge of German and good knowledge of English",
-          "Excellent communication skills and enjoyment of teamwork",
-          "Independent, structured, and solution-oriented way of working, as well as high stress resistance"
-        ],
-        "fr": [
-          "Expérience professionnelle solide dans le domaine de l'ingénierie opérationnelle",
-          "Excellente connaissance de l'allemand et bonne connaissance de l'anglais",
-          "Excellentes compétences en communication et plaisir de travailler en équipe",
-          "Mode de travail indépendant, structuré et orienté vers les solutions, ainsi qu'une grande résistance au stress"
-        ]
-      },
-      "location": "Visp",
-      "canton": "VS",
-      "addressLocality": "Visp",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica / Specialty Chemicals",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
-      "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
-      "source": "Arxada Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:53.390Z",
-      "jobReqId": "R53335",
-      "previousSlugsByLocale": {
-        "de": [
-          "anlageningenieur-in-arxada-ch",
-          "metallbauer-in-efz-arxada-ch",
-          "metallbauer-in-efz-arxada-visp",
-          "anlagen-und-apparatebauer-in-arxada-ch"
-        ],
-        "it": [
-          "anlageningenieur-in-arxada-ch",
-          "anlageningenieur-in-arxada-visp"
-        ]
-      },
-      "previousSlugs": [
-        "anlageningenieur-in-arxada-ch",
-        "metallbauer-in-efz-arxada-ch",
-        "metallbauer-in-efz-arxada-visp",
-        "anlagen-und-apparatebauer-in-arxada-ch",
-        "anlageningenieur-in-arxada-visp"
-      ],
-      "firstSeenAt": "2026-04-13T09:58:58.686Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -1924,7 +1659,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in-Ab--und-Beladecenter--Site-Support_R53519",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-23T09:30:52.729Z",
+      "crawledAt": "2026-04-23T21:04:33.211Z",
       "jobReqId": "R53519",
       "previousSlugs": [
         "operator-in-ab-und-beladecenter-site-support-arxada-ch",
@@ -1943,6 +1678,110 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:00.088Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3930"
+    },
+    {
+      "id": "arxada-0ac9075580d2",
+      "slug": "metallbauer-in-cfc-arxada-visp",
+      "slugByLocale": {
+        "it": "metallbauer-in-cfc-arxada-visp",
+        "en": "plant-engineer-arxada-visp",
+        "de": "metallbauer-in-efz-arxada-visp",
+        "fr": "ingenieur-de-l-usine-arxada-visp"
+      },
+      "company": "Arxada",
+      "companyKey": "arxada",
+      "companyDomain": "arxada.com",
+      "title": "Metallbauer/in EFZ",
+      "titleByLocale": {
+        "it": "Metallbauer/in CFC",
+        "en": "Plant Engineer",
+        "de": "Metallbauer/in EFZ",
+        "fr": "Ingénieur de l'usine"
+      },
+      "description": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n \n Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz.\n Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind.\n \n Als Metallbauer/in EFZ am Standort Visp, Schweiz, bist du ein zentraler Bestandteil unseres Engineering-Teams mittendrin statt nur dabei. In dieser Rolle trägst du entscheidend dazu bei, dass unsere Produktionsanlagen zuverlässig laufen, kontinuierlich verbessert werden und technologisch immer auf dem neuesten Stand bleiben.\n \n Hauptaufgaben und Verantwortung: \n \n• Planung und Umsetzung von Instandhaltungsmaßnahmen im zugeteilten Anlagenbereich.\n\n• Sicherstellung, Überprüfung und kontinuierliche Pflege der technischen Anlagendokumentation.\n\n• Unterstützung bei der Anlageverantwortung sowie Übernahme von Stellvertretungen und Diensten innerhalb der Abteilung.\n\n• Eigenständige Planung und Realisierung von Investitionsvorhaben sowie Mitarbeit bei Risikoanalysen, Betriebsversuchen und Anlagenoptimierungen.\n\n• Fachverantwortung als Spezialist/in für definierte technische Themengebiete sowie aktive Weitergabe von Know-how im Bereich Mechanik.\n \n Qualifikation und Erfahrung: \n \n• Abgeschlossene Ausbildung als Mechaniker/in oder Schlosser/in EFZ mit mehrjähriger Berufserfahrung oder Techniker/in HF (Maschinenbau oder Verfahrenstechnik).\n\n• Fundierte Berufserfahrung im Bereich Betriebsengineering.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse.\n\n• Ausgeprägte Kommunikationsfähigkeit sowie Freude an der Arbeit im Team.\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit.\n \n Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\n \n Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz.\n \n Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen.\n \n Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n \n #LI-CM1\n \n \n \nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
+      "descriptionByLocale": {
+        "it": "Descrizione Arxada è un'azienda leader a livello mondiale nel campo delle soluzioni innovative per la protezione del nostro pianeta. Le nostre tecnologie all'avanguardia, l'ampia competenza normativa e la nostra esperienza nella e nello sviluppo di processi supportano i nostri clienti nel proteggere in modo corretto la nutrizione, produzione e le infrastrutture, attraverso la chimica e la biotecnologia somministra un'ampia gamma di ingredienti e servizi per vari mercati finali, tra cui saluto e nutrizione, cura della casa e del corpo, igiene professionale, vernici e rivestimento, e protezione del legno. Con clienti in oltre 100 paesi, l'azienda ha registrato un rilevamento di 2 miliardi di CHF nel 2024. La sede principale di Arxada si trova a Basilea, in Svizzera. A livello globale, l'azienda impiega 3.200 dipendenti in 24 siti produttivi e 14 centri di ricerca e sviluppo, tutti impegnati nel successo dei nostri clienti. In qualità di ingegnere di impianto presso la sede di Visp, in Svizzera, sarai un membro fondamentale del nostro team di ingegneria, collegato nelle operazioni. In questo ruolo, contribuirai in modo significativo a garantire che i nostri impianti di funzionino in modo attendibile, altrimenti migliorati e rimaneno sempre all'avanguardia dal punto di vista tecnologico. ## Mansioni - Pianificazione e implementazione di misure di manutenzione nell'area dell'impianto assegnata. - Garantire, verificare e mantenere la documentazione tecnica dell'impianto. - Supporto nella responsabilità dell'impianto, assunzione di ruoli sostitutivi e servizi all'interno del dipartimento. - Pianificazione e realizzazione autonoma di progetti di investimento, nonché partecipazione ad analisi dei rischi, test operativi e ottimizzazioni degli impianti. - Responsabilità tecnica come specialista in aree tematiche tecniche definite e trasmissione attiva del know-how nel campo della meccanica. ## Requisiti - Formazione completata come meccanico o fabbro EFZ con diversi anni di esperienza professionale o tecnico HF (ingegneria meccanica o ingegneria dei processi). - Solida esperienza professionale nel campo dell'ingegneria operativa. - Ottima conoscenza del tedesco e buona conoscenza dell'inglese. - Spiccate capacità di comunicazione e piacere di lavorare in team. - Modo di lavorare indipendente, strutturato e orientale a tutte le soluzioni, nonché elevata capacità di resistenza allo stress. # Cosa ## offerta Arxada offre soluzioni di prima classe in due aree ben definite: - Microbial Control Solutions (MCS) si concentra sulle minacce poste dai microrganismi agli esseri umani e all'ambiente. Questa area comprende cinque settori di attività autonomi: igiene professionale, cura della casa e del corpo, protezione del legno, vernici e rivestimenti, e protezione dei materiali - Nutrition, Care & Environmental (NCE) fornisce materiali per la produzione di compositi nell'etronica, inoltre il portafoglio includono vitamine e componenti nutrizionali, intermedi chimici ad antiche prestazioni e materiali prime per una vasta gamma di applicazioni esigenti. Arxada è un datore di lavoro che promuove l'uguaglianza delle opportunità. Tutti i candidati qualificati saranno presi in considerazione senza distinzioni basate su razza, religioni, etnica, sesso, orientamento sessuale, identità di genere, età, disabilità, stato di veterano protetto o altre caratteristiche protette dalla legge. #LI-CM1 CH15 Arxada è un'azienda specializzata a livello globale con importanti impianti di produzione a Visp (Vallese), in Svizzera. L'azienda sviluppa soluzioni innovative per il controllo microbico, la nutrizione, la cura e le applicazioni ambientali.",
+        "en": "Description Arxada is a global leader in innovative solutions for protecting our planet. Our cutting-edge technologies, extensive regulatory expertise, and experience in process production and development support our customers in efficiently protecting nutrition, health, and infrastructure through chemistry and biotechnology that promote sustainability. We offer a wide range of ingredients and services for various end markets, including health and nutrition, home and body care, professional hygiene, paints and coatings, and wood protection. With customers in over 100 countries, the company recorded a revenue of 2 billion CHF in 2024. The headquarters of Arxada is located in Basel, Switzerland. Globally, the company employs 3,200 people in 24 production sites and 14 research and development centers, all dedicated to the success of our customers. As a Plant Engineer at the Visp site in Switzerland, you will be a key member of our engineering team, directly involved in operations. In this role, you will significantly contribute to ensuring that our production facilities operate reliably, are continuously improved, and remain at the forefront of technological advancements. ## Responsibilities - Planning and implementing maintenance measures in the assigned plant area. - Ensuring, verifying, and maintaining the plant's technical documentation. - Supporting plant responsibility, assuming substitute roles, and providing services within the department. - Planning and executing independent investment projects, as well as participating in risk analyses, operational tests, and plant optimizations. - Technical responsibility as a specialist in defined technical areas and active knowledge transfer in the field of mechanics. ## Requirements - Completed training as a mechanic or fitter EFZ with several years of work experience or HF technician (mechanical engineering or process engineering). - Solid professional experience in the field of operational engineering. - Excellent knowledge of German and good knowledge of English. - Excellent communication skills and enjoyment of teamwork. - Independent, structured, and solution-oriented way of working, as well as high stress resistance. ## What We Offer Arxada offers top-tier solutions in two well-defined areas: - Microbial Control Solutions (MCS) focuses on the threats posed by microorganisms to humans and the environment. This area includes five autonomous business segments: professional hygiene, home and body care, wood protection, paints and coatings, and material protection. - Nutrition, Care & Environmental (NCE) provides materials for the production of composites in electronics, aerospace, and other industries. Additionally, the portfolio includes vitamins and nutritional components, high-performance chemical intermediates, and raw materials for a wide range of demanding applications. Arxada is an equal opportunity employer. All qualified candidates will be considered without regard to race, religion, ethnic origin, gender, sexual orientation, gender identity, age, disability, veteran status, or other legally protected characteristics. #LI-CM1 CH15 Arxada is a globally specialized chemical company with significant production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
+        "de": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung, Haushalts- und Körperpflege, Professionelle Hygiene, Lacke & Beschichtungen sowie Holzschutz. Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF. Der Hauptsitz von Arxada befindet sich in Basel (Schweiz). Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren, die alle dem Erfolg unserer Kunden verpflichtet sind. Als Metallbauer/in EFZ am Standort Visp, Schweiz, bist du ein zentraler Bestandteil unseres Engineering-Teams mittendrin statt nur dabei. In dieser Rolle trägst du entscheidend dazu bei, dass unsere Produktionsanlagen zuverlässig laufen, kontinuierlich verbessert werden und technologisch immer auf dem neuesten Stand bleiben. Hauptaufgaben und Verantwortung: • Planung und Umsetzung von Instandhaltungsmaßnahmen im zugeteilten Anlagenbereich. • Sicherstellung, Überprüfung und kontinuierliche Pflege der technischen Anlagendokumentation. • Unterstützung bei der Anlageverantwortung sowie Übernahme von Stellvertretungen und Diensten innerhalb der Abteilung. • Eigenständige Planung und Realisierung von Investitionsvorhaben sowie Mitarbeit bei Risikoanalysen, Betriebsversuchen und Anlagenoptimierungen. • Fachverantwortung als Spezialist/in für definierte technische Themengebiete sowie aktive Weitergabe von Know-how im Bereich Mechanik. Qualifikation und Erfahrung: • Abgeschlossene Ausbildung als Mechaniker/in oder Schlosser/in EFZ mit mehrjähriger Berufserfahrung oder Techniker/in HF (Maschinenbau oder Verfahrenstechnik). • Fundierte Berufserfahrung im Bereich Betriebsengineering. • Sehr gute Deutsch- und gute Englischkenntnisse. • Ausgeprägte Kommunikationsfähigkeit sowie Freude an der Arbeit im Team. • Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit. Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene, Haushalts- und Körperpflege, Holzschutz, Lacke & Beschichtungen sowie Materialschutz. Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik, Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten, chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen. Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-CM1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
+        "fr": "Description Arxada est un leader mondial dans les solutions innovantes pour la protection de notre planète. Nos technologies de pointe, notre expertise réglementaire étendue et notre expérience dans la production et le développement de processus soutiennent nos clients dans la protection efficace de la nutrition, de la santé et des infrastructures grâce à la chimie et à la biotechnologie qui favorisent la durabilité. Nous offrons une large gamme d'ingrédients et de services pour divers marchés finaux, y compris la santé et la nutrition, la soins de la maison et du corps, l'hygiène professionnelle, les peintures et les revêtements, et la protection du bois. Avec des clients dans plus de 100 pays, l'entreprise a enregistré un chiffre d'affaires de 2 milliards de CHF en 2024. Le siège social d'Arxada est situé à Bâle, en Suisse. À l'échelle mondiale, l'entreprise emploie 3 200 personnes dans 24 sites de production et 14 centres de recherche et développement, tous dédiés au succès de nos clients. En tant qu'ingénieur de l'usine au site de Visp, en Suisse, vous serez un membre clé de notre équipe d'ingénierie, directement impliqué dans les opérations. Dans ce rôle, vous contribuerez de manière significative à garantir que nos installations de production fonctionnent de manière fiable, sont continuellement améliorées et restent à la pointe des avancées technologiques. ## Responsabilités - Planification et mise en œuvre de mesures de maintenance dans la zone de l'usine assignée. - Garantir, vérifier et maintenir la documentation technique de l'usine. - Soutien à la responsabilité de l'usine, prise de rôles de remplacement et prestation de services au sein du département. - Planification et réalisation autonome de projets d'investissement, ainsi que participation aux analyses de risques, tests opérationnels et optimisations des installations. - Responsabilité technique en tant que spécialiste dans des domaines techniques définis et transfert actif des connaissances dans le domaine de la mécanique. ## Exigences - Formation terminée en tant que mécanicien ou ajusteur EFZ avec plusieurs années d'expérience professionnelle ou technicien HF (génie mécanique ou génie des procédés). - Expérience professionnelle solide dans le domaine de l'ingénierie opérationnelle. - Excellente connaissance de l'allemand et bonne connaissance de l'anglais. - Excellentes compétences en communication et plaisir de travailler en équipe. - Mode de travail indépendant, structuré et orienté vers les solutions, ainsi qu'une grande résistance au stress. ## Ce que nous offrons Arxada offre des solutions de premier ordre dans deux domaines bien définis : - Microbial Control Solutions (MCS) se concentre sur les menaces posées par les micro-organismes aux êtres humains et à l'environnement. Ce domaine comprend cinq segments d'activité autonomes : hygiène professionnelle, soins de la maison et du corps, protection du bois, peintures et revêtements, et protection des matériaux. - Nutrition, Care & Environmental (NCE) fournit des matériaux pour la production de composites dans l'électronique, l'aérospatiale et d'autres industries. De plus, le portefeuille comprend des vitamines et des composants nutritionnels, des intermédiaires chimiques à haute performance et des matières premières pour une large gamme d'applications exigeantes. Arxada est un employeur qui promeut l'égalité des chances. Tous les candidats qualifiés seront pris en considération sans distinction de race, de religion, d'origine ethnique, de sexe, d'orientation sexuelle, d'identité de genre, d'âge, de handicap, de statut de vétéran protégé ou d'autres caractéristiques protégées par la loi. #LI-CM1 CH15 Arxada est une entreprise chimique spécialisée à l'échelle mondiale avec des installations de production importantes à Visp (Valais), en Suisse. L'entreprise développe des solutions innovantes pour le contrôle microbien, la nutrition, les soins et les applications environnementales."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Solida esperienza professionale nel campo dell'ingegneria operativa",
+          "Ottima conoscenza del tedesco e buona conoscenza dell'inglese",
+          "Spiccate capacità di comunicazione e piacere di lavorare in team",
+          "Modo di lavorare indipendente, strutturato e orientato alle soluzioni, nonché elevata capacità di resistenza allo stress",
+          "Solida esperienza professionale nel campo dell'ingegneria operativa.",
+          "Ottima conoscenza del tedesco e buona conoscenza dell'inglese."
+        ],
+        "en": [
+          "Solid professional experience in the field of operational engineering",
+          "Excellent knowledge of German and good knowledge of English",
+          "Excellent communication skills and enjoyment of teamwork",
+          "Independent, structured, and solution-oriented way of working, as well as high stress resistance"
+        ],
+        "fr": [
+          "Expérience professionnelle solide dans le domaine de l'ingénierie opérationnelle",
+          "Excellente connaissance de l'allemand et bonne connaissance de l'anglais",
+          "Excellentes compétences en communication et plaisir de travailler en équipe",
+          "Mode de travail indépendant, structuré et orienté vers les solutions, ainsi qu'une grande résistance au stress"
+        ]
+      },
+      "location": "Visp",
+      "canton": "VS",
+      "addressLocality": "Visp",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Chimica / Specialty Chemicals",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-23",
+      "url": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
+      "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
+      "source": "Arxada Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-23T21:04:32.509Z",
+      "jobReqId": "R53335",
+      "previousSlugsByLocale": {
+        "de": [
+          "anlageningenieur-in-arxada-ch",
+          "metallbauer-in-efz-arxada-ch",
+          "anlagen-und-apparatebauer-in-arxada-ch",
+          "anlagen-und-apparatebauer-in-arxada-visp"
+        ],
+        "it": [
+          "anlageningenieur-in-arxada-ch",
+          "anlageningenieur-in-arxada-visp"
+        ]
+      },
+      "previousSlugs": [
+        "anlageningenieur-in-arxada-ch",
+        "metallbauer-in-efz-arxada-ch",
+        "anlagen-und-apparatebauer-in-arxada-ch",
+        "anlagen-und-apparatebauer-in-arxada-visp",
+        "anlageningenieur-in-arxada-visp"
+      ],
+      "firstSeenAt": "2026-04-13T09:58:58.686Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
