@@ -65,6 +65,7 @@ import {
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   STAT_TILE_ACCENT,
+  STAT_TILE_BASE,
   STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
   STAT_TILE_VALUE,
@@ -878,11 +879,11 @@ function renderPage(inp: PageInputs): string {
       <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
       <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.currencyLabel)}</div>
     </div>
-    <div style="${deltaYest !== null && deltaYest < 0 ? STAT_TILE_SUCCESS : STAT_TILE_WARNING}">
+    <div style="${deltaYest === null ? STAT_TILE_BASE : deltaYest < 0 ? STAT_TILE_SUCCESS : deltaYest > 0 ? STAT_TILE_WARNING : STAT_TILE_BASE}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.vsYesterday)}</div>
       <div style="${STAT_TILE_VALUE};font-size:22px">${esc(deltaYestFmt)}</div>
     </div>
-    <div style="${delta7 !== null && delta7 < 0 ? STAT_TILE_SUCCESS : STAT_TILE_WARNING}">
+    <div style="${delta7 === null ? STAT_TILE_BASE : delta7 < 0 ? STAT_TILE_SUCCESS : delta7 > 0 ? STAT_TILE_WARNING : STAT_TILE_BASE}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.vs7d)}</div>
       <div style="${STAT_TILE_VALUE};font-size:22px">${esc(delta7Fmt)}</div>
     </div>
