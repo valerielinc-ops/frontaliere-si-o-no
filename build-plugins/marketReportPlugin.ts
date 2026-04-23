@@ -41,6 +41,24 @@ import {
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { CITY_HUB_KEYS } from './cityJobsHub';
+import {
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_VALUE,
+  CARD_STYLE,
+  BREADCRUMB_STYLE,
+  BREADCRUMB_LINK_STYLE,
+  HERO_EYEBROW_STYLE,
+  H1_STYLE,
+  LEDE_STYLE,
+  BODY_STYLE,
+  H2_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
+  CTA_PRIMARY_STYLE,
+  LINK_ACCENT_STYLE,
+  STAT_TILE_WARNING,
+} from './shared/seoContentTokens';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -400,12 +418,12 @@ interface RenderedReport {
 }
 
 function renderTable(headers: string[], rows: string[][]): string {
-  const h = headers.map((x) => `<th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--surface-border,#e2e8f0);font-size:13px;color:var(--text-muted,#475569);text-transform:uppercase">${esc(x)}</th>`).join('');
+  const h = headers.map((x) => `<th style="${TABLE_HEAD_STYLE}">${esc(x)}</th>`).join('');
   const body = rows.map((r) => {
-    const tds = r.map((c, idx) => `<td style="padding:10px 14px;border-bottom:1px solid var(--surface-border,#e2e8f0);${idx === 0 ? 'color:var(--text-muted,#475569);font-weight:600' : 'color:var(--text-base,#0f172a)'}">${c}</td>`).join('');
+    const tds = r.map((c, idx) => `<td style="${TABLE_CELL_STYLE}${idx === 0 ? ';font-weight:600' : ''}">${c}</td>`).join('');
     return `<tr>${tds}</tr>`;
   }).join('');
-  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff);margin:12px 0 24px"><table style="width:100%;border-collapse:collapse;font-size:15px"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface);margin:12px 0 24px"><table style="width:100%;border-collapse:collapse;font-size:15px"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function renderReport(opts: {
@@ -447,28 +465,28 @@ function renderReport(opts: {
   // Headline stat cards
   const statCards = `
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 28px">
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.headlineActiveJobsLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${formatNumber(activeJobs)}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineActiveJobsLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${formatNumber(activeJobs)}</div>
       </div>
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.headlineCompaniesLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${formatNumber(activeCompanies)}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineCompaniesLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${formatNumber(activeCompanies)}</div>
       </div>
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.headlineMedianSalaryLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${esc(formatCHF(avgMid))}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineMedianSalaryLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${esc(formatCHF(avgMid))}</div>
       </div>
-      <div style="padding:18px;border-radius:16px;border:1px solid var(--surface-border,#e2e8f0);background:var(--surface,#ffffff)">
-        <div style="font-size:12px;color:var(--text-muted,#475569);text-transform:uppercase;font-weight:700">${esc(copy.headlineAddedLast7dLabel)}</div>
-        <div style="margin-top:6px;font-size:28px;font-weight:800;color:var(--text-base,#0f172a)">${formatNumber(added7d)}</div>
+      <div style="${STAT_TILE_BASE}">
+        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineAddedLast7dLabel)}</div>
+        <div style="${STAT_TILE_VALUE}">${formatNumber(added7d)}</div>
       </div>
     </section>`;
 
   // Tables
   const topEmployersRows = topEmployers.map((e, i) => [
     `#${i + 1}`,
-    `<a href="${esc(e.url ?? '#')}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(e.name)}</a>`,
+    `<a href="${esc(e.url ?? '#')}" style="${LINK_ACCENT_STYLE}">${esc(e.name)}</a>`,
     formatNumber(e.count),
   ]);
   const cityHubSet = new Set<string>(CITY_HUB_KEYS as readonly string[]);
@@ -482,8 +500,8 @@ function renderReport(opts: {
   const topCitiesRows = topCities.map((c, i) => {
     const href = cityHubHref(c.key);
     const cell = href
-      ? `<a href="${esc(href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(c.name)}</a>`
-      : `<span style="color:#0f172a;font-weight:600">${esc(c.name)}</span>`;
+      ? `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(c.name)}</a>`
+      : `<span style="color:var(--color-heading);font-weight:600">${esc(c.name)}</span>`;
     return [`#${i + 1}`, cell, formatNumber(c.count)];
   });
 
@@ -496,14 +514,14 @@ function renderReport(opts: {
 
   const topSalaryCompaniesRows = topSalaryCompanies.map((e, i) => [
     `#${i + 1}`,
-    `<a href="${esc(e.url ?? '#')}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(e.name)}</a>`,
+    `<a href="${esc(e.url ?? '#')}" style="${LINK_ACCENT_STYLE}">${esc(e.name)}</a>`,
     esc(formatCHF(e.avgMid)),
   ]);
   const topSalaryLocationsRows = topSalaryLocations.map((l, i) => {
     const href = cityHubHref(l.key);
     const cell = href
-      ? `<a href="${esc(href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(l.name)}</a>`
-      : `<span style="color:#0f172a;font-weight:600">${esc(l.name)}</span>`;
+      ? `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(l.name)}</a>`
+      : `<span style="color:var(--color-heading);font-weight:600">${esc(l.name)}</span>`;
     return [`#${i + 1}`, cell, esc(formatCHF(l.avgMid))];
   });
   const topSalaryCompaniesTable = topSalaryCompanies.length > 0
@@ -603,72 +621,72 @@ function renderReport(opts: {
   };
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
     <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)} · ${esc(copy.sourceLabel)}: data/jobs-stats.json</p>
-      <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0;color:var(--text-base,#0f172a);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.ledeIntro)}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dateStamp)} · ${esc(copy.sourceLabel)}: data/jobs-stats.json</p>
+      <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
+      <p style="${LEDE_STYLE}">${esc(copy.ledeIntro)}</p>
     </header>
     ${statCards}
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.topEmployersH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.topEmployersP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.topEmployersH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.topEmployersP)}</p>
       ${topEmployersTable}
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.topCitiesH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.topCitiesP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.topCitiesH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.topCitiesP)}</p>
       ${topCitiesTable}
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.salaryH2)}</h2>
-      <p style="margin:0 0 16px;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.salaryP)}</p>
-      ${topSalaryCompaniesTable ? `<h3 style="margin:18px 0 6px;font-size:18px;color:var(--text-base,#0f172a)">${esc(copy.topSalaryCompaniesH3)}</h3>${topSalaryCompaniesTable}` : ''}
-      ${topSalaryLocationsTable ? `<h3 style="margin:18px 0 6px;font-size:18px;color:var(--text-base,#0f172a)">${esc(copy.topSalaryLocationsH3)}</h3>${topSalaryLocationsTable}` : ''}
+      <h2 style="${H2_STYLE}">${esc(copy.salaryH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.salaryP)}</p>
+      ${topSalaryCompaniesTable ? `<h3 style="margin:18px 0 6px;font-size:18px;color:var(--color-heading)">${esc(copy.topSalaryCompaniesH3)}</h3>${topSalaryCompaniesTable}` : ''}
+      ${topSalaryLocationsTable ? `<h3 style="margin:18px 0 6px;font-size:18px;color:var(--color-heading)">${esc(copy.topSalaryLocationsH3)}</h3>${topSalaryLocationsTable}` : ''}
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.sectorsH2)}</h2>
-      <p style="margin:0;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">${esc(copy.sectorsP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.sectorsH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.sectorsP)}</p>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.analysisH2)}</h2>
-      <p style="margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(copy.analysisP1)}</p>
-      <p style="margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(copy.analysisP2)}</p>
-      <p style="margin:0;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(copy.analysisP3)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.analysisH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.analysisP1)}</p>
+      <p style="${BODY_STYLE}">${esc(copy.analysisP2)}</p>
+      <p style="${BODY_STYLE}">${esc(copy.analysisP3)}</p>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.trendsH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(copy.trendsP)}</p>
-      <ol style="margin:0 0 14px 22px;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">
+      <h2 style="${H2_STYLE}">${esc(copy.trendsH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.trendsP)}</p>
+      <ol style="margin:0 0 14px 22px;color:var(--color-body);line-height:1.65;max-width:860px">
         <li style="margin:0 0 10px">${esc(copy.trendsBullet1)}</li>
         <li style="margin:0 0 10px">${esc(copy.trendsBullet2)}</li>
         <li style="margin:0">${esc(copy.trendsBullet3)}</li>
       </ol>
     </section>
-    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--surface-accent,#eef2ff);border:1px solid var(--surface-border,#c7d2fe)">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.embedH2)}</h2>
-      <p style="margin:0 0 12px;color:var(--text-base,#0f172a);line-height:1.65;max-width:860px">${esc(copy.embedP)}</p>
-      <p style="margin:0 0 8px;font-weight:700;color:var(--text-base,#0f172a)">${esc(copy.embedSnippetLabel)}</p>
-      <pre style="margin:0;padding:14px;border-radius:10px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);overflow-x:auto;font-size:13px;line-height:1.6;color:var(--text-base,#0f172a)"><code>${embedSnippet}</code></pre>
-      <h3 style="margin:16px 0 4px;font-size:16px;color:var(--text-base,#0f172a)">${esc(copy.citationH3)}</h3>
-      <p style="margin:0;color:var(--text-muted,#475569);line-height:1.6;font-size:14px">${esc(copy.citationText)}</p>
+    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)">
+      <h2 style="${H2_STYLE}">${esc(copy.embedH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.embedP)}</p>
+      <p style="margin:0 0 8px;font-weight:700;color:var(--color-heading)">${esc(copy.embedSnippetLabel)}</p>
+      <pre style="margin:0;padding:14px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);overflow-x:auto;font-size:13px;line-height:1.6;color:var(--color-body)"><code>${embedSnippet}</code></pre>
+      <h3 style="margin:16px 0 4px;font-size:16px;color:var(--color-heading)">${esc(copy.citationH3)}</h3>
+      <p style="margin:0;color:var(--color-subtle);line-height:1.6;font-size:14px">${esc(copy.citationText)}</p>
     </section>
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.methodologyH2)}</h2>
-      <p style="margin:0;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(copy.methodologyP)}</p>
+      <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
+      <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
     </section>
-    <p style="margin:0 0 24px;padding:14px 16px;border-radius:12px;background:var(--surface-warn,#fef3c7);color:var(--text-warn,#78350f);line-height:1.55;max-width:860px;font-size:14px">${esc(copy.cautionP)}</p>
+    <p style="margin:0 0 24px;padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border);line-height:1.55;max-width:860px;font-size:14px">${esc(copy.cautionP)}</p>
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(jobsRoot[locale])}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a href="${esc(jobsRoot[locale])}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
     </section>
   `;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
