@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-04-22T20:58:25.821Z",
+  "assembledAt": "2026-04-23T09:22:20.578Z",
   "jobs": [
     {
       "id": "company-l7apjs",
@@ -36,7 +36,7 @@
       "titleByLocale": {
         "en": "(80 -100%) R&D HW Engineer",
         "it": "(80 -100%) R&D HW Ingegnere",
-        "de": "(80 -100%)",
+        "de": "(80 -100%) R&D HW Ingenieur",
         "fr": "(80 -100 %) Ingénieur en R-D"
       },
       "descriptionByLocale": {
@@ -166,7 +166,7 @@
       "titleByLocale": {
         "en": "(80 -100%) R&D Senior Engineer (Energy Storage Systems)",
         "it": "(80 -100%) R&D Senior Ingegnere (Energy Storage Systems)",
-        "de": "(80 -100%) R&D Senior Engineer (Energiespeichersysteme)",
+        "de": "(80 -100%) R&D Senior Ingenieur (Energy Storage Systems)",
         "fr": "(80 -100 %) Ingénieur principal en R-D (systèmes de stockage d'énergie)"
       },
       "descriptionByLocale": {
@@ -274,7 +274,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2jc587",
@@ -347,7 +348,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-n0py3i",
@@ -495,7 +497,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6a4mil",
@@ -827,7 +830,8 @@
           "80-100-warehouse-internal-logistique-superviseur-abb-svizzera-sede-ticino-quartino-ticino-qkvhc4"
         ]
       },
-      "firstSeenAt": "2026-03-31T20:45:35.471Z"
+      "firstSeenAt": "2026-03-31T20:45:35.471Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-o66kxn",
