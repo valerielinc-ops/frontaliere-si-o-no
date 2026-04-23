@@ -148,6 +148,46 @@ function esc(s: unknown): string {
     .replace(/"/g, '&quot;');
 }
 
+/** Capitalize only the first letter of a string (no title-case). */
+function cap(s: string): string {
+  if (!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/** Build an editorialized H1 from the canonical query per locale. */
+function buildEditorialH1(query: string, locale: OrphanLandingLocale): string {
+  const q = cap(query);
+  switch (locale) {
+    case 'it': return `${q} — offerte e informazioni per frontalieri`;
+    case 'en': return `${q} — answers for cross-border workers`;
+    case 'de': return `${q} — Antworten für Grenzgänger`;
+    case 'fr': return `${q} — réponses pour les frontaliers`;
+  }
+}
+
+/** Build an editorialized page title per locale (shorter than H1). */
+function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string {
+  const q = cap(query);
+  switch (locale) {
+    case 'it': return `${q} | Frontaliere Ticino`;
+    case 'en': return `${q} | Cross-border Workers Ticino`;
+    case 'de': return `${q} | Grenzgänger Tessin`;
+    case 'fr': return `${q} | Frontaliers Tessin`;
+  }
+}
+
+/** Build an editorialized meta description per locale. */
+function buildEditorialDescription(query: string, locale: OrphanLandingLocale, editorial: string): string {
+  const q = cap(query);
+  const prefix: Record<OrphanLandingLocale, string> = {
+    it: `${q} — `,
+    en: `${q} — `,
+    de: `${q} — `,
+    fr: `${q} — `,
+  };
+  return (prefix[locale] + editorial).slice(0, 155);
+}
+
 async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): Promise<Record<string, string>> {
   const modPath = path.join(rootDir, 'services', 'locales', `${locale}-orphan-landings.ts`);
   // Plain regex parse — avoid bundling TS at build time.
@@ -286,19 +326,21 @@ function renderPage(opts: {
     })),
   }) : '';
 
+  const h1ForLd = buildEditorialH1(cluster.canonicalQuery, locale);
+
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: t('orphanLanding.breadcrumbHome', 'Home'), item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: cluster.canonicalQuery, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: h1ForLd, item: canonicalUrl },
     ],
   });
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: cluster.canonicalQuery,
+    name: h1ForLd,
     url: canonicalUrl,
     description: editorialBody.slice(0, 200),
     inLanguage: locale,
@@ -318,7 +360,7 @@ function renderPage(opts: {
     </nav>
     <header style="margin-bottom:20px">
       <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(cluster.canonicalQuery)}</h1>
+      <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
       <p style="margin:0 0 14px;color:var(--text-base,#0f172a);font-size:17px;line-height:1.6;max-width:860px">${esc(editorialBody)}</p>
       <p style="margin:0;color:var(--text-muted,#475569);line-height:1.65;max-width:860px">${esc(genericBody)}</p>
     </header>
@@ -369,7 +411,9 @@ function renderPage(opts: {
     ? 'index,follow'
     : 'noindex,follow';
 
-  const description = editorialBody.slice(0, 155);
+  const editorialH1 = buildEditorialH1(cluster.canonicalQuery, locale);
+  const editorialPageTitle = buildEditorialTitle(cluster.canonicalQuery, locale);
+  const description = buildEditorialDescription(cluster.canonicalQuery, locale, editorialBody);
   // Extra <head> tags (OG image + Twitter card) that buildSimplePage doesn't
   // emit by default — keeps the social-share preview identical to the
   // pre-shell-wrap HTML.
@@ -377,7 +421,7 @@ function renderPage(opts: {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(cluster.canonicalQuery)}">
+    <meta name="twitter:title" content="${esc(editorialH1)}">
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
@@ -393,7 +437,7 @@ function renderPage(opts: {
 
   const html = buildSeoPageHtml({
     locale,
-    title: `${cluster.canonicalQuery} | Frontaliere Ticino`,
+    title: editorialPageTitle,
     description,
     canonicalUrl,
     robots,
