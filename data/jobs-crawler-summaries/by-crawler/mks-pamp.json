@@ -1,18 +1,49 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-23T10:34:11.456Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-04-23T22:07:57.426Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 20105,
-  "avgDurationMs": 20105,
+  "durationMs": 14388,
+  "avgDurationMs": 14388,
   "durationHistory": [
-    20105
+    14388
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Operatore reparto Raffineria",
+      "slug": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7130612-operatore-reparto-raffineria",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7130612-operatore-reparto-raffineria",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "production",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-01-28",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Metal &amp; Inventory Controller",
