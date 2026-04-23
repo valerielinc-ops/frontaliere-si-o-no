@@ -1,53 +1,18 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-22T21:30:02.962Z",
+  "generatedAt": "2026-04-23T09:54:04.515Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5388,
-  "avgDurationMs": 5388,
+  "durationMs": 6695,
+  "avgDurationMs": 6695,
   "durationHistory": [
-    5388
+    6695
   ],
-  "newJobs": [
-    {
-      "id": "coopers-775622e91e4e",
-      "slug": "project-engineer-m-w-d-coopers-wallis",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Project Engineer (m/w/d)",
-      "location": "Wallis",
-      "canton": "VS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-22T21:30:00.616Z",
-      "addressLocality": "Wallis",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -61,7 +26,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-22T21:29:59.392Z",
+      "crawledAt": "2026-04-23T09:54:00.729Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -81,6 +46,41 @@
         "cleanliness": 20,
         "richness": 21,
         "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "coopers-775622e91e4e",
+      "slug": "project-engineer-m-w-d-coopers-wallis",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Project Engineer (m/w/d)",
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-23T09:54:02.158Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
+      "firstSeenAt": "2026-04-22T21:30:00.616Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 23,
         "completeness": 14
       }
     }
