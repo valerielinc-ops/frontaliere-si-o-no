@@ -2115,8 +2115,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  unemployment: {
- title: 'Disoccupazione Frontalieri | Frontaliere Ticino',
- description: 'Guida completa alla disoccupazione per frontalieri: come richiedere NASpI in Italia e AD/ALV in Svizzera. Importi, durata, procedure passo per passo.',
+ title: 'Disoccupazione Svizzera Frontalieri 2026: NASpI + PD U1',
+ description: 'Disoccupazione Svizzera per frontalieri: NASpI Italia, AD/ALV Svizzera, formulario PD U1, importi 2026 e procedure passo per passo con tempi e moduli.',
  keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
  ogTitle: 'Disoccupazione per Frontalieri | NASpI e AD Svizzera',
  ogDescription: '📋 Guida completa alla disoccupazione per frontalieri: NASpI Italia, AD/ALV Svizzera, procedure, importi e confronto tra i due sistemi.',
@@ -2176,6 +2176,27 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Answer",
  "text": "Sì, è possibile cumulare NASpI con lavoro part-time se il reddito annuo non supera €8.500. L'importo NASpI viene ridotto dell'80% del reddito da lavoro. Bisogna comunicare l'inizio dell'attività all'INPS entro 30 giorni."
  }
+ },
+ {
+ "@type": "Question",
+ "name": "Se ho lavorato in Svizzera, risulto disoccupato in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì: un frontaliere residente in Italia che ha lavorato in Svizzera e perde il lavoro risulta disoccupato in Italia secondo il Regolamento UE 883/2004. L'indennità di disoccupazione si richiede all'INPS (NASpI) entro 68 giorni dal licenziamento, presentando il formulario europeo PD U1 rilasciato dalla cassa svizzera (URC o Caisse de Chômage) che certifica i periodi assicurativi in Svizzera. L'iscrizione al Centro per l'Impiego italiano è obbligatoria entro 15 giorni. La disoccupazione svizzera (AD/ALV) non è dovuta perché il Paese competente è quello di residenza: provincie di Como, Varese, Lecco, Sondrio e VCO per i frontalieri fiscali ticinesi." }
+ },
+ {
+ "@type": "Question",
+ "name": "Disoccupazione Svizzera per frontalieri: importi e durata 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Nel 2026 la disoccupazione Svizzera per frontalieri totali si paga in Italia come NASpI: 75% dello stipendio medio mensile fino a €1.425,21 + 25% dell'eccedenza, con tetto mensile di circa €1.550 lordi. La durata è pari alla metà delle settimane di contribuzione negli ultimi 4 anni (fino a 24 mesi con PD U1). Il frontaliere in disoccupazione parziale (es. riduzione orario concordata col datore CH) riceve invece l'indennità svizzera AD/ALV pari al 70-80% dello stipendio con tetto CHF 12.350/mese per massimo 18 mesi (fonte: SECO, art. 8 LADI). La residenza fiscale italiana non cambia la durata." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali documenti servono per la disoccupazione frontalieri Svizzera-Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per aprire la disoccupazione da lavoro in Svizzera servono: 1) lettera di licenziamento o disdetta datata dal datore svizzero; 2) certificato di salario annuo (Lohnausweis) degli ultimi 12 mesi; 3) formulario PD U1 rilasciato dalla cassa di disoccupazione svizzera competente (URC Ticino: Bellinzona, Lugano, Locarno, Mendrisio); 4) permesso G in corso di validità o scaduto; 5) documento d'identità; 6) IBAN italiano; 7) codice fiscale. La domanda NASpI si presenta online tramite portale INPS o patronato (CAF, ACLI, INCA). Tempo medio di prima erogazione: 45-60 giorni." }
  }
  ]
  }
