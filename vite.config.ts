@@ -38,6 +38,8 @@ import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
+import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
+import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -93,6 +95,12 @@ export default defineConfig(({ mode }) => {
  annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
+ // AE-2 — 4 career quick-win landings × 4 locales = 16 HTML outputs. Uses
+ // concorsi.ti.ch snapshot + SECO AVG registry for cited content.
+ careerLandingsPlugin(__dirname),
+ // AE-3 — 10 profession landings × 4 locales = 40 HTML outputs. Mirrors the
+ // nursing plugin contract (staticOverlay + seoContentOutsideRoot).
+ professionLandingsPlugin(__dirname),
  // AE-4 — cost-of-living city landings (6 cities × 4 locales = 24 HTML).
  // FSO + ISTAT public data; Place + LocalBusiness JSON-LD + sitemap.
  costOfLivingLandingsPlugin(__dirname),

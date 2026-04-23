@@ -46,6 +46,7 @@ import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugin
 import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
+import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
 import {
   COST_OF_LIVING_LANDING_ROUTES,
@@ -1739,6 +1740,21 @@ export function parsePath(pathname: string): ParseResult {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    if (NURSING_LANDING_ROUTES.includes(normalized) || isNursingLandingPath(pathname)) {
      const parsed = parseNursingLandingPath(pathname);
+     if (parsed) {
+       return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+     }
+   }
+ }
+
+ // AE-2 — Career quick-win landings (/agenzie-del-lavoro-lugano/,
+ // /concorsi-pubblici-lugano/, /stage-lugano/, /contratti-lavoro-frontalieri/
+ // + locale variants). Same static-overlay + seoContentOutsideRoot contract
+ // as the nursing landings; the plugin renders the editorial body outside
+ // #root so the SPA doesn't replace it with a generic job-board view.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (CAREER_LANDING_ROUTES.includes(normalized) || isCareerLandingPath(pathname)) {
+     const parsed = parseCareerLandingPath(pathname);
      if (parsed) {
        return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
      }
