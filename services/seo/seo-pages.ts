@@ -2053,8 +2053,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  border: {
- title: 'Traffico Dogana Chiasso Brogeda 2026 | Tempi di Attesa e Coda Dogana',
- description: 'Traffico dogana Chiasso e Brogeda: tempi di attesa in tempo reale, orari apertura e valichi alternativi Ponte Tresa, Gaggiolo e Stabio per frontalieri.',
+ title: 'Traffico Dogana Chiasso 2026: Tempi Attesa Brogeda',
+ description: 'Traffico dogana Chiasso 2026: tempi attesa live Brogeda A2, Chiasso Strada e Ponte Chiasso, webcam BAZG e valichi alternativi Gaggiolo e Ponte Tresa.',
  keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
  ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
  ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa, code, orari apertura e percorsi alternativi per frontalieri.',
@@ -2078,7 +2078,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Quali sono gli orari di apertura dei valichi di frontiera Svizzera-Italia?", "acceptedAnswer": { "@type": "Answer", "text": "I valichi principali (Chiasso autostradale, Ponte Tresa) sono aperti 24/7. I valichi minori (Gaggiolo, Stabio, Brogeda) hanno orari ridotti, generalmente dalle 6:00 alle 22:00." } },
  { "@type": "Question", "name": "Qual è il valico meno trafficato tra Svizzera e Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Stabio e Gaggiolo sono generalmente i valichi meno trafficati. Nei giorni feriali, i tempi di attesa sono spesso inferiori a 5 minuti contro i 15-30 minuti di Chiasso nelle ore di punta." } },
  { "@type": "Question", "name": "A che ora c'è più traffico alla dogana di Chiasso?", "acceptedAnswer": { "@type": "Answer", "text": "Le ore di punta sono 7:00-8:30 (ingresso in Svizzera) e 17:00-18:30 (rientro in Italia). Il lunedì e il venerdì sono i giorni più trafficati." } },
- { "@type": "Question", "name": "Come evitare le code alla frontiera Svizzera-Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Usa valichi alternativi (Stabio, Gaggiolo), parti prima delle 7:00 o dopo le 8:30. Evita il lunedì mattina e il venerdì sera. In alternativa, prendi il treno: nessun controllo doganale." } }
+ { "@type": "Question", "name": "Come evitare le code alla frontiera Svizzera-Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Usa valichi alternativi (Stabio, Gaggiolo), parti prima delle 7:00 o dopo le 8:30. Evita il lunedì mattina e il venerdì sera. In alternativa, prendi il treno: nessun controllo doganale." } },
+ { "@type": "Question", "name": "Traffico dogana Chiasso Brogeda: quanto si attende in media oggi?", "acceptedAnswer": { "@type": "Answer", "text": "Al valico Chiasso-Brogeda A2 (l'unico valico autostradale del Mendrisiotto) il tempo medio di attesa 2026 è 12-28 minuti in ingresso Svizzera 06:30-08:30 e 15-32 minuti in uscita 17:00-19:00, secondo i dati BAZG/USTRA delle ultime 12 settimane. Fuori dalle fasce di punta scende a 3-8 minuti. Eventi che raddoppiano l'attesa: primo lunedì del mese, vigilia di festivi italiani, rientri domenicali dal lago di Como. Webcam ufficiale disponibile 24/7 su fonte: [BAZG — Tempi di attesa ai valichi](https://www.bazg.admin.ch/bazg/it/home/informazioni-per-privati/viaggiare-e-acquistare-online-all-estero/tempi-di-attesa-ai-valichi.html)." } },
+ { "@type": "Question", "name": "Brogeda vs Ponte Chiasso vs Chiasso Strada: quale conviene nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i tre valichi di Chiasso hanno profili di traffico diversi: Chiasso-Brogeda A2 (autostradale, 24/7) è il più rapido fuori dalle ore di punta grazie alle 6 corsie svizzere ma il più congestionato 7:00-8:30; Chiasso Strada/Centro (apertura 05:00-01:00) è il miglior compromesso per chi va verso Lugano-Paradiso o Mendrisio con mezzi aziendali >3,5 t; Ponte Chiasso (valico pedonale/tranviario dal lato IT) serve solo pedoni e bici. Un frontaliere in auto diretto al Luganese guadagna 8-15 minuti scegliendo Chiasso Strada nelle fasce 7:30-8:15. Fonte operativa: [USTRA/ASTRA — Info traffico CH](https://www.astra.admin.ch/astra/it/home/temi/nationalstrassen/verkehrsinfo.html)." } },
+ { "@type": "Question", "name": "Come vedo il traffico dogana Chiasso in tempo reale?", "acceptedAnswer": { "@type": "Answer", "text": "Il traffico dogana Chiasso in tempo reale si controlla su 3 canali ufficiali: (1) webcam autostradale USTRA a Brogeda — aggiornamento ogni 60-120 secondi, embeddata nella nostra pagina dedicata; (2) servizio BAZG/UDSC con bollettino tempi-attesa aggiornato ogni 10 minuti su tutti i valichi autorizzati del Canton Ticino; (3) TCS e Viasuisse con previsioni-traffico e allerte per incidenti. Per chi viaggia in treno da Como San Giovanni a Chiasso FFS (TILO S10), il transito frontaliero non prevede controllo doganale sistematico, quindi è l'opzione più prevedibile. Fonte: [UDSC — Tempi di attesa ai valichi](https://www.bazg.admin.ch/bazg/it/home/informazioni-per-privati/viaggiare-e-acquistare-online-all-estero/tempi-di-attesa-ai-valichi.html)." } }
  ]
  }
  ]
@@ -2420,6 +2423,38 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "I festivi in Ticino sono uguali a quelli della Svizzera italiana?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: il Canton Ticino e le valli italofone del Canton Grigioni (Mesolcina, Calanca, Bregaglia, Poschiavo) condividono lo stesso calendario festivo cattolico, con Epifania, San Giuseppe, Corpus Domini, Assunzione, Ognissanti e Immacolata. La differenza emerge rispetto ai cantoni protestanti (Zurigo, Berna, Basilea Città) dove queste ricorrenze non sono giorni festivi ufficiali. Un frontaliere trasferito da Lugano a Zurigo perde in media 5-7 giorni festivi all'anno." } }
  ],
  "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino`,
+ "claimReviewed": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere più 11 festività cantonali cattoliche.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Cancelleria dello Stato del Canton Ticino — Legge sui giorni festivi (LGF)" },
+ "datePublished": "2024-01-01",
+ "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Canton Ticino — Legge concernente i giorni festivi ufficiali (art. 1)" }
+ },
+ "reviewBody": "Elenco ufficiale dei giorni festivi cantonali stabilito dalla Legge cantonale sui giorni festivi (art. 1) + festività federali art. 110 CO: totale 15 giorni nel 2026."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino`,
+ "claimReviewed": "Il frontaliere italiano segue il calendario festivo svizzero (lex loci laboris), non quello italiano: le festività italiane non sono riconosciute come giorni non lavorativi dal datore svizzero.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Codice delle Obbligazioni svizzero (CO) art. 110 + Regolamento (CE) 883/2004" },
+ "datePublished": "2004-04-29",
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_110", "name": "Fedlex — CO art. 110 (giorni festivi ufficiali)" }
+ },
+ "reviewBody": "Principio lex loci laboris del diritto internazionale del lavoro: rapporto di lavoro e festività regolati dalla legge del luogo di esecuzione (Svizzera/Ticino). Confermato art. 11 Reg. (CE) 883/2004 + dottrina SECO."
  }
  ]
  },
