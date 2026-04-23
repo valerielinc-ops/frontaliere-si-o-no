@@ -999,8 +999,7 @@
       "crawledAt": "2026-04-23T10:27:14.886Z",
       "jobReqId": "R75701",
       "previousSlugs": [
-        "bioprocess-engineer-lonza-ch",
-        "bioprocess-engineer-lonza-ch-2"
+        "bioprocess-engineer-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2468,9 +2467,9 @@
       "slug": "projektleiter-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "manufacturing-specialist-m-w-d-lonza-ch",
-        "it": "manufacturing-specialista-m-w-d-lonza-ch",
+        "it": "projektleiter-m-w-d-lonza-ch",
         "en": "manufacturing-specialist-m-w-d-lonza-ch",
-        "fr": "manufacturing-specialiste-m-w-d-lonza-ch"
+        "fr": "projektleiter-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2527,11 +2526,12 @@
       "firstSeenAt": "2026-04-23T10:27:00.309Z",
       "previousSlugsByLocale": {
         "it": [
-          "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
+          "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
+          "manufacturing-specialista-m-w-d-lonza-ch"
         ],
         "fr": [
           "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
-          "projektleiter-m-m-j-lonza-ch"
+          "manufacturing-specialiste-m-w-d-lonza-ch"
         ],
         "en": [
           "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
@@ -2542,9 +2542,8 @@
       },
       "previousSlugs": [
         "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
-        "projektleiter-m-m-j-lonza-ch",
-        "manufacturing-specialist-m-w-d-lonza-ch",
-        "projektleiter-m-w-d-lonza-ch"
+        "manufacturing-specialista-m-w-d-lonza-ch",
+        "manufacturing-specialiste-m-w-d-lonza-ch"
       ]
     },
     {

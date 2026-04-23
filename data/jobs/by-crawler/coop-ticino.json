@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-7jjh6d",
-      "slug": "verkaufer-in-food-coop-chur-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Chur",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
-        "en": "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
+        "it": "venditore-in-food-coop-genossenschaft-chur",
+        "en": "seller-in-food-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
-        "fr": "verkaufer-in-food-coop-chur-graubunden-7jjh6d"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -68,7 +68,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
+          "verkaufer-in-food-coop-chur-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-chur-graubunden-7jjh6d"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-chur-graubunden-7jjh6d"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
+        "verkaufer-in-food-coop-chur-graubunden"
+      ]
     },
     {
       "id": "company-g6dub0",
@@ -152,8 +168,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
       ]
     },
     {
@@ -238,8 +253,7 @@
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
       ]
     },
     {

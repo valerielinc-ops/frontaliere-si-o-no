@@ -24,12 +24,12 @@
         "en": "Benefit Manager (h/f) 100% - Temporary 6 months",
         "de": "Vorteile Manager (h/f) 100% - Vorübergehende 6 Monate"
       },
-      "slug": "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-fribourg",
+      "slug": "benefit-manager-h-f-100-temporary-6-mesi-groupe-mutuel-fribourg",
       "slugByLocale": {
         "fr": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
-        "en": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
-        "it": "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-fribourg",
-        "de": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+        "en": "benefit-manager-h-f-100-temporary-6-months-groupe-mutuel-fribourg",
+        "it": "benefit-manager-h-f-100-temporary-6-mesi-groupe-mutuel-fribourg",
+        "de": "vorteile-manager-h-f-100-vorubergehende-6-monate-groupe-mutuel-fribourg"
       },
       "category": "claims",
       "datePosted": "2026-04-23",
@@ -47,11 +47,19 @@
       "id": "groupe-mutuel-2863b41f0fd1",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
+          "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-fribourg"
+        ],
+        "en": [
+          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+        ],
+        "de": [
           "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+        "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-fribourg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

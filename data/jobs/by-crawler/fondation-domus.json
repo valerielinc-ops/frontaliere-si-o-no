@@ -157,10 +157,10 @@
     },
     {
       "id": "fondation-domus-d85855ce444b",
-      "slug": "infirmier-en-psychiatrie-60-fondation-domus-ch",
+      "slug": "infermiera-in-psichiatria-60-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "infirmier-en-psychiatrie-60-fondation-domus-ch",
-        "it": "infirmier-en-psychiatrie-60-fondation-domus-ch",
+        "it": "infermiera-in-psichiatria-60-fondation-domus-ardon",
         "en": "infirmier-en-psychiatrie-60-fondation-domus-ch",
         "de": "infirmier-en-psychiatrie-60-fondation-domus-ch"
       },
@@ -216,7 +216,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-23T10:05:53.316Z"
+      "firstSeenAt": "2026-04-23T10:05:53.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-en-psychiatrie-60-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-en-psychiatrie-60-fondation-domus-ch"
+      ]
     }
   ]
 }
