@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-04-22T21:13:25.774Z",
+  "assembledAt": "2026-04-23T08:09:24.745Z",
   "jobs": [
     {
       "id": "bls-11fa0b1a921e",
@@ -84,114 +84,6 @@
         "lokomotiven-instandhalter-in-bls-ch"
       ],
       "firstSeenAt": "2026-04-21T21:11:27.567Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bls-debd47a208cc",
-      "slug": "cassiera-autotrasporti-bls-ag-bern",
-      "slugByLocale": {
-        "it": "cassiera-autotrasporti-bls-ag-bern",
-        "en": "cashier-auto-transport-bls-ag-bern",
-        "de": "kassier-in-autoverlad-bls-ag-bern",
-        "fr": "caissiere-transport-automobile-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Kassier:in Autoverlad",
-      "titleByLocale": {
-        "it": "Cassiera Autotrasporti",
-        "en": "Cashier Auto Transport",
-        "de": "Kassier:in Autoverlad",
-        "fr": "Caissière Transport Automobile"
-      },
-      "description": "Dem Alltag entfliehen und durch den Simplon in eine andere Welt eintauchen – dank dir beginnt die Vorfreude unserer zahlreichen Kundinnen und Kunden schon beim Verlad ihres Fahrzeuges in Brig, denn: Du bist DAS freundliche Gesicht des Autoverlads.\n\n Das wartet auf dich:\n\n \n• Billette an Kundinnen und Kunden verkaufen, diese beraten und informieren\n\n• Fehlende Kundendaten erfassen\n\n• Korrekter Umgang mit Geld und Zahlkarten sicherstellen\n\n• Höhenbegrenzung bedienen / überwachen und beim Alarm richtig handeln\n\n• Stauraum in Brig bewirtschaften\n \n\n Das bringst du mit:\n\n \n• Abgeschlossene Berufsausbildung\n\n• Erfahrung im Verkauf und in der Kundenbetreuung und eine hohe Kundenorientierung\n\n• Gute PC-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Word und Schrift, gute mündliche Sprachkenntnisse in Italienisch, Englisch sowie Französisch von Vorteil\n\n• Unregelmässige Arbeitszeiten (Abend, Wochenende)\n \n\n Deine Vorteile – darauf kannst du dich freuen:\n\n \n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n \n\n Über die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Descrizione Scappare dalla routine quotidiana e immer tuffarsi in un altro mondo attraverso il Simplon – grazie a te, la nostra numerosa clientela inizia già ad eccitarsi quando carica la propria auto a Brig, perché: sei il volto amichevole dell'autotrasporto. ## Mansioni - Vendere biglietti ai clienti, consigliarli e informarli - Raccogliere i dati mancanti dei clienti - Garantire un corretto utilizzo di denaro e carte di pagamento - Gestire / sorvegliare il limite di altezza e agire correttamente in caso di allarme - Gestire lo spazio di stoccaggio a Brig ## Requisiti - Formazione professionale completata - Esperienza nelle vendite e nell'assistenza clienti e alta orientazione al cliente - Buone conoscenze informatiche - Ottime conoscenze di scrittura e parlato in tedesco, buone conoscenze di parlato in italiano, inglese e francese sono un vantaggio - Orari di lavoro irregolari (sera, fine settimana) ## Cosa offriamo - Promuoviamo una pianificazione il più flessibile possibile dei tuoi turni e viaggi - Ottieni un GA di 2ª classe, un GA di 1ª classe o un abbonamento a metà prezzo. - Hai tempo libero quando gli altri lavorano. Per i pasti notturni e di fine settimana ci sono supplementi. - È possibile acquistare da 5 a 10 giorni di ferie aggiuntivi all'anno. - Supporto finanziario per le formazioni esterne e un interessante offerta di formazione e corsi interni sono a tua disposizione. - Con eventi stagionali e corsi supportiamo la tua salute ## Su BLS Con quasi 4000 dipendenti, BLS è la seconda società ferroviaria più grande della Svizzera. E molto di più: siamo anche una società di navigazione, una società immobiliare, una ferrovia internazionale per merci, un'azienda di autobus e trasportiamo auto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci unisce? L'orgoglio per ciò che facciamo ogni giorno. La mobilità ha per noi molte facce. E molti lavori interessanti.",
-        "en": "Description Escape the daily routine and dive into another world through the Simplon – thanks to you, our numerous customers start getting excited when loading their vehicle in Brig, because: You are the friendly face of the auto transport. ## Tasks - Sell tickets to customers, advise and inform them - Capture missing customer data - Ensure correct handling of money and payment cards - Operate / monitor height restriction and act correctly in case of alarm - Manage storage space in Brig ## Requirements - Completed vocational training - Experience in sales and customer service and high customer orientation - Good PC user skills - Very good German writing and speaking skills, good speaking skills in Italian, English and French are an advantage - Irregular working hours (evening, weekend) ## What we offer - We promote a as flexible as possible planning of your tours and shifts - Get a GA 2nd class, a GA 1st class or a half fare subscription. - You have free time when others are working. For meals at night and on weekends there are supplements. - It is possible to buy 5 to 10 additional vacation days per year. - Financial support for external training and an exciting internal learning and course offer are at your disposal. - With seasonal events and courses we support your health ## About BLS With almost 4000 employees, BLS is the second largest railway company in Switzerland. And much more: We are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What unites us? The pride for what we do every day. Mobility has many facets for us. And many exciting jobs.",
-        "de": "Dem Alltag entfliehen und durch den Simplon in eine andere Welt eintauchen – dank dir beginnt die Vorfreude unserer zahlreichen Kundinnen und Kunden schon beim Verlad ihres Fahrzeuges in Brig, denn: Du bist DAS freundliche Gesicht des Autoverlads. Das wartet auf dich: • Billette an Kundinnen und Kunden verkaufen, diese beraten und informieren • Fehlende Kundendaten erfassen • Korrekter Umgang mit Geld und Zahlkarten sicherstellen • Höhenbegrenzung bedienen / überwachen und beim Alarm richtig handeln • Stauraum in Brig bewirtschaften Das bringst du mit: • Abgeschlossene Berufsausbildung • Erfahrung im Verkauf und in der Kundenbetreuung und eine hohe Kundenorientierung • Gute PC-Anwenderkenntnisse • Sehr gute Deutschkenntnisse in Word und Schrift, gute mündliche Sprachkenntnisse in Italienisch, Englisch sowie Französisch von Vorteil • Unregelmässige Arbeitszeiten (Abend, Wochenende) Deine Vorteile – darauf kannst du dich freuen: • Wir fördern eine möglichst flexible Planung deiner Touren und Schichten • Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo. • Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge. • Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen. • Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung. • Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Description Échapper à la routine quotidienne et plonger dans un autre monde à travers le Simplon – grâce à vous, nos nombreux clients commencent à s'exciter dès le chargement de leur véhicule à Brig, car : Vous êtes le visage amical du transport automobile. ## Tâches - Vendre des billets aux clients, les conseiller et les informer - Capturer les données clients manquantes - Assurer un bon usage de l'argent et des cartes de paiement - Gérer / surveiller la limitation de hauteur et agir correctement en cas d'alarme - Gérer l'espace de stockage à Brig ## Exigences - Formation professionnelle terminée - Expérience en vente et en service client et forte orientation client - Bonnes connaissances en informatique - Très bonnes connaissances en écriture et en parole allemande, bonnes connaissances en parole italienne, anglaise et française sont un avantage - Horaires de travail irréguliers (soir, week-end) ## Ce que nous offrons - Nous promouvons une planification aussi flexible que possible de vos tournées et quarts de travail - Obtenez un GA 2ème classe, un GA 1ère classe ou un abonnement à moitié tarif. - Vous avez du temps libre lorsque les autres travaillent. Pour les repas de nuit et de week-end, il y a des suppléments. - Il est possible d'acheter 5 à 10 jours de vacances supplémentaires par an. - Un soutien financier pour les formations externes et une offre de formation et de cours internes passionnante sont à votre disposition. - Avec des événements saisonniers et des cours, nous soutenons votre santé ## À propos de BLS Avec presque 4000 employés, BLS est la deuxième plus grande entreprise ferroviaire de Suisse. Et bien plus : Nous sommes également une société de navigation, une société immobilière, une voie ferrée internationale de fret, une entreprise de bus et transportons des voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous unit ? La fierté de ce que nous faisons chaque jour. La mobilité a de nombreuses facettes pour nous. Et de nombreux emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad/a128c721-beee-4b1c-b427-496c87ee0540",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-22T21:13:22.669Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Freiburgstrasse 130",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "validThrough": "2026-05-06",
-      "pensum": "60%",
-      "salary": "70734",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/a128c721-beee-4b1c-b427-496c87ee0540",
-      "requirements": [
-        "Abgeschlossene Berufsausbildung",
-        "Erfahrung im Verkauf und in der Kundenbetreuung und eine hohe Kundenorientierung",
-        "Gute PC-Anwenderkenntnisse",
-        "Sehr gute Deutschkenntnisse in Word und Schrift, gute mündliche Sprachkenntnisse in Italienisch, Englisch sowie Französisch von Vorteil",
-        "Unregelmässige Arbeitszeiten (Abend, Wochenende)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione professionale completata",
-          "Esperienza nelle vendite e nell'assistenza clienti e alta orientazione al cliente",
-          "Buone conoscenze informatiche",
-          "Orari di lavoro irregolari (sera, fine settimana)"
-        ],
-        "en": [
-          "Completed vocational training",
-          "Experience in sales and customer service and high customer orientation",
-          "Good PC user skills",
-          "Very good German writing and speaking skills, good speaking skills in Italian, English and French are an advantage",
-          "Irregular working hours (evening, weekend)"
-        ],
-        "de": [
-          "Abgeschlossene Berufsausbildung",
-          "Erfahrung im Verkauf und in der Kundenbetreuung und eine hohe Kundenorientierung",
-          "Gute PC-Anwenderkenntnisse",
-          "Unregelmässige Arbeitszeiten (Abend, Wochenende)"
-        ],
-        "fr": [
-          "Formation professionnelle terminée",
-          "Expérience en vente et en service client et forte orientation client",
-          "Bonnes connaissances en informatique",
-          "Horaires de travail irréguliers (soir, week-end)"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "kassier-in-autoverlad-bls-ch"
-        ],
-        "it": [
-          "kassier-in-autoverlad-bls-ch"
-        ]
-      },
-      "previousSlugs": [
-        "kassier-in-autoverlad-bls-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:05:35.614Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

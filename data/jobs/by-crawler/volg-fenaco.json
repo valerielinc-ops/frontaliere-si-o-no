@@ -1,12 +1,12 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-04-22T22:37:17.709Z",
+  "assembledAt": "2026-04-23T08:21:10.965Z",
   "jobs": [
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
       "slug": "venditore-a-volg-vals",
-      "url": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/d0e69ae3-5970-4c36-8f91-6ae248ccda8e",
-      "applyUrl": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/d0e69ae3-5970-4c36-8f91-6ae248ccda8e",
+      "url": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/65d63a92-6294-4f2f-8a5a-6fb5948f1d49",
+      "applyUrl": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/65d63a92-6294-4f2f-8a5a-6fb5948f1d49",
       "company": "VOLG",
       "companyKey": "volg-fenaco",
       "companyDomain": "fenaco.com",
@@ -24,7 +24,7 @@
       "sourceLang": "de",
       "postedDate": "2026-04-22",
       "validThrough": "",
-      "employmentType": "full-time",
+      "employmentType": "part-time",
       "contractType": "permanent",
       "description": "## Auf diese Aufgaben freuen Sie sich\n- Freundliche und zuvorkommende Beratung unserer Kundschaft\n- Gewährleistung einer konzepttreuen und ansprechenden Warenpräsentation\n- Sicherstellung der Sortimentsbestellungen und Warenverfügbarkeit\n- Fachgerechter Umgang mit Frischprodukten (Früchte, Gemüse, etc.)\n- Bedienung der Kasse\n\n## Auf dieses Profil freuen wir uns\n- Freude am aktiven Kundenkontakt\n- Abgeschlossene Ausbildung oder Berufserfahrung im Verkauf oder einem ähnlichen Umfeld (vorzugsweise Lebensmitteldetailhandel)\n- Bereitschaft für flexible Einsatzzeiten\n- Selbstständige und zuverlässige Arbeitsweise\n- Gute Deutschkenntnisse\n\n## Darauf können Sie sich freuen\n- Flexible Arbeitsmodelle. Unsere Ferienregelung garantiert allen Mitarbeitenden mindestens 25 Tage Ferien. Ab dem 50. Lebensjahr erhalten Sie 30 Ferientage und ab dem 60. Lebensjahr sogar 35 Ferientage. Unsere Kadermitarbeitenden erhalten zum Ausgleich drei zusätzliche Ferientage zur freien Verfügung.\n- Flexible Arbeitsmodelle. Von flexiblen Arbeitszeiten über die transparente elektronische Zeiterfassung bis hin zum Arbeiten im Home Office – bei Volg profitieren Sie je nach Funktion von verschiedenen Möglichkeiten, Ihre Arbeit auf Ihre Bedürfnisse abzustimmen.\n- Vergünstigungen und Personalrabatte. Werden Sie Teil unseres Teams und erhalten Sie attraktive Vergünstigungen und Personalrabatte – etwa auf Mobile – und Prepaid-Abos bei Swisscom für Sie und Ihre Familie, 10% Personalrabatt beim Einkauf im Volg, Vergünstigungen beim Möbel-Einkauf in der Diga oder beim Wein-Kauf bei Rutishauser-Divino. Verschiedene weitere Sonderkonditionen, beispielsweise auf Wellnesangebote, runden unser Angebot ab.\n- Attraktive Weiterbildungsmöglichkeiten. Profitieren Sie von den vielfältigen internen Aus- und Weiterbildungsangeboten der Volg Academy oder individuellen Unterstützungsbeiträgen bzw. bezahlten Schultagen bei externen Weiterbildungen.",
       "titleByLocale": {
@@ -45,35 +45,47 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-vals",
         "fr": "vendeur-vendeuse-volg-vals"
       },
-      "crawledAt": "2026-04-22T22:36:59.413Z",
-      "id": "volg-fenaco-3a48902d0ff9",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "crawledAt": "2026-04-22T22:36:59.414Z",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 58000,
+          "maxValue": 78000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-22T10:54:37.979Z",
       "previousSlugs": [
-        "verkauferin-verkaufer-m-w-d-volg-vals",
         "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
+        "verkauferin-verkaufer-m-w-d-volg-vals",
         "venditore-m-f-d-volg-vals",
         "salesperson-m-f-d-volg-vals",
         "vendeuse-vendeur-h-f-d-volg-vals",
         "verkauferin-verkaufer-m-w-d-volg-vals-shyscx"
       ],
+      "id": "volg-fenaco-81f4b6e75871",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
+          "verkauferin-verkaufer-m-w-d-volg-vals"
+        ],
+        "en": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
+          "verkauferin-verkaufer-m-w-d-volg-vals"
+        ],
+        "de": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+        ],
+        "fr": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
           "verkauferin-verkaufer-m-w-d-volg-vals"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T11:30:02.823Z"
     },
     {
       "title": "Mitarbeiterin / Mitarbeiter Verlad (w/m/d)",
@@ -308,91 +320,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:30:02.824Z"
-    },
-    {
-      "title": "Verkäuferin / Verkäufer (m/w/d)",
-      "slug": "venditore-a-volg-vals",
-      "url": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/65d63a92-6294-4f2f-8a5a-6fb5948f1d49",
-      "applyUrl": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/65d63a92-6294-4f2f-8a5a-6fb5948f1d49",
-      "company": "VOLG",
-      "companyKey": "volg-fenaco",
-      "companyDomain": "fenaco.com",
-      "location": "Vals",
-      "addressLocality": "Vals",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7132",
-      "streetAddress": "Via Industria 2",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Vendita & Commercio",
-      "sector": "Dettaglio & Alimentari",
-      "source": "volg-fenaco-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "validThrough": "",
-      "employmentType": "part-time",
-      "contractType": "permanent",
-      "description": "## Auf diese Aufgaben freuen Sie sich\n- Freundliche und zuvorkommende Beratung unserer Kundschaft\n- Gewährleistung einer konzepttreuen und ansprechenden Warenpräsentation\n- Sicherstellung der Sortimentsbestellungen und Warenverfügbarkeit\n- Fachgerechter Umgang mit Frischprodukten (Früchte, Gemüse, etc.)\n- Bedienung der Kasse\n\n## Auf dieses Profil freuen wir uns\n- Freude am aktiven Kundenkontakt\n- Abgeschlossene Ausbildung oder Berufserfahrung im Verkauf oder einem ähnlichen Umfeld (vorzugsweise Lebensmitteldetailhandel)\n- Bereitschaft für flexible Einsatzzeiten\n- Selbstständige und zuverlässige Arbeitsweise\n- Gute Deutschkenntnisse\n\n## Darauf können Sie sich freuen\n- Flexible Arbeitsmodelle. Unsere Ferienregelung garantiert allen Mitarbeitenden mindestens 25 Tage Ferien. Ab dem 50. Lebensjahr erhalten Sie 30 Ferientage und ab dem 60. Lebensjahr sogar 35 Ferientage. Unsere Kadermitarbeitenden erhalten zum Ausgleich drei zusätzliche Ferientage zur freien Verfügung.\n- Flexible Arbeitsmodelle. Von flexiblen Arbeitszeiten über die transparente elektronische Zeiterfassung bis hin zum Arbeiten im Home Office – bei Volg profitieren Sie je nach Funktion von verschiedenen Möglichkeiten, Ihre Arbeit auf Ihre Bedürfnisse abzustimmen.\n- Vergünstigungen und Personalrabatte. Werden Sie Teil unseres Teams und erhalten Sie attraktive Vergünstigungen und Personalrabatte – etwa auf Mobile – und Prepaid-Abos bei Swisscom für Sie und Ihre Familie, 10% Personalrabatt beim Einkauf im Volg, Vergünstigungen beim Möbel-Einkauf in der Diga oder beim Wein-Kauf bei Rutishauser-Divino. Verschiedene weitere Sonderkonditionen, beispielsweise auf Wellnesangebote, runden unser Angebot ab.\n- Attraktive Weiterbildungsmöglichkeiten. Profitieren Sie von den vielfältigen internen Aus- und Weiterbildungsangeboten der Volg Academy oder individuellen Unterstützungsbeiträgen bzw. bezahlten Schultagen bei externen Weiterbildungen.",
-      "titleByLocale": {
-        "it": "Venditore/a",
-        "en": "Sales Associate",
-        "de": "Verkäuferin / Verkäufer (m/w/d)",
-        "fr": "Vendeur/Vendeuse"
-      },
-      "descriptionByLocale": {
-        "it": "Sui compiti che ci aspettiamo - Accoglienza e consulenza amichevole e disponibile per i nostri clienti - Garanzia di una presentazione dei prodotti fedele al concetto e accattivante - Assicurazione dell'ordine dei prodotti e della disponibilità dei prodotti - Trattamento professionale dei prodotti freschi (frutta, verdura, ecc.) - Gestione del bancone ## Sui requisiti che ci aspettiamo - Gioia nel contatto attivo con i clienti - Laurea o esperienza lavorativa nel settore del commercio o in un settore simile (preferibilmente nel dettaglio alimentare) - Disponibilità per orari di lavoro flessibili - Lavoro autonomo e affidabile - Buone conoscenze della lingua italiana ## Ciò che potete aspettarvi - Modelli di lavoro flessibili. La nostra regolamentazione delle ferie garantisce a tutti i dipendenti almeno 25 giorni di ferie. Dalla 50^ età riceverete 30 giorni di ferie e dalla 60^ età addirittura 35 giorni di ferie. I dipendenti della nostra squadra di management riceveranno in compenso tre giorni di ferie aggiuntivi a disposizione. - Modelli di lavoro flessibili. Dai orari di lavoro flessibili alla registrazione elettronica trasparente dei tempi di lavoro fino al lavoro in home office – con Volg potrete scegliere tra diverse possibilità di lavorare in base alle vostre esigenze. - Sconti e sconti personali. Unitevi al nostro team e riceverete sconti e sconti personali attraenti – ad esempio su Mobile – e abbonamenti prepagati con Swisscom per voi e la vostra famiglia, 10% di sconto sulle spese di acquisto al Volg, sconti sugli acquisti di mobili nella Diga o sul vino presso Rutishauser-Divino. Varie altre condizioni speciali, ad esempio sugli offerti di benessere, completano il nostro pacchetto. - Opportunità di formazione attraenti. Potrete beneficiare dei vari corsi di formazione interni e di supporto individuale o contributi pagati per le formazioni esterne presso la Volg Academy.",
-        "en": "On the tasks we expect - Friendly and approachable customer service - Ensuring a concept-driven and appealing product presentation - Ensuring product orders and product availability - Professional handling of fresh products (fruits, vegetables, etc.) - Cashier duties ## On the profile we expect - Joy in active customer contact - Completed education or work experience in sales or a similar field (preferably in the food retail industry) - Willingness to work flexible hours - Independent and reliable work style - Good German language skills ## What you can expect - Flexible work models. Our vacation policy guarantees all employees at least 25 days of vacation. From the age of 50, you will receive 30 days of vacation and from the age of 60, you will even receive 35 days of vacation. Our management team employees will receive three additional vacation days at their disposal. - Flexible work models. From flexible working hours to transparent electronic time recording to working from home – with Volg, you can choose from various options to adjust your work to your needs. - Discounts and personal discounts. Join our team and receive attractive discounts and personal discounts – for example on Mobile – and prepaid subscriptions with Swisscom for you and your family, 10% personal discount on purchases at Volg, discounts on furniture purchases at Diga or wine purchases at Rutishauser-Divino. Various other special conditions, such as wellness offers, complete our package. - Attractive training opportunities. You can benefit from the various internal and external training opportunities at the Volg Academy or individual support contributions or paid training days.",
-        "de": "Auf diese Aufgaben freuen Sie sich - Freundliche und zuvorkommende Beratung unserer Kundschaft - Gewährleistung einer konzepttreuen und ansprechenden Warenpräsentation - Sicherstellung der Sortimentsbestellungen und Warenverfügbarkeit - Fachgerechter Umgang mit Frischprodukten (Früchte, Gemüse, etc.) - Bedienung der Kasse ## Auf dieses Profil freuen wir uns - Freude am aktiven Kundenkontakt - Abgeschlossene Ausbildung oder Berufserfahrung im Verkauf oder einem ähnlichen Umfeld (vorzugsweise Lebensmitteldetailhandel) - Bereitschaft für flexible Einsatzzeiten - Selbstständige und zuverlässige Arbeitsweise - Gute Deutschkenntnisse ## Darauf können Sie sich freuen - Flexible Arbeitsmodelle. Unsere Ferienregelung garantiert allen Mitarbeitenden mindestens 25 Tage Ferien. Ab dem 50. Lebensjahr erhalten Sie 30 Ferientage und ab dem 60. Lebensjahr sogar 35 Ferientage. Unsere Kadermitarbeitenden erhalten zum Ausgleich drei zusätzliche Ferientage zur freien Verfügung. - Flexible Arbeitsmodelle. Von flexiblen Arbeitszeiten über die transparente elektronische Zeiterfassung bis hin zum Arbeiten im Home Office – bei Volg profitieren Sie je nach Funktion von verschiedenen Möglichkeiten, Ihre Arbeit auf Ihre Bedürfnisse abzustimmen. - Vergünstigungen und Personalrabatte. Werden Sie Teil unseres Teams und erhalten Sie attraktive Vergünstigungen und Personalrabatte – etwa auf Mobile – und Prepaid-Abos bei Swisscom für Sie und Ihre Familie, 10% Personalrabatt beim Einkauf im Volg, Vergünstigungen beim Möbel-Einkauf in der Diga oder beim Wein-Kauf bei Rutishauser-Divino. Verschiedene weitere Sonderkonditionen, beispielsweise auf Wellnesangebote, runden unser Angebot ab. - Attraktive Weiterbildungsmöglichkeiten. Profitieren Sie von den vielfältigen internen Aus- und Weiterbildungsangeboten der Volg Academy oder individuellen Unterstützungsbeiträgen bzw. bezahlten Schultagen bei externen Weiterbildungen.",
-        "fr": "Sur les tâches que nous attendons - Accueil et conseil amical et accueillant pour nos clients - Garantir une présentation des produits fidèle au concept et accrocheuse - Assurer les commandes de produits et la disponibilité des produits - Manipulation professionnelle des produits frais (fruits, légumes, etc.) - Fonctions de caissière ## Sur le profil que nous attendons - Joie dans le contact actif avec les clients - Diplôme ou expérience professionnelle dans le commerce ou un domaine similaire (préférablement dans le commerce alimentaire) - Volonté de travailler des heures flexibles - Travail autonome et fiable - Bonnes connaissances de l'allemand ## Ce que vous pouvez attendre - Modèles de travail flexibles. Notre politique de congés garantit à tous les employés au moins 25 jours de congés. À partir de 50 ans, vous recevrez 30 jours de congés et à partir de 60 ans, vous recevrez même 35 jours de congés. Les employés de notre équipe de direction recevront trois jours de congés supplémentaires à leur disposition. - Modèles de travail flexibles. Des heures de travail flexibles à la saisie électronique transparente des temps de travail jusqu'au travail à domicile – avec Volg, vous pouvez choisir entre différentes options pour adapter votre travail à vos besoins. - Remises et remises personnelles. Joignez-vous à notre équipe et recevez des remises et des remises personnelles attractives – par exemple sur Mobile – et des abonnements prépayés avec Swisscom pour vous et votre famille, 10% de remise sur les achats au Volg, des remises sur les achats de meubles à la Diga ou des achats de vin chez Rutishauser-Divino. Diverses autres conditions spéciales, telles que des offres de bien-être, complètent notre offre. - Opportunités de formation attractives. Vous pouvez bénéficier des diverses formations internes et externes à l'Académie Volg ou des contributions de soutien individuel ou des journées de formation payées."
-      },
-      "slugByLocale": {
-        "it": "venditore-a-volg-vals",
-        "en": "sales-associate-volg-vals",
-        "de": "verkauferin-verkaufer-m-w-d-volg-vals",
-        "fr": "vendeur-vendeuse-volg-vals"
-      },
-      "crawledAt": "2026-04-22T22:36:59.414Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
-        "verkauferin-verkaufer-m-w-d-volg-vals",
-        "venditore-m-f-d-volg-vals",
-        "salesperson-m-f-d-volg-vals",
-        "vendeuse-vendeur-h-f-d-volg-vals",
-        "verkauferin-verkaufer-m-w-d-volg-vals-shyscx"
-      ],
-      "id": "volg-fenaco-81f4b6e75871",
-      "previousSlugsByLocale": {
-        "it": [
-          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
-          "verkauferin-verkaufer-m-w-d-volg-vals"
-        ],
-        "en": [
-          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
-          "verkauferin-verkaufer-m-w-d-volg-vals"
-        ],
-        "de": [
-          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
-        ],
-        "fr": [
-          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
-          "verkauferin-verkaufer-m-w-d-volg-vals"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:30:02.823Z"
     },
     {
       "title": "Ladenleitung (m/w/d)",
