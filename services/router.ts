@@ -47,6 +47,22 @@ import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 
+// ── Workstream C SemRush landings ────────────────────────────
+// Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
+// growth plan). Canonical paths live under the existing Guida / Vita in
+// Ticino sections but there is no SPA sub-tab for each: they are deep-link
+// landing pages. Declared here so the URL parser can return a staticOverlay
+// route and prevent the SPA from rewriting the URL or replacing the static
+// content with a generic sub-tab view. Mirrors the SEO_METADATA canonicalPath.
+const SEMRUSH_LANDINGS: ReadonlyArray<{ key: string; path: string; tab: 'guida' | 'vita' }> = [
+  { key: 'tassa-salute-frontalieri', path: '/guida-frontaliere/tassa-salute-frontalieri/', tab: 'guida' },
+  { key: 'lamal-frontalieri', path: '/guida-frontaliere/lamal-frontalieri/', tab: 'guida' },
+  { key: 'outlet-fox-town-mendrisio', path: '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/', tab: 'vita' },
+  { key: 'ponti-2026-ticino', path: '/vita-in-ticino/ponti-2026-ticino/', tab: 'vita' },
+  { key: 'vacanze-scolastiche-ticino-2026', path: '/vita-in-ticino/vacanze-scolastiche-ticino-2026/', tab: 'vita' },
+];
+const SEMRUSH_LANDING_ROUTES = new Set(SEMRUSH_LANDINGS.map((l) => l.path));
+
 // ── Route types ──────────────────────────────────────────────
 
 export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
@@ -1720,6 +1736,26 @@ export function parsePath(pathname: string): ParseResult {
 
  if (parts.length === 0) {
  return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
+ }
+
+ // Workstream C SemRush long-tail landings — static HTML generated from
+ // `canonicalPath` in SEO_METADATA by staticPagesPlugin. Each landing lives
+ // under an existing top-level section (Guida / Vita in Ticino) but is NOT
+ // reachable via SPA sub-tab navigation: they are deep-link-only pages. The
+ // staticOverlay flag prevents the SPA from rewriting the URL + replacing
+ // the static content with a generic sub-tab view (bait-and-switch bug).
+ // Extension 3 task 2 — same pattern as fuel-daily / weekly-employers / etc.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (SEMRUSH_LANDING_ROUTES.has(normalized)) {
+     const landing = SEMRUSH_LANDINGS.find((l) => l.path === normalized);
+     if (landing) {
+       const base = landing.tab === 'guida'
+         ? { activeTab: 'guida' as const, guidaSubTab: 'first-day' as const }
+         : { activeTab: 'vita' as const, vitaSubTab: 'living-ch' as const };
+       return { route: { ...base, staticOverlay: true }, locale: 'it' };
+     }
+   }
  }
 
  // Orphan-query cluster landings (F3b): /ricerca/<slug>/, /en/search/<slug>/, …

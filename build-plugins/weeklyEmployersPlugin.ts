@@ -69,6 +69,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
+import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 
 // ── Types ───────────────────────────────────────────────────────
 
@@ -2331,6 +2332,18 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       }
       const distDir = np.resolve(rootDir, 'dist');
       const today = new Date();
+
+      // Ext3 task 3 — wipe owned namespaces before regeneration so last
+      // build's company×city pages don't linger after employer drops out
+      // of the pairs list (the thin-content guard used to leave empty
+      // directories behind — see PLAN-SPRINT-1-TECH-FIXES-EXTENSION-3 §3).
+      cleanNamespaces(distDir, [
+        'aziende-che-assumono',
+        'en/companies-hiring',
+        'de/unternehmen-einstellen',
+        'fr/entreprises-recrutent',
+      ]);
+      cleanSitemapFiles(distDir, ['sitemap-weekly-employers.xml']);
 
       const jobs = loadAllJobs(rootDir);
       const snapshots = readSnapshotHistory(rootDir);

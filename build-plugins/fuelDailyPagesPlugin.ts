@@ -54,6 +54,7 @@ import {
   type ItalianCityEntry,
 } from './fuelDailyData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -2056,6 +2057,20 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       }
       const distDir = np.resolve(rootDir, 'dist');
       const dataPath = np.resolve(rootDir, 'data', 'fuel-prices.json');
+
+      // Ext3 task 3 — wipe owned namespaces before regen so stations/cities
+      // that drop out of today's dataset don't leave stale index.html files.
+      cleanNamespaces(distDir, [
+        'prezzi-diesel', 'prezzi-benzina',
+        'en/diesel-price-switzerland', 'en/gasoline-price-switzerland',
+        'de/dieselpreis-schweiz', 'de/benzinpreis-schweiz',
+        'fr/prix-gasoil-suisse', 'fr/prix-essence-suisse',
+      ]);
+      cleanSitemapFiles(distDir, [
+        'sitemap-fuel-daily.xml',
+        'sitemap-fuel-stations.xml',
+        'sitemap-fuel-italian-cities.xml',
+      ]);
 
       // Read fuel-prices.json — soft-fail to keep the build green on worktrees
       // where the data file is absent.

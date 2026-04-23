@@ -59,6 +59,7 @@ import {
   type BracketTrend,
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 
 // ── Types (dataset shape) ──────────────────────────────────────
 
@@ -2017,6 +2018,16 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
 
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
+
+      // Ext3 task 3 — wipe owned namespaces before regen so per-canton /
+      // per-age pages that drop out of the dataset don't linger.
+      cleanNamespaces(distDir, [
+        'premi-cassa-malati',
+        'en/health-insurance-premiums',
+        'de/krankenkassenpraemien',
+        'fr/primes-assurance-maladie',
+      ]);
+      cleanSitemapFiles(distDir, ['sitemap-health-premiums.xml']);
 
       // Locate the canonical current-year dataset. Preferred path is the
       // F2-A3 multi-year directory (`data/health-premiums/{year}.json`); we

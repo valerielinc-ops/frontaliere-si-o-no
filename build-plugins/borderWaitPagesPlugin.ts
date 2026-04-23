@@ -67,6 +67,7 @@ import {
 } from './borderWaitData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
+import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -1697,6 +1698,18 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       }
 
       const distDir = np.resolve(rootDir, 'dist');
+
+      // Ext3 task 3 — wipe owned namespaces before regen so archive months
+      // that fall out of the top-5 window (or crossings removed from the
+      // dataset) don't leave stale pages behind.
+      cleanNamespaces(distDir, [
+        'traffico-dogane',
+        'en/border-wait',
+        'de/wartezeit-grenze',
+        'fr/temps-attente-douane',
+      ]);
+      cleanSitemapFiles(distDir, ['sitemap-border-wait.xml']);
+
       const currentPath = np.resolve(rootDir, 'data', 'border-wait-current.json');
       const current = readJsonSafe<BorderWaitCurrent>(currentPath, {
         updatedAt: null,

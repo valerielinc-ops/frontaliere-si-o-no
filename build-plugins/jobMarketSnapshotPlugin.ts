@@ -73,6 +73,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { SECTOR_HUB_KEYS } from './jobSectorLanding';
+import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -2325,6 +2326,16 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
         // nothing to do — happens when another plugin hasn't created the dist yet
         return;
       }
+
+      // Ext3 task 3 — wipe owned namespaces before regen so per-sector /
+      // per-archive pages that drop out don't linger as stale files.
+      cleanNamespaces(distDir, [
+        'mercato-lavoro-ticino',
+        'en/ticino-job-market',
+        'de/tessiner-arbeitsmarkt',
+        'fr/marche-travail-tessin',
+      ]);
+      cleanSitemapFiles(distDir, ['sitemap-job-market.xml']);
 
       const historyPath = np.resolve(rootDir, 'data', 'jobs-stats-history.json');
       const jobsPath = np.resolve(rootDir, 'data', 'jobs.json');

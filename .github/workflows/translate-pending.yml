@@ -149,6 +149,19 @@ jobs:
         if: inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
 
+      # Ext3 task 4 — flag jobs whose descriptionByLocale[X] contains text
+      # in a different language (detection mirrors
+      # tests/job-locale-consistency.test.ts). Flagged jobs get
+      # needsRetranslation=true so the translate step below rebuilds them in
+      # this same run. Runs AFTER assembly (operates on the assembled
+      # data/jobs.json) but BEFORE the translate step so the fresh flags are
+      # picked up in a single pipeline execution. Soft-fail on error: a
+      # detection crash shouldn't block the whole batch.
+      - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        run: node scripts/mark-locale-mismatched-jobs.mjs
+
       - name: Log translation stats (before)
         if: inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs before

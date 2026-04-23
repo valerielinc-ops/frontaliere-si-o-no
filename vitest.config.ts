@@ -18,11 +18,10 @@ export default defineConfig({
  testTimeout: 15000,
  css: false,
  pool: 'threads',
- poolOptions: {
- threads: {
+ // Vitest 4 removed the `poolOptions` wrapper — pool tuning flags now live
+ // directly on `InlineConfig`. `isolate: false` lets thread workers share a
+ // single VM context, matching the previous pre-v4 behaviour.
  isolate: false,
- },
- },
  server: {
  deps: {
  inline: ['unpdf'],
