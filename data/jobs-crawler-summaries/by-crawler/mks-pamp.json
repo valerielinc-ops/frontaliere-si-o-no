@@ -1,49 +1,18 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-22T22:09:47.778Z",
+  "generatedAt": "2026-04-23T10:34:11.456Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 13108,
-  "avgDurationMs": 13108,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 20105,
+  "avgDurationMs": 20105,
   "durationHistory": [
-    13108
+    20105
   ],
-  "newJobs": [
-    {
-      "title": "Operatore Trattamenti Reflui",
-      "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "production",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Metal &amp; Inventory Controller",
@@ -83,12 +52,13 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Idraulico Manutentore Macchinari Industriali",
-      "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7355718-idraulico-manutentore-macchinari-industriali",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7355718-idraulico-manutentore-macchinari-industriali",
+      "title": "Operatore Trattamenti Reflui",
+      "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui",
       "company": "MKS PAMP",
       "companyKey": "mks-pamp",
       "companyDomain": "mkspamp.com",
@@ -102,17 +72,17 @@
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-09",
+      "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
+      "id": "mks-pamp-0b07194576f4",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
-      "id": "mks-pamp-09a0aa686483",
-      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "firstSeenAt": "2026-04-22T22:09:47.778Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,9 +90,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
       "slug": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro",
