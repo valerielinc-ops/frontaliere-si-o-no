@@ -68,6 +68,19 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CARD_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
+  LINK_ACCENT_STYLE,
+  TABLE_CELL_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_STYLE,
+} from './shared/seoContentTokens';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -139,16 +152,16 @@ function slugifyName(name: string): string {
     .toLowerCase();
 }
 
-// Color tokens (semantic, no dark: prefixes — see CLAUDE.md)
-const COLOR_OK_BG = '#ecfdf5';
-const COLOR_OK_BORDER = '#86efac';
-const COLOR_OK_TEXT = '#047857';
-const COLOR_WARN_BG = '#fffbeb';
-const COLOR_WARN_BORDER = '#fde68a';
-const COLOR_WARN_TEXT = '#b45309';
-const COLOR_BAD_BG = '#fef2f2';
-const COLOR_BAD_BORDER = '#fecaca';
-const COLOR_BAD_TEXT = '#b91c1c';
+// Color tokens — CSS custom properties so dark mode works automatically.
+const COLOR_OK_BG = 'var(--color-success-subtle)';
+const COLOR_OK_BORDER = 'var(--color-success-border)';
+const COLOR_OK_TEXT = 'var(--color-success-border)';
+const COLOR_WARN_BG = 'var(--color-warning-subtle)';
+const COLOR_WARN_BORDER = 'var(--color-warning-border)';
+const COLOR_WARN_TEXT = 'var(--color-warning-border)';
+const COLOR_BAD_BG = 'var(--color-danger-subtle)';
+const COLOR_BAD_BORDER = 'var(--color-danger-border)';
+const COLOR_BAD_TEXT = 'var(--color-danger-border)';
 
 function statusColor(waitMinutes: number | null): {
   bg: string;
@@ -503,7 +516,7 @@ function renderWebcamSection(
       const refreshMs = w.refreshIntervalMs ?? 60000;
       const cacheBusted = `${w.imageUrl}${w.imageUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
       const licenseHtml = w.license
-        ? `<div style="margin-top:4px;font-size:12px;color:#64748b">${esc(w.license)}</div>`
+        ? `<div style="margin-top:4px;font-size:12px;color:var(--color-subtle)">${esc(w.license)}</div>`
         : '';
       return `<figure style="margin:0 0 16px;padding:0">
     <img
@@ -516,11 +529,11 @@ function renderWebcamSection(
       data-webcam-refresh="${refreshMs}"
       data-webcam-base-url="${esc(w.imageUrl)}"
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
-      style="width:100%;max-width:640px;height:auto;border-radius:12px;border:1px solid #e2e8f0;background:#f1f5f9"
+      style="width:100%;max-width:640px;height:auto;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
     >
-    <figcaption style="margin-top:8px;font-size:14px;color:#475569">
+    <figcaption style="margin-top:8px;font-size:14px;color:var(--color-subtle)">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
-      <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="color:#1d4ed8;text-decoration:underline">${esc(w.sourceName)}</a>
+      <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
     </figcaption>
   </figure>`;
@@ -528,9 +541,9 @@ function renderWebcamSection(
     .join('\n');
 
   return `<section aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}" style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.webcamLabel)}</h2>
+    <h2 style="${H2_STYLE}">${esc(copy.webcamLabel)}</h2>
     ${figures}
-    <p style="margin:8px 0 0;font-size:13px;color:#64748b;line-height:1.5">${esc(copy.webcamNote)}</p>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(copy.webcamNote)}</p>
   </section>`;
 }
 
@@ -791,24 +804,24 @@ function renderLeafPage(inp: LeafInputs): string {
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
   const staticBannerHtml = staticFallback
-    ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:#fef3c7;border:1px solid #fde68a;color:#78350f;font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
+    ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning-border);font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
   const currentCardHtml = `<section aria-labelledby="currentStatus" style="margin:0 0 24px">
-    <h2 id="currentStatus" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.currentStatusLabel)}</h2>
+    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)}</h2>
     ${staticBannerHtml}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
       <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
         <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
         <div style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
       </div>
-      <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
-        <div style="font-size:12px;color:#475569;font-weight:700;text-transform:uppercase">${esc(copy.sourceLabel)}</div>
-        <div style="margin-top:8px;font-size:14px;color:#0f172a;font-weight:700;line-height:1.4">${esc(sourceText)}</div>
+      <div style="padding:18px;border-radius:18px;background:var(--color-surface-alt);border:1px solid var(--color-edge)">
+        <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase">${esc(copy.sourceLabel)}</div>
+        <div style="margin-top:8px;font-size:14px;color:var(--color-heading);font-weight:700;line-height:1.4">${esc(sourceText)}</div>
       </div>
-      <div style="padding:18px;border-radius:18px;background:#f1f5f9;border:1px solid #cbd5e1">
-        <div style="font-size:12px;color:#475569;font-weight:700;text-transform:uppercase">${esc(copy.updatedLabel)}</div>
-        <div style="margin-top:8px;font-size:14px;color:#0f172a;font-weight:700">${esc(dateStamp)}</div>
+      <div style="padding:18px;border-radius:18px;background:var(--color-surface-alt);border:1px solid var(--color-edge)">
+        <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase">${esc(copy.updatedLabel)}</div>
+        <div style="margin-top:8px;font-size:14px;color:var(--color-heading);font-weight:700">${esc(dateStamp)}</div>
       </div>
     </div>
   </section>`;
@@ -816,7 +829,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Hourly chart (needs ≥1 day with samples)
   const hourlyHtml = hasToday
     ? `<section style="margin:0 0 24px" aria-labelledby="hourlyToday">
-    <h2 id="hourlyToday" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.hourlyTodayLabel)}</h2>
+    <h2 id="hourlyToday" style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
     ${renderHourlySvg(todayBuckets, copy)}
   </section>`
     : '';
@@ -824,28 +837,28 @@ function renderLeafPage(inp: LeafInputs): string {
   // Weekly chart (needs ≥7 days to be meaningful)
   const weeklyHtml = hasWeekly
     ? `<section style="margin:0 0 24px" aria-labelledby="weeklyPattern">
-    <h2 id="weeklyPattern" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.weeklyPatternLabel)}</h2>
+    <h2 id="weeklyPattern" style="${H2_STYLE}">${esc(copy.weeklyPatternLabel)}</h2>
     ${renderWeeklySvg(weekly, copy)}
-    <p style="margin:12px 0 0;color:#334155;font-size:14px;line-height:1.55">
+    <p style="margin:12px 0 0;color:var(--color-body);font-size:14px;line-height:1.55">
       <strong>${esc(copy.bestHoursLabel)}:</strong> ${esc(bestHour)} &nbsp;·&nbsp;
       <strong>${esc(copy.worstHoursLabel)}:</strong> ${esc(worstHour)}
     </p>
   </section>`
-    : `<p style="margin:0 0 24px;padding:14px 18px;border-radius:12px;background:#f1f5f9;color:#475569;font-size:14px;line-height:1.5">${esc(copy.noHistory)}</p>`;
+    : `<p style="margin:0 0 24px;padding:14px 18px;border-radius:12px;background:var(--color-surface-alt);color:var(--color-subtle);font-size:14px;line-height:1.5">${esc(copy.noHistory)}</p>`;
 
   // Static crossing info
   const infoRows: string[] = [];
   if (reg) {
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(
+      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(
         locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type',
       )}:</strong> ${esc(copy.crossingTypeLabel[reg.type])}</li>`,
     );
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
+      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
     );
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(
+      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(
         locale === 'it'
           ? 'Media mattina'
           : locale === 'de'
@@ -856,7 +869,7 @@ function renderLeafPage(inp: LeafInputs): string {
       )}:</strong> ${esc(reg.avgWaitMorning)}</li>`,
     );
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid #e2e8f0"><strong>${esc(
+      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(
         locale === 'it'
           ? 'Media sera'
           : locale === 'de'
@@ -869,8 +882,8 @@ function renderLeafPage(inp: LeafInputs): string {
   }
   const infoHtml = infoRows.length
     ? `<section style="margin:0 0 24px" aria-labelledby="infoValico">
-    <h2 id="infoValico" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(copy.infoValicoLabel)}</h2>
-    <ul style="list-style:none;margin:0;padding:0;font-size:14px;color:#334155;line-height:1.5">${infoRows.join('')}</ul>
+    <h2 id="infoValico" style="${H2_STYLE}">${esc(copy.infoValicoLabel)}</h2>
+    <ul style="list-style:none;margin:0;padding:0;font-size:14px;color:var(--color-body);line-height:1.5">${infoRows.join('')}</ul>
   </section>`
     : '';
 
@@ -905,14 +918,14 @@ function renderLeafPage(inp: LeafInputs): string {
             const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
             const altDisp = BORDER_CROSSING_DISPLAY[slug];
             const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning)}`;
-            return `<li style="padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#ffffff;margin-bottom:8px"><a href="${href}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(altDisp)}</a><div style="font-size:13px;color:#475569;margin-top:2px">${detail}</div></li>`;
+            return `<li style="${CARD_STYLE};border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div style="font-size:13px;color:var(--color-subtle);margin-top:2px">${detail}</div></li>`;
           })
           .filter(Boolean)
           .join('');
         return items
           ? `<section style="margin:0 0 24px" aria-labelledby="altRoutes">
-    <h2 id="altRoutes" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(h2)}</h2>
-    <p style="margin:0 0 10px;color:#334155;font-size:14px;line-height:1.55">${esc(lead)}</p>
+    <h2 id="altRoutes" style="${H2_STYLE}">${esc(h2)}</h2>
+    <p style="margin:0 0 10px;color:var(--color-body);font-size:14px;line-height:1.55">${esc(lead)}</p>
     <ul style="list-style:none;margin:0;padding:0">${items}</ul>
   </section>`
           : '';
@@ -922,13 +935,13 @@ function renderLeafPage(inp: LeafInputs): string {
   // FAQ
   const faqItems = copy.faq;
   const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="bwFaq">
-    <h2 id="bwFaq" style="margin:0 0 14px;font-size:22px;color:#0f172a">${esc(copy.faqTitle)}</h2>
+    <h2 id="bwFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
         (f) =>
-          `<details style="padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#ffffff">
-        <summary style="font-weight:700;cursor:pointer;color:#0f172a">${esc(f.q(crossingDisplay))}</summary>
-        <p style="margin:10px 0 0;color:#334155;line-height:1.6">${esc(f.a(crossingDisplay))}</p>
+          `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q(crossingDisplay))}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(crossingDisplay))}</p>
       </details>`,
       )
       .join('')}
@@ -1103,25 +1116,25 @@ function renderLeafPage(inp: LeafInputs): string {
   // without bypassing buildSeoPageHtml's templating.
   const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildRootHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.rootH1.split(' —')[0])}</a>
+    <a href="${BASE_URL}${buildRootHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.rootH1.split(' —')[0])}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildRegionalHubPath(locale, region)}" style="color:#1d4ed8;text-decoration:none">${esc(regionDisplay)}</a>
+    <a href="${BASE_URL}${buildRegionalHubPath(locale, region)}" style="${BREADCRUMB_LINK_STYLE}">${esc(regionDisplay)}</a>
     <span> / </span>
     <span>${esc(crossingDisplay)}</span>
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.updatedLabel)} · ${dateStamp}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   ${webcamHtml}
   ${currentCardHtml}
   <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
   ${hourlyHtml}
   ${weeklyHtml}
@@ -1222,23 +1235,23 @@ function renderHubPage(inp: HubInputs): string {
     const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
     return `<tr>
-      <td style="padding:10px 12px;border-bottom:1px solid #f1f5f9">
-        <a href="${BASE_URL}${buildOggiPath(locale, c)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+      <td style="${TABLE_CELL_STYLE}">
+        <a href="${BASE_URL}${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
-      <td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;text-align:right">
+      <td style="${TABLE_CELL_STYLE};text-align:right">
         <span style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
-      <td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#64748b">${esc(sourceLabel(src, copy))}</td>
+      <td style="${TABLE_CELL_STYLE};font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
-  const tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:14px">
+  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(
+      <th style="${TABLE_HEAD_STYLE}">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
-      <th style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.waitMinutesLabel)}</th>
-      <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.sourceLabel)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.waitMinutesLabel)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.sourceLabel)}</th>
     </tr></thead>
     <tbody>${rows.join('')}</tbody>
   </table>`;
@@ -1254,7 +1267,7 @@ function renderHubPage(inp: HubInputs): string {
     }
   }
   const bestBannerHtml = bestCrossing
-    ? `<div style="margin:0 0 20px;padding:14px 18px;border-radius:12px;background:${COLOR_OK_BG};border:1px solid ${COLOR_OK_BORDER};color:${COLOR_OK_TEXT};font-size:15px;line-height:1.5">
+    ? `<div style="margin:0 0 20px;padding:14px 18px;border-radius:12px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-success-border);font-size:15px;line-height:1.5">
        <strong>${esc(
          locale === 'it'
            ? 'Valico più veloce adesso'
@@ -1264,7 +1277,7 @@ function renderHubPage(inp: HubInputs): string {
                ? 'Passage le plus rapide maintenant'
                : 'Fastest crossing right now',
        )}:</strong>
-       <a href="${BASE_URL}${buildOggiPath(locale, bestCrossing)}" style="color:${COLOR_OK_TEXT};text-decoration:underline;font-weight:700">${esc(BORDER_CROSSING_DISPLAY[bestCrossing])}</a>
+       <a href="${BASE_URL}${buildOggiPath(locale, bestCrossing)}" style="color:var(--color-success-border);text-decoration:underline;font-weight:700">${esc(BORDER_CROSSING_DISPLAY[bestCrossing])}</a>
        · ${esc(bestVal)} min
      </div>`
     : '';
@@ -1330,20 +1343,20 @@ function renderHubPage(inp: HubInputs): string {
     fuelZone: CROSSING_TO_FUEL_ZONE[primaryCrossing],
   };
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-  <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
-    <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" style="color:#1d4ed8;text-decoration:none">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
+    ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header style="margin-bottom:22px">
-    <p style="margin:0 0 6px;color:#4f46e5;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em">${esc(copy.updatedLabel)} · ${dateStamp}</p>
-    <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.1">${esc(h1)}</h1>
-    <p style="margin:0 0 14px;font-size:18px;line-height:1.55;max-width:860px">${esc(introParagraph)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(introParagraph)}</p>
   </header>
   ${bestBannerHtml}
   <section style="margin:0 0 24px" aria-labelledby="crossingTable">
-    <h2 id="crossingTable" style="margin:0 0 12px;font-size:22px;color:#0f172a">${esc(
+    <h2 id="crossingTable" style="${H2_STYLE}">${esc(
       locale === 'it'
         ? 'Tutti i valichi'
         : locale === 'de'
@@ -1355,7 +1368,7 @@ function renderHubPage(inp: HubInputs): string {
     ${tableHtml}
   </section>
   <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:#334155;line-height:1.7;max-width:860px">${esc(secondary)}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(secondary)}</p>
   </section>
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
 </article>`;
@@ -1442,8 +1455,8 @@ function renderArchivePage(inp: ArchiveInputs): string {
   const rows = hourAvgs
     .map(
       (v, h) => `<tr>
-      <td style="padding:8px 12px;border-bottom:1px solid #f1f5f9">${String(h).padStart(2, '0')}:00</td>
-      <td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;text-align:right;font-variant-numeric:tabular-nums">${v === null ? '—' : v + ' min'}</td>
+      <td style="${TABLE_CELL_STYLE}">${String(h).padStart(2, '0')}:00</td>
+      <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${v === null ? '—' : v + ' min'}</td>
     </tr>`,
     )
     .join('');
@@ -1476,24 +1489,24 @@ function renderArchivePage(inp: ArchiveInputs): string {
     dateModified: today.toISOString(),
   });
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
-        <nav style="margin:0 0 14px;font-size:13px;color:#475569" aria-label="Breadcrumb">
-          <a href="${BASE_URL}/" style="color:#1d4ed8;text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+        <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
+          <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
-          <a href="${BASE_URL}${buildOggiPath(locale, crossing)}" style="color:#1d4ed8;text-decoration:none">${esc(crossingDisplay)}</a>
+          <a href="${BASE_URL}${buildOggiPath(locale, crossing)}" style="${BREADCRUMB_LINK_STYLE}">${esc(crossingDisplay)}</a>
           <span> / </span>
           <span>${esc(monthKey)}</span>
         </nav>
         <header style="margin-bottom:22px">
-          <h1 style="margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.5rem);line-height:1.1">${esc(h1)}</h1>
-          <p style="margin:0;font-size:17px;line-height:1.55;max-width:860px">${esc(intro)}</p>
+          <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+          <p style="${LEDE_STYLE}">${esc(intro)}</p>
         </header>
         <section>
-          <h2 style="margin:0 0 12px;font-size:20px;color:#0f172a">${esc(copy.hourlyTodayLabel)}</h2>
-          <table style="width:100%;border-collapse:collapse;font-size:14px">
+          <h2 style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
+          <table style="${TABLE_STYLE};font-size:14px">
             <thead><tr>
-              <th style="text-align:left;padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">Ora</th>
-              <th style="text-align:right;padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#475569;font-weight:700">${esc(copy.waitMinutesLabel)}</th>
+              <th style="${TABLE_HEAD_STYLE}">Ora</th>
+              <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.waitMinutesLabel)}</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
