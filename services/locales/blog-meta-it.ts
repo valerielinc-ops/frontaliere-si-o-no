@@ -2547,6 +2547,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bandecchi-quarti-chiasso-2026.title': 'Bandecchi ai quarti a Chiasso: \'Qui mi sento a casa\'',
     'blog.article.bandecchi-quarti-chiasso-2026.excerpt': 'La ticinese Susan Bandecchi raggiunge i quarti di finale dell\'Axion Open, sconfiggendo la croata Lucija Ciric Bagaric in due set.',
     'blog.article.bandecchi-quarti-chiasso-2026.imageAlt': 'Susan Bandecchi celebra la vittoria agli Axion Open di Chiasso',
+    'blog.article.cantello-peduncolo-gaggiolo-2026.title': 'Cantello: Amministrazione e Legambiente unite per cancellare il progetto del \'peduncolo di Gaggiolo\'',
+    'blog.article.cantello-peduncolo-gaggiolo-2026.excerpt': 'Amministrazione comunale e Legambiente Cantello chiedono lo stralcio del progetto della superstrada a quattro corsie tra Italia e Svizzera.',
+    'blog.article.cantello-peduncolo-gaggiolo-2026.imageAlt': 'Vista aerea di Cantello, Italia, vicino al confine svizzero, con campi agricoli e infrastrutture.',
 };
 
 export default blogMetaIt;

@@ -2547,6 +2547,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bandecchi-quarti-chiasso-2026.title': 'Bandecchi en quart de finale à Chiasso : \'Je me sens comme chez moi\'',
     'blog.article.bandecchi-quarti-chiasso-2026.excerpt': 'La Tessinoise Susan Bandecchi atteint les quarts de finale de l\'Axion Open, battant la Croate Lucija Ciric Bagaric en deux sets.',
     'blog.article.bandecchi-quarti-chiasso-2026.imageAlt': 'Susan Bandecchi célèbre sa victoire aux Axion Open de Chiasso',
+    'blog.article.cantello-peduncolo-gaggiolo-2026.title': 'Cantello : Administration et Legambiente unies pour annuler le projet du \'pédoncule de Gaggiolo\'',
+    'blog.article.cantello-peduncolo-gaggiolo-2026.excerpt': 'L\'administration communale et Legambiente Cantello demandent le retrait du projet de la super route à quatre voies entre l\'Italie et la Suisse.',
+    'blog.article.cantello-peduncolo-gaggiolo-2026.imageAlt': 'Vue aérienne de Cantello, Italie, près de la frontière suisse, avec des champs agricoles et des infrastructures.',
 };
 
 export default blogMetaFr;

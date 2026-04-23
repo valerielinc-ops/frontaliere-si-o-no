@@ -11486,6 +11486,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantello-peduncolo-gaggiolo-2026': {
+    title: 'Cantello: Amministrazione e Legambiente | Frontaliere Ticino',
+    description: 'Amministrazione comunale e Legambiente Cantello chiedono lo stralcio del progetto della superstrada a quattro corsie tra Italia e Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantello, amministrazione, legambiente, unite',
+    ogTitle: 'Cantello: Amministrazione e Legambiente contro il \'peduncolo',
+    ogDescription: 'Amministrazione comunale e Legambiente Cantello chiedono lo stralcio del progetto della superstrada a quattro corsie tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/cantello-peduncolo-gaggiolo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantello: Amministrazione e Legambiente contro il 'peduncolo di Gaggiolo'",
+      "description": "Amministrazione comunale e Legambiente Cantello chiedono lo stralcio del progetto della superstrada a quattro corsie tra Italia e Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantello-peduncolo-gaggiolo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Cantello, Italia, vicino al confine svizzero, con campi agricoli e infrastrutture."
+      },
+      "datePublished": "2026-04-23T19:33:56+00:00",
+      "dateModified": "2026-04-23T19:33:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantello-peduncolo-gaggiolo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2113,6 +2113,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permessi-dimora-grigioni-cambia-prassi': { name: 'Novità', path: '/articoli-frontaliere/permessi-dimora-grigioni-cambia-prassi', parent: 'blog' },
     'blog-divario-salariale-frontalieri-ticino-2026': { name: 'Divario salariale', path: '/articoli-frontaliere/divario-salariale-frontalieri-ticino-2026', parent: 'blog' },
     'blog-bandecchi-quarti-chiasso-2026': { name: 'Sport', path: '/articoli-frontaliere/bandecchi-quarti-chiasso-2026', parent: 'blog' },
+    'blog-cantello-peduncolo-gaggiolo-2026': { name: 'Novità', path: '/articoli-frontaliere/cantello-peduncolo-gaggiolo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

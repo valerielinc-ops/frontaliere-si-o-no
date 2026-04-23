@@ -6923,4 +6923,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/bandecchi-quarti-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cantello-peduncolo-gaggiolo-2026',
+ category: 'novita',
+ date: '2026-04-23T19:33:56.612Z',
+ image: '/images/blog/cantello-peduncolo-gaggiolo-2026.jpg',
+ hasCalculator: true,
+ },
 ];
