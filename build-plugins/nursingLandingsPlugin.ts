@@ -40,6 +40,12 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CTA_PRIMARY_STYLE,
+  LINK_ACCENT_STYLE,
+} from './shared/seoContentTokens';
+import {
   NURSING_LOCALES,
   NURSING_LANDING_IDS,
   NURSING_LOCALE_PREFIX,
@@ -126,21 +132,21 @@ function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(
+        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(
           p,
         )}</p>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--text-base,#0f172a)">${esc(title)}</h2>${ps}</section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderFaqBlock(faqs: NursingLandingCopy['faqs']): string {
   const items = faqs
     .map(
       (f) => `
-      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface,#ffffff)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--text-base,#0f172a);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--text-base,#0f172a);line-height:1.65">${esc(f.answer)}</p>
+      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-body);line-height:1.45">${esc(f.question)}</summary>
+        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
       </details>`,
     )
     .join('');
@@ -151,10 +157,10 @@ function renderRelatedLinks(locale: NursingLocale, label: string): string {
   const items = RELATED_LINKS[locale]
     .map(
       (l) =>
-        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(l.label)}</a></li>`,
+        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--text-base,#0f172a);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
 }
 
 function renderPage(opts: {
@@ -238,30 +244,30 @@ function renderPage(opts: {
   const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(jobBoardUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbJobs)}</a>
+      <a href="${esc(jobBoardUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbJobs)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
     <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
       <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0;color:var(--text-base,#0f172a);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.lede)}</p>
+      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.lede)}</p>
     </header>
     ${sections}
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--text-base,#0f172a)">${esc(copy.faqTitle)}</h2>
+      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
     ${relatedHtml}
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(jobBoardUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--accent,#4f46e5);color:#ffffff;text-decoration:none;font-weight:700">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--surface,#ffffff);border:1px solid var(--surface-border,#e2e8f0);color:var(--text-base,#0f172a);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
     </section>`;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
