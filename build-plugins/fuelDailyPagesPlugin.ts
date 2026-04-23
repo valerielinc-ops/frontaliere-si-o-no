@@ -48,6 +48,7 @@ import {
   buildFuelItalianCityPath,
   buildStationSlug,
   zoneForAddress,
+  computeDeltaVsYesterday,
   type FuelDailyLocale,
   type FuelType,
   type FuelZone,
@@ -742,8 +743,8 @@ function renderPage(inp: PageInputs): string {
   const yesterday = lookbackPrice(history, zone, fuel, 1, today);
   const weekAgo = lookbackPrice(history, zone, fuel, 7, today);
 
-  const deltaYest = avg !== null && yesterday !== null ? Number((avg - yesterday).toFixed(3)) : null;
-  const delta7 = avg !== null && weekAgo !== null ? Number((avg - weekAgo).toFixed(3)) : null;
+  const deltaYest = computeDeltaVsYesterday(avg, yesterday);
+  const delta7 = computeDeltaVsYesterday(avg, weekAgo);
 
   const priceFmt = formatPrice(avg, locale);
   const deltaYestFmt = formatDelta(deltaYest, locale);

@@ -461,6 +461,26 @@ export function isFuelItalianCityPath(pathname: string): boolean {
 }
 
 /**
+ * Compute the CHF/litre price delta vs yesterday.
+ *
+ * Returns `null` (never `0`) when either value is absent:
+ *  - `todayAvg === null`  → today's zone price could not be computed
+ *  - `yesterdayAvg === null` → yesterday snapshot is missing entirely, or the
+ *    zone/fuel entry is absent from that snapshot
+ *
+ * Callers that receive `null` must render an em-dash ("—") rather than
+ * formatting the value as a number.  A legitimate zero delta (today == yesterday)
+ * is a distinct case and IS returned as `0`.
+ */
+export function computeDeltaVsYesterday(
+  todayAvg: number | null,
+  yesterdayAvg: number | null,
+): number | null {
+  if (todayAvg === null || yesterdayAvg === null) return null;
+  return Number((todayAvg - yesterdayAvg).toFixed(3));
+}
+
+/**
  * Router route table: all "today" fuel paths. Imported by services/router.ts
  * so unknown /prezzi-diesel/... URLs resolve to a known route (stats/fuel-prices
  * tab) instead of falling through to 404.
