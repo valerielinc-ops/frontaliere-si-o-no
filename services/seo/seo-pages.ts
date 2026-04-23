@@ -615,7 +615,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  guide: {
  title: 'Frontalieri Svizzera 2026 — Guida Completa Permesso G, Tasse, Dogana',
  h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
- description: 'Guida per frontalieri in Svizzera 2026: permesso G (20 km, 5 anni), Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
+ description: 'Guida frontalieri Svizzera 2026: permesso G (20 km, 5 anni), Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
  keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
  ogTitle: 'Frontalieri Svizzera 2026 — Guida Completa Pillar',
  ogDescription: 'La guida più completa per frontalieri in Svizzera: permesso G (20 km, 5 anni), Nuovo Accordo fiscale 2026, LAMal, dogana, primo giorno, trasferimento auto. 78.000 frontalieri/giorno.',
@@ -2232,7 +2232,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'border-map': {
  title: 'Mappa Valichi Confine Ticino-Italia 2026 | Tempi Attesa + Webcam',
- description: 'Mappa interattiva dei valichi di confine Ticino-Italia: Chiasso, Brogeda, Gaggiolo, Ponte Tresa. Tempi di attesa, orari, webcam live, coordinate GPS e comuni di frontiera con addizionali IRPEF.',
+ description: 'Mappa interattiva valichi Ticino-Italia: Chiasso, Brogeda, Gaggiolo, Ponte Tresa. Tempi attesa, orari, webcam, comuni di frontiera con addizionali IRPEF.',
  keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
  ogTitle: 'Mappa Valichi Ticino-Italia | Tempi Attesa + Webcam Live',
  ogDescription: '🗺️ Mappa interattiva dei valichi di confine tra Ticino e Italia con tempi di attesa, webcam, addizionali IRPEF e comuni di frontiera.',
