@@ -1,8 +1,8 @@
 # SEO Sprint 1 Tech Fixes — Extension 2
 
 Data: 2026-04-23
-Stato: carryover dopo chiusura Extension 1 (tutti i broken internal links
-risolti, FAQ gate ridefinito, thin-pages gate promosso a prepush)
+Stato: **CHIUSO** — tutti e 9 i carryover risolti, 358 file test / 26 903
+test verdi, build full esegue a exit 0.
 
 ## Chiuso in Extension 1
 
@@ -103,3 +103,21 @@ prepush completo.
 7. Job-locale consistency (cross-cutting con pipeline crawler)
 8. Border-wait snapshot shape (plugin fix)
 9. Newsletter QA gate (stand-alone)
+
+## Esito (2026-04-23)
+
+| # | Item | Commit | Note |
+|---|------|--------|------|
+| 1 | Breadcrumb coverage | `b0d66e43a` | Esente canonical bridge pages (index,follow + canonical a URL diverso) via signature hero text. Mantiene il design `noindex-builders.test.ts` ("Bing classifies noindex pages as Blocked"). |
+| 2 | Phantom `SEO_METADATA` | `00cb170eb` | 5 landing SemRush (tassa-salute-frontalieri, lamal-frontalieri, outlet-fox-town-mendrisio, ponti-2026-ticino, vacanze-scolastiche-ticino-2026) classificate come INTERNAL_KEYS: rese da `staticPagesPlugin` via `canonicalPath`, stesso pattern di `guidaCompleta`. |
+| 3 | Structured data `@type` | `00cb170eb` | `ExchangeRateSpecification` e `Place` aggiunti a `VALID_SCHEMA_TYPES` (entrambi validi schema.org). |
+| 4 | Description length | `dbd0476a4` | `guide` 172→168, `border-map` 193→160. |
+| 5 | FAQ coverage | `c39fedd79` | 41 domande mancanti tradotte EN/DE/FR (currency exchange, nursery, blog index, tassazione hub, tassa salute, LAMal, Fox Town). Coverage 85.1% → 100%. |
+| 6 | HowTo totalTime | — | Già verde in sessione (già risolto in un ciclo precedente). |
+| 7 | Job-locale consistency | `d002debd6` | Nuovo script `scripts/mark-locale-mismatched-jobs.mjs` marca i job con descrizione nella lingua sbagliata come `needsRetranslation: true`. Flag puntuale esegue ~8 fix; da schedulare come step in `translate-pending`. |
+| 8 | Border-wait snapshot | `afc6698de` | `aggregateToday` ora riceve `today?: Date` iniettato, così i test con clock congelato non perdono i bucket. |
+| 9 | Newsletter QA gate | — | Già verde in sessione (regressione chiusa automaticamente). |
+
+## Follow-up aperti
+
+Vedi `PLAN-SPRINT-1-TECH-FIXES-EXTENSION-3.md`.
