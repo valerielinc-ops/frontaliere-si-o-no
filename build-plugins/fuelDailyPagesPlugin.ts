@@ -1054,6 +1054,20 @@ interface StationContext {
   prices: { diesel: number; benzina: number };
 }
 
+// Defensive twin of the crawler-side dedup (`scripts/lib/fuel-station-dedup.mjs`):
+// catches lingering duplicates in `data/fuel-prices.json` from pre-fix cron runs
+// where the same physical station has distinct ids but identical brand+name+address.
+function stationPluginDedupKey(s: SwissStation): string {
+  const norm = (value: unknown): string =>
+    String(value ?? '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  return `${norm(s.brand)}|${norm(s.name)}|${norm(s.address)}`;
+}
+
 /** Collect every Swiss station with a known Ticino zone + compute its slug. */
 function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext[] {
   const seen = new Set<string>();
@@ -1065,7 +1079,7 @@ function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext
       if (!s || typeof s.sp95PriceChf !== 'number') continue;
       // Skip totally-empty stations (no brand + no name = unidentifiable)
       if (!s.brand && !s.name) continue;
-      const dedupKey = `${s.id ?? ''}:${s.address ?? ''}:${s.name ?? ''}`;
+      const dedupKey = stationPluginDedupKey(s);
       if (seen.has(dedupKey)) continue;
       seen.add(dedupKey);
       const zone = zoneForAddress(s.address);
