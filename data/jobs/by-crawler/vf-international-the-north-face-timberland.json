@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vf-international-the-north-face-timberland",
-  "assembledAt": "2026-04-23T11:01:06.684Z",
+  "assembledAt": "2026-04-23T22:34:50.974Z",
   "jobs": [
     {
       "id": "company-q5yjnl",
@@ -49,7 +49,7 @@
       "slugByLocale": {
         "it": "senior-manager-sostenibilita-e-circolabilita-dei-prodotti-vf-international-the-north-face-timberland-emea-che-stabio-vf-",
         "en": "senior-manager-product-sustainability-circularity-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-q5yjnl",
-        "de": "senior-manager-product-sustainability-circularity-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-q5yjnl",
+        "de": "senior-manager-produkt-nachhaltigkeit-circularity-vf-international-the-north-face-timberland-stabio",
         "fr": "directeur-principal-durabilite-des-produits-circularity-vf-international-the-north-face-timberland-emea-che-stabio-vf-ca"
       },
       "sourceLang": "en",
@@ -59,6 +59,9 @@
           "senior-manager-product-sustainability-circularity-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-q5yjnl"
         ],
         "fr": [
+          "senior-manager-product-sustainability-circularity-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-q5yjnl"
+        ],
+        "de": [
           "senior-manager-product-sustainability-circularity-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-q5yjnl"
         ]
       },
@@ -245,7 +248,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-rm634f",
@@ -321,7 +325,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-27nahc",
@@ -2095,9 +2100,7 @@
         "allocator-praktikant-emea-praktikumsprogramm-vf-stabio",
         "stagiaire-alloueur-programme-de-stage-emea-vf-stabio",
         "allocator-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-stabio",
-        "allocator-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
-        "tirocinante-allocatore-programma-di-stage-emea-vf-international-the-north-face-timberland-",
-        "tirocinante-allocatore-programma-di-stage-emea-vf-international-the-north-face-timberland-"
+        "allocator-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
