@@ -167,6 +167,11 @@ const VALID_SCHEMA_TYPES = new Set([
   'Service', 'DiscussionForum', 'BreadcrumbList',
   'Organization', 'FinancialService', 'DefinedTermSet', 'DefinedTerm',
   'Product', 'Offer', 'Event', 'Review', 'AggregateRating',
+  // Domain-specific Schema.org types used by a small number of landings:
+  // - ExchangeRateSpecification: confronti/exchange (currency exchange hub)
+  // - Place: guida/border-map (geographic border crossings map)
+  // Both are first-class Schema.org types recognised by Google.
+  'ExchangeRateSpecification', 'Place',
 ]);
 
 // ── Tests ────────────────────────────────────────────────────────────────────
@@ -316,6 +321,16 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'guidaCompleta',
       'sindacati',
       'about', 'contact-alias', 'privacy-policy-alias',
+      // Workstream C SemRush landing pages — long-tail SEO pages generated
+      // as static HTML from `canonicalPath` by staticPagesPlugin. They are
+      // not reachable via SPA sub-tab navigation (they are deep-link only,
+      // same pattern as `guidaCompleta`) so getSeoSection does not need to
+      // return these keys.
+      'tassa-salute-frontalieri',
+      'lamal-frontalieri',
+      'outlet-fox-town-mendrisio',
+      'ponti-2026-ticino',
+      'vacanze-scolastiche-ticino-2026',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {
