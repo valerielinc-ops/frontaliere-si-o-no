@@ -2185,12 +2185,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Article",
  "headline": "Festività Ticino 2026: Calendario Completo dei Giorni Festivi del Canton Ticino",
  "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino`,
+ "abstract": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere più 11 festività cantonali cattoliche tipiche della Svizzera italiana. I frontalieri seguono il calendario svizzero (lex loci laboris), non quello italiano.",
  "description": "Festività Ticino 2026: tutti i 15 giorni festivi ufficiali del Canton Ticino con date, giorno della settimana, ponti, differenze con il resto della Svizzera e impatto sulla busta paga del frontaliere",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
  "dateModified": BUILD_DATE_ISO,
- "keywords": "festività ticino 2026, giorni festivi ticino, calendario ticino 2026"
+ "keywords": "festività ticino 2026, giorni festivi ticino, calendario ticino 2026",
+ "speakable": SPEAKABLE_SECTION
  },
  {
  "@context": "https://schema.org",
@@ -2229,7 +2231,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Come viene pagato il frontaliere nei giorni festivi in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il Codice delle Obbligazioni e la Legge sul Lavoro stabiliscono che il datore svizzero debba pagare i festivi che cadono in un giorno lavorativo anche se il lavoratore è assente. Il lavoratore in Stundenlohn (orario) riceve il compenso regolare, quello in salario mensile riceve lo stipendio pieno. Se il frontaliere lavora in un giorno festivo, la maggior parte dei CCL ticinesi prevede una maggiorazione del 50% o un giorno di recupero; alcuni settori (sanità, ospitalità, trasporti) arrivano al 100% di maggiorazione." } },
  { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i ponti più convenienti sono: Pasqua (Venerdì Santo 3 aprile + Pasquetta 6 aprile — già 4 giorni), Ascensione (giovedì 14 maggio, ponte con un giorno di ferie venerdì 15), Corpus Domini (giovedì 4 giugno, ponte con venerdì 5), SS. Pietro e Paolo (lunedì 29 giugno, weekend lungo). Meno fortunati i festivi 2026: il 1° agosto cade di sabato e il 15 agosto pure." } },
  { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera (CO art. 329a) il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime." } }
- ]
+ ],
+ "speakable": SPEAKABLE_SECTION
  }
  ]
  },
@@ -2317,10 +2320,38 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Mappa Valichi e Comuni di Frontiera Italia-Svizzera",
  "url": `${BASE_URL}/guida-frontaliere/mappa-confine`,
  "description": "Mappa interattiva dei valichi di confine Ticino-Italia con tempi di attesa, webcam live, orari, e comuni di frontiera con addizionali IRPEF",
+ "abstract": "La mappa confine Svizzera-Italia mostra 9 valichi doganali del Ticino (Chiasso-Brogeda A2, Chiasso Centro, Gaggiolo, Ponte Tresa, Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella, Chiasso Strada, Maslianico-Roggiana) con tempi d'attesa in tempo reale, webcam, orari e la lista dei comuni italiani entro 20 km di fascia di confine con le rispettive addizionali IRPEF.",
  "applicationCategory": "UtilitiesApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quanti valichi di confine ci sono tra Ticino e Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Il Ticino ha 9 valichi stradali principali verso l'Italia: Chiasso-Brogeda A2 (autostradale, il più trafficato), Chiasso Centro (Ponte Chiasso, SS35), Chiasso-Strada (alternativa a Brogeda), Gaggiolo/Cantello-Stabio (SS344), Ponte Tresa (SS233), Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella (Lago Maggiore), Maslianico-Roggiana. Tutti sono aperti 24 ore su 24, con orari di punta mattino 06:00-09:00 e sera 16:30-19:30." } },
+ { "@type": "Question", "name": "Qual è la fascia di 20 km per il nuovo accordo frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il Nuovo Accordo fiscale Italia-Svizzera 2026 definisce 'frontaliere fiscale' chi risiede in un comune italiano la cui casa dista al massimo 20 km in linea d'aria dal confine svizzero. I comuni ammessi sono elencati nell'Accordo: province di Como, Varese, Lecco e Sondrio (oltre a Verbano-Cusio-Ossola per il settore frontalieri VCO). Vivere entro la fascia dà diritto al regime di tassazione concorrente (imposta alla fonte CH ridotta all'80% + IRPEF con credito d'imposta e franchigia €10.000)." } },
+ { "@type": "Question", "name": "Quali valichi hanno meno coda al mattino?", "acceptedAnswer": { "@type": "Answer", "text": "I valichi con tempi medi d'attesa più bassi al mattino sono Zenna-Dirinella (2-5 min, Locarnese), Ponte Tresa (5-15 min, Luganese ovest), Luino-Fornasette (4-10 min, Malcantone) e Bizzarone-Novazzano (4-10 min, Mendrisiotto). Brogeda A2 e Chiasso Centro restano i più congestionati con 15-30 minuti di coda nelle fasce di punta. Verifica i tempi aggiornati sulle webcam BAZG/USTRA incorporate nelle schede di ogni valico." } },
+ { "@type": "Question", "name": "Come funzionano le addizionali IRPEF nei comuni di frontiera?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni italiani entro la fascia 20 km applicano un'addizionale comunale IRPEF che va da 0% (comuni che azzerano grazie ai ristorni fiscali svizzeri) fino a 0,9%. Comuni con zero addizionale grazie ai ristorni: Maslianico, Bizzarone, Ronago, Cermenate. Comuni con addizionale massima: Como città (0,8%), Varese città (0,8%). Per un frontaliere con reddito CHF 80.000 la differenza tra 0% e 0,8% di addizionale è circa €570/anno di IRPEF in più. La scelta del comune di residenza ha quindi un impatto netto misurabile." } },
+ { "@type": "Question", "name": "Le webcam dei valichi sono in diretta?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la mappa incorpora i feed live di BAZG (Ufficio federale della dogana e della sicurezza dei confini) e di USTRA (Ufficio federale delle strade) per i valichi autostradali Chiasso-Brogeda e Gaggiolo. I feed si aggiornano ogni 60-120 secondi. Per i valichi minori senza webcam ufficiale pubblichiamo i tempi medi calcolati dai dati storici BAZG delle ultime 12 settimane per ogni fascia oraria." } }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF",
+ "url": `${BASE_URL}/guida-frontaliere/mappa-confine`,
+ "abstract": "La mappa confine Svizzera-Italia è lo strumento di riferimento per frontalieri: 9 valichi ticinesi, comuni italiani entro 20 km, addizionali IRPEF e ristorni fiscali in un unico colpo d'occhio.",
+ "description": "Mappa interattiva dei valichi Ticino-Italia (Chiasso-Brogeda, Chiasso Centro, Gaggiolo, Ponte Tresa, Bizzarone, Luino, Zenna, Maslianico, Chiasso Strada) con tempi d'attesa, webcam, orari, e lista dei comuni di frontiera con le addizionali IRPEF 2026.",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": BUILD_DATE_ISO,
+ "keywords": "mappa confine italia svizzera, valichi ticino, comuni frontalieri 20 km, addizionali irpef frontiera",
+ "speakable": SPEAKABLE_SECTION
  },
  // B.2 — Place schema per valico principale con geo coordinates (Ticino-Italia).
  // Source: data/borderCrossings.ts (lat/lng/hours/customsPresent).
