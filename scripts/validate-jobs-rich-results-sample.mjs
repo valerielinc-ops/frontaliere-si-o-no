@@ -144,8 +144,12 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
   if (jobPosting?.datePosted && !isIsoDate(jobPosting.datePosted)) {
     errors.push('invalid:datePosted');
   }
-  if (jobPosting?.validThrough && !isIsoDate(jobPosting.validThrough)) {
-    warnings.push('invalid:validThrough');
+  // GSC quality issue: missing validThrough is a non-critical issue but still
+  // counted in the JobPosting "Issues" report — promoted to deploy-blocking.
+  if (!jobPosting?.validThrough || String(jobPosting.validThrough).trim().length === 0) {
+    errors.push('missing:validThrough');
+  } else if (!isIsoDate(jobPosting.validThrough)) {
+    errors.push('invalid:validThrough');
   }
 
   const descLen = String(jobPosting?.description || '').trim().length;
@@ -168,6 +172,13 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
     }
     if (!address.streetAddress || String(address.streetAddress).trim().length === 0) {
       errors.push('missing:jobLocation.address.streetAddress');
+    }
+    // GSC quality issue: missing addressRegion is a non-critical issue but
+    // still counted in the JobPosting "Issues" report — promoted to error.
+    if (!address.addressRegion || String(address.addressRegion).trim().length === 0) {
+      errors.push('missing:jobLocation.address.addressRegion');
+    } else if (!/^[A-Z]{2}$/.test(String(address.addressRegion).trim())) {
+      errors.push('invalid:jobLocation.address.addressRegion');
     }
   }
 

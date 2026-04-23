@@ -24,14 +24,15 @@ Every active job page in every locale MUST have valid `JobPosting` JSON-LD with 
 `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`
 
 ### Mandatory fields enforced as deploy-blocking errors
-`baseSalary`, `postalCode`, `streetAddress`, `employmentType`
+`baseSalary`, `postalCode`, `streetAddress`, `employmentType`, `validThrough`, `jobLocation.address.addressRegion`
 
 ### Fallback rules — when source data is missing, generate defaults (never omit):
 - **`baseSalary`**: Use `minValue: 41080, currency: CHF, unitText: YEAR` (Ticino minimum wage)
 - **`postalCode`**: Use `6900` (Lugano) if lookup fails
 - **`streetAddress`**: Use `addressLocality` value as fallback
 - **`employmentType`**: Default to `OTHER` if contract type unknown
-- **`jobLocation`**: Default to `addressLocality: Ticino, addressRegion: TI, addressCountry: CH`
+- **`jobLocation`**: Default to `addressLocality: Bellinzona, addressRegion: TI, addressCountry: CH`. `addressRegion` is derived from `addressLocality` via `CITY_TO_CANTON` (build-plugins/shared/companyHqAddresses.ts) when source data is missing.
+- **`validThrough`**: Source value wins; otherwise `crawledAt + 60 days`, then `datePosted + 90 days`, then `now + 60 days`. Must always be a valid ISO datetime.
 - **`description`**: Use locale fallback chain (locale -> Italian -> raw description); skip JobPosting entirely if result < 30 chars
 
 ### Applies to all page types:

@@ -128,10 +128,23 @@ function validateJobPosting(schema, filePath) {
     ['datePosted', schema.datePosted],
     ['hiringOrganization.name', schema.hiringOrganization?.name],
     ['employmentType', schema.employmentType],
+    // GSC quality issue: missing validThrough flagged as non-critical but counted
+    // in the JobPosting "Issues" report — treat as deploy-blocking error.
+    ['validThrough', schema.validThrough],
   ];
   for (const [field, value] of checks) {
     if (!isNonEmpty(value)) {
       errors.push({ file: filePath, type: 'JobPosting', field, message: `JobPosting missing "${field}"` });
+    }
+  }
+
+  // validThrough must parse to a valid date. Past dates are allowed —
+  // expired soft-landing pages legitimately use a past validThrough to
+  // signal closure to Google.
+  if (isNonEmpty(schema.validThrough)) {
+    const vt = new Date(String(schema.validThrough));
+    if (Number.isNaN(vt.getTime())) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: `JobPosting validThrough "${schema.validThrough}" is not a valid ISO date` });
     }
   }
 
@@ -154,6 +167,13 @@ function validateJobPosting(schema, filePath) {
     }
     if (!isNonEmpty(address.streetAddress)) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.streetAddress', message: 'JobPosting missing "streetAddress"' });
+    }
+    // GSC quality issue: missing addressRegion flagged as non-critical but
+    // counted in the JobPosting "Issues" report — treat as deploy-blocking.
+    if (!isNonEmpty(address.addressRegion)) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: 'JobPosting missing "addressRegion"' });
+    } else if (!/^[A-Z]{2}$/.test(String(address.addressRegion).trim())) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: `JobPosting addressRegion "${address.addressRegion}" is not a 2-letter Swiss canton code` });
     }
   }
 
