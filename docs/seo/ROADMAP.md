@@ -34,6 +34,19 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
 
 ## Completed (audit trail, 2026-04-22 → 2026-04-23)
 
+### P0 bug fixes (live production 2026-04-23)
+
+- **BUG-1 — SPA nav to programmatic landings** (`cfec21117`): `hooks/useNavigationState.ts` click interceptor now falls through on `staticOverlay: true` routes so the browser performs a full navigation and the static HTML body renders. E2E in `tests/e2e/programmatic-landings-nav.spec.ts` covers F2, F4, F5, F6, F8 families.
+- **BUG-2 — hub chrome parity on programmatic landings** (`5c089bcc0` + `cfec21117`): new `build-plugins/shared/hubChrome.ts` server-renders a sub-navigation bar that mirrors `components/navigation/SubTabNav.tsx` (Tailwind tokens, ARIA, sub-tab set). `build-plugins/shared/seoPageShell.ts` accepts `hubChrome: { hubKey, activeSubTab }`; all 6 programmatic-landing plugins opt in:
+  - `fuelDailyPagesPlugin` → `stats / fuel-prices`
+  - `healthPremiumsLandingPlugin` → `confronti / health`
+  - `weeklyEmployersPlugin` → `job-board / jobs` (confronti fallback for the sub-nav items)
+  - `jobMarketSnapshotPlugin` → `stats / jobs-observatory`
+  - `borderWaitPagesPlugin` → `guida / border`
+  - `orphanQueryLandingPlugin` → `job-board / jobs`
+
+  `tests/e2e/hub-chrome-parity.spec.ts` asserts the `<nav class="seo-hub-subnav" data-hub="…">` + `[data-subtab-active="true"]` contract for each family.
+
 ### Technical fixes (Sprint 1 + extensions 1-3)
 
 - **Broken internal links 2051 → 0** — salary hub locale prefixes, nursing landings paths, weekly employers sibling filtering, job market snapshot employer URLs, editorial cross-links (commits `aa41cfe4e`, `7bdad31cb`)
@@ -123,9 +136,11 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
 
 Screenshots from user show two structural problems on production `https://frontaliereticino.ch/` affecting every programmatic SEO page shipped in 2026-04.
 
-### BUG-1. SPA navigation to programmatic landings dead-ends on home
+### BUG-1. SPA navigation to programmatic landings dead-ends on home — ✅ SHIPPED (2026-04-23, `cfec21117`)
 
-**Symptom**: Clicking the home page cards/links for `/prezzi-diesel/oggi/`, LAMal landings, `/aziende-che-assumono/...`, and similar programmatic URLs does NOT navigate. URL changes but content stays on home (React re-renders home component).
+See "Completed → P0 bug fixes" for the audit trail. Details retained below for the fix history.
+
+**Symptom (pre-fix)**: Clicking the home page cards/links for `/prezzi-diesel/oggi/`, LAMal landings, `/aziende-che-assumono/...`, and similar programmatic URLs does NOT navigate. URL changes but content stays on home (React re-renders home component).
 
 **Root cause hypothesis**: `services/router.ts` does not recognize these slug patterns, so the SPA router falls back to home on click. Only `window.location.assign` / new-tab works (because that forces full page load against the generated static HTML in `dist/`).
 
@@ -148,30 +163,9 @@ Screenshots from user show two structural problems on production `https://fronta
 
 **Commit**: `fix(spa): route programmatic landings through SPA with full hub chrome`.
 
-### BUG-2. Programmatic landing pages miss the SPA chrome / visual system
+### BUG-2. Programmatic landing pages miss the SPA chrome / visual system — ✅ SHIPPED (2026-04-23, `5c089bcc0`)
 
-**Symptom**: When `/prezzi-diesel/oggi/` is opened in a new tab, the page renders with the generic top header (logo + 6 nav tabs + search/lang/theme/CTA) but is missing the **sub-navigation bar** that hub pages like `/confronti/cambio-valuta` have (Cambio Valuta / Conti Correnti / Assicurazione Sanitaria / Telefonia Mobile / Spesa / Costo / Offerte Lavoro / Ristrutturazione tabs). Content cards render, but without the hub integration the page feels like a detached static island.
-
-**Screenshots**:
-- `/prezzi-diesel/oggi/` — breadcrumb "Home / Diesel / Chiasso", three data cards, NO sub-nav, NO pattern-matched hero.
-- `/confronti/cambio-valuta` (reference) — sub-nav with 8 hub tabs, big green hero, "Avviso Importante" callout, pattern comparatori.
-
-**Root cause hypothesis**: Build plugins (`fuelDailyPagesPlugin`, `healthPremiumsLandingPlugin`, `weeklyEmployersPlugin`, `borderWaitPagesPlugin`, `jobMarketSnapshotPlugin`, `orphanQueryLandingPlugin`) emit their own HTML bodies with a simplified layout. They use the shared header + footer (good), but skip the sub-tab bar and the hero/hub visual system. SPA hubs read sub-tab config from `services/navigation.ts` (or equivalent); the plugins don't.
-
-**Fix plan**:
-1. Extract the hub-chrome layout used by `/confronti/*` into a reusable component (`components/HubLayout.tsx` or similar) OR identify the existing shared layout module.
-2. Classify each programmatic-landing family into a parent hub:
-   - Prezzi diesel → new hub `/prezzi-carburante/` under Vita Quotidiana (or nest under Confronti if more appropriate)
-   - LAMal → under Confronti → Assicurazione Sanitaria (sub-tab already exists)
-   - Aziende che assumono → under Statistiche or Vita → new sub-tab
-   - Mercato lavoro → under Statistiche → sub-tab already exists
-   - Traffico dogane → under Vita Quotidiana / Guida
-3. Either (a) render the sub-tab bar + hero via shared layout in each plugin's HTML emission, OR (b) if BUG-1 is fixed by SPA routing, the SPA will render these pages with the standard chrome automatically — plugins only need to emit seed HTML for SEO/first paint.
-4. Verify the 6-tab hard cap in CLAUDE.md is not exceeded — new sub-tabs are fine, new top-level tabs are NOT.
-
-**End gates**: Visual diff test (Playwright screenshot-based) on one page per affected family vs `/confronti/cambio-valuta` layout parity; `npx vitest run` green.
-
-**Commit**: `refactor(ui): unify programmatic landings under shared hub chrome`.
+See "Completed → P0 bug fixes" section below for the audit trail. Short version: `build-plugins/shared/hubChrome.ts` now server-side-renders a `<SubTabNav>`-parity sub-navigation bar per landing family; all 6 programmatic-landing plugins opt in via `hubChrome: { hubKey, activeSubTab }` on `buildSeoPageHtml`. `tests/e2e/hub-chrome-parity.spec.ts` locks in the contract (one URL per family asserts sub-nav + active tab attributes).
 
 ---
 
@@ -179,7 +173,7 @@ Screenshots from user show two structural problems on production `https://fronta
 
 Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliverable). All must pass the standard gates: `npx tsc --noEmit`, `npx vite build`, `npx vitest run`, `node scripts/validate-internal-links.mjs`, `node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any`, `node scripts/validate-canonical.mjs`, `node scripts/validate-hreflang.mjs`, `node scripts/validate-structured-data.mjs`, FAQ uniqueness test. Launch each subagent with `model: "opus"`.
 
-**Execution order enforced**: BUG-1 and BUG-2 MUST land before AE-1..AE-9 — otherwise new landings will inherit the same broken chrome.
+**Execution order enforced**: BUG-1 and BUG-2 ✅ shipped 2026-04-23 — AE-1..AE-9 may now proceed.
 
 ### AE-1. Striking-distance optimisation, 6 existing pages (F4-B)
 
