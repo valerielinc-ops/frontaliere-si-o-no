@@ -2526,6 +2526,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.title': 'Valbianca en difficulté: Airolo met 1,5 millions et augmente le multiplicateur',
     'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.excerpt': 'Le commune d\'Airolo répond avec un apport de 1,5 millions pour sauver Valbianca, une entreprise en difficulté.',
     'blog.article.valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.imageAlt': 'Vue panoramique de Bellinzona avec architecture typique de Ticino',
+    'blog.article.aumento-stipendi-frontalieri-lombardia-2026.title': 'Augmentation de 20% pour les médecins et infirmiers frontaliers',
+    'blog.article.aumento-stipendi-frontalieri-lombardia-2026.excerpt': 'La Lombardie introduit une augmentation de 20% pour les médecins et infirmiers travaillant à la frontière avec la Suisse, afin de contrer la fuite du personnel soignant.',
+    'blog.article.aumento-stipendi-frontalieri-lombardia-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes, des bateaux et un ciel bleu clair',
 };
 
 export default blogMetaFr;

@@ -6874,4 +6874,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aumento-stipendi-frontalieri-lombardia-2026',
+ category: 'novita',
+ date: '2026-04-23T06:21:45.817Z',
+ image: '/images/blog/aumento-stipendi-frontalieri-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ];

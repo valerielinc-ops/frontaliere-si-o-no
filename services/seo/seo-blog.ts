@@ -11283,6 +11283,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-stipendi-frontalieri-lombardia-2026': {
+    title: 'Aumento del 20% per medici e infermieri | Frontaliere Ticino',
+    description: 'La Lombardia introduce un aumento del 20% per medici e infermieri di frontiera per contrastare la fuga verso la Svizzera. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, medici, infermieri, frontiera',
+    ogTitle: 'Aumento stipendi medici e infermieri | Frontaliere Ticino',
+    ogDescription: 'La Lombardia introduce un aumento del 20% per medici e infermieri di frontiera per contrastare la fuga verso la Svizzera.',
+    canonicalPath: '/articoli-frontaliere/aumento-stipendi-frontalieri-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento del 20% per medici e infermieri di frontiera in Lombardia",
+      "description": "La Lombardia introduce un aumento del 20% per medici e infermieri di frontiera per contrastare la fuga verso la Svizzera. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-stipendi-frontalieri-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano con montagne, barche e cielo azzurro cristallino"
+      },
+      "datePublished": "2026-04-23T06:21:45+00:00",
+      "dateModified": "2026-04-23T06:21:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-stipendi-frontalieri-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
