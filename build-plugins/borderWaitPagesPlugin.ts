@@ -512,9 +512,10 @@ function renderWebcamSection(
       width="640"
       height="360"
       loading="lazy"
+      referrerpolicy="no-referrer"
       data-webcam-refresh="${refreshMs}"
       data-webcam-base-url="${esc(w.imageUrl)}"
-      onerror="var f=this.closest('figure');if(f){f.style.display='none';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;max-width:640px;height:auto;border-radius:12px;border:1px solid #e2e8f0;background:#f1f5f9"
     >
     <figcaption style="margin-top:8px;font-size:14px;color:#475569">
