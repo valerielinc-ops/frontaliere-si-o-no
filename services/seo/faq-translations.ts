@@ -3818,6 +3818,225 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  }
  },
 
+ // ── Currency exchange FAQ (confronti/exchange landing) ──
+ "Qual è lo spread medio per cambiare franchi svizzeri in euro?": {
+ en: { q: "What is the average spread for exchanging Swiss francs to euros?", a: "Bank spreads are typically 2–3% above the mid-market rate. Fintech apps like Wise and Revolut offer spreads of 0.3–0.5%, saving roughly 2% on every CHF→EUR conversion." },
+ de: { q: "Wie hoch ist der durchschnittliche Spread beim Umtausch von Schweizer Franken in Euro?", a: "Die Spreads der Banken liegen in der Regel 2–3 % ueber dem Interbankenkurs. Fintech-Apps wie Wise und Revolut bieten Spreads von 0,3–0,5 % und sparen so rund 2 % bei jedem Umtausch CHF→EUR." },
+ fr: { q: "Quel est le spread moyen pour changer des francs suisses en euros ?", a: "Les spreads bancaires sont generalement de 2 a 3 % au-dessus du cours interbancaire. Les applications fintech comme Wise et Revolut proposent des spreads de 0,3 a 0,5 %, ce qui permet d'economiser environ 2 % a chaque conversion CHF→EUR." }
+ },
+ "Quanto si risparmia usando Revolut Premium o Wise Borderless?": {
+ en: { q: "How much do you save with Revolut Premium or Wise Borderless?", a: "On a CHF 6,500 monthly salary converted to EUR, a bank spread of 2% costs around CHF 130/month. Revolut Premium or Wise Borderless reduce that to about CHF 25/month, saving CHF 1,200+ per year." },
+ de: { q: "Wie viel spart man mit Revolut Premium oder Wise Borderless?", a: "Bei einem Monatslohn von CHF 6.500, der in EUR umgetauscht wird, kostet ein Bankspread von 2 % rund CHF 130/Monat. Revolut Premium oder Wise Borderless senken diese Kosten auf etwa CHF 25/Monat und sparen mehr als CHF 1.200 pro Jahr." },
+ fr: { q: "Combien economise-t-on avec Revolut Premium ou Wise Borderless ?", a: "Sur un salaire mensuel de CHF 6 500 converti en EUR, un spread bancaire de 2 % coute environ CHF 130/mois. Revolut Premium ou Wise Borderless reduisent ce cout a environ CHF 25/mois, soit plus de CHF 1 200 d'economies par an." }
+ },
+ "Le commissioni di cambio sono detraibili dalle tasse italiane?": {
+ en: { q: "Are currency exchange fees tax-deductible in Italy?", a: "For private individuals, exchange fees are not deductible. Self-employed cross-border workers can deduct them as professional expenses if clearly linked to business activity and documented via invoices or bank statements." },
+ de: { q: "Sind Wechselkursgebuehren in Italien steuerlich absetzbar?", a: "Fuer Privatpersonen sind Wechselkursgebuehren nicht abzugsfaehig. Selbststaendige Grenzgaenger koennen sie als Berufskosten abziehen, sofern sie eindeutig mit der Taetigkeit verbunden und durch Rechnungen oder Kontoauszuege belegt sind." },
+ fr: { q: "Les frais de change sont-ils deductibles des impots italiens ?", a: "Pour les particuliers, les frais de change ne sont pas deductibles. Les frontaliers independants peuvent les deduire comme frais professionnels s'ils sont clairement lies a l'activite et documentes par des factures ou des releves bancaires." }
+ },
+
+ // ── Nursery / childcare (vita/nursery landing) ──
+ "Quanto costa un asilo nido in Ticino rispetto all'Italia?": {
+ en: { q: "How much does a nursery in Ticino cost compared with Italy?", a: "Public Ticino nurseries charge on a sliding scale (CHF 20–130/day based on household income). Italian nurseries cost €400–900/month. For many cross-border families a public Italian nursery remains cheaper once subsidies are applied." },
+ de: { q: "Wie viel kostet eine Kinderkrippe im Tessin im Vergleich zu Italien?", a: "Oeffentliche Krippen im Tessin rechnen nach einem einkommensabhaengigen Tarif ab (CHF 20–130/Tag). Italienische Kinderkrippen kosten 400–900 EUR/Monat. Fuer viele Grenzgaenger-Familien bleibt die oeffentliche italienische Krippe nach Foerderungen guenstiger." },
+ fr: { q: "Combien coute une creche au Tessin par rapport a l'Italie ?", a: "Les creches publiques tessinoises appliquent un tarif progressif (CHF 20 a 130/jour selon le revenu du menage). Les creches italiennes coutent 400 a 900 EUR/mois. Pour de nombreuses familles frontalieres, la creche publique italienne reste moins chere apres subventions." }
+ },
+ "Le famiglie di frontalieri hanno diritto a sussidi in Ticino?": {
+ en: { q: "Are cross-border families entitled to subsidies in Ticino?", a: "Only B-permit residents qualify for full Ticino subsidies. G-permit cross-border workers do not receive cantonal childcare subsidies but may access Italian benefits (bonus nido INPS up to €3,000/year)." },
+ de: { q: "Haben Grenzgaenger-Familien Anspruch auf Zuschuesse im Tessin?", a: "Nur Inhaber der B-Bewilligung haben Anspruch auf volle Tessiner Zuschuesse. Grenzgaenger mit G-Bewilligung erhalten keine kantonalen Kinderbetreuungszuschuesse, koennen aber italienische Leistungen nutzen (Bonus nido INPS bis zu 3.000 EUR/Jahr)." },
+ fr: { q: "Les familles de frontaliers ont-elles droit a des subventions au Tessin ?", a: "Seuls les residents avec permis B ont droit aux subventions tessinoises completes. Les frontaliers avec permis G ne percoivent pas de subventions cantonales pour la garde d'enfants, mais peuvent acceder aux aides italiennes (bonus nido INPS jusqu'a 3 000 EUR/an)." }
+ },
+ "Posso detrarre fiscalmente le spese del nido in Italia?": {
+ en: { q: "Can I deduct nursery expenses on my Italian tax return?", a: "Yes, nursery expenses are deductible from Italian IRPEF at 19% up to €632/year per child, plus the INPS bonus nido of up to €3,000/year based on ISEE (household income)." },
+ de: { q: "Kann ich Kinderkrippenkosten in Italien steuerlich absetzen?", a: "Ja, Kinderkrippenkosten sind von der italienischen IRPEF zu 19 % bis zu 632 EUR/Jahr pro Kind absetzbar, zusaetzlich zum INPS-Bonus nido von bis zu 3.000 EUR/Jahr je nach ISEE (Haushaltseinkommen)." },
+ fr: { q: "Puis-je deduire les frais de creche de mes impots italiens ?", a: "Oui, les frais de creche sont deductibles de l'IRPEF italien a 19 % jusqu'a 632 EUR/an par enfant, en plus du bonus nido INPS pouvant atteindre 3 000 EUR/an selon l'ISEE (revenu du menage)." }
+ },
+ "Come si entra in un nido comunale ticinese?": {
+ en: { q: "How do you enrol a child in a municipal Ticino nursery?", a: "Each Ticino municipality keeps its own waiting list. You apply online or at the social services desk between January and March for the following school year, providing residence certificate, last tax return and employment contracts for both parents." },
+ de: { q: "Wie meldet man ein Kind in einer kommunalen Tessiner Krippe an?", a: "Jede Tessiner Gemeinde fuehrt ihre eigene Warteliste. Die Anmeldung erfolgt online oder am Schalter der Sozialdienste zwischen Januar und Maerz fuer das folgende Schuljahr, mit Wohnsitzbescheinigung, letzter Steuererklaerung und Arbeitsvertraegen beider Elternteile." },
+ fr: { q: "Comment inscrire un enfant dans une creche municipale tessinoise ?", a: "Chaque commune tessinoise tient sa propre liste d'attente. L'inscription se fait en ligne ou au guichet des services sociaux entre janvier et mars pour l'annee scolaire suivante, avec l'attestation de residence, la derniere declaration d'impots et les contrats de travail des deux parents." }
+ },
+ "Conviene mandare il bambino al nido in Italia o in Ticino?": {
+ en: { q: "Is it better to send the child to a nursery in Italy or Ticino?", a: "If both parents cross the border, a Ticino nursery reduces the daily commute with the child. If only one works across the border, an Italian nursery is usually cheaper after subsidies and closer to home." },
+ de: { q: "Besser Kind in die Krippe in Italien oder im Tessin?", a: "Wenn beide Elternteile pendeln, reduziert eine Tessiner Krippe das taegliche Pendeln mit dem Kind. Wenn nur einer pendelt, ist eine italienische Krippe nach Zuschuessen in der Regel guenstiger und wohnortnaeher." },
+ fr: { q: "Vaut-il mieux mettre l'enfant en creche en Italie ou au Tessin ?", a: "Si les deux parents sont frontaliers, la creche au Tessin reduit les trajets quotidiens avec l'enfant. Si un seul parent est frontalier, la creche en Italie est generalement moins chere apres subventions et plus proche du domicile." }
+ },
+
+ // ── Blog index FAQ ──
+ "Ogni quanto vengono aggiornati gli articoli per frontalieri?": {
+ en: { q: "How often are the articles for cross-border workers updated?", a: "Editorial articles are reviewed monthly; tax and permit guides are refreshed when regulations change. Every article shows a 'dateModified' label so you can tell when content was last updated." },
+ de: { q: "Wie oft werden die Grenzgaenger-Artikel aktualisiert?", a: "Redaktionelle Artikel werden monatlich ueberprueft; Steuer- und Bewilligungs-Guides werden bei Gesetzesaenderungen aktualisiert. Jeder Artikel zeigt ein 'dateModified'-Datum an, damit Sie den letzten Aktualisierungsstand erkennen." },
+ fr: { q: "A quelle frequence les articles pour frontaliers sont-ils mis a jour ?", a: "Les articles editoriaux sont revus chaque mois ; les guides fiscaux et permis sont mis a jour lorsque les regles changent. Chaque article affiche une date 'dateModified' pour savoir quand le contenu a ete mis a jour." }
+ },
+ "Gli articoli coprono anche le novità del nuovo accordo fiscale 2024?": {
+ en: { q: "Do the articles also cover updates on the new 2024 tax agreement?", a: "Yes, the section 'Nuovo Accordo 2023-2026' tracks updates to the Italy-Switzerland treaty and the Italian and Swiss implementing acts, with worked examples for both old and new cross-border workers." },
+ de: { q: "Behandeln die Artikel auch die Neuerungen des Steuerabkommens 2024?", a: "Ja, die Rubrik 'Nuovo Accordo 2023-2026' verfolgt die Aktualisierungen des Abkommens Italien-Schweiz sowie die italienischen und schweizerischen Umsetzungsnormen, mit Rechenbeispielen fuer alte und neue Grenzgaenger." },
+ fr: { q: "Les articles couvrent-ils aussi les nouveautes du nouvel accord fiscal 2024 ?", a: "Oui, la rubrique 'Nuovo Accordo 2023-2026' suit les mises a jour de l'accord Italie-Suisse et les textes d'application italiens et suisses, avec des exemples chiffres pour les anciens et nouveaux frontaliers." }
+ },
+ "Posso usare gli articoli per confrontare Permesso G e Permesso B?": {
+ en: { q: "Can I use the articles to compare G permit and B permit?", a: "Yes, the 'Permits' guide and the 'G vs B' comparator break down tax, healthcare, pension and residency implications of each permit with side-by-side examples." },
+ de: { q: "Kann ich die Artikel nutzen, um G- und B-Bewilligung zu vergleichen?", a: "Ja, der Bewilligungs-Guide und der Vergleich 'G vs B' erlaeutern die Auswirkungen auf Steuern, Krankenversicherung, Vorsorge und Wohnsitz fuer jede Bewilligung mit Beispielen im direkten Vergleich." },
+ fr: { q: "Puis-je utiliser les articles pour comparer le permis G et le permis B ?", a: "Oui, le guide 'Permis' et le comparateur 'G vs B' detaillent les consequences fiscales, sanitaires, de prevoyance et de residence de chaque permis avec des exemples mis en parallele." }
+ },
+ "Dove trovo le statistiche aggiornate su stipendi e mercato del lavoro frontaliero?": {
+ en: { q: "Where can I find up-to-date statistics on salaries and the cross-border job market?", a: "The 'Statistiche' section gathers Ticino salary observatory data, unemployment, customs traffic and weekly job-market snapshots, all refreshed automatically from official Swiss and Italian sources." },
+ de: { q: "Wo finde ich aktuelle Statistiken zu Loehnen und Grenzgaenger-Arbeitsmarkt?", a: "Die Rubrik 'Statistiche' buendelt Daten des Tessiner Lohnobservatoriums, Arbeitslosigkeit, Grenzverkehr und woechentliche Arbeitsmarkt-Snapshots, automatisch aktualisiert aus offiziellen Schweizer und italienischen Quellen." },
+ fr: { q: "Ou trouver les statistiques a jour sur les salaires et le marche du travail frontalier ?", a: "La section 'Statistiche' regroupe les donnees de l'observatoire des salaires tessinois, le chomage, le trafic douanier et des snapshots hebdomadaires du marche de l'emploi, mis a jour automatiquement a partir de sources officielles suisses et italiennes." }
+ },
+ "Gli articoli sostituiscono una consulenza professionale?": {
+ en: { q: "Do the articles replace professional advice?", a: "No. The articles are editorial and educational content. For specific tax, legal or pension questions always consult a certified accountant, tax lawyer or pension adviser specialised in cross-border work." },
+ de: { q: "Ersetzen die Artikel eine professionelle Beratung?", a: "Nein. Die Artikel sind redaktionelle und informative Inhalte. Bei konkreten Steuer-, Rechts- oder Vorsorgefragen wenden Sie sich stets an eine zertifizierte Steuerberatung, einen Fachanwalt oder einen auf Grenzgaenger spezialisierten Vorsorgeberater." },
+ fr: { q: "Les articles remplacent-ils un conseil professionnel ?", a: "Non. Les articles sont des contenus editoriaux et pedagogiques. Pour des questions fiscales, juridiques ou de prevoyance specifiques, consultez toujours un expert-comptable certifie, un avocat fiscaliste ou un conseiller de prevoyance specialise en travail frontalier." }
+ },
+
+ // ── Tassazione hub FAQ ──
+ "Qual è la differenza fiscale tra vecchi e nuovi frontalieri nel 2026?": {
+ en: { q: "What is the tax difference between old and new cross-border workers in 2026?", a: "Old cross-border workers (hired before 17/07/2023) pay only Swiss withholding tax under the transitional regime until 2033. New cross-border workers pay Swiss withholding tax plus Italian IRPEF with a €10,000 exemption and a tax credit to avoid double taxation." },
+ de: { q: "Worin besteht der steuerliche Unterschied zwischen alten und neuen Grenzgaengern 2026?", a: "Alte Grenzgaenger (vor dem 17.07.2023 eingestellt) zahlen im Uebergangsregime bis 2033 nur die Schweizer Quellensteuer. Neue Grenzgaenger zahlen die Schweizer Quellensteuer sowie die italienische IRPEF mit einem Freibetrag von 10.000 EUR und einer Steuergutschrift zur Vermeidung der Doppelbesteuerung." },
+ fr: { q: "Quelle est la difference fiscale entre anciens et nouveaux frontaliers en 2026 ?", a: "Les anciens frontaliers (embauches avant le 17/07/2023) ne paient que l'impot a la source suisse dans le regime transitoire jusqu'en 2033. Les nouveaux frontaliers paient l'impot a la source suisse plus l'IRPEF italien avec une franchise de 10 000 EUR et un credit d'impot pour eviter la double imposition." }
+ },
+ "Come si evita la doppia imposizione fiscale Italia-Svizzera?": {
+ en: { q: "How do you avoid Italy-Switzerland double taxation?", a: "New cross-border workers declare Swiss income in the Italian return and apply a tax credit equal to the Swiss withholding tax already paid (capped at the IRPEF due on the same income). Old cross-border workers are exempt because they pay only in Switzerland." },
+ de: { q: "Wie vermeidet man die Doppelbesteuerung Italien-Schweiz?", a: "Neue Grenzgaenger geben das Schweizer Einkommen in der italienischen Steuererklaerung an und nehmen eine Steuergutschrift in Hoehe der bereits gezahlten Schweizer Quellensteuer in Anspruch (begrenzt auf die IRPEF auf das gleiche Einkommen). Alte Grenzgaenger sind befreit, da sie nur in der Schweiz zahlen." },
+ fr: { q: "Comment eviter la double imposition Italie-Suisse ?", a: "Les nouveaux frontaliers declarent le revenu suisse dans la declaration italienne et appliquent un credit d'impot egal a l'impot a la source suisse deja paye (plafonne a l'IRPEF due sur le meme revenu). Les anciens frontaliers en sont exoneres car ils ne paient qu'en Suisse." }
+ },
+ "Quali sono le aliquote dell'imposta alla fonte in Canton Ticino nel 2026?": {
+ en: { q: "What are the 2026 withholding tax rates in Canton Ticino?", a: "Ticino withholding tax rates are progressive, from 0% up to about 15% on gross salary, adjusted for civil status and dependent children. Detailed brackets are published annually in the Tariffa IF." },
+ de: { q: "Wie hoch sind die Quellensteuersaetze im Kanton Tessin 2026?", a: "Die Tessiner Quellensteuersaetze sind progressiv und reichen von 0 % bis rund 15 % des Bruttolohns, angepasst an Zivilstand und unterhaltsberechtigte Kinder. Die Tarifstufen werden jaehrlich in der Tariffa IF veroeffentlicht." },
+ fr: { q: "Quels sont les taux de l'impot a la source au Canton Tessin en 2026 ?", a: "Les taux de l'impot a la source tessinois sont progressifs, de 0 % jusqu'a environ 15 % du salaire brut, ajustes selon l'etat civil et les enfants a charge. Les tranches detaillees sont publiees chaque annee dans la Tariffa IF." }
+ },
+ "Quale permesso conviene: G o B per motivi fiscali?": {
+ en: { q: "Which permit is better for tax reasons: G or B?", a: "G permit keeps Italian tax residence (lower overall rate for most incomes thanks to the transitional regime). B permit relocates residence to Switzerland, beneficial for salaries above CHF 120,000 where Swiss IFD + cantonal tax is lower than Italian IRPEF." },
+ de: { q: "Welche Bewilligung ist steuerlich besser: G oder B?", a: "Die G-Bewilligung behaelt den italienischen Steuersitz bei (fuer die meisten Einkommen dank Uebergangsregime insgesamt guenstiger). Die B-Bewilligung verlegt den Wohnsitz in die Schweiz und ist bei Loehnen ueber CHF 120.000 vorteilhaft, wo die Schweizer direkte Bundessteuer und Kantonssteuer unter der italienischen IRPEF liegen." },
+ fr: { q: "Quel permis est le plus avantageux fiscalement : G ou B ?", a: "Le permis G conserve la residence fiscale italienne (plus avantageux pour la plupart des revenus grace au regime transitoire). Le permis B transfere la residence en Suisse et devient interessant au-dela de CHF 120 000 de salaire, ou l'IFD suisse et l'impot cantonal restent inferieurs a l'IRPEF italien." }
+ },
+ "Quali deduzioni fiscali possono richiedere i frontalieri?": {
+ en: { q: "Which tax deductions can cross-border workers claim?", a: "In Italy: medical expenses (19%), mortgage interest on primary residence, pillar 3a contributions (up to CHF 7,258), commuting expenses documented by receipts. In Switzerland new cross-border workers can deduct the standard 3% of gross salary for professional expenses." },
+ de: { q: "Welche Abzuege koennen Grenzgaenger geltend machen?", a: "In Italien: Arztkosten (19 %), Hypothekarzinsen fuer den Hauptwohnsitz, Einzahlungen in die Saeule 3a (bis CHF 7.258), Pendelkosten mit Belegen. In der Schweiz koennen neue Grenzgaenger den Pauschalabzug von 3 % des Bruttolohns fuer Berufskosten geltend machen." },
+ fr: { q: "Quelles deductions fiscales les frontaliers peuvent-ils demander ?", a: "En Italie : frais medicaux (19 %), interets hypothecaires sur la residence principale, cotisations au pilier 3a (jusqu'a CHF 7 258), frais de deplacement justifies. En Suisse, les nouveaux frontaliers peuvent deduire forfaitairement 3 % du salaire brut au titre des frais professionnels." }
+ },
+ "Come si calcola il credito d'imposta per le tasse pagate in Svizzera?": {
+ en: { q: "How is the tax credit for taxes paid in Switzerland calculated?", a: "The credit equals the Swiss withholding tax paid, capped at the Italian IRPEF due on the same income. It is reported in Box CE of the Redditi PF form (or Box G of the 730) using the Swiss Lohnausweis to document withholdings." },
+ de: { q: "Wie berechnet sich die Anrechnung der in der Schweiz gezahlten Steuer?", a: "Die Gutschrift entspricht der gezahlten Schweizer Quellensteuer, begrenzt auf die italienische IRPEF auf dasselbe Einkommen. Sie wird im Feld CE des Formulars Redditi PF (oder Feld G des 730) anhand des Schweizer Lohnausweises als Nachweis des Quellensteuerabzugs angegeben." },
+ fr: { q: "Comment calcule-t-on le credit d'impot pour les impots payes en Suisse ?", a: "Le credit egale l'impot a la source suisse paye, plafonne a l'IRPEF italien du sur le meme revenu. Il se declare dans le cadre CE du formulaire Redditi PF (ou cadre G du 730) en utilisant le Lohnausweis suisse pour justifier les retenues." }
+ },
+ "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?": {
+ en: { q: "What are the special cases: teleworking, work in multiple cantons, pensioners?", a: "Teleworking: the Italy-Switzerland protocol allows up to 25% remote work without losing cross-border status. Multiple cantons: tax is split pro-rata by actual working days. Pensioners: Swiss AVS pensions are taxed in Italy except for the 5% Swiss exemption for old cross-border workers." },
+ de: { q: "Was sind die Sonderfaelle: Homeoffice, Arbeit in mehreren Kantonen, Rentner?", a: "Homeoffice: das Protokoll Italien-Schweiz erlaubt bis zu 25 % Fernarbeit, ohne den Grenzgaenger-Status zu verlieren. Mehrere Kantone: die Steuer wird pro rata nach den tatsaechlichen Arbeitstagen aufgeteilt. Rentner: Schweizer AHV-Renten werden in Italien besteuert, ausser den 5 % Schweizer Freibetrag fuer alte Grenzgaenger." },
+ fr: { q: "Quels sont les cas particuliers : teletravail, travail dans plusieurs cantons, retraites ?", a: "Teletravail : le protocole Italie-Suisse autorise jusqu'a 25 % de teletravail sans perdre le statut de frontalier. Plusieurs cantons : l'impot est reparti au prorata des jours effectivement travailles. Retraites : les rentes AVS suisses sont imposees en Italie, sauf la franchise suisse de 5 % pour les anciens frontaliers." }
+ },
+ "Quali sono gli errori fiscali più comuni dei frontalieri?": {
+ en: { q: "What are the most common tax mistakes made by cross-border workers?", a: "Common mistakes: forgetting to declare Swiss income in Italy (triggering assessments), misapplying the €10,000 exemption for new cross-border workers, omitting the Lohnausweis and losing the tax credit, missing AVS/LPP disclosures in the Quadro RW." },
+ de: { q: "Was sind die haeufigsten Steuerfehler der Grenzgaenger?", a: "Haeufige Fehler: das Schweizer Einkommen in Italien nicht anzugeben (Nachveranlagungen), den Freibetrag von 10.000 EUR fuer neue Grenzgaenger falsch anzuwenden, den Lohnausweis zu vergessen und die Steuergutschrift zu verlieren, AHV/BVG im Quadro RW nicht zu erklaeren." },
+ fr: { q: "Quelles sont les erreurs fiscales les plus frequentes des frontaliers ?", a: "Erreurs frequentes : oublier de declarer le revenu suisse en Italie (redressements), mal appliquer la franchise de 10 000 EUR pour les nouveaux frontaliers, omettre le Lohnausweis et perdre le credit d'impot, ne pas declarer AVS/LPP dans le Quadro RW." }
+ },
+ "Come si compila la dichiarazione dei redditi per frontalieri nel 2026?": {
+ en: { q: "How do you fill in the 2026 tax return as a cross-border worker?", a: "Use the 'Redditi PF' form (or 730 via a CAF): include Swiss salary in box RC, exemptions in RC5, the Swiss tax credit in CE, and Swiss bank accounts + pension funds in RW. Keep the Swiss Lohnausweis as proof." },
+ de: { q: "Wie fuellt man als Grenzgaenger die Steuererklaerung 2026 aus?", a: "Nutzen Sie das Formular 'Redditi PF' (oder 730 ueber ein CAF): Schweizer Lohn im Feld RC angeben, Freibetraege in RC5, die Schweizer Steueranrechnung in CE und Schweizer Bankkonten + Vorsorgeguthaben im Quadro RW. Den Schweizer Lohnausweis als Nachweis aufbewahren." },
+ fr: { q: "Comment remplir la declaration d'impots frontalier en 2026 ?", a: "Utilisez le formulaire 'Redditi PF' (ou 730 via un CAF) : salaire suisse dans le cadre RC, franchises dans RC5, credit d'impot suisse en CE et comptes bancaires + caisses de prevoyance suisses dans le Quadro RW. Conservez le Lohnausweis comme justificatif." }
+ },
+ "Quando conviene il regime transitorio vecchi frontalieri fino al 2033?": {
+ en: { q: "When is the transitional regime for old cross-border workers convenient until 2033?", a: "The transitional regime is always preferable if you started before 17/07/2023: you pay only Swiss tax, with no additional Italian IRPEF. It applies automatically, provided the cross-border employment contract is not interrupted for more than 6 months." },
+ de: { q: "Wann lohnt sich das Uebergangsregime fuer alte Grenzgaenger bis 2033?", a: "Das Uebergangsregime ist immer vorzuziehen, wenn Sie vor dem 17.07.2023 begonnen haben: Sie zahlen nur die Schweizer Steuer, ohne zusaetzliche italienische IRPEF. Es gilt automatisch, solange das Grenzgaenger-Arbeitsverhaeltnis nicht laenger als 6 Monate unterbrochen wird." },
+ fr: { q: "Quand le regime transitoire des anciens frontaliers jusqu'en 2033 est-il avantageux ?", a: "Le regime transitoire est toujours preferable si vous avez debute avant le 17/07/2023 : vous ne payez que l'impot suisse, sans IRPEF italien supplementaire. Il s'applique automatiquement, tant que la relation de travail frontaliere n'est pas interrompue plus de 6 mois." }
+ },
+ "Cosa cambia con il Nuovo Accordo del 17 luglio 2023?": {
+ en: { q: "What changes with the New Agreement of 17 July 2023?", a: "New cross-border workers hired after 17/07/2023 pay Swiss withholding tax and Italian IRPEF with a €10,000 exemption. They also pay the 6% health contribution redistributed to Italian border regions." },
+ de: { q: "Was aendert sich mit dem Neuen Abkommen vom 17. Juli 2023?", a: "Neue Grenzgaenger, die nach dem 17.07.2023 eingestellt werden, zahlen die Schweizer Quellensteuer und die italienische IRPEF mit einem Freibetrag von 10.000 EUR. Sie zahlen zudem die Gesundheitsabgabe von 6 %, die an die italienischen Grenzregionen verteilt wird." },
+ fr: { q: "Qu'est-ce qui change avec le Nouvel Accord du 17 juillet 2023 ?", a: "Les nouveaux frontaliers embauches apres le 17/07/2023 paient l'impot a la source suisse et l'IRPEF italien avec une franchise de 10 000 EUR. Ils paient aussi la contribution sante de 6 % redistribuee aux regions frontalieres italiennes." }
+ },
+
+ // ── Tassa salute landing FAQ ──
+ "Cos'è la tassa salute per i frontalieri?": {
+ en: { q: "What is the cross-border health contribution?", a: "It is a 6% levy on the Swiss gross withholding tax introduced by Article 9 of the Italy-Switzerland Agreement effective 17/07/2023. It funds the Italian National Health Service in the Italian border regions." },
+ de: { q: "Was ist die Gesundheitsabgabe fuer Grenzgaenger?", a: "Es handelt sich um eine Abgabe von 6 % auf die Schweizer Bruttoquellensteuer, die durch Artikel 9 des Abkommens Italien-Schweiz vom 17.07.2023 eingefuehrt wurde. Sie finanziert das italienische Gesundheitssystem in den italienischen Grenzregionen." },
+ fr: { q: "Qu'est-ce que la contribution sante pour frontaliers ?", a: "Il s'agit d'un prelevement de 6 % sur l'impot a la source brut suisse introduit par l'article 9 de l'Accord Italie-Suisse entre en vigueur le 17/07/2023. Il finance le service national de sante italien dans les regions frontalieres." }
+ },
+ "Quanto è la tassa salute frontalieri nel 2026?": {
+ en: { q: "How much is the 2026 cross-border health contribution?", a: "6% of the gross Swiss withholding tax: on a CHF 72,000 gross salary with 9% withholding it comes to around CHF 389/year (CHF 32/month); on CHF 90,000 with 10% withholding, about CHF 540/year (CHF 45/month)." },
+ de: { q: "Wie hoch ist die Gesundheitsabgabe der Grenzgaenger 2026?", a: "6 % der Bruttoquellensteuer der Schweiz: bei einem Bruttolohn von CHF 72.000 mit 9 % Quellensteuer rund CHF 389/Jahr (CHF 32/Monat); bei CHF 90.000 mit 10 % Quellensteuer rund CHF 540/Jahr (CHF 45/Monat)." },
+ fr: { q: "Combien s'eleve la contribution sante des frontaliers en 2026 ?", a: "6 % de l'impot a la source brut suisse : sur un salaire brut de CHF 72 000 avec une retenue de 9 %, environ CHF 389/an (CHF 32/mois) ; sur CHF 90 000 avec une retenue de 10 %, environ CHF 540/an (CHF 45/mois)." }
+ },
+ "I vecchi frontalieri devono pagare la tassa salute?": {
+ en: { q: "Do old cross-border workers have to pay the health contribution?", a: "No. Only 'new' cross-border workers hired after 17/07/2023 pay the contribution. Old workers hired before that date remain in the transitional regime until 2033 with no contribution due." },
+ de: { q: "Muessen alte Grenzgaenger die Gesundheitsabgabe zahlen?", a: "Nein. Nur 'neue' Grenzgaenger, die nach dem 17.07.2023 eingestellt wurden, zahlen die Abgabe. Alte, vor diesem Datum eingestellte Grenzgaenger verbleiben bis 2033 im Uebergangsregime ohne Zahlungspflicht." },
+ fr: { q: "Les anciens frontaliers doivent-ils payer la contribution sante ?", a: "Non. Seuls les 'nouveaux' frontaliers embauches apres le 17/07/2023 paient la contribution. Les anciens embauches avant cette date restent dans le regime transitoire jusqu'en 2033 sans contribution." }
+ },
+ "Chi incassa materialmente la tassa salute frontalieri?": {
+ en: { q: "Who actually collects the cross-border health contribution?", a: "The Swiss canton of employment withholds it at source. Switzerland then transfers it to the Confederation, which redistributes the amounts to the Italian border regions (Lombardy, Piedmont, Aosta Valley and Trentino-Alto Adige)." },
+ de: { q: "Wer erhebt die Grenzgaenger-Gesundheitsabgabe tatsaechlich?", a: "Der Schweizer Arbeitskanton behaelt sie an der Quelle ein. Die Schweiz ueberweist sie anschliessend an den Bund, der die Betraege an die italienischen Grenzregionen (Lombardei, Piemont, Aostatal und Trentino-Suedtirol) weiterleitet." },
+ fr: { q: "Qui percoit effectivement la contribution sante frontaliers ?", a: "Le canton suisse d'emploi la preleve a la source. La Suisse la transfere ensuite a la Confederation, qui la redistribue aux regions frontalieres italiennes (Lombardie, Piemont, Val d'Aoste et Trentin-Haut-Adige)." }
+ },
+ "La tassa salute è detraibile in dichiarazione dei redditi?": {
+ en: { q: "Is the health contribution tax-deductible?", a: "Yes. The health contribution is included in the Italian foreign-tax credit. Declare it in Box CE of Redditi PF or Box G of the 730: it reduces the Italian IRPEF euro-for-euro." },
+ de: { q: "Kann die Gesundheitsabgabe in der Steuererklaerung abgezogen werden?", a: "Ja. Die Abgabe fliesst in die italienische Anrechnung auslaendischer Steuern ein. Sie wird im Feld CE des Redditi PF bzw. Feld G des 730 erklaert und reduziert die italienische IRPEF Euro fuer Euro." },
+ fr: { q: "La contribution sante est-elle deductible de la declaration d'impots ?", a: "Oui. Elle entre dans le credit d'impot italien pour impots etrangers. Declarez-la dans le cadre CE du Redditi PF ou le cadre G du 730 : elle reduit l'IRPEF italien euro pour euro." }
+ },
+ "Tassa salute e LAMal sono la stessa cosa?": {
+ en: { q: "Is the health contribution the same as LAMal?", a: "No. LAMal is the Swiss compulsory private health insurance with monthly premiums of CHF 280-650 paid to a health fund. The health contribution is a 6% public levy withheld by the Swiss state. A new cross-border worker pays both in parallel." },
+ de: { q: "Sind die Gesundheitsabgabe und die KVG dasselbe?", a: "Nein. Die KVG ist die obligatorische private Schweizer Krankenversicherung mit monatlichen Praemien von CHF 280-650 an eine Krankenkasse. Die Gesundheitsabgabe ist eine oeffentliche Abgabe von 6 %, die der Schweizer Staat einbehaelt. Neue Grenzgaenger zahlen beide parallel." },
+ fr: { q: "La contribution sante et la LAMal sont-elles la meme chose ?", a: "Non. La LAMal est l'assurance maladie privee obligatoire suisse avec des primes mensuelles de CHF 280-650 versees a une caisse. La contribution sante est un prelevement public de 6 % retenu par l'Etat suisse. Un nouveau frontalier paie les deux en parallele." }
+ },
+
+ // ── LAMal landing FAQ ──
+ "Cos'è la LAMal e come si applica ai frontalieri?": {
+ en: { q: "What is LAMal and how does it apply to cross-border workers?", a: "LAMal is the Swiss compulsory health insurance. G permit cross-border workers can opt for LAMal or the Italian SSN (right-of-option form to file within 90 days of starting work); B permit residents must join LAMal." },
+ de: { q: "Was ist die KVG und wie gilt sie fuer Grenzgaenger?", a: "Die KVG (LAMal) ist die obligatorische Schweizer Krankenversicherung. Grenzgaenger mit G-Bewilligung koennen zwischen KVG und italienischem SSN waehlen (Optionsformular innerhalb von 90 Tagen ab Arbeitsbeginn); B-Bewilligungsinhaber muessen sich bei der KVG versichern." },
+ fr: { q: "Qu'est-ce que la LAMal et comment s'applique-t-elle aux frontaliers ?", a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers avec permis G peuvent opter pour la LAMal ou le SSN italien (formulaire de droit d'option a deposer dans les 90 jours suivant la prise d'emploi) ; les residents avec permis B doivent adherer a la LAMal." }
+ },
+ "Quanto costa la LAMal a un frontaliere nel 2026?": {
+ en: { q: "How much does LAMal cost a cross-border worker in 2026?", a: "LAMal premiums for cross-border workers in 2026: CHF 280-480/month for adults, CHF 120-200 for children (special cross-border rates). Without the rate, Ticino residents pay CHF 450-650/month." },
+ de: { q: "Was kostet die KVG einen Grenzgaenger 2026?", a: "KVG-Praemien fuer Grenzgaenger 2026: CHF 280-480/Monat fuer Erwachsene, CHF 120-200 fuer Kinder (Grenzgaenger-Spezialtarife). Ohne diesen Tarif zahlen Tessiner Einwohner CHF 450-650/Monat." },
+ fr: { q: "Combien coute la LAMal a un frontalier en 2026 ?", a: "Primes LAMal pour frontaliers en 2026 : CHF 280 a 480/mois pour les adultes, CHF 120 a 200 pour les enfants (tarifs speciaux frontaliers). Sans ce tarif, les residents tessinois paient CHF 450 a 650/mois." }
+ },
+ "Meglio scegliere LAMal o SSN italiano come frontaliere?": {
+ en: { q: "Should a cross-border worker choose LAMal or the Italian SSN?", a: "LAMal covers care in Switzerland and in Italy via agreements, with greater flexibility but monthly premiums of CHF 280-480. SSN is free but covers only Italy; Swiss emergencies are covered with the European card. Many cross-border workers choose LAMal for convenient Ticino access." },
+ de: { q: "Ist es besser, als Grenzgaenger KVG oder italienischen SSN zu waehlen?", a: "Die KVG deckt die Versorgung in der Schweiz und in Italien ueber Abkommen ab, mit mehr Flexibilitaet, jedoch mit Monatspraemien von CHF 280-480. Der SSN ist kostenlos, deckt aber nur Italien ab; Schweizer Notfaelle werden mit der Europaeischen Karte gedeckt. Viele Grenzgaenger waehlen die KVG fuer den bequemen Zugang im Tessin." },
+ fr: { q: "Vaut-il mieux choisir la LAMal ou le SSN italien comme frontalier ?", a: "La LAMal couvre les soins en Suisse et en Italie via des accords, avec plus de souplesse, mais des primes mensuelles de CHF 280 a 480. Le SSN est gratuit mais couvre uniquement l'Italie ; les urgences suisses sont prises en charge avec la carte europeenne. Beaucoup de frontaliers choisissent la LAMal pour un acces pratique au Tessin." }
+ },
+ "Si può cambiare cassa malati dopo aver scelto la LAMal?": {
+ en: { q: "Can you change health fund after opting for LAMal?", a: "Yes. Health fund changes take effect on 1 January or 1 July, with notice by 30 November (or 31 March for July). Basic LAMal coverage is identical across funds, so you only compare premiums." },
+ de: { q: "Kann man nach der Wahl der KVG die Krankenkasse wechseln?", a: "Ja. Kassenwechsel werden zum 1. Januar oder 1. Juli wirksam, mit Kuendigung bis zum 30. November (bzw. 31. Maerz fuer den 1. Juli). Die KVG-Grundleistungen sind bei allen Kassen identisch; verglichen werden nur die Praemien." },
+ fr: { q: "Peut-on changer de caisse maladie apres avoir choisi la LAMal ?", a: "Oui. Les changements de caisse prennent effet au 1er janvier ou 1er juillet, moyennant un preavis au 30 novembre (ou au 31 mars pour le 1er juillet). La couverture LAMal de base est identique d'une caisse a l'autre ; seules les primes se comparent." }
+ },
+ "I familiari del frontaliere sono coperti dalla LAMal?": {
+ en: { q: "Are family members of a cross-border worker covered by LAMal?", a: "Yes. A G-permit cross-border worker can extend LAMal to their spouse and minor children without gainful activity, each with their own premium (approx. CHF 200-400 for the spouse, CHF 120-200 per child). Alternatively, family members can stay on the Italian SSN." },
+ de: { q: "Sind Familienangehoerige des Grenzgaengers in der KVG versichert?", a: "Ja. Ein Grenzgaenger mit G-Bewilligung kann die KVG auf den nicht erwerbstaetigen Ehepartner und minderjaehrige Kinder ausdehnen, jeweils mit eigener Praemie (ca. CHF 200-400 fuer den Ehepartner, CHF 120-200 pro Kind). Alternativ bleiben die Angehoerigen im italienischen SSN." },
+ fr: { q: "Les proches du frontalier sont-ils couverts par la LAMal ?", a: "Oui. Un frontalier avec permis G peut etendre la LAMal a son conjoint sans activite lucrative et aux enfants mineurs, avec une prime propre (environ CHF 200-400 pour le conjoint, CHF 120-200 par enfant). Les proches peuvent aussi rester au SSN italien." }
+ },
+ "La LAMal è detraibile dalle tasse italiane?": {
+ en: { q: "Is LAMal tax-deductible in Italy?", a: "LAMal premiums are deductible in Italy up to €1,291 per year (Law 296/2006 ceiling for health insurance). The portion above is a cost but does not reduce IRPEF. Keep the annual premium statement from your health fund as proof." },
+ de: { q: "Ist die KVG in Italien steuerlich absetzbar?", a: "Die KVG-Praemien sind in Italien bis 1.291 EUR pro Jahr abzugsfaehig (Hoechstbetrag fuer Krankenversicherungen gemaess Gesetz 296/2006). Der darueber hinausgehende Teil ist ein Kostenfaktor, reduziert aber die IRPEF nicht. Die jaehrliche Praemienbescheinigung der Krankenkasse ist als Nachweis aufzubewahren." },
+ fr: { q: "La LAMal est-elle deductible des impots italiens ?", a: "Les primes LAMal sont deductibles en Italie jusqu'a 1 291 EUR par an (plafond de la loi 296/2006 pour l'assurance maladie). La part au-dela est un cout qui ne reduit pas l'IRPEF. Conservez l'attestation annuelle de primes fournie par la caisse." }
+ },
+
+ // ── Fox Town outlet FAQ ──
+ "Quali sono gli orari di Fox Town Mendrisio nel 2026?": {
+ en: { q: "What are Fox Town Mendrisio's 2026 opening hours?", a: "Fox Town Outlet Mendrisio is open 11:00-19:00 every day including Sundays and public holidays. On 25 December, 1 January and a few Swiss holidays the outlet is closed: check the official fox-town.com website before visiting." },
+ de: { q: "Welche Oeffnungszeiten hat Fox Town Mendrisio 2026?", a: "Das Fox Town Outlet Mendrisio hat taeglich von 11:00 bis 19:00 Uhr geoeffnet, auch sonntags und an Feiertagen. Am 25. Dezember, 1. Januar und an einigen Schweizer Feiertagen ist das Outlet geschlossen: Pruefen Sie vor Ihrem Besuch fox-town.com." },
+ fr: { q: "Quels sont les horaires de Fox Town Mendrisio en 2026 ?", a: "L'outlet Fox Town Mendrisio est ouvert de 11h00 a 19h00 tous les jours, dimanche et jours feries compris. Le 25 decembre, le 1er janvier et quelques feries suisses, l'outlet est ferme : consultez fox-town.com avant votre visite." }
+ },
+ "Quanti marchi ci sono a Fox Town e che sconti si trovano?": {
+ en: { q: "How many brands are at Fox Town and what discounts can you find?", a: "Fox Town hosts about 160 brands (Gucci, Prada, Armani, Nike, Levi's, Tod's and many more). Typical discounts run 30-70% off the full price, rising to 80% during seasonal sales." },
+ de: { q: "Wie viele Marken gibt es bei Fox Town und welche Rabatte sind moeglich?", a: "Fox Town beherbergt rund 160 Marken (Gucci, Prada, Armani, Nike, Levi's, Tod's und viele mehr). Ueblich sind Rabatte von 30-70 % auf den Listenpreis, bis zu 80 % waehrend des saisonalen Sales." },
+ fr: { q: "Combien de marques compte Fox Town et quelles reductions y trouve-t-on ?", a: "Fox Town rassemble environ 160 marques (Gucci, Prada, Armani, Nike, Levi's, Tod's et bien d'autres). Les remises varient de 30 a 70 % sur le prix catalogue, jusqu'a 80 % pendant les soldes saisonniers." }
+ },
+ "Come arrivare a Fox Town Mendrisio dall'Italia?": {
+ en: { q: "How do you reach Fox Town Mendrisio from Italy?", a: "By car: A9 motorway to Chiasso-Brogeda, then A2 to the Mendrisio exit (5 min from the border). By train: direct from Como S. Giovanni to Mendrisio (25 min) + 10-min walk. Free parking with 1,600 spaces on site." },
+ de: { q: "Wie erreicht man Fox Town Mendrisio von Italien aus?", a: "Mit dem Auto: Autobahn A9 bis Chiasso-Brogeda, dann A2 bis zur Ausfahrt Mendrisio (5 Min. von der Grenze). Mit dem Zug: Direktverbindung ab Como S. Giovanni nach Mendrisio (25 Min.) + 10 Min. zu Fuss. Kostenlose Parkplaetze mit 1.600 Stellplaetzen vor Ort." },
+ fr: { q: "Comment se rendre a Fox Town Mendrisio depuis l'Italie ?", a: "En voiture : autoroute A9 jusqu'a Chiasso-Brogeda, puis A2 jusqu'a la sortie Mendrisio (5 min de la frontiere). En train : liaison directe Como S. Giovanni-Mendrisio (25 min) + 10 min a pied. Parking gratuit de 1 600 places sur place." }
+ },
+ "Serve la carta di credito o si paga in euro a Fox Town?": {
+ en: { q: "Do you need a credit card or can you pay in euros at Fox Town?", a: "You can pay in euros, Swiss francs or by card (Visa, Mastercard, American Express). The exchange rate applied is less favourable than the interbank rate, so for large purchases prefer a card with no conversion fees (Revolut, Wise)." },
+ de: { q: "Braucht man bei Fox Town eine Kreditkarte oder zahlt man in Euro?", a: "Sie koennen in Euro, Schweizer Franken oder per Karte (Visa, Mastercard, American Express) zahlen. Der angewandte Wechselkurs liegt unter dem Interbankenkurs; bei groesseren Einkaeufen ist eine Karte ohne Fremdwaehrungsgebuehr (Revolut, Wise) vorzuziehen." },
+ fr: { q: "Faut-il une carte de credit ou peut-on payer en euros a Fox Town ?", a: "Vous pouvez payer en euros, en francs suisses ou par carte (Visa, Mastercard, American Express). Le taux de change applique est moins favorable que l'interbancaire ; pour les gros achats, privilegiez une carte sans frais de conversion (Revolut, Wise)." }
+ },
+ "I frontalieri hanno sconti particolari a Fox Town?": {
+ en: { q: "Do cross-border workers get special discounts at Fox Town?", a: "Fox Town does not offer a specific cross-border worker programme, but you can request VAT refund (Global Blue / Planet Tax Free) on purchases of CHF 300+, getting back about 7.7% of the price when re-entering Italy." },
+ de: { q: "Gibt es fuer Grenzgaenger besondere Rabatte bei Fox Town?", a: "Fox Town bietet kein spezifisches Grenzgaenger-Programm, aber Sie koennen ab Einkaeufen von CHF 300 die MwSt-Rueckerstattung (Global Blue / Planet Tax Free) beantragen und erhalten rund 7,7 % des Preises beim Grenzuebertritt nach Italien zurueck." },
+ fr: { q: "Les frontaliers beneficient-ils de remises specifiques chez Fox Town ?", a: "Fox Town n'offre pas de programme specifique aux frontaliers, mais vous pouvez demander le remboursement de la TVA (Global Blue / Planet Tax Free) sur les achats a partir de CHF 300, soit environ 7,7 % du prix au passage de la frontiere italienne." }
+ },
+
 };
 
 /**
