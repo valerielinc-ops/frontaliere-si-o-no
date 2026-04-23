@@ -1,18 +1,19 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-22T21:37:13.358Z",
+  "generatedAt": "2026-04-23T10:01:13.059Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18889,
-  "avgDurationMs": 18889,
+  "durationMs": 19255,
+  "avgDurationMs": 19255,
   "durationHistory": [
-    18889
+    19255
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Specialista in marketing, social media e grafica | Ascona/Lugano",
       "slug": "specialista-in-marketing-social-media-e-grafica-ascona-lugano-engel-voelkers-ascona",
@@ -31,20 +32,25 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-22",
+      "postedDate": "2026-04-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "engel-voelkers-6c3f511cee7b",
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-04-22T21:37:13.357Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Posizione aperta: consulente immobiliare (m/w/d) – 100% | Lugano",
       "slug": "posizione-aperta-consulente-immobiliare-m-w-d-100-lugano-engel-voelkers-lugano",
@@ -63,7 +69,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-22",
+      "postedDate": "2026-04-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -100,7 +106,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-22",
+      "postedDate": "2026-04-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -137,7 +143,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-22",
+      "postedDate": "2026-04-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -174,7 +180,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-22",
+      "postedDate": "2026-04-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
