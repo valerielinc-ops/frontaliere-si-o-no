@@ -215,3 +215,39 @@ export function renderFooterLinkColumn(
   <ul style="list-style:none;padding:0;margin:0">${items}</ul>
 </div>`;
 }
+
+// ── Discover-more CTA block ───────────────────────────────────────────────────
+
+const DISCOVER_MORE_HEADING: Record<string, string> = {
+  it: 'Scopri di più',
+  en: 'Discover more',
+  de: 'Mehr entdecken',
+  fr: 'Découvrir plus',
+};
+
+/**
+ * Render a "Scopri di più" (Discover more) section with 3 feature-specific
+ * CTA links. Each plugin passes its own curated list so users see relevant
+ * next steps instead of generic/affiliate-feel suggestions.
+ *
+ * @param locale  - Page locale (it/en/de/fr).
+ * @param ctas    - Ordered list of exactly 3 CTAs. Excess items are silently
+ *                  truncated; fewer than 3 are shown as-is.
+ */
+export function renderDiscoverMore(
+  locale: string,
+  ctas: ReadonlyArray<{ title: string; href: string }>,
+): string {
+  if (!ctas || ctas.length === 0) return '';
+  const heading = DISCOVER_MORE_HEADING[locale] ?? DISCOVER_MORE_HEADING['it'];
+  const items = ctas.slice(0, 3)
+    .map(
+      (cta) =>
+        `<li style="margin:0;padding:0"><a href="${esc(cta.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${esc(cta.title)} →</a></li>`,
+    )
+    .join('');
+  return `<section style="margin:32px 0 0;padding:20px 24px;${CARD_STYLE}" aria-label="${esc(heading)}">
+  <p style="${SMALL_HEADING_STYLE}">${esc(heading)}</p>
+  <ul style="list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:2px">${items}</ul>
+</section>`;
+}

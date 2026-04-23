@@ -89,7 +89,34 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_VALUE,
   STAT_TILE_WARNING,
+  renderDiscoverMore,
 } from './shared/seoContentTokens';
+
+// ── Feature-specific "Scopri di più" CTAs ─────────────────────
+// Three contextually relevant links per locale for the F4 job-market-snapshot feature.
+
+const JOB_MARKET_DISCOVER_MORE_CTAS: Record<JobMarketSnapshotLocale, ReadonlyArray<{ title: string; href: string }>> = {
+  it: [
+    { title: 'Aziende che assumono',                  href: '/aziende-che-assumono/ticino/settimana-corrente/' },
+    { title: 'Offerte lavoro ultimi 7 giorni',        href: '/cerca-lavoro-ticino/ultimi-7-giorni/' },
+    { title: 'Report stipendi annuale',               href: '/statistiche/confronta-stipendi/' },
+  ],
+  en: [
+    { title: 'Companies hiring',                      href: '/en/hiring-companies/ticino/current-week/' },
+    { title: 'Jobs posted in the last 7 days',        href: '/en/find-jobs-ticino/last-7-days/' },
+    { title: 'Annual salary report',                  href: '/en/statistics/compare-salaries/' },
+  ],
+  de: [
+    { title: 'Einstellende Unternehmen',              href: '/de/einstellende-unternehmen/tessin/aktuelle-woche/' },
+    { title: 'Stellen der letzten 7 Tage',            href: '/de/jobs-im-tessin/letzte-7-tage/' },
+    { title: 'Jahresgehaltsbericht',                  href: '/de/statistiken/gehaelter-vergleichen/' },
+  ],
+  fr: [
+    { title: 'Entreprises qui recrutent',             href: '/fr/entreprises-qui-recrutent/tessin/semaine-courante/' },
+    { title: 'Offres des 7 derniers jours',           href: '/fr/trouver-emploi-tessin/derniers-7-jours/' },
+    { title: 'Rapport annuel des salaires',           href: '/fr/statistiques/comparer-salaires/' },
+  ],
+};
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -1156,6 +1183,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${methodology}
     ${faqHtml}
     ${relatedHtml}
+    ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </article>`;
 
@@ -1385,6 +1413,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ${methodology}
     ${faqHtml}
     ${relatedHtml}
+    ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </article>`;
 
@@ -2227,6 +2256,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ${trendSection}
     ${methodology}
     ${faqHtml}
+    ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
   </article>`;
 

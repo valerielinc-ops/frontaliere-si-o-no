@@ -80,7 +80,34 @@ import {
   TABLE_CELL_STYLE,
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
+  renderDiscoverMore,
 } from './shared/seoContentTokens';
+
+// ── Feature-specific "Scopri di più" CTAs ─────────────────────
+// Three contextually relevant links per locale for the F2 health-premiums feature.
+
+const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<HealthPremiumLocale, ReadonlyArray<{ title: string; href: string }>> = {
+  it: [
+    { title: 'Confronto casse malati',                href: '/confronta-casse-malati/' },
+    { title: 'Calcolatore stipendio frontaliere',     href: '/' },
+    { title: 'Tempi di attesa alle dogane',           href: '/traffico-dogane/' },
+  ],
+  en: [
+    { title: 'Compare health insurers',               href: '/en/compare-health-insurers/' },
+    { title: 'Cross-border salary calculator',        href: '/en/' },
+    { title: 'Border crossing wait times',            href: '/en/border-wait/' },
+  ],
+  de: [
+    { title: 'Krankenkassen vergleichen',             href: '/de/krankenkassen-vergleich/' },
+    { title: 'Gehaltsrechner Grenzgänger',            href: '/de/' },
+    { title: 'Wartezeiten an der Grenze',             href: '/de/wartezeit-grenze/' },
+  ],
+  fr: [
+    { title: 'Comparer les caisses maladie',          href: '/fr/comparer-caisses-maladie/' },
+    { title: 'Calculateur salaire frontalier',        href: '/fr/' },
+    { title: 'Temps d\'attente aux douanes',          href: '/fr/temps-attente-douane/' },
+  ],
+};
 
 // ── Types (dataset shape) ──────────────────────────────────────
 
@@ -1374,6 +1401,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
+  ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
 </article>`;
 
@@ -1620,6 +1648,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
+  ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
 </article>`;
 
@@ -1779,6 +1808,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   ${faqHtml}
+  ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
 </article>`;
 

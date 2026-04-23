@@ -77,10 +77,37 @@ import {
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   SMALL_HEADING_STYLE,
+  renderDiscoverMore,
 } from './shared/seoContentTokens';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+
+// ── Feature-specific "Scopri di più" CTAs ─────────────────────
+// Three contextually relevant links per locale for the F5 weekly-employers feature.
+
+const WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS: Record<WeeklyEmployersLocale, ReadonlyArray<{ title: string; href: string }>> = {
+  it: [
+    { title: 'Offerte lavoro ultimi 3 giorni',        href: '/cerca-lavoro-ticino/ultimi-3-giorni/' },
+    { title: 'Costo della vita in Ticino',            href: '/costo-vita-svizzera-vs-italia/' },
+    { title: 'Calcolatore stipendio frontaliere',     href: '/' },
+  ],
+  en: [
+    { title: 'Jobs posted in the last 3 days',        href: '/en/find-jobs-ticino/last-3-days/' },
+    { title: 'Cost of living in Ticino',              href: '/en/cost-of-living-switzerland-vs-italy/' },
+    { title: 'Cross-border salary calculator',        href: '/en/' },
+  ],
+  de: [
+    { title: 'Stellen der letzten 3 Tage',            href: '/de/jobs-im-tessin/letzte-3-tage/' },
+    { title: 'Lebenshaltungskosten Tessin',           href: '/de/lebenshaltungskosten-schweiz-vs-italien/' },
+    { title: 'Gehaltsrechner Grenzgänger',            href: '/de/' },
+  ],
+  fr: [
+    { title: 'Offres des 3 derniers jours',           href: '/fr/trouver-emploi-tessin/derniers-3-jours/' },
+    { title: 'Coût de la vie au Tessin',              href: '/fr/cout-vie-suisse-vs-italie/' },
+    { title: 'Calculateur salaire frontalier',        href: '/fr/' },
+  ],
+};
 
 // ── Types ───────────────────────────────────────────────────────
 
@@ -1501,6 +1528,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqApplyA)}</p>
     </details>
   </section>
+  ${renderDiscoverMore(locale, WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
 </article>`;
 

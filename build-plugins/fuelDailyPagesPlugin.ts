@@ -75,6 +75,33 @@ import {
   TABLE_STYLE,
 } from './shared/seoContentTokens';
 
+// ── Feature-specific "Scopri di più" CTAs ─────────────────────
+// Three contextually relevant links per locale for the F6 fuel-daily feature.
+// These replace generic/affiliate-feel suggestions with tool-appropriate next steps.
+
+const FUEL_DAILY_DISCOVER_MORE_CTAS: Record<FuelDailyLocale, ReadonlyArray<{ title: string; href: string }>> = {
+  it: [
+    { title: 'Tempi di attesa alle dogane',            href: '/traffico-dogane/' },
+    { title: 'Aziende che assumono a Chiasso',         href: '/aziende-che-assumono/chiasso/settimana-corrente/' },
+    { title: 'Mercato del lavoro Ticino',              href: '/mercato-lavoro-ticino/' },
+  ],
+  en: [
+    { title: 'Border crossing wait times',             href: '/en/border-wait/' },
+    { title: 'Companies hiring in Chiasso',            href: '/en/hiring-companies/chiasso/current-week/' },
+    { title: 'Ticino job market',                      href: '/en/ticino-job-market/' },
+  ],
+  de: [
+    { title: 'Wartezeiten an der Grenze',              href: '/de/wartezeit-grenze/' },
+    { title: 'Unternehmen die in Chiasso einstellen',  href: '/de/einstellende-unternehmen/chiasso/aktuelle-woche/' },
+    { title: 'Arbeitsmarkt Tessin',                    href: '/de/arbeitsmarkt-tessin/' },
+  ],
+  fr: [
+    { title: 'Temps d\'attente aux douanes',           href: '/fr/temps-attente-douane/' },
+    { title: 'Entreprises qui recrutent à Chiasso',    href: '/fr/entreprises-qui-recrutent/chiasso/semaine-courante/' },
+    { title: 'Marché du travail Tessin',               href: '/fr/marche-emploi-tessin/' },
+  ],
+};
+
 // ── Types ──────────────────────────────────────────────────────
 
 interface SwissStation {
@@ -905,6 +932,7 @@ function renderPage(inp: PageInputs): string {
     ${trendHtml}
   </section>
   ${faqHtml}
+  ${renderDiscoverMore(locale, FUEL_DAILY_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
 </article>`;
 

@@ -80,7 +80,34 @@ import {
   TABLE_CELL_STYLE,
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
+  renderDiscoverMore,
 } from './shared/seoContentTokens';
+
+// ── Feature-specific "Scopri di più" CTAs ─────────────────────
+// Three contextually relevant links per locale for the F8 border-wait feature.
+
+const BORDER_WAIT_DISCOVER_MORE_CTAS: Record<BorderWaitLocale, ReadonlyArray<{ title: string; href: string }>> = {
+  it: [
+    { title: 'Prezzi diesel oggi',                    href: '/prezzi-diesel/oggi/' },
+    { title: 'Mercato del lavoro Ticino',             href: '/mercato-lavoro-ticino/' },
+    { title: 'Aziende che assumono',                  href: '/aziende-che-assumono/ticino/settimana-corrente/' },
+  ],
+  en: [
+    { title: 'Diesel prices today',                   href: '/en/diesel-prices/today/' },
+    { title: 'Ticino job market',                     href: '/en/ticino-job-market/' },
+    { title: 'Companies hiring',                      href: '/en/hiring-companies/ticino/current-week/' },
+  ],
+  de: [
+    { title: 'Dieselpreise heute',                    href: '/de/dieselpreise/heute/' },
+    { title: 'Arbeitsmarkt Tessin',                   href: '/de/arbeitsmarkt-tessin/' },
+    { title: 'Einstellende Unternehmen',              href: '/de/einstellende-unternehmen/tessin/aktuelle-woche/' },
+  ],
+  fr: [
+    { title: 'Prix du diesel aujourd\'hui',           href: '/fr/prix-diesel/aujourd-hui/' },
+    { title: 'Marché du travail Tessin',              href: '/fr/marche-emploi-tessin/' },
+    { title: 'Entreprises qui recrutent',             href: '/fr/entreprises-qui-recrutent/tessin/semaine-courante/' },
+  ],
+};
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -1141,6 +1168,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${infoHtml}
   ${alternativeRoutesHtml}
   ${faqHtml}
+  ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
 </article>${webcamRefreshScript}`;
 
@@ -1370,6 +1398,7 @@ function renderHubPage(inp: HubInputs): string {
   <section style="margin:0 0 24px">
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(secondary)}</p>
   </section>
+  ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
 </article>`;
 
