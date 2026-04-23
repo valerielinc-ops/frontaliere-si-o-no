@@ -2072,6 +2072,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore', parent: 'blog' },
     'blog-aumento-stipendi-frontalieri-lombardia-2026': { name: 'Novità', path: '/articoli-frontaliere/aumento-stipendi-frontalieri-lombardia-2026', parent: 'blog' },
     'blog-cantieri-sottoceneri-estate-2024': { name: 'Cantieri Sottoceneri', path: '/articoli-frontaliere/cantieri-sottoceneri-estate-2024', parent: 'blog' },
+    'blog-ricarica-auto-elettriche-campione-2026': { name: 'Novità', path: '/articoli-frontaliere/ricarica-auto-elettriche-campione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

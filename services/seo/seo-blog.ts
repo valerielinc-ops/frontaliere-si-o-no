@@ -11341,6 +11341,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricarica-auto-elettriche-campione-2026': {
+    title: 'Nuove stazioni di ricarica ultraveloci | Frontaliere Ticino',
+    description: 'Ewiva attiva 3 colonnine ultraveloci a Campione d\'Italia con 6 punti di ricarica per frontalieri e turisti. Scopri di più su Frontaliere Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, stazioni, ricarica, ultraveloci',
+    ogTitle: 'Nuove stazioni di ricarica a Campione d\'Italia',
+    ogDescription: 'Ewiva attiva colonnine ultraveloci a Campione d\'Italia per frontalieri e turisti. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/ricarica-auto-elettriche-campione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove stazioni di ricarica ultraveloci a Campione d'Italia",
+      "description": "Ewiva attiva 3 colonnine ultraveloci a Campione d'Italia con 6 punti di ricarica per frontalieri e turisti. Scopri di più su Frontaliere Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ricarica-auto-elettriche-campione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di ricarica per auto elettriche a Campione d'Italia sul lago di Lugano"
+      },
+      "datePublished": "2026-04-23T10:12:44+00:00",
+      "dateModified": "2026-04-23T10:12:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricarica-auto-elettriche-campione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

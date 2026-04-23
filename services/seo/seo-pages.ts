@@ -4329,7 +4329,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 895,
+ "numberOfItems": 896,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5202,7 +5202,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 892, "name": "Truffe agli anziani: due arresti nel Locarnese", "url": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-locarnese-2024` },
           { "@type": "ListItem", "position": 893, "name": "Valbianca in forti difficoltà: Airolo mette 1,5...", "url": `${BASE_URL}/articoli-frontaliere/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore` },
           { "@type": "ListItem", "position": 894, "name": "Aumento del 20% per medici e infermieri di fron...", "url": `${BASE_URL}/articoli-frontaliere/aumento-stipendi-frontalieri-lombardia-2026` },
-          { "@type": "ListItem", "position": 895, "name": "Cantieri Sottoceneri: la situazione nel Sottoce...", "url": `${BASE_URL}/articoli-frontaliere/cantieri-sottoceneri-estate-2024` }
+          { "@type": "ListItem", "position": 895, "name": "Cantieri Sottoceneri: la situazione nel Sottoce...", "url": `${BASE_URL}/articoli-frontaliere/cantieri-sottoceneri-estate-2024` },
+          { "@type": "ListItem", "position": 896, "name": "Nuove stazioni di ricarica ultraveloci a Campio...", "url": `${BASE_URL}/articoli-frontaliere/ricarica-auto-elettriche-campione-2026` }
  ]
  },
  {

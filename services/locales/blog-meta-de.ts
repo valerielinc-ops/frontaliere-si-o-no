@@ -2532,6 +2532,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantieri-sottoceneri-estate-2024.title': 'Bauarbeiten im Tessin: Die Situation im Sottoceneri für den Sommer 2024',
     'blog.article.cantieri-sottoceneri-estate-2024.excerpt': '11 aktive Baustellen im Sottoceneri, darunter der Tunnel von Genzana in Lugano. Nachtsarbeiten und veränderte Verkehrsführung bis 2027',
     'blog.article.cantieri-sottoceneri-estate-2024.imageAlt': 'Luganersee mit Baustellen am Ufer, klarer Sommertag',
+    'blog.article.ricarica-auto-elettriche-campione-2026.title': 'Neue Ultra-Schnellladestationen für Elektroautos in Campione d\'Italia',
+    'blog.article.ricarica-auto-elettriche-campione-2026.excerpt': 'Ewiva, ein Betreiber der Enel-Gruppe, aktiviert 3 Ultra-Schnellladestationen in Campione d\'Italia mit 6 Ladepunkten für Grenzgänger und Touristen',
+    'blog.article.ricarica-auto-elettriche-campione-2026.imageAlt': 'Elektroauto-Ladestation in Campione d\'Italia am Luganersee',
 };
 
 export default blogMetaDe;

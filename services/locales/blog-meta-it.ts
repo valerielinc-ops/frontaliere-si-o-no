@@ -2532,6 +2532,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantieri-sottoceneri-estate-2024.title': 'Cantieri in Ticino: la situazione nel Sottoceneri per l\'estate 2024',
     'blog.article.cantieri-sottoceneri-estate-2024.excerpt': '11 cantieri attivi nel Sottoceneri, tra cui il Tunnel di Genzana a Lugano. Lavori notturni e viabilità modificata fino al 2027',
     'blog.article.cantieri-sottoceneri-estate-2024.imageAlt': 'Lago di Lugano con cantieri lungo la riva, giornata estiva limpida',
+    'blog.article.ricarica-auto-elettriche-campione-2026.title': 'Nuove stazioni di ricarica ultraveloci per auto elettriche a Campione d\'Italia',
+    'blog.article.ricarica-auto-elettriche-campione-2026.excerpt': 'Ewiva, operatore del Gruppo Enel, attiva 3 colonnine ultraveloci a Campione d\'Italia, con 6 punti di ricarica per frontalieri e turisti',
+    'blog.article.ricarica-auto-elettriche-campione-2026.imageAlt': 'Stazione di ricarica per auto elettriche a Campione d\'Italia sul lago di Lugano',
 };
 
 export default blogMetaIt;

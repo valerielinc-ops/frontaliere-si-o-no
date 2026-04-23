@@ -6888,4 +6888,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/cantieri-sottoceneri-estate-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ricarica-auto-elettriche-campione-2026',
+ category: 'novita',
+ date: '2026-04-23T10:12:44.225Z',
+ image: '/images/blog/ricarica-auto-elettriche-campione-2026.jpg',
+ hasCalculator: true,
+ },
 ];
