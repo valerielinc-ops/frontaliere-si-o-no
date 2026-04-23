@@ -1311,9 +1311,16 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
                 : `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:#f1f5f9;color:#475569;font-size:12px">${esc(deltaLabel)}</span>`;
             const content = `<div style="font-weight:700;font-size:16px;color:#0f172a">${idx + 1}. ${employerEsc}${badge}</div>
       <div style="margin-top:4px;color:#475569;font-size:14px">${esc(copy.jobsCountLabel(c.active))}</div>`;
-            const inner = brandHref
-              ? `<a href="${esc(brandHref)}" style="color:inherit;text-decoration:none;display:block"${needsReview}>${content}</a>`
-              : `<div${needsReview}>${content}</div>`;
+            const jobBoardSection: Record<WeeklyEmployersLocale, string> = {
+              it: 'cerca-lavoro-ticino',
+              en: 'find-jobs-ticino',
+              de: 'jobs-im-tessin',
+              fr: 'trouver-emploi-tessin',
+            };
+            const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+            const companyFallbackHref = (`${localePrefix}/${jobBoardSection[locale]}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
+            const href = brandHref ?? companyFallbackHref;
+            const inner = `<a href="${esc(href)}" style="color:inherit;text-decoration:none;display:block"${needsReview}>${content}</a>`;
             return `<li style="padding:14px 16px;border:1px solid #e2e8f0;border-radius:14px;background:#ffffff">${inner}</li>`;
           })
           .join('')}</ol>`
