@@ -1319,7 +1319,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const canonicalPath = withTrailingSlash(urlPath);
  const fullUrl = `${BASE_URL}${canonicalPath}`;
  const pp = canonicalPath.slice(1).replace(/&/g, '~and~');
- const hrefTags = hreflangs
+ // Filter out any hreflang entry with an empty lang or empty href —
+ // Semrush flags empty hreflang codes as conflicts. Empty strings can
+ // creep in from malformed sitemap entries or future regex drift.
+ const validHreflangs = hreflangs.filter(h => h.lang && h.lang.length > 0 && h.href && h.href.length > 0);
+ const hrefTags = validHreflangs
  .map(h => ` <link rel="alternate" hreflang="${h.lang}" href="${BASE_URL}${withTrailingSlash(h.href.replace(BASE_URL, '') || '/')}">`)
  .join('\n');
 

@@ -56,6 +56,42 @@ export interface SEOMetadata {
 const BASE_URL = 'https://frontaliereticino.ch';
 
 /**
+ * Schema.org types that officially accept an `inLanguage` property.
+ * Any other @type (BreadcrumbList, ItemList, SoftwareApplication,
+ * WebApplication, Organization, Place, Offer, LocalBusiness, Event, ...)
+ * must NOT receive `inLanguage` — Semrush + Google structured-data testing
+ * flag it as an error.
+ *
+ * Source: schema.org/CreativeWork#inLanguage (only CreativeWork + subclasses
+ * define this property). ListItem inherits via CreativeWork variants in a
+ * handful of cases, but BreadcrumbList/ItemList themselves do not.
+ */
+const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
+ 'Article',
+ 'NewsArticle',
+ 'BlogPosting',
+ 'WebPage',
+ 'CollectionPage',
+ 'AboutPage',
+ 'ContactPage',
+ 'FAQPage',
+ 'QAPage',
+ 'JobPosting',
+ 'Dataset',
+ 'CreativeWork',
+ 'HowTo',
+ 'Product',
+ 'Review',
+ 'VideoObject',
+ 'ImageObject',
+ 'AudioObject',
+ 'Book',
+ 'Course',
+ 'Recipe',
+ 'Message',
+]);
+
+/**
  * E-E-A-T Author & Publisher Schema for YMYL content.
  * Using Organization with expert-level knowsAbout signals.
  * Reused across all structured data to ensure consistency.
@@ -2353,7 +2389,15 @@ export async function updateMetaTags(section: string): Promise<void> {
  const localizedData = existingData.map(item => {
  const clone = JSON.parse(JSON.stringify(item)) as Record<string, any>;
  if (clone && typeof clone === 'object') {
+ // Only assign inLanguage on schema types that officially accept it.
+ // BreadcrumbList, ItemList/CAROUSEL, SoftwareApplication/WebApplication,
+ // Organization, Place, Offer, etc. do NOT support inLanguage — adding it
+ // produces Semrush/Google structured-data errors.
+ const rawType = clone['@type'];
+ const type = Array.isArray(rawType) ? rawType[0] : rawType;
+ if (typeof type === 'string' && TYPES_ACCEPT_IN_LANGUAGE.has(type)) {
  clone.inLanguage = locale;
+ }
  if (typeof clone.url === 'string' && clone.url.startsWith(BASE_URL)) clone.url = `${BASE_URL}${canonicalLocalePath}`;
  if (typeof clone.mainEntityOfPage === 'string' && clone.mainEntityOfPage.startsWith(BASE_URL)) {
  clone.mainEntityOfPage = `${BASE_URL}${canonicalLocalePath}`;
@@ -2423,12 +2467,18 @@ function updateHreflangTags(route: import('./router').AppRoute): void {
  // Get locale-specific paths from the router
  const paths = buildAllLocalePaths(route);
 
- // Add hreflang for each locale
- (['it', 'en', 'de', 'fr'] as const).forEach((lang) => {
+ // Build hreflang entries, filtering out any with empty lang or empty path.
+ // Semrush flags empty hreflang codes as conflicts; this guard ensures we
+ // never emit one even if `paths` ends up with a missing/empty locale.
+ const hreflangEntries = (['it', 'en', 'de', 'fr'] as const)
+ .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}` : '' }))
+ .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
+
+ hreflangEntries.forEach(({ lang, url }) => {
  const link = document.createElement('link');
  link.rel = 'alternate';
  link.hreflang = lang;
- link.href = `${BASE_URL}${withTrailingSlashPath(paths[lang])}`;
+ link.href = url;
  document.head.appendChild(link);
  });
 
