@@ -77,6 +77,80 @@ export function pickSearchLandingFallbackJobs<T>(
  return [];
 }
 
+/**
+ * Safely convert an arbitrary value to an ISO-8601 string.
+ * Returns null when the value is missing or cannot be parsed to a valid Date.
+ * Used for JobPosting.dateModified / datePosted where Semrush flags
+ * "Invalid Date" strings as NOT_RECOGNIZED.
+ */
+export function safeIsoDate(raw: unknown): string | null {
+ if (raw == null) return null;
+ try {
+ const d = new Date(raw as string);
+ return isNaN(d.getTime()) ? null : d.toISOString();
+ } catch {
+ return null;
+ }
+}
+
+/** Locale-aware "in city" connector for title cores. */
+const CITY_CONNECTOR: Record<string, string> = {
+ it: 'a',
+ en: 'in',
+ de: 'in',
+ fr: 'à',
+};
+
+/**
+ * Build the "core" part of a job-detail title (without brand suffix).
+ *
+ * Includes the city whenever possible so multi-sede jobs do not collapse
+ * into duplicate titles. Falls back gracefully when fields are missing.
+ */
+export function buildJobTitleCore(
+ jobTitle: string,
+ company: string,
+ city: string,
+ locale: string,
+): string {
+ const connector = CITY_CONNECTOR[locale] || CITY_CONNECTOR.it;
+ const cleanCity = (city || '').trim();
+ const cleanCompany = (company || '').trim();
+ if (cleanCompany && cleanCity) {
+ return `${jobTitle} — ${cleanCompany} ${connector} ${cleanCity}`;
+ }
+ if (cleanCompany) return `${jobTitle} — ${cleanCompany}`;
+ if (cleanCity) return `${jobTitle} ${connector} ${cleanCity}`;
+ return jobTitle;
+}
+
+const JOB_TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
+const JOB_TITLE_MAX = 60;
+
+/** Truncate the core at a max length, appending an ellipsis if cut. */
+export function truncateTitleCore(core: string, maxCore: number): string {
+ if (core.length <= maxCore) return core;
+ return core.slice(0, Math.max(1, maxCore - 1)).trimEnd() + '…';
+}
+
+/** Compose final <title>: truncated city-aware core + fixed brand suffix. */
+export function composeJobPageTitle(
+ jobTitle: string,
+ company: string,
+ city: string,
+ locale: string,
+): string {
+ const core = buildJobTitleCore(jobTitle, company, city, locale);
+ const maxCore = JOB_TITLE_MAX - JOB_TITLE_BRAND_SUFFIX.length;
+ return truncateTitleCore(core, maxCore) + JOB_TITLE_BRAND_SUFFIX;
+}
+
+/** Compose H1: job title + company only (no city, no brand). */
+export function composeJobPageH1(jobTitle: string, company: string): string {
+ const cleanCompany = (company || '').trim();
+ return cleanCompany ? `${jobTitle} — ${cleanCompany}` : jobTitle;
+}
+
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return {
  name: 'jobs-seo-pages',
@@ -980,13 +1054,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return slugifyCompanyBuild(company);
  };
 
- // Truncate string to ≤max chars at the last word boundary
- const truncTitle = (s: string, max = 60): string => {
- if (s.length <= max) return s;
- const cut = s.lastIndexOf(' ', max - 1);
- return (cut > 0 ? s.substring(0, cut) : s.substring(0, max - 1)) + '…';
- };
-
  for (const job of validJobs) {
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
@@ -1001,35 +1068,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const localizedTitle = String(job?.titleByLocale?.[locale] || job.title || '');
  const jobLocation = String(job.location || '').trim();
  const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
- const TITLE_MAX = 60;
- const title = (() => {
- const suffix = localeCopy[locale].suffix;
- // 1. Full format: title — company, city | suffix
- if (jobLocation) {
- const full = `${localizedTitle} — ${job.company}, ${jobLocation} | ${suffix}`;
- if (full.length <= TITLE_MAX) return full;
- }
- // 2. Without city: title — company | suffix
- const noCityFull = `${localizedTitle} — ${job.company} | ${suffix}`;
- if (noCityFull.length <= TITLE_MAX) return noCityFull;
- // 3. Without brand: title — company, city
- if (jobLocation) {
- const noBrand = `${localizedTitle} — ${job.company}, ${jobLocation}`;
- if (noBrand.length <= TITLE_MAX) return noBrand;
- }
- // 4. Without brand or city: title — company
- const noBrandNoCity = `${localizedTitle} — ${job.company}`;
- if (noBrandNoCity.length <= TITLE_MAX) return noBrandNoCity;
- // 5. Truncate the job title to fit within "truncTitle — company"
- const companySuffix = ` — ${job.company}`;
- const availableForTitle = TITLE_MAX - companySuffix.length;
- if (availableForTitle >= 15) {
- const truncatedTitle = truncTitle(localizedTitle, availableForTitle);
- return `${truncatedTitle}${companySuffix}`;
- }
- // 6. Last resort: just truncate the whole thing
- return truncTitle(localizedTitle, TITLE_MAX);
- })();
+ // City-aware title: always includes location when available, then truncates
+ // the core before appending the fixed brand suffix. This prevents duplicate
+ // titles on multi-sede jobs (same role × N cities) — the city differentiates
+ // the SERP title — and keeps total length within Google's ~60-char limit.
+ const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
  const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
@@ -1287,7 +1330,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- ...(job.crawledAt ? { dateModified: new Date(job.crawledAt).toISOString() } : job.updatedAt ? { dateModified: new Date(job.updatedAt).toISOString() } : {}),
+ ...(() => {
+ const modified = safeIsoDate(job.crawledAt) || safeIsoDate(job.updatedAt);
+ return modified ? { dateModified: modified } : {};
+ })(),
  ...(job.category && mapCategoryToONet(job.category) ? { occupationalCategory: mapCategoryToONet(job.category) } : {}),
  }) : null;
  const breadcrumbLd = JSON.stringify({
@@ -1493,7 +1539,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#4f46e5;text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
  <article class="proposal">
  <section class="hero">
- <h1 class="hero-title">${esc(localizedTitle)}</h1>
+ <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
  <div class="hero-sub">${esc(job.company)} · ${esc(job.location)} (${esc(job.canton || DEFAULT_CANTON)})</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
@@ -4474,7 +4520,7 @@ ${alternates}
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
+ const jobLastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
  return ` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
  }).join('\n');
 
@@ -4511,7 +4557,7 @@ ${alternates}
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
- const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
+ const jobLastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
 
  const addEntry = (ps: string, locale: 'it' | 'en' | 'de' | 'fr') => {
  const currentSlug = localizedSlug(job, locale);
@@ -5621,7 +5667,7 @@ ${hreflangLinks}
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).filter(Boolean).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- const lastmod = ejData?.expiredAt ? new Date(ejData.expiredAt).toISOString().slice(0, 10) : dateStamp;
+ const lastmod = (safeIsoDate(ejData?.expiredAt) || '').slice(0, 10) || dateStamp;
  expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${altLinks}\n${xDefault}\n <lastmod>${lastmod}</lastmod>\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
  }
  }
