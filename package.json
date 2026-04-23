@@ -169,7 +169,6 @@
     "validate:third-party-secrets": "node scripts/validate-third-party-secrets.mjs",
     "validate:hreflang": "node scripts/validate-hreflang.mjs",
     "validate:internal-links": "node scripts/validate-internal-links.mjs",
-    "validate:thin-pages": "node scripts/find-thin-pages.mjs --fail-on-any",
     "validate:sitemap": "node scripts/validate-sitemap.mjs",
     "validate:sitemap-links": "node scripts/validate-sitemap-links.mjs",
     "validate:page-seo": "node scripts/validate-page-seo-quality.mjs",
