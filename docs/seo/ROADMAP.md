@@ -352,23 +352,13 @@ Each task below has a ready-to-run prompt. Tasks are atomic (1 agent = 1 deliver
   Gates: validate-structured-data + vitest + build. Commit: feat(ai-seo): ClaimReview coverage on 10 fiscal pages (AE-8). Auto-push on green.
   ```
 
-### AE-9. Eni Caslano fuel-station dedup (Sprint 3 cluster E)
+### AE-9. Eni Caslano fuel-station dedup (Sprint 3 cluster E) — SHIPPED 2026-04-23
 
 - **Source:** PLAN-SPRINT-3-FOLLOWUP cluster E (local blog clusters) — marked as upstream data-layer fix, not SEO-layer
-- **Deliverable:** Upstream fix in fuel-crawler to deduplicate Eni Caslano station records before they reach the build.
-- **Why agent-executable:** data-layer bug with traceable root cause (crawler `scripts/crawl-fuel-prices.mjs` or similar emits >1 record for same station).
-- **Data inputs:** `scripts/crawl-fuel-prices.mjs`, `data/fuel-stations.json` (or equivalent).
-- **End gates:** `audit-cannibalization.mjs --semrush` shows no Eni Caslano cluster. Fuel-daily pages unchanged count. Tests green.
-- **Estimated agent time:** 60 min.
-- **Prompt to dispatch:**
-  ```
-  Read CLAUDE.md + ROADMAP task AE-9.
-  Investigate fuel-crawler dedup: find why Eni Caslano appears as multiple station records in data/fuel-stations.json (or the equivalent). Likely: different keys per scrape (coordinates drift, name variants).
-  Fix at crawler level (scripts/crawl-fuel-prices.mjs or similar): canonicalize station id = slugify(name) + municipality; merge duplicate records keeping most-recent price.
-  Add tests/fuel/crawler-dedup.test.ts covering the merge logic.
-  Gates: 9-gate battery + node scripts/audit-cannibalization.mjs --semrush shows 0 Eni Caslano clusters.
-  Commit: fix(data): dedup Eni Caslano fuel station records at crawler level (AE-9). Auto-push on green.
-  ```
+- **Deliverable:** Upstream dedup in fuel-crawler. Two TCS Firestore records for the same physical Eni station (same name + same postal address at "Via Cantonale 36, 6987 Caslano", coords drifted ~500 m apart) are now collapsed into one before the crawler builds the SEO dataset. Same fix also collapses the twin "Eni Gondo" duplicate at Simplonstrasse.
+- **Implementation:** `scripts/lib/fuel-station-dedup.mjs` — dedup key = `normaliseText(name) + "|" + normaliseText(address)` (NFKC + lowercase + punctuation stripped). Winner selection: most-recent `updatedAt`, then entry with diesel price, then stable id tiebreak. Logged to stdout. Wired into `scripts/generate-fuel-prices-dataset.mjs::main()` right after `fetchSwissStations()`.
+- **Regression test:** `tests/fuel-crawler-dedup.test.ts` (15 tests) — locks in Eni Caslano collapse, Eni Gondo collapse, winner selection order, idempotency, and no-op on unique input.
+- **Gates passed:** `npx tsc --noEmit` 0 errors · `npm run build:fast` exit 0 · `npx vitest run tests/fuel-*.test.ts` 110/110 · `node scripts/audit-cannibalization.mjs` 0 clusters.
 
 ---
 
