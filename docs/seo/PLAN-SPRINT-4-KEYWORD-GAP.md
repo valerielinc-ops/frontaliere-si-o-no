@@ -1,5 +1,13 @@
 # Sprint 4 — Keyword Gap Exploitation
 
+**Status (2026-04-23):** Scope audit completed. Task 4.16 homepage portion
+confirmed already shipped (`Organization` + `WebSite`/`SearchAction` +
+`sameAs` in `index.html` ~L795-901). Remaining 16 tasks decomposed into
+9 landable units in
+[`PLAN-SPRINT-4-FOLLOWUP.md`](./PLAN-SPRINT-4-FOLLOWUP.md) — see
+"Suggested landing order" there. Total remaining: ~8 days sequenceable,
+~3 days blocked on Sprint 2 + data-source decision.
+
 **Goal:** Capture high-volume keywords where competitors rank but we don't, via targeted content and on-page optimization.
 **Duration:** 5-8 days
 **Expected impact:** +1,200 clicks/mo (90-day horizon), +300 tracked keywords
@@ -198,10 +206,10 @@ For each of these question keywords, find the most relevant existing page and ad
 
 ### Task 4.16 — Review schema on job aggregator pages
 
-- [ ] Add `SearchAction` schema to homepage (enables sitelinks searchbox)
-- [ ] Add `Organization` schema with `sameAs` links to social profiles
-- [ ] Add `Dataset` schema on `/mercato-lavoro-ticino/` (F4)
-- [ ] Add `Place` schema on `/costo-della-vita/{city}/` pages
+- [x] Add `SearchAction` schema to homepage (enables sitelinks searchbox) — **done** (`index.html` L888, `WebSite` + `potentialAction`)
+- [x] Add `Organization` schema with `sameAs` links to social profiles — **done** (`index.html` L795-811, 4 sameAs entries: FB×2, LinkedIn, GitHub)
+- [ ] Add `Dataset` schema on `/mercato-lavoro-ticino/` (F4) — tracked as follow-up F4-F1
+- [ ] Add `Place` schema on `/costo-della-vita/{city}/` pages — tracked as follow-up F4-F2 (blocked by F4-D data source)
 
 ### Task 4.17 — VideoObject schema
 
