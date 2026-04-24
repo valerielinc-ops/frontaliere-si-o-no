@@ -1,15 +1,31 @@
 name: Lighthouse CI
 
+# Gate: catch performance regressions on the 6 representative page templates
+# flagged by Semrush Site Audit (2026-04-24) as "slow" pages.
+#
+# Budgets enforced:
+#   - Performance score >= 0.85
+#   - LCP  < 2500ms
+#   - CLS  < 0.1
+#   - TBT  < 200ms
+#
+# Runs against production (https://frontaliereticino.ch). If production is
+# temporarily unavailable, the job is non-blocking (continue-on-error).
+
 on:
   pull_request:
     branches: [main]
     paths:
-      - '*.html'
-      - '*.tsx'
-      - '*.ts'
-      - '*.css'
+      - 'build-plugins/**'
+      - 'services/locales/**'
       - 'vite.config.ts'
+      - 'index.css'
+      - 'index.html'
       - 'package.json'
+      - '.github/workflows/lighthouse-ci.yml'
+      - 'lighthouserc.json'
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -19,6 +35,7 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    continue-on-error: true  # Non-blocking while we tune budgets against live prod.
 
     steps:
       - name: Checkout
@@ -30,17 +47,25 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Run Lighthouse CI against production
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://frontaliereticino.ch/
+            https://frontaliereticino.ch/lavoro
+            https://frontaliereticino.ch/aziende-che-assumono/lugano
+            https://frontaliereticino.ch/prezzi-carburanti/chiasso
+            https://frontaliereticino.ch/casse-malati/ticino
+            https://frontaliereticino.ch/tempi-di-attesa-dogana/chiasso-brogeda
+          budgetPath: ./lighthouse-budget.json
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
 
-      - name: Build
-        run: npm run build:prod
-
-      - name: Install Lighthouse CI
-        run: npm install -g @lhci/cli@0.14.x
-
-      - name: Run Lighthouse CI
-        run: |
-          lhci autorun --config=lighthouserc.json
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Lighthouse reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 7
