@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-04-23T21:17:43.155Z",
+  "assembledAt": "2026-04-24T09:48:47.297Z",
   "jobs": [
     {
       "id": "cedes-095fd9bf3819",
@@ -39,11 +39,11 @@
       "employmentType": "PART_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-23",
+      "postedDate": "2026-04-24",
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-23T21:17:41.231Z",
+      "crawledAt": "2026-04-24T09:48:45.149Z",
       "previousSlugs": [
         "sales-manager-elevator-escalator-cedes-landquart"
       ],
@@ -110,11 +110,11 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-23",
+      "postedDate": "2026-04-24",
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-23T21:17:40.755Z",
+      "crawledAt": "2026-04-24T09:48:44.662Z",
       "previousSlugs": [
         "packaging-line-worker-100-cedes-landquart"
       ],
@@ -130,6 +130,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:15.192Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -181,11 +182,11 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-23",
+      "postedDate": "2026-04-24",
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-23T21:17:40.467Z",
+      "crawledAt": "2026-04-24T09:48:43.962Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
