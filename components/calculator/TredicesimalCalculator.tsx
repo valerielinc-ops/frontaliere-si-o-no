@@ -135,7 +135,7 @@ const TredicesimalCalculator: React.FC = () => {
 
  const handleCalc = useCallback(() => {
  setCalculated(true);
- Analytics.trackUIInteraction('tredicesima_calc', 'calculator', 'calculate', `${contractType}_${monthsWorked}m`);
+ Analytics.trackUIInteraction('tredicesima_calc', 'calculator', 'calculate', `${contractType}_${monthsWorked}m`, undefined, 'calculator.tredicesima.calculate');
  }, [contractType, monthsWorked]);
 
  const formatCurrency = useCallback((amount: number, cur: string) => {

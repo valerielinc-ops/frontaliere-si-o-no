@@ -166,7 +166,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  // Prefill salary from user profile
  useEffect(() => {
  Analytics.trackPageView('/simulatori/ral-comparator', 'RAL Comparator');
- Analytics.trackUIInteraction('ral_comparator', 'screen', 'view', 'open');
+ Analytics.trackUIInteraction('ral_comparator', 'screen', 'view', 'open', undefined, 'calculator.ral_comparator.open');
  }, []);
 
  useEffect(() => {
@@ -462,7 +462,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  onClick={() => {
  const next = !showDetails;
  setShowDetails(next);
- Analytics.trackUIInteraction('ral_comparator', 'details', 'toggle', next ? 'open' : 'close');
+ Analytics.trackUIInteraction('ral_comparator', 'details', 'toggle', next ? 'open' : 'close', undefined, 'calculator.ral_comparator.toggle_details');
  }}
  className="flex items-center gap-2 text-sm font-bold text-muted hover:text-body transition-colors mx-auto"
  >

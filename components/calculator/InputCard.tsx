@@ -215,7 +215,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  const expandDesktop = useCallback(() => {
  setDesktopExpanded(true);
  localStorage.setItem(DESKTOP_EXPANDED_KEY, '1');
- Analytics.trackUIInteraction('simulatore', 'input', 'expand_full_form', 'click');
+ Analytics.trackUIInteraction('simulatore', 'input', 'expand_full_form', 'click', undefined, 'calculator.input.expand_full_form');
  }, []);
 
  // Sync easter egg toast with popup queue so it doesn't overlap gamification
@@ -273,7 +273,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  // Track funnel: first input interaction
  if (!inputStartTracked.current) {
  inputStartTracked.current = true;
- Analytics.trackFunnelStep('input_start', { first_field: field });
+ Analytics.trackFunnelStep('input_start', { funnel: 'calculator', first_field: field });
  }
  // Track important input changes
  if (['annualIncomeCHF', 'age', 'maritalStatus', 'hasChildren', 'numChildren', 'workerType', 'monthsWorked', 'hasHealthInsurance', 'cantonCode'].includes(field)) {
@@ -283,7 +283,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  const handleReset = () => {
  setInputs(DEFAULT_INPUTS);
- Analytics.trackUIInteraction('simulatore', 'input', 'bottone_reset', 'click');
+ Analytics.trackUIInteraction('simulatore', 'input', 'bottone_reset', 'click', undefined, 'calculator.input.reset');
  };
  
  const handleResetTech = () => {

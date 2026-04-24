@@ -67,6 +67,12 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
 
  // handleCalculate
  const handleCalculate = useCallback(async () => {
+ // Funnel step fired BEFORE the heavy calc so we measure the click-to-result
+ // latency in PostHog and capture users who abort mid-calculation.
+ Analytics.trackFunnelStep('simulation_start', {
+ funnel: 'calculator',
+ worker_type: inputs.workerType,
+ });
  const { calculateSimulation } = await lazyCalculate();
  const res = calculateSimulation(inputs);
  setResult(res);
@@ -81,6 +87,11 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  inputs.hasChildren
  );
  Analytics.trackFunnelStep('calculate', { worker_type: inputs.workerType });
+ Analytics.trackFunnelStep('simulation_complete', {
+ funnel: 'calculator',
+ worker_type: inputs.workerType,
+ has_children: inputs.hasChildren,
+ });
  }, [inputs]);
 
  // Hydrate simulation inputs from URL query params (runs once on mount)
