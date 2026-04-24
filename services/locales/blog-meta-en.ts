@@ -2592,6 +2592,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano reaches the semifinals in Chiasso and achieves her best ranking',
     'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'The Varesina tennis player Samira De Stefano reaches the semifinals in Chiasso and improves her best ranking.',
     'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennis player on court in Chiasso with the Alps in the background',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Tribute to the Angels of Ponte Chiasso: heroes who saved Jews from the Nazis and Fascists',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Commemorative plaque discovered for Giuseppina Panzìca, Giovanni Gavino Tolis, and Paolo Boetti, awarded the Gold Medal of Civil Merit for saving hundreds of Jews at the Italian-Swiss border',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Commemorative ceremony at Ponte Chiasso border with plaque in memory of the Angels of Ponte Chiasso',
+    'blog.article.polizia-stabio-futuro-incerto.title': 'Stabio Municipal Police: Uncertain Future, Constant Presence',
+    'blog.article.polizia-stabio-futuro-incerto.excerpt': 'The future of Stabio\'s municipal police is uncertain, but their presence remains constant. The fate of the Ticino Police Project is awaited.',
+    'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Stabio municipal police station, Ticino',
+    'blog.article.settimana-corta-ticino-2026.title': 'Four-day workweek: the Ticino experiment that\'s revolutionizing work',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'A Ticinese company is experimenting with a four-day workweek while paying for five days, improving both quality of life and employee productivity.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO uses AI: but lacks clear criteria',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'The Swiss Competition Commission uses artificial intelligence to combat cartels, but the Federal Audit Office criticizes the lack of a clear strategy',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Belgian driver caught after 20 hours of non-stop driving: Thurgau police intervene',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'A Belgian driver was stopped after driving for nearly 20 hours straight. The police of the Canton of Thurgau took action.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Truck driver resting by Lake Lugano',
 };
 
 export default blogMetaEn;

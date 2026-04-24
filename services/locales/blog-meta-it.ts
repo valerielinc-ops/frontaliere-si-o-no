@@ -2592,6 +2592,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano in semifinale a Chiasso e best ranking per la varesina',
     'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'La tennista varesina Samira De Stefano raggiunge la semifinale a Chiasso e migliora il suo best ranking.',
     'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennista in campo a Chiasso con le Alpi sullo sfondo',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, decorati di Medaglia d’Oro al Merito Civile per aver salvato centinaia di ebrei al confine italo-svizzero',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Cerimonia commemorativa al valico di Ponte Chiasso con targa in memoria degli Angeli di Ponte Chiasso',
+    'blog.article.polizia-stabio-futuro-incerto.title': 'Polizia comunale di Stabio: futuro incerto, presenza costante',
+    'blog.article.polizia-stabio-futuro-incerto.excerpt': 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Si attende il destino del Progetto Polizia ticinese.',
+    'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Stazione di polizia comunale di Stabio, Ticino',
+    'blog.article.settimana-corta-ticino-2026.title': 'Settimana di 4 giorni: l\'esperimento in Ticino che rivoluziona il lavoro',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'Un\'azienda ticinese sperimenta la settimana di 4 giorni con 5 giorni retribuiti, migliorando qualità della vita e produttività dei dipendenti.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO usa l’IA: ma mancano criteri chiari',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'La Commissione della concorrenza svizzera utilizza l’intelligenza artificiale per combattere i cartelli, ma il CdF critica la mancanza di una strategia chiara',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Autista belga guida 20 ore di fila: polizia Thurgau interviene',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Autista di camion in pausa vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;

@@ -1,18 +1,87 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-24T10:05:11.438Z",
-  "total": 168,
-  "newCount": 4,
-  "updatedCount": 0,
+  "generatedAt": "2026-04-24T21:31:40.121Z",
+  "total": 170,
+  "newCount": 2,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 164,
-  "durationMs": 514891,
-  "avgDurationMs": 514891,
+  "unchangedCount": 160,
+  "durationMs": 525065,
+  "avgDurationMs": 525065,
   "durationHistory": [
-    514891
+    525065
   ],
   "newJobs": [
+    {
+      "id": "company-lwjf9k",
+      "slug": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino",
+      "company": "Coop Immobilien",
+      "title": "Aiuto amministrativo 8-20 ore",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/aiuto-amministrativo-8-20-ore/ec77bf23-f97e-4fe1-a381-74b36b4709ee",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-24T21:28:08.126Z",
+      "firstSeenAt": "2026-04-24T21:28:08.126Z",
+      "needsRetranslation": true,
+      "addressLocality": "Bellinzona",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-metayj",
+      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Felsberg",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ead7bb69-ab5a-4ecd-9daa-c151b4ccadf3",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-24T21:28:08.126Z",
+      "firstSeenAt": "2026-04-24T21:28:08.126Z",
+      "needsRetranslation": true,
+      "addressLocality": "Felsberg",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-su1up",
       "slug": "verkaufer-in-food-coop-city-chur-graubunden",
@@ -36,15 +105,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-24T10:01:47.461Z",
       "firstSeenAt": "2026-04-24T10:01:47.461Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -70,15 +141,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-24T10:01:47.461Z",
       "firstSeenAt": "2026-04-24T10:01:47.461Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -104,15 +177,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-24T10:01:47.461Z",
       "firstSeenAt": "2026-04-24T10:01:47.461Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -138,44 +213,6 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-24T10:01:47.461Z",
       "firstSeenAt": "2026-04-24T10:01:47.461Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-7jjh6d",
-      "slug": "verkaufer-in-food-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/c332b966-151f-4772-90ab-3087a62648f8",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-23T09:57:17.838Z",
-      "firstSeenAt": "2026-04-23T09:57:17.838Z",
       "addressLocality": "Chur",
       "sourceLang": "de",
       "salaryMin": 49500,
@@ -238,6 +275,117 @@
       "featured": false,
       "postedDate": "2026-04-13",
       "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/95a05457-4989-4517-bf6d-904adf48bfee",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-23T09:57:17.838Z",
+      "firstSeenAt": "2026-04-23T09:57:17.838Z",
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-n3eyyx",
+      "slug": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Verkaufsberater:in Inkl. Stellvertretung der Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-26",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-inkl-stellvertretung-der-geschaeftsfuehrer-in/84254dd2-aeea-43d4-8a6a-e066bc8c6b12",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-8tzaj8",
+      "slug": "verkaufer-in-food-coop-city-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-26",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/58c65601-f796-487f-9cf2-09e367037576",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-7jjh6d",
+      "slug": "verkaufer-in-food-coop-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/c332b966-151f-4772-90ab-3087a62648f8",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1212,6 +1360,78 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-03T07:12:02.917Z",
       "addressLocality": "Landquart",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-04-03T07:12:02.917Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-z82xrv",
+      "slug": "verkaufer-in-food-coop-disentis-muster-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Disentis/Mustér",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/9c72f65f-8330-4238-bb09-9b1084f6147f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-03T07:12:02.917Z",
+      "addressLocality": "Disentis/Mustér",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-04-03T07:12:02.917Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-qvpnyt",
+      "slug": "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Koch:Köchin mit Zusatzfunktion Stv. Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/koch-koechin-mit-zusatzfunktion-stv-geschaeftsfuehrer-in/00f04eb5-9a00-49e0-9e73-9f85e2a791b7",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-03T07:12:02.917Z",
+      "addressLocality": "Chur",
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,

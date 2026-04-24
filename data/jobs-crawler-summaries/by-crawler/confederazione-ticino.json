@@ -1,18 +1,19 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-24T09:53:46.951Z",
+  "generatedAt": "2026-04-24T21:20:14.366Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1678,
-  "avgDurationMs": 1678,
+  "durationMs": 1698,
+  "avgDurationMs": 1698,
   "durationHistory": [
-    1678
+    1698
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Greffier/greffière de langue française, pour la Cour des affaires pénales",
       "slug": "greffier-greffiere-de-langue-francaise-pour-la-cour-des-affaires-penales-confederazione-bellinzone",
@@ -35,16 +36,21 @@
       "validThrough": "2026-05-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 61,
+      "id": "confederazione-ticino-3eec2e0b1212",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "firstSeenAt": "2026-04-24T09:53:46.950Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "SEKRETÄRIN / SEKRETÄR, Arbeitssprache Deutsch",
       "slug": "sekretarin-sekretar-arbeitssprache-deutsch-confederazione-bellinzona",
@@ -111,6 +117,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -379,44 +387,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Hochschulpraktikant/in für die Entwicklung von IT-Tools zur Unterstützung des Prognosedienstes (m/w)",
-      "slug": "hochschulpraktikant-in-per-lo-sviluppo-di-strumenti-it-per-il-servizio-di-previsione-confederazione-svizzera-locarno-mon",
-      "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-fuer-die-entwicklung-von-it-tools-zur-unterstuetzung-des-prognosedienstes-m-w/493c5aee-df62-4767-b3eb-64bf8d900a39",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18212",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Locarno-Monti",
-      "addressLocality": "Locarno-Monti",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "internship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-24",
-      "validThrough": "2026-04-27",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-ef0f052410bf",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

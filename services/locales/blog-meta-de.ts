@@ -2592,6 +2592,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano im Halbfinale in Chiasso und bestes Ranking für die Vareser',
     'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'Die Tennisspielerin aus Varesi, Samira De Stefano, erreicht das Halbfinale in Chiasso und verbessert ihr bestes Ranking.',
     'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennisspieler auf dem Platz in Chiasso mit den Alpen im Hintergrund',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Hommage an die Engel von Ponte Chiasso: Helden, die Juden vor den Nazis retteten',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Enthüllung einer Gedenktafel für Giuseppina Panzìca, Giovanni Gavino Tolis und Paolo Boetti, die mit der Goldmedaille für bürgerliche Verdienste ausgezeichnet wurden, weil sie Hunderte von Juden an der italienisch-schweizerischen Grenze retteten',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Gedenkfeier am Grenzübergang Ponte Chiasso mit Gedenktafel für die Engel von Ponte Chiasso',
+    'blog.article.polizia-stabio-futuro-incerto.title': 'Gemeindepolizei von Stabio: Ungewisse Zukunft, ständige Präsenz',
+    'blog.article.polizia-stabio-futuro-incerto.excerpt': 'Die Zukunft der Gemeindepolizei von Stabio ist ungewiss, aber ihre Präsenz bleibt konstant. Man wartet auf das Schicksal des Projekts Polizei des Tessin.',
+    'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Gemeindepolizei-Station Stabio, Tessin',
+    'blog.article.settimana-corta-ticino-2026.title': 'Vier-Tage-Woche: Das Experiment im Tessin, das die Arbeitswelt revolutioniert',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'Ein Tessiner Unternehmen experimentiert mit der Vier-Tage-Woche bei vollem Lohn für fünf Tage, was die Lebensqualität und Produktivität der Mitarbeiter verbessert.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO nutzt KI: aber es fehlen klare Kriterien',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'Die Schweizer Wettbewerbs-Kommission nutzt künstliche Intelligenz, um Kartelle zu bekämpfen, doch der Bundesrat kritisiert das Fehlen einer klaren Strategie',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Belgischer Fahrer fährt 20 Stunden am Stück: Polizei Thurgau greift ein',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Ein belgischer Fahrer wurde gestoppt, nachdem er fast 20 Stunden am Stück gefahren war. Die Polizei des Kantons Thurgau hat Maßnahmen ergriffen.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Lkw-Fahrer macht Pause am Luganersee',
 };
 
 export default blogMetaDe;

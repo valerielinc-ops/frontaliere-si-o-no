@@ -11929,6 +11929,151 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-omaggio-angeli-ponte-chiasso-2026': {
+    title: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    description: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
+    keywords: 'frontalieri, ticino, svizzera, italia, omaggio, agli, angeli, ponte',
+    ogTitle: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    ogDescription: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
+    canonicalPath: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti",
+      "description": "Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/omaggio-angeli-ponte-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia commemorativa al valico di Ponte Chiasso con targa in memoria degli Angeli di Ponte Chiasso"
+      },
+      "datePublished": "2026-04-24T17:44:29+00:00",
+      "dateModified": "2026-04-24T17:44:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-polizia-stabio-futuro-incerto': {
+    title: 'Polizia comunale di Stabio: futuro | Frontaliere Ticino',
+    description: 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Scopri di più sulle attività 2025 e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, comunale, stabio, futuro',
+    ogTitle: 'Polizia Stabio: futuro incerto, presenza costante |',
+    ogDescription: 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Scopri di più sulle attività 2025 e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/polizia-stabio-futuro-incerto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Polizia Stabio: futuro incerto",
+      "description": "Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Scopri di più sulle attività 2025 e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-stabio-futuro-incerto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di polizia comunale di Stabio, Ticino"
+      },
+      "datePublished": "2026-04-24T18:22:02+00:00",
+      "dateModified": "2026-04-24T18:22:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-stabio-futuro-incerto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-settimana-corta-ticino-2026': {
+    title: 'Settimana di 4 giorni: l\'esperimento in | Frontaliere Ticino',
+    description: 'Scopri come la settimana di 4 giorni sta rivoluzionando il lavoro in Ticino e le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, settimana, giorni, esperimento, rivoluziona',
+    ogTitle: 'Settimana di 4 giorni in Ticino | Frontaliere Ticino',
+    ogDescription: 'Scopri come la settimana di 4 giorni sta rivoluzionando il lavoro in Ticino e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/settimana-corta-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Settimana di 4 giorni in Ticino | Frontaliere Ticino",
+      "description": "Scopri come la settimana di 4 giorni sta rivoluzionando il lavoro in Ticino e le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/settimana-corta-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-04-24T19:41:18+00:00",
+      "dateModified": "2026-04-24T19:41:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settimana-corta-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comco-ia-criteri-2026': {
+    title: 'COMCO usa l’IA: ma mancano criteri | Frontaliere Ticino',
+    description: 'La Commissione della concorrenza svizzera utilizza l’intelligenza artificiale per combattere i cartelli, ma il CdF critica la mancanza di una strategia chiara',
+    keywords: 'frontalieri, ticino, svizzera, italia, comco, mancano, criteri, chiari',
+    ogTitle: 'COMCO usa l’IA: ma mancano criteri chiari',
+    ogDescription: 'La Commissione della concorrenza svizzera utilizza l’intelligenza artificiale per combattere i cartelli, ma il CdF critica la mancanza di una strategia chiara',
+    canonicalPath: '/articoli-frontaliere/comco-ia-criteri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "COMCO usa l’IA: ma mancano criteri chiari",
+      "description": "La Commissione della concorrenza svizzera utilizza l’intelligenza artificiale per combattere i cartelli, ma il CdF critica la mancanza di una strategia chiara",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comco-ia-criteri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-24T20:25:40+00:00",
+      "dateModified": "2026-04-24T20:25:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comco-ia-criteri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-autista-belga-20-ore-thurgau-intervento': {
+    title: 'Autista belga guida 20 ore di fila | Frontaliere Ticino',
+    description: 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, autista, belga, fila, polizia',
+    ogTitle: 'Autista belga guida 20 ore: polizia Thurgau interviene',
+    ogDescription: 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti.',
+    canonicalPath: '/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autista belga guida 20 ore: polizia Thurgau interviene",
+      "description": "Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autista-belga-20-ore-thurgau-intervento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autista di camion in pausa vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-04-24T21:36:30+00:00",
+      "dateModified": "2026-04-24T21:36:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

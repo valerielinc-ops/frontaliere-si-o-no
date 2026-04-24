@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-04-24T09:33:57.246Z",
+  "generatedAt": "2026-04-24T21:00:14.863Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3807,
-  "avgDurationMs": 3807,
+  "unchangedCount": 1,
+  "durationMs": 4106,
+  "avgDurationMs": 4106,
   "durationHistory": [
-    3807
+    4106
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -85,7 +85,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "IMPIEGATO/A COMMERCIALE INTERNO (SALES SUPPORT)",
       "slug": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
@@ -122,7 +125,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
