@@ -103,7 +103,7 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 3,
         visitCount: 0,
         dismissedAtRaw: null,
-        jobEmail: null,
+        jobEmail: null, newsletterSubscribed: false,
       }),
     ).toBe(true);
   });
@@ -114,7 +114,7 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 0,
         visitCount: 2,
         dismissedAtRaw: null,
-        jobEmail: null,
+        jobEmail: null, newsletterSubscribed: false,
       }),
     ).toBe(true);
   });
@@ -125,7 +125,7 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 2,
         visitCount: 1,
         dismissedAtRaw: null,
-        jobEmail: null,
+        jobEmail: null, newsletterSubscribed: false,
       }),
     ).toBe(false);
   });
@@ -136,7 +136,7 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 5,
         visitCount: 5,
         dismissedAtRaw: null,
-        jobEmail: 'user@example.com',
+        jobEmail: 'user@example.com', newsletterSubscribed: false,
       }),
     ).toBe(false);
   });
@@ -149,7 +149,7 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 5,
         visitCount: 5,
         dismissedAtRaw: recent.toISOString(),
-        jobEmail: null,
+        jobEmail: null, newsletterSubscribed: false,
       }),
     ).toBe(false);
   });
@@ -162,7 +162,7 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 3,
         visitCount: 0,
         dismissedAtRaw: old.toISOString(),
-        jobEmail: null,
+        jobEmail: null, newsletterSubscribed: false,
       }),
     ).toBe(true);
   });
@@ -174,7 +174,19 @@ describe('shouldShowPaywall — trigger rules', () => {
         simCompleteCount: 5,
         visitCount: 5,
         dismissedAtRaw: String(recent),
+        jobEmail: null, newsletterSubscribed: false,
+      }),
+    ).toBe(false);
+  });
+
+  it('does not show when user is already a newsletter subscriber', () => {
+    expect(
+      shouldShowPaywall({
+        simCompleteCount: 5,
+        visitCount: 5,
+        dismissedAtRaw: null,
         jobEmail: null,
+        newsletterSubscribed: true,
       }),
     ).toBe(false);
   });

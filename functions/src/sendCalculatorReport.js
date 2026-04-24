@@ -135,6 +135,10 @@ export async function handleSendCalculatorReport({
 
   const resend = resendClient || new Resend(resendApiKey);
   const attachmentFilename = `frontaliere-ticino-confronto-${new Date().toISOString().slice(0, 10)}.pdf`;
+  // Resend expects attachment.content as a Buffer (or Uint8Array) for binary
+  // files. Passing a raw base64 string attaches the encoded text verbatim,
+  // which produces a corrupted PDF on the recipient end. Decode once here.
+  const pdfBuffer = Buffer.from(pdfBase64, 'base64');
   const { data: emailData, error } = await resend.emails.send({
     from: FROM_EMAIL,
     to: normalizedEmail,
@@ -143,7 +147,8 @@ export async function handleSendCalculatorReport({
     attachments: [
       {
         filename: attachmentFilename,
-        content: pdfBase64,
+        content: pdfBuffer,
+        contentType: 'application/pdf',
       },
     ],
     tags: [

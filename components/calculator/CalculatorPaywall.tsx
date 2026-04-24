@@ -22,6 +22,7 @@ export const PAYWALL_DISMISSED_KEY = 'frontaliere_paywall_dismissed';
 export const SIM_COMPLETE_COUNTER_KEY = 'counter_sim_complete';
 export const VISIT_COUNTER_KEY = 'visit_count';
 export const JOB_EMAIL_KEY = 'ft_job_email';
+export const NEWSLETTER_SUBSCRIBED_KEY = 'newsletter_subscribed';
 export const PAYWALL_DISMISS_DAYS = 30;
 
 const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
@@ -49,15 +50,22 @@ export interface PaywallGateInputs {
   visitCount: number;
   dismissedAtRaw: string | null;
   jobEmail: string | null;
+  newsletterSubscribed: boolean;
   now?: number;
 }
 
 /**
  * Pure trigger-rule evaluator. Kept separate so it can be unit-tested without
  * mounting the component.
+ *
+ * Suppresses the paywall when the user has already given us their email via
+ * any channel: job-board access (`ft_job_email`) or newsletter signup
+ * (`newsletter_subscribed`, the canonical flag set by useNewsletterState +
+ * JobBoard newsletter opt-in). Avoids re-asking the same email we already have.
  */
 export function shouldShowPaywall(inputs: PaywallGateInputs): boolean {
-  const { simCompleteCount, visitCount, dismissedAtRaw, jobEmail, now } = inputs;
+  const { simCompleteCount, visitCount, dismissedAtRaw, jobEmail, newsletterSubscribed, now } = inputs;
+  if (newsletterSubscribed) return false;
   if (jobEmail && jobEmail.length > 0) return false;
   if (isDismissalActive(dismissedAtRaw, now)) return false;
   return simCompleteCount >= 3 || visitCount >= 2;
@@ -74,7 +82,8 @@ export function shouldShowPaywallFromStorage(): boolean {
     const visitCount = parseInt(localStorage.getItem(VISIT_COUNTER_KEY) || '0', 10) || 0;
     const dismissedAtRaw = localStorage.getItem(PAYWALL_DISMISSED_KEY);
     const jobEmail = localStorage.getItem(JOB_EMAIL_KEY);
-    return shouldShowPaywall({ simCompleteCount, visitCount, dismissedAtRaw, jobEmail });
+    const newsletterSubscribed = localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true';
+    return shouldShowPaywall({ simCompleteCount, visitCount, dismissedAtRaw, jobEmail, newsletterSubscribed });
   } catch {
     return false;
   }
@@ -195,6 +204,9 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
         throw new Error(`http_${resp.status}`);
       }
       Analytics.trackFunnelStep('paywall_email_submitted', { funnel: 'newsletter_paywall' });
+      // Mark as subscribed so the paywall (and other subscribe prompts) stop
+      // re-asking the same email across the site.
+      try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
       setStatus('success');
       // Auto-close after short delay so the user sees the confirmation.
       setTimeout(() => onClose(), 1800);
