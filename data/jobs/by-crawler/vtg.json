@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-24T08:30:34.082Z",
+  "assembledAt": "2026-04-24T11:07:58.245Z",
   "jobs": [
     {
       "id": "company-hkdide",
@@ -43,7 +43,7 @@
       "slugByLocale": {
         "it": "operatore-di-impianti-tecnici-swiss-armed-forces-vtg-bern",
         "en": "facility-operations-technician-swiss-armed-forces-vtg-bern",
-        "de": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
+        "de": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bellinzona",
         "fr": "technicien-en-installations-techniques-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -56,6 +56,9 @@
           "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
         ],
         "fr": [
+          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
+        ],
+        "de": [
           "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
         ]
       },
@@ -82,7 +85,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "retranslationAttempts": 2
     },
     {
@@ -125,14 +127,23 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
-        "en": "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
-        "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
-        "fr": "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
+        "en": "logistics-department-swiss-armed-forces-vtg-bellinzona",
+        "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
+        "fr": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
+        ],
+        "en": [
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
+        ],
+        "de": [
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
+        ],
+        "fr": [
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
         ]
       },
@@ -157,7 +168,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
@@ -321,7 +333,8 @@
           "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:53:35.437Z"
+      "firstSeenAt": "2026-03-31T21:53:35.437Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cn6k0h",
