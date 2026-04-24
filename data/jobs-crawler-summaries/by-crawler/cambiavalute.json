@@ -1,55 +1,22 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-04-24T09:46:26.053Z",
+  "generatedAt": "2026-04-24T21:12:46.784Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 17652,
-  "avgDurationMs": 17652,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 17143,
+  "avgDurationMs": 17143,
   "durationHistory": [
-    17652
+    17143
   ],
-  "newJobs": [
-    {
-      "id": "company-fooban",
-      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w",
-      "company": "CambiaValute.ch",
-      "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
-      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-24",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-04-24T09:46:25.778Z",
-      "firstSeenAt": "2026-04-24T09:46:25.778Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-a24znt",
-      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote",
+      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
       "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
@@ -70,33 +37,41 @@
       "companyDomain": "cambiavalute.ch",
       "crawledAt": "2026-04-24T09:46:25.778Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 64,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Pessina 6",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute",
+      "id": "company-fooban",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
-      "title": "Senior Backend developer",
-      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
+      "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
+      "postedDate": "2026-04-24",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -105,26 +80,26 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-03-31T21:00:33.446Z",
+      "crawledAt": "2026-04-24T09:46:25.778Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "streetAddress": "Via Pessina 6",
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T21:00:33.446Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 21,
         "translation": 25,
         "completeness": 25
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
