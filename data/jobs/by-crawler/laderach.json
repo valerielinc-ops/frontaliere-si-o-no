@@ -75,9 +75,9 @@
     },
     {
       "id": "laderach-cb77ac8eb2aa",
-      "slug": "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien",
+      "slug": "venditore-30h-settimana-chocolaterie-wien-f-m-d-laderach-schweiz-ag-wien",
       "slugByLocale": {
-        "it": "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien",
+        "it": "venditore-30h-settimana-chocolaterie-wien-f-m-d-laderach-schweiz-ag-wien",
         "en": "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien",
         "de": "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien",
         "fr": "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien"
@@ -128,7 +128,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-30h-woche-chocolaterie-wien-w-m-d-laderach-wien"
+      ]
     },
     {
       "id": "laderach-0e120d4ef2cf",
