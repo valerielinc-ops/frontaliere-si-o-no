@@ -6972,4 +6972,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'regione-lombardia-aumento-stipendi-medici-infermieri',
+ category: 'novita',
+ date: '2026-04-24T06:26:28.031Z',
+ image: '/images/blog/regione-lombardia-aumento-stipendi-medici-infermieri.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2134,6 +2134,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dividere-lavoratori-salari-2026': { name: 'Novità', path: '/articoli-frontaliere/dividere-lavoratori-salari-2026', parent: 'blog' },
     'blog-lufthansa-bagaglio-gratuito-eliminato': { name: 'Novità', path: '/articoli-frontaliere/lufthansa-bagaglio-gratuito-eliminato', parent: 'blog' },
     'blog-como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano': { name: 'Banditi assaltano gioielleria a Tavernola', path: '/articoli-frontaliere/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano', parent: 'blog' },
+    'blog-regione-lombardia-aumento-stipendi-medici-infermieri': { name: 'Regione Lombardia, aumento stipendi medici', path: '/articoli-frontaliere/regione-lombardia-aumento-stipendi-medici-infermieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

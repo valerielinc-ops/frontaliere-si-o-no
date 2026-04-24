@@ -2568,6 +2568,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.title': 'Überfall auf Juweliergeschäft in Tavernola: der Überfall und die Fahndung',
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.excerpt': 'Bewaffneter Raubüberfall in Tavernola: Drei Täter haben Panik verbreitet und Schmuck aus dem Einkaufszentrum Lario gestohlen.',
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.imageAlt': 'Max 125 chars',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Region Lombardei: Erhöhung der Gehälter von Ärzten und Pflegekräften in den Grenzgebieten zur Schweiz',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'Die Region Lombardei führt eine Regelung ein, um das Gehalt von Ärzten und Pflegekräften in den Grenzgebieten zur Schweiz zu erhöhen. Die Maßnahme zielt darauf ab, das Gesundheitspersonal im lombardischen Gebiet zu halten.',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano aus dem See',
 };
 
 export default blogMetaDe;

@@ -2568,6 +2568,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.title': 'Armed robbers storm jewelry store in Tavernola: the assault and the search',
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.excerpt': 'Armed robbery in Tavernola: three criminals caused panic and stole jewelry from the Lario shopping center.',
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.imageAlt': 'Max 125 chars',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Lombardy Region: Increase Salaries for Doctors and Nurses in Border Areas with Switzerland',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'The Lombardy Region introduces a regulation to increase the salaries of doctors and nurses in border areas with Switzerland. The measure aims to retain healthcare professionals on the Lombardy territory.',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano view from Lake Lugano',
 };
 
 export default blogMetaEn;

@@ -2568,6 +2568,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.title': 'Banditi assaltano gioielleria a Tavernola: l\'assalto e le ricerche',
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.excerpt': 'Rapina a mano armata a Tavernola: tre banditi hanno seminato il panico e hanno prelevato gioielli dal centro commerciale Lario.',
     'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.imageAlt': 'Max 125 chars',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Regione Lombardia: aumento stipendi medici e infermieri dalle zone al confine con la Svizzera',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'La Regione Lombardia introduce una norma per aumentare lo stipendio dei medici e infermieri nelle zone al confine con la Svizzera. La misura mira a trattenere gli operatori sanitari sul territorio lombardo.',
+    'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano vista dal Lago di Lugano',
 };
 
 export default blogMetaIt;

@@ -11689,6 +11689,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regione-lombardia-aumento-stipendi-medici-infermieri': {
+    title: 'Regione Lombardia: aumento stipendi | Frontaliere Ticino',
+    description: 'La Regione Lombardia introduce una norma per aumentare lo stipendio dei medici e infermieri nelle zone al confine con la Svizzera. La misura mira a trattenere',
+    keywords: 'frontalieri, ticino, svizzera, italia, regione, lombardia, aumento, stipendi',
+    ogTitle: 'Regione Lombardia: aumento stipendi medici e infermieri',
+    ogDescription: 'La Regione Lombardia introduce una norma per aumentare lo stipendio dei medici e infermieri nelle zone al confine con la Svizzera. La misura mira a trattenere',
+    canonicalPath: '/articoli-frontaliere/regione-lombardia-aumento-stipendi-medici-infermieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Regione Lombardia: aumento stipendi medici e infermieri",
+      "description": "La Regione Lombardia introduce una norma per aumentare lo stipendio dei medici e infermieri nelle zone al confine con la Svizzera. La misura mira a trattenere",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/regione-lombardia-aumento-stipendi-medici-infermieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano vista dal Lago di Lugano"
+      },
+      "datePublished": "2026-04-24T06:26:28+00:00",
+      "dateModified": "2026-04-24T06:26:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regione-lombardia-aumento-stipendi-medici-infermieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
