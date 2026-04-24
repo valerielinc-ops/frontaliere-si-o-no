@@ -1,16 +1,16 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-04-23T20:56:15.606Z",
-  "total": 16,
+  "generatedAt": "2026-04-24T09:27:06.105Z",
+  "total": 15,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 42084,
-  "avgDurationMs": 42084,
+  "durationMs": 57201,
+  "avgDurationMs": 57201,
   "durationHistory": [
-    42084
+    57201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -218,47 +218,6 @@
         "cleanliness": 17,
         "richness": 18,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-o66kxn",
-      "slug": "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "R&D Certification Engineer",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028501EXTERNALENGLOBAL/R-D-Certification-Engineer",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-31T20:45:35.471Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T20:45:35.471Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
         "completeness": 25
       }
     },
