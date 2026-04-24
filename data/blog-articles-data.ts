@@ -7,7 +7,9 @@
 import type { BlogArticleId } from '@/services/router';
 
 export interface Article {
- id: BlogArticleId;
+ // Loose `string` to avoid TS2590 union-too-complex when ARTICLES literal is checked.
+ // Runtime values are validated against BlogArticleId via routerBlogData lookups.
+ id: string;
  category: 'fiscale' | 'pratico' | 'novita' | 'pensione';
  date: string;
  /** ISO date when the article was last materially updated (omit if same as date) */
@@ -16,7 +18,7 @@ export interface Article {
  hasCalculator: boolean;
 }
 
-export const ARTICLES: Article[] = [
+export const ARTICLES = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -7011,4 +7013,4 @@ export const ARTICLES: Article[] = [
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
  },
-];
+] satisfies Article[];
