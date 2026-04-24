@@ -555,7 +555,8 @@
       "crawledAt": "2026-04-24T10:32:04.715Z",
       "jobReqId": "R75701",
       "previousSlugs": [
-        "bioprocess-engineer-lonza-ch"
+        "bioprocess-engineer-lonza-ch",
+        "bioprocess-engineer-lonza-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1278,7 +1279,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-04-24T10:31:57.281Z",
       "jobReqId": "R75426",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-22T10:20:02.469Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1291,8 +1291,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-98fdf6c318e6",
@@ -1499,7 +1498,6 @@
           "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-22T22:02:43.768Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1512,8 +1510,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-afc62a1ce612",
@@ -1885,7 +1882,7 @@
       "id": "lonza-b16037c6a4a3",
       "slug": "projektleiter-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "projektleiter-m-w-d-lonza-ch",
+        "it": "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-ch",
         "en": "manufacturing-specialist-m-w-d-lonza-ch",
         "de": "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
         "fr": "projektleiter-m-m-j-lonza-ch"
@@ -1931,7 +1928,6 @@
       "previousSlugs": [
         "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
         "manufacturing-specialista-m-w-d-lonza-ch",
-        "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-ch",
         "manufacturing-specialist-m-w-d-lonza-ch",
         "manufacturing-specialiste-m-w-d-lonza-ch",
         "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
@@ -1939,8 +1935,7 @@
       "previousSlugsByLocale": {
         "it": [
           "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
-          "manufacturing-specialista-m-w-d-lonza-ch",
-          "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-ch"
+          "manufacturing-specialista-m-w-d-lonza-ch"
         ],
         "en": [
           "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
