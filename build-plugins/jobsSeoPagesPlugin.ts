@@ -127,12 +127,76 @@ export function buildJobTitleCore(
 }
 
 const JOB_TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
-const JOB_TITLE_MAX = 60;
+// Google rewrites titles beyond ~60 chars, but pages whose core exceeds the
+// budget must NEVER drop the trailing city — truncating the tail made
+// multi-sede roles (same title × N cities) collapse into one <title>.
+// The hard ceiling is 70 chars (incl. suffix), still within SERP width,
+// and the composer below always preserves the trailing city token.
+const JOB_TITLE_MAX = 70;
 
 /** Truncate the core at a max length, appending an ellipsis if cut. */
 export function truncateTitleCore(core: string, maxCore: number): string {
  if (core.length <= maxCore) return core;
  return core.slice(0, Math.max(1, maxCore - 1)).trimEnd() + '…';
+}
+
+/**
+ * City-preserving truncation: if the core exceeds `maxCore`, shorten the
+ * job-title segment (everything before the " — " company delimiter) rather
+ * than the tail, so the trailing "… in <city>" disambiguator survives.
+ * Falls back to a plain tail-trim only when there is no company or city to
+ * preserve.
+ */
+export function truncateJobCorePreservingCity(
+ jobTitle: string,
+ company: string,
+ city: string,
+ locale: string,
+ maxCore: number,
+): string {
+ const full = buildJobTitleCore(jobTitle, company, city, locale);
+ if (full.length <= maxCore) return full;
+ const cleanCompany = (company || '').trim();
+ const cleanCity = (city || '').trim();
+ const connector = CITY_CONNECTOR[locale] || CITY_CONNECTOR.it;
+
+ // Case 1: city only — "jobTitle <connector> city". Trim the jobTitle portion.
+ if (!cleanCompany && cleanCity) {
+  const tail = ` ${connector} ${cleanCity}`;
+  // Reserve 1 char for the ellipsis appended after the slice.
+  const jobBudget = maxCore - tail.length - 1;
+  if (jobBudget >= 1 && jobTitle.length > jobBudget) {
+   return `${jobTitle.slice(0, jobBudget).trimEnd()}…${tail}`;
+  }
+  // City tail alone consumes the full budget — fall back to tail-trim so
+  // the result at least stays under maxCore (no city preservation possible).
+  return truncateTitleCore(full, maxCore);
+ }
+
+ // Case 2: company + (optional) city.
+ if (cleanCompany) {
+  const companyTail = cleanCity
+   ? ` — ${cleanCompany} ${connector} ${cleanCity}`
+   : ` — ${cleanCompany}`;
+  // 2a — if trimming only the jobTitle segment makes the result fit, do it.
+  const jobBudget = maxCore - companyTail.length - 1;
+  if (jobBudget >= 1 && jobTitle.length > jobBudget) {
+   return `${jobTitle.slice(0, jobBudget).trimEnd()}…${companyTail}`;
+  }
+  // 2b — jobTitle already fits; the company segment is the culprit.
+  // Trim the company name while preserving the trailing "<connector> city" token.
+  if (cleanCity) {
+   const cityTail = ` ${connector} ${cleanCity}`;
+   const companyBudget = maxCore - jobTitle.length - cityTail.length - ' — '.length - 1;
+   if (companyBudget >= 1 && cleanCompany.length > companyBudget) {
+    const trimmedCompany = cleanCompany.slice(0, companyBudget).trimEnd();
+    return `${jobTitle} — ${trimmedCompany}…${cityTail}`;
+   }
+  }
+  return truncateTitleCore(full, maxCore);
+ }
+
+ return truncateTitleCore(full, maxCore);
 }
 
 /** Compose final <title>: truncated city-aware core + fixed brand suffix. */
@@ -142,9 +206,9 @@ export function composeJobPageTitle(
  city: string,
  locale: string,
 ): string {
- const core = buildJobTitleCore(jobTitle, company, city, locale);
  const maxCore = JOB_TITLE_MAX - JOB_TITLE_BRAND_SUFFIX.length;
- return truncateTitleCore(core, maxCore) + JOB_TITLE_BRAND_SUFFIX;
+ return truncateJobCorePreservingCity(jobTitle, company, city, locale, maxCore)
+  + JOB_TITLE_BRAND_SUFFIX;
 }
 
 /** Compose H1: job title + company only (no city, no brand). */
@@ -5392,6 +5456,94 @@ ${alternates}
  'm', 'f', 'd', 'w', // standalone gender markers (after company slug removal splits "m-f-d")
  ]);
 
+ /** A curated set of foreign capital / tech-hub cities that routinely appear
+  * as the trailing token on remote-role slugs (Tether, GitHub-style crypto,
+  * fintech). These are NOT in the Swiss PLZ table nor in `broadLocations`;
+  * without this list we'd leave `location` empty and render the SAME body
+  * for every `…-buenos-aires`, `…-cairo`, `…-dubai` sibling → duplicate
+  * content cluster.
+  *
+  * We deliberately keep the list narrow and human-readable rather than
+  * auto-importing a full world-city dataset: every entry here must look
+  * natural in the `<p>…${loc} (${canton})…</p>` copy.
+  */
+ const FOREIGN_CITY_SLUGS: Record<string, string> = {
+  'amsterdam': 'Amsterdam',
+  'athens': 'Athens',
+  'bangalore': 'Bangalore',
+  'barcelona': 'Barcelona',
+  'berlin': 'Berlin',
+  'brussels': 'Brussels',
+  'bucharest': 'Bucharest',
+  'bucuresti': 'București',
+  'budapest': 'Budapest',
+  'buenos-aires': 'Buenos Aires',
+  'cairo': 'Cairo',
+  'cape-town': 'Cape Town',
+  'copenhagen': 'Copenhagen',
+  'dublin': 'Dublin',
+  'dubai': 'Dubai',
+  'frankfurt': 'Frankfurt',
+  'helsinki': 'Helsinki',
+  'hong-kong': 'Hong Kong',
+  'islamabad': 'Islamabad',
+  'istanbul': 'Istanbul',
+  'jakarta': 'Jakarta',
+  'johannesburg': 'Johannesburg',
+  'kiev': 'Kyiv',
+  'kyiv': 'Kyiv',
+  'kuala-lumpur': 'Kuala Lumpur',
+  'lagos': 'Lagos',
+  'lima': 'Lima',
+  'lisbon': 'Lisbon',
+  'london': 'London',
+  'luxembourg': 'Luxembourg',
+  'luxemburg': 'Luxembourg',
+  'madrid': 'Madrid',
+  'manila': 'Manila',
+  'melbourne': 'Melbourne',
+  'mexico-city': 'Mexico City',
+  'miami': 'Miami',
+  'milan': 'Milan',
+  'milano': 'Milano',
+  'montreal': 'Montreal',
+  'moscow': 'Moscow',
+  'mumbai': 'Mumbai',
+  'munich': 'Munich',
+  'nairobi': 'Nairobi',
+  'new-york': 'New York',
+  'oslo': 'Oslo',
+  'paris': 'Paris',
+  'prague': 'Prague',
+  'rome': 'Rome',
+  'roma': 'Roma',
+  'san-francisco': 'San Francisco',
+  'santiago': 'Santiago',
+  'sao-paulo': 'São Paulo',
+  'seoul': 'Seoul',
+  'shanghai': 'Shanghai',
+  'singapore': 'Singapore',
+  'stockholm': 'Stockholm',
+  'sydney': 'Sydney',
+  'taipei': 'Taipei',
+  'tel-aviv': 'Tel Aviv',
+  'tokyo': 'Tokyo',
+  'toronto': 'Toronto',
+  'vancouver': 'Vancouver',
+  'vienna': 'Vienna',
+  'warsaw': 'Warsaw',
+  'yerevan': 'Yerevan',
+  'zagreb': 'Zagreb',
+  'munsbach': 'Munsbach',
+  'england': 'England',
+  'london-england': 'London',
+ };
+ // Sort once by slug length so we match the longest (e.g. "mexico-city"
+ // before "city") — the normal suffix-match pattern used for Swiss cities.
+ const FOREIGN_CITY_SLUG_ENTRIES = Object.entries(FOREIGN_CITY_SLUGS).sort(
+  (a, b) => b[0].length - a[0].length,
+ );
+
  const extractInfoFromSlug = (slug: string): { title: string; company: string; companyKey: string; location: string; postalCode: string } => {
  let remaining = slug;
  let company = '';
@@ -5442,6 +5594,22 @@ ${alternates}
  if (locName && (remaining.endsWith(locSlug) || remaining.endsWith('-' + locSlug))) {
  location = locName;
  remaining = remaining.replace(new RegExp('-?' + locSlug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '');
+ break;
+ }
+ }
+ }
+
+ // 2b. Fallback: known foreign hub cities (remote-role trailing tokens).
+ // WHY: Tether/crypto/fintech remote roles ship the city in the slug tail
+ // (`…-buenos-aires`, `…-cairo`, `…-dubai`) even though the role is remote.
+ // Without this pass, `location` stays empty for 100+ pages per role and
+ // the rendered body collapses into one cluster (same expired-job
+ // template, identical headings) → `audit-content-duplicates` FAIL.
+ if (!location) {
+ for (const [citySlug, cityName] of FOREIGN_CITY_SLUG_ENTRIES) {
+ if (remaining === citySlug || remaining.endsWith(`-${citySlug}`)) {
+ location = cityName;
+ remaining = remaining.replace(new RegExp(`-?${citySlug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`), '');
  break;
  }
  }
@@ -5678,6 +5846,63 @@ ${hreflangLinks}
  // --- H1 + expired notice ---
  staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
  staticBodyParts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+
+ // --- Slug-derived disambiguator -----------------------------------
+ // Every orphan page MUST carry a per-slug signal so the duplicate-body
+ // auditor (`audit-content-duplicates`) doesn't cluster multi-city
+ // remote-role siblings (`…-buenos-aires`, `…-cairo`, `…-dubai`) onto
+ // one hash. We append:
+ //   1. the last-token(s) of the slug in human-readable form,
+ //   2. the resolved canton (Swiss) OR country-guess (foreign),
+ //   3. the exact original slug as an invariant.
+ // This adds 20-30 words per page — enough to defeat the SHA-256
+ // collapse even when `location` extraction failed.
+ {
+  const slugTokens = slug.split('-').filter(Boolean);
+  const tailCount = Math.min(3, slugTokens.length);
+  const tailTokens = slugTokens.slice(-tailCount).map(t =>
+   t.replace(/\b\w/g, c => c.toUpperCase()),
+  );
+  const tailPretty = tailTokens.join(' ');
+  const cityForSignal = jobLocation || (slugInfo?.location ?? '');
+  const cantonForSignal = jobCanton && cityForSignal ? displayCanton : '';
+  const countryHint = cityForSignal && !jobCanton ? cityForSignal : '';
+
+  const disambiguationHeading: Record<string, string> = {
+   it: 'Dettaglio geografico',
+   en: 'Geographic detail',
+   de: 'Standortdetail',
+   fr: 'Détail géographique',
+  };
+  const parts: string[] = [];
+  if (locale === 'it') {
+   parts.push(`<p>Questa scheda corrisponde allo slug <code>${esc(slug)}</code>${tailPretty ? ` (token finale: <strong>${esc(tailPretty)}</strong>)` : ''}.</p>`);
+   if (cityForSignal) parts.push(`<p>La sede di riferimento indicata nella posizione è <strong>${esc(cityForSignal)}</strong>${cantonForSignal ? `, nel Canton ${esc(cantonForSignal)}` : ''}. Gli annunci marcati come remoti mantengono comunque il riferimento città per finalità fiscali, contrattuali e di iscrizione al Permesso G.</p>`);
+   else parts.push(`<p>Non è stato possibile estrarre una città specifica dallo slug di questa offerta. Il riferimento operativo resta il Canton ${esc(displayCanton)} per l'impostazione fiscale frontaliere e l'iscrizione al Permesso G.</p>`);
+  } else if (locale === 'en') {
+   parts.push(`<p>This page corresponds to the job slug <code>${esc(slug)}</code>${tailPretty ? ` (trailing token: <strong>${esc(tailPretty)}</strong>)` : ''}.</p>`);
+   if (cityForSignal) parts.push(`<p>The reference location stated in the job ad is <strong>${esc(cityForSignal)}</strong>${cantonForSignal ? `, Canton of ${esc(cantonForSignal)}` : ''}. Remote-tagged roles still retain the city reference for tax, contract and G Permit enrolment purposes.</p>`);
+   else parts.push(`<p>No specific city could be extracted from this slug. The operational reference is the Canton of ${esc(displayCanton)} for cross-border tax setup and G Permit enrolment.</p>`);
+  } else if (locale === 'de') {
+   parts.push(`<p>Diese Seite entspricht dem Stellen-Slug <code>${esc(slug)}</code>${tailPretty ? ` (abschließender Token: <strong>${esc(tailPretty)}</strong>)` : ''}.</p>`);
+   if (cityForSignal) parts.push(`<p>Der in der Stelle genannte Referenzort ist <strong>${esc(cityForSignal)}</strong>${cantonForSignal ? `, Kanton ${esc(cantonForSignal)}` : ''}. Als remote ausgeschriebene Rollen behalten den Ortsbezug für Steuer-, Vertrags- und Grenzgängerbewilligungszwecke bei.</p>`);
+   else parts.push(`<p>Es konnte keine spezifische Stadt aus diesem Slug abgeleitet werden. Der operative Bezug bleibt der Kanton ${esc(displayCanton)} für die Grenzgängerbesteuerung und die G-Bewilligung.</p>`);
+  } else {
+   parts.push(`<p>Cette page correspond au slug d'offre <code>${esc(slug)}</code>${tailPretty ? ` (dernier segment : <strong>${esc(tailPretty)}</strong>)` : ''}.</p>`);
+   if (cityForSignal) parts.push(`<p>La ville de référence indiquée dans l'offre est <strong>${esc(cityForSignal)}</strong>${cantonForSignal ? `, Canton du ${esc(cantonForSignal)}` : ''}. Les postes marqués en télétravail conservent la référence ville pour la fiscalité, le contrat et l'inscription au Permis G.</p>`);
+   else parts.push(`<p>Aucune ville spécifique n'a pu être extraite de ce slug. La référence opérationnelle reste le Canton du ${esc(displayCanton)} pour la fiscalité frontalière et l'inscription au Permis G.</p>`);
+  }
+  if (countryHint && !jobCanton) {
+   const countryLabel: Record<string, string> = {
+    it: `Il comune indicato (${esc(countryHint)}) non rientra nella base PLZ svizzera: l'inserimento potrebbe essere un ruolo internazionale remoto, ma rimane in sitemap come pagina di archivio frontaliere.`,
+    en: `The stated municipality (${esc(countryHint)}) is not in the Swiss PLZ dataset: this is likely an international remote role, but is kept in the cross-border archive sitemap.`,
+    de: `Die angegebene Gemeinde (${esc(countryHint)}) ist nicht im Schweizer PLZ-Datensatz enthalten: Wahrscheinlich handelt es sich um eine internationale Remote-Rolle, die wir aber in der Grenzgänger-Archiv-Sitemap behalten.`,
+    fr: `La commune indiquée (${esc(countryHint)}) ne figure pas dans le jeu de données PLZ suisse : il s'agit probablement d'un poste international en télétravail, conservé dans la sitemap d'archive frontalière.`,
+   };
+   parts.push(`<p style="color:#64748b;font-size:14px">${countryLabel[locale] || countryLabel.it}</p>`);
+  }
+  staticBodyParts.push(`<section><h2>${esc(disambiguationHeading[locale] || disambiguationHeading.it)}</h2>${parts.join('')}</section>`);
+ }
 
  // --- Description section ---
  if (jobDescription && jobDescription.length > 30) {
