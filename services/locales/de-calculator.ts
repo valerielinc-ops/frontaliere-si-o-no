@@ -405,6 +405,11 @@ const deCalculator: Record<string, string> = {
  'results.save.button': 'Für später speichern',
  'results.save.buttonShort': 'Speichern',
  'results.save.saved': 'Gespeichert!',
+
+ // E3: Inline consulting CTA on the results view
+ 'calculator.consultingCta.headline': 'Komplexe Situation?',
+ 'calculator.consultingCta.body': '30 Min. persönliche Beratung mit einem Grenzgänger-Experten — 49 €. Buchen Sie Ihren Termin.',
+ 'calculator.consultingCta.button': 'Beratung buchen',
 };
 
 export default deCalculator;

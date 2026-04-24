@@ -405,6 +405,11 @@ const enCalculator: Record<string, string> = {
  'results.save.button': 'Save for later',
  'results.save.buttonShort': 'Save',
  'results.save.saved': 'Saved!',
+
+ // E3: Inline consulting CTA on the results view
+ 'calculator.consultingCta.headline': 'Complex situation?',
+ 'calculator.consultingCta.body': '30 min of personalized consulting with a cross-border expert — €49. Book your slot.',
+ 'calculator.consultingCta.button': 'Book consultation',
 };
 
 export default enCalculator;

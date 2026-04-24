@@ -405,6 +405,11 @@ const frCalculator: Record<string, string> = {
  'results.save.button': 'Enregistrer pour plus tard',
  'results.save.buttonShort': 'Enregistrer',
  'results.save.saved': 'Enregistr\u00e9 !',
+
+ // E3: Inline consulting CTA on the results view
+ 'calculator.consultingCta.headline': 'Situation complexe\u00a0?',
+ 'calculator.consultingCta.body': '30 min de conseil personnalis\u00e9 avec un expert frontalier \u2014 49\u00a0\u20ac. R\u00e9servez votre cr\u00e9neau.',
+ 'calculator.consultingCta.button': 'R\u00e9server une consultation',
 };
 
 export default frCalculator;
