@@ -1,19 +1,18 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-04-23T21:21:18.023Z",
+  "generatedAt": "2026-04-24T09:52:04.043Z",
   "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "newCount": 1,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23829,
-  "avgDurationMs": 23829,
+  "durationMs": 20904,
+  "avgDurationMs": 20904,
   "durationHistory": [
-    23829
+    20904
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "Kundenberaterin Basis Bern (w/m)",
       "slug": "kundenberaterin-basis-bern-w-m-banca-cler",
@@ -37,24 +36,17 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T21:20:56.572Z",
-      "id": "company-ts9gho",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "firstSeenAt": "2026-04-23T09:47:26.682Z",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 13",
-      "postalCode": "6900",
-      "_qualityScore": 97,
+      "crawledAt": "2026-04-24T09:51:45.190Z",
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Kundenberaterin Individual und stellvertretende Filialleiterin Solothurn (w/m)",
       "slug": "kundenberaterin-individual-und-stellvertretende-filialleiterin-solothurn-w-m-banca-cler",
@@ -78,7 +70,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T21:20:57.252Z",
+      "crawledAt": "2026-04-24T09:51:45.709Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -119,7 +111,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T21:20:57.884Z",
+      "crawledAt": "2026-04-24T09:51:46.261Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -160,7 +152,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T21:20:58.552Z",
+      "crawledAt": "2026-04-24T09:51:46.906Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
@@ -201,7 +193,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-23T21:20:59.189Z",
+      "crawledAt": "2026-04-24T09:51:47.443Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
