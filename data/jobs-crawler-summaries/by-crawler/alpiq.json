@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-04-24T09:30:28.724Z",
+  "generatedAt": "2026-04-24T20:56:56.132Z",
   "total": 2,
   "newCount": 3,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 2903,
-  "avgDurationMs": 2903,
+  "durationMs": 3567,
+  "avgDurationMs": 3567,
   "durationHistory": [
-    2903
+    3567
   ],
   "newJobs": [
     {
@@ -37,46 +37,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9434&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-24T09:30:26.759Z",
+      "crawledAt": "2026-04-24T20:56:53.656Z",
       "_qualityScore": 53,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 4,
         "completeness": 14
-      }
-    },
-    {
-      "id": "alpiq-8830606f1f62",
-      "slug": "quantitative-risk-manager-all-80-100-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Quantitative Risk Manager (all) 80-100%",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-24",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9460",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9460&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-24T09:30:26.760Z",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 4,
-        "completeness": 17
       }
     },
     {
@@ -103,7 +70,40 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9474&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-24T09:30:26.760Z",
+      "crawledAt": "2026-04-24T20:56:53.657Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "alpiq-3452a89e108f",
+      "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Legal Counsel / Senior Legal Counsel (all)",
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9486",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-24T20:56:53.657Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
