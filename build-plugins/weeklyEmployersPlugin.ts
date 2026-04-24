@@ -42,7 +42,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
-  MIN_JOBS_PER_COMPANY_IN_CITY,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_CITY_DISPLAY,
@@ -58,6 +57,7 @@ import {
   buildCompanyCityCurrentPath,
   buildCurrentWeekPath,
   canonicalCompanySlug,
+  companyCityMeetsThreshold,
   getIsoWeekAndYear,
   isoWeekKey,
   parseCompanyCityPath,
@@ -567,7 +567,7 @@ export function buildCompanyCityStats(opts: {
     return jobKey === employerKey;
   });
 
-  if (matching.length < MIN_JOBS_PER_COMPANY_IN_CITY) return null;
+  if (!companyCityMeetsThreshold({ active: matching.length })) return null;
 
   // Canonical employer display name — take first job's company string.
   const employer = String(matching[0].company || '').trim();
@@ -727,7 +727,7 @@ export function enumerateCompanyCityPairs(
       else counts.set(key, { employer: company, employerKey: key, active: 1 });
     }
     for (const [employerKey, rec] of counts.entries()) {
-      if (rec.active < MIN_JOBS_PER_COMPANY_IN_CITY) continue;
+      if (!companyCityMeetsThreshold(rec)) continue;
       const companySlug = canonicalCompanySlug(rec.employer, employerKey);
       if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
       pairs.set(`${city}::${companySlug}`, {
