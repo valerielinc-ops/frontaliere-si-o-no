@@ -75,6 +75,7 @@ import {
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   renderDiscoverMore,
+  renderSparklineChart,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
@@ -100,6 +101,19 @@ const BORDER_WAIT_HUB_PATH: Record<FuelDailyLocale, string> = {
   en: '/en/border-wait/',
   de: '/de/wartezeit-grenze/',
   fr: '/fr/temps-attente-douane/',
+};
+
+/**
+ * Canonical slug for the cross-border fuel-price stats page per locale. Kept
+ * in sync with `services/router.ts` slug tables (`stats` + `fuelPrices`). Used
+ * by the "base dati in costruzione" fallback note so users can still reach the
+ * long-form history chart while the F6 snapshot series is too young.
+ */
+const FUEL_STATS_HUB_PATH: Record<FuelDailyLocale, string> = {
+  it: '/statistiche/prezzi-benzina-confine/',
+  en: '/en/statistics/border-fuel-prices/',
+  de: '/de/statistiken/spritpreise-grenze/',
+  fr: '/fr/statistiques/prix-essence-frontiere/',
 };
 
 function buildFuelDiscoverMoreCtas(
@@ -372,6 +386,25 @@ function formatPrice(price: number | null, locale: FuelDailyLocale): string {
   return `${price.toFixed(3).replace('.', sep)}`;
 }
 
+/**
+ * Compute the arithmetic mean of all numeric points in a 7-day trend series.
+ *
+ * Returns `null` when fewer than two numeric points are available — the caller
+ * must then render a "not available yet" note instead of a hardcoded value.
+ * This is the F2 fix for the "7-day average is always 2,149 CHF" bug: the
+ * previous implementation fell back to today's price when history was missing,
+ * which produced a static-looking aggregate. Now the aggregate is either real
+ * or explicitly absent.
+ */
+function computePeriodAverage(prices: ReadonlyArray<number | null>): number | null {
+  const numeric = prices.filter(
+    (p): p is number => typeof p === 'number' && Number.isFinite(p),
+  );
+  if (numeric.length < 2) return null;
+  const sum = numeric.reduce((a, b) => a + b, 0);
+  return Number((sum / numeric.length).toFixed(3));
+}
+
 // ── Localised copy ─────────────────────────────────────────────
 
 interface FuelCopy {
@@ -392,6 +425,20 @@ interface FuelCopy {
   archiveLabel: string;
   breadcrumbHome: string;
   currencyLabel: string;
+  /** Inline note shown when yesterday/7-day delta cannot be computed. */
+  dataUnavailableNote: string;
+  /** Anchor copy for the link to the border-fuel-prices stats page. */
+  dataUnavailableLinkLabel: string;
+  /** Inline note shown when the 7-day period average has <2 data points. */
+  periodAvgUnavailableNote: string;
+  /** Label for the period-average row ("Media 7 giorni"). */
+  periodAvgLabel: string;
+  /**
+   * Compose the SVG `aria-label` for the trend chart. Receives the localised
+   * period description (7d), the formatted period average and the delta
+   * (already localised with sign) as inputs.
+   */
+  chartAriaLabel: (fuelLabel: string, zone: string, avgFmt: string, deltaFmt: string) => string;
   faq: Array<{ q: string; a: (fuelLabel: string, zone: string) => string }>;
 }
 
@@ -417,6 +464,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Archivio mensile',
     breadcrumbHome: 'Home',
     currencyLabel: 'CHF/litro',
+    dataUnavailableNote: 'Base dati in costruzione: il confronto richiede almeno due snapshot giornalieri. ',
+    dataUnavailableLinkLabel: 'Consulta lo storico completo dei prezzi al confine',
+    periodAvgUnavailableNote: 'Media dei 7 giorni non ancora disponibile: lo storico si popola giorno per giorno.',
+    periodAvgLabel: 'Media 7 giorni',
+    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
+      `Andamento ultimi 7 giorni del prezzo ${f.toLowerCase()} a ${z}: media ${avgFmt} CHF/litro, variazione ${deltaFmt} rispetto al primo giorno disponibile.`,
     faq: [
       {
         q: 'Ogni quanto viene aggiornato il prezzo?',
@@ -456,6 +509,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Monthly archive',
     breadcrumbHome: 'Home',
     currencyLabel: 'CHF/litre',
+    dataUnavailableNote: 'Baseline data still being collected: the comparison needs at least two daily snapshots. ',
+    dataUnavailableLinkLabel: 'See the full cross-border fuel price history',
+    periodAvgUnavailableNote: 'Seven-day average not available yet: the history fills in day by day.',
+    periodAvgLabel: '7-day average',
+    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
+      `Last-7-days ${f.toLowerCase()} price trend in ${z}: average ${avgFmt} CHF/litre, ${deltaFmt} change from the earliest available day.`,
     faq: [
       {
         q: 'How often is the price updated?',
@@ -495,6 +554,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Monatsarchiv',
     breadcrumbHome: 'Startseite',
     currencyLabel: 'CHF/Liter',
+    dataUnavailableNote: 'Basis-Datensatz wird aufgebaut: der Vergleich benötigt mindestens zwei Tagesschnappschüsse. ',
+    dataUnavailableLinkLabel: 'Vollständige Treibstoffpreis-Historie an der Grenze ansehen',
+    periodAvgUnavailableNote: '7-Tage-Durchschnitt noch nicht verfügbar: die Historie baut sich Tag für Tag auf.',
+    periodAvgLabel: '7-Tage-Durchschnitt',
+    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
+      `Preisverlauf der letzten 7 Tage für ${f} in ${z}: Durchschnitt ${avgFmt} CHF/Liter, Veränderung ${deltaFmt} gegenüber dem frühesten verfügbaren Tag.`,
     faq: [
       {
         q: 'Wie oft wird der Preis aktualisiert?',
@@ -534,6 +599,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Archive mensuelle',
     breadcrumbHome: 'Accueil',
     currencyLabel: 'CHF/litre',
+    dataUnavailableNote: "Base de données en construction : la comparaison nécessite au moins deux clichés quotidiens. ",
+    dataUnavailableLinkLabel: "Voir l'historique complet des prix aux frontières",
+    periodAvgUnavailableNote: "Moyenne 7 jours pas encore disponible : l'historique se remplit jour après jour.",
+    periodAvgLabel: 'Moyenne 7 jours',
+    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
+      `Tendance des 7 derniers jours du prix du ${f.toLowerCase()} à ${z} : moyenne ${avgFmt} CHF/litre, variation ${deltaFmt} par rapport au premier jour disponible.`,
     faq: [
       {
         q: 'À quelle fréquence le prix est-il mis à jour ?',
@@ -819,7 +890,46 @@ function renderPage(inp: PageInputs): string {
       trendRows.push({ date: key, price: val });
     }
   }
-  const trendHtml = `<table style="${TABLE_STYLE};font-size:14px">
+
+  // Period (7-day) average. Null when fewer than 2 daily snapshots exist in
+  // the window — we render an explicit "not available yet" note instead of a
+  // hardcoded number. See F2 fix notes in the CHANGELOG.
+  const periodAvg = computePeriodAverage(trendRows.map((r) => r.price));
+  const periodAvgFmt = formatPrice(periodAvg, locale);
+
+  // Inline SVG sparkline chart. Skips rendering entirely when <2 numeric
+  // points are available so we don't emit an empty axis.
+  const numericTrendPoints = trendRows.filter(
+    (r) => typeof r.price === 'number' && Number.isFinite(r.price),
+  );
+  let chartHtml = '';
+  if (numericTrendPoints.length >= 2) {
+    // Period delta: last-available numeric point vs first-available numeric
+    // point. This is the figure surfaced in the aria-label so the chart is
+    // meaningful to screen-reader users.
+    const firstPt = numericTrendPoints[0];
+    const lastPt = numericTrendPoints[numericTrendPoints.length - 1];
+    const periodDelta =
+      typeof firstPt.price === 'number' && typeof lastPt.price === 'number'
+        ? Number((lastPt.price - firstPt.price).toFixed(3))
+        : null;
+    const ariaLabel = copy.chartAriaLabel(
+      fuelLabel,
+      zoneLabel,
+      periodAvgFmt,
+      formatDelta(periodDelta, locale),
+    );
+    chartHtml = renderSparklineChart(
+      trendRows.map((r) => ({ date: r.date, value: r.price })),
+      {
+        ariaLabel,
+        height: 110,
+        formatValue: (v) => formatPrice(v, locale),
+      },
+    );
+  }
+
+  const trendTableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
       <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
       <th scope="col" style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
@@ -829,8 +939,33 @@ function renderPage(inp: PageInputs): string {
         <td style="${TABLE_CELL_STYLE}">${esc(r.date)}</td>
         <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
       </tr>`)
-      .join('')}</tbody>
+      .join('')}${
+        periodAvg !== null
+          ? `<tr>
+        <th scope="row" style="${TABLE_CELL_STYLE};font-weight:700">${esc(copy.periodAvgLabel)}</th>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums;font-weight:700">${esc(
+              periodAvgFmt,
+            )} CHF</td>
+      </tr>`
+          : ''
+      }</tbody>
   </table>`;
+
+  const periodAvgNoteHtml =
+    periodAvg === null
+      ? `<p style="margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--color-warning-subtle);color:var(--color-warning-border);font-size:13px">${esc(copy.periodAvgUnavailableNote)}</p>`
+      : '';
+
+  // "Base dati in costruzione" fallback note — shown when either delta cannot
+  // be computed (no yesterday snapshot, or no 7-day-ago snapshot). Links to
+  // the long-form stats page where the full history chart lives.
+  const statsHref = FUEL_STATS_HUB_PATH[locale];
+  const unavailableNoteHtml =
+    deltaYest === null || delta7 === null
+      ? `<p style="margin:0 0 16px;padding:10px 14px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-body);font-size:14px;line-height:1.55">${esc(
+          copy.dataUnavailableNote,
+        )}<a href="${esc(statsHref)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.dataUnavailableLinkLabel)} →</a></p>`
+      : '';
 
   // FAQ section
   const faqItems = copy.faq;
@@ -926,6 +1061,7 @@ function renderPage(inp: PageInputs): string {
       <div style="${STAT_TILE_VALUE};font-size:22px">${esc(delta7Fmt)}</div>
     </div>
   </section>
+  ${unavailableNoteHtml}
   <section style="margin:0 0 24px">
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
@@ -940,7 +1076,9 @@ function renderPage(inp: PageInputs): string {
   <section style="margin:0 0 24px" aria-labelledby="trend7">
     <h2 id="trend7" style="${H2_STYLE}">${esc(copy.trendLabel)}</h2>
     <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.6">${esc(historyCopy)}</p>
-    ${trendHtml}
+    ${chartHtml ? `<figure style="margin:0 0 14px;padding:12px 14px;${CARD_STYLE}">${chartHtml}</figure>` : ''}
+    ${trendTableHtml}
+    ${periodAvgNoteHtml}
   </section>
   ${faqHtml}
   ${renderDiscoverMore(locale, FUEL_DAILY_DISCOVER_MORE_CTAS[locale])}
