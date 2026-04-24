@@ -46,6 +46,7 @@ import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPl
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
+import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -115,6 +116,10 @@ export default defineConfig(({ mode }) => {
  // 100 mainEntity). Pure content plugin: no data dependency, so it can
  // run in any order after the other landing plugins.
  faqHubPlugin(__dirname),
+ // FR landing — single page targeting "calcul salaire net suisse frontalier"
+ // (Semrush CH 880/mo). Self-contained: no router edit, no SPA route. The
+ // static HTML serves SEO/first-paint; SPA fallback hydrates on /fr/calculer-salaire/.
+ frSalaireNetLandingPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
