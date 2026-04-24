@@ -1,16 +1,16 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-04-23T21:19:30.482Z",
+  "generatedAt": "2026-04-24T09:50:21.488Z",
   "total": 2,
-  "newCount": 2,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 4740,
-  "avgDurationMs": 4740,
+  "durationMs": 3432,
+  "avgDurationMs": 3432,
   "durationHistory": [
-    4740
+    3432
   ],
   "newJobs": [
     {
@@ -38,41 +38,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?xsrf=5D8EA540A870D5349F1FEC4DA75AFD90&company=100-FIRMA-ID&tenant=&lang=I#position,id=c90dec36-689d-4449-b881-b897c0095ec7,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-23T21:19:27.319Z",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "citta-di-locarno-assistente-del-personale-con-grado-d-occupazione-del-50-locarno",
-      "slug": "assistente-del-personale-con-grado-d-occupazione-del-50-locarno",
-      "company": "Città di Locarno",
-      "companyKey": "citta-di-locarno",
-      "companyDomain": "locarno.ch",
-      "title": "Assistente del personale con grado d'occupazione del 50%",
-      "location": "Locarno",
-      "canton": "TI",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6600",
-      "streetAddress": "Piazza Grande 18",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-03",
-      "url": "https://locarno.pi-asp.de/bewerber-web/?xsrf=62D62040B96DDF982200664036222DC4&company=100-FIRMA-ID&tenant=&lang=I#position,id=c83ed64b-2f2b-4c4c-96b2-44a9fc607ee7,popup=y",
-      "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_concorso_RU_2.pdf",
-      "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?xsrf=62D62040B96DDF982200664036222DC4&company=100-FIRMA-ID&tenant=&lang=I#position,id=c83ed64b-2f2b-4c4c-96b2-44a9fc607ee7,popup=y",
-      "source": "Locarno Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-04-23T21:19:28.361Z",
+      "crawledAt": "2026-04-24T09:50:19.538Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
