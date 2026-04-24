@@ -149,7 +149,7 @@ interface HistorySnapshot {
 
 interface ZonePrice {
   avg: number | null;
-  minStations: Array<{ name: string; address: string; priceChf: number }>;
+  minStations: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string }>;
 }
 
 // ── Diesel/benzina derivation ─────────────────────────────────
@@ -245,15 +245,17 @@ function topCheapest(stations: SwissStation[], fuel: FuelType, limit = 3): Swiss
 
 function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
   const prices: number[] = [];
-  const stationPrices: Array<{ name: string; address: string; priceChf: number }> = [];
+  const stationPrices: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string }> = [];
   for (const s of stations) {
     const p = pricesFromStation(s);
     if (!p) continue;
     prices.push(p[fuel]);
     stationPrices.push({
       name: String(s.name || s.brand || '—').trim(),
+      brand: String(s.brand || '').trim(),
       address: String(s.address || '').trim(),
       priceChf: p[fuel],
+      slug: buildStationSlug({ brand: s.brand, name: s.name, address: s.address }),
     });
   }
   const top3 = stationPrices.sort((a, b) => a.priceChf - b.priceChf).slice(0, 3);
@@ -770,13 +772,20 @@ function renderPage(inp: PageInputs): string {
   );
   const stationsHtml = top3.length > 0
     ? `<ol style="list-style:decimal inside;padding:0;margin:0">${top3
-        .map(
-          (s) => `<li style="${CARD_STYLE};margin-bottom:10px">
+        .map((s) => {
+          const stationHref = zone && s.slug
+            ? buildFuelStationPath(locale, fuel, zone, s.slug)
+            : null;
+          const inner = `
         <div style="font-weight:700;font-size:16px;color:var(--color-heading)">${esc(s.name)}</div>
         <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(s.address)}</div>
-        <div style="margin-top:6px;font-size:15px;color:var(--color-link);font-weight:700">${formatPrice(s.priceChf, locale)} ${esc(copy.currencyLabel)}</div>
-      </li>`,
-        )
+        <div style="margin-top:6px;font-size:15px;color:var(--color-link);font-weight:700">${formatPrice(s.priceChf, locale)} ${esc(copy.currencyLabel)}</div>`;
+          return stationHref
+            ? `<li style="${CARD_STYLE};margin-bottom:10px;padding:0"><a href="${esc(stationHref)}" style="display:block;padding:14px 16px;color:inherit;text-decoration:none">${inner}
+      </a></li>`
+            : `<li style="${CARD_STYLE};margin-bottom:10px">${inner}
+      </li>`;
+        })
         .join('')}</ol>`
     : `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.trendEmpty)}</p>`;
 

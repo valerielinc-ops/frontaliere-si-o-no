@@ -200,3 +200,105 @@ export async function fetchFuelPrices(forceRefresh = false): Promise<FuelPricesD
  }
  }
 }
+
+/**
+ * Derive a stable slug for a Swiss fuel station — mirrors the build-plugin logic
+ * in build-plugins/fuelDailyData.ts so the SPA can build deep-link URLs without
+ * a server round-trip.
+ *
+ * Pattern: `{brand}-{street}` (house numbers stripped).
+ * Example: `eni-via-compolongo`
+ */
+function slugifyForStation(raw: string | null | undefined): string {
+  if (!raw) return '';
+  return String(raw)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
+}
+
+export function buildSwissStationSlug(opts: {
+  brand?: string | null;
+  name?: string | null;
+  address?: string | null;
+}): string {
+  const { brand, name, address } = opts;
+  let street = '';
+  if (address) {
+    const firstPart = address.split(',')[0] ?? '';
+    street = firstPart.replace(/\s+\d+[A-Za-z]?$/g, '').trim();
+  }
+  const brandClean = brand && brand.toUpperCase() !== 'UNDEFINED' ? brand : '';
+  const firstNameWord = name ? name.split(/\s+/)[0] ?? '' : '';
+  const prefix = brandClean || firstNameWord || 'stazione';
+  const slug = slugifyForStation(`${prefix}-${street}`);
+  return slug || slugifyForStation(name ?? '') || 'stazione';
+}
+
+/**
+ * Derive the Ticino zone for a Swiss station address so the SPA can build the
+ * correct deep-link URL. Returns null for addresses outside the 5 canonical zones.
+ *
+ * Mirrors extractCityFromAddress() + FUEL_CITY_TO_ZONE from
+ * build-plugins/fuelDailyData.ts. Uses exact city matching on the last
+ * comma-separated address segment (postal code stripped) to avoid false
+ * positives like "Via Lugano" being mapped to the lugano zone.
+ */
+const CITY_TO_ZONE: Record<string, string> = {
+  // Chiasso zone (Mendrisiotto south)
+  chiasso: 'chiasso',
+  balerna: 'chiasso',
+  coldrerio: 'chiasso',
+  vacallo: 'chiasso',
+  novazzano: 'chiasso',
+  'morbio inferiore': 'chiasso',
+  // Mendrisio zone
+  mendrisio: 'mendrisio',
+  stabio: 'mendrisio',
+  'san pietro di stabio': 'mendrisio',
+  serfontana: 'mendrisio',
+  // Lugano zone
+  lugano: 'lugano',
+  caslano: 'lugano',
+  magliaso: 'lugano',
+  bioggio: 'lugano',
+  purasca: 'lugano',
+  monteggio: 'lugano',
+  'molinazzo di monteggio': 'lugano',
+  molinazzo: 'lugano',
+  gandria: 'lugano',
+  cadempino: 'lugano',
+  manno: 'lugano',
+  tesserete: 'lugano',
+  lugaggia: 'lugano',
+  muzzano: 'lugano',
+  morcote: 'lugano',
+  // Bellinzona zone
+  bellinzona: 'bellinzona',
+  giubiasco: 'bellinzona',
+  arbedo: 'bellinzona',
+  roveredo: 'bellinzona',
+  grono: 'bellinzona',
+  'san vittore': 'bellinzona',
+  cama: 'bellinzona',
+  // Locarno zone
+  locarno: 'locarno',
+  brissago: 'locarno',
+  'vira (gambarogno)': 'locarno',
+  gordevio: 'locarno',
+  giumaglio: 'locarno',
+};
+
+export function zoneFromAddress(address: string | null | undefined): string | null {
+  if (!address) return null;
+  const parts = address.split(',');
+  if (parts.length === 0) return null;
+  const last = (parts[parts.length - 1] ?? '').trim();
+  const city = last.replace(/^\d{4,5}\s+/, '').trim().toLowerCase();
+  if (!city) return null;
+  return CITY_TO_ZONE[city] ?? null;
+}
