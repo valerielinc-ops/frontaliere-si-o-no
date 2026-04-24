@@ -411,15 +411,20 @@ describe('generateFuelStationPages() — Ticino only', () => {
     }
   });
 
-  it('every page emits WebPage + BreadcrumbList + GasStation + Product JSON-LD', () => {
+  it('every page emits WebPage + BreadcrumbList + GasStation JSON-LD (no Product)', () => {
+    // Product merchant listing intentionally omitted — Google's Merchant
+    // Listing validator requires aggregateRating + review, and faking those
+    // fields violates structured-data guidelines. GasStation is the canonical
+    // Schema.org type for a fuel-dispensing business and carries no such
+    // requirement.
     for (const [path, html] of Object.entries(pages)) {
       const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-      expect(blocks.length, path).toBeGreaterThanOrEqual(4);
+      expect(blocks.length, path).toBeGreaterThanOrEqual(3);
       const types = blocks.map((m) => JSON.parse(m[1])['@type']);
       expect(types, path).toContain('WebPage');
       expect(types, path).toContain('BreadcrumbList');
       expect(types, path).toContain('GasStation');
-      expect(types, path).toContain('Product');
+      expect(types, path).not.toContain('Product');
     }
   });
 
@@ -439,42 +444,18 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toContain('"latitude":45.84');
   });
 
-  it('Product JSON-LD carries CHF price', () => {
-    const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
-    const m = sample.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
-    expect(m).toBeTruthy();
-    const parsed = JSON.parse(m![1]);
-    expect(parsed.offers.priceCurrency).toBe('CHF');
-    expect(typeof parsed.offers.price).toBe('string');
+  it('no Product JSON-LD is emitted on per-station pages (Option A: GasStation-only to avoid Merchant Listing aggregateRating/review requirement)', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+      for (const m of blocks) {
+        const parsed = JSON.parse(m[1]);
+        expect(parsed['@type'], path).not.toBe('Product');
+      }
+    }
   });
 
-  it('Product JSON-LD includes image, description, brand, return policy and shipping details', () => {
+  it('visible editorial assessment prose remains (no self-serving review in structured data)', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
-    const m = sample.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
-    expect(m).toBeTruthy();
-    const parsed = JSON.parse(m![1]);
-    expect(parsed.image).toEqual(['https://frontaliereticino.ch/og-image.png']);
-    expect(parsed.description).toMatch(/Eni/);
-    expect(parsed.brand?.name).toBe('Eni');
-    expect(parsed.sku).toBe('fuel-diesel-chiasso-eni-via-compolongo');
-    expect(parsed.offers.availability).toBe('https://schema.org/InStoreOnly');
-    expect(parsed.offers.hasMerchantReturnPolicy?.applicableCountry).toBe('CH');
-    expect(parsed.offers.hasMerchantReturnPolicy?.returnPolicyCategory).toBe(
-      'https://schema.org/MerchantReturnNotPermitted',
-    );
-    expect(parsed.offers.shippingDetails?.shippingDestination?.addressCountry).toBe('CH');
-    expect(parsed.offers.shippingDetails?.shippingRate?.value).toBe(0);
-    expect(parsed.offers.shippingDetails?.shippingRate?.currency).toBe('CHF');
-    expect(parsed.offers.shippingDetails?.deliveryTime?.handlingTime?.unitCode).toBe('DAY');
-  });
-
-  it('Product JSON-LD omits self-serving aggregateRating/review, keeps visible editorial assessment prose (Google structured-data policy Dec 2024)', () => {
-    const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
-    const m = sample.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
-    expect(m).toBeTruthy();
-    const parsed = JSON.parse(m![1]);
-    expect(parsed.aggregateRating).toBeUndefined();
-    expect(parsed.review).toBeUndefined();
     expect(sample).toMatch(/Recensione editoriale della stazione/);
   });
 

@@ -585,12 +585,44 @@ function renderSubTabNav(hub: HubKey, activeKey: string, locale: HubLocale): str
  * fallback hub is used (see {@link HUB_FALLBACK}).
  */
 export function renderHubChrome(opts: RenderHubChromeOpts): string {
+  const { subnavHtml, bodyHtml } = renderHubChromeSplit(opts);
+  return `${subnavHtml}
+${bodyHtml}`;
+}
+
+export interface HubChromeSplit {
+  /** The `<nav class="seo-hub-subnav">` — intended to be rendered as a sibling of `<main>`. */
+  readonly subnavHtml: string;
+  /** Hero (optional) + inner content — intended to be rendered INSIDE `<main class="seo-static-content">`. */
+  readonly bodyHtml: string;
+}
+
+/**
+ * Split variant of {@link renderHubChrome}: returns the sub-nav separately from
+ * the hero+content body.
+ *
+ * Rationale (visual parity with SPA)
+ * ----------------------------------
+ * On static SEO pages, the sub-nav previously rendered INSIDE
+ * `<main class="seo-static-content">`, which is max-width-constrained and has
+ * `padding-inline` applied per breakpoint. On SPA hubs, `<SubTabNav>` renders
+ * as a SIBLING of `<main>`, spanning the full viewport. The two renderings
+ * therefore produced visually-different sub-nav placements (static felt
+ * "squished" / off-center at wide viewports where main has `margin-left:0`).
+ *
+ * This split lets callers render the sub-nav OUTSIDE `<main>` (between
+ * `#root` and `main.seo-static-content`) so it matches the SPA DOM layout
+ * exactly — same full-bleed band, same internal `max-w-7xl mx-auto` container.
+ */
+export function renderHubChromeSplit(opts: RenderHubChromeOpts): HubChromeSplit {
   const { hubKey, activeSubTab, locale, hero, innerHtml } = opts;
-  const subnav = renderSubTabNav(hubKey, activeSubTab, locale);
+  const subnavHtml = renderSubTabNav(hubKey, activeSubTab, locale);
   const heroHtml = hero ? renderHero(hero) : '';
-  return `${subnav}
-${heroHtml}
-${innerHtml}`;
+  return {
+    subnavHtml,
+    bodyHtml: `${heroHtml}
+${innerHtml}`,
+  };
 }
 
 /** Exported for tests — canonical sub-tab URL builder. */

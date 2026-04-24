@@ -387,10 +387,10 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-cu-telelavoro-regole-frontalieri': {
- title: 'Frontalieri: Regole Telelavoro e 45 | Frontaliere Ticino',
+ title: 'Telelavoro frontalieri 2026: regole 25% e 45 giorni',
  description: 'Guida completa alle nuove regole per i frontalieri: telelavoro al 25%, 45 giorni di non rientro e franchigia a 10.000€. Scadenze CU 2026 e consigli pratici.',
  keywords: 'frontalieri, ticino, telelavoro svizzera, accordo fiscale italia svizzera, cu 2026, franchigia 10000 euro, 45 giorni non rientro, tassazione frontalieri',
- ogTitle: 'Telelavoro al 25% e 45 giorni extra: le nuove regole d\'oro per i frontalieri',
+ ogTitle: 'Telelavoro frontalieri 2026: regole, 25% e 45 giorni',
  ogDescription: 'Il nuovo accordo è legge: scopri come funzionano la soglia del 25% per lo smart working e la flessibilità sui rientri per chi lavora in Ticino. Tutte le novità.',
  canonicalPath: '/articoli-frontaliere/frontalieri-cu-2026-telelavoro-45-giorni-regole-definitive',
  structuredData: {
@@ -11747,32 +11747,94 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-aufenthaltsbewilligung-b-quellensteuer-2026': {
-    title: 'Aufenthaltsbewilligung B und Quellensteuer 2026 | Frontaliere',
-    description: 'B-Bewilligung und Quellensteuer 2026 im Tessin: Tarife A/B/C/H, Abzüge, 120 000-Franken-Schwelle für die nachträgliche ordentliche Veranlagung (NOV) und Vergleich mit dem Grenzgängerstatus G.',
-    keywords: 'aufenthaltsbewilligung b, quellensteuer 2026, tessin, nachtragliche ordentliche veranlagung, nov, b-bewilligung, grenzgaenger, schweiz, steuern',
-    ogTitle: 'Aufenthaltsbewilligung B und Quellensteuer 2026',
-    ogDescription: 'Vollständiger Steuerleitfaden für B-Bewilligungsinhaber im Tessin: Quellensteuertarife 2026, Abzüge, NOV-Schwelle und Vergleich mit dem G-Grenzgängerstatus.',
-    canonicalPath: '/de/blog-frontalieri/aufenthaltsbewilligung-b-quellensteuer-2026',
+  'blog-g-bewilligung-leitfaden-grenzgaenger-2026': {
+    title: 'Permesso G 2026: guida completa frontalieri | Frontaliere',
+    description: 'Guida operativa al Permesso G 2026: requisiti, richiesta, rinnovo, costi, rientro settimanale, telelavoro 25% e 45 giorni, imposta alla fonte in Ticino.',
+    keywords: 'permesso g, frontalieri, ticino, 2026, rientro settimanale, 25 telelavoro, 45 giorni, imposta alla fonte, guida permesso g, permesso g vs permesso b',
+    ogTitle: 'Permesso G 2026: la guida definitiva per frontalieri',
+    ogDescription: 'Tutto quello che serve al frontaliere sul Permesso G: procedura, costi, rinnovo, rientro settimanale, telelavoro e fiscalità nel 2026.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-guida-frontalieri-2026',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Aufenthaltsbewilligung B und Quellensteuer 2026",
-      "description": "Vollständiger Steuerleitfaden für B-Bewilligungsinhaber im Tessin: Quellensteuertarife 2026, Abzüge, 120 000-Franken-Schwelle für die nachträgliche ordentliche Veranlagung (NOV) und Vergleich mit dem Grenzgängerstatus G.",
+      "headline": "Permesso G 2026: guida completa per frontalieri",
+      "description": "Guida operativa al Permesso G nel 2026: requisiti, richiesta, rinnovo, costi, rientro settimanale, telelavoro 25% e 45 giorni, imposta alla fonte in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/lac-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lago di Lugano — simbolo del confine italo-svizzero per i frontalieri con Permesso G."
+      },
+      "datePublished": "2026-04-24T00:00:00+02:00",
+      "dateModified": "2026-04-24T00:00:00+02:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-guida-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-quellensteuer-schweiz-2026-hub': {
+    title: 'Imposta alla fonte Svizzera 2026: confronto cantoni | Frontaliere',
+    description: 'Imposta alla fonte in Svizzera nel 2026: tariffe A/B/C/H, confronto cantoni TI/GR/VS/BE/ZH, soglia NOV 120.000 CHF e deduzioni pilastro 3a per frontalieri.',
+    keywords: 'imposta alla fonte svizzera, quellensteuer 2026, confronto cantoni, nov 120000, pilastro 3a frontalieri, imposta fonte ticino grigioni vallese berna zurigo',
+    ogTitle: 'Imposta alla fonte Svizzera 2026: dove pagare meno',
+    ogDescription: 'Confronto completo dell\'imposta alla fonte 2026 nei principali cantoni frontalieri: aliquote, NOV, deduzioni e pilastro 3a.',
+    canonicalPath: '/articoli-frontaliere/imposta-fonte-svizzera-2026-confronto-cantoni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Imposta alla fonte Svizzera 2026: confronto cantoni",
+      "description": "Guida completa all'imposta alla fonte in Svizzera nel 2026: tariffe A/B/C/H, confronto cantoni TI/GR/VS/BE/ZH, soglia NOV 120.000 CHF, pilastro 3a e deduzioni per frontalieri.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/places/bellinzona.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Schreibtisch mit Lohnausweis, Steuererklärung und Blick auf den Luganersee — Symbol der Quellensteuer für B-Bewilligungsinhaber im Tessin."
+        "caption": "Bellinzona, capitale del Ticino — il cantone con il maggior numero di frontalieri soggetti all'imposta alla fonte svizzera."
       },
       "datePublished": "2026-04-24T00:00:00+02:00",
       "dateModified": "2026-04-24T00:00:00+02:00",
-      "inLanguage": "de",
+      "inLanguage": "it",
       "articleSection": "Fiscale",
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/de/blog-frontalieri/aufenthaltsbewilligung-b-quellensteuer-2026`,
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposta-fonte-svizzera-2026-confronto-cantoni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-aufenthaltsbewilligung-b-quellensteuer-2026': {
+    title: 'Permesso B e imposta alla fonte 2026 | Frontaliere Ticino',
+    description: 'Permesso B e imposta alla fonte 2026 in Ticino: tariffe A/B/C/H, deduzioni, soglia TOU 120.000 CHF e confronto con lo status di frontaliere G.',
+    keywords: 'permesso b, imposta alla fonte 2026, ticino, tassazione ordinaria ulteriore, tou, nov, frontalieri, svizzera, tasse, pilastro 3a, deduzioni',
+    ogTitle: 'Permesso B e imposta alla fonte 2026: guida fiscale',
+    ogDescription: 'Guida fiscale completa ai titolari di permesso B in Ticino: aliquote imposta alla fonte 2026, deduzioni, soglia TOU e confronto con il permesso G.',
+    canonicalPath: '/articoli-frontaliere/permesso-b-imposta-fonte-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Permesso B e imposta alla fonte 2026",
+      "description": "Guida fiscale completa ai titolari di permesso B in Ticino: aliquote imposta alla fonte 2026, tariffe A/B/C/H, deduzioni, soglia TOU 120.000 CHF e confronto con lo status di frontaliere G.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/bellinzona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania con certificato di salario, dichiarazione dei redditi e vista sul lago di Lugano — simbolo dell'imposta alla fonte per i titolari di permesso B in Ticino."
+      },
+      "datePublished": "2026-04-24T00:00:00+02:00",
+      "dateModified": "2026-04-24T00:00:00+02:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-b-imposta-fonte-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
       "isAccessibleForFree": true
     }

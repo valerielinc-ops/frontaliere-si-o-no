@@ -4303,10 +4303,11 @@ function modifyBlogArticlesTsx(data) {
     `${objIndent}},`,
   ].join('\n');
 
-  // Insert before the closing ]; — indentation-agnostic regex
+  // Insert before the array terminator. Handles both bare `];` and the
+  // typed variant `] satisfies Article[];` (FRO-328+ type annotation).
   const before = src;
   src = src.replace(
-    /(\s*hasCalculator: (?:true|false),\n\s*},\n)(];)/,
+    /(\s*hasCalculator: (?:true|false),\n\s*},\n)(\](?:\s+satisfies\s+Article\[\])?;)/,
     `$1${newEntry}\n$2`
   );
   if (src === before) {

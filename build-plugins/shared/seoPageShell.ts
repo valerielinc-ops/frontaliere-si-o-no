@@ -39,7 +39,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
-import { renderHubChrome, type HubKey, type HubLocale, type HubHero } from './hubChrome';
+import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
@@ -193,15 +193,18 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
 
   const assets = distDir ? resolveEntryAssets(distDir) : { entryJs: '', entryCss: '' };
 
-  const wrappedBody = hubChrome
-    ? renderHubChrome({
+  // Split hub chrome: sub-nav is hoisted OUT of <main> via `preMainHtml` so it
+  // renders as a sibling (same DOM shape as the SPA), while hero + inner
+  // content stay INSIDE <main class="seo-static-content">.
+  const { subnavHtml, bodyHtml: wrappedBody } = hubChrome
+    ? renderHubChromeSplit({
         hubKey: hubChrome.hubKey,
         activeSubTab: hubChrome.activeSubTab,
         locale: locale as HubLocale,
         hero: hubChrome.hero,
         innerHtml: bodyHtml,
       })
-    : bodyHtml;
+    : { subnavHtml: '', bodyHtml };
 
   const simpleOpts: SimplePageOpts = {
     locale,
@@ -217,6 +220,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
     bodyHtml: wrappedBody,
+    preMainHtml: subnavHtml,
     skipMainWrap,
     seoContentOutsideRoot,
   };

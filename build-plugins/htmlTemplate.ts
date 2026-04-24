@@ -106,6 +106,15 @@ export interface SimplePageOpts {
   * Default: false (legacy behavior — content stays inside `#root`).
   */
  seoContentOutsideRoot?: boolean;
+ /**
+  * HTML rendered BETWEEN `<div id="root">` and `<main class="seo-static-content">`.
+  * Use for chrome that should render as a SIBLING of `<main>` (not inside it),
+  * to match the SPA DOM where sub-navigation is a sibling of the main area.
+  *
+  * Only emitted when {@link seoContentOutsideRoot} is true. The hub sub-nav
+  * (see `renderHubChromeSplit` in shared/hubChrome.ts) is the canonical use.
+  */
+ preMainHtml?: string;
 }
 
 export function buildSimplePage(opts: SimplePageOpts): string {
@@ -125,6 +134,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  bodyHtml,
  skipMainWrap = false,
  seoContentOutsideRoot = false,
+ preMainHtml = '',
  } = opts;
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
@@ -149,8 +159,9 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // 3. default (skipMainWrap=false, seoContentOutsideRoot=false):
  //    Caller's bodyHtml gets wrapped in `<main class="static-job-page">`
  //    inside `<div id="root">` — legacy job SEO pages.
+ const preMainSection = preMainHtml ? `\n${preMainHtml}` : '';
  const bodySection = seoContentOutsideRoot
-   ? ` <div id="root"></div>
+   ? ` <div id="root"></div>${preMainSection}
  <main class="seo-static-content">
 ${bodyHtml}
  </main>

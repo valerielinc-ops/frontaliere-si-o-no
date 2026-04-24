@@ -884,24 +884,14 @@ function renderPage(inp: PageInputs): string {
     datePublished: today.toISOString(),
   });
 
-  // Product LD (price + currency). Only emit when we have a real average —
-  // fulfils the spec's "price with currency CHF" requirement.
-  const productLd = avg !== null
-    ? JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: `${fuelLabel} ${zoneLabel}`,
-        image: [FUEL_PRODUCT_IMAGE_URL],
-        description: intro,
-        sku: `fuel-${fuel}-${zone ?? 'ticino'}`,
-        brand: {
-          '@type': 'Brand',
-          name: buildFuelCollectionBrand(locale, zoneLabel),
-        },
-        category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
-        offers: buildFuelOfferSchema(avg, canonicalUrl, today),
-      })
-    : '';
+  // Product LD is intentionally NOT emitted for daily zone pages.
+  // Rationale: Google's "Merchant listing" rich-results validator (mirrored in
+  // scripts/validate-structured-data-completeness.mjs) requires Product to
+  // carry aggregateRating + review — fake review data violates Google's
+  // structured-data guidelines and risks a manual action. A daily aggregate
+  // price per zone isn't a merchant product anyway; the WebPage + FAQPage +
+  // BreadcrumbList already convey enough structure, and the live price is
+  // surfaced in the visible page body.
 
   const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
@@ -968,7 +958,6 @@ function renderPage(inp: PageInputs): string {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
-  if (productLd) jsonLdScripts.push(productLd);
 
   // Word count sanity check (hard-gated later by the caller)
   const html = buildSeoPageHtml({
@@ -1445,20 +1434,10 @@ function renderStationPage(opts: {
     url: canonicalUrl,
   });
 
-  const productLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: `${fuelLabel} — ${ctx.brandDisplay} ${ctx.city}`,
-    image: [FUEL_PRODUCT_IMAGE_URL],
-    description: intro,
-    sku: `fuel-${fuel}-${ctx.zone}-${ctx.slug}`,
-    brand: {
-      '@type': 'Brand',
-      name: ctx.brandDisplay,
-    },
-    category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
-    offers: buildFuelOfferSchema(price, canonicalUrl, today),
-  });
+  // Product LD intentionally omitted — GasStation is the canonical Schema.org
+  // type for a fuel-dispensing business and doesn't require aggregateRating +
+  // review (which Google demands for Product merchant listings). Faking those
+  // fields would violate Google's structured-data guidelines.
 
   // Keep the title compact: the full h1 + date + brand suffix can balloon past
   // 80 chars and get truncated in SERPs. Trim the h1 on a word boundary to
@@ -1554,7 +1533,7 @@ function renderStationPage(opts: {
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
     extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd, productLd],
+    jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd],
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },

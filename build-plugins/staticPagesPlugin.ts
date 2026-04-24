@@ -14,7 +14,7 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
-import { renderHubChrome, type HubKey, type HubLocale } from './shared/hubChrome';
+import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import {
  buildJobBoardSeo,
  getActiveJobCountsByLocale,
@@ -2536,15 +2536,22 @@ ${hrefTags}
  // so crawlers see the full editorial + FAQ content even when the SPA never
  // hydrates (noscript environments, AI crawlers, server-side snapshots).
  const hubChromeSpec = lookupStaticOverlayHubChrome(canonicalPath);
- const bodySection = hubChromeSpec
- ? `<div id="root"></div>
- <main class="seo-static-content">
-${renderHubChrome({
+ // Hub sub-nav is hoisted OUT of <main> so it renders as a sibling (matching
+ // the SPA DOM shape) — otherwise the max-width / padding of
+ // `main.seo-static-content` squishes the sub-nav at wide viewports.
+ const hubChromeSplit = hubChromeSpec
+ ? renderHubChromeSplit({
  hubKey: hubChromeSpec.hubKey,
  activeSubTab: hubChromeSpec.activeSubTab,
  locale: toHubLocale(locale),
  innerHtml: rootHtml,
- })}
+ })
+ : null;
+ const bodySection = hubChromeSplit
+ ? `<div id="root"></div>
+${hubChromeSplit.subnavHtml}
+ <main class="seo-static-content">
+${hubChromeSplit.bodyHtml}
  </main>`
  : `<div id="root"><main id="main-content">${rootHtml}</main></div>`;
 

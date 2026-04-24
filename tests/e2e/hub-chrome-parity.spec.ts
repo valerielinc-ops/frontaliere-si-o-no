@@ -84,9 +84,10 @@ async function assertHubChromeParity(
   const seoMain = page.locator('main.seo-static-content');
   await expect(seoMain).toHaveCount(1, { timeout: 10_000 });
 
-  // Hub chrome sub-nav must be rendered server-side inside the SEO main.
-  // renderHubChrome emits `<nav class="seo-hub-subnav" data-hub="$hubKey">`.
-  const subNav = page.locator('main.seo-static-content nav.seo-hub-subnav');
+  // Hub chrome sub-nav must be rendered server-side as a SIBLING of the SEO main
+  // (not inside it — would inherit main's max-width/padding and render squished).
+  // renderHubChromeSplit emits `<nav class="seo-hub-subnav" data-hub="$hubKey">`.
+  const subNav = page.locator('nav.seo-hub-subnav');
   await expect(subNav).toHaveCount(1);
 
   await expect(subNav).toHaveAttribute('data-hub', expectedHubKey);

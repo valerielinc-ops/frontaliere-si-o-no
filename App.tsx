@@ -1948,6 +1948,8 @@ const App: React.FC = () => {
  { key: 'salary-quiz' as const, icon: TrendingUp, label: t('salaryQuiz.navLabel') },
  ] satisfies SubTabItem<CalcolatoreSubTab>[]}
  activeKey={calcolatoreSubTab}
+ hubKey="calculator"
+ hrefFor={(key) => buildPath({ activeTab: 'calculator', calcolatoreSubTab: key })}
  onSelect={(key) => {
  setCalcolatoreSubTab(key);
  Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
@@ -1969,6 +1971,8 @@ const App: React.FC = () => {
  { key: 'renovation' as const, icon: Hammer, label: t('comparators.renovation') },
  ] satisfies SubTabItem<ConfrontiSubTab>[]}
  activeKey={confrontiSubTab}
+ hubKey="confronti"
+ hrefFor={(key) => buildPath({ activeTab: 'confronti', confrontiSubTab: key })}
  onSelect={(key) => {
  setConfrontiSubTab(key);
  Analytics.trackComparatorView(key as any);
@@ -1990,6 +1994,8 @@ const App: React.FC = () => {
  { key: 'tax-credit' as const, icon: Receipt, label: t('taxCredit.navLabel') },
  ] satisfies SubTabItem<FiscoSubTab>[]}
  activeKey={fiscoSubTab}
+ hubKey="fisco"
+ hrefFor={(key) => buildPath({ activeTab: 'fisco', fiscoSubTab: key })}
  onSelect={(key) => {
  setFiscoSubTab(key);
  Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
@@ -2011,6 +2017,8 @@ const App: React.FC = () => {
  { key: 'border-map' as const, icon: Map, label: t('comparators.borderMap') },
  ] satisfies SubTabItem<GuidaSubTab>[]}
  activeKey={guidaSubTab}
+ hubKey="guida"
+ hrefFor={(key) => buildPath({ activeTab: 'guida', guidaSubTab: key })}
  onSelect={(key) => {
  setGuidaSubTab(key);
  Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
@@ -2032,6 +2040,8 @@ const App: React.FC = () => {
  { key: 'municipalities' as const, icon: MapPin, label: t('guide.tabs.municipalities') },
  ] satisfies SubTabItem<VitaSubTab>[]}
  activeKey={vitaSubTab}
+ hubKey="vita"
+ hrefFor={(key) => buildPath({ activeTab: 'vita', vitaSubTab: key })}
  onSelect={(key) => {
  setVitaSubTab(key);
  Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
@@ -2053,6 +2063,8 @@ const App: React.FC = () => {
  { key: 'fuel-prices' as const, icon: Fuel, label: t('stats.tabFuelPrices') },
  ] satisfies SubTabItem<StatsSubTab>[]}
  activeKey={statsSubTab}
+ hubKey="stats"
+ hrefFor={(key) => buildPath({ activeTab: 'stats', statsSubTab: key })}
  onSelect={(key) => {
  setStatsSubTab(key);
  Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
