@@ -413,6 +413,17 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'frontaliere lavoro stagionale Ticino', angle: 'Regole, diritti e opportunità per lavoro stagionale in Ticino: permessi, contratti, fiscalità.' },
   { keyword: 'frontaliere trasporto pubblico abbonamenti sconti', angle: 'Guida agli abbonamenti e sconti per frontalieri sui trasporti pubblici Ticino-Lombardia: treno, bus, agevolazioni.' },
   { keyword: 'lavorare come educatore dell\'infanzia in Ticino stipendio requisiti', angle: 'Guida completa per diventare educatore dell\'infanzia in Ticino: diploma SSS richiesto, stipendio CHF 73K–97K, LIS e altri datori di lavoro, processo per ottenere il Permesso G, confronto salariale con Italia e Germania' },
+  // Topic Finder Semrush — audience CH (apr 2026)
+  { keyword: 'telelavoro frontalieri 2026', angle: 'Regole 25%/45 giorni telelavoro per frontalieri Italia-Svizzera, esempi numerici, comunicazione al datore', locale: 'it', searchVolume: 1600 },
+  { keyword: 'permesso di soggiorno svizzera', angle: 'Tipologie B/G/L/C: differenze, requisiti, durata, conversione tra permessi', locale: 'it', searchVolume: 320 },
+  { keyword: 'richiesta permesso g step by step', angle: 'Procedura completa richiesta permesso G: documenti, datore, ufficio cantonale, tempi e costi 2026', locale: 'it', searchVolume: 90 },
+  { keyword: 'imposte alla fonte ticino calcolatore', angle: 'Come calcolare l\'imposta alla fonte in Ticino: aliquote 2026, scaglioni, simulatore con esempi reali', locale: 'it', searchVolume: 70 },
+  { keyword: 'tassazione frontalieri 2026 nuovo accordo', angle: 'Nuovo accordo fiscale Italia-Svizzera 2026: cosa cambia per nuovi vs vecchi frontalieri, simulazioni numeriche', locale: 'it', searchVolume: 390 },
+  { keyword: 'ingresso in svizzera frontalieri documenti dogana 2026', angle: 'Documenti e regole per varcare il confine come frontaliere: passaporto/CI, permesso, controlli dogana', locale: 'it', searchVolume: 120 },
+  { keyword: 'aufenthaltsbewilligung b quellensteuer 2026', angle: 'B-Bewilligung und Quellensteuer: Tarife, NOV-Antrag, Pillar 3a Abzüge, Vergleich zu Grenzgängern', locale: 'de', searchVolume: 210 },
+  { keyword: 'quellensteuer schweiz tarife 2026', angle: 'Quellensteuer-Tarife alle Kantone: Tessin, Graubünden, Wallis, Bern. Berechnung, Abzüge, NOV-Schwelle 120k CHF', locale: 'de', searchVolume: 880 },
+  { keyword: 'grenzgänger schweiz steuern 2026', angle: 'Steuerliche Pflichten für Grenzgänger nach neuem Abkommen: alte vs neue Grenzgänger, Italien-Steuer, Beispielrechnungen', locale: 'de', searchVolume: 260 },
+  { keyword: 'g bewilligung antrag 2026', angle: 'G-Bewilligung Antrag Schritt für Schritt: Dokumente, Migrationsamt, Kosten 65 CHF, 5-Jahres-Gültigkeit, Verlängerung', locale: 'de', searchVolume: 110 },
 ];
 
 // ── News sources to auto-scan ───────────────────────────────
@@ -1935,6 +1946,52 @@ async function callGemini(pageContent, url, sourceContext = null) {
   const generationAttemptMax = Number(sourceContext?._generationAttemptMax || 1);
   const minItalianWords = Number(sourceContext?._minItalianWords || CREATE_ARTICLE_MIN_IT_WORDS);
 
+  // ── Patch J: primaryLocale (default 'it') ──
+  const primaryLocale = ['it', 'de', 'en', 'fr'].includes(sourceContext?._primaryLocale)
+    ? sourceContext._primaryLocale
+    : 'it';
+  const primaryLocaleBlock = primaryLocale !== 'it'
+    ? `\n═══ PRIMARY LOCALE: ${primaryLocale.toUpperCase()} ═══
+Scrivi PRIMA in ${primaryLocale} con stile editoriale NATIVO della lingua (NON una traduzione da italiano).
+- DE: usa formulazioni naturali tedesche (es. Grenzgänger non "frontaliere"; CHF e Franken; "im Kanton Tessin").
+- FR: stile journalistique français (es. travailleur frontalier; CHF; "dans le canton du Tessin").
+- EN: clear UK/US English; avoid Italianisms.
+Le altre 3 lingue saranno traduzioni di QUESTA versione, generate in chiamate separate.\n`
+    : '';
+
+  // ── Patch A: target keyword block ──
+  const targetKeyword = sourceContext?._targetKeyword;
+  const searchVolume = sourceContext?._searchVolume;
+  const keywordVariations = Array.isArray(sourceContext?._keywordVariations) ? sourceContext._keywordVariations : [];
+  const targetKeywordBlock = targetKeyword
+    ? `\n═══ TARGET KEYWORD (CRITICO PER SEO) ═══
+TARGET KEYWORD: ${targetKeyword}${searchVolume ? ` (search volume: ${searchVolume}/mese)` : ''}
+${keywordVariations.length ? `VARIAZIONI da distribuire nel testo: ${keywordVariations.join(', ')}` : ''}
+
+OBBLIGHI:
+- Title: contiene la TARGET KEYWORD esatta (o variazione minima per leggibilità)
+- body1: la TARGET KEYWORD compare nei primi 100 caratteri
+- body2 o body3: almeno 1 sotto-sezione ## o ### usa la TARGET KEYWORD
+- slug primaryLocale: include la TARGET KEYWORD trasformata in kebab-case
+- seo.description: contiene la TARGET KEYWORD nei primi 120 caratteri
+- VARIAZIONI: distribuisci le variazioni nel testo (1 occorrenza ognuna minimo)\n`
+    : '';
+
+  // ── Patch B: PAA-driven FAQ ──
+  const peopleAlsoAsk = Array.isArray(sourceContext?._peopleAlsoAsk) ? sourceContext._peopleAlsoAsk : [];
+  const peopleAlsoAskBlock = peopleAlsoAsk.length
+    ? `\n═══ FAQ DA PEOPLE-ALSO-ASK (NON GENERICHE) ═══
+Le 3-5 FAQ DEVONO essere prese (parafrasate per chiarezza, non copiate verbatim) da queste query reali estratte da Semrush:
+${peopleAlsoAsk.map((q, i) => `${i + 1}. ${q}`).join('\n')}
+
+Le risposte devono includere dati concreti dalla fonte/contesto e rispettare il limite 50-100 parole.\n`
+    : '';
+
+  // ── Patch C: MUST-COVER LSI entities (always present) ──
+  const mustCoverLsiBlock = `\n═══ MUST-COVER ENTITIES (E-E-A-T + LSI) ═══
+Almeno 6 dei seguenti termini DEVONO comparire naturalmente nel testo (no keyword stuffing):
+permesso G, AVS, LPP, LAMal, ristorni, imposta alla fonte, Brogeda, INPS, Canton Ticino, frontaliere, nuovo accordo fiscale 2026, doppia imposizione.\n`;
+
   const prompt = `You are a senior financial journalist specializing in Swiss-Italian cross-border work and Ticino economics.
 You write for "Frontaliere Ticino" (frontaliereticino.ch). Based on the following source, write a blog article.
 
@@ -1964,7 +2021,7 @@ COME RAGGIUNGERE IL MINIMO DI PAROLE SENZA INVENTARE:
 - NON includere sezioni FAQ nel body — le FAQ vengono generate nel campo "faq" separato e mostrate come accordion
 - Usa tabelle comparative per rendere i dati della fonte più leggibili
 - Collega agli strumenti del sito (calcolatore, comparatore, guide) per approfondire
-
+${primaryLocaleBlock}${targetKeywordBlock}${peopleAlsoAskBlock}${mustCoverLsiBlock}
 ═══ REGOLE EDITORIALI ═══
 
 STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni — MA SOLO se presenti nella fonte. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
@@ -2013,6 +2070,13 @@ ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
 TOPIC GUARD: per articoli su "tassa salute", NON invertire la platea (es. "lavora in Lombardia e risiede in Ticino") se non esplicitamente indicata nella fonte.
 
 CTA: body3 DEVE terminare con CTA verso strumenti del sito. Default: calcolatore stipendio. Temi specifici: assicurazione→health, pensioni→pension, costo vita→cost-of-living, cambio→exchange, IRPEF/comuni→border-map, auto→car-transfer, permessi→permit-compare, casa→renovation, telefonia→mobile, congedo→parental-leave, vivere CH→living-ch, vivibilità→livability.
+
+INTERNAL LINKS — REGOLA QUANTITATIVA:
+MINIMO 3 link interni totali distribuiti nei body, sintassi \`[testo](nav:azione)\`:
+- 1 in body1 o body2 (contestuale al fatto)
+- 1 in body2 o body3 (contestuale all'analisi)
+- 1 nella CTA finale di body3 (calculator preferito)
+Se l'articolo supera 1200 parole, aumenta a MINIMO 4 link.
 
 LINK INTERNI — sintassi ESCLUSIVA: [testo](nav:azione)
 Azioni: calculator, exchange, health, cost-of-living, pension, pillar3, payslip, tax-return, residency, ristorni, unemployment, jobs, companies, banks, first-day, permits, border, calendar, whatif, shopping, transport, salary-compare, traffic-history, border-map, municipalities, car-transfer, car-cost, permit-compare, renovation, mobile, ral, parental-leave, nursery, living-ch, living-it, livability.
@@ -2087,15 +2151,26 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
   // Call 1: Italian content + metadata (id, category, image, slugs, imagePrompt, imageAlt)
   console.error(`🤖 [1/5] Generazione contenuto IT + metadata con ${effectiveModel}...`);
 
+  // ── Patch J: localized system stem + user instruction ──
+  const systemStem = {
+    it: 'Sei un giornalista finanziario esperto',
+    de: 'Du bist ein erfahrener Finanzjournalist',
+    fr: 'Tu es un journaliste financier expérimenté',
+    en: 'You are a senior financial journalist',
+  }[primaryLocale];
+  const otherLocalesNote = primaryLocale === 'it'
+    ? 'NON includere content.en, content.de, content.fr — verranno generati separatamente.'
+    : 'NON includere le altre 3 lingue — verranno generate separatamente.';
+
   const llmMessages = [
-    { role: 'system', content: `Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
+    { role: 'system', content: `${systemStem} di lavoro transfrontaliero in Ticino che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
 
 REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo articolo DEVE provenire dal testo SOURCE CONTENT fornito. Se un'informazione NON è nella fonte, NON includerla. Mai inventare, dedurre o "completare" dati mancanti.
 
 QUANDO LA FONTE NON CONTIENE UN DATO: scrivi "non ancora specificato", "in fase di definizione", o ometti il dettaglio. NON inventare numeri, date o riferimenti normativi per riempire il testo.
 
 Rispondi SOLO con JSON valido, senza markdown.` },
-    { role: 'user', content: prompt + minWordsInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.it (title, excerpt, body1, body2, body3, faq), seo.\nNON includere content.en, content.de, content.fr — verranno generati separatamente.` }
+    { role: 'user', content: prompt + minWordsInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
   ];
 
   let itRaw;
