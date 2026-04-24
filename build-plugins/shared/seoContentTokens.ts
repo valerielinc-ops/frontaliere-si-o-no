@@ -457,12 +457,12 @@ export function renderSparklineChart(
   );
   if (numeric.length < 3) return '';
 
-  const height = Math.max(80, Math.min(160, opts.height ?? 110));
-  const width = Math.max(240, opts.width ?? 720);
+  const height = Math.max(180, Math.min(260, opts.height ?? 220));
+  const width = Math.max(480, Math.min(880, opts.width ?? 720));
   // Padding leaves room for the dashed average label on the right and circle radii.
   const padX = 8;
-  const padTop = 8;
-  const padBottom = 18;
+  const padTop = 12;
+  const padBottom = 24;
   const plotW = width - padX * 2;
   const plotH = height - padTop - padBottom;
 
@@ -581,7 +581,7 @@ export function renderSparklineChart(
   const tickStyle =
     'font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-chart-label);font-variant-numeric:tabular-nums';
 
-  return `<svg role="img" aria-label="${esc(opts.ariaLabel)}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" style="width:100%;height:${height}px;display:block;overflow:visible">
+  return `<svg role="img" aria-label="${esc(opts.ariaLabel)}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" style="width:100%;max-width:${width}px;height:auto;display:block;overflow:visible">
   <line x1="${padX}" x2="${width - padX}" y1="${gridTop}" y2="${gridTop}" stroke="var(--color-chart-grid)" stroke-width="1"></line>
   <line x1="${padX}" x2="${width - padX}" y1="${gridBottom}" y2="${gridBottom}" stroke="var(--color-chart-grid)" stroke-width="1"></line>
   ${areaPath ? `<path d="${areaPath}" fill="var(--color-chart-area)" opacity="0.35"></path>` : ''}
