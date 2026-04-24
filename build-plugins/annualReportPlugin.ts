@@ -47,6 +47,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import {
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
@@ -680,10 +681,12 @@ function renderTable(headers: readonly string[], rows: readonly (readonly string
 }
 
 function buildHreflang(): string {
-  return LOCALES.map((alt) => {
-    const altPath = `${LOCALE_PREFIX[alt]}/${REPORT_SLUG[alt].replace(/^(en|de|fr)\//, '')}/`.replace(/\/+/g, '/');
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
-  }).join('\n');
+  // Shared helper emits 4 locales + x-default on the canonical host.
+  const paths = LOCALES.reduce<Record<Locale, string>>((acc, alt) => {
+    acc[alt] = `${LOCALE_PREFIX[alt]}/${REPORT_SLUG[alt].replace(/^(en|de|fr)\//, '')}/`.replace(/\/+/g, '/');
+    return acc;
+  }, { it: '', en: '', de: '', fr: '' });
+  return renderHreflangTags(paths as HreflangPaths);
 }
 
 function renderReport(opts: {

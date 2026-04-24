@@ -260,16 +260,25 @@ function renderPage(opts: {
   const t = (key: string, fallback = ''): string => strings[key] || fallback;
 
   // Alternates: only link to other locales that actually have the same slug
-  // in the clusters set (avoids fake hreflang).
-  const alternates = ORPHAN_LANDING_LOCALES.map((alt) => {
-    if (alt === locale) {
-      return `    <link rel="alternate" hreflang="${alt}" href="${canonicalUrl}">`;
-    }
-    const set = knownSlugsByLocale.get(alt);
-    if (!set || !set.has(cluster.canonicalSlug)) return '';
-    const altPath = buildOrphanLandingPath(alt, cluster.canonicalSlug);
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
-  }).filter(Boolean).join('\n');
+  // in the clusters set (avoids fake hreflang). Always emit x-default
+  // pointing at the IT variant (or the current locale if IT isn't present).
+  const itSet = knownSlugsByLocale.get('it');
+  const itHasSlug = Boolean(itSet && itSet.has(cluster.canonicalSlug));
+  const xDefaultHref = itHasSlug
+    ? `${BASE_URL}${buildOrphanLandingPath('it', cluster.canonicalSlug)}`
+    : canonicalUrl;
+  const alternates = [
+    ...ORPHAN_LANDING_LOCALES.map((alt) => {
+      if (alt === locale) {
+        return `    <link rel="alternate" hreflang="${alt}" href="${canonicalUrl}">`;
+      }
+      const set = knownSlugsByLocale.get(alt);
+      if (!set || !set.has(cluster.canonicalSlug)) return '';
+      const altPath = buildOrphanLandingPath(alt, cluster.canonicalSlug);
+      return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
+    }).filter(Boolean),
+    `    <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
+  ].join('\n');
 
   const jobBoardRoot: Record<OrphanLandingLocale, string> = {
     it: '/cerca-lavoro-ticino/',

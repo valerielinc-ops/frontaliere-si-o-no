@@ -43,6 +43,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   BORDER_WAIT_CROSSINGS,
@@ -1144,17 +1145,9 @@ function renderLeafPage(inp: LeafInputs): string {
       .join('')}
   </section>`;
 
-  // Alternates. IT is the primary/source locale and serves as the x-default
-  // for search engines when a user's language doesn't match any available
-  // hreflang — point x-default at the IT URL when present, otherwise fall
-  // back to the current page.
-  const xDefaultHref = alternates.it ?? alternates[locale];
-  const alternatesHtml = [
-    ...(Object.keys(alternates) as BorderWaitLocale[]).map(
-      (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
-    ),
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultHref}">`,
-  ].join('\n');
+  // Alternates. IT is the canonical locale and serves as the x-default. The
+  // shared helper emits 4 locales + x-default on the canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
   const breadcrumbLd = JSON.stringify({
@@ -1459,9 +1452,7 @@ function renderHubPage(inp: HubInputs): string {
     ? renderTrafficFluidBanner(true, locale)
     : renderFastestCrossingCard(heroInputs, locale);
 
-  const alternatesHtml = (Object.keys(alternates) as BorderWaitLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
   const breadcrumbItems = [
