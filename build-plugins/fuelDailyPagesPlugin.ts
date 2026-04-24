@@ -1599,6 +1599,12 @@ function renderStationPage(opts: {
   // Keep the title compact: the full h1 + date + brand suffix can balloon past
   // 80 chars and get truncated in SERPs. Trim the h1 on a word boundary to
   // ~60 chars, strip trailing punctuation, then append the dated brand suffix.
+  //
+  // Uniqueness guard (2026-04-24): after trimming, ensure the city name AND a
+  // street-level disambiguator are both preserved in the final <title>. Two
+  // stations with the same brand + same street prefix but different cities
+  // (e.g. "Coop Pronto Via Roma" in Chiasso vs Lugano) would otherwise
+  // collide when h1 is sliced before the city segment.
   const titleSuffix = ` (${dateStamp}) | Frontaliere Ticino`;
   const titleBudget = 60;
   const trimmedH1 = h1.length <= titleBudget
@@ -1609,7 +1615,18 @@ function renderStationPage(opts: {
         const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
         return base.replace(/[\s.,;:\-–—|]+$/u, '');
       })();
-  const title = `${trimmedH1}${titleSuffix}`;
+  // If trimming dropped the city (which encodes zone distinctness) or the
+  // street display (which disambiguates sibling stations within a city),
+  // rebuild a concise, uniqueness-preserving title from the known parts.
+  const hasCity = ctx.city.length > 0 && trimmedH1.toLowerCase().includes(ctx.city.toLowerCase());
+  const streetTail = ctx.streetDisplay || ctx.slug;
+  const hasStreet = streetTail.length === 0 || trimmedH1.toLowerCase().includes(streetTail.toLowerCase());
+  const safeBase = hasCity && hasStreet
+    ? trimmedH1
+    : `${ctx.brandDisplay} ${streetTail} — ${ctx.city} ${fuelLabel}`
+        .replace(/\s+/g, ' ')
+        .trim();
+  const title = `${safeBase}${titleSuffix}`;
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
