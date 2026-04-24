@@ -82,6 +82,7 @@ import {
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F5 weekly-employers feature.
@@ -1245,6 +1246,12 @@ export interface WeeklyEmployersPageInputs {
   enableAutoStubs?: boolean;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+  /**
+   * Set of company slugs for which a canonical `/cerca-lavoro-ticino/azienda-{slug}/`
+   * page exists. Built from `data/all-known-job-slugs.json` by the plugin.
+   * When omitted (e.g. in tests), only EMPLOYER_BRANDS lookups are used.
+   */
+  knownSlugs?: ReadonlySet<string>;
 }
 
 function cityJobsHubPath(locale: WeeklyEmployersLocale, city: WeeklyEmployersCity): string {
@@ -1264,10 +1271,14 @@ function cityJobsHubPath(locale: WeeklyEmployersLocale, city: WeeklyEmployersCit
   return `${prefix}/${section[locale]}/${city}/`.replace(/\/+/g, '/');
 }
 
-function employerBrandPath(employerKey: string | undefined): string | null {
+function employerBrandPath(
+  employerKey: string | undefined,
+  employerName?: string,
+  knownSlugs?: ReadonlySet<string>,
+): string | null {
   if (!employerKey) return null;
   const key = String(employerKey).toLowerCase();
-  // EMPLOYER_BRANDS is keyed by `brandKey` — match loosely.
+  // Priority 1: EMPLOYER_BRANDS curated registry.
   for (const brand of Object.values(EMPLOYER_BRANDS)) {
     if (
       brand.brandKey === key ||
@@ -1277,6 +1288,11 @@ function employerBrandPath(employerKey: string | undefined): string | null {
     ) {
       return `/cerca-lavoro-ticino/azienda-${brand.brandKey}/`;
     }
+  }
+  // Priority 2: canonical page registry (all-known-job-slugs.json).
+  if (knownSlugs && employerName) {
+    const canonical = employerCanonicalHref(employerName, knownSlugs);
+    if (canonical) return canonical;
   }
   return null;
 }
@@ -1295,6 +1311,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     indexable,
     enableAutoStubs = false,
     distDir,
+    knownSlugs,
   } = inp;
 
   const copy = COPY[locale];
@@ -1346,7 +1363,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     stats.topCompanies.length > 0
       ? `${coldStartBannerHtml}<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px">${stats.topCompanies
           .map((c, idx) => {
-            const brandHref = employerBrandPath(c.employerKey);
+            const brandHref = employerBrandPath(c.employerKey, c.employer, knownSlugs);
             // When no historical delta exists at all, suppress the per-card
             // coldStart label (shown once above as a banner instead).
             const deltaLabel =
@@ -1384,22 +1401,30 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   const newcomersHtml =
     stats.newcomers.length > 0
       ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.newcomers
-          .map(
-            (n) =>
-              `<li><strong>${esc(n.employer)}</strong> — ${esc(copy.jobsCountLabel(n.active))}</li>`,
-          )
+          .map((n) => {
+            const newcomerHref = employerBrandPath(n.employerKey, n.employer, knownSlugs);
+            const nameHtml = newcomerHref
+              ? `<a href="${esc(newcomerHref)}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(n.employer)}</a>`
+              : `<strong>${esc(n.employer)}</strong>`;
+            return `<li>${nameHtml} — ${esc(copy.jobsCountLabel(n.active))}</li>`;
+          })
           .join('')}</ul>`
       : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.newcomersEmpty)}</p>`;
 
+  const jobBoardSearchBase: Record<WeeklyEmployersLocale, string> = {
+    it: '/cerca-lavoro-ticino/',
+    en: '/en/find-jobs-ticino/',
+    de: '/de/jobs-im-tessin/',
+    fr: '/fr/trouver-emploi-tessin/',
+  };
   const rolesHtml =
     stats.topRoles.length > 0
       ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.topRoles
-          .map(
-            (r) =>
-              `<li><span style="text-transform:capitalize">${esc(r.role)}</span> — ${esc(
-                copy.jobsCountLabel(r.count),
-              )}</li>`,
-          )
+          .map((r) => {
+            const roleSlug = slugifyEmployer(r.role);
+            const roleHref = `${jobBoardSearchBase[locale]}?q=${encodeURIComponent(roleSlug || r.role)}`;
+            return `<li><a href="${esc(roleHref)}" style="color:var(--color-link);text-decoration:none;text-transform:capitalize">${esc(r.role)}</a> — ${esc(copy.jobsCountLabel(r.count))}</li>`;
+          })
           .join('')}</ul>`
       : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.rolesEmpty)}</p>`;
 
@@ -1409,10 +1434,10 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     `<a href="${esc(cityJobsHubPath(locale, city))}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinksCityHub(cityDisplay))}</a>`,
   );
   const firstEmployerWithBrand = stats.topCompanies.find(
-    (c) => !!employerBrandPath(c.employerKey),
+    (c) => !!employerBrandPath(c.employerKey, c.employer, knownSlugs),
   );
   if (firstEmployerWithBrand) {
-    const href = employerBrandPath(firstEmployerWithBrand.employerKey)!;
+    const href = employerBrandPath(firstEmployerWithBrand.employerKey, firstEmployerWithBrand.employer, knownSlugs)!;
     relatedLinks.push(
       `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinksEmployerBrand(firstEmployerWithBrand.employer))}</a>`,
     );
@@ -1452,8 +1477,8 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       item: {
         '@type': 'Organization',
         name: c.employer,
-        url: employerBrandPath(c.employerKey)
-          ? `${BASE_URL}${employerBrandPath(c.employerKey)}`
+        url: employerBrandPath(c.employerKey, c.employer, knownSlugs)
+          ? `${BASE_URL}${employerBrandPath(c.employerKey, c.employer, knownSlugs)}`
           : undefined,
       },
     })),
@@ -1595,6 +1620,11 @@ export interface CompanyCityPageInputs {
   /** Cities where the same company has a generated page in this locale.
    *  Used to keep related-links sibling cluster honest (no broken links). */
   companySiblingCities?: readonly WeeklyEmployersCompanyCity[];
+  /**
+   * Set of company slugs for which a canonical `/cerca-lavoro-ticino/azienda-{slug}/`
+   * page exists. When omitted, only EMPLOYER_BRANDS lookups are used.
+   */
+  knownSlugs?: ReadonlySet<string>;
 }
 
 /**
@@ -1770,6 +1800,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     indexable,
     distDir,
     companySiblingCities,
+    knownSlugs,
   } = inp;
 
   const copy = COPY[locale];
@@ -1851,7 +1882,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // Related links (own + cross-feature via shared helper).
   const parentHubHref = buildCurrentWeekPath(locale, city);
   const cityJobsHref = cityJobsHubPath(locale, city);
-  const brandHref = employerBrandPath(stats.employerKey);
+  const brandHref = employerBrandPath(stats.employerKey, employer, knownSlugs);
 
   const ownRelated: string[] = [];
   if (brandHref) {
@@ -2174,6 +2205,9 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   const distDir = opts.distDir;
   const { week: currentWeek, year: currentYear } = getIsoWeekAndYear(today);
 
+  // Load company slug registry once for the entire generation run.
+  const knownSlugs = loadKnownCompanySlugs(opts.rootDir);
+
   const latestSnapshot: JobsSnapshot | null =
     opts.snapshots.length > 0 ? opts.snapshots[opts.snapshots.length - 1] : null;
   const previousSnapshot: JobsSnapshot | null =
@@ -2208,6 +2242,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         indexable: true,
         enableAutoStubs: opts.enableAutoStubs,
         distDir,
+        knownSlugs,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
     }
@@ -2279,6 +2314,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             indexable,
             enableAutoStubs: opts.enableAutoStubs,
             distDir,
+            knownSlugs,
           });
           pages.push({ path: canonicalPath, html, indexable });
         }
@@ -2357,6 +2393,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         indexable: true,
         distDir,
         companySiblingCities,
+        knownSlugs,
       });
       html = injectSiblingLinks(
         html,
