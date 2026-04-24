@@ -51,25 +51,38 @@ export function employerCanonicalHref(
 }
 
 /**
- * Load `data/all-known-job-slugs.json` (relative to `rootDir`) and return a
- * Set of company slugs — i.e. every key that starts with `azienda-` has its
- * prefix stripped and the remainder added to the set.
+ * Load the set of canonical company slugs that have deployed
+ * `/cerca-lavoro-ticino/azienda-{slug}/` pages.
  *
- * Returns an empty Set when the file is missing or malformed.
+ * Primary source: `data/known-company-slugs.json` — a JSON array written by
+ * `jobsSeoPagesPlugin` during company landing page emission (authoritative,
+ * lists all ~227 deployed companies).
+ *
+ * Fallback: `data/all-known-job-slugs.json` — legacy tracking file that only
+ * records bridge pages for old job slugs (keys prefixed `azienda-`). This
+ * path is taken on the very first build after a fresh clone, before
+ * `known-company-slugs.json` has been generated.
+ *
+ * Returns an empty Set when both files are missing or malformed.
  */
 export function loadKnownCompanySlugs(rootDir: string): Set<string> {
-  const filePath = np.resolve(rootDir, 'data/all-known-job-slugs.json');
+  // Primary source: data/known-company-slugs.json (written by jobsSeoPagesPlugin
+  // during company landing page emission — lists actual deployed companies)
+  const primary = np.resolve(rootDir, 'data/known-company-slugs.json');
   try {
-    const raw = fs.readFileSync(filePath, 'utf-8');
+    const arr: string[] = JSON.parse(fs.readFileSync(primary, 'utf-8'));
+    if (Array.isArray(arr) && arr.length > 0) return new Set(arr);
+  } catch { /* fall through */ }
+  // Fallback: legacy tracking file (only catches bridge pages). This path
+  // runs when the primary file hasn't been generated yet (first build).
+  const legacy = np.resolve(rootDir, 'data/all-known-job-slugs.json');
+  try {
+    const raw = fs.readFileSync(legacy, 'utf-8');
     const data: Record<string, unknown> = JSON.parse(raw);
     const slugs = new Set<string>();
     for (const key of Object.keys(data)) {
-      if (key.startsWith('azienda-')) {
-        slugs.add(key.slice('azienda-'.length));
-      }
+      if (key.startsWith('azienda-')) slugs.add(key.slice('azienda-'.length));
     }
     return slugs;
-  } catch {
-    return new Set();
-  }
+  } catch { return new Set(); }
 }

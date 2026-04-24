@@ -2356,6 +2356,17 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  }
 
+ /* ── Write known-company-slugs.json ─────────────────────────── */
+ // Persist the canonical company slugs so employerLinks.ts can resolve
+ // `/cerca-lavoro-ticino/azienda-{slug}/` hrefs without relying on the
+ // stale `azienda-*` keys in all-known-job-slugs.json.
+ {
+ const companySlugs = [...companyMap.keys()].sort();
+ const companySlugsPath = np.resolve(rootDir, 'data/known-company-slugs.json');
+ fs.writeFileSync(companySlugsPath, JSON.stringify(companySlugs, null, 2) + '\n', 'utf-8');
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Wrote ${companySlugs.length} company slugs to known-company-slugs.json`);
+ }
+
  const editorialLocations = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'] as const;
  const editorialTypeKeys = ['apprenticeship', 'internship', 'partTime'] as const;
  const editorialSectorKeys = ['health', 'finance', 'tech', 'engineering', 'admin', 'hospitality', 'sales'] as const;
