@@ -74,6 +74,7 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { SECTOR_HUB_KEYS } from './jobSectorLanding';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -802,6 +803,12 @@ interface CommonRenderInputs {
   degraded: boolean;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+  /**
+   * Set of company slugs for which a canonical `/cerca-lavoro-ticino/azienda-{slug}/`
+   * page exists. Built from `data/all-known-job-slugs.json` by the plugin.
+   * When omitted, employer names are rendered as plain text.
+   */
+  knownSlugs?: ReadonlySet<string>;
 }
 
 function renderHreflangAlternates(alternates: Record<JobMarketSnapshotLocale, string>): string {
@@ -976,7 +983,7 @@ interface SnapshotPageInputs extends CommonRenderInputs {
 }
 
 function renderSnapshotPage(inp: SnapshotPageInputs): string {
-  const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex, distDir } = inp;
+  const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex, distDir, knownSlugs } = inp;
   const copy = COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 =
@@ -1004,19 +1011,35 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${stats.medianSalary !== null ? renderStatTile(copy.statMedianSalary, `${stats.medianSalary.toLocaleString('en-US').replace(/,/g, '\u202f')} CHF`, 'neutral') : ''}
   </section>`;
 
+  const jobBoardSearchBaseSnapshot: Record<JobMarketSnapshotLocale, string> = {
+    it: '/cerca-lavoro-ticino/',
+    en: '/en/find-jobs-ticino/',
+    de: '/de/jobs-im-tessin/',
+    fr: '/fr/trouver-emploi-tessin/',
+  };
   const topRolesList = renderTopList(
     copy.topRolesHeading,
-    stats.topRoles.map((r) => ({ name: r.name, added: r.added })),
+    stats.topRoles.map((r) => {
+      const roleSlug = slugifyEmployer(r.name);
+      return {
+        name: r.name,
+        added: r.added,
+        url: `${jobBoardSearchBaseSnapshot[locale]}?q=${encodeURIComponent(roleSlug || r.name)}`,
+      };
+    }),
     locale === 'it' ? 'annunci' : locale === 'de' ? 'Anzeigen' : locale === 'fr' ? 'annonces' : 'postings',
   );
 
   const topEmployersList = renderTopList(
     copy.topEmployersHeading,
-    // Drop the stats-provided `url`: it's heuristically derived from the raw
-    // employer name (e.g. `azienda-hilcona-ag-bell-food-group`) and does not
-    // match the canonical brand slugs emitted under `/cerca-lavoro-ticino/
-    // azienda-*/`. Render plain employer names to avoid broken links.
-    stats.topEmployers.map((e) => ({ name: e.name, added: e.added })),
+    // Use canonical /azienda-{slug}/ when a matching page exists in the
+    // known-slugs registry; fall back to plain text (no broken ?q= links
+    // for employers — search is less reliable for company names).
+    stats.topEmployers.map((e) => ({
+      name: e.name,
+      added: e.added,
+      url: knownSlugs ? (employerCanonicalHref(e.name, knownSlugs) ?? undefined) : undefined,
+    })),
     locale === 'it' ? 'nuove offerte' : locale === 'de' ? 'neue Stellen' : locale === 'fr' ? 'nouvelles offres' : 'new openings',
   );
 
@@ -1450,6 +1473,11 @@ export interface GeneratorInputs {
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+  /**
+   * Set of company slugs for which a canonical `/cerca-lavoro-ticino/azienda-{slug}/`
+   * page exists. When omitted, employer names are rendered as plain text.
+   */
+  knownSlugs?: ReadonlySet<string>;
 }
 
 export interface GeneratorOutput {
@@ -1496,6 +1524,7 @@ export function buildWeeklyTrendSeries(
 export function generateJobMarketSnapshotPages(opts: GeneratorInputs): GeneratorOutput {
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const knownSlugs = opts.knownSlugs;
   const todayIso = today.toISOString().slice(0, 10);
   const entries = opts.history?.entries ?? [];
   const completedWeeks = bucketHistoryByWeek(entries, { requireComplete: true });
@@ -1589,6 +1618,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
       latestWeekHref,
       heroStats,
       distDir,
+      knownSlugs,
     });
   }
 
@@ -1622,6 +1652,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         degraded,
         noindex,
         distDir,
+        knownSlugs,
       });
     }
   }
@@ -1645,6 +1676,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         degraded: false,
         noindex: false,
         distDir,
+        knownSlugs,
       });
     }
   }
@@ -2047,6 +2079,7 @@ interface SectorPageInputs {
   todayIso: string;
   stats: SectorStats;
   distDir?: string;
+  knownSlugs?: ReadonlySet<string>;
 }
 
 function formatSectorDelta(
@@ -2067,7 +2100,7 @@ function alternatesForSector(
 }
 
 function renderSectorPage(inp: SectorPageInputs): string {
-  const { locale, sector, sectorLabel, canonicalPath, alternates, todayIso, stats, distDir } = inp;
+  const { locale, sector, sectorLabel, canonicalPath, alternates, todayIso, stats, distDir, knownSlugs } = inp;
   const copy = SECTOR_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 = copy.h1(sectorLabel);
@@ -2083,7 +2116,11 @@ function renderSectorPage(inp: SectorPageInputs): string {
 
   const topEmployersList = renderTopList(
     copy.topEmployersHeading,
-    stats.topEmployers.map((e) => ({ name: e.name, added: e.count })),
+    stats.topEmployers.map((e) => ({
+      name: e.name,
+      added: e.count,
+      url: knownSlugs ? (employerCanonicalHref(e.name, knownSlugs) ?? undefined) : undefined,
+    })),
     locale === 'it'
       ? 'offerte attive'
       : locale === 'de'
@@ -2290,6 +2327,7 @@ export interface SectorGeneratorInputs {
   jobs: ReadonlyArray<JobRecord>;
   today?: Date;
   distDir?: string;
+  knownSlugs?: ReadonlySet<string>;
 }
 
 export interface SectorGeneratorOutput {
@@ -2328,6 +2366,7 @@ export function generateSectorSnapshotPages(
         todayIso,
         stats,
         distDir: opts.distDir,
+        knownSlugs: opts.knownSlugs,
       });
     }
   }
@@ -2412,10 +2451,11 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       }
 
       const today = new Date();
-      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir });
+      const knownSlugs = loadKnownCompanySlugs(rootDir);
+      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs });
 
       // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
-      const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir });
+      const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs });
       for (const [path, html] of Object.entries(sectorOutput.pages)) {
         pages[path] = html;
       }
