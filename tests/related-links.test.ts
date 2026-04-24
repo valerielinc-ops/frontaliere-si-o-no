@@ -404,15 +404,18 @@ describe('generateRelatedLinksBlock (HTML render)', () => {
     }
   });
 
-  it('uses semantic CSS custom properties from index.css (no hardcoded dark-mode palette)', () => {
+  it('uses semantic Tailwind tokens from index.css (no hardcoded dark-mode palette)', () => {
     const html = generateRelatedLinksBlock('it', 'fuel_daily', {
       fuelType: 'diesel',
       fuelZone: 'chiasso',
     });
-    expect(html).toContain('var(--color-accent');
-    expect(html).toContain('var(--color-surface-alt');
-    expect(html).toContain('var(--color-edge');
-    expect(html).toContain('var(--color-subtle');
+    // Semantic tokens (Tailwind classes resolving to CSS custom properties)
+    // so the block visually matches the rest of the site and auto-adapts
+    // to dark mode without any `dark:` prefix.
+    expect(html).toContain('text-accent');
+    expect(html).toContain('bg-surface-alt');
+    expect(html).toContain('border-edge');
+    expect(html).toContain('text-subtle');
   });
 
   it('escapes HTML entities in emitted content', () => {

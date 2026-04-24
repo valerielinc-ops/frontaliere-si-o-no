@@ -1302,10 +1302,11 @@ export function generateRelatedLinksBlock(
 // ── HTML rendering ──────────────────────────────────────────────
 
 /**
- * Render the 3-cluster sections as semantic HTML. Uses inline-styled markup
- * consistent with sibling feature plugins; colours come from `index.css`
- * semantic tokens via CSS custom properties, so the block auto-adapts to
- * dark mode without any `dark:` prefix.
+ * Render the 3-cluster sections as semantic HTML. Uses the same Tailwind
+ * utility classes + semantic tokens (`border-edge`, `bg-surface-alt`,
+ * `text-accent`, `text-subtle`) as the rest of the site so the block
+ * visually matches the SPA chrome and auto-adapts to dark mode without
+ * any `dark:` prefix.
  */
 function renderHtml(copy: Copy, sections: readonly RelatedLinkSection[]): string {
   if (sections.length === 0) return '';
@@ -1315,17 +1316,17 @@ function renderHtml(copy: Copy, sections: readonly RelatedLinkSection[]): string
       const items = sec.links
         .map(
           (l) =>
-            `<li style="margin:0;padding:0"><a href="${escHtml(l.href)}"${l.rel ? ` rel="${escHtml(l.rel)}"` : ''} style="display:inline-block;padding:6px 0;color:var(--color-accent, #1d4ed8);text-decoration:none;font-weight:500;line-height:1.4">${escHtml(l.title)}</a></li>`,
+            `<li class="m-0 p-0"><a href="${escHtml(l.href)}"${l.rel ? ` rel="${escHtml(l.rel)}"` : ''} class="inline-block py-1.5 text-sm font-medium leading-snug text-accent no-underline hover:underline">${escHtml(l.title)}</a></li>`,
         )
         .join('');
-      return `<section aria-label="${escHtml(sec.ariaLabel)}" data-cluster="${escHtml(sec.kind)}" style="min-width:0">
-  <h3 style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--color-subtle, #64748b)">${escHtml(sec.heading)}</h3>
-  <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">${items}</ul>
+      return `<section aria-label="${escHtml(sec.ariaLabel)}" data-cluster="${escHtml(sec.kind)}" class="min-w-0">
+  <h3 class="mb-2.5 text-xs font-bold uppercase tracking-wider text-subtle">${escHtml(sec.heading)}</h3>
+  <ul class="m-0 flex list-none flex-col gap-1 p-0">${items}</ul>
 </section>`;
     })
     .join('\n  ');
 
-  return `<nav id="seoRelatedLinks" aria-label="${escHtml(copy.headings.nav)}" style="margin:40px 0 0;padding:24px 22px 20px;border-radius:18px;background:var(--color-surface-alt, #f8fafc);border:1px solid var(--color-edge, #e2e8f0);display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+  return `<nav id="seoRelatedLinks" aria-label="${escHtml(copy.headings.nav)}" class="mt-10 grid gap-6 rounded-3xl border border-edge bg-surface-alt p-6 sm:grid-cols-2 lg:grid-cols-3">
   ${sectionHtml}
 </nav>`;
 }
