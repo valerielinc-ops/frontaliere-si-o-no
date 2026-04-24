@@ -8,6 +8,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 // ComparisonChart is lazy-loaded to avoid pulling vendor-charts (~114KB gzip) into the critical path
 const ComparisonChart = lazyRetry(() => import('./ComparisonChart').then(m => ({ default: m.ComparisonChart })));
 const SubscriptionCTA = lazyRetry(() => import('@/components/shared/SubscriptionCTA'));
+const ConsultingCTA = lazyRetry(() => import('./ConsultingCTA').then(m => ({ default: m.ConsultingCTA })));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
@@ -719,6 +720,11 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </button>
  </div>
  )}
+
+ {/* E3: Post-simulation consulting CTA — inline box pointing to /consulenza */}
+ <Suspense fallback={null}>
+ <ConsultingCTA />
+ </Suspense>
 
  {/* Source methodology — AI SEO citability */}
  <div className="mt-6 p-4 bg-surface-alt/50 rounded-xl border border-edge">

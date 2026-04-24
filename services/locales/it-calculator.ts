@@ -417,5 +417,10 @@ const translations: Record<string, string> = {
  'results.save.button': 'Salva per dopo',
  'results.save.buttonShort': 'Salva',
  'results.save.saved': 'Salvato!',
+
+ // E3: Inline consulting CTA on the results view
+ 'calculator.consultingCta.headline': 'Situazione complessa?',
+ 'calculator.consultingCta.body': '30 min di consulenza personalizzata con esperto frontaliere — €49. Prenota il tuo slot.',
+ 'calculator.consultingCta.button': 'Prenota consulenza',
 };
 export default translations;

@@ -75,6 +75,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  KILL_JOB_MARKET_LINKS: 'false',
  KILL_WEEKLY_EMPLOYERS_LINKS: 'false',
  KILL_ORPHAN_LANDINGS_LINKS: 'false',
+ // E3: Inline consulting CTA on calculator results view.
+ // Default 'true' so the CTA is visible until explicitly disabled via Firebase
+ // Remote Config console. Flip to 'false' to hide the CTA without a redeploy.
+ ENABLE_CALCULATOR_CONSULTING_CTA: 'true',
 };
 
 const FIREBASE_RUNTIME_LOGS = import.meta.env.MODE !== 'test';
