@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-24T09:36:15.073Z",
+  "assembledAt": "2026-04-24T21:02:39.278Z",
   "jobs": [
     {
       "title": "Agente Principale",
@@ -222,7 +222,8 @@
       },
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -383,7 +384,8 @@
           "senior-underwriter-responsabilita-civile"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:08:31.463Z"
+      "firstSeenAt": "2026-04-13T21:08:31.463Z",
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -649,7 +651,8 @@
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:08:31.463Z"
+      "firstSeenAt": "2026-04-13T21:08:31.463Z",
+      "needsRetranslation": true
     },
     {
       "title": "(Senior) Software Engineer Python, AI (all genders)",
@@ -1022,7 +1025,6 @@
         "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizz",
         "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-axa",
         "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur",
-        "head-in-servizio-interno-per-l-agenzia-generale-precauzioni-fortune-chur-axa-svizzera-arbeitsort-chur",
         "head-in-servizio-interno-per-l-agenzia-generale-precauzioni-fortune-chur-axa-svizzera-arbeitsort-chur"
       ],
       "salaryMin": 68000,
