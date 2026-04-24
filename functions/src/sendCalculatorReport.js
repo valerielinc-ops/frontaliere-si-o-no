@@ -104,9 +104,10 @@ export async function handleSendCalculatorReport({
   const db = injectedDb || getAdminDb();
   const now = admin.firestore.FieldValue.serverTimestamp();
 
-  // Upsert subscriber doc with source tag.
+  // Upsert subscriber doc with source tag. Firestore errors are converted to
+  // a structured 5XX so the HTTP handler can return a stable JSON shape
+  // instead of leaking a raw stack trace.
   const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
-  const existing = await subscriberRef.get();
   const baseDoc = {
     email: normalizedEmail,
     updated_at: now,
@@ -118,19 +119,25 @@ export async function handleSendCalculatorReport({
       result_summary: resultSummary || null,
     },
   };
-  if (!existing.exists) {
-    await subscriberRef.set({
-      ...baseDoc,
-      created_at: now,
-      source: 'calculator_paywall',
-      source_channel: 'calculator_paywall',
-      status: 'pending',
-      isActive: false,
-      signup_locale: lang,
-    });
-  } else {
-    // Add tag without overwriting existing status/confirmation state.
-    await subscriberRef.set(baseDoc, { merge: true });
+  try {
+    const existing = await subscriberRef.get();
+    if (!existing.exists) {
+      await subscriberRef.set({
+        ...baseDoc,
+        created_at: now,
+        source: 'calculator_paywall',
+        source_channel: 'calculator_paywall',
+        status: 'pending',
+        isActive: false,
+        signup_locale: lang,
+      });
+    } else {
+      // Add tag without overwriting existing status/confirmation state.
+      await subscriberRef.set(baseDoc, { merge: true });
+    }
+  } catch (firestoreErr) {
+    console.error('[sendCalculatorReport] Firestore upsert failed:', firestoreErr);
+    return { status: 503, body: { success: false, error: 'firestore_unavailable' } };
   }
 
   const resend = resendClient || new Resend(resendApiKey);
@@ -163,19 +170,26 @@ export async function handleSendCalculatorReport({
     return { status: 502, body: { success: false, error: 'email_send_failed' } };
   }
 
-  await db
-    .collection('newsletter_subscribers')
-    .doc(normalizedEmail)
-    .collection('events')
-    .add({
-      email: normalizedEmail,
-      event_type: 'calculator_paywall_pdf_sent',
-      source_channel: 'calculator_paywall',
-      message_id: emailData?.id || null,
-      locale: lang,
-      timestamp: now,
-      occurred_at: new Date().toISOString(),
-    });
+  // Best-effort event write — if Firestore is temporarily unavailable the
+  // email has already shipped, so we log and still return 200 to the client
+  // rather than failing the user-visible request.
+  try {
+    await db
+      .collection('newsletter_subscribers')
+      .doc(normalizedEmail)
+      .collection('events')
+      .add({
+        email: normalizedEmail,
+        event_type: 'calculator_paywall_pdf_sent',
+        source_channel: 'calculator_paywall',
+        message_id: emailData?.id || null,
+        locale: lang,
+        timestamp: now,
+        occurred_at: new Date().toISOString(),
+      });
+  } catch (eventErr) {
+    console.warn('[sendCalculatorReport] Non-fatal: event log write failed:', eventErr?.message || eventErr);
+  }
 
   return { status: 200, body: { success: true, messageId: emailData?.id || null } };
 }
