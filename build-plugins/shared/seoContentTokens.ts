@@ -251,3 +251,189 @@ export function renderDiscoverMore(
   <ul style="list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:2px">${items}</ul>
 </section>`;
 }
+
+// ── Sparkline chart ───────────────────────────────────────────────────────────
+//
+// Inline, JavaScript-free SVG trend chart used by fuel-daily pages (F6) and
+// any future SEO page that needs a lightweight 7–30 point time series. All
+// colors bind to the semantic `--color-chart-*` tokens defined in index.css
+// so the chart follows the user's dark-mode preference without duplication.
+//
+// Rendering contract:
+//  - If fewer than 2 numeric data points are available, return `''` so the
+//    caller can omit the chart section entirely (no empty axis).
+//  - Filled area + smooth line + one circle per point + a dashed horizontal
+//    line at the period average (excluding null points from the mean).
+//  - `role="img"` with an `aria-label` that communicates period + delta in
+//    the caller's locale; the caller composes the sentence.
+
+export interface SparklinePoint {
+  /** ISO date (YYYY-MM-DD) — used only for the x-axis tick labels. */
+  readonly date: string;
+  /** CHF/litre (or any scalar). Null when no snapshot was recorded. */
+  readonly value: number | null;
+}
+
+export interface SparklineChartOptions {
+  /** Accessible label for screen readers (period + delta in the page locale). */
+  readonly ariaLabel: string;
+  /** Pixel height of the rendered SVG (default 110, clamped to [80, 160]). */
+  readonly height?: number;
+  /** Pixel width reference; the SVG uses responsive viewBox so this is only a hint (default 720). */
+  readonly width?: number;
+  /** Format a numeric value for the aria-hidden tick labels (e.g. "2,149"). */
+  readonly formatValue?: (v: number) => string;
+}
+
+/**
+ * Render an inline-SVG sparkline chart from a series of day/value points.
+ *
+ * Returns an empty string when the series has fewer than two numeric points —
+ * callers must skip their surrounding markup in that case.
+ */
+export function renderSparklineChart(
+  points: ReadonlyArray<SparklinePoint>,
+  opts: SparklineChartOptions,
+): string {
+  const numeric = points.filter(
+    (p): p is { date: string; value: number } =>
+      typeof p.value === 'number' && Number.isFinite(p.value),
+  );
+  if (numeric.length < 2) return '';
+
+  const height = Math.max(80, Math.min(160, opts.height ?? 110));
+  const width = Math.max(240, opts.width ?? 720);
+  // Padding leaves room for the dashed average label on the right and circle radii.
+  const padX = 8;
+  const padTop = 8;
+  const padBottom = 18;
+  const plotW = width - padX * 2;
+  const plotH = height - padTop - padBottom;
+
+  const values = numeric.map((p) => p.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = max - min;
+  // Pad the y-range by 10% of the span (or a small epsilon when series is flat)
+  // so the line doesn't sit flush against the top/bottom edges.
+  const pad = span > 0 ? span * 0.1 : Math.max(0.01, Math.abs(max) * 0.02);
+  const yMin = min - pad;
+  const yMax = max + pad;
+  const yRange = yMax - yMin || 1;
+  const avg = values.reduce((a, b) => a + b, 0) / values.length;
+
+  // Map each point to plot coordinates. Points are evenly spaced in X even
+  // when some intermediate days are missing — this keeps the chart compact
+  // and honest about the gaps via the circle markers' absence.
+  const n = points.length;
+  const xStep = n > 1 ? plotW / (n - 1) : 0;
+  const coords = points.map((p, i) => {
+    const x = padX + i * xStep;
+    if (typeof p.value !== 'number' || !Number.isFinite(p.value)) {
+      return { x, y: null as number | null, value: null, date: p.date };
+    }
+    const y = padTop + (1 - (p.value - yMin) / yRange) * plotH;
+    return { x, y, value: p.value, date: p.date };
+  });
+
+  // Build the line path — jumping over null points. We treat each contiguous
+  // numeric sub-series as its own M/L chain so Safari doesn't draw phantom
+  // segments through the gaps.
+  const pathSegments: string[] = [];
+  let current = '';
+  for (const c of coords) {
+    if (c.y === null) {
+      if (current) {
+        pathSegments.push(current);
+        current = '';
+      }
+      continue;
+    }
+    if (!current) {
+      current = `M${c.x.toFixed(1)} ${c.y.toFixed(1)}`;
+    } else {
+      current += ` L${c.x.toFixed(1)} ${c.y.toFixed(1)}`;
+    }
+  }
+  if (current) pathSegments.push(current);
+  const linePath = pathSegments.join(' ');
+
+  // Build the filled area — only for contiguous runs of ≥2 points so we don't
+  // invent data under a gap.
+  const areaSegments: string[] = [];
+  let runStart: { x: number; y: number } | null = null;
+  let run: string[] = [];
+  for (const c of coords) {
+    if (c.y !== null) {
+      if (runStart === null) {
+        runStart = { x: c.x, y: c.y };
+        run = [`M${c.x.toFixed(1)} ${c.y.toFixed(1)}`];
+      } else {
+        run.push(`L${c.x.toFixed(1)} ${c.y.toFixed(1)}`);
+      }
+    } else if (runStart !== null) {
+      if (run.length >= 2) {
+        const last = coords.slice(0, coords.indexOf(c)).filter((p) => p.y !== null).pop();
+        if (last) {
+          run.push(
+            `L${last.x.toFixed(1)} ${(padTop + plotH).toFixed(1)}`,
+            `L${runStart.x.toFixed(1)} ${(padTop + plotH).toFixed(1)}`,
+            'Z',
+          );
+          areaSegments.push(run.join(' '));
+        }
+      }
+      runStart = null;
+      run = [];
+    }
+  }
+  if (runStart !== null && run.length >= 2) {
+    // Close final run.
+    const last = coords.filter((p) => p.y !== null).pop();
+    if (last) {
+      run.push(
+        `L${last.x.toFixed(1)} ${(padTop + plotH).toFixed(1)}`,
+        `L${runStart.x.toFixed(1)} ${(padTop + plotH).toFixed(1)}`,
+        'Z',
+      );
+      areaSegments.push(run.join(' '));
+    }
+  }
+  const areaPath = areaSegments.join(' ');
+
+  // Average reference line (horizontal, dashed).
+  const avgY = padTop + (1 - (avg - yMin) / yRange) * plotH;
+  const avgLabel = opts.formatValue ? opts.formatValue(avg) : avg.toFixed(3);
+
+  // Grid line at top and bottom of the plot — very subtle, purely decorative.
+  const gridTop = padTop;
+  const gridBottom = padTop + plotH;
+
+  const circles = coords
+    .filter((c): c is { x: number; y: number; value: number; date: string } => c.y !== null)
+    .map(
+      (c) =>
+        `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="3" fill="var(--color-chart-dot)" stroke="var(--color-surface)" stroke-width="1.5"><title>${esc(c.date)}: ${esc(
+          opts.formatValue ? opts.formatValue(c.value) : c.value.toFixed(3),
+        )}</title></circle>`,
+    )
+    .join('');
+
+  // Tick labels: only first and last date, to keep the chart uncluttered.
+  const first = coords[0];
+  const last = coords[coords.length - 1];
+  const tickStyle =
+    'font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-chart-label);font-variant-numeric:tabular-nums';
+
+  return `<svg role="img" aria-label="${esc(opts.ariaLabel)}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" style="width:100%;height:${height}px;display:block;overflow:visible">
+  <line x1="${padX}" x2="${width - padX}" y1="${gridTop}" y2="${gridTop}" stroke="var(--color-chart-grid)" stroke-width="1"></line>
+  <line x1="${padX}" x2="${width - padX}" y1="${gridBottom}" y2="${gridBottom}" stroke="var(--color-chart-grid)" stroke-width="1"></line>
+  ${areaPath ? `<path d="${areaPath}" fill="var(--color-chart-area)" opacity="0.35"></path>` : ''}
+  <line x1="${padX}" x2="${width - padX}" y1="${avgY.toFixed(1)}" y2="${avgY.toFixed(1)}" stroke="var(--color-chart-tick)" stroke-width="1" stroke-dasharray="4 4"></line>
+  <text x="${(width - padX).toFixed(0)}" y="${Math.max(padTop + 10, avgY - 4).toFixed(1)}" text-anchor="end" style="${tickStyle}">⌀ ${esc(avgLabel)}</text>
+  ${linePath ? `<path d="${linePath}" fill="none" stroke="var(--color-chart-line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>` : ''}
+  ${circles}
+  <text x="${first.x.toFixed(0)}" y="${(height - 4).toFixed(0)}" text-anchor="start" style="${tickStyle}">${esc(first.date)}</text>
+  <text x="${last.x.toFixed(0)}" y="${(height - 4).toFixed(0)}" text-anchor="end" style="${tickStyle}">${esc(last.date)}</text>
+</svg>`;
+}
