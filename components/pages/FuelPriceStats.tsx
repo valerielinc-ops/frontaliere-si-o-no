@@ -3,6 +3,7 @@ import { ChevronDown, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Sea
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
+import { FUEL_ITALIAN_CITIES, buildFuelItalianCityPath } from '@/build-plugins/fuelDailyData';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
@@ -71,6 +72,14 @@ function swissStationHref(station: FuelStationSwitzerland): string | null {
  const slug = buildSwissStationSlug({ brand: station.brand, name: station.name, address: station.address });
  if (!slug) return null;
  return `/prezzi-diesel/${zone}/stazioni/${slug}/`;
+}
+
+function italianCityHref(row: MunicipalityFuelRow): string | null {
+ const key = row.municipality?.trim().toLowerCase();
+ if (!key) return null;
+ const entry = FUEL_ITALIAN_CITIES.find((c) => c.matchKey === key);
+ if (!entry) return null;
+ return buildFuelItalianCityPath('it', 'diesel', entry.slug);
 }
 
 function municipalityKey(row: MunicipalityFuelRow) {
@@ -220,8 +229,10 @@ function DetailSection({
  <div className="rounded-2xl border border-edge bg-surface-alt/80 p-4">
  <h4 className="text-sm font-bold text-heading">{tt('fuelPrices.detailItalyStations', 'Stazioni italiane rilevate')}</h4>
  <div className="mt-3 space-y-3">
- {row.italy.stations.slice(0, 12).map((station) => (
- <div key={`${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`} className="rounded-2xl border border-edge bg-surface p-3">
+ {row.italy.stations.slice(0, 12).map((station) => {
+ const key = `${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`;
+ const href = italianCityHref(row);
+ const content = (
  <div className="flex items-start justify-between gap-3">
  <div>
  <div className="font-semibold text-heading">{station.stationName}</div>
@@ -232,8 +243,17 @@ function DetailSection({
  <div className="text-xs text-muted">{station.isSelf ? tt('fuelPrices.self', 'Self') : tt('fuelPrices.served', 'Servito')}</div>
  </div>
  </div>
+ );
+ return href ? (
+ <a key={key} href={href} className="block rounded-2xl border border-edge bg-surface p-3 no-underline text-inherit hover:bg-surface-raised/70">
+ {content}
+ </a>
+ ) : (
+ <div key={key} className="rounded-2xl border border-edge bg-surface p-3">
+ {content}
  </div>
- ))}
+ );
+ })}
  {!row.italy.stations.length && (
  <div className="rounded-2xl border border-dashed border-edge bg-surface px-4 py-6 text-center text-sm text-muted">
  {tt('fuelPrices.noItalyStations', 'Nessuna stazione italiana trovata per questo comune.')}

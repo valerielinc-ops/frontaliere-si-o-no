@@ -14,7 +14,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { buildStationSlug, buildFuelStationPath, slugify } from '../../build-plugins/fuelDailyData';
+import { buildStationSlug, buildFuelStationPath, buildFuelItalianCityPath, FUEL_ITALIAN_CITIES, slugify } from '../../build-plugins/fuelDailyData';
 import { buildSwissStationSlug, zoneFromAddress } from '../../services/fuelPricesService';
 
 // ── B6: slug derivation matches build-plugin logic ──────────────────────────
@@ -164,5 +164,27 @@ describe('station deep-link URL construction (B5 + B6)', () => {
     const address = 'Bahnhofstrasse 1, 8001 Zürich';
     const zone = zoneFromAddress(address);
     expect(zone).toBeNull();
+  });
+});
+
+// ── Italian city fallback: station cards link to the city hub page ──────────
+
+describe('italianCityHref fallback (stats page)', () => {
+  it('resolves Como to its Italian-city hub path', () => {
+    const entry = FUEL_ITALIAN_CITIES.find((c) => c.matchKey === 'como');
+    expect(entry).toBeDefined();
+    const href = buildFuelItalianCityPath('it', 'diesel', entry!.slug);
+    expect(href).toBe('/prezzi-diesel/italia/como/oggi/');
+  });
+
+  it('resolves accented city names (Cantù → cantu)', () => {
+    const entry = FUEL_ITALIAN_CITIES.find((c) => c.matchKey === 'cantù');
+    expect(entry).toBeDefined();
+    expect(entry!.slug).toBe('cantu');
+  });
+
+  it('has no entry for off-catalog municipalities (Gera Lario)', () => {
+    const entry = FUEL_ITALIAN_CITIES.find((c) => c.matchKey === 'gera lario');
+    expect(entry).toBeUndefined();
   });
 });
