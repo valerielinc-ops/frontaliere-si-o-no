@@ -1,18 +1,60 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-04-23T21:50:43.689Z",
-  "total": 12,
-  "newCount": 12,
+  "generatedAt": "2026-04-24T10:21:41.237Z",
+  "total": 13,
+  "newCount": 13,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16755,
-  "avgDurationMs": 16755,
+  "durationMs": 17143,
+  "avgDurationMs": 17143,
   "durationHistory": [
-    16755
+    17143
   ],
   "newJobs": [
+    {
+      "id": "company-bm0ep4",
+      "slug": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
+      "company": "IBSA Institut Biochimique",
+      "title": "CMO Manager",
+      "location": "6916 Working Area",
+      "canton": "TI",
+      "category": "sales",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "ibsa-institut-biochimique",
+      "companyDomain": "ibsa.ch",
+      "crawledAt": "2026-04-24T10:21:40.507Z",
+      "firstSeenAt": "2026-04-24T10:21:40.507Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "country": "CH",
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "streetAddress": "Via del Piano 29",
+      "postalCode": "6926",
+      "addressLocality": "Montagnola",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-u7vkyi",
       "slug": "funzionario-della-ricerca-clinica-ibsa-institut-biochimique-montagnola",
