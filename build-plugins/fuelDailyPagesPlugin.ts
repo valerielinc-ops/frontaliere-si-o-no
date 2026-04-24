@@ -942,10 +942,24 @@ function renderPage(inp: PageInputs): string {
       trendRows.map((r) => ({ date: r.date, value: r.price })),
       {
         ariaLabel,
-        height: 110,
         formatValue: (v) => formatPrice(v, locale),
       },
     );
+  }
+  // Locale-aware fallback shown when the sparkline returned '' (i.e. fewer
+  // than 3 numeric points — typical during the first few days after a new
+  // zone/fuel combo starts collecting history). Keeps the page above the
+  // 50-word thin-content bar and sets the right expectation with the user.
+  if (!chartHtml) {
+    const fallbackText =
+      locale === 'it'
+        ? 'Storico in costruzione — torna tra qualche giorno.'
+        : locale === 'en'
+          ? 'History still being built — check back in a few days.'
+          : locale === 'de'
+            ? 'Verlauf wird noch aufgebaut — schau in ein paar Tagen wieder vorbei.'
+            : 'Historique en cours de constitution — reviens dans quelques jours.';
+    chartHtml = `<p style="margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--color-surface-muted);color:var(--color-text-muted);font-size:14px">${esc(fallbackText)}</p>`;
   }
 
   const trendTableHtml = `<table style="${TABLE_STYLE};font-size:14px">
