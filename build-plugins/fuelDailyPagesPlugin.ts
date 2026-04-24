@@ -363,12 +363,13 @@ function lookbackPrice(
   const target = new Date(today.getTime() - daysAgo * 24 * 60 * 60 * 1000)
     .toISOString()
     .slice(0, 10);
-  // Accept within ±1 day drift
-  const candidates = history.filter((h) => {
-    const diff = Math.abs((new Date(h.date).getTime() - new Date(target).getTime()) / (24 * 3600 * 1000));
-    return diff <= 1;
-  });
-  const snap = candidates[candidates.length - 1];
+  // Require exact date match. Previously a ±1 day drift was accepted to tolerate
+  // snapshot cron skew, but that silently substituted a 2-day-old snapshot for
+  // "yesterday" when yesterday's file was missing — producing a misleading
+  // "0,000 CHF vs ieri" when today's price happened to match the older day.
+  // Returning null makes the caller render the explicit "dati non disponibili"
+  // fallback instead.
+  const snap = history.find((h) => h.date === target);
   if (!snap) return null;
   const src = zone ? snap.zones?.[zone] : snap.regional;
   if (!src) return null;
@@ -868,8 +869,11 @@ function renderPage(inp: PageInputs): string {
   const stationsHtml = top3.length > 0
     ? `<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">${top3
         .map((s) => {
-          const stationHref = zone && s.slug
-            ? buildFuelStationPath(locale, fuel, zone, s.slug)
+          // On the regional (no-zone) hub, resolve the station's zone from
+          // its address so each card still links to its dedicated page.
+          const stationZone = zone ?? zoneForAddress(s.address);
+          const stationHref = stationZone && s.slug
+            ? buildFuelStationPath(locale, fuel, stationZone, s.slug)
             : undefined;
           const brandSlug = (s.brand || '')
             .toLowerCase()
