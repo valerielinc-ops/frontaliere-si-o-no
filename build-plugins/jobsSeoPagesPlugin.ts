@@ -63,6 +63,7 @@ import {
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
+import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -1383,68 +1384,52 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const finalJobPostingDescription = hasValidJobPostingDescription
  ? jobPostingDescription
  : buildJobDescriptionFallback(job, localizedTitle, addressLocality, addressRegion, locale);
- const jobLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'JobPosting',
+ // Build the canonical JobPosting schema via the shared builder — this
+ // guarantees all 9 mandatory fields (CLAUDE.md rule #3) with realistic
+ // defaults. Extra editorial fields (responsibilities, skills, etc.) are
+ // merged on top of the canonical output.
+ const canonicalJobInput: JobInput = {
+ id: job.id,
+ slug: job.slug,
  title: localizedTitle,
  description: finalJobPostingDescription,
- inLanguage: locale,
- datePosted: toIsoDateTime(job.postedDate),
+ company: job.company,
+ companyKey: job.companyKey,
+ companyDomain: companyWebsite(job),
+ companyLogoUrl: logoUrl,
+ addressLocality,
+ addressRegion,
+ addressCountry,
+ postalCode,
+ streetAddress,
+ postedDate: job.postedDate,
+ crawledAt: job.crawledAt,
+ updatedAt: job.updatedAt,
+ contract: job.contract,
+ salaryMin: Number.isFinite(salaryMin) ? salaryMin : null,
+ salaryMax: Number.isFinite(salaryMax) ? salaryMax : null,
+ salaryCurrency,
+ sector: job.category,
+ category: job.category,
+ url: job.url,
+ isRemote,
+ };
+ const canonicalSchema = buildJobPostingSchema(canonicalJobInput, {
+ locale,
+ url: canonicalUrl,
+ baseUrl: BASE_URL,
+ });
+ // Merge editorial-only fields that sit outside the 9-mandatory core.
+ // The canonical block is authoritative for every required field — only
+ // optional enrichment data is layered on.
+ const jobLd = JSON.stringify({
+ ...canonicalSchema,
+ // validThrough from the legacy helper (may differ from builder default).
  validThrough: toValidThrough(job.postedDate, job.crawledAt),
- employmentType: contractMap[String(job.contract || '').toLowerCase()] || 'OTHER',
- identifier: {
- '@type': 'PropertyValue',
- name: job.company,
- value: job.id || job.slug,
- },
- hiringOrganization: {
- '@type': 'Organization',
- name: job.company,
- sameAs: companyWebsite(job),
- logo: logoUrl,
- },
- jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,
  applicantLocationRequirements: {
  '@type': 'Country',
  name: 'CH',
  },
- // Always include jobLocation when address data exists — even for
- // remote/hybrid roles. Google supports both jobLocationType: TELECOMMUTE
- // and jobLocation simultaneously, and postalCode is required for rich results.
- // All JobPosting fields must always be present for maximum rich snippet
- // eligibility. Google considers missing fields as lower quality even when
- // they are technically "recommended" and not "required".
- jobLocation: {
- '@type': 'Place',
- address: {
- '@type': 'PostalAddress',
- streetAddress: streetAddress || addressLocality,
- addressLocality,
- addressRegion,
- addressCountry,
- postalCode: postalCode || CANTON_FALLBACK_POSTAL[addressRegion] || DEFAULT_POSTAL_CODE,
- },
- },
- // FRO-358: baseSalary fallback must use a valid minValue > 0 (validator rejects 0).
- // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
- // Ticino minimum wage ~CHF 19.75/h ≈ CHF 41,080/year as a floor.
- baseSalary: (() => {
- const min = Number.isFinite(salaryMin) && salaryMin > 0 ? salaryMin : 41080;
- const max = Number.isFinite(salaryMax) && salaryMax > min ? salaryMax : Math.round(min * 1.2);
- const cur = Number.isFinite(salaryMin) && salaryMin > 0 ? salaryCurrency : 'CHF';
- return {
- '@type': 'MonetaryAmount',
- currency: cur,
- value: {
- '@type': 'QuantitativeValue',
- minValue: min,
- maxValue: max,
- unitText: 'YEAR',
- },
- };
- })(),
- directApply: Boolean(job.url),
- url: canonicalUrl,
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
@@ -5873,73 +5858,49 @@ ${hreflangLinks}
  return parts.join('');
  })();
  if (finalDescription.length < 30) return '';
- const jp: Record<string, unknown> = {
- '@context': 'https://schema.org',
- '@type': 'JobPosting',
+ // Build the canonical JobPosting schema via the shared builder. The
+ // expired soft-landing layers its expired-specific overrides (validThrough
+ // = expiredAt, datePosted back-estimated from expiredAt when no crawl
+ // data exists) on top of the canonical output.
+ const expiredInput: JobInput = {
+ id: ejData?.id,
+ slug,
  title: realTitle,
  description: finalDescription,
+ company: jobCompany,
+ companyKey: ejData?.companyKey || slugInfo?.companyKey,
+ addressLocality: jobLocation || undefined,
+ addressRegion: jobCanton || undefined,
+ postalCode: ejData?.postalCode || slugInfo?.postalCode,
+ streetAddress: ejData?.streetAddress,
+ postedDate: ejData?.postedDate,
+ crawledAt: ejData?.crawledAt,
+ validThrough: realExpiredAt,
+ contract: ejData?.contract,
+ salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
+ salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
+ salaryCurrency: ejData?.salaryCurrency,
+ category: ejData?.category,
+ sector: ejData?.category,
+ url: undefined,
+ };
+ const expiredSchema = buildJobPostingSchema(expiredInput, {
+ locale,
  url: selfUrl,
- validThrough: new Date(realExpiredAt).toISOString(),
- datePosted: (() => {
+ baseUrl: BASE_URL,
+ });
+ // Expired-specific datePosted: when no crawl data exists, estimate as
+ // 30 days before expiredAt so the posting window looks natural.
+ const expiredDatePosted = (() => {
  if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
  if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
  const d = new Date(realExpiredAt); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
- })(),
- employmentType: (() => {
- const c = String(ejData?.contract || '').toLowerCase();
- if (c === 'full-time' || c === 'full_time') return 'FULL_TIME';
- if (c === 'part-time' || c === 'part_time') return 'PART_TIME';
- if (c === 'temporary') return 'TEMPORARY';
- if (c === 'internship' || c === 'intern') return 'INTERN';
- if (c === 'contract' || c === 'contractor') return 'CONTRACTOR';
- return 'OTHER';
- })(),
- hiringOrganization: { '@type': 'Organization', name: jobCompany },
+ })();
+ const jp: Record<string, unknown> = {
+ ...expiredSchema,
+ datePosted: expiredDatePosted,
+ validThrough: new Date(realExpiredAt).toISOString(),
  };
- {
- const address: Record<string, string> = {
- '@type': 'PostalAddress',
- addressLocality: jobLocation || DEFAULT_CANTON_DISPLAY,
- addressRegion: jobCanton || DEFAULT_CANTON,
- addressCountry: 'CH',
- };
- const ejPostalCode = ejData?.postalCode || slugInfo?.postalCode;
- if (ejPostalCode) {
- address.postalCode = ejPostalCode;
- } else if (jobLocation && plzLookup[jobLocation]) {
- address.postalCode = plzLookup[jobLocation];
- } else {
- address.postalCode = CANTON_FALLBACK_POSTAL[address.addressRegion] || DEFAULT_POSTAL_CODE;
- }
- const ejStreet = ejData?.streetAddress;
- if (ejStreet) {
- address.streetAddress = ejStreet;
- } else if ((ejData?.companyKey || slugInfo?.companyKey) && COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || '']) {
- const hq = COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || ''];
- address.streetAddress = hq.streetAddress;
- if (!address.postalCode || address.postalCode === CANTON_FALLBACK_POSTAL[DEFAULT_CANTON]) address.postalCode = hq.postalCode;
- } else {
- address.streetAddress = address.addressLocality || DEFAULT_CANTON_DISPLAY;
- }
- jp.jobLocation = { '@type': 'Place', address };
- }
- // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
- {
- const ejMin = Number(ejData?.salaryMin) || 0;
- const ejMax = Number(ejData?.salaryMax) || 0;
- const min = ejMin > 0 ? ejMin : 41080;
- const max = ejMax > min ? ejMax : Math.round(min * 1.2);
- jp.baseSalary = {
- '@type': 'MonetaryAmount',
- currency: ejMin > 0 ? (ejData?.salaryCurrency || 'CHF') : 'CHF',
- value: {
- '@type': 'QuantitativeValue',
- minValue: min,
- maxValue: max,
- unitText: ejData?.salaryPeriod || 'YEAR',
- },
- };
- }
  return `<script type="application/ld+json">${JSON.stringify(jp)}</script>`;
  })();
 

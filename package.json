@@ -168,6 +168,7 @@
     "validate:structured-data": "node scripts/validate-structured-data.mjs",
     "validate:structured-data-completeness": "node scripts/validate-structured-data-completeness.mjs",
     "validate:jobs-rich-results": "node scripts/validate-jobs-rich-results-sample.mjs",
+    "validate:jobposting-schema": "node scripts/validate-jobposting-schema.mjs",
     "validate:jobs-quality": "node scripts/validate-jobs-quality.mjs",
     "validate:jobs-crawler-keys": "node scripts/validate-jobs-crawler-keys.mjs",
     "validate:crawler-summaries": "node scripts/validate-crawler-summaries.mjs",

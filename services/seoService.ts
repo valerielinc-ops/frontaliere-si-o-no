@@ -10,6 +10,7 @@ import { resolveCompanyLogoUrl } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { translateSchema } from './seo/schema-translators';
+import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -370,59 +371,44 @@ async function resolveJobSeoBySlug(
  const canonicalUrl = `${BASE_URL}${canonicalLocalePath}`;
  const address = resolveJobAddress(job);
  const salary = resolveJobSalary(job);
+ // Delegate to the canonical builder — see
+ // build-plugins/shared/jobPostingSchema.ts. This guarantees all 9
+ // mandatory JobPosting fields (CLAUDE.md rule #3) with realistic defaults.
+ const canonicalInput: JobInput = {
+ id: job?.id,
+ slug: job?.slug || cleanSlug,
+ title: localizedTitle,
+ description: String(job?.descriptionByLocale?.[locale] || job?.description || localizedDescription),
+ company: job?.company,
+ companyKey: job?.companyKey,
+ companyLogoUrl: logoUrl,
+ addressLocality: address.locality,
+ addressRegion: address.region,
+ addressCountry: address.country,
+ postalCode: address.postalCode,
+ streetAddress: address.streetAddress,
+ postedDate: job?.postedDate,
+ crawledAt: job?.crawledAt,
+ updatedAt: job?.updatedAt,
+ contract: job?.contract,
+ salaryMin: salary?.minValue ?? null,
+ salaryMax: salary?.maxValue ?? null,
+ salaryCurrency: salary?.currency,
+ sector: job?.category,
+ category: job?.category,
+ url: job?.url,
+ };
+ const canonicalSchema = buildJobPostingSchema(canonicalInput, {
+ locale,
+ url: canonicalUrl,
+ baseUrl: BASE_URL,
+ });
  return {
  title: `${localizedTitle} — ${job.company} | Frontaliere Ticino`,
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
- structuredData: {
- '@context': 'https://schema.org',
- '@type': 'JobPosting',
- title: localizedTitle,
- description: String(job?.descriptionByLocale?.[locale] || job?.description || localizedDescription).slice(0, 5000),
- inLanguage: locale,
- datePosted: parseRawDateToIso(String(job?.postedDate || '')),
- validThrough: addDaysIso(String(job?.postedDate || ''), 60),
- employmentType: normalizeEmploymentType(String(job?.contract || '')),
- hiringOrganization: {
- '@type': 'Organization',
- name: String(job?.company || 'Frontaliere Ticino'),
- sameAs: BASE_URL,
- logo: logoUrl,
- },
- jobLocation: {
- '@type': 'Place',
- address: {
- '@type': 'PostalAddress',
- addressLocality: address.locality,
- addressRegion: address.region,
- addressCountry: address.country,
- ...(address.postalCode ? { postalCode: address.postalCode } : {}),
- ...(address.streetAddress ? { streetAddress: address.streetAddress } : {}),
- },
- },
- ...(salary
- ? {
- baseSalary: {
- '@type': 'MonetaryAmount',
- currency: salary.currency,
- value: {
- '@type': 'QuantitativeValue',
- minValue: salary.minValue,
- ...(salary.maxValue ? { maxValue: salary.maxValue } : {}),
- unitText: 'YEAR',
- },
- },
- }
- : {}),
- directApply: Boolean(job?.url),
- url: canonicalUrl,
- identifier: {
- '@type': 'PropertyValue',
- name: String(job?.company || 'Frontaliere Ticino'),
- value: String(job?.id || job?.slug || cleanSlug),
- },
- },
+ structuredData: canonicalSchema,
  };
 }
 
