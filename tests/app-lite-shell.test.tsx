@@ -157,7 +157,7 @@ describe('App lite-shell (staticOverlay) rendering', () => {
     ).toBeGreaterThanOrEqual(2);
   });
 
-  it('lite-shell: SEO static page renders top nav only, with NO footer, NO SubTabNav and NO React <main>', () => {
+  it('lite-shell: SEO static page renders top nav + footer, but NO SubTabNav and NO React <main>', () => {
     // Inject the static SEO marker that lite-shell detection looks for.
     const staticMain = document.createElement('main');
     staticMain.className = 'seo-static-content';
@@ -176,9 +176,11 @@ describe('App lite-shell (staticOverlay) rendering', () => {
     expect(screen.getAllByText('nav.simulator').length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText('nav.stats').length).toBeGreaterThanOrEqual(1);
 
-    // Footer must stay suppressed in lite shell so static SEO content starts
-    // immediately after the hydrated top chrome.
-    expect(screen.queryByText('footer.improveTitle')).toBeNull();
+    // Footer MUST render in lite-shell mode — it contains global chrome
+    // (newsletter, sitemap links, weekly employers teaser).
+    expect(screen.getAllByText('footer.improveTitle').length).toBeGreaterThan(0);
+    const footerEl = document.querySelector('footer');
+    expect(footerEl, 'lite-shell must render <footer> for newsletter + sitemap chrome').not.toBeNull();
 
     // React <main id="main-content"> is NOT rendered (static content owns the page body).
     const reactMain = document.querySelector('main#main-content');

@@ -2065,11 +2065,10 @@ const App: React.FC = () => {
   * SEO page (per-station fuel, per-canton health premium, per-city employer
   * hub, etc.), the SEO content is emitted OUTSIDE `#root` as
   * `<main class="seo-static-content">`. We skip the React `<main>` so the
-  * SPA never visually replaces the static SEO page, and we suppress the React
-  * footer so the shell does not inject a large block of chrome before the
-  * static content.
+  * SPA never visually replaces the static SEO page.
   * The static content stays in place; only the top nav/header chrome
-  * hydrates inside `#root`.
+  * hydrates inside `#root`. The <footer> always renders (newsletter,
+  * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
  <main id="main-content" data-no-auto-ads="inside" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
@@ -2329,7 +2328,12 @@ const App: React.FC = () => {
  </main>
  )}
 
- {!staticOverlay && (
+ {/* Footer always renders — even in lite-shell (staticOverlay) mode.
+   * It contains global chrome: newsletter signup, sitemap links, weekly
+   * employers teaser, and privacy/terms. Suppressing it on SEO static
+   * overlay pages would remove newsletter acquisition and internal linking.
+   * The static <main class="seo-static-content"> lives OUTSIDE #root so
+   * there is no visual conflict; footer naturally follows the SPA shell. */}
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
@@ -2937,7 +2941,6 @@ const App: React.FC = () => {
  </div>
  </div>
  </footer>
- )}
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">
