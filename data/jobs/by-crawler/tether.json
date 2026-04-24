@@ -5654,10 +5654,10 @@
     },
     {
       "id": "tether-57e7ed1b58b0",
-      "slug": "staff-node-js-engineer-100-remote-tether-ch",
+      "slug": "staff-node-js-ingegnere-100-remoto-tether-operations-zurich-zurich",
       "slugByLocale": {
         "en": "staff-node-js-engineer-100-remote-tether-ch",
-        "it": "staff-node-js-engineer-100-remote-tether-ch",
+        "it": "staff-node-js-ingegnere-100-remoto-tether-operations-zurich-zurich",
         "de": "staff-node-js-engineer-100-remote-tether-ch",
         "fr": "staff-node-js-engineer-100-remote-tether-ch"
       },
@@ -5717,7 +5717,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-24T22:26:41.398Z"
+      "firstSeenAt": "2026-04-24T22:26:41.398Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "staff-node-js-engineer-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "staff-node-js-engineer-100-remote-tether-ch"
+      ]
     }
   ]
 }

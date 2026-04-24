@@ -42,9 +42,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k",
-        "en": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k",
-        "de": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k",
-        "fr": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k"
+        "en": "administrative-assistant-8-20-hours-coop-immobilien-bellinzona",
+        "de": "administrative-assistentin-8-20-stunden-coop-immobilien-bellinzona",
+        "fr": "assistante-administrative-8-20-heures-coop-immobilien-bellinzona"
       },
       "addressLocality": "Bellinzona",
       "salaryMin": 49500,
@@ -58,11 +58,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k"
+        ],
+        "de": [
+          "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k"
+        ],
+        "fr": [
+          "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k"
+        ]
+      },
+      "previousSlugs": [
+        "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino-lwjf9k"
+      ]
     },
     {
       "id": "company-metayj",
-      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-felsberg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Felsberg",
@@ -108,10 +122,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+        "it": "venditore-in-food-coop-genossenschaft-felsberg",
+        "en": "seller-in-food-coop-genossenschaft-felsberg",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       },
       "addressLocality": "Felsberg",
       "sourceLang": "de",
@@ -126,7 +140,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+          "verkaufer-in-food-coop-felsberg-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+        "verkaufer-in-food-coop-felsberg-graubunden"
+      ]
     },
     {
       "id": "company-su1up",

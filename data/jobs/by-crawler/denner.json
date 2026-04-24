@@ -475,12 +475,12 @@
     },
     {
       "id": "denner-9316fe5448ff",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-st-gallen",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-st-gallen",
+        "en": "assistant-in-branch-management-denner-st-gallen",
         "de": "assistent-in-filialleitung-denner-st-gallen",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-des-directions-generales-denner-st-gallen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -540,10 +540,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1230,11 +1241,11 @@
     },
     {
       "id": "denner-2387b73abdd4",
-      "slug": "vendeur-vendeuse-denner-sierre",
+      "slug": "venditore-venditore-denner-sierre",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-sierre",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-sierre",
+        "en": "seller-seller-denner-sierre",
+        "de": "verkaufer-denner-sierre",
         "fr": "vendeur-vendeuse-denner-sierre"
       },
       "company": "Denner",
@@ -1295,15 +1306,23 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-sierre"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-sierre"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

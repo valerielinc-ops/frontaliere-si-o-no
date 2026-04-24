@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-fc233f60f0bb",
-      "slug": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
+      "slug": "meccanico-di-manutenzione-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
         "de": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
-        "it": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
-        "en": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
-        "fr": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
+        "it": "meccanico-di-manutenzione-hugli-nahrmittel-ag-steinach",
+        "en": "maintenance-mechanic-hugli-nahrmittel-ag-steinach",
+        "fr": "mecanicien-de-maintenance-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach",
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
         ],
         "de": [
           "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
+        ],
+        "en": [
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
+        ],
+        "fr": [
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
+        "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach",
+        "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

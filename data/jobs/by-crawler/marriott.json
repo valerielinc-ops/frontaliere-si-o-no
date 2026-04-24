@@ -2836,11 +2836,11 @@
     },
     {
       "id": "marriott-525cf711281f",
-      "slug": "lingere-80-cdd-4-mois-marriott-geneva",
+      "slug": "ingest-80-csd-4-mesi-marriott-international-geneva",
       "slugByLocale": {
         "en": "lingere-80-cdd-4-mois-marriott-geneva",
-        "it": "lingere-80-cdd-4-mois-marriott-geneva",
-        "de": "lingere-80-cdd-4-mois-marriott-geneva",
+        "it": "ingest-80-csd-4-mesi-marriott-international-geneva",
+        "de": "ingest-80-csd-4-monate-marriott-international-geneva",
         "fr": "lingere-80-cdd-4-mois-marriott-geneva"
       },
       "company": "Marriott International",
@@ -2905,14 +2905,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-24T22:00:12.167Z"
+      "firstSeenAt": "2026-04-24T22:00:12.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lingere-80-cdd-4-mois-marriott-geneva"
+        ],
+        "de": [
+          "lingere-80-cdd-4-mois-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "lingere-80-cdd-4-mois-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-1ed74a315844",
-      "slug": "femme-de-chambre-cdd-5-mois-marriott-geneva",
+      "slug": "stanza-femminile-cdd-5-mesi-marriott-international-geneva",
       "slugByLocale": {
         "en": "femme-de-chambre-cdd-5-mois-marriott-geneva",
-        "it": "femme-de-chambre-cdd-5-mois-marriott-geneva",
+        "it": "stanza-femminile-cdd-5-mesi-marriott-international-geneva",
         "de": "femme-de-chambre-cdd-5-mois-marriott-geneva",
         "fr": "femme-de-chambre-cdd-5-mois-marriott-geneva"
       },
@@ -2978,7 +2989,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-24T22:00:12.165Z"
+      "firstSeenAt": "2026-04-24T22:00:12.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "femme-de-chambre-cdd-5-mois-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "femme-de-chambre-cdd-5-mois-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-06fd540ea169",
@@ -3727,7 +3746,7 @@
         "en": "asst-mgr-food-beverage-marriott-geneva",
         "it": "asst-mgr-food-beverage-marriott-geneva",
         "de": "asst-mgr-food-beverage-marriott-geneva",
-        "fr": "asst-mgr-food-beverage-marriott-geneva"
+        "fr": "ast-mgr-alimentation-et-boissons-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
