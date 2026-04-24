@@ -84,7 +84,9 @@ import {
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
-import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
+// Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
+// via the canonical `buildJobPostingSchema` builder.
+import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 
@@ -1693,50 +1695,9 @@ const OPEN_POSITION_LABEL: Record<WeeklyEmployersLocale, string> = {
   fr: 'Poste ouvert',
 };
 
-const JOB_DESC_FALLBACK: Record<WeeklyEmployersLocale, (title: string, employer: string, city: string) => string> = {
-  it: (t, e, c) => `${t} presso ${e} a ${c}. Candidatura diretta tramite il nostro portale, con dettagli, requisiti e informazioni complete sulla pagina dell'offerta di lavoro.`,
-  en: (t, e, c) => `${t} at ${e} in ${c}. Apply directly through our portal — full details, requirements and information are available on the job posting page.`,
-  de: (t, e, c) => `${t} bei ${e} in ${c}. Direkte Bewerbung über unser Portal mit allen Details, Anforderungen und Informationen auf der Stellenanzeige.`,
-  fr: (t, e, c) => `${t} chez ${e} à ${c}. Candidature directe via notre portail, avec tous les détails, exigences et informations sur la page de l'offre.`,
-};
-
-/**
- * Compute a future ISO `validThrough` value for JobPosting rich-results.
- * Source-provided value wins, then crawledAt + 60 days, then datePosted + 90 days.
- * Falls back to now + 60 days when every input is invalid — never returns empty.
- */
-function computeValidThrough(
-  explicit: string | undefined,
-  crawledAt: string | undefined,
-  datePosted: string,
-): string {
-  const tryParse = (s: string | undefined): Date | null => {
-    if (!s) return null;
-    const d = new Date(s);
-    return Number.isNaN(d.getTime()) ? null : d;
-  };
-
-  const explicitDate = tryParse(explicit);
-  if (explicitDate) return explicitDate.toISOString();
-
-  const crawled = tryParse(crawledAt);
-  if (crawled) {
-    const out = new Date(crawled);
-    out.setUTCDate(out.getUTCDate() + 60);
-    return out.toISOString();
-  }
-
-  const posted = tryParse(datePosted);
-  if (posted) {
-    const out = new Date(posted);
-    out.setUTCDate(out.getUTCDate() + 90);
-    return out.toISOString();
-  }
-
-  const fallback = new Date();
-  fallback.setUTCDate(fallback.getUTCDate() + 60);
-  return fallback.toISOString();
-}
+// JOB_DESC_FALLBACK and computeValidThrough previously lived here. Both are
+// now encapsulated inside `buildJobPostingSchema` so every emitter shares
+// the same locale-aware descriptions and validThrough heuristics.
 
 function jobToJsonLd(
   job: CompanyCityActiveJob,
@@ -1744,94 +1705,39 @@ function jobToJsonLd(
   city: string,
   locale: WeeklyEmployersLocale = 'it',
 ): Record<string, unknown> {
-  const fallbackAddr = resolveFallbackAddress(job.companySlug, city.toLowerCase());
-
-  const streetAddress =
-    (job.streetAddress && job.streetAddress.trim().length > 0 && job.streetAddress.trim()) ||
-    fallbackAddr.streetAddress;
-  const postalCode =
-    (job.postalCode && /^\d{4,5}$/.test(job.postalCode.trim()) && job.postalCode.trim()) ||
-    fallbackAddr.postalCode;
-  const addressLocality =
-    (job.addressLocality && job.addressLocality.trim().length > 0 && job.addressLocality.trim()) ||
-    fallbackAddr.addressLocality ||
-    city;
-
-  // Description MUST be ≥30 chars (validator rejects thin descriptions).
-  // Build an editorial fallback that references the role + employer + city
-  // so even ad-slots with empty source descriptions pass validation.
-  const rawDesc = (job.description || '').trim();
-  const titleFallback = job.title || OPEN_POSITION_LABEL[locale];
-  const description =
-    rawDesc.length >= 30
-      ? rawDesc.slice(0, 5000)
-      : JOB_DESC_FALLBACK[locale](titleFallback, employer, addressLocality);
-
-  const employmentType = job.employmentType && job.employmentType.length > 0
-    ? job.employmentType
-    : 'FULL_TIME';
-
-  // baseSalary fallback — Ticino healthcare/service median band (annual).
-  // Must include currency + value.minValue (>0) + value.maxValue (>=min) +
-  // value.unitText (validate-structured-data-completeness rejects missing).
-  const minValue =
-    typeof job.salaryMin === 'number' && job.salaryMin > 0 ? job.salaryMin : 55000;
-  const maxValue =
-    typeof job.salaryMax === 'number' && job.salaryMax >= minValue
-      ? job.salaryMax
-      : Math.max(minValue + 1, 95000);
-  const currency = job.salaryCurrency && job.salaryCurrency.length > 0 ? job.salaryCurrency : 'CHF';
-
-  const datePosted = job.postedDate || new Date().toISOString().slice(0, 10);
-
-  // addressRegion: source field → derived from addressLocality → fallback HQ canton.
-  // Required by GSC for JobPosting rich-result quality (no empty values allowed).
-  const explicitRegion = (job.addressRegion || '').trim().toUpperCase();
-  const addressRegion =
-    /^[A-Z]{2}$/.test(explicitRegion)
-      ? explicitRegion
-      : deriveCantonFromCity(addressLocality) || fallbackAddr.addressRegion;
-
-  // validThrough: source field → crawledAt + 60d → postedDate + 90d → now + 60d.
-  // Always emit a future ISO datetime — Google requires validThrough to be
-  // present and in the future for active JobPosting rich-results.
-  const validThrough = computeValidThrough(job.validThrough, job.crawledAt, datePosted);
-
-  return {
-    '@type': 'JobPosting',
+  // Map the weekly-employers `CompanyCityActiveJob` shape onto the canonical
+  // `JobInput` contract and delegate to the shared builder. This keeps all
+  // mandatory-field enforcement (CLAUDE.md rule #3) in one place.
+  const input: JobInput = {
+    id: job.slug || job.detailPath,
+    slug: job.slug,
     title: job.title || OPEN_POSITION_LABEL[locale],
-    description,
-    inLanguage: locale,
-    url: `${BASE_URL}${job.detailPath}`,
-    datePosted,
-    validThrough,
-    employmentType,
-    hiringOrganization: {
-      '@type': 'Organization',
-      name: employer,
-    },
-    jobLocation: {
-      '@type': 'Place',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress,
-        postalCode,
-        addressLocality,
-        addressRegion,
-        addressCountry: 'CH',
-      },
-    },
-    baseSalary: {
-      '@type': 'MonetaryAmount',
-      currency,
-      value: {
-        '@type': 'QuantitativeValue',
-        minValue,
-        maxValue,
-        unitText: 'YEAR',
-      },
-    },
+    description: job.description,
+    company: employer,
+    companySlug: job.companySlug,
+    city,
+    addressLocality: job.addressLocality,
+    addressRegion: job.addressRegion,
+    postalCode: job.postalCode,
+    streetAddress: job.streetAddress,
+    postedDate: job.postedDate,
+    crawledAt: job.crawledAt,
+    validThrough: job.validThrough,
+    employmentType: job.employmentType,
+    salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
+    salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salaryCurrency: job.salaryCurrency,
+    url: job.detailPath ? `${BASE_URL}${job.detailPath}` : undefined,
   };
+  const schema = buildJobPostingSchema(input, {
+    locale,
+    url: `${BASE_URL}${job.detailPath}`,
+    baseUrl: BASE_URL,
+  });
+  // Emit the schema.org block without the `@context` (the parent graph
+  // declares it at the document level).
+  const { '@context': _omit, ...rest } = schema as unknown as Record<string, unknown>;
+  return rest;
 }
 
 export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
