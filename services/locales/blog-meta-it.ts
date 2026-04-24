@@ -2595,6 +2595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti',
     'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, decorati di Medaglia d’Oro al Merito Civile per aver salvato centinaia di ebrei al confine italo-svizzero',
     'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Cerimonia commemorativa al valico di Ponte Chiasso con targa in memoria degli Angeli di Ponte Chiasso',
+    'blog.article.polizia-stabio-futuro-incerto.title': 'Polizia comunale di Stabio: futuro incerto, presenza costante',
+    'blog.article.polizia-stabio-futuro-incerto.excerpt': 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Si attende il destino del Progetto Polizia ticinese.',
+    'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Stazione di polizia comunale di Stabio, Ticino',
 };
 
 export default blogMetaIt;

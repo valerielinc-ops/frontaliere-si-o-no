@@ -11958,6 +11958,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-stabio-futuro-incerto': {
+    title: 'Polizia comunale di Stabio: futuro | Frontaliere Ticino',
+    description: 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Scopri di più sulle attività 2025 e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, comunale, stabio, futuro',
+    ogTitle: 'Polizia Stabio: futuro incerto, presenza costante |',
+    ogDescription: 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Scopri di più sulle attività 2025 e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/polizia-stabio-futuro-incerto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Polizia Stabio: futuro incerto",
+      "description": "Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Scopri di più sulle attività 2025 e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-stabio-futuro-incerto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di polizia comunale di Stabio, Ticino"
+      },
+      "datePublished": "2026-04-24T18:22:02+00:00",
+      "dateModified": "2026-04-24T18:22:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-stabio-futuro-incerto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2595,6 +2595,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Tribute to the Angels of Ponte Chiasso: heroes who saved Jews from the Nazis and Fascists',
     'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Commemorative plaque discovered for Giuseppina Panzìca, Giovanni Gavino Tolis, and Paolo Boetti, awarded the Gold Medal of Civil Merit for saving hundreds of Jews at the Italian-Swiss border',
     'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Commemorative ceremony at Ponte Chiasso border with plaque in memory of the Angels of Ponte Chiasso',
+    'blog.article.polizia-stabio-futuro-incerto.title': 'Stabio Municipal Police: Uncertain Future, Constant Presence',
+    'blog.article.polizia-stabio-futuro-incerto.excerpt': 'The future of Stabio\'s municipal police is uncertain, but their presence remains constant. The fate of the Ticino Police Project is awaited.',
+    'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Stabio municipal police station, Ticino',
 };
 
 export default blogMetaEn;

@@ -7042,4 +7042,11 @@ export const ARTICLES = [
  image: '/images/blog/omaggio-angeli-ponte-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'polizia-stabio-futuro-incerto',
+ category: 'novita',
+ date: '2026-04-24T18:22:02.680Z',
+ image: '/images/blog/polizia-stabio-futuro-incerto.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
