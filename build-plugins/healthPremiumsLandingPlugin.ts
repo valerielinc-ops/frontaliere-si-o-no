@@ -32,6 +32,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   HEALTH_PREMIUM_AGE_BRACKETS,
@@ -1331,9 +1332,8 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>`;
 
   // hreflang alternates
-  const alternatesHtml = (Object.keys(alternates) as HealthPremiumLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  // Shared helper guarantees 4 locales + x-default on canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
 
   // Comparator CTA with pre-filter query
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}?canton=${stats.cantonBagCode}&age=${age}`;
@@ -1607,9 +1607,8 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
       .join('')}
   </section>`;
 
-  const alternatesHtml = (Object.keys(alternates) as HealthPremiumLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  // Shared helper guarantees 4 locales + x-default on canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 = copy.h1Canton(cantonLabel, year);
@@ -1770,9 +1769,8 @@ function renderRootHubPage(inp: RootHubInputs): string {
       .join('')}
   </section>`;
 
-  const alternatesHtml = (Object.keys(alternates) as HealthPremiumLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  // Shared helper guarantees 4 locales + x-default on canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 = copy.h1Root(year);

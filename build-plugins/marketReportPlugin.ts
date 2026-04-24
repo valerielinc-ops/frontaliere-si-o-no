@@ -40,6 +40,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import {
   STAT_TILE_BASE,
@@ -439,11 +440,12 @@ function renderReport(opts: {
   const urlPath = `${prefix}/${slug}/`.replace(/\/+/g, '/');
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  // Build hreflang for all 4 locales
-  const alternates = LOCALES.map((alt) => {
-    const altPath = `${LOCALE_PREFIX[alt]}/${REPORT_SLUG[alt]}/`.replace(/\/+/g, '/');
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
-  }).join('\n');
+  // Build hreflang for all 4 locales + x-default via the shared helper.
+  const hreflangPaths = LOCALES.reduce<Record<Locale, string>>((acc, alt) => {
+    acc[alt] = `${LOCALE_PREFIX[alt]}/${REPORT_SLUG[alt]}/`.replace(/\/+/g, '/');
+    return acc;
+  }, { it: '', en: '', de: '', fr: '' });
+  const alternates = renderHreflangTags(hreflangPaths as HreflangPaths);
 
   // Extract data
   const activeJobs = stats?.totals?.activeJobs ?? 0;

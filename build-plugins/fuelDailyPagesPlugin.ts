@@ -30,6 +30,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   FUEL_DAILY_LOCALES,
@@ -1014,10 +1015,8 @@ function renderPage(inp: PageInputs): string {
       .join('')}
   </section>`;
 
-  // Alternates
-  const alternatesHtml = (Object.keys(alternates) as FuelDailyLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  // Alternates — includes x-default pointing at the IT href (shared helper).
+  const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
   const breadcrumbLd = JSON.stringify({
@@ -1544,13 +1543,8 @@ function renderStationPage(opts: {
     deltaZone,
   );
 
-  // Alternates
-  const alternatesHtml = [
-    ...(Object.keys(alternates) as FuelDailyLocale[]).map(
-      (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
-    ),
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${alternates.it}">`,
-  ].join('\n');
+  // Alternates — shared helper guarantees x-default + canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
 
   // Sibling stations for related-links block
   const siblingStations = zoneStations
@@ -1903,12 +1897,7 @@ function renderItalianCityPage(opts: {
   const intro = copy.intro(fuelLabel, entry.display, minPriceFmt);
   const paragraph = copy.paragraph(fuelLabel, entry.display, minPriceFmt, nearestZoneLabel);
 
-  const alternatesHtml = [
-    ...(Object.keys(alternates) as FuelDailyLocale[]).map(
-      (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
-    ),
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${alternates.it}">`,
-  ].join('\n');
+  const alternatesHtml = renderHreflangTags(alternates);
 
   // Table of top stations
   const tableRows = sortedStations.length > 0

@@ -47,6 +47,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   JOB_MARKET_HUB_NAME,
@@ -880,11 +881,7 @@ interface CommonRenderInputs {
 }
 
 function renderHreflangAlternates(alternates: Record<JobMarketSnapshotLocale, string>): string {
-  const lines = JOB_MARKET_SNAPSHOT_LOCALES.map(
-    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
-  );
-  lines.push(`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${alternates.it}">`);
-  return lines.join('\n');
+  return renderHreflangTags(alternates);
 }
 
 /**

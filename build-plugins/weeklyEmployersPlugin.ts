@@ -39,6 +39,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -1375,21 +1376,19 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   const editorial = copy.editorialBlock(cityDisplay);
   const methodology = copy.methodologyBlock;
 
-  // Alternates to other locales for the same (city, variant)
-  const alternatesHtml = WEEKLY_EMPLOYERS_LOCALES.map((alt) => {
-    let path: string;
-    if (variant === 'current') {
-      path = buildCurrentWeekPath(alt, city);
-    } else {
-      path = buildArchiveWeekPath(alt, city, weekNum, year);
-    }
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${path}">`;
-  }).join('\n');
-
-  const xDefaultPath =
-    variant === 'current'
-      ? buildCurrentWeekPath('it', city)
-      : buildArchiveWeekPath('it', city, weekNum, year);
+  // Alternates to other locales for the same (city, variant). Shared helper
+  // emits 4 locales + x-default on the canonical host.
+  const hreflangPaths = WEEKLY_EMPLOYERS_LOCALES.reduce<Record<WeeklyEmployersLocale, string>>(
+    (acc, alt) => {
+      acc[alt] =
+        variant === 'current'
+          ? buildCurrentWeekPath(alt, city)
+          : buildArchiveWeekPath(alt, city, weekNum, year);
+      return acc;
+    },
+    { it: '', en: '', de: '', fr: '' },
+  );
+  const alternatesHtml = renderHreflangTags(hreflangPaths as HreflangPaths);
 
   // Single cold-start banner: shown once above the list when ALL cards are in
   // initial-data state (no historical delta available yet). Suppresses the
@@ -1632,7 +1631,8 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
-  const hreflangHtml = `${alternatesHtml}\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">`;
+  // `alternatesHtml` already includes x-default via the shared helper.
+  const hreflangHtml = alternatesHtml;
 
   return buildSeoPageHtml({
     locale,
@@ -1891,19 +1891,18 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   });
 
   // hreflang alternates to the same (city, companySlug, variant) in other locales.
-  const alternatesHtml = WEEKLY_EMPLOYERS_LOCALES.map((alt) => {
-    const p =
-      variant === 'current'
-        ? buildCompanyCityCurrentPath(alt, city, companySlug)
-        : buildCompanyCityArchivePath(alt, city, companySlug, weekNum, year);
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${p}">`;
-  }).join('\n');
-  const xDefaultPath =
-    variant === 'current'
-      ? buildCompanyCityCurrentPath('it', city, companySlug)
-      : buildCompanyCityArchivePath('it', city, companySlug, weekNum, year);
-
-  const hreflangHtml = `${alternatesHtml}\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">`;
+  // Shared helper emits 4 locales + x-default on the canonical host.
+  const hreflangPaths = WEEKLY_EMPLOYERS_LOCALES.reduce<Record<WeeklyEmployersLocale, string>>(
+    (acc, alt) => {
+      acc[alt] =
+        variant === 'current'
+          ? buildCompanyCityCurrentPath(alt, city, companySlug)
+          : buildCompanyCityArchivePath(alt, city, companySlug, weekNum, year);
+      return acc;
+    },
+    { it: '', en: '', de: '', fr: '' },
+  );
+  const hreflangHtml = renderHreflangTags(hreflangPaths as HreflangPaths);
 
   // Job list (≤10).
   const jobsListHtml =
