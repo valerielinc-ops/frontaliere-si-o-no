@@ -6979,4 +6979,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/regione-lombardia-aumento-stipendi-medici-infermieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'divario-salari-ticino-frontalieri-2026',
+ category: 'novita',
+ date: '2026-04-24T08:38:21.054Z',
+ image: '/images/blog/divario-salari-ticino-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ];

@@ -2571,6 +2571,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Lombardy Region: Increase Salaries for Doctors and Nurses in Border Areas with Switzerland',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'The Lombardy Region introduces a regulation to increase the salaries of doctors and nurses in border areas with Switzerland. The measure aims to retain healthcare professionals on the Lombardy territory.',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano view from Lake Lugano',
+    'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Wage gap in Ticino: residents earn 1,157 francs more',
+    'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'The cantonal statistical office reveals that residents in Ticino earn an average of 5,957 francs, while cross-border workers earn 4,800 francs. The gap is 19.4%.',
+    'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Lake Lugano view with Ticino mountains',
 };
 
 export default blogMetaEn;

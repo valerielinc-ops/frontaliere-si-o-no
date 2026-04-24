@@ -11718,6 +11718,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divario-salari-ticino-frontalieri-2026': {
+    title: 'Divario salariale in Ticino: residenti | Frontaliere Ticino',
+    description: 'L\'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, residenti, guadagnano',
+    ogTitle: 'Divario salariale in Ticino: residenti guadagnano 1.157',
+    ogDescription: 'L\'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del',
+    canonicalPath: '/articoli-frontaliere/divario-salari-ticino-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale in Ticino: residenti guadagnano 1.157 franchi in più",
+      "description": "L'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divario-salari-ticino-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne del Ticino"
+      },
+      "datePublished": "2026-04-24T08:38:21+00:00",
+      "dateModified": "2026-04-24T08:38:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divario-salari-ticino-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

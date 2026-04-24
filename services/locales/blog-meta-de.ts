@@ -2571,6 +2571,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Region Lombardei: Erhöhung der Gehälter von Ärzten und Pflegekräften in den Grenzgebieten zur Schweiz',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'Die Region Lombardei führt eine Regelung ein, um das Gehalt von Ärzten und Pflegekräften in den Grenzgebieten zur Schweiz zu erhöhen. Die Maßnahme zielt darauf ab, das Gesundheitspersonal im lombardischen Gebiet zu halten.',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano aus dem See',
+    'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Lohnunterschied im Tessin: Einwohner verdienen 1.157 Franken mehr',
+    'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'Das kantonale Statistikamt gibt bekannt, dass die Einwohner des Tessin durchschnittlich 5.957 Franken verdienen, während Grenzgänger 4.800 Franken erhalten. Die Differenz beträgt 19,4%.',
+    'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit den Tessin-Berge',
 };
 
 export default blogMetaDe;

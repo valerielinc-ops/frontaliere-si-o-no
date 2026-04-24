@@ -2571,6 +2571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Regione Lombardia: aumento stipendi medici e infermieri dalle zone al confine con la Svizzera',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'La Regione Lombardia introduce una norma per aumentare lo stipendio dei medici e infermieri nelle zone al confine con la Svizzera. La misura mira a trattenere gli operatori sanitari sul territorio lombardo.',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano vista dal Lago di Lugano',
+    'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Divario salariale in Ticino: residenti guadagnano 1.157 franchi in più',
+    'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'L\'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del 19,4%.',
+    'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Vista del lago di Lugano con montagne del Ticino',
 };
 
 export default blogMetaIt;

@@ -2571,6 +2571,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.title': 'Région Lombardie : augmentation des salaires des médecins et infirmiers dans les zones frontalières avec la Suisse',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.excerpt': 'La Région Lombardie introduit une norme pour augmenter le salaire des médecins et infirmiers dans les zones frontalières avec la Suisse. Cette mesure vise à retenir les professionnels de santé sur le territoire lombard.',
     'blog.article.regione-lombardia-aumento-stipendi-medici-infermieri.imageAlt': 'Lugano vue du lac de Lugano',
+    'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Écart salarial en Tessin : les résidents gagnent 1.157 francs de plus',
+    'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'L\'Office cantonal de statistique révèle que les résidents du Tessin gagnent en moyenne 5.957 francs, tandis que les frontaliers 4.800 francs. L\'écart est de 19,4%.',
+    'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Vue du lac de Lugano avec les montagnes du Tessin',
 };
 
 export default blogMetaFr;
