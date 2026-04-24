@@ -44,6 +44,7 @@ import {
 import {
  SECTOR_HUB_KEYS,
  SECTOR_HUB_DISPLAY,
+ SECTOR_HUB_SLUG,
  buildSectorHubPath,
  jobMatchesSector,
  type SectorHubKey,
@@ -4685,6 +4686,24 @@ ${alternates}
  }
  fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
+ // Reserved hub slugs — sector + city hub URLs (e.g. /cerca-lavoro-ticino/infermieri/,
+ // /cerca-lavoro-ticino/lugano/) MUST NOT be registered as orphan/compat job slugs.
+ // If they were, jobsSeoPagesPlugin would emit a soft-landing page that overwrites
+ // the legitimate sector/city hub HTML and points the canonical at the closest
+ // matching expired job slug — killing the IT hub in SERPs (only the EN sibling
+ // ranks because its slug differs, e.g. "nurses" vs "infermieri").
+ const RESERVED_HUB_SLUGS = new Set<string>();
+ for (const sector of SECTOR_HUB_KEYS) {
+ for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+ RESERVED_HUB_SLUGS.add(SECTOR_HUB_SLUG[loc][sector]);
+ }
+ }
+ for (const city of CITY_HUB_KEYS) {
+ for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+ RESERVED_HUB_SLUGS.add(CITY_HUB_SLUG[loc][city]);
+ }
+ }
+
  // 1b. Merge orphan indexed slugs (GSC-indexed URLs with no matching job)
  // into the tracking so they get soft-landing pages too.
  const orphanSlugsPath = np.resolve(rootDir, 'data/orphan-indexed-job-slugs.json');
@@ -4699,6 +4718,8 @@ ${alternates}
  if (tracking[entry]) continue;
  // Skip search combo pages (ricerca-*, search-*, etc.)
  if (/^(?:search|ricerca|suche|recherche)-/.test(entry)) continue;
+ // Skip sector/city hub slugs to avoid overwriting hub pages.
+ if (RESERVED_HUB_SLUGS.has(entry)) continue;
  tracking[entry] = { it: `/cerca-lavoro-ticino/${entry}` };
  } else if (typeof entry === 'object' && entry.locale && entry.path) {
  // Locale-aware format: { locale: "de", path: "/de/jobs-im-tessin/..." }
@@ -4710,6 +4731,8 @@ ${alternates}
  // not by the job crawler pipeline. Importing them as orphan jobs would
  // create duplicate pages and confuse the flat-file generation.
  if (/^(?:search|ricerca|suche|recherche)-/.test(slug)) continue;
+ // Skip sector/city hub slugs to avoid overwriting hub pages.
+ if (RESERVED_HUB_SLUGS.has(slug)) continue;
  if (!tracking[slug]) tracking[slug] = {};
  (tracking[slug] as Record<string, string>)[entry.locale] = cleanPath;
  } else {
@@ -4749,6 +4772,11 @@ ${alternates}
  if (!m) continue;
  const slug = m[1];
  if (!slug || SKIP_PREFIX_RE.test(slug)) break;
+ // Skip sector/city hub slugs — registering them here would emit a
+ // soft-landing page that overwrites the legitimate hub HTML and
+ // breaks the canonical (the IT hub stops ranking; only EN sibling
+ // survives because its slug differs).
+ if (RESERVED_HUB_SLUGS.has(slug)) break;
  if (!tracking[slug]) tracking[slug] = {};
  if ((tracking[slug] as Record<string, string>)[locale]) break; // locale path already known
  (tracking[slug] as Record<string, string>)[locale] = `${prefix}${slug}`;
