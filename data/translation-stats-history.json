@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T03:48:42.968Z",
-    "label": "before",
-    "total": 2500,
-    "needsRetranslation": 57,
-    "incomplete": 3,
-    "complete": 2497,
-    "missingByLocale": {
-      "it": 2,
-      "en": 2,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T03:49:38.275Z",
-    "label": "after",
-    "total": 2500,
-    "needsRetranslation": 57,
-    "incomplete": 3,
-    "complete": 2497,
-    "missingByLocale": {
-      "it": 2,
-      "en": 2,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T05:33:07.837Z",
     "label": "before",
     "total": 2500,
@@ -7182,6 +7126,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-24T11:11:40.641Z",
+    "label": "before",
+    "total": 2660,
+    "needsRetranslation": 1165,
+    "incomplete": 128,
+    "complete": 2532,
+    "missingByLocale": {
+      "it": 61,
+      "en": 91,
+      "de": 92,
+      "fr": 115
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 49
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Denner",
+        "pending": 8
+      },
+      {
+        "company": "Lonza",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 4
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "PEMSA",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-24T12:24:05.761Z",
+    "label": "after",
+    "total": 2660,
+    "needsRetranslation": 98,
+    "incomplete": 45,
+    "complete": 2615,
+    "missingByLocale": {
+      "it": 30,
+      "en": 17,
+      "de": 30,
+      "fr": 33
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "PEMSA",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "Fusalp",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
         "pending": 1
       }
     ]
