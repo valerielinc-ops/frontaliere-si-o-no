@@ -89,6 +89,11 @@ html.dark { color-scheme: dark; }
   --_chart-tooltip-bg: #ffffff;
   --_chart-tooltip-text: #1e293b;
   --_chart-tooltip-border: #e2e8f0;
+  /* Chart series — line, filled area, data dots, axis labels (SEO static SVG) */
+  --_chart-line: #4338ca;
+  --_chart-area: #c7d2fe;
+  --_chart-dot: #1e293b;
+  --_chart-label: #475569;
 }
 html.dark {
   --_surface: #1e293b;       /* slate-800 */
@@ -159,6 +164,11 @@ html.dark {
   --_chart-tooltip-bg: #1e293b;
   --_chart-tooltip-text: #e2e8f0;
   --_chart-tooltip-border: #334155;
+  /* Chart series — dark mode (SEO static SVG) */
+  --_chart-line: #a78bfa;
+  --_chart-area: rgba(167, 139, 250, 0.25);
+  --_chart-dot: #e2e8f0;
+  --_chart-label: #94a3b8;
 }
 
 /* Hero gradient — decorative radial glow using semantic info + surface tokens */
@@ -448,6 +458,10 @@ input[type=number] { -moz-appearance: textfield; }
   --color-chart-tooltip-bg: var(--_chart-tooltip-bg);
   --color-chart-tooltip-text: var(--_chart-tooltip-text);
   --color-chart-tooltip-border: var(--_chart-tooltip-border);
+  --color-chart-line: var(--_chart-line);
+  --color-chart-area: var(--_chart-area);
+  --color-chart-dot: var(--_chart-dot);
+  --color-chart-label: var(--_chart-label);
 
   /* Third-party brand colors (constant, no light/dark switch) */
   --color-brand-linkedin: #0A66C2;

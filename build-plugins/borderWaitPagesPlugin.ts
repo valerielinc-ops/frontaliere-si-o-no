@@ -605,17 +605,18 @@ function renderWebcamSection(
   const figures = webcams
     .map((w) => {
       const refreshMs = w.refreshIntervalMs ?? 60000;
-      const cacheBusted = `${w.imageUrl}${w.imageUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
       const licenseHtml = w.license
         ? `<div style="margin-top:4px;font-size:12px;color:var(--color-subtle)">${esc(w.license)}</div>`
         : '';
       return `<figure style="margin:0 0 16px;padding:0;width:100%;max-width:640px;aspect-ratio:16/9">
     <img
-      src="${esc(cacheBusted)}"
+      src="${esc(w.imageUrl)}"
       alt="${esc(w.label)} — ${esc(copy.updatedLabel)} ${new Date().toISOString().slice(0, 16).replace('T', ' ')}"
       width="640"
       height="360"
       loading="lazy"
+      decoding="async"
+      fetchpriority="low"
       referrerpolicy="no-referrer"
       data-webcam-refresh="${refreshMs}"
       data-webcam-base-url="${esc(w.imageUrl)}"
@@ -664,15 +665,21 @@ function renderHourlySvg(buckets: Array<null | { avg: number }>, copy: Copy): st
       const x = i * (width / 24) + 1;
       const h = b ? Math.max(2, (b.avg / maxAvg) * (height - 20)) : 2;
       const y = height - h - 10;
-      const color = !b ? '#e2e8f0' : b.avg < 5 ? '#10b981' : b.avg < 15 ? '#f59e0b' : '#ef4444';
+      const fillVar = !b
+        ? 'var(--color-surface-muted)'
+        : b.avg < 5
+          ? 'var(--color-success-border)'
+          : b.avg < 15
+            ? 'var(--color-warning-border)'
+            : 'var(--color-danger-border)';
       const label = b ? `${b.avg} min @ ${String(i).padStart(2, '0')}:00` : `${String(i).padStart(2, '0')}:00 — no data`;
-      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" fill="${color}" rx="2"><title>${esc(label)}</title></rect>`;
+      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="2" style="fill: ${fillVar};"><title>${esc(label)}</title></rect>`;
     })
     .join('');
   const hourLabels = [0, 6, 12, 18, 23]
     .map(
       (h) =>
-        `<text x="${h * (width / 24) + barWidth / 2}" y="${height - 2}" font-size="10" fill="#64748b" text-anchor="middle">${String(h).padStart(2, '0')}</text>`,
+        `<text x="${h * (width / 24) + barWidth / 2}" y="${height - 2}" font-size="10" text-anchor="middle" style="fill: var(--color-subtle);">${String(h).padStart(2, '0')}</text>`,
     )
     .join('');
   return `<svg role="img" aria-label="${esc(copy.hourlyTodayLabel)}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${width}px;height:auto;display:block">
@@ -695,17 +702,19 @@ function renderWeeklySvg(matrix: Array<Array<null | { avg: number }>>, copy: Cop
         .map((cell, h) => {
           const x = h * cellW;
           const y = d * cellH + 16;
-          let color = '#f1f5f9';
+          let fillVar = 'var(--color-surface-muted)';
+          let fillOpacity = 1;
           if (cell) {
             const intensity = Math.min(1, cell.avg / maxAvg);
-            if (cell.avg < 5) color = `rgba(16,185,129,${0.3 + intensity * 0.7})`;
-            else if (cell.avg < 15) color = `rgba(245,158,11,${0.3 + intensity * 0.7})`;
-            else color = `rgba(239,68,68,${0.3 + intensity * 0.7})`;
+            fillOpacity = 0.3 + intensity * 0.7;
+            if (cell.avg < 5) fillVar = 'var(--color-success-border)';
+            else if (cell.avg < 15) fillVar = 'var(--color-warning-border)';
+            else fillVar = 'var(--color-danger-border)';
           }
           const label = cell
             ? `${['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'][d]} ${String(h).padStart(2, '0')}:00 — ${cell.avg} min`
             : `${['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'][d]} ${String(h).padStart(2, '0')}:00 — n/a`;
-          return `<rect x="${x}" y="${y}" width="${cellW - 1}" height="${cellH - 1}" fill="${color}"><title>${esc(label)}</title></rect>`;
+          return `<rect x="${x}" y="${y}" width="${cellW - 1}" height="${cellH - 1}" style="fill: ${fillVar}; fill-opacity: ${fillOpacity};"><title>${esc(label)}</title></rect>`;
         })
         .join(''),
     )
@@ -713,7 +722,7 @@ function renderWeeklySvg(matrix: Array<Array<null | { avg: number }>>, copy: Cop
   const hourLabels = [0, 6, 12, 18, 23]
     .map(
       (h) =>
-        `<text x="${h * cellW + cellW / 2}" y="12" font-size="10" fill="#64748b" text-anchor="middle">${String(h).padStart(2, '0')}</text>`,
+        `<text x="${h * cellW + cellW / 2}" y="12" font-size="10" text-anchor="middle" style="fill: var(--color-subtle);">${String(h).padStart(2, '0')}</text>`,
     )
     .join('');
   return `<svg role="img" aria-label="${esc(copy.weeklyPatternLabel)}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${width}px;height:auto;display:block">
@@ -1038,10 +1047,17 @@ function renderLeafPage(inp: LeafInputs): string {
       .join('')}
   </section>`;
 
-  // Alternates
-  const alternatesHtml = (Object.keys(alternates) as BorderWaitLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  // Alternates. IT is the primary/source locale and serves as the x-default
+  // for search engines when a user's language doesn't match any available
+  // hreflang — point x-default at the IT URL when present, otherwise fall
+  // back to the current page.
+  const xDefaultHref = alternates.it ?? alternates[locale];
+  const alternatesHtml = [
+    ...(Object.keys(alternates) as BorderWaitLocale[]).map(
+      (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
+    ),
+    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultHref}">`,
+  ].join('\n');
 
   // JSON-LD
   const breadcrumbLd = JSON.stringify({
@@ -1147,52 +1163,37 @@ function renderLeafPage(inp: LeafInputs): string {
       })
     : '';
 
+  // ImageObject — the webcam subject is a still JPEG snapshot refreshed on a
+  // polling interval, not a continuous video stream, so VideoObject +
+  // BroadcastEvent (isLiveBroadcast: true) is inappropriate. Emit a single
+  // ImageObject with the required fields. License is included when present;
+  // creditText is included when the source provides it.
   const imageLd = webcams.length > 0
     ? JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'ImageObject',
         contentUrl: webcams[0].imageUrl,
-        description: webcams[0].label,
-        creditText: webcams[0].sourceName,
-        license: webcams[0].sourceUrl,
-      })
-    : '';
-
-  // VideoObject — live refresh webcam feed. Modeled as a live broadcast:
-  // the Canton Ticino Territory Department webcams refresh every few seconds
-  // and the crossing page re-fetches them via the client-side refresh script
-  // added in WEBCAM_REFRESH_JS. `contentUrl` points to the image feed so
-  // crawlers can follow it; `embedUrl` points to the crossing page itself
-  // (where the webcam is embedded). `publication.BroadcastEvent` with
-  // `isLiveBroadcast: true` signals the live nature of the feed.
-  const videoLd = webcams.length > 0
-    ? JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'VideoObject',
-        name: `${copy.webcamLabel} — ${crossingDisplay}`,
-        description: `${copy.webcamLabel} ${crossingDisplay} — ${copy.webcamNote}`,
-        thumbnailUrl: webcams[0].imageUrl,
-        uploadDate: `${dateStamp}T00:00:00Z`,
-        contentUrl: webcams[0].imageUrl,
-        embedUrl: canonicalUrl,
+        caption: `${copy.webcamLabel} — ${crossingDisplay}`,
+        ...(webcams[0].sourceName ? { creditText: webcams[0].sourceName } : {}),
+        ...(webcams[0].license ? { license: webcams[0].license } : {}),
+        datePublished: `${dateStamp}T00:00:00Z`,
         inLanguage: locale,
-        isFamilyFriendly: true,
-        creditText: webcams[0].sourceName,
-        publisher: {
-          '@type': 'Organization',
-          name: 'Frontaliere Ticino',
-          url: BASE_URL,
-        },
-        publication: {
-          '@type': 'BroadcastEvent',
-          isLiveBroadcast: true,
-          startDate: `${dateStamp}T00:00:00Z`,
-          endDate: `${dateStamp}T23:59:59Z`,
-        },
       })
     : '';
 
-  const title = `${h1} | Frontaliere Ticino`;
+  // Title — the h1 embeds an ISO date, so the raw string can easily exceed
+  // ~70 chars once " | Frontaliere Ticino" is appended. Trim the h1 portion
+  // at a word boundary to ~48 chars (leaves ~22 chars for the site suffix).
+  const TITLE_H1_MAX = 48;
+  const titleH1 =
+    h1.length <= TITLE_H1_MAX
+      ? h1
+      : (() => {
+          const sliced = h1.slice(0, TITLE_H1_MAX);
+          const lastSpace = sliced.lastIndexOf(' ');
+          return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).replace(/[\s—–-]+$/, '');
+        })();
+  const title = `${titleH1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
   // Related-links helper context
@@ -1266,7 +1267,6 @@ function renderLeafPage(inp: LeafInputs): string {
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
   if (placeLd) jsonLdScripts.push(placeLd);
   if (imageLd) jsonLdScripts.push(imageLd);
-  if (videoLd) jsonLdScripts.push(videoLd);
 
   return buildSeoPageHtml({
     locale,

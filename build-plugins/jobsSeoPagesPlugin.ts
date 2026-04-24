@@ -722,6 +722,79 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  internship: 'INTERN',
  contract: 'CONTRACTOR',
  };
+ // Localized employment-type labels for human-readable fallback descriptions.
+ // Keys match the lower-cased values produced by job.contract raw strings.
+ const contractLabelByLocale: Record<string, Record<string, string>> = {
+ it: { 'full-time': 'Tempo pieno', 'part-time': 'Tempo parziale', temporary: 'Temporaneo', internship: 'Stage', contract: 'A contratto', other: 'Altro contratto' },
+ en: { 'full-time': 'Full-time', 'part-time': 'Part-time', temporary: 'Temporary', internship: 'Internship', contract: 'Contract', other: 'Other contract' },
+ de: { 'full-time': 'Vollzeit', 'part-time': 'Teilzeit', temporary: 'Befristet', internship: 'Praktikum', contract: 'Vertrag', other: 'Sonstiger Vertrag' },
+ fr: { 'full-time': 'Temps plein', 'part-time': 'Temps partiel', temporary: 'Temporaire', internship: 'Stage', contract: 'Contrat', other: 'Autre contrat' },
+ };
+ // Sector labels for fallback descriptions (subset — mirrors sectorLabel used in FAQ section).
+ const fallbackSectorLabel: Record<string, Record<string, string>> = {
+ it: { healthcare: 'sanità', technology: 'tecnologia', finance: 'servizi finanziari', engineering: 'ingegneria', hospitality: 'ospitalità', retail: 'commercio', manufacturing: 'manifattura', education: 'formazione', construction: 'edilizia', logistics: 'logistica', sales: 'vendite', administration: 'amministrazione' },
+ en: { healthcare: 'healthcare', technology: 'technology', finance: 'financial services', engineering: 'engineering', hospitality: 'hospitality', retail: 'retail', manufacturing: 'manufacturing', education: 'education', construction: 'construction', logistics: 'logistics', sales: 'sales', administration: 'administration' },
+ de: { healthcare: 'Gesundheitswesen', technology: 'Technologie', finance: 'Finanzdienstleistungen', engineering: 'Ingenieurwesen', hospitality: 'Gastgewerbe', retail: 'Einzelhandel', manufacturing: 'Fertigung', education: 'Bildung', construction: 'Bauwesen', logistics: 'Logistik', sales: 'Vertrieb', administration: 'Verwaltung' },
+ fr: { healthcare: 'santé', technology: 'technologie', finance: 'services financiers', engineering: 'ingénierie', hospitality: 'hôtellerie', retail: 'commerce', manufacturing: 'industrie', education: 'formation', construction: 'construction', logistics: 'logistique', sales: 'ventes', administration: 'administration' },
+ };
+ /**
+  * Build a localized fallback description for JobPosting schema when source
+  * data is too thin for Google rich results (CLAUDE.md rule #3 — defaults, not skips).
+  */
+ const buildJobDescriptionFallback = (
+ jobArg: { title?: string; company?: string; location?: string; canton?: string; category?: string; contract?: string },
+ titleText: string,
+ localityText: string,
+ regionText: string,
+ localeArg: string
+ ): string => {
+ const loc = localeArg in contractLabelByLocale ? localeArg : 'it';
+ const contractKey = String(jobArg.contract || '').toLowerCase();
+ const contractLabel = contractLabelByLocale[loc][contractKey] || contractLabelByLocale[loc].other;
+ const categoryKey = String(jobArg.category || '').toLowerCase();
+ const sectorLabelRaw = fallbackSectorLabel[loc]?.[categoryKey] || '';
+ const company = String(jobArg.company || '').trim();
+ const sectorClause: Record<string, string> = {
+ it: sectorLabelRaw ? ` nel settore ${sectorLabelRaw}` : '',
+ en: sectorLabelRaw ? ` in the ${sectorLabelRaw} sector` : '',
+ de: sectorLabelRaw ? ` im Bereich ${sectorLabelRaw}` : '',
+ fr: sectorLabelRaw ? ` dans le secteur ${sectorLabelRaw}` : '',
+ };
+ const atCompany: Record<string, string> = {
+ it: company ? ` presso ${company}` : '',
+ en: company ? ` at ${company}` : '',
+ de: company ? ` bei ${company}` : '',
+ fr: company ? ` chez ${company}` : '',
+ };
+ const inLocation: Record<string, string> = {
+ it: localityText ? ` a ${localityText}${regionText ? ` (${regionText})` : ''}` : '',
+ en: localityText ? ` in ${localityText}${regionText ? ` (${regionText})` : ''}` : '',
+ de: localityText ? ` in ${localityText}${regionText ? ` (${regionText})` : ''}` : '',
+ fr: localityText ? ` à ${localityText}${regionText ? ` (${regionText})` : ''}` : '',
+ };
+ const tail: Record<string, string> = {
+ it: `${contractLabel}${sectorClause.it}. Consulta i dettagli e candidati sul portale Frontaliere Ticino.`,
+ en: `${contractLabel}${sectorClause.en}. See the full details and apply on the Frontaliere Ticino portal.`,
+ de: `${contractLabel}${sectorClause.de}. Alle Details und Bewerbung auf dem Frontaliere-Ticino-Portal.`,
+ fr: `${contractLabel}${sectorClause.fr}. Consultez les détails et postulez sur le portail Frontaliere Ticino.`,
+ };
+ const lead: Record<string, string> = {
+ it: `${titleText}${atCompany.it}${inLocation.it}.`,
+ en: `${titleText}${atCompany.en}${inLocation.en}.`,
+ de: `${titleText}${atCompany.de}${inLocation.de}.`,
+ fr: `${titleText}${atCompany.fr}${inLocation.fr}.`,
+ };
+ return `<p>${lead[loc]}</p><p>${tail[loc]}</p>`;
+ };
+ /**
+  * Deterministic non-crypto hash (djb2) — used to pick stable FAQ template
+  * variants across rebuilds based on job slug.
+  */
+ const stableHash = (s: string): number => {
+ let h = 5381;
+ for (let i = 0; i < s.length; i += 1) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+ return h;
+ };
  const hostFromUrl = (raw?: string): string => {
  if (!raw) return '';
  try {
@@ -1302,13 +1375,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ? plainTextToHtml(localizedDescription).slice(0, 5000) || localizedDescription.slice(0, 5000)
  : plainTextToHtml(`${metaIntro} ${localizedDescription}`.trim()).slice(0, 5000)
  || `${metaIntro} ${localizedDescription}`.trim().slice(0, 5000));
- // Skip JobPosting schema entirely when no meaningful description exists
+ // CLAUDE.md rule #3: JobPosting schema MUST always be emitted for active
+ // jobs. If the aggregated description is too thin, synthesize a default
+ // from the structured fields we already have (title, company, city,
+ // canton, contract, sector) so Google still gets a valid, useful snippet.
  const hasValidJobPostingDescription = jobPostingDescription.length >= 30;
- const jobLd = hasValidJobPostingDescription ? JSON.stringify({
+ const finalJobPostingDescription = hasValidJobPostingDescription
+ ? jobPostingDescription
+ : buildJobDescriptionFallback(job, localizedTitle, addressLocality, addressRegion, locale);
+ const jobLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'JobPosting',
  title: localizedTitle,
- description: jobPostingDescription,
+ description: finalJobPostingDescription,
  inLanguage: locale,
  datePosted: toIsoDateTime(job.postedDate),
  validThrough: toValidThrough(job.postedDate, job.crawledAt),
@@ -1374,7 +1453,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return modified ? { dateModified: modified } : {};
  })(),
  ...(job.category && mapCategoryToONet(job.category) ? { occupationalCategory: mapCategoryToONet(job.category) } : {}),
- }) : null;
+ });
  const breadcrumbLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -1396,7 +1475,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ${FAVICON_LINKS}
  <title>${esc(title)}</title>
  <meta name="description" content="${esc(description)}">
- <meta property="og:type" content="website">
+ <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(title)}">
@@ -1424,8 +1503,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  font-family: "Manrope", sans-serif;
  color: var(--color-body);
  background:
- radial-gradient(1100px 600px at 0% -10%, rgba(14, 165, 233, 0.15), transparent 60%),
- radial-gradient(1000px 600px at 100% 0%, rgba(16, 185, 129, 0.12), transparent 60%),
+ radial-gradient(1100px 600px at 0% -10%, var(--color-job-bg-gradient-1), transparent 60%),
+ radial-gradient(1000px 600px at 100% 0%, var(--color-job-bg-gradient-2), transparent 60%),
  var(--color-surface-alt);
  }
  /* Padding only for static pre-hydration content */
@@ -1442,7 +1521,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .hero {
  border: 1px solid var(--color-accent-border);
  background:
- linear-gradient(130deg, rgba(229, 243, 255, 0.98), rgba(237, 252, 245, 0.98));
+ linear-gradient(130deg, var(--color-job-hero-gradient-from), var(--color-job-hero-gradient-to));
  border-radius: 16px;
  padding: 14px;
  margin-bottom: 10px;
@@ -1465,7 +1544,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  .hero-meta span {
  border: 1px solid var(--color-edge);
- background: rgba(255, 255, 255, 0.75);
+ background: var(--color-job-chip-bg);
  border-radius: 999px;
  padding: 5px 8px;
  font-size: 11px;
@@ -1535,10 +1614,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  align-items: center;
  justify-content: center;
  margin-top: 2px;
- padding: 10px 13px;
+ padding: 12px 20px;
+ min-height: 44px;
  border-radius: 10px;
  text-decoration: none;
- font-size: 13px;
+ font-size: 14px;
  font-weight: 800;
  background: var(--color-accent);
  color: var(--color-on-accent);
@@ -1560,9 +1640,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  </style>
 ${hreflangHtml}
-${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <script type="application/ld+json">${breadcrumbLd}</script>
+ <script type="application/ld+json">${jobLd}</script>
+ <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
- <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true"></noscript>` : ''}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
@@ -1606,7 +1687,7 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  fr: `Toutes les offres ${job.company}${companyLoc ? ` à ${companyLoc}` : ''}`,
  };
  const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
- const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid var(--color-edge);border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="28" height="28" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:var(--color-heading)">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid var(--color-edge);border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="40" height="40" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:var(--color-heading)">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
  const ctaLink = `<p style="margin:12px 0 0;font-size:15px"><a href="${cHref}" style="color:var(--color-link);text-decoration:underline;font-weight:700">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
  })()}
@@ -1624,20 +1705,178 @@ ${jobLd ? ` <script type="application/ld+json">${jobLd}</script>\n` : ''} <scrip
  fr: { healthcare: 'santé', technology: 'technologie', finance: 'services financiers', engineering: 'ingénierie', hospitality: 'hôtellerie', retail: 'commerce', manufacturing: 'industrie', education: 'formation', construction: 'construction', logistics: 'logistique', sales: 'ventes', administration: 'administration' },
  };
  const sectorName = sectorLabel[locale]?.[cat] || sectorLabel[locale]?.['administration'] || '';
- const frontalierInfo: Record<string, string> = {
- it: `<section class="section"><h4>Informazioni per frontalieri</h4><p>${co ? `${co} si trova` : 'Questa posizione si trova'} a ${loc} in Canton ${esc(dc)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, rinnovabile annualmente. Il Canton ${esc(dc)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p></section>`,
- en: `<section class="section"><h4>Information for cross-border workers</h4><p>${co ? `${co} is located` : 'This position is located'} in ${loc}, Canton of ${esc(dc)}. Cross-border workers need a <strong>G Permit</strong>, renewable annually, to work in Switzerland. The Canton of ${esc(dc)} applies <strong>withholding tax</strong> at variable rates on gross income, and since 2024 the <strong>New Tax Agreement</strong> introduces concurrent taxation between Italy and Switzerland.</p><p>Swiss social contributions include AVS (5.3%), unemployment insurance (1.1%) and LPP (occupational pension). Use our <a href="${taxUrl}">free tax simulator</a> to calculate your net salary and compare the cost of living between Switzerland and Italy.</p></section>`,
- de: `<section class="section"><h4>Informationen für Grenzgänger</h4><p>${co ? `${co} befindet sich` : 'Diese Stelle befindet sich'} in ${loc} im Kanton ${esc(dc)}. Grenzgänger benötigen eine <strong>G-Bewilligung</strong> (jährlich erneuerbar), um in der Schweiz zu arbeiten. Der Kanton ${esc(dc)} erhebt eine <strong>Quellensteuer</strong> mit variablen Sätzen auf das Bruttoeinkommen. Seit 2024 gilt das <strong>Neue Steuerabkommen</strong> mit konkurrierender Besteuerung zwischen Italien und der Schweiz.</p><p>Die Schweizer Sozialabgaben umfassen AHV (5,3%), Arbeitslosenversicherung (1,1%) und BVG (berufliche Vorsorge). Nutzen Sie unseren <a href="${taxUrl}">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt zu berechnen und die Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.</p></section>`,
- fr: `<section class="section"><h4>Informations pour les frontaliers</h4><p>${co ? `${co} se trouve` : 'Ce poste se trouve'} à ${loc} dans le Canton du ${esc(dc)}. Les travailleurs frontaliers ont besoin d'un <strong>permis G</strong> (renouvelable annuellement) pour travailler en Suisse. Le Canton du ${esc(dc)} applique un <strong>impôt à la source</strong> à taux variable sur le revenu brut. Depuis 2024, le <strong>Nouvel Accord fiscal</strong> introduit une imposition concurrente entre l'Italie et la Suisse.</p><p>Les cotisations sociales suisses comprennent l'AVS (5,3%), l'assurance chômage (1,1%) et la LPP (prévoyance professionnelle). Utilisez notre <a href="${taxUrl}">simulateur fiscal gratuit</a> pour calculer votre salaire net et comparer le coût de la vie entre la Suisse et l'Italie.</p></section>`,
- };
+ // Contract label localized (reuse top-level map).
+ const contractKey = String(job.contract || '').toLowerCase();
+ const contractLabelLocal = contractLabelByLocale[locale]?.[contractKey] || contractLabelByLocale[locale]?.other || '';
+ const safeTitle = esc(String(localizedTitle || job.title || ''));
+ // Deterministic variant picker — stable across rebuilds, varies across slugs.
+ const slugHash = stableHash(String(perLocaleSlug[locale] || job.slug || job.id || ''));
+ const variant = slugHash % 3; // 3 rotating templates
  const deCantonPrep = germanCantonPrep(dc);
  const frCantonPrep = frenchCantonPrep(dc);
- const faqSection: Record<string, string> = {
- it: `<section class="section"><h4>Domande frequenti</h4><dl><dt><strong>Qual è lo stipendio netto per un frontaliere in ${esc(dc)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa. ${sectorName ? `Nel settore ${sectorName} in ${esc(dc)} ` : ''}Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. Confronta i premi con il nostro <a href="${BASE_URL}/premi-cassa-malati/">comparatore LAMal</a>.</dd></dl></section>`,
- en: `<section class="section"><h4>Frequently asked questions</h4><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(dc)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%. ${sectorName ? `In the ${sectorName} sector in ${esc(dc)} ` : ''}Use our simulator for a personalised calculation.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work. Premiums vary by canton, insurance model and deductible. Compare premiums with our <a href="${BASE_URL}/en/health-insurance-premiums/">LAMal comparator</a>.</dd></dl></section>`,
- de: `<section class="section"><h4>Häufig gestellte Fragen</h4><dl><dt><strong>Wie hoch ist das Nettogehalt für Grenzgänger ${esc(deCantonPrep)}?</strong></dt><dd>Das Nettogehalt hängt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(dc)} liegt die Quellensteuer zwischen ca. 2% und 15%. ${sectorName ? `In der Branche ${sectorName} ${esc(deCantonPrep)} ` : ''}Nutzen Sie unseren Simulator für eine individuelle Berechnung.</dd><dt><strong>Brauchen Grenzgänger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren je nach Kanton, Versicherungsmodell und Franchise. Vergleichen Sie die Prämien mit unserem <a href="${BASE_URL}/de/krankenkassenpraemien/">KVG-Vergleich</a>.</dd></dl></section>`,
- fr: `<section class="section"><h4>Questions fréquentes</h4><dl><dt><strong>Quel est le salaire net pour un frontalier ${esc(frCantonPrep)} ?</strong></dt><dd>Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. Dans le Canton du ${esc(dc)}, l'impôt à la source varie d'environ 2% à 15%. ${sectorName ? `Dans le secteur ${sectorName} ${esc(frCantonPrep)} ` : ''}Utilisez notre simulateur pour un calcul personnalisé.</dd><dt><strong>Les frontaliers doivent-ils souscrire à la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois suivant le début du travail. Les primes varient selon le canton, le modèle d'assurance et la franchise. Comparez les primes avec notre <a href="${BASE_URL}/fr/primes-assurance-maladie/">comparateur LAMal</a>.</dd></dl></section>`,
+
+ // --- Frontalier info, per-locale, with 3 template variants each ---
+ // Each variant injects title, company, city, sector, contract so ~60-70% of
+ // the sentences differ between jobs while factual content stays equivalent.
+ const feeIntro = {
+ it: [
+ `<p>La posizione <strong>${safeTitle}</strong>${co ? ` offerta da ${co}` : ''} ha sede a ${loc} nel Canton ${esc(dc)}${sectorName ? `, nel comparto ${sectorName}` : ''}.</p>`,
+ `<p>Stai valutando il ruolo <strong>${safeTitle}</strong>${co ? ` presso ${co}` : ''} a ${loc} (${esc(dc)})${contractLabelLocal ? `, contratto ${contractLabelLocal.toLowerCase()}` : ''}?</p>`,
+ `<p>Questa scheda analizza l'opportunità <strong>${safeTitle}</strong>${co ? ` in ${co}` : ''} a ${loc}${sectorName ? ` (settore ${sectorName})` : ''}, con focus sugli aspetti fiscali per i frontalieri del Canton ${esc(dc)}.</p>`,
+ ],
+ en: [
+ `<p>The <strong>${safeTitle}</strong> role${co ? ` offered by ${co}` : ''} is based in ${loc}, Canton of ${esc(dc)}${sectorName ? `, in the ${sectorName} sector` : ''}.</p>`,
+ `<p>Considering the <strong>${safeTitle}</strong> position${co ? ` at ${co}` : ''} in ${loc} (${esc(dc)})${contractLabelLocal ? ` on a ${contractLabelLocal.toLowerCase()} contract` : ''}?</p>`,
+ `<p>This page reviews the <strong>${safeTitle}</strong> opportunity${co ? ` at ${co}` : ''} in ${loc}${sectorName ? ` (${sectorName} sector)` : ''}, with a focus on the tax implications for cross-border workers in the Canton of ${esc(dc)}.</p>`,
+ ],
+ de: [
+ `<p>Die Stelle <strong>${safeTitle}</strong>${co ? ` bei ${co}` : ''} ist in ${loc} ${esc(deCantonPrep)} angesiedelt${sectorName ? ` (Bereich ${sectorName})` : ''}.</p>`,
+ `<p>Sie interessieren sich für die Position <strong>${safeTitle}</strong>${co ? ` bei ${co}` : ''} in ${loc} (${esc(dc)})${contractLabelLocal ? `, ${contractLabelLocal}` : ''}?</p>`,
+ `<p>Diese Seite untersucht die Chance <strong>${safeTitle}</strong>${co ? ` bei ${co}` : ''} in ${loc}${sectorName ? ` (Branche ${sectorName})` : ''}, mit Fokus auf den steuerlichen Aspekten für Grenzgänger ${esc(deCantonPrep)}.</p>`,
+ ],
+ fr: [
+ `<p>Le poste <strong>${safeTitle}</strong>${co ? ` proposé par ${co}` : ''} se situe à ${loc}, dans le Canton du ${esc(dc)}${sectorName ? ` (secteur ${sectorName})` : ''}.</p>`,
+ `<p>Vous envisagez le rôle <strong>${safeTitle}</strong>${co ? ` chez ${co}` : ''} à ${loc} (${esc(dc)})${contractLabelLocal ? ` en ${contractLabelLocal.toLowerCase()}` : ''} ?</p>`,
+ `<p>Cette page examine l'opportunité <strong>${safeTitle}</strong>${co ? ` chez ${co}` : ''} à ${loc}${sectorName ? ` (secteur ${sectorName})` : ''}, avec un focus sur la fiscalité des frontaliers ${esc(frCantonPrep)}.</p>`,
+ ],
  };
+ const feePermitTax = {
+ it: [
+ `<p>Per lavorare come frontaliere in Canton ${esc(dc)} serve il <strong>Permesso G</strong>, rinnovabile annualmente. Il Canton ${esc(dc)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo; dal 2024 il <strong>Nuovo Accordo fiscale</strong> Italia-Svizzera prevede una tassazione concorrente.</p>`,
+ `<p>Il ruolo richiede il <strong>Permesso G</strong> (rinnovo annuale) e comporta la ritenuta alla fonte a carico del datore${co ? ` ${co}` : ''}. In Canton ${esc(dc)} l'aliquota dipende da scaglione, stato civile e figli a carico; dal 2024 si applica il <strong>Nuovo Accordo</strong> fiscale bilaterale.</p>`,
+ `<p>Accettando questa offerta${co ? ` di ${co}` : ''} otterrai un <strong>Permesso G</strong> frontaliere. Il Canton ${esc(dc)} preleva l'<strong>imposta alla fonte</strong> sul lordo; dal 2024 i nuovi frontalieri rientrano nel <strong>Nuovo Accordo fiscale</strong> con imposizione concorrente.</p>`,
+ ],
+ en: [
+ `<p>Working as a cross-border employee in the Canton of ${esc(dc)} requires a <strong>G Permit</strong>, renewed annually. The Canton applies <strong>withholding tax</strong> at variable rates on gross income; since 2024 the Italy-Switzerland <strong>New Tax Agreement</strong> introduces concurrent taxation.</p>`,
+ `<p>This position requires a <strong>G Permit</strong> (annual renewal) and triggers wage-withholding by the employer${co ? ` ${co}` : ''}. In the Canton of ${esc(dc)} the rate depends on bracket, marital status and dependants; the 2024 <strong>New Agreement</strong> adds an Italian side tax.</p>`,
+ `<p>Accepting this offer${co ? ` from ${co}` : ''} means obtaining a cross-border <strong>G Permit</strong>. The Canton of ${esc(dc)} withholds tax on gross salary; new cross-border workers since 2024 fall under the <strong>New Tax Agreement</strong> with concurrent taxation.</p>`,
+ ],
+ de: [
+ `<p>Für eine Grenzgängertätigkeit ${esc(deCantonPrep)} benötigen Sie eine <strong>G-Bewilligung</strong> (jährlich erneuerbar). Der Kanton ${esc(dc)} erhebt <strong>Quellensteuer</strong> mit variablen Sätzen; seit 2024 gilt das <strong>Neue Steuerabkommen</strong> Italien-Schweiz mit konkurrierender Besteuerung.</p>`,
+ `<p>Die Stelle erfordert eine <strong>G-Bewilligung</strong> und löst den Quellensteuerabzug durch den Arbeitgeber${co ? ` ${co}` : ''} aus. Der Satz ${esc(deCantonPrep)} hängt von Einkommensklasse, Familienstand und Kindern ab; seit 2024 greift das <strong>Neue Abkommen</strong>.</p>`,
+ `<p>Mit dieser Stelle${co ? ` bei ${co}` : ''} erhalten Sie eine <strong>G-Bewilligung</strong>. Der Kanton ${esc(dc)} zieht die Quellensteuer direkt ab; neue Grenzgänger seit 2024 fallen unter das <strong>Neue Steuerabkommen</strong>.</p>`,
+ ],
+ fr: [
+ `<p>Travailler comme frontalier ${esc(frCantonPrep)} exige un <strong>permis G</strong>, renouvelable chaque année. Le Canton du ${esc(dc)} applique un <strong>impôt à la source</strong> à taux variable ; depuis 2024 le <strong>Nouvel Accord fiscal</strong> Italie-Suisse prévoit une imposition concurrente.</p>`,
+ `<p>Ce poste nécessite un <strong>permis G</strong> (renouvellement annuel) et déclenche la retenue à la source${co ? ` par ${co}` : ''}. Le taux ${esc(frCantonPrep)} dépend de la tranche, du statut marital et des enfants ; le <strong>Nouvel Accord</strong> 2024 ajoute un volet italien.</p>`,
+ `<p>Accepter cette offre${co ? ` de ${co}` : ''} implique un <strong>permis G</strong> frontalier. Le Canton du ${esc(dc)} prélève l'impôt à la source ; les nouveaux frontaliers depuis 2024 relèvent du <strong>Nouvel Accord fiscal</strong>.</p>`,
+ ],
+ };
+ const feeContribs = {
+ it: `<p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il netto di <strong>${safeTitle}</strong>${sectorName ? ` nel settore ${sectorName}` : ''} e confrontare i costi della vita tra Svizzera e Italia.</p>`,
+ en: `<p>Swiss social contributions include AVS (5.3%), unemployment insurance (1.1%) and LPP (occupational pension). Use our <a href="${taxUrl}">free tax simulator</a> to estimate the net salary for <strong>${safeTitle}</strong>${sectorName ? ` in ${sectorName}` : ''} and compare the cost of living between Switzerland and Italy.</p>`,
+ de: `<p>Die Schweizer Sozialabgaben umfassen AHV (5,3%), Arbeitslosenversicherung (1,1%) und BVG. Nutzen Sie unseren <a href="${taxUrl}">kostenlosen Steuersimulator</a>, um das Nettogehalt für <strong>${safeTitle}</strong>${sectorName ? ` in der Branche ${sectorName}` : ''} zu berechnen und Lebenshaltungskosten zu vergleichen.</p>`,
+ fr: `<p>Les cotisations sociales suisses comprennent AVS (5,3%), assurance chômage (1,1%) et LPP. Utilisez notre <a href="${taxUrl}">simulateur fiscal gratuit</a> pour estimer le net de <strong>${safeTitle}</strong>${sectorName ? ` dans le secteur ${sectorName}` : ''} et comparer les coûts de la vie.</p>`,
+ };
+ const infoHeading: Record<string, string> = { it: 'Informazioni per frontalieri', en: 'Information for cross-border workers', de: 'Informationen für Grenzgänger', fr: 'Informations pour les frontaliers' };
+ const frontalierInfoHtml = `<section class="section"><h4>${esc(infoHeading[locale] || infoHeading.it)}</h4>${feeIntro[locale as 'it'|'en'|'de'|'fr']?.[variant] ?? feeIntro.it[0]}${feePermitTax[locale as 'it'|'en'|'de'|'fr']?.[variant] ?? feePermitTax.it[0]}${feeContribs[locale as 'it'|'en'|'de'|'fr'] ?? feeContribs.it}</section>`;
+
+ // --- FAQ: variant-driven question wording — injects role/company/contract ---
+ const roleNoun: Record<string, string> = { it: 'candidarsi', en: 'applying', de: 'die Bewerbung', fr: 'postuler' };
+ const faqQ1Templates: Record<string, string[]> = {
+ it: [
+ `Qual è lo stipendio netto per un frontaliere in Canton ${esc(dc)}?`,
+ `Quanto guadagna netto un <strong>${safeTitle}</strong>${co ? ` in ${co}` : ''} a ${loc}?`,
+ `Che stipendio netto aspettarsi per il ruolo <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} in ${esc(dc)}?`,
+ ],
+ en: [
+ `What is the net salary for a cross-border worker in the Canton of ${esc(dc)}?`,
+ `What does a <strong>${safeTitle}</strong>${co ? ` at ${co}` : ''} earn net in ${loc}?`,
+ `What net pay can you expect for the <strong>${safeTitle}</strong> role${sectorName ? ` (${sectorName})` : ''} in ${esc(dc)}?`,
+ ],
+ de: [
+ `Wie hoch ist das Nettogehalt für Grenzgänger ${esc(deCantonPrep)}?`,
+ `Was verdient ein <strong>${safeTitle}</strong>${co ? ` bei ${co}` : ''} netto in ${loc}?`,
+ `Welches Nettogehalt ist für <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} ${esc(deCantonPrep)} realistisch?`,
+ ],
+ fr: [
+ `Quel est le salaire net pour un frontalier ${esc(frCantonPrep)} ?`,
+ `Combien gagne un <strong>${safeTitle}</strong>${co ? ` chez ${co}` : ''} net à ${loc} ?`,
+ `Quel salaire net viser pour le poste <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} ${esc(frCantonPrep)} ?`,
+ ],
+ };
+ const faqA1Templates: Record<string, string[]> = {
+ it: [
+ `Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa.${sectorName ? ` Nel settore ${sectorName} in ${esc(dc)},` : ''} usa il nostro simulatore per un calcolo personalizzato.`,
+ `Per <strong>${safeTitle}</strong>${co ? ` in ${co}` : ''} il netto dipende da lordo, imposta alla fonte ${esc(dc)} (2-15%), AVS/AD/LPP e deduzioni familiari.${contractLabelLocal ? ` Contratto: ${contractLabelLocal.toLowerCase()}.` : ''} Il nostro simulatore stima il netto personalizzato.`,
+ `Il ruolo <strong>${safeTitle}</strong>${sectorName ? ` (settore ${sectorName})` : ''} a ${loc} è soggetto a imposta alla fonte del Canton ${esc(dc)} più contributi AVS/LPP. Simula il tuo netto con i dati reali di ${co ? co : 'questo annuncio'}.`,
+ ],
+ en: [
+ `Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%.${sectorName ? ` In the ${sectorName} sector,` : ''} use our simulator for a tailored figure.`,
+ `For <strong>${safeTitle}</strong>${co ? ` at ${co}` : ''} the net depends on gross, ${esc(dc)} withholding (2-15%), AVS/LPP and family deductions.${contractLabelLocal ? ` Contract: ${contractLabelLocal.toLowerCase()}.` : ''} Our simulator gives a personalised estimate.`,
+ `The <strong>${safeTitle}</strong> role${sectorName ? ` (${sectorName})` : ''} in ${loc} is taxed at source by the Canton of ${esc(dc)} plus AVS/LPP contributions. Run the simulator with the real figures of ${co ? co : 'this listing'}.`,
+ ],
+ de: [
+ `Das Nettogehalt hängt von Bruttoeinkommen, Familienstand und Kinderzahl ab. ${esc(deCantonPrep)} liegt die Quellensteuer zwischen ca. 2% und 15%.${sectorName ? ` In der Branche ${sectorName}` : ''} liefert unser Simulator eine individuelle Berechnung.`,
+ `Für <strong>${safeTitle}</strong>${co ? ` bei ${co}` : ''} hängt das Netto von Brutto, Quellensteuer (2-15%), AHV/ALV/BVG und Familienabzügen ab.${contractLabelLocal ? ` Vertrag: ${contractLabelLocal}.` : ''} Unser Simulator liefert eine individuelle Schätzung.`,
+ `Die Rolle <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} in ${loc} unterliegt der Quellensteuer ${esc(deCantonPrep)} zzgl. AHV/BVG. Simulieren Sie das Netto mit den Werten von ${co ? co : 'diesem Inserat'}.`,
+ ],
+ fr: [
+ `Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. ${esc(frCantonPrep)}, l'impôt à la source varie d'environ 2% à 15%.${sectorName ? ` Dans le secteur ${sectorName},` : ''} utilisez notre simulateur pour un calcul personnalisé.`,
+ `Pour <strong>${safeTitle}</strong>${co ? ` chez ${co}` : ''} le net dépend du brut, de la retenue ${esc(frCantonPrep)} (2-15%), AVS/LPP et déductions familiales.${contractLabelLocal ? ` Contrat : ${contractLabelLocal.toLowerCase()}.` : ''} Notre simulateur donne une estimation personnalisée.`,
+ `Le poste <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} à ${loc} est imposé à la source par le Canton du ${esc(dc)} plus cotisations AVS/LPP. Simulez le net avec les chiffres réels de ${co ? co : 'cette annonce'}.`,
+ ],
+ };
+ // Second FAQ — mixes LAMal (stable factual content) with per-role flavoring.
+ const faqQ2Templates: Record<string, string[]> = {
+ it: [
+ `Serve la cassa malati svizzera LAMal per lavorare come <strong>${safeTitle}</strong> in Canton ${esc(dc)}?`,
+ `Come funziona l'assicurazione LAMal per chi fa ${roleNoun.it} a <strong>${safeTitle}</strong>${co ? ` in ${co}` : ''}?`,
+ `LAMal o assicurazione italiana: quale scegliere per il ruolo <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''}?`,
+ ],
+ en: [
+ `Do I need Swiss LAMal health insurance for the <strong>${safeTitle}</strong> role in ${esc(dc)}?`,
+ `How does LAMal work when <strong>${roleNoun.en}</strong> to <strong>${safeTitle}</strong>${co ? ` at ${co}` : ''}?`,
+ `LAMal or Italian insurance: which should you pick for the <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} role?`,
+ ],
+ de: [
+ `Brauche ich für <strong>${safeTitle}</strong> ${esc(deCantonPrep)} eine Schweizer KVG-Versicherung?`,
+ `Wie funktioniert die KVG, wenn Sie sich${co ? ` bei ${co}` : ''} für <strong>${safeTitle}</strong> bewerben?`,
+ `KVG oder italienische Versicherung: was ist für <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} sinnvoller?`,
+ ],
+ fr: [
+ `Faut-il souscrire à la LAMal suisse pour le poste <strong>${safeTitle}</strong> ${esc(frCantonPrep)} ?`,
+ `Comment fonctionne la LAMal quand on${co ? ` postule chez ${co}` : ''} pour <strong>${safeTitle}</strong> ?`,
+ `LAMal ou assurance italienne : quelle option pour le rôle <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} ?`,
+ ],
+ };
+ const lamalLink: Record<string, string> = {
+ it: `<a href="${BASE_URL}/premi-cassa-malati/">comparatore LAMal</a>`,
+ en: `<a href="${BASE_URL}/en/health-insurance-premiums/">LAMal comparator</a>`,
+ de: `<a href="${BASE_URL}/de/krankenkassenpraemien/">KVG-Vergleich</a>`,
+ fr: `<a href="${BASE_URL}/fr/primes-assurance-maladie/">comparateur LAMal</a>`,
+ };
+ const faqA2Templates: Record<string, string[]> = {
+ it: [
+ `I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello e franchigia. Confronta con il nostro ${lamalLink.it}.`,
+ `Prima di firmare${co ? ` con ${co}` : ''}, sappi che dal 2024 la LAMal è obbligatoria entro 3 mesi. Il premio medio in ${esc(dc)} dipende dal modello. Vedi il nostro ${lamalLink.it}.`,
+ `Il ruolo <strong>${safeTitle}</strong> a ${loc} richiede la scelta tra LAMal (obbligatoria per nuovi frontalieri dal 2024) e diritto di opzione. Confronta i premi con il ${lamalLink.it}.`,
+ ],
+ en: [
+ `New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting. Premiums vary by canton, model and deductible. Compare with our ${lamalLink.en}.`,
+ `Before signing${co ? ` with ${co}` : ''}, note that LAMal is mandatory within 3 months since 2024. The average premium in ${esc(dc)} depends on the model. See our ${lamalLink.en}.`,
+ `The <strong>${safeTitle}</strong> role in ${loc} requires choosing between LAMal (mandatory for new cross-border workers since 2024) and the right of option. Compare premiums with our ${lamalLink.en}.`,
+ ],
+ de: [
+ `Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren nach Kanton, Modell und Franchise. Vergleichen Sie mit unserem ${lamalLink.de}.`,
+ `Bevor Sie${co ? ` bei ${co}` : ''} unterschreiben: die KVG ist seit 2024 innerhalb von 3 Monaten Pflicht. Die durchschnittliche Prämie ${esc(deCantonPrep)} hängt vom Modell ab. Siehe ${lamalLink.de}.`,
+ `Die Rolle <strong>${safeTitle}</strong> in ${loc} erfordert die Wahl zwischen KVG (seit 2024 Pflicht) und Optionsrecht. Vergleichen Sie die Prämien mit unserem ${lamalLink.de}.`,
+ ],
+ fr: [
+ `Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois. Les primes varient selon canton, modèle et franchise. Comparez avec notre ${lamalLink.fr}.`,
+ `Avant de signer${co ? ` chez ${co}` : ''}, notez que la LAMal est obligatoire sous 3 mois depuis 2024. La prime moyenne ${esc(frCantonPrep)} dépend du modèle. Voir notre ${lamalLink.fr}.`,
+ `Le poste <strong>${safeTitle}</strong> à ${loc} impose de choisir entre LAMal (obligatoire pour les nouveaux frontaliers depuis 2024) et droit d'option. Comparez les primes via notre ${lamalLink.fr}.`,
+ ],
+ };
+ const faqHeading: Record<string, string> = { it: 'Domande frequenti', en: 'Frequently asked questions', de: 'Häufig gestellte Fragen', fr: 'Questions fréquentes' };
+ const pickTpl = (arr: string[] | undefined, fallback: string): string => (arr && arr[variant]) || fallback;
+ const q1 = pickTpl(faqQ1Templates[locale], faqQ1Templates.it[0]);
+ const a1 = pickTpl(faqA1Templates[locale], faqA1Templates.it[0]);
+ const q2 = pickTpl(faqQ2Templates[locale], faqQ2Templates.it[0]);
+ const a2 = pickTpl(faqA2Templates[locale], faqA2Templates.it[0]);
+ const faqSectionHtml = `<section class="section"><h4>${esc(faqHeading[locale] || faqHeading.it)}</h4><dl><dt><strong>${q1}</strong></dt><dd>${a1}</dd><dt><strong>${q2}</strong></dt><dd>${a2}</dd></dl></section>`;
+ const frontalierInfo: Record<string, string> = { it: frontalierInfoHtml, en: frontalierInfoHtml, de: frontalierInfoHtml, fr: frontalierInfoHtml };
+ const faqSection: Record<string, string> = { it: faqSectionHtml, en: faqSectionHtml, de: faqSectionHtml, fr: faqSectionHtml };
  const hubLinks = (() => {
  const matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s));
@@ -5264,7 +5503,7 @@ ${alternates}
  const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
  const sectionLink = `${BASE_URL}${lp}`;
  const sectionName = esc(localeCopy[l].sectionName);
- const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,240,.5);box-shadow:0 1px 2px rgba(0,0,0,.05);padding:0 16px">
+ const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale" style="position:sticky;top:0;z-index:50;background:var(--color-job-sticky-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--color-job-sticky-border);box-shadow:0 1px 2px rgba(0,0,0,.05);padding:0 16px">
  <div style="max-width:2400px;width:95%;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px">
  <a href="${BASE_URL}/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--color-link);font-weight:700;font-size:15px;font-family:system-ui,sans-serif">
  ${navSvg}

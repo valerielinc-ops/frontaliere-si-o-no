@@ -224,17 +224,14 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
-  it('fuel Product JSON-LD includes aggregateRating and review snippets', () => {
+  it('fuel Product JSON-LD omits self-serving aggregateRating and review (Google structured-data policy Dec 2024)', () => {
     for (const [path, html] of Object.entries(pages)) {
       if (!html.includes('"@type":"Product"')) continue;
       const match = html.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
       if (!match) continue;
       const parsed = JSON.parse(match[1]);
-      expect(parsed.aggregateRating?.ratingValue, `page ${path}`).toBeTruthy();
-      expect(parsed.aggregateRating?.reviewCount ?? parsed.aggregateRating?.ratingCount, `page ${path}`).toBeTruthy();
-      expect(parsed.review?.author?.name, `page ${path}`).toBe('Frontaliere Ticino');
-      expect(parsed.review?.reviewBody, `page ${path}`).toContain('Frontaliere Ticino');
-      expect(parsed.review?.reviewRating?.ratingValue, `page ${path}`).toBeTruthy();
+      expect(parsed.aggregateRating, `page ${path}`).toBeUndefined();
+      expect(parsed.review, `page ${path}`).toBeUndefined();
       expect(html, `page ${path}`).toMatch(/Valutazione editoriale|Editorial assessment|Redaktionelle Bewertung|Évaluation éditoriale/);
     }
   });

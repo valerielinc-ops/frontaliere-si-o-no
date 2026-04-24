@@ -882,9 +882,58 @@ function renderHreflangAlternates(alternates: Record<JobMarketSnapshotLocale, st
   return lines.join('\n');
 }
 
+/**
+ * Truncate a string at a word boundary (no mid-word cuts) with an ellipsis.
+ * Intended for meta/JSON-LD description generation. Returns the original
+ * string unchanged if it is already at or below `maxLength`.
+ */
+function truncateAtWordBoundary(input: string, maxLength: number): string {
+  const s = input.trim();
+  if (s.length <= maxLength) return s;
+  // Leave room for the ellipsis character.
+  const hardLimit = Math.max(1, maxLength - 1);
+  const slice = s.slice(0, hardLimit);
+  const lastSpace = slice.lastIndexOf(' ');
+  // Use the last space if it's not absurdly early; otherwise fall back to a hard cut.
+  const cutAt = lastSpace > Math.floor(hardLimit * 0.6) ? lastSpace : hardLimit;
+  const trimmed = slice.slice(0, cutAt).replace(/[\s.,;:!?\-–—]+$/u, '');
+  return `${trimmed}…`;
+}
+
+/**
+ * Build a locale-appropriate accessible name for the SVG trend chart.
+ * Combines the heading + period range + start/end values so screen readers
+ * announce a meaningful trend description rather than the generic "Trend chart".
+ */
+function buildTrendChartAriaLabel(
+  locale: JobMarketSnapshotLocale,
+  trendHeading: string,
+  series: ReadonlyArray<{ periodLabel: string; value: number }>,
+): string {
+  if (series.length < 2) return trendHeading;
+  const first = series[0];
+  const last = series[series.length - 1];
+  const from = first.periodLabel;
+  const to = last.periodLabel;
+  const startValue = String(first.value);
+  const endValue = String(last.value);
+  switch (locale) {
+    case 'en':
+      return `${trendHeading}: from ${from} to ${to}, ${startValue} to ${endValue}`;
+    case 'de':
+      return `${trendHeading}: von ${from} bis ${to}, ${startValue} bis ${endValue}`;
+    case 'fr':
+      return `${trendHeading} : de ${from} à ${to}, ${startValue} à ${endValue}`;
+    case 'it':
+    default:
+      return `${trendHeading}: da ${from} a ${to}, da ${startValue} a ${endValue}`;
+  }
+}
+
 function renderSvgTrendChart(
   series: ReadonlyArray<{ periodLabel: string; value: number }>,
   trendEmptyCopy: string,
+  ariaLabel: string,
 ): string {
   if (series.length < 2) {
     return `<p style="${STAT_TILE_WARNING};padding:14px 16px;border-radius:12px;margin:0">${esc(trendEmptyCopy)}</p>`;
@@ -909,19 +958,19 @@ function renderSvgTrendChart(
   const ticks = series
     .map((s, i) => {
       const x = padding + (series.length === 1 ? innerW / 2 : (i * innerW) / (series.length - 1));
-      return `<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="11" fill="#475569">${esc(s.periodLabel)}</text>`;
+      return `<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="11" style="fill:var(--color-chart-label)">${esc(s.periodLabel)}</text>`;
     })
     .join('');
-  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trend chart" style="width:100%;max-width:100%;height:auto;background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px">
-    <polygon points="${areaPoints}" fill="#c7d2fe" fill-opacity="0.5" />
-    <polyline points="${points}" fill="none" stroke="#4338ca" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(ariaLabel)}" style="width:100%;max-width:100%;height:auto;background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px">
+    <polygon points="${areaPoints}" style="fill:var(--color-chart-area)" fill-opacity="0.5" />
+    <polyline points="${points}" fill="none" style="stroke:var(--color-chart-line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     ${series.map((s, i) => {
       const x = padding + (series.length === 1 ? innerW / 2 : (i * innerW) / (series.length - 1));
       const y = padding + innerH - ((s.value - minValue) / range) * innerH;
-      return `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.5" fill="#1e293b" />`;
+      return `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.5" style="fill:var(--color-chart-dot)" />`;
     }).join('')}
-    <text x="${padding}" y="${padding - 10}" font-size="11" fill="#475569">${esc(String(maxValue))}</text>
-    <text x="${padding}" y="${padding + innerH + 0}" font-size="11" fill="#475569" dy="0">${esc(String(minValue))}</text>
+    <text x="${padding}" y="${padding - 10}" font-size="11" style="fill:var(--color-chart-label)">${esc(String(maxValue))}</text>
+    <text x="${padding}" y="${padding + innerH + 0}" font-size="11" style="fill:var(--color-chart-label)" dy="0">${esc(String(minValue))}</text>
     ${ticks}
   </svg>`;
 }
@@ -973,14 +1022,31 @@ function renderStatTile(
   </div>`;
 }
 
+/**
+ * Build a DOM-safe id slug from free-form heading text.
+ * Used to wire `<section aria-labelledby>` to its `<h2 id>`.
+ */
+function toHeadingId(prefix: string, heading: string): string {
+  const slug = heading
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60);
+  return `${prefix}-${slug || 'section'}`;
+}
+
 function renderTopList(
   heading: string,
   items: ReadonlyArray<{ name: string; added: number; url?: string }>,
   suffixLabel: string,
+  idPrefix: 'top-roles' | 'top-employers' = 'top-roles',
 ): string {
+  const headingId = toHeadingId(idPrefix, heading);
   if (items.length === 0) {
-    return `<section style="margin:22px 0 0" aria-labelledby="${esc(heading)}">
-      <h2 style="margin:0 0 10px;${H2_STYLE}">${esc(heading)}</h2>
+    return `<section style="margin:22px 0 0" aria-labelledby="${headingId}">
+      <h2 id="${headingId}" style="margin:0 0 10px;${H2_STYLE}">${esc(heading)}</h2>
       <p style="margin:0;color:var(--color-subtle)">—</p>
     </section>`;
   }
@@ -995,8 +1061,8 @@ function renderTopList(
     </li>`;
     })
     .join('');
-  return `<section style="margin:22px 0 0" aria-labelledby="${esc(heading)}">
-    <h2 style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(heading)}</h2>
+  return `<section style="margin:22px 0 0" aria-labelledby="${headingId}">
+    <h2 id="${headingId}" style="${H2_STYLE};margin-bottom:10px">${esc(heading)}</h2>
     <ol style="margin:0;padding:0;list-style:none">${rows}</ol>
   </section>`;
 }
@@ -1031,7 +1097,7 @@ function renderCityBreakdown(
     })
     .join('');
   return `<section style="margin:22px 0 0" aria-labelledby="cityBreakdown">
-    <h2 id="cityBreakdown" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(heading)}</h2>
+    <h2 id="cityBreakdown" style="${H2_STYLE};margin-bottom:10px">${esc(heading)}</h2>
     <ol style="margin:0;padding:0;list-style:none">${rows}</ol>
   </section>`;
 }
@@ -1091,6 +1157,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       };
     }),
     locale === 'it' ? 'annunci' : locale === 'de' ? 'Anzeigen' : locale === 'fr' ? 'annonces' : 'postings',
+    'top-roles',
   );
 
   const topEmployersList = renderTopList(
@@ -1104,17 +1171,22 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       url: knownSlugs ? (employerCanonicalHref(e.name, knownSlugs) ?? undefined) : undefined,
     })),
     locale === 'it' ? 'nuove offerte' : locale === 'de' ? 'neue Stellen' : locale === 'fr' ? 'nouvelles offres' : 'new openings',
+    'top-employers',
   );
 
   const cityBreakdown = renderCityBreakdown(copy.cityBreakdownHeading, stats.cityBreakdown, locale);
 
   const trendSection = `<section style="margin:24px 0 0" aria-labelledby="trendChart">
-    <h2 id="trendChart" style="${H2_STYLE};font-size:20px;margin-bottom:12px">${esc(copy.trendHeading)}</h2>
-    ${renderSvgTrendChart(stats.trendSeries, copy.trendEmpty)}
+    <h2 id="trendChart" style="${H2_STYLE};margin-bottom:12px">${esc(copy.trendHeading)}</h2>
+    ${renderSvgTrendChart(
+      stats.trendSeries,
+      copy.trendEmpty,
+      buildTrendChartAriaLabel(locale, copy.trendHeading, stats.trendSeries),
+    )}
   </section>`;
 
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
-    <h2 id="methodology" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
+    <h2 id="methodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
   </section>`;
 
@@ -1143,7 +1215,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: h1,
-    description: intro.slice(0, 220),
+    description: truncateAtWordBoundary(intro, 220),
     datePublished: stats.endDate.toISOString(),
     dateModified: `${todayIso}T00:00:00.000Z`,
     author: {
@@ -1239,7 +1311,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   });
 
   const title = `${h1} | Frontaliere Ticino`;
-  const description = intro.length > 180 ? `${intro.slice(0, 177)}...` : intro;
+  const description = truncateAtWordBoundary(intro, 180);
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
 
@@ -1371,7 +1443,7 @@ function renderHubPage(inp: HubPageInputs): string {
     : '';
 
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
-    <h2 id="methodology" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
+    <h2 id="methodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
   </section>`;
 
@@ -1474,7 +1546,7 @@ function renderHubPage(inp: HubPageInputs): string {
   });
 
   const title = `${h1} | Frontaliere Ticino`;
-  const description = copy.hubIntro.length > 180 ? `${copy.hubIntro.slice(0, 177)}...` : copy.hubIntro;
+  const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
     <nav style="${BREADCRUMB_STYLE}">
@@ -2191,11 +2263,16 @@ function renderSectorPage(inp: SectorPageInputs): string {
       : locale === 'fr'
       ? 'offres actives'
       : 'active openings',
+    'top-employers',
   );
 
   const trendSection = `<section style="margin:24px 0 0" aria-labelledby="sectorTrend">
-    <h2 id="sectorTrend" style="${H2_STYLE};font-size:20px;margin-bottom:12px">${esc(copy.trendHeading)}</h2>
-    ${renderSvgTrendChart(stats.trendSeries, copy.trendEmpty)}
+    <h2 id="sectorTrend" style="${H2_STYLE};margin-bottom:12px">${esc(copy.trendHeading)}</h2>
+    ${renderSvgTrendChart(
+      stats.trendSeries,
+      copy.trendEmpty,
+      buildTrendChartAriaLabel(locale, copy.trendHeading, stats.trendSeries),
+    )}
   </section>`;
 
   const sectorHasHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sector);
@@ -2210,7 +2287,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
   </p>`;
 
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="sectorMethodology">
-    <h2 id="sectorMethodology" style="${H2_STYLE};font-size:20px;margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
+    <h2 id="sectorMethodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody(sectorLabel))}</p>
   </section>`;
 

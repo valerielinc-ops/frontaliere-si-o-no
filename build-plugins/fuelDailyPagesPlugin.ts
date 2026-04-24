@@ -650,41 +650,6 @@ interface EditorialAssessment {
   ratingValue: number;
 }
 
-function buildAggregateRatingSchema(ratingValue: number) {
-  return {
-    '@type': 'AggregateRating',
-    ratingValue: ratingValue.toFixed(1),
-    ratingCount: 1,
-    reviewCount: 1,
-    bestRating: 5,
-    worstRating: 1,
-  };
-}
-
-function buildReviewSchema(name: string, body: string, ratingValue: number, today: Date, canonicalUrl: string) {
-  return {
-    '@type': 'Review',
-    name,
-    reviewBody: body,
-    url: canonicalUrl,
-    datePublished: today.toISOString().slice(0, 10),
-    author: {
-      '@type': 'Organization',
-      name: 'Frontaliere Ticino',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Frontaliere Ticino',
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: ratingValue.toFixed(1),
-      bestRating: 5,
-      worstRating: 1,
-    },
-  };
-}
-
 function buildDailyEditorialAssessment(
   locale: FuelDailyLocale,
   fuelLabel: string,
@@ -856,8 +821,8 @@ function renderPage(inp: PageInputs): string {
   }
   const trendHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
+      <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
+      <th scope="col" style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
     </tr></thead>
     <tbody>${trendRows
       .map((r) => `<tr>
@@ -934,14 +899,6 @@ function renderPage(inp: PageInputs): string {
           name: buildFuelCollectionBrand(locale, zoneLabel),
         },
         category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
-        aggregateRating: buildAggregateRatingSchema(editorialAssessment.ratingValue),
-        review: buildReviewSchema(
-          editorialAssessment.heading,
-          editorialAssessment.body,
-          editorialAssessment.ratingValue,
-          today,
-          canonicalUrl,
-        ),
         offers: buildFuelOfferSchema(avg, canonicalUrl, today),
       })
     : '';
@@ -1428,9 +1385,12 @@ function renderStationPage(opts: {
   );
 
   // Alternates
-  const alternatesHtml = (Object.keys(alternates) as FuelDailyLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  const alternatesHtml = [
+    ...(Object.keys(alternates) as FuelDailyLocale[]).map(
+      (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
+    ),
+    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${alternates.it}">`,
+  ].join('\n');
 
   // Sibling stations for related-links block
   const siblingStations = zoneStations
@@ -1497,22 +1457,27 @@ function renderStationPage(opts: {
       name: ctx.brandDisplay,
     },
     category: fuel === 'diesel' ? 'Fuel/Diesel' : 'Fuel/Gasoline',
-    aggregateRating: buildAggregateRatingSchema(editorialAssessment.ratingValue),
-    review: buildReviewSchema(
-      editorialAssessment.heading,
-      editorialAssessment.body,
-      editorialAssessment.ratingValue,
-      today,
-      canonicalUrl,
-    ),
     offers: buildFuelOfferSchema(price, canonicalUrl, today),
   });
 
-  const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
+  // Keep the title compact: the full h1 + date + brand suffix can balloon past
+  // 80 chars and get truncated in SERPs. Trim the h1 on a word boundary to
+  // ~60 chars, strip trailing punctuation, then append the dated brand suffix.
+  const titleSuffix = ` (${dateStamp}) | Frontaliere Ticino`;
+  const titleBudget = 60;
+  const trimmedH1 = h1.length <= titleBudget
+    ? h1
+    : (() => {
+        const slice = h1.slice(0, titleBudget);
+        const lastSpace = slice.lastIndexOf(' ');
+        const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
+        return base.replace(/[\s.,;:\-–—|]+$/u, '');
+      })();
+  const title = `${trimmedH1}${titleSuffix}`;
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
-  <nav style="${BREADCRUMB_STYLE}">
+  <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
     <span> / </span>
     <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
@@ -1788,9 +1753,12 @@ function renderItalianCityPage(opts: {
   const intro = copy.intro(fuelLabel, entry.display, minPriceFmt);
   const paragraph = copy.paragraph(fuelLabel, entry.display, minPriceFmt, nearestZoneLabel);
 
-  const alternatesHtml = (Object.keys(alternates) as FuelDailyLocale[])
-    .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
-    .join('\n');
+  const alternatesHtml = [
+    ...(Object.keys(alternates) as FuelDailyLocale[]).map(
+      (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`,
+    ),
+    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${alternates.it}">`,
+  ].join('\n');
 
   // Table of top stations
   const tableRows = sortedStations.length > 0
@@ -1805,9 +1773,9 @@ function renderItalianCityPage(opts: {
 
   const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableStation)}</th>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableAddress)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tablePrice)}</th>
+      <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(copy.tableStation)}</th>
+      <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(copy.tableAddress)}</th>
+      <th scope="col" style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tablePrice)}</th>
     </tr></thead>
     <tbody>${tableRows}</tbody>
   </table>`;
@@ -1859,7 +1827,7 @@ function renderItalianCityPage(opts: {
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
-  <nav style="${BREADCRUMB_STYLE}">
+  <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
     <span> / </span>
     <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>

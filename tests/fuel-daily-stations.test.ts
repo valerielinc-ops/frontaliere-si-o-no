@@ -468,16 +468,13 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(parsed.offers.shippingDetails?.deliveryTime?.handlingTime?.unitCode).toBe('DAY');
   });
 
-  it('Product JSON-LD includes aggregateRating and visible editorial review', () => {
+  it('Product JSON-LD omits self-serving aggregateRating/review, keeps visible editorial assessment prose (Google structured-data policy Dec 2024)', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
     const m = sample.match(/<script type="application\/ld\+json">({[^<]*"@type":"Product"[^<]*})<\/script>/);
     expect(m).toBeTruthy();
     const parsed = JSON.parse(m![1]);
-    expect(parsed.aggregateRating?.ratingValue).toBeTruthy();
-    expect(parsed.aggregateRating?.reviewCount ?? parsed.aggregateRating?.ratingCount).toBeTruthy();
-    expect(parsed.review?.author?.name).toBe('Frontaliere Ticino');
-    expect(parsed.review?.reviewBody).toMatch(/Frontaliere Ticino/);
-    expect(parsed.review?.reviewRating?.ratingValue).toBeTruthy();
+    expect(parsed.aggregateRating).toBeUndefined();
+    expect(parsed.review).toBeUndefined();
     expect(sample).toMatch(/Recensione editoriale della stazione/);
   });
 
