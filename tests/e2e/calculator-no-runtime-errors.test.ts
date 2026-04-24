@@ -19,11 +19,15 @@ test.describe('Calculator page renders without errors', () => {
     page.on('pageerror', (err) => errors.push(err.message));
 
     await page.goto('/', { waitUntil: 'load' });
-    await page.waitForTimeout(3_000);
 
-    // The segment control tabs in "Analisi Comparativa" should be visible
-    const segmentButtons = page.locator('div[role="group"] button');
-    await expect(segmentButtons.first()).toBeVisible({ timeout: 10_000 });
+    // Wait for a SegmentControl whose buttons contain SVG icons — this is
+    // the ComparisonChart one (lazy-loaded inside ResultsView). InputCard's
+    // SegmentControl also matches div[role="group"] but has no icons, so
+    // counting SVGs alone races against the Recharts chunk download on slow
+    // CI. Scoping to button:has(svg) waits for the icon-bearing segment to
+    // render before we inspect SVG presence.
+    const iconSegmentButton = page.locator('div[role="group"] button:has(svg)').first();
+    await expect(iconSegmentButton).toBeVisible({ timeout: 15_000 });
 
     // Icons inside segment buttons should render as SVGs, not raw text/objects
     const svgIcons = page.locator('div[role="group"] button svg');
