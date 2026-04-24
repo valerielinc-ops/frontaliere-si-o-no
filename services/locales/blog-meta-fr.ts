@@ -2565,6 +2565,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.title': 'Lufthansa supprime le bagage à main gratuit, et cela s\'applique également à Swiss',
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.excerpt': 'À partir du 19 mai 2026, seul un objet personnel inclus dans le tarif de base. Voici ce qui change pour les passagers',
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.title': 'Braquage d\'une bijouterie à Tavernola : l\'assaut et les recherches',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.excerpt': 'Braquage à main armée à Tavernola : trois bandits ont semé la panique et ont volé des bijoux au centre commercial Lario.',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaFr;

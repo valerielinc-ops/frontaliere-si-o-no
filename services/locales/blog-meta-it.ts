@@ -2565,6 +2565,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.title': 'Lufthansa elimina il bagaglio a mano gratuito, e vale anche per Swiss',
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.excerpt': 'Dal 19 maggio 2026, solo un oggetto personale incluso nella tariffa base. Ecco cosa cambia per i passeggeri',
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.title': 'Banditi assaltano gioielleria a Tavernola: l\'assalto e le ricerche',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.excerpt': 'Rapina a mano armata a Tavernola: tre banditi hanno seminato il panico e hanno prelevato gioielli dal centro commerciale Lario.',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaIt;

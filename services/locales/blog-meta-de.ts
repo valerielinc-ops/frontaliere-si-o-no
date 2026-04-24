@@ -2565,6 +2565,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.title': 'Lufthansa entfernt kostenloses Handgepäck, gilt auch für Swiss',
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.excerpt': 'Ab dem 19. Mai 2026 ist nur noch ein persönlicher Gegenstand im Basistarif inbegriffen. Hier erfahren Sie, was sich für die Passagiere ändert',
     'blog.article.lufthansa-bagaglio-gratuito-eliminato.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.title': 'Überfall auf Juweliergeschäft in Tavernola: der Überfall und die Fahndung',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.excerpt': 'Bewaffneter Raubüberfall in Tavernola: Drei Täter haben Panik verbreitet und Schmuck aus dem Einkaufszentrum Lario gestohlen.',
+    'blog.article.como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaDe;

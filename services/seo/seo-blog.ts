@@ -11660,6 +11660,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano': {
+    title: 'Banditi assaltano gioielleria a | Frontaliere Ticino',
+    description: 'Rapina a mano armata a Tavernola: tre banditi hanno seminato il panico e hanno prelevato gioielli dal centro commerciale Lario. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, banditi, assaltano, gioielleria, tavernola',
+    ogTitle: 'Banditi assaltano gioielleria a Tavernola: l\'assalto e le',
+    ogDescription: 'Rapina a mano armata a Tavernola: tre banditi hanno seminato il panico e hanno prelevato gioielli dal centro commerciale Lario.',
+    canonicalPath: '/articoli-frontaliere/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banditi assaltano gioielleria a Tavernola: l'assalto e le ricerche",
+      "description": "Rapina a mano armata a Tavernola: tre banditi hanno seminato il panico e hanno prelevato gioielli dal centro commerciale Lario. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Max 125 chars"
+      },
+      "datePublished": "2026-04-24T04:08:30+00:00",
+      "dateModified": "2026-04-24T04:08:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

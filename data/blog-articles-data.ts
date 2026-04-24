@@ -6965,4 +6965,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/lufthansa-bagaglio-gratuito-eliminato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano',
+ category: 'novita',
+ date: '2026-04-24T04:08:29.991Z',
+ image: '/images/blog/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.jpg',
+ hasCalculator: true,
+ },
 ];
