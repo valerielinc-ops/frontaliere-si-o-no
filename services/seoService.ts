@@ -590,6 +590,18 @@ function applySerpTitleDescriptionVariant(
  const intent = getSerpIntentLabel(path, locale);
  const cleanTitle = title.replace(/\s+\|\s+Frontaliere Ticino$/i, '').trim();
 
+ /**
+  * Truncate a title segment to `maxLen` characters, stripping any dangling
+  * ` | X` pipe separator that would produce a malformed title like
+  * "2200+ Offerte di Lavoro Ticino 2026 | A | simulazione | 2026".
+  * The `| A |` arises when the cut lands mid-way through a ` | Foo` part.
+  */
+ function safeTruncate(s: string, maxLen: number): string {
+   const truncated = s.slice(0, maxLen).trimEnd();
+   // Strip any trailing incomplete ` | <partial>` segment (e.g. "| A" or "| Ag")
+   return truncated.replace(/\s*\|\s*[^|]*$/, '').trimEnd();
+ }
+
  if (serpExperimentState.variant === 'year_intent') {
  const suffix = ` ${year} | ${intent}`;
  let experimentTitle: string;
@@ -597,7 +609,8 @@ function applySerpTitleDescriptionVariant(
  experimentTitle = `${cleanTitle}${suffix}`;
  } else {
  const maxClean = MAX_TITLE_LENGTH - suffix.length;
- experimentTitle = maxClean >= 10 ? `${cleanTitle.slice(0, maxClean).trimEnd()}${suffix}` : title;
+ const truncatedClean = maxClean >= 10 ? safeTruncate(cleanTitle, maxClean) : '';
+ experimentTitle = truncatedClean.length >= 10 ? `${truncatedClean}${suffix}` : title;
  }
  const experimentDesc = `${description} Aggiornato ${year} con focus: ${intent}.`;
  return {
@@ -614,7 +627,8 @@ function applySerpTitleDescriptionVariant(
  experimentTitle = `${cleanTitle}${suffix}`;
  } else {
  const maxClean = MAX_TITLE_LENGTH - suffix.length;
- experimentTitle = maxClean >= 10 ? `${cleanTitle.slice(0, maxClean).trimEnd()}${suffix}` : title;
+ const truncatedClean = maxClean >= 10 ? safeTruncate(cleanTitle, maxClean) : '';
+ experimentTitle = truncatedClean.length >= 10 ? `${truncatedClean}${suffix}` : title;
  }
  const experimentDesc = `${description} Simulazione aggiornata ${year} per ${intent}.`;
  return {
