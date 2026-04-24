@@ -2607,6 +2607,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Belgischer Fahrer fährt 20 Stunden am Stück: Polizei Thurgau greift ein',
     'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Ein belgischer Fahrer wurde gestoppt, nachdem er fast 20 Stunden am Stück gefahren war. Die Polizei des Kantons Thurgau hat Maßnahmen ergriffen.',
     'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Lkw-Fahrer macht Pause am Luganersee',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel: 300 Mitarbeiter im Homeoffice wegen Brandschutzstörung',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Etwa 300 Mitarbeiter des Bundesamts für Statistik in Neuchâtel arbeiten aufgrund einer Störung der Brandschutzanlage im Homeoffice.',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Gebäude des Bundesamts für Statistik in Neuchâtel',
 };
 
 export default blogMetaDe;

@@ -2607,6 +2607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Autista belga guida 20 ore di fila: polizia Thurgau interviene',
     'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti.',
     'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Autista di camion in pausa vicino al Lago di Lugano',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel: 300 dipendenti in telelavoro per guasto antincendio',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Circa 300 dipendenti dell\'Ufficio federale di statistica di Neuchâtel sono in telelavoro a causa di un malfunzionamento del sistema antincendio.',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Edificio dell\'Ufficio federale di statistica a Neuchâtel',
 };
 
 export default blogMetaIt;

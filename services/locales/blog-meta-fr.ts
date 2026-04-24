@@ -2607,6 +2607,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Un chauffeur belge conduit pendant 20 heures d\'affilée : la police de Thurgovie intervient',
     'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Un chauffeur belge a été arrêté après avoir conduit près de 20 heures d\'affilée. La police du canton de Thurgovie a pris des mesures.',
     'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Camionneur se reposant près du lac de Lugano',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel : 300 employés en télétravail à cause d\'une panne du système anti-incendie',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Environ 300 employés de l\'Office fédéral de la statistique de Neuchâtel sont en télétravail en raison d\'un dysfonctionnement du système anti-incendie.',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Bâtiment de l\'Office fédéral de la statistique à Neuchâtel',
 };
 
 export default blogMetaFr;

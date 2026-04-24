@@ -2607,6 +2607,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Belgian driver caught after 20 hours of non-stop driving: Thurgau police intervene',
     'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'A Belgian driver was stopped after driving for nearly 20 hours straight. The police of the Canton of Thurgau took action.',
     'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Truck driver resting by Lake Lugano',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel: 300 employees in telework due to fire system malfunction',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Around 300 employees of the Federal Statistical Office in Neuchâtel are working remotely due to a malfunction in the fire system.',
+    'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Federal Statistical Office building in Neuchâtel',
 };
 
 export default blogMetaEn;

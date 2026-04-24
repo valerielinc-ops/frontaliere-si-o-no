@@ -12074,6 +12074,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ust-neuchatel-telelavoro-300-dipendenti': {
+    title: 'UST Neuchâtel: 300 dipendenti in | Frontaliere Ticino',
+    description: 'Circa 300 dipendenti dell’Ufficio federale di statistica di Neuchâtel sono in telelavoro a causa di un malfunzionamento del sistema antincendio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, neuch, dipendenti, telelavoro, guasto',
+    ogTitle: 'UST Neuchâtel: 300 dipendenti in telelavoro | Frontaliere',
+    ogDescription: 'Circa 300 dipendenti dell’Ufficio federale di statistica di Neuchâtel sono in telelavoro a causa di un malfunzionamento del sistema antincendio.',
+    canonicalPath: '/articoli-frontaliere/ust-neuchatel-telelavoro-300-dipendenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UST Neuchâtel: 300 dipendenti in telelavoro a causa di un malfunzionamento del sistema antincendio",
+      "description": "Circa 300 dipendenti dell’Ufficio federale di statistica di Neuchâtel sono in telelavoro a causa di un malfunzionamento del sistema antincendio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ust-neuchatel-telelavoro-300-dipendenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'Ufficio federale di statistica a Neuchâtel"
+      },
+      "datePublished": "2026-04-24T22:24:45+00:00",
+      "dateModified": "2026-04-24T22:24:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ust-neuchatel-telelavoro-300-dipendenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7070,4 +7070,11 @@ export const ARTICLES = [
  image: '/images/blog/autista-belga-20-ore-thurgau-intervento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ust-neuchatel-telelavoro-300-dipendenti',
+ category: 'novita',
+ date: '2026-04-24T22:24:45.436Z',
+ image: '/images/blog/ust-neuchatel-telelavoro-300-dipendenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
