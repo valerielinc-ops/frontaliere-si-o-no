@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-04-24T09:58:39.499Z",
+  "assembledAt": "2026-04-24T21:25:00.566Z",
   "jobs": [
     {
       "id": "coopers-775622e91e4e",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T09:58:36.816Z",
+      "crawledAt": "2026-04-24T21:24:58.007Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -74,6 +74,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T21:30:00.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -119,7 +120,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-24T09:58:35.482Z",
+      "crawledAt": "2026-04-24T21:24:56.729Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
