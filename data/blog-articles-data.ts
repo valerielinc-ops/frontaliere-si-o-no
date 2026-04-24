@@ -6995,4 +6995,20 @@ export const ARTICLES: Article[] = [
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
  },
+ {
+ id: 'g-bewilligung-leitfaden-grenzgaenger-2026',
+ category: 'pratico',
+ date: '2026-04-24',
+ updatedAt: '2026-04-24',
+ image: '/images/places/lac-lugano.webp',
+ hasCalculator: true,
+ },
+ {
+ id: 'quellensteuer-schweiz-2026-hub',
+ category: 'fiscale',
+ date: '2026-04-24',
+ updatedAt: '2026-04-24',
+ image: '/images/places/bellinzona.webp',
+ hasCalculator: true,
+ },
 ];

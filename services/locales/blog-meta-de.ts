@@ -2577,6 +2577,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'Aufenthaltsbewilligung B und Quellensteuer 2026',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Vollständiger Steuerleitfaden für B-Bewilligungsinhaber im Tessin: Quellensteuertarife 2026, Abzüge, die 120 000-Franken-Schwelle für die nachträgliche ordentliche Veranlagung (NOV) und Vergleich mit dem Grenzgängerstatus G.',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Schreibtisch mit Lohnausweis, Steuererklärung und Blick auf den Luganersee — Symbol der Quellensteuer für B-Bewilligungsinhaber im Tessin.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'G-Bewilligung 2026: Komplettleitfaden für Grenzgänger',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Antrag, Kosten, Pflichten, Telearbeit, Quellensteuer: alles, was Grenzgänger 2026 zur G-Bewilligung wissen müssen — mit Vergleich zu B/L/C und Checkliste.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Blick auf den Luganersee an der italienisch-schweizerischen Grenze, Symbol für die Grenzgänger mit G-Bewilligung im Tessin.',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Quellensteuer Schweiz 2026: Vergleich aller Grenzkantone',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Quellensteuer 2026 in der Schweiz: Sätze, Tarife und NOV-Schwelle für Tessin, Graubünden, Wallis, Bern und Zürich. Hub-Vergleich für Grenzgänger mit Permit B/G.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Burg in Bellinzona, Symbol der Schweizer Kantone und ihrer Quellensteuer-Tarife 2026.',
 };
 
 export default blogMetaDe;

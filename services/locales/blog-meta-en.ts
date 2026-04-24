@@ -2577,6 +2577,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'B residence permit and withholding tax 2026: complete tax guide',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Complete tax guide for B permit holders in Ticino: 2026 withholding tax tariffs, deductions, the CHF 120,000 threshold for retrospective ordinary assessment (NOV) and comparison with the G cross-border status.',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Desk with salary statement, tax return and view of Lake Lugano — symbol of withholding tax for B permit holders in Ticino.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'G permit 2026: complete guide for cross-border workers',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Application, costs, duties, telework, withholding tax: everything cross-border workers need to know about the Swiss G permit in 2026, with B/L/C comparison and checklist.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Lake Lugano view at the Italy-Switzerland border, symbol of cross-border workers holding the G permit in Ticino.',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Switzerland Withholding Tax 2026: All Border Cantons Compared',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Swiss withholding tax 2026: rates, tariffs and NOV threshold for Ticino, Graubünden, Valais, Bern and Zurich. Comparison hub for cross-border workers with B/G permits.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Castle in Bellinzona, symbol of the Swiss cantons and their 2026 withholding tax rates.',
 };
 
 export default blogMetaEn;
