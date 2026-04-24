@@ -107,14 +107,17 @@ describe('truncateTitleCore', () => {
 
 describe('composeJobPageTitle', () => {
  const SUFFIX = ' | Frontaliere Ticino';
- const MAX = 60;
+ // Ceiling raised from 60 → 70 so long jobTitle + company + city triplets
+ // keep the city disambiguator. Google still accepts <70-char titles in
+ // SERP without rewriting.
+ const MAX = 70;
 
  it('always appends the fixed brand suffix', () => {
  const out = composeJobPageTitle('Dev', 'Acme', 'Lugano', 'it');
  expect(out.endsWith(SUFFIX)).toBe(true);
  });
 
- it('keeps total length within the 60-char cap', () => {
+ it('keeps total length within the 70-char cap', () => {
  const jobTitle = 'Very Long Senior Software Engineer Position';
  const company = 'International Consulting Group AG';
  const out = composeJobPageTitle(jobTitle, company, 'Lugano', 'it');
@@ -130,6 +133,20 @@ describe('composeJobPageTitle', () => {
  const a = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it');
  const b = composeJobPageTitle('Stage', 'Lidl', 'Bellinzona', 'it');
  expect(a).not.toBe(b);
+ });
+
+ it('preserves the city even when the core exceeds the budget', () => {
+ // Long title + company combo that forced the previous 60-char cap to drop
+ // the trailing city, collapsing multi-sede jobs into one <title>.
+ const jobTitle = 'Impiegato/a amministrativo/a';
+ const company = 'EOC – Ente Ospedaliero Cantonale';
+ const lugano = composeJobPageTitle(jobTitle, company, 'Lugano', 'it');
+ const bellinzona = composeJobPageTitle(jobTitle, company, 'Bellinzona', 'it');
+ const novaggio = composeJobPageTitle(jobTitle, company, 'Novaggio', 'it');
+ expect(lugano).toContain('Lugano');
+ expect(bellinzona).toContain('Bellinzona');
+ expect(novaggio).toContain('Novaggio');
+ expect(new Set([lugano, bellinzona, novaggio]).size).toBe(3);
  });
 
  it('does not repeat the brand suffix twice', () => {

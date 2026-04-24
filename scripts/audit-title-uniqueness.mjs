@@ -42,6 +42,30 @@ function inferLocale(relPath) {
 }
 
 /**
+ * Canonicalize a dist-relative HTML path so that `foo.html` and `foo/index.html`
+ * — which GitHub Pages serves as the SAME logical URL — collapse to one key.
+ *
+ * Both forms emit identical `<title>`s by design (the build writes the flat
+ * `.html` and the nested `index.html` from the same source), so counting them
+ * separately double-reports every page. This audit is about LOGICAL URL
+ * uniqueness, not filesystem uniqueness.
+ *
+ * `foo/index.html` → `foo/`
+ * `foo.html`       → `foo/`
+ * `index.html`     → `/`
+ *
+ * @param {string} relPath filesystem-relative path under dist/ using `path.sep`.
+ * @returns {string} canonical URL-like key (forward slashes).
+ */
+function canonicalizePath(relPath) {
+  const posix = relPath.split(path.sep).join('/');
+  if (posix === 'index.html') return '/';
+  if (posix.endsWith('/index.html')) return posix.slice(0, -'index.html'.length);
+  if (posix.endsWith('.html')) return `${posix.slice(0, -'.html'.length)}/`;
+  return posix;
+}
+
+/**
  * Recursively walk `dir` and yield absolute file paths ending in `.html`.
  */
 function* walkHtmlFiles(dir) {
@@ -83,13 +107,39 @@ function extractHeadTitle(html) {
     .trim();
 }
 
+/**
+ * Extract the absolute canonical URL from `<link rel="canonical">`.
+ * Returns null if absent.
+ *
+ * Bridge/alias pages (multi-locale slug variants, expired-job soft landings)
+ * all legitimately share the same `<title>` because they all resolve — via
+ * their rel=canonical — to the SAME canonical URL. Google collapses them
+ * into one indexed page via the canonical signal, so counting them as
+ * duplicate <title> collisions is a false positive.
+ */
+function extractCanonical(html) {
+  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
+  const scope = headMatch ? headMatch[1] : html;
+  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(scope);
+  if (m) return m[1].trim();
+  // Alternate attribute order: href before rel.
+  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(scope);
+  return m2 ? m2[1].trim() : null;
+}
+
 function main() {
   if (!fs.existsSync(DIST_DIR)) {
     console.error(`[audit:title-uniqueness] dist/ not found at ${DIST_DIR}. Run a build first.`);
     process.exit(2);
   }
 
-  /** Map<locale, Map<title, string[] paths>> */
+  /** Map<locale, Map<title, Map<canonicalKey, string[] relPaths>>>
+   * `canonicalKey` is, in priority order:
+   *   1. the absolute URL from `<link rel="canonical">` (bridge/alias pages
+   *      collapse via this signal — Google treats them as one),
+   *   2. the URL-equivalent of the filesystem path (`foo.html` and
+   *      `foo/index.html` collapse to `foo/`).
+   */
   const titlesByLocale = new Map();
   let totalPages = 0;
   let missingTitles = 0;
@@ -97,6 +147,7 @@ function main() {
   for (const abs of walkHtmlFiles(DIST_DIR)) {
     const rel = path.relative(DIST_DIR, abs);
     const locale = inferLocale(rel);
+    const fsCanonical = canonicalizePath(rel);
 
     let html;
     try {
@@ -112,33 +163,50 @@ function main() {
       continue;
     }
 
+    const canonicalUrl = extractCanonical(html);
+    const canonicalKey = canonicalUrl ?? fsCanonical;
+
     if (!titlesByLocale.has(locale)) {
       titlesByLocale.set(locale, new Map());
     }
     const bucket = titlesByLocale.get(locale);
     if (!bucket.has(title)) {
-      bucket.set(title, []);
+      bucket.set(title, new Map());
     }
-    bucket.get(title).push(rel);
+    const byCanonical = bucket.get(title);
+    if (!byCanonical.has(canonicalKey)) {
+      byCanonical.set(canonicalKey, []);
+    }
+    byCanonical.get(canonicalKey).push(rel);
   }
 
-  // Tally collisions per locale.
+  // Tally collisions per locale — only count TRUE duplicates after collapsing
+  // `foo.html` + `foo/index.html` pairs into one canonical URL.
   const collisionsByLocale = new Map();
   for (const [locale, bucket] of titlesByLocale.entries()) {
     const dups = [];
-    for (const [title, paths] of bucket.entries()) {
-      if (paths.length > 1) dups.push({ title, paths });
+    for (const [title, byCanonical] of bucket.entries()) {
+      if (byCanonical.size > 1) {
+        // Each canonical URL keeps one representative relPath for reporting.
+        const canonicalPaths = Array.from(byCanonical.entries()).map(([canonical, relPaths]) => ({
+          canonical,
+          relPaths,
+        }));
+        dups.push({ title, canonicalPaths });
+      }
     }
     if (dups.length > 0) collisionsByLocale.set(locale, dups);
   }
 
-  // Summary — always print, even when clean.
+  // Summary — always print, even when clean. Page counts are CANONICAL pages
+  // (the .html + index.html pair counts once).
   const summary = Array.from(titlesByLocale.entries())
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([locale, bucket]) => {
       const duplicates = collisionsByLocale.get(locale) ?? [];
-      const dupPages = duplicates.reduce((acc, d) => acc + d.paths.length, 0);
-      return `  ${locale}: ${bucket.size} unique titles across ${Array.from(bucket.values()).reduce((a, p) => a + p.length, 0)} pages (${duplicates.length} duplicate titles, ${dupPages} affected pages)`;
+      const dupPages = duplicates.reduce((acc, d) => acc + d.canonicalPaths.length, 0);
+      const totalCanonicalPages = Array.from(bucket.values()).reduce((a, byCanonical) => a + byCanonical.size, 0);
+      return `  ${locale}: ${bucket.size} unique titles across ${totalCanonicalPages} canonical pages (${duplicates.length} duplicate titles, ${dupPages} affected canonical pages)`;
     })
     .join('\n');
 
@@ -156,8 +224,8 @@ function main() {
   // Fail with first 20 collisions on stderr.
   const reported = [];
   for (const [locale, dups] of collisionsByLocale.entries()) {
-    for (const { title, paths } of dups) {
-      reported.push({ locale, title, paths });
+    for (const { title, canonicalPaths } of dups) {
+      reported.push({ locale, title, canonicalPaths });
       if (reported.length >= MAX_COLLISIONS_REPORTED) break;
     }
     if (reported.length >= MAX_COLLISIONS_REPORTED) break;
@@ -167,13 +235,13 @@ function main() {
     `\n[audit:title-uniqueness] FAIL — duplicate <title> values detected.\n` +
     `First ${reported.length} collisions:\n`,
   );
-  for (const { locale, title, paths } of reported) {
+  for (const { locale, title, canonicalPaths } of reported) {
     process.stderr.write(`  [${locale}] ${title}\n`);
-    for (const p of paths.slice(0, 5)) {
-      process.stderr.write(`      ${p}\n`);
+    for (const { canonical } of canonicalPaths.slice(0, 5)) {
+      process.stderr.write(`      ${canonical}\n`);
     }
-    if (paths.length > 5) {
-      process.stderr.write(`      …and ${paths.length - 5} more\n`);
+    if (canonicalPaths.length > 5) {
+      process.stderr.write(`      …and ${canonicalPaths.length - 5} more\n`);
     }
   }
 
