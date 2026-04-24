@@ -1,0 +1,163 @@
+#!/usr/bin/env node
+/**
+ * audit-page-weight.mjs
+ *
+ * Walk `dist/**\/*.html`, measure page weight (HTML + inline JS + inline CSS),
+ * and fail (exit 1) if any page:
+ *   - HTML exceeds 200 KB, OR
+ *   - has `<img>` tags missing `width`, `height`, or `loading` attributes.
+ *
+ * Purpose: catch SEO-slow-page regressions caught by Semrush (2026-04-24 audit
+ * flagged 6 pages as slow). This acts as a hard gate in the prepush/CI loop
+ * alongside the Lighthouse CI workflow.
+ *
+ * Usage:
+ *   node scripts/audit-page-weight.mjs            # fail on first offender
+ *   node scripts/audit-page-weight.mjs --summary  # list all offenders
+ *   node scripts/audit-page-weight.mjs --json     # emit JSON report
+ */
+
+import { readdir, readFile, stat } from 'node:fs/promises';
+import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..');
+const DIST = join(ROOT, 'dist');
+
+const MAX_HTML_BYTES = 200 * 1024; // 200 KB per CLAUDE.md non-negotiable perf gate.
+
+const args = new Set(process.argv.slice(2));
+const MODE_SUMMARY = args.has('--summary');
+const MODE_JSON = args.has('--json');
+
+/** @param {string} dir */
+async function walk(dir) {
+  /** @type {string[]} */
+  const out = [];
+  let entries;
+  try {
+    entries = await readdir(dir, { withFileTypes: true });
+  } catch (err) {
+    if (/** @type {NodeJS.ErrnoException} */ (err).code === 'ENOENT') return out;
+    throw err;
+  }
+  for (const e of entries) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) {
+      out.push(...(await walk(p)));
+    } else if (e.isFile() && p.endsWith('.html')) {
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+/**
+ * Inspect every <img ...> tag in the HTML. Return attribute-compliance issues.
+ * Required attrs per CLAUDE.md SEO section: width, height, loading (or
+ * `fetchpriority="high"` for above-the-fold LCP hero images).
+ *
+ * @param {string} html
+ * @returns {{ tag: string, missing: string[] }[]}
+ */
+function findImgIssues(html) {
+  const issues = [];
+  const imgRe = /<img\b([^>]*)>/gi;
+  let m;
+  while ((m = imgRe.exec(html)) !== null) {
+    const attrs = m[1];
+    const missing = [];
+    if (!/\bwidth\s*=/.test(attrs)) missing.push('width');
+    if (!/\bheight\s*=/.test(attrs)) missing.push('height');
+    // loading="lazy" OR fetchpriority="high" satisfies the rule (LCP exemption).
+    const hasLoading = /\bloading\s*=/.test(attrs);
+    const hasFetchPri = /\bfetchpriority\s*=\s*["']?high/i.test(attrs);
+    if (!hasLoading && !hasFetchPri) missing.push('loading|fetchpriority');
+    if (missing.length > 0) {
+      issues.push({ tag: m[0].slice(0, 160), missing });
+    }
+  }
+  return issues;
+}
+
+/**
+ * Measure inline script + style bytes (sum of their contents, not counting tags).
+ * @param {string} html
+ */
+function inlineBreakdown(html) {
+  let inlineJs = 0;
+  const scriptRe = /<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = scriptRe.exec(html)) !== null) inlineJs += Buffer.byteLength(m[1], 'utf8');
+  let inlineCss = 0;
+  const styleRe = /<style\b[^>]*>([\s\S]*?)<\/style>/gi;
+  while ((m = styleRe.exec(html)) !== null) inlineCss += Buffer.byteLength(m[1], 'utf8');
+  return { inlineJs, inlineCss };
+}
+
+async function main() {
+  const stats = await stat(DIST).catch(() => null);
+  if (!stats || !stats.isDirectory()) {
+    console.error(`audit-page-weight: dist/ not found at ${DIST}. Run a build first.`);
+    process.exit(2);
+  }
+
+  const files = await walk(DIST);
+  /** @type {{file:string, bytes:number, inlineJs:number, inlineCss:number, imgIssues:number}[]} */
+  const report = [];
+  const offenders = { oversized: /** @type {string[]} */ ([]), imgMissingAttrs: /** @type {{file:string, issues:{tag:string,missing:string[]}[]}[]} */ ([]) };
+
+  for (const file of files) {
+    const html = await readFile(file, 'utf8');
+    const bytes = Buffer.byteLength(html, 'utf8');
+    const { inlineJs, inlineCss } = inlineBreakdown(html);
+    const imgIssues = findImgIssues(html);
+    const rel = relative(ROOT, file);
+    report.push({ file: rel, bytes, inlineJs, inlineCss, imgIssues: imgIssues.length });
+    if (bytes > MAX_HTML_BYTES) offenders.oversized.push(`${rel} (${(bytes / 1024).toFixed(1)} KB)`);
+    if (imgIssues.length > 0) offenders.imgMissingAttrs.push({ file: rel, issues: imgIssues });
+  }
+
+  if (MODE_JSON) {
+    console.log(JSON.stringify({ total: report.length, maxHtmlBytes: MAX_HTML_BYTES, offenders, report }, null, 2));
+  } else {
+    const topTen = [...report].sort((a, b) => b.bytes - a.bytes).slice(0, 10);
+    console.log(`audit-page-weight: scanned ${report.length} HTML files in dist/`);
+    console.log(`Top 10 heaviest pages:`);
+    for (const r of topTen) {
+      console.log(`  ${(r.bytes / 1024).toFixed(1).padStart(7)} KB  ${r.file}  (inlineJs=${r.inlineJs}B, inlineCss=${r.inlineCss}B)`);
+    }
+  }
+
+  const hasOffenders = offenders.oversized.length > 0 || offenders.imgMissingAttrs.length > 0;
+  if (hasOffenders) {
+    if (offenders.oversized.length > 0) {
+      console.error(`\nFAIL: ${offenders.oversized.length} page(s) exceed ${MAX_HTML_BYTES / 1024} KB HTML budget:`);
+      const show = MODE_SUMMARY ? offenders.oversized : offenders.oversized.slice(0, 5);
+      for (const o of show) console.error(`  - ${o}`);
+      if (!MODE_SUMMARY && offenders.oversized.length > 5) {
+        console.error(`  ... and ${offenders.oversized.length - 5} more (rerun with --summary)`);
+      }
+    }
+    if (offenders.imgMissingAttrs.length > 0) {
+      console.error(`\nFAIL: ${offenders.imgMissingAttrs.length} page(s) have <img> tags missing width/height/loading:`);
+      const show = MODE_SUMMARY ? offenders.imgMissingAttrs : offenders.imgMissingAttrs.slice(0, 5);
+      for (const o of show) {
+        console.error(`  - ${o.file} (${o.issues.length} tag(s))`);
+        for (const i of o.issues.slice(0, 2)) {
+          console.error(`      missing=[${i.missing.join(',')}]  ${i.tag}`);
+        }
+      }
+    }
+    process.exit(1);
+  }
+
+  console.log(`\nOK: all ${report.length} pages within budget and <img> attrs present.`);
+}
+
+main().catch(err => {
+  console.error('audit-page-weight crashed:', err);
+  process.exit(2);
+});
