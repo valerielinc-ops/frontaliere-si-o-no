@@ -357,25 +357,33 @@ function renderPage(opts: {
   const t = (key: string, fallback = ''): string => strings[key] || fallback;
 
   // Alternates: only link to other locales that actually have the same slug
-  // in the clusters set (avoids fake hreflang). Always emit x-default
-  // pointing at the IT variant (or the current locale if IT isn't present).
+  // in the clusters set (avoids fake hreflang). audit-hreflang requires
+  // either ZERO entries or the full 4-locale cluster + x-default. If some
+  // locales are missing a translation, skip hreflang entirely and rely on
+  // <link rel="canonical"> to tell Google this is a single-locale page.
   const itSet = knownSlugsByLocale.get('it');
   const itHasSlug = Boolean(itSet && itSet.has(cluster.canonicalSlug));
+  const availableAlts = ORPHAN_LANDING_LOCALES.filter((alt) => {
+    if (alt === locale) return true;
+    const set = knownSlugsByLocale.get(alt);
+    return Boolean(set && set.has(cluster.canonicalSlug));
+  });
+  const hasFullCluster = ORPHAN_LANDING_LOCALES.every((alt) => availableAlts.includes(alt));
   const xDefaultHref = itHasSlug
     ? `${BASE_URL}${buildOrphanLandingPath('it', cluster.canonicalSlug)}`
     : canonicalUrl;
-  const alternates = [
-    ...ORPHAN_LANDING_LOCALES.map((alt) => {
-      if (alt === locale) {
-        return `    <link rel="alternate" hreflang="${alt}" href="${canonicalUrl}">`;
-      }
-      const set = knownSlugsByLocale.get(alt);
-      if (!set || !set.has(cluster.canonicalSlug)) return '';
-      const altPath = buildOrphanLandingPath(alt, cluster.canonicalSlug);
-      return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
-    }).filter(Boolean),
-    `    <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
-  ].join('\n');
+  const alternates = hasFullCluster
+    ? [
+      ...ORPHAN_LANDING_LOCALES.map((alt) => {
+        if (alt === locale) {
+          return `    <link rel="alternate" hreflang="${alt}" href="${canonicalUrl}">`;
+        }
+        const altPath = buildOrphanLandingPath(alt, cluster.canonicalSlug);
+        return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
+      }),
+      `    <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
+    ].join('\n')
+    : '';
 
   const jobBoardRoot: Record<OrphanLandingLocale, string> = {
     it: '/cerca-lavoro-ticino/',

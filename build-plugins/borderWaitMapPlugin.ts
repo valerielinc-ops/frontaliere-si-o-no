@@ -347,10 +347,19 @@ function renderPage(opts: {
   const urlPath = `${BORDER_WAIT_LOCALE_PREFIX[locale]}/${MAP_PATH[locale]}/`.replace(/\/+/g, '/');
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  const alternates = BORDER_WAIT_LOCALES.map((alt) => {
+  // Build the 4-locale hreflang cluster plus x-default → IT target
+  // (audit-hreflang requires ≥5 entries on every page with hreflang).
+  const borderWaitAltPairs = BORDER_WAIT_LOCALES.map((alt) => {
     const altPath = `${BORDER_WAIT_LOCALE_PREFIX[alt]}/${MAP_PATH[alt]}/`.replace(/\/+/g, '/');
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
-  }).join('\n');
+    return { lang: alt, href: `${BASE_URL}${altPath}` };
+  });
+  const borderWaitXDefault = borderWaitAltPairs.find((p) => p.lang === 'it')?.href
+    ?? borderWaitAltPairs[0]?.href
+    ?? '';
+  const alternates = [
+    ...borderWaitAltPairs.map((p) => `    <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
+    ...(borderWaitXDefault ? [`    <link rel="alternate" hreflang="x-default" href="${borderWaitXDefault}">`] : []),
+  ].join('\n');
 
   const hubUrl = buildHubUrl(locale);
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;

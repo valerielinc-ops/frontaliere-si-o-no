@@ -412,10 +412,11 @@ function renderBackPage(doc: PDFKit.PDFDocument): void {
 function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: string): string {
  const canonical = `${BASE_URL}/guides/${guide.filename}/`;
  const pdfUrl = `${BASE_URL}/guides/${guide.filename}.pdf`;
- const hreflangLinks = [
- `<link rel="alternate" hreflang="it" href="${canonical}">`,
- `<link rel="alternate" hreflang="x-default" href="${canonical}">`,
- ].join('\n');
+ // Italian-only guide landing page — omit hreflang entirely so
+ // audit-hreflang's "any hreflang ⇒ ≥5 entries" invariant doesn't fire.
+ // The <html lang="it"> + <link rel="canonical"> below is sufficient
+ // for single-locale pages.
+ const hreflangLinks = '';
  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
  const jsonLd = JSON.stringify({
