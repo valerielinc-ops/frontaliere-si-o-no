@@ -942,7 +942,6 @@ function renderPage(inp: PageInputs): string {
       trendRows.map((r) => ({ date: r.date, value: r.price })),
       {
         ariaLabel,
-        height: 110,
         formatValue: (v) => formatPrice(v, locale),
       },
     );
