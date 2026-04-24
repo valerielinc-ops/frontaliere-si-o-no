@@ -1,18 +1,52 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-04-24T09:52:04.043Z",
-  "total": 5,
+  "generatedAt": "2026-04-24T21:18:29.706Z",
+  "total": 6,
   "newCount": 1,
-  "updatedCount": 4,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20904,
-  "avgDurationMs": 20904,
+  "durationMs": 19001,
+  "avgDurationMs": 19001,
   "durationHistory": [
-    20904
+    19001
   ],
   "newJobs": [
+    {
+      "title": "Data Scientist (w/m)",
+      "slug": "data-scientist-w-m-banca-cler",
+      "url": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/data-scientist-w-m-2656",
+      "applyUrl": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/data-scientist-w-m-2656",
+      "company": "Banca Cler",
+      "companyKey": "banca-cler",
+      "companyDomain": "cler.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "Ticino",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "it",
+      "sector": "Banca / Servizi finanziari",
+      "department": "Finanzen und Risiko",
+      "source": "cler-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-24",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "crawledAt": "2026-04-24T21:18:12.463Z",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Kundenberaterin Basis Bern (w/m)",
       "slug": "kundenberaterin-basis-bern-w-m-banca-cler",
@@ -36,17 +70,24 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-24T09:51:45.190Z",
-      "_qualityScore": 65,
+      "crawledAt": "2026-04-24T21:18:12.902Z",
+      "id": "company-ts9gho",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-04-24T09:52:03.939Z",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 13",
+      "postalCode": "6900",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Kundenberaterin Individual und stellvertretende Filialleiterin Solothurn (w/m)",
       "slug": "kundenberaterin-individual-und-stellvertretende-filialleiterin-solothurn-w-m-banca-cler",
@@ -70,7 +111,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-24T09:51:45.709Z",
+      "crawledAt": "2026-04-24T21:18:13.317Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -111,7 +152,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-24T09:51:46.261Z",
+      "crawledAt": "2026-04-24T21:18:13.776Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -152,7 +193,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-24T09:51:46.906Z",
+      "crawledAt": "2026-04-24T21:18:14.225Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
@@ -193,7 +234,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-24T09:51:47.443Z",
+      "crawledAt": "2026-04-24T21:18:14.698Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
