@@ -325,8 +325,8 @@ ${alternates}
     ${ADSENSE_SNIPPET}
   </head>
   <body>
-    <div id="root">
-      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);font-family:system-ui,-apple-system,sans-serif">
+    <div id="root"></div>
+    <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);font-family:system-ui,-apple-system,sans-serif">
         <nav style="${BREADCRUMB_STYLE}">
           <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
           <span> / </span>
@@ -354,8 +354,7 @@ ${alternates}
           ${jobsHtml}
         </section>
         ${faqHtml}
-      </main>
-    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+      </main>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
 
