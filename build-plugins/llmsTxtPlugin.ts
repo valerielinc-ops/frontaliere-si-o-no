@@ -12,17 +12,31 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const SITEMAP_FILES = [
  'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml',
  'sitemap-news.xml', 'sitemap-jobs.xml',
+ // AE-5 — 100-Q&A FAQ hub (emitted by faqHubPlugin; lives in dist/ only,
+ // parser falls back silently if the file is absent in publicDir).
+ 'sitemap-faq-hub.xml',
 ];
 
 /**
  * Parse sub-sitemaps and return URLs for a specific locale.
  * locale='it' returns Italian-only (no prefix); 'en'/'de'/'fr' returns those prefixed URLs.
  */
-function parseSitemapUrls(publicDir: string, fs: typeof import('node:fs'), locale: 'it' | 'en' | 'de' | 'fr' = 'it'): string[] {
+function parseSitemapUrls(publicDir: string, fs: typeof import('node:fs'), locale: 'it' | 'en' | 'de' | 'fr' = 'it', distDir?: string): string[] {
  const urls: string[] = [];
+ const readSitemap = (file: string): string | null => {
+  // Prefer publicDir (committed sitemaps), fall back to distDir for
+  // build-time generated sitemaps (e.g. sitemap-faq-hub.xml emitted by
+  // faqHubPlugin into dist/ only).
+  try { return fs.readFileSync(path.join(publicDir, file), 'utf-8'); } catch { /* fall through */ }
+  if (distDir) {
+   try { return fs.readFileSync(path.join(distDir, file), 'utf-8'); } catch { /* skip */ }
+  }
+  return null;
+ };
  for (const file of SITEMAP_FILES) {
+ const content = readSitemap(file);
+ if (content === null) continue;
  try {
- const content = fs.readFileSync(path.join(publicDir, file), 'utf-8');
  if (locale === 'it') {
  // <loc> tags hold Italian URLs
  const locRx = /<loc>([^<]+)<\/loc>/g;
@@ -172,7 +186,7 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  } catch { /* fallback: keep original text */ }
 
  // Parse all sitemap URLs and SEO metadata for auto-generated page index
- const allUrls = parseSitemapUrls(publicDir, fs);
+ const allUrls = parseSitemapUrls(publicDir, fs, 'it', distDir);
  const seoMap = parseSeoEntries(rootDir, fs);
  const categorized = categorizeUrls(allUrls);
 
@@ -328,7 +342,7 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
 
  let localeCount = 0;
  for (const [locale, header] of Object.entries(localeHeaders)) {
- const localeUrls = parseSitemapUrls(publicDir, fs, locale as 'en' | 'de' | 'fr');
+ const localeUrls = parseSitemapUrls(publicDir, fs, locale as 'en' | 'de' | 'fr', distDir);
  if (localeUrls.length === 0) continue;
 
  const localeIndex = buildPageIndex(localeUrls, locale as 'en' | 'de' | 'fr');
