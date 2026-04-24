@@ -1,0 +1,61 @@
+name: Facebook Social Schedule (E4)
+
+on:
+  schedule:
+    # Mon/Wed/Fri at 09:00 UTC
+    - cron: '0 9 * * 1,3,5'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Skip the Graph API call (preview only)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Prepare Firebase credentials
+        if: ${{ env.FIREBASE_SERVICE_ACCOUNT != '' }}
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          set -euo pipefail
+          echo "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+        continue-on-error: true
+
+      - name: Post to Facebook
+        id: post
+        env:
+          # Prefer direct secrets if present; fall back to RC-loaded values from step above.
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID || env.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN || env.FB_PAGE_ACCESS_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+        run: |
+          set -euo pipefail
+          mkdir -p logs
+          node scripts/social-schedule-fb.mjs 2>&1 | tee logs/fb-social-schedule.log
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fb-social-schedule-logs
+          path: logs/
+          retention-days: 14
