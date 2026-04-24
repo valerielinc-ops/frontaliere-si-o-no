@@ -2601,6 +2601,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.settimana-corta-ticino-2026.title': 'Semaine de 4 jours : l\'expérience en Suisse qui révolutionne le travail',
     'blog.article.settimana-corta-ticino-2026.excerpt': 'Une entreprise tessinoise expérimente la semaine de 4 jours avec 5 jours payés, améliorant la qualité de vie et la productivité des employés.',
     'blog.article.settimana-corta-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO utilise l\'IA : mais il manque des critères clairs',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'La Commission de la concurrence suisse utilise l\'intelligence artificielle pour lutter contre les cartels, mais le Conseil des États critique l\'absence d\'une stratégie claire',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

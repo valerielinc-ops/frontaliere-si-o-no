@@ -7056,4 +7056,11 @@ export const ARTICLES = [
  image: '/images/blog/settimana-corta-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comco-ia-criteri-2026',
+ category: 'novita',
+ date: '2026-04-24T20:25:40.540Z',
+ image: '/images/blog/comco-ia-criteri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

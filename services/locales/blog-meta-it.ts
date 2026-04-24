@@ -2601,6 +2601,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.settimana-corta-ticino-2026.title': 'Settimana di 4 giorni: l\'esperimento in Ticino che rivoluziona il lavoro',
     'blog.article.settimana-corta-ticino-2026.excerpt': 'Un\'azienda ticinese sperimenta la settimana di 4 giorni con 5 giorni retribuiti, migliorando qualità della vita e produttività dei dipendenti.',
     'blog.article.settimana-corta-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO usa l’IA: ma mancano criteri chiari',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'La Commissione della concorrenza svizzera utilizza l’intelligenza artificiale per combattere i cartelli, ma il CdF critica la mancanza di una strategia chiara',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

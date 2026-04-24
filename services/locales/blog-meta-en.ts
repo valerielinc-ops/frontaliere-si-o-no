@@ -2601,6 +2601,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settimana-corta-ticino-2026.title': 'Four-day workweek: the Ticino experiment that\'s revolutionizing work',
     'blog.article.settimana-corta-ticino-2026.excerpt': 'A Ticinese company is experimenting with a four-day workweek while paying for five days, improving both quality of life and employee productivity.',
     'blog.article.settimana-corta-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO uses AI: but lacks clear criteria',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'The Swiss Competition Commission uses artificial intelligence to combat cartels, but the Federal Audit Office criticizes the lack of a clear strategy',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

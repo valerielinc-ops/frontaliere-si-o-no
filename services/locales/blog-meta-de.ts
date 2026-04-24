@@ -2601,6 +2601,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settimana-corta-ticino-2026.title': 'Vier-Tage-Woche: Das Experiment im Tessin, das die Arbeitswelt revolutioniert',
     'blog.article.settimana-corta-ticino-2026.excerpt': 'Ein Tessiner Unternehmen experimentiert mit der Vier-Tage-Woche bei vollem Lohn für fünf Tage, was die Lebensqualität und Produktivität der Mitarbeiter verbessert.',
     'blog.article.settimana-corta-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.comco-ia-criteri-2026.title': 'COMCO nutzt KI: aber es fehlen klare Kriterien',
+    'blog.article.comco-ia-criteri-2026.excerpt': 'Die Schweizer Wettbewerbs-Kommission nutzt künstliche Intelligenz, um Kartelle zu bekämpfen, doch der Bundesrat kritisiert das Fehlen einer klaren Strategie',
+    'blog.article.comco-ia-criteri-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
