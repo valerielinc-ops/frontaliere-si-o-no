@@ -1662,7 +1662,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "lonza-98fdf6c318e6",
@@ -1883,7 +1883,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "lonza-afc62a1ce612",
@@ -2255,7 +2255,7 @@
       "id": "lonza-b16037c6a4a3",
       "slug": "projektleiter-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "projektleiter-m-w-d-lonza-ch",
+        "it": "manufacturing-specialista-m-w-d-lonza-ch",
         "en": "manufacturing-specialist-m-w-d-lonza-ch",
         "de": "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
         "fr": "projektleiter-m-m-j-lonza-ch"
@@ -2303,8 +2303,7 @@
           "manufacturing-specialist-m-w-d-lonza-ch"
         ],
         "it": [
-          "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
-          "manufacturing-specialista-m-w-d-lonza-ch"
+          "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
         ],
         "en": [
           "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch"
@@ -2317,8 +2316,9 @@
       "previousSlugs": [
         "manufacturing-specialist-m-w-d-lonza-ch",
         "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
-        "manufacturing-specialista-m-w-d-lonza-ch",
-        "manufacturing-specialiste-m-w-d-lonza-ch"
+        "manufacturing-specialiste-m-w-d-lonza-ch",
+        "projektleiter-m-w-d-lonza-ch",
+        "projektleiter-m-m-j-lonza-ch"
       ],
       "firstSeenAt": "2026-04-23T10:27:00.309Z",
       "salaryMin": 66500,

@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-11T20:11:14.077Z",
-    "label": "before",
-    "total": 2471,
-    "needsRetranslation": 79,
-    "incomplete": 10,
-    "complete": 2461,
-    "missingByLocale": {
-      "it": 9,
-      "en": 9,
-      "de": 1,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-11T20:26:18.636Z",
-    "label": "after",
-    "total": 2471,
-    "needsRetranslation": 69,
-    "incomplete": 4,
-    "complete": 2467,
-    "missingByLocale": {
-      "it": 3,
-      "en": 3,
-      "de": 1,
-      "fr": 3
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-11T20:28:45.909Z",
     "label": "before",
     "total": 2471,
@@ -7231,6 +7159,78 @@
       {
         "company": "Hitachi Energy",
         "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-24T02:42:32.510Z",
+    "label": "before",
+    "total": 2660,
+    "needsRetranslation": 77,
+    "incomplete": 27,
+    "complete": 2633,
+    "missingByLocale": {
+      "it": 23,
+      "en": 6,
+      "de": 25,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Fusalp",
+        "pending": 2
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-24T03:22:42.196Z",
+    "label": "after",
+    "total": 2660,
+    "needsRetranslation": 48,
+    "incomplete": 24,
+    "complete": 2636,
+    "missingByLocale": {
+      "it": 23,
+      "en": 4,
+      "de": 22,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 2
       },
       {
         "company": "Läderach (Schweiz) AG",
