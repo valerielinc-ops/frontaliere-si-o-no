@@ -1,7 +1,71 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-04-24T10:04:49.039Z",
+  "assembledAt": "2026-04-24T21:31:21.711Z",
   "jobs": [
+    {
+      "title": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d/f3b55ce6-6393-4493-9cad-35b98333b58c",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-04-24",
+      "source": "company-website",
+      "slug": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slugByLocale": {
+        "it": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
+        "en": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+        "de": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100%",
+        "en": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100%",
+        "fr": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-1d6b4a5fa4fa",
+      "sourceLang": "it",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-24T21:31:21.711Z"
+    },
     {
       "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
       "company": "EMS-Chemie AG",
@@ -126,7 +190,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-23T21:33:59.305Z"
+      "firstSeenAt": "2026-04-23T21:33:59.305Z",
+      "needsRetranslation": true
     },
     {
       "title": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
@@ -250,7 +315,8 @@
       },
       "previousSlugs": [
         "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter Materialprüfung (m/w/d) 100%",
@@ -541,7 +607,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T21:36:53.361Z"
+      "firstSeenAt": "2026-04-13T21:36:53.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Ingenieur / Techniker Automatisierungstechnik (m/w/d) 100%",
@@ -610,87 +677,6 @@
       "previousSlugs": [
         "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf"
       ],
-      "firstSeenAt": "2026-04-13T21:36:53.361Z"
-    },
-    {
-      "title": "Assistenz der Divisionsleitung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/assistenz-der-divisionsleitung-m-w-d/8f140804-acc5-46c1-af04-81a0baa38ad0",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "description": "Assistenz der Divisionsleitung (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-04-24",
-      "source": "company-website",
-      "slug": "assistente-della-direzione-di-divisione-m-f-d-100-ems-chemie-ag-domat-ems",
-      "slugByLocale": {
-        "it": "assistente-della-direzione-di-divisione-m-f-d-100-ems-chemie-ag-domat-ems",
-        "en": "division-leadership-assistant-m-f-d-100-ems-chemie-ag-domat-ems",
-        "de": "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
-        "fr": "assistant-de-la-direction-de-division-m-f-d-100-ems-chemie-ag-domat-ems"
-      },
-      "titleByLocale": {
-        "it": "Assistente della direzione di divisione (m/f/d) 100%",
-        "en": "Division Leadership Assistant (m/f/d) 100%",
-        "de": "Assistenz der Divisionsleitung (m/w/d) 100%",
-        "fr": "Assistant de la direction de division (m/f/d) 100%"
-      },
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione - Assistenz der Divisionsleitung (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni) - EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo - Sede di lavoro: Domat/Ems",
-        "en": "Description - Division Leadership Assistant (m/f/d) 100% at EMS-Chemie AG, a leading company in the field of special polymers and fine chemistry, based in Domat/Ems (Grigioni) - EMS-Chemie is the world's largest producer of high-performance polyamides, with approximately 3000 employees worldwide - Work location: Domat/Ems",
-        "de": "Beschreibung - Assistenz der Divisionsleitung (m/w/d) 100% bei EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymeren und Feinchemie, mit Sitz in Domat/Ems (Grigioni) - EMS-Chemie ist der weltweit größte Produzent von Hochleistungs-Polyamiden, mit etwa 3000 Mitarbeitern weltweit - Arbeitsort: Domat/Ems",
-        "fr": "Description - Assistant de la direction de division (m/f/d) 100% chez EMS-Chemie AG, une entreprise leader dans le domaine des polymères spéciaux et de la chimie fine, basée à Domat/Ems (Grigioni) - EMS-Chemie est le plus grand producteur mondial de polyamides à hautes performances, avec environ 3000 employés dans le monde - Lieu de travail: Domat/Ems"
-      },
-      "id": "ems-chemie-d02e910a3c25",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
-        "assistant-a-la-direction-de-division-h-f-100-ems-chemie-ag-domat-ems",
-        "assistante-de-direction-m-f-d-100-ems-chemie-ag-domat-ems",
-        "assistente-della-direzione-m-f-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
-        "assistentin-der-geschaftsleitung-l-w-d-100-ems-chemie-domat-ems",
-        "assistentin-der-geschaftsleitung-l-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
-        "assistentin-der-geschaftsleitung-m-w-d-100-ems-chemie-domat-ems",
-        "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
-        "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-domat-ems",
-        "assistenz-der-divisionsleitung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
-        "assistenza-alla-direzione-di-divisione-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
-        "chef-de-la-direction-du-controle-m-w-d-100-ems-chemie-ag-domat-ems",
-        "chef-de-la-direction-du-controle-m-w-d-100-ems-chemie-domat-ems"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems"
-        ],
-        "en": [
-          "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems"
-        ],
-        "fr": [
-          "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems"
-        ]
-      },
       "firstSeenAt": "2026-04-13T21:36:53.361Z"
     }
   ]
