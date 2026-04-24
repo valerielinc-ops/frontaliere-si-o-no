@@ -207,6 +207,103 @@ function esc(s: unknown): string {
     .replace(/"/g, '&quot;');
 }
 
+// ── Hero card helpers (exported for tests) ───────────────────────
+// The hub page renders a "Valico più veloce" hero when at least one
+// crossing has a measurable non-zero wait. When every scope crossing
+// reports 0 min (degenerate case — either unmeasured or perfectly
+// fluid), the hero collapses to empty string and `renderTrafficFluidBanner`
+// takes its place to avoid visual dead space.
+
+export interface FastestCrossingInput {
+  slug: string;
+  labelIt: string;
+  labelEn?: string;
+  labelDe?: string;
+  labelFr?: string;
+  waitTimeMinutes: number;
+}
+
+function getCrossingLabel(
+  cr: FastestCrossingInput,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  if (locale === 'en' && cr.labelEn) return cr.labelEn;
+  if (locale === 'de' && cr.labelDe) return cr.labelDe;
+  if (locale === 'fr' && cr.labelFr) return cr.labelFr;
+  return cr.labelIt;
+}
+
+function getCrossingHref(
+  slug: string,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  // `buildOggiPath` is a pure path interpolator — it does not validate the
+  // slug against the registry, so synthetic test slugs still produce a
+  // well-formed path.
+  return `${BASE_URL}${buildOggiPath(locale, slug as BorderCrossingSlug)}`;
+}
+
+export function renderFastestCrossingCard(
+  crossings: ReadonlyArray<FastestCrossingInput>,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  const hasAnyWait = crossings.some((c) => c.waitTimeMinutes > 0);
+  if (!hasAnyWait) return '';
+
+  let best: FastestCrossingInput | null = null;
+  for (const c of crossings) {
+    if (c.waitTimeMinutes <= 0) continue;
+    if (best === null || c.waitTimeMinutes < best.waitTimeMinutes) {
+      best = c;
+    }
+  }
+  if (best === null) return '';
+
+  const label =
+    locale === 'it'
+      ? 'Valico più veloce adesso'
+      : locale === 'de'
+        ? 'Schnellster Übergang jetzt'
+        : locale === 'fr'
+          ? 'Passage le plus rapide maintenant'
+          : 'Fastest crossing right now';
+
+  return `<div style="margin:0 0 20px;padding:14px 18px;border-radius:12px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);border-left:4px solid var(--color-success-strong);color:var(--color-text);font-size:15px;line-height:1.5">
+       <strong>${esc(label)}:</strong>
+       <a href="${getCrossingHref(best.slug, locale)}" style="color:var(--color-success-strong);text-decoration:underline;font-weight:700">${esc(getCrossingLabel(best, locale))}</a>
+       · <span style="color:var(--color-success-strong);font-weight:600;">${best.waitTimeMinutes} min</span>
+     </div>`;
+}
+
+export function renderTrafficFluidBanner(
+  allZeros: boolean,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  if (!allZeros) return '';
+  const copy = {
+    it: {
+      title: 'Traffico fluido su tutti i valichi',
+      body: 'Nessuna coda significativa rilevata in questo momento. I tempi si aggiornano ogni 15 minuti.',
+    },
+    en: {
+      title: 'Traffic flowing at every crossing',
+      body: 'No significant queues right now. Wait times refresh every 15 minutes.',
+    },
+    de: {
+      title: 'Flüssiger Verkehr an allen Übergängen',
+      body: 'Derzeit keine nennenswerten Staus. Wartezeiten werden alle 15 Minuten aktualisiert.',
+    },
+    fr: {
+      title: 'Circulation fluide à tous les passages',
+      body: "Aucune file d'attente significative actuellement. Mise à jour toutes les 15 minutes.",
+    },
+  }[locale];
+  return `<div style="margin:0 0 20px;padding:16px 20px;border-radius:12px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);border-left:4px solid var(--color-success-strong);">
+       <p style="margin:0 0 4px;font-weight:600;color:var(--color-text);">${esc(copy.title)}</p>
+       <p style="margin:0;color:var(--color-text);font-size:14px;">${esc(copy.body)}</p>
+     </div>`;
+}
+
 /** Look up crossing static metadata from the registry (matches on slug). */
 function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined {
   return borderCrossings.find(
@@ -1348,31 +1445,19 @@ function renderHubPage(inp: HubInputs): string {
     <tbody>${rows.join('')}</tbody>
   </table>`;
 
-  // "Best crossing right now"
-  let bestCrossing: BorderCrossingSlug | null = null;
-  let bestVal = Infinity;
-  for (const c of crossingsInScope) {
-    const snap = current.perCrossing[c];
-    if (snap && typeof snap.waitTimeMinutes === 'number' && snap.waitTimeMinutes < bestVal) {
-      bestVal = snap.waitTimeMinutes;
-      bestCrossing = c;
-    }
-  }
-  const bestBannerHtml = bestCrossing
-    ? `<div style="margin:0 0 20px;padding:14px 18px;border-radius:12px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-success-border);font-size:15px;line-height:1.5">
-       <strong>${esc(
-         locale === 'it'
-           ? 'Valico più veloce adesso'
-           : locale === 'de'
-             ? 'Schnellster Übergang jetzt'
-             : locale === 'fr'
-               ? 'Passage le plus rapide maintenant'
-               : 'Fastest crossing right now',
-       )}:</strong>
-       <a href="${BASE_URL}${buildOggiPath(locale, bestCrossing)}" style="color:var(--color-success-border);text-decoration:underline;font-weight:700">${esc(BORDER_CROSSING_DISPLAY[bestCrossing])}</a>
-       · ${esc(bestVal)} min
-     </div>`
-    : '';
+  // "Best crossing right now" hero, with a "traffico fluido" fallback
+  // banner when every crossing reports 0 min (upstream data degenerate
+  // case — either unmeasured or perfectly fluid). Either the hero OR the
+  // fallback renders; never both and never empty space.
+  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.map((c) => ({
+    slug: c,
+    labelIt: BORDER_CROSSING_DISPLAY[c],
+    waitTimeMinutes: current.perCrossing[c]?.waitTimeMinutes ?? 0,
+  }));
+  const allZeros = heroInputs.every((c) => c.waitTimeMinutes === 0);
+  const bestBannerHtml = allZeros
+    ? renderTrafficFluidBanner(true, locale)
+    : renderFastestCrossingCard(heroInputs, locale);
 
   const alternatesHtml = (Object.keys(alternates) as BorderWaitLocale[])
     .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
