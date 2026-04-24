@@ -60,6 +60,12 @@ jobs:
             node scripts/generate-fuel-prices-dataset.mjs
           fi
 
+      - name: Persist daily snapshot of raw fuel prices JSON
+        if: steps.schedule.outputs.daily == 'true'
+        run: |
+          mkdir -p data/fuel-prices-history
+          cp public/data/fuel-prices.json "data/fuel-prices-history/$(date -u +%F).json"
+
       - name: Snapshot fuel history for SEO pages (F6)
         if: steps.schedule.outputs.daily == 'true'
         run: node scripts/snapshot-fuel-history.mjs
