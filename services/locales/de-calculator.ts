@@ -410,6 +410,18 @@ const deCalculator: Record<string, string> = {
  'calculator.consultingCta.headline': 'Komplexe Situation?',
  'calculator.consultingCta.body': '30 Min. persönliche Beratung mit einem Grenzgänger-Experten — 49 €. Buchen Sie Ihren Termin.',
  'calculator.consultingCta.button': 'Beratung buchen',
+ // E2 — Calculator paywall (soft paywall for PDF report)
+ 'calculator.paywall.title': 'Ihr kostenloser Italien-Schweiz-Vergleich als PDF',
+ 'calculator.paywall.body': 'Sie erhalten das PDF mit Ihren Zahlen plus den Steuerleitfaden 2026 per E-Mail.',
+ 'calculator.paywall.bullet1': 'Vollst\u00e4ndiges PDF mit Nettoeinkommen CH, IT und j\u00e4hrlicher Differenz',
+ 'calculator.paywall.bullet2': 'Aktualisierter Steuerleitfaden 2026 f\u00fcr Grenzg\u00e4nger',
+ 'calculator.paywall.emailPlaceholder': 'name@beispiel.ch',
+ 'calculator.paywall.submit': 'PDF erhalten',
+ 'calculator.paywall.submitting': 'Senden...',
+ 'calculator.paywall.dismissLabel': 'Nicht mehr anzeigen',
+ 'calculator.paywall.privacyNote': 'Nur f\u00fcr dieses PDF. Kein Spam \u2014 Abmeldung jederzeit m\u00f6glich.',
+ 'calculator.paywall.successToast': 'PDF verschickt! Pr\u00fcfen Sie Ihren Posteingang.',
+ 'calculator.paywall.errorToast': 'PDF konnte nicht gesendet werden. Bitte E-Mail pr\u00fcfen und erneut versuchen.',
 };
 
 export default deCalculator;

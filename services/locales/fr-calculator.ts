@@ -410,6 +410,18 @@ const frCalculator: Record<string, string> = {
  'calculator.consultingCta.headline': 'Situation complexe\u00a0?',
  'calculator.consultingCta.body': '30 min de conseil personnalis\u00e9 avec un expert frontalier \u2014 49\u00a0\u20ac. R\u00e9servez votre cr\u00e9neau.',
  'calculator.consultingCta.button': 'R\u00e9server une consultation',
+ // E2 — Calculator paywall (soft paywall for PDF report)
+ 'calculator.paywall.title': 'Votre comparatif Italie-Suisse en PDF gratuit',
+ 'calculator.paywall.body': 'Vous recevrez par e-mail le PDF avec vos chiffres et le guide fiscal 2026.',
+ 'calculator.paywall.bullet1': 'PDF complet avec net CH, net IT et diff\u00e9rence annuelle',
+ 'calculator.paywall.bullet2': 'Guide fiscal 2026 actualis\u00e9 pour frontaliers',
+ 'calculator.paywall.emailPlaceholder': 'nom@exemple.com',
+ 'calculator.paywall.submit': 'Recevoir le PDF',
+ 'calculator.paywall.submitting': 'Envoi en cours...',
+ 'calculator.paywall.dismissLabel': 'Ne plus afficher',
+ 'calculator.paywall.privacyNote': 'Uniquement pour ce PDF. Pas de spam \u2014 d\u00e9sinscription \u00e0 tout moment.',
+ 'calculator.paywall.successToast': 'PDF envoy\u00e9 ! V\u00e9rifiez votre bo\u00eete de r\u00e9ception.',
+ 'calculator.paywall.errorToast': 'Impossible d\u2019envoyer le PDF. V\u00e9rifiez l\u2019e-mail et r\u00e9essayez.',
 };
 
 export default frCalculator;
