@@ -342,6 +342,11 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'pillarNuovaLegge2026',
       'pillarOssSvizzera',
       'pillarStipendiChVsIt',
+      // Locale-specific SEO enrichment entry for the German rendering of
+      // /de/steuern-und-vorsorge/tessin-feiertage. Consumed at build time
+      // by staticPagesPlugin from its `canonicalPath`. The SPA runtime
+      // resolves all locales of this page via the `holidays` key.
+      'holidaysDe',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {

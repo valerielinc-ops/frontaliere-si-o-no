@@ -2376,7 +2376,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  holidays: {
  title: 'Festività Ticino 2026: Calendario Ufficiale Giorni Festivi',
- description: 'Festività Ticino 2026 — calendario ufficiale completo dei 15 giorni festivi del Canton Ticino: date, tipologia federale/cantonale, ponti, FAQ, confronto Italia vs Svizzera, maggiorazioni CCL e impatto sulla busta paga del frontaliere.',
+ description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi, ponti migliori, maggiorazioni CCL e confronto Italia vs Svizzera per il frontaliere.',
  keywords: 'festività ticino, festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, calendario festività ticino 2026, calendario ufficiale giorni festivi ticino, festività canton ticino, giorni festivi canton ticino, festività cantonali ticino, ponti ticino 2026, ferie svizzera frontalieri, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026, assunzione ticino festivo',
  ogTitle: 'Festività Ticino 2026: Calendario Ufficiale e Ponti Frontalieri',
  ogDescription: 'Calendario ufficiale festività Canton Ticino 2026: 15 giorni festivi, ponti, maggiorazioni CCL su straordinari festivi e impatto su 13ª del frontaliere.',
@@ -2477,7 +2477,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  holidaysDe: {
  title: 'Feiertage Tessin 2026: Offizieller Kalender Kanton Tessin',
- description: 'Feiertage Tessin 2026 — vollständiger offizieller Kalender der 15 Feiertage des Kantons Tessin: Daten, Bundes-/Kantonsfeiertage, Brückentage, FAQ, Vergleich Italien vs. Schweiz, GAV-Zuschläge und Auswirkungen auf den Lohn der Grenzgänger.',
+ description: 'Feiertage Tessin 2026: offizieller Kalender der 15 Feiertage, beste Brückentage, GAV-Zuschläge und Vergleich Italien vs. Schweiz für Grenzgänger.',
  keywords: 'feiertage tessin, feiertage tessin 2026, kantonale feiertage tessin, feiertage kanton tessin 2026, kalender feiertage tessin, schweizer feiertage 2026, brückentage tessin 2026, 1 august tessin, ostern tessin 2026, weihnachten tessin 2026, mariä himmelfahrt tessin',
  ogTitle: 'Feiertage Tessin 2026: Offizieller Kalender und Brückentage für Grenzgänger',
  ogDescription: 'Offizieller Kalender der Tessiner Feiertage 2026: 15 Feiertage, Brückentage, GAV-Zuschläge bei Feiertagsarbeit und Auswirkungen auf den 13. Monatslohn der Grenzgänger.',
