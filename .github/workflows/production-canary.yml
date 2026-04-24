@@ -1,0 +1,53 @@
+name: production-canary
+
+# Agent F — 5XX hardening canary.
+# Runs `npm run probe:5xx` on a schedule, on manual dispatch, and after every
+# push to main (post-deploy). Fails the workflow if any production URL returns
+# 5XX or a network error on all retry attempts.
+#
+# No external notifications (Slack etc.) are wired — CI failure surfaces via
+# GitHub Actions status and emails project maintainers.
+
+on:
+  schedule:
+    # Every 15 minutes. Cron runs in UTC.
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+
+concurrency:
+  # Only one canary in flight at a time; cancel an older run if a newer one starts.
+  group: production-canary
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    name: Probe production for 5XX
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run 5XX probe
+        id: probe
+        run: npm run probe:5xx 2> probe-output.err
+        # Non-zero exit fails the workflow by default.
+
+      - name: Upload probe result artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-5xx-result-${{ github.run_id }}
+          path: probe-output.err
+          if-no-files-found: ignore
+          retention-days: 7

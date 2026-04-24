@@ -1,0 +1,66 @@
+# Production canary probe URLs (Agent F — 5XX hardening)
+# One URL per line. Lines starting with # are ignored. Empty lines ignored.
+# Keep this list representative: locale homes + one sample from each SEO plugin.
+
+# — Locale homes
+https://frontaliereticino.ch/
+https://frontaliereticino.ch/en/
+https://frontaliereticino.ch/de/
+https://frontaliereticino.ch/fr/
+
+# — Core top-level sections (IT)
+https://frontaliereticino.ch/calcola-stipendio/
+https://frontaliereticino.ch/compara-servizi/
+https://frontaliereticino.ch/tasse-e-pensione/
+https://frontaliereticino.ch/guida-frontaliere/
+https://frontaliereticino.ch/vivere-in-ticino/
+https://frontaliereticino.ch/statistiche/
+
+# — Core top-level sections (EN)
+https://frontaliereticino.ch/en/salary-calculator/
+https://frontaliereticino.ch/en/compare-services/
+https://frontaliereticino.ch/en/taxes-and-pensions/
+
+# — Comparators
+https://frontaliereticino.ch/compara-servizi/cambio-franco-euro/
+https://frontaliereticino.ch/compara-servizi/assicurazione-malattia/
+https://frontaliereticino.ch/compara-servizi/carburante/
+
+# — Job board (SPA + sample job pages)
+https://frontaliereticino.ch/cerca-lavoro-ticino/
+https://frontaliereticino.ch/lavori/
+
+# — Blog
+https://frontaliereticino.ch/blog/
+
+# — Statics / legal
+https://frontaliereticino.ch/privacy/
+https://frontaliereticino.ch/mappa-del-sito/
+
+# — Sitemaps (XML; must return 200)
+https://frontaliereticino.ch/sitemap.xml
+https://frontaliereticino.ch/robots.txt
+
+# — SEO plugin samples
+# F2 LAMal premiums landing
+https://frontaliereticino.ch/premi-cassa-malati-ticino/
+
+# F4 job-market snapshot
+https://frontaliereticino.ch/mercato-del-lavoro-ticino/
+
+# F5 weekly employers
+https://frontaliereticino.ch/aziende-che-assumono-ticino/
+
+# F6 daily fuel prices
+https://frontaliereticino.ch/prezzi-carburante-ticino/
+
+# F8 border wait time
+https://frontaliereticino.ch/tempi-attesa-dogana/
+
+# — Guides
+https://frontaliereticino.ch/guida-frontaliere/permesso-g/
+https://frontaliereticino.ch/guida-frontaliere/permesso-b/
+https://frontaliereticino.ch/guida-frontaliere/dichiarazione-dei-redditi/
+
+# — Canonical redirect target (www → apex must resolve; if 5XX, canonical broken)
+https://www.frontaliereticino.ch/

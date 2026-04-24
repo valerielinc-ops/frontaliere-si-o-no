@@ -15,8 +15,8 @@
     "test:fast": "vitest run --bail 1",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test tests/e2e/seo-content-integrity.spec.ts tests/e2e/link-graph-integrity.spec.ts tests/e2e/seo-visual-ui.spec.ts",
-    "test:e2e:visual": "playwright test tests/e2e/seo-visual-regression.spec.ts",
-    "test:e2e:visual:update": "playwright test tests/e2e/seo-visual-regression.spec.ts --update-snapshots",
+    "test:e2e:visual": "RUN_VISUAL_REGRESSION=1 playwright test tests/e2e/seo-visual-regression.spec.ts",
+    "test:e2e:visual:update": "RUN_VISUAL_REGRESSION=1 playwright test tests/e2e/seo-visual-regression.spec.ts --update-snapshots",
     "build:e2e": "npm run build && npm run test:e2e:smoke",
     "build:fast": "SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 NODE_OPTIONS='--max-old-space-size=12288' FAST_BUILD=1 vite build",
     "prepush:fast": "SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 node scripts/assemble-jobs-dataset.mjs --stats && vitest run --bail 1 && NODE_OPTIONS='--max-old-space-size=12288' FAST_BUILD=1 vite build",
@@ -227,6 +227,7 @@
     "jobs:update:cedes": "node scripts/update-cedes-jobs.mjs",
     "jobs:update:davos-klosters-bergbahnen": "node scripts/update-davos-klosters-bergbahnen-jobs.mjs",
     "validate:thin-pages": "node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any",
+    "probe:5xx": "node scripts/probe-5xx.mjs",
     "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build:ci && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && npm run validate:sitemap && npm run validate:hreflang && npm run validate:internal-links && npm run validate:thin-pages && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
