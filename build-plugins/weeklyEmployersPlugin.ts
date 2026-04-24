@@ -753,6 +753,40 @@ export function enumerateCompanyCityPairs(
   return pages.slice(0, maxPairs);
 }
 
+/**
+ * Build the list of (href, label) pairs that safely link to per-company ×
+ * per-city pages for a given locale, gating each pair through
+ * {@link companyCityMeetsThreshold} so we never emit a URL to a page the
+ * generator will refuse to materialise.
+ *
+ * Exposed so callers (and tests) can filter arbitrary pair lists through
+ * the same gate that the page generator applies — this closes the link
+ * graph that caused "empty shell" pages in Phase 3.
+ */
+export interface CompanyCityLink {
+  readonly href: string;
+  readonly label: string;
+}
+
+export function buildCompanyCityLinks(
+  pairs: ReadonlyArray<
+    Readonly<{
+      city: WeeklyEmployersCompanyCity;
+      companySlug: string;
+      employer: string;
+      active: number;
+    }>
+  >,
+  locale: WeeklyEmployersLocale,
+): ReadonlyArray<CompanyCityLink> {
+  return pairs
+    .filter(companyCityMeetsThreshold)
+    .map((p) => ({
+      href: buildCompanyCityCurrentPath(locale, p.city, p.companySlug),
+      label: `${p.employer} — ${WEEKLY_EMPLOYERS_CITY_DISPLAY[p.city]}`,
+    }));
+}
+
 // ── Localised copy ──────────────────────────────────────────────
 
 interface WeeklyCopy {
