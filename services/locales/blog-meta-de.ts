@@ -2604,6 +2604,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comco-ia-criteri-2026.title': 'COMCO nutzt KI: aber es fehlen klare Kriterien',
     'blog.article.comco-ia-criteri-2026.excerpt': 'Die Schweizer Wettbewerbs-Kommission nutzt künstliche Intelligenz, um Kartelle zu bekämpfen, doch der Bundesrat kritisiert das Fehlen einer klaren Strategie',
     'blog.article.comco-ia-criteri-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Belgischer Fahrer fährt 20 Stunden am Stück: Polizei Thurgau greift ein',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Ein belgischer Fahrer wurde gestoppt, nachdem er fast 20 Stunden am Stück gefahren war. Die Polizei des Kantons Thurgau hat Maßnahmen ergriffen.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Lkw-Fahrer macht Pause am Luganersee',
 };
 
 export default blogMetaDe;

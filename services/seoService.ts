@@ -2142,6 +2142,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-polizia-stabio-futuro-incerto': { name: 'Novità', path: '/articoli-frontaliere/polizia-stabio-futuro-incerto', parent: 'blog' },
     'blog-settimana-corta-ticino-2026': { name: 'Settimana corta', path: '/articoli-frontaliere/settimana-corta-ticino-2026', parent: 'blog' },
     'blog-comco-ia-criteri-2026': { name: 'Novità', path: '/articoli-frontaliere/comco-ia-criteri-2026', parent: 'blog' },
+    'blog-autista-belga-20-ore-thurgau-intervento': { name: 'Novità', path: '/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

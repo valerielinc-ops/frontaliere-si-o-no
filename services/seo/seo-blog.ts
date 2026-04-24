@@ -12045,6 +12045,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autista-belga-20-ore-thurgau-intervento': {
+    title: 'Autista belga guida 20 ore di fila | Frontaliere Ticino',
+    description: 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, autista, belga, fila, polizia',
+    ogTitle: 'Autista belga guida 20 ore: polizia Thurgau interviene',
+    ogDescription: 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti.',
+    canonicalPath: '/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autista belga guida 20 ore: polizia Thurgau interviene",
+      "description": "Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autista-belga-20-ore-thurgau-intervento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autista di camion in pausa vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-04-24T21:36:30+00:00",
+      "dateModified": "2026-04-24T21:36:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

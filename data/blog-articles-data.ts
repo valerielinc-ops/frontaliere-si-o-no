@@ -7063,4 +7063,11 @@ export const ARTICLES = [
  image: '/images/blog/comco-ia-criteri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'autista-belga-20-ore-thurgau-intervento',
+ category: 'novita',
+ date: '2026-04-24T21:36:30.636Z',
+ image: '/images/blog/autista-belga-20-ore-thurgau-intervento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

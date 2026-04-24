@@ -2604,6 +2604,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comco-ia-criteri-2026.title': 'COMCO utilise l\'IA : mais il manque des critères clairs',
     'blog.article.comco-ia-criteri-2026.excerpt': 'La Commission de la concurrence suisse utilise l\'intelligence artificielle pour lutter contre les cartels, mais le Conseil des États critique l\'absence d\'une stratégie claire',
     'blog.article.comco-ia-criteri-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Un chauffeur belge conduit pendant 20 heures d\'affilée : la police de Thurgovie intervient',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Un chauffeur belge a été arrêté après avoir conduit près de 20 heures d\'affilée. La police du canton de Thurgovie a pris des mesures.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Camionneur se reposant près du lac de Lugano',
 };
 
 export default blogMetaFr;

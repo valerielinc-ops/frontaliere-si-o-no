@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 915,
+ "numberOfItems": 916,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5633,7 +5633,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 912, "name": "Omaggio agli Angeli di Ponte Chiasso: eroi che ...", "url": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026` },
           { "@type": "ListItem", "position": 913, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/polizia-stabio-futuro-incerto` },
           { "@type": "ListItem", "position": 914, "name": "Settimana di 4 giorni in Ticino | Frontaliere T...", "url": `${BASE_URL}/articoli-frontaliere/settimana-corta-ticino-2026` },
-          { "@type": "ListItem", "position": 915, "name": "COMCO usa l’IA: ma mancano criteri chiari", "url": `${BASE_URL}/articoli-frontaliere/comco-ia-criteri-2026` }
+          { "@type": "ListItem", "position": 915, "name": "COMCO usa l’IA: ma mancano criteri chiari", "url": `${BASE_URL}/articoli-frontaliere/comco-ia-criteri-2026` },
+          { "@type": "ListItem", "position": 916, "name": "Autista belga guida 20 ore: polizia Thurgau int...", "url": `${BASE_URL}/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento` }
  ]
  },
  {

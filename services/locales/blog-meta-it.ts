@@ -2604,6 +2604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comco-ia-criteri-2026.title': 'COMCO usa l’IA: ma mancano criteri chiari',
     'blog.article.comco-ia-criteri-2026.excerpt': 'La Commissione della concorrenza svizzera utilizza l’intelligenza artificiale per combattere i cartelli, ma il CdF critica la mancanza di una strategia chiara',
     'blog.article.comco-ia-criteri-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Autista belga guida 20 ore di fila: polizia Thurgau interviene',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'Un autista belga è stato fermato dopo aver guidato quasi 20 ore consecutive. La polizia del Canton Thurgau ha preso provvedimenti.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Autista di camion in pausa vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;

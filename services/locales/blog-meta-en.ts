@@ -2604,6 +2604,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comco-ia-criteri-2026.title': 'COMCO uses AI: but lacks clear criteria',
     'blog.article.comco-ia-criteri-2026.excerpt': 'The Swiss Competition Commission uses artificial intelligence to combat cartels, but the Federal Audit Office criticizes the lack of a clear strategy',
     'blog.article.comco-ia-criteri-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.title': 'Belgian driver caught after 20 hours of non-stop driving: Thurgau police intervene',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.excerpt': 'A Belgian driver was stopped after driving for nearly 20 hours straight. The police of the Canton of Thurgau took action.',
+    'blog.article.autista-belga-20-ore-thurgau-intervento.imageAlt': 'Truck driver resting by Lake Lugano',
 };
 
 export default blogMetaEn;
