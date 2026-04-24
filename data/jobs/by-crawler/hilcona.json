@@ -4488,12 +4488,12 @@
     },
     {
       "id": "hilcona-74506971d233",
-      "slug": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
+      "slug": "formatore-formatrice-logistica-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
-        "it": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
-        "en": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
-        "fr": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
+        "it": "formatore-formatrice-logistica-bell-schweiz-ag-oensingen",
+        "en": "logistics-trainer-bell-schweiz-ag-oensingen",
+        "fr": "formateur-formatrice-logistique-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4532,14 +4532,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen"
+          "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen",
+          "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
         ],
         "de": [
           "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen"
+        ],
+        "en": [
+          "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen"
+        "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen",
+        "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -5764,7 +5772,7 @@
         "de": "key-account-manager-private-label-schweiz-oesterreich-m-w-d-hilcona-steinach",
         "it": "key-account-manager-private-label-schweiz-oesterreich-m-w-d-hilcona-steinach",
         "en": "key-account-manager-private-label-schweiz-oesterreich-m-w-d-hilcona-steinach",
-        "fr": "key-account-manager-private-label-schweiz-oesterreich-m-w-d-hilcona-steinach"
+        "fr": "responsable-de-compte-cle-private-label-suisse-autriche-m-w-d-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",

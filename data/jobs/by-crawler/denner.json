@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-00770ed4c401",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-appenzell",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-appenzell",
+        "en": "assistant-in-branch-management-denner-appenzell",
         "de": "assistent-in-filialleitung-denner-appenzell",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-appenzell"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -69,10 +69,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -841,12 +852,12 @@
     },
     {
       "id": "denner-3cf2417bd104",
-      "slug": "verkaufer-in-im-stundenlohn-denner-uzwil",
+      "slug": "venditore-in-salario-orario-denner-uzwil",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-uzwil",
-        "en": "verkaufer-in-im-stundenlohn-denner-uzwil",
+        "it": "venditore-in-salario-orario-denner-uzwil",
+        "en": "seller-in-in-hourly-wage-denner-uzwil",
         "de": "verkaufer-in-im-stundenlohn-denner-uzwil",
-        "fr": "verkaufer-in-im-stundenlohn-denner-uzwil"
+        "fr": "vendeur-en-salaire-horaire-denner-uzwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -905,20 +916,24 @@
       "crawledAt": "2026-04-24T10:01:48.444Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-uzwil",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -1034,12 +1049,12 @@
     },
     {
       "id": "denner-2c20d2329644",
-      "slug": "filialleiter-in-in-ausildung-denner-steinhausen",
+      "slug": "capofila-denner-steinhausen",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausildung-denner-steinhausen",
-        "en": "filialleiter-in-in-ausildung-denner-steinhausen",
+        "it": "capofila-denner-steinhausen",
+        "en": "head-of-branch-in-denner-steinhausen",
         "de": "filialleiter-in-in-ausildung-denner-steinhausen",
-        "fr": "filialleiter-in-in-ausildung-denner-steinhausen"
+        "fr": "chef-de-branche-denner-steinhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1098,17 +1113,21 @@
       "crawledAt": "2026-04-24T10:01:48.074Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausildung-denner"
+          "filialleiter-in-in-ausildung-denner",
+          "filialleiter-in-in-ausildung-denner-steinhausen"
         ],
         "en": [
-          "filialleiter-in-in-ausildung-denner"
+          "filialleiter-in-in-ausildung-denner",
+          "filialleiter-in-in-ausildung-denner-steinhausen"
         ],
         "fr": [
-          "filialleiter-in-in-ausildung-denner"
+          "filialleiter-in-in-ausildung-denner",
+          "filialleiter-in-in-ausildung-denner-steinhausen"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-in-ausildung-denner"
+        "filialleiter-in-in-ausildung-denner",
+        "filialleiter-in-in-ausildung-denner-steinhausen"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1126,12 +1145,12 @@
     },
     {
       "id": "denner-15307eb35311",
-      "slug": "filialleiter-in-in-ausbildung-denner-horw",
+      "slug": "capofila-dell-istruzione-denner-horw",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-horw",
-        "en": "filialleiter-in-in-ausbildung-denner-horw",
+        "it": "capofila-dell-istruzione-denner-horw",
+        "en": "head-of-branch-in-education-denner-horw",
         "de": "filialleiter-in-in-ausbildung-denner-horw",
-        "fr": "filialleiter-in-in-ausbildung-denner-horw"
+        "fr": "chef-de-division-en-education-denner-horw"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1190,20 +1209,24 @@
       "crawledAt": "2026-04-24T10:01:47.693Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-horw"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-horw"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-horw"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-horw",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -1518,9 +1541,9 @@
       "slug": "filialleiter-in-denner-schluein",
       "slugByLocale": {
         "it": "filialleiter-in-denner-schluein",
-        "en": "filialleiter-in-denner-schluein",
+        "en": "head-of-branch-in-denner-schluein",
         "de": "filialleiter-in-denner-schluein",
-        "fr": "filialleiter-in-denner-schluein"
+        "fr": "chef-de-branche-denner-schluein"
       },
       "company": "Denner",
       "companyKey": "denner",
