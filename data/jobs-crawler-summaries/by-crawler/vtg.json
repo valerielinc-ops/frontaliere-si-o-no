@@ -1,19 +1,21 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-04-24T11:07:58.245Z",
+  "generatedAt": "2026-04-24T22:34:05.402Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 38475,
-  "avgDurationMs": 38475,
+  "unchangedCount": 5,
+  "durationMs": 37249,
+  "avgDurationMs": 37249,
   "durationHistory": [
-    38475
+    37249
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-hkdide",
       "slug": "operatore-di-impianti-tecnici-swiss-armed-forces-vtg-bern",
@@ -46,7 +48,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,10 +96,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-jnoz9i",
       "slug": "fachspezialist-in-planung-e-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona",
