@@ -2577,6 +2577,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'Permis B et impôt à la source 2026 : guide fiscal complet',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Guide fiscal complet pour les titulaires de permis B au Tessin : barèmes de l\'impôt à la source 2026, déductions, seuil de CHF 120 000 pour la taxation ordinaire ultérieure (TOU) et comparaison avec le statut de frontalier G.',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Bureau avec certificat de salaire, déclaration d\'impôts et vue sur le lac de Lugano — symbole de l\'impôt à la source pour les titulaires de permis B au Tessin.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'Permis G 2026 : guide complet pour les frontaliers',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Demande, coûts, devoirs, télétravail, impôt à la source : tout ce que les frontaliers doivent savoir sur le permis G suisse en 2026, comparatif B/L/C et checklist.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Vue du lac de Lugano à la frontière italo-suisse, symbole des frontaliers titulaires du permis G au Tessin.',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Impôt à la source Suisse 2026 : comparatif de tous les cantons frontaliers',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Impôt à la source Suisse 2026 : taux, barèmes et seuil NOV pour le Tessin, les Grisons, le Valais, Berne et Zurich. Hub de comparaison pour frontaliers avec permis B/G.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Château de Bellinzona, symbole des cantons suisses et de leurs barèmes d\'impôt à la source 2026.',
 };
 
 export default blogMetaFr;

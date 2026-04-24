@@ -2577,6 +2577,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'Permesso B e imposta alla fonte 2026: guida fiscale completa',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Guida fiscale completa per i titolari di permesso B in Ticino: tariffe dell\'imposta alla fonte 2026, deduzioni, soglia dei 120 000 franchi per la tassazione ordinaria ulteriore (TOU) e confronto con lo status di frontaliere G.',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Scrivania con certificato di salario, dichiarazione delle imposte e vista sul Lago di Lugano — simbolo dell\'imposta alla fonte per i titolari di permesso B in Ticino.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'Permesso G 2026: guida completa per frontalieri',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Domanda, costi, obblighi, telelavoro, imposta alla fonte: tutto quello che il frontaliere deve sapere sul Permesso G nel 2026 — con confronto B/L/C e checklist.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Vista del lago di Lugano al confine italo-svizzero, simbolo dei frontalieri con Permesso G in Ticino.',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Imposta alla fonte Svizzera 2026: confronto tra cantoni di frontiera',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Imposta alla fonte Svizzera 2026: aliquote, tariffe e soglia NOV per Ticino, Grigioni, Vallese, Berna e Zurigo. Hub di confronto per frontalieri con permesso B/G.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Castello di Bellinzona, simbolo dei cantoni svizzeri e delle loro tariffe imposta alla fonte 2026.',
 };
 
 export default blogMetaIt;
