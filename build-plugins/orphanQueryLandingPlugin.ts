@@ -186,6 +186,103 @@ function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string
   }
 }
 
+/**
+ * Build a cluster-specific "signals" paragraph that injects per-entity data
+ * (role tokens, region tokens, top variant queries, impression volume) so the
+ * body is unique even when the matching-jobs list is empty and the family
+ * editorial block collapses to the generic fallback. Keeps the page indexable
+ * by making body content unambiguously about the searched query, not about
+ * "the Swiss labour market in general".
+ *
+ * IMPORTANT: all 4 locales return an editorial sentence — never an empty
+ * string — so this paragraph is always a distinguishing signal regardless of
+ * how sparse the cluster is.
+ */
+function buildClusterSignalsParagraph(
+  cluster: OrphanQueryCluster,
+  locale: OrphanLandingLocale,
+): string {
+  const q = cap(cluster.canonicalQuery);
+  const roleTokens = cluster.roleTokens.slice(0, 5).filter(Boolean);
+  const regionTokens = cluster.regionTokens.slice(0, 3).filter(Boolean);
+  const variantQueries = cluster.queries
+    .filter((v) => v.query && v.query !== cluster.canonicalQuery)
+    .slice(0, 4)
+    .map((v) => v.query);
+  const variantCount = cluster.queries.length;
+  const impressions = cluster.totalImpressions;
+  const clicks = cluster.totalClicks;
+
+  // Cross-border commuter context that varies by the FIRST region token.
+  const region = regionTokens[0] || '';
+
+  const formatList = (xs: string[], conj: string): string => {
+    if (xs.length === 0) return '';
+    if (xs.length === 1) return xs[0];
+    return `${xs.slice(0, -1).join(', ')} ${conj} ${xs[xs.length - 1]}`;
+  };
+
+  if (locale === 'it') {
+    const rolesPart = roleTokens.length > 0
+      ? `Le varianti con cui gli utenti cercano questa posizione includono ${formatList(roleTokens, 'e')}.`
+      : `Il cluster non contiene sinonimi consolidati.`;
+    const regionPart = region
+      ? ` Il volume principale di queste ricerche proviene dall'area di ${cap(region)}, un bacino rilevante per frontalieri italiani.`
+      : '';
+    const variantPart = variantQueries.length > 0
+      ? ` Fra le ${variantCount} query raggruppate in questa pagina segnaliamo in particolare: "${variantQueries.join('", "')}".`
+      : ` Questa pagina raggruppa ${variantCount} query affini.`;
+    const volumePart = impressions > 0
+      ? ` Secondo i dati Google Search Console, il cluster ha generato ${impressions.toLocaleString('it-CH')} impression e ${clicks.toLocaleString('it-CH')} clic nell'ultimo snapshot.`
+      : '';
+    return `Segnali specifici per ${q}. ${rolesPart}${regionPart}${variantPart}${volumePart}`;
+  }
+  if (locale === 'en') {
+    const rolesPart = roleTokens.length > 0
+      ? `People searching for this role often phrase it as ${formatList(roleTokens, 'or')}.`
+      : `The cluster does not contain consolidated synonyms.`;
+    const regionPart = region
+      ? ` Most of this search volume comes from the ${cap(region)} area, an important catchment for Italian cross-border workers.`
+      : '';
+    const variantPart = variantQueries.length > 0
+      ? ` Among the ${variantCount} grouped queries, the most typical variants are: "${variantQueries.join('", "')}".`
+      : ` This page consolidates ${variantCount} related queries.`;
+    const volumePart = impressions > 0
+      ? ` According to Google Search Console, the cluster delivered ${impressions.toLocaleString('en-US')} impressions and ${clicks.toLocaleString('en-US')} clicks in the latest snapshot.`
+      : '';
+    return `Specific signals for ${q}. ${rolesPart}${regionPart}${variantPart}${volumePart}`;
+  }
+  if (locale === 'de') {
+    const rolesPart = roleTokens.length > 0
+      ? `Nutzer suchen diese Rolle häufig als ${formatList(roleTokens, 'oder')}.`
+      : `Dieses Cluster enthält keine etablierten Synonyme.`;
+    const regionPart = region
+      ? ` Das Suchvolumen stammt hauptsächlich aus dem Raum ${cap(region)}, einem wichtigen Einzugsgebiet für italienische Grenzgänger.`
+      : '';
+    const variantPart = variantQueries.length > 0
+      ? ` Unter den ${variantCount} gebündelten Suchanfragen fallen besonders auf: "${variantQueries.join('", "')}".`
+      : ` Diese Seite bündelt ${variantCount} verwandte Suchanfragen.`;
+    const volumePart = impressions > 0
+      ? ` Laut Google Search Console generierte dieses Cluster im letzten Snapshot ${impressions.toLocaleString('de-CH')} Impressions und ${clicks.toLocaleString('de-CH')} Klicks.`
+      : '';
+    return `Spezifische Signale zu ${q}. ${rolesPart}${regionPart}${variantPart}${volumePart}`;
+  }
+  // fr
+  const rolesPart = roleTokens.length > 0
+    ? `Les internautes formulent cette recherche sous différentes variantes : ${formatList(roleTokens, 'ou')}.`
+    : `Ce cluster ne contient pas de synonymes consolidés.`;
+  const regionPart = region
+    ? ` Le volume principal provient de la zone de ${cap(region)}, bassin de référence pour les frontaliers italiens.`
+    : '';
+  const variantPart = variantQueries.length > 0
+    ? ` Parmi les ${variantCount} requêtes regroupées, les variantes les plus typiques sont : « ${variantQueries.join(' », « ')} ».`
+    : ` Cette page regroupe ${variantCount} requêtes apparentées.`;
+  const volumePart = impressions > 0
+    ? ` D'après Google Search Console, le cluster a enregistré ${impressions.toLocaleString('fr-CH')} impressions et ${clicks.toLocaleString('fr-CH')} clics dans le dernier instantané.`
+    : '';
+  return `Signaux propres à ${q}. ${rolesPart}${regionPart}${variantPart}${volumePart}`;
+}
+
 /** Build an editorialized meta description per locale. */
 function buildEditorialDescription(query: string, locale: OrphanLandingLocale, editorial: string): string {
   const q = cap(query);
@@ -372,6 +469,7 @@ function renderPage(opts: {
       <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
       <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
       <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.6;max-width:860px">${esc(editorialBody)}</p>
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.65;max-width:860px">${esc(buildClusterSignalsParagraph(cluster, locale))}</p>
       <p style="margin:0;color:var(--color-subtle);line-height:1.65;max-width:860px">${esc(genericBody)}</p>
     </header>
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 24px">
@@ -612,3 +710,10 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
 
 /** Re-export routing data shape for the router. */
 export type { OrphanLandingRoute, OrphanLandingLocale };
+
+/**
+ * Exported for duplicate-body tests — exercises the per-cluster distinguishing
+ * content injected into the page body so that sparse clusters (few matching
+ * jobs, `generic` editorial family) cannot collide on body hash.
+ */
+export { buildClusterSignalsParagraph, renderPage as __renderOrphanLandingPage };

@@ -1488,6 +1488,88 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
   },
 };
 
+/**
+ * Compose a per-station signature paragraph injected into the "station
+ * context" section. Stations that share (brand, city, zone, fuel) — which
+ * previously produced an identical contextParagraphs block — still receive a
+ * distinguishing sentence here because this paragraph references the street,
+ * station-id, slug, lat/lng coordinates when available, ranking slot, price
+ * and delta-vs-zone-average. Those fields are always per-station, so no two
+ * pages can collide on body hash.
+ */
+interface StationSignatureInput {
+  locale: FuelDailyLocale;
+  brand: string;
+  street: string;
+  city: string;
+  zone: string;
+  fuelLabel: string;
+  priceFmt: string;
+  zoneAvgFmt: string;
+  rankIndex: number;
+  total: number;
+  station: SwissStation;
+  slug: string;
+}
+
+function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
+  const { locale, brand, street, city, zone, fuelLabel, priceFmt, zoneAvgFmt, rankIndex, total, station, slug } = inp;
+  const rankText = total > 0 ? `${rankIndex + 1}/${total}` : '—';
+  const streetText = street && street.length > 0 ? street : (station.address ?? '');
+  const updatedText = station.updatedAt ? String(station.updatedAt).slice(0, 10) : '';
+  const coords =
+    typeof station.lat === 'number' && typeof station.lng === 'number'
+      ? `${station.lat.toFixed(4)}, ${station.lng.toFixed(4)}`
+      : '';
+  const neighbour = station.nearestMunicipality && station.nearestMunicipality.length > 0
+    ? station.nearestMunicipality
+    : '';
+  const distanceKm =
+    typeof station.nearestMunicipalityDistanceKm === 'number' && station.nearestMunicipalityDistanceKm > 0
+      ? station.nearestMunicipalityDistanceKm.toFixed(1)
+      : '';
+
+  if (locale === 'it') {
+    const parts = [
+      `Questa scheda fa riferimento specifico alla stazione ${brand} ${streetText || slug} a ${city} (zona ${zone})`,
+      `oggi quotata ${priceFmt} CHF/litro per ${fuelLabel.toLowerCase()} contro una media zona di ${zoneAvgFmt} CHF/litro, posizione ${rankText} nella classifica locale`,
+    ];
+    if (coords) parts.push(`coordinate ${coords}`);
+    if (neighbour) parts.push(`comune italiano più vicino: ${neighbour}${distanceKm ? ` (${distanceKm} km)` : ''}`);
+    if (updatedText) parts.push(`ultimo aggiornamento prezzo: ${updatedText}`);
+    return `${parts.join('. ')}. Usa questa pagina come riferimento puntuale per la tua routine di rifornimento: il confronto con il prezzo italiano vicino e con le altre stazioni della zona ${zone} cambia di giorno in giorno.`;
+  }
+  if (locale === 'de') {
+    const parts = [
+      `Dieses Datenblatt bezieht sich speziell auf die Tankstelle ${brand} ${streetText || slug} in ${city} (Zone ${zone})`,
+      `heute notiert zu ${priceFmt} CHF/Liter für ${fuelLabel} gegenüber einem Zonendurchschnitt von ${zoneAvgFmt} CHF/Liter, Rang ${rankText} in der lokalen Rangliste`,
+    ];
+    if (coords) parts.push(`Koordinaten ${coords}`);
+    if (neighbour) parts.push(`nächstgelegener italienischer Ort: ${neighbour}${distanceKm ? ` (${distanceKm} km)` : ''}`);
+    if (updatedText) parts.push(`letzte Preisaktualisierung: ${updatedText}`);
+    return `${parts.join('. ')}. Nutze diese Seite als präzise Referenz für deine Tankroutine: der Vergleich mit dem nächsten italienischen Preis und mit den übrigen Tankstellen der Zone ${zone} ändert sich täglich.`;
+  }
+  if (locale === 'fr') {
+    const parts = [
+      `Cette fiche se réfère spécifiquement à la station ${brand} ${streetText || slug} à ${city} (zone ${zone})`,
+      `aujourd'hui cotée ${priceFmt} CHF/litre pour le ${fuelLabel.toLowerCase()} contre une moyenne de zone de ${zoneAvgFmt} CHF/litre, position ${rankText} dans le classement local`,
+    ];
+    if (coords) parts.push(`coordonnées ${coords}`);
+    if (neighbour) parts.push(`commune italienne la plus proche : ${neighbour}${distanceKm ? ` (${distanceKm} km)` : ''}`);
+    if (updatedText) parts.push(`dernière mise à jour du prix : ${updatedText}`);
+    return `${parts.join('. ')}. Utilisez cette page comme référence précise pour votre routine de plein : la comparaison avec le prix italien voisin et avec les autres stations de la zone ${zone} change chaque jour.`;
+  }
+  // en
+  const parts = [
+    `This page refers specifically to the ${brand} ${streetText || slug} station in ${city} (${zone} zone)`,
+    `quoted today at ${priceFmt} CHF/litre for ${fuelLabel.toLowerCase()} vs a zone average of ${zoneAvgFmt} CHF/litre, rank ${rankText} in the local leaderboard`,
+  ];
+  if (coords) parts.push(`coordinates ${coords}`);
+  if (neighbour) parts.push(`nearest Italian municipality: ${neighbour}${distanceKm ? ` (${distanceKm} km)` : ''}`);
+  if (updatedText) parts.push(`last price update: ${updatedText}`);
+  return `${parts.join('. ')}. Use this page as a precise reference for your refuelling routine: the comparison with the closest Italian price and with the other stations in the ${zone} zone shifts day by day.`;
+}
+
 /** Render a Swiss per-station HTML page for a single fuel. */
 function renderStationPage(opts: {
   ctx: StationContext;
@@ -1676,6 +1758,22 @@ function renderStationPage(opts: {
     ${copy.contextParagraphs(ctx.brandDisplay, ctx.city, zoneLabel, fuelLabel)
       .map((p) => `<p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${p}</p>`)
       .join('')}
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(
+      buildStationSignaturePargaraph({
+        locale,
+        brand: ctx.brandDisplay,
+        street: ctx.streetDisplay,
+        city: ctx.city,
+        zone: zoneLabel,
+        fuelLabel,
+        priceFmt,
+        zoneAvgFmt,
+        rankIndex: Math.max(rankIdx, 0),
+        total,
+        station: ctx.station,
+        slug: ctx.slug,
+      }),
+    )}</p>
   </section>
   <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_station', {
@@ -2452,3 +2550,12 @@ ${urlEntries}
     },
   };
 }
+
+/**
+ * Exported for duplicate-body tests. The signature paragraph is the key
+ * per-entity differentiator for stations that share (brand, city, zone,
+ * fuel) — it references the street, slug, coordinates, last-update date and
+ * ranking slot, all of which are always per-station.
+ */
+export { buildStationSignaturePargaraph };
+export type { StationSignatureInput };
