@@ -7013,4 +7013,12 @@ export const ARTICLES = [
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
  },
+ {
+ id: 'assistente-ai-frontalieri',
+ category: 'pratico',
+ date: '2026-04-24',
+ updatedAt: '2026-04-24',
+ image: '/images/places/lac-lugano.webp',
+ hasCalculator: false,
+ },
 ] satisfies Article[];

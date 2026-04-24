@@ -2583,6 +2583,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quellensteuer-schweiz-2026-hub.title': 'Quellensteuer Schweiz 2026: Vergleich aller Grenzkantone',
     'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Quellensteuer 2026 in der Schweiz: Sätze, Tarife und NOV-Schwelle für Tessin, Graubünden, Wallis, Bern und Zürich. Hub-Vergleich für Grenzgänger mit Permit B/G.',
     'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Burg in Bellinzona, Symbol der Schweizer Kantone und ihrer Quellensteuer-Tarife 2026.',
+    'blog.article.assistente-ai-frontalieri.title': 'KI-Assistent für Grenzgänger: der komplette Leitfaden 2026',
+    'blog.article.assistente-ai-frontalieri.excerpt': 'Vollständiger Leitfaden zum kostenlosen KI-Assistenten für Grenzgänger: Funktionsweise, mögliche Fragen (Grenzgängerbewilligung, Quellensteuer, Steuergutschrift, Jobsuche), Datenschutz und Grenzen. 10+ echte FAQ.',
+    'blog.article.assistente-ai-frontalieri.imageAlt': 'Blick auf den Luganersee mit einem Laptop, der einen KI-Chat zeigt — Symbol des virtuellen Assistenten für Tessiner Grenzgänger.',
 };
 
 export default blogMetaDe;

@@ -2583,6 +2583,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quellensteuer-schweiz-2026-hub.title': 'Imposta alla fonte Svizzera 2026: confronto tra cantoni di frontiera',
     'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Imposta alla fonte Svizzera 2026: aliquote, tariffe e soglia NOV per Ticino, Grigioni, Vallese, Berna e Zurigo. Hub di confronto per frontalieri con permesso B/G.',
     'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Castello di Bellinzona, simbolo dei cantoni svizzeri e delle loro tariffe imposta alla fonte 2026.',
+    'blog.article.assistente-ai-frontalieri.title': 'Assistente AI per frontalieri: la guida completa 2026',
+    'blog.article.assistente-ai-frontalieri.excerpt': 'Guida completa all\'assistente AI gratuito per frontalieri: come funziona, cosa puoi chiedere (permesso G, imposta alla fonte, ritenuta d\'acconto, job search), privacy e limiti. 15 FAQ reali.',
+    'blog.article.assistente-ai-frontalieri.imageAlt': 'Vista del Lago di Lugano con un laptop aperto su una chat AI, simbolo dell\'assistente virtuale per frontalieri ticinesi.',
 };
 
 export default blogMetaIt;
