@@ -138,7 +138,16 @@ function validateJobPosting(schema) {
       if (!isNonEmptyString(addr.streetAddress)) errors.push('jobLocation.address.streetAddress missing/empty');
       if (!isNonEmptyString(addr.addressLocality)) errors.push('jobLocation.address.addressLocality missing/empty');
       if (!isNonEmptyString(addr.addressRegion)) errors.push('jobLocation.address.addressRegion missing/empty');
-      if (addr.addressCountry !== 'CH') errors.push(`jobLocation.address.addressCountry="${addr.addressCountry}" should be "CH"`);
+      // addressCountry MUST be present and a valid ISO 3166-1 alpha-2 code.
+      // Most jobs are CH (Swiss Ticino employers), but foreign-listed remote
+      // positions legitimately surface as LU, DE, IT, FR, AT, etc. — the
+      // validator used to hardcode "CH" and rejected every non-Swiss country,
+      // which masked the REAL failure mode (missing or malformed codes).
+      if (!isNonEmptyString(addr.addressCountry)) {
+        errors.push('jobLocation.address.addressCountry missing/empty');
+      } else if (!/^[A-Z]{2}$/.test(String(addr.addressCountry).trim())) {
+        errors.push(`jobLocation.address.addressCountry="${addr.addressCountry}" is not a 2-letter ISO 3166-1 alpha-2 code`);
+      }
     }
   }
 
