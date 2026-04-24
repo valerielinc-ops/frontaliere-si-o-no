@@ -68,6 +68,7 @@ import {
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
+  CARD_BODY_STYLE,
   CARD_STYLE,
   H1_STYLE,
   H2_STYLE,
@@ -1090,7 +1091,7 @@ function renderPage(inp: PageInputs): string {
   <section style="margin:0 0 24px" aria-labelledby="trend7">
     <h2 id="trend7" style="${H2_STYLE}">${esc(copy.trendLabel)}</h2>
     <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.6">${esc(historyCopy)}</p>
-    ${chartHtml ? `<figure style="margin:0 0 14px;padding:12px 14px;${CARD_STYLE}">${chartHtml}</figure>` : ''}
+    ${chartHtml ? `<figure style="margin:0 0 14px;padding:12px 14px;${CARD_BODY_STYLE};border-radius:14px">${chartHtml}</figure>` : ''}
     ${trendTableHtml}
     ${periodAvgNoteHtml}
   </section>
