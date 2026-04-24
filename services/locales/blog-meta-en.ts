@@ -2583,6 +2583,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quellensteuer-schweiz-2026-hub.title': 'Switzerland Withholding Tax 2026: All Border Cantons Compared',
     'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Swiss withholding tax 2026: rates, tariffs and NOV threshold for Ticino, Graubünden, Valais, Bern and Zurich. Comparison hub for cross-border workers with B/G permits.',
     'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Castle in Bellinzona, symbol of the Swiss cantons and their 2026 withholding tax rates.',
+    'blog.article.assistente-ai-frontalieri.title': 'AI assistant for cross-border workers: the complete 2026 guide',
+    'blog.article.assistente-ai-frontalieri.excerpt': 'Complete guide to the free AI assistant for cross-border workers: how it works, what you can ask (G permit, withholding tax, tax credit, job search), privacy and limits. 10+ real FAQs.',
+    'blog.article.assistente-ai-frontalieri.imageAlt': 'Lake Lugano view with an open laptop showing an AI chat, symbol of the virtual assistant for Ticino cross-border workers.',
 };
 
 export default blogMetaEn;

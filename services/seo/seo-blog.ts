@@ -11840,6 +11840,37 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assistente-ai-frontalieri': {
+    title: 'Assistente AI per frontalieri: guida completa 2026 | Frontaliere Ticino',
+    description: 'Guida completa all\'assistente AI gratuito per frontalieri: permesso G, imposta alla fonte, ritenuta d\'acconto, job search, privacy. 15 FAQ reali e casi d\'uso.',
+    keywords: 'ai frontalieri, assistente ai frontalieri, chatbot frontaliere, intelligenza artificiale frontalieri, gemini frontaliere, chatbot gratis frontalieri, ai ticino',
+    ogTitle: 'Assistente AI per frontalieri: la guida completa 2026',
+    ogDescription: 'Chatbot gratuito per frontalieri: permesso G, imposta alla fonte, job search, privacy e 15 FAQ reali.',
+    canonicalPath: '/articoli-frontaliere/assistente-ai-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Assistente AI per frontalieri: la guida completa 2026",
+      "description": "Guida completa all'assistente AI gratuito per frontalieri italiani che lavorano in Svizzera: come funziona, cosa chiedere (permesso G, imposta alla fonte, ritenuta d'acconto, job search), privacy, limiti e 15 FAQ reali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/lac-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano — simbolo dell'assistente AI di Frontaliere Ticino per i frontalieri ticinesi."
+      },
+      "datePublished": "2026-04-24T00:00:00+02:00",
+      "dateModified": "2026-04-24T00:00:00+02:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assistente-ai-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

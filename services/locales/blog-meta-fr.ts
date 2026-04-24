@@ -2583,6 +2583,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quellensteuer-schweiz-2026-hub.title': 'Impôt à la source Suisse 2026 : comparatif de tous les cantons frontaliers',
     'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Impôt à la source Suisse 2026 : taux, barèmes et seuil NOV pour le Tessin, les Grisons, le Valais, Berne et Zurich. Hub de comparaison pour frontaliers avec permis B/G.',
     'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Château de Bellinzona, symbole des cantons suisses et de leurs barèmes d\'impôt à la source 2026.',
+    'blog.article.assistente-ai-frontalieri.title': 'Assistant IA pour frontaliers : le guide complet 2026',
+    'blog.article.assistente-ai-frontalieri.excerpt': 'Guide complet de l\'assistant IA gratuit pour frontaliers : comment il fonctionne, ce que vous pouvez demander (permis G, impôt à la source, crédit d\'impôt, recherche d\'emploi), confidentialité et limites. 10+ FAQ réelles.',
+    'blog.article.assistente-ai-frontalieri.imageAlt': 'Vue du lac de Lugano avec un ordinateur portable affichant un chat IA, symbole de l\'assistant virtuel pour frontaliers tessinois.',
 };
 
 export default blogMetaFr;
