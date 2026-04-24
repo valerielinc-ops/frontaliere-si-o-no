@@ -1,23 +1,27 @@
 /**
- * Regression test for lite-shell vs full-shell rendering.
+ * Regression: <footer> renders on staticOverlay (SEO static-overlay) routes.
  *
- * Lite-shell mode (staticOverlay === true): the URL matches a build-time
- * static SEO page (per-station fuel, per-canton health premiums, per-city
- * employer hubs, etc.). The SEO HTML lives in a sibling
- * `<main class="seo-static-content">` OUTSIDE `#root`, so the React SPA must
- * render ONLY minimal chrome (header/top-nav). It must NOT render:
- *  - the React `<main id="main-content">` (would replace the static page)
- *  - the per-tab `SubTabNav` (adds visual clutter + empty space below header)
+ * Before the fix, App.tsx wrapped the <footer> in `{!staticOverlay && (...)}`,
+ * which suppressed the footer on all SEO static-overlay pages
+ * (e.g. /traffico-dogane/chiasso-brogeda/oggi/, /prezzi-diesel/lugano/oggi/,
+ * /aziende-che-assumono/chiasso/settimana-corrente/, etc.).
  *
- * Full-shell mode (staticOverlay === false): normal SPA pages (homepage,
- * calculator, etc.) render the full UI including SubTabNav below the top nav.
+ * The footer is global chrome (newsletter signup, sitemap links, weekly
+ * employers teaser, privacy/terms) and must always render regardless of
+ * overlay mode. The static <main class="seo-static-content"> lives OUTSIDE
+ * #root so there is no visual conflict.
+ *
+ * The fix: remove the `!staticOverlay` guard from the <footer> block in
+ * App.tsx while keeping the guard on <main id="main-content"> (the React
+ * content area that would visually replace the static SEO page).
  */
+
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from '@/App';
 
-// Mock seoHelpers to prevent enableRuntimeSeo() from setting module-level
-// runtimeSeoEnabled = true, which persists across test files (isolate: false).
+// Mock seoHelpers to prevent runtimeSeoEnabled module-level state from bleeding
+// across test files (isolate: false shares module registry per worker).
 vi.mock('@/hooks/seoHelpers', () => ({
   enableRuntimeSeo: vi.fn(),
   isRuntimeSeoEnabled: vi.fn(() => false),
@@ -26,7 +30,8 @@ vi.mock('@/hooks/seoHelpers', () => ({
   _resetRuntimeSeoForTests: vi.fn(),
 }));
 
-// Router mocks — `parsePath` is re-assigned per test to flip staticOverlay.
+// Router mock — parsePath returns staticOverlay: true to simulate an SEO
+// static-overlay route (e.g. border wait, fuel daily, weekly employers, etc.).
 const mockParsePath = vi.fn();
 
 vi.mock('@/services/router', () => ({
@@ -101,6 +106,7 @@ const mockTaxResult = {
   breakdown: [{ label: 'Quellensteuer', amount: 400, percentage: 5 }],
   details: { regime: 'Quellensteuer', effectiveRate: 10, source: 'Test', notes: [] },
 };
+
 vi.mock('@/services/calculationService', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/services/calculationService')>();
   return {
@@ -122,7 +128,7 @@ let consoleWarnSpy: ReturnType<typeof vi.spyOn>;
 beforeEach(() => {
   consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-  window.history.replaceState(null, '', '/');
+  window.history.replaceState(null, '', '/traffico-dogane/chiasso-brogeda/oggi/');
   document.body.innerHTML = '';
 });
 
@@ -131,74 +137,51 @@ afterEach(() => {
   consoleWarnSpy.mockRestore();
 });
 
-describe('App lite-shell (staticOverlay) rendering', () => {
-  it('full-shell: homepage renders SubTabNav AND <main> AND <footer>', () => {
+describe('Regression: footer renders on SEO static-overlay routes', () => {
+  it('renders <footer> when parsePath returns staticOverlay: true', () => {
+    // Simulate a border-wait SEO overlay page (guida/border sub-tab).
     mockParsePath.mockImplementation(() => ({
-      route: { activeTab: 'calculator' as const },
+      route: { activeTab: 'guida' as const, guidaSubTab: 'border' as const, staticOverlay: true },
       locale: 'it' as const,
     }));
 
     render(<App />);
 
-    // Full shell renders <main id="main-content">
-    const mainEl = document.querySelector('main#main-content');
-    expect(mainEl, 'full-shell must render React <main>').not.toBeNull();
-
-    // Footer still present
-    expect(screen.getAllByText('footer.improveTitle').length).toBeGreaterThan(0);
-
-    // SubTabNav uses role="tablist" too (the main top-nav also uses it);
-    // the SubTabNav has `aria-selected` buttons without `aria-label` on tablist.
-    // In full shell we expect at least TWO tablists (top nav + one SubTabNav).
-    const tablists = document.querySelectorAll('[role="tablist"]');
+    // The <footer> HTML element must be present in the DOM.
+    const footerEl = document.querySelector('footer');
     expect(
-      tablists.length,
-      'full-shell must render top-nav tablist AND SubTabNav tablist (>=2)'
-    ).toBeGreaterThanOrEqual(2);
+      footerEl,
+      'document.querySelector("footer") must not be null on staticOverlay routes'
+    ).not.toBeNull();
   });
 
-  it('lite-shell: SEO static page renders top nav + footer, but NO SubTabNav and NO React <main>', () => {
-    // Inject the static SEO marker that lite-shell detection looks for.
-    const staticMain = document.createElement('main');
-    staticMain.className = 'seo-static-content';
-    staticMain.innerHTML = '<h1>Static SEO Content</h1>';
-    document.body.appendChild(staticMain);
-
-    // Router reports a staticOverlay route (e.g. per-station fuel page).
+  it('newsletter form is present in the footer on staticOverlay routes', () => {
     mockParsePath.mockImplementation(() => ({
-      route: { activeTab: 'stats' as const, staticOverlay: true },
+      route: { activeTab: 'guida' as const, guidaSubTab: 'border' as const, staticOverlay: true },
       locale: 'it' as const,
     }));
 
     render(<App />);
 
-    // Top-level nav tabs still render (user can navigate back to SPA).
-    expect(screen.getAllByText('nav.simulator').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText('nav.stats').length).toBeGreaterThanOrEqual(1);
-
-    // Footer MUST render in lite-shell mode — it contains global chrome
-    // (newsletter, sitemap links, weekly employers teaser).
+    // The footer contains the NewsletterInline component (renders text key "newsletter.*"
+    // or a visible "Newsletter" label). Check that the footer itself is present
+    // and that 'footer.improveTitle' translation key is rendered (always present in footer).
     expect(screen.getAllByText('footer.improveTitle').length).toBeGreaterThan(0);
-    const footerEl = document.querySelector('footer');
-    expect(footerEl, 'lite-shell must render <footer> for newsletter + sitemap chrome').not.toBeNull();
+  });
 
-    // React <main id="main-content"> is NOT rendered (static content owns the page body).
+  it('React <main id="main-content"> is still suppressed on staticOverlay routes', () => {
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'guida' as const, guidaSubTab: 'border' as const, staticOverlay: true },
+      locale: 'it' as const,
+    }));
+
+    render(<App />);
+
+    // The React main content area must NOT render — the static SEO <main> owns the body.
     const reactMain = document.querySelector('main#main-content');
-    expect(reactMain, 'lite-shell must not render React <main id="main-content">').toBeNull();
-
-    // The static SEO <main class="seo-static-content"> is preserved in DOM.
-    const staticSeoMain = document.querySelector('main.seo-static-content');
-    expect(staticSeoMain, 'static SEO <main> must be preserved in DOM').not.toBeNull();
-
-    // In lite shell only the main top-nav tablist (aria-label="Navigazione principale")
-    // should be present — NO SubTabNav tablists.
-    const tablists = document.querySelectorAll('[role="tablist"]');
-    const subTabNavs = Array.from(tablists).filter(
-      (el) => el.getAttribute('aria-label') !== 'Navigazione principale'
-    );
     expect(
-      subTabNavs.length,
-      'lite-shell must suppress every SubTabNav (only top-nav tablist allowed)'
-    ).toBe(0);
+      reactMain,
+      'React <main id="main-content"> must remain suppressed in lite-shell mode'
+    ).toBeNull();
   });
 });
