@@ -23,6 +23,45 @@ const GEMINI_MODELS = [
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 
+// ── Available client-side tools ─────────────────────────────────────────────
+// Tools the LLM may request. Execution happens client-side (AiChatbot.tsx)
+// because the jobs dataset is bundled with the SPA and the client has
+// locale-aware slug tables. The server-side inference simply documents the
+// tools in the system prompt so the model knows they exist.
+//
+// Shape matches OpenAI/Gemini function-calling schema minimally: name,
+// description, parameters. Extend when a new tool ships.
+export const AVAILABLE_TOOLS = [
+ {
+ name: 'searchJobs',
+ description:
+ 'Search the Frontaliere Ticino jobs dataset for openings matching a ' +
+ 'natural-language query (e.g. "infermiere a Lugano", "software engineer Zurich"). ' +
+ 'Returns up to `limit` ranked results with title, company, location, and a ' +
+ 'direct URL to the listing. Use this when the user asks to find/trovare/cerca ' +
+ 'job openings, vacancies, positions, or similar.',
+ parameters: {
+ type: 'object',
+ properties: {
+ query: { type: 'string', description: 'Natural-language search query.' },
+ locale: { type: 'string', enum: ['it', 'en', 'de', 'fr'], description: 'Response locale.' },
+ limit: { type: 'integer', minimum: 1, maximum: 20, default: 5 },
+ },
+ required: ['query', 'locale'],
+ },
+ },
+];
+
+function buildToolsSection() {
+ return (
+ '\n\nAvailable tools (execution happens client-side, you cannot invoke them ' +
+ 'directly — when a user asks a query matching a tool, craft an answer that ' +
+ 'prompts them to rephrase with action words like "trova/cerca offerte" so ' +
+ 'the client handler detects the intent):\n' +
+ AVAILABLE_TOOLS.map(t => `- ${t.name}: ${t.description}`).join('\n')
+ );
+}
+
 // ── Response cache (in-memory, single-process) ──────────────────────────────
 
 const responseCache = new Map();
@@ -151,10 +190,12 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  }
 
  // 3. Try each model in priority order
+ // Append tool catalogue so the model knows which client-side tools exist.
+ const augmentedPrompt = `${systemPrompt}${buildToolsSection()}`;
  let lastError = null;
  for (const model of GEMINI_MODELS) {
  try {
- const text = await callGeminiModel(model, messages, systemPrompt, apiKey);
+ const text = await callGeminiModel(model, messages, augmentedPrompt, apiKey);
  if (key) cacheSet(key, text);
  return { text, model, source: 'gemini' };
  } catch (err) {
