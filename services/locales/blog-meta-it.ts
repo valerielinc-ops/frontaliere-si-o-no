@@ -2574,6 +2574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Divario salariale in Ticino: residenti guadagnano 1.157 franchi in più',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'L\'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del 19,4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Vista del lago di Lugano con montagne del Ticino',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Imposta alla fonte Svizzera 2026: confronto tra cantoni di frontiera',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Imposta alla fonte Svizzera 2026: aliquote, tariffe e soglia NOV per Ticino, Grigioni, Vallese, Berna e Zurigo. Hub di confronto per frontalieri con permesso B/G.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Castello di Bellinzona, simbolo dei cantoni svizzeri e delle loro tariffe imposta alla fonte 2026.',
 };
 
 export default blogMetaIt;

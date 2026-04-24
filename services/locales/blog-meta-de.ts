@@ -2574,6 +2574,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Lohnunterschied im Tessin: Einwohner verdienen 1.157 Franken mehr',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'Das kantonale Statistikamt gibt bekannt, dass die Einwohner des Tessin durchschnittlich 5.957 Franken verdienen, während Grenzgänger 4.800 Franken erhalten. Die Differenz beträgt 19,4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit den Tessin-Berge',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Quellensteuer Schweiz 2026: Vergleich aller Grenzkantone',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Quellensteuer 2026 in der Schweiz: Sätze, Tarife und NOV-Schwelle für Tessin, Graubünden, Wallis, Bern und Zürich. Hub-Vergleich für Grenzgänger mit Permit B/G.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Burg in Bellinzona, Symbol der Schweizer Kantone und ihrer Quellensteuer-Tarife 2026.',
 };
 
 export default blogMetaDe;

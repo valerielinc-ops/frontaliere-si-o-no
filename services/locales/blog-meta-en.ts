@@ -2574,6 +2574,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Wage gap in Ticino: residents earn 1,157 francs more',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'The cantonal statistical office reveals that residents in Ticino earn an average of 5,957 francs, while cross-border workers earn 4,800 francs. The gap is 19.4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Lake Lugano view with Ticino mountains',
+    'blog.article.quellensteuer-schweiz-2026-hub.title': 'Switzerland Withholding Tax 2026: All Border Cantons Compared',
+    'blog.article.quellensteuer-schweiz-2026-hub.excerpt': 'Swiss withholding tax 2026: rates, tariffs and NOV threshold for Ticino, Graubünden, Valais, Bern and Zurich. Comparison hub for cross-border workers with B/G permits.',
+    'blog.article.quellensteuer-schweiz-2026-hub.imageAlt': 'Castle in Bellinzona, symbol of the Swiss cantons and their 2026 withholding tax rates.',
 };
 
 export default blogMetaEn;
