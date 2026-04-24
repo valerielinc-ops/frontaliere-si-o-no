@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { renderFastestCrossingCard } from '@/build-plugins/borderWaitPagesPlugin';
+import {
+  renderFastestCrossingCard,
+  renderTrafficFluidBanner,
+} from '@/build-plugins/borderWaitPagesPlugin';
 
 describe('renderFastestCrossingCard', () => {
   it('returns empty string when every crossing has 0 min wait', () => {
@@ -19,5 +22,16 @@ describe('renderFastestCrossingCard', () => {
     const html = renderFastestCrossingCard(crossings, 'it');
     expect(html).toContain('Gaggiolo');
     expect(html).toContain('12 min');
+  });
+});
+
+describe('renderTrafficFluidBanner', () => {
+  it('returns a reassuring banner when all zeros', () => {
+    const html = renderTrafficFluidBanner(true, 'it');
+    expect(html).toContain('Traffico fluido');
+  });
+
+  it('returns empty when data not all zeros', () => {
+    expect(renderTrafficFluidBanner(false, 'it')).toBe('');
   });
 });

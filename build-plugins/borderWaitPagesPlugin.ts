@@ -1445,14 +1445,19 @@ function renderHubPage(inp: HubInputs): string {
     <tbody>${rows.join('')}</tbody>
   </table>`;
 
-  // "Best crossing right now" hero. When every crossing reports 0 min
-  // (upstream data degenerate case) the card collapses to empty string.
+  // "Best crossing right now" hero, with a "traffico fluido" fallback
+  // banner when every crossing reports 0 min (upstream data degenerate
+  // case — either unmeasured or perfectly fluid). Either the hero OR the
+  // fallback renders; never both and never empty space.
   const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.map((c) => ({
     slug: c,
     labelIt: BORDER_CROSSING_DISPLAY[c],
     waitTimeMinutes: current.perCrossing[c]?.waitTimeMinutes ?? 0,
   }));
-  const bestBannerHtml = renderFastestCrossingCard(heroInputs, locale);
+  const allZeros = heroInputs.every((c) => c.waitTimeMinutes === 0);
+  const bestBannerHtml = allZeros
+    ? renderTrafficFluidBanner(true, locale)
+    : renderFastestCrossingCard(heroInputs, locale);
 
   const alternatesHtml = (Object.keys(alternates) as BorderWaitLocale[])
     .map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${alternates[alt]}">`)
