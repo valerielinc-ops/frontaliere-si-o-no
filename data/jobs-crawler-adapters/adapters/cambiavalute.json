@@ -9,15 +9,24 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/"
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
   ],
   "notes": "Dedicated CambiaValute.ch crawler — discovers job listings from cambiavalute.ch/annunci-di-lavoro/ and extracts detail page URLs under /annuncio-di-lavoro/{slug}/.",
-  "updatedAt": "2026-04-23T21:15:21.267Z",
+  "updatedAt": "2026-04-24T09:46:10.002Z",
   "seedDetailUrls": [
-    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/"
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
   ],
   "seedMetaByUrl": {
-    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/": {
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "CambiaValute.ch",
+      "companyDomain": "cambiavalute.ch"
+    },
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/": {
       "location": "Chiasso",
       "canton": "TI",
       "country": "CH",

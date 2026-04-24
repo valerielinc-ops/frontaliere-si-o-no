@@ -1,22 +1,92 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-04-23T21:15:37.676Z",
-  "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "generatedAt": "2026-04-24T09:46:26.053Z",
+  "total": 2,
+  "newCount": 2,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 17908,
-  "avgDurationMs": 17908,
+  "durationMs": 17652,
+  "avgDurationMs": 17652,
   "durationHistory": [
-    17908
+    17652
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "company-fooban",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w",
+      "company": "CambiaValute.ch",
+      "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-04-24T09:46:25.778Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-a24znt",
+      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote",
+      "company": "CambiaValute.ch",
+      "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
+      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-04-24T09:46:25.778Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute",
       "company": "CambiaValute.ch",
       "title": "Senior Backend developer",
       "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
@@ -56,6 +126,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
