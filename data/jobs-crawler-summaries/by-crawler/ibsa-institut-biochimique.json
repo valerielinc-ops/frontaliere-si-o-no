@@ -1,21 +1,21 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-04-24T10:21:41.237Z",
+  "generatedAt": "2026-04-24T21:47:56.583Z",
   "total": 13,
   "newCount": 13,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17143,
-  "avgDurationMs": 17143,
+  "durationMs": 19673,
+  "avgDurationMs": 19673,
   "durationHistory": [
-    17143
+    19673
   ],
   "newJobs": [
     {
       "id": "company-bm0ep4",
-      "slug": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
+      "slug": "responsabile-cmo-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "CMO Manager",
       "location": "6916 Working Area",
@@ -36,7 +36,6 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-04-24T10:21:40.507Z",
       "firstSeenAt": "2026-04-24T10:21:40.507Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 82500,
@@ -47,11 +46,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
