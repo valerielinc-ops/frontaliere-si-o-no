@@ -410,6 +410,18 @@ const enCalculator: Record<string, string> = {
  'calculator.consultingCta.headline': 'Complex situation?',
  'calculator.consultingCta.body': '30 min of personalized consulting with a cross-border expert — €49. Book your slot.',
  'calculator.consultingCta.button': 'Book consultation',
+ // E2 — Calculator paywall (soft paywall for PDF report)
+ 'calculator.paywall.title': 'Your free Italy vs Switzerland PDF report',
+ 'calculator.paywall.body': 'We\u2019ll email you the PDF with your numbers plus the 2026 tax guide.',
+ 'calculator.paywall.bullet1': 'Full PDF with net income CH, IT and annual difference',
+ 'calculator.paywall.bullet2': 'Updated 2026 tax guide for cross-border workers',
+ 'calculator.paywall.emailPlaceholder': 'name@example.com',
+ 'calculator.paywall.submit': 'Send me the PDF',
+ 'calculator.paywall.submitting': 'Sending...',
+ 'calculator.paywall.dismissLabel': 'Don\u2019t show again',
+ 'calculator.paywall.privacyNote': 'Only for this PDF. No spam — unsubscribe anytime.',
+ 'calculator.paywall.successToast': 'PDF sent! Check your inbox.',
+ 'calculator.paywall.errorToast': 'Could not send the PDF. Check your email and try again.',
 };
 
 export default enCalculator;

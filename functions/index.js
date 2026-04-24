@@ -9,6 +9,7 @@ import { handleUnosendWebhookRequest } from './src/newsletterUnosendWebhookCore.
 import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
+import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
@@ -271,6 +272,42 @@ export const newsletterSendConfirmation = onRequest(
  res.status(result.success ? 200 : 400).json(result);
  } catch (error) {
  console.error('[newsletterSendConfirmation] Error:', error);
+ res.status(500).json({ success: false, error: 'internal_error' });
+ }
+ },
+);
+
+// E2: Calculator paywall PDF delivery (HTTP endpoint)
+export const sendCalculatorReport = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).json({ success: false, error: 'method_not_allowed' });
+ return;
+ }
+ const email = String(req.body?.email || '').trim().toLowerCase();
+ const pdfBase64 = typeof req.body?.pdfBase64 === 'string' ? req.body.pdfBase64 : '';
+ const resultSummary = req.body?.resultSummary || null;
+ const locale = String(req.body?.locale || 'it').trim();
+ const sourcePath = String(req.body?.sourcePath || '/').trim();
+ try {
+ const { resendApiKey } = await getNewsletterSecrets();
+ const result = await handleSendCalculatorReport({
+ email,
+ pdfBase64,
+ resultSummary,
+ locale,
+ sourcePath,
+ resendApiKey,
+ });
+ res.status(result.status).type('json').json(result.body);
+ } catch (error) {
+ console.error('[sendCalculatorReport] Error:', error);
  res.status(500).json({ success: false, error: 'internal_error' });
  }
  },

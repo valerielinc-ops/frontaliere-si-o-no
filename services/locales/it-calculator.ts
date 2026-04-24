@@ -422,5 +422,17 @@ const translations: Record<string, string> = {
  'calculator.consultingCta.headline': 'Situazione complessa?',
  'calculator.consultingCta.body': '30 min di consulenza personalizzata con esperto frontaliere — €49. Prenota il tuo slot.',
  'calculator.consultingCta.button': 'Prenota consulenza',
+ // E2 — Calculator paywall (soft paywall for PDF report)
+ 'calculator.paywall.title': 'Il tuo confronto Italia-Svizzera in PDF gratuito',
+ 'calculator.paywall.body': 'Riceverai via email il PDF con i tuoi numeri + guida tasse 2026.',
+ 'calculator.paywall.bullet1': 'PDF completo con netto CH, netto IT e differenza annua',
+ 'calculator.paywall.bullet2': 'Guida fiscale 2026 per frontalieri aggiornata',
+ 'calculator.paywall.emailPlaceholder': 'nome@esempio.com',
+ 'calculator.paywall.submit': 'Ricevi il PDF',
+ 'calculator.paywall.submitting': 'Invio in corso...',
+ 'calculator.paywall.dismissLabel': 'Non mostrare più',
+ 'calculator.paywall.privacyNote': 'Solo per il PDF. Niente spam: puoi cancellarti in qualsiasi momento.',
+ 'calculator.paywall.successToast': 'PDF inviato! Controlla la tua casella email.',
+ 'calculator.paywall.errorToast': 'Impossibile inviare il PDF. Controlla l\u2019email e riprova.',
 };
 export default translations;

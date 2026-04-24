@@ -1631,8 +1631,8 @@ export const Analytics = {
  * Track explicit funnel steps for drop-off analysis.
  *
  * Canonical main-conversion steps: entry → input_start → calculate → compare → cta_click.
- * Any string step is accepted so feature-specific funnels (e.g., job_auth, chatbot)
- * can flow through the same event with `funnel` set to their funnel id.
+ * Any string step is accepted so feature-specific funnels (e.g., job_auth, chatbot,
+ * newsletter_paywall) can flow through the same event with `funnel` set to their funnel id.
  *
  * IMPORTANT: the payload MUST always carry a non-null `step` property — PostHog
  * dashboards key off `step` directly (not `step_name`). Keeping both aliases
@@ -1643,8 +1643,12 @@ export const Analytics = {
  details?: Record<string, string | number | boolean | undefined> & { funnel?: string },
  ) => {
  const mainStepIndex: Record<string, number> = { entry: 1, input_start: 2, calculate: 3, compare: 4, cta_click: 5 };
+ const paywallStepIndex: Record<string, number> = { paywall_shown: 1, paywall_email_submitted: 2, paywall_email_confirmed: 3 };
  const { funnel: funnelOverride, ...rest } = details || {};
  const funnel = funnelOverride || 'main_conversion';
+ const stepIndex = funnel === 'newsletter_paywall'
+ ? paywallStepIndex[step] ?? 0
+ : mainStepIndex[step] ?? 0;
  log('funnel_step', {
  // Canonical keys (what PostHog dashboards read) — always present
  step,
@@ -1652,7 +1656,7 @@ export const Analytics = {
  // Legacy aliases for GA4 reports that still query step_name/funnel_name
  funnel_name: funnel,
  step_name: step,
- step_index: mainStepIndex[step] ?? 0,
+ step_index: stepIndex,
  ...rest,
  });
  },

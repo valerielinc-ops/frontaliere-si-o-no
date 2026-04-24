@@ -12,6 +12,8 @@ const ConsultingCTA = lazyRetry(() => import('./ConsultingCTA').then(m => ({ def
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
+const CalculatorPaywall = lazyRetry(() => import('./CalculatorPaywall'));
+import { shouldShowPaywallFromStorage, SIM_COMPLETE_COUNTER_KEY, VISIT_COUNTER_KEY } from './CalculatorPaywall';
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '../../services/i18n';
@@ -211,8 +213,52 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  const [showEUR, setShowEUR] = useState(false);
  const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
  const [saveState, setSaveState] = useState<'idle' | 'saved'>('idle');
+ const [paywallOpen, setPaywallOpen] = useState(false);
+ const [paywallEnabled, setPaywallEnabled] = useState(false);
  const chSectionRef = useRef<HTMLDivElement>(null);
  const itSectionRef = useRef<HTMLDivElement>(null);
+
+ // E2 — Soft paywall trigger. Increment visit_count once per session, increment
+ // counter_sim_complete on every mount (each time a fresh result is rendered).
+ // Then, if the feature flag is on and the trigger rules match, open the modal
+ // after a brief delay so the user has time to glance at the results.
+ useEffect(() => {
+ if (typeof window === 'undefined') return;
+ // Visit counter — once per browser session.
+ try {
+ const SESSION_KEY = 'paywall_visit_counted';
+ if (!sessionStorage.getItem(SESSION_KEY)) {
+ const prev = parseInt(localStorage.getItem(VISIT_COUNTER_KEY) || '0', 10) || 0;
+ localStorage.setItem(VISIT_COUNTER_KEY, String(prev + 1));
+ sessionStorage.setItem(SESSION_KEY, '1');
+ }
+ } catch { /* storage blocked — ignore */ }
+ // Simulation counter — every result mount counts as a completion.
+ try {
+ const prev = parseInt(localStorage.getItem(SIM_COMPLETE_COUNTER_KEY) || '0', 10) || 0;
+ localStorage.setItem(SIM_COMPLETE_COUNTER_KEY, String(prev + 1));
+ } catch { /* ignore */ }
+
+ // Check RC flag (lazy import to avoid pulling firebase into critical path).
+ let cancelled = false;
+ (async () => {
+ try {
+ const { getConfigValue } = await import('@/services/firebase');
+ const val = await getConfigValue('ENABLE_CALCULATOR_PAYWALL');
+ if (!cancelled) setPaywallEnabled(val === 'true');
+ } catch { /* RC unavailable — feature stays off */ }
+ })();
+ return () => { cancelled = true; };
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, []);
+
+ useEffect(() => {
+ if (!paywallEnabled) return;
+ if (paywallOpen) return;
+ if (!shouldShowPaywallFromStorage()) return;
+ const timer = setTimeout(() => setPaywallOpen(true), 2000);
+ return () => clearTimeout(timer);
+ }, [paywallEnabled, paywallOpen]);
 
  useEffect(() => {
  if (!focusArea) return;
@@ -754,6 +800,16 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  <RelatedTools context="salary" />
  </Suspense>
  </div>
+ {/* E2 — Soft paywall (PDF report email capture) */}
+ {paywallOpen && (
+ <Suspense fallback={null}>
+ <CalculatorPaywall
+ result={result}
+ inputs={inputs}
+ onClose={() => setPaywallOpen(false)}
+ />
+ </Suspense>
+ )}
  </div>
  );
 };

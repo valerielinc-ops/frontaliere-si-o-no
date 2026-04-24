@@ -62,6 +62,9 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  ENABLE_JOB_ALERTS: 'false',
  // Personalization: personalized job sorting based on behavior + profile data
  ENABLE_JOB_PERSONALIZATION: 'false',
+ // E2: Calculator paywall modal (soft paywall — PDF report capture after
+ // 3+ simulations or 2+ visits). Default off for gradual rollout.
+ ENABLE_CALCULATOR_PAYWALL: 'false',
  // FRO-323: LinkedIn Sign-In client ID (empty = feature disabled)
  LINKEDIN_SIGNIN_CLIENT_ID: '',
  // A1: Runtime kill-switches for the 5 SEO feature plugin link surfaces.
