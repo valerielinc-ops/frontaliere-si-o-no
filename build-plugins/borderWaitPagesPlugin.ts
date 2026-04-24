@@ -285,6 +285,7 @@ interface Copy {
   webcamLabel: string;
   webcamNote: string;
   webcamSource: string;
+  webcamUnavailable: string;
   faqTitle: string;
   breadcrumbHome: string;
   regionalLabelTicinoComo: string;
@@ -328,6 +329,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
     webcamSource: 'Fonte',
+    webcamUnavailable: 'Webcam non disponibile per questo valico. Il Dipartimento del territorio del Canton Ticino non pubblica immagini live per questa frontiera.',
     faqTitle: 'Domande frequenti',
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
@@ -394,6 +396,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
     webcamSource: 'Source',
+    webcamUnavailable: 'No webcam available for this crossing. The Canton of Ticino Territory Department does not publish live images for this border.',
     faqTitle: 'Frequently asked questions',
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
@@ -460,6 +463,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
     webcamSource: 'Quelle',
+    webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Das Departement für Bau, Verkehr und Umwelt des Kantons Tessin veröffentlicht für diese Grenze keine Live-Bilder.',
     faqTitle: 'Häufige Fragen',
     breadcrumbHome: 'Startseite',
     regionalLabelTicinoComo: 'Tessin–Como',
@@ -526,6 +530,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
     webcamSource: 'Source',
+    webcamUnavailable: "Webcam non disponible pour ce poste frontière. Le Département du territoire du Canton du Tessin ne publie pas d'images en direct pour cette frontière.",
     faqTitle: 'Questions fréquentes',
     breadcrumbHome: 'Accueil',
     regionalLabelTicinoComo: 'Tessin–Côme',
@@ -591,7 +596,12 @@ function renderWebcamSection(
   webcams: readonly WebcamRef[],
   copy: Copy,
 ): string {
-  if (!webcams || webcams.length === 0) return '';
+  if (!webcams || webcams.length === 0) {
+    return `<section aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}" style="margin:0 0 28px">
+    <h2 style="${H2_STYLE}">${esc(copy.webcamLabel)}</h2>
+    <p style="margin:0;font-size:15px;color:var(--color-subtle);line-height:1.6">${esc(copy.webcamUnavailable)}</p>
+  </section>`;
+  }
   const figures = webcams
     .map((w) => {
       const refreshMs = w.refreshIntervalMs ?? 60000;

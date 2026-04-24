@@ -222,12 +222,13 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('height="360"');
   });
 
-  it('a crossing WITHOUT configured webcams does NOT render the webcam <figure>', () => {
+  it('a crossing WITHOUT configured webcams renders graceful fallback notice (no <figure>)', () => {
     // 'crociale-dei-mulini' has no webcam entry in data/borderCrossings.ts
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];
-    // No <figure> emitted and no refresh JS attached
+    // No <figure> and no refresh JS, but a visible notice is shown
     expect(html).not.toContain('data-webcam-refresh');
     expect(html).not.toContain('<figure');
+    expect(html).toContain('Webcam non disponibile per questo valico');
   });
 
   it('leaf page shows the source-badge label according to the snapshot source', () => {
