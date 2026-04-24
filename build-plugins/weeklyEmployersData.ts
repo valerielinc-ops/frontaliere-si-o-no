@@ -337,6 +337,21 @@ export const WEEKLY_EMPLOYERS_COMPANY_CITY_LIST: readonly WeeklyEmployersCompany
 /** Hard gate: min active jobs for a company to qualify for a per-company × per-city page. */
 export const MIN_JOBS_PER_COMPANY_IN_CITY = 3;
 
+/**
+ * Returns true iff a (company, city) record has enough active jobs to deserve
+ * a dedicated per-company × per-city SEO page.
+ *
+ * Single source of truth for the "is this pair shippable?" question — the page
+ * generator AND every link/sitemap emitter must funnel through this predicate
+ * so we never emit `<a href="...">` or sitemap `<loc>` entries pointing at
+ * paths the page generator will refuse to materialise.
+ */
+export function companyCityMeetsThreshold(
+  rec: Readonly<{ active: number }>,
+): boolean {
+  return rec.active >= MIN_JOBS_PER_COMPANY_IN_CITY;
+}
+
 /** Per-build cap so the sitemap can't balloon if a crawler mis-aggregates. */
 export const MAX_COMPANY_CITY_PAGES_PER_BUILD = 1500;
 
