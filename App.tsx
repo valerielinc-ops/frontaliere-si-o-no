@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense, useDeferredValue } from 'react';
+import { createPortal } from 'react-dom';
 import { lazyRetry } from '@/services/lazyRetry';
 // Analytics proxy: lazy, fire-and-forget, deferred to user interaction (FRO-367)
 import { Analytics } from '@/services/analyticsProxy';
@@ -2328,12 +2329,19 @@ const App: React.FC = () => {
  </main>
  )}
 
- {/* Footer always renders — even in lite-shell (staticOverlay) mode.
-   * It contains global chrome: newsletter signup, sitemap links, weekly
-   * employers teaser, and privacy/terms. Suppressing it on SEO static
-   * overlay pages would remove newsletter acquisition and internal linking.
-   * The static <main class="seo-static-content"> lives OUTSIDE #root so
-   * there is no visual conflict; footer naturally follows the SPA shell. */}
+ {/* Footer — on staticOverlay pages it is portalled into #footer-root which
+   * lives AFTER <main class="seo-static-content"> in the DOM, so the footer
+   * appears below the SEO content rather than above it (Bug A fix).
+   * On normal SPA pages the footer renders inline inside #root as before.
+   *
+   * Portal target: build-plugins/htmlTemplate.ts emits
+   *   <div id="root"></div>
+   *   <main class="seo-static-content">...</main>
+   *   <div id="footer-root"></div>   ← portal target
+   * so the footer flows naturally after the SEO content in visual order. */}
+ {(() => {
+   const footerPortalTarget = staticOverlay ? document.getElementById('footer-root') : null;
+   const footerJsx = (
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
@@ -2941,6 +2949,9 @@ const App: React.FC = () => {
  </div>
  </div>
  </footer>
+   );
+   return footerPortalTarget ? createPortal(footerJsx, footerPortalTarget) : footerJsx;
+ })()}
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">
