@@ -4246,11 +4246,25 @@ function modifyRouterTs(data) {
     return result;
   }
 
-  // 1. BlogArticleId type union — append before the semicolon
+  // 1. BlogArticleId type union — append to the LAST _BlogIdN alias before its
+  // terminating semicolon. We anchor to the actual last ID inside that alias
+  // (not ALL_BLOG_ARTICLE_IDS' last entry) because the two lists can get out
+  // of sync: TS2590 splits may reorder, and hand-edits may append to either
+  // list independently. Parsing the alias itself is the only robust anchor.
+  const lastAliasMatch = routerSrc.match(/type (_BlogId\d+)\s*=\s*([^;]+);/g);
+  if (!lastAliasMatch || lastAliasMatch.length === 0) {
+    throw new Error('modifyRouterTs: could not find any _BlogIdN alias in router.ts');
+  }
+  const lastAlias = lastAliasMatch[lastAliasMatch.length - 1];
+  const aliasIds = lastAlias.match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [];
+  const routerLastId = aliasIds[aliasIds.length - 1];
+  if (!routerLastId) {
+    throw new Error(`modifyRouterTs: last _BlogIdN alias has no IDs. Found: ${lastAlias.slice(0, 120)}…`);
+  }
   routerSrc = checkedReplace(routerSrc,
-    new RegExp(`(\\| '${escapeRegex(lastId)}')(;)`),
+    new RegExp(`(\\| '${escapeRegex(routerLastId)}')(;)`),
     `$1 | '${data.id}'$2`,
-    'BlogArticleId type union'
+    `BlogArticleId type union (anchor=${routerLastId})`
   );
   write(routerFile, routerSrc);
   console.error(`  ✅ ${routerFile}`);
