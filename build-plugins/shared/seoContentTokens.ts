@@ -50,8 +50,19 @@ export const BREADCRUMB_LINK_STYLE =
 
 // ── Cards ─────────────────────────────────────────────────────────────────────
 
-export const CARD_STYLE =
-  'padding:14px 16px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface);color:var(--color-body)';
+/**
+ * Card visual style WITHOUT padding — use when you need a custom inset
+ * (e.g. a wider section card) to avoid a duplicate `padding:` declaration
+ * in the rendered inline style.
+ */
+export const CARD_BODY_STYLE =
+  'border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface);color:var(--color-body)';
+
+/** Default card padding (14px vertical, 16px horizontal). */
+export const CARD_PADDING_STYLE = 'padding:14px 16px';
+
+/** Standard card style: default padding + body. Safe default for most callers. */
+export const CARD_STYLE = `${CARD_PADDING_STYLE};${CARD_BODY_STYLE}`;
 
 // ── Stat tiles ────────────────────────────────────────────────────────────────
 
@@ -246,7 +257,7 @@ export function renderDiscoverMore(
         `<li style="margin:0;padding:0"><a href="${esc(cta.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${esc(cta.title)} →</a></li>`,
     )
     .join('');
-  return `<section style="margin:32px 0 0;padding:20px 24px;${CARD_STYLE}" aria-label="${esc(heading)}">
+  return `<section style="margin:32px 0 0;padding:20px 24px;${CARD_BODY_STYLE}" aria-label="${esc(heading)}">
   <p style="${SMALL_HEADING_STYLE}">${esc(heading)}</p>
   <ul style="list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:2px">${items}</ul>
 </section>`;
