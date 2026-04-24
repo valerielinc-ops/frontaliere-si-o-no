@@ -2592,6 +2592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano in semifinale a Chiasso e best ranking per la varesina',
     'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'La tennista varesina Samira De Stefano raggiunge la semifinale a Chiasso e migliora il suo best ranking.',
     'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennista in campo a Chiasso con le Alpi sullo sfondo',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, decorati di Medaglia d’Oro al Merito Civile per aver salvato centinaia di ebrei al confine italo-svizzero',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Cerimonia commemorativa al valico di Ponte Chiasso con targa in memoria degli Angeli di Ponte Chiasso',
 };
 
 export default blogMetaIt;

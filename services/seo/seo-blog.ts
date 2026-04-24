@@ -11929,6 +11929,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-omaggio-angeli-ponte-chiasso-2026': {
+    title: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    description: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
+    keywords: 'frontalieri, ticino, svizzera, italia, omaggio, agli, angeli, ponte',
+    ogTitle: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    ogDescription: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
+    canonicalPath: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti",
+      "description": "Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/omaggio-angeli-ponte-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia commemorativa al valico di Ponte Chiasso con targa in memoria degli Angeli di Ponte Chiasso"
+      },
+      "datePublished": "2026-04-24T17:44:29+00:00",
+      "dateModified": "2026-04-24T17:44:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2138,6 +2138,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-divario-salari-ticino-frontalieri-2026': { name: 'Divario salariale', path: '/articoli-frontaliere/divario-salari-ticino-frontalieri-2026', parent: 'blog' },
     'blog-economia-svizzera-rischio-burocrazia': { name: 'Novità', path: '/articoli-frontaliere/economia-svizzera-rischio-burocrazia', parent: 'blog' },
     'blog-samira-de-stefano-semifinale-chiasso': { name: 'Novità', path: '/articoli-frontaliere/samira-de-stefano-semifinale-chiasso', parent: 'blog' },
+    'blog-omaggio-angeli-ponte-chiasso-2026': { name: 'Omaggio agli Angeli', path: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

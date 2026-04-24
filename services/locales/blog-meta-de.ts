@@ -2592,6 +2592,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano im Halbfinale in Chiasso und bestes Ranking für die Vareser',
     'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'Die Tennisspielerin aus Varesi, Samira De Stefano, erreicht das Halbfinale in Chiasso und verbessert ihr bestes Ranking.',
     'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennisspieler auf dem Platz in Chiasso mit den Alpen im Hintergrund',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.title': 'Hommage an die Engel von Ponte Chiasso: Helden, die Juden vor den Nazis retteten',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.excerpt': 'Enthüllung einer Gedenktafel für Giuseppina Panzìca, Giovanni Gavino Tolis und Paolo Boetti, die mit der Goldmedaille für bürgerliche Verdienste ausgezeichnet wurden, weil sie Hunderte von Juden an der italienisch-schweizerischen Grenze retteten',
+    'blog.article.omaggio-angeli-ponte-chiasso-2026.imageAlt': 'Gedenkfeier am Grenzübergang Ponte Chiasso mit Gedenktafel für die Engel von Ponte Chiasso',
 };
 
 export default blogMetaDe;

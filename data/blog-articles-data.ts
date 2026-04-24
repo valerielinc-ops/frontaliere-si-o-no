@@ -7035,4 +7035,11 @@ export const ARTICLES = [
  image: '/images/blog/samira-de-stefano-semifinale-chiasso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'omaggio-angeli-ponte-chiasso-2026',
+ category: 'novita',
+ date: '2026-04-24T17:44:29.104Z',
+ image: '/images/blog/omaggio-angeli-ponte-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
