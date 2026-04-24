@@ -77,6 +77,27 @@ function isPreviousSlugBridgePage(content) {
   return content.includes('__BRIDGE_TARGET_SLUG__');
 }
 
+// Legacy English-content alias pages at the root. These carry English body
+// copy but legitimately canonicalize to their /en/ cluster counterparts to
+// consolidate PageRank onto the canonical EN slug (see staticPagesPlugin.ts).
+// The mapping is exhaustive; any future alias must be added here.
+const LEGACY_ALIAS_CANONICALS = new Map([
+  ['/about/', '/en/about-us/'],
+  ['/about', '/en/about-us/'],
+  ['/contact/', '/en/contact-us/'],
+  ['/contact', '/en/contact-us/'],
+  ['/privacy-policy/', '/en/privacy/'],
+  ['/privacy-policy', '/en/privacy/'],
+]);
+
+function isLegitLegacyAliasCanonicalization(url, canonical) {
+  const urlPath = url.replace(BASE_URL, '');
+  const canonPath = canonical.replace(BASE_URL, '');
+  const expected = LEGACY_ALIAS_CANONICALS.get(urlPath);
+  if (!expected) return false;
+  return canonPath === expected;
+}
+
 // Check if a canonical mismatch is legitimate job-section consolidation.
 // Job pages under /cerca-lavoro-ticino/ legitimately point canonical to
 // other job pages in the same section for: previousSlugs bridges,
@@ -153,6 +174,12 @@ for (const url of sitemapUrls) {
     const isSlashDiff = normalizeUrl(canonPath) === normalizeUrl(urlPath);
 
     if (!isSlashDiff) {
+      // Check if this is a legacy English-content alias canonicalizing to
+      // its /en/ cluster counterpart (see LEGACY_ALIAS_CANONICALS).
+      if (isLegitLegacyAliasCanonicalization(url, canonical)) {
+        bridgeSkipped++;
+        continue;
+      }
       // Check if this is legitimate job-section canonical consolidation
       // (previousSlugs, locale variants, dedup suffix changes)
       if (isLegitJobCanonicalConsolidation(url, canonical)) {
