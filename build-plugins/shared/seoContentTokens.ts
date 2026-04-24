@@ -128,6 +128,45 @@ export function esc(s: unknown): string {
     .replace(/"/g, '&quot;');
 }
 
+// ── Brand-logo resolver (F3) ──────────────────────────────────────────────────
+//
+// Centralised check for a local brand logo at `public/images/brands/{slug}.png`.
+// Used by the fuel-daily, weekly-employers and job-market-snapshot plugins to
+// decide whether to render a real logo in `renderEntityCard` or fall back to
+// the neutral icon bubble. No network access, no asset generation.
+//
+// Memoised per-slug to keep build time O(1) regardless of how many cards
+// reference the same brand.
+
+import * as _fs from 'node:fs';
+import * as _path from 'node:path';
+
+const _brandLogoCache = new Map<string, string | null>();
+
+/**
+ * Return the public URL for `public/images/brands/{slug}.png` if the PNG
+ * exists on disk at `rootDir`, or `null` otherwise. Memoises the result.
+ *
+ * `slug` is normalised (lowercased, non-[a-z0-9-] stripped). An empty or
+ * non-string slug returns `null`.
+ */
+export function resolveBrandLogoUrl(
+  rootDir: string,
+  slug: string | null | undefined,
+): string | null {
+  if (!slug) return null;
+  const normalised = String(slug).toLowerCase().replace(/[^a-z0-9-]/g, '');
+  if (!normalised) return null;
+  const cacheKey = `${rootDir}::${normalised}`;
+  const cached = _brandLogoCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+  const fsPath = _path.join(rootDir, 'public', 'images', 'brands', `${normalised}.png`);
+  const exists = _fs.existsSync(fsPath);
+  const url = exists ? `/images/brands/${normalised}.png` : null;
+  _brandLogoCache.set(cacheKey, url);
+  return url;
+}
+
 /**
  * Render an accessible breadcrumb nav.
  *
@@ -226,6 +265,111 @@ export function renderFooterLinkColumn(
   <ul style="list-style:none;padding:0;margin:0">${items}</ul>
 </div>`;
 }
+
+// ── Entity card (F3) ──────────────────────────────────────────────────────────
+
+/**
+ * Visual tone for the right-side metric in an entity card.
+ *  - `default` → neutral link color.
+ *  - `accent`  → indigo (used for prices / headline values).
+ *  - `success` → green.
+ *  - `warning` → amber.
+ *  - `danger`  → red.
+ */
+export type EntityCardMetricTone =
+  | 'default'
+  | 'accent'
+  | 'success'
+  | 'warning'
+  | 'danger';
+
+export interface EntityCardOpts {
+  /** When present, wrapper is an `<a>`; else a `<div>`. */
+  readonly href?: string;
+  /** Absolute path (e.g. `/images/brands/acme.png`). */
+  readonly logoUrl?: string;
+  /** Alt text for the `<img>`. Required when `logoUrl` is provided. */
+  readonly logoAlt?: string;
+  /** Inline SVG markup used when there is no `logoUrl` (24×24 stroke icon). */
+  readonly iconSvg?: string;
+  /** Card heading. */
+  readonly title: string;
+  /** Optional second line (address, city, sector, …). */
+  readonly subtitle?: string;
+  /** Optional right-side metric (e.g. "1.790 CHF/litro"). */
+  readonly metric?: string;
+  /** Color tone for `metric`. Defaults to `default`. */
+  readonly metricTone?: EntityCardMetricTone;
+}
+
+const ENTITY_CARD_BUBBLE_STYLE =
+  'display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0;font-weight:700;font-size:16px;overflow:hidden';
+
+const ENTITY_CARD_METRIC_VAR: Record<EntityCardMetricTone, string> = {
+  default: 'var(--color-link)',
+  accent: 'var(--color-accent)',
+  success: 'var(--color-success-border)',
+  warning: 'var(--color-warning-border)',
+  danger: 'var(--color-danger-border)',
+};
+
+function renderEntityCardVisual(opts: EntityCardOpts): string {
+  if (opts.logoUrl) {
+    const alt = opts.logoAlt ?? opts.title;
+    return `<img src="${esc(opts.logoUrl)}" alt="${esc(alt)}" width="40" height="40" loading="lazy" decoding="async" style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);flex-shrink:0">`;
+  }
+  if (opts.iconSvg) {
+    // Inline SVG already sized 24×24 by the caller; wrap in the neutral bubble.
+    return `<span aria-hidden="true" style="${ENTITY_CARD_BUBBLE_STYLE}">${opts.iconSvg}</span>`;
+  }
+  const initial = (opts.title || '?').trim().charAt(0).toUpperCase();
+  return `<span aria-hidden="true" style="${ENTITY_CARD_BUBBLE_STYLE}">${esc(initial)}</span>`;
+}
+
+/**
+ * Render a reusable entity card (fuel station, company, sector, …).
+ *
+ * The card is a flex row: logo/icon (40×40) ▸ title+subtitle ▸ optional metric.
+ * When `href` is provided the wrapper becomes an `<a class="seo-entity-card">`
+ * with hover/focus styling defined in `index.css`; otherwise a neutral `<div>`.
+ *
+ * All text is HTML-escaped via `esc()`; `iconSvg` is trusted markup (caller
+ * responsibility — only internal constants should be passed).
+ */
+export function renderEntityCard(opts: EntityCardOpts): string {
+  const visual = renderEntityCardVisual(opts);
+  const titleHtml = `<div style="font-weight:700;font-size:15px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(opts.title)}</div>`;
+  const subtitleHtml = opts.subtitle
+    ? `<div style="margin-top:2px;font-size:13px;color:var(--color-subtle);line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(opts.subtitle)}</div>`
+    : '';
+  const middle = `<div style="flex:1;min-width:0">${titleHtml}${subtitleHtml}</div>`;
+  const tone = opts.metricTone ?? 'default';
+  const metricColor = ENTITY_CARD_METRIC_VAR[tone];
+  const metricHtml = opts.metric
+    ? `<div style="flex-shrink:0;color:${metricColor};font-weight:700;font-size:14px;white-space:nowrap">${esc(opts.metric)}</div>`
+    : '';
+  const inner = `${visual}${middle}${metricHtml}`;
+  const style = `display:flex;align-items:center;gap:12px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}`;
+  if (opts.href) {
+    return `<a class="seo-entity-card" href="${esc(opts.href)}" style="${style};text-decoration:none">${inner}</a>`;
+  }
+  return `<div class="seo-entity-card" style="${style}">${inner}</div>`;
+}
+
+/**
+ * Inline "building-2" (lucide-style) icon for companies/employers.
+ * Sized 24×24; `stroke="currentColor"` so it inherits the enclosing text
+ * color (var(--color-subtle) inside the neutral bubble).
+ */
+export const ICON_BUILDING_SVG =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>';
+
+/**
+ * Inline "fuel" (lucide-style) pump icon for fuel stations.
+ * Sized 24×24; inherits current color.
+ */
+export const ICON_FUEL_SVG =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="3" x2="15" y1="22" y2="22"/><line x1="4" x2="14" y1="9" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>';
 
 // ── Discover-more CTA block ───────────────────────────────────────────────────
 

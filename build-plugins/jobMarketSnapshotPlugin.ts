@@ -88,6 +88,7 @@ import {
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
+  ICON_BUILDING_SVG,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   STAT_TILE_ACCENT,
@@ -97,6 +98,8 @@ import {
   STAT_TILE_VALUE,
   STAT_TILE_WARNING,
   renderDiscoverMore,
+  renderEntityCard,
+  resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
@@ -872,6 +875,8 @@ interface CommonRenderInputs {
    * When omitted, employer names are rendered as plain text.
    */
   knownSlugs?: ReadonlySet<string>;
+  /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
+  rootDir?: string;
 }
 
 function renderHreflangAlternates(alternates: Record<JobMarketSnapshotLocale, string>): string {
@@ -1042,6 +1047,7 @@ function renderTopList(
   items: ReadonlyArray<{ name: string; added: number; url?: string }>,
   suffixLabel: string,
   idPrefix: 'top-roles' | 'top-employers' = 'top-roles',
+  rootDir?: string,
 ): string {
   const headingId = toHeadingId(idPrefix, heading);
   if (items.length === 0) {
@@ -1050,15 +1056,21 @@ function renderTopList(
       <p style="margin:0;color:var(--color-subtle)">—</p>
     </section>`;
   }
+  const isEmployerList = idPrefix === 'top-employers';
   const rows = items
     .map((item, idx) => {
-      const nameHtml = item.url
-        ? `<a href="${esc(item.url)}" style="color:var(--color-body);text-decoration:none;font-weight:700">${esc(item.name)}</a>`
-        : `<span style="color:var(--color-body);font-weight:700">${esc(item.name)}</span>`;
-      return `<li style="${CARD_STYLE};margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px">
-      <span style="display:flex;align-items:center;gap:10px"><span style="background:var(--color-accent-subtle);color:var(--color-accent);border-radius:999px;padding:2px 10px;font-weight:700;font-size:12px">#${idx + 1}</span>${nameHtml}</span>
-      <span style="color:var(--color-link);font-weight:700">${esc(String(item.added))} ${esc(suffixLabel)}</span>
-    </li>`;
+      const logoSlug = isEmployerList ? slugifyEmployer(item.name) : '';
+      const logoUrl = rootDir && isEmployerList ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+      const card = renderEntityCard({
+        href: item.url,
+        title: `#${idx + 1} · ${item.name}`,
+        metric: `${String(item.added)} ${suffixLabel}`,
+        metricTone: 'default',
+        logoUrl: logoUrl ?? undefined,
+        logoAlt: item.name,
+        iconSvg: isEmployerList ? (logoUrl ? undefined : ICON_BUILDING_SVG) : undefined,
+      });
+      return `<li style="margin:0 0 8px;padding:0">${card}</li>`;
     })
     .join('');
   return `<section style="margin:22px 0 0" aria-labelledby="${headingId}">
@@ -1112,7 +1124,7 @@ interface SnapshotPageInputs extends CommonRenderInputs {
 }
 
 function renderSnapshotPage(inp: SnapshotPageInputs): string {
-  const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex, distDir, knownSlugs } = inp;
+  const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex, distDir, knownSlugs, rootDir } = inp;
   const copy = COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 =
@@ -1158,6 +1170,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     }),
     locale === 'it' ? 'annunci' : locale === 'de' ? 'Anzeigen' : locale === 'fr' ? 'annonces' : 'postings',
     'top-roles',
+    rootDir,
   );
 
   const topEmployersList = renderTopList(
@@ -1172,6 +1185,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     })),
     locale === 'it' ? 'nuove offerte' : locale === 'de' ? 'neue Stellen' : locale === 'fr' ? 'nouvelles offres' : 'new openings',
     'top-employers',
+    rootDir,
   );
 
   const cityBreakdown = renderCityBreakdown(copy.cityBreakdownHeading, stats.cityBreakdown, locale);
@@ -1613,6 +1627,8 @@ export interface GeneratorInputs {
    * page exists. When omitted, employer names are rendered as plain text.
    */
   knownSlugs?: ReadonlySet<string>;
+  /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
+  rootDir?: string;
 }
 
 export interface GeneratorOutput {
@@ -1660,6 +1676,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
   const knownSlugs = opts.knownSlugs;
+  const rootDir = opts.rootDir;
   const todayIso = today.toISOString().slice(0, 10);
   const entries = opts.history?.entries ?? [];
   const completedWeeks = bucketHistoryByWeek(entries, { requireComplete: true });
@@ -1788,6 +1805,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         noindex,
         distDir,
         knownSlugs,
+        rootDir,
       });
     }
   }
@@ -1812,6 +1830,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         noindex: false,
         distDir,
         knownSlugs,
+        rootDir,
       });
     }
   }
@@ -2215,6 +2234,8 @@ interface SectorPageInputs {
   stats: SectorStats;
   distDir?: string;
   knownSlugs?: ReadonlySet<string>;
+  /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
+  rootDir?: string;
 }
 
 function formatSectorDelta(
@@ -2235,7 +2256,7 @@ function alternatesForSector(
 }
 
 function renderSectorPage(inp: SectorPageInputs): string {
-  const { locale, sector, sectorLabel, canonicalPath, alternates, todayIso, stats, distDir, knownSlugs } = inp;
+  const { locale, sector, sectorLabel, canonicalPath, alternates, todayIso, stats, distDir, knownSlugs, rootDir } = inp;
   const copy = SECTOR_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 = copy.h1(sectorLabel);
@@ -2264,6 +2285,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
       ? 'offres actives'
       : 'active openings',
     'top-employers',
+    rootDir,
   );
 
   const trendSection = `<section style="margin:24px 0 0" aria-labelledby="sectorTrend">
@@ -2468,6 +2490,8 @@ export interface SectorGeneratorInputs {
   today?: Date;
   distDir?: string;
   knownSlugs?: ReadonlySet<string>;
+  /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
+  rootDir?: string;
 }
 
 export interface SectorGeneratorOutput {
@@ -2507,6 +2531,7 @@ export function generateSectorSnapshotPages(
         stats,
         distDir: opts.distDir,
         knownSlugs: opts.knownSlugs,
+        rootDir: opts.rootDir,
       });
     }
   }
@@ -2592,10 +2617,10 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
 
       const today = new Date();
       const knownSlugs = loadKnownCompanySlugs(rootDir);
-      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs });
+      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
 
       // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
-      const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs });
+      const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
       for (const [path, html] of Object.entries(sectorOutput.pages)) {
         pages[path] = html;
       }

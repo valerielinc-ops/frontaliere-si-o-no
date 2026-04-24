@@ -74,10 +74,13 @@ import {
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
+  ICON_BUILDING_SVG,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   SMALL_HEADING_STYLE,
   renderDiscoverMore,
+  renderEntityCard,
+  resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { resolveFallbackAddress, deriveCantonFromCity } from './shared/companyHqAddresses';
@@ -1252,6 +1255,8 @@ export interface WeeklyEmployersPageInputs {
    * When omitted (e.g. in tests), only EMPLOYER_BRANDS lookups are used.
    */
   knownSlugs?: ReadonlySet<string>;
+  /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
+  rootDir?: string;
 }
 
 function cityJobsHubPath(locale: WeeklyEmployersLocale, city: WeeklyEmployersCity): string {
@@ -1312,6 +1317,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     enableAutoStubs = false,
     distDir,
     knownSlugs,
+    rootDir,
   } = inp;
 
   const copy = COPY[locale];
@@ -1359,9 +1365,15 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     : '';
 
   // Top companies rendering
+  const jobBoardSectionByLocale: Record<WeeklyEmployersLocale, string> = {
+    it: 'cerca-lavoro-ticino',
+    en: 'find-jobs-ticino',
+    de: 'jobs-im-tessin',
+    fr: 'trouver-emploi-tessin',
+  };
   const topCompaniesHtml =
     stats.topCompanies.length > 0
-      ? `${coldStartBannerHtml}<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px">${stats.topCompanies
+      ? `${coldStartBannerHtml}<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;counter-reset:seo-rank">${stats.topCompanies
           .map((c, idx) => {
             const brandHref = employerBrandPath(c.employerKey, c.employer, knownSlugs);
             // When no historical delta exists at all, suppress the per-card
@@ -1373,27 +1385,30 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
                 ? copy.deltaPositive(c.delta)
                 : copy.deltaZero;
             const needsReview =
-              enableAutoStubs && !brandHref && c.active >= 3 && idx < 3 ? ' data-needs-editorial-review="true"' : '';
-            const employerEsc = esc(c.employer);
-            const badge =
-              deltaLabel === null
-                ? ''
-                : c.delta > 0
-                ? `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-border);font-size:12px;font-weight:700">${esc(deltaLabel)}</span>`
-                : `<span style="margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-subtle);font-size:12px">${esc(deltaLabel)}</span>`;
-            const content = `<div style="font-weight:700;font-size:16px;color:var(--color-heading)">${idx + 1}. ${employerEsc}${badge}</div>
-      <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(copy.jobsCountLabel(c.active))}</div>`;
-            const jobBoardSection: Record<WeeklyEmployersLocale, string> = {
-              it: 'cerca-lavoro-ticino',
-              en: 'find-jobs-ticino',
-              de: 'jobs-im-tessin',
-              fr: 'trouver-emploi-tessin',
-            };
+              enableAutoStubs && !brandHref && c.active >= 3 && idx < 3;
             const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-            const companyFallbackHref = (`${localePrefix}/${jobBoardSection[locale]}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
+            const companyFallbackHref = (`${localePrefix}/${jobBoardSectionByLocale[locale]}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
             const href = brandHref ?? companyFallbackHref;
-            const inner = `<a href="${esc(href)}" style="color:inherit;text-decoration:none;display:block"${needsReview}>${content}</a>`;
-            return `<li style="${CARD_STYLE}">${inner}</li>`;
+            const subtitle = deltaLabel
+              ? `${cityDisplay} · ${deltaLabel}`
+              : cityDisplay;
+            const logoSlug = c.employerKey || slugifyEmployer(c.employer);
+            const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+            const card = renderEntityCard({
+              href,
+              title: `${idx + 1}. ${c.employer}`,
+              subtitle,
+              metric: copy.jobsCountLabel(c.active),
+              metricTone: c.delta > 0 ? 'success' : 'default',
+              logoUrl: logoUrl ?? undefined,
+              logoAlt: c.employer,
+              iconSvg: logoUrl ? undefined : ICON_BUILDING_SVG,
+            });
+            // Preserve the auto-employer-stub review marker on the list item
+            // (no production code currently reads it, but it existed for
+            // potential editorial tooling — keep the signal alive).
+            const reviewAttr = needsReview ? ' data-needs-editorial-review="true"' : '';
+            return `<li style="margin:0;padding:0"${reviewAttr}>${card}</li>`;
           })
           .join('')}</ol>`
       : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.topCompaniesEmpty)}</p>`;
@@ -2243,6 +2258,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         enableAutoStubs: opts.enableAutoStubs,
         distDir,
         knownSlugs,
+        rootDir: opts.rootDir,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
     }
@@ -2315,6 +2331,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             enableAutoStubs: opts.enableAutoStubs,
             distDir,
             knownSlugs,
+            rootDir: opts.rootDir,
           });
           pages.push({ path: canonicalPath, html, indexable });
         }

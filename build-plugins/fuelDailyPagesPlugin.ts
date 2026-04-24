@@ -72,10 +72,13 @@ import {
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
+  ICON_FUEL_SVG,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   renderDiscoverMore,
+  renderEntityCard,
   renderSparklineChart,
+  resolveBrandLogoUrl,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
@@ -643,6 +646,8 @@ interface PageInputs {
   alternates: Record<FuelDailyLocale, string>;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+  /** Repository root — enables `public/images/brands/*.png` lookup for station logos. */
+  rootDir?: string;
 }
 
 const LOCALE_OG: Record<FuelDailyLocale, string> = {
@@ -820,7 +825,7 @@ function buildStationEditorialAssessment(
 }
 
 function renderPage(inp: PageInputs): string {
-  const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir } = inp;
+  const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir, rootDir } = inp;
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = zone ? FUEL_ZONE_DISPLAY[zone] : copy.regionalLabel;
@@ -860,20 +865,29 @@ function renderPage(inp: PageInputs): string {
     top3.length,
   );
   const stationsHtml = top3.length > 0
-    ? `<ol style="list-style:decimal inside;padding:0;margin:0">${top3
+    ? `<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">${top3
         .map((s) => {
           const stationHref = zone && s.slug
             ? buildFuelStationPath(locale, fuel, zone, s.slug)
-            : null;
-          const inner = `
-        <div style="font-weight:700;font-size:16px;color:var(--color-heading)">${esc(s.name)}</div>
-        <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(s.address)}</div>
-        <div style="margin-top:6px;font-size:15px;color:var(--color-link);font-weight:700">${formatPrice(s.priceChf, locale)} ${esc(copy.currencyLabel)}</div>`;
-          return stationHref
-            ? `<li style="${CARD_STYLE};margin-bottom:10px;padding:0"><a href="${esc(stationHref)}" style="display:block;padding:14px 16px;color:inherit;text-decoration:none">${inner}
-      </a></li>`
-            : `<li style="${CARD_STYLE};margin-bottom:10px">${inner}
-      </li>`;
+            : undefined;
+          const brandSlug = (s.brand || '')
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+          const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, brandSlug) : null;
+          const card = renderEntityCard({
+            href: stationHref,
+            logoUrl: logoUrl ?? undefined,
+            logoAlt: s.brand || s.name,
+            iconSvg: logoUrl ? undefined : ICON_FUEL_SVG,
+            title: s.name,
+            subtitle: s.address,
+            metric: `${formatPrice(s.priceChf, locale)} ${copy.currencyLabel}`,
+            metricTone: 'accent',
+          });
+          return `<li style="margin:0;padding:0">${card}</li>`;
         })
         .join('')}</ol>`
     : `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.trendEmpty)}</p>`;
@@ -2165,6 +2179,7 @@ export function generateFuelDailyPages(opts: {
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const rootDir = opts.rootDir;
 
   const pages: Record<string, string> = {};
 
@@ -2191,6 +2206,7 @@ export function generateFuelDailyPages(opts: {
         today,
         alternates: buildAlternates(null),
         distDir,
+        rootDir,
       });
 
       // Per-zone pages
@@ -2206,6 +2222,7 @@ export function generateFuelDailyPages(opts: {
           today,
           alternates: buildAlternates(zone),
           distDir,
+          rootDir,
         });
       }
     }

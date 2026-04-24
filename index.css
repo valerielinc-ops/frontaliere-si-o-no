@@ -245,6 +245,24 @@ main.seo-static-content {
 .seo-card-link:hover { border-color: var(--color-accent-border); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 .seo-card-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 
+/* Entity card (F3): flex-row card with logo/icon + title + metric.
+   The element's inline style owns layout/colors; this rule adds the
+   interactive affordances (hover / focus-visible) plus the anchor
+   text-decoration reset. */
+.seo-entity-card {
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+a.seo-entity-card { text-decoration: none; color: inherit; }
+a.seo-entity-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--color-shadow-soft, rgba(15, 23, 42, 0.08));
+  border-color: var(--color-accent-border);
+}
+a.seo-entity-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
