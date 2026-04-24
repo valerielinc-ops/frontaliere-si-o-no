@@ -896,13 +896,16 @@ function clustersForWeeklyEmployerCompanyCity(
   const companySlug = ctx.companySlug ?? 'company';
   const companyLabel = humanizeSlug(companySlug);
 
-  // Sibling: same company in 3-4 other cities.
-  // When the generator passes `companySiblingCities`, trust that list — it
-  // reflects the cities where the company actually has a generated page for
-  // this locale. Otherwise fall back to the heuristic city picker.
+  // Sibling: same company in the OTHER cities where a per-company-city page
+  // actually exists. The generator passes `companySiblingCities` — a list
+  // filtered through `companyCityMeetsThreshold` (≥3 active jobs for that
+  // employer in that city). If no list is supplied we emit NO sibling links
+  // rather than guessing with random Ticino cities — a guess would link to
+  // `/aziende-che-assumono/{city}/{company}/settimana-corrente/` URLs whose
+  // pages are never generated (root cause of Phase 3's "empty shell" bug).
   const siblingCities: ReadonlyArray<WeeklyEmployersCity> = ctx.companySiblingCities
     ? ctx.companySiblingCities.filter((c) => c !== weeklyCity).slice(0, 4)
-    : pickSiblingCities(weeklyCity, 4);
+    : [];
   const sibling: RelatedLink[] = siblingCities.map((c) => ({
     href: buildWeeklyCompanyCityPath(weeklyLocale, c, companySlug),
     title: copy.weeklyEmployerCompany(companyLabel, cityDisplay(c, locale)),

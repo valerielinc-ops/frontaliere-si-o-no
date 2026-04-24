@@ -42,7 +42,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
-  MIN_JOBS_PER_COMPANY_IN_CITY,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_CITY_DISPLAY,
@@ -58,6 +57,7 @@ import {
   buildCompanyCityCurrentPath,
   buildCurrentWeekPath,
   canonicalCompanySlug,
+  companyCityMeetsThreshold,
   getIsoWeekAndYear,
   isoWeekKey,
   parseCompanyCityPath,
@@ -567,7 +567,7 @@ export function buildCompanyCityStats(opts: {
     return jobKey === employerKey;
   });
 
-  if (matching.length < MIN_JOBS_PER_COMPANY_IN_CITY) return null;
+  if (!companyCityMeetsThreshold({ active: matching.length })) return null;
 
   // Canonical employer display name — take first job's company string.
   const employer = String(matching[0].company || '').trim();
@@ -727,7 +727,7 @@ export function enumerateCompanyCityPairs(
       else counts.set(key, { employer: company, employerKey: key, active: 1 });
     }
     for (const [employerKey, rec] of counts.entries()) {
-      if (rec.active < MIN_JOBS_PER_COMPANY_IN_CITY) continue;
+      if (!companyCityMeetsThreshold(rec)) continue;
       const companySlug = canonicalCompanySlug(rec.employer, employerKey);
       if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
       pairs.set(`${city}::${companySlug}`, {
@@ -751,6 +751,40 @@ export function enumerateCompanyCityPairs(
     MAX_COMPANY_CITY_PAGES_PER_BUILD / WEEKLY_EMPLOYERS_LOCALES.length,
   );
   return pages.slice(0, maxPairs);
+}
+
+/**
+ * Build the list of (href, label) pairs that safely link to per-company ×
+ * per-city pages for a given locale, gating each pair through
+ * {@link companyCityMeetsThreshold} so we never emit a URL to a page the
+ * generator will refuse to materialise.
+ *
+ * Exposed so callers (and tests) can filter arbitrary pair lists through
+ * the same gate that the page generator applies — this closes the link
+ * graph that caused "empty shell" pages in Phase 3.
+ */
+export interface CompanyCityLink {
+  readonly href: string;
+  readonly label: string;
+}
+
+export function buildCompanyCityLinks(
+  pairs: ReadonlyArray<
+    Readonly<{
+      city: WeeklyEmployersCompanyCity;
+      companySlug: string;
+      employer: string;
+      active: number;
+    }>
+  >,
+  locale: WeeklyEmployersLocale,
+): ReadonlyArray<CompanyCityLink> {
+  return pairs
+    .filter(companyCityMeetsThreshold)
+    .map((p) => ({
+      href: buildCompanyCityCurrentPath(locale, p.city, p.companySlug),
+      label: `${p.employer} — ${WEEKLY_EMPLOYERS_CITY_DISPLAY[p.city]}`,
+    }));
 }
 
 // ── Localised copy ──────────────────────────────────────────────
