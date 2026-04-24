@@ -6958,4 +6958,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/dividere-lavoratori-salari-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lufthansa-bagaglio-gratuito-eliminato',
+ category: 'novita',
+ date: '2026-04-24T00:17:36.208Z',
+ image: '/images/blog/lufthansa-bagaglio-gratuito-eliminato.jpg',
+ hasCalculator: true,
+ },
 ];

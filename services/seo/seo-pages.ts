@@ -4636,7 +4636,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 905,
+ "numberOfItems": 906,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5519,7 +5519,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 902, "name": "Assegno educativo Mendrisio 2026: scadenza 30 g...", "url": `${BASE_URL}/articoli-frontaliere/assegno-educativo-mendrisio-2026` },
           { "@type": "ListItem", "position": 903, "name": "Grigioni: autocertificazione penali per permess...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-permessi-dimora-2026` },
           { "@type": "ListItem", "position": 904, "name": "Aumento stipendi medici e infermieri Lombardia ...", "url": `${BASE_URL}/articoli-frontaliere/aumento-stipendi-medici-infermieri-lombardia-2026` },
-          { "@type": "ListItem", "position": 905, "name": "Dividere i lavoratori significa abbassare i sal...", "url": `${BASE_URL}/articoli-frontaliere/dividere-lavoratori-salari-2026` }
+          { "@type": "ListItem", "position": 905, "name": "Dividere i lavoratori significa abbassare i sal...", "url": `${BASE_URL}/articoli-frontaliere/dividere-lavoratori-salari-2026` },
+          { "@type": "ListItem", "position": 906, "name": "Lufthansa elimina il bagaglio a mano gratuito, ...", "url": `${BASE_URL}/articoli-frontaliere/lufthansa-bagaglio-gratuito-eliminato` }
  ]
  },
  {

@@ -2562,6 +2562,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dividere-lavoratori-salari-2026.title': 'Arbeitnehmer zu spalten bedeutet, die Löhne zu senken: Die Botschaft des 1. Mai in Lugano',
     'blog.article.dividere-lavoratori-salari-2026.excerpt': 'Der 1. Mai kehrt nach Lugano zurück mit einem Fokus auf die Rechte der Arbeitnehmer, unabhängig von Herkunft, Vertrag oder Wirtschaftszweig.',
     'blog.article.dividere-lavoratori-salari-2026.imageAlt': 'Protest in Lugano mit Arbeitnehmern, die Schilder über faire Löhne halten, vor dem Hintergrund des Luganer Sees und der Architektur der Stadt',
+    'blog.article.lufthansa-bagaglio-gratuito-eliminato.title': 'Lufthansa entfernt kostenloses Handgepäck, gilt auch für Swiss',
+    'blog.article.lufthansa-bagaglio-gratuito-eliminato.excerpt': 'Ab dem 19. Mai 2026 ist nur noch ein persönlicher Gegenstand im Basistarif inbegriffen. Hier erfahren Sie, was sich für die Passagiere ändert',
+    'blog.article.lufthansa-bagaglio-gratuito-eliminato.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

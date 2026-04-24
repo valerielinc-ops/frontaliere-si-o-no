@@ -2562,6 +2562,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dividere-lavoratori-salari-2026.title': 'Dividing workers means lowering wages: the May Day message in Lugano',
     'blog.article.dividere-lavoratori-salari-2026.excerpt': 'May Day returns to Lugano with a focus on workers\' rights, regardless of origin, contract, or economic sector.',
     'blog.article.dividere-lavoratori-salari-2026.imageAlt': 'Protest in Lugano with workers holding signs about fair wages, against the backdrop of Lake Lugano and the city\'s architecture',
+    'blog.article.lufthansa-bagaglio-gratuito-eliminato.title': 'Lufthansa removes free hand luggage, and it also applies to Swiss',
+    'blog.article.lufthansa-bagaglio-gratuito-eliminato.excerpt': 'From 19 May 2026, only one personal item included in the base fare. Here\'s what changes for passengers',
+    'blog.article.lufthansa-bagaglio-gratuito-eliminato.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;
