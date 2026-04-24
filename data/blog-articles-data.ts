@@ -123,6 +123,7 @@ export const ARTICLES: Article[] = [
  id: 'cu-telelavoro-regole-frontalieri',
  category: 'fiscale',
  date: '2026-02-18T11:49:14.807Z',
+ updatedAt: '2026-04-24',
  image: '/images/blog/cu-telelavoro-regole-frontalieri.webp',
  hasCalculator: true,
  },
