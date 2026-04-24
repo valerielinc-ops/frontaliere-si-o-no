@@ -57,6 +57,15 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
+  JOB_MARKET_LOCALE_PREFIX,
+  JOB_MARKET_SECTION_SLUG,
+} from './jobMarketSnapshotData';
+import {
+  WEEKLY_EMPLOYERS_CURRENT_SLUG,
+  WEEKLY_EMPLOYERS_LOCALE_PREFIX,
+  WEEKLY_EMPLOYERS_SECTION,
+} from './weeklyEmployersData';
+import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
   CARD_STYLE,
@@ -80,28 +89,72 @@ import {
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
 // These replace generic/affiliate-feel suggestions with tool-appropriate next steps.
+//
+// URLs are built from canonical slug constants from weeklyEmployersData and
+// jobMarketSnapshotData so they stay in sync with the actual pages emitted.
 
-const FUEL_DAILY_DISCOVER_MORE_CTAS: Record<FuelDailyLocale, ReadonlyArray<{ title: string; href: string }>> = {
-  it: [
-    { title: 'Tempi di attesa alle dogane',            href: '/traffico-dogane/' },
-    { title: 'Aziende che assumono a Chiasso',         href: '/aziende-che-assumono/chiasso/settimana-corrente/' },
-    { title: 'Mercato del lavoro Ticino',              href: '/mercato-lavoro-ticino/' },
-  ],
-  en: [
-    { title: 'Border crossing wait times',             href: '/en/border-wait/' },
-    { title: 'Companies hiring in Chiasso',            href: '/en/hiring-companies/chiasso/current-week/' },
-    { title: 'Ticino job market',                      href: '/en/ticino-job-market/' },
-  ],
-  de: [
-    { title: 'Wartezeiten an der Grenze',              href: '/de/wartezeit-grenze/' },
-    { title: 'Unternehmen die in Chiasso einstellen',  href: '/de/einstellende-unternehmen/chiasso/aktuelle-woche/' },
-    { title: 'Arbeitsmarkt Tessin',                    href: '/de/arbeitsmarkt-tessin/' },
-  ],
-  fr: [
-    { title: 'Temps d\'attente aux douanes',           href: '/fr/temps-attente-douane/' },
-    { title: 'Entreprises qui recrutent à Chiasso',    href: '/fr/entreprises-qui-recrutent/chiasso/semaine-courante/' },
-    { title: 'Marché du travail Tessin',               href: '/fr/marche-emploi-tessin/' },
-  ],
+type FuelDiscoverMoreCta = { title: string; href: string };
+
+const BORDER_WAIT_HUB_PATH: Record<FuelDailyLocale, string> = {
+  it: '/traffico-dogane/',
+  en: '/en/border-wait/',
+  de: '/de/wartezeit-grenze/',
+  fr: '/fr/temps-attente-douane/',
+};
+
+function buildFuelDiscoverMoreCtas(
+  locale: FuelDailyLocale,
+): ReadonlyArray<FuelDiscoverMoreCta> {
+  const chiassoHiringHref =
+    `${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/chiasso/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+  const jobMarketHref =
+    `${JOB_MARKET_LOCALE_PREFIX[locale]}/${JOB_MARKET_SECTION_SLUG[locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+
+  const titles: Record<FuelDailyLocale, { border: string; hiring: string; jobMarket: string }> = {
+    it: {
+      border: 'Tempi di attesa alle dogane',
+      hiring: 'Aziende che assumono a Chiasso',
+      jobMarket: 'Mercato del lavoro Ticino',
+    },
+    en: {
+      border: 'Border crossing wait times',
+      hiring: 'Companies hiring in Chiasso',
+      jobMarket: 'Ticino job market',
+    },
+    de: {
+      border: 'Wartezeiten an der Grenze',
+      hiring: 'Unternehmen die in Chiasso einstellen',
+      jobMarket: 'Arbeitsmarkt Tessin',
+    },
+    fr: {
+      border: "Temps d'attente aux douanes",
+      hiring: 'Entreprises qui recrutent à Chiasso',
+      jobMarket: 'Marché du travail Tessin',
+    },
+  };
+
+  const t = titles[locale];
+  return [
+    { title: t.border, href: BORDER_WAIT_HUB_PATH[locale] },
+    { title: t.hiring, href: chiassoHiringHref },
+    { title: t.jobMarket, href: jobMarketHref },
+  ];
+}
+
+const FUEL_DAILY_DISCOVER_MORE_CTAS: Record<
+  FuelDailyLocale,
+  ReadonlyArray<FuelDiscoverMoreCta>
+> = {
+  it: buildFuelDiscoverMoreCtas('it'),
+  en: buildFuelDiscoverMoreCtas('en'),
+  de: buildFuelDiscoverMoreCtas('de'),
+  fr: buildFuelDiscoverMoreCtas('fr'),
 };
 
 // ── Types ──────────────────────────────────────────────────────

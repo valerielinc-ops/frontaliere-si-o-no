@@ -75,6 +75,12 @@ import { CITY_HUB_KEYS } from './cityJobsHub';
 import { SECTOR_HUB_KEYS } from './jobSectorLanding';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
+import {
+  WEEKLY_EMPLOYERS_CURRENT_SLUG,
+  WEEKLY_EMPLOYERS_LOCALE_PREFIX,
+  WEEKLY_EMPLOYERS_SECTION,
+} from './weeklyEmployersData';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -95,28 +101,85 @@ import {
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F4 job-market-snapshot feature.
+//
+// URLs are built from canonical slug constants from weeklyEmployersData and
+// jobRecencyLanding so they stay in sync with the actual pages emitted by
+// those plugins. The "recent jobs" link targets `last-3-days` because that
+// is the recency variant we currently emit (see JOB_RECENCY_LANDING_SLUGS).
 
-const JOB_MARKET_DISCOVER_MORE_CTAS: Record<JobMarketSnapshotLocale, ReadonlyArray<{ title: string; href: string }>> = {
-  it: [
-    { title: 'Aziende che assumono',                  href: '/aziende-che-assumono/ticino/settimana-corrente/' },
-    { title: 'Offerte lavoro ultimi 7 giorni',        href: '/cerca-lavoro-ticino/ultimi-7-giorni/' },
-    { title: 'Report stipendi annuale',               href: '/statistiche/confronta-stipendi/' },
-  ],
-  en: [
-    { title: 'Companies hiring',                      href: '/en/hiring-companies/ticino/current-week/' },
-    { title: 'Jobs posted in the last 7 days',        href: '/en/find-jobs-ticino/last-7-days/' },
-    { title: 'Annual salary report',                  href: '/en/statistics/compare-salaries/' },
-  ],
-  de: [
-    { title: 'Einstellende Unternehmen',              href: '/de/einstellende-unternehmen/tessin/aktuelle-woche/' },
-    { title: 'Stellen der letzten 7 Tage',            href: '/de/jobs-im-tessin/letzte-7-tage/' },
-    { title: 'Jahresgehaltsbericht',                  href: '/de/statistiken/gehaelter-vergleichen/' },
-  ],
-  fr: [
-    { title: 'Entreprises qui recrutent',             href: '/fr/entreprises-qui-recrutent/tessin/semaine-courante/' },
-    { title: 'Offres des 7 derniers jours',           href: '/fr/trouver-emploi-tessin/derniers-7-jours/' },
-    { title: 'Rapport annuel des salaires',           href: '/fr/statistiques/comparer-salaires/' },
-  ],
+type JobMarketDiscoverMoreCta = { title: string; href: string };
+
+const JOB_BOARD_SLUG: Record<JobMarketSnapshotLocale, string> = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+
+const SALARY_STATS_PATH: Record<JobMarketSnapshotLocale, string> = {
+  it: '/statistiche/confronta-stipendi/',
+  en: '/en/statistics/compare-salaries/',
+  de: '/de/statistiken/gehaelter-vergleichen/',
+  fr: '/fr/statistiques/comparer-salaires/',
+};
+
+function buildJobMarketDiscoverMoreCtas(
+  locale: JobMarketSnapshotLocale,
+): ReadonlyArray<JobMarketDiscoverMoreCta> {
+  const hiringHref =
+    `${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+  const recencyLocalePrefix = locale === 'it' ? '' : `/${locale}`;
+  const recencyHref =
+    `${recencyLocalePrefix}/${JOB_BOARD_SLUG[locale]}/${JOB_RECENCY_LANDING_SLUGS['last-3-days'][locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+
+  const titles: Record<
+    JobMarketSnapshotLocale,
+    { hiring: string; recency: string; salary: string }
+  > = {
+    it: {
+      hiring: 'Aziende che assumono',
+      recency: 'Offerte lavoro ultimi 3 giorni',
+      salary: 'Report stipendi annuale',
+    },
+    en: {
+      hiring: 'Companies hiring',
+      recency: 'Jobs posted in the last 3 days',
+      salary: 'Annual salary report',
+    },
+    de: {
+      hiring: 'Einstellende Unternehmen',
+      recency: 'Stellen der letzten 3 Tage',
+      salary: 'Jahresgehaltsbericht',
+    },
+    fr: {
+      hiring: 'Entreprises qui recrutent',
+      recency: 'Offres des 3 derniers jours',
+      salary: 'Rapport annuel des salaires',
+    },
+  };
+
+  const t = titles[locale];
+  return [
+    { title: t.hiring, href: hiringHref },
+    { title: t.recency, href: recencyHref },
+    { title: t.salary, href: SALARY_STATS_PATH[locale] },
+  ];
+}
+
+const JOB_MARKET_DISCOVER_MORE_CTAS: Record<
+  JobMarketSnapshotLocale,
+  ReadonlyArray<JobMarketDiscoverMoreCta>
+> = {
+  it: buildJobMarketDiscoverMoreCtas('it'),
+  en: buildJobMarketDiscoverMoreCtas('en'),
+  de: buildJobMarketDiscoverMoreCtas('de'),
+  fr: buildJobMarketDiscoverMoreCtas('fr'),
 };
 
 // ── Types ──────────────────────────────────────────────────────

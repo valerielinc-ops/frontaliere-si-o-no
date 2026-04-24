@@ -85,27 +85,56 @@ import {
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F2 health-premiums feature.
+//
+// Paths are maintained in small locale-keyed tables below so they stay in
+// sync with the actual emitted pages; `HEALTH_PREMIUM_COMPARATOR_PATH` is
+// the canonical LAMal compare path per locale (imported from the data
+// module so every feature references a single source of truth).
 
-const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<HealthPremiumLocale, ReadonlyArray<{ title: string; href: string }>> = {
+const LAMAL_COMPARE_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/compara-servizi/confronta-casse-malati/',
+  en: '/en/service-comparison/compare-health-insurance/',
+  de: '/de/service-vergleich/krankenkassen-vergleichen/',
+  fr: '/fr/comparaison-services/comparer-caisses-maladie/',
+};
+
+const BORDER_WAIT_HUB_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/traffico-dogane/',
+  en: '/en/border-wait/',
+  de: '/de/wartezeit-grenze/',
+  fr: '/fr/temps-attente-douane/',
+};
+
+const HOME_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/',
+  en: '/en/',
+  de: '/de/',
+  fr: '/fr/',
+};
+
+const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<
+  HealthPremiumLocale,
+  ReadonlyArray<{ title: string; href: string }>
+> = {
   it: [
-    { title: 'Confronto casse malati',                href: '/confronta-casse-malati/' },
-    { title: 'Calcolatore stipendio frontaliere',     href: '/' },
-    { title: 'Tempi di attesa alle dogane',           href: '/traffico-dogane/' },
+    { title: 'Confronto casse malati',                href: LAMAL_COMPARE_PATH.it },
+    { title: 'Calcolatore stipendio frontaliere',     href: HOME_PATH.it },
+    { title: 'Tempi di attesa alle dogane',           href: BORDER_WAIT_HUB_PATH.it },
   ],
   en: [
-    { title: 'Compare health insurers',               href: '/en/compare-health-insurers/' },
-    { title: 'Cross-border salary calculator',        href: '/en/' },
-    { title: 'Border crossing wait times',            href: '/en/border-wait/' },
+    { title: 'Compare health insurers',               href: LAMAL_COMPARE_PATH.en },
+    { title: 'Cross-border salary calculator',        href: HOME_PATH.en },
+    { title: 'Border crossing wait times',            href: BORDER_WAIT_HUB_PATH.en },
   ],
   de: [
-    { title: 'Krankenkassen vergleichen',             href: '/de/krankenkassen-vergleich/' },
-    { title: 'Gehaltsrechner Grenzgänger',            href: '/de/' },
-    { title: 'Wartezeiten an der Grenze',             href: '/de/wartezeit-grenze/' },
+    { title: 'Krankenkassen vergleichen',             href: LAMAL_COMPARE_PATH.de },
+    { title: 'Gehaltsrechner Grenzgänger',            href: HOME_PATH.de },
+    { title: 'Wartezeiten an der Grenze',             href: BORDER_WAIT_HUB_PATH.de },
   ],
   fr: [
-    { title: 'Comparer les caisses maladie',          href: '/fr/comparer-caisses-maladie/' },
-    { title: 'Calculateur salaire frontalier',        href: '/fr/' },
-    { title: 'Temps d\'attente aux douanes',          href: '/fr/temps-attente-douane/' },
+    { title: 'Comparer les caisses maladie',          href: LAMAL_COMPARE_PATH.fr },
+    { title: 'Calculateur salaire frontalier',        href: HOME_PATH.fr },
+    { title: "Temps d'attente aux douanes",           href: BORDER_WAIT_HUB_PATH.fr },
   ],
 };
 

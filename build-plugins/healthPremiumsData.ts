@@ -535,12 +535,15 @@ export const HEALTH_PREMIUM_SECTION_SLUG: Record<HealthPremiumLocale, string> = 
 
 /**
  * Locale-aware comparator URL (existing /confronti/health page).
+ * Slugs must match the canonical paths emitted by the SPA router +
+ * staticPagesPlugin. Broken values here become site-wide broken internal
+ * links from every canton landing page.
  */
 export const HEALTH_PREMIUM_COMPARATOR_PATH: Record<HealthPremiumLocale, string> = {
   it: '/compara-servizi/confronta-casse-malati/',
-  en: '/en/comparators/compare-health-insurance/',
+  en: '/en/service-comparison/compare-health-insurance/',
   de: '/de/service-vergleich/krankenkassen-vergleichen/',
-  fr: '/fr/comparateurs/comparer-caisses-maladie/',
+  fr: '/fr/comparaison-services/comparer-caisses-maladie/',
 };
 
 // ── Path builders ───────────────────────────────────────────────

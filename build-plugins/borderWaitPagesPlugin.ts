@@ -69,6 +69,20 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
+  FUEL_LOCALE_PREFIX,
+  FUEL_SECTION_SLUG,
+  FUEL_TODAY_SLUG,
+} from './fuelDailyData';
+import {
+  JOB_MARKET_LOCALE_PREFIX,
+  JOB_MARKET_SECTION_SLUG,
+} from './jobMarketSnapshotData';
+import {
+  WEEKLY_EMPLOYERS_CURRENT_SLUG,
+  WEEKLY_EMPLOYERS_LOCALE_PREFIX,
+  WEEKLY_EMPLOYERS_SECTION,
+} from './weeklyEmployersData';
+import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
   CARD_STYLE,
@@ -85,28 +99,68 @@ import {
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F8 border-wait feature.
+//
+// URLs are built from the canonical slug constants exported by each target
+// feature's data module (fuelDailyData, jobMarketSnapshotData,
+// weeklyEmployersData) so that drift between producer and consumer slugs is
+// structurally impossible — change a slug in the data module and every link
+// updates automatically.
 
-const BORDER_WAIT_DISCOVER_MORE_CTAS: Record<BorderWaitLocale, ReadonlyArray<{ title: string; href: string }>> = {
-  it: [
-    { title: 'Prezzi diesel oggi',                    href: '/prezzi-diesel/oggi/' },
-    { title: 'Mercato del lavoro Ticino',             href: '/mercato-lavoro-ticino/' },
-    { title: 'Aziende che assumono',                  href: '/aziende-che-assumono/ticino/settimana-corrente/' },
-  ],
-  en: [
-    { title: 'Diesel prices today',                   href: '/en/diesel-prices/today/' },
-    { title: 'Ticino job market',                     href: '/en/ticino-job-market/' },
-    { title: 'Companies hiring',                      href: '/en/hiring-companies/ticino/current-week/' },
-  ],
-  de: [
-    { title: 'Dieselpreise heute',                    href: '/de/dieselpreise/heute/' },
-    { title: 'Arbeitsmarkt Tessin',                   href: '/de/arbeitsmarkt-tessin/' },
-    { title: 'Einstellende Unternehmen',              href: '/de/einstellende-unternehmen/tessin/aktuelle-woche/' },
-  ],
-  fr: [
-    { title: 'Prix du diesel aujourd\'hui',           href: '/fr/prix-diesel/aujourd-hui/' },
-    { title: 'Marché du travail Tessin',              href: '/fr/marche-emploi-tessin/' },
-    { title: 'Entreprises qui recrutent',             href: '/fr/entreprises-qui-recrutent/tessin/semaine-courante/' },
-  ],
+type DiscoverMoreCta = { title: string; href: string };
+
+function buildDiscoverMoreCtas(locale: BorderWaitLocale): ReadonlyArray<DiscoverMoreCta> {
+  const dieselHref =
+    `${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale].diesel}/${FUEL_TODAY_SLUG[locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+  const jobMarketHref =
+    `${JOB_MARKET_LOCALE_PREFIX[locale]}/${JOB_MARKET_SECTION_SLUG[locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+  const hiringHref =
+    `${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(
+      /\/{2,}/g,
+      '/',
+    );
+
+  const titles: Record<BorderWaitLocale, { diesel: string; jobMarket: string; hiring: string }> = {
+    it: {
+      diesel: 'Prezzi diesel oggi',
+      jobMarket: 'Mercato del lavoro Ticino',
+      hiring: 'Aziende che assumono',
+    },
+    en: {
+      diesel: 'Diesel prices today',
+      jobMarket: 'Ticino job market',
+      hiring: 'Companies hiring',
+    },
+    de: {
+      diesel: 'Dieselpreise heute',
+      jobMarket: 'Arbeitsmarkt Tessin',
+      hiring: 'Einstellende Unternehmen',
+    },
+    fr: {
+      diesel: "Prix du diesel aujourd'hui",
+      jobMarket: 'Marché du travail Tessin',
+      hiring: 'Entreprises qui recrutent',
+    },
+  };
+
+  const t = titles[locale];
+  return [
+    { title: t.diesel, href: dieselHref },
+    { title: t.jobMarket, href: jobMarketHref },
+    { title: t.hiring, href: hiringHref },
+  ];
+}
+
+const BORDER_WAIT_DISCOVER_MORE_CTAS: Record<BorderWaitLocale, ReadonlyArray<DiscoverMoreCta>> = {
+  it: buildDiscoverMoreCtas('it'),
+  en: buildDiscoverMoreCtas('en'),
+  de: buildDiscoverMoreCtas('de'),
+  fr: buildDiscoverMoreCtas('fr'),
 };
 
 // ── Types ──────────────────────────────────────────────────────
