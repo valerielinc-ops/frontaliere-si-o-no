@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
 import { buildPath } from '@/services/router';
 import itCore from '@/services/locales/it-core';
@@ -14,6 +14,10 @@ const findReleaseItem = (version: string, titleKey: string) => {
 describe('WhatsNewBell', () => {
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it('renders bell icon button', () => {
@@ -45,6 +49,10 @@ describe('WhatsNewBell', () => {
 describe('WhatsNewModal', () => {
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   const getReleaseLink = (version: string, titleKey: string) => {

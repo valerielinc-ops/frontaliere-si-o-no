@@ -16,6 +16,16 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from '@/App';
 
+// Mock seoHelpers to prevent enableRuntimeSeo() from setting module-level
+// runtimeSeoEnabled = true, which persists across test files (isolate: false).
+vi.mock('@/hooks/seoHelpers', () => ({
+  enableRuntimeSeo: vi.fn(),
+  isRuntimeSeoEnabled: vi.fn(() => false),
+  updateMetaTags: vi.fn(),
+  trackSectionView: vi.fn(),
+  _resetRuntimeSeoForTests: vi.fn(),
+}));
+
 // Router mocks — `parsePath` is re-assigned per test to flip staticOverlay.
 const mockParsePath = vi.fn();
 

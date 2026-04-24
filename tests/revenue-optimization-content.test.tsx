@@ -40,10 +40,9 @@ vi.mock('@/services/trafficService', () => ({
   hasLiveTrafficData: vi.fn(() => false),
 }));
 
-vi.mock('@/services/analytics', () => ({
-  Analytics: new Proxy({}, { get: () => vi.fn() }),
-  track: vi.fn(),
-}));
+// Analytics is mocked globally in tests/setup.tsx — no override needed here.
+// ISOLATION NOTE: A Proxy-based override here persists in the shared module registry
+// (isolate: false) and breaks assertion-based analytics tests in later files.
 
 vi.mock('@/services/errorReporter', () => ({
   reportCaughtError: vi.fn(),

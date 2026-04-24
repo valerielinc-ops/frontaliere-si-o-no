@@ -32,9 +32,8 @@ vi.mock('@/hooks/seoHelpers', () => ({
   trackSectionView: vi.fn(),
 }));
 
-vi.mock('@/services/seoService', () => ({
-  applyNotFoundSeo: vi.fn(),
-}));
+// seoService is mocked globally in tests/setup.tsx (includes applyNotFoundSeo).
+// No local override needed — setup.tsx mock is sufficient.
 
 vi.mock('@/services/analyticsProxy', () => ({
   Analytics: {

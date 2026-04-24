@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { renderHook, act, cleanup } from '@testing-library/react';
 
 vi.mock('@/services/i18n', () => ({
   useTranslation: () => ({
@@ -53,6 +53,13 @@ describe('useUIState', () => {
     // Clean up both the property and the class
     delete (localStorage as any).theme;
     document.documentElement.classList.remove('dark');
+  });
+
+  afterEach(() => {
+    cleanup();
+    // Ensure dark mode state is reset after each test
+    document.documentElement.classList.remove('dark');
+    delete (localStorage as any).theme;
   });
 
   it('returns correct initial state', () => {

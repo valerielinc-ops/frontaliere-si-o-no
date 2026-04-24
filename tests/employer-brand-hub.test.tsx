@@ -10,8 +10,8 @@
  *   - Component: emits Organization + ItemList + FAQPage JSON-LD that parses
  *     and exposes the minimum Schema.org fields Google requires.
  */
-import { describe, it, expect } from 'vitest';
-import { render, screen, within } from '@testing-library/react';
+import { describe, it, expect, afterEach } from 'vitest';
+import { render, screen, within, cleanup } from '@testing-library/react';
 import EmployerBrandHub, { buildEmployerBrandStructuredData } from '@/components/jobs/EmployerBrandHub';
 import {
   EMPLOYER_BRANDS,
@@ -218,6 +218,12 @@ describe('buildEmployerBrandStructuredData', () => {
 
 // ─── EmployerBrandHub component ───────────────────────────────────────────────
 describe('EmployerBrandHub component', () => {
+  // Explicit cleanup prevents multiple renders from the locale loop from
+  // accumulating in the DOM when isolate: false is set (module state shared).
+  afterEach(() => {
+    cleanup();
+  });
+
   const brand = EMPLOYER_BRANDS['eoc-ente-ospedaliero-cantonale'];
 
   for (const locale of LOCALES) {

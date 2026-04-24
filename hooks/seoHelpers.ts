@@ -17,6 +17,9 @@ export const enableRuntimeSeo = () => { runtimeSeoEnabled = true; };
 /** Check if runtime SEO is enabled. */
 export const isRuntimeSeoEnabled = () => runtimeSeoEnabled;
 
+/** @internal — reset module state between tests (isolate: false workers share one registry). */
+export const _resetRuntimeSeoForTests = () => { runtimeSeoEnabled = false; };
+
 /**
  * Update meta tags for a given SEO section key.
  * Lazy-loads seoService. For blog pages, ensures blog-meta translations

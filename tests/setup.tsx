@@ -1,5 +1,12 @@
 import '@testing-library/jest-dom/vitest';
 
+// JSDOM does not implement ResizeObserver; mock it to prevent error-boundary crashes.
+global.ResizeObserver = class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
 // Mock window.matchMedia (not available in jsdom)
 Object.defineProperty(window, 'matchMedia', {
  writable: true,
@@ -87,9 +94,12 @@ vi.mock('@/services/authService', () => ({
  signInWithLinkedIn: vi.fn(() => Promise.resolve(null)),
 }));
 
-// Mock Analytics
-vi.mock('@/services/analytics', () => ({
- Analytics: {
+// Mock Analytics — use a caching Proxy so every Analytics.anyMethod() call gets
+// the SAME stable vi.fn() instance (needed for toHaveBeenCalledWith assertions)
+// while automatically covering methods added after this file was written.
+// Named entries override the proxy for methods that tests explicitly assert on.
+const _analyticsMockCache = new Map<string, ReturnType<typeof vi.fn>>();
+const _analyticsStableMock = {
  init: vi.fn(),
  isInitialized: false,
  trackPageView: vi.fn(),
@@ -122,7 +132,16 @@ vi.mock('@/services/analytics', () => ({
  setUserPreferences: vi.fn(),
  trackFunnelStep: vi.fn(),
  trackConsentChange: vi.fn(),
+} as Record<string, unknown>;
+const _analyticsProxy = new Proxy(_analyticsStableMock, {
+ get(target, prop: string) {
+  if (prop in target) return (target as Record<string, unknown>)[prop];
+  if (!_analyticsMockCache.has(prop)) _analyticsMockCache.set(prop, vi.fn());
+  return _analyticsMockCache.get(prop);
  },
+});
+vi.mock('@/services/analytics', () => ({
+ Analytics: _analyticsProxy,
  extractAppFrames: vi.fn((stack: string) => stack ? 'mock-file.ts:1:1' : ''),
  parseBrowserInfo: vi.fn(() => 'Chrome/125'),
  decodeReactError: vi.fn((msg: string) => msg),
@@ -165,6 +184,7 @@ vi.mock('@/services/prefetch', () => ({
 vi.mock('@/services/seoService', () => ({
  updateMetaTags: vi.fn(),
  trackSectionView: vi.fn(),
+ applyNotFoundSeo: vi.fn(),
 }));
 
 // Mock Leaflet
@@ -198,6 +218,26 @@ vi.mock('react-leaflet', () => ({
  Marker: ({ children }: any) => <div data-testid="marker">{children}</div>,
  Popup: ({ children }: any) => <div data-testid="popup">{children}</div>,
 }));
+
+// ─── Global isolation guards (isolate: false — all files share one module registry per worker)
+// These run around EVERY test in EVERY file in the worker.
+
+beforeEach(() => {
+  // Reset URL to root so router/navigation tests don't bleed URL state into each other.
+  // If window.location was replaced by Object.defineProperty (as in router.test.ts),
+  // this replaceState call only reaches the real history; files that do their own
+  // cleanup via afterAll will handle the custom location object.
+  try { window.history.replaceState(null, '', '/'); } catch { /* ignore */ }
+  // Remove theme class that toggle-theme tests may have added.
+  document.documentElement.classList.remove('dark');
+  // Clear localStorage so badge/seen-state tests start clean.
+  localStorage.clear();
+});
+
+afterEach(() => {
+  // Restore real timers after any test that called vi.useFakeTimers().
+  vi.useRealTimers();
+});
 
 // Recharts can emit noisy width/height warnings in JSDOM (no layout engine).
 const RechartsMock = ({ children }: any) => <div>{children}</div>;

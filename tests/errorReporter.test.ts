@@ -4,22 +4,32 @@
  * Verifies: message extraction, throttle/deduplication, Analytics integration,
  * and resilience when Analytics is unavailable.
  */
-import { reportCaughtError } from '@/services/errorReporter';
+
+// Force the real module — other test files may have registered a vi.mock() for
+// @/services/errorReporter that would otherwise shadow the real implementation.
+vi.unmock('@/services/errorReporter');
+
 import { Analytics } from '@/services/analytics';
 
 // Analytics.trackAppError is auto-mocked in tests/setup.tsx as vi.fn()
 
+let reportCaughtError: typeof import('@/services/errorReporter').reportCaughtError;
+let _resetThrottleMapForTests: typeof import('@/services/errorReporter')._resetThrottleMapForTests;
+
+beforeAll(async () => {
+  const mod = await vi.importActual<typeof import('@/services/errorReporter')>('@/services/errorReporter');
+  reportCaughtError = mod.reportCaughtError;
+  _resetThrottleMapForTests = mod._resetThrottleMapForTests;
+});
+
 describe('reportCaughtError', () => {
   beforeEach(() => {
+    // Clear the module-level throttle Map so state from other test files
+    // (isolate: false — all files share one module registry per worker)
+    // cannot suppress our assertions.
+    _resetThrottleMapForTests();
     vi.clearAllMocks();
     vi.spyOn(console, 'warn').mockImplementation(() => {});
-    // Reset throttle map between tests by advancing time far enough
-    vi.useFakeTimers();
-    vi.advanceTimersByTime(120_000);
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
   });
 
   it('reports Error instances with message and stack', () => {
@@ -79,6 +89,8 @@ describe('reportCaughtError', () => {
 
   it('allows same message after throttle window expires', () => {
     const err = new Error('temporary');
+    // Use fake timers only for this test so we can advance Date.now().
+    vi.useFakeTimers({ now: 1_000_000_000_000 });
     reportCaughtError(err, 'throttle.expire');
 
     expect(Analytics.trackAppError).toHaveBeenCalledTimes(1);
@@ -88,6 +100,9 @@ describe('reportCaughtError', () => {
 
     reportCaughtError(err, 'throttle.expire');
     expect(Analytics.trackAppError).toHaveBeenCalledTimes(2);
+    vi.useRealTimers();
+    // Clear the map so this entry doesn't bleed into subsequent tests.
+    _resetThrottleMapForTests();
   });
 
   it('does not throttle different contexts', () => {

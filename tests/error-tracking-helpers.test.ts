@@ -3,19 +3,17 @@
  * - extractAppFrames: filters minified stacks to relevant app frames
  * - parseBrowserInfo: lightweight UA string → browser name/version
  *
- * These must be tested WITHOUT the auto-mock that replaces analytics
- * in setup.tsx, so we use vi.unmock + dynamic import.
+ * Use vi.importActual() so the real implementations are loaded without
+ * removing the analytics mock from the shared module registry
+ * (isolate: false — removing the mock here would poison other test files).
  */
 
-// Unmock analytics so we get the real implementations
-vi.unmock('@/services/analytics');
-
-// The real functions are imported dynamically after unmock
+// The real functions are imported via importActual to avoid poisoning the analytics mock
 let extractAppFrames: (stack: string) => string;
 let parseBrowserInfo: (ua: string) => string;
 
 beforeAll(async () => {
-  const mod = await import('@/services/analytics');
+  const mod = await vi.importActual<typeof import('@/services/analytics')>('@/services/analytics');
   extractAppFrames = mod.extractAppFrames;
   parseBrowserInfo = mod.parseBrowserInfo;
 });

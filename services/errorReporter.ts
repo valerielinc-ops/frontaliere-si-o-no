@@ -34,6 +34,11 @@ type ErrorType =
 const THROTTLE_MS = 60_000;
 const recentlyReported = new Map<string, number>();
 
+/** @internal — only for use in tests to clear shared module-level throttle state. */
+export function _resetThrottleMapForTests(): void {
+ recentlyReported.clear();
+}
+
 function extractMessage(error: unknown): string {
  if (error instanceof Error) return error.message;
  if (typeof error === 'string') return error;

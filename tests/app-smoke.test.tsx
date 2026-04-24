@@ -3,10 +3,21 @@
  * Verifies that the app mounts without errors, renders key UI elements,
  * and does not trigger React warnings (infinite loops, setState-in-render, etc.).
  */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, act, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '@/App';
+
+// Mock seoHelpers to prevent enableRuntimeSeo() from setting module-level
+// runtimeSeoEnabled = true, which would persist across all test files in this
+// worker (isolate: false) and break useNavigationState tests that run after.
+vi.mock('@/hooks/seoHelpers', () => ({
+  enableRuntimeSeo: vi.fn(),
+  isRuntimeSeoEnabled: vi.fn(() => false),
+  updateMetaTags: vi.fn(),
+  trackSectionView: vi.fn(),
+  _resetRuntimeSeoForTests: vi.fn(),
+}));
 
 // Mock router to avoid real history manipulation
 vi.mock('@/services/router', () => ({
@@ -112,6 +123,10 @@ beforeEach(() => {
   consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
   // Reset history state
   window.history.replaceState(null, '', '/');
+});
+
+afterEach(() => {
+  cleanup();
 });
 
 describe('App smoke test', () => {

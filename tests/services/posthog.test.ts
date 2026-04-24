@@ -18,11 +18,10 @@
 
 import { vi, describe, it, expect, beforeEach, beforeAll } from 'vitest';
 
-// Pull in the real implementations (global mock replaces them by default).
-vi.unmock('@/services/posthog');
-vi.unmock('@/services/consentService');
-
 // Per-test-file mock of posthog-js so we can observe init/capture.
+// ISOLATION NOTE: Use vi.importActual() instead of vi.unmock() to avoid
+// permanently removing mocks from the shared module registry (isolate: false).
+// vi.unmock() at module level persists across all test files in a worker.
 const posthogMock = {
   init: vi.fn(),
   capture: vi.fn(),
@@ -37,9 +36,10 @@ let posthogModule: typeof import('@/services/posthog');
 let consentModule: typeof import('@/services/consentService');
 
 beforeAll(async () => {
-  posthogModule = await import('@/services/posthog');
-  consentModule = await import('@/services/consentService');
+  posthogModule = await vi.importActual<typeof import('@/services/posthog')>('@/services/posthog');
+  consentModule = await vi.importActual<typeof import('@/services/consentService')>('@/services/consentService');
 });
+
 
 beforeEach(() => {
   posthogMock.init.mockClear();

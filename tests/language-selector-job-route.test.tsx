@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
 import LanguageSelector from '@/components/shared/LanguageSelector';
 
 const {
@@ -43,6 +43,10 @@ describe('LanguageSelector job-detail locale switch', () => {
     trackSettingsChangeMock.mockClear();
     ensureJobSlugMapLoadedMock.mockClear();
     updatePathForLocaleMock.mockClear();
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it('loads the job slug map before rewriting the current route for the new locale', async () => {

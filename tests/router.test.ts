@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach, afterAll } from 'vitest';
 import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap } from '@/services/router';
 
 const SEO_LANDINGS = [
@@ -489,6 +489,9 @@ describe('Router — profile tab', () => {
 describe('Router — root path preservation (no redirect from / to /calcola-stipendio)', () => {
   let pushStateSpy: ReturnType<typeof vi.fn>;
   let replaceStateSpy: ReturnType<typeof vi.fn>;
+  // Capture the real location object BEFORE any setPathname override so we
+  // can restore it in afterAll without leaving window.location undefined.
+  const nativeLocation = window.location;
 
   beforeEach(() => {
     pushStateSpy = vi.spyOn(history, 'pushState').mockImplementation(() => {});
@@ -498,6 +501,16 @@ describe('Router — root path preservation (no redirect from / to /calcola-stip
   afterEach(() => {
     pushStateSpy.mockRestore();
     replaceStateSpy.mockRestore();
+  });
+
+  afterAll(() => {
+    // Restore the native window.location so subsequent test files that read
+    // window.location.pathname don't get undefined.
+    Object.defineProperty(window, 'location', {
+      value: nativeLocation,
+      writable: true,
+      configurable: true,
+    });
   });
 
   function setPathname(path: string) {
@@ -567,6 +580,9 @@ describe('Router — query string preservation', () => {
   // empty search string and bails with "skip: no token".
   let pushStateSpy: ReturnType<typeof vi.fn>;
   let replaceStateSpy: ReturnType<typeof vi.fn>;
+  // Capture the real location object BEFORE any setLocation override so we
+  // can restore it in afterAll without leaving window.location undefined.
+  const nativeLocation = window.location;
 
   beforeEach(() => {
     pushStateSpy = vi.spyOn(history, 'pushState').mockImplementation(() => {});
@@ -576,6 +592,16 @@ describe('Router — query string preservation', () => {
   afterEach(() => {
     pushStateSpy.mockRestore();
     replaceStateSpy.mockRestore();
+  });
+
+  afterAll(() => {
+    // Restore the native window.location so subsequent test files that read
+    // window.location.pathname don't get undefined.
+    Object.defineProperty(window, 'location', {
+      value: nativeLocation,
+      writable: true,
+      configurable: true,
+    });
   });
 
   function setLocation(pathname: string, search = '', hash = '') {

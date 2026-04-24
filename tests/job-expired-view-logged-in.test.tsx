@@ -7,8 +7,8 @@
  * minimal job payload to confirm missing data degrades gracefully.
  */
 
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect, afterEach } from 'vitest';
+import { render, screen, cleanup } from '@testing-library/react';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
@@ -34,6 +34,10 @@ const minimalJob: ExpiredJob = {
 };
 
 describe('JobExpiredView (logged-in)', () => {
+ afterEach(() => {
+  cleanup();
+ });
+
  it('renders full 2-column layout with hero, banner, description and sidebar', () => {
   render(<JobExpiredView job={fullJob} hasAccess />);
 

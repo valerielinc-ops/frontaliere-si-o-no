@@ -2,8 +2,8 @@
  * Tests for TrafficHistory component — verifies Firestore-first data loading
  * with fallback to the hardcoded CROSSING_PATTERNS model.
  */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import TrafficHistory from '@/components/guide/TrafficHistory';
 
 // ─── Mock firebase/firestore ────────────────────────────────────
@@ -58,6 +58,10 @@ describe('TrafficHistory', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it('renders with fallback model when Firestore returns no data', async () => {
