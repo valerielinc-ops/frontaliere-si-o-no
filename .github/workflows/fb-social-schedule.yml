@@ -42,9 +42,8 @@ jobs:
       - name: Post to Facebook
         id: post
         env:
-          # Prefer direct secrets if present; fall back to RC-loaded values from step above.
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID || env.FB_PAGE_ID }}
-          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN || env.FB_PAGE_ACCESS_TOKEN }}
+          # FB_PAGE_ID / FB_PAGE_ACCESS_TOKEN come from load-rc-env.mjs via $GITHUB_ENV
+          # (mapped from SERVER_FB_PAGE_ACCESS_TOKEN on Firebase Remote Config).
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
         run: |
           set -euo pipefail
