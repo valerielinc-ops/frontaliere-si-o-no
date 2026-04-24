@@ -1,18 +1,60 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-04-24T10:29:08.685Z",
-  "total": 3,
-  "newCount": 3,
+  "generatedAt": "2026-04-24T21:55:40.348Z",
+  "total": 4,
+  "newCount": 4,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3962,
-  "avgDurationMs": 3962,
+  "durationMs": 17065,
+  "avgDurationMs": 17065,
   "durationHistory": [
-    3962
+    17065
   ],
   "newJobs": [
+    {
+      "id": "company-wndocq",
+      "slug": "software-ingegnere-etls-microservices-chiasso",
+      "company": "lastminute.com",
+      "title": "Software Engineer – ETLs & Microservices",
+      "location": "Chiasso",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000122432289&jobName=Software+Engineer+%E2%80%93+ETLs",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "crawledAt": "2026-04-24T21:55:39.651Z",
+      "firstSeenAt": "2026-04-24T21:55:39.651Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chiasso",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Balestra 12",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-s60y08",
       "slug": "senior-frontend-software-ingegnere-chiasso",
