@@ -17,6 +17,14 @@ import { Analytics } from '@/services/analytics';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import type { SimulationResult, SimulationInputs } from '../../types';
 import { generateCalculatorPdfReport } from '@/services/pdfReport';
+import {
+  useAuth,
+  getAuthEmail,
+  renderGoogleButtonWithReadiness,
+  isLinkedInSignInAvailable,
+  signInWithLinkedIn,
+} from '@/services/authService';
+import { reportCaughtError } from '@/services/errorReporter';
 
 export const PAYWALL_DISMISSED_KEY = 'frontaliere_paywall_dismissed';
 export const SIM_COMPLETE_COUNTER_KEY = 'counter_sim_complete';
@@ -100,11 +108,15 @@ interface CalculatorPaywallProps {
 
 const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, onClose, fetchImpl }) => {
   const { t, locale } = useTranslation();
+  const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [googleButtonReady, setGoogleButtonReady] = useState(false);
+  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const googleButtonRef = useRef<HTMLDivElement>(null);
   const shownRef = useRef(false);
 
   // Fire paywall_shown exactly once on mount.
@@ -113,6 +125,46 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
     shownRef.current = true;
     Analytics.trackFunnelStep('paywall_shown', { funnel: 'newsletter_paywall' });
   }, []);
+
+  // LinkedIn RC flag gate.
+  useEffect(() => {
+    isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
+  }, []);
+
+  // Pre-fill email from authenticated user (Google / LinkedIn / Facebook).
+  useEffect(() => {
+    const authEmail = getAuthEmail(user);
+    if (authEmail && !email) setEmail(authEmail);
+  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Mount the Google sign-in button once, only while not authenticated.
+  useEffect(() => {
+    let cancelled = false;
+    const mountButton = async () => {
+      if (user || !googleButtonRef.current) {
+        if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
+        setGoogleButtonReady(false);
+        return;
+      }
+      try {
+        const ready = await renderGoogleButtonWithReadiness(googleButtonRef.current, {
+          theme: 'outline',
+          size: 'large',
+          text: 'continue_with',
+          width: 320,
+          locale,
+        });
+        if (!cancelled) setGoogleButtonReady(ready);
+      } catch (error) {
+        if (!cancelled) {
+          setGoogleButtonReady(false);
+          reportCaughtError(error, 'paywall.renderGoogleButton');
+        }
+      }
+    };
+    void mountButton();
+    return () => { cancelled = true; };
+  }, [user, locale]);
 
   // Focus trap + Esc-to-close.
   useEffect(() => {
@@ -271,7 +323,48 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
               <span>{t('calculator.paywall.successToast')}</span>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <>
+              {/* Social sign-in — same pattern as Newsletter / SubscriptionCTA / LeadMagnetCTA */}
+              {!user && (
+                <div className="space-y-2 mb-3">
+                  <div ref={googleButtonRef} className="flex justify-center min-h-[40px]" aria-label="Google sign-in" />
+                  {!googleButtonReady && (
+                    <div className="h-10 flex items-center justify-center text-xs text-muted">
+                      <Loader2 className="w-3.5 h-3.5 animate-spin mr-1.5" />
+                      <span>Loading…</span>
+                    </div>
+                  )}
+                  {linkedInAvailable && (
+                    <button
+                      type="button"
+                      onClick={() => signInWithLinkedIn()}
+                      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
+                      aria-label="Continue with LinkedIn"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.78v2.2h.07c.67-1.26 2.3-2.58 4.73-2.58 5.06 0 6 3.33 6 7.66V24h-5v-7.1c0-1.7-.03-3.88-2.36-3.88-2.37 0-2.73 1.85-2.73 3.76V24h-5V8z"/>
+                      </svg>
+                      <span>
+                        {locale === 'it' ? 'Continua con LinkedIn'
+                          : locale === 'de' ? 'Mit LinkedIn fortfahren'
+                          : locale === 'fr' ? 'Continuer avec LinkedIn'
+                          : 'Continue with LinkedIn'}
+                      </span>
+                    </button>
+                  )}
+                  <div className="relative py-1">
+                    <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-edge" /></div>
+                    <div className="relative flex justify-center"><span className="px-2 bg-surface text-xs text-muted uppercase tracking-wider">
+                      {locale === 'it' ? 'oppure'
+                        : locale === 'de' ? 'oder'
+                        : locale === 'fr' ? 'ou'
+                        : 'or'}
+                    </span></div>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-3">
               <label htmlFor="calc-paywall-email" className="sr-only">
                 {t('calculator.paywall.emailPlaceholder')}
               </label>
@@ -315,6 +408,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
                 {t('calculator.paywall.dismissLabel')}
               </button>
             </form>
+            </>
           )}
         </div>
       </div>
