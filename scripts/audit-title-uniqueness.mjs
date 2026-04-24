@@ -127,6 +127,20 @@ function extractCanonical(html) {
   return m2 ? m2[1].trim() : null;
 }
 
+/**
+ * Return true when the page declares `noindex` via `<meta name="robots">`.
+ * These pages are intentionally hidden from Google indexing (legacy-redirect
+ * bridges, archival stubs, brand-alias bridges). Unique-<title> policy does
+ * not apply to them — Google ignores them during SERP cluster selection.
+ */
+function hasNoindex(html) {
+  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
+  const scope = headMatch ? headMatch[1] : html;
+  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(scope);
+  if (!m) return false;
+  return /\bnoindex\b/i.test(m[1]);
+}
+
 function main() {
   if (!fs.existsSync(DIST_DIR)) {
     console.error(`[audit:title-uniqueness] dist/ not found at ${DIST_DIR}. Run a build first.`);
@@ -162,6 +176,11 @@ function main() {
       missingTitles += 1;
       continue;
     }
+
+    // Skip noindex pages — they are intentionally hidden from Google and
+    // therefore outside the unique-<title> policy (legacy-redirect bridges,
+    // archival stubs, brand-alias bridges all ship with noindex,follow).
+    if (hasNoindex(html)) continue;
 
     const canonicalUrl = extractCanonical(html);
     const canonicalKey = canonicalUrl ?? fsCanonical;

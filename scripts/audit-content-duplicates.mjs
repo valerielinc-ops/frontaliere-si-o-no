@@ -64,6 +64,65 @@ function inferLocale(relPath) {
 }
 
 /**
+ * Canonicalize a dist-relative HTML path so that `foo.html` and `foo/index.html`
+ * — which GitHub Pages serves as the same URL — collapse to one logical page.
+ * Without this every static page appears twice and pollutes the duplicate
+ * clusters.
+ *
+ * `foo/index.html` → `foo/`
+ * `foo.html`       → `foo/`
+ * `index.html`     → `/`
+ *
+ * @param {string} relPath filesystem-relative (uses `path.sep`).
+ * @returns {string} canonical URL-like key (forward slashes).
+ */
+function canonicalizeDistPath(relPath) {
+  const posix = relPath.split(sep).join('/');
+  if (posix === 'index.html') return '/';
+  if (posix.endsWith('/index.html')) return posix.slice(0, -'index.html'.length);
+  if (posix.endsWith('.html')) return `${posix.slice(0, -'.html'.length)}/`;
+  return posix;
+}
+
+/**
+ * Extract the absolute canonical URL from `<link rel="canonical">`.
+ * Returns null if absent.
+ *
+ * Bridge pages (multi-locale slug variants, expired-job soft landings,
+ * brand-alias `azienda-*` bridges, orphan-slug soft landings) all
+ * legitimately share one body + one canonical URL. Google collapses them
+ * into one indexed page via the canonical signal, so flagging them as
+ * duplicate bodies is a false positive.
+ *
+ * @param {string} html
+ * @returns {string|null}
+ */
+function extractCanonical(html) {
+  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
+  const scope = headMatch ? headMatch[1] : html;
+  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(scope);
+  if (m) return m[1].trim();
+  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(scope);
+  return m2 ? m2[1].trim() : null;
+}
+
+/**
+ * Return true when the page declares `noindex` via `<meta name="robots">`.
+ * Noindex pages are intentionally hidden from SERP, so duplicate bodies
+ * across these pages cannot trigger SERP cannibalization.
+ *
+ * @param {string} html
+ * @returns {boolean}
+ */
+function hasNoindex(html) {
+  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
+  const scope = headMatch ? headMatch[1] : html;
+  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(scope);
+  if (!m) return false;
+  return /\bnoindex\b/i.test(m[1]);
+}
+
+/**
  * Strip shared chrome (top-level nav/header/footer/aside) + scripts + styles
  * from raw HTML, returning the visible body text used for duplicate detection.
  *
@@ -150,15 +209,48 @@ function audit(distDir) {
     return { exitCode: 1, totals: {}, duplicates: [] };
   }
 
+  /** @type {Set<string>} Already-seen canonical URL-keys (collapses `foo.html`
+   * + `foo/index.html` pairs which GH Pages serves as one URL). */
+  const seenUrlKeys = new Set();
   for (const file of walkHtml(distDir)) {
     const relPath = relative(distDir, file);
+    const urlKey = canonicalizeDistPath(relPath);
+    // Deduplicate filesystem `.html` vs `/index.html` pairs that GH Pages
+    // serves under one URL. We keep the first occurrence (typically
+    // `foo/index.html`) and skip the flat-html sibling.
+    if (seenUrlKeys.has(urlKey)) continue;
+    seenUrlKeys.add(urlKey);
+
     const html = readFileSync(file, 'utf-8');
+
+    // Skip noindex pages outright — they are not indexable and cannot
+    // cause SERP cannibalization regardless of body similarity.
+    if (hasNoindex(html)) continue;
+
     const bodyText = extractBodyText(html);
     if (!bodyText) continue;
     // Skip very small stubs (error pages, 404, empty redirects) — they're not
     // indexable content and dominate cross-locale noise.
     const wordCount = bodyText.split(/\s+/).length;
     if (wordCount < 40) continue;
+
+    // Skip pages whose <link rel="canonical"> points at a DIFFERENT page —
+    // these are intentional bridge/alias pages (orphan soft landings,
+    // brand-alias `azienda-<brand>` bridges, multi-slug-variant rescues).
+    // Google collapses them into their canonical target, so flagging the
+    // shared body as a duplicate is a false positive. We still include
+    // self-canonical pages so true editorial duplicates keep getting caught.
+    const canonical = extractCanonical(html);
+    if (canonical) {
+      const canonicalPath = canonical.replace(/^https?:\/\/[^/]+/, '').replace(/#.*$/, '').replace(/\?.*$/, '');
+      const normalizedCanonical = canonicalPath.replace(/\/$/, '') || '/';
+      const normalizedSelf = urlKey.replace(/\/$/, '') || '/';
+      if (normalizedCanonical !== normalizedSelf) {
+        // Points elsewhere — treat as non-canonical bridge, don't flag.
+        continue;
+      }
+    }
+
     const locale = inferLocale(relPath);
     pages.push({ relPath, locale, hash: sha256(bodyText), wordCount });
   }
