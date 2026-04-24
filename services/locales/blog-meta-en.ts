@@ -2586,6 +2586,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assistente-ai-frontalieri.title': 'AI assistant for cross-border workers: the complete 2026 guide',
     'blog.article.assistente-ai-frontalieri.excerpt': 'Complete guide to the free AI assistant for cross-border workers: how it works, what you can ask (G permit, withholding tax, tax credit, job search), privacy and limits. 10+ real FAQs.',
     'blog.article.assistente-ai-frontalieri.imageAlt': 'Lake Lugano view with an open laptop showing an AI chat, symbol of the virtual assistant for Ticino cross-border workers.',
+    'blog.article.economia-svizzera-rischio-burocrazia.title': 'Swiss economy at risk: bureaucracy and internal divisions',
+    'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'Economist Rudolf Walser raises the alarm: Switzerland risks losing competitiveness due to federal bureaucracy and internal divisions.',
+    'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Lugano skyline with lake and mountains',
 };
 
 export default blogMetaEn;

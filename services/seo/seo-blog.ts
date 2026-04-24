@@ -11871,6 +11871,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economia-svizzera-rischio-burocrazia': {
+    title: 'Economia svizzera a rischio: burocrazia | Frontaliere Ticino',
+    description: 'L\'economista Rudolf Walser lancia l\'allarme: la Svizzera rischia di perdere competitività a causa della burocrazia federale e delle divisioni interne.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, rischio, burocrazia, divisioni',
+    ogTitle: 'Economia svizzera a rischio: burocrazia e divisioni interne',
+    ogDescription: 'L\'economista Rudolf Walser lancia l\'allarme: la Svizzera rischia di perdere competitività a causa della burocrazia federale e delle divisioni interne.',
+    canonicalPath: '/articoli-frontaliere/economia-svizzera-rischio-burocrazia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economia svizzera a rischio: burocrazia e divisioni interne",
+      "description": "L'economista Rudolf Walser lancia l'allarme: la Svizzera rischia di perdere competitività a causa della burocrazia federale e delle divisioni interne.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/economia-svizzera-rischio-burocrazia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-04-24T15:26:40+00:00",
+      "dateModified": "2026-04-24T15:26:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/economia-svizzera-rischio-burocrazia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2586,6 +2586,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assistente-ai-frontalieri.title': 'Assistant IA pour frontaliers : le guide complet 2026',
     'blog.article.assistente-ai-frontalieri.excerpt': 'Guide complet de l\'assistant IA gratuit pour frontaliers : comment il fonctionne, ce que vous pouvez demander (permis G, impôt à la source, crédit d\'impôt, recherche d\'emploi), confidentialité et limites. 10+ FAQ réelles.',
     'blog.article.assistente-ai-frontalieri.imageAlt': 'Vue du lac de Lugano avec un ordinateur portable affichant un chat IA, symbole de l\'assistant virtuel pour frontaliers tessinois.',
+    'blog.article.economia-svizzera-rischio-burocrazia.title': 'Économie suisse en danger : bureaucratie et divisions internes',
+    'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'L\'économiste Rudolf Walser lance l\'alerte : la Suisse risque de perdre en compétitivité à cause de la bureaucratie fédérale et des divisions internes.',
+    'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

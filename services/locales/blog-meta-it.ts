@@ -2586,6 +2586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assistente-ai-frontalieri.title': 'Assistente AI per frontalieri: la guida completa 2026',
     'blog.article.assistente-ai-frontalieri.excerpt': 'Guida completa all\'assistente AI gratuito per frontalieri: come funziona, cosa puoi chiedere (permesso G, imposta alla fonte, ritenuta d\'acconto, job search), privacy e limiti. 15 FAQ reali.',
     'blog.article.assistente-ai-frontalieri.imageAlt': 'Vista del Lago di Lugano con un laptop aperto su una chat AI, simbolo dell\'assistente virtuale per frontalieri ticinesi.',
+    'blog.article.economia-svizzera-rischio-burocrazia.title': 'Economia svizzera a rischio: burocrazia e divisioni interne',
+    'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'L\'economista Rudolf Walser lancia l\'allarme: la Svizzera rischia di perdere competitività a causa della burocrazia federale e delle divisioni interne.',
+    'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Panorama di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

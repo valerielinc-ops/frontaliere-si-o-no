@@ -2586,6 +2586,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assistente-ai-frontalieri.title': 'KI-Assistent für Grenzgänger: der komplette Leitfaden 2026',
     'blog.article.assistente-ai-frontalieri.excerpt': 'Vollständiger Leitfaden zum kostenlosen KI-Assistenten für Grenzgänger: Funktionsweise, mögliche Fragen (Grenzgängerbewilligung, Quellensteuer, Steuergutschrift, Jobsuche), Datenschutz und Grenzen. 10+ echte FAQ.',
     'blog.article.assistente-ai-frontalieri.imageAlt': 'Blick auf den Luganersee mit einem Laptop, der einen KI-Chat zeigt — Symbol des virtuellen Assistenten für Tessiner Grenzgänger.',
+    'blog.article.economia-svizzera-rischio-burocrazia.title': 'Schweizer Wirtschaft in Gefahr: Bürokratie und interne Spaltungen',
+    'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'Der Ökonom Rudolf Walser warnt: Die Schweiz riskiert, an Wettbewerbsfähigkeit zu verlieren, aufgrund der föderalen Bürokratie und der internen Spaltungen.',
+    'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Lugano Skyline mit See und Bergen',
 };
 
 export default blogMetaDe;

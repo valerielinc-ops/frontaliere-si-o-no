@@ -2136,6 +2136,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano': { name: 'Banditi assaltano gioielleria a Tavernola', path: '/articoli-frontaliere/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano', parent: 'blog' },
     'blog-regione-lombardia-aumento-stipendi-medici-infermieri': { name: 'Regione Lombardia, aumento stipendi medici', path: '/articoli-frontaliere/regione-lombardia-aumento-stipendi-medici-infermieri', parent: 'blog' },
     'blog-divario-salari-ticino-frontalieri-2026': { name: 'Divario salariale', path: '/articoli-frontaliere/divario-salari-ticino-frontalieri-2026', parent: 'blog' },
+    'blog-economia-svizzera-rischio-burocrazia': { name: 'Novità', path: '/articoli-frontaliere/economia-svizzera-rischio-burocrazia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

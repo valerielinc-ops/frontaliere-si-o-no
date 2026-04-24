@@ -7021,4 +7021,11 @@ export const ARTICLES = [
  image: '/images/places/lac-lugano.webp',
  hasCalculator: false,
  },
+ {
+ id: 'economia-svizzera-rischio-burocrazia',
+ category: 'novita',
+ date: '2026-04-24T15:26:40.949Z',
+ image: '/images/blog/economia-svizzera-rischio-burocrazia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
