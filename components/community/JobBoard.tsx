@@ -3737,6 +3737,85 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob, bridgeTargetSlug]);
 
+ // ── ItemList JSON-LD (docs/seo-action-plan-apr2026.md) ───────────────────
+ // Emit a Schema.org ItemList pointing at the currently filtered job list.
+ // Helps Google show a rich carousel for /cerca-lavoro-ticino/ plus its
+ // sector/city hubs, lifting CTR on the long-tail listing URLs.
+ // Skipped on detail view — the JobPosting schema above is authoritative.
+ useEffect(() => {
+ const ITEMLIST_ID = 'jobboard-itemlist-jsonld';
+ const cleanup = () => {
+ const el = document.getElementById(ITEMLIST_ID);
+ if (el) el.remove();
+ };
+
+ if (selectedJob || initialJobSlug) {
+ cleanup();
+ return;
+ }
+ if (filteredJobs.length === 0) {
+ cleanup();
+ return;
+ }
+
+ const origin = typeof window !== 'undefined' && window.location?.origin
+ ? window.location.origin
+ : 'https://frontaliereticino.ch';
+
+ const MAX_ITEMS = 20;
+ const items = filteredJobs
+ .slice(0, MAX_ITEMS)
+ .map((job, index) => {
+ const slug = deriveLocalizedJobSlug(job, locale);
+ if (!slug) return null;
+ const href = buildPath({ activeTab: 'job-board' as any, jobSlug: slug }, locale);
+ const url = `${origin}${href}`;
+ const localizedTitle = job.titleByLocale?.[locale] || job.title || '';
+ const cleanTitle = sanitizeJobTitle(localizedTitle);
+ const name = job.company
+ ? `${cleanTitle} — ${job.company}`
+ : cleanTitle;
+ return {
+ '@type': 'ListItem',
+ position: index + 1,
+ url,
+ name: name.slice(0, 110),
+ };
+ })
+ .filter((x): x is { '@type': 'ListItem'; position: number; url: string; name: string } => x !== null);
+
+ if (items.length === 0) {
+ cleanup();
+ return;
+ }
+
+ const listName = companyDisplayName
+ ? `${companyDisplayName} — ${t('jobBoard.title')}`
+ : selectedSector !== 'all'
+ ? `${selectedSector} — ${t('jobBoard.title')}`
+ : selectedLocation !== 'all'
+ ? `${selectedLocation} — ${t('jobBoard.title')}`
+ : t('jobBoard.title');
+
+ const itemList = {
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: listName,
+ numberOfItems: items.length,
+ itemListOrder: 'https://schema.org/ItemListOrderDescending',
+ itemListElement: items,
+ };
+
+ cleanup();
+ const script = document.createElement('script');
+ script.type = 'application/ld+json';
+ script.id = ITEMLIST_ID;
+ script.textContent = JSON.stringify(itemList);
+ document.head.appendChild(script);
+
+ return cleanup;
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, t]);
+
  const formatSalary = (job: JobListing) => {
  if (!job.salaryMin) return null;
  const min = (job.salaryMin / 1000).toFixed(0);

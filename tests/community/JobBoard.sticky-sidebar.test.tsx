@@ -43,3 +43,34 @@ describe('JobBoard ad-registry invariants', () => {
     expect(AD_SLOTS.JOBDETAIL_SIDEBAR.slot).not.toBe(AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot);
   });
 });
+
+describe('JobBoard — ItemList JSON-LD (docs/seo-action-plan-apr2026.md)', () => {
+  it('builds an ItemList schema on the list view (skipped on detail)', () => {
+    expect(SOURCE).toMatch(/ITEMLIST_ID\s*=\s*['"]jobboard-itemlist-jsonld['"]/);
+    expect(SOURCE).toMatch(/@type['"]:\s*['"]ItemList['"]/);
+    expect(SOURCE).toMatch(/@type['"]:\s*['"]ListItem['"]/);
+    expect(SOURCE).toMatch(/itemListElement/);
+    expect(SOURCE).toMatch(/numberOfItems/);
+  });
+
+  it('skips injection on the detail view', () => {
+    // The effect must early-return when selectedJob or initialJobSlug is set.
+    expect(SOURCE).toMatch(/if\s*\(selectedJob\s*\|\|\s*initialJobSlug\)/);
+  });
+
+  it('caps the list at 20 items to keep the payload small', () => {
+    expect(SOURCE).toMatch(/MAX_ITEMS\s*=\s*20/);
+  });
+
+  it('cleans up the injected <script> on effect teardown', () => {
+    expect(SOURCE).toMatch(/getElementById\(ITEMLIST_ID\)/);
+  });
+
+  it('localizes list-item URLs via buildPath + locale', () => {
+    // Sanity: the effect must call buildPath with the locale argument so the
+    // emitted URLs match the canonical per-locale slug.
+    const itemListBlock = SOURCE.split('jobboard-itemlist-jsonld')[1] ?? '';
+    expect(itemListBlock).toMatch(/buildPath\(/);
+    expect(itemListBlock).toMatch(/deriveLocalizedJobSlug\(job,\s*locale\)/);
+  });
+});
