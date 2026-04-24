@@ -45,6 +45,7 @@ import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
+import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -122,6 +123,11 @@ export default defineConfig(({ mode }) => {
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
  comparisonsHubLinksPlugin(__dirname),
+ // AE-5 caveat — inject contextual link from each locale guide hub root
+ // (/guida-frontaliere/ + 3 locale twins) into the 100-Q&A FAQ hub.
+ // Uses enforce: 'post' so it runs after staticPagesPlugin writes the
+ // guide-hub HTML. Idempotent via `data-ae5-faq-link`.
+ faqHubLinksPlugin(__dirname),
  // AE-3 — inject profession-landings list into /cerca-lavoro-ticino/ (+ 3 locale
  // job-board hubs) and a healthcare/education cross-link into the
  // /vita-in-ticino/oss-svizzera/ pillar. Must run after staticPagesPlugin so
