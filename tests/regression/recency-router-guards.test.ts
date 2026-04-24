@@ -90,7 +90,7 @@ describe('recency/oggi router guards — parsePath oggi slugs', () => {
       const { route } = parsePath(url);
       expect(route.activeTab).toBe('job-board');
       expect(route.staticOverlay).toBe(true);
-      expect((route as Record<string, unknown>).jobSlug).toBeUndefined();
+      expect((route as unknown as Record<string, unknown>).jobSlug).toBeUndefined();
     });
   }
 
@@ -106,7 +106,7 @@ describe('recency/oggi router guards — parsePath oggi slugs', () => {
       const { route } = parsePath(url);
       expect(route.activeTab).toBe('job-board');
       expect(route.staticOverlay).toBe(true);
-      expect((route as Record<string, unknown>).jobSlug).toBeUndefined();
+      expect((route as unknown as Record<string, unknown>).jobSlug).toBeUndefined();
     });
   }
 
@@ -127,7 +127,7 @@ describe('recency/oggi router guards — parsePath recency slugs', () => {
         const { route } = parsePath(url);
         expect(route.activeTab).toBe('job-board');
         expect(route.staticOverlay).toBe(true);
-        expect((route as Record<string, unknown>).jobSlug).toBeUndefined();
+        expect((route as unknown as Record<string, unknown>).jobSlug).toBeUndefined();
       });
     }
   }
@@ -146,7 +146,7 @@ describe('recency/oggi router guards — regression: no-jobSlug on all landing s
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const url = buildUrl(locale, TODAY_SLUGS_BY_LOCALE[locale]);
       const { route } = parsePath(url);
-      if ((route as Record<string, unknown>).jobSlug !== undefined) {
+      if ((route as unknown as Record<string, unknown>).jobSlug !== undefined) {
         violations.push(`${url} → jobSlug set`);
       }
     }
