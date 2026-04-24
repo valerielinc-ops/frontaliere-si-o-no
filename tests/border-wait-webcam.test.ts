@@ -53,15 +53,37 @@ describe('webcam rendering — conditional display', () => {
     expect(html).toContain('02.0N.gif');
   });
 
-  it('Crociale dei Mulini (no webcam configured) omits the webcam section entirely', () => {
+  it('Crociale dei Mulini (no webcam configured) renders graceful fallback notice, no <figure>', () => {
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];
     expect(html).not.toContain('<figure');
     expect(html).not.toContain('data-webcam-refresh');
+    expect(html).toContain('Webcam non disponibile per questo valico');
   });
 
-  it('Maslianico-Roggiana (closed pedestrian, no webcam) omits the webcam section', () => {
+  it('Maslianico-Roggiana (closed pedestrian, no webcam) renders graceful fallback notice, no <figure>', () => {
     const html = pages[buildOggiPath('it', 'maslianico-roggiana')];
     expect(html).not.toContain('<figure');
+    expect(html).toContain('Webcam non disponibile per questo valico');
+  });
+
+  it('Ponte Tresa (no webcam configured) renders graceful fallback notice instead of empty section', () => {
+    const html = pages[buildOggiPath('it', 'ponte-tresa')];
+    expect(html).not.toContain('<figure');
+    expect(html).not.toContain('data-webcam-refresh');
+    expect(html).toContain('Webcam non disponibile per questo valico');
+  });
+
+  it('Ponte Tresa fallback notice is present in all 4 locales', () => {
+    const localeExpected: Array<[string, string]> = [
+      ['it', 'Webcam non disponibile per questo valico'],
+      ['en', 'No webcam available for this crossing'],
+      ['de', 'Keine Webcam für diesen Grenzübergang verfügbar'],
+      ['fr', 'Webcam non disponible pour ce poste frontière'],
+    ];
+    for (const [locale, expected] of localeExpected) {
+      const html = pages[buildOggiPath(locale as 'it' | 'en' | 'de' | 'fr', 'ponte-tresa')];
+      expect(html, `locale ${locale}`).toContain(expected);
+    }
   });
 });
 
