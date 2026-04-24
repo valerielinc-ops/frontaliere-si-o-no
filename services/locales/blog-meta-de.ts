@@ -2598,6 +2598,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-stabio-futuro-incerto.title': 'Gemeindepolizei von Stabio: Ungewisse Zukunft, ständige Präsenz',
     'blog.article.polizia-stabio-futuro-incerto.excerpt': 'Die Zukunft der Gemeindepolizei von Stabio ist ungewiss, aber ihre Präsenz bleibt konstant. Man wartet auf das Schicksal des Projekts Polizei des Tessin.',
     'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Gemeindepolizei-Station Stabio, Tessin',
+    'blog.article.settimana-corta-ticino-2026.title': 'Vier-Tage-Woche: Das Experiment im Tessin, das die Arbeitswelt revolutioniert',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'Ein Tessiner Unternehmen experimentiert mit der Vier-Tage-Woche bei vollem Lohn für fünf Tage, was die Lebensqualität und Produktivität der Mitarbeiter verbessert.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -2598,6 +2598,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-stabio-futuro-incerto.title': 'Police municipale de Stabio : avenir incertain, présence constante',
     'blog.article.polizia-stabio-futuro-incerto.excerpt': 'L\'avenir de la police municipale de Stabio est incertain, mais sa présence reste constante. On attend le sort du Projet Police ticinoise.',
     'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Poste de police municipale de Stabio, Tessin',
+    'blog.article.settimana-corta-ticino-2026.title': 'Semaine de 4 jours : l\'expérience en Suisse qui révolutionne le travail',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'Une entreprise tessinoise expérimente la semaine de 4 jours avec 5 jours payés, améliorant la qualité de vie et la productivité des employés.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

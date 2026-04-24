@@ -7049,4 +7049,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-stabio-futuro-incerto.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'settimana-corta-ticino-2026',
+ category: 'novita',
+ date: '2026-04-24T19:41:18.374Z',
+ image: '/images/blog/settimana-corta-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

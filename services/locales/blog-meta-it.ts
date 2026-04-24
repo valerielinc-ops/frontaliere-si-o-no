@@ -2598,6 +2598,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-stabio-futuro-incerto.title': 'Polizia comunale di Stabio: futuro incerto, presenza costante',
     'blog.article.polizia-stabio-futuro-incerto.excerpt': 'Il futuro della polizia comunale di Stabio è incerto, ma la sua presenza rimane costante. Si attende il destino del Progetto Polizia ticinese.',
     'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Stazione di polizia comunale di Stabio, Ticino',
+    'blog.article.settimana-corta-ticino-2026.title': 'Settimana di 4 giorni: l\'esperimento in Ticino che rivoluziona il lavoro',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'Un\'azienda ticinese sperimenta la settimana di 4 giorni con 5 giorni retribuiti, migliorando qualità della vita e produttività dei dipendenti.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

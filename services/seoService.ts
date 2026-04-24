@@ -2140,6 +2140,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-samira-de-stefano-semifinale-chiasso': { name: 'Novità', path: '/articoli-frontaliere/samira-de-stefano-semifinale-chiasso', parent: 'blog' },
     'blog-omaggio-angeli-ponte-chiasso-2026': { name: 'Omaggio agli Angeli', path: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026', parent: 'blog' },
     'blog-polizia-stabio-futuro-incerto': { name: 'Novità', path: '/articoli-frontaliere/polizia-stabio-futuro-incerto', parent: 'blog' },
+    'blog-settimana-corta-ticino-2026': { name: 'Settimana corta', path: '/articoli-frontaliere/settimana-corta-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

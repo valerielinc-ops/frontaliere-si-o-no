@@ -2598,6 +2598,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-stabio-futuro-incerto.title': 'Stabio Municipal Police: Uncertain Future, Constant Presence',
     'blog.article.polizia-stabio-futuro-incerto.excerpt': 'The future of Stabio\'s municipal police is uncertain, but their presence remains constant. The fate of the Ticino Police Project is awaited.',
     'blog.article.polizia-stabio-futuro-incerto.imageAlt': 'Stabio municipal police station, Ticino',
+    'blog.article.settimana-corta-ticino-2026.title': 'Four-day workweek: the Ticino experiment that\'s revolutionizing work',
+    'blog.article.settimana-corta-ticino-2026.excerpt': 'A Ticinese company is experimenting with a four-day workweek while paying for five days, improving both quality of life and employee productivity.',
+    'blog.article.settimana-corta-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;
