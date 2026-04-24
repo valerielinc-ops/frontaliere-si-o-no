@@ -58,6 +58,18 @@ const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
 import { borderCrossings as centralizedBorderCrossings } from '../../data/borderCrossings';
 import { MUNICIPALITIES as BORDER_MUNICIPALITIES } from '@/data/municipalities';
 
+/** Derive the URL slug for a border crossing from its display name. */
+function slugifyCrossingName(name: string): string {
+  return name
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .toLowerCase();
+}
+
 // Province code → full name mapping
 const PROVINCE_NAMES: Record<string, string> = {
  CO: 'Como', VA: 'Varese', VB: 'Verbania', SO: 'Sondrio', LC: 'Lecco',
@@ -615,6 +627,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  lat: c.lat,
  lng: c.lng,
  traffic: c.trafficLevel,
+ slug: slugifyCrossingName(c.name),
  })), []);
 
  const filteredBorderCrossings = useMemo(() =>
@@ -1151,7 +1164,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <Navigation className="text-on-accent" size={18} />
  </div>
  <div className="flex-1">
- <h3 className="text-lg font-bold font-display text-strong">{border.name}</h3>
+ <a
+  href={`/traffico-dogane/${border.slug}/oggi/`}
+  aria-label={`Vai alla pagina del valico ${border.name}`}
+  className="text-lg font-bold font-display text-strong hover:text-accent transition-colors no-underline"
+ >
+  {border.name}
+ </a>
  <p className="text-sm text-muted">📍 {border.italianSide}</p>
  </div>
  </div>
@@ -1178,6 +1197,16 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <strong>💡 {t('guide.border.tip')}:</strong> {t(border.tips)}
  </div>
  </div>
+ <a
+  href={`https://www.google.com/maps/search/?api=1&query=${border.lat},${border.lng}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`Apri ${border.name} su Google Maps`}
+  className="mt-1 flex items-center justify-center gap-1.5 w-full py-2 bg-surface-raised text-subtle rounded-lg text-xs font-semibold hover:text-strong hover:bg-surface-alt transition-colors no-underline border border-edge"
+ >
+  <MapPin size={12} aria-hidden="true" />
+  Apri su Google Maps
+ </a>
  </div>
  </div>
  );
