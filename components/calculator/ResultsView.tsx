@@ -261,7 +261,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  localStorage.setItem('saved_simulations', JSON.stringify(updated));
  setSaveState('saved');
  setTimeout(() => setSaveState('idle'), 2500);
- Analytics.trackUIInteraction('simulatore', 'results', 'save_for_later', 'click');
+ Analytics.trackUIInteraction('simulatore', 'results', 'save_for_later', 'click', undefined, 'calculator.results.save_for_later');
  } catch {
  // localStorage might be full — silently fail
  }
@@ -687,7 +687,12 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  type="button"
  aria-label={t('results.compareCta.button')}
  onClick={() => {
- Analytics.trackFunnelStep('compare', { source: 'results_cta' });
+ Analytics.trackFunnelStep('compare', { funnel: 'calculator', source: 'results_cta' });
+ Analytics.trackCtaClick('calculator.results.compare_cta', {
+ component: 'ResultsView',
+ section: 'results',
+ label: 'compare_scenarios',
+ });
  nav.navigateTo('calculator', 'whatif');
  }}
  className="w-full text-left rounded-2xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-info-border transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-info"

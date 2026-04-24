@@ -67,6 +67,7 @@ export function reportCaughtError(
  type?: ErrorType;
  apiEndpoint?: string;
  statusCode?: number;
+ apiMethod?: string;
  fatal?: boolean;
  } = {}
 ): void {
@@ -90,12 +91,20 @@ export function reportCaughtError(
  }
 
  // ── Report to GA4 ──
+ // For api_error events, PostHog dashboards require `endpoint` and `status`
+ // to be non-null. `context` (e.g. "exchangeRate.fetchTwelveData") is always
+ // supplied by the caller and is used as the endpoint fallback when the
+ // caller did not provide an explicit `apiEndpoint`.
  try {
- Analytics.trackAppError(options.type || 'api_error', {
+ const resolvedType = options.type || 'api_error';
+ const resolvedEndpoint = options.apiEndpoint || context;
+ const resolvedStatus = options.statusCode ?? 0;
+ Analytics.trackAppError(resolvedType, {
  message: `[${context}] ${message}`,
  stack: extractStack(error),
- apiEndpoint: options.apiEndpoint,
- statusCode: options.statusCode,
+ apiEndpoint: resolvedEndpoint,
+ statusCode: resolvedStatus,
+ apiMethod: options.apiMethod,
  fatal: options.fatal ?? false,
  });
  } catch {

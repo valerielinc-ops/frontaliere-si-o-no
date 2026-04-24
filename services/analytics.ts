@@ -855,6 +855,7 @@ export const Analytics = {
  resourceUrl?: string;
  statusCode?: number;
  apiEndpoint?: string;
+ apiMethod?: string;
  errorFingerprint?: string;
  } = {}
  ) => {
@@ -887,8 +888,17 @@ export const Analytics = {
  page_title: truncate(info.pageTitle || document.title || '', 80),
  is_fatal: info.fatal ?? false,
  resource_url: truncate(info.resourceUrl || '', 200),
+ // PostHog canonical keys for api_error dashboards — MUST be non-null
+ // even when the underlying info fields are absent. Callers that know
+ // the endpoint/status/method should always populate info.apiEndpoint,
+ // info.statusCode, and info.apiMethod — see errorReporter.reportCaughtError().
+ endpoint: truncate(info.apiEndpoint || info.resourceUrl || '(unknown)', 100),
+ status: info.statusCode ?? 0,
+ method: truncate(info.apiMethod || '(unknown)', 20),
+ // Legacy GA4 aliases (kept for backwards-compat with existing reports)
  status_code: info.statusCode ?? 0,
  api_endpoint: truncate(info.apiEndpoint || '', 100),
+ api_method: truncate(info.apiMethod || '', 20),
  component_stack: truncate(info.componentStack || '', 200),
  active_section: deriveActiveSection(),
  locale: document.documentElement.lang || navigator.language || 'unknown',
@@ -1264,13 +1274,25 @@ export const Analytics = {
  * component: componente specifico (es. 'filtro', 'bottone', 'toggle')
  * action: azione eseguita (es. 'click', 'cambio_valore', 'espandi')
  * details: dettagli aggiuntivi opzionali
+ * ctaId: stable id of the CTA for funnel joins (preferred over free-text details)
+ *
+ * PostHog requires `action`, `component`, and `cta_id` to be non-null for
+ * ui_interaction dashboards — callers MUST pass meaningful values (not '').
  */
- trackUIInteraction: (page: string, section: string, component: string, action: string, details?: string) => {
+ trackUIInteraction: (
+ page: string,
+ section: string,
+ component: string,
+ action: string,
+ details?: string,
+ ctaId?: string,
+ ) => {
  log('ui_interaction', {
  page,
  section,
  component,
  action,
+ cta_id: ctaId || `${page}.${section}.${component}.${action}`,
  details: details?.substring(0, 100),
  });
  },
@@ -1454,7 +1476,24 @@ export const Analytics = {
  keywords?: string;
  }
  ) => {
- log('job_auth_funnel', { action, ...details });
+ // The action value IS the funnel step — also emit it as `step`/`funnel`
+ // so the PostHog funnel_step + job_auth_funnel dashboards share keys.
+ log('job_auth_funnel', {
+ action,
+ step: action,
+ funnel: 'job_auth',
+ ...details,
+ });
+ // Also emit a normalized funnel_step event so all funnels can be queried
+ // via the same event shape in PostHog.
+ log('funnel_step', {
+ step: action,
+ funnel: 'job_auth',
+ funnel_name: 'job_auth',
+ step_name: action,
+ step_index: 0,
+ ...(details || {}),
+ });
  },
 
  /**
@@ -1540,19 +1579,81 @@ export const Analytics = {
  log('file_download', { file_extension: fileType, file_name: fileName });
  },
 
+ /**
+ * Explicit CTA click — emits `cta_click` with stable `cta_id`, target,
+ * and session attribution (utm_source/medium/campaign/content/term).
+ *
+ * Use this for in-code CTA instrumentation when you want reliable funnel
+ * joins by `cta_id`. The global click listener also emits `cta_click`
+ * events from generic DOM clicks; in-code calls here win because they
+ * carry the authoritative `cta_id` the product team uses in dashboards.
+ */
+ trackCtaClick: (
+ ctaId: string,
+ details: {
+ targetUrl?: string;
+ component?: string;
+ section?: string;
+ label?: string;
+ utm_source?: string;
+ utm_medium?: string;
+ utm_campaign?: string;
+ utm_content?: string;
+ utm_term?: string;
+ } = {},
+ ) => {
+ let attribution: AttributionContext | null = null;
+ try {
+ const raw = sessionStorage.getItem(ATTRIBUTION_KEY);
+ if (raw) attribution = JSON.parse(raw) as AttributionContext;
+ } catch { /* storage unavailable */ }
+
+ log('cta_click', {
+ // REQUIRED: canonical keys PostHog dashboards key off
+ cta_id: ctaId,
+ target_url: truncate(details.targetUrl || '', 180),
+ utm_source: truncate(details.utm_source || attribution?.source || '(none)', 60),
+ utm_medium: truncate(details.utm_medium || attribution?.medium || '(none)', 40),
+ utm_campaign: truncate(details.utm_campaign || attribution?.campaign || '(none)', 80),
+ utm_content: truncate(details.utm_content || attribution?.content || '(none)', 80),
+ utm_term: truncate(details.utm_term || attribution?.term || '(none)', 80),
+ // Legacy compatibility with global cta_click listener
+ page_path: typeof window !== 'undefined' ? truncate(`${window.location.pathname}${window.location.search}`, 180) : '',
+ element_label: truncate(details.label || ctaId, 100),
+ component: truncate(details.component || '(none)', 80),
+ section: truncate(details.section || '(none)', 80),
+ });
+ },
+
  // ─── Funnel Tracking (multi-step conversion pipeline) ─────
 
  /**
  * Track explicit funnel steps for drop-off analysis.
- * Steps: entry → input → calculate → compare → cta
+ *
+ * Canonical main-conversion steps: entry → input_start → calculate → compare → cta_click.
+ * Any string step is accepted so feature-specific funnels (e.g., job_auth, chatbot)
+ * can flow through the same event with `funnel` set to their funnel id.
+ *
+ * IMPORTANT: the payload MUST always carry a non-null `step` property — PostHog
+ * dashboards key off `step` directly (not `step_name`). Keeping both aliases
+ * protects legacy GA4 reports that query `step_name`.
  */
- trackFunnelStep: (step: 'entry' | 'input_start' | 'calculate' | 'compare' | 'cta_click', details?: Record<string, string | number | boolean>) => {
- const stepIndex = { entry: 1, input_start: 2, calculate: 3, compare: 4, cta_click: 5 };
+ trackFunnelStep: (
+ step: string,
+ details?: Record<string, string | number | boolean | undefined> & { funnel?: string },
+ ) => {
+ const mainStepIndex: Record<string, number> = { entry: 1, input_start: 2, calculate: 3, compare: 4, cta_click: 5 };
+ const { funnel: funnelOverride, ...rest } = details || {};
+ const funnel = funnelOverride || 'main_conversion';
  log('funnel_step', {
- funnel_name: 'main_conversion',
+ // Canonical keys (what PostHog dashboards read) — always present
+ step,
+ funnel,
+ // Legacy aliases for GA4 reports that still query step_name/funnel_name
+ funnel_name: funnel,
  step_name: step,
- step_index: stepIndex[step],
- ...details,
+ step_index: mainStepIndex[step] ?? 0,
+ ...rest,
  });
  },
 
