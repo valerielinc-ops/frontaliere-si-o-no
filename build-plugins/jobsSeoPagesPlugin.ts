@@ -500,6 +500,39 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }))
  .filter((j: any) => !!j.slug);
 
+ /**
+  * Per-slug canonical override map (Semrush cannibalization fix). Loaded from
+  * data/job-canonical-overrides.json — keyed by per-locale slug (job-detail
+  * slug or search-hub `search-/suche-/recherche-/ricerca-` slug). When a slug
+  * matches, the page's <link rel="canonical"> and og:url point to the
+  * specified winner URL instead of the page's own URL. The page itself still
+  * exists (no 410, no delete) so backlinks survive.
+  */
+ const canonicalOverrides: Record<string, string> = (() => {
+ try {
+ const overridePath = np.resolve(rootDir, 'data/job-canonical-overrides.json');
+ const raw = fs.readFileSync(overridePath, 'utf-8');
+ const parsed = JSON.parse(raw);
+ const map = parsed?.overrides && typeof parsed.overrides === 'object' ? parsed.overrides : {};
+ const cleaned: Record<string, string> = {};
+ for (const [k, v] of Object.entries(map)) {
+ if (typeof k === 'string' && typeof v === 'string' && v.startsWith('http')) {
+ cleaned[k] = v;
+ }
+ }
+ if (Object.keys(cleaned).length > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded ${Object.keys(cleaned).length} canonical overrides`);
+ }
+ return cleaned;
+ } catch {
+ return {};
+ }
+ })();
+ const resolveCanonicalUrl = (slug: string, defaultUrl: string): string => {
+ const override = canonicalOverrides[slug];
+ return override || defaultUrl;
+ };
+
  const esc = (s: string) => String(s || '')
  .replace(/&/g, '&amp;')
  .replace(/</g, '&lt;')
@@ -1065,6 +1098,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const relPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${perLocaleSlug[locale]}`.replace(/\/+/g, '/');
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ // Cannibalization fix: <link rel="canonical"> and og:url may point to a
+ // winner URL (company hub) when this slug is in the override map.
+ // The page itself is still emitted with its own URL (breadcrumbs,
+ // JobPosting, etc. describe THIS page) so existing backlinks resolve.
+ const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const localizedTitle = String(job?.titleByLocale?.[locale] || job.title || '');
  const jobLocation = String(job.location || '').trim();
  const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
@@ -1362,7 +1400,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(title)}">
  <meta property="og:description" content="${esc(description)}">
- <meta property="og:url" content="${canonicalUrl}">
+ <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
@@ -1372,7 +1410,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta name="twitter:description" content="${esc(description)}">
  <meta name="twitter:image" content="${BASE_URL}/og-image.png">
  <meta name="twitter:site" content="@frontaliereticino">
- <link rel="canonical" href="${canonicalUrl}">
+ <link rel="canonical" href="${effectiveCanonicalUrl}">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" as="style" crossorigin>
@@ -4138,11 +4176,15 @@ ${alternates}
  { '@type': 'ListItem', position: 3, name: copy.heading(name), item: canonicalUrl },
  ],
  });
+ // Cannibalization fix: search-hub slug may be remapped to a winner URL
+ // (e.g. `search-lugano-eoc-...` → company hub). Page still emitted at its
+ // own path so backlinks resolve.
+ const effectiveCanonicalUrl = resolveCanonicalUrl(fullSlug, canonicalUrl);
  const searchHtml = buildSimplePage({
  locale,
  title,
  description,
- canonicalUrl,
+ canonicalUrl: effectiveCanonicalUrl,
  robots: matchingJobs.length >= 3 ? 'index,follow' : 'noindex,follow',
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
