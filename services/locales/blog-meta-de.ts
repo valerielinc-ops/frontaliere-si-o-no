@@ -2574,6 +2574,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Lohnunterschied im Tessin: Einwohner verdienen 1.157 Franken mehr',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'Das kantonale Statistikamt gibt bekannt, dass die Einwohner des Tessin durchschnittlich 5.957 Franken verdienen, während Grenzgänger 4.800 Franken erhalten. Die Differenz beträgt 19,4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit den Tessin-Berge',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'G-Bewilligung 2026: Komplettleitfaden für Grenzgänger',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Antrag, Kosten, Pflichten, Telearbeit, Quellensteuer: alles, was Grenzgänger 2026 zur G-Bewilligung wissen müssen — mit Vergleich zu B/L/C und Checkliste.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Blick auf den Luganersee an der italienisch-schweizerischen Grenze, Symbol für die Grenzgänger mit G-Bewilligung im Tessin.',
 };
 
 export default blogMetaDe;

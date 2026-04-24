@@ -2574,6 +2574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Divario salariale in Ticino: residenti guadagnano 1.157 franchi in più',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'L\'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del 19,4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Vista del lago di Lugano con montagne del Ticino',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'Permesso G 2026: guida completa per frontalieri',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Domanda, costi, obblighi, telelavoro, imposta alla fonte: tutto quello che il frontaliere deve sapere sul Permesso G nel 2026 — con confronto B/L/C e checklist.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Vista del lago di Lugano al confine italo-svizzero, simbolo dei frontalieri con Permesso G in Ticino.',
 };
 
 export default blogMetaIt;

@@ -864,6 +864,7 @@ export const BLOG_SLUGS: Record<BlogArticleId, Record<Locale, string>> = {
   'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano': { it: 'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano', en: 'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano', de: 'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano', fr: 'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano' },
   'regione-lombardia-aumento-stipendi-medici-infermieri': { it: 'regione-lombardia-aumento-stipendi-medici-infermieri', en: 'lombardy-increase-doctors-nurses-salaries', de: 'lombardie-steigerung-arzte-nurse-salaries', fr: 'lombardie-augmentation-salaires-medecins-infirmiers' },
   'divario-salari-ticino-frontalieri-2026': { it: 'divario-salari-ticino-frontalieri-2026', en: 'salary-gap-ticino-cross-border-workers-2026', de: 'gehaltunterschied-tessin-grenzgaenger-2026', fr: 'ecart-salarial-tessin-frontaliers-2026' },
+  'g-bewilligung-leitfaden-grenzgaenger-2026': { it: 'permesso-g-guida-frontalieri-2026', en: 'g-permit-cross-border-workers-guide-2026', de: 'g-bewilligung-leitfaden-grenzgaenger-2026', fr: 'permis-g-guide-frontaliers-2026' },
 };
 export const REVERSE_BLOG: Record<Locale, Record<string, BlogArticleId>> = (() => {
  const result = { it: {}, en: {}, de: {}, fr: {} } as Record<Locale, Record<string, BlogArticleId>>;

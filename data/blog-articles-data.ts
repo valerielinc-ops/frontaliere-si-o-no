@@ -6986,4 +6986,12 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/divario-salari-ticino-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'g-bewilligung-leitfaden-grenzgaenger-2026',
+ category: 'pratico',
+ date: '2026-04-24',
+ updatedAt: '2026-04-24',
+ image: '/images/places/lac-lugano.webp',
+ hasCalculator: true,
+ },
 ];

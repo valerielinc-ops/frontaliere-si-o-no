@@ -2574,6 +2574,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Wage gap in Ticino: residents earn 1,157 francs more',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'The cantonal statistical office reveals that residents in Ticino earn an average of 5,957 francs, while cross-border workers earn 4,800 francs. The gap is 19.4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Lake Lugano view with Ticino mountains',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.title': 'G permit 2026: complete guide for cross-border workers',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.excerpt': 'Application, costs, duties, telework, withholding tax: everything cross-border workers need to know about the Swiss G permit in 2026, with B/L/C comparison and checklist.',
+    'blog.article.g-bewilligung-leitfaden-grenzgaenger-2026.imageAlt': 'Lake Lugano view at the Italy-Switzerland border, symbol of cross-border workers holding the G permit in Ticino.',
 };
 
 export default blogMetaEn;
