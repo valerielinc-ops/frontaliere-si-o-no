@@ -443,8 +443,9 @@ export interface SparklineChartOptions {
 /**
  * Render an inline-SVG sparkline chart from a series of day/value points.
  *
- * Returns an empty string when the series has fewer than two numeric points —
- * callers must skip their surrounding markup in that case.
+ * Returns an empty string when the series has fewer than three numeric points —
+ * callers must render a locale-aware fallback in that case (a two-point chart
+ * would be visually uninformative and invites "where's the history?" bounces).
  */
 export function renderSparklineChart(
   points: ReadonlyArray<SparklinePoint>,
@@ -454,7 +455,7 @@ export function renderSparklineChart(
     (p): p is { date: string; value: number } =>
       typeof p.value === 'number' && Number.isFinite(p.value),
   );
-  if (numeric.length < 2) return '';
+  if (numeric.length < 3) return '';
 
   const height = Math.max(80, Math.min(160, opts.height ?? 110));
   const width = Math.max(240, opts.width ?? 720);
