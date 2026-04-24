@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-04-24T10:54:08.971Z",
+  "assembledAt": "2026-04-24T22:20:25.661Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:06.587Z",
+      "crawledAt": "2026-04-24T22:20:22.853Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:05.729Z",
+      "crawledAt": "2026-04-24T22:20:21.835Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -191,6 +192,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +237,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:04.864Z",
+      "crawledAt": "2026-04-24T22:20:20.823Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -331,7 +334,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:03.986Z",
+      "crawledAt": "2026-04-24T22:20:19.784Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -389,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -425,7 +429,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura della persona EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for the Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement des soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -433,7 +437,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/568/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:03.099Z",
+      "crawledAt": "2026-04-24T22:20:18.765Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -482,8 +486,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-e72119e3765f",
@@ -516,7 +519,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:01.535Z",
+      "crawledAt": "2026-04-24T22:20:17.072Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -554,6 +557,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +602,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:54:00.667Z",
+      "crawledAt": "2026-04-24T22:20:16.071Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -634,6 +638,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -678,7 +683,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/703/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:59.785Z",
+      "crawledAt": "2026-04-24T22:20:15.063Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -761,7 +766,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:58.898Z",
+      "crawledAt": "2026-04-24T22:20:14.014Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -794,6 +799,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -838,7 +844,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/705/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:58.026Z",
+      "crawledAt": "2026-04-24T22:20:12.998Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -918,7 +924,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/700/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:57.159Z",
+      "crawledAt": "2026-04-24T22:20:11.965Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -973,6 +979,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1017,7 +1024,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/701/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:56.292Z",
+      "crawledAt": "2026-04-24T22:20:10.939Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1052,6 +1059,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1096,7 +1104,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/698/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:55.413Z",
+      "crawledAt": "2026-04-24T22:20:09.897Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1118,15 +1126,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
+        "assistente-di-medicina-interna-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
-        "assistant-en-medecine-interne-100-spital-davos-davos",
-        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
-        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
-        "senior-physician-internal-medicine-80-100-spital-davos-davos",
-        "assistente-di-medicina-interna-100-spital-davos-davos"
+        "assistant-en-medecine-interne-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "assistente-di-medicina-interna-100-spital-davos-davos"
+        ],
         "en": [
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
@@ -1135,12 +1143,10 @@
         ],
         "fr": [
           "assistant-en-medecine-interne-100-spital-davos-davos"
-        ],
-        "it": [
-          "assistente-di-medicina-interna-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1185,7 +1191,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:54.547Z",
+      "crawledAt": "2026-04-24T22:20:08.868Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1215,6 +1221,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1259,7 +1266,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:53.653Z",
+      "crawledAt": "2026-04-24T22:20:07.854Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1306,6 +1313,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1350,7 +1358,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/679/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:52.793Z",
+      "crawledAt": "2026-04-24T22:20:06.800Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1384,6 +1392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1428,7 +1437,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/655/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:51.937Z",
+      "crawledAt": "2026-04-24T22:20:05.797Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1462,8 +1471,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spital-davos-e84ba21560a0",
@@ -1496,7 +1504,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/654/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:51.088Z",
+      "crawledAt": "2026-04-24T22:20:04.756Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1526,6 +1534,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:18.819Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1570,7 +1579,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:50.240Z",
+      "crawledAt": "2026-04-24T22:20:03.724Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1606,6 +1615,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1650,7 +1660,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/597/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:49.361Z",
+      "crawledAt": "2026-04-24T22:20:02.669Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1680,6 +1690,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.067Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1724,7 +1735,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:48.465Z",
+      "crawledAt": "2026-04-24T22:20:01.643Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1757,6 +1768,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1801,7 +1813,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:47.568Z",
+      "crawledAt": "2026-04-24T22:20:00.644Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1860,9 +1872,9 @@
       "id": "spital-davos-b65406dca960",
       "slug": "home-medico-60-100-spital-davos-davos",
       "slugByLocale": {
-        "de": "hausarztin-hausarzt-60-100-spital-davos-ch",
         "it": "home-medico-60-100-spital-davos-davos",
         "en": "home-doctor-60-100-spital-davos-davos",
+        "de": "hausarztin-hausarzt-60-100-spital-davos-ch",
         "fr": "medecin-a-domicile-60-100-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -1870,16 +1882,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Hausärztin/Hausarzt (60-100%)",
       "titleByLocale": {
-        "de": "Hausärztin/Hausarzt (60-100%)",
         "it": "Home medico (60-100%)",
         "en": "Home doctor (60-100%)",
+        "de": "Hausärztin/Hausarzt (60-100%)",
         "fr": "Médecin à domicile (60-100 %)"
       },
       "description": "Mit ihrer Hausarztpraxis in Davos leistet die Spital Davos AG einen wichtigen Beitrag zur Sicherstellung der Gesundheitsversorgung in der Region und steht den Patientinnen und Patienten als verlässlicher Partner bei allen Arten von akuten und chronischen Gesundheitsproblemen mit einer ganzheitlichen und modernen Inneren Medizin zur Seite. Den Hausärztinnen und Hausärzten ermöglicht dies eine interprofessionelle Zusammenarbeit und eröffnet interessante Horizonte in der modernen integrierten Versorgung. | Wir suchen nach Vereinbarung für unsere Hausarztpraxis eine:n | • Eigenständige Durchführung allgemeinmedizinischer Sprechstunden, Betreuung akuter Krankheitsbilder inkl. Notfälle sowie Langzeitbetreuung chronisch kranker Patientinnen und Patienten • Enge Zusammenarbeit mit einem motivierten MPA-Team sowie dem Spital Davos | • Abgeschlossene Facharztausbildung Allgemeine Innere Medizin FMH oder äquivalenter ausländischer Titel (MEBEKO anerkannt) und idealerweise bereits Erfahrung in der hausärztlichen Tätigkeit • Bereitschaft und Freude, sich für Ausbau und Weiterentwicklung des Praxiszentrums einzusetzen und mitzugestalten • Stilsichere Kommunikation in Deutsch, sehr gute Englischkenntnisse erwünscht, jede weitere Sprache von Vorteil • Sie sehen Ihre berufliche und private Zukunft in der attraktiven Destination Davos Klosters | • Ein professionelles, dynamisches und familiäres Team wartet auf Sie • Moderne Praxisinfrastruktur mit breitem POCT-Labor, digitalem Röntgen, Ultraschall und Praxissoftware Ametiq • Grosser Gestaltungsspielraum und Mitsprache bei der strategischen Ausrichtung des Praxiszentrums • Flexible Pensen und Arbeitszeitmodelle nach Absprache und Bedarf • Vielseitige Weiterbildungsmöglichkeiten - Davos ist eine Kongressstadt für medizinische Kongresse • Leben und Arbeiten in einer ganzjährig attraktiven Region mit umfangreichen Freizeitmöglichkeiten | Weitere Informationen erteilt Ihnen gerne Dr. med. Daniel Ribeiro, Chefarzt und Departementsleiter Innere Medizin der Spital Davos AG, unter Tel. +41 81 414 81 56 oder Mail dribeiro@spitaldavos.ch . Unser Leiter HRM, Gregor Bienz, steht Ihnen unter Tel. +41 81 414 84 12 wie auch per Mail gbienz@spitaldavos.ch als Gesprächspartner ebenfalls zur Verfügung.",
       "descriptionByLocale": {
-        "de": "## Descrizione\nMit ihrer Hausarztpraxis in Davos leistet die Spital Davos AG einen wichtigen Beitrag zur Sicherstellung der Gesundheitsversorgung in der Region und steht den Patientinnen und Patienten als verlässlicher Partner bei allen Arten von akuten und chronischen Gesundheitsproblemen mit einer ganzheitlichen und modernen Inneren Medizin zur Seite. Den Hausärztinnen und Hausärzten ermöglicht dies eine interprofessionelle Zusammenarbeit und eröffnet interessante Horizonte in der modernen integrierten Versorgung.\n\n## Wir suchen nach Vereinbarung für unsere Hausarztpraxis eine:n\n- Eigenständige Durchführung allgemeinmedizinischer Sprechstunden, Betreuung akuter Krankheitsbilder inkl. Notfälle sowie Langzeitbetreuung chronisch kranker Patientinnen und Patienten\n- Enge Zusammenarbeit mit einem motivierten MPA-Team sowie dem Spital Davos\n\n## Requisiti\n- Abgeschlossene Facharztausbildung Allgemeine Innere Medizin FMH oder äquivalenter ausländischer Titel (MEBEKO anerkannt) und idealerweise bereits Erfahrung in der hausärztlichen Tätigkeit\n- Bereitschaft und Freude, sich für Ausbau und Weiterentwicklung des Praxiszentrums einzusetzen und mitzugestalten\n- Stilsichere Kommunikation in Deutsch, sehr gute Englischkenntnisse erwünscht, jede weitere Sprache von Vorteil\n- Sie sehen Ihre berufliche und private Zukunft in der attraktiven Destination Davos Klosters\n\n## Cosa offriamo\n- Ein professionelles, dynamisches und familiäres Team wartet auf Sie\n- Moderne Praxisinfrastruktur mit breitem POCT-Labor, digitalem Röntgen, Ultraschall und Praxissoftware Ametiq\n- Grosser Gestaltungsspielraum und Mitsprache bei der strategischen Ausrichtung des Praxiszentrums\n- Flexible Pensen und Arbeitszeitmodelle nach Absprache und Bedarf\n- Vielseitige Weiterbildungsmöglichkeiten - Davos ist eine Kongressstadt für medizinische Kongresse\n- Leben und Arbeiten in einer ganzjährig attraktiven Region mit umfangreichen Freizeitmöglichkeiten\n\n## Contatto\nWeitere Informationen erteilt Ihnen gerne Dr. med. Daniel Ribeiro, Chefarzt und Departementsleiter Innere Medizin der Spital Davos AG, unter Tel. +41 81 414 81 56 oder Mail dribeiro@spitaldavos.ch . Unser Leiter HRM, Gregor Bienz, steht Ihnen unter Tel. +41 81 414 84 12 wie auch per Mail gbienz@spitaldavos.ch als Gesprächspartner ebenfalls zur Verfügung.",
         "it": "Con la sua pratica medica a Davos, Spital Davos AG offre un importante contributo per garantire l'assistenza sanitaria nella regione ed è un partner affidabile per i pazienti in tutti i tipi di problemi di salute acuta e cronica con una medicina interna olistica e moderna. Ciò consente ai medici domestici di collaborare interprofessionalmente e apre orizzonti interessanti nella moderna cura integrata. # Siamo alla ricerca di un accordo per la pratica del nostro medico di famiglia a:n - implementazione indipendente delle ore generali di conversazione medica, cura di malattie acute incl. Pratica più flessibile e pazienti a lungo termine cronicamente malati - stretta collaborazione con un team MPA motivato così come il Spital Davos ## Requisiti - Completa formazione specialistica Medicina interna FMH o equivalenti titoli stranieri (MEBEKO riconosciuto) e idealmente già esperienza in attività medica - prontezza e piacere da usare per lo sviluppo e lo sviluppo del centro di pratica Daniel Ribeiro, medico principale e direttore di reparto Medicina interna a Spital Davos AG, su Tel. Il nostro capo di HRM, Gregor Bienz, è su Tel. +41 81 414 84 12 e via mail gbienz@spitaldavos.ch anche disponibile come interlocutore.",
         "en": "With her medical practice in Davos, Spital Davos AG makes an important contribution to ensuring health care in the region and is a reliable partner for patients in all types of acute and chronic health problems with a holistic and modern internal medicine. This enables domestic doctors to cooperate interprofessionally and opens up interesting horizons in modern integrated care. ## We are looking for an agreement for our family doctor's practice a:n - independent implementation of general medical speaking hours, care of acute illnesses incl. More flexible practice and long-term chronically ill patients - Close cooperation with a motivated MPA team as well as the Spital Davos ## Requisiti - Complete specialist training General internal medicine FMH or equivalent foreign titles (MEBEKO recognized) and ideally already experience in medical activity - readiness and pleasure to use for development and further development of the practice center Daniel Ribeiro, chief physician and department manager Internal Medicine at Spital Davos AG, on Tel. +41 81 414 81 56 or mail dribeiro@spitaldavos.ch . Our Head of HRM, Gregor Bienz, is on Tel. +41 81 414 84 12 as well as by mail gbienz@spitaldavos.ch also available as interlocutor.",
+        "de": "Mit ihrer Hausarztpraxis in Davos leistet die Spital Davos AG einen wichtigen Beitrag zur Sicherstellung der Gesundheitsversorgung in der Region und steht den Patientinnen und Patienten als verlässlicher Partner bei allen Arten von akuten und chronischen Gesundheitsproblemen mit einer ganzheitlichen und modernen Inneren Medizin zur Seite. Den Hausärztinnen und Hausärzten ermöglicht dies eine interprofessionelle Zusammenarbeit und eröffnet interessante Horizonte in der modernen integrierten Versorgung. | Wir suchen nach Vereinbarung für unsere Hausarztpraxis eine:n | • Eigenständige Durchführung allgemeinmedizinischer Sprechstunden, Betreuung akuter Krankheitsbilder inkl. Notfälle sowie Langzeitbetreuung chronisch kranker Patientinnen und Patienten • Enge Zusammenarbeit mit einem motivierten MPA-Team sowie dem Spital Davos | • Abgeschlossene Facharztausbildung Allgemeine Innere Medizin FMH oder äquivalenter ausländischer Titel (MEBEKO anerkannt) und idealerweise bereits Erfahrung in der hausärztlichen Tätigkeit • Bereitschaft und Freude, sich für Ausbau und Weiterentwicklung des Praxiszentrums einzusetzen und mitzugestalten • Stilsichere Kommunikation in Deutsch, sehr gute Englischkenntnisse erwünscht, jede weitere Sprache von Vorteil • Sie sehen Ihre berufliche und private Zukunft in der attraktiven Destination Davos Klosters | • Ein professionelles, dynamisches und familiäres Team wartet auf Sie • Moderne Praxisinfrastruktur mit breitem POCT-Labor, digitalem Röntgen, Ultraschall und Praxissoftware Ametiq • Grosser Gestaltungsspielraum und Mitsprache bei der strategischen Ausrichtung des Praxiszentrums • Flexible Pensen und Arbeitszeitmodelle nach Absprache und Bedarf • Vielseitige Weiterbildungsmöglichkeiten - Davos ist eine Kongressstadt für medizinische Kongresse • Leben und Arbeiten in einer ganzjährig attraktiven Region mit umfangreichen Freizeitmöglichkeiten | Weitere Informationen erteilt Ihnen gerne Dr. med. Daniel Ribeiro, Chefarzt und Departementsleiter Innere Medizin der Spital Davos AG, unter Tel. +41 81 414 81 56 oder Mail dribeiro@spitaldavos.ch . Unser Leiter HRM, Gregor Bienz, steht Ihnen unter Tel. +41 81 414 84 12 wie auch per Mail gbienz@spitaldavos.ch als Gesprächspartner ebenfalls zur Verfügung.",
         "fr": "Avec sa pratique médicale à Davos, Spital Davos AG apporte une contribution importante à l'assurance des soins de santé dans la région et est un partenaire fiable pour les patients de tous types de problèmes de santé aigus et chroniques avec une médecine interne holistique et moderne. Cela permet aux médecins de maison de coopérer interprofessionnellement et ouvre des horizons intéressants dans les soins intégrés modernes. - Oui. Nous sommes à la recherche d'un accord pour la pratique de notre médecin de famille a:n - mise en œuvre indépendante des heures de conférence médicales générales, soins des maladies aiguës incl. Pratique plus flexible et patients souffrant de maladies chroniques à long terme - Coopération étroite avec une équipe de MPA motivée ainsi qu'avec le Spital Davos ## Requisiti - Formation spécialisée complète Médecine interne générale FMH ou titres étrangers équivalents (MEBEKO reconnu) et idéalement déjà expérience dans l'activité médicale - préparation et plaisir à utiliser pour le développement et le développement du centre de pratique Daniel Ribeiro, médecin en chef et directeur de département Médecine interne à Spital Davos AG, au tél. +41 81 414 81 56 ou mail dribeiro@spitaldavos.ch . Notre responsable de HRM, Gregor Bienz, est au tél. +41 81 414 84 12 ainsi que par mail gbienz@spitaldavos.ch également disponible en tant qu'interlocuteur."
       },
       "location": "Davos",
@@ -1887,7 +1899,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/706/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:46.703Z",
+      "crawledAt": "2026-04-24T22:19:59.627Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1902,27 +1914,15 @@
       "postedDate": "2026-04-24",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/706/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "D2 Innere Medizin",
       "contractDuration": "permanent",
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-24T10:53:46.703Z",
+      "previousSlugs": [
+        "hausarztin-hausarzt-60-100-spital-davos-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hausarztin-hausarzt-60-100-spital-davos-ch"
@@ -1934,9 +1934,20 @@
           "hausarztin-hausarzt-60-100-spital-davos-ch"
         ]
       },
-      "previousSlugs": [
-        "hausarztin-hausarzt-60-100-spital-davos-ch"
-      ]
+      "firstSeenAt": "2026-04-24T10:53:46.703Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -1969,7 +1980,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:45.847Z",
+      "crawledAt": "2026-04-24T22:19:58.825Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2019,6 +2030,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2063,7 +2075,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:44.887Z",
+      "crawledAt": "2026-04-24T22:19:57.777Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2124,6 +2136,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2168,7 +2181,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:43.966Z",
+      "crawledAt": "2026-04-24T22:19:56.797Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2226,6 +2239,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2270,7 +2284,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T10:53:43.072Z",
+      "crawledAt": "2026-04-24T22:19:55.789Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2315,6 +2329,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
