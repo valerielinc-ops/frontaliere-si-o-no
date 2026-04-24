@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow } from '@/services/fuelPricesService';
+import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
@@ -63,6 +63,14 @@ function recommendationLabel(code: string) {
  default:
  return 'N/D';
  }
+}
+
+function swissStationHref(station: FuelStationSwitzerland): string | null {
+ const zone = zoneFromAddress(station.address);
+ if (!zone) return null;
+ const slug = buildSwissStationSlug({ brand: station.brand, name: station.name, address: station.address });
+ if (!slug) return null;
+ return `/prezzi-diesel/${zone}/stazioni/${slug}/`;
 }
 
 function municipalityKey(row: MunicipalityFuelRow) {
@@ -237,8 +245,9 @@ function DetailSection({
  <div className="rounded-2xl border border-edge bg-surface-alt/80 p-4">
  <h4 className="text-sm font-bold text-heading">{tt('fuelPrices.detailSwissStations', 'Migliori opzioni svizzere vicine')}</h4>
  <div className="mt-3 space-y-3">
- {row.swiss.nearbyStations.slice(0, 12).map((station) => (
- <div key={station.id} className="rounded-2xl border border-edge bg-surface p-3">
+ {row.swiss.nearbyStations.slice(0, 12).map((station) => {
+ const href = swissStationHref(station);
+ const content = (
  <div className="flex items-start justify-between gap-3">
  <div>
  <div className="font-semibold text-heading">{station.name}</div>
@@ -252,8 +261,17 @@ function DetailSection({
  </div>
  </div>
  </div>
+ );
+ return href ? (
+ <a key={station.id} href={href} className="block rounded-2xl border border-edge bg-surface p-3 no-underline text-inherit hover:bg-surface-raised/70">
+ {content}
+ </a>
+ ) : (
+ <div key={station.id} className="rounded-2xl border border-edge bg-surface p-3">
+ {content}
  </div>
- ))}
+ );
+ })}
  {!row.swiss.nearbyStations.length && (
  <div className="rounded-2xl border border-dashed border-edge bg-surface px-4 py-6 text-center text-sm text-muted">
  {tt('fuelPrices.noSwissStations', 'Nessuna stazione svizzera utile nel raggio di confronto.')}
