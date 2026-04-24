@@ -2560,7 +2560,8 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
- </main>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ </main>
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
 
