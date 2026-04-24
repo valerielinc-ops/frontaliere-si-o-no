@@ -14,7 +14,20 @@ export type NavAction = 'calculator' | 'exchange' | 'health' | 'cost-of-living' 
  'payslip' | 'tax-return' | 'residency' | 'ristorni' | 'unemployment' | 'jobs' | 'companies' | 'banks' |
  'first-day' | 'permits' | 'border' | 'calendar' | 'whatif' | 'shopping' | 'transport' | 'salary-compare' | 'traffic-history' |
  'border-map' | 'municipalities' | 'car-transfer' | 'car-cost' | 'permit-compare' | 'renovation' |
- 'mobile' | 'ral' | 'parental-leave' | 'nursery' | 'living-ch' | 'living-it' | 'livability' | 'job-board' | 'jobs-observatory';
+ 'mobile' | 'ral' | 'parental-leave' | 'nursery' | 'living-ch' | 'living-it' | 'livability' | 'job-board' | 'jobs-observatory' |
+ 'search-jobs';
+
+/**
+ * Named NavAction constants.
+ * Use these instead of string literals so renames surface as type errors.
+ * Consumers (e.g. AiChatbot searchJobs tool) reference `NAV_ACTION.SEARCH_JOBS`
+ * to emit deep-links to the JobBoard results view.
+ */
+export const NAV_ACTION = {
+ SEARCH_JOBS: 'search-jobs',
+ JOB_BOARD: 'job-board',
+ JOBS: 'jobs',
+} as const satisfies Record<string, NavAction>;
 
 export type NavigatorMap = Partial<Record<NavAction, () => void>>;
 
@@ -60,6 +73,7 @@ export const NAV_ACTION_ROUTES: Record<NavAction, Parameters<typeof buildPath>[0
  'living-it': { activeTab: 'vita', vitaSubTab: 'living-it' },
  livability: { activeTab: 'stats', statsSubTab: 'livability' },
  'job-board': { activeTab: 'job-board' },
+ 'search-jobs': { activeTab: 'job-board' },
 };
 
 // ─── Keyword → NavAction patterns (Italian, most specific first) ─

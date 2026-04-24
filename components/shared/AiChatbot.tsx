@@ -20,6 +20,7 @@ import { unlockAchievement } from '@/services/gamificationService';
 import { pushRoute, buildPath } from '@/services/router';
 import { cancelOneTap, eagerAuth, promptOneTap, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { NAV_ACTION_ROUTES, buildSystemPrompt, type NavAction } from '@/services/internalLinks';
+import { searchJobs, type SearchJobsResult, type Locale as ChatbotLocale } from '@/services/chatbotTools';
 import { requestSlot, releaseSlot, isActive, subscribe, hasActiveSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 
@@ -120,6 +121,90 @@ function findLocalFallback(messages: Message[], locale: string): string | null {
  }
  }
  return null;
+}
+
+// ─── Tool call: searchJobs ───────────────────────────────────
+// Detects job-discovery intents ("trova offerte infermiere a Lugano") and
+// answers them deterministically from the live jobs dataset, bypassing the
+// LLM for faster, more accurate results. When no jobs match, returns null
+// and the message flows through to the standard LLM pipeline.
+
+const JOB_SEARCH_INTENT_PATTERNS: RegExp[] = [
+ /\btrov(?:a|are|ami|atemi)\b.*\b(?:lavoro|offert|posizion|annunc|posto)\b/i,
+ /\bcerc(?:a|o|ami|hi)\b.*\b(?:lavoro|offert|posizion|annunc|posto)\b/i,
+ /\b(?:offerte|annunci|posizioni|posti)\s+(?:di\s+)?lavoro\b/i,
+ /\b(?:find|search|show)\b.*\b(?:job|position|opening|vacanc)/i,
+ /\b(?:jobs?|positions?|openings?|vacanc(?:y|ies))\b.*\b(?:in|at|as|for)\b/i,
+ /\b(?:suche|stellen|jobs?)\b.*\b(?:in|als|für)\b/i,
+ /\b(?:trouve|cherche|emploi|postes?)\b.*\b(?:à|en|pour|comme)\b/i,
+];
+
+function isJobSearchIntent(text: string): boolean {
+ return JOB_SEARCH_INTENT_PATTERNS.some(rx => rx.test(text));
+}
+
+function normaliseLocale(locale: string): ChatbotLocale {
+ if (locale === 'en' || locale === 'de' || locale === 'fr') return locale;
+ return 'it';
+}
+
+function formatSearchJobsReply(
+ query: string,
+ results: SearchJobsResult[],
+ locale: ChatbotLocale,
+): string {
+ if (results.length === 0) {
+ const noResults: Record<ChatbotLocale, string> = {
+ it: `Non ho trovato offerte corrispondenti a "${query}". Esplora tutte le offerte nella [bacheca lavoro](nav:job-board).`,
+ en: `No matching jobs found for "${query}". Browse all openings in our [job board](nav:job-board).`,
+ de: `Keine passenden Stellen zu „${query}" gefunden. Alle Angebote in unserer [Jobbörse](nav:job-board).`,
+ fr: `Aucune offre trouvée pour « ${query} ». Parcourez toutes les annonces dans notre [tableau des offres](nav:job-board).`,
+ };
+ return noResults[locale];
+ }
+
+ const headers: Record<ChatbotLocale, string> = {
+ it: `Ecco ${results.length} offerte che potrebbero interessarti:`,
+ en: `Here are ${results.length} jobs that may interest you:`,
+ de: `Hier sind ${results.length} passende Stellen:`,
+ fr: `Voici ${results.length} offres qui pourraient vous intéresser :`,
+ };
+
+ const footers: Record<ChatbotLocale, string> = {
+ it: 'Vedi tutte le offerte nella [bacheca lavoro](nav:job-board).',
+ en: 'See all openings in our [job board](nav:job-board).',
+ de: 'Alle Angebote in unserer [Jobbörse](nav:job-board).',
+ fr: 'Toutes les annonces dans notre [tableau des offres](nav:job-board).',
+ };
+
+ const lines = results.map(r => {
+ const locBits = [r.company, r.location].filter(Boolean).join(' — ');
+ return `- [${r.title}](${r.url})${locBits ? ` — ${locBits}` : ''}`;
+ });
+
+ return `${headers[locale]}\n\n${lines.join('\n')}\n\n${footers[locale]}`;
+}
+
+/**
+ * Attempt to answer a message locally via the searchJobs tool.
+ * Returns formatted markdown reply or null if intent doesn't match.
+ */
+async function maybeInvokeSearchJobsTool(
+ userMessage: string,
+ locale: string,
+): Promise<string | null> {
+ if (!isJobSearchIntent(userMessage)) return null;
+ try {
+ const normalised = normaliseLocale(locale);
+ const results = await searchJobs({
+ query: userMessage,
+ locale: normalised,
+ limit: 5,
+ });
+ return formatSearchJobsReply(userMessage, results, normalised);
+ } catch {
+ return null;
+ }
 }
 
 // ─── Inference helpers ────────────────────────────────────────
@@ -573,7 +658,20 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  let reply: string | null = null;
  let remoteErr: (Error & { code?: string }) | null = null;
 
+ // Tier 0: Local tool — deterministic search over the live jobs dataset.
+ // Only fires for unmistakable job-discovery intents; otherwise falls through.
+ try {
+ reply = await maybeInvokeSearchJobsTool(text.trim(), locale);
+ if (reply !== null) {
+ Analytics.trackChatbotUsage('tool_invoked', { tool: 'searchJobs' });
+ }
+ } catch (toolErr) {
+ console.warn('[Chatbot] searchJobs tool failed:', (toolErr as Error)?.message);
+ reply = null;
+ }
+
  // Tier 1: Firebase Function — API key stays server-side
+ if (reply === null) {
  try {
  reply = await callChatbotFunction(newMessages, systemPrompt);
  } catch (err1) {
@@ -589,6 +687,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  const e2 = err2 as Error & { code?: string };
  remoteErr = e2;
  console.warn('[Chatbot] Tier 2 failed:', e2.message);
+ }
  }
  }
  }

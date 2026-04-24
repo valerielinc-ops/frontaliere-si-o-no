@@ -1605,7 +1605,8 @@ export const Analytics = {
  | 'auth_gate_open'
  | 'api_error'
  | 'rate_limited'
- | 'inference_local_fallback',
+ | 'inference_local_fallback'
+ | 'tool_invoked',
  details?: Record<string, string | number | boolean>
  ) => {
  log('chatbot_usage', {
