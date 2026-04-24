@@ -2610,6 +2610,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel : 300 employés en télétravail à cause d\'une panne du système anti-incendie',
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Environ 300 employés de l\'Office fédéral de la statistique de Neuchâtel sont en télétravail en raison d\'un dysfonctionnement du système anti-incendie.',
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Bâtiment de l\'Office fédéral de la statistique à Neuchâtel',
+    'blog.article.cartaelettronica-varese-2026.title': 'Adieu à la carte d\'identité papier : l\'obligation de la version électronique entre en vigueur',
+    'blog.article.cartaelettronica-varese-2026.excerpt': 'À partir du 3 août 2026, la carte d\'identité papier ne sera plus valable. Voici ce qui change et comment demander la CIE',
+    'blog.article.cartaelettronica-varese-2026.imageAlt': 'Documents officiels sur une table en bois dans un bureau public à Varese',
 };
 
 export default blogMetaFr;

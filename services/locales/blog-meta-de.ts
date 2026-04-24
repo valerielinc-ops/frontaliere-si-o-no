@@ -2610,6 +2610,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel: 300 Mitarbeiter im Homeoffice wegen Brandschutzstörung',
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Etwa 300 Mitarbeiter des Bundesamts für Statistik in Neuchâtel arbeiten aufgrund einer Störung der Brandschutzanlage im Homeoffice.',
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Gebäude des Bundesamts für Statistik in Neuchâtel',
+    'blog.article.cartaelettronica-varese-2026.title': 'Lebwohl zur papierenen Identitätskarte: Die elektronische Version wird Pflicht',
+    'blog.article.cartaelettronica-varese-2026.excerpt': 'Ab dem 3. August 2026 ist die papierene Identitätskarte nicht mehr gültig. Hier erfahren Sie, was sich ändert und wie Sie die CIE beantragen können',
+    'blog.article.cartaelettronica-varese-2026.imageAlt': 'Offizielle Dokumente auf einem Holztisch in einem öffentlichen Büro in Varese',
 };
 
 export default blogMetaDe;

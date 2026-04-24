@@ -2610,6 +2610,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.title': 'UST Neuchâtel: 300 employees in telework due to fire system malfunction',
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.excerpt': 'Around 300 employees of the Federal Statistical Office in Neuchâtel are working remotely due to a malfunction in the fire system.',
     'blog.article.ust-neuchatel-telelavoro-300-dipendenti.imageAlt': 'Federal Statistical Office building in Neuchâtel',
+    'blog.article.cartaelettronica-varese-2026.title': 'Farewell to paper ID cards: the electronic version becomes mandatory',
+    'blog.article.cartaelettronica-varese-2026.excerpt': 'As of August 3, 2026, paper ID cards will no longer be valid. Here\'s what changes and how to request the CIE',
+    'blog.article.cartaelettronica-varese-2026.imageAlt': 'Official documents on a wooden table in a public office in Varese',
 };
 
 export default blogMetaEn;

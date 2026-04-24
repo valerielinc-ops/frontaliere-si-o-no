@@ -7077,4 +7077,11 @@ export const ARTICLES = [
  image: '/images/blog/ust-neuchatel-telelavoro-300-dipendenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cartaelettronica-varese-2026',
+ category: 'novita',
+ date: '2026-04-24T23:21:23.212Z',
+ image: '/images/blog/cartaelettronica-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
