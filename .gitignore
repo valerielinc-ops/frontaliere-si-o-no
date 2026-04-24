@@ -97,3 +97,8 @@ check-crg.sh
 setup-crg.sh
 setup-crg.ps1
 .gstack/
+
+# E2E visual regression baselines — generated per-OS; commit linux PNGs only for CI
+tests/e2e/seo-visual-regression.spec.ts-snapshots/*-darwin.png
+playwright-report/
+test-results/

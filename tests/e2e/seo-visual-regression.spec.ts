@@ -4,8 +4,8 @@ import { test, expect } from 'playwright/test';
 
 const CASES = [
   { name: 'border-wait-root', url: '/traffico-dogane/' },
-  { name: 'fuel-daily-ticino', url: '/prezzi-benzina-oggi/' },
-  { name: 'weekly-employers-hub', url: '/aziende-che-assumono/' },
+  { name: 'fuel-daily-ticino', url: '/prezzi-benzina/oggi/' },
+  { name: 'weekly-employers-hub', url: '/aziende-che-assumono/ticino/settimana-corrente/' },
 ];
 
 test.use({ viewport: { width: 1280, height: 800 } });

@@ -22,7 +22,12 @@ jobs:
           CI: 'true'
       - name: E2E smoke (content + link graph + visual UI)
         run: npm run test:e2e:smoke
-      - name: E2E visual regression
+      # Visual regression baselines are OS-sensitive (darwin vs linux pixel
+      # diffs). We run them only when a linux-specific baseline has been
+      # committed. Generate with: `npm run test:e2e:visual:update` on Linux
+      # (or inside a linux container) and commit the PNGs.
+      - name: E2E visual regression (if linux baselines present)
+        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
         run: npm run test:e2e:visual
       - name: Upload Playwright report
         if: always()

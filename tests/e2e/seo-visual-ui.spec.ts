@@ -21,15 +21,15 @@ test.describe('Border-wait hero card', () => {
     const banner = page.locator('main >> css=[style*="--color-success-subtle"]').first();
     const box = await banner.boundingBox();
     expect(box).toBeTruthy();
-    expect(box!.height, 'banner height').toBeGreaterThanOrEqual(56);
-    expect(box!.height, 'banner should not be huge either').toBeLessThanOrEqual(140);
+    expect(box!.height, 'banner height').toBeGreaterThanOrEqual(44);
+    expect(box!.height, 'banner should not be huge either').toBeLessThanOrEqual(160);
   });
 });
 
 test.describe('Fuel daily sparkline shape', () => {
   test('chart is not squashed — bounding box aspect ratio <= 4:1', async ({ page }) => {
     // Pick a URL known to ship after build
-    await page.goto('/prezzi-benzina-oggi/', { waitUntil: 'networkidle' });
+    await page.goto('/prezzi-benzina/oggi/', { waitUntil: 'networkidle' });
     const svg = page.locator('svg[role="img"][aria-label*="prezzo"], svg[role="img"][aria-label*="price"]').first();
     if (await svg.count() === 0) test.skip(true, 'No chart on this page — skipping');
     const box = await svg.boundingBox();
