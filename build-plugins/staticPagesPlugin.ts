@@ -1361,7 +1361,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  const buildPage = (locale: string, urlPath: string, seoData: SeoEntry, hreflangs: { lang: string; href: string }[]) => {
  const canonicalPath = withTrailingSlash(urlPath);
- const fullUrl = `${BASE_URL}${canonicalPath}`;
+ // Legacy English-content alias paths (`/about/`, `/contact/`, `/privacy-policy/`)
+ // are NOT their own canonical — they share the English cluster with the
+ // proper `/en/…` slug. Emit the canonical pointing there so Google
+ // collapses the alias into the proper EN member and the hreflang cluster
+ // in the sitemap (which now points `hreflang="en"` at `/en/about-us/` etc.)
+ // stays self-consistent.
+ const LEGACY_EN_ALIAS_CANONICAL: Record<string, string> = {
+  '/about/': '/en/about-us/',
+  '/contact/': '/en/contact-us/',
+  '/privacy-policy/': '/en/privacy/',
+ };
+ const overrideCanonical = LEGACY_EN_ALIAS_CANONICAL[canonicalPath];
+ const fullUrl = overrideCanonical
+  ? `${BASE_URL}${overrideCanonical}`
+  : `${BASE_URL}${canonicalPath}`;
  const pp = canonicalPath.slice(1).replace(/&/g, '~and~');
  // Filter out any hreflang entry with an empty lang or empty href —
  // Semrush flags empty hreflang codes as conflicts. Empty strings can
@@ -2438,7 +2452,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
  const catLabel = CATEGORY_LABELS[art.category]?.[cardLocale] ?? art.category;
  const dateStr = new Date(art.date).toLocaleDateString(cardLocale === 'it' ? 'it-IT' : cardLocale, { day: 'numeric', month: 'short', year: 'numeric' });
- return `<a href="${artPath}" style="display:block;text-decoration:none;color:inherit;${sp};overflow:hidden"><img src="${art.image}" alt="${title}" width="400" height="200" style="width:100%;height:10rem;object-fit:cover"${idx < 2 ? '' : ' loading="lazy"'}><div style="padding:.75rem"><span style="display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700;${catColor}">${esc(catLabel)}</span><span style="font-size:.625rem;color:#94a3b8;margin-left:.5rem">${dateStr}</span><h3 style="font-size:.875rem;font-weight:700;color:#334155;margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${title}</h3>${desc ? `<p style="font-size:.75rem;color:#64748b;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>` : ''}</div></a>`;
+ // First two cards are above-the-fold on the hub — mark them
+ // fetchpriority="high" (eager load, but flagged to the browser as LCP
+ // candidates) so `audit-page-weight` sees the required loading signal.
+ const imgLoadingAttrs = idx < 2 ? ' fetchpriority="high"' : ' loading="lazy"';
+ return `<a href="${artPath}" style="display:block;text-decoration:none;color:inherit;${sp};overflow:hidden"><img src="${art.image}" alt="${title}" width="400" height="200" style="width:100%;height:10rem;object-fit:cover"${imgLoadingAttrs}><div style="padding:.75rem"><span style="display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700;${catColor}">${esc(catLabel)}</span><span style="font-size:.625rem;color:#94a3b8;margin-left:.5rem">${dateStr}</span><h3 style="font-size:.875rem;font-weight:700;color:#334155;margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${title}</h3>${desc ? `<p style="font-size:.75rem;color:#64748b;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>` : ''}</div></a>`;
  }).join('');
  return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 style="font-size:1.1rem;font-weight:700;margin:1.5rem 0 1rem;color:#1e293b">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  })();
@@ -2638,11 +2656,16 @@ ${hrefTags}
  };
 
  // Write Italian page only if it doesn't already exist from the main build
- // (important: still generate locale variants below even when Italian exists)
+ // (important: still generate locale variants below even when Italian exists).
+ // Legacy English-content alias pages (`/about/`, `/contact/`, `/privacy-policy/`)
+ // are intentionally routed as locale="en" by detectLocale so the emitted
+ // `<html lang>` and structured data match the English body content, and
+ // the canonical points to the proper `/en/…` cluster member.
  if (!italianPageExists) {
  const dir = np.join(distDir, url.path);
  /* dir created by _qw */
- const pageHtml = buildPage('it', url.path, seo, url.hreflangs);
+ const primaryLocale = detectLocale(url.path);
+ const pageHtml = buildPage(primaryLocale, url.path, seo, url.hreflangs);
  _qw(filePath, pageHtml);
  // Also write flat .html — real content without redirect script
  if (url.path !== '/') {
