@@ -11747,6 +11747,37 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aufenthaltsbewilligung-b-quellensteuer-2026': {
+    title: 'Aufenthaltsbewilligung B und Quellensteuer 2026 | Frontaliere',
+    description: 'B-Bewilligung und Quellensteuer 2026 im Tessin: Tarife A/B/C/H, Abzüge, 120 000-Franken-Schwelle für die nachträgliche ordentliche Veranlagung (NOV) und Vergleich mit dem Grenzgängerstatus G.',
+    keywords: 'aufenthaltsbewilligung b, quellensteuer 2026, tessin, nachtragliche ordentliche veranlagung, nov, b-bewilligung, grenzgaenger, schweiz, steuern',
+    ogTitle: 'Aufenthaltsbewilligung B und Quellensteuer 2026',
+    ogDescription: 'Vollständiger Steuerleitfaden für B-Bewilligungsinhaber im Tessin: Quellensteuertarife 2026, Abzüge, NOV-Schwelle und Vergleich mit dem G-Grenzgängerstatus.',
+    canonicalPath: '/de/blog-frontalieri/aufenthaltsbewilligung-b-quellensteuer-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Aufenthaltsbewilligung B und Quellensteuer 2026",
+      "description": "Vollständiger Steuerleitfaden für B-Bewilligungsinhaber im Tessin: Quellensteuertarife 2026, Abzüge, 120 000-Franken-Schwelle für die nachträgliche ordentliche Veranlagung (NOV) und Vergleich mit dem Grenzgängerstatus G.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/bellinzona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schreibtisch mit Lohnausweis, Steuererklärung und Blick auf den Luganersee — Symbol der Quellensteuer für B-Bewilligungsinhaber im Tessin."
+      },
+      "datePublished": "2026-04-24T00:00:00+02:00",
+      "dateModified": "2026-04-24T00:00:00+02:00",
+      "inLanguage": "de",
+      "articleSection": "Fiscale",
+      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/de/blog-frontalieri/aufenthaltsbewilligung-b-quellensteuer-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

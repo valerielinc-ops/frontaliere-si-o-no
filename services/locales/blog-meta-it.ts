@@ -2574,6 +2574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Divario salariale in Ticino: residenti guadagnano 1.157 franchi in più',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'L\'Ufficio cantonale di statistica rivela che i residenti in Ticino guadagnano mediamente 5.957 franchi, mentre i frontalieri 4.800 franchi. Il divario è del 19,4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Vista del lago di Lugano con montagne del Ticino',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'Permesso B e imposta alla fonte 2026: guida fiscale completa',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Guida fiscale completa per i titolari di permesso B in Ticino: tariffe dell\'imposta alla fonte 2026, deduzioni, soglia dei 120 000 franchi per la tassazione ordinaria ulteriore (TOU) e confronto con lo status di frontaliere G.',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Scrivania con certificato di salario, dichiarazione delle imposte e vista sul Lago di Lugano — simbolo dell\'imposta alla fonte per i titolari di permesso B in Ticino.',
 };
 
 export default blogMetaIt;

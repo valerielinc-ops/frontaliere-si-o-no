@@ -2574,6 +2574,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Écart salarial en Tessin : les résidents gagnent 1.157 francs de plus',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'L\'Office cantonal de statistique révèle que les résidents du Tessin gagnent en moyenne 5.957 francs, tandis que les frontaliers 4.800 francs. L\'écart est de 19,4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Vue du lac de Lugano avec les montagnes du Tessin',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'Permis B et impôt à la source 2026 : guide fiscal complet',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Guide fiscal complet pour les titulaires de permis B au Tessin : barèmes de l\'impôt à la source 2026, déductions, seuil de CHF 120 000 pour la taxation ordinaire ultérieure (TOU) et comparaison avec le statut de frontalier G.',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Bureau avec certificat de salaire, déclaration d\'impôts et vue sur le lac de Lugano — symbole de l\'impôt à la source pour les titulaires de permis B au Tessin.',
 };
 
 export default blogMetaFr;

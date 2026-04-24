@@ -6986,4 +6986,12 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/divario-salari-ticino-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aufenthaltsbewilligung-b-quellensteuer-2026',
+ category: 'fiscale',
+ date: '2026-04-24',
+ updatedAt: '2026-04-24',
+ image: '/images/places/bellinzona.webp',
+ hasCalculator: true,
+ },
 ];

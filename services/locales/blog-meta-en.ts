@@ -2574,6 +2574,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divario-salari-ticino-frontalieri-2026.title': 'Wage gap in Ticino: residents earn 1,157 francs more',
     'blog.article.divario-salari-ticino-frontalieri-2026.excerpt': 'The cantonal statistical office reveals that residents in Ticino earn an average of 5,957 francs, while cross-border workers earn 4,800 francs. The gap is 19.4%.',
     'blog.article.divario-salari-ticino-frontalieri-2026.imageAlt': 'Lake Lugano view with Ticino mountains',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.title': 'B residence permit and withholding tax 2026: complete tax guide',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.excerpt': 'Complete tax guide for B permit holders in Ticino: 2026 withholding tax tariffs, deductions, the CHF 120,000 threshold for retrospective ordinary assessment (NOV) and comparison with the G cross-border status.',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer-2026.imageAlt': 'Desk with salary statement, tax return and view of Lake Lugano — symbol of withholding tax for B permit holders in Ticino.',
 };
 
 export default blogMetaEn;
