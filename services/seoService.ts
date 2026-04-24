@@ -2189,7 +2189,15 @@ export async function updateMetaTags(section: string): Promise<void> {
  setLocale(pathLocale);
  }
  const locale = pathLocale;
- const localePath = buildPath(route, locale);
+ // For static-overlay routes (recency landings, today landings, fuel-daily,
+ // border-wait, etc.) `buildPath(route, locale)` would return the generic
+ // tab root (e.g. `/cerca-lavoro-ticino/`) because the route only carries
+ // `{ activeTab: 'job-board', staticOverlay: true }` — the specific landing
+ // slug is not stored in AppRoute. Use `window.location.pathname` directly
+ // so og:url, twitter:url, and canonical reflect the actual page URL.
+ const localePath = route.staticOverlay
+ ? window.location.pathname
+ : buildPath(route, locale);
  const canonicalLocalePath = withTrailingSlashPath(localePath);
  const pathnameSnapshot = window.location.pathname;
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
