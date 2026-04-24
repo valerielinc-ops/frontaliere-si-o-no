@@ -5841,15 +5841,23 @@ ${hreflangLinks}
  // For orphan slugs with no ejData, extract info from the slug itself
  const slugInfo = !ejData?.title ? extractInfoFromSlug(slug) : null;
 
- // Build hreflang alternates for this expired slug (x-default → IT version)
- const hreflangLinks = [
- ...localeList.map((l) => {
- const p = paths[l];
- if (!p) return '';
- return ` <link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}">`;
- }).filter(Boolean),
- ...(paths.it ? [` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`] : []),
- ].join('\n');
+ // Build hreflang alternates for this expired slug.
+ // audit-hreflang requires ≥5 entries (4 locales + x-default) on every
+ // page that emits any hreflang. Orphan/expired slugs without a full
+ // locale cluster (e.g. brand-alias `azienda-<brand>` bridges with only
+ // an IT path) would emit 2 entries and fail the audit — so when the
+ // cluster isn't complete we emit ZERO hreflang and rely on
+ // <link rel="canonical"> + <html lang> to signal single-locale scope.
+ const expiredLocaleHreflangs = localeList
+ .map((l) => (paths[l] ? { lang: l as 'it' | 'en' | 'de' | 'fr', href: `${BASE_URL}${withSlash(paths[l])}` } : null))
+ .filter((x): x is { lang: 'it' | 'en' | 'de' | 'fr'; href: string } => x !== null);
+ const expiredHasFullCluster = expiredLocaleHreflangs.length === localeList.length;
+ const hreflangLinks = expiredHasFullCluster
+ ? [
+  ...expiredLocaleHreflangs.map((e) => ` <link rel="alternate" hreflang="${e.lang}" href="${e.href}">`),
+  ...(paths.it ? [` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`] : []),
+  ].join('\n')
+ : '';
 
  // Track IT page word count for sitemap inclusion decision
  let itBodyWordCount = 0;
@@ -5870,11 +5878,23 @@ ${hreflangLinks}
  const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
  const jobDescription = String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '');
 
- // Title for <title> tag: use job title if available (including slug-extracted)
+ // Title for <title> tag: use job title if available (including slug-extracted).
+ // Orphan slugs often share an extractInfoFromSlug title (different slugs,
+ // same stripped tokens → same readable title). Inject the resolved location
+ // (or a short slug-tail disambiguator when location extraction failed) so
+ // sibling orphan pages never collapse to one <title>.
  const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
+ const slugTail = slug.split('-').slice(-2).join(' ')
+  .replace(/\b\w/g, (c) => c.toUpperCase());
+ const titleCityToken = jobLocation || slugInfo?.location || '';
+ const uniqueSuffix = titleCityToken
+  ? ` (${esc(titleCityToken)})`
+  : slugTail
+   ? ` (${esc(slugTail)})`
+   : '';
  const pageTitle = hasRealTitle
- ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`
- : `${esc(copy.title)} | Frontaliere Ticino`;
+ ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${uniqueSuffix} | Frontaliere Ticino`
+ : `${esc(copy.title)}${uniqueSuffix} | Frontaliere Ticino`;
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
