@@ -40,6 +40,7 @@ const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
+const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
 const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
 const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashboard'));
@@ -2170,6 +2171,10 @@ const App: React.FC = () => {
  ) : activeTab === 'consulting' ? (
  <div className="max-w-7xl mx-auto">
  <ConsultingPage />
+ </div>
+ ) : activeTab === 'press-kit' ? (
+ <div className="max-w-7xl mx-auto">
+ <PressKit />
  </div>
  ) : activeTab === 'job-board' ? (
  <div className="max-w-7xl mx-auto">

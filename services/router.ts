@@ -83,7 +83,7 @@ const SEMRUSH_LANDING_ROUTES = new Set(SEMRUSH_LANDINGS.map((l) => l.path));
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -568,6 +568,7 @@ interface SlugTable {
  contact: string;
  partners: string;
  consulting: string;
+ pressKit: string;
  jobBoard: string;
  profile: string;
  dashboard: string;
@@ -693,6 +694,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contact: 'contattaci',
  partners: 'servizi-partner',
  consulting: 'consulenza',
+ pressKit: 'stampa',
  jobBoard: 'cerca-lavoro-ticino',
  profile: 'profilo',
  dashboard: 'dashboard',
@@ -791,6 +793,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contact: 'contact-us',
  partners: 'partner-services',
  consulting: 'consulting',
+ pressKit: 'press-kit',
  jobBoard: 'find-jobs-ticino',
  profile: 'profile',
  dashboard: 'dashboard',
@@ -889,6 +892,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contact: 'kontakt',
  partners: 'partner-dienste',
  consulting: 'beratung',
+ pressKit: 'pressekit',
  jobBoard: 'jobs-im-tessin',
  profile: 'profil',
  dashboard: 'dashboard',
@@ -987,6 +991,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contact: 'contactez-nous',
  partners: 'services-partenaires',
  consulting: 'consultation',
+ pressKit: 'kit-presse',
  jobBoard: 'trouver-emploi-tessin',
  profile: 'profil',
  dashboard: 'tableau-de-bord',
@@ -1519,6 +1524,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.contact]: { tab: 'contact' },
  [table.partners]: { tab: 'partners' },
  [table.consulting]: { tab: 'consulting' },
+ [table.pressKit]: { tab: 'press-kit' as const },
  [table.jobBoard]: { tab: 'job-board' },
  [table.profile]: { tab: 'profile' },
  [table.morning]: { tab: 'morning' },
@@ -2340,6 +2346,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.partners}${hashSuffix}`);
  case 'consulting':
  return finish(`${prefix}/${table.consulting}${hashSuffix}`);
+ case 'press-kit':
+ return finish(`${prefix}/${table.pressKit}${hashSuffix}`);
  case 'job-board': {
  // When a sector hub is set, emit the clean canonical URL
  // (e.g. /cerca-lavoro-ticino/infermieri/). Precedes jobSlug so

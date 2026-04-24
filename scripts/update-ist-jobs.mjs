@@ -39,7 +39,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { TARGET_CANTONS, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -303,16 +303,27 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
+// City fallbacks per canton. IST's physical campuses are in Lugano (TI) and
+// Chur (GR); other cantons use the canton name as the city fallback.
+const IST_DEFAULT_CITY_BY_CANTON = {
+  TI: 'Lugano',
+  GR: 'Chur',
+};
+
+function istFallbackCity(canton, locale = 'it') {
+  return IST_DEFAULT_CITY_BY_CANTON[canton] || getCantonDisplayName(canton, locale);
+}
+
 function buildDescription(title, descriptionText, location, canton = TARGET_CANTONS[0]) {
-  const region = canton === 'GR' ? 'Graubünden' : 'Ticino';
-  const defaultCity = canton === 'GR' ? 'Graubünden' : 'Lugano';
+  const region = getCantonDisplayName(canton, 'en');
+  const defaultCity = istFallbackCity(canton, 'en');
   const base = descriptionText || `${title} position at the International School of Ticino in ${location}, Switzerland.`;
   return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${defaultCity}, IST offers a stimulating international learning environment in ${region}.`.trim();
 }
 
 function buildDescriptionIt(title, location, canton = TARGET_CANTONS[0]) {
-  const region = canton === 'GR' ? 'Grigioni' : 'Ticino';
-  const defaultCity = canton === 'GR' ? 'Grigioni' : 'Lugano';
+  const region = getCantonDisplayName(canton, 'it');
+  const defaultCity = istFallbackCity(canton, 'it');
   return `Posizione aperta presso la International School of Ticino a ${location}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${defaultCity}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
 }
 

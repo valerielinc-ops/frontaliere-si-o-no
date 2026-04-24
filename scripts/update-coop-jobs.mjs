@@ -35,6 +35,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopJsonLd,
   coopDescHtmlToMarkdown,
@@ -694,6 +695,28 @@ async function main() {
   }
 
   validateCoopLocaleCoverage();
+
+  // Step 4b: Quality guards — min description length + company-name sanity.
+  // The title-overlap guard already runs in-line (≥0.6) during post-processing;
+  // this pass adds the missing checks from docs/copilot-crawler-fix-prompts.md.
+  if (process.env.SKIP_QUALITY_GUARDS !== '1') {
+    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const allJobs = Array.isArray(raw) ? raw : [];
+    const coopSubset = allJobs.filter(isCoopJob);
+    const report = runQualityGuards(coopSubset, {
+      companyName: ['Coop', 'Coop Società Cooperativa', 'Coop Genossenschaft'],
+      minDescription: 250,
+      logger: (msg) => console.warn(msg),
+    });
+    if (report.rejected > 0) {
+      const keptIds = new Set(coopSubset.map((j) => j.id || j.url));
+      const filtered = allJobs.filter((j) => !isCoopJob(j) || keptIds.has(j.id || j.url));
+      fs.writeFileSync(DATA_JOBS, JSON.stringify(filtered, null, 2) + '\n');
+      console.log(
+        `  🧹 Coop quality guards: rejected ${report.rejected} job(s) — ${JSON.stringify(report.reasons)}`,
+      );
+    }
+  }
 
   // Step 5: Write per-crawler slice and assemble global dataset
   if (stats.coopJobs && stats.coopJobs.length > 0) {

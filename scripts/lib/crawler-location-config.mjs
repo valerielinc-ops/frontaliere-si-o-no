@@ -288,3 +288,81 @@ export function getProspectiveRegionIds(platformKey) {
     .filter(([canton]) => TARGET_CANTONS.some((tc) => canton.startsWith(tc)))
     .map(([canton, regionId]) => ({ canton, regionId }));
 }
+
+// ─── ALIASES REQUIRED BY docs/crawler-parametrizzazione-plan.md ───────────
+// The plan specifies HQ_REGISTRY + getCantonForLocation names. We expose them
+// here as thin aliases over COMPANY_HQ + location→canton resolution so the
+// plan's contract is satisfied without churning the existing API.
+
+/** Alias for COMPANY_HQ — kept for naming parity with the param plan. */
+export const HQ_REGISTRY = COMPANY_HQ;
+
+/**
+ * Localized human-readable name for a canton code, used by crawlers that
+ * embed a region label in the job description. Replaces hardcoded ternaries
+ * like `canton === 'GR' ? 'Grigioni' : 'Ticino'` (docs/crawler-parametrizzazione-plan.md).
+ *
+ * @param {string} cantonCode - 2-letter canton code (TI, GR, VS, …)
+ * @param {'it'|'de'|'fr'|'en'} locale - output language; defaults to 'it'
+ * @returns {string} canton name in the requested language, or the raw code if unknown.
+ */
+export function getCantonDisplayName(cantonCode = '', locale = 'it') {
+  const code = String(cantonCode).toUpperCase().trim();
+  const entry = SWISS_CANTONS[code];
+  if (!entry) return cantonCode;
+
+  const map = {
+    TI: { it: 'Ticino', de: 'Tessin', fr: 'Tessin', en: 'Ticino' },
+    GR: { it: 'Grigioni', de: 'Graubünden', fr: 'Grisons', en: 'Graubünden' },
+    VS: { it: 'Vallese', de: 'Wallis', fr: 'Valais', en: 'Valais' },
+    ZH: { it: 'Zurigo', de: 'Zürich', fr: 'Zurich', en: 'Zurich' },
+    BE: { it: 'Berna', de: 'Bern', fr: 'Berne', en: 'Bern' },
+    LU: { it: 'Lucerna', de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' },
+    BS: { it: 'Basilea Città', de: 'Basel-Stadt', fr: 'Bâle-Ville', en: 'Basel-Stadt' },
+    GE: { it: 'Ginevra', de: 'Genf', fr: 'Genève', en: 'Geneva' },
+    VD: { it: 'Vaud', de: 'Waadt', fr: 'Vaud', en: 'Vaud' },
+    FR: { it: 'Friburgo', de: 'Freiburg', fr: 'Fribourg', en: 'Fribourg' },
+    NE: { it: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel', en: 'Neuchâtel' },
+    JU: { it: 'Giura', de: 'Jura', fr: 'Jura', en: 'Jura' },
+  };
+
+  const loc = map[code];
+  if (loc && loc[locale]) return loc[locale];
+  // Fallback to the first canonical name from SWISS_CANTONS.
+  return (entry.names[0] || code).replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Resolve a free-text location (city or canton string) to its 2-letter
+ * canton code. Returns '' if nothing recognizable matched.
+ *
+ * Matching strategy:
+ *   1. Exact / normalized match against every canton's `names` list.
+ *   2. Token-substring match (location contains any canton alias).
+ *
+ * @param {string} rawLocation - free-text location, e.g. "Lugano, Ticino".
+ * @returns {string} 2-letter canton code or ''.
+ */
+export function getCantonForLocation(rawLocation = '') {
+  const normalized = String(rawLocation || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9 ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!normalized) return '';
+
+  const direct = normalizeAnyCantonCode(normalized);
+  if (direct) return direct;
+
+  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+    for (const name of canton.names) {
+      const token = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      if (!token) continue;
+      const re = new RegExp(`(^|\\s)${token.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}(\\s|$)`);
+      if (re.test(normalized)) return code;
+    }
+  }
+  return '';
+}

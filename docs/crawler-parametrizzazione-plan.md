@@ -1,5 +1,24 @@
 # Piano: Parametrizzazione Location di Tutti i Crawler
 
+> **Status 2026-04-24** — audit eseguito, la maggior parte della Fase 1 è
+> implementata. `scripts/lib/crawler-location-config.mjs` centralizza
+> `TARGET_CANTONS` (TI/GR/VS), `SWISS_CANTONS` (26 cantoni), `COMPANY_HQ`
+> (+ alias `HQ_REGISTRY`), `isTargetCanton`, `getCantonForLocation`,
+> `getCantonDisplayName`, `getCompanyDefaults` e `PROSPECTIVE_REGION_IDS`.
+> `scripts/lib/target-swiss-locations.mjs` legge `TARGET_CANTONS`.
+>
+> La maggioranza dei ~100 crawler `update-*.mjs` **non hardcoda gating logic**:
+> le occorrenze di "Ticino"/"Grigioni" sono in larga parte nomi aziendali
+> ("Swisscom sede Ticino", "Migros Ticino"), log di stato, commenti e
+> funzioni di branding — non condizionali di canton. L'unico file con
+> ternari hardcoded (`canton === 'GR' ? 'Grigioni' : 'Ticino'`) era
+> `scripts/update-ist-jobs.mjs`, ora migrato a `getCantonDisplayName()`.
+>
+> **Gap residui**: espandere `TARGET_CANTONS` a tutti i 26 cantoni richiede
+> ancora: (a) data-driven PROSPECTIVE/WORKDAY region IDs per cantoni non
+> target; (b) audit quality-guard per ciascun crawler dedicato; (c) URL
+> slugs `/cerca-lavoro-svizzera/` in `build-plugins/jobsSeoPagesPlugin.ts`.
+
 ## Obiettivo
 Rendere TUTTI i 137 crawler configurabili tramite un unico punto centrale per la location.
 Oggi: hardcoded TI/GR ovunque. Domani: si cambia UN file e tutti i crawler cercano in tutta la Svizzera.

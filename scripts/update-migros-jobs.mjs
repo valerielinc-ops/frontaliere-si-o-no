@@ -44,6 +44,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, normalize } from './lib/dedicated-crawler-common.mjs';
+import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -387,6 +388,28 @@ async function main() {
     if (patched > 0) {
       fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
       console.log(`  🏷️ Set sourceLang on ${patched} Migros job(s).`);
+    }
+  }
+
+  // Step 3c: Quality guards — reject jobs with thin descriptions or an
+  // implausible company name (implements docs/copilot-crawler-fix-prompts.md
+  // for Migros). Gated behind SKIP_QUALITY_GUARDS=1 for emergency bypass.
+  if (process.env.SKIP_QUALITY_GUARDS !== '1') {
+    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const allJobs = Array.isArray(raw) ? raw : [];
+    const migrosJobs = allJobs.filter(isMigrosJob);
+    const report = runQualityGuards(migrosJobs, {
+      companyName: ['Migros', 'Migros Ticino', 'Migros Aare', 'Gruppo Migros'],
+      minDescription: 200,
+      logger: (msg) => console.warn(msg),
+    });
+    if (report.rejected > 0) {
+      const keptIds = new Set(migrosJobs.map((j) => j.id || j.url));
+      const filtered = allJobs.filter((j) => !isMigrosJob(j) || keptIds.has(j.id || j.url));
+      fs.writeFileSync(DATA_JOBS, JSON.stringify(filtered, null, 2) + '\n');
+      console.log(
+        `  🧹 Migros quality guards: rejected ${report.rejected} job(s) — ${JSON.stringify(report.reasons)}`,
+      );
     }
   }
 
