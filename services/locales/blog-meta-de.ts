@@ -2589,6 +2589,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.economia-svizzera-rischio-burocrazia.title': 'Schweizer Wirtschaft in Gefahr: Bürokratie und interne Spaltungen',
     'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'Der Ökonom Rudolf Walser warnt: Die Schweiz riskiert, an Wettbewerbsfähigkeit zu verlieren, aufgrund der föderalen Bürokratie und der internen Spaltungen.',
     'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Lugano Skyline mit See und Bergen',
+    'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano im Halbfinale in Chiasso und bestes Ranking für die Vareser',
+    'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'Die Tennisspielerin aus Varesi, Samira De Stefano, erreicht das Halbfinale in Chiasso und verbessert ihr bestes Ranking.',
+    'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennisspieler auf dem Platz in Chiasso mit den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

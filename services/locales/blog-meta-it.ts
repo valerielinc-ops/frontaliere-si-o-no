@@ -2589,6 +2589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.economia-svizzera-rischio-burocrazia.title': 'Economia svizzera a rischio: burocrazia e divisioni interne',
     'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'L\'economista Rudolf Walser lancia l\'allarme: la Svizzera rischia di perdere competitività a causa della burocrazia federale e delle divisioni interne.',
     'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Panorama di Lugano con il lago e le montagne',
+    'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano in semifinale a Chiasso e best ranking per la varesina',
+    'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'La tennista varesina Samira De Stefano raggiunge la semifinale a Chiasso e migliora il suo best ranking.',
+    'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennista in campo a Chiasso con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

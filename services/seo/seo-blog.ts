@@ -11900,6 +11900,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-samira-de-stefano-semifinale-chiasso': {
+    title: 'Samira De Stefano in semifinale a | Frontaliere Ticino',
+    description: 'La tennista varesina Samira De Stefano raggiunge la semifinale a Chiasso e migliora il suo best ranking. Scopri di più su questa promessa del tennis italiano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, samira, stefano, semifinale, chiasso',
+    ogTitle: 'Samira De Stefano in semifinale a Chiasso | Frontaliere',
+    ogDescription: 'La tennista varesina Samira De Stefano raggiunge la semifinale a Chiasso e migliora il suo best ranking. Scopri di più su questa promessa del tennis italiano.',
+    canonicalPath: '/articoli-frontaliere/samira-de-stefano-semifinale-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Samira De Stefano in semifinale a Chiasso e best ranking per la varesina",
+      "description": "La tennista varesina Samira De Stefano raggiunge la semifinale a Chiasso e migliora il suo best ranking. Scopri di più su questa promessa del tennis italiano.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/samira-de-stefano-semifinale-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tennista in campo a Chiasso con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-04-24T16:43:57+00:00",
+      "dateModified": "2026-04-24T16:43:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/samira-de-stefano-semifinale-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

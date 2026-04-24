@@ -2589,6 +2589,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.economia-svizzera-rischio-burocrazia.title': 'Swiss economy at risk: bureaucracy and internal divisions',
     'blog.article.economia-svizzera-rischio-burocrazia.excerpt': 'Economist Rudolf Walser raises the alarm: Switzerland risks losing competitiveness due to federal bureaucracy and internal divisions.',
     'blog.article.economia-svizzera-rischio-burocrazia.imageAlt': 'Lugano skyline with lake and mountains',
+    'blog.article.samira-de-stefano-semifinale-chiasso.title': 'Samira De Stefano reaches the semifinals in Chiasso and achieves her best ranking',
+    'blog.article.samira-de-stefano-semifinale-chiasso.excerpt': 'The Varesina tennis player Samira De Stefano reaches the semifinals in Chiasso and improves her best ranking.',
+    'blog.article.samira-de-stefano-semifinale-chiasso.imageAlt': 'Tennis player on court in Chiasso with the Alps in the background',
 };
 
 export default blogMetaEn;

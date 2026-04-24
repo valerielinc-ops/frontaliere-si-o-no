@@ -7028,4 +7028,11 @@ export const ARTICLES = [
  image: '/images/blog/economia-svizzera-rischio-burocrazia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'samira-de-stefano-semifinale-chiasso',
+ category: 'novita',
+ date: '2026-04-24T16:43:57.656Z',
+ image: '/images/blog/samira-de-stefano-semifinale-chiasso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

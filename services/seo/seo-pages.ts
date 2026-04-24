@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 910,
+ "numberOfItems": 911,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5628,7 +5628,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 907, "name": "Banditi assaltano gioielleria a Tavernola: l'as...", "url": `${BASE_URL}/articoli-frontaliere/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano` },
           { "@type": "ListItem", "position": 908, "name": "Regione Lombardia: aumento stipendi medici e in...", "url": `${BASE_URL}/articoli-frontaliere/regione-lombardia-aumento-stipendi-medici-infermieri` },
           { "@type": "ListItem", "position": 909, "name": "Divario salariale in Ticino: residenti guadagna...", "url": `${BASE_URL}/articoli-frontaliere/divario-salari-ticino-frontalieri-2026` },
-          { "@type": "ListItem", "position": 910, "name": "Economia svizzera a rischio: burocrazia e divis...", "url": `${BASE_URL}/articoli-frontaliere/economia-svizzera-rischio-burocrazia` }
+          { "@type": "ListItem", "position": 910, "name": "Economia svizzera a rischio: burocrazia e divis...", "url": `${BASE_URL}/articoli-frontaliere/economia-svizzera-rischio-burocrazia` },
+          { "@type": "ListItem", "position": 911, "name": "Samira De Stefano in semifinale a Chiasso e bes...", "url": `${BASE_URL}/articoli-frontaliere/samira-de-stefano-semifinale-chiasso` }
  ]
  },
  {
