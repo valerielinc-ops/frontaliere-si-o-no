@@ -836,6 +836,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
         weeklyCity: 'lugano',
         companySlug: 'eoc-ente-ospedaliero-cantonale',
         employer: 'EOC - Ente Ospedaliero Cantonale',
+        companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'],
       });
       expect(links.length).toBeGreaterThanOrEqual(6);
       for (const link of links) {
@@ -851,6 +852,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
       city: 'lugano',
       weeklyCity: 'lugano',
       companySlug: 'eoc',
+      companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'],
     });
     const hrefs = links.map((l) => l.href);
     expect(
@@ -863,6 +865,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
       city: 'lugano',
       weeklyCity: 'lugano',
       companySlug: 'eoc',
+      companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'],
     });
     const hrefs = links.map((l) => l.href);
     expect(
@@ -875,6 +878,7 @@ describe("relatedLinks — case 'weekly_employer_company_city'", () => {
       city: 'lugano',
       weeklyCity: 'lugano',
       companySlug: 'eoc',
+      companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'],
     });
     expect(html).toContain('<nav');
     const anchorCount = (html.match(/<a /g) || []).length;

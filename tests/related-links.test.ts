@@ -68,6 +68,7 @@ function sampleContextFor(pageType: SeoPageType) {
         city: 'lugano',
         weeklyCity: 'lugano' as const,
         companySlug: 'eoc',
+        companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'] as const,
       };
     case 'job_market_snapshot':
       return {};
@@ -249,6 +250,7 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
       city: 'lugano',
       weeklyCity: 'lugano',
       companySlug: 'eoc',
+      companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'],
     });
     const sibling = sections.find((s) => s.kind === 'sibling')!;
     expect(sibling.links.length).toBeGreaterThanOrEqual(3);
@@ -263,6 +265,7 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
       city: 'lugano',
       weeklyCity: 'lugano',
       companySlug: 'eoc',
+      companySiblingCities: ['bellinzona', 'mendrisio', 'chiasso', 'locarno'],
     });
     const hubs = sections.find((s) => s.kind === 'hubs')!;
     const hrefs = hubs.links.map((l) => l.href);
