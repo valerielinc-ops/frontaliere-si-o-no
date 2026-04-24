@@ -153,7 +153,8 @@ export function buildSimplePage(opts: SimplePageOpts): string {
    ? ` <div id="root"></div>
  <main class="seo-static-content">
 ${bodyHtml}
- </main>`
+ </main>
+ <div id="footer-root"></div>`
    : ` <div id="root">
 ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`}
  </div>`;
