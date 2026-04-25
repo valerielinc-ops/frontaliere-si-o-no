@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 928,
+ "numberOfItems": 929,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5646,7 +5646,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 925, "name": "Incentivo alla remigrazione: cosa cambia per i ...", "url": `${BASE_URL}/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino` },
           { "@type": "ListItem", "position": 926, "name": "Confederazione e Cantoni ridiscutono i compiti:...", "url": `${BASE_URL}/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026` },
           { "@type": "ListItem", "position": 927, "name": "Asili nido pubblici Bellinzona: l'Asp sostiene ...", "url": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-asp-2026` },
-          { "@type": "ListItem", "position": 928, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026` }
+          { "@type": "ListItem", "position": 928, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026` },
+          { "@type": "ListItem", "position": 929, "name": "Tilo S40 fermo fino alle 21: manca personale in...", "url": `${BASE_URL}/articoli-frontaliere/ferrovia-tilo-s40-fermi-italia-personale` }
  ]
  },
  {

@@ -7154,4 +7154,11 @@ export const ARTICLES = [
  image: '/images/blog/lavena-ponte-tresa-battesimo-civico-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ferrovia-tilo-s40-fermi-italia-personale',
+ category: 'pratico',
+ date: '2026-04-25T15:28:07.312Z',
+ image: '/images/blog/ferrovia-tilo-s40-fermi-italia-personale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2643,6 +2643,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-battesimo-civico-2026.title': 'Lavena Ponte Tresa Celebrates Freedom: Success of the 2026 Civic Baptism',
     'blog.article.lavena-ponte-tresa-battesimo-civico-2026.excerpt': 'The community of Lavena Ponte Tresa celebrated the 81st anniversary of Liberation with a well-attended ceremony that featured the young people of the town.',
     'blog.article.lavena-ponte-tresa-battesimo-civico-2026.imageAlt': 'Lavena Ponte Tresa town square during the 2026 Civic Baptism ceremony',
+    'blog.article.ferrovia-tilo-s40-fermi-italia-personale.title': 'S40 line disrupted until 21:00 due to staff shortage in Italy',
+    'blog.article.ferrovia-tilo-s40-fermi-italia-personale.excerpt': 'The S40 line between Mendrisio and Como San Giovanni and Varese is limited until 21:00 due to a lack of staff in Italy.',
+    'blog.article.ferrovia-tilo-s40-fermi-italia-personale.imageAlt': 'Mendrisio train station with Tilo S40 train stopped',
 };
 
 export default blogMetaEn;

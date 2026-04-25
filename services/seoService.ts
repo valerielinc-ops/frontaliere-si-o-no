@@ -2141,6 +2141,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confederazione-cantoni-ridiscutono-compiti-2026': { name: 'Novità', path: '/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026', parent: 'blog' },
     'blog-asili-nido-bellinzona-asp-2026': { name: 'Asili nido Bellinzona', path: '/articoli-frontaliere/asili-nido-bellinzona-asp-2026', parent: 'blog' },
     'blog-lavena-ponte-tresa-battesimo-civico-2026': { name: 'Eventi', path: '/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026', parent: 'blog' },
+    'blog-ferrovia-tilo-s40-fermi-italia-personale': { name: 'Disagi ferroviari', path: '/articoli-frontaliere/ferrovia-tilo-s40-fermi-italia-personale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

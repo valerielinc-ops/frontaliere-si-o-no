@@ -2643,6 +2643,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-battesimo-civico-2026.title': 'Lavena Ponte Tresa celebra la Libertà: successo del Battesimo Civico 2026',
     'blog.article.lavena-ponte-tresa-battesimo-civico-2026.excerpt': 'La comunità di Lavena Ponte Tresa ha festeggiato l\'81° anniversario della Liberazione con una partecipata cerimonia che ha visto protagonisti i giovani del paese.',
     'blog.article.lavena-ponte-tresa-battesimo-civico-2026.imageAlt': 'Piazza di Lavena Ponte Tresa durante la cerimonia del Battesimo Civico 2026',
+    'blog.article.ferrovia-tilo-s40-fermi-italia-personale.title': 'Tilo S40 fermo fino alle 21: manca personale in Italia',
+    'blog.article.ferrovia-tilo-s40-fermi-italia-personale.excerpt': 'La linea S40 tra Mendrisio e Como San Giovanni e Varese è limitata fino alle 21 per mancanza di personale in Italia.',
+    'blog.article.ferrovia-tilo-s40-fermi-italia-personale.imageAlt': 'Stazione ferroviaria di Mendrisio con treno Tilo S40 fermo',
 };
 
 export default blogMetaIt;

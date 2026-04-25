@@ -12422,6 +12422,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ferrovia-tilo-s40-fermi-italia-personale': {
+    title: 'Tilo S40 fermo fino alle 21: manca | Frontaliere Ticino',
+    description: 'La linea S40 tra Mendrisio e Como San Giovanni e Varese è limitata fino alle 21 per mancanza di personale in Italia. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, fermo, fino, alle',
+    ogTitle: 'Tilo S40 fermo fino alle 21: manca personale in Italia',
+    ogDescription: 'La linea S40 tra Mendrisio e Como San Giovanni e Varese è limitata fino alle 21 per mancanza di personale in Italia. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ferrovia-tilo-s40-fermi-italia-personale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tilo S40 fermo fino alle 21: manca personale in Italia",
+      "description": "La linea S40 tra Mendrisio e Como San Giovanni e Varese è limitata fino alle 21 per mancanza di personale in Italia. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ferrovia-tilo-s40-fermi-italia-personale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Mendrisio con treno Tilo S40 fermo"
+      },
+      "datePublished": "2026-04-25T15:28:07+00:00",
+      "dateModified": "2026-04-25T15:28:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ferrovia-tilo-s40-fermi-italia-personale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
