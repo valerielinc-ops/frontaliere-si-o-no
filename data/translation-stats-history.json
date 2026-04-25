@@ -1,73 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T10:20:33.761Z",
-    "label": "before",
-    "total": 2928,
-    "needsRetranslation": 432,
-    "incomplete": 21,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 14,
-      "en": 2,
-      "de": 15,
-      "fr": 15
-    },
-    "topPending": [
-      {
-        "company": "Reboot Monkey",
-        "pending": 10
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Prada Group",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Gruppo Ospedaliero Moncucco",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T10:35:03.276Z",
-    "label": "after",
-    "total": 2928,
-    "needsRetranslation": 25,
-    "incomplete": 2,
-    "complete": 2926,
-    "missingByLocale": {
-      "it": 1,
-      "en": 2,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T10:36:30.509Z",
     "label": "before",
     "total": 2927,
@@ -7405,6 +7337,94 @@
     "needsRetranslation": 71,
     "incomplete": 25,
     "complete": 2633,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T22:26:03.076Z",
+    "label": "before",
+    "total": 2666,
+    "needsRetranslation": 1137,
+    "incomplete": 38,
+    "complete": 2628,
+    "missingByLocale": {
+      "it": 26,
+      "en": 13,
+      "de": 29,
+      "fr": 29
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T23:28:34.654Z",
+    "label": "after",
+    "total": 2666,
+    "needsRetranslation": 78,
+    "incomplete": 25,
+    "complete": 2641,
     "missingByLocale": {
       "it": 24,
       "en": 5,
