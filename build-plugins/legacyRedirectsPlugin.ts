@@ -181,6 +181,54 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // FR recency-hub slug variant Google indexed (/3-derniers-jours/ → canonical /derniers-3-jours/)
  '/fr/trouver-emploi-tessin/3-derniers-jours/': '/fr/trouver-emploi-tessin/derniers-3-jours/',
 
+ // ── Semrush 4xx (2026-04-25, issue 2) — 42 legacy paths reported as 404 ──
+ // IT old slugs renamed/removed
+ '/calcolatore/': '/calcola-stipendio/',
+ '/costo-della-vita/': '/compara-servizi/costo-della-vita/',
+ '/fisco-frontalieri/': '/tasse-e-pensione/',
+ '/job-board/': '/cerca-lavoro-ticino/',
+ '/statistiche/confronta-premi/': '/statistiche/premi-malattia-comuni/',
+ '/tasse-svizzere-guida-frontaliere/': '/tasse-e-pensione/',
+ '/tfr-calculator/': '/tfr-liquidazione-frontaliere/',
+ '/tredicesima-svizzera/': '/calcolo-tredicesima-frontaliere/',
+ // IT guida-frontaliere old/renamed sub-pages
+ '/guida-frontaliere/avs-lpp-frontalieri/': '/tasse-e-pensione/calcola-previdenza/',
+ '/guida-frontaliere/secondo-pilastro-frontalieri/': '/tasse-e-pensione/calcola-previdenza/',
+ '/guida-frontaliere/diritto-lavoro-frontalieri/': '/guida-frontaliere/',
+ '/guida-frontaliere/diritto-opzione-lamal/': '/guida-frontaliere/lamal-frontalieri/',
+ '/guida-frontaliere/disoccupazione-frontalieri/': '/guida-frontaliere/disoccupazione-transfrontaliera/',
+ '/guida-frontaliere/nuova-legge-frontalieri-2024/': '/guida-frontaliere/',
+ '/guida-frontaliere/nuova-legge-frontalieri-2026/': '/guida-frontaliere/',
+ '/guida-frontaliere/permesso-g/': '/guida-frontaliere/permessi-di-lavoro/',
+ '/guida-frontaliere/permessi-lavoro/': '/guida-frontaliere/permessi-di-lavoro/',
+ '/guida-frontaliere/trasferimento-auto/': '/guida-frontaliere/trasferire-auto-svizzera/',
+ '/guida-frontaliere/traffico-valichi/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/guida-frontaliere/assegni-familiari-frontalieri/': '/guida-frontaliere/',
+ // DE old/missing slugs → current DE canonicals
+ '/de/dienste-vergleichen': '/de/service-vergleich/',
+ '/de/glossar': '/de/grenzgaenger-glossar/',
+ '/de/grenzgaenger-leitfaden/': '/de/grenzgaenger-ratgeber/',
+ '/de/grenzgaenger-ratgeber/neues-grenzgaengergesetz-2026/': '/de/grenzgaenger-ratgeber/',
+ '/de/krankenkassenpraemien/ticino/': '/de/statistiken/krankenkassentraemien-nach-gemeinde/',
+ '/de/leitfaden/bewilligung-g/': '/de/grenzgaenger-ratgeber/arbeitsbewilligungen/',
+ '/de/leitfaden/neues-grenzgaenger-gesetz-2026/': '/de/grenzgaenger-ratgeber/',
+ '/de/steuern-und-rente/': '/de/grenzgaenger-besteuerung-leitfaden-2026/',
+ '/de/tessin-arbeitsmarkt/': '/de/jobs-im-tessin/',
+ // EN old slugs
+ '/en/compare-services/': '/en/service-comparison/',
+ '/en/cross-border-guide/new-frontalieri-law-2026/': '/en/new-cross-border-agreement-2026/',
+ '/en/frontier-articles': '/en/cross-border-articles/',
+ '/en/frontier-guide': '/en/cross-border-guide/',
+ '/en/glossary': '/en/cross-border-glossary/',
+ '/en/guide/new-cross-border-law-2026/': '/en/new-cross-border-agreement-2026/',
+ '/en/guide/permit-g/': '/en/cross-border-guide/compare-permit-g-vs-b/',
+ // FR old slugs
+ '/fr/comparer-services/': '/fr/comparaison-services/',
+ '/fr/guide-frontalier/nouvelle-loi-frontaliers-2026/': '/fr/guide-frontalier/',
+ '/fr/guide/nouvelle-loi-frontalier-2026/': '/fr/guide-frontalier/',
+ '/fr/guide/permis-g/': '/fr/guide-frontalier/comparer-permis-g-vs-b/',
+ '/fr/primes-assurance-maladie-communes/ticino/': '/fr/statistiques/primes-assurance-maladie-communes/',
+
  // Job slugs migrated from German to Italian
  '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni/',
  '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni/',
