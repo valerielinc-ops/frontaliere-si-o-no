@@ -7119,4 +7119,11 @@ export const ARTICLES = [
  image: '/images/blog/vacanze-estive-2026-costi-guerra.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'irb-bellinzona-valore-aggiunto-ticino',
+ category: 'novita',
+ date: '2026-04-25T10:19:42.868Z',
+ image: '/images/blog/irb-bellinzona-valore-aggiunto-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

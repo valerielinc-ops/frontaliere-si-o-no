@@ -2136,6 +2136,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-ticino-2026-piu-difficile': { name: 'Mercato immobiliare', path: '/articoli-frontaliere/casa-ticino-2026-piu-difficile', parent: 'blog' },
     'blog-sicurezza-frontalieri-ticino-2024': { name: 'Sicurezza', path: '/articoli-frontaliere/sicurezza-frontalieri-ticino-2024', parent: 'blog' },
     'blog-vacanze-estive-2026-costi-guerra': { name: 'Vacanze estive', path: '/articoli-frontaliere/vacanze-estive-2026-costi-guerra', parent: 'blog' },
+    'blog-irb-bellinzona-valore-aggiunto-ticino': { name: 'IRB Bellinzona', path: '/articoli-frontaliere/irb-bellinzona-valore-aggiunto-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

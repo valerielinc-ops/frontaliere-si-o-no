@@ -2628,6 +2628,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vacanze-estive-2026-costi-guerra.title': 'Sommerurlaub 2026: Kosten steigen aufgrund des Krieges, aber einige Ziele werden günstiger',
     'blog.article.vacanze-estive-2026-costi-guerra.excerpt': 'Eine Analyse von HolidayCheck zeigt, dass die Preise für Sommerurlaube im Vergleich zum letzten Jahr um 10-20% höher sind, aber einige Ziele verzeichnen Rückgänge.',
     'blog.article.vacanze-estive-2026-costi-guerra.imageAlt': 'Blick auf den Luganersee mit einer Familie, die eine Bootsfahrt genießt, umgeben von der Schweizer-Italienischen Landschaft.',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.title': 'IRB Bellinzona: 25 Jahre biomedizinische Forschung und Mehrwert für den Tessin',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.excerpt': 'Das Istituto di Ricerca in Biomedicina in Bellinzona feiert 25 Jahre Aktivität mit 160 Mitarbeitenden und fast 1000 wissenschaftlichen Publikationen.',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.imageAlt': 'Luftaufnahme von Bellinzona mit der Burg Castelgrande im Vordergrund',
 };
 
 export default blogMetaDe;

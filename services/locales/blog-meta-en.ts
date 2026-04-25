@@ -2628,6 +2628,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vacanze-estive-2026-costi-guerra.title': 'Summer holidays 2026: costs rise due to war, but some destinations become cheaper',
     'blog.article.vacanze-estive-2026-costi-guerra.excerpt': 'A HolidayCheck analysis reveals that summer holiday prices are 10-20% higher than last year, but some destinations see drops.',
     'blog.article.vacanze-estive-2026-costi-guerra.imageAlt': 'View of Lake Lugano with a family enjoying a boat trip, surrounded by the Swiss-Italian landscape.',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.title': 'IRB Bellinzona: 25 years of biomedical research and added value for Ticino',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.excerpt': 'The Institute of Biomedicine Research in Bellinzona celebrates 25 years of activity with 160 employees and nearly 1000 scientific publications.',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.imageAlt': 'Aerial view of Bellinzona with Castelgrande castle in the foreground',
 };
 
 export default blogMetaEn;

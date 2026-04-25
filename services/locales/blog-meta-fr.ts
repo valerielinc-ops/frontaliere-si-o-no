@@ -2628,6 +2628,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vacanze-estive-2026-costi-guerra.title': 'Vacances d\'été 2026 : les coûts augmentent à cause de la guerre, mais certaines destinations deviennent plus économiques',
     'blog.article.vacanze-estive-2026-costi-guerra.excerpt': 'Une analyse de HolidayCheck révèle que les prix des vacances d\'été sont supérieurs de 10 à 20 % par rapport à l\'année dernière, mais certaines destinations enregistrent des baisses.',
     'blog.article.vacanze-estive-2026-costi-guerra.imageAlt': 'Vue du lac de Lugano avec une famille profitant d\'une excursion en bateau, entourée du paysage suisse-italien.',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.title': 'IRB Bellinzone : 25 ans de recherche biomédicale et valeur ajoutée pour le Tessin',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.excerpt': 'L\'Institut de Recherche en Biomedecine de Bellinzone célèbre 25 ans d\'activité avec 160 collaborateurs et près de 1000 publications scientifiques.',
+    'blog.article.irb-bellinzona-valore-aggiunto-ticino.imageAlt': 'Vue aérienne de Bellinzone avec le château de Castelgrande au premier plan',
 };
 
 export default blogMetaFr;

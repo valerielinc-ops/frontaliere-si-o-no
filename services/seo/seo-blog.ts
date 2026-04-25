@@ -12277,6 +12277,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-irb-bellinzona-valore-aggiunto-ticino': {
+    title: 'IRB Bellinzona: 25 anni di ricerca | Frontaliere Ticino',
+    description: 'L\'Istituto di Ricerca in Biomedicina di Bellinzona festeggia 25 anni di attività con 160 collaboratori e quasi 1000 pubblicazioni scientifiche. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, anni, ricerca, biomedica',
+    ogTitle: 'IRB Bellinzona: 25 anni di ricerca biomedica | Frontaliere',
+    ogDescription: 'L\'Istituto di Ricerca in Biomedicina di Bellinzona festeggia 25 anni di attività con 160 collaboratori e quasi 1000 pubblicazioni scientifiche.',
+    canonicalPath: '/articoli-frontaliere/irb-bellinzona-valore-aggiunto-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IRB Bellinzona: 25 anni di ricerca biomedica e valore aggiunto per il Ticino",
+      "description": "L'Istituto di Ricerca in Biomedicina di Bellinzona festeggia 25 anni di attività con 160 collaboratori e quasi 1000 pubblicazioni scientifiche. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/irb-bellinzona-valore-aggiunto-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con il Castello di Castelgrande in primo piano"
+      },
+      "datePublished": "2026-04-25T10:19:42+00:00",
+      "dateModified": "2026-04-25T10:19:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/irb-bellinzona-valore-aggiunto-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
