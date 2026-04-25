@@ -135,6 +135,23 @@ jobs:
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
 
+      - name: Cleanup stale job HTML (orphans from prior incremental builds)
+        # vite.config.ts uses emptyOutDir:false to preserve clarity assets
+        # and admin data, but that leaves orphan job HTML from prior builds
+        # on disk when a slug is renamed/removed. The title-uniqueness audit
+        # then flags those orphans as duplicates of the freshly-emitted
+        # canonical pages. Wipe the per-locale job-detail trees before build
+        # so jobsSeoPagesPlugin re-emits a clean set every run.
+        run: |
+          rm -rf dist/cerca-lavoro-ticino \
+                 dist/en/find-jobs-ticino \
+                 dist/de/jobs-im-tessin \
+                 dist/fr/trouver-emploi-tessin \
+                 dist/cerca-lavoro-ticino.html \
+                 dist/en/find-jobs-ticino.html \
+                 dist/de/jobs-im-tessin.html \
+                 dist/fr/trouver-emploi-tessin.html
+
       - name: Build
         run: npm run build:ci
 
