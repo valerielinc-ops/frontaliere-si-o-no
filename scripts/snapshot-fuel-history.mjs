@@ -22,6 +22,26 @@ const HISTORY_DIR = path.join(ROOT, 'data', 'fuel-prices-history');
 const RETENTION_DAYS = 90;
 
 const ZONES = ['chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno'];
+// Italian curated cities — must mirror FUEL_ITALIAN_CITIES in
+// build-plugins/fuelDailyData.ts. matchKey is the lowercase municipality
+// name as it appears in data/fuel-prices.json (`municipality` field).
+const ITALIAN_CITIES = [
+  { slug: 'como', matchKey: 'como' },
+  { slug: 'varese', matchKey: 'varese' },
+  { slug: 'luino', matchKey: 'luino' },
+  { slug: 'lavena-ponte-tresa', matchKey: 'lavena ponte tresa' },
+  { slug: 'gallarate', matchKey: 'gallarate' },
+  { slug: 'cantu', matchKey: 'cantù' },
+  { slug: 'saronno', matchKey: 'saronno' },
+  { slug: 'menaggio', matchKey: 'menaggio' },
+  { slug: 'porto-ceresio', matchKey: 'porto ceresio' },
+  { slug: 'lecco', matchKey: 'lecco' },
+  { slug: 'sondrio', matchKey: 'sondrio' },
+  { slug: 'tirano', matchKey: 'tirano' },
+  { slug: 'chiavenna', matchKey: 'chiavenna' },
+  { slug: 'morbegno', matchKey: 'morbegno' },
+  { slug: 'cernobbio', matchKey: 'cernobbio' },
+];
 // Legacy fallback: the TCS Firestore feed now exposes per-station DIESEL prices
 // directly (ingested by scripts/generate-fuel-prices-dataset.mjs → `dieselPriceChf`),
 // so the SP95+offset derivation is no longer the primary path. We keep the
@@ -98,6 +118,38 @@ function dieselCoverageStats(stations) {
   };
 }
 
+/**
+ * Compute per-curated-city average benzina price from the Italian station
+ * data. Dedupes by station id (each station appears twice: self + served)
+ * keeping the cheapest variant. Returns null when a city has no stations
+ * (e.g. Cernobbio). Only benzina is tracked — MIMIT diesel ingestion is
+ * not yet wired into generate-fuel-prices-dataset.mjs.
+ */
+function computeItalianCityAverages(dataset) {
+  const out = {};
+  for (const city of ITALIAN_CITIES) {
+    const seen = new Map();
+    for (const row of dataset?.municipalities ?? []) {
+      const muniKey = String(row?.municipality || '').toLowerCase();
+      if (muniKey !== city.matchKey) continue;
+      const stations = row?.italy?.stations ?? [];
+      for (const s of stations) {
+        if (!s?.id || typeof s.priceEur !== 'number') continue;
+        const existing = seen.get(s.id);
+        if (!existing || existing > s.priceEur) {
+          seen.set(s.id, s.priceEur);
+        }
+      }
+    }
+    const prices = Array.from(seen.values());
+    out[city.slug] = {
+      benzina: mean(prices),
+      stationCount: prices.length,
+    };
+  }
+  return out;
+}
+
 function pruneOldSnapshots() {
   if (!fs.existsSync(HISTORY_DIR)) return 0;
   const cutoff = Date.now() - RETENTION_DAYS * 24 * 60 * 60 * 1000;
@@ -162,6 +214,9 @@ function main() {
       benzina: computeZoneAvg(stations, zone, 'benzina'),
     };
   }
+
+  // Italian per-city averages (benzina only — see comment on computeItalianCityAverages)
+  snapshot.italianCities = computeItalianCityAverages(dataset);
 
   const out = path.join(HISTORY_DIR, `${today}.json`);
   fs.writeFileSync(out, JSON.stringify(snapshot, null, 2), 'utf-8');

@@ -1,6 +1,6 @@
 {
   "date": "2026-04-25",
-  "generatedAt": "2026-04-25T06:09:41.604Z",
+  "generatedAt": "2026-04-25T19:56:22.118Z",
   "zones": {
     "chiasso": {
       "diesel": 2.176,
@@ -32,5 +32,67 @@
     "realCoveragePct": 92.9,
     "realStationCount": 91,
     "totalStationCount": 98
+  },
+  "italianCities": {
+    "como": {
+      "benzina": 1.726,
+      "stationCount": 16
+    },
+    "varese": {
+      "benzina": 1.73,
+      "stationCount": 26
+    },
+    "luino": {
+      "benzina": 1.699,
+      "stationCount": 1
+    },
+    "lavena-ponte-tresa": {
+      "benzina": null,
+      "stationCount": 0
+    },
+    "gallarate": {
+      "benzina": 1.722,
+      "stationCount": 21
+    },
+    "cantu": {
+      "benzina": 1.695,
+      "stationCount": 12
+    },
+    "saronno": {
+      "benzina": 1.734,
+      "stationCount": 15
+    },
+    "menaggio": {
+      "benzina": 1.769,
+      "stationCount": 1
+    },
+    "porto-ceresio": {
+      "benzina": null,
+      "stationCount": 0
+    },
+    "lecco": {
+      "benzina": null,
+      "stationCount": 0
+    },
+    "sondrio": {
+      "benzina": 1.744,
+      "stationCount": 8
+    },
+    "tirano": {
+      "benzina": 1.749,
+      "stationCount": 1
+    },
+    "chiavenna": {
+      "benzina": 1.738,
+      "stationCount": 3
+    },
+    "morbegno": {
+      "benzina": 1.717,
+      "stationCount": 2
+    },
+    "cernobbio": {
+      "benzina": null,
+      "stationCount": 0
+    }
   }
 }
