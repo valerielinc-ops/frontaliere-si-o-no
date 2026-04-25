@@ -1,18 +1,48 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-04-25T10:04:20.083Z",
+  "generatedAt": "2026-04-25T22:01:20.192Z",
   "total": 20,
   "newCount": 8,
   "updatedCount": 11,
   "removedCount": 9,
   "unchangedCount": 0,
-  "durationMs": 22963,
-  "avgDurationMs": 22963,
+  "durationMs": 27119,
+  "avgDurationMs": 27119,
   "durationHistory": [
-    22963
+    27119
   ],
   "newJobs": [
+    {
+      "title": "Data Engineer",
+      "slug": "data-engineer-relewant-chiasso",
+      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019563041/Data-Engineer",
+      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019563041/Data-Engineer/apply",
+      "company": "ReleWant",
+      "companyKey": "relewant",
+      "companyDomain": "zohorecruit.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "technology",
+      "sector": "Consulenza IT",
+      "source": "relewant-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-25",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Java Fullstack Devops",
       "slug": "java-fullstack-devops-relewant-chiasso",
@@ -99,36 +129,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Data Engineer",
-      "slug": "data-engineer-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019563041/Data-Engineer",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019563041/Data-Engineer/apply",
-      "company": "ReleWant",
-      "companyKey": "relewant",
-      "companyDomain": "zohorecruit.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technology",
-      "sector": "Consulenza IT",
-      "source": "relewant-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 16,
         "completeness": 14
       }
