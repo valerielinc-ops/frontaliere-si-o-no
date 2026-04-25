@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-04-25T09:36:33.862Z",
+  "assembledAt": "2026-04-25T21:33:30.983Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-technique-en-informatique-et-administration-systeme-80-100-***-technical-associate-in-it-and-system-administration-80-100-214289",
@@ -155,7 +155,8 @@
       },
       "previousSlugs": [
         "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
@@ -220,7 +221,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T21:50:34.429Z"
+      "firstSeenAt": "2026-04-13T21:50:34.429Z",
+      "needsRetranslation": true
     }
   ]
 }
