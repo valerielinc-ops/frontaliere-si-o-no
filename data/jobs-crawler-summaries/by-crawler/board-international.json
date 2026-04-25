@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-04-24T21:09:12.785Z",
+  "generatedAt": "2026-04-25T09:00:47.491Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2065,
-  "avgDurationMs": 2065,
+  "durationMs": 1459,
+  "avgDurationMs": 1459,
   "durationHistory": [
-    2065
+    1459
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -217,10 +217,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-24",
+      "postedDate": "2026-04-25",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-04-24",
+      "validThrough": "2026-04-25",
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -274,44 +274,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "UX Designer",
-      "slug": "progettista-di-esperienza-utente-board-international-chiasso-ticino-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/VAUNIdK4v9/UX-Designer",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/VAUNIdK4v9/UX-Designer",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Ticino, Switzerland",
-      "addressLocality": "Chiasso, Ticino, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-09",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-07",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 11",
-      "postalCode": "6982",
-      "id": "board-international-f05c1c160096",
-      "firstSeenAt": "2026-04-13T21:14:48.639Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
