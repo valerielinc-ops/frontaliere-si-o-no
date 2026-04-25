@@ -6026,9 +6026,16 @@ ${hreflangLinks}
   : slugTail
    ? ` (${esc(slugTail)})`
    : '';
+ // Expired jobs from different source slugs (e.g. afc vs cfp variants of the
+ // same role+city) produce identical titles after the city-only suffix —
+ // Semrush flags this as a title-uniqueness violation. Append a stable
+ // slug-hash so every expired soft-landing page gets a unique <title>.
+ // The disambiguator is shared with the active-job builder via
+ // buildTitleDisambiguator so format and length budget match.
+ const expiredDisambiguator = buildTitleDisambiguator(slug);
  const pageTitle = hasRealTitle
- ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${uniqueSuffix} | Frontaliere Ticino`
- : `${esc(copy.title)}${uniqueSuffix} | Frontaliere Ticino`;
+ ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`
+ : `${esc(copy.title)}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`;
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
