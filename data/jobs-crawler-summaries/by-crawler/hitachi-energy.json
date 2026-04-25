@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-04-25T09:37:44.369Z",
+  "generatedAt": "2026-04-25T21:34:59.860Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 41865,
-  "avgDurationMs": 41865,
+  "unchangedCount": 0,
+  "durationMs": 55292,
+  "avgDurationMs": 55292,
   "durationHistory": [
-    41865
+    55292
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,8 +43,8 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-23T10:15:19.505Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,10 +200,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Environmental and Employee Health & Safety Specialist 80 – 100% (f/m/d)",
       "slug": "environmental-and-employee-health-safety-specialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
@@ -270,8 +267,8 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-24T21:46:20.454Z",
+      "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -280,5 +277,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
