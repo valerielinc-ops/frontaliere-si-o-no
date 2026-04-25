@@ -2664,6 +2664,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.marketing-territoriale-varese-35000-euro.title': 'Varese receives 35,000 euros to enhance its attractions',
     'blog.article.marketing-territoriale-varese-35000-euro.excerpt': 'Lombardy Region funds territorial marketing: Varese obtains 35,000 euros to promote its cultural and tourist excellences.',
     'blog.article.marketing-territoriale-varese-35000-euro.imageAlt': 'Aerial view of Varese with Lake Varese in the background, showcasing the city\'s natural beauty and urban landscape.',
+    'blog.article.nuova-tassa-frontalieri-2026.title': 'New tax for cross-border workers: 3% more to fund doctors\' salaries',
+    'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'From September 2026, cross-border workers in Lombardy will pay a 3% tax to fund salary increases for doctors and nurses',
+    'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

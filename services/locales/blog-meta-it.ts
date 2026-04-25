@@ -2664,6 +2664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.marketing-territoriale-varese-35000-euro.title': 'Varese riceve 35.000 euro per valorizzare le sue bellezze',
     'blog.article.marketing-territoriale-varese-35000-euro.excerpt': 'Regione Lombardia finanzia il marketing territoriale: Varese ottiene 35.000 euro per promuovere le sue eccellenze culturali e turistiche.',
     'blog.article.marketing-territoriale-varese-35000-euro.imageAlt': 'Veduta aerea di Varese con il Lago di Varese sullo sfondo, che mostra la bellezza naturale e il paesaggio urbano della città.',
+    'blog.article.nuova-tassa-frontalieri-2026.title': 'Nuova tassa sui frontalieri: 3% in più per finanziare gli stipendi dei medici',
+    'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'Dal settembre 2026, i frontalieri in Lombardia pagheranno una tassa del 3% per finanziare aumenti salariali per medici e infermieri',
+    'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

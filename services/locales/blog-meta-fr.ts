@@ -2664,6 +2664,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.marketing-territoriale-varese-35000-euro.title': 'Varèse reçoit 35.000 euros pour valoriser ses beautés',
     'blog.article.marketing-territoriale-varese-35000-euro.excerpt': 'La région Lombardie finance le marketing territorial : Varèse obtient 35.000 euros pour promouvoir ses excellences culturelles et touristiques.',
     'blog.article.marketing-territoriale-varese-35000-euro.imageAlt': 'Vue aérienne de Varese avec le lac de Varese en arrière-plan, mettant en valeur la beauté naturelle et le paysage urbain de la ville.',
+    'blog.article.nuova-tassa-frontalieri-2026.title': 'Nouvelle taxe pour les frontaliers : 3 % de plus pour financer les salaires des médecins',
+    'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'À partir de septembre 2026, les frontaliers en Lombardie paieront une taxe de 3 % pour financer les augmentations salariales des médecins et des infirmiers',
+    'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

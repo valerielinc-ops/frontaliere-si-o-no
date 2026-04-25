@@ -7203,4 +7203,11 @@ export const ARTICLES = [
  image: '/images/blog/marketing-territoriale-varese-35000-euro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuova-tassa-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-04-25T21:54:02.334Z',
+ image: '/images/blog/nuova-tassa-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
