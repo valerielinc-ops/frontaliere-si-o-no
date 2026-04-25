@@ -2147,6 +2147,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-miliardari-dubai-svizzera-lugano': { name: 'Novità', path: '/articoli-frontaliere/miliardari-dubai-svizzera-lugano', parent: 'blog' },
     'blog-crans-montana-spese-cura-italiani-ufas-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-spese-cura-italiani-ufas-2026', parent: 'blog' },
     'blog-alleanza-clima-ticino-comuni': { name: 'Alleanza clima', path: '/articoli-frontaliere/alleanza-clima-ticino-comuni', parent: 'blog' },
+    'blog-marketing-territoriale-varese-35000-euro': { name: 'Marketing Territoriale', path: '/articoli-frontaliere/marketing-territoriale-varese-35000-euro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

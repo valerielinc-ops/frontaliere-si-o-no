@@ -7196,4 +7196,11 @@ export const ARTICLES = [
  image: '/images/blog/alleanza-clima-ticino-comuni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'marketing-territoriale-varese-35000-euro',
+ category: 'novita',
+ date: '2026-04-25T21:14:03.044Z',
+ image: '/images/blog/marketing-territoriale-varese-35000-euro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

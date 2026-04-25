@@ -2661,6 +2661,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.alleanza-clima-ticino-comuni.title': 'Canton and Municipalities United Against Climate Change',
     'blog.article.alleanza-clima-ticino-comuni.excerpt': 'Symposium between Canton and Municipalities to address climate change. Gobbi: \'The 2023 flood in Vallemaggia demonstrated the need to act in advance\'',
     'blog.article.alleanza-clima-ticino-comuni.imageAlt': 'Lake Lugano with mountains in the background, blue sky',
+    'blog.article.marketing-territoriale-varese-35000-euro.title': 'Varese receives 35,000 euros to enhance its attractions',
+    'blog.article.marketing-territoriale-varese-35000-euro.excerpt': 'Lombardy Region funds territorial marketing: Varese obtains 35,000 euros to promote its cultural and tourist excellences.',
+    'blog.article.marketing-territoriale-varese-35000-euro.imageAlt': 'Aerial view of Varese with Lake Varese in the background, showcasing the city\'s natural beauty and urban landscape.',
 };
 
 export default blogMetaEn;

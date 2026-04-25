@@ -2661,6 +2661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.alleanza-clima-ticino-comuni.title': 'Cantone e Comuni uniti contro i cambiamenti climatici',
     'blog.article.alleanza-clima-ticino-comuni.excerpt': 'Simposio tra Cantone e Comuni per affrontare i cambiamenti climatici. Gobbi: \'L\'alluvione in Vallemaggia del 2023 ha dimostrato la necessità di agire con anticipo\'',
     'blog.article.alleanza-clima-ticino-comuni.imageAlt': 'Lago di Lugano con montagne sullo sfondo, cielo azzurro',
+    'blog.article.marketing-territoriale-varese-35000-euro.title': 'Varese riceve 35.000 euro per valorizzare le sue bellezze',
+    'blog.article.marketing-territoriale-varese-35000-euro.excerpt': 'Regione Lombardia finanzia il marketing territoriale: Varese ottiene 35.000 euro per promuovere le sue eccellenze culturali e turistiche.',
+    'blog.article.marketing-territoriale-varese-35000-euro.imageAlt': 'Veduta aerea di Varese con il Lago di Varese sullo sfondo, che mostra la bellezza naturale e il paesaggio urbano della città.',
 };
 
 export default blogMetaIt;

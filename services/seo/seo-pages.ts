@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 934,
+ "numberOfItems": 935,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5652,7 +5652,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 931, "name": "Spese di cura frontalieri: UFAS chiarisce la pr...", "url": `${BASE_URL}/articoli-frontaliere/spese-cura-frontalieri-ufas-2026` },
           { "@type": "ListItem", "position": 932, "name": "Miliardari da Dubai alla Svizzera: Lugano nel m...", "url": `${BASE_URL}/articoli-frontaliere/miliardari-dubai-svizzera-lugano` },
           { "@type": "ListItem", "position": 933, "name": "Crans-Montana: UFAS chiarisce le spese di cura ...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-spese-cura-italiani-ufas-2026` },
-          { "@type": "ListItem", "position": 934, "name": "Alleanza tra Cantone e Comuni per affrontare i ...", "url": `${BASE_URL}/articoli-frontaliere/alleanza-clima-ticino-comuni` }
+          { "@type": "ListItem", "position": 934, "name": "Alleanza tra Cantone e Comuni per affrontare i ...", "url": `${BASE_URL}/articoli-frontaliere/alleanza-clima-ticino-comuni` },
+          { "@type": "ListItem", "position": 935, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/marketing-territoriale-varese-35000-euro` }
  ]
  },
  {

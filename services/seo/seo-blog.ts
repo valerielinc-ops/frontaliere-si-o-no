@@ -12596,6 +12596,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-marketing-territoriale-varese-35000-euro': {
+    title: 'Varese riceve 35.000 euro per | Frontaliere Ticino',
+    description: 'Regione Lombardia finanzia il marketing territoriale: Varese ottiene 35.000 euro per promuovere le sue eccellenze culturali e turistiche. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, riceve, euro, valorizzare',
+    ogTitle: 'Varese riceve 35.000 euro per valorizzare le sue bellezze |',
+    ogDescription: 'Regione Lombardia finanzia il marketing territoriale: Varese ottiene 35.000 euro per promuovere le sue eccellenze culturali e turistiche.',
+    canonicalPath: '/articoli-frontaliere/marketing-territoriale-varese-35000-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Varese riceve 35.000 euro per",
+      "description": "Regione Lombardia finanzia il marketing territoriale: Varese ottiene 35.000 euro per promuovere le sue eccellenze culturali e turistiche. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/marketing-territoriale-varese-35000-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Varese con il Lago di Varese sullo sfondo, che mostra la bellezza naturale e il paesaggio urbano della città."
+      },
+      "datePublished": "2026-04-25T21:14:03+00:00",
+      "dateModified": "2026-04-25T21:14:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/marketing-territoriale-varese-35000-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
