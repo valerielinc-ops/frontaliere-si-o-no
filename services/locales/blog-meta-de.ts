@@ -2652,6 +2652,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spese-cura-frontalieri-ufas-2026.title': 'Kosten für Grenzgänger: UFAS klärt das Verfahren',
     'blog.article.spese-cura-frontalieri-ufas-2026.excerpt': 'Das Bundesamt für Sozialversicherungen erklärt, wie die medizinischen Kosten für verletzte italienische Grenzgänger in der Schweiz abgewickelt werden.',
     'blog.article.spese-cura-frontalieri-ufas-2026.imageAlt': 'Krankenhaus Lugano mit Blick auf den Luganersee',
+    'blog.article.miliardari-dubai-svizzera-lugano.title': 'Milliardäre von Dubai in die Schweiz: Lugano im Visier',
+    'blog.article.miliardari-dubai-svizzera-lugano.excerpt': 'Die geopolitische Unsicherheit veranlasst Milliardäre aus Dubai, in die Schweiz umzusiedeln, wobei Lugano das bevorzugte Ziel ist. Dutzende Milliarden sind im Anmarsch.',
+    'blog.article.miliardari-dubai-svizzera-lugano.imageAlt': 'Lugano Skyline mit Monte Brè und Lago Ceresio',
 };
 
 export default blogMetaDe;

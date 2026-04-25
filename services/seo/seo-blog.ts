@@ -12509,6 +12509,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-miliardari-dubai-svizzera-lugano': {
+    title: 'Miliardari da Dubai alla Svizzera | Frontaliere Ticino',
+    description: 'L\'incertezza geopolitica spinge i miliardari di Dubai a trasferirsi in Svizzera, con Lugano come meta preferita. Decine di miliardi in arrivo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, miliardari, dubai, alla, lugano',
+    ogTitle: 'Miliardari da Dubai alla Svizzera: Lugano nel mirino',
+    ogDescription: 'L\'incertezza geopolitica spinge i miliardari di Dubai a trasferirsi in Svizzera, con Lugano come meta preferita. Decine di miliardi in arrivo.',
+    canonicalPath: '/articoli-frontaliere/miliardari-dubai-svizzera-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Miliardari da Dubai alla Svizzera: Lugano nel mirino",
+      "description": "L'incertezza geopolitica spinge i miliardari di Dubai a trasferirsi in Svizzera, con Lugano come meta preferita. Decine di miliardi in arrivo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/miliardari-dubai-svizzera-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il Monte Brè e il Lago Ceresio"
+      },
+      "datePublished": "2026-04-25T18:00:44+00:00",
+      "dateModified": "2026-04-25T18:00:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/miliardari-dubai-svizzera-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

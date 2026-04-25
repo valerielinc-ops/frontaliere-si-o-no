@@ -7175,4 +7175,11 @@ export const ARTICLES = [
  image: '/images/blog/spese-cura-frontalieri-ufas-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'miliardari-dubai-svizzera-lugano',
+ category: 'novita',
+ date: '2026-04-25T18:00:44.404Z',
+ image: '/images/blog/miliardari-dubai-svizzera-lugano.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2652,6 +2652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spese-cura-frontalieri-ufas-2026.title': 'Spese di cura per frontalieri: UFAS chiarisce la procedura',
     'blog.article.spese-cura-frontalieri-ufas-2026.excerpt': 'L\'Ufficio federale delle assicurazioni sociali spiega come vengono gestite le spese mediche per i frontalieri italiani infortunati in Svizzera.',
     'blog.article.spese-cura-frontalieri-ufas-2026.imageAlt': 'Ospedale di Lugano con vista sul Lago di Lugano',
+    'blog.article.miliardari-dubai-svizzera-lugano.title': 'Miliardari da Dubai alla Svizzera: Lugano nel mirino',
+    'blog.article.miliardari-dubai-svizzera-lugano.excerpt': 'L\'incertezza geopolitica spinge i miliardari di Dubai a trasferirsi in Svizzera, con Lugano come meta preferita. Decine di miliardi in arrivo.',
+    'blog.article.miliardari-dubai-svizzera-lugano.imageAlt': 'Panorama di Lugano con il Monte Brè e il Lago Ceresio',
 };
 
 export default blogMetaIt;
