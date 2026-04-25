@@ -907,10 +907,10 @@
     },
     {
       "id": "fusalp-1ed3048f3ae2",
-      "slug": "stagiaire-presse-influence-social-media-fusalp-paris",
+      "slug": "tirocinante-stampa-influenza-social-media-fusalp-paris",
       "slugByLocale": {
         "fr": "stagiaire-presse-influence-social-media-fusalp-paris",
-        "it": "stagiaire-presse-influence-social-media-fusalp-paris",
+        "it": "tirocinante-stampa-influenza-social-media-fusalp-paris",
         "en": "stagiaire-presse-influence-social-media-fusalp-paris",
         "de": "stagiaire-presse-influence-social-media-fusalp-paris"
       },
@@ -967,7 +967,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-24T21:37:40.453Z"
+      "firstSeenAt": "2026-04-24T21:37:40.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-presse-influence-social-media-fusalp-paris"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-presse-influence-social-media-fusalp-paris"
+      ]
     }
   ]
 }
