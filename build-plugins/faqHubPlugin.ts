@@ -215,6 +215,32 @@ function mdLinks(s: string): string {
   );
 }
 
+/**
+ * Condense a long FAQ answer into a SERP-friendly snippet for the JSON-LD
+ * `acceptedAnswer.text` field. The full answer remains visible in the HTML
+ * body (`<article>`), so users get the complete content; the schema only
+ * needs a representative summary that Google can show in rich results.
+ *
+ * Cuts at a sentence boundary if one sits past 60% of the soft cap; falls
+ * back to a word-boundary truncation with an ellipsis. Pure function — no
+ * mutation of the input string.
+ */
+function truncateForSchema(text: string, maxChars = 280): string {
+  if (text.length <= maxChars) return text;
+  const slice = text.slice(0, maxChars);
+  const lastSentence = Math.max(
+    slice.lastIndexOf('. '),
+    slice.lastIndexOf('! '),
+    slice.lastIndexOf('? '),
+  );
+  if (lastSentence > maxChars * 0.6) {
+    return slice.slice(0, lastSentence + 1);
+  }
+  const lastSpace = slice.lastIndexOf(' ');
+  const safe = lastSpace > 0 ? slice.slice(0, lastSpace) : slice;
+  return `${safe}…`;
+}
+
 function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
   const q = entry.question[locale];
   const a = entry.answer[locale];
@@ -359,7 +385,13 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
         '@type': 'Answer',
         // Strip markdown link syntax for the JSON-LD answer text — Google
         // parsers prefer plain text, and links are present in HTML body.
-        text: e.answer[locale].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        // Truncate to a concise summary (~280 chars at sentence boundary)
+        // to keep the page HTML under the 200 KB budget. The full answer
+        // (80-180 words) remains in the rendered HTML body, so visible
+        // content is unchanged — only the schema snippet is condensed.
+        text: truncateForSchema(
+          e.answer[locale].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        ),
       },
     })),
   });
