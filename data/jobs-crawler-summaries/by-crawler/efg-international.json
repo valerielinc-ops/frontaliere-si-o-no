@@ -1,19 +1,73 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-24T21:31:05.757Z",
+  "generatedAt": "2026-04-25T09:22:36.992Z",
   "total": 45,
   "newCount": 0,
   "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 22,
-  "durationMs": 33563,
-  "avgDurationMs": 33563,
+  "durationMs": 27108,
+  "avgDurationMs": 27108,
   "durationHistory": [
-    33563
+    27108
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "efg-6237",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
+      "source": "Oracle HCM API",
+      "sourceLang": "it",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-04-25T09:22:34.685Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-10",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "efg-6203",
       "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
@@ -47,7 +101,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.292Z",
+      "crawledAt": "2026-04-25T09:22:34.685Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -101,7 +155,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.291Z",
+      "crawledAt": "2026-04-25T09:22:34.684Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -202,7 +256,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.289Z",
+      "crawledAt": "2026-04-25T09:22:34.682Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -319,7 +373,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.288Z",
+      "crawledAt": "2026-04-25T09:22:34.681Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -397,7 +451,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.286Z",
+      "crawledAt": "2026-04-25T09:22:34.679Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -451,7 +505,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.285Z",
+      "crawledAt": "2026-04-25T09:22:34.678Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -572,7 +626,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.283Z",
+      "crawledAt": "2026-04-25T09:22:34.677Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -627,7 +681,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-24T21:31:03.279Z",
+      "crawledAt": "2026-04-25T09:22:34.674Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -642,60 +696,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6237",
-      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
-      "source": "Oracle HCM API",
-      "sourceLang": "it",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-04-24T21:31:03.277Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-10",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1609,7 +1609,7 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.299Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 1,
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2045,7 +2045,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.321Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2213,7 +2212,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.319Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2268,7 +2266,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.318Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2323,7 +2320,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.318Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2378,7 +2374,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.317Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2470,7 +2465,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.317Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2573,7 +2567,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.315Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2628,7 +2621,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.314Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2683,7 +2675,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.312Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2788,7 +2779,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.310Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2915,7 +2905,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.305Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2984,7 +2973,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.303Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3077,7 +3065,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.302Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3170,7 +3157,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.301Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3225,7 +3211,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.300Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3280,7 +3265,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.298Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3350,7 +3334,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.296Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3405,7 +3388,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.295Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3492,7 +3474,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.293Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3547,7 +3528,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.288Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3602,7 +3582,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-17T21:26:44.287Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
