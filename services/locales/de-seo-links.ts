@@ -8,6 +8,8 @@ const deSeoLinks: Record<string, string> = {
   'seoLinks.footer.jobMarket': 'Tessiner Arbeitsmarkt',
   'seoLinks.footer.healthPremiums': 'Krankenkassenprämien',
   'seoLinks.footer.newYesterday': 'Neue Stellen seit gestern',
+  'seoLinks.footer.gasolineToday': 'Benzinpreis heute',
+  'seoLinks.footer.healthPremiumsByCommune': 'Krankenkassenprämien pro Gemeinde',
 
   // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Arbeitgeber, die diese Woche einstellen',

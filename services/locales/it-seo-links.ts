@@ -14,6 +14,8 @@ const translations: Record<string, string> = {
   'seoLinks.footer.jobMarket': 'Mercato lavoro Ticino',
   'seoLinks.footer.healthPremiums': 'Premi cassa malati',
   'seoLinks.footer.newYesterday': 'Nuove offerte da ieri',
+  'seoLinks.footer.gasolineToday': 'Prezzo benzina oggi',
+  'seoLinks.footer.healthPremiumsByCommune': 'Premi malattia per comune',
 
   // Footer weekly-employers teaser (closes 4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Aziende che assumono questa settimana',

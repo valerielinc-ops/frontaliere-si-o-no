@@ -8,6 +8,8 @@ const enSeoLinks: Record<string, string> = {
   'seoLinks.footer.jobMarket': 'Ticino job market',
   'seoLinks.footer.healthPremiums': 'Health-insurance premiums',
   'seoLinks.footer.newYesterday': 'New jobs since yesterday',
+  'seoLinks.footer.gasolineToday': "Today's gasoline price",
+  'seoLinks.footer.healthPremiumsByCommune': 'Health premiums by commune',
 
   // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Companies hiring this week',

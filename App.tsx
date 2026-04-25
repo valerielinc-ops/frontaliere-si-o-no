@@ -2471,6 +2471,31 @@ const App: React.FC = () => {
  </a>
  </li>
  )}
+ {/* Depth-cleanup — additional canonical hubs from the same SEO families,
+   so Semrush no longer flags >3-click-deep crawl. F6 gasoline (alt to
+   diesel above), F2 per-comune premiums alt-hub. */}
+ {!killSwitches.fuelDaily && (
+ <li>
+ <a
+ href={buildFuelTodayPath(locale, 'benzina')}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-warning transition-colors no-underline"
+ >
+ <Fuel className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.gasolineToday')}
+ </a>
+ </li>
+ )}
+ {!killSwitches.healthPremiums && (
+ <li>
+ <a
+ href={buildPath({ activeTab: 'stats', statsSubTab: 'health-premiums' })}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-success transition-colors no-underline"
+ >
+ <Heart className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.healthPremiumsByCommune')}
+ </a>
+ </li>
+ )}
  </ul>
  </nav>
  {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}

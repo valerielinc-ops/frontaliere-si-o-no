@@ -8,6 +8,8 @@ const frSeoLinks: Record<string, string> = {
   'seoLinks.footer.jobMarket': 'Marché du travail Tessin',
   'seoLinks.footer.healthPremiums': 'Primes assurance-maladie',
   'seoLinks.footer.newYesterday': 'Nouvelles offres depuis hier',
+  'seoLinks.footer.gasolineToday': 'Prix de l\'essence aujourd\'hui',
+  'seoLinks.footer.healthPremiumsByCommune': 'Primes maladie par commune',
 
   // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Entreprises qui recrutent cette semaine',
