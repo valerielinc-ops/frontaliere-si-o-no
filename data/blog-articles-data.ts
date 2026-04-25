@@ -7189,4 +7189,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-spese-cura-italiani-ufas-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'alleanza-clima-ticino-comuni',
+ category: 'novita',
+ date: '2026-04-25T20:04:38.146Z',
+ image: '/images/blog/alleanza-clima-ticino-comuni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

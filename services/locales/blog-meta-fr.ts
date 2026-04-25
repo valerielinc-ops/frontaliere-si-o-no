@@ -2658,6 +2658,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-spese-cura-italiani-ufas-2026.title': 'Crans-Montana : L\'UFAS clarifie les dépenses de soins pour les patients italiens',
     'blog.article.crans-montana-spese-cura-italiani-ufas-2026.excerpt': 'L\'Office fédéral des assurances sociales explique la procédure pour le remboursement des frais médicaux des patients italiens blessés en Suisse.',
     'blog.article.crans-montana-spese-cura-italiani-ufas-2026.imageAlt': 'Hôpital de Crans-Montana avec vue sur les Alpes',
+    'blog.article.alleanza-clima-ticino-comuni.title': 'Canton et communes unis contre les changements climatiques',
+    'blog.article.alleanza-clima-ticino-comuni.excerpt': 'Symposium entre le Canton et les communes pour aborder les changements climatiques. Gobbi : \'L\'inondation en Vallemaggia en 2023 a démontré la nécessité d\'agir à l\'avance\'',
+    'blog.article.alleanza-clima-ticino-comuni.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan, ciel bleu',
 };
 
 export default blogMetaFr;

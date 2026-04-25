@@ -2658,6 +2658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-spese-cura-italiani-ufas-2026.title': 'Crans-Montana: UFAS chiarisce le spese di cura per i pazienti italiani',
     'blog.article.crans-montana-spese-cura-italiani-ufas-2026.excerpt': 'L\'Ufficio federale delle assicurazioni sociali spiega la procedura per il rimborso delle spese mediche dei pazienti italiani infortunati in Svizzera.',
     'blog.article.crans-montana-spese-cura-italiani-ufas-2026.imageAlt': 'Ospedale di Crans-Montana con vista sulle Alpi',
+    'blog.article.alleanza-clima-ticino-comuni.title': 'Cantone e Comuni uniti contro i cambiamenti climatici',
+    'blog.article.alleanza-clima-ticino-comuni.excerpt': 'Simposio tra Cantone e Comuni per affrontare i cambiamenti climatici. Gobbi: \'L\'alluvione in Vallemaggia del 2023 ha dimostrato la necessità di agire con anticipo\'',
+    'blog.article.alleanza-clima-ticino-comuni.imageAlt': 'Lago di Lugano con montagne sullo sfondo, cielo azzurro',
 };
 
 export default blogMetaIt;
