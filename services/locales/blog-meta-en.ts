@@ -2637,6 +2637,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Confederation and Cantons Renegotiate Responsibilities: What Changes for Cross-Border Workers',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'The Project Dissociation 27 proposes changes in 14 sectors, including transport and training. Here are the implications for those working in Ticino.',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Meeting between Confederation and Cantons in Bellinzona',
+    'blog.article.asili-nido-bellinzona-asp-2026.title': 'Public daycare centers in Bellinzona: Asp supports the initiative',
+    'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'The Association for the defense of public services supports the initiative for more public daycare centers in Bellinzona, highlighting the importance of social equity and gender equality.',
+    'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Public daycare center in Bellinzona, with children playing and parents interacting with teachers.',
 };
 
 export default blogMetaEn;

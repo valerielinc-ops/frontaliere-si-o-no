@@ -2637,6 +2637,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Confederazione e Cantoni ridiscutono i compiti: cosa cambia per i frontalieri',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'Il progetto Dissociazione 27 propone modifiche in 14 settori, tra cui trasporti e formazione. Ecco le implicazioni per chi lavora in Ticino.',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Incontro tra Confederazione e Cantoni a Bellinzona',
+    'blog.article.asili-nido-bellinzona-asp-2026.title': 'Asili nido pubblici a Bellinzona: l\'Asp sostiene l\'iniziativa',
+    'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'L\'Associazione per la difesa del servizio pubblico sostiene l\'iniziativa per più asili nido pubblici a Bellinzona, evidenziando l\'importanza dell\'equità sociale e della parità di genere.',
+    'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Asilo nido pubblico a Bellinzona, con bambini che giocano e genitori che interagiscono con gli insegnanti.',
 };
 
 export default blogMetaIt;

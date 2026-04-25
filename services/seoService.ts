@@ -2139,6 +2139,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-irb-bellinzona-valore-aggiunto-ticino': { name: 'IRB Bellinzona', path: '/articoli-frontaliere/irb-bellinzona-valore-aggiunto-ticino', parent: 'blog' },
     'blog-incentivo-remigrazione-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino', parent: 'blog' },
     'blog-confederazione-cantoni-ridiscutono-compiti-2026': { name: 'Novità', path: '/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026', parent: 'blog' },
+    'blog-asili-nido-bellinzona-asp-2026': { name: 'Asili nido Bellinzona', path: '/articoli-frontaliere/asili-nido-bellinzona-asp-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

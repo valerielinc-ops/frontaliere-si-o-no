@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 926,
+ "numberOfItems": 927,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5644,7 +5644,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 923, "name": "Vacanze estive 2026: costi in aumento per la gu...", "url": `${BASE_URL}/articoli-frontaliere/vacanze-estive-2026-costi-guerra` },
           { "@type": "ListItem", "position": 924, "name": "IRB Bellinzona: 25 anni di ricerca biomedica e ...", "url": `${BASE_URL}/articoli-frontaliere/irb-bellinzona-valore-aggiunto-ticino` },
           { "@type": "ListItem", "position": 925, "name": "Incentivo alla remigrazione: cosa cambia per i ...", "url": `${BASE_URL}/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 926, "name": "Confederazione e Cantoni ridiscutono i compiti:...", "url": `${BASE_URL}/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026` }
+          { "@type": "ListItem", "position": 926, "name": "Confederazione e Cantoni ridiscutono i compiti:...", "url": `${BASE_URL}/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026` },
+          { "@type": "ListItem", "position": 927, "name": "Asili nido pubblici Bellinzona: l'Asp sostiene ...", "url": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-asp-2026` }
  ]
  },
  {

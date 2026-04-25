@@ -2637,6 +2637,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Confédération et cantons redéfinissent les tâches : qu\'est-ce qui change pour les frontaliers',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'Le projet Dissociation 27 propose des modifications dans 14 secteurs, dont les transports et la formation. Voici les implications pour ceux qui travaillent au Tessin.',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Réunion entre la Confédération et les Cantons à Bellinzona',
+    'blog.article.asili-nido-bellinzona-asp-2026.title': 'Crèches publiques à Bellinzone : l\'Asp soutient l\'initiative',
+    'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'L\'Association pour la défense du service public soutient l\'initiative pour plus de crèches publiques à Bellinzone, soulignant l\'importance de l\'équité sociale et de l\'égalité des genres.',
+    'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Crèche publique à Bellinzone, avec des enfants qui jouent et des parents qui interagissent avec les enseignants.',
 };
 
 export default blogMetaFr;

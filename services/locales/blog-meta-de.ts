@@ -2637,6 +2637,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Bund und Kantone überprüfen Aufgaben: Was ändert sich für Grenzgänger',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'Das Projekt Dissociation 27 schlägt Änderungen in 14 Bereichen vor, darunter Transport und Bildung. Hier sind die Auswirkungen für diejenigen, die im Tessin arbeiten.',
     'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Treffen zwischen Bund und Kantonen in Bellinzona',
+    'blog.article.asili-nido-bellinzona-asp-2026.title': 'Öffentliche Kindergärten in Bellinzona: Der Asp unterstützt die Initiative',
+    'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'Der Verein zur Verteidigung des öffentlichen Dienstes unterstützt die Initiative für mehr öffentliche Kindergärten in Bellinzona und hebt die Bedeutung der sozialen Gerechtigkeit und der Geschlechtergleichstellung hervor.',
+    'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Öffentlicher Kindergarten in Bellinzona, mit spielenden Kindern und Eltern, die mit den Lehrern interagieren.',
 };
 
 export default blogMetaDe;

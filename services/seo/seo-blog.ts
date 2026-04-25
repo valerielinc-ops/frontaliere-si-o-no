@@ -12364,6 +12364,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asili-nido-bellinzona-asp-2026': {
+    title: 'Asili nido pubblici a Bellinzona: l\'Asp | Frontaliere Ticino',
+    description: 'L\'Associazione per la difesa del servizio pubblico sostiene l\'iniziativa per più asili nido pubblici a Bellinzona, evidenziando l\'importanza dell\'equità sociale',
+    keywords: 'frontalieri, ticino, svizzera, italia, asili, nido, pubblici, bellinzona',
+    ogTitle: 'Asili nido pubblici Bellinzona: l\'Asp sostiene l\'iniziativa',
+    ogDescription: 'L\'Associazione per la difesa del servizio pubblico sostiene l\'iniziativa per più asili nido pubblici a Bellinzona, evidenziando l\'importanza dell\'equità sociale',
+    canonicalPath: '/articoli-frontaliere/asili-nido-bellinzona-asp-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asili nido pubblici Bellinzona: l'Asp sostiene l'iniziativa",
+      "description": "L'Associazione per la difesa del servizio pubblico sostiene l'iniziativa per più asili nido pubblici a Bellinzona, evidenziando l'importanza dell'equità sociale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asili-nido-bellinzona-asp-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido pubblico a Bellinzona, con bambini che giocano e genitori che interagiscono con gli insegnanti."
+      },
+      "datePublished": "2026-04-25T13:36:17+00:00",
+      "dateModified": "2026-04-25T13:36:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asili-nido-bellinzona-asp-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

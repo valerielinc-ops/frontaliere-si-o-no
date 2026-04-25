@@ -7140,4 +7140,11 @@ export const ARTICLES = [
  image: '/images/blog/confederazione-cantoni-ridiscutono-compiti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'asili-nido-bellinzona-asp-2026',
+ category: 'pratico',
+ date: '2026-04-25T13:36:17.345Z',
+ image: '/images/blog/asili-nido-bellinzona-asp-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
