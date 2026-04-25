@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-25T10:25:19.298Z",
+  "assembledAt": "2026-04-25T22:22:14.549Z",
   "jobs": [
     {
       "id": "company-hkdide",
@@ -85,8 +85,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "retranslationAttempts": 2
     },
     {
       "id": "company-v433d9",
@@ -175,7 +174,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
@@ -254,92 +254,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "company-84ss1r",
-      "slug": "professionista-specialista-in-rete-swiss-armed-forces-vtg-locarno",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Netzwerk Spezialist/-in Professional",
-      "location": "Locarno",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten Den ICT Betrieb an den zugewiesenen Standorten fachlich führen und koordinieren Einsatz-/Betriebsrichtlinien für Netzwerk-Einrichtungen und Lösungskonzepte zur Anpassung von Netzwerk-Anforderungen erarbeiten und sicherstellen sowie bei Richtlinien für die Evaluation und Installation von Netzwerk-Einrichtungen mitarbeiten Netzwerkkomponenten in umfangreichen, hochverfügbaren und komplexen Übermittlungs- und Kommunikationssystemen planen und installieren inkl. Führen der Inventar- und Dokumentationssysteme Netzwerk-Tests anhand der erstellten Konzepte durchführen sowie Sicherheitsvorkehrungen überprüfen und Massnahmen zur Verbesserung der Sicherheit analysieren Mittlere Betriebs- und Lifecycle-Projekte selbstständig führen und bei Grossprojekten mitarbeiten sowie unterstützen (z.B. Projektleitung beraten, Fachkoordination etc.) Das macht dich einzigartig Höhere Berufsbildung mit Fachrichtung im Bereich Informations- und Kommunikations-Technologien Ausgewiesene Erfahrung im Bereich Betrieb ICT-Infrastrukturen, von Vorteil mit vernetztem Fachwissen der Tätigkeitsgebiete ICT und technische Gebäudeausrüstung (TGA) Kenntnisse der Verkabelungssysteme nach aktuellem Stand der Technik inkl. der notwendigen Standards und Normen wie SIA, KBOB etc. Von Vorteil system-/herstellerbezogene Ausbildungen für den Betrieb und Unterhalt von Richtfunk- und NW-Systemen (WAN / LAN) Logisches und analytisches Denkvermögen, Eigenverantwortung, Belastbarkeit, gute körperliche Grundfitness sowie exakte Arbeitsweise Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Dein Einsatz für Sicherheit und Freiheit Das Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://jobs.admin.ch/offene-stellen/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Locarno",
-        "canton": "TI"
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-31T21:53:35.437Z",
-      "slugByLocale": {
-        "it": "professionista-specialista-in-rete-swiss-armed-forces-vtg-locarno",
-        "en": "network-specialist-swiss-armed-forces-vtg-locarno",
-        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-bellinzona",
-        "fr": "specialiste-des-reseaux-swiss-armed-forces-vtg-locarno"
-      },
-      "titleByLocale": {
-        "de": "Netzwerk Spezialist/-in Professional",
-        "it": "Netzwerk Spezialist/-in Professional",
-        "en": "Network Specialist",
-        "fr": "Spécialiste des réseaux"
-      },
-      "descriptionByLocale": {
-        "de": "Descrizione - Den ICT Betrieb an den zugewiesenen Standorten fachlich führen und koordinieren - Einsatz-/Betriebsrichtlinien für Netzwerk-Einrichtungen und Lösungskonzepte zur Anpassung von Netzwerk-Anforderungen erarbeiten und sicherstellen - Bei Richtlinien für die Evaluation und Installation von Netzwerk-Einrichtungen mitarbeiten - Netzwerkkomponenten in umfangreichen, hochverfügbaren und komplexen Übermittlungs- und Kommunikationssystemen planen und installieren inkl. Führen der Inventar- und Dokumentationssysteme - Netzwerk-Tests anhand der erstellten Konzepte durchführen sowie Sicherheitsvorkehrungen überprüfen und Massnahmen zur Verbesserung der Sicherheit analysieren - Mittlere Betriebs- und Lifecycle-Projekte selbstständig führen und bei Grossprojekten mitarbeiten sowie unterstützen (z.B. Projektleitung beraten, Fachkoordination etc.) ## Requisiti - Höhere Berufsbildung mit Fachrichtung im Bereich Informations- und Kommunikations-Technologien - Ausgewiesene Erfahrung im Bereich Betrieb ICT-Infrastrukturen - Von Vorteil mit vernetztem Fachwissen der Tätigkeitsgebiete ICT und technische Gebäudeausrüstung (TGA) - Kenntnisse der Verkabelungssysteme nach aktuellem Stand der Technik inkl. der notwendigen Standards und Normen wie SIA, KBOB etc. - Von Vorteil system-/herstellerbezogene Ausbildungen für den Betrieb und Unterhalt von Richtfunk- und NW-Systemen (WAN / LAN) - Logisches und analytisches Denkvermögen - Eigenverantwortung - Belastbarkeit - Gute körperliche Grundfitness - Exakte Arbeitsweise ## Cosa offriamo - Arbeiten für die Schweiz - Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung - Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein - Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit - Dein Einsatz für Sicherheit und Freiheit ## Contatto - Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz - Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz - Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit - Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "it": "Descrizione - Esegui e coordina il funzionamento del servizio ICT presso i siti assegnati - Sviluppa e garantisce le linee guida per l'impiego e le soluzioni per l'adattamento delle richieste di rete - Collabora con le linee guida per l'evaluazione e l'installazione delle apparecchiature di rete - Pianifica e installa componenti di rete in sistemi di trasmissione e comunicazione complessi e di alta disponibilità, compresi i sistemi di inventario e documentazione - Esegui test di rete in base ai concetti sviluppati e verifica le misure di sicurezza e analizza le misure per migliorare la sicurezza - Gestisci progetti di manutenzione e ciclo di vita di media dimensione in autonomia e collabora con i progetti di grandi dimensioni, fornendo supporto e consulenza (ad esempio, consulenza per la direzione dei progetti, coordinamento tecnico, ecc.) ## Requisiti - Laurea magistrale con specializzazione nel campo delle tecnologie dell'informazione e della comunicazione - Esperienza maturata nel settore del funzionamento delle infrastrutture ICT - Di vantaggio, conoscenze connesse alle attività di ICT e alle attrezzature tecniche degli edifici (TGA) - Conoscenze dei sistemi di cablaggio attuali, compresi i requisiti e le norme standard come SIA, KBOB, ecc. - Di vantaggio, formazioni specifiche per il funzionamento e la manutenzione dei sistemi di rete e di comunicazione (WAN / LAN) - Capacità di pensiero logico e analitico - Autonomia - Resistenza - Buona forma fisica - Precisione nel lavoro ## Cosa offriamo - Lavorare per la Svizzera - Ci impegniamo per il modello di successo della Svizzera e lavoriamo per il bene della popolazione - Diversità vissuta: grazie all'uguaglianza delle opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive - Salute al lavoro: supportiamo e consigliamo i nostri dipendenti nel settore della salute fisica e psichica - Il tuo impegno per la sicurezza e la libertà ## Contatto - Offriamo prestazioni di informatica sicure, robuste e resilienti per l'esercito svizzero e i nostri partner nel consorzio di sicurezza svizzero - Ciò consente al Kdo Cy dell'esercito svizzero di ottenere il necessario vantaggio di conoscenza e decisionale - per una Svizzera sicura - L'esercito svizzero occupa oltre 9.000 dipendenti in quattro carriere militari e circa 200 carriere civili - e ciò in 110 siti in tutta la Svizzera - Anche per il futuro è garantito: l'esercito svizzero forma oltre 30 carriere di apprendisti.",
-        "en": "Description - Manage and coordinate the operation of the ICT service at assigned sites - Develop and ensure guidelines for the use and solutions for adapting network requirements - Collaborate with guidelines for evaluating and installing network equipment - Plan and install network components in complex and high-availability transmission and communication systems, including inventory and documentation systems - Perform network tests based on developed concepts and verify security measures and analyze measures to improve security - Manage medium-sized maintenance and lifecycle projects independently and collaborate with large projects, providing support and consultation (e.g., project management advice, technical coordination, etc.) ## Requirements - Master's degree with specialization in the field of information and communication technologies - Experienced in the field of operating ICT infrastructures - Advantageous, knowledge connected to ICT activities and technical building equipment (TGA) - Knowledge of current cabling systems, including requirements and standard norms like SIA, KBOB, etc. - Advantageous, specific training for operating and maintaining network and communication systems (WAN / LAN) - Logical and analytical thinking - Autonomy - Resilience - Good physical fitness - Precise work ## What we offer - Work for Switzerland - We commit to the Swiss success model and work for the benefit of the population - Lived diversity: thanks to equal opportunities, we develop our competences and bring diverse perspectives - Health at work: we support and advise our employees in the field of physical and mental health - Your commitment to security and freedom ## Contact - We provide secure, robust, and resilient IT services for the Swiss Army and our partners in the Swiss security consortium - This enables the Kdo Cy of the Swiss Army to obtain the necessary knowledge and decision-making advantage - for a safe Switzerland - The Swiss Army employs over 9,000 employees in four military and around 200 civilian careers - and this in 110 locations throughout Switzerland - Even for the future, it's guaranteed: the Swiss Army trains over 30 careers of apprentices.",
-        "fr": "Description - Gérer et coordonner le fonctionnement du service ICT sur les sites assignés - Développer et garantir les lignes directrices pour l'utilisation et les solutions pour adapter les besoins de réseau - Collaborer avec les lignes directrices pour l'évaluation et l'installation des équipements de réseau - Planifier et installer les composants de réseau dans les systèmes de transmission et de communication complexes et de haute disponibilité, y compris les systèmes d'inventaire et de documentation - Effectuer des tests de réseau sur la base des concepts développés et vérifier les mesures de sécurité et analyser les mesures pour améliorer la sécurité - Gérer les projets de maintenance et de cycle de vie de moyenne taille en autonomie et collaborer avec les projets de grande taille, fournissant un soutien et une consultation (par exemple, conseils pour la direction des projets, coordination technique, etc.) ## Exigences - Diplôme de master avec spécialisation dans le domaine des technologies de l'information et de la communication - Expérience acquise dans le domaine du fonctionnement des infrastructures ICT - Avantageux, connaissances liées aux activités de ICT et aux équipements techniques des bâtiments (TGA) - Connaissances des systèmes de câblage actuels, y compris les exigences et les normes standard comme SIA, KBOB, etc. - Avantageux, formation spécifique pour le fonctionnement et la maintenance des systèmes de réseau et de communication (WAN / LAN) - Pensée logique et analytique - Autonomie - Résilience - Bonne forme physique - Précision dans le travail ## Ce que nous offrons - Travailler pour la Suisse - Nous nous engageons pour le modèle de succès de la Suisse et travaillons pour le bien de la population - Diversité vécue : grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives diverses - Santé au travail : nous soutenons et conseillons nos employés dans le domaine de la santé physique et psychique - Votre engagement pour la sécurité et la liberté ## Contact - Nous fournissons des services IT sécurisés, robustes et résilients pour l'armée suisse et nos partenaires dans le consortium de sécurité suisse - Cela permet au Kdo Cy de l'armée suisse d'obtenir l'avantage de connaissance et de décision nécessaire - pour une Suisse sûre - L'armée suisse emploie plus de 9 000 employés dans quatre carrières militaires et environ 200 carrières civiles - et cela dans 110 sites en Suisse - Même pour l'avenir, c'est garanti : l'armée suisse forme plus de 30 carrières d'apprentis."
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugs": [
-        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
-        ],
-        "en": [
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
-        ],
-        "de": [
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
-        ],
-        "fr": [
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-          "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
-        ]
-      },
-      "firstSeenAt": "2026-03-31T21:53:35.437Z"
     },
     {
       "id": "company-cn6k0h",

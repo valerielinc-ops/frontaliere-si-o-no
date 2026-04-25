@@ -11,7 +11,6 @@
   ],
   "seedUrls": [
     "https://jobs.admin.ch/offene-stellen/fachspezialist-in-planung-und-controlling-stv-chef-in/7844109b-a283-4f73-888b-bb0e3f7a896e",
-    "https://jobs.admin.ch/offene-stellen/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
     "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c",
     "https://jobs.admin.ch/offene-stellen/dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in/0dcc8a3a-b28d-430b-9824-d69013c2b60a",
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/bc15c8a6-d6a3-47d3-9845-848a7da7c7cb",
@@ -24,7 +23,6 @@
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-sattlerei-textilcenter-sursee/d78fcbed-121e-49d1-afc5-5d8233c9b57d",
     "https://jobs.admin.ch/offene-stellen/feuerwehrfrau-mann-schadenwehr-gotthard/7cf62a64-f195-44f3-8ef8-3280ec1c4654",
     "https://jobs.admin.ch/offene-stellen/fachlehrer-in-bergfuehrer-in/99ea4e40-3f5a-4e9c-87d1-e58d362d7d6d",
-    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-kompetenzstelle-pu-ec-idas-avionik/f2801304-c2ce-417e-9a07-90565dfdb6ec",
     "https://jobs.admin.ch/offene-stellen/spezialist-in-technik-mechanik-fachrichtung-kran/f673f1d5-7a3f-4a89-a68b-26d5df99e61d",
     "https://jobs.admin.ch/offene-stellen/spezialist-in-technik-klima-und-kaeltetechnik-1/e752ef7c-350d-4f3f-be96-8b2591656fab",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst/464836f3-88be-42ed-a260-d6d91fca130f",
@@ -56,12 +54,6 @@
       "canton": "TI",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-04-16"
-    },
-    "https://jobs.admin.ch/offene-stellen/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd": {
-      "location": "Locarno",
-      "canton": "TI",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2026-03-26"
     },
     "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c": {
       "location": "Schweiz und Ausland (abhängig von Funktion und Einsatzort)",
@@ -123,11 +115,6 @@
       "location": "Andermatt",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-04-02"
-    },
-    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-kompetenzstelle-pu-ec-idas-avionik/f2801304-c2ce-417e-9a07-90565dfdb6ec": {
-      "location": "Alpnach",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2026-03-26"
     },
     "https://jobs.admin.ch/offene-stellen/spezialist-in-technik-mechanik-fachrichtung-kran/f673f1d5-7a3f-4a89-a68b-26d5df99e61d": {
       "location": "Emmen",
@@ -251,5 +238,5 @@
     }
   },
   "notes": "Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). VTG verwaltungseinheit IDs: 1083433,1132413,1526654,1132414,1083406. Regions: TI (1083341), Ostschweiz (1083334,1083319). Seed URLs auto-discovered from API.",
-  "updatedAt": "2026-04-25T10:24:43.388Z"
+  "updatedAt": "2026-04-25T22:21:44.447Z"
 }
