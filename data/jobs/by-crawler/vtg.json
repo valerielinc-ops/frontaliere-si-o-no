@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-24T22:34:05.402Z",
+  "assembledAt": "2026-04-25T10:25:19.298Z",
   "jobs": [
     {
       "id": "company-hkdide",
@@ -85,7 +85,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "retranslationAttempts": 2
     },
     {
@@ -175,7 +174,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
@@ -339,7 +339,8 @@
           "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:53:35.437Z"
+      "firstSeenAt": "2026-03-31T21:53:35.437Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cn6k0h",
