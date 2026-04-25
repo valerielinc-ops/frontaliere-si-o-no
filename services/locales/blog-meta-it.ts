@@ -2667,6 +2667,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-tassa-frontalieri-2026.title': 'Nuova tassa sui frontalieri: 3% in più per finanziare gli stipendi dei medici',
     'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'Dal settembre 2026, i frontalieri in Lombardia pagheranno una tassa del 3% per finanziare aumenti salariali per medici e infermieri',
     'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana: le fatture delle cure ai pazienti italiani e la posizione dell\'Italia',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'L\'Italia ribadisce che non pagherà le fatture delle cure per i pazienti italiani ricoverati in Svizzera dopo il rogo di Crans-Montana.',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Ospedale di Crans-Montana con vista sulle montagne',
 };
 
 export default blogMetaIt;

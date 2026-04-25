@@ -2667,6 +2667,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-tassa-frontalieri-2026.title': 'Neue Steuer für Grenzgänger: 3% mehr zur Finanzierung der Ärztegehälter',
     'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'Ab September 2026 zahlen Grenzgänger in der Lombardei eine Steuer von 3%, um Gehaltserhöhungen für Ärzte und Krankenschwestern zu finanzieren',
     'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana: Rechnungen für die Behandlung italienischer Patienten und die Position Italiens',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'Italien betont, dass es die Rechnungen für die Behandlung italienischer Patienten, die nach dem Brand in Crans-Montana in der Schweiz hospitalisiert wurden, nicht bezahlen wird.',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Krankenhaus in Crans-Montana mit Bergblick',
 };
 
 export default blogMetaDe;

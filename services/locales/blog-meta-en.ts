@@ -2667,6 +2667,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-tassa-frontalieri-2026.title': 'New tax for cross-border workers: 3% more to fund doctors\' salaries',
     'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'From September 2026, cross-border workers in Lombardy will pay a 3% tax to fund salary increases for doctors and nurses',
     'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana: Italian patient care bills and Italy\'s stance',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'Italy reiterates that it will not pay the bills for the care of Italian patients hospitalized in Switzerland following the Crans-Montana fire.',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Crans-Montana hospital with mountain view',
 };
 
 export default blogMetaEn;

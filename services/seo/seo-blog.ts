@@ -12654,6 +12654,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-fatture-cure-italiani-2026': {
+    title: 'Crans-Montana: le fatture delle cure ai | Frontaliere Ticino',
+    description: 'L\'Italia ribadisce che non pagherà le fatture delle cure per i pazienti italiani ricoverati in Svizzera dopo il rogo di Crans-Montana. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, fatture, cure, pazienti',
+    ogTitle: 'Crans-Montana: fatture cure italiani | Frontaliere Ticino',
+    ogDescription: 'L\'Italia ribadisce che non pagherà le fatture delle cure per i pazienti italiani ricoverati in Svizzera dopo il rogo di Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: fatture cure italiani | Frontaliere Ticino",
+      "description": "L'Italia ribadisce che non pagherà le fatture delle cure per i pazienti italiani ricoverati in Svizzera dopo il rogo di Crans-Montana. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-fatture-cure-italiani-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Crans-Montana con vista sulle montagne"
+      },
+      "datePublished": "2026-04-25T23:07:28+00:00",
+      "dateModified": "2026-04-25T23:07:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

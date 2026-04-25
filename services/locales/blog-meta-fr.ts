@@ -2667,6 +2667,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-tassa-frontalieri-2026.title': 'Nouvelle taxe pour les frontaliers : 3 % de plus pour financer les salaires des médecins',
     'blog.article.nuova-tassa-frontalieri-2026.excerpt': 'À partir de septembre 2026, les frontaliers en Lombardie paieront une taxe de 3 % pour financer les augmentations salariales des médecins et des infirmiers',
     'blog.article.nuova-tassa-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana : les factures des soins pour les patients italiens et la position de l\'Italie',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'L\'Italie réaffirme qu\'elle ne paiera pas les factures des soins pour les patients italiens hospitalisés en Suisse après l\'incendie de Crans-Montana.',
+    'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Hôpital de Crans-Montana avec vue sur les montagnes',
 };
 
 export default blogMetaFr;

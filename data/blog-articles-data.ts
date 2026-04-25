@@ -7210,4 +7210,11 @@ export const ARTICLES = [
  image: '/images/blog/nuova-tassa-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-fatture-cure-italiani-2026',
+ category: 'novita',
+ date: '2026-04-25T23:07:28.535Z',
+ image: '/images/blog/crans-montana-fatture-cure-italiani-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
