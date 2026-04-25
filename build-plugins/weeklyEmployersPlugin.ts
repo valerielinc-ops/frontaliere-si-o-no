@@ -84,6 +84,7 @@ import {
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
+import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
 // via the canonical `buildJobPostingSchema` builder.
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
@@ -1675,6 +1676,8 @@ export interface CompanyCityPageInputs {
    * page exists. When omitted, only EMPLOYER_BRANDS lookups are used.
    */
   knownSlugs?: ReadonlySet<string>;
+  /** Repository root — enables `public/images/brands/*.png` lookup for the company logo. */
+  rootDir?: string;
 }
 
 /**
@@ -1755,6 +1758,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     distDir,
     companySiblingCities,
     knownSlugs,
+    rootDir,
   } = inp;
 
   const copy = COPY[locale];
@@ -1809,24 +1813,100 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   );
   const hreflangHtml = renderHreflangTags(hreflangPaths as HreflangPaths);
 
-  // Job list (≤10).
+  // Brand logo — prefer the curated `CRAWLED_COMPANY_LOGOS` registry (same
+  // source the SPA job-board uses, so cards on this page match the listing
+  // exactly). Falls back to a local `public/images/brands/{slug}.png` if the
+  // registry has no entry, then to the neutral building icon.
+  const brandLogoSlug = stats.employerKey || slugifyEmployer(employer);
+  const brandLogoUrl =
+    (CRAWLED_COMPANY_LOGOS[brandLogoSlug] as string | undefined) ??
+    (rootDir ? resolveBrandLogoUrl(rootDir, brandLogoSlug) : null);
+  const headerLogoHtml = brandLogoUrl
+    ? `<img src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" style="display:block;width:80px;height:80px;border-radius:16px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
+    : `<span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:16px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>`;
+
+  // Localized labels for the job-card pills (employment type + salary suffix).
+  const empTypeLabel: Record<string, string> = (
+    {
+      it: { FULL_TIME: 'Tempo pieno', PART_TIME: 'Tempo parziale', CONTRACTOR: 'Contratto', TEMPORARY: 'Temporaneo', INTERN: 'Stage', PER_DIEM: 'A giornata', OTHER: 'Altro' },
+      en: { FULL_TIME: 'Full-time', PART_TIME: 'Part-time', CONTRACTOR: 'Contract', TEMPORARY: 'Temporary', INTERN: 'Internship', PER_DIEM: 'Per diem', OTHER: 'Other' },
+      de: { FULL_TIME: 'Vollzeit', PART_TIME: 'Teilzeit', CONTRACTOR: 'Vertrag', TEMPORARY: 'Befristet', INTERN: 'Praktikum', PER_DIEM: 'Tageweise', OTHER: 'Sonstige' },
+      fr: { FULL_TIME: 'Temps plein', PART_TIME: 'Temps partiel', CONTRACTOR: 'Contrat', TEMPORARY: 'Temporaire', INTERN: 'Stage', PER_DIEM: 'Journalier', OTHER: 'Autre' },
+    } as Record<WeeklyEmployersLocale, Record<string, string>>
+  )[locale];
+  const salarySuffix: Record<WeeklyEmployersLocale, string> = {
+    it: '/anno',
+    en: '/yr',
+    de: '/Jahr',
+    fr: '/an',
+  };
+  const numberLocale: Record<WeeklyEmployersLocale, string> = {
+    it: 'it-CH',
+    en: 'en-US',
+    de: 'de-CH',
+    fr: 'fr-CH',
+  };
+  // Inline lucide-style icons (24×24 via stroke=currentColor).
+  const ICON_PIN = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  const ICON_CLOCK = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+  const ICON_EURO = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a4 4 0 0 0-4-4H4v20h11a4 4 0 0 0 0-8"/></svg>';
+
+  const formatSalary = (job: CompanyCityActiveJob): string | null => {
+    const cur = (job.salaryCurrency || 'CHF').toUpperCase();
+    const fmt = (n: number) => n.toLocaleString(numberLocale[locale]);
+    if (typeof job.salaryMin === 'number' && typeof job.salaryMax === 'number' && job.salaryMin > 0 && job.salaryMax > 0) {
+      return job.salaryMin === job.salaryMax
+        ? `${cur} ${fmt(job.salaryMin)}${salarySuffix[locale]}`
+        : `${cur} ${fmt(job.salaryMin)}–${fmt(job.salaryMax)}${salarySuffix[locale]}`;
+    }
+    if (typeof job.salaryMin === 'number' && job.salaryMin > 0) return `${cur} ${fmt(job.salaryMin)}${salarySuffix[locale]}`;
+    if (typeof job.salaryMax === 'number' && job.salaryMax > 0) return `${cur} ${fmt(job.salaryMax)}${salarySuffix[locale]}`;
+    return null;
+  };
+
+  // Job list (≤10) — styled as job-board cards: logo · title · company·city
+  // subtitle · salary · location/contract/posted-date pill row.
+  const jobCardLogoHtml = brandLogoUrl
+    ? `<img src="${esc(brandLogoUrl)}" alt="" width="56" height="56" loading="lazy" decoding="async" style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
+    : `<span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>`;
+
   const jobsListHtml =
     stats.activeJobs.length > 0
       ? `<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px">${stats.activeJobs
           .map((job, idx) => {
             const title = esc(job.title || `Posizione ${idx + 1}`);
-            const date = job.postedDate
-              ? `<span style="color:var(--color-subtle);font-size:13px">${esc(String(job.postedDate).slice(0, 10))}</span>`
+            const localityRaw = job.addressLocality || cityDisplay;
+            const locality = esc(localityRaw);
+            const datePill = job.postedDate
+              ? `<span style="display:inline-flex;align-items:center;gap:4px;color:var(--color-subtle)">${ICON_CLOCK}${esc(String(job.postedDate).slice(0, 10))}</span>`
               : '';
-            const apply = esc(copy.companyCityApplyCta);
-            return `<li style="${CARD_STYLE}">
-      <a href="${esc(job.detailPath)}" style="display:block;color:inherit;text-decoration:none">
-        <div style="font-weight:700;font-size:16px;color:var(--color-heading)">${idx + 1}. ${title}</div>
-        <div style="margin-top:4px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
-          ${date}
-          <span style="color:var(--color-link);font-weight:600;font-size:14px">${apply} →</span>
-        </div>
-      </a>
+            const empType = job.employmentType && empTypeLabel[job.employmentType] ? empTypeLabel[job.employmentType] : null;
+            const empPill = empType
+              ? `<span style="padding:2px 8px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-subtle)">${esc(empType)}</span>`
+              : '';
+            const salaryStr = formatSalary(job);
+            const salaryHtml = salaryStr
+              ? `<span style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--color-success-border)">${ICON_EURO}${esc(salaryStr)}</span>`
+              : '';
+            return `<li style="margin:0;padding:0">
+      <article style="${CARD_STYLE}">
+        <a href="${esc(job.detailPath)}" style="display:block;color:inherit;text-decoration:none">
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            ${jobCardLogoHtml}
+            <div style="min-width:0;flex:1">
+              <h3 style="margin:0;font-size:16px;font-weight:700;color:var(--color-heading);line-height:1.3">${idx + 1}. ${title}</h3>
+              <p style="margin:4px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.4">${esc(employer)} · ${locality}</p>
+              ${salaryHtml}
+            </div>
+          </div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:var(--color-subtle)">
+            <span style="display:inline-flex;align-items:center;gap:4px">${ICON_PIN}${locality}</span>
+            ${empPill}
+            ${datePill}
+            <span style="margin-left:auto;color:var(--color-link);font-weight:600;font-size:13px">${esc(copy.companyCityApplyCta)} →</span>
+          </div>
+        </a>
+      </article>
     </li>`;
           })
           .join('')}</ol>`
@@ -1956,11 +2036,14 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     <span> / </span>
     <span>${esc(employer)}</span>
   </nav>
-  <header style="margin-bottom:22px">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
-    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+  <header style="margin-bottom:22px;display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+    ${headerLogoHtml}
+    <div style="flex:1;min-width:260px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
+      <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+      <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    </div>
   </header>
   ${archiveNote}
   <section style="margin:0 0 28px" aria-labelledby="companyCityJobs">
@@ -2348,6 +2431,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         distDir,
         companySiblingCities,
         knownSlugs,
+        rootDir: opts.rootDir,
       });
       html = injectSiblingLinks(
         html,
