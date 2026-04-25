@@ -1433,7 +1433,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const breadcrumbJsonLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
- inLanguage: locale,
  itemListElement: breadcrumbs.map((b, i) => ({
  '@type': 'ListItem', position: i + 1, name: b.name, item: b.url
  }))

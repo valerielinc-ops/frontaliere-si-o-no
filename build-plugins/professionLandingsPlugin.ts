@@ -269,7 +269,6 @@ function renderPage(opts: {
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    inLanguage: locale,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
       { '@type': 'ListItem', position: 2, name: copy.breadcrumbJobs, item: jobBoardUrl },
@@ -315,7 +314,6 @@ function renderPage(opts: {
   const itemListLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    inLanguage: locale,
     name: copy.employersTableTitle,
     itemListOrder: 'https://schema.org/ItemListOrderAscending',
     numberOfItems: facts.topEmployers.length,

@@ -366,7 +366,6 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    inLanguage: locale,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
       { '@type': 'ListItem', position: 2, name: copy.breadcrumbHub, item: hubParentUrl },

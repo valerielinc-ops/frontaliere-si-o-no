@@ -232,7 +232,6 @@ function renderPage(opts: RenderOpts): RenderResult {
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    inLanguage: LOCALE,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: homeUrl },
       { '@type': 'ListItem', position: 2, name: 'Calculer le salaire', item: calcUrl },

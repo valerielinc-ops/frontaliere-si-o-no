@@ -439,7 +439,6 @@ function renderPage(opts: {
   const itemListLd = matchingJobs.length > 0 ? JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    inLanguage: locale,
     name: cluster.canonicalQuery,
     numberOfItems: matchingJobs.length,
     itemListElement: matchingJobs.slice(0, 15).map((j, idx) => ({

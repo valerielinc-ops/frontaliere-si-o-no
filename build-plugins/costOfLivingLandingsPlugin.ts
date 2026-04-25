@@ -137,7 +137,6 @@ function renderPage(opts: {
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    inLanguage: locale,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: L.breadcrumbHome, item: homeUrl },
       { '@type': 'ListItem', position: 2, name: L.breadcrumbHub, item: hubUrl },

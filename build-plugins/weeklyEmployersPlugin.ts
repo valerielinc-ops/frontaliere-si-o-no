@@ -1520,7 +1520,6 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     '@type': 'ItemList',
     name: h1,
     numberOfItems: stats.topCompanies.length,
-    inLanguage: locale,
     itemListElement: stats.topCompanies.map((c, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
@@ -1902,7 +1901,6 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     '@type': 'ItemList',
     name: h1,
     numberOfItems: stats.activeJobs.length,
-    inLanguage: locale,
     itemListElement: stats.activeJobs.map((job, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,

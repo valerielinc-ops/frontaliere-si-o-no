@@ -220,7 +220,6 @@ function renderPage(opts: {
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    inLanguage: locale,
     itemListElement: [
       {
         '@type': 'ListItem',

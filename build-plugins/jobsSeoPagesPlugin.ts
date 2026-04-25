@@ -2388,7 +2388,6 @@ ${hreflangHtml}
  const itemListLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
- inLanguage: locale,
  name: `${curatedBrand.shortName} — ${brandCopy.sectionHeadings.openRoles}`,
  url: canonicalUrl,
  numberOfItems: companyJobs.length,
@@ -2750,7 +2749,6 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  ? JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
- inLanguage: options.locale,
  name: options.name,
  itemListElement: options.items.slice(0, 10).map((item, index) => ({
  '@type': 'ListItem',
@@ -4130,7 +4128,7 @@ ${alternates}
  return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
  }).join('');
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
- const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', inLanguage: locale, name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
+ const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';

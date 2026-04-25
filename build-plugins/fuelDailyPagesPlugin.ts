@@ -2060,7 +2060,6 @@ function renderItalianCityPage(opts: {
   const itemListLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    inLanguage: locale,
     name: h1,
     numberOfItems: sortedStations.length,
     itemListElement: sortedStations.map((s, i) => ({
