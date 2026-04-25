@@ -4,14 +4,24 @@ import path from 'path';
 
 /**
  * Post-build verification: ensures no flat .html files in dist/ still
- * contain JavaScript redirects after the flatContentPlugin has run.
+ * contain ACCIDENTAL JavaScript redirects.
  *
- * If this test fails, it means:
- * 1. flatContentPlugin is not running, OR
- * 2. A flat redirect file has no corresponding index.html (orphan)
+ * As of `flatHtmlRedirectPlugin` (2026-04-25), every flat `<path>.html`
+ * with a sibling `<path>/index.html` is INTENTIONALLY rewritten into a
+ * 12-line redirect bridge (canonical link, meta-refresh, location.replace,
+ * `<meta name="robots" content="noindex,follow">`) to close ~3.2k Semrush
+ * "hreflang ↔ canonical conflict" reports. Those bridges are EXPECTED
+ * to carry `location.replace`; they're explicitly noindex so Google
+ * follows the redirect and never indexes the no-slash URL twice.
  *
- * Google classifies JS redirect pages as "Pagina con reindirizzamento"
- * and refuses to index them.
+ * This test therefore now flags any flat .html that:
+ *  - Contains `location.replace(`
+ *  - AND does NOT also carry `<meta name="robots" content="noindex` (i.e.
+ *    a deliberate redirect bridge)
+ *  - AND is not the SPA action-only conditional redirect.
+ *
+ * If this test fails, it means a content page accidentally shipped with
+ * a JS redirect — Google would mark it as "Pagina con reindirizzamento".
  */
 
 const DIST_DIR = path.resolve(__dirname, '..', 'dist');
@@ -55,7 +65,15 @@ describe('no JS redirects in built flat files', () => {
           const isSpaActionOnly =
             content.includes('SPA_ACTION_REDIRECT_SCRIPT') ||
             (content.includes("p.get('action')") && content.includes("sessionStorage.redirect"));
-          if (!isSpaActionOnly) {
+          // flatHtmlRedirectPlugin (2026-04-25) intentionally emits a redirect
+          // bridge for every flat .html that has a sibling /index.html. The
+          // bridge is explicitly noindex so Google follows the redirect and
+          // does not double-index. These are EXPECTED, not accidental.
+          const isIntentionalBridge =
+            content.includes('name="robots"') &&
+            content.includes('noindex') &&
+            content.includes('http-equiv="refresh"');
+          if (!isSpaActionOnly && !isIntentionalBridge) {
             const relPath = path.relative(DIST_DIR, filePath);
             violations.push(relPath);
           }
