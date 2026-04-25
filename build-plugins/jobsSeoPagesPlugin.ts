@@ -199,15 +199,48 @@ export function truncateJobCorePreservingCity(
  return truncateTitleCore(full, maxCore);
 }
 
-/** Compose final <title>: truncated city-aware core + fixed brand suffix. */
+/**
+ * Build the disambiguator suffix appended to the title core when two
+ * otherwise-identical jobs (same role + company + city) would collide.
+ *
+ * Format: ` (#abc123)` — a leading space, parentheses, hash sigil, then the
+ * raw token (lower-cased, stripped of separators). Visually unobtrusive yet
+ * distinct enough that Semrush's title-uniqueness audit registers each page
+ * as a separate <title>.
+ *
+ * Empty input returns an empty string so callers can pass through optional
+ * tokens without conditional logic.
+ */
+export function buildTitleDisambiguator(token: string): string {
+ const cleaned = String(token || '')
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '')
+  .slice(-6);
+ return cleaned ? ` (#${cleaned})` : '';
+}
+
+/**
+ * Compose final <title>: truncated city-aware core + fixed brand suffix.
+ *
+ * When `disambiguator` is provided and non-empty (e.g. `abc123` from the
+ * trailing 6 chars of the per-locale slug or job id), it is appended INSIDE
+ * the core budget so that two otherwise-identical jobs (same role, company,
+ * city — distinguished only by a slug suffix or random hash) emit distinct
+ * <title> tags. The disambiguator is subtracted from the city-preservation
+ * budget so the trailing city token still survives truncation.
+ */
 export function composeJobPageTitle(
  jobTitle: string,
  company: string,
  city: string,
  locale: string,
+ disambiguator?: string,
 ): string {
- const maxCore = JOB_TITLE_MAX - JOB_TITLE_BRAND_SUFFIX.length;
- return truncateJobCorePreservingCity(jobTitle, company, city, locale, maxCore)
+ const disamb = buildTitleDisambiguator(disambiguator || '');
+ const maxCore = JOB_TITLE_MAX - JOB_TITLE_BRAND_SUFFIX.length - disamb.length;
+ const safeMaxCore = Math.max(1, maxCore);
+ return truncateJobCorePreservingCity(jobTitle, company, city, locale, safeMaxCore)
+  + disamb
   + JOB_TITLE_BRAND_SUFFIX;
 }
 
@@ -1226,6 +1259,34 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return slugifyCompanyBuild(company);
  };
 
+ // ── Pre-compute title-collision map per locale ──
+ // The base <title> formula (role + company + city) collapses to identical
+ // strings whenever two jobs differ only by slug suffix (AFC vs CFP variants),
+ // by city-postal-code tail (e.g. `riazzino-xsgkjj` vs `cadenazzo` for the
+ // same Lidl listing replicated across postal codes), or because the
+ // 70-char ceiling truncates them to the same prefix. Semrush's
+ // title-uniqueness gate flags every such collision (~1.9k pages on the
+ // current dataset).
+ //
+ // Strategy: build a (locale → baseTitle → count) map up front, then in the
+ // per-job loop append a slug-tail disambiguator ONLY when count > 1 — so
+ // unique pages keep their existing clean title and only colliding ones grow
+ // a stable suffix. The slug tail is preferred because it is already unique
+ // within the dataset (router slugs are deduped at crawl time). When the
+ // job has no usable slug we fall back to the job.id tail.
+ const titleCollisionByLocale: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
+ it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
+ };
+ for (const job of validJobs) {
+ for (const locale of localeList) {
+ const lt = String(job?.titleByLocale?.[locale] || job.title || '');
+ const loc = String(job.location || '').trim();
+ const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale);
+ const bucket = titleCollisionByLocale[locale];
+ bucket.set(baseTitle, (bucket.get(baseTitle) || 0) + 1);
+ }
+ }
+
  for (const job of validJobs) {
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
@@ -1249,7 +1310,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // the core before appending the fixed brand suffix. This prevents duplicate
  // titles on multi-sede jobs (same role × N cities) — the city differentiates
  // the SERP title — and keeps total length within Google's ~60-char limit.
- const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
+ //
+ // Disambiguator (slug-tail or job-id-tail) is injected ONLY when the base
+ // title would collide with another job's base title in the same locale —
+ // closes the Semrush title-uniqueness audit gate while leaving unique
+ // titles untouched.
+ const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
+ const collidesInLocale = (titleCollisionByLocale[locale].get(baseTitleProbe) || 0) > 1;
+ const disambiguatorToken = collidesInLocale
+ ? String(perLocaleSlug[locale] || job.slug || job.id || '')
+ : '';
+ const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken);
  const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
