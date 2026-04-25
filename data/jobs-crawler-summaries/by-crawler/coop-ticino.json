@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-25T09:21:16.295Z",
+  "generatedAt": "2026-04-25T21:20:37.826Z",
   "total": 169,
-  "newCount": 4,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 164,
-  "durationMs": 402242,
-  "avgDurationMs": 402242,
+  "unchangedCount": 168,
+  "durationMs": 541795,
+  "avgDurationMs": 541795,
   "durationHistory": [
-    402242
+    541795
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-at2z5i",
       "slug": "verkaufer-in-food-coop-flims-graubunden",
@@ -36,17 +37,22 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-25T09:18:00.612Z",
       "firstSeenAt": "2026-04-25T09:18:00.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Flims",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -70,15 +76,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-25T09:18:00.612Z",
       "firstSeenAt": "2026-04-25T09:18:00.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -104,15 +112,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-25T09:18:00.612Z",
       "firstSeenAt": "2026-04-25T09:18:00.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -138,19 +148,54 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-25T09:18:00.612Z",
       "firstSeenAt": "2026-04-25T09:18:00.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 67,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
+    {
+      "id": "company-lwjf9k",
+      "slug": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino",
+      "company": "Coop Immobilien",
+      "title": "Aiuto amministrativo 8-20 ore",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-24",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/aiuto-amministrativo-8-20-ore/ec77bf23-f97e-4fe1-a381-74b36b4709ee",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-24T21:28:08.126Z",
+      "firstSeenAt": "2026-04-24T21:28:08.126Z",
+      "addressLocality": "Bellinzona",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "id": "company-metayj",
       "slug": "verkaufer-in-food-coop-felsberg-graubunden",
@@ -183,44 +228,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-lwjf9k",
-      "slug": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino",
-      "company": "Coop Immobilien",
-      "title": "Aiuto amministrativo 8-20 ore",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-24",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/aiuto-amministrativo-8-20-ore/ec77bf23-f97e-4fe1-a381-74b36b4709ee",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-24T21:28:08.126Z",
-      "firstSeenAt": "2026-04-24T21:28:08.126Z",
-      "addressLocality": "Bellinzona",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
@@ -1112,147 +1119,6 @@
       "salaryMax": 75000,
       "firstSeenAt": "2026-04-09T21:20:49.553Z",
       "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-hs6koo",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Ilanz/Glion",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/85cd95da-d882-4480-a076-15c7b046c014",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-09T21:20:49.553Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-7haru0",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Tenero-Contra",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/487fa484-fe53-4cf8-87d3-556586d07a03",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-07T09:22:44.527Z",
-      "addressLocality": "Tenero-Contra",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "firstSeenAt": "2026-04-07T09:22:44.527Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-w27wx3",
-      "slug": "verkaufer-in-kassen-services-jumbo-chur-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/70e611c4-9603-4a68-a31c-c125ffd8ea0c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-07T09:22:44.527Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-04-07T09:22:44.527Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-m2qsz9",
-      "slug": "verkausberater-in-schmuck-coop-city-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkausberater:in Schmuck",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkausberater-in-schmuck/873c1442-3d87-4cb5-ab50-6337d8e81bfe",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-07T09:22:44.527Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-04-07T09:22:44.527Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
