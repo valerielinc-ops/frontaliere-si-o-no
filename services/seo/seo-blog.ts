@@ -12480,6 +12480,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spese-cura-frontalieri-ufas-2026': {
+    title: 'Spese di cura per frontalieri: UFAS | Frontaliere Ticino',
+    description: 'L\'Ufficio federale delle assicurazioni sociali spiega come vengono gestite le spese mediche per i frontalieri italiani infortunati in Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, cura, ufas, chiarisce',
+    ogTitle: 'Spese di cura frontalieri: UFAS chiarisce la procedura',
+    ogDescription: 'L\'Ufficio federale delle assicurazioni sociali spiega come vengono gestite le spese mediche per i frontalieri italiani infortunati in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/spese-cura-frontalieri-ufas-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese di cura frontalieri: UFAS chiarisce la procedura",
+      "description": "L'Ufficio federale delle assicurazioni sociali spiega come vengono gestite le spese mediche per i frontalieri italiani infortunati in Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spese-cura-frontalieri-ufas-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Lugano con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-25T17:09:39+00:00",
+      "dateModified": "2026-04-25T17:09:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spese-cura-frontalieri-ufas-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

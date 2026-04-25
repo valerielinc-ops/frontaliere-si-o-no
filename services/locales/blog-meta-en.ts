@@ -2649,6 +2649,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grisons, stricter rules for residence permits after mafia infiltration in Roveredo',
     'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'New rules for residence permits in the Grisons: mandatory declaration of criminal records and ongoing proceedings.',
     'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Swiss residence permit document with Locarno, Ticino background',
+    'blog.article.spese-cura-frontalieri-ufas-2026.title': 'Healthcare costs for cross-border workers: UFAS clarifies the procedure',
+    'blog.article.spese-cura-frontalieri-ufas-2026.excerpt': 'The Federal Social Insurance Office explains how medical expenses for Italian cross-border workers injured in Switzerland are handled.',
+    'blog.article.spese-cura-frontalieri-ufas-2026.imageAlt': 'Lugano Hospital with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

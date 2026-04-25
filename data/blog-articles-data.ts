@@ -7168,4 +7168,11 @@ export const ARTICLES = [
  image: '/images/blog/grigioni-stretta-permessi-dimora-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'spese-cura-frontalieri-ufas-2026',
+ category: 'novita',
+ date: '2026-04-25T17:09:39.850Z',
+ image: '/images/blog/spese-cura-frontalieri-ufas-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

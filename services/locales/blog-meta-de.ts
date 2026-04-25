@@ -2649,6 +2649,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grigioni, restrizioni sui permessi di dimora dopo l\'infiltrazione mafiosa a Roveredo',
     'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso.',
     'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Schweizer Aufenthaltsbewilligung mit Locarno, Tessin Hintergrund',
+    'blog.article.spese-cura-frontalieri-ufas-2026.title': 'Kosten für Grenzgänger: UFAS klärt das Verfahren',
+    'blog.article.spese-cura-frontalieri-ufas-2026.excerpt': 'Das Bundesamt für Sozialversicherungen erklärt, wie die medizinischen Kosten für verletzte italienische Grenzgänger in der Schweiz abgewickelt werden.',
+    'blog.article.spese-cura-frontalieri-ufas-2026.imageAlt': 'Krankenhaus Lugano mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

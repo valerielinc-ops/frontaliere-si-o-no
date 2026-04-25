@@ -2143,6 +2143,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavena-ponte-tresa-battesimo-civico-2026': { name: 'Eventi', path: '/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026', parent: 'blog' },
     'blog-ferrovia-tilo-s40-fermi-italia-personale': { name: 'Disagi ferroviari', path: '/articoli-frontaliere/ferrovia-tilo-s40-fermi-italia-personale', parent: 'blog' },
     'blog-grigioni-stretta-permessi-dimora-2026': { name: 'Novità', path: '/articoli-frontaliere/grigioni-stretta-permessi-dimora-2026', parent: 'blog' },
+    'blog-spese-cura-frontalieri-ufas-2026': { name: 'Novità', path: '/articoli-frontaliere/spese-cura-frontalieri-ufas-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

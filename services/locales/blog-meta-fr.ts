@@ -2649,6 +2649,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grisons, contrôle renforcé sur les permis de séjour après l\'infiltration mafieuse à Roveredo',
     'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'Nouvelles règles pour les permis de séjour dans les Grisons : déclaration obligatoire des antécédents pénaux et des procédures en cours.',
     'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Document de permis de séjour suisse avec Locarno, Tessin en arrière-plan',
+    'blog.article.spese-cura-frontalieri-ufas-2026.title': 'Frais de soins pour les frontaliers : l\'UFAS clarifie la procédure',
+    'blog.article.spese-cura-frontalieri-ufas-2026.excerpt': 'L\'Office fédéral des assurances sociales explique comment sont gérées les dépenses médicales pour les frontaliers italiens blessés en Suisse.',
+    'blog.article.spese-cura-frontalieri-ufas-2026.imageAlt': 'Hôpital de Lugano avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

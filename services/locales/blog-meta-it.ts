@@ -2649,6 +2649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grigioni, stretta sui permessi di dimora dopo l’infiltrazione mafiosa a Roveredo',
     'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso.',
     'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Documento di permesso di dimora svizzero con sfondo di Locarno, Ticino',
+    'blog.article.spese-cura-frontalieri-ufas-2026.title': 'Spese di cura per frontalieri: UFAS chiarisce la procedura',
+    'blog.article.spese-cura-frontalieri-ufas-2026.excerpt': 'L\'Ufficio federale delle assicurazioni sociali spiega come vengono gestite le spese mediche per i frontalieri italiani infortunati in Svizzera.',
+    'blog.article.spese-cura-frontalieri-ufas-2026.imageAlt': 'Ospedale di Lugano con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
