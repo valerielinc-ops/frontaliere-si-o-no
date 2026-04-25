@@ -2634,6 +2634,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incentivo-remigrazione-frontalieri-ticino.title': 'Anreiz zur Remigration: Was sich für Grenzgänger im Tessin ändert',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.excerpt': 'Die italienische Regierung führt einen Bonus von 615 Euro für Anwälte ein, die Asylsuchende dazu überzeugen, in ihre Heimat zurückzukehren. Das Maßnahme stößt in der Schweiz auf Kritik.',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.imageAlt': 'Blick auf den Luganersee mit Bergen und Booten',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Bund und Kantone überprüfen Aufgaben: Was ändert sich für Grenzgänger',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'Das Projekt Dissociation 27 schlägt Änderungen in 14 Bereichen vor, darunter Transport und Bildung. Hier sind die Auswirkungen für diejenigen, die im Tessin arbeiten.',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Treffen zwischen Bund und Kantonen in Bellinzona',
 };
 
 export default blogMetaDe;

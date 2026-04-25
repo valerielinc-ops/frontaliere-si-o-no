@@ -2634,6 +2634,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incentivo-remigrazione-frontalieri-ticino.title': 'Incitation à la rémigration: ce qui change pour les frontaliers en Suisse',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.excerpt': 'Le gouvernement italien introduit une prime de 615 euros pour les avocats qui convainquent les demandeurs d\'asile de retourner dans leur pays. La mesure suscite des critiques en Suisse.',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.imageAlt': 'Vue du lac de Lugano avec des montagnes et des bateaux',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Confédération et cantons redéfinissent les tâches : qu\'est-ce qui change pour les frontaliers',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'Le projet Dissociation 27 propose des modifications dans 14 secteurs, dont les transports et la formation. Voici les implications pour ceux qui travaillent au Tessin.',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Réunion entre la Confédération et les Cantons à Bellinzona',
 };
 
 export default blogMetaFr;

@@ -2634,6 +2634,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incentivo-remigrazione-frontalieri-ticino.title': 'Incentivo alla remigrazione: cosa cambia per i frontalieri in Ticino',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.excerpt': 'Il governo italiano introduce un bonus di 615 euro per avvocati che convincono richiedenti asilo a tornare in patria. La misura solleva critiche in Svizzera.',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.imageAlt': 'Vista del Lago di Lugano con montagne e barche',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Confederazione e Cantoni ridiscutono i compiti: cosa cambia per i frontalieri',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'Il progetto Dissociazione 27 propone modifiche in 14 settori, tra cui trasporti e formazione. Ecco le implicazioni per chi lavora in Ticino.',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Incontro tra Confederazione e Cantoni a Bellinzona',
 };
 
 export default blogMetaIt;

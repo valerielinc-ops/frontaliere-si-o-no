@@ -2138,6 +2138,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vacanze-estive-2026-costi-guerra': { name: 'Vacanze estive', path: '/articoli-frontaliere/vacanze-estive-2026-costi-guerra', parent: 'blog' },
     'blog-irb-bellinzona-valore-aggiunto-ticino': { name: 'IRB Bellinzona', path: '/articoli-frontaliere/irb-bellinzona-valore-aggiunto-ticino', parent: 'blog' },
     'blog-incentivo-remigrazione-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino', parent: 'blog' },
+    'blog-confederazione-cantoni-ridiscutono-compiti-2026': { name: 'Novità', path: '/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

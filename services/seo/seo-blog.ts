@@ -12335,6 +12335,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confederazione-cantoni-ridiscutono-compiti-2026': {
+    title: 'Confederazione e Cantoni ridiscutono i | Frontaliere Ticino',
+    description: 'Il progetto Dissociazione 27 propone modifiche in 14 settori, tra cui trasporti e formazione. Ecco le implicazioni per chi lavora in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, confederazione, cantoni, ridiscutono, compiti',
+    ogTitle: 'Confederazione e Cantoni ridiscutono i compiti | Frontaliere',
+    ogDescription: 'Il progetto Dissociazione 27 propone modifiche in 14 settori, tra cui trasporti e formazione. Ecco le implicazioni per chi lavora in Ticino.',
+    canonicalPath: '/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confederazione e Cantoni ridiscutono i compiti: cosa cambia per i frontalieri",
+      "description": "Il progetto Dissociazione 27 propone modifiche in 14 settori, tra cui trasporti e formazione. Ecco le implicazioni per chi lavora in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confederazione-cantoni-ridiscutono-compiti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro tra Confederazione e Cantoni a Bellinzona"
+      },
+      "datePublished": "2026-04-25T11:59:46+00:00",
+      "dateModified": "2026-04-25T11:59:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

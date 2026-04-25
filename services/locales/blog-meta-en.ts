@@ -2634,6 +2634,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incentivo-remigrazione-frontalieri-ticino.title': 'Incentive for return migration: what changes for cross-border workers in Ticino',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.excerpt': 'The Italian government introduces a 615 euro bonus for lawyers who convince asylum seekers to return home. The measure raises criticism in Switzerland.',
     'blog.article.incentivo-remigrazione-frontalieri-ticino.imageAlt': 'View of Lake Lugano with mountains and boats',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.title': 'Confederation and Cantons Renegotiate Responsibilities: What Changes for Cross-Border Workers',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.excerpt': 'The Project Dissociation 27 proposes changes in 14 sectors, including transport and training. Here are the implications for those working in Ticino.',
+    'blog.article.confederazione-cantoni-ridiscutono-compiti-2026.imageAlt': 'Meeting between Confederation and Cantons in Bellinzona',
 };
 
 export default blogMetaEn;
