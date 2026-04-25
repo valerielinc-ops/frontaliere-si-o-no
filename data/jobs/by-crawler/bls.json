@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-04-24T21:08:23.439Z",
+  "assembledAt": "2026-04-25T09:00:13.388Z",
   "jobs": [
     {
       "id": "bls-11fa0b1a921e",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T21:08:20.774Z",
+      "crawledAt": "2026-04-25T09:00:10.706Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,6 +84,7 @@
         "lokomotiven-instandhalter-in-bls-ch"
       ],
       "firstSeenAt": "2026-04-21T21:11:27.567Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
