@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-at2z5i",
-      "slug": "verkaufer-in-food-coop-flims-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-flims",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Flims",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-flims-graubunden-at2z5i",
-        "en": "verkaufer-in-food-coop-flims-graubunden-at2z5i",
+        "it": "venditore-in-food-coop-genossenschaft-flims",
+        "en": "seller-in-food-coop-genossenschaft-flims",
         "de": "verkaufer-in-food-coop-flims-graubunden-at2z5i",
-        "fr": "verkaufer-in-food-coop-flims-graubunden-at2z5i"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-flims"
       },
       "addressLocality": "Flims",
       "sourceLang": "de",
@@ -68,7 +68,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-flims-graubunden-at2z5i",
+          "verkaufer-in-food-coop-flims-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-flims-graubunden-at2z5i"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-flims-graubunden-at2z5i"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-flims-graubunden-at2z5i",
+        "verkaufer-in-food-coop-flims-graubunden"
+      ]
     },
     {
       "id": "company-g6dub0",
@@ -152,8 +168,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
       ]
     },
     {
@@ -238,8 +253,7 @@
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
       ]
     },
     {
@@ -316,8 +330,7 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-v2cid8",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8"
       ]
     },
     {
