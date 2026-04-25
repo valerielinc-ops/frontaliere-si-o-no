@@ -11,6 +11,7 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Mail, ShieldCheck, CheckCircle2, AlertCircle, Download, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -270,9 +271,15 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
 
   const titleId = useMemo(() => `calc-paywall-title-${Math.random().toString(36).slice(2, 8)}`, []);
 
-  return (
+  const portalTarget = typeof document !== 'undefined'
+    ? (document.getElementById('modal-root') || document.body)
+    : null;
+
+  if (!portalTarget) return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center bg-[color:rgba(15,23,42,0.65)] backdrop-blur-sm px-4"
+      className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in"
       aria-hidden={false}
     >
       <div
@@ -280,32 +287,34 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative w-full max-w-md bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden animate-fade-in-up"
+        className="relative w-full max-w-md max-h-[90dvh] flex flex-col bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden"
       >
-        <button
-          ref={closeBtnRef}
-          type="button"
-          onClick={handleDismiss}
-          aria-label={t('calculator.paywall.dismissLabel')}
-          className="absolute top-2 right-2 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <div className="p-6 sm:p-7">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2.5 bg-accent-subtle rounded-xl">
-              <Download className="w-5 h-5 text-accent" />
+        {/* Header gradient — matches NewsletterPopup */}
+        <div className="bg-gradient-to-r from-info-strong to-success-strong p-4 sm:p-6 text-on-accent shrink-0">
+          <button
+            ref={closeBtnRef}
+            type="button"
+            onClick={handleDismiss}
+            aria-label={t('calculator.paywall.dismissLabel')}
+            className="absolute top-3 right-3 p-1.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-accent/70 hover:text-on-accent hover:bg-on-accent/20 rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div className="flex items-center gap-3 mb-2 pr-12">
+            <div className="p-2 bg-on-accent/20 rounded-xl shrink-0">
+              <Download className="w-6 h-6" />
             </div>
-            <h2 id={titleId} className="text-lg sm:text-xl font-bold font-display text-strong leading-tight">
+            <h2 id={titleId} className="text-lg sm:text-xl font-bold font-display leading-tight">
               {t('calculator.paywall.title')}
             </h2>
           </div>
-
-          <p className="text-sm text-subtle leading-relaxed mb-4">
+          <p className="text-on-accent/80 text-sm">
             {t('calculator.paywall.body')}
           </p>
+        </div>
 
+        {/* Body */}
+        <div className="p-6 overflow-y-auto overscroll-contain">
           <ul className="space-y-2 mb-5">
             <li className="flex items-start gap-2 text-sm text-body">
               <CheckCircle2 className="w-4 h-4 text-success shrink-0 mt-0.5" />
@@ -412,7 +421,8 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    portalTarget,
   );
 };
 

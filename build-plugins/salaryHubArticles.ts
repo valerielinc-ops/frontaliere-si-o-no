@@ -11,8 +11,10 @@
 
 import type { SimulationResult } from '../types';
 import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
-import { BASE_URL, ANALYTICS_SNIPPET, FAVICON_LINKS } from './constants';
+import { BASE_URL } from './constants';
 import { buildFullPath, LOCALE_CALC_PREFIX, type SalaryHubScenario } from './salaryHubScenarios';
+import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -537,16 +539,20 @@ export function generateArticleHtml(
   article: EvergreenArticle,
   locale: Locale,
   scenarioData: ScenarioDataMap,
+  distDir: string,
 ): string {
   const title = article.titles[locale];
   const description = article.descriptions[locale];
   const canonicalUrl = `${BASE_URL}${articleUrl(article, locale)}`;
-  const bodyHtml = article.body(locale, scenarioData);
+  const articleBodyHtml = article.body(locale, scenarioData);
   const faqs = article.faqItems(locale, scenarioData);
 
-  const hreflangLinks = (['it', 'en', 'de', 'fr'] as const)
-    .map(loc => `<link rel="alternate" hreflang="${loc}" href="${BASE_URL}${articleUrl(article, loc)}">`)
-    .join('\n    ');
+  const hreflangHtml = renderHreflangTags({
+    it: articleUrl(article, 'it'),
+    en: articleUrl(article, 'en'),
+    de: articleUrl(article, 'de'),
+    fr: articleUrl(article, 'fr'),
+  });
 
   const faqSchema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -572,64 +578,16 @@ export function generateArticleHtml(
     .filter(article.relatedScenarioFilter)
     .slice(0, 8);
 
-  return `<!DOCTYPE html>
-<html lang="${locale}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${title} | Frontaliere Ticino</title>
-  <meta name="description" content="${description}">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="${canonicalUrl}">
-  ${hreflangLinks}
-  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${articleUrl(article, 'it')}">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:title" content="${title}">
-  <meta property="og:description" content="${description}">
-  <meta property="og:site_name" content="Frontaliere Ticino">
-  <meta property="fb:app_id" content="891036063797338">
-  ${FAVICON_LINKS}
-  ${ANALYTICS_SNIPPET}
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;line-height:1.7}
-    .hub-wrap{max-width:1200px;margin:0 auto;padding:24px 16px}
-    .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
-    @media(min-width:1024px){.hub-grid{grid-template-columns:160px 1fr 160px}.rail{position:sticky;top:80px;align-self:start}}
-    .content{min-width:0}
-    h1{font-size:28px;font-weight:800;color:#1e293b;margin-bottom:16px;line-height:1.3}
-    h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
-    p{margin-bottom:16px;font-size:15px}
-    ul{margin:0 0 16px 24px;font-size:15px}
-    li{margin-bottom:8px}
-    a{color:#533afd}
-    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-    .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
-    .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
-    .faq-section{margin-top:32px}
-    .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
-    .faq-q{font-weight:700;font-size:15px;color:#1e293b}
-    .faq-a{font-size:14px;color:#475569;margin-top:8px}
-    .ad-unit{margin:24px 0;min-height:220px}
-    .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
-    .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
-    .footer-hub{text-align:center;padding:24px;font-size:12px;color:#94a3b8;margin-top:40px;border-top:1px solid #e2e8f0}
-  </style>
-</head>
-<body>
-  <div class="hub-wrap">
+  const pageBody = `<article class="salary-hub-page">
     <div class="hub-grid">
-      <!-- Left rail ad (desktop) -->
-      <div class="rail" style="display:none" id="left-rail">
+      <div class="rail" id="left-rail">
         <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_LEFT')}</div>
       </div>
 
-      <!-- Main content -->
       <div class="content">
         <h1>${title}</h1>
 
-        ${bodyHtml}
+        ${articleBodyHtml}
 
         <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>
 
@@ -649,27 +607,48 @@ export function generateArticleHtml(
         <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
       </div>
 
-      <!-- Right rail ad (desktop) -->
-      <div class="rail" style="display:none" id="right-rail">
+      <div class="rail" id="right-rail">
         <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_RIGHT')}</div>
       </div>
     </div>
-  </div>
+  </article>`;
 
-  <footer class="footer-hub">&copy; 2026 Frontaliere Ticino &mdash; frontaliereticino.ch</footer>
-
-  <script type="application/ld+json">${faqSchema}</script>
-  <script type="application/ld+json">${breadcrumbSchema}</script>
-
-  <script>
-    if(window.innerWidth>=1024){
-      document.getElementById('left-rail').style.display='block';
-      document.getElementById('right-rail').style.display='block';
-    }
-  </script>
-
-  <!-- AdSense: lazy loader in ANALYTICS_SNIPPET (constants.ts) handles script
-       injection + slot push via IntersectionObserver. No per-page push needed. -->
-</body>
-</html>`;
+  return buildSeoPageHtml({
+    locale,
+    title: `${title} | Frontaliere Ticino`,
+    description,
+    canonicalUrl,
+    hreflangHtml,
+    ogType: 'article',
+    extraHeadHtml: SALARY_HUB_ARTICLE_STYLE,
+    jsonLdScripts: [faqSchema, breadcrumbSchema],
+    bodyHtml: pageBody,
+    distDir,
+  });
 }
+
+/** Salary-hub article-scoped CSS (mirrors generatePageHtml's scoped style). */
+const SALARY_HUB_ARTICLE_STYLE = `<style>
+.salary-hub-page{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
+.salary-hub-page .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.salary-hub-page .rail{display:none}
+@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px 1fr 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}}
+.salary-hub-page .content{min-width:0}
+.salary-hub-page h1{font-size:28px;font-weight:800;color:#1e293b;margin:0 0 16px;line-height:1.3}
+.salary-hub-page h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
+.salary-hub-page p{margin:0 0 16px;font-size:15px}
+.salary-hub-page ul{margin:0 0 16px 24px;font-size:15px}
+.salary-hub-page li{margin-bottom:8px}
+.salary-hub-page a{color:#533afd}
+.salary-hub-page .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
+.salary-hub-page .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
+.salary-hub-page .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.salary-hub-page .faq-section{margin-top:32px}
+.salary-hub-page .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
+.salary-hub-page .faq-q{font-weight:700;font-size:15px;color:#1e293b}
+.salary-hub-page .faq-a{font-size:14px;color:#475569;margin-top:8px}
+.salary-hub-page .ad-unit{margin:24px 0;min-height:220px}
+.salary-hub-page .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
+.salary-hub-page .cta-box p{margin:0;color:#fff}
+.salary-hub-page .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
+</style>`;

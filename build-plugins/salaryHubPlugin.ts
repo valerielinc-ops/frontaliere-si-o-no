@@ -63,7 +63,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
         const hreflangBlock = hreflangAlts.join('\n');
 
         for (const locale of LOCALES) {
-          const html = generatePageHtml(scenario, result, locale, scenarios);
+          const html = generatePageHtml(scenario, result, locale, scenarios, distDir);
           const urlPath = buildFullPath(scenario, locale);
 
           // Write /calcola-stipendio/slug/index.html
@@ -104,7 +104,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
         const articleHreflang = articleHreflangAlts.join('\n');
 
         for (const locale of LOCALES) {
-          const html = generateArticleHtml(article, locale, scenarioData);
+          const html = generateArticleHtml(article, locale, scenarioData, distDir);
           const urlPath = `${ARTICLE_PREFIX[locale]}/${article.slugs[locale]}/`;
 
           collector.add(path.join(distDir, urlPath, 'index.html'), html);

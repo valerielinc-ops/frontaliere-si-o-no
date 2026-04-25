@@ -12,7 +12,9 @@
 import { SimulationResult } from '../types';
 import { SalaryHubScenario, buildFullPath, getRelatedScenarios, LOCALE_CALC_PREFIX } from './salaryHubScenarios';
 import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
-import { BASE_URL, ANALYTICS_SNIPPET, FAVICON_LINKS, GA4_MEASUREMENT_ID } from './constants';
+import { BASE_URL } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -448,6 +450,7 @@ export function generatePageHtml(
   result: SimulationResult,
   locale: Locale,
   allScenarios: SalaryHubScenario[],
+  distDir: string,
 ): string {
   const l = LABELS[locale];
   const related = getRelatedScenarios(scenario, allScenarios);
@@ -455,9 +458,12 @@ export function generatePageHtml(
   const canonicalPath = buildFullPath(scenario, locale);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
-  const hreflangLinks = (['it', 'en', 'de', 'fr'] as const)
-    .map(loc => `<link rel="alternate" hreflang="${loc}" href="${BASE_URL}${buildFullPath(scenario, loc)}">`)
-    .join('\n    ');
+  const hreflangHtml = renderHreflangTags({
+    it: buildFullPath(scenario, 'it'),
+    en: buildFullPath(scenario, 'en'),
+    de: buildFullPath(scenario, 'de'),
+    fr: buildFullPath(scenario, 'fr'),
+  });
 
   const faqSchema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -489,71 +495,12 @@ export function generatePageHtml(
   const title = l.metaTitle(scenario);
   const description = l.metaDesc(scenario, result);
 
-  return `<!DOCTYPE html>
-<html lang="${locale}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${title}</title>
-  <meta name="description" content="${description}">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="${canonicalUrl}">
-  ${hreflangLinks}
-  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildFullPath(scenario, 'it')}">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:title" content="${title}">
-  <meta property="og:description" content="${description}">
-  <meta property="og:site_name" content="Frontaliere Ticino">
-  <meta property="fb:app_id" content="891036063797338">
-  ${FAVICON_LINKS}
-  ${ANALYTICS_SNIPPET}
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;line-height:1.7}
-    .hub-wrap{max-width:1200px;margin:0 auto;padding:24px 16px}
-    .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
-    @media(min-width:1024px){.hub-grid{grid-template-columns:160px 1fr 160px}.rail{position:sticky;top:80px;align-self:start}}
-    .content{min-width:0}
-    .breadcrumb{font-size:13px;color:#64748b;margin-bottom:16px}
-    .breadcrumb a{color:#533afd;text-decoration:none}
-    h1{font-size:28px;font-weight:800;color:#1e293b;margin-bottom:8px;line-height:1.3}
-    .subtitle{font-size:15px;color:#64748b;margin-bottom:24px}
-    h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
-    p{margin-bottom:16px;font-size:15px}
-    a{color:#533afd}
-    .results-table-wrap{overflow-x:auto;margin:24px 0}
-    .results-table{width:100%;border-collapse:collapse;font-size:14px}
-    .results-table th,.results-table td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left}
-    .results-table th{background:#f1f5f9;font-weight:600;color:#475569}
-    .results-table .num{text-align:right;font-variant-numeric:tabular-nums}
-    .results-table .net-row td{background:#ecfdf5;font-weight:700}
-    .results-table .highlight{color:#059669}
-    .savings-badge{text-align:center;padding:12px;border-radius:8px;margin-top:12px;font-size:14px}
-    .savings-badge.positive{background:#ecfdf5;color:#059669}
-    .savings-badge.negative{background:#fef2f2;color:#dc2626}
-    .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
-    .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
-    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-    .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
-    .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
-    .faq-section{margin-top:32px}
-    .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
-    .faq-q{font-weight:700;font-size:15px;color:#1e293b}
-    .faq-a{font-size:14px;color:#475569;margin-top:8px}
-    .ad-unit{margin:24px 0;min-height:220px}
-    .footer-hub{text-align:center;padding:24px;font-size:12px;color:#94a3b8;margin-top:40px;border-top:1px solid #e2e8f0}
-  </style>
-</head>
-<body>
-  <div class="hub-wrap">
+  const bodyHtml = `<article class="salary-hub-page">
     <div class="hub-grid">
-      <!-- Left rail ad (desktop) -->
-      <div class="rail" style="display:none" id="left-rail">
+      <div class="rail" id="left-rail">
         <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_LEFT')}</div>
       </div>
 
-      <!-- Main content -->
       <div class="content">
         <nav class="breadcrumb">
           <a href="/">${l.home}</a> &rsaquo;
@@ -602,35 +549,63 @@ export function generatePageHtml(
         <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
       </div>
 
-      <!-- Right rail ad (desktop) -->
-      <div class="rail" style="display:none" id="right-rail">
+      <div class="rail" id="right-rail">
         <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_RIGHT')}</div>
       </div>
     </div>
-  </div>
+  </article>`;
 
-  <footer class="footer-hub">&copy; 2026 Frontaliere Ticino &mdash; frontaliereticino.ch</footer>
-
-  <script type="application/ld+json">${faqSchema}</script>
-  <script type="application/ld+json">${breadcrumbSchema}</script>
-
-  <!-- Show rail ads on desktop -->
-  <script>
-    if(window.innerWidth>=1024){
-      document.getElementById('left-rail').style.display='block';
-      document.getElementById('right-rail').style.display='block';
-    }
-  </script>
-
-  <!-- AdSense: lazy loader in ANALYTICS_SNIPPET (constants.ts) handles script
-       injection + slot push via IntersectionObserver. No per-page push needed. -->
-
-  <!-- SPA redirect for deep links -->
-  <script>
-    if(location.hostname==='frontaliereticino.ch'||location.hostname==='www.frontaliereticino.ch'){
-      sessionStorage.redirect=location.href;
-    }
-  </script>
-</body>
-</html>`;
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    hreflangHtml,
+    ogType: 'article',
+    extraHeadHtml: SALARY_HUB_PAGE_STYLE,
+    jsonLdScripts: [faqSchema, breadcrumbSchema],
+    bodyHtml,
+    distDir,
+  });
 }
+
+/**
+ * Salary-hub page-scoped CSS. All selectors are namespaced under
+ * `.salary-hub-page` so they don't override the SPA's Tailwind globals
+ * for the surrounding header/footer rendered by the React shell.
+ */
+const SALARY_HUB_PAGE_STYLE = `<style>
+.salary-hub-page{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
+.salary-hub-page .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.salary-hub-page .rail{display:none}
+@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px 1fr 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}}
+.salary-hub-page .content{min-width:0}
+.salary-hub-page .breadcrumb{font-size:13px;color:#64748b;margin-bottom:16px}
+.salary-hub-page .breadcrumb a{color:#533afd;text-decoration:none}
+.salary-hub-page h1{font-size:28px;font-weight:800;color:#1e293b;margin:0 0 8px;line-height:1.3}
+.salary-hub-page .subtitle{font-size:15px;color:#64748b;margin:0 0 24px}
+.salary-hub-page h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
+.salary-hub-page p{margin:0 0 16px;font-size:15px}
+.salary-hub-page a{color:#533afd}
+.salary-hub-page .results-table-wrap{overflow-x:auto;margin:24px 0}
+.salary-hub-page .results-table{width:100%;border-collapse:collapse;font-size:14px}
+.salary-hub-page .results-table th,.salary-hub-page .results-table td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left}
+.salary-hub-page .results-table th{background:#f1f5f9;font-weight:600;color:#475569}
+.salary-hub-page .results-table .num{text-align:right;font-variant-numeric:tabular-nums}
+.salary-hub-page .results-table .net-row td{background:#ecfdf5;font-weight:700}
+.salary-hub-page .results-table .highlight{color:#059669}
+.salary-hub-page .savings-badge{text-align:center;padding:12px;border-radius:8px;margin-top:12px;font-size:14px}
+.salary-hub-page .savings-badge.positive{background:#ecfdf5;color:#059669}
+.salary-hub-page .savings-badge.negative{background:#fef2f2;color:#dc2626}
+.salary-hub-page .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
+.salary-hub-page .cta-box p{margin:0;color:#fff}
+.salary-hub-page .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
+.salary-hub-page .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
+.salary-hub-page .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
+.salary-hub-page .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.salary-hub-page .faq-section{margin-top:32px}
+.salary-hub-page .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
+.salary-hub-page .faq-q{font-weight:700;font-size:15px;color:#1e293b}
+.salary-hub-page .faq-a{font-size:14px;color:#475569;margin-top:8px}
+.salary-hub-page .ad-unit{margin:24px 0;min-height:220px}
+</style>`;

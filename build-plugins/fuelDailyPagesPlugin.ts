@@ -293,6 +293,12 @@ function collectAllStations(dataset: FuelPricesDataset): SwissStation[] {
     const nearby = row.swiss?.nearbyStations ?? [];
     for (const s of nearby) {
       if (!s || typeof s.sp95PriceChf !== 'number') continue;
+      // Only include stations whose address resolves to a known Ticino zone:
+      // the regional /oggi hub is implicitly Ticino, and only Ticino stations
+      // have dedicated detail pages (see generateFuelStationPages). Stations
+      // outside the zone map (e.g. Müstair, Bever) would render as non-clickable
+      // <div> cards and confuse cross-border-worker readers.
+      if (!zoneForAddress(s.address)) continue;
       const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
       if (seen.has(key)) continue;
       seen.add(key);
