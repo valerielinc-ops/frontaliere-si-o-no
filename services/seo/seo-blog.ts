@@ -12161,6 +12161,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-tassa-salute-lombardia': {
+    title: 'Frontalieri, “tassa sulla salute” al | Frontaliere Ticino',
+    description: 'Regione Lombardia conferma il cronoprogramma per il contributo economico che servirà a sostenere gli stipendi del personale sanitario nelle zone al confine con',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, entro',
+    ogTitle: 'Frontalieri, “tassa sulla salute” al via entro settembre',
+    ogDescription: 'Regione Lombardia conferma il cronoprogramma per il contributo economico che servirà a sostenere gli stipendi del personale sanitario nelle zone al confine con',
+    canonicalPath: '/articoli-frontaliere/frontalieri-tassa-salute-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"mainEntityOfPage\":{\"@type\":\"WebPage\"",
+      "description": "Regione Lombardia conferma il cronoprogramma per il contributo economico che servirà a sostenere gli stipendi del personale sanitario nelle zone al confine con",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona"
+      },
+      "datePublished": "2026-04-25T03:45:13+00:00",
+      "dateModified": "2026-04-25T03:45:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

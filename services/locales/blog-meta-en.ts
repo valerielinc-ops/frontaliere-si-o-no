@@ -2616,6 +2616,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frode-crediti-covid-ticino-3334-casi.title': 'Covid credit fraud: 3,334 cases open in Ticino and Switzerland',
     'blog.article.frode-crediti-covid-ticino-3334-casi.excerpt': 'Swiss authorities are handling 3,334 cases of Covid credit fraud, totaling over 406 million francs.',
     'blog.article.frode-crediti-covid-ticino-3334-casi.imageAlt': 'Judicial office with documents and calculators',
+    'blog.article.frontalieri-tassa-salute-lombardia.title': 'Cross-Border Workers, \'Health Tax\' in Place by September',
+    'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'Lombardy Region confirms the timeframe for the economic contribution that will support the salaries of healthcare personnel in border areas with Switzerland.',
+    'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Bellinzona Panorama',
 };
 
 export default blogMetaEn;

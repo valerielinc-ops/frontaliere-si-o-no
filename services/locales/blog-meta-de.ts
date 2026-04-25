@@ -2616,6 +2616,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frode-crediti-covid-ticino-3334-casi.title': 'Betrug mit Covid-Krediten: 3334 offene Fälle in der Schweiz und im Tessin',
     'blog.article.frode-crediti-covid-ticino-3334-casi.excerpt': 'Die Schweizer Behörden bearbeiten 3334 Verfahren wegen Betrugs mit Covid-Krediten im Wert von über 406 Millionen Franken.',
     'blog.article.frode-crediti-covid-ticino-3334-casi.imageAlt': 'Gerichtsbüro mit Dokumenten und Rechnern',
+    'blog.article.frontalieri-tassa-salute-lombardia.title': 'Frontalieri, „Gesundheitssteuer“ startet bis September',
+    'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'Die Region Lombardei bestätigt den Zeitplan für den finanziellen Beitrag, der dazu dient, die Gehälter des medizinischen Personals in den Grenzgebieten zur Schweiz zu unterstützen.',
+    'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Bellinzona Panorama',
 };
 
 export default blogMetaDe;

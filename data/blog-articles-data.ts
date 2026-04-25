@@ -7091,4 +7091,11 @@ export const ARTICLES = [
  image: '/images/blog/frode-crediti-covid-ticino-3334-casi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-tassa-salute-lombardia',
+ category: 'fiscale',
+ date: '2026-04-25T03:45:13.425Z',
+ image: '/images/blog/frontalieri-tassa-salute-lombardia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

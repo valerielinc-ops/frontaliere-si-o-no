@@ -2616,6 +2616,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frode-crediti-covid-ticino-3334-casi.title': 'Frode crediti Covid: 3334 casi aperti in Ticino e Svizzera',
     'blog.article.frode-crediti-covid-ticino-3334-casi.excerpt': 'Le autorità svizzere affrontano 3334 procedimenti per frodi sui crediti Covid, per un valore di oltre 406 milioni di franchi.',
     'blog.article.frode-crediti-covid-ticino-3334-casi.imageAlt': 'Ufficio giudiziario con documenti e calcolatrici',
+    'blog.article.frontalieri-tassa-salute-lombardia.title': 'Frontalieri, “tassa sulla salute” al via entro settembre',
+    'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'Regione Lombardia conferma il cronoprogramma per il contributo economico che servirà a sostenere gli stipendi del personale sanitario nelle zone al confine con la Svizzera.',
+    'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Panorama di Bellinzona',
 };
 
 export default blogMetaIt;
