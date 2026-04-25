@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T07:13:43.104Z",
-    "label": "before",
-    "total": 2500,
-    "needsRetranslation": 57,
-    "incomplete": 3,
-    "complete": 2497,
-    "missingByLocale": {
-      "it": 2,
-      "en": 2,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T07:14:43.186Z",
-    "label": "after",
-    "total": 2500,
-    "needsRetranslation": 57,
-    "incomplete": 3,
-    "complete": 2497,
-    "missingByLocale": {
-      "it": 2,
-      "en": 2,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Ticino Premium Properties SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T07:38:22.291Z",
     "label": "before",
     "total": 2431,
@@ -7310,6 +7254,82 @@
       },
       {
         "company": "Otis SA",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T02:32:17.251Z",
+    "label": "before",
+    "total": 2662,
+    "needsRetranslation": 82,
+    "incomplete": 31,
+    "complete": 2631,
+    "missingByLocale": {
+      "it": 26,
+      "en": 10,
+      "de": 28,
+      "fr": 28
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T03:17:24.408Z",
+    "label": "after",
+    "total": 2662,
+    "needsRetranslation": 53,
+    "incomplete": 25,
+    "complete": 2637,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
         "pending": 1
       },
       {
