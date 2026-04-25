@@ -12306,6 +12306,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incentivo-remigrazione-frontalieri-ticino': {
+    title: 'Incentivo alla remigrazione: cosa | Frontaliere Ticino',
+    description: 'Il governo italiano introduce un bonus di 615 euro per avvocati che convincono richiedenti asilo a tornare in patria. La misura solleva critiche in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivo, alla, remigrazione, cosa',
+    ogTitle: 'Incentivo alla remigrazione: cosa cambia per i frontalieri',
+    ogDescription: 'Il governo italiano introduce un bonus di 615 euro per avvocati che convincono richiedenti asilo a tornare in patria. La misura solleva critiche in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivo alla remigrazione: cosa cambia per i frontalieri in Ticino",
+      "description": "Il governo italiano introduce un bonus di 615 euro per avvocati che convincono richiedenti asilo a tornare in patria. La misura solleva critiche in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incentivo-remigrazione-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con montagne e barche"
+      },
+      "datePublished": "2026-04-25T11:04:43+00:00",
+      "dateModified": "2026-04-25T11:04:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7126,4 +7126,11 @@ export const ARTICLES = [
  image: '/images/blog/irb-bellinzona-valore-aggiunto-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incentivo-remigrazione-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-25T11:04:43.718Z',
+ image: '/images/blog/incentivo-remigrazione-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

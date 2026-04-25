@@ -2631,6 +2631,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.irb-bellinzona-valore-aggiunto-ticino.title': 'IRB Bellinzona: 25 anni di ricerca biomedica e valore aggiunto per il Ticino',
     'blog.article.irb-bellinzona-valore-aggiunto-ticino.excerpt': 'L\'Istituto di Ricerca in Biomedicina di Bellinzona festeggia 25 anni di attività con 160 collaboratori e quasi 1000 pubblicazioni scientifiche.',
     'blog.article.irb-bellinzona-valore-aggiunto-ticino.imageAlt': 'Vista aerea di Bellinzona con il Castello di Castelgrande in primo piano',
+    'blog.article.incentivo-remigrazione-frontalieri-ticino.title': 'Incentivo alla remigrazione: cosa cambia per i frontalieri in Ticino',
+    'blog.article.incentivo-remigrazione-frontalieri-ticino.excerpt': 'Il governo italiano introduce un bonus di 615 euro per avvocati che convincono richiedenti asilo a tornare in patria. La misura solleva critiche in Svizzera.',
+    'blog.article.incentivo-remigrazione-frontalieri-ticino.imageAlt': 'Vista del Lago di Lugano con montagne e barche',
 };
 
 export default blogMetaIt;

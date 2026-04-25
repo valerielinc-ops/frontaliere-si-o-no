@@ -2631,6 +2631,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.irb-bellinzona-valore-aggiunto-ticino.title': 'IRB Bellinzone : 25 ans de recherche biomédicale et valeur ajoutée pour le Tessin',
     'blog.article.irb-bellinzona-valore-aggiunto-ticino.excerpt': 'L\'Institut de Recherche en Biomedecine de Bellinzone célèbre 25 ans d\'activité avec 160 collaborateurs et près de 1000 publications scientifiques.',
     'blog.article.irb-bellinzona-valore-aggiunto-ticino.imageAlt': 'Vue aérienne de Bellinzone avec le château de Castelgrande au premier plan',
+    'blog.article.incentivo-remigrazione-frontalieri-ticino.title': 'Incitation à la rémigration: ce qui change pour les frontaliers en Suisse',
+    'blog.article.incentivo-remigrazione-frontalieri-ticino.excerpt': 'Le gouvernement italien introduit une prime de 615 euros pour les avocats qui convainquent les demandeurs d\'asile de retourner dans leur pays. La mesure suscite des critiques en Suisse.',
+    'blog.article.incentivo-remigrazione-frontalieri-ticino.imageAlt': 'Vue du lac de Lugano avec des montagnes et des bateaux',
 };
 
 export default blogMetaFr;
