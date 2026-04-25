@@ -1,105 +1,7 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-25T09:17:00.817Z",
+  "assembledAt": "2026-04-25T21:14:04.972Z",
   "jobs": [
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "spontaneous-apprentice-candidate-corner-banca-switzerland",
-        "de": "spontaner-auszubildender-corner-banca-switzerland",
-        "fr": "candidat-spontane-corner-banca-switzerland"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "titleByLocale": {
-        "it": "Candidatura spontanea apprendistato",
-        "en": "Spontaneous apprentice candidate",
-        "de": "Spontaner Auszubildender",
-        "fr": "Candidat spontané"
-      },
-      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\n \n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-      "descriptionByLocale": {
-        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti • Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7. • Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "en": "♪ Learning ♪ Destination Brilliant students who have finished middle school and are preparing to enter the world of work. They obtain the diploma at the end of a dual training which includes a rotation between the offices oriented to provide them with the necessary knowledge of the sector. ## Duration 4 years (informatics) # Programme - Educational programme IT apprenticeship development applications / infrastructure management / digital business development - School training: extended profile with integrated maturity, at the Technical Professional Centre in Locarno. - Inter-company courses: Ameti Bodio. ♪ Requirements - Diploma of middle schools with all aptitude levels and an average of more than 4.7. - Spicy motivation, passion for contact with people, desire to study and familiarize yourself with figures and computer programs.",
-        "de": "Lernen: Anschriften Brillante Studenten, die die Mittelschule abgeschlossen haben und bereiten sich vor, in die Arbeitswelt einzusteigen. Sie erhalten das Diplom am Ende einer dualen Ausbildung, die eine Rotation zwischen den Büros beinhaltet, die darauf ausgerichtet sind, ihnen die notwendigen Kenntnisse des Sektors zu vermitteln. Dauer 4 Jahre (Informatik) Schulprogramm Computer-Learning-Entwicklung Anwendungen / Infrastrukturmanagement / digitale Geschäftsentwicklung Schulausbildung: erweitertes Profil mit integrierter Reife, am Technical Professional Centre in Locarno. Intercompany Kurse: Ameti Bodio. Anforderungen Diplom der Mittelschulen mit allen Eignungsstufen und einem Durchschnitt von mehr als 4.7. Spicy Motivation, Leidenschaft für den Kontakt mit Menschen, Wunsch, sich mit Zahlen und Computerprogrammen zu studieren und vertraut zu machen.",
-        "fr": "Apprentissage : Adresses Des étudiants brillants qui ont terminé le collège et se préparent à entrer dans le monde du travail. Ils obtiennent le diplôme à la fin d'une double formation qui comprend une rotation entre les bureaux destinés à leur fournir les connaissances nécessaires du secteur. Durée 4 ans (informatique) Programme scolaire informatique développement applications / gestion de l'infrastructure / développement de l'entreprise numérique Formation scolaire: profil étendu avec maturité intégrée, au Centre Professionnel Technique de Locarno. Cours interentreprises: Ameti Bodio. Exigences Diplôme d'études secondaires avec tous les niveaux d'aptitude et une moyenne de plus de 4,7. La motivation, la passion pour le contact avec les gens, le désir d'étudier et de se familiariser avec les figures et les programmes informatiques."
-      },
-      "requirements": [
-        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
-        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "en": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "de": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ]
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-04-25T09:16:58.867Z",
-      "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland",
-        "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
-        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "initiativbewerbung-lehre-corner-banca-switzerland"
-        ],
-        "en": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "unsolicited-application-apprenticeship-corner-banca-switzerland"
-        ],
-        "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
-          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
-        ],
-        "fr": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland",
-          "unsolicited-application-apprenticeship-corner-banca-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
     {
       "id": "corner-banca-422277a6cd4c",
       "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
@@ -140,7 +42,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.866Z",
+      "crawledAt": "2026-04-25T21:14:02.818Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -196,6 +98,105 @@
           "@type": "QuantitativeValue",
           "minValue": 51500,
           "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+        "en": "spontaneous-apprentice-candidate-corner-banca-switzerland",
+        "de": "spontaner-auszubildender-corner-banca-switzerland",
+        "fr": "candidat-spontane-corner-banca-switzerland"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "titleByLocale": {
+        "it": "Candidatura spontanea apprendistato",
+        "en": "Spontaneous apprentice candidate",
+        "de": "Spontaner Auszubildender",
+        "fr": "Candidat spontané"
+      },
+      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\n \n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+      "descriptionByLocale": {
+        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti • Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7. • Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "en": "♪ Learning ♪ Destination Brilliant students who have finished middle school and are preparing to enter the world of work. They obtain the diploma at the end of a dual training which includes a rotation between the offices oriented to provide them with the necessary knowledge of the sector. ## Duration 4 years (informatics) # Programme - Educational programme IT apprenticeship development applications / infrastructure management / digital business development - School training: extended profile with integrated maturity, at the Technical Professional Centre in Locarno. - Inter-company courses: Ameti Bodio. ♪ Requirements - Diploma of middle schools with all aptitude levels and an average of more than 4.7. - Spicy motivation, passion for contact with people, desire to study and familiarize yourself with figures and computer programs.",
+        "de": "Lernen: Anschriften Brillante Studenten, die die Mittelschule abgeschlossen haben und bereiten sich vor, in die Arbeitswelt einzusteigen. Sie erhalten das Diplom am Ende einer dualen Ausbildung, die eine Rotation zwischen den Büros beinhaltet, die darauf ausgerichtet sind, ihnen die notwendigen Kenntnisse des Sektors zu vermitteln. Dauer 4 Jahre (Informatik) Schulprogramm Computer-Learning-Entwicklung Anwendungen / Infrastrukturmanagement / digitale Geschäftsentwicklung Schulausbildung: erweitertes Profil mit integrierter Reife, am Technical Professional Centre in Locarno. Intercompany Kurse: Ameti Bodio. Anforderungen Diplom der Mittelschulen mit allen Eignungsstufen und einem Durchschnitt von mehr als 4.7. Spicy Motivation, Leidenschaft für den Kontakt mit Menschen, Wunsch, sich mit Zahlen und Computerprogrammen zu studieren und vertraut zu machen.",
+        "fr": "Apprentissage : Adresses Des étudiants brillants qui ont terminé le collège et se préparent à entrer dans le monde du travail. Ils obtiennent le diplôme à la fin d'une double formation qui comprend une rotation entre les bureaux destinés à leur fournir les connaissances nécessaires du secteur. Durée 4 ans (informatique) Programme scolaire informatique développement applications / gestion de l'infrastructure / développement de l'entreprise numérique Formation scolaire: profil étendu avec maturité intégrée, au Centre Professionnel Technique de Locarno. Cours interentreprises: Ameti Bodio. Exigences Diplôme d'études secondaires avec tous les niveaux d'aptitude et une moyenne de plus de 4,7. La motivation, la passion pour le contact avec les gens, le désir d'étudier et de se familiariser avec les figures et les programmes informatiques."
+      },
+      "requirements": [
+        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
+        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "en": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "de": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ]
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-04-25T21:14:02.818Z",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "initiativbewerbung-lehre-corner-banca-switzerland"
+        ],
+        "en": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        ],
+        "de": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
+        ],
+        "fr": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland",
+          "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -269,7 +270,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.865Z",
+      "crawledAt": "2026-04-25T21:14:02.816Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -285,6 +286,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -370,7 +372,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-25T09:16:58.864Z",
+      "crawledAt": "2026-04-25T21:14:02.815Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -401,6 +403,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -477,7 +480,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.863Z",
+      "crawledAt": "2026-04-25T21:14:02.814Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
@@ -503,6 +506,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -589,7 +593,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.862Z",
+      "crawledAt": "2026-04-25T21:14:02.813Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -623,6 +627,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -709,7 +714,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.861Z",
+      "crawledAt": "2026-04-25T21:14:02.810Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen"
       ],
@@ -722,6 +727,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -731,6 +737,87 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-97d8d7e51ea2",
+      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+        "en": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+        "de": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+        "fr": "agent-d-autorisation-et-de-prevention-de-la-fraude-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "IT Authorizazion and Fraud Prevention Officer",
+      "titleByLocale": {
+        "it": "IT Authorizazion e Fraud Prevention Officer",
+        "en": "IT Authorizazion and Fraud Prevention Officer",
+        "de": "IT Autorizazion und Fraud Prevention Officer",
+        "fr": "Agent d'autorisation et de prévention de la fraude"
+      },
+      "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+      "descriptionByLocale": {
+        "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di “trattamento delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l’emissione delle carte, la gestione del ciclo di vita, la liquidazione e la liquidazione, le frodi e i riscatti) • Raccogliere, analizzare e valutare le richieste regolari (ad es. cambiamenti, conformità, ...) dai programmi di carta (ad es. VISA, MC, ...) • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
+        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) • Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications • Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models • Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping) • Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management • Support the analysis and management of application incidents and production issues Must Have • Resident in Ticino or willing to relocate • Experience in banking or financial contexts • Experience in functional and technical analysis in IT • Knowledge of credit and debit card payment systems, including payment tokenization. • Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+        "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. • Analyse und Analyse von Funktionen und Prozessen • Analyse und Verständnis von “Kartenzahlungen Verarbeitung, Zahlung Tokenization und Betrugsprävention” Prozessen und verwandten (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Sammeln, Analysieren und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC,...) • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
+        "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Responsabilités clés Analyse fonctionnelle et processus • Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus d'émission de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) • Collecte, analyse et évaluation des demandes régulières (c'est-à-dire des modifications, de la conformité, ...) des systèmes de cartes (par exemple VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques • Collecte, analyse et formalisation des exigences opérationnelles (le cas échéant), les transformant en spécifications fonctionnelles et techniques • Appui à l'entreprise dans la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres parties prenantes internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec les équipes de développement internes et externes pendant les phases de développement, d'essai et de libération, exécuter directement (le cas échéant) testing et gestion de la mainlevée • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
+      },
+      "requirements": [
+        "Resident in Ticino or willing to relocate",
+        "Experience in banking or financial contexts",
+        "Experience in functional and technical analysis in IT",
+        "Knowledge of credit and debit card payment systems, including payment tokenization.",
+        "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Resident in Ticino or willing to relocate",
+          "Experience in banking or financial contexts",
+          "Experience in functional and technical analysis in IT",
+          "Knowledge of credit and debit card payment systems, including payment tokenization.",
+          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
+        ],
+        "en": [
+          "Resident in Ticino or willing to relocate",
+          "Experience in banking or financial contexts",
+          "Experience in functional and technical analysis in IT",
+          "Knowledge of credit and debit card payment systems, including payment tokenization.",
+          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-25T21:14:02.808Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -812,7 +899,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.860Z",
+      "crawledAt": "2026-04-25T21:14:02.808Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "conseiller-client-a-100-corner-banca-lugano",
@@ -842,6 +929,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -858,88 +946,6 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-97d8d7e51ea2",
-      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "en": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "de": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "fr": "agent-d-autorisation-et-de-prevention-de-la-fraude-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Authorizazion and Fraud Prevention Officer",
-      "titleByLocale": {
-        "it": "IT Authorizazion e Fraud Prevention Officer",
-        "en": "IT Authorizazion and Fraud Prevention Officer",
-        "de": "IT Autorizazion und Fraud Prevention Officer",
-        "fr": "Agent d'autorisation et de prévention de la fraude"
-      },
-      "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
-      "descriptionByLocale": {
-        "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di “trattamento delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l’emissione delle carte, la gestione del ciclo di vita, la liquidazione e la liquidazione, le frodi e i riscatti) • Raccogliere, analizzare e valutare le richieste regolari (ad es. cambiamenti, conformità, ...) dai programmi di carta (ad es. VISA, MC, ...) • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related\n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks)\n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …)\n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly\n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
-        "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. • Analyse und Analyse von Funktionen und Prozessen • Analyse und Verständnis von “Kartenzahlungen Verarbeitung, Zahlung Tokenization und Betrugsprävention” Prozessen und verwandten (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Sammeln, Analysieren und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC,...) • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
-        "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Responsabilités clés Analyse fonctionnelle et processus • Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus d'émission de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) • Collecte, analyse et évaluation des demandes régulières (c'est-à-dire des modifications, de la conformité, ...) des systèmes de cartes (par exemple VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques • Collecte, analyse et formalisation des exigences opérationnelles (le cas échéant), les transformant en spécifications fonctionnelles et techniques • Appui à l'entreprise dans la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres parties prenantes internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec les équipes de développement internes et externes pendant les phases de développement, d'essai et de libération, exécuter directement (le cas échéant) testing et gestion de la mainlevée • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
-      },
-      "requirements": [
-        "Resident in Ticino or willing to relocate",
-        "Experience in banking or financial contexts",
-        "Experience in functional and technical analysis in IT",
-        "Knowledge of credit and debit card payment systems, including payment tokenization.",
-        "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Resident in Ticino or willing to relocate",
-          "Experience in banking or financial contexts",
-          "Experience in functional and technical analysis in IT",
-          "Knowledge of credit and debit card payment systems, including payment tokenization.",
-          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ],
-        "en": [
-          "Resident in Ticino or willing to relocate",
-          "Experience in banking or financial contexts",
-          "Experience in functional and technical analysis in IT",
-          "Knowledge of credit and debit card payment systems, including payment tokenization.",
-          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.859Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
     },
     {
       "id": "corner-banca-acebb12b2bb7",
@@ -1005,7 +1011,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.857Z",
+      "crawledAt": "2026-04-25T21:14:02.806Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen"
@@ -1022,6 +1028,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.257Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1103,7 +1110,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T09:16:58.857Z",
+      "crawledAt": "2026-04-25T21:14:02.805Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-corner-banca-lugano"
       ],
@@ -1116,6 +1123,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
