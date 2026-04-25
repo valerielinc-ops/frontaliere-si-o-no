@@ -55,8 +55,8 @@ export interface ScenarioDataMap {
 /** URL path prefix per locale for articles. */
 const ARTICLE_PREFIX: Record<Locale, string> = {
   it: '/guida-frontaliere',
-  en: '/en/crossborder-guide',
-  de: '/de/grenzgaenger-leitfaden',
+  en: '/en/cross-border-guide',
+  de: '/de/grenzgaenger-ratgeber',
   fr: '/fr/guide-frontalier',
 };
 

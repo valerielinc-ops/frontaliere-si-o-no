@@ -138,9 +138,9 @@ function categorizeUrls(urls: string[], locale: 'it' | 'en' | 'de' | 'fr' = 'it'
  // Locale-specific path prefixes (Italian has no locale prefix)
  const prefixMap: Record<string, Record<string, string>> = {
  it: { calc: '/calcola-stipendio', comp: '/compara-servizi', tax: '/tasse-e-pensione', guide: '/guida-frontaliere', life: '/vivere-in-ticino', stats: '/statistiche', job: '/cerca-lavoro', jobOffer: '/offerta-lavoro', blog: '/articoli-frontaliere', gloss: '/glossario-frontaliere' },
- en: { calc: '/en/calculate-salary', comp: '/en/compare-services', tax: '/en/taxes-and-pension', guide: '/en/cross-border-guide', life: '/en/living-in-ticino', stats: '/en/statistics', job: '/en/job-search', jobOffer: '/en/job-offer', blog: '/en/cross-border-articles', gloss: '/en/cross-border-glossary' },
- de: { calc: '/de/gehalt-berechnen', comp: '/de/dienste-vergleichen', tax: '/de/steuern-und-rente', guide: '/de/grenzgaenger-leitfaden', life: '/de/leben-im-tessin', stats: '/de/statistiken', job: '/de/jobsuche', jobOffer: '/de/stellenangebot', blog: '/de/grenzgaenger-artikel', gloss: '/de/grenzgaenger-glossar' },
- fr: { calc: '/fr/calculer-salaire', comp: '/fr/comparer-services', tax: '/fr/impots-et-retraite', guide: '/fr/guide-frontalier', life: '/fr/vivre-au-tessin', stats: '/fr/statistiques', job: '/fr/recherche-emploi', jobOffer: '/fr/offre-emploi', blog: '/fr/articles-frontaliers', gloss: '/fr/glossaire-frontalier' },
+ en: { calc: '/en/calculate-salary', comp: '/en/service-comparison', tax: '/en/taxes-and-pension', guide: '/en/cross-border-guide', life: '/en/living-in-ticino', stats: '/en/statistics', job: '/en/find-jobs-ticino', jobOffer: '/en/job-offer', blog: '/en/cross-border-articles', gloss: '/en/cross-border-glossary' },
+ de: { calc: '/de/gehalt-berechnen', comp: '/de/service-vergleich', tax: '/de/grenzgaenger-besteuerung-leitfaden-2026', guide: '/de/grenzgaenger-ratgeber', life: '/de/leben-im-tessin', stats: '/de/statistiken', job: '/de/jobs-im-tessin', jobOffer: '/de/stellenangebot', blog: '/de/grenzgaenger-artikel', gloss: '/de/grenzgaenger-glossar' },
+ fr: { calc: '/fr/calculer-salaire', comp: '/fr/comparaison-services', tax: '/fr/impots-et-retraite', guide: '/fr/guide-frontalier', life: '/fr/vivre-au-tessin', stats: '/fr/statistiques', job: '/fr/trouver-emploi-tessin', jobOffer: '/fr/offre-emploi', blog: '/fr/articles-frontalier', gloss: '/fr/glossaire-frontalier' },
  };
  const p = prefixMap[locale];
 
