@@ -150,8 +150,18 @@ const IT: Labels = {
     `Per ottimizzare il cambio CHF-EUR sullo stipendio, servizi come <a href="/go/wise/" rel="sponsored">Wise</a> o <a href="/go/fineco/" rel="sponsored">Fineco</a> offrono tassi di cambio più vantaggiosi rispetto alle banche tradizionali, con commissioni trasparenti. Se ricevi lo stipendio in CHF, convertire tramite questi servizi può farti risparmiare centinaia di euro all'anno rispetto al cambio bancario standard.`,
   metaTitle: (s) => {
     const parts = [`Stipendio netto ${fmtCHF(s.salary)} CHF frontaliere`];
+    // Frontier-type token differentiates OLD (pre-2024 protocol) vs NEW
+    // (post-17/07/2023 agreement). Without it, every scenario combination
+    // (salary × marital × children) produced an identical <title> across
+    // OLD/NEW variants and tripped the Semrush title-uniqueness gate.
+    parts.push(s.frontierType === 'NEW' ? 'nuovo' : 'vecchio');
     if (s.maritalStatus === 'MARRIED') parts.push('sposato');
     if (s.children > 0) parts.push(`${s.children} figli`);
+    // Distance zone is the second 2-way axis on the same page set; without
+    // it, a NEW frontaliere within 20 km collides with a NEW frontaliere
+    // beyond 20 km. The zone shorthand keeps the suffix short.
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('entro 20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('oltre 20km');
     parts.push('| Simulazione 2026');
     return parts.join(' ');
   },
