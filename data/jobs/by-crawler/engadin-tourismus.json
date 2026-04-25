@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engadin-tourismus",
-  "assembledAt": "2026-04-24T21:31:36.766Z",
+  "assembledAt": "2026-04-25T09:23:12.163Z",
   "jobs": [
     {
       "id": "engadin-tourismus-f9482812da90",
@@ -41,12 +41,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "featured": false,
-      "postedDate": "2026-04-24",
+      "postedDate": "2026-04-25",
       "url": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-24T21:31:35.338Z",
+      "crawledAt": "2026-04-25T09:23:10.702Z",
       "requirementsByLocale": {
         "it": [
           "Socievole e a tuo agio nel relazionarti con gli ospiti",
@@ -96,6 +96,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:28:50.687Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
