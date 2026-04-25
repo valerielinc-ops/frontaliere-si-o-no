@@ -1,0 +1,36 @@
+{
+  "date": "2026-04-25",
+  "generatedAt": "2026-04-25T06:09:41.604Z",
+  "zones": {
+    "chiasso": {
+      "diesel": 2.176,
+      "benzina": 1.848
+    },
+    "mendrisio": {
+      "diesel": 2.193,
+      "benzina": 1.817
+    },
+    "lugano": {
+      "diesel": 2.205,
+      "benzina": 1.912
+    },
+    "bellinzona": {
+      "diesel": 2.212,
+      "benzina": 1.984
+    },
+    "locarno": {
+      "diesel": 2.01,
+      "benzina": 1.845
+    }
+  },
+  "regional": {
+    "diesel": 2.15,
+    "benzina": 1.878
+  },
+  "diesel": {
+    "source": "mixed",
+    "realCoveragePct": 92.9,
+    "realStationCount": 91,
+    "totalStationCount": 98
+  }
+}
