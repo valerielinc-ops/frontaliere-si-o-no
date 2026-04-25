@@ -203,10 +203,22 @@ export function truncateJobCorePreservingCity(
  * Build the disambiguator suffix appended to the title core when two
  * otherwise-identical jobs (same role + company + city) would collide.
  *
- * Format: ` (#abc123)` — a leading space, parentheses, hash sigil, then the
- * raw token (lower-cased, stripped of separators). Visually unobtrusive yet
- * distinct enough that Semrush's title-uniqueness audit registers each page
- * as a separate <title>.
+ * Format: ` (#abcd1234)` — a leading space, parentheses, hash sigil, then an
+ * 8-char lowercase hex hash deterministically derived from the FULL input
+ * token (typically the per-locale slug, which is already unique per page).
+ *
+ * Why a hash and not the slug tail: the previous implementation used the last
+ * 6 alphanum chars of the slug, which collides when many slugs share a city
+ * suffix (e.g. `…-chur`, `…-bach`) — yielding the same `(#enchur)` tail on
+ * dozens of pages and re-tripping Semrush's title-uniqueness audit. A hash of
+ * the FULL slug always differs whenever the slug differs, so as long as
+ * router slugs are deduped at crawl time (which they are), final titles are
+ * guaranteed unique across the locale.
+ *
+ * The hash function is a non-crypto FNV-1a-style rolling hash mixed into a
+ * 32-bit unsigned integer and rendered as 8 hex digits — fast, dependency
+ * free, deterministic, and effectively collision-free for our dataset size
+ * (~10k pages per locale; birthday-bound ≈ 65k for 32-bit).
  *
  * Empty input returns an empty string so callers can pass through optional
  * tokens without conditional logic.
@@ -214,9 +226,17 @@ export function truncateJobCorePreservingCity(
 export function buildTitleDisambiguator(token: string): string {
  const cleaned = String(token || '')
   .toLowerCase()
-  .replace(/[^a-z0-9]+/g, '')
-  .slice(-6);
- return cleaned ? ` (#${cleaned})` : '';
+  .replace(/[^a-z0-9]+/g, '');
+ if (!cleaned) return '';
+ // FNV-1a 32-bit hash — deterministic, no deps, well-distributed for short strings.
+ let h = 0x811c9dc5;
+ for (let i = 0; i < cleaned.length; i++) {
+  h ^= cleaned.charCodeAt(i);
+  // 32-bit FNV prime multiply (kept in unsigned 32-bit range via Math.imul + >>> 0).
+  h = Math.imul(h, 0x01000193) >>> 0;
+ }
+ const hex = (h >>> 0).toString(16).padStart(8, '0');
+ return ` (#${hex})`;
 }
 
 /**
