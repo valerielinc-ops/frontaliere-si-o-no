@@ -7098,4 +7098,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-tassa-salute-lombardia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casa-ticino-2026-piu-difficile',
+ category: 'pratico',
+ date: '2026-04-25T06:06:49.390Z',
+ image: '/images/blog/casa-ticino-2026-piu-difficile.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 920,
+ "numberOfItems": 921,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5638,7 +5638,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 917, "name": "UST Neuchâtel: 300 dipendenti in telelavoro a c...", "url": `${BASE_URL}/articoli-frontaliere/ust-neuchatel-telelavoro-300-dipendenti` },
           { "@type": "ListItem", "position": 918, "name": "Addio alla carta d'identità cartacea: scatta l'...", "url": `${BASE_URL}/articoli-frontaliere/cartaelettronica-varese-2026` },
           { "@type": "ListItem", "position": 919, "name": "Frode crediti Covid: 3334 casi aperti in Ticino", "url": `${BASE_URL}/articoli-frontaliere/frode-crediti-covid-ticino-3334-casi` },
-          { "@type": "ListItem", "position": 920, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-lombardia` }
+          { "@type": "ListItem", "position": 920, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-lombardia` },
+          { "@type": "ListItem", "position": 921, "name": "Trovare casa in Ticino: il mercato immobiliare ...", "url": `${BASE_URL}/articoli-frontaliere/casa-ticino-2026-piu-difficile` }
  ]
  },
  {

@@ -2619,6 +2619,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-lombardia.title': 'Frontaliers, la \'taxe sur la santé\' débutera avant septembre',
     'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'La région Lombardie confirme le calendrier pour le paiement du supplément qui servira à soutenir les salaires du personnel soignant dans les zones frontalières avec la Suisse.',
     'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Panorama de Bellinzona',
+    'blog.article.casa-ticino-2026-piu-difficile.title': 'Trouver un logement dans le Tessin : le marché immobilier en 2026',
+    'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'Au cours des 5 dernières années, le nombre de logements libres à louer en Suisse a chuté de près de 40 %, avec un impact significatif sur le canton du Tessin.',
+    'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Vue panoramique du lac de Lugano avec des maisons au premier plan',
 };
 
 export default blogMetaFr;

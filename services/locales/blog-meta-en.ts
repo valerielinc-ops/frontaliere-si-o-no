@@ -2619,6 +2619,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-lombardia.title': 'Cross-Border Workers, \'Health Tax\' in Place by September',
     'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'Lombardy Region confirms the timeframe for the economic contribution that will support the salaries of healthcare personnel in border areas with Switzerland.',
     'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Bellinzona Panorama',
+    'blog.article.casa-ticino-2026-piu-difficile.title': 'Finding a home in Ticino: the real estate market in 2026',
+    'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'Over the past 5 years, the number of vacant rental properties in Switzerland has plummeted by nearly 40%, significantly impacting the Canton of Ticino.',
+    'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Panoramic view of Lake Lugano with houses in the foreground',
 };
 
 export default blogMetaEn;

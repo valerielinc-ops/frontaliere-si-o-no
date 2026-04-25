@@ -2619,6 +2619,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-lombardia.title': 'Frontalieri, “tassa sulla salute” al via entro settembre',
     'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'Regione Lombardia conferma il cronoprogramma per il contributo economico che servirà a sostenere gli stipendi del personale sanitario nelle zone al confine con la Svizzera.',
     'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Panorama di Bellinzona',
+    'blog.article.casa-ticino-2026-piu-difficile.title': 'Trovare casa in Ticino: il mercato immobiliare nel 2026',
+    'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'Negli ultimi 5 anni gli alloggi liberi in affitto in Svizzera sono crollati di quasi il 40%, con un impatto significativo sul Canton Ticino.',
+    'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Vista panoramica del Lago di Lugano con case in primo piano',
 };
 
 export default blogMetaIt;

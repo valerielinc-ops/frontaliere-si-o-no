@@ -12190,6 +12190,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-ticino-2026-piu-difficile': {
+    title: 'Trovare casa in Ticino: il mercato | Frontaliere Ticino',
+    description: 'Scopri come trovare casa in Ticino nel 2026: analisi del mercato immobiliare, implicazioni per i frontalieri e azioni concrete per trovare un alloggio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trovare, casa, mercato, immobiliare',
+    ogTitle: 'Trovare casa in Ticino: il mercato immobiliare nel 2026',
+    ogDescription: 'Scopri come trovare casa in Ticino nel 2026: analisi del mercato immobiliare, implicazioni per i frontalieri e azioni concrete per trovare un alloggio.',
+    canonicalPath: '/articoli-frontaliere/casa-ticino-2026-piu-difficile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trovare casa in Ticino: il mercato immobiliare nel 2026",
+      "description": "Scopri come trovare casa in Ticino nel 2026: analisi del mercato immobiliare, implicazioni per i frontalieri e azioni concrete per trovare un alloggio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casa-ticino-2026-piu-difficile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con case in primo piano"
+      },
+      "datePublished": "2026-04-25T06:06:49+00:00",
+      "dateModified": "2026-04-25T06:06:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-ticino-2026-piu-difficile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2619,6 +2619,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-lombardia.title': 'Frontalieri, „Gesundheitssteuer“ startet bis September',
     'blog.article.frontalieri-tassa-salute-lombardia.excerpt': 'Die Region Lombardei bestätigt den Zeitplan für den finanziellen Beitrag, der dazu dient, die Gehälter des medizinischen Personals in den Grenzgebieten zur Schweiz zu unterstützen.',
     'blog.article.frontalieri-tassa-salute-lombardia.imageAlt': 'Bellinzona Panorama',
+    'blog.article.casa-ticino-2026-piu-difficile.title': 'Wohnungssuche im Tessin: Der Immobilienmarkt im Jahr 2026',
+    'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'In den letzten 5 Jahren sind die freien Mietwohnungen in der Schweiz um fast 40% gesunken, was den Kanton Tessin erheblich betrifft.',
+    'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Panoramablick auf den Luganersee mit Häusern im Vordergrund',
 };
 
 export default blogMetaDe;
