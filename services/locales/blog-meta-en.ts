@@ -2655,6 +2655,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.miliardari-dubai-svizzera-lugano.title': 'Billionaires from Dubai to Switzerland: Lugano in the spotlight',
     'blog.article.miliardari-dubai-svizzera-lugano.excerpt': 'Geopolitical uncertainty is driving Dubai\'s billionaires to relocate to Switzerland, with Lugano as the preferred destination. Tens of billions on the way.',
     'blog.article.miliardari-dubai-svizzera-lugano.imageAlt': 'Lugano skyline with Monte Brè and Lake Ceresio',
+    'blog.article.crans-montana-spese-cura-italiani-ufas-2026.title': 'Crans-Montana: UFAS clarifies healthcare costs for Italian patients',
+    'blog.article.crans-montana-spese-cura-italiani-ufas-2026.excerpt': 'The Federal Social Insurance Office explains the procedure for reimbursing medical expenses for Italian patients injured in Switzerland.',
+    'blog.article.crans-montana-spese-cura-italiani-ufas-2026.imageAlt': 'Hospital in Crans-Montana with Alpine view',
 };
 
 export default blogMetaEn;

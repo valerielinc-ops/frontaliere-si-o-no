@@ -12538,6 +12538,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-spese-cura-italiani-ufas-2026': {
+    title: 'Crans-Montana: UFAS chiarisce le spese | Frontaliere Ticino',
+    description: 'L\'Ufficio federale delle assicurazioni sociali spiega la procedura per il rimborso delle spese mediche per i pazienti italiani infortunati in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, ufas, chiarisce, spese',
+    ogTitle: 'Crans-Montana: UFAS chiarisce le spese di cura per i',
+    ogDescription: 'L\'Ufficio federale delle assicurazioni sociali spiega la procedura per il rimborso delle spese mediche per i pazienti italiani infortunati in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-spese-cura-italiani-ufas-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: UFAS chiarisce le spese di cura per i pazienti italiani",
+      "description": "L'Ufficio federale delle assicurazioni sociali spiega la procedura per il rimborso delle spese mediche per i pazienti italiani infortunati in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-spese-cura-italiani-ufas-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Crans-Montana con vista sulle Alpi"
+      },
+      "datePublished": "2026-04-25T19:26:40+00:00",
+      "dateModified": "2026-04-25T19:26:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-spese-cura-italiani-ufas-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

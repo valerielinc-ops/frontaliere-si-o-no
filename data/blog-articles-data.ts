@@ -7182,4 +7182,11 @@ export const ARTICLES = [
  image: '/images/blog/miliardari-dubai-svizzera-lugano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-spese-cura-italiani-ufas-2026',
+ category: 'novita',
+ date: '2026-04-25T19:26:40.220Z',
+ image: '/images/blog/crans-montana-spese-cura-italiani-ufas-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

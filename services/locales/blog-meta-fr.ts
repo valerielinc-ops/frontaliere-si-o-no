@@ -2655,6 +2655,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.miliardari-dubai-svizzera-lugano.title': 'Des milliardaires de Dubaï à la Suisse : Lugano dans le viseur',
     'blog.article.miliardari-dubai-svizzera-lugano.excerpt': 'L\'incertitude géopolitique pousse les milliardaires de Dubaï à s\'installer en Suisse, avec Lugano comme destination préférée. Des dizaines de milliards en perspective.',
     'blog.article.miliardari-dubai-svizzera-lugano.imageAlt': 'Vue panoramique de Lugano avec le Monte Brè et le Lac Ceresio',
+    'blog.article.crans-montana-spese-cura-italiani-ufas-2026.title': 'Crans-Montana : L\'UFAS clarifie les dépenses de soins pour les patients italiens',
+    'blog.article.crans-montana-spese-cura-italiani-ufas-2026.excerpt': 'L\'Office fédéral des assurances sociales explique la procédure pour le remboursement des frais médicaux des patients italiens blessés en Suisse.',
+    'blog.article.crans-montana-spese-cura-italiani-ufas-2026.imageAlt': 'Hôpital de Crans-Montana avec vue sur les Alpes',
 };
 
 export default blogMetaFr;
