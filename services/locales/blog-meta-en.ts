@@ -2625,6 +2625,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-frontalieri-ticino-2024.title': 'Ticino cross-border worker security: Quadranti calls for more checks',
     'blog.article.sicurezza-frontalieri-ticino-2024.excerpt': 'Matteo Quadranti, the PLR group leader, asks the State Council for measures to increase security, particularly in the southern Ticino and border areas',
     'blog.article.sicurezza-frontalieri-ticino-2024.imageAlt': 'Mendrisio train station in Ticino, with commuters boarding and alighting from trains, set against the Swiss Alps',
+    'blog.article.vacanze-estive-2026-costi-guerra.title': 'Summer holidays 2026: costs rise due to war, but some destinations become cheaper',
+    'blog.article.vacanze-estive-2026-costi-guerra.excerpt': 'A HolidayCheck analysis reveals that summer holiday prices are 10-20% higher than last year, but some destinations see drops.',
+    'blog.article.vacanze-estive-2026-costi-guerra.imageAlt': 'View of Lake Lugano with a family enjoying a boat trip, surrounded by the Swiss-Italian landscape.',
 };
 
 export default blogMetaEn;

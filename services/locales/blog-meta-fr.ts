@@ -2625,6 +2625,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-frontalieri-ticino-2024.title': 'Sécurité des frontaliers au Tessin: Quadranti demande plus de contrôles',
     'blog.article.sicurezza-frontalieri-ticino-2024.excerpt': 'Le chef de groupe PLR Matteo Quadranti demande au Conseil d\'Etat des mesures pour augmenter la sécurité, surtout dans le sous-Ceneri et dans les zones frontalières',
     'blog.article.sicurezza-frontalieri-ticino-2024.imageAlt': 'Gare de Mendrisio dans le Tessin, avec des navetteurs montant et descendant des trains, sur fond des Alpes suisses',
+    'blog.article.vacanze-estive-2026-costi-guerra.title': 'Vacances d\'été 2026 : les coûts augmentent à cause de la guerre, mais certaines destinations deviennent plus économiques',
+    'blog.article.vacanze-estive-2026-costi-guerra.excerpt': 'Une analyse de HolidayCheck révèle que les prix des vacances d\'été sont supérieurs de 10 à 20 % par rapport à l\'année dernière, mais certaines destinations enregistrent des baisses.',
+    'blog.article.vacanze-estive-2026-costi-guerra.imageAlt': 'Vue du lac de Lugano avec une famille profitant d\'une excursion en bateau, entourée du paysage suisse-italien.',
 };
 
 export default blogMetaFr;

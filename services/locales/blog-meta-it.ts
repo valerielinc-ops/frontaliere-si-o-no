@@ -2625,6 +2625,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-frontalieri-ticino-2024.title': 'Sicurezza frontalieri Ticino: Quadranti chiede più controlli',
     'blog.article.sicurezza-frontalieri-ticino-2024.excerpt': 'Il capogruppo PLR Matteo Quadranti chiede al Consiglio di Stato misure per aumentare la sicurezza, soprattutto nel sottoceneri e nelle aree frontaliere',
     'blog.article.sicurezza-frontalieri-ticino-2024.imageAlt': 'Stazione di Mendrisio, Ticino, con pendolari che salgono e scendono dai treni, con le Alpi svizzere sullo sfondo',
+    'blog.article.vacanze-estive-2026-costi-guerra.title': 'Vacanze estive 2026: costi in aumento per la guerra, ma alcune mete diventano più economiche',
+    'blog.article.vacanze-estive-2026-costi-guerra.excerpt': 'Un\'analisi di HolidayCheck rivela che i prezzi delle vacanze estive sono superiori del 10-20% rispetto all\'anno scorso, ma alcune destinazioni registrano cali.',
+    'blog.article.vacanze-estive-2026-costi-guerra.imageAlt': 'Vista del Lago di Lugano con una famiglia che gode di una gita in barca, circondata dal paesaggio svizzero-italiano.',
 };
 
 export default blogMetaIt;

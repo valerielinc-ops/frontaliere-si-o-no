@@ -2135,6 +2135,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-tassa-salute-lombardia': { name: 'Frontalieri, “tassa sulla salute” al via', path: '/articoli-frontaliere/frontalieri-tassa-salute-lombardia', parent: 'blog' },
     'blog-casa-ticino-2026-piu-difficile': { name: 'Mercato immobiliare', path: '/articoli-frontaliere/casa-ticino-2026-piu-difficile', parent: 'blog' },
     'blog-sicurezza-frontalieri-ticino-2024': { name: 'Sicurezza', path: '/articoli-frontaliere/sicurezza-frontalieri-ticino-2024', parent: 'blog' },
+    'blog-vacanze-estive-2026-costi-guerra': { name: 'Vacanze estive', path: '/articoli-frontaliere/vacanze-estive-2026-costi-guerra', parent: 'blog' },
  };
 
  const info = sectionNames[section];

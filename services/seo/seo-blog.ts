@@ -12248,6 +12248,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vacanze-estive-2026-costi-guerra': {
+    title: 'Vacanze estive 2026: costi in aumento | Frontaliere Ticino',
+    description: 'Un\'analisi di HolidayCheck rivela che i prezzi delle vacanze estive 2026 sono superiori del 10-20% rispetto all\'anno scorso, ma alcune destinazioni registrano',
+    keywords: 'frontalieri, ticino, svizzera, italia, vacanze, estive, costi, aumento',
+    ogTitle: 'Vacanze estive 2026: costi in aumento per la guerra |',
+    ogDescription: 'Un\'analisi di HolidayCheck rivela che i prezzi delle vacanze estive 2026 sono superiori del 10-20% rispetto all\'anno scorso, ma alcune destinazioni registrano',
+    canonicalPath: '/articoli-frontaliere/vacanze-estive-2026-costi-guerra',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vacanze estive 2026: costi in aumento per la guerra | Frontaliere Ticino",
+      "description": "Un'analisi di HolidayCheck rivela che i prezzi delle vacanze estive 2026 sono superiori del 10-20% rispetto all'anno scorso, ma alcune destinazioni registrano",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vacanze-estive-2026-costi-guerra.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con una famiglia che gode di una gita in barca, circondata dal paesaggio svizzero-italiano."
+      },
+      "datePublished": "2026-04-25T09:22:22+00:00",
+      "dateModified": "2026-04-25T09:22:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vacanze-estive-2026-costi-guerra`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

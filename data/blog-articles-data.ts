@@ -7112,4 +7112,11 @@ export const ARTICLES = [
  image: '/images/blog/sicurezza-frontalieri-ticino-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vacanze-estive-2026-costi-guerra',
+ category: 'pratico',
+ date: '2026-04-25T09:22:22.134Z',
+ image: '/images/blog/vacanze-estive-2026-costi-guerra.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
