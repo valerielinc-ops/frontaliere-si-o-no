@@ -1153,6 +1153,48 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // (minimum 600×314px recommended by Open Graph spec).
  return `${BASE_URL}/og-image.png`;
  };
+ /**
+  * Local placeholder served from `public/images/company-logo-fallback.svg`.
+  * Static HTML emits this as the `<img src>` so the file has no external
+  * dependencies that can 404 on Semrush/crawler scans. The real (external)
+  * logo URL is stashed on `data-logo-url` and loaded client-side by the
+  * runtime hydration script (see services/companyLogoHydration.ts when
+  * present). The `onerror` handler restores the placeholder if the runtime
+  * swap-in image fails to load.
+  */
+ const LOGO_FALLBACK_SRC = '/images/company-logo-fallback.svg';
+ const isLocalLogo = (url: string): boolean => {
+ if (!url) return true;
+ if (url.startsWith('/')) return true;
+ try {
+ const u = new URL(url);
+ return u.host.endsWith('frontaliereticino.ch');
+ } catch {
+ return false;
+ }
+ };
+ /**
+  * Build `<img>` markup that points at the local placeholder by default and
+  * stores the (possibly external) target on `data-logo-url`. Emits an
+  * inline `onerror` that falls back to the placeholder if a runtime swap
+  * fails. When the resolved URL is already local (curated SVG/PNG in
+  * /images/logos or our own og-image.png), we keep using it directly —
+  * those don't 404 on Semrush.
+  */
+ const renderLogoImg = (
+ url: string,
+ alt: string,
+ width: number,
+ height: number,
+ style: string,
+ ): string => {
+ const safeAlt = esc(alt);
+ const safeStyle = esc(style);
+ if (isLocalLogo(url)) {
+ return `<img src="${esc(url)}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" style="${safeStyle}">`;
+ }
+ return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'" style="${safeStyle}">`;
+ };
 
  const referralUrl = (raw: string, job: any): string => {
  try {
@@ -1398,7 +1440,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const max = r.salaryMax ? (r.salaryMax / 1000).toFixed(0) : null;
  return max ? `${r.currency || 'CHF'} ${min}k – ${max}k` : `${r.currency || 'CHF'} ${min}k+`;
  })();
- return `<li style="margin:0 0 8px 0"><a href="${href}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;border:1px solid var(--color-edge);border-radius:12px"><img src="${esc(rLogo)}" alt="Logo ${esc(r.company)}" width="40" height="40" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0"><div style="min-width:0;flex:1"><div style="font-size:14px;font-weight:700;color:var(--color-heading);line-height:1.3">${esc(relatedTitle)}</div><div style="font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div style="font-size:12px;font-weight:600;color:var(--color-success);margin-top:4px">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40, 'width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0');
+ return `<li style="margin:0 0 8px 0"><a href="${href}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;border:1px solid var(--color-edge);border-radius:12px">${rLogoImg}<div style="min-width:0;flex:1"><div style="font-size:14px;font-weight:700;color:var(--color-heading);line-height:1.3">${esc(relatedTitle)}</div><div style="font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div style="font-size:12px;font-weight:600;color:var(--color-success);margin-top:4px">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
  const summaryHtml = summaryParagraphs
@@ -1807,7 +1850,8 @@ ${hreflangHtml}
  fr: `Toutes les offres ${job.company}${companyLoc ? ` à ${companyLoc}` : ''}`,
  };
  const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
- const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid var(--color-edge);border-radius:12px;margin-top:12px"><img src="${esc(cLogo)}" alt="Logo ${esc(job.company)}" width="40" height="40" loading="lazy" style="width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0"><div><div style="font-size:14px;font-weight:700;color:var(--color-heading)">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ const cLogoImg = renderLogoImg(cLogo, `Logo ${job.company}`, 40, 40, 'width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0');
+ const card = `<a href="${cHref}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid var(--color-edge);border-radius:12px;margin-top:12px">${cLogoImg}<div><div style="font-size:14px;font-weight:700;color:var(--color-heading)">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
  const ctaLink = `<p style="margin:12px 0 0;font-size:15px"><a href="${cHref}" style="color:var(--color-link);text-decoration:underline;font-weight:700">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
  })()}
@@ -2294,7 +2338,8 @@ ${hreflangHtml}
  const locChip = rawLocation
  ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_MAPPIN}<span>${esc(rawLocation)}</span></span>`
  : '';
- return `<li style="list-style:none;margin:0 0 10px 0"><a href="${jHref}" style="display:block;text-decoration:none;color:inherit;border:1px solid ${borderColor};background:${bgColor};border-radius:12px;padding:12px 14px;transition:border-color .15s"><div style="display:flex;align-items:flex-start;gap:12px"><div style="flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:var(--color-surface-alt);border:1px solid var(--color-edge);display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="${esc(logo)}" alt="Logo ${esc(String(job.company || ''))}" width="36" height="36" loading="lazy" style="width:36px;height:36px;object-fit:contain"></div><div style="flex:1 1 auto;min-width:0"><h3 style="margin:0;font-size:15px;font-weight:700;color:var(--color-heading);line-height:1.35">${esc(jTitle)}${featuredBadge}${newBadge}</h3><p style="margin:2px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.45">${esc(String(job.company || ''))} · ${locationWithLink}${cantonStr}</p>${salaryHtml}</div></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:var(--color-subtle)">${locChip}${contractChip}${postedChip}</div></a></li>`;
+ const logoImg = renderLogoImg(logo, `Logo ${String(job.company || '')}`, 36, 36, 'width:36px;height:36px;object-fit:contain');
+ return `<li style="list-style:none;margin:0 0 10px 0"><a href="${jHref}" style="display:block;text-decoration:none;color:inherit;border:1px solid ${borderColor};background:${bgColor};border-radius:12px;padding:12px 14px;transition:border-color .15s"><div style="display:flex;align-items:flex-start;gap:12px"><div style="flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:var(--color-surface-alt);border:1px solid var(--color-edge);display:flex;align-items:center;justify-content:center;overflow:hidden">${logoImg}</div><div style="flex:1 1 auto;min-width:0"><h3 style="margin:0;font-size:15px;font-weight:700;color:var(--color-heading);line-height:1.35">${esc(jTitle)}${featuredBadge}${newBadge}</h3><p style="margin:2px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.45">${esc(String(job.company || ''))} · ${locationWithLink}${cantonStr}</p>${salaryHtml}</div></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:var(--color-subtle)">${locChip}${contractChip}${postedChip}</div></a></li>`;
  };
 
  /** Render a row of sector/city hub link chips for the company. */
