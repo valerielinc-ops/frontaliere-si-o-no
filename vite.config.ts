@@ -19,7 +19,10 @@ import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlug
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
-// flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly
+import { flatHtmlRedirectPlugin } from './build-plugins/flatHtmlRedirectPlugin';
+// flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly,
+// then flatHtmlRedirectPlugin (post-processor) converts each flat .html with a sibling /index.html into a
+// 301-style redirect bridge to close ~3.2k Semrush hreflang↔canonical conflicts.
 import { llmsTxtPlugin } from './build-plugins/llmsTxtPlugin';
 import { adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
@@ -146,6 +149,11 @@ export default defineConfig(({ mode }) => {
  // MUST run after ogPagesPlugin + jobsSeoPagesPlugin so the target
  // HTML files already exist on disk when closeBundle fires.
  blogContextualLinksPlugin(__dirname),
+ // Post-processor — runs LAST, after every other plugin has written its
+ // flat .html files. Converts each `<path>.html` that has a sibling
+ // `<path>/index.html` into a 301-style redirect bridge so crawlers
+ // never see two canonical-conflicting copies of the same content.
+ flatHtmlRedirectPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
  ]),
  ],
  define: {
