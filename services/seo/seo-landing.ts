@@ -65,6 +65,27 @@ const SALARY_LANDING_FAQ_SCHEMA = {
 };
 
 const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
+ 'landing-salary-40000': {
+ title: 'Stipendio netto frontaliere 40.000 CHF | Simulazione 2026',
+ description: 'Con 40.000 CHF lordi/anno un frontaliere netta circa 2.400–2.600 €/mese dopo AVS (5,3%), imposta alla fonte (6–8%) e IRPEF con franchigia 10.000 € (2026).',
+ keywords: 'stipendio netto 40000 chf, calcolo netto frontaliere, simulazione tasse 2026, imposta alla fonte ticino, irpef frontalieri',
+ ogTitle: 'Stipendio netto frontaliere 40.000 CHF (2026)',
+ ogDescription: 'Con 40.000 CHF lordi/anno, un frontaliere netta circa 2.400–2.600 €/mese dopo AVS, imposta alla fonte e IRPEF (accordo 2026). Simula il tuo netto.',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-40000-chf',
+ structuredData: [
+ {
+ '@context': 'https://schema.org',
+ '@type': 'WebApplication',
+ name: 'Stipendio netto frontaliere 40.000 CHF',
+ url: `${BASE_URL}/calcola-stipendio/stipendio-netto-40000-chf`,
+ description: 'Simulazione stipendio netto per frontalieri con reddito 40.000 CHF/anno (accordo 2026).',
+ applicationCategory: 'FinanceApplication',
+ offers: { '@type': 'Offer', price: '0', priceCurrency: 'CHF' },
+ },
+ SALARY_LANDING_FAQ_SCHEMA,
+ ],
+ },
+
  'landing-salary-60000': {
  title: 'Stipendio netto frontaliere 60.000 CHF | Simulazione 2026',
  description: 'Con 60.000 CHF lordi/anno un frontaliere netta circa 3.200–3.500 €/mese dopo AVS (5,3%), imposta alla fonte (8–10%) e IRPEF con franchigia 10.000 € (2026).',

@@ -21,6 +21,7 @@ const lazyCalculate = () => import('@/services/calculationService');
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 export const SEO_LANDING_PRESETS: Record<SeoLandingId, Partial<SimulationInputs>> = {
+ 'salary-40000': { annualIncomeCHF: 40000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 30, spouseWorks: false },
  'salary-60000': { annualIncomeCHF: 60000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
  'salary-80000': { annualIncomeCHF: 80000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
  'salary-100000': { annualIncomeCHF: 100000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 40, spouseWorks: false },

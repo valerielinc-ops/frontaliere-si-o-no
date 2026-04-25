@@ -128,6 +128,7 @@ const BORDER_CROSSING_ID_SET = new Set<string>(ALL_BORDER_CROSSING_IDS as readon
 // ── SEO landing routes (long-tail) ──────────────────────────
 
 export type SeoLandingId =
+ | 'salary-40000'
  | 'salary-60000'
  | 'salary-80000'
  | 'salary-100000'
@@ -154,6 +155,7 @@ export type SeoLandingId =
  | 'net-comparison-g-vs-b-over20km';
 
 export const ALL_SEO_LANDING_IDS: SeoLandingId[] = [
+ 'salary-40000',
  'salary-60000',
  'salary-80000',
  'salary-100000',
@@ -182,6 +184,7 @@ export const ALL_SEO_LANDING_IDS: SeoLandingId[] = [
 
 const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  it: {
+ 'salary-40000': 'stipendio-netto-40000-chf',
  'salary-60000': 'stipendio-netto-60000-chf',
  'salary-80000': 'stipendio-netto-80000-chf',
  'salary-100000': 'stipendio-netto-100000-chf',
@@ -208,6 +211,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-over20km': 'confronto-permesso-g-vs-b-oltre-20km',
  },
  en: {
+ 'salary-40000': 'net-salary-40000-chf',
  'salary-60000': 'net-salary-60000-chf',
  'salary-80000': 'net-salary-80000-chf',
  'salary-100000': 'net-salary-100000-chf',
@@ -234,6 +238,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-over20km': 'permit-g-vs-b-comparison-over-20km',
  },
  de: {
+ 'salary-40000': 'nettogehalt-40000-chf',
  'salary-60000': 'nettogehalt-60000-chf',
  'salary-80000': 'nettogehalt-80000-chf',
  'salary-100000': 'nettogehalt-100000-chf',
@@ -260,6 +265,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-over20km': 'vergleich-bewilligung-g-vs-b-ueber-20km',
  },
  fr: {
+ 'salary-40000': 'salaire-net-40000-chf',
  'salary-60000': 'salaire-net-60000-chf',
  'salary-80000': 'salaire-net-80000-chf',
  'salary-100000': 'salaire-net-100000-chf',
