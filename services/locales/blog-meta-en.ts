@@ -2646,6 +2646,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.title': 'S40 line disrupted until 21:00 due to staff shortage in Italy',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.excerpt': 'The S40 line between Mendrisio and Como San Giovanni and Varese is limited until 21:00 due to a lack of staff in Italy.',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.imageAlt': 'Mendrisio train station with Tilo S40 train stopped',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grisons, stricter rules for residence permits after mafia infiltration in Roveredo',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'New rules for residence permits in the Grisons: mandatory declaration of criminal records and ongoing proceedings.',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Swiss residence permit document with Locarno, Ticino background',
 };
 
 export default blogMetaEn;

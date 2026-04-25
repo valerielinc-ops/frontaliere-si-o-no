@@ -12451,6 +12451,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-stretta-permessi-dimora-2026': {
+    title: 'Grigioni, stretta sui permessi di | Frontaliere Ticino',
+    description: 'Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso. Scopri di più. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, stretta, permessi, dimora',
+    ogTitle: 'Grigioni: stretta sui permessi di dimora | Frontaliere',
+    ogDescription: 'Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/grigioni-stretta-permessi-dimora-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: stretta sui permessi di dimora dopo l’infiltrazione mafiosa a Roveredo",
+      "description": "Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso. Scopri di più. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grigioni-stretta-permessi-dimora-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento di permesso di dimora svizzero con sfondo di Locarno, Ticino"
+      },
+      "datePublished": "2026-04-25T16:21:51+00:00",
+      "dateModified": "2026-04-25T16:21:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-stretta-permessi-dimora-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

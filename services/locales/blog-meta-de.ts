@@ -2646,6 +2646,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.title': 'S40 bis 21 Uhr unterbrochen: Personalmangel in Italien',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.excerpt': 'Die S40-Linie zwischen Mendrisio und Como San Giovanni sowie Varese ist bis 21 Uhr eingeschränkt, aufgrund Personalmangels in Italien.',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.imageAlt': 'Bahnhof Mendrisio mit haltendem Tilo S40 Zug',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grigioni, restrizioni sui permessi di dimora dopo l\'infiltrazione mafiosa a Roveredo',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso.',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Schweizer Aufenthaltsbewilligung mit Locarno, Tessin Hintergrund',
 };
 
 export default blogMetaDe;

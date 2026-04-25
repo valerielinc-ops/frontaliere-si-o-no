@@ -2646,6 +2646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.title': 'Tilo S40 fermo fino alle 21: manca personale in Italia',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.excerpt': 'La linea S40 tra Mendrisio e Como San Giovanni e Varese è limitata fino alle 21 per mancanza di personale in Italia.',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.imageAlt': 'Stazione ferroviaria di Mendrisio con treno Tilo S40 fermo',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grigioni, stretta sui permessi di dimora dopo l’infiltrazione mafiosa a Roveredo',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'Nuove regole per i permessi di dimora nei Grigioni: dichiarazione obbligatoria di precedenti penali e procedimenti in corso.',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Documento di permesso di dimora svizzero con sfondo di Locarno, Ticino',
 };
 
 export default blogMetaIt;

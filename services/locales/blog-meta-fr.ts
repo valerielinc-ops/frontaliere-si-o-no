@@ -2646,6 +2646,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.title': 'Ligne S40 à l\'arrêt jusqu\'à 21h : manque de personnel en Italie',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.excerpt': 'La ligne S40 entre Mendrisio et Como San Giovanni et Varese est limitée jusqu\'à 21h en raison d\'un manque de personnel en Italie.',
     'blog.article.ferrovia-tilo-s40-fermi-italia-personale.imageAlt': 'Gare de Mendrisio avec le train Tilo S40 à l\'arrêt',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.title': 'Grisons, contrôle renforcé sur les permis de séjour après l\'infiltration mafieuse à Roveredo',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.excerpt': 'Nouvelles règles pour les permis de séjour dans les Grisons : déclaration obligatoire des antécédents pénaux et des procédures en cours.',
+    'blog.article.grigioni-stretta-permessi-dimora-2026.imageAlt': 'Document de permis de séjour suisse avec Locarno, Tessin en arrière-plan',
 };
 
 export default blogMetaFr;
