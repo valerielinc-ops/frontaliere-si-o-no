@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T09:58:07.388Z",
-    "label": "before",
-    "total": 2542,
-    "needsRetranslation": 332,
-    "incomplete": 17,
-    "complete": 2525,
-    "missingByLocale": {
-      "it": 6,
-      "en": 16,
-      "de": 10,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Aziende Industriali di Lugano (AIL) SA",
-        "pending": 1
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kantonsspital Graubünden",
-        "pending": 1
-      },
-      {
-        "company": "Lonza",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "Gruppo Ospedaliero Moncucco",
-        "pending": 1
-      },
-      {
-        "company": "Otis SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T10:15:33.004Z",
-    "label": "after",
-    "total": 2542,
-    "needsRetranslation": 29,
-    "incomplete": 3,
-    "complete": 2539,
-    "missingByLocale": {
-      "it": 1,
-      "en": 3,
-      "de": 2,
-      "fr": 3
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Gruppo Ospedaliero Moncucco",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T10:20:33.761Z",
     "label": "before",
     "total": 2928,
@@ -7422,6 +7338,90 @@
       },
       {
         "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T13:25:09.912Z",
+    "label": "before",
+    "total": 2658,
+    "needsRetranslation": 78,
+    "incomplete": 34,
+    "complete": 2624,
+    "missingByLocale": {
+      "it": 28,
+      "en": 11,
+      "de": 28,
+      "fr": 29
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T14:10:08.856Z",
+    "label": "after",
+    "total": 2658,
+    "needsRetranslation": 71,
+    "incomplete": 25,
+    "complete": 2633,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
         "pending": 1
       },
       {
