@@ -2613,6 +2613,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cartaelettronica-varese-2026.title': 'Addio alla carta d\'identità cartacea: scatta l\'obbligo della versione elettronica',
     'blog.article.cartaelettronica-varese-2026.excerpt': 'Dal 3 agosto 2026, la carta d\'identità cartacea non sarà più valida. Ecco cosa cambia e come richiedere la CIE',
     'blog.article.cartaelettronica-varese-2026.imageAlt': 'Documenti ufficiali su un tavolo di legno in un ufficio pubblico a Varese',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.title': 'Frode crediti Covid: 3334 casi aperti in Ticino e Svizzera',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.excerpt': 'Le autorità svizzere affrontano 3334 procedimenti per frodi sui crediti Covid, per un valore di oltre 406 milioni di franchi.',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.imageAlt': 'Ufficio giudiziario con documenti e calcolatrici',
 };
 
 export default blogMetaIt;

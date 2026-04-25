@@ -2613,6 +2613,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cartaelettronica-varese-2026.title': 'Adieu à la carte d\'identité papier : l\'obligation de la version électronique entre en vigueur',
     'blog.article.cartaelettronica-varese-2026.excerpt': 'À partir du 3 août 2026, la carte d\'identité papier ne sera plus valable. Voici ce qui change et comment demander la CIE',
     'blog.article.cartaelettronica-varese-2026.imageAlt': 'Documents officiels sur une table en bois dans un bureau public à Varese',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.title': 'Fraude aux crédits Covid : 3334 cas ouverts en Suisse et au Tessin',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.excerpt': 'Les autorités suisses traitent 3334 procédures pour fraude aux crédits Covid, pour un montant de plus de 406 millions de francs.',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.imageAlt': 'Bureau judiciaire avec documents et calculatrices',
 };
 
 export default blogMetaFr;

@@ -12132,6 +12132,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frode-crediti-covid-ticino-3334-casi': {
+    title: 'Frode crediti Covid: 3334 casi aperti | Frontaliere Ticino',
+    description: 'Le autorità svizzere affrontano 3334 procedimenti per frodi sui crediti Covid, per un valore di oltre 406 milioni di franchi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, frode, crediti, covid, 3334',
+    ogTitle: 'Frode crediti Covid: 3334 casi aperti in Ticino',
+    ogDescription: 'Le autorità svizzere affrontano 3334 procedimenti per frodi sui crediti Covid, per un valore di oltre 406 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/frode-crediti-covid-ticino-3334-casi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frode crediti Covid: 3334 casi aperti in Ticino",
+      "description": "Le autorità svizzere affrontano 3334 procedimenti per frodi sui crediti Covid, per un valore di oltre 406 milioni di franchi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frode-crediti-covid-ticino-3334-casi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio giudiziario con documenti e calcolatrici"
+      },
+      "datePublished": "2026-04-25T00:32:44+00:00",
+      "dateModified": "2026-04-25T00:32:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frode-crediti-covid-ticino-3334-casi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

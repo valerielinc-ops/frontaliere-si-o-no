@@ -2131,6 +2131,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-autista-belga-20-ore-thurgau-intervento': { name: 'Novità', path: '/articoli-frontaliere/autista-belga-20-ore-thurgau-intervento', parent: 'blog' },
     'blog-ust-neuchatel-telelavoro-300-dipendenti': { name: 'UST Neuchâtel', path: '/articoli-frontaliere/ust-neuchatel-telelavoro-300-dipendenti', parent: 'blog' },
     'blog-cartaelettronica-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/cartaelettronica-varese-2026', parent: 'blog' },
+    'blog-frode-crediti-covid-ticino-3334-casi': { name: 'Frode crediti Covid', path: '/articoli-frontaliere/frode-crediti-covid-ticino-3334-casi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

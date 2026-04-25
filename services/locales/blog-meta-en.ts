@@ -2613,6 +2613,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cartaelettronica-varese-2026.title': 'Farewell to paper ID cards: the electronic version becomes mandatory',
     'blog.article.cartaelettronica-varese-2026.excerpt': 'As of August 3, 2026, paper ID cards will no longer be valid. Here\'s what changes and how to request the CIE',
     'blog.article.cartaelettronica-varese-2026.imageAlt': 'Official documents on a wooden table in a public office in Varese',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.title': 'Covid credit fraud: 3,334 cases open in Ticino and Switzerland',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.excerpt': 'Swiss authorities are handling 3,334 cases of Covid credit fraud, totaling over 406 million francs.',
+    'blog.article.frode-crediti-covid-ticino-3334-casi.imageAlt': 'Judicial office with documents and calculators',
 };
 
 export default blogMetaEn;

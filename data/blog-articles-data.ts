@@ -7084,4 +7084,11 @@ export const ARTICLES = [
  image: '/images/blog/cartaelettronica-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frode-crediti-covid-ticino-3334-casi',
+ category: 'pratico',
+ date: '2026-04-25T00:32:44.729Z',
+ image: '/images/blog/frode-crediti-covid-ticino-3334-casi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
