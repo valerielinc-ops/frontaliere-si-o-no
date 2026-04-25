@@ -2640,6 +2640,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-asp-2026.title': 'Asili nido pubblici a Bellinzona: l\'Asp sostiene l\'iniziativa',
     'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'L\'Associazione per la difesa del servizio pubblico sostiene l\'iniziativa per più asili nido pubblici a Bellinzona, evidenziando l\'importanza dell\'equità sociale e della parità di genere.',
     'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Asilo nido pubblico a Bellinzona, con bambini che giocano e genitori che interagiscono con gli insegnanti.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.title': 'Lavena Ponte Tresa celebra la Libertà: successo del Battesimo Civico 2026',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.excerpt': 'La comunità di Lavena Ponte Tresa ha festeggiato l\'81° anniversario della Liberazione con una partecipata cerimonia che ha visto protagonisti i giovani del paese.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.imageAlt': 'Piazza di Lavena Ponte Tresa durante la cerimonia del Battesimo Civico 2026',
 };
 
 export default blogMetaIt;

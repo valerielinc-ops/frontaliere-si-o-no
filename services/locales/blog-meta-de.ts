@@ -2640,6 +2640,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-asp-2026.title': 'Öffentliche Kindergärten in Bellinzona: Der Asp unterstützt die Initiative',
     'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'Der Verein zur Verteidigung des öffentlichen Dienstes unterstützt die Initiative für mehr öffentliche Kindergärten in Bellinzona und hebt die Bedeutung der sozialen Gerechtigkeit und der Geschlechtergleichstellung hervor.',
     'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Öffentlicher Kindergarten in Bellinzona, mit spielenden Kindern und Eltern, die mit den Lehrern interagieren.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.title': 'Lavena Ponte Tresa feiert die Freiheit: Erfolg der Bürgerweihe 2026',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.excerpt': 'Die Gemeinde Lavena Ponte Tresa hat den 81. Jahrestag der Befreiung mit einer gut besuchten Zeremonie gefeiert, bei der die Jugendlichen des Dorfes im Mittelpunkt standen.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.imageAlt': 'Platz von Lavena Ponte Tresa während der Zivilen Taufe 2026',
 };
 
 export default blogMetaDe;

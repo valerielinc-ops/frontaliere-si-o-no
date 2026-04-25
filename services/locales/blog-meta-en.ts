@@ -2640,6 +2640,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-asp-2026.title': 'Public daycare centers in Bellinzona: Asp supports the initiative',
     'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'The Association for the defense of public services supports the initiative for more public daycare centers in Bellinzona, highlighting the importance of social equity and gender equality.',
     'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Public daycare center in Bellinzona, with children playing and parents interacting with teachers.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.title': 'Lavena Ponte Tresa Celebrates Freedom: Success of the 2026 Civic Baptism',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.excerpt': 'The community of Lavena Ponte Tresa celebrated the 81st anniversary of Liberation with a well-attended ceremony that featured the young people of the town.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.imageAlt': 'Lavena Ponte Tresa town square during the 2026 Civic Baptism ceremony',
 };
 
 export default blogMetaEn;

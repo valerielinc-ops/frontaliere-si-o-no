@@ -7147,4 +7147,11 @@ export const ARTICLES = [
  image: '/images/blog/asili-nido-bellinzona-asp-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavena-ponte-tresa-battesimo-civico-2026',
+ category: 'novita',
+ date: '2026-04-25T14:35:01.539Z',
+ image: '/images/blog/lavena-ponte-tresa-battesimo-civico-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2640,6 +2640,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asili-nido-bellinzona-asp-2026.title': 'Crèches publiques à Bellinzone : l\'Asp soutient l\'initiative',
     'blog.article.asili-nido-bellinzona-asp-2026.excerpt': 'L\'Association pour la défense du service public soutient l\'initiative pour plus de crèches publiques à Bellinzone, soulignant l\'importance de l\'équité sociale et de l\'égalité des genres.',
     'blog.article.asili-nido-bellinzona-asp-2026.imageAlt': 'Crèche publique à Bellinzone, avec des enfants qui jouent et des parents qui interagissent avec les enseignants.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.title': 'Lavena Ponte Tresa célèbre la Liberté : succès du Baptême Civique 2026',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.excerpt': 'La communauté de Lavena Ponte Tresa a célébré le 81e anniversaire de la Libération avec une cérémonie bien fréquentée qui a vu les jeunes du village comme protagonistes.',
+    'blog.article.lavena-ponte-tresa-battesimo-civico-2026.imageAlt': 'Place de Lavena Ponte Tresa pendant la cérémonie de Baptême Civique 2026',
 };
 
 export default blogMetaFr;

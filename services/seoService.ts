@@ -2140,6 +2140,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incentivo-remigrazione-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/incentivo-remigrazione-frontalieri-ticino', parent: 'blog' },
     'blog-confederazione-cantoni-ridiscutono-compiti-2026': { name: 'Novità', path: '/articoli-frontaliere/confederazione-cantoni-ridiscutono-compiti-2026', parent: 'blog' },
     'blog-asili-nido-bellinzona-asp-2026': { name: 'Asili nido Bellinzona', path: '/articoli-frontaliere/asili-nido-bellinzona-asp-2026', parent: 'blog' },
+    'blog-lavena-ponte-tresa-battesimo-civico-2026': { name: 'Eventi', path: '/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

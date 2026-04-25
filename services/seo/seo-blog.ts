@@ -12393,6 +12393,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavena-ponte-tresa-battesimo-civico-2026': {
+    title: 'Lavena Ponte Tresa celebra la Libertà | Frontaliere Ticino',
+    description: 'La comunità di Lavena Ponte Tresa ha festeggiato l\'81° anniversario della Liberazione con una partecipata cerimonia che ha visto protagonisti i giovani del',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavena, ponte, tresa, celebra',
+    ogTitle: 'Lavena Ponte Tresa celebra la Libertà: successo del',
+    ogDescription: 'La comunità di Lavena Ponte Tresa ha festeggiato l\'81° anniversario della Liberazione con una partecipata cerimonia che ha visto protagonisti i giovani del',
+    canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Lavena Ponte Tresa celebra la",
+      "description": "La comunità di Lavena Ponte Tresa ha festeggiato l'81° anniversario della Liberazione con una partecipata cerimonia che ha visto protagonisti i giovani del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-battesimo-civico-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza di Lavena Ponte Tresa durante la cerimonia del Battesimo Civico 2026"
+      },
+      "datePublished": "2026-04-25T14:35:01+00:00",
+      "dateModified": "2026-04-25T14:35:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-battesimo-civico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
