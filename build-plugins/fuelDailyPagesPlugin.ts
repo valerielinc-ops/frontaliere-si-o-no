@@ -79,7 +79,6 @@ import {
   LINK_ACCENT_STYLE,
   renderDiscoverMore,
   renderEntityCard,
-  renderSparklineChart,
   resolveBrandLogoUrl,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
@@ -463,13 +462,13 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     paragraph: (f, z, price, dYest, d7) =>
       `Oggi a ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche e verifica l'andamento della settimana per pianificare il rifornimento prima del pieno della tua settimana di frontaliere.`,
     historySection:
-      'Il grafico qui sotto mostra l\'andamento del prezzo negli ultimi 7 giorni — utile per capire se conviene rifornirsi oggi o aspettare. I dati arrivano dalle stazioni Swiss vicine al confine e sono aggiornati quotidianamente. Lo storico si popola con il passare dei giorni.',
+      "Il grafico qui sotto mostra l'andamento del prezzo nel tempo — utile per capire se conviene rifornirsi oggi o aspettare. Usa i pulsanti per cambiare l'intervallo (1 mese, 3 mesi, 6 mesi, 1 anno, 5 anni). Lo storico si popola giorno per giorno: gli intervalli più lunghi diventano disponibili man mano che raccogliamo nuovi dati.",
     updatedLabel: 'Aggiornamento',
     avgLabel: 'Prezzo medio oggi',
     vsYesterday: 'vs ieri',
     vs7d: 'vs 7 giorni fa',
     top3Label: 'Le 3 stazioni più economiche',
-    trendLabel: 'Andamento ultimi 7 giorni',
+    trendLabel: 'Andamento storico del prezzo',
     trendEmpty: 'Storico in costruzione: il grafico si aggiorna ogni giorno a partire da oggi.',
     faqTitle: 'Domande frequenti',
     regionalLabel: 'Tutto il Ticino',
@@ -480,8 +479,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     dataUnavailableLinkLabel: 'Consulta lo storico completo dei prezzi al confine',
     periodAvgUnavailableNote: 'Media dei 7 giorni non ancora disponibile: lo storico si popola giorno per giorno.',
     periodAvgLabel: 'Media 7 giorni',
-    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
-      `Andamento ultimi 7 giorni del prezzo ${f.toLowerCase()} a ${z}: media ${avgFmt} CHF/litro, variazione ${deltaFmt} rispetto al primo giorno disponibile.`,
+    chartAriaLabel: (f, z, avgFmt) =>
+      `Andamento storico del prezzo ${f.toLowerCase()} a ${z}: media ${avgFmt} CHF/litro nell'intervallo selezionato.`,
     faq: [
       {
         q: 'Ogni quanto viene aggiornato il prezzo?',
@@ -508,13 +507,13 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     paragraph: (f, z, price, dYest, d7) =>
       `Today in ${z} the ${f.toLowerCase()} costs ${price} CHF per litre on average, ${dYest} compared to yesterday and ${d7} compared to 7 days ago. This page is regenerated automatically every morning with the freshest data from stations in the area. Compare the three cheapest stations and check the weekly trend before you fill up during your cross-border commute.`,
     historySection:
-      'The chart below shows the price trend for the last 7 days — handy to decide whether to fill up today or wait. Data comes from Swiss stations close to the border and is updated daily. History builds up as the days go by.',
+      'The chart below shows the price trend over time — handy to decide whether to fill up today or wait. Use the buttons to switch the range (1 month, 3 months, 6 months, 1 year, 5 years). History is built day by day: longer ranges fill in as we collect more snapshots.',
     updatedLabel: 'Updated',
     avgLabel: 'Average price today',
     vsYesterday: 'vs yesterday',
     vs7d: 'vs 7 days ago',
     top3Label: 'Top 3 cheapest stations',
-    trendLabel: 'Last 7 days trend',
+    trendLabel: 'Historical price trend',
     trendEmpty: 'History is being collected: the chart fills in day by day.',
     faqTitle: 'Frequently asked questions',
     regionalLabel: 'All of Ticino',
@@ -525,8 +524,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     dataUnavailableLinkLabel: 'See the full cross-border fuel price history',
     periodAvgUnavailableNote: 'Seven-day average not available yet: the history fills in day by day.',
     periodAvgLabel: '7-day average',
-    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
-      `Last-7-days ${f.toLowerCase()} price trend in ${z}: average ${avgFmt} CHF/litre, ${deltaFmt} change from the earliest available day.`,
+    chartAriaLabel: (f, z, avgFmt) =>
+      `Historical ${f.toLowerCase()} price trend in ${z}: average ${avgFmt} CHF/litre over the selected range.`,
     faq: [
       {
         q: 'How often is the price updated?',
@@ -553,13 +552,13 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     paragraph: (f, z, price, dYest, d7) =>
       `Heute kostet ${f} in ${z} durchschnittlich ${price} CHF pro Liter, ${dYest} gegenüber gestern und ${d7} gegenüber vor 7 Tagen. Diese Seite wird jeden Morgen automatisch mit den frischesten Preisdaten der Tankstellen in der Region neu erzeugt. Vergleichen Sie die drei günstigsten Tankstellen und prüfen Sie den Wochentrend, bevor Sie im Rahmen Ihres Grenzgänger-Alltags tanken.`,
     historySection:
-      'Das folgende Diagramm zeigt die Preisentwicklung der letzten 7 Tage — hilfreich, um zu entscheiden, ob Sie heute tanken oder warten. Die Daten kommen aus den Tankstellen in Grenznähe und werden täglich aktualisiert. Die Historie baut sich Tag für Tag auf.',
+      'Das folgende Diagramm zeigt den Preisverlauf über die Zeit — hilfreich, um zu entscheiden, ob Sie heute tanken oder warten. Mit den Buttons wechseln Sie den Zeitraum (1 Monat, 3 Monate, 6 Monate, 1 Jahr, 5 Jahre). Die Historie baut sich Tag für Tag auf: längere Zeiträume werden verfügbar, sobald wir mehr Daten erfassen.',
     updatedLabel: 'Aktualisiert',
     avgLabel: 'Durchschnittspreis heute',
     vsYesterday: 'vs gestern',
     vs7d: 'vs 7 Tage',
     top3Label: 'Top 3 günstigste Tankstellen',
-    trendLabel: 'Verlauf der letzten 7 Tage',
+    trendLabel: 'Historischer Preisverlauf',
     trendEmpty: 'Historie wird aufgebaut: das Diagramm füllt sich Tag für Tag.',
     faqTitle: 'Häufige Fragen',
     regionalLabel: 'Ganzes Tessin',
@@ -570,8 +569,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     dataUnavailableLinkLabel: 'Vollständige Treibstoffpreis-Historie an der Grenze ansehen',
     periodAvgUnavailableNote: '7-Tage-Durchschnitt noch nicht verfügbar: die Historie baut sich Tag für Tag auf.',
     periodAvgLabel: '7-Tage-Durchschnitt',
-    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
-      `Preisverlauf der letzten 7 Tage für ${f} in ${z}: Durchschnitt ${avgFmt} CHF/Liter, Veränderung ${deltaFmt} gegenüber dem frühesten verfügbaren Tag.`,
+    chartAriaLabel: (f, z, avgFmt) =>
+      `Historischer Preisverlauf für ${f} in ${z}: Durchschnitt ${avgFmt} CHF/Liter im ausgewählten Zeitraum.`,
     faq: [
       {
         q: 'Wie oft wird der Preis aktualisiert?',
@@ -598,13 +597,13 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     paragraph: (f, z, price, dYest, d7) =>
       `Aujourd'hui à ${z} le ${f.toLowerCase()} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
     historySection:
-      'Le graphique ci-dessous montre l\'évolution du prix sur les 7 derniers jours — utile pour décider si faire le plein aujourd\'hui ou attendre. Les données viennent des stations suisses près de la frontière et sont mises à jour quotidiennement. L\'historique se construit jour après jour.',
+      "Le graphique ci-dessous montre l'évolution du prix dans le temps — utile pour décider si faire le plein aujourd'hui ou attendre. Utilisez les boutons pour changer la période (1 mois, 3 mois, 6 mois, 1 an, 5 ans). L'historique se construit jour après jour : les périodes plus longues deviennent disponibles au fil du temps.",
     updatedLabel: 'Mis à jour',
     avgLabel: 'Prix moyen aujourd\'hui',
     vsYesterday: 'vs hier',
     vs7d: 'vs 7 jours',
     top3Label: 'Top 3 stations les moins chères',
-    trendLabel: 'Tendance des 7 derniers jours',
+    trendLabel: 'Tendance historique du prix',
     trendEmpty: 'Historique en cours de construction : le graphique se remplit jour par jour.',
     faqTitle: 'Questions fréquentes',
     regionalLabel: 'Tout le Tessin',
@@ -615,8 +614,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     dataUnavailableLinkLabel: "Voir l'historique complet des prix aux frontières",
     periodAvgUnavailableNote: "Moyenne 7 jours pas encore disponible : l'historique se remplit jour après jour.",
     periodAvgLabel: 'Moyenne 7 jours',
-    chartAriaLabel: (f, z, avgFmt, deltaFmt) =>
-      `Tendance des 7 derniers jours du prix du ${f.toLowerCase()} à ${z} : moyenne ${avgFmt} CHF/litre, variation ${deltaFmt} par rapport au premier jour disponible.`,
+    chartAriaLabel: (f, z, avgFmt) =>
+      `Tendance historique du prix du ${f.toLowerCase()} à ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
     faq: [
       {
         q: 'À quelle fréquence le prix est-il mis à jour ?',
@@ -833,6 +832,331 @@ function buildStationEditorialAssessment(
   };
 }
 
+// ── Multi-range area chart (Recharts-style, 1M/3M/6M/1Y/5Y selector) ──
+//
+// Replaces the legacy 7-day sparkline on /oggi pages. Renders 5 chart
+// variants (one per range) server-side and toggles visibility via a tiny
+// inline IIFE — no external JS bundle needed.
+
+type FuelRangeKey = '1M' | '3M' | '6M' | '1Y' | '5Y';
+const FUEL_RANGE_KEYS: ReadonlyArray<FuelRangeKey> = ['1M', '3M', '6M', '1Y', '5Y'];
+const FUEL_RANGE_DAYS: Record<FuelRangeKey, number> = {
+  '1M': 30,
+  '3M': 90,
+  '6M': 180,
+  '1Y': 365,
+  '5Y': 1825,
+};
+const FUEL_DEFAULT_RANGE: FuelRangeKey = '6M';
+
+const FUEL_RANGE_BUTTON_LABEL: Record<FuelDailyLocale, Record<FuelRangeKey, string>> = {
+  it: { '1M': '1M', '3M': '3M', '6M': '6M', '1Y': '1A', '5Y': '5A' },
+  en: { '1M': '1M', '3M': '3M', '6M': '6M', '1Y': '1Y', '5Y': '5Y' },
+  de: { '1M': '1M', '3M': '3M', '6M': '6M', '1Y': '1J', '5Y': '5J' },
+  fr: { '1M': '1M', '3M': '3M', '6M': '6M', '1Y': '1A', '5Y': '5A' },
+};
+
+const FUEL_STAT_LABELS: Record<FuelDailyLocale, { min: string; avg: string; max: string }> = {
+  it: { min: 'Min', avg: 'Media', max: 'Max' },
+  en: { min: 'Min', avg: 'Avg', max: 'Max' },
+  de: { min: 'Min', avg: 'Ø', max: 'Max' },
+  fr: { min: 'Min', avg: 'Moy.', max: 'Max' },
+};
+
+const FUEL_RANGE_EMPTY_MSG: Record<FuelDailyLocale, string> = {
+  it: 'Storico non ancora disponibile per questo intervallo. Il grafico si popola giorno per giorno.',
+  en: 'No history yet for this range. The chart fills in day by day.',
+  de: 'Für diesen Zeitraum noch keine Historie. Das Diagramm baut sich Tag für Tag auf.',
+  fr: "Pas encore d'historique pour cette période. Le graphique se construit jour après jour.",
+};
+
+interface FuelSeriesPoint {
+  readonly date: string; // YYYY-MM-DD
+  readonly value: number; // CHF/litre
+}
+
+function buildFuelHistorySeries(
+  history: HistorySnapshot[],
+  zone: FuelZone | null,
+  fuel: FuelType,
+  rangeDays: number,
+  today: Date,
+  todayAvg: number | null,
+): FuelSeriesPoint[] {
+  const cutoff = new Date(today.getTime() - rangeDays * 24 * 60 * 60 * 1000);
+  const cutoffKey = cutoff.toISOString().slice(0, 10);
+  const todayKey = today.toISOString().slice(0, 10);
+  const points: FuelSeriesPoint[] = [];
+  for (const snap of history) {
+    if (snap.date < cutoffKey || snap.date >= todayKey) continue;
+    const src = zone ? snap.zones?.[zone] : snap.regional;
+    const v = src?.[fuel];
+    if (typeof v === 'number' && Number.isFinite(v)) {
+      points.push({ date: snap.date, value: Number(v.toFixed(3)) });
+    }
+  }
+  if (typeof todayAvg === 'number' && Number.isFinite(todayAvg)) {
+    points.push({ date: todayKey, value: Number(todayAvg.toFixed(3)) });
+  }
+  points.sort((a, b) => a.date.localeCompare(b.date));
+  return points;
+}
+
+function formatFuelDateShort(iso: string, locale: FuelDailyLocale): string {
+  // YYYY-MM-DD → DD/MM (it/fr/de) or M/D (en)
+  const parts = iso.split('-');
+  if (parts.length !== 3) return iso;
+  const dn = parseInt(parts[2], 10);
+  const mn = parseInt(parts[1], 10);
+  if (locale === 'en') return `${mn}/${dn}`;
+  return `${dn}/${mn}`;
+}
+
+interface FuelChartDims {
+  readonly width: number;
+  readonly height: number;
+  readonly padLeft: number;
+  readonly padRight: number;
+  readonly padTop: number;
+  readonly padBottom: number;
+}
+
+const FUEL_CHART_DIMS: FuelChartDims = {
+  width: 600,
+  height: 360,
+  padLeft: 56,
+  padRight: 16,
+  padTop: 16,
+  padBottom: 32,
+};
+
+function renderFuelAreaChartSvg(opts: {
+  readonly series: ReadonlyArray<FuelSeriesPoint>;
+  readonly rangeKey: FuelRangeKey;
+  readonly ariaLabel: string;
+  readonly locale: FuelDailyLocale;
+  readonly formatValue: (v: number) => string;
+}): string {
+  const { series, rangeKey, ariaLabel, locale, formatValue } = opts;
+  const dims = FUEL_CHART_DIMS;
+  const plotW = dims.width - dims.padLeft - dims.padRight;
+  const plotH = dims.height - dims.padTop - dims.padBottom;
+
+  if (series.length < 2) {
+    return `<svg role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${dims.width} ${dims.height}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+      <rect x="${dims.padLeft}" y="${dims.padTop}" width="${plotW}" height="${plotH}" fill="var(--color-surface-muted)" rx="8"></rect>
+      <text x="${dims.padLeft + plotW / 2}" y="${dims.padTop + plotH / 2}" text-anchor="middle" dominant-baseline="middle"
+        style="font:13px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-subtle)">${esc(FUEL_RANGE_EMPTY_MSG[locale])}</text>
+    </svg>`;
+  }
+
+  const values = series.map((p) => p.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = max - min;
+  const pad = span > 0 ? span * 0.08 : Math.max(0.005, Math.abs(max) * 0.01);
+  const yMin = min - pad;
+  const yMax = max + pad;
+  const yRange = yMax - yMin || 1;
+
+  const n = series.length;
+  const xStep = n > 1 ? plotW / (n - 1) : 0;
+  const coords = series.map((p, i) => ({
+    x: dims.padLeft + i * xStep,
+    y: dims.padTop + (1 - (p.value - yMin) / yRange) * plotH,
+    value: p.value,
+    date: p.date,
+  }));
+
+  const linePath = coords
+    .map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)} ${c.y.toFixed(1)}`)
+    .join(' ');
+  const baseY = dims.padTop + plotH;
+  const areaPath = `${linePath} L${coords[coords.length - 1].x.toFixed(1)} ${baseY.toFixed(1)} L${coords[0].x.toFixed(1)} ${baseY.toFixed(1)} Z`;
+
+  const Y_TICKS = 5;
+  const yTicks: Array<{ y: number; v: number }> = [];
+  for (let i = 0; i < Y_TICKS; i++) {
+    const v = yMin + (yRange * i) / (Y_TICKS - 1);
+    const y = dims.padTop + (1 - (v - yMin) / yRange) * plotH;
+    yTicks.push({ y, v });
+  }
+
+  const X_TICK_COUNT = Math.min(7, Math.max(2, n));
+  const xTickIndices = new Set<number>();
+  for (let i = 0; i < X_TICK_COUNT; i++) {
+    xTickIndices.add(Math.round(((n - 1) * i) / Math.max(1, X_TICK_COUNT - 1)));
+  }
+  const xTicks = Array.from(xTickIndices)
+    .sort((a, b) => a - b)
+    .map((idx) => coords[idx]);
+
+  const gradientId = `fuelGradient-${rangeKey}-${zone_safe(rangeKey)}`;
+  const tickStyle =
+    'font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-chart-label);font-variant-numeric:tabular-nums';
+
+  const yGridLines = yTicks
+    .map(
+      (t) =>
+        `<line x1="${dims.padLeft}" x2="${dims.width - dims.padRight}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}" stroke="var(--color-chart-grid)" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>`,
+    )
+    .join('');
+  const yLabels = yTicks
+    .map(
+      (t) =>
+        `<text x="${(dims.padLeft - 6).toFixed(0)}" y="${t.y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" style="${tickStyle}">${esc(formatValue(t.v))}</text>`,
+    )
+    .join('');
+  const xGridLines = xTicks
+    .map(
+      (t) =>
+        `<line x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${dims.padTop}" y2="${(dims.padTop + plotH).toFixed(1)}" stroke="var(--color-chart-grid)" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"></line>`,
+    )
+    .join('');
+  const xLabels = xTicks
+    .map(
+      (t) =>
+        `<text x="${t.x.toFixed(1)}" y="${(dims.padTop + plotH + 18).toFixed(1)}" text-anchor="middle" style="${tickStyle}">${esc(formatFuelDateShort(t.date, locale))}</text>`,
+    )
+    .join('');
+
+  return `<svg role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${dims.width} ${dims.height}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+    <defs>
+      <linearGradient id="${gradientId}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="5%" stop-color="var(--color-chart-area)" stop-opacity="0.35"></stop>
+        <stop offset="95%" stop-color="var(--color-chart-area)" stop-opacity="0"></stop>
+      </linearGradient>
+    </defs>
+    ${yGridLines}
+    ${xGridLines}
+    <path d="${areaPath}" fill="url(#${gradientId})" stroke="none"></path>
+    <path d="${linePath}" fill="none" stroke="var(--color-chart-line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    ${yLabels}
+    ${xLabels}
+  </svg>`;
+}
+
+// Defensive id-suffix sanitiser — guarantees the gradient id stays valid even
+// if rangeKey ever drifts (no-op for the current 1M/3M/6M/1Y/5Y set).
+function zone_safe(s: string): string {
+  return s.replace(/[^a-zA-Z0-9_-]/g, '');
+}
+
+function computeFuelStats(
+  series: ReadonlyArray<FuelSeriesPoint>,
+): { min: number; avg: number; max: number } | null {
+  if (series.length === 0) return null;
+  const values = series.map((p) => p.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const avg = values.reduce((a, b) => a + b, 0) / values.length;
+  return { min, avg, max };
+}
+
+function renderFuelHistoryCard(opts: {
+  readonly locale: FuelDailyLocale;
+  readonly history: HistorySnapshot[];
+  readonly zone: FuelZone | null;
+  readonly fuel: FuelType;
+  readonly today: Date;
+  readonly todayAvg: number | null;
+  readonly fuelLabel: string;
+  readonly zoneLabel: string;
+}): string {
+  const { locale, history, zone, fuel, today, todayAvg, fuelLabel, zoneLabel } = opts;
+  const copy = COPY[locale];
+  const formatValue = (v: number): string => formatPrice(v, locale);
+  const stats = FUEL_STAT_LABELS[locale];
+
+  const variants = FUEL_RANGE_KEYS.map((rk) => {
+    const series = buildFuelHistorySeries(history, zone, fuel, FUEL_RANGE_DAYS[rk], today, todayAvg);
+    const stat = computeFuelStats(series);
+    const avgLabel = stat ? formatValue(stat.avg) : '—';
+    const ariaLabel = copy.chartAriaLabel(fuelLabel, zoneLabel, avgLabel, '');
+    const svg = renderFuelAreaChartSvg({
+      series,
+      rangeKey: rk,
+      ariaLabel,
+      locale,
+      formatValue,
+    });
+    return { rangeKey: rk, svg, stat };
+  });
+
+  const buttonsHtml = FUEL_RANGE_KEYS.map((rk) => {
+    const isActive = rk === FUEL_DEFAULT_RANGE;
+    const baseStyle =
+      'border:0;cursor:pointer;padding:6px 12px;border-radius:8px;font:600 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;transition:background-color 0.15s,color 0.15s';
+    const activeStyle = 'background:var(--color-success-strong);color:var(--color-on-accent)';
+    const inactiveStyle = 'background:var(--color-surface-raised);color:var(--color-subtle)';
+    return `<button type="button" data-range-btn="${rk}" aria-pressed="${isActive ? 'true' : 'false'}" style="${baseStyle};${isActive ? activeStyle : inactiveStyle}">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
+  }).join('');
+
+  const variantsHtml = variants
+    .map(
+      (v) =>
+        `<div data-range-content="${v.rangeKey}" style="display:${v.rangeKey === FUEL_DEFAULT_RANGE ? 'block' : 'none'}">${v.svg}</div>`,
+    )
+    .join('');
+
+  const formatStatVal = (n: number): string => `${formatValue(n)} CHF`;
+  const statsVariantsHtml = variants
+    .map((v) => {
+      const visible = v.rangeKey === FUEL_DEFAULT_RANGE;
+      const inner = v.stat
+        ? `<span><strong>${esc(stats.min)}:</strong> ${esc(formatStatVal(v.stat.min))}</span><span><strong>${esc(stats.avg)}:</strong> ${esc(formatStatVal(v.stat.avg))}</span><span><strong>${esc(stats.max)}:</strong> ${esc(formatStatVal(v.stat.max))}</span>`
+        : `<span style="color:var(--color-subtle)">—</span>`;
+      return `<div data-range-stats="${v.rangeKey}" style="display:${visible ? 'flex' : 'none'};justify-content:space-between;gap:8px;margin-top:14px;font:500 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-subtle);min-height:20px">${inner}</div>`;
+    })
+    .join('');
+
+  const cardStyle =
+    'background:var(--color-surface);border:1px solid var(--color-edge);border-radius:16px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:720px;margin:0 0 14px';
+  const headerStyle =
+    'display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:14px';
+  const buttonsRowStyle = 'display:flex;gap:6px;flex-wrap:wrap';
+
+  // Inline IIFE to wire up the range selector. Reads data-range-btn / data-range-content
+  // / data-range-stats attributes; flips visibility + button styling on click.
+  const script = `<script>(function(){
+    var root = document.currentScript.previousElementSibling;
+    if(!root) return;
+    var btns = root.querySelectorAll('[data-range-btn]');
+    var contents = root.querySelectorAll('[data-range-content]');
+    var statsEls = root.querySelectorAll('[data-range-stats]');
+    function setActive(r){
+      btns.forEach(function(b){
+        var on = b.getAttribute('data-range-btn') === r;
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if(on){
+          b.style.background = 'var(--color-success-strong)';
+          b.style.color = 'var(--color-on-accent)';
+        } else {
+          b.style.background = 'var(--color-surface-raised)';
+          b.style.color = 'var(--color-subtle)';
+        }
+      });
+      contents.forEach(function(c){
+        c.style.display = c.getAttribute('data-range-content') === r ? 'block' : 'none';
+      });
+      statsEls.forEach(function(s){
+        s.style.display = s.getAttribute('data-range-stats') === r ? 'flex' : 'none';
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ setActive(b.getAttribute('data-range-btn')); });
+    });
+  })();</script>`;
+
+  return `<div data-fuel-history-chart style="${cardStyle}">
+    <div style="${headerStyle}">
+      <div style="${buttonsRowStyle}" role="tablist" aria-label="${esc(copy.trendLabel)}">${buttonsHtml}</div>
+    </div>
+    <div data-fuel-history-charts>${variantsHtml}</div>
+    ${statsVariantsHtml}
+  </div>${script}`;
+}
+
 function renderPage(inp: PageInputs): string {
   const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir, rootDir } = inp;
   const copy = COPY[locale];
@@ -923,51 +1247,20 @@ function renderPage(inp: PageInputs): string {
   const periodAvg = computePeriodAverage(trendRows.map((r) => r.price));
   const periodAvgFmt = formatPrice(periodAvg, locale);
 
-  // Inline SVG sparkline chart. Skips rendering entirely when <2 numeric
-  // points are available so we don't emit an empty axis.
-  const numericTrendPoints = trendRows.filter(
-    (r) => typeof r.price === 'number' && Number.isFinite(r.price),
-  );
-  let chartHtml = '';
-  if (numericTrendPoints.length >= 2) {
-    // Period delta: last-available numeric point vs first-available numeric
-    // point. This is the figure surfaced in the aria-label so the chart is
-    // meaningful to screen-reader users.
-    const firstPt = numericTrendPoints[0];
-    const lastPt = numericTrendPoints[numericTrendPoints.length - 1];
-    const periodDelta =
-      typeof firstPt.price === 'number' && typeof lastPt.price === 'number'
-        ? Number((lastPt.price - firstPt.price).toFixed(3))
-        : null;
-    const ariaLabel = copy.chartAriaLabel(
-      fuelLabel,
-      zoneLabel,
-      periodAvgFmt,
-      formatDelta(periodDelta, locale),
-    );
-    chartHtml = renderSparklineChart(
-      trendRows.map((r) => ({ date: r.date, value: r.price })),
-      {
-        ariaLabel,
-        formatValue: (v) => formatPrice(v, locale),
-      },
-    );
-  }
-  // Locale-aware fallback shown when the sparkline returned '' (i.e. fewer
-  // than 3 numeric points — typical during the first few days after a new
-  // zone/fuel combo starts collecting history). Keeps the page above the
-  // 50-word thin-content bar and sets the right expectation with the user.
-  if (!chartHtml) {
-    const fallbackText =
-      locale === 'it'
-        ? 'Storico in costruzione — torna tra qualche giorno.'
-        : locale === 'en'
-          ? 'History still being built — check back in a few days.'
-          : locale === 'de'
-            ? 'Verlauf wird noch aufgebaut — schau in ein paar Tagen wieder vorbei.'
-            : 'Historique en cours de constitution — reviens dans quelques jours.';
-    chartHtml = `<p style="margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--color-surface-muted);color:var(--color-text-muted);font-size:14px">${esc(fallbackText)}</p>`;
-  }
+  // Multi-range area chart card (Recharts-style). Renders 1M/3M/6M/1Y/5Y
+  // variants server-side; tiny inline JS toggles visibility on button click.
+  // Per-range "no data" fallback is rendered inside each empty variant, so
+  // we don't need a separate page-level fallback paragraph anymore.
+  const historyCard = renderFuelHistoryCard({
+    locale,
+    history,
+    zone,
+    fuel,
+    today,
+    todayAvg: avg,
+    fuelLabel,
+    zoneLabel,
+  });
 
   const trendTableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
@@ -1114,7 +1407,7 @@ function renderPage(inp: PageInputs): string {
   <section style="margin:0 0 24px" aria-labelledby="trend7">
     <h2 id="trend7" style="${H2_STYLE}">${esc(copy.trendLabel)}</h2>
     <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.6">${esc(historyCopy)}</p>
-    ${chartHtml ? `<figure style="margin:0 0 14px;padding:12px 14px;${CARD_BODY_STYLE};border-radius:14px">${chartHtml}</figure>` : ''}
+    ${historyCard}
     ${trendTableHtml}
     ${periodAvgNoteHtml}
   </section>
