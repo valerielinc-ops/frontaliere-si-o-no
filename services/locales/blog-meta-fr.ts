@@ -2622,6 +2622,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-ticino-2026-piu-difficile.title': 'Trouver un logement dans le Tessin : le marché immobilier en 2026',
     'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'Au cours des 5 dernières années, le nombre de logements libres à louer en Suisse a chuté de près de 40 %, avec un impact significatif sur le canton du Tessin.',
     'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Vue panoramique du lac de Lugano avec des maisons au premier plan',
+    'blog.article.sicurezza-frontalieri-ticino-2024.title': 'Sécurité des frontaliers au Tessin: Quadranti demande plus de contrôles',
+    'blog.article.sicurezza-frontalieri-ticino-2024.excerpt': 'Le chef de groupe PLR Matteo Quadranti demande au Conseil d\'Etat des mesures pour augmenter la sécurité, surtout dans le sous-Ceneri et dans les zones frontalières',
+    'blog.article.sicurezza-frontalieri-ticino-2024.imageAlt': 'Gare de Mendrisio dans le Tessin, avec des navetteurs montant et descendant des trains, sur fond des Alpes suisses',
 };
 
 export default blogMetaFr;

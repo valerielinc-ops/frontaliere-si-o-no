@@ -2134,6 +2134,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frode-crediti-covid-ticino-3334-casi': { name: 'Frode crediti Covid', path: '/articoli-frontaliere/frode-crediti-covid-ticino-3334-casi', parent: 'blog' },
     'blog-frontalieri-tassa-salute-lombardia': { name: 'Frontalieri, “tassa sulla salute” al via', path: '/articoli-frontaliere/frontalieri-tassa-salute-lombardia', parent: 'blog' },
     'blog-casa-ticino-2026-piu-difficile': { name: 'Mercato immobiliare', path: '/articoli-frontaliere/casa-ticino-2026-piu-difficile', parent: 'blog' },
+    'blog-sicurezza-frontalieri-ticino-2024': { name: 'Sicurezza', path: '/articoli-frontaliere/sicurezza-frontalieri-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -12219,6 +12219,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-frontalieri-ticino-2024': {
+    title: 'Sicurezza frontalieri Ticino: Quadranti | Frontaliere Ticino',
+    description: 'Il capogruppo PLR Matteo Quadranti chiede al Consiglio di Stato misure per aumentare la sicurezza, soprattutto nel sottoceneri e nelle aree frontaliere',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, quadranti, chiede, controlli',
+    ogTitle: 'Sicurezza frontalieri Ticino: Quadranti chiede più controlli',
+    ogDescription: 'Il capogruppo PLR Matteo Quadranti chiede al Consiglio di Stato misure per aumentare la sicurezza, soprattutto nel sottoceneri e nelle aree frontaliere',
+    canonicalPath: '/articoli-frontaliere/sicurezza-frontalieri-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza frontalieri Ticino: Quadranti chiede più controlli",
+      "description": "Il capogruppo PLR Matteo Quadranti chiede al Consiglio di Stato misure per aumentare la sicurezza, soprattutto nel sottoceneri e nelle aree frontaliere",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-frontalieri-ticino-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Mendrisio, Ticino, con pendolari che salgono e scendono dai treni, con le Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-04-25T07:56:42+00:00",
+      "dateModified": "2026-04-25T07:56:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-frontalieri-ticino-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

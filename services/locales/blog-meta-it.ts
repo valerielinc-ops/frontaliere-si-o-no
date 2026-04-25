@@ -2622,6 +2622,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-ticino-2026-piu-difficile.title': 'Trovare casa in Ticino: il mercato immobiliare nel 2026',
     'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'Negli ultimi 5 anni gli alloggi liberi in affitto in Svizzera sono crollati di quasi il 40%, con un impatto significativo sul Canton Ticino.',
     'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Vista panoramica del Lago di Lugano con case in primo piano',
+    'blog.article.sicurezza-frontalieri-ticino-2024.title': 'Sicurezza frontalieri Ticino: Quadranti chiede più controlli',
+    'blog.article.sicurezza-frontalieri-ticino-2024.excerpt': 'Il capogruppo PLR Matteo Quadranti chiede al Consiglio di Stato misure per aumentare la sicurezza, soprattutto nel sottoceneri e nelle aree frontaliere',
+    'blog.article.sicurezza-frontalieri-ticino-2024.imageAlt': 'Stazione di Mendrisio, Ticino, con pendolari che salgono e scendono dai treni, con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

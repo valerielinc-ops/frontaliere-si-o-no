@@ -2622,6 +2622,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-ticino-2026-piu-difficile.title': 'Finding a home in Ticino: the real estate market in 2026',
     'blog.article.casa-ticino-2026-piu-difficile.excerpt': 'Over the past 5 years, the number of vacant rental properties in Switzerland has plummeted by nearly 40%, significantly impacting the Canton of Ticino.',
     'blog.article.casa-ticino-2026-piu-difficile.imageAlt': 'Panoramic view of Lake Lugano with houses in the foreground',
+    'blog.article.sicurezza-frontalieri-ticino-2024.title': 'Ticino cross-border worker security: Quadranti calls for more checks',
+    'blog.article.sicurezza-frontalieri-ticino-2024.excerpt': 'Matteo Quadranti, the PLR group leader, asks the State Council for measures to increase security, particularly in the southern Ticino and border areas',
+    'blog.article.sicurezza-frontalieri-ticino-2024.imageAlt': 'Mendrisio train station in Ticino, with commuters boarding and alighting from trains, set against the Swiss Alps',
 };
 
 export default blogMetaEn;

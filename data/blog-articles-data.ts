@@ -7105,4 +7105,11 @@ export const ARTICLES = [
  image: '/images/blog/casa-ticino-2026-piu-difficile.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sicurezza-frontalieri-ticino-2024',
+ category: 'novita',
+ date: '2026-04-25T07:56:42.763Z',
+ image: '/images/blog/sicurezza-frontalieri-ticino-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
