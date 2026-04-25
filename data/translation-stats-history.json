@@ -1,85 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T09:35:43.858Z",
-    "label": "before",
-    "total": 2535,
-    "needsRetranslation": 515,
-    "incomplete": 56,
-    "complete": 2479,
-    "missingByLocale": {
-      "it": 3,
-      "en": 55,
-      "de": 52,
-      "fr": 55
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "Aziende Industriali di Lugano (AIL) SA",
-        "pending": 1
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T09:53:31.315Z",
-    "label": "after",
-    "total": 2535,
-    "needsRetranslation": 33,
-    "incomplete": 4,
-    "complete": 2531,
-    "missingByLocale": {
-      "it": 1,
-      "en": 4,
-      "de": 3,
-      "fr": 4
-    },
-    "topPending": [
-      {
-        "company": "Aziende Industriali di Lugano (AIL) SA",
-        "pending": 1
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Gruppo Ospedaliero Moncucco",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T09:58:07.388Z",
     "label": "before",
     "total": 2542,
@@ -7394,6 +7314,114 @@
       },
       {
         "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T10:29:00.756Z",
+    "label": "before",
+    "total": 2658,
+    "needsRetranslation": 1156,
+    "incomplete": 100,
+    "complete": 2558,
+    "missingByLocale": {
+      "it": 41,
+      "en": 70,
+      "de": 81,
+      "fr": 91
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "Prada Group",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T11:22:15.677Z",
+    "label": "after",
+    "total": 2658,
+    "needsRetranslation": 77,
+    "incomplete": 34,
+    "complete": 2624,
+    "missingByLocale": {
+      "it": 28,
+      "en": 11,
+      "de": 28,
+      "fr": 29
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
         "pending": 1
       },
       {
