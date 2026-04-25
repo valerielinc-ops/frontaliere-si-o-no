@@ -2,7 +2,9 @@ import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useTranslation } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
-import NaspiCalculator from '@/components/calculator/NaspiCalculator';
+// NaspiCalculator pulls Recharts (~vendor-charts ~150KB gzip). Lazy-load it so the
+// FrontierGuide chunk stays chart-free until the unemployment section is rendered.
+const NaspiCalculator = lazyRetry(() => import('@/components/calculator/NaspiCalculator'));
 // Leaflet/react-leaflet are lazy-loaded only when needed (municipalities/border tabs)
 let L: typeof import('leaflet') | null = null;
 let leafletCssLoaded = false;
@@ -2534,7 +2536,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </InfoCard>
 
  {/* NASPI Calculator */}
+ <Suspense fallback={<div style={{ minHeight: 600 }} aria-hidden="true" />}>
  <NaspiCalculator />
+ </Suspense>
 
  {/* Useful Links */}
  <InfoCard icon={Info} title={t('guide.unemployment.links.title')} color="blue">
