@@ -1,45 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T09:06:45.719Z",
-    "label": "before",
-    "total": 2441,
-    "needsRetranslation": 44,
-    "incomplete": 1,
-    "complete": 2440,
-    "missingByLocale": {
-      "it": 0,
-      "en": 1,
-      "de": 1,
-      "fr": 1
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T09:08:34.037Z",
-    "label": "after",
-    "total": 2441,
-    "needsRetranslation": 44,
-    "incomplete": 1,
-    "complete": 2440,
-    "missingByLocale": {
-      "it": 0,
-      "en": 1,
-      "de": 1,
-      "fr": 1
-    },
-    "topPending": [
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T09:35:43.858Z",
     "label": "before",
     "total": 2535,
@@ -7353,6 +7313,70 @@
     "needsRetranslation": 51,
     "incomplete": 25,
     "complete": 2637,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T07:56:40.418Z",
+    "label": "before",
+    "total": 2600,
+    "needsRetranslation": 51,
+    "incomplete": 25,
+    "complete": 2575,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-25T08:18:38.867Z",
+    "label": "after",
+    "total": 2600,
+    "needsRetranslation": 52,
+    "incomplete": 25,
+    "complete": 2575,
     "missingByLocale": {
       "it": 24,
       "en": 5,
