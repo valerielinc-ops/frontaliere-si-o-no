@@ -592,7 +592,9 @@ jobs:
         if: steps.decide_trigger.outputs.should_trigger == 'true'
         continue-on-error: true
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          # GITHUB_PAT is loaded into $GITHUB_ENV by `Load secrets from Remote Config`
+          # (Firebase RC, not an Actions secret). Do NOT shadow it with secrets.GITHUB_PAT
+          # — that resolves to empty and bricks the chain.
           WORKFLOW_FILE: generate-article.yml
           DELAY_SECONDS: ${{ steps.decide_trigger.outputs.delay }}
           SELF_TRIGGER_REASON: ${{ steps.decide_trigger.outputs.reason }}
