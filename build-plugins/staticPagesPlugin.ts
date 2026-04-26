@@ -934,6 +934,23 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
  parsed = normalizeStructuredData(parsed);
+ // Cap oversized ItemList payloads. The auto-generated blog ItemList
+ // (services/seo/seo-pages.ts:blog) grows by ~1 entry per published
+ // article and now exceeds 900 items — that single inline JSON-LD
+ // weighs ~170 KB and pushes the section index page over the
+ // 200 KB Semrush page-weight budget. Google only needs the first
+ // ~100 items for ItemList signal; truncate to that and keep
+ // `numberOfItems` accurate (reflects total list size).
+ const ITEM_LIST_CAP = 100;
+ const capItemList = (item: Record<string, unknown>): Record<string, unknown> => {
+ if (item?.['@type'] === 'ItemList' && Array.isArray(item.itemListElement) && item.itemListElement.length > ITEM_LIST_CAP) {
+ return { ...item, itemListElement: (item.itemListElement as unknown[]).slice(0, ITEM_LIST_CAP) };
+ }
+ return item;
+ };
+ parsed = Array.isArray(parsed)
+ ? parsed.map((item: Record<string, unknown>) => capItemList(item))
+ : capItemList(parsed as Record<string, unknown>);
  // Serialize as compact JSON for injection into HTML
  sd = Array.isArray(parsed)
  ? parsed.map((item: Record<string, unknown>) => JSON.stringify(item)).join('</script>\n <script type="application/ld+json">')
