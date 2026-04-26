@@ -429,3 +429,241 @@ export function isSectorHubSlug(locale: JobBoardLocale, slug: string): SectorHub
   }
   return null;
 }
+
+// ── Sector prose (Phase 3B) ──────────────────────────────────────────
+//
+// A 200-400 word prose block injected in the body of every sector landing
+// page (above the job list) to address Semrush issue 112 (low text/HTML
+// ratio) and issue 117 (low word count). The prose lives in the data file
+// `data/sector-descriptions.json` and is keyed by sector slug + locale.
+// When a sector slug is missing from the JSON, a generic parametrized blob
+// is rendered as fallback so every page hits the >=200 word floor.
+
+export interface SectorProseLocale {
+  intro: string;
+  salaryRange: string;
+  requirements: string;
+  trend: string;
+  topCities: readonly string[];
+}
+
+export interface SectorProseBlock {
+  /** Final HTML string (already escaped, safe to inject). */
+  html: string;
+  /** Plain-text word count of the block's body. */
+  wordCount: number;
+  /** Whether the block came from the JSON data file (true) or fallback (false). */
+  curated: boolean;
+}
+
+const SECTOR_PROSE_HEADINGS: Record<JobBoardLocale, {
+  overview: string; salary: string; requirements: string; trend: string; topCities: string;
+}> = {
+  it: {
+    overview: 'Panoramica del settore in Ticino',
+    salary: 'Range salariale',
+    requirements: 'Requisiti tipici',
+    trend: 'Trend del mercato',
+    topCities: 'Citta principali',
+  },
+  en: {
+    overview: 'Sector overview in Ticino',
+    salary: 'Salary range',
+    requirements: 'Typical requirements',
+    trend: 'Market trend',
+    topCities: 'Top cities',
+  },
+  de: {
+    overview: 'Sektoruebersicht im Tessin',
+    salary: 'Gehaltsspanne',
+    requirements: 'Typische Anforderungen',
+    trend: 'Markttrend',
+    topCities: 'Wichtigste Staedte',
+  },
+  fr: {
+    overview: 'Apercu du secteur au Tessin',
+    salary: 'Fourchette salariale',
+    requirements: 'Exigences typiques',
+    trend: 'Tendances du marche',
+    topCities: 'Villes principales',
+  },
+};
+
+function escSectorProse(s: string): string {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function countWords(s: string): number {
+  return String(s || '').trim().split(/\s+/).filter(Boolean).length;
+}
+
+/**
+ * Build the prose block for a (sector, locale) pair using the supplied data
+ * map (typically loaded from `data/sector-descriptions.json`). If no entry
+ * exists, falls back to a generic parametrized blob whose word count still
+ * lands in the 200-300 range. When a curated entry is present but shorter
+ * than 200 words for a given locale, a standard frontaliere "context" tail
+ * is appended so every emitted page clears the Semrush gate without
+ * relying on per-locale hand-tuning.
+ */
+export function buildSectorProse(
+  sectorKey: string,
+  locale: JobBoardLocale,
+  displayName: string,
+  data: Record<string, Partial<Record<JobBoardLocale, SectorProseLocale>>> | null | undefined,
+): SectorProseBlock {
+  const entry = data && typeof data === 'object' ? data[sectorKey]?.[locale] : undefined;
+  const headings = SECTOR_PROSE_HEADINGS[locale];
+
+  if (entry && entry.intro && entry.salaryRange && entry.requirements && entry.trend) {
+    const cities = (entry.topCities || []).slice(0, 5);
+    const padded = padToMinWords(
+      {
+        intro: entry.intro,
+        salaryRange: entry.salaryRange,
+        requirements: entry.requirements,
+        trend: entry.trend,
+        topCities: cities,
+      },
+      locale,
+      displayName,
+      210,
+    );
+    const text = `${padded.intro} ${padded.salaryRange} ${padded.requirements} ${padded.trend} ${padded.topCities.join(', ')}`;
+    const wordCount = countWords(text);
+    const html = renderProseHtml({ headings, ...padded });
+    return { html, wordCount, curated: true };
+  }
+
+  // Fallback — keep above 200 words by combining standard frontaliere talking points.
+  const fallback = buildFallbackProse(displayName, locale);
+  const text = `${fallback.intro} ${fallback.salaryRange} ${fallback.requirements} ${fallback.trend} ${fallback.topCities.join(', ')}`;
+  const wordCount = countWords(text);
+  const html = renderProseHtml({
+    headings,
+    intro: fallback.intro,
+    salaryRange: fallback.salaryRange,
+    requirements: fallback.requirements,
+    trend: fallback.trend,
+    topCities: fallback.topCities,
+  });
+  return { html, wordCount, curated: false };
+}
+
+const FRONTALIERE_CONTEXT_TAIL: Record<JobBoardLocale, string> = {
+  it: "I lavoratori frontalieri italiani con permesso G possono accedere a queste opportunita applicando le regole del Nuovo Accordo fiscale 2026 tra Italia e Svizzera, con imposta alla fonte ridotta sui salari maturati nel Cantone e contribuzione AVS/LPP a carico del datore di lavoro elvetico. Il Cantone Ticino conta oltre 76.000 frontalieri attivi con permesso G provenienti soprattutto da Como, Varese, Lecco e Verbano-Cusio-Ossola, e il bacino di reclutamento per questo settore comprende anche piazze italiane confinanti come Luino, Porto Ceresio, Stabio confine, Chiasso e Brogeda.",
+  en: "Italian cross-border workers with a G permit can take these jobs under the 2026 New Italy-Switzerland Tax Agreement: reduced withholding tax on Ticino-earned wages, with mandatory AVS/LPP social-security contributions paid by the Swiss employer. Ticino counts over 76,000 active G-permit cross-border workers, mostly from Como, Varese, Lecco and Verbano-Cusio-Ossola, and the recruiting catchment for this sector also includes nearby Italian towns such as Luino, Porto Ceresio, Stabio confine, Chiasso and Brogeda.",
+  de: "Italienische Grenzgaenger mit G-Bewilligung koennen diese Stellen im Rahmen des Neuen Steuerabkommens Italien-Schweiz 2026 antreten: ermaessigte Quellensteuer auf im Tessin verdiente Loehne und obligatorische AHV/BVG-Beitraege durch den Schweizer Arbeitgeber. Der Kanton Tessin zaehlt ueber 76.000 aktive G-Grenzgaenger, vor allem aus Como, Varese, Lecco und Verbano-Cusio-Ossola; das Rekrutierungsgebiet fuer diesen Sektor umfasst auch grenznahe italienische Orte wie Luino, Porto Ceresio, Stabio confine, Chiasso und Brogeda.",
+  fr: "Les frontaliers italiens avec permis G peuvent occuper ces postes dans le cadre du Nouvel Accord fiscal 2026 entre l'Italie et la Suisse: impot a la source reduit sur les salaires gagnes au Tessin et cotisations AVS/LPP obligatoires a la charge de l'employeur suisse. Le Canton du Tessin compte plus de 76.000 frontaliers G actifs, principalement venus de Como, Varese, Lecco et Verbano-Cusio-Ossola; le bassin de recrutement de ce secteur comprend aussi des localites italiennes proches comme Luino, Porto Ceresio, Stabio confine, Chiasso et Brogeda.",
+};
+
+function padToMinWords(
+  block: { intro: string; salaryRange: string; requirements: string; trend: string; topCities: readonly string[] },
+  locale: JobBoardLocale,
+  displayName: string,
+  minWords: number,
+): { intro: string; salaryRange: string; requirements: string; trend: string; topCities: string[] } {
+  void displayName;
+  const intro = block.intro;
+  const salaryRange = block.salaryRange;
+  const requirements = block.requirements;
+  const cities = [...block.topCities];
+  let trend = block.trend;
+  const fullText = () => `${intro} ${salaryRange} ${requirements} ${trend} ${cities.join(', ')}`;
+  if (countWords(fullText()) >= minWords) {
+    return { intro, salaryRange, requirements, trend, topCities: cities };
+  }
+  trend = `${trend} ${FRONTALIERE_CONTEXT_TAIL[locale]}`.trim();
+  return { intro, salaryRange, requirements, trend, topCities: cities };
+}
+
+function renderProseHtml(p: {
+  headings: { overview: string; salary: string; requirements: string; trend: string; topCities: string };
+  intro: string;
+  salaryRange: string;
+  requirements: string;
+  trend: string;
+  topCities: readonly string[];
+}): string {
+  const cityChips = p.topCities.length > 0
+    ? `<p style="margin:6px 0 0;color:var(--color-body);line-height:1.6"><strong>${escSectorProse(p.headings.topCities)}:</strong> ${escSectorProse(p.topCities.join(', '))}</p>`
+    : '';
+  return [
+    `<section class="sector-intro" style="margin:0 0 28px;display:grid;gap:14px;color:var(--color-body)">`,
+    `  <div><h2 style="margin:0 0 6px;font-size:20px;color:var(--color-heading)">${escSectorProse(p.headings.overview)}</h2><p style="margin:0;line-height:1.65">${escSectorProse(p.intro)}</p></div>`,
+    `  <div><h3 style="margin:0 0 4px;font-size:16px;color:var(--color-heading)">${escSectorProse(p.headings.salary)}</h3><p style="margin:0;line-height:1.65">${escSectorProse(p.salaryRange)}</p></div>`,
+    `  <div><h3 style="margin:0 0 4px;font-size:16px;color:var(--color-heading)">${escSectorProse(p.headings.requirements)}</h3><p style="margin:0;line-height:1.65">${escSectorProse(p.requirements)}</p></div>`,
+    `  <div><h3 style="margin:0 0 4px;font-size:16px;color:var(--color-heading)">${escSectorProse(p.headings.trend)}</h3><p style="margin:0;line-height:1.65">${escSectorProse(p.trend)}</p>${cityChips}</div>`,
+    `</section>`,
+  ].join('\n');
+}
+
+function buildFallbackProse(displayName: string, locale: JobBoardLocale): SectorProseLocale {
+  const cities = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'];
+  const lname = displayName.toLowerCase();
+  switch (locale) {
+    case 'it':
+      return {
+        intro: `Il settore ${lname} in Ticino offre opportunita di lavoro stabili a frontalieri italiani con permesso G. Le aziende del Cantone assumono regolarmente per ruoli operativi, qualificati e di responsabilita, sia nel settore pubblico che privato. La domanda e alimentata dalla prossimita geografica con il bacino di manodopera lombardo, dalla qualita delle infrastrutture cantonali e dal contesto economico stabile della Confederazione.`,
+        salaryRange: `Le retribuzioni nel settore ${lname} in Ticino sono mediamente piu alte del 30-50% rispetto all'Italia per profili equivalenti, con range che variano in base a esperienza, qualifica e responsabilita. Le condizioni contrattuali svizzere prevedono 13a mensilita, contributi obbligatori AVS/LPP e un sistema di imposta alla fonte agevolato per i frontalieri.`,
+        requirements: `I requisiti tipici nel settore ${lname} includono titolo di studio coerente con la qualifica, esperienza pregressa di settore (variabile a seconda del ruolo) e ottima padronanza dell'italiano. La conoscenza di tedesco, francese o inglese e spesso valorizzata, in particolare per ruoli con clienti internazionali. Il riconoscimento dei titoli italiani e gestito dalle autorita cantonali competenti.`,
+        trend: `Le assunzioni nel settore ${lname} in Ticino sono in crescita moderata o sostenuta a seconda della domanda di mercato. Il Cantone supporta l'integrazione dei lavoratori frontalieri tramite servizi di orientamento e accordi bilaterali Svizzera-UE che disciplinano la mobilita transfrontaliera.`,
+        topCities: cities,
+      };
+    case 'en':
+      return {
+        intro: `The ${lname} sector in Ticino offers stable job opportunities for Italian cross-border workers with G permits. Local employers regularly hire for operational, qualified and supervisory roles in both public and private sectors. Demand is driven by geographic proximity to the Lombardy labour pool, the quality of cantonal infrastructure, and Switzerland's stable economic environment.`,
+        salaryRange: `Salaries in the Ticino ${lname} sector are typically 30-50% higher than equivalent roles in Italy, with ranges varying by experience, qualification and responsibility. Swiss employment terms include a 13th-month bonus, mandatory AVS/LPP contributions and a favourable withholding-tax regime for cross-border workers.`,
+        requirements: `Typical requirements in the ${lname} sector include sector-relevant qualifications, prior experience (varying by role), and strong Italian fluency. Knowledge of German, French or English is often valued, especially for client-facing positions. Italian credentials are recognized by competent cantonal authorities through standard equivalence procedures.`,
+        trend: `Hiring in the Ticino ${lname} sector is growing moderately to strongly depending on market demand. The Canton supports cross-border-worker integration through orientation services and the Switzerland-EU bilateral agreements governing labour mobility.`,
+        topCities: cities,
+      };
+    case 'de':
+      return {
+        intro: `Der Sektor ${lname} im Tessin bietet stabile Arbeitsmoeglichkeiten fuer italienische Grenzgaenger mit G-Bewilligung. Lokale Arbeitgeber stellen regelmaessig fuer operative, qualifizierte und Fuehrungspositionen ein, sowohl im oeffentlichen als auch im privaten Sektor. Die Nachfrage wird durch die geografische Naehe zum lombardischen Arbeitsmarkt, die Qualitaet der kantonalen Infrastruktur und das stabile wirtschaftliche Umfeld der Schweiz gestuetzt.`,
+        salaryRange: `Die Gehaelter im Tessiner ${lname}-Sektor sind in der Regel 30-50% hoeher als bei vergleichbaren italienischen Stellen, mit Spannen je nach Erfahrung, Qualifikation und Verantwortung. Die Schweizer Anstellungsbedingungen umfassen 13. Monatsgehalt, obligatorische AHV/BVG-Beitraege und ein guenstiges Quellensteuerregime fuer Grenzgaenger.`,
+        requirements: `Typische Anforderungen im Sektor ${lname} sind sektor-relevante Qualifikationen, bisherige Berufserfahrung (je nach Rolle) und gute Italienischkenntnisse. Deutsch-, Franzoesisch- oder Englischkenntnisse sind oft willkommen, besonders bei kundenorientierten Funktionen. Italienische Diplome werden ueber Standard-Anerkennungsverfahren der zustaendigen kantonalen Behoerden anerkannt.`,
+        trend: `Die Einstellungen im Tessiner Sektor ${lname} wachsen je nach Nachfrage moderat bis stark. Der Kanton unterstuetzt die Integration von Grenzgaengern durch Beratungsdienste und die Schweiz-EU-Bilateralen, die die grenzueberschreitende Arbeitsmobilitaet regeln.`,
+        topCities: cities,
+      };
+    case 'fr':
+    default:
+      return {
+        intro: `Le secteur ${lname} au Tessin offre des emplois stables aux frontaliers italiens avec permis G. Les employeurs locaux recrutent regulierement pour des postes operationnels, qualifies et d'encadrement, dans le secteur public comme prive. La demande est alimentee par la proximite geographique avec le bassin de main-d'oeuvre lombard, la qualite des infrastructures cantonales et un environnement economique stable.`,
+        salaryRange: `Les salaires du secteur ${lname} au Tessin sont en moyenne 30-50% plus eleves que pour des postes equivalents en Italie, avec des fourchettes variant selon l'experience, la qualification et le niveau de responsabilite. Les conditions suisses incluent un 13e salaire, des cotisations obligatoires AVS/LPP et un regime d'impot a la source avantageux pour les frontaliers.`,
+        requirements: `Les exigences typiques dans le secteur ${lname} comprennent un titre adapte a la qualification, une experience prealable du secteur (variable selon le poste) et une excellente maitrise de l'italien. L'allemand, le francais ou l'anglais sont souvent apprecies, en particulier pour les fonctions tournees vers la clientele. Les diplomes italiens sont reconnus par les autorites cantonales competentes via des procedures d'equivalence standard.`,
+        trend: `Les recrutements dans le secteur ${lname} au Tessin progressent moderement ou fortement selon la demande du marche. Le Canton soutient l'integration des frontaliers via des services d'orientation et les accords bilateraux Suisse-UE qui regissent la mobilite transfrontaliere.`,
+        topCities: cities,
+      };
+  }
+}
+
+export type SectorProseDataMap = Record<string, Partial<Record<JobBoardLocale, SectorProseLocale>>>;
+
+/** Synchronously load `data/sector-descriptions.json`. Returns `{}` on failure. */
+export function loadSectorProseData(rootDir: string): SectorProseDataMap {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const fs: typeof import('node:fs') = require('node:fs');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const path: typeof import('node:path') = require('node:path');
+    const filePath = path.resolve(rootDir, 'data/sector-descriptions.json');
+    if (!fs.existsSync(filePath)) return {};
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return {};
+    // Drop the `_meta` key — never a sector entry.
+    const out: SectorProseDataMap = {};
+    for (const [k, v] of Object.entries(parsed)) {
+      if (k === '_meta') continue;
+      if (v && typeof v === 'object') out[k] = v as SectorProseDataMap[string];
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}

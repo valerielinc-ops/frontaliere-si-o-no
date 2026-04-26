@@ -656,6 +656,41 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return override || defaultUrl;
  };
 
+ /**
+  * Per-canonical-slug company profiles loaded from `data/company-profiles.json`.
+  * Used by the company landing emitter to enrich pages with founded/size/sector
+  * facts and a multilingual description, lifting word count above the
+  * "thin content" Semrush threshold (issue 117). Companies absent from the
+  * map fall back to the generic enrichment derived from job-data only.
+  */
+ type CompanyProfile = {
+  name?: string;
+  founded?: number;
+  size?: string;
+  sector?: string;
+  headquarters?: string;
+  description?: Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
+ };
+ const companyProfiles: Record<string, CompanyProfile> = (() => {
+  try {
+   const profilePath = np.resolve(rootDir, 'data/company-profiles.json');
+   if (!fs.existsSync(profilePath)) return {};
+   const raw = JSON.parse(fs.readFileSync(profilePath, 'utf-8'));
+   if (!raw || typeof raw !== 'object') return {};
+   const cleaned: Record<string, CompanyProfile> = {};
+   for (const [k, v] of Object.entries(raw)) {
+    if (k === '_meta') continue;
+    if (v && typeof v === 'object') cleaned[k] = v as CompanyProfile;
+   }
+   if (Object.keys(cleaned).length > 0) {
+    console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded ${Object.keys(cleaned).length} company profiles for enrichment`);
+   }
+   return cleaned;
+  } catch {
+   return {};
+  }
+ })();
+
  const esc = (s: string) => String(s || '')
  .replace(/&/g, '&amp;')
  .replace(/</g, '&lt;')
@@ -2615,6 +2650,58 @@ ${hreflangHtml}
  organizationLd = JSON.stringify(orgLdObj);
  }
 
+ // Phase 3B — stub-company gating. Companies with 0 active jobs (which
+ // shouldn't reach this code path under normal filtering, but we guard
+ // anyway) get noindex,follow so Google drops the page from the index.
+ // Curated brands and profiled companies always stay indexable.
+ // Companies with 1-2 jobs stay indexable but receive minimal enrichment
+ // via the standard auto-generated body so they don't collapse below the
+ // Semrush thin-content gate.
+ const companyJobCount = companyJobs.length;
+ const companyProfile: CompanyProfile | undefined = companyProfiles[cSlug];
+ const isStubCompany = companyJobCount < 1 && !curatedBrand && !companyProfile;
+ const companyRobotsMeta = isStubCompany
+  ? '<meta name="robots" content="noindex,follow">'
+  : '<meta name="robots" content="index,follow">';
+
+ // Phase 3B — curated profile prose. When a manual profile exists, we
+ // inject a multi-fact paragraph (founded, size, sector, HQ) plus a
+ // localized description. This raises the page's text/HTML ratio and
+ // word count well above the Semrush thin-content threshold for the
+ // top-50 employers without depending on noisy job-data autodescriptions.
+ const companyProfileHtml = !curatedBrand && companyProfile
+  ? (() => {
+   const desc = companyProfile.description?.[locale]
+    || companyProfile.description?.it
+    || companyProfile.description?.en
+    || '';
+   const factsLineByLocale: Record<string, string> = {
+    it: 'Informazioni chiave',
+    en: 'Key facts',
+    de: 'Eckdaten',
+    fr: 'Informations cles',
+   };
+   const labels: Record<string, Record<'founded' | 'size' | 'sector' | 'hq', string>> = {
+    it: { founded: 'Anno fondazione', size: 'Dimensione', sector: 'Settore', hq: 'Sede principale' },
+    en: { founded: 'Founded', size: 'Size', sector: 'Sector', hq: 'Headquarters' },
+    de: { founded: 'Gegruendet', size: 'Groesse', sector: 'Sektor', hq: 'Hauptsitz' },
+    fr: { founded: 'Fondee', size: 'Taille', sector: 'Secteur', hq: 'Siege' },
+   };
+   const factsTitle = factsLineByLocale[locale] || factsLineByLocale.it;
+   const lbl = labels[locale] || labels.it;
+   const facts: string[] = [];
+   if (companyProfile.founded) facts.push(`<li><strong>${esc(lbl.founded)}:</strong> ${esc(String(companyProfile.founded))}</li>`);
+   if (companyProfile.size) facts.push(`<li><strong>${esc(lbl.size)}:</strong> ${esc(companyProfile.size)}</li>`);
+   if (companyProfile.sector) facts.push(`<li><strong>${esc(lbl.sector)}:</strong> ${esc(companyProfile.sector)}</li>`);
+   if (companyProfile.headquarters) facts.push(`<li><strong>${esc(lbl.hq)}:</strong> ${esc(companyProfile.headquarters)}</li>`);
+   const factsBlock = facts.length > 0
+    ? `<aside style="margin:0 0 14px;padding:12px 14px;background:var(--color-surface-subtle);border-radius:10px"><h3 style="margin:0 0 6px;font-size:14px;color:var(--color-heading)">${esc(factsTitle)}</h3><ul style="margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:14px;line-height:1.55;color:var(--color-body)">${facts.join('')}</ul></aside>`
+    : '';
+   if (!desc && !factsBlock) return '';
+   return `<section class="company-profile" style="margin:20px 0 0">${factsBlock}${desc ? `<p style="margin:0;line-height:1.65;color:var(--color-body)">${esc(desc)}</p>` : ''}</section>`;
+  })()
+  : '';
+
  const companyHtml = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -2623,6 +2710,7 @@ ${hreflangHtml}
  ${FAVICON_LINKS}
  <title>${esc(title)}</title>
  <meta name="description" content="${esc(description)}">
+ ${companyRobotsMeta}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -2649,7 +2737,7 @@ ${hreflangHtml}
  <div id="root">
  <main class="static-job-page">
  <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(copy.allJobsLink)}</a></nav>
-${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName))}</h1>\n<p>${esc(description)}</p>\n`}${curatedBodyHtml ? '' : (() => {
+${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName))}</h1>\n<p>${esc(description)}</p>\n${companyProfileHtml}\n`}${curatedBodyHtml ? '' : (() => {
  // Collect location info from company jobs
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
