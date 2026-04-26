@@ -524,14 +524,15 @@ export function blogContextualLinksPlugin(rootDir: string): Plugin {
           perLocaleCounts.set(locale, (perLocaleCounts.get(locale) ?? 0) + 1);
         }
 
-        // Persist to every variant (dir form + flat form).
-        for (const v of variants) {
-          try {
-            fs.writeFileSync(v.absPath, result.html, 'utf-8');
-          } catch (err: unknown) {
-            const msg = err instanceof Error ? err.message : String(err);
-            console.warn(`[blog-contextual-links] failed to write ${v.absPath}: ${msg}`);
-          }
+        // Persist only to the directory form. The flat .html sibling is a
+        // redirect bridge emitted by flatHtmlRedirectPlugin and must stay
+        // untouched, otherwise Semrush sees both URL forms serving identical
+        // content with non-self-referencing hreflang/canonical.
+        try {
+          fs.writeFileSync(preferred.absPath, result.html, 'utf-8');
+        } catch (err: unknown) {
+          const msg = err instanceof Error ? err.message : String(err);
+          console.warn(`[blog-contextual-links] failed to write ${preferred.absPath}: ${msg}`);
         }
       }
 

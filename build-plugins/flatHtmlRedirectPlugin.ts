@@ -55,7 +55,16 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
   return {
     name: 'flat-html-redirect',
     apply: 'build',
-    async closeBundle() {
+    // Run LAST: enforce 'post' moves us into the post phase (after default-phase
+    // plugins like ogPagesPlugin), and closeBundle.order 'post' + sequential
+    // makes us the last closeBundle to execute within the post phase. This is
+    // critical because staticPagesPlugin / *LinksPlugin all run with enforce
+    // 'post' and would otherwise overwrite our bridges with full content.
+    enforce: 'post',
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
@@ -92,6 +101,7 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
         `\x1b[36m[flat-html-redirect]\x1b[0m Converted ${converted} flat .html → redirect bridge` +
           (skipped > 0 ? ` (skipped ${skipped} flat pages without /index.html sibling)` : ''),
       );
+      },
     },
   };
 }

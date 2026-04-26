@@ -162,9 +162,8 @@ function patchFile(target: InjectionTarget): boolean {
   }
 
   fs.writeFileSync(target.indexPath, html, 'utf-8');
-  if (target.flatPath && fs.existsSync(target.flatPath)) {
-    fs.writeFileSync(target.flatPath, html, 'utf-8');
-  }
+  // Do not write the flat .html sibling — it is a redirect bridge emitted
+  // by flatHtmlRedirectPlugin and must stay untouched.
   return true;
 }
 

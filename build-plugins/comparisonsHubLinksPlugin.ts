@@ -60,9 +60,8 @@ function patchFile(opts: LinkTarget): boolean {
   }
 
   fs.writeFileSync(indexPath, html, 'utf-8');
-  if (opts.flatPath && fs.existsSync(opts.flatPath)) {
-    fs.writeFileSync(opts.flatPath, html, 'utf-8');
-  }
+  // Do not write the flat .html sibling — it is a redirect bridge emitted
+  // by flatHtmlRedirectPlugin and must stay untouched.
   return true;
 }
 
