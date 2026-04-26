@@ -2157,6 +2157,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-spese-cura-italiani-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-spese-cura-italiani-2026', parent: 'blog' },
     'blog-lombardia-aumenta-stipendi-sanitari-2026': { name: 'Novità', path: '/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026', parent: 'blog' },
     'blog-petizione-gioventu-comunista-tassa-esenzione-militare': { name: 'Petizione militare', path: '/articoli-frontaliere/petizione-gioventu-comunista-tassa-esenzione-militare', parent: 'blog' },
+    'blog-petizione-tassa-esenzione-militare-ticino': { name: 'Petizione tassa militare', path: '/articoli-frontaliere/petizione-tassa-esenzione-militare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -12886,6 +12886,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petizione-tassa-esenzione-militare-ticino': {
+    title: 'Petizione per abolire la tassa di | Frontaliere Ticino',
+    description: 'La Gioventù Comunista lancia una petizione per abolire la tassa di esenzione dal servizio militare, definita ingiusta e discriminatoria. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, petizione, abolire, tassa, esenzione',
+    ogTitle: 'Petizione per abolire la tassa di esenzione dal servizio',
+    ogDescription: 'La Gioventù Comunista lancia una petizione per abolire la tassa di esenzione dal servizio militare, definita ingiusta e discriminatoria.',
+    canonicalPath: '/articoli-frontaliere/petizione-tassa-esenzione-militare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petizione per abolire la tassa di esenzione dal servizio militare",
+      "description": "La Gioventù Comunista lancia una petizione per abolire la tassa di esenzione dal servizio militare, definita ingiusta e discriminatoria. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petizione-tassa-esenzione-militare-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani manifestanti a Bellinzona con cartelli che chiedono l'abolizione della tassa di esenzione dal servizio militare."
+      },
+      "datePublished": "2026-04-26T12:14:16+00:00",
+      "dateModified": "2026-04-26T12:14:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petizione-tassa-esenzione-militare-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

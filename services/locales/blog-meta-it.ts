@@ -2691,6 +2691,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Petizione contro la tassa d\'esenzione militare: \'Il governo privilegia l\'esercito\'',
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'La Gioventù comunista lancia una petizione per abolire la tassa d\'esenzione dall\'obbligo militare in Ticino, accusando il governo di anteporre l\'esercito al precariato giovanile.',
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Giovani manifestano davanti al Palazzo del Governo a Bellinzona',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Petizione per abolire la tassa di esenzione dal servizio militare',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'La Gioventù Comunista lancia una petizione per abolire la tassa di esenzione dal servizio militare, definita ingiusta e discriminatoria.',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Giovani manifestanti a Bellinzona con cartelli che chiedono l\'abolizione della tassa di esenzione dal servizio militare.',
 };
 
 export default blogMetaIt;

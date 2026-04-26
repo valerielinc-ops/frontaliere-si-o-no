@@ -2691,6 +2691,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Petition against military exemption tax: \'The government privileges the army\'',
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'The Communist Youth launches a petition to abolish the military service exemption tax in Ticino, accusing the government of prioritizing the army over youth precarity.',
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Young people protesting in front of the Government Palace in Bellinzona',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Petition to abolish the military service exemption tax',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'The Communist Youth launches a petition to abolish the military service exemption tax, defined as unfair and discriminatory.',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Young protesters in Bellinzona holding signs demanding the abolition of the military service exemption tax.',
 };
 
 export default blogMetaEn;

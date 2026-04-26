@@ -2691,6 +2691,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Petition gegen die Militärdienstbefreiungssteuer: \'Die Regierung begünstigt das Militär\'',
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'Die Kommunistische Jugend lanciert eine Petition zur Abschaffung der Militärdienstbefreiungssteuer im Tessin und wirft der Regierung vor, das Militär der Jugendarbeitslosigkeit vorzuziehen.',
     'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Junge Menschen demonstrieren vor dem Regierungspalast in Bellinzona',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Petition zur Abschaffung der Militärdienstbefreiungssteuer',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'Die Kommunistische Jugend lanciert eine Petition zur Abschaffung der Militärdienstbefreiungssteuer, die als ungerecht und diskriminierend bezeichnet wird.',
+    'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Junge Demonstranten in Bellinzona mit Schildern, die die Abschaffung der Militärdienstbefreiungssteuer fordern.',
 };
 
 export default blogMetaDe;

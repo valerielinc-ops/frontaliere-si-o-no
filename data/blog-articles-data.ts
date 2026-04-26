@@ -7266,4 +7266,11 @@ export const ARTICLES = [
  image: '/images/blog/petizione-gioventu-comunista-tassa-esenzione-militare.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'petizione-tassa-esenzione-militare-ticino',
+ category: 'novita',
+ date: '2026-04-26T12:14:16.026Z',
+ image: '/images/blog/petizione-tassa-esenzione-militare-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
