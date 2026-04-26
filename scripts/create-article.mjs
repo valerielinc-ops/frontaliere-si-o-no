@@ -65,6 +65,7 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores } from './lib/ai-models.mjs';
+import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 
 // ── Config ──────────────────────────────────────────────────
 // Gemini — image generation (text calls now go through centralized ai-models.mjs)
@@ -2021,7 +2022,7 @@ COME RAGGIUNGERE IL MINIMO DI PAROLE SENZA INVENTARE:
 - NON includere sezioni FAQ nel body — le FAQ vengono generate nel campo "faq" separato e mostrate come accordion
 - Usa tabelle comparative per rendere i dati della fonte più leggibili
 - Collega agli strumenti del sito (calcolatore, comparatore, guide) per approfondire
-${primaryLocaleBlock}${targetKeywordBlock}${peopleAlsoAskBlock}${mustCoverLsiBlock}
+${primaryLocaleBlock}${targetKeywordBlock}${peopleAlsoAskBlock}${mustCoverLsiBlock}${AI_SEARCH_PROMPT_BLOCK_IT}
 ═══ REGOLE EDITORIALI ═══
 
 STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni — MA SOLO se presenti nella fonte. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
@@ -2104,7 +2105,7 @@ Genera JSON (no markdown, no code fences):
     "it": {
       "title": "Titolo giornalistico con keyword (max 60 chars)",
       "excerpt": "Sottotitolo con dati concreti DALLA FONTE (max 160 chars)",
-      "body1": "Lead: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole. Min 1 ### sotto-sezione.",
+      "body1": "Inizia con '## In breve' (3-4 bullet TL;DR ≤80 char) + '## Fatti chiave' (5-8 coppie **Cosa/Quando/Dove/Chi/Importo**: valore). Poi il LEAD: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole (escluse TL;DR/Fatti chiave). Min 1 ### sotto-sezione.",
       "body2": "Analisi pratica: implicazioni, confronti, scenari. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.",
       "body3": "Azione: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole.",
       "faq": [
