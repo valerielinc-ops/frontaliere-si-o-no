@@ -41,10 +41,10 @@ describe('BlogArticles — content gate invariants', () => {
     expect(SOURCE).toMatch(/localStorage\.setItem\(['"]ft_job_email['"]/);
   });
 
-  it('renders auth-gate ad slots (end-multiplex + rail pair) when gated', () => {
+  it('renders the auth-gate end-multiplex when gated (rails pruned 2026-04-26)', () => {
     expect(SOURCE).toMatch(/AUTHGATE_END_MULTIPLEX/);
-    expect(SOURCE).toMatch(/AUTHGATE_RAIL_LEFT/);
-    expect(SOURCE).toMatch(/AUTHGATE_RAIL_RIGHT/);
+    expect(SOURCE).not.toMatch(/AUTHGATE_RAIL_LEFT/);
+    expect(SOURCE).not.toMatch(/AUTHGATE_RAIL_RIGHT/);
   });
 });
 
@@ -52,7 +52,5 @@ describe('BlogArticles — ad-slot registry wiring', () => {
   it('imports AD_SLOTS from the single-source-of-truth registry', async () => {
     const { AD_SLOTS } = await import('@/services/adsenseSlots');
     expect(AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot).toMatch(/^\d+$/);
-    expect(AD_SLOTS.AUTHGATE_RAIL_LEFT.slot).toMatch(/^\d+$/);
-    expect(AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot).toMatch(/^\d+$/);
   });
 });

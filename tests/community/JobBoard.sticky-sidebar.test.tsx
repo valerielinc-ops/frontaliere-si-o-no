@@ -24,23 +24,16 @@ describe('JobBoard — sticky sidebar on authenticated job detail', () => {
     expect(SOURCE).toMatch(/AD_SLOTS\.JOBDETAIL_SIDEBAR\.slot/);
   });
 
-  it('sidebar also renders the secondary JOBDETAIL_SIDEBAR_2 ad slot', () => {
-    expect(SOURCE).toMatch(/AD_SLOTS\.JOBDETAIL_SIDEBAR_2\b/);
-  });
-
-  it('secondary sidebar slot is mounted only when its id is populated', () => {
-    // Guards against rendering an orphan placeholder when the slot is unset
-    // in future environments (e.g. experiments disabling JOBDETAIL_SIDEBAR_2).
-    expect(SOURCE).toMatch(/AD_SLOTS\.JOBDETAIL_SIDEBAR_2\.slot\s*&&/);
+  it('does not mount the pruned JOBDETAIL_SIDEBAR_2 (2026-04-26 cannibalized SIDEBAR)', () => {
+    expect(SOURCE).not.toMatch(/AD_SLOTS\.JOBDETAIL_SIDEBAR_2\b/);
   });
 });
 
 describe('JobBoard ad-registry invariants', () => {
-  it('both sidebar slots resolve to non-empty numeric ids', async () => {
+  it('primary sidebar slot resolves to a non-empty numeric id', async () => {
     const { AD_SLOTS } = await import('@/services/adsenseSlots');
     expect(AD_SLOTS.JOBDETAIL_SIDEBAR.slot).toMatch(/^\d+$/);
-    expect(AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot).toMatch(/^\d+$/);
-    expect(AD_SLOTS.JOBDETAIL_SIDEBAR.slot).not.toBe(AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot);
+    expect((AD_SLOTS as Record<string, unknown>).JOBDETAIL_SIDEBAR_2).toBeUndefined();
   });
 });
 

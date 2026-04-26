@@ -1792,19 +1792,6 @@ function BlogArticles({
  </p>
  {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
 
- {/* AdSense — left rail (desktop xl only, conditional mount) */}
- {isDesktopXl && (
- <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_LEFT.placeholderMinHeight, contain: 'content' }} className="mt-3" /> : null}>
- <AdSenseBanner
- adSlot={AD_SLOTS.ARTICLE_RAIL_LEFT.slot}
- adFormat={AD_SLOTS.ARTICLE_RAIL_LEFT.format}
- label={t('adsense.label')}
- enabled={adEligible}
- className="mt-3"
- />
- </Suspense>
- )}
-
  </div>
  </aside>
 
@@ -2248,31 +2235,6 @@ function BlogArticles({
     />
    </Suspense>
   )}
-
-  {/* AdSense — desktop auth-gate rails (xl+ only). Single-column blog body
-      has no natural left/right rail so render the pair side-by-side below. */}
-  {(AD_SLOTS.AUTHGATE_RAIL_LEFT.slot || AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot) && (
-   <div className="hidden xl:grid xl:grid-cols-2 xl:gap-4 mt-4">
-    {AD_SLOTS.AUTHGATE_RAIL_LEFT.slot && (
-     <Suspense fallback={<div style={{ minHeight: AD_SLOTS.AUTHGATE_RAIL_LEFT.placeholderMinHeight, contain: 'content' }} />}>
-      <AdSenseBanner
-       adSlot={AD_SLOTS.AUTHGATE_RAIL_LEFT.slot}
-       adFormat={AD_SLOTS.AUTHGATE_RAIL_LEFT.format}
-       fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_LEFT.fullWidthResponsive}
-      />
-     </Suspense>
-    )}
-    {AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot && (
-     <Suspense fallback={<div style={{ minHeight: AD_SLOTS.AUTHGATE_RAIL_RIGHT.placeholderMinHeight, contain: 'content' }} />}>
-      <AdSenseBanner
-       adSlot={AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot}
-       adFormat={AD_SLOTS.AUTHGATE_RAIL_RIGHT.format}
-       fullWidthResponsive={AD_SLOTS.AUTHGATE_RAIL_RIGHT.fullWidthResponsive}
-      />
-     </Suspense>
-    )}
-   </div>
-  )}
   </>
  )}
  </div>
@@ -2502,19 +2464,6 @@ function BlogArticles({
  {t('blog.resourcesTitle')}
  </p>
  {sidePartners.slice(2, 4).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i + 2} />)}
-
- {/* AdSense — right rail (desktop xl only, conditional mount) */}
- {isDesktopXl && (
- <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_RIGHT.placeholderMinHeight, contain: 'content' }} className="mt-3" /> : null}>
- <AdSenseBanner
- adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT.slot}
- adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT.format}
- label={t('adsense.label')}
- enabled={adEligible}
- className="mt-3"
- />
- </Suspense>
- )}
 
  {/* Donation mini-card */}
  <div className="rounded-xl border border-warning-border/50 bg-warning-subtle p-3 text-center space-y-2">

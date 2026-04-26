@@ -580,10 +580,6 @@ export function generateArticleHtml(
 
   const pageBody = `<article class="salary-hub-page">
     <div class="hub-grid">
-      <div class="rail" id="left-rail">
-        <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_LEFT')}</div>
-      </div>
-
       <div class="content">
         <h1>${title}</h1>
 
@@ -605,10 +601,6 @@ export function generateArticleHtml(
         </div>
 
         <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
-      </div>
-
-      <div class="rail" id="right-rail">
-        <div class="ad-unit">${adSlotHtml('ARTICLE_RAIL_RIGHT')}</div>
       </div>
     </div>
   </article>`;

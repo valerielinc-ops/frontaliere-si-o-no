@@ -78,27 +78,19 @@ vi.mock('@/services/calculationService', async (importOriginal) => {
   };
 });
 
-describe('AD_SLOTS — orphaned unit wiring (2026-04-20)', () => {
-  it('exposes the 4 previously-orphaned slots with non-empty IDs', () => {
-    expect(AD_SLOTS.AUTHGATE_RAIL_LEFT.slot).toMatch(/^\d+$/);
-    expect(AD_SLOTS.AUTHGATE_RAIL_RIGHT.slot).toMatch(/^\d+$/);
-    expect(AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot).toMatch(/^\d+$/);
+describe('AD_SLOTS — registry shape (post 2026-04-26 prune)', () => {
+  it('keeps the high-RPM long-form companion slot', () => {
     expect(AD_SLOTS.ARTICLE_INLINE_MOBILE_2.slot).toMatch(/^\d+$/);
-  });
-
-  it('rails use auto display format with CLS placeholder', () => {
-    expect(AD_SLOTS.AUTHGATE_RAIL_LEFT.format).toBe('auto');
-    expect(AD_SLOTS.AUTHGATE_RAIL_LEFT.placeholderMinHeight).toBeGreaterThanOrEqual(250);
-    expect(AD_SLOTS.AUTHGATE_RAIL_RIGHT.format).toBe('auto');
-  });
-
-  it('ARTICLE_INLINE_MOBILE_2 uses fluid in-article layout matching the first inline slot', () => {
     expect(AD_SLOTS.ARTICLE_INLINE_MOBILE_2.format).toBe('fluid');
     expect((AD_SLOTS.ARTICLE_INLINE_MOBILE_2 as { layout?: string }).layout).toBe('in-article');
   });
 
-  it('JOBDETAIL_SIDEBAR_2 is distinct from the primary sidebar slot', () => {
-    expect(AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot).not.toBe(AD_SLOTS.JOBDETAIL_SIDEBAR.slot);
+  it('does not expose the pruned desktop-rail / sidebar-2 slots', () => {
+    expect((AD_SLOTS as Record<string, unknown>).AUTHGATE_RAIL_LEFT).toBeUndefined();
+    expect((AD_SLOTS as Record<string, unknown>).AUTHGATE_RAIL_RIGHT).toBeUndefined();
+    expect((AD_SLOTS as Record<string, unknown>).JOBDETAIL_SIDEBAR_2).toBeUndefined();
+    expect((AD_SLOTS as Record<string, unknown>).ARTICLE_RAIL_LEFT).toBeUndefined();
+    expect((AD_SLOTS as Record<string, unknown>).ARTICLE_RAIL_RIGHT).toBeUndefined();
   });
 });
 

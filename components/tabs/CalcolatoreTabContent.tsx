@@ -251,6 +251,16 @@ export default function CalcolatoreTabContent() {
  />
  </div>
  </details>
+ {/* Homepage end-of-page multiplex — only shown after a result so we don't
+  * compete with the hero/input on first paint. Backfills the home undermonetization
+  * (only HOMEPAGE_MID_DISPLAY was previously firing here, €0.21/30d). */}
+ <Suspense fallback={null}>
+ <AdSenseBanner
+ adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
+ className="mt-8 mb-4"
+ />
+ </Suspense>
  </>
  )}
  </div>
