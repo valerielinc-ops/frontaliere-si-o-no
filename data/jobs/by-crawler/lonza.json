@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lonza",
-  "assembledAt": "2026-04-25T21:48:39.789Z",
+  "assembledAt": "2026-04-26T09:58:54.200Z",
   "jobs": [
     {
       "id": "lonza-8d9d6e238012",
@@ -47,7 +47,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer_R75243-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:37.080Z",
+      "crawledAt": "2026-04-26T09:58:51.256Z",
       "jobReqId": "R75243",
       "previousSlugs": [
         "bioprocess-engineer-lonza-ch-2"
@@ -122,7 +122,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Line-Mechanic--f-m-d-_R75658",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:36.406Z",
+      "crawledAt": "2026-04-26T09:58:50.534Z",
       "jobReqId": "R75658",
       "previousSlugs": [
         "line-mechanic-f-m-d-lonza-ch"
@@ -136,6 +136,7 @@
         ]
       },
       "firstSeenAt": "2026-04-20T21:56:02.839Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -194,7 +195,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Manufacturing-Manager-Operations-USP_R73137-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:35.601Z",
+      "crawledAt": "2026-04-26T09:58:49.835Z",
       "jobReqId": "R73137",
       "previousSlugs": [
         "manufacturing-manager-operations-usp-lonza-ch"
@@ -263,7 +264,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Internship-Opportunity-in-Program-Management--Part-Time---15-Hours-Week-_R74475",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:34.361Z",
+      "crawledAt": "2026-04-26T09:58:49.136Z",
       "jobReqId": "R74475",
       "previousSlugs": [
         "internship-opportunity-in-program-management-part-time-15-hours-week-lonza-ch"
@@ -335,9 +336,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant-im-Operations-Team---Microbial---Bioconjugation--6-Monate--m-w-d-_R75159",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:33.513Z",
+      "crawledAt": "2026-04-26T09:58:48.449Z",
       "jobReqId": "R75159",
       "firstSeenAt": "2026-04-21T10:25:25.137Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -396,7 +398,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant-Training-Center-80-100----m-w-d-_R74491",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:32.665Z",
+      "crawledAt": "2026-04-26T09:58:47.750Z",
       "jobReqId": "R74491",
       "previousSlugs": [
         "praktikant-training-center-80-100-m-w-d-lonza-ch",
@@ -423,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:04:10.626Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -481,7 +484,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein-HR/Associate-HR-Business-Partner--Drug-Product_R75741",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:31.323Z",
+      "crawledAt": "2026-04-26T09:58:47.058Z",
       "jobReqId": "R75741",
       "previousSlugs": [
         "associate-hr-business-partner-drug-product-lonza-ch"
@@ -550,7 +553,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Senior-Director---Quality-Excellence_R75691",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:30.543Z",
+      "crawledAt": "2026-04-26T09:58:46.359Z",
       "jobReqId": "R75691",
       "previousSlugs": [
         "senior-director-quality-excellence-lonza-ch"
@@ -625,7 +628,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer-Automatisierung-in-der-pharmazeutischen-Produktion--m-w-d---Offen-_R72763",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:29.774Z",
+      "crawledAt": "2026-04-26T09:58:45.667Z",
       "jobReqId": "R72763",
       "previousSlugs": [
         "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-c"
@@ -639,6 +642,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T10:20:03.251Z",
+      "needsRetranslation": true,
       "salaryMin": 66500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -675,7 +679,7 @@
       "descriptionByLocale": {
         "it": "Lonza Lonza è leader mondiale nelle scienze della vita, che opera in tre continenti. Siamo attivi nella scienza, ma non ci sono formule magiche per come lavoriamo. La nostra soluzione scientifica più importante sono dipendenti di talento che lavorano insieme e sviluppano idee che aiutano altre aziende ad aiutare le persone. In cambio, i nostri dipendenti gestiscono la loro carriera in modo indipendente. Perché le loro idee, grandi e piccole, migliorano il mondo. E questo è il tipo di lavoro che vogliamo condividere. Per il sito Visp stiamo cercando un(n) Laborant:in (m/w/d) nel campo della cromatografia e dell'elettroforesi. Nel caso di una persona che è stata coinvolta nella preparazione del test, lui o lei è responsabile per l'esecuzione del test. Per noi questo non è solo un grande onore, ma anche una grande responsabilità. Con il raggiungimento dei nostri risultati aziendali, siamo importanti come i nostri successi stessi. A Lonza viene dato rispetto e proteggiamo sia i nostri dipendenti che il nostro ambiente. Il successo per noi significa progresso moralmente ragionevole. A Lonza, le persone che affrontano le sfide e sviluppano nuove idee per problemi complessi con la loro creatività nell'area della Life Science vengono a Lonza. Insieme diamo un contributo che può migliorare la vita di molte persone in tutto il mondo. Questo dà loro la certezza e la soddisfazione di fare davvero la differenza con il proprio lavoro. ## Contatto Lonza è leader globale nella produzione di farmaci e biotecnologie. L'azienda gestisce importanti stabilimenti produttivi a Visp (Valais), Basilea e Stein (Aargau), Svizzera.",
         "en": "Lonza Lonza is a world leader in life sciences, which operates on three continents. We are active in science, but there are no magic formulas for how we work. Our most important scientific solution are talented employees who work together and develop ideas that help other companies to help people. In return, our employees manage their career independently. Because their ideas, whether big and small, improve the world. And this is the kind of work we want to share. For the Visp site we are looking for a(n) Laborant:in (m/w/d) in the field of chromatography and electrophoresis. In the case of a person who has been involved in the preparation of the test, he or she is responsible for carrying out the test. For us this is not only a great honour, but also a great responsibility. As we achieve our business results, we are as important as our successes themselves. At Lonza, respect is given and we protect both our employees and our environment. Success for us means morally reasonable progress. To Lonza, people who take on challenges and develop new ideas for complex problems with their creativity in the area of Life Science come to Lonza. Together we make a contribution that can improve the lives of many people around the world. This gives them the certainty and satisfaction of really making a difference with their own work. ## Contatto Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "de": "## Über Lonza\nLonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\n## Stellenbeschreibung\nFür den Standort Visp suchen wir eine(n) Laborant:in (m/w/d) im Bereich Chromatographie und Elektrophorese.\n\n## Mansioni\n- Durchführung (inkl. Gerätehandhabung, Probenvorbereitung, Herstellung und Freigabe von Lösungen und Eluenten), Dokumentation und Auswertung (CDS Empower) von Analysen (Batchanalytik, Stabilitätsstudien sowie Methodenimplementierung, -transfer und -validierungen) unter GMP anhand Prüfvorschriften im Bereich Chromatographie und Elektrophorese\n- Verantwortung für zugeteilte Geräte (inkl. Kalibrierung, Qualifizierung, Organisation des Services oder Reparatur, sowie Geräteschulungen)\n- Anpassen von Prüfanweisungen, sowie die Erstellung von Analysen- und Eluenten-Protokollen\n- Verantwortung für spezielle Laborarbeiten gemäss interner Zuständigkeitsliste (z.B. Bestellungen, Säulenmanagement, Probenlagerung, etc.)\n- Einhaltung von Sicherheitsregeln und Aufrechterhaltung von Sauberkeit und Ordnung im Labor (6S)\n- Schulung und Einarbeitung von neuen Mitarbeitenden oder Lernenden\n\n## Requisiti\n- Sie verfügen über eine abgeschlossene Ausbildung als Laborant:in (m/w/d), Fachrichtung Chemie oder Biologie (oder eine ähnliche Qualifikation)\n- Sie haben idealerweise Berufserfahrung im Bereich der Qualitätskontrolle und sind vertraut mit den entsprechenden Prozessen unter GMP und/oder besitzen Kenntnisse in der HPLC-Analytik\n- Sie sind verantwortungsbewusst, selbstreflektiert und besitzen ein offenes Mindset, sowie gute Kommunikationsfähigkeiten\n- Sie haben Spass daran, sich in ein junges und grosses Team einzubringen, sind engagiert und empathisch\n- Sie beherrschen die deutsche und englische Sprache auf verhandlungssicherem Niveau\n\n## Cosa offriamo\nLonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen, ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\n## Contatto\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "de": "Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten. Für den Standort Visp suchen wir eine(n) Laborant:in (m/w/d) im Bereich Chromatographie und Elektrophorese. Ihre Aufgaben: • Durchführung (inkl. Gerätehandhabung, Probenvorbereitung, Herstellung und Freigabe von Lösungen und Eluenten), Dokumentation und Auswertung (CDS Empower) von Analysen (Batchanalytik, Stabilitätsstudien sowie Methodenimplementierung, -transfer und -validierungen) unter GMP anhand Prüfvorschriften im Bereich Chromatographie und Elektrophorese • Verantwortung für zugeteilte Geräte (inkl. Kalibrierung, Qualifizierung, Organisation des Services oder Reparatur, sowie Geräteschulungen) • Anpassen von Prüfanweisungen, sowie die Erstellung von Analysen- und Eluenten-Protokollen • Verantwortung für spezielle Laborarbeiten gemäss interner Zuständigkeitsliste (z.B. Bestellungen, Säulenmanagement, Probenlagerung, etc.) • Einhaltung von Sicherheitsregeln und Aufrechterhaltung von Sauberkeit und Ordnung im Labor (6S) • Schulung und Einarbeitung von neuen Mitarbeitenden oder Lernenden Ihre Anforderungsprofil: • Sie verfügen über eine abgeschlossene Ausbildung als Laborant:in (m/w/d), Fachrichtung Chemie oder Biologie (oder eine ähnliche Qualifikation) • Sie haben idealerweise Berufserfahrung im Bereich der Qualitätskontrolle und sind vertraut mit den entsprechenden Prozessen unter GMP und/oder besitzen Kenntnisse in der HPLC-Analytik • Sie sind verantwortungsbewusst, selbstreflektiert und besitzen ein offenes Mindset, sowie gute Kommunikationsfähigkeiten • Sie haben Spass daran, sich in ein junges und grosses Team einzubringen, sind engagiert und empathisch • Sie beherrschen die deutsche und englische Sprache auf verhandlungssicherem Niveau Lonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen, ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt. Zu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "fr": "Lonza Lonza est un leader mondial des sciences de la vie, qui opère sur trois continents. Nous sommes actifs dans la science, mais il n'y a pas de formules magiques pour notre fonctionnement. Notre solution scientifique la plus importante est les employés talentueux qui travaillent ensemble et développent des idées qui aident d'autres entreprises à aider les gens. En retour, nos employés gèrent leur carrière de façon indépendante. Parce que leurs idées, grandes et petites, améliorent le monde. Et c'est le genre de travail que nous voulons partager. Pour le site Visp nous recherchons a(n) Laborant:in (m/w/d) dans le domaine de la chromatographie et de l'électrophorèse. Dans le cas d'une personne qui a participé à la préparation du test, il est responsable de l'exécution du test. Pour nous, ce n'est pas seulement un grand honneur, mais aussi une grande responsabilité. À mesure que nous obtenons nos résultats commerciaux, nous sommes aussi importants que nos succès eux-mêmes. À Lonza, le respect est donné et nous protégeons nos employés et notre environnement. Le succès pour nous signifie un progrès moralement raisonnable. À Lonza, les personnes qui prennent des défis et développent de nouvelles idées pour des problèmes complexes avec leur créativité dans le domaine des sciences de la vie viennent à Lonza. Ensemble, nous apportons une contribution qui peut améliorer la vie de nombreuses personnes dans le monde. Cela leur donne la certitude et la satisfaction de vraiment faire la différence avec leur propre travail. ## Contatto Lonza est un leader mondial dans la fabrication de produits pharmaceutiques et de biotechnologies. La société exploite d'importantes installations de production à Viège (Valais), Bâle et Stein (Argovie), Suisse."
       },
       "requirements": [],
@@ -697,8 +701,9 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/QC-LabTech-HPLC--m-w-d---80-100-_R75426",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:28.587Z",
+      "crawledAt": "2026-04-26T09:58:44.922Z",
       "jobReqId": "R75426",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-22T10:20:02.469Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -711,9 +716,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-98fdf6c318e6",
@@ -760,7 +763,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Operations-Manager-Launch-Manufacturing-Small-Molecules-80-100---m-w-d-_R75654-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:27.710Z",
+      "crawledAt": "2026-04-26T09:58:44.152Z",
       "jobReqId": "R75654",
       "previousSlugs": [
         "operations-manager-launch-manufacturing-small-molecules-80-100-m-w-d-lonza-ch"
@@ -774,6 +777,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T22:02:45.116Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -832,7 +836,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Automatiker-EFZ---Elektroinstallateur-EFZ---EMR-Schicht-80-100---m-w-d-_R75125",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:26.767Z",
+      "crawledAt": "2026-04-26T09:58:43.457Z",
       "jobReqId": "R75125",
       "previousSlugs": [
         "automatiker-efz-elektroinstallateur-efz-emr-schicht-80-100-m-w-d-lonza-ch"
@@ -907,7 +911,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Environment--Senior--Specialist---80-100-_R75588",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:26.006Z",
+      "crawledAt": "2026-04-26T09:58:42.755Z",
       "jobReqId": "R75588",
       "previousSlugs": [
         "environment-senior-specialist-80-100-lonza-ch"
@@ -921,6 +925,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T22:02:42.419Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -979,7 +984,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Lab-Equipment-Expert-in-Quality-Control--m-f-d---80-100-_R75650",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:25.214Z",
+      "crawledAt": "2026-04-26T09:58:42.047Z",
       "jobReqId": "R75650",
       "previousSlugs": [
         "lab-equipment-expert-in-quality-control-m-f-d-80-100-lonza-ch"
@@ -990,6 +995,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T22:02:41.785Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1048,7 +1054,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Logistics-Specialist-80-100---m-w-d-_R75160-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:24.398Z",
+      "crawledAt": "2026-04-26T09:58:41.343Z",
       "jobReqId": "R75160",
       "previousSlugs": [
         "logistics-specialist-80-100-m-w-d-lonza-ch"
@@ -1062,6 +1068,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T22:02:41.083Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1120,7 +1127,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlagemeister-in-der-pharmazeutischen-Produktion--m-w-d-_R74120",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:23.630Z",
+      "crawledAt": "2026-04-26T09:58:40.634Z",
       "jobReqId": "R74120",
       "previousSlugs": [
         "anlagemeister-in-der-pharmazeutischen-produktion-m-w-d-lonza-ch",
@@ -1206,7 +1213,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Data-Scientist---Process-Analytics---Data-Intelligence-Expert_R73366-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:22.808Z",
+      "crawledAt": "2026-04-26T09:58:39.803Z",
       "jobReqId": "R73366",
       "previousSlugs": [
         "data-scientist-process-analytics-data-intelligence-expert-lonza-ch"
@@ -1275,9 +1282,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Werkstattmitarbeiter-im-Team-Ausbildung-Elektro---Automatik-80-100---m-w-d-_R73333",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:22.028Z",
+      "crawledAt": "2026-04-26T09:58:39.120Z",
       "jobReqId": "R73333",
       "firstSeenAt": "2026-04-23T10:26:57.585Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1310,11 +1318,11 @@
         "de": "Servicetechniker Reinraum 80-100% (m/w/d)",
         "fr": "Servicetechniker Reinraum 80-100% (m/p/j)"
       },
-      "description": "Servicetechniker Reinraum 80-100% (m/w/d) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+      "description": "Umzugsunterstützung steht berechtigen Kandidaten und ihren Familien bei Bedarf zur Verfügung.\n\nLonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\nFür unseren Standort in Visp suchen wir ein Mitarbeiter für das Team Automatik (Reinraummessungen).\n\nWas wir dir bieten:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Einen integrativen und ethischen Arbeitsplatz\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Neben einem wettbewerbsfähigen Gehalt erwarten dich zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer globalen Leistungen findest du auch unter: https://bit.ly/3wjkoFi\n\nDeine Aufgaben:\n\n• Durchführen von Reinraummessungen an Chemie-, Pharma- und Bio-Anlagen\n\n• Sicherstellung der Einhaltung von Sicherheits- und Qualitätsstandards während aller Tätigkeiten\n\n• Rezertifizierung der Reinräume\n\n• Dokumentation nach GxP Richtlinien (Datenintegrität)\n\nDein Profil:\n\n• Abgeschlossene Ausbildung zum Automatiker EFZ, Elektroinstallateur EFZ, Elektroniker EFZ oder einem technischen Beruf\n\n• Bereitschaft zu kontinuierlicher Weiterbildung\n\n• Freude an abteilungsübergreifender Arbeit sowie selbstständiges und flexibles Arbeiten im Team\n\n• Zuverlässigkeit, Belastbarkeit sowie unternehmerisches Handeln und offene, direkte Kommunikation\n\n• Deutschkenntnisse in Wort und Schrift, Englischkenntnisse von Vorteil\n\nLonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\nBereit, die Zukunft der Life Sciences mitzugestalten? Dann bewirb dich jetzt!\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
         "it": "Descrizione - Servicetechniker Reinraum 80-100% (m/w/d) posizione a Lonza in CH, Svizzera. - Lonza è leader globale nella produzione di farmaci e biotecnologie. - No. L'azienda gestisce importanti stabilimenti produttivi a Visp (Valais), Basilea e Stein (Aargau), Svizzera.",
-        "en": "## Descrizione\n- Servicetechniker Reinraum 80-100% (m/w/d) position at Lonza in CH, Switzerland.\n- Lonza is a global leader in pharma and biotech manufacturing.\n- The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "de": "Beschreibung - Servicetechniker Reinraum 80-100% (m/w/d) Position bei Lonza in CH, Schweiz. - Lonza ist weltweit führend in der Pharma- und Biotech-Produktion. - Ja. Das Unternehmen betreibt große Produktionsstätten in Visp (Valais), Basel und Stein (Aargau), Schweiz.",
+        "en": "## Descrizione - Servicetechniker Reinraum 80-100% (m/w/d) position at Lonza in CH, Switzerland. - Lonza is a global leader in pharma and biotech manufacturing. - The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "de": "Umzugsunterstützung steht berechtigen Kandidaten und ihren Familien bei Bedarf zur Verfügung. Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten. Für unseren Standort in Visp suchen wir ein Mitarbeiter für das Team Automatik (Reinraummessungen). Was wir dir bieten: • Eine agile Karriere und eine dynamische Arbeitskultur • Einen integrativen und ethischen Arbeitsplatz • Vergütungsprogramme, die hohe Leistung anerkennen • Neben einem wettbewerbsfähigen Gehalt erwarten dich zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer globalen Leistungen findest du auch unter: https://bit.ly/3wjkoFi Deine Aufgaben: • Durchführen von Reinraummessungen an Chemie-, Pharma- und Bio-Anlagen • Sicherstellung der Einhaltung von Sicherheits- und Qualitätsstandards während aller Tätigkeiten • Rezertifizierung der Reinräume • Dokumentation nach GxP Richtlinien (Datenintegrität) Dein Profil: • Abgeschlossene Ausbildung zum Automatiker EFZ, Elektroinstallateur EFZ, Elektroniker EFZ oder einem technischen Beruf • Bereitschaft zu kontinuierlicher Weiterbildung • Freude an abteilungsübergreifender Arbeit sowie selbstständiges und flexibles Arbeiten im Team • Zuverlässigkeit, Belastbarkeit sowie unternehmerisches Handeln und offene, direkte Kommunikation • Deutschkenntnisse in Wort und Schrift, Englischkenntnisse von Vorteil Lonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt. Zu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen. Bereit, die Zukunft der Life Sciences mitzugestalten? Dann bewirb dich jetzt! Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "fr": "Descrizione - Servicetechniker Reinraum 80-100% (m/m/j) position à Lonza en CH, Suisse. - Lonza est un leader mondial dans la fabrication pharmaceutique et biotechnologique. - Oui. La société exploite d'importantes installations de production à Viège (Valais), Bâle et Stein (Argovie), Suisse."
       },
       "requirements": [],
@@ -1331,14 +1339,15 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
+      "postedDate": "2026-04-23",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Servicetechniker-Reinraum-80-100---m-w-d-_R74494",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Servicetechniker-Reinraum-80-100---m-w-d-_R74494",
       "source": "Lonza Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:48:21.164Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-26T09:58:38.413Z",
       "jobReqId": "R74494",
       "firstSeenAt": "2026-04-23T10:26:56.861Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1397,7 +1406,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikum-Betriebsengineering-fr-6-12-Monate--m-w-d-_R75798",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:00.859Z",
+      "crawledAt": "2026-04-26T09:58:37.718Z",
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
@@ -1413,6 +1422,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T22:00:47.288Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1471,7 +1481,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant--m-w-d--im-Sustainability-Team-Visp--80-100--_R75093-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:48:00.099Z",
+      "crawledAt": "2026-04-26T09:58:37.020Z",
       "jobReqId": "R75093",
       "previousSlugs": [
         "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch",
@@ -1487,6 +1497,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T22:02:39.578Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1545,7 +1556,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Team-Lead-Visual-Inspection--f-m-d--80-100-_R72653",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:58.887Z",
+      "crawledAt": "2026-04-26T09:58:36.308Z",
       "jobReqId": "R72653",
       "previousSlugs": [
         "team-lead-visual-inspection-f-m-d-80-100-lonza-ch"
@@ -1614,7 +1625,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/IT-Business-Analyst-80-100-_R75634-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:58.100Z",
+      "crawledAt": "2026-04-26T09:58:35.616Z",
       "jobReqId": "R75634",
       "previousSlugs": [
         "it-business-analyst-80-100-lonza-ch"
@@ -1683,7 +1694,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/QC-Monitoring-Sample-taker_R75637",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:57.318Z",
+      "crawledAt": "2026-04-26T09:58:34.924Z",
       "jobReqId": "R75637",
       "previousSlugs": [
         "qc-monitoring-sample-taker-lonza-ch"
@@ -1758,9 +1769,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Supply-Planner--m-f-d--80-100-_R72475",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:56.428Z",
+      "crawledAt": "2026-04-26T09:58:34.249Z",
       "jobReqId": "R72475",
       "firstSeenAt": "2026-04-24T21:58:01.405Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1819,7 +1831,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/XMLNAME--Senior--Scientist--m-w-d--Quality-Control--Environmental-Monitoring_R75657",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:55.656Z",
+      "crawledAt": "2026-04-26T09:58:33.443Z",
       "jobReqId": "R75657",
       "previousSlugs": [
         "senior-scientist-m-w-d-quality-control-environmental-monitoring-lonza-ch"
@@ -1888,7 +1900,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Team-Lead-QC-Monitoring--m-w-d-_R73928",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:54.799Z",
+      "crawledAt": "2026-04-26T09:58:32.427Z",
       "jobReqId": "R73928",
       "previousSlugs": [
         "team-lead-qc-monitoring-m-w-d-lonza-ch"
@@ -1957,7 +1969,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Laborant-in--Analytik-Rohstoff--60-80--_R75240-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:54.006Z",
+      "crawledAt": "2026-04-26T09:58:31.752Z",
       "jobReqId": "R75240",
       "previousSlugs": [
         "laborant-in-analytik-rohstoff-60-80-lonza-ch"
@@ -1968,6 +1980,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T21:57:59.313Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1983,9 +1996,9 @@
     },
     {
       "id": "lonza-0aa91dd5a08a",
-      "slug": "spezialist-in-rohstofffreigabe-gmp-lonza-ch",
+      "slug": "spezialista-a-rohstofffreigabe-gmp-lonza-ch",
       "slugByLocale": {
-        "it": "spezialist-in-rohstofffreigabe-gmp-lonza-ch",
+        "it": "spezialista-a-rohstofffreigabe-gmp-lonza-ch",
         "en": "raw-material-release-specialist-gmp-lonza-ch",
         "de": "spezialist-in-rohstofffreigabe-gmp-lonza-ch",
         "fr": "specialiste-en-liberation-de-matieres-premieres-gmp-lonza-ch"
@@ -2000,11 +2013,11 @@
         "de": "Spezialist:in Rohstofffreigabe (GMP)",
         "fr": "Spécialiste en libération de matières premières (GMP)"
       },
-      "description": "Spezialist:in Rohstofffreigabe (GMP) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+      "description": "Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\nFür den Standort Visp suchen wir eine(n) Mitarbeiter(in) Rohstofffreigabe / GMP‑Dokumentation.\n\nIhre Aufgaben:\n\n• GMP‑konforme Prüfung, Kontrolle und Freigabe von Rohstoffen zur Sicherstellung der korrekten Materialzuordnung durch dokumentenbasierte Vergleiche von Analysezertifikaten (CoA) sowie TSE/BSE‑Erklärungen\n\n• Erstellung und Bearbeitung von Änderungsanträgen (Change Requests)\n\n• Erstellung und Bearbeitung von Abweichungsmeldungen sowie Unterstützung beim Troubleshooting im GMP‑Umfeld\n\n• Eigenverantwortliche Koordinierung, Priorisierung und zeitliche Planung der eigenen Aufgaben\n\n• Kommunikation mit angrenzenden Abteilungen wie Produktion, Quality Assurance (QA) und Entwicklung zur Klärung von Fragestellungen sowie zur Rohstofffreigabe\n\n• Mitarbeit in kontinuierlichen Verbesserungsprozessen zur Optimierung bestehender Prozesse und Abläufe\n\nIhre Anforderungsprofil:\n\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation (z. B. kaufmännisch, naturwissenschaftlich oder technisch); Laborerfahrung ist nicht zwingend erforderlich\n\n• Quereinsteiger:innen sind willkommen, aber nur mit Erfahrung in regulierten Umfeldern wie Pharma, Chemie, Lebensmittel oder Medizintechnik\n\n• Sehr hohe Zuverlässigkeit sowie ein ausgeprägtes Verantwortungsbewusstsein\n\n• Sehr genaue, strukturierte und sorgfältige Arbeitsweise\n\n• Ausgeprägte Konzentrationsfähigkeit bei überwiegender Schreibtisch‑ und Dokumentationsarbeit\n\n• Grundverständnis für GMP‑gerechtes Arbeiten\n\n• Gute Englischkenntnisse in Wort und Schrift; Deutschkenntnisse von Vorteil (z. B. für interne Meetings)\n\n• Selbstständigkeit und Eigenverantwortung\n\nLonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen, ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
         "it": "Descrizione Spezialist:in Rohstofffreigabe (GMP) posizione a Lonza in CH, Svizzera. Lonza è leader globale nella produzione di farmaci e biotecnologie. L'azienda gestisce importanti stabilimenti produttivi a Visp (Valais), Basilea e Stein (Aargau), Svizzera.",
-        "en": "## Descrizione\nSpezialist:in Rohstofffreigabe (GMP) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "de": "Beschreibung Spezialist:in Rohstofffreigabe (GMP) Position in Lonza in CH, Schweiz. Lonza ist weltweit führend in der Pharma- und Biotech-Produktion. Das Unternehmen betreibt große Produktionsstätten in Visp (Valais), Basel und Stein (Aargau), Schweiz.",
+        "en": "## Descrizione Spezialist:in Rohstofffreigabe (GMP) position at Lonza in CH, Switzerland. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "de": "Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten. Für den Standort Visp suchen wir eine(n) Mitarbeiter(in) Rohstofffreigabe / GMP‑Dokumentation. Ihre Aufgaben: • GMP‑konforme Prüfung, Kontrolle und Freigabe von Rohstoffen zur Sicherstellung der korrekten Materialzuordnung durch dokumentenbasierte Vergleiche von Analysezertifikaten (CoA) sowie TSE/BSE‑Erklärungen • Erstellung und Bearbeitung von Änderungsanträgen (Change Requests) • Erstellung und Bearbeitung von Abweichungsmeldungen sowie Unterstützung beim Troubleshooting im GMP‑Umfeld • Eigenverantwortliche Koordinierung, Priorisierung und zeitliche Planung der eigenen Aufgaben • Kommunikation mit angrenzenden Abteilungen wie Produktion, Quality Assurance (QA) und Entwicklung zur Klärung von Fragestellungen sowie zur Rohstofffreigabe • Mitarbeit in kontinuierlichen Verbesserungsprozessen zur Optimierung bestehender Prozesse und Abläufe Ihre Anforderungsprofil: • Abgeschlossene Ausbildung oder vergleichbare Qualifikation (z. B. kaufmännisch, naturwissenschaftlich oder technisch); Laborerfahrung ist nicht zwingend erforderlich • Quereinsteiger:innen sind willkommen, aber nur mit Erfahrung in regulierten Umfeldern wie Pharma, Chemie, Lebensmittel oder Medizintechnik • Sehr hohe Zuverlässigkeit sowie ein ausgeprägtes Verantwortungsbewusstsein • Sehr genaue, strukturierte und sorgfältige Arbeitsweise • Ausgeprägte Konzentrationsfähigkeit bei überwiegender Schreibtisch‑ und Dokumentationsarbeit • Grundverständnis für GMP‑gerechtes Arbeiten • Gute Englischkenntnisse in Wort und Schrift; Deutschkenntnisse von Vorteil (z. B. für interne Meetings) • Selbstständigkeit und Eigenverantwortung Lonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen, ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt. Zu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "fr": "Descrizione Spezialist:in Rohstofffreigabe (GMP) position à Lonza en CH, Suisse. Lonza est un leader mondial dans la fabrication de produits pharmaceutiques et de biotechnologies. La société exploite d'importantes installations de production à Viège (Valais), Bâle et Stein (Argovie), Suisse."
       },
       "requirements": [],
@@ -2021,22 +2034,25 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
+      "postedDate": "2026-04-24",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Spezialist-in-Rohstofffreigabe--GMP-_R75450",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Spezialist-in-Rohstofffreigabe--GMP-_R75450",
       "source": "Lonza Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:53.204Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-26T09:58:31.077Z",
       "jobReqId": "R75450",
+      "previousSlugs": [
+        "specialista-in-rilascio-materie-prime-gmp-lonza-ch",
+        "spezialist-in-rohstofffreigabe-gmp-lonza-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-in-rilascio-materie-prime-gmp-lonza-ch"
+          "specialista-in-rilascio-materie-prime-gmp-lonza-ch",
+          "spezialist-in-rohstofffreigabe-gmp-lonza-ch"
         ]
       },
-      "previousSlugs": [
-        "specialista-in-rilascio-materie-prime-gmp-lonza-ch"
-      ],
       "firstSeenAt": "2026-04-24T21:57:58.615Z",
+      "needsRetranslation": true,
       "salaryMin": 66500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -2095,7 +2111,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/ANAP-in-Rohrbautechnik---Maschinist--m-w-d-_R63763-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:32.900Z",
+      "crawledAt": "2026-04-26T09:58:30.401Z",
       "jobReqId": "R63763",
       "previousSlugs": [
         "projektleiter-m-w-d-lonza-ch",
@@ -2128,6 +2144,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T22:02:43.768Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2186,7 +2203,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlagen--und-Apparatebau---Rohrbau---Rohrschlosser-80-100---m-w-d-_R74330",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:32.109Z",
+      "crawledAt": "2026-04-26T09:58:29.704Z",
       "jobReqId": "R74330",
       "previousSlugs": [
         "anlagen-und-apparatebau-rohrbau-rohrschlosser-80-100-m-w-d-lonza-ch"
@@ -2206,6 +2223,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:31:42.014Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2264,7 +2282,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlagen--und-Apparatebau---Rohrbau--80-100---m-w-d-_R74597",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:31.232Z",
+      "crawledAt": "2026-04-26T09:58:29.003Z",
       "jobReqId": "R74597",
       "previousSlugs": [
         "anlagen-e-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
@@ -2285,6 +2303,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:31:42.749Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2343,7 +2362,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Rohrschlosser---Vorrichter-80-100---m-w-d-_R72957",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:30.350Z",
+      "crawledAt": "2026-04-26T09:58:28.310Z",
       "jobReqId": "R72957",
       "previousSlugs": [
         "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch"
@@ -2363,6 +2382,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:26:58.276Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2395,11 +2415,11 @@
         "de": "Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/w/d)",
         "fr": "Constructeur d'installations et d'équipements pour la tuyauterie EFZ / Mainteneur 80-100%"
       },
-      "description": "Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/w/d) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+      "description": "Umzugsunterstützung steht berechtigen Kandidaten und ihren Familien bei Bedarf zur Verfügung.\n\nLonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\nFür unseren Standort in Visp suchen wir einen Anlagen- und Apparatebauer Rohrbau EFZ.\n\nWas wir dir bieten:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Einen integrativen und ethischen Arbeitsplatz\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Neben einem wettbewerbsfähigen Gehalt erwarten dich zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer globalen Leistungen findest du auch unter: https://bit.ly/3wjkoFi\n\nDeine Aufgaben:\n\n• Fachgerechtes und wirtschaftliches Ausmessen, Herstellen und Montieren von anspruchsvollen Rohrleitungen und Stützsystemen im Rohrleitungsbau\n\n• Erstellen von Isometrien und Rohrleitungssegmenten entsprechend den technischen Vorgaben und Projektanforderungen\n\n• Planen und Organisieren der Arbeitsabläufe anhand von R&I‑Fliessbildern,  bei Projektarbeiten und Anlagenanpassungen \n\n• Anwenden von PED‑Richtlinien sowie Arbeiten nach internen Rohrklassen, Werknormen und qualitätssichernden Vorgaben\n\nDein Profil:\n\n• Abgeschlossene Ausbildung zum Anlagen- und Apparatebauer EFZ in Rohrleitungsbau, Rohrschlosser, Heizungsmonteur oder Sanitär-Installateur\n\n• Mehrjährige Berufserfahrung als Rohrschlosser oder Vorrichter von Vorteil\n\n• Bereitschaft zu kontinuierlicher Weiterbildung\n\n• Freude an abteilungsübergreifender Arbeit sowie selbstständiges und flexibles Arbeiten im Team\n\n• Zuverlässigkeit, Belastbarkeit sowie unternehmerisches Handeln und offene, direkte Kommunikation\n\n• Deutschkenntnisse in Wort und Schrift, Englischkenntnisse von Vorteil\n\nLonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\nBereit, die Zukunft der Life Sciences mitzugestalten? Dann bewirb dich jetzt!\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
         "it": "Descrizione - Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/w/d) posizione a Lonza in CH, Svizzera. - Lonza è leader globale nella produzione di farmaci e biotecnologie. - No. L'azienda gestisce importanti stabilimenti produttivi a Visp (Valais), Basilea e Stein (Aargau), Svizzera.",
-        "en": "## Descrizione\n- Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/w/d) position at Lonza in CH, Switzerland.\n- Lonza is a global leader in pharma and biotech manufacturing.\n- The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "de": "Beschreibung Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/w/d) Position bei Lonza in CH, Schweiz. - Lonza ist weltweit führend in der Pharma- und Biotech-Produktion. - Ja. Das Unternehmen betreibt große Produktionsstätten in Visp (Valais), Basel und Stein (Aargau), Schweiz.",
+        "en": "## Descrizione - Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/w/d) position at Lonza in CH, Switzerland. - Lonza is a global leader in pharma and biotech manufacturing. - The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "de": "Umzugsunterstützung steht berechtigen Kandidaten und ihren Familien bei Bedarf zur Verfügung. Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten. Für unseren Standort in Visp suchen wir einen Anlagen- und Apparatebauer Rohrbau EFZ. Was wir dir bieten: • Eine agile Karriere und eine dynamische Arbeitskultur • Einen integrativen und ethischen Arbeitsplatz • Vergütungsprogramme, die hohe Leistung anerkennen • Neben einem wettbewerbsfähigen Gehalt erwarten dich zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer globalen Leistungen findest du auch unter: https://bit.ly/3wjkoFi Deine Aufgaben: • Fachgerechtes und wirtschaftliches Ausmessen, Herstellen und Montieren von anspruchsvollen Rohrleitungen und Stützsystemen im Rohrleitungsbau • Erstellen von Isometrien und Rohrleitungssegmenten entsprechend den technischen Vorgaben und Projektanforderungen • Planen und Organisieren der Arbeitsabläufe anhand von R&I‑Fliessbildern, bei Projektarbeiten und Anlagenanpassungen • Anwenden von PED‑Richtlinien sowie Arbeiten nach internen Rohrklassen, Werknormen und qualitätssichernden Vorgaben Dein Profil: • Abgeschlossene Ausbildung zum Anlagen- und Apparatebauer EFZ in Rohrleitungsbau, Rohrschlosser, Heizungsmonteur oder Sanitär-Installateur • Mehrjährige Berufserfahrung als Rohrschlosser oder Vorrichter von Vorteil • Bereitschaft zu kontinuierlicher Weiterbildung • Freude an abteilungsübergreifender Arbeit sowie selbstständiges und flexibles Arbeiten im Team • Zuverlässigkeit, Belastbarkeit sowie unternehmerisches Handeln und offene, direkte Kommunikation • Deutschkenntnisse in Wort und Schrift, Englischkenntnisse von Vorteil Lonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt. Zu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen. Bereit, die Zukunft der Life Sciences mitzugestalten? Dann bewirb dich jetzt! Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "fr": "Descrizione - Anlagen- und Apparatebauer Rohrbau EFZ 80-100% (m/m/j) position à Lonza en CH, Suisse. - Lonza est un leader mondial dans la fabrication pharmaceutique et biotechnologique. - Oui. La société exploite d'importantes installations de production à Viège (Valais), Bâle et Stein (Argovie), Suisse."
       },
       "requirements": [],
@@ -2416,12 +2436,12 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
+      "postedDate": "2026-04-24",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlage--und-Apparatebauer-Rohrbau-EFZ---Vorrichter-80-100---m-w-d-_R71271",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlage--und-Apparatebauer-Rohrbau-EFZ---Vorrichter-80-100---m-w-d-_R71271",
       "source": "Lonza Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:28.507Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-26T09:58:27.625Z",
       "jobReqId": "R71271",
       "previousSlugs": [
         "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch",
@@ -2446,6 +2466,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:26.370Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2504,7 +2525,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant-in-QC-Mikrobiologie-80-100---m-w-d-_R75376",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:08.204Z",
+      "crawledAt": "2026-04-26T09:58:26.929Z",
       "jobReqId": "R75376",
       "previousSlugs": [
         "praktikant-in-qc-mikrobiologie-80-100-m-w-d-lonza-ch"
@@ -2579,7 +2600,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ---Automatiker-EFZ-80-100---m-w-d-_R71901",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:07.175Z",
+      "crawledAt": "2026-04-26T09:58:26.259Z",
       "jobReqId": "R71901",
       "previousSlugs": [
         "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch"
@@ -2593,6 +2614,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:26:58.978Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2651,7 +2673,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R75128",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:06.407Z",
+      "crawledAt": "2026-04-26T09:58:25.566Z",
       "jobReqId": "R75128",
       "previousSlugs": [
         "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
@@ -2726,7 +2748,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Servicetechniker----Wgetechnik-80-100---m-w-d-_R74800",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-25T21:47:05.675Z",
+      "crawledAt": "2026-04-26T09:58:24.856Z",
       "jobReqId": "R74800",
       "previousSlugs": [
         "servicetechniker-wagetechnik-80-100-m-w-d-lonza-ch"
@@ -2775,11 +2797,11 @@
         "de": "Senior Technical GMP Trainer (m/f/d)",
         "fr": "Formateur GMP Technique Senior (m/f/d)"
       },
-      "description": "Senior Technical GMP Trainer (m/f/d) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+      "description": "Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\nFür unseren Standort Visp suchen wir eine/n LTC Ausbilder/-in Fachrichtung Biologie. Haben Sie Lust auf eine abwechslungsreiche Stelle? Dann bewerben Sie sich heute!\n\nWas wir Ihnen bieten:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integrativer und ethischer Arbeitsplatz\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Neben einem wettbewerbsfähigen Gehalt erwarten Sie zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer Leistungen in Visp finden Sie auch unter: Benefits\n\nVerantwortlichkeiten und Aufgaben: \n\n• Konzipierung der Lerninhalte in Zusammenarbeit mit den Fachbereichen\n\n• Vermittlung der praktischen und theoretischen Lerninhalte an zukünftige Mitarbeiter der Produktion Ibex\n\n• Fristgerechte Planung und Erstellung des Kursprogrammes\n\n• Koordinierung der Kursmodule und Bildung der Anlaufstellen für Kunden (Vorgesetzte und Mitarbeiter)\n\n• Aufbau der Infrastruktur, sowie die Neuanschaffung aller Anlagen und Geräte unter Berücksichtigung des Budgets\n\nErforderliche Qualifikationen und Fähigkeiten: \n\n• Abgeschlossene Lehre als Chemie- und Pharmatechnologe / Laborant Biologie oder Bachelorabschluss in Biologie\n\n• Berufserfahrung in einem Produktionsbetrieb und gut ausgeprägtes Fachwissen\n\n• Kentnisse in Methodik und Didaktik,  gute Sozial- und Methodenkompetenz\n\n• Planungs- und Organisationstalent\n\n• Selbstständigkeit und Eigeninitiative\n\n• Sehr gute Kommunikations- und Teamfähigkeit\n\n• Fließend Deutsch und gute Englischkenntnisse\n\nLonza’s Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
         "it": "Descrizione Senior Technical GMP Trainer (m/f/d) posizione a Lonza in CH, Svizzera. Lonza è leader globale nella produzione di farmaci e biotecnologie. L'azienda gestisce importanti stabilimenti produttivi a Visp (Valais), Basilea e Stein (Aargau), Svizzera.",
-        "en": "## Descrizione\nSenior Technical GMP Trainer (m/f/d) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "de": "Beschreibung Senior Technical GMP Trainer (m/f/d) in Lonza in CH, Schweiz. Lonza ist weltweit führend in der Pharma- und Biotech-Produktion. Das Unternehmen betreibt große Produktionsstätten in Visp (Valais), Basel und Stein (Aargau), Schweiz.",
+        "en": "## Descrizione Senior Technical GMP Trainer (m/f/d) position at Lonza in CH, Switzerland. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "de": "Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten. Für unseren Standort Visp suchen wir eine/n LTC Ausbilder/-in Fachrichtung Biologie. Haben Sie Lust auf eine abwechslungsreiche Stelle? Dann bewerben Sie sich heute! Was wir Ihnen bieten: • Eine agile Karriere und eine dynamische Arbeitskultur • Ein integrativer und ethischer Arbeitsplatz • Vergütungsprogramme, die hohe Leistung anerkennen • Neben einem wettbewerbsfähigen Gehalt erwarten Sie zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer Leistungen in Visp finden Sie auch unter: Benefits Verantwortlichkeiten und Aufgaben: • Konzipierung der Lerninhalte in Zusammenarbeit mit den Fachbereichen • Vermittlung der praktischen und theoretischen Lerninhalte an zukünftige Mitarbeiter der Produktion Ibex • Fristgerechte Planung und Erstellung des Kursprogrammes • Koordinierung der Kursmodule und Bildung der Anlaufstellen für Kunden (Vorgesetzte und Mitarbeiter) • Aufbau der Infrastruktur, sowie die Neuanschaffung aller Anlagen und Geräte unter Berücksichtigung des Budgets Erforderliche Qualifikationen und Fähigkeiten: • Abgeschlossene Lehre als Chemie- und Pharmatechnologe / Laborant Biologie oder Bachelorabschluss in Biologie • Berufserfahrung in einem Produktionsbetrieb und gut ausgeprägtes Fachwissen • Kentnisse in Methodik und Didaktik, gute Sozial- und Methodenkompetenz • Planungs- und Organisationstalent • Selbstständigkeit und Eigeninitiative • Sehr gute Kommunikations- und Teamfähigkeit • Fließend Deutsch und gute Englischkenntnisse Lonza’s Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt. Zu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "fr": "Descrizione Senior Technique GMP Poste de formateur (m/f/d) à Lonza, en Suisse. Lonza est un leader mondial dans la fabrication de produits pharmaceutiques et de biotechnologies. La société exploite d'importantes installations de production à Viège (Valais), Bâle et Stein (Argovie), Suisse."
       },
       "requirements": [],
@@ -2796,12 +2818,12 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
+      "postedDate": "2026-04-24",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Technical-GMP-Trainer--m-f-d-_R75554",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Technical-GMP-Trainer--m-f-d-_R75554",
       "source": "Lonza Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:47:04.923Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-26T09:58:23.918Z",
       "jobReqId": "R75554",
       "previousSlugs": [
         "senior-technical-gmp-trainer-m-f-d-lonza-ch"
@@ -2812,6 +2834,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T21:57:51.253Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 169000,
       "baseSalary": {
@@ -2844,7 +2867,7 @@
         "de": "Automatiker EFZ 80-100% (m/w/d)",
         "fr": "EFZ automatique 80-100 % (m/p/j)"
       },
-      "description": "Automatiker EFZ 80-100% (m/w/d) position at Lonza in CH, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+      "description": "Umzugsunterstützung steht berechtigen Kandidaten und ihren Familien bei Bedarf zur Verfügung. \n\nLonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf drei Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\nAm Standort Visp  wird ein Automatiker EFZ gesucht.\n\nWas wir dir bieten:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Einen integrativen und ethischen Arbeitsplatz\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Neben einem wettbewerbsfähigen Gehalt erwarten dich zahlreiche Vorteile in den Bereichen Lifestyle, Familie und Freizeit. Die vollständige Liste unserer globalen Leistungen findest du auch unter: assetstream.aspx\n\nDeine Aufgaben:\n\n• Durchführung von Inbetriebsetzungsarbeiten und Störungsbehebung von EMR-Anlagen (Elektro-, Mess- und Regeltechnik)\n\n• Präventive Instandhaltung von EMR-Anlagen\n\n• Kalibrierung, Kontrolle und Handhabung von Messmitteln\n\n• Dokumentation nach GxP Richtlinien (Datenintegrität)\n\n• Übernahme von Pikettdienst bei Bedarf\n\nDein Profil:\n\n• Abgeschlossene Ausbildung zum Automatiker EFZ, Elektroinstallateur EFZ, Elektroniker EFZ oder einem artverwandten Beruf\n\n• Grundkenntnisse Mess- und Regeltechnik sind von Vorteil\n\n• Bereitschaft zu kontinuierlicher Weiterbildung\n\n• Freude an abteilungsübergreifender Arbeit sowie selbstständiges und flexibles Arbeiten im Team\n\n• Zuverlässigkeit, Belastbarkeit sowie unternehmerisches Handeln und offene, direkte Kommunikation\n\n• Deutschkenntnisse in Wort und Schrift, Englischkenntnisse von Vorteil\n\nLonza’s Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\nBereit, die Zukunft der Life Sciences mitzugestalten? Dann bewirb dich jetzt!\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
         "it": "Il supporto mobile è disponibile ai candidati autorizzati e alle loro famiglie, se necessario. Lonza è un leader globale nelle scienze della vita, che opera in tre continenti. Siamo attivi nella scienza, ma non ci sono formule magiche per come lavoriamo. La nostra soluzione scientifica più importante sono dipendenti di talento che lavorano insieme e sviluppano idee che aiutano altre aziende ad aiutare le persone. In cambio, i nostri dipendenti gestiscono la loro carriera in modo indipendente. Perché le loro idee, grandi e piccole, migliorano il mondo. E questo è il tipo di lavoro che vogliamo condividere. Al sito Visp, viene cercato un EFZ (m/w/d). # Cosa # Una carriera agile e una cultura di lavoro dinamica • Un posto di lavoro inclusivo ed etico • Programmi di Remunerazione che riconoscono alte prestazioni • Oltre a uno stipendio competitivo, troverete numerosi vantaggi nelle aree di stile di vita, famiglia e tempo libero. • Manutenzione preventiva dei sistemi EMR • Calibrazione, controllo e gestione delle apparecchiature di misura • Documentazione secondo le linee guida GxP (integrità dei dati) • Acquisizione del servizio Pikett su richiesta Questo non è solo un grande onore, ma anche una grande responsabilità. Come raggiungere i nostri risultati aziendali è altrettanto importante per noi come i nostri successi stessi. A Lonza viene dato rispetto e proteggiamo sia i nostri dipendenti che il nostro ambiente. Il successo per noi significa progresso moralmente ragionevole. A Lonza, le persone che affrontano le sfide e sviluppano nuove idee per problemi complessi con la loro creatività nell'area della Life Science vengono a Lonza. Insieme diamo un contributo che può migliorare la vita di molte persone in tutto il mondo. Questo dà loro la certezza e la soddisfazione di fare davvero la differenza con il proprio lavoro. Pronto a plasmare il futuro delle scienze della vita? Allora ti prenderemo! Lonza è leader globale nella produzione di farmaci e biotecnologie. L'azienda gestisce importanti stabilimenti produttivi a Visp (Valais), Basilea e Stein (Aargau), Svizzera.",
         "en": "Automatiker EFZ 80-100% (m/w/d) position at Lonza in CH, Switzerland. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
@@ -2865,30 +2888,31 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
+      "postedDate": "2026-04-24",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Automatiker-EFZ-80-100---m-w-d-_R73970",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Automatiker-EFZ-80-100---m-w-d-_R73970",
       "source": "Lonza Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-25T21:46:44.595Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-26T09:58:23.223Z",
       "jobReqId": "R73970",
+      "previousSlugs": [
+        "automatiker-efz-80-100-m-w-d-lonza-ch-2",
+        "automatic-efz-80-100-m-w-d-lonza-ch"
+      ],
       "previousSlugsByLocale": {
+        "it": [
+          "automatiker-efz-80-100-m-w-d-lonza-ch-2"
+        ],
         "en": [
           "automatiker-efz-80-100-m-w-d-lonza-ch-2",
           "automatic-efz-80-100-m-w-d-lonza-ch"
-        ],
-        "it": [
-          "automatiker-efz-80-100-m-w-d-lonza-ch-2"
         ],
         "fr": [
           "automatiker-efz-80-100-m-w-d-lonza-ch-2"
         ]
       },
-      "previousSlugs": [
-        "automatiker-efz-80-100-m-w-d-lonza-ch-2",
-        "automatic-efz-80-100-m-w-d-lonza-ch"
-      ],
       "firstSeenAt": "2026-04-24T10:31:43.499Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
