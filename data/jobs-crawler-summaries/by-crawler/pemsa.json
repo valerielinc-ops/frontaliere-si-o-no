@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-04-26T10:10:38.889Z",
+  "generatedAt": "2026-04-26T21:57:42.343Z",
   "total": 45,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 34,
-  "durationMs": 116193,
-  "avgDurationMs": 116193,
+  "durationMs": 114185,
+  "avgDurationMs": 114185,
   "durationHistory": [
-    116193
+    114185
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -422,82 +422,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "SALDATORE TUBISTA",
-      "slug": "saldatore-tubista-pemsa-mendrisio",
-      "url": "https://www.pemsa.ch/it/job/saldatore-tubista-2669716/",
-      "applyUrl": "https://www.pemsa.ch/it/job/saldatore-tubista-2669716/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "metallo",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-10",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-25",
-      "id": "pemsa-ad80de744cac",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-13T22:15:31.704Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Consulente di Vendita",
-      "slug": "consulente-di-vendita-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/consulente-di-vendita-2669713/",
-      "applyUrl": "https://www.pemsa.ch/it/job/consulente-di-vendita-2669713/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-10",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-25",
-      "id": "pemsa-54610d3b1b0c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-13T22:15:31.704Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Casseratore",
