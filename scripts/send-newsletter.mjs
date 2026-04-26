@@ -688,6 +688,21 @@ async function fetchTopArticles() {
   }
 }
 
+// Capture group for a single-quoted string literal that allows escaped chars
+// (e.g. `'L\'incertezza...'`). The previous `'([^']*)'` truncated at the
+// first `\'` so excerpts containing apostrophes were cut to their first
+// character.
+const QUOTED_RE_SRC = `'((?:\\\\.|[^'\\\\])*)'`;
+
+function unescapeJsString(s) {
+  return s.replace(/\\(.)/g, (_m, ch) => {
+    if (ch === 'n') return '\n';
+    if (ch === 't') return '\t';
+    if (ch === 'r') return '\r';
+    return ch;
+  });
+}
+
 /**
  * Resolve an article ID to its localized slug from routerBlogData.ts.
  * Falls back to the article ID itself if the slug map can't be read.
@@ -699,9 +714,9 @@ function getBlogSlug(articleId, locale = 'it') {
     const escaped = articleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     // Try requested locale first, fall back to Italian
     for (const lang of [locale, 'it']) {
-      const regex = new RegExp(`'${escaped}':\\s*\\{[^}]*?${lang}:\\s*'([^']*)'`);
+      const regex = new RegExp(`'${escaped}':\\s*\\{[^}]*?${lang}:\\s*${QUOTED_RE_SRC}`);
       const match = raw.match(regex);
-      if (match) return match[1];
+      if (match) return unescapeJsString(match[1]);
     }
     return articleId;
   } catch {
@@ -721,12 +736,12 @@ function loadBlogMeta(articleId, locale = 'it') {
       const raw = fs.readFileSync(metaPath, 'utf8');
       const titleKey = `blog.article.${articleId}.title`;
       const excerptKey = `blog.article.${articleId}.excerpt`;
-      const titleMatch = raw.match(new RegExp(`'${titleKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
-      const excerptMatch = raw.match(new RegExp(`'${excerptKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
+      const titleMatch = raw.match(new RegExp(`'${titleKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*${QUOTED_RE_SRC}`));
+      const excerptMatch = raw.match(new RegExp(`'${excerptKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*${QUOTED_RE_SRC}`));
       if (titleMatch) {
         return {
-          title: titleMatch[1],
-          excerpt: excerptMatch ? excerptMatch[1] : '',
+          title: unescapeJsString(titleMatch[1]),
+          excerpt: excerptMatch ? unescapeJsString(excerptMatch[1]) : '',
         };
       }
     } catch {
