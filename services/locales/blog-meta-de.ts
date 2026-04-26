@@ -2706,6 +2706,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maria-timofeeva-trionfa-chiasso-2026.title': 'Maria Timofeeva triumphiert beim Turnier in Chiasso: historischer Sieg bei der Axion Open 2026',
     'blog.article.maria-timofeeva-trionfa-chiasso-2026.excerpt': 'Die 22-jährige Usbekin Maria Timofeeva hat die Axion Open in Chiasso gewonnen und Lisa Pigato im Finale besiegt.',
     'blog.article.maria-timofeeva-trionfa-chiasso-2026.imageAlt': 'Tennismatch bei den Axion Open in Chiasso',
+    'blog.article.crans-montana-cure-italiani-2026.title': 'Crans-Montana: Wer zahlt für die Behandlung der Italiener?',
+    'blog.article.crans-montana-cure-italiani-2026.excerpt': 'Die Rechnungen für die Behandlung der drei in Crans-Montana verletzten Italiener haben Kontroversen ausgelöst. Hier erfahren Sie, wer zahlen muss und wie das System funktioniert.',
+    'blog.article.crans-montana-cure-italiani-2026.imageAlt': 'Luganersee mit Blick auf den Monte Brè',
 };
 
 export default blogMetaDe;

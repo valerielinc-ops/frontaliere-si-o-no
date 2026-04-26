@@ -2706,6 +2706,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maria-timofeeva-trionfa-chiasso-2026.title': 'Maria Timofeeva trionfa al torneo di Chiasso: vittoria storica all\'Axion Open 2026',
     'blog.article.maria-timofeeva-trionfa-chiasso-2026.excerpt': 'La ventiduenne uzbeka Maria Timofeeva ha vinto l\'Axion Open di Chiasso sconfiggendo Lisa Pigato in finale.',
     'blog.article.maria-timofeeva-trionfa-chiasso-2026.imageAlt': 'Partita di tennis al torneo Axion Open di Chiasso',
+    'blog.article.crans-montana-cure-italiani-2026.title': 'Crans-Montana: chi paga le cure per gli italiani?',
+    'blog.article.crans-montana-cure-italiani-2026.excerpt': 'Le fatture delle cure per i tre italiani feriti a Crans-Montana hanno scatenato polemiche. Ecco chi deve pagare e come funziona il sistema.',
+    'blog.article.crans-montana-cure-italiani-2026.imageAlt': 'Lago di Lugano con vista sul Monte Brè',
 };
 
 export default blogMetaIt;

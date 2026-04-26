@@ -7301,4 +7301,11 @@ export const ARTICLES = [
  image: '/images/blog/maria-timofeeva-trionfa-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-cure-italiani-2026',
+ category: 'pratico',
+ date: '2026-04-26T17:57:57.046Z',
+ image: '/images/blog/crans-montana-cure-italiani-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

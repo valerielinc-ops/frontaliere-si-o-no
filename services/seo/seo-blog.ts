@@ -13031,6 +13031,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-cure-italiani-2026': {
+    title: 'Crans-Montana: chi paga le cure per gli | Frontaliere Ticino',
+    description: 'Le fatture delle cure per i tre italiani feriti a Crans-Montana hanno scatenato polemiche. Ecco chi deve pagare e come funziona il sistema. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, paga, cure, italiani',
+    ogTitle: 'Crans-Montana: chi paga le cure per gli italiani? |',
+    ogDescription: 'Le fatture delle cure per i tre italiani feriti a Crans-Montana hanno scatenato polemiche. Ecco chi deve pagare e come funziona il sistema.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-cure-italiani-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: chi paga le cure per gli italiani?",
+      "description": "Le fatture delle cure per i tre italiani feriti a Crans-Montana hanno scatenato polemiche. Ecco chi deve pagare e come funziona il sistema. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-cure-italiani-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul Monte Brè"
+      },
+      "datePublished": "2026-04-26T17:57:57+00:00",
+      "dateModified": "2026-04-26T17:57:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-cure-italiani-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
