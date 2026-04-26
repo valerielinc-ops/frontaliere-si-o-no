@@ -151,3 +151,26 @@ jobs:
 Some AI providers return extreme `Retry-After` values (e.g. Cerebras: `Retry-After: 86399` = 24h). Without a cap, the entire translate-pending pipeline freezes for a full day, causing a massive translation backlog.
 
 **Rule**: Always cap `Retry-After` header values to a maximum of **2 minutes** (`MAX_RETRY_AFTER_MS = 2 * 60 * 1000`) in `scripts/lib/ai-models.mjs`. The model fallback chain will naturally move to the next available provider.
+
+## Article generation self-trigger chain
+
+**Why.** `generate-article.yml` runs every 30 min via cron, but GitHub Actions silently skips ~66% of cron slots (measured 34% utilization over 5 days; avg gap 88 min vs 30 expected). At ~22 min real generation time per article, the theoretical max is 65/day; we were getting ~16/day.
+
+**How.** At the end of every run, the workflow self-dispatches the next via `workflow_dispatch` API using the `GITHUB_PAT` secret (same pattern as `scripts/lib/trigger-deploy.sh`). The shared concurrency group `article-generation` prevents overlap. The `7,37 * * * *` cron stays as a fallback safety net.
+
+**Outcome matrix** (computed by step `decide_trigger`, dispatched by step `Self-trigger next run`):
+
+| Outcome | Delay | Retry counter |
+|---|---|---|
+| `success` (committed + verified in dist) | 0s | reset to 0 |
+| `no_changes` (no source / all duplicates) | 600s | reset to 0 |
+| `rebase_failed` (push race deferred article) | 60s | reset to 0 |
+| `verify_failed` / `generate_failed` / `build_failed` | 60s → 300s → 1800s | exponential, max 3 retries |
+| `retry_exhausted` | n/a — no dispatch | cron resumes |
+
+**Kill instructions.** Two options:
+
+1. **Soft kill (per-run skip)**: clear the `GITHUB_PAT` repo secret. The script logs "skip, no token" and exits 0 — the cron schedule keeps the workflow alive.
+2. **Hard kill (chain off)**: comment out the `Self-trigger next run` step in `.github/workflows/generate-article.yml` and push. Cron continues at 30-min intervals.
+
+Source: `scripts/lib/trigger-self.sh`, tests at `tests/lib/trigger-self.test.ts`.
