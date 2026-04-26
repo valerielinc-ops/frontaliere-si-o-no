@@ -2670,6 +2670,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana: le fatture delle cure ai pazienti italiani e la posizione dell\'Italia',
     'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'L\'Italia ribadisce che non pagherà le fatture delle cure per i pazienti italiani ricoverati in Svizzera dopo il rogo di Crans-Montana.',
     'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Ospedale di Crans-Montana con vista sulle montagne',
+    'blog.article.svizzeri-shopping-como-700-milioni.title': 'Shopping in Italia per 700 milioni: svizzeri preferiscono negozi comaschi',
+    'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'I dati di Global Blue rivelano che gli svizzeri spendono 700 milioni all\'anno in Italia, con il 67% degli acquisti nei supermercati comaschi.',
+    'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Strada commerciale affollata a Como con acquirenti svizzeri',
 };
 
 export default blogMetaIt;

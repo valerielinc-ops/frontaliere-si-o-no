@@ -12683,6 +12683,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-shopping-como-700-milioni': {
+    title: 'Shopping in Italia per 700 milioni | Frontaliere Ticino',
+    description: 'Scopri come gli svizzeri spendono 700 milioni all\'anno in Italia, con il 67% degli acquisti nei supermercati comaschi. Implicazioni per i frontalieri e',
+    keywords: 'frontalieri, ticino, svizzera, italia, shopping, milioni, svizzeri, preferiscono',
+    ogTitle: 'Shopping in Italia per 700 milioni: svizzeri preferiscono',
+    ogDescription: 'Scopri come gli svizzeri spendono 700 milioni all\'anno in Italia, con il 67% degli acquisti nei supermercati comaschi. Implicazioni per i frontalieri e',
+    canonicalPath: '/articoli-frontaliere/svizzeri-shopping-como-700-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Shopping in Italia per 700 milioni: svizzeri preferiscono negozi comaschi",
+      "description": "Scopri come gli svizzeri spendono 700 milioni all'anno in Italia, con il 67% degli acquisti nei supermercati comaschi. Implicazioni per i frontalieri e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzeri-shopping-como-700-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada commerciale affollata a Como con acquirenti svizzeri"
+      },
+      "datePublished": "2026-04-25T23:57:27+00:00",
+      "dateModified": "2026-04-25T23:57:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-shopping-como-700-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

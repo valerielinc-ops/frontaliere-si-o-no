@@ -2150,6 +2150,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-marketing-territoriale-varese-35000-euro': { name: 'Marketing Territoriale', path: '/articoli-frontaliere/marketing-territoriale-varese-35000-euro', parent: 'blog' },
     'blog-nuova-tassa-frontalieri-2026': { name: 'Nuova tassa frontalieri', path: '/articoli-frontaliere/nuova-tassa-frontalieri-2026', parent: 'blog' },
     'blog-crans-montana-fatture-cure-italiani-2026': { name: 'Crans-Montana: fatture cure italiani', path: '/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026', parent: 'blog' },
+    'blog-svizzeri-shopping-como-700-milioni': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-shopping-como-700-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7217,4 +7217,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-fatture-cure-italiani-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzeri-shopping-como-700-milioni',
+ category: 'novita',
+ date: '2026-04-25T23:57:27.134Z',
+ image: '/images/blog/svizzeri-shopping-como-700-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

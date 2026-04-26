@@ -2670,6 +2670,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana : les factures des soins pour les patients italiens et la position de l\'Italie',
     'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'L\'Italie réaffirme qu\'elle ne paiera pas les factures des soins pour les patients italiens hospitalisés en Suisse après l\'incendie de Crans-Montana.',
     'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Hôpital de Crans-Montana avec vue sur les montagnes',
+    'blog.article.svizzeri-shopping-como-700-milioni.title': 'Shopping en Italie pour 700 millions: les Suisses préfèrent les magasins comasques',
+    'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'Les données de Global Blue révèlent que les Suisses dépensent 700 millions par an en Italie, avec 67% des achats dans les supermarchés comasques.',
+    'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Rue commerçante animée à Côme avec des acheteurs suisses',
 };
 
 export default blogMetaFr;

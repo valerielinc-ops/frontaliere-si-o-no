@@ -2670,6 +2670,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana: Rechnungen für die Behandlung italienischer Patienten und die Position Italiens',
     'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'Italien betont, dass es die Rechnungen für die Behandlung italienischer Patienten, die nach dem Brand in Crans-Montana in der Schweiz hospitalisiert wurden, nicht bezahlen wird.',
     'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Krankenhaus in Crans-Montana mit Bergblick',
+    'blog.article.svizzeri-shopping-como-700-milioni.title': 'Einkaufen in Italien für 700 Millionen: Schweizer bevorzugen Geschäfte in Como',
+    'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'Die Daten von Global Blue zeigen, dass die Schweizer jährlich 700 Millionen Franken in Italien ausgeben, wobei 67% der Einkäufe in den comaschen Supermärkten getätigt werden.',
+    'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Belebte Einkaufsstraße in Como mit Schweizer Einkaufenden',
 };
 
 export default blogMetaDe;

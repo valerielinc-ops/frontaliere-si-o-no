@@ -2670,6 +2670,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-fatture-cure-italiani-2026.title': 'Crans-Montana: Italian patient care bills and Italy\'s stance',
     'blog.article.crans-montana-fatture-cure-italiani-2026.excerpt': 'Italy reiterates that it will not pay the bills for the care of Italian patients hospitalized in Switzerland following the Crans-Montana fire.',
     'blog.article.crans-montana-fatture-cure-italiani-2026.imageAlt': 'Crans-Montana hospital with mountain view',
+    'blog.article.svizzeri-shopping-como-700-milioni.title': 'Swiss spend 700 million on shopping in Italy, favoring Como stores',
+    'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'Global Blue data reveals that Swiss residents spend 700 million CHF annually in Italy, with 67% of purchases made in Como supermarkets.',
+    'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Busy shopping street in Como with Swiss shoppers',
 };
 
 export default blogMetaEn;
