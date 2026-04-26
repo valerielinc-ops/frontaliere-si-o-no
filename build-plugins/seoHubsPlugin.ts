@@ -122,6 +122,42 @@ function withSlash(s: string): string {
   return s.endsWith('/') ? s : `${s}/`;
 }
 
+/**
+ * Narrative H1 distinct from <title> (Semrush W3, Issue 105). Keeps the
+ * count + section context user-facing, while the title is keyword-first.
+ */
+type HubKeyName = 'jobs' | 'sectors' | 'companies' | 'articles';
+function buildHubH1(locale: HubLocale, hubKey: HubKeyName, count: number, page: number): string {
+  const TEMPLATES: Record<HubLocale, Record<HubKeyName, (n: number) => string>> = {
+    it: {
+      jobs: (n) => `${n.toLocaleString('it-IT')} annunci di lavoro per frontalieri`,
+      sectors: () => `Settori professionali con offerte di lavoro attive`,
+      companies: (n) => `${n.toLocaleString('it-IT')} datori di lavoro in Ticino e Svizzera`,
+      articles: (n) => `${n.toLocaleString('it-IT')} guide e approfondimenti per frontalieri`,
+    },
+    en: {
+      jobs: (n) => `${n.toLocaleString('en-US')} cross-border job openings`,
+      sectors: () => `Professional sectors with active openings`,
+      companies: (n) => `${n.toLocaleString('en-US')} employers hiring in Ticino and Switzerland`,
+      articles: (n) => `${n.toLocaleString('en-US')} guides and insights for cross-border workers`,
+    },
+    de: {
+      jobs: (n) => `${n.toLocaleString('de-DE')} Stellenangebote für Grenzgänger`,
+      sectors: () => `Branchen mit aktiven Stellenangeboten`,
+      companies: (n) => `${n.toLocaleString('de-DE')} Arbeitgeber im Tessin und in der Schweiz`,
+      articles: (n) => `${n.toLocaleString('de-DE')} Ratgeber und Hintergründe für Grenzgänger`,
+    },
+    fr: {
+      jobs: (n) => `${n.toLocaleString('fr-FR')} offres d’emploi pour frontaliers`,
+      sectors: () => `Secteurs professionnels avec offres actives`,
+      companies: (n) => `${n.toLocaleString('fr-FR')} employeurs au Tessin et en Suisse`,
+      articles: (n) => `${n.toLocaleString('fr-FR')} guides et analyses pour frontaliers`,
+    },
+  };
+  const base = TEMPLATES[locale][hubKey](count);
+  return page > 1 ? `${base} — ${pageLabel(locale, page)}` : base;
+}
+
 interface PaginatedHub {
   readonly hubKey: 'jobs' | 'sectors' | 'companies' | 'articles';
   readonly itemHrefBuilder: (item: string, locale: HubLocale) => string;
@@ -226,7 +262,11 @@ function buildHtml(args: BuildHtmlArgs): string {
   const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss } = args;
   const title = HUB_TITLES[locale][hubKey];
   const description = HUB_DESCRIPTIONS[locale][hubKey];
-  const pageTitle = page > 1 ? `${title} — ${pageLabel(locale, page)} | Frontaliere Ticino` : `${title} | Frontaliere Ticino`;
+  // Title ≤60 char (Semrush W2): drop "| Frontaliere Ticino" suffix when adding it
+  // would push us over budget. Page-N suffix is also keyword for SEO.
+  const baseTitle = page > 1 ? `${title} — ${pageLabel(locale, page)}` : title;
+  const brandSuffix = ' | Frontaliere Ticino';
+  const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const dateStamp = new Date().toISOString().slice(0, 10);
@@ -339,7 +379,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
         <span>${esc(sectionLabel)}</span>
       </nav>
       <header style="margin-bottom:24px">
-        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 12px">${esc(title)}${page > 1 ? ` <span style="font-weight:500;font-size:24px;color:var(--color-subtle)">— ${esc(pageLabel(locale, page))}</span>` : ''}</h1>
+        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 12px">${esc(buildHubH1(locale, hubKey, totalItems, page))}</h1>
         <p style="font-size:16px;color:var(--color-body);max-width:780px;line-height:1.55;margin:0">${esc(description)}</p>
         <p style="margin-top:8px;color:var(--color-subtle);font-size:13px">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
       </header>
