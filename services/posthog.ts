@@ -32,6 +32,8 @@ async function ensurePostHog(): Promise<any> {
  capture_pageview: false, // We handle page_view manually via analytics.ts
  capture_pageleave: true,
  autocapture: false, // Explicit events only, reduces noise
+ // Sample 30% of sessions for replay to stay under free-tier 5k/mo cap
+ session_recording: { sampleRate: 0.3 },
  // Filter benign noise from exception tracking so real errors stay visible.
  before_send: (event) => {
  if (!event || event.event !== '$exception') return event;
