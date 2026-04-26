@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 958,
+ "numberOfItems": 959,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5682,7 +5682,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 955, "name": "Frode TWINT: come proteggere il tuo account", "url": `${BASE_URL}/articoli-frontaliere/twint-account-frode-frontalieri` },
           { "@type": "ListItem", "position": 956, "name": "Costi sanitari Ticino 2024: +4% | Frontaliere T...", "url": `${BASE_URL}/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento` },
           { "@type": "ListItem", "position": 957, "name": "Cybersicurezza industriale: proteggere produzio...", "url": `${BASE_URL}/articoli-frontaliere/cybersicurezza-industriale-ticino-2026` },
-          { "@type": "ListItem", "position": 958, "name": "Redditi 2024: Luvinate è il comune più ricco de...", "url": `${BASE_URL}/articoli-frontaliere/redditi-varesotti-2024-luvinate` }
+          { "@type": "ListItem", "position": 958, "name": "Redditi 2024: Luvinate è il comune più ricco de...", "url": `${BASE_URL}/articoli-frontaliere/redditi-varesotti-2024-luvinate` },
+          { "@type": "ListItem", "position": 959, "name": "Chiusure notturne autostrade: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-autostrade-ticino-2026` }
  ]
  },
  {

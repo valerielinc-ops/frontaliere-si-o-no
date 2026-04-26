@@ -2736,6 +2736,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.redditi-varesotti-2024-luvinate.title': 'Redditi 2024: Luvinate è il comune più ricco della provincia di Varese',
     'blog.article.redditi-varesotti-2024-luvinate.excerpt': 'Luvinate supera Galliate Lombardo con un reddito medio di 37.654 euro. I dati dei frontalieri non sono inclusi.',
     'blog.article.redditi-varesotti-2024-luvinate.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano, mostrando Lugano e Porlezza',
+    'blog.article.chiusure-autostrade-ticino-2026.title': 'Chiusure notturne autostrade: cosa cambia per i frontalieri',
+    'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'Dalla notte tra il 28 e il 29 aprile, chiusure notturne tra A8, Raccordo Fiera e Diramazione Gallarate-Gattico. Ecco le alternative',
+    'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti',
 };
 
 export default blogMetaIt;

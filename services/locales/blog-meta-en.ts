@@ -2736,6 +2736,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.redditi-varesotti-2024-luvinate.title': '2024 Incomes: Luvinate is the wealthiest municipality in Varese province',
     'blog.article.redditi-varesotti-2024-luvinate.excerpt': 'Luvinate surpasses Galliate Lombardo with an average income of 37,654 euros. Cross-border workers\' data is not included.',
     'blog.article.redditi-varesotti-2024-luvinate.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border, showing Lugano and Porlezza',
+    'blog.article.chiusure-autostrade-ticino-2026.title': 'Nighttime highway closures: what changes for cross-border workers',
+    'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'From the night between April 28 and 29, nighttime closures between A8, Fiera Bypass, and Gallarate-Gattico Branch. Here are the alternatives',
+    'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
 };
 
 export default blogMetaEn;

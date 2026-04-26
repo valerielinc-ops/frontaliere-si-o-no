@@ -13321,6 +13321,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusure-autostrade-ticino-2026': {
+    title: 'Chiusure notturne autostrade: cosa | Frontaliere Ticino',
+    description: 'Dalla notte tra il 28 e il 29 aprile, chiusure notturne tra A8, Raccordo Fiera e Diramazione Gallarate-Gattico. Ecco le alternative. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, autostrade, cosa',
+    ogTitle: 'Chiusure notturne autostrade: cosa cambia per i frontalieri',
+    ogDescription: 'Dalla notte tra il 28 e il 29 aprile, chiusure notturne tra A8, Raccordo Fiera e Diramazione Gallarate-Gattico. Ecco le alternative',
+    canonicalPath: '/articoli-frontaliere/chiusure-autostrade-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne autostrade: cosa cambia per i frontalieri",
+      "description": "Dalla notte tra il 28 e il 29 aprile, chiusure notturne tra A8, Raccordo Fiera e Diramazione Gallarate-Gattico. Ecco le alternative. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusure-autostrade-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi circostanti"
+      },
+      "datePublished": "2026-04-26T23:02:11+00:00",
+      "dateModified": "2026-04-26T23:02:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-autostrade-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

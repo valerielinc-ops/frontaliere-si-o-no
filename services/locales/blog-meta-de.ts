@@ -2736,6 +2736,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.redditi-varesotti-2024-luvinate.title': 'Einkommen 2024: Luvinate ist die reichste Gemeinde der Provinz Varese',
     'blog.article.redditi-varesotti-2024-luvinate.excerpt': 'Luvinate übertrifft Galliate Lombardo mit einem durchschnittlichen Einkommen von 37.654 Euro. Die Daten der Grenzgänger sind nicht enthalten.',
     'blog.article.redditi-varesotti-2024-luvinate.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze, zeigt Lugano und Porlezza',
+    'blog.article.chiusure-autostrade-ticino-2026.title': 'Nachtschließungen von Autobahnen: Was sich für Grenzgänger ändert',
+    'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'Ab der Nacht zwischen dem 28. und 29. April gibt es Nachtschließungen zwischen der A8, der Autobahnzubringer Mailand und der Gallarate-Gattico-Abzweigung. Hier sind die Alternativen',
+    'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Dörfern',
 };
 
 export default blogMetaDe;
