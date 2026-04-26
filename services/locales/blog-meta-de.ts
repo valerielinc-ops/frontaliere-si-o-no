@@ -2688,6 +2688,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'Lombardei erhöht Gehälter im Gesundheitswesen an der Grenze: +20% für Ärzte und Krankenschwestern',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'Neues Staatsgesetz finanziert die Erhöhung mit einer Erhöhung der Abgabe von 3% auf 6% für die Gehälter der Grenzgänger',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Petition gegen die Militärdienstbefreiungssteuer: \'Die Regierung begünstigt das Militär\'',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'Die Kommunistische Jugend lanciert eine Petition zur Abschaffung der Militärdienstbefreiungssteuer im Tessin und wirft der Regierung vor, das Militär der Jugendarbeitslosigkeit vorzuziehen.',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Junge Menschen demonstrieren vor dem Regierungspalast in Bellinzona',
 };
 
 export default blogMetaDe;

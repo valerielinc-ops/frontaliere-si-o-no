@@ -2688,6 +2688,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'La Lombardie augmente les salaires des travailleurs de la santé à la frontière : +20 % pour les médecins et les infirmiers',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'Une nouvelle loi de l\'État finance l\'augmentation avec une contribution passant de 3 % à 6 % sur les salaires des travailleurs frontaliers',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Pétition contre la taxe d\'exemption militaire : \'Le gouvernement privilégie l\'armée\'',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'La Jeunesse communiste lance une pétition pour abolir la taxe d\'exemption de l\'obligation militaire au Tessin, accusant le gouvernement de privilégier l\'armée à la précarité des jeunes.',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Jeunes manifestant devant le Palais du Gouvernement à Bellinzone',
 };
 
 export default blogMetaFr;

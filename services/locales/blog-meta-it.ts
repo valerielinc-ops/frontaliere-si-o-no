@@ -2688,6 +2688,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'Lombardia aumenta stipendi sanitari al confine: +20% per medici e infermieri',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'Nuova legge statale finanzia l\'aumento con un prelievo dal 3% al 6% sugli stipendi dei frontalieri',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Petizione contro la tassa d\'esenzione militare: \'Il governo privilegia l\'esercito\'',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'La Gioventù comunista lancia una petizione per abolire la tassa d\'esenzione dall\'obbligo militare in Ticino, accusando il governo di anteporre l\'esercito al precariato giovanile.',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Giovani manifestano davanti al Palazzo del Governo a Bellinzona',
 };
 
 export default blogMetaIt;

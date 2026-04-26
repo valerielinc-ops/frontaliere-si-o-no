@@ -2688,6 +2688,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'Lombardy increases healthcare salaries at the border: +20% for doctors and nurses',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'New state law funds the increase with a levy from 3% to 6% on the salaries of cross-border workers',
     'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.title': 'Petition against military exemption tax: \'The government privileges the army\'',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.excerpt': 'The Communist Youth launches a petition to abolish the military service exemption tax in Ticino, accusing the government of prioritizing the army over youth precarity.',
+    'blog.article.petizione-gioventu-comunista-tassa-esenzione-militare.imageAlt': 'Young people protesting in front of the Government Palace in Bellinzona',
 };
 
 export default blogMetaEn;

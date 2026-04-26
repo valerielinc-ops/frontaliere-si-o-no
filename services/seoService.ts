@@ -2156,6 +2156,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-medici-senza-permesso-svizzera-2026': { name: 'Sanità', path: '/articoli-frontaliere/medici-senza-permesso-svizzera-2026', parent: 'blog' },
     'blog-crans-montana-spese-cura-italiani-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-spese-cura-italiani-2026', parent: 'blog' },
     'blog-lombardia-aumenta-stipendi-sanitari-2026': { name: 'Novità', path: '/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026', parent: 'blog' },
+    'blog-petizione-gioventu-comunista-tassa-esenzione-militare': { name: 'Petizione militare', path: '/articoli-frontaliere/petizione-gioventu-comunista-tassa-esenzione-militare', parent: 'blog' },
  };
 
  const info = sectionNames[section];

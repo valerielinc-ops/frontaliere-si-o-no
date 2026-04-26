@@ -12857,6 +12857,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petizione-gioventu-comunista-tassa-esenzione-militare': {
+    title: 'Petizione contro la tassa d\'esenzione | Frontaliere Ticino',
+    description: 'La Gioventù comunista lancia una petizione per abolire la tassa d\'esenzione dall\'obbligo militare in Ticino, accusando il governo di privilegiare l\'esercito.',
+    keywords: 'frontalieri, ticino, svizzera, italia, petizione, contro, tassa, esenzione',
+    ogTitle: 'Petizione contro tassa esenzione militare | Frontaliere',
+    ogDescription: 'La Gioventù comunista lancia una petizione per abolire la tassa d\'esenzione dall\'obbligo militare in Ticino, accusando il governo di privilegiare l\'esercito.',
+    canonicalPath: '/articoli-frontaliere/petizione-gioventu-comunista-tassa-esenzione-militare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Petizione contro tassa esenzione",
+      "description": "La Gioventù comunista lancia una petizione per abolire la tassa d'esenzione dall'obbligo militare in Ticino, accusando il governo di privilegiare l'esercito.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petizione-gioventu-comunista-tassa-esenzione-militare.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani manifestano davanti al Palazzo del Governo a Bellinzona"
+      },
+      "datePublished": "2026-04-26T11:31:15+00:00",
+      "dateModified": "2026-04-26T11:31:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petizione-gioventu-comunista-tassa-esenzione-militare`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7259,4 +7259,11 @@ export const ARTICLES = [
  image: '/images/blog/lombardia-aumenta-stipendi-sanitari-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'petizione-gioventu-comunista-tassa-esenzione-militare',
+ category: 'novita',
+ date: '2026-04-26T11:31:15.087Z',
+ image: '/images/blog/petizione-gioventu-comunista-tassa-esenzione-militare.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
