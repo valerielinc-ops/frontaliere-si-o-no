@@ -2362,7 +2362,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  // Mark such variants as `noindex, follow` so Google consolidates signals
  // to the query-less canonical. The canonical link (set below) already
  // strips query params because it's built from `route` + `buildPath()`.
- const filterQueryKeys = ['canton', 'age'] as const;
+ //
+ // Phase 1D (2026-04-26): Replaced robots.txt `Disallow: /*?canton=*` /
+ // `Disallow: /*?age=*` (which Semrush flagged as 759 "blocked" pages, Issue 4)
+ // with this softer runtime noindex+canonical approach. Also extended to
+ // internal job search `?q=` strings (Issue 24, 531 hreflang conflicts on
+ // /cerca-lavoro-ticino/?q=...). Google honours the canonical → consolidates;
+ // Semrush stops surfacing the URLs as blocked or as hreflang conflicts.
+ const filterQueryKeys = ['canton', 'age', 'q'] as const;
  const hasFilterQuery = (() => {
  try {
  const params = new URLSearchParams(window.location.search || '');
