@@ -2730,6 +2730,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Healthcare costs in Ticino: +4% in 2024, families on the frontline',
     'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'In 2024, healthcare spending in Ticino rose to 97 billion francs, with families bearing nearly two-thirds of the cost',
     'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Lugano Civil Hospital with lake view',
+    'blog.article.cybersicurezza-industriale-ticino-2026.title': 'Industrial cybersecurity: protecting production and competitiveness',
+    'blog.article.cybersicurezza-industriale-ticino-2026.excerpt': 'Companies in the Canton of Ticino should adopt an integrated approach to industrial cybersecurity, according to a webinar promoted by ANIMA Confindustria.',
+    'blog.article.cybersicurezza-industriale-ticino-2026.imageAlt': 'Cybersecurity professionals working in a modern industrial setting in Ticino',
 };
 
 export default blogMetaEn;

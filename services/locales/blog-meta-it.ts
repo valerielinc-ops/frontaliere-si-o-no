@@ -2730,6 +2730,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Costi sanitari in Ticino: +4% nel 2024, famiglie in prima linea',
     'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'Nel 2024 la spesa sanitaria in Ticino è salita a 97 miliardi di franchi, con le famiglie che hanno sostenuto quasi due terzi del costo',
     'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Ospedale Civico di Lugano con vista sul lago',
+    'blog.article.cybersicurezza-industriale-ticino-2026.title': 'Cybersicurezza industriale: proteggere produzione e competitività',
+    'blog.article.cybersicurezza-industriale-ticino-2026.excerpt': 'Le imprese del Canton Ticino devono adottare un approccio integrato per la sicurezza informatica industriale, secondo un webinar promosso da ANIMA Confindustria.',
+    'blog.article.cybersicurezza-industriale-ticino-2026.imageAlt': 'Professionisti della cybersicurezza lavorano in un ambiente industriale moderno in Ticino',
 };
 
 export default blogMetaIt;

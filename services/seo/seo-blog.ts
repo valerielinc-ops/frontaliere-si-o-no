@@ -13263,6 +13263,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cybersicurezza-industriale-ticino-2026': {
+    title: 'Cybersicurezza industriale: proteggere | Frontaliere Ticino',
+    description: 'Le imprese del Canton Ticino devono adottare un approccio integrato per la sicurezza informatica industriale, secondo un webinar promosso da ANIMA C',
+    keywords: 'frontalieri, ticino, svizzera, italia, cybersicurezza, industriale, proteggere, produzione',
+    ogTitle: 'Cybersicurezza industriale: proteggere produzione e',
+    ogDescription: 'Le imprese del Canton Ticino devono adottare un approccio integrato per la sicurezza informatica industriale, secondo un webinar promosso da ANIMA C',
+    canonicalPath: '/articoli-frontaliere/cybersicurezza-industriale-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cybersicurezza industriale: proteggere produzione e competitività",
+      "description": "Le imprese del Canton Ticino devono adottare un approccio integrato per la sicurezza informatica industriale, secondo un webinar promosso da ANIMA C",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cybersicurezza-industriale-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti della cybersicurezza lavorano in un ambiente industriale moderno in Ticino"
+      },
+      "datePublished": "2026-04-26T22:29:15+00:00",
+      "dateModified": "2026-04-26T22:29:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cybersicurezza-industriale-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

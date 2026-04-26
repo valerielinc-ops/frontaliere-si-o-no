@@ -2730,6 +2730,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Coûts sanitaires au Tessin : +4% en 2024, les familles en première ligne',
     'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'En 2024, les dépenses de santé au Tessin ont atteint 97 milliards de francs, les familles ayant supporté près des deux tiers du coût',
     'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Hôpital civil de Lugano avec vue sur le lac',
+    'blog.article.cybersicurezza-industriale-ticino-2026.title': 'Cybersécurité industrielle : protéger la production et la compétitivité',
+    'blog.article.cybersicurezza-industriale-ticino-2026.excerpt': 'Les entreprises du canton du Tessin doivent adopter une approche intégrée pour la cybersécurité industrielle, selon un webinaire promu par ANIMA Confindustria.',
+    'blog.article.cybersicurezza-industriale-ticino-2026.imageAlt': 'Professionnels de la cybersécurité travaillant dans un environnement industriel moderne au Tessin',
 };
 
 export default blogMetaFr;

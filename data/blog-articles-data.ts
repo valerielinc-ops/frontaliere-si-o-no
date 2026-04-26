@@ -7357,4 +7357,11 @@ export const ARTICLES = [
  image: '/images/blog/costi-sanitari-ticino-2024-4-percento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cybersicurezza-industriale-ticino-2026',
+ category: 'novita',
+ date: '2026-04-26T22:29:15.059Z',
+ image: '/images/blog/cybersicurezza-industriale-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
