@@ -7273,4 +7273,11 @@ export const ARTICLES = [
  image: '/images/blog/petizione-tassa-esenzione-militare-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'immigrazione-svizzera-60-anni-2026',
+ category: 'novita',
+ date: '2026-04-26T13:52:08.644Z',
+ image: '/images/blog/immigrazione-svizzera-60-anni-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

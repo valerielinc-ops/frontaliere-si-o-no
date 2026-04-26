@@ -2694,6 +2694,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Petition zur Abschaffung der Militärdienstbefreiungssteuer',
     'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'Die Kommunistische Jugend lanciert eine Petition zur Abschaffung der Militärdienstbefreiungssteuer, die als ungerecht und diskriminierend bezeichnet wird.',
     'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Junge Demonstranten in Bellinzona mit Schildern, die die Abschaffung der Militärdienstbefreiungssteuer fordern.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Einwanderung in die Schweiz: 60 Jahre Debatte und 20 Initiativen',
+    'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'Die Einwanderung hat die Schweiz wohlhabender gemacht, ist aber auch eines der politisch brisantesten Themen. So hat sich die Debatte in 60 Jahren verändert.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Grenze von Mendrisio zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

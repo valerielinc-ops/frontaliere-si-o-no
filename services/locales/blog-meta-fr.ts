@@ -2694,6 +2694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Pétition pour abolir la taxe d\'exemption du service militaire',
     'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'La Jeunesse Communiste lance une pétition pour abolir la taxe d\'exemption du service militaire, jugée injuste et discriminatoire.',
     'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Jeunes manifestants à Bellinzone avec des pancartes demandant l\'abolition de la taxe d\'exemption du service militaire.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Immigration en Suisse : 60 ans de débat et 20 initiatives',
+    'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'L\'immigration a rendu la Suisse plus prospère, mais c\'est aussi l\'un des sujets politiques les plus brûlants. Voici comment le débat a évolué en 60 ans.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Frontière de Mendrisio entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

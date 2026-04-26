@@ -2694,6 +2694,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Petizione per abolire la tassa di esenzione dal servizio militare',
     'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'La Gioventù Comunista lancia una petizione per abolire la tassa di esenzione dal servizio militare, definita ingiusta e discriminatoria.',
     'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Giovani manifestanti a Bellinzona con cartelli che chiedono l\'abolizione della tassa di esenzione dal servizio militare.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Immigrazione in Svizzera: 60 anni di dibattito e 20 iniziative',
+    'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'L\'immigrazione ha reso la Svizzera più prospera, ma è anche uno dei temi politici più scottanti. Ecco come è cambiato il dibattito in 60 anni.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Confine di Mendrisio tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

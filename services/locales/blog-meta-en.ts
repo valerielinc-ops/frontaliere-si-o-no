@@ -2694,6 +2694,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petizione-tassa-esenzione-militare-ticino.title': 'Petition to abolish the military service exemption tax',
     'blog.article.petizione-tassa-esenzione-militare-ticino.excerpt': 'The Communist Youth launches a petition to abolish the military service exemption tax, defined as unfair and discriminatory.',
     'blog.article.petizione-tassa-esenzione-militare-ticino.imageAlt': 'Young protesters in Bellinzona holding signs demanding the abolition of the military service exemption tax.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Immigration in Switzerland: 60 years of debate and 20 initiatives',
+    'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'Immigration has made Switzerland more prosperous, but it is also one of the most contentious political issues. Here\'s how the debate has changed over 60 years.',
+    'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Mendrisio border between Italy and Switzerland',
 };
 
 export default blogMetaEn;
