@@ -2685,6 +2685,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, medical expenses: Italy rejects Swiss request',
     'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'Prime Minister Meloni announces that Italy will not pay the medical expenses for the Crans-Montana injured, despite Switzerland intending to request reimbursement',
     'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Panoramic view of Crans-Montana with ski lifts and snowy landscape',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'Lombardy increases healthcare salaries at the border: +20% for doctors and nurses',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'New state law funds the increase with a levy from 3% to 6% on the salaries of cross-border workers',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;

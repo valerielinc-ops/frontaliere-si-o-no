@@ -2155,6 +2155,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica': { name: 'Fiorenzo Dadò, le sue tre «P» e gli stat', path: '/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica', parent: 'blog' },
     'blog-medici-senza-permesso-svizzera-2026': { name: 'Sanità', path: '/articoli-frontaliere/medici-senza-permesso-svizzera-2026', parent: 'blog' },
     'blog-crans-montana-spese-cura-italiani-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-spese-cura-italiani-2026', parent: 'blog' },
+    'blog-lombardia-aumenta-stipendi-sanitari-2026': { name: 'Novità', path: '/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

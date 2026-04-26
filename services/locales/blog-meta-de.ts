@@ -2685,6 +2685,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, medizinische Kosten: Italien lehnt Schweizer Antrag ab',
     'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'Premierministerin Meloni kündigt an, dass Italien die medizinischen Kosten für die Verletzten von Crans-Montana nicht übernehmen wird, obwohl die Schweiz eine Rückerstattung beantragt',
     'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Panoramablick von Crans-Montana mit Skiliften und verschneiter Landschaft',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'Lombardei erhöht Gehälter im Gesundheitswesen an der Grenze: +20% für Ärzte und Krankenschwestern',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'Neues Staatsgesetz finanziert die Erhöhung mit einer Erhöhung der Abgabe von 3% auf 6% für die Gehälter der Grenzgänger',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
 };
 
 export default blogMetaDe;

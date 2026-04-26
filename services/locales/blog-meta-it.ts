@@ -2685,6 +2685,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, spese mediche: Italia respinge richiesta svizzera',
     'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'La premier Meloni annuncia che l\'Italia non pagherà le spese mediche per i feriti di Crans-Montana, nonostante la Svizzera intenda chiedere il rimborso',
     'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Vista panoramica di Crans-Montana con impianti da sci e paesaggio innevato',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'Lombardia aumenta stipendi sanitari al confine: +20% per medici e infermieri',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'Nuova legge statale finanzia l\'aumento con un prelievo dal 3% al 6% sugli stipendi dei frontalieri',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

@@ -2685,6 +2685,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, frais médicaux : l\'Italie rejette la demande suisse',
     'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'La première ministre Meloni annonce que l\'Italie ne paiera pas les frais médicaux pour les blessés de Crans-Montana, malgré la Suisse qui entend demander un remboursement',
     'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Vue panoramique de Crans-Montana avec des remontées mécaniques et un paysage enneigé',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.title': 'La Lombardie augmente les salaires des travailleurs de la santé à la frontière : +20 % pour les médecins et les infirmiers',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.excerpt': 'Une nouvelle loi de l\'État finance l\'augmentation avec une contribution passant de 3 % à 6 % sur les salaires des travailleurs frontaliers',
+    'blog.article.lombardia-aumenta-stipendi-sanitari-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
 };
 
 export default blogMetaFr;

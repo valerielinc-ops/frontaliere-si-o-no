@@ -12828,6 +12828,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-aumenta-stipendi-sanitari-2026': {
+    title: 'Lombardia aumenta stipendi sanitari al | Frontaliere Ticino',
+    description: 'La Lombardia introduce un aumento del 20% per medici e infermieri al confine con la Svizzera, finanziato da un contributo sui salari dei frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, aumenta, stipendi, sanitari',
+    ogTitle: 'Lombardia aumenta stipendi sanitari al confine | Frontaliere',
+    ogDescription: 'La Lombardia introduce un aumento del 20% per medici e infermieri al confine con la Svizzera, finanziato da un contributo sui salari dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia aumenta stipendi sanitari al confine con la Svizzera",
+      "description": "La Lombardia introduce un aumento del 20% per medici e infermieri al confine con la Svizzera, finanziato da un contributo sui salari dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-aumenta-stipendi-sanitari-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-04-26T10:28:13+00:00",
+      "dateModified": "2026-04-26T10:28:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
