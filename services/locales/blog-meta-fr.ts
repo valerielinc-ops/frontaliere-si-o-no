@@ -2715,6 +2715,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'Impôt OCDE sur les multinationales : objectifs lointains, seulement 564 millions en 2025',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'L\'impôt minimum de 15 % pour les multinationales en Suisse a rapporté 564 millions en 2025, bien en dessous des objectifs milliardaires du Conseil fédéral.',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.settimana-corta-svizzera-frontalieri.title': 'Semaine de quatre jours en Suisse : moins d\'heures, plus de productivité',
+    'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'Une expérience suisse montre que travailler moins d\'heures pour un salaire égal réduit les absences et augmente la motivation des employés',
+    'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Vue aérienne de Lugano avec le lac Ceresio et ciel bleu',
 };
 
 export default blogMetaFr;

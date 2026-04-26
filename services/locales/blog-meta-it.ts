@@ -2715,6 +2715,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'Imposta OCSE sulle multinazionali: obiettivi lontani, solo 564 milioni nel 2025',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'L\'imposta minima del 15% per le multinazionali in Svizzera ha incassato 564 milioni nel 2025, ben al di sotto degli obiettivi miliardari del Consiglio federale.',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Vista aerea del Lago di Lugano con il confine italo-svizzero in primo piano',
+    'blog.article.settimana-corta-svizzera-frontalieri.title': 'Settimana corta in Svizzera: meno ore, più produttività',
+    'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'Un esperimento svizzero mostra che lavorare meno ore a parità di salario riduce assenze e aumenta la motivazione dei dipendenti',
+    'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio e cielo azzurro',
 };
 
 export default blogMetaIt;

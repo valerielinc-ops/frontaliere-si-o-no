@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 951,
+ "numberOfItems": 952,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5675,7 +5675,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 949, "name": "Maria Timofeeva trionfa al torneo di Chiasso: v...", "url": `${BASE_URL}/articoli-frontaliere/maria-timofeeva-trionfa-chiasso-2026` },
           { "@type": "ListItem", "position": 950, "name": "Crans-Montana: chi paga le cure per gli italiani?", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-cure-italiani-2026` },
           { "@type": "ListItem", "position": 951, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026` },
-          { "@type": "ListItem", "position": 951, "name": "Imposta OCSE Multinazionali: Obiettivi Lontani", "url": `${BASE_URL}/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani` }
+          { "@type": "ListItem", "position": 951, "name": "Imposta OCSE Multinazionali: Obiettivi Lontani", "url": `${BASE_URL}/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani` },
+          { "@type": "ListItem", "position": 952, "name": "Settimana corta in Svizzera: meno ore, più prod...", "url": `${BASE_URL}/articoli-frontaliere/settimana-corta-svizzera-frontalieri` }
  ]
  },
  {

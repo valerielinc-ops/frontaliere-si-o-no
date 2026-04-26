@@ -13118,6 +13118,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-settimana-corta-svizzera-frontalieri': {
+    title: 'Settimana corta in Svizzera: meno ore | Frontaliere Ticino',
+    description: 'Un esperimento svizzero mostra che lavorare meno ore a parità di salario riduce assenze e aumenta la motivazione dei dipendenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, settimana, corta, meno, produttività',
+    ogTitle: 'Settimana corta in Svizzera: meno ore, più produttività',
+    ogDescription: 'Un esperimento svizzero mostra che lavorare meno ore a parità di salario riduce assenze e aumenta la motivazione dei dipendenti',
+    canonicalPath: '/articoli-frontaliere/settimana-corta-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Settimana corta in Svizzera: meno ore, più produttività",
+      "description": "Un esperimento svizzero mostra che lavorare meno ore a parità di salario riduce assenze e aumenta la motivazione dei dipendenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/settimana-corta-svizzera-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Ceresio e cielo azzurro"
+      },
+      "datePublished": "2026-04-26T20:57:28+00:00",
+      "dateModified": "2026-04-26T20:57:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settimana-corta-svizzera-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

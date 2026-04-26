@@ -2715,6 +2715,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'OCSE tax on multinationals: distant goals, only 564 million in 2025',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'The minimum tax rate of 15% for multinationals in Switzerland raised 564 million francs in 2025, far below the federal council\'s billion-dollar targets.',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.settimana-corta-svizzera-frontalieri.title': 'Short work week in Switzerland: fewer hours, more productivity',
+    'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'A Swiss experiment shows that working fewer hours for the same salary reduces absences and increases employee motivation',
+    'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Aerial view of Lugano with Lake Ceresio and blue sky',
 };
 
 export default blogMetaEn;

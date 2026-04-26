@@ -2715,6 +2715,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'OCSE-Steuer für Multinationale: Ziele in weiter Ferne, nur 564 Millionen im Jahr 2025',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'Die Mindeststeuer von 15% für Multinationale in der Schweiz hat im Jahr 2025 564 Millionen Franken eingebracht, weit unter den milliardenschweren Zielen des Bundesrates.',
     'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
+    'blog.article.settimana-corta-svizzera-frontalieri.title': 'Kurze Arbeitswoche in der Schweiz: Weniger Stunden, mehr Produktivität',
+    'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'Ein Schweizer Experiment zeigt, dass weniger Arbeitsstunden bei gleichem Lohn die Fehlzeiten reduzieren und die Motivation der Mitarbeiter steigern',
+    'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Luftaufnahme von Lugano mit dem Ceresio-See und blauem Himmel',
 };
 
 export default blogMetaDe;

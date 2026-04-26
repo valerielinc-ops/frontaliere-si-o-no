@@ -2165,6 +2165,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-cure-italiani-2026': { name: 'Crans-Montana cure', path: '/articoli-frontaliere/crans-montana-cure-italiani-2026', parent: 'blog' },
     'blog-costi-salute-svizzera-frontalieri-2026': { name: 'Costi salute', path: '/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026', parent: 'blog' },
     'blog-imposta-ocse-multinazionali-obiettivi-lontani': { name: 'Fiscale', path: '/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani', parent: 'blog' },
+    'blog-settimana-corta-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/settimana-corta-svizzera-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

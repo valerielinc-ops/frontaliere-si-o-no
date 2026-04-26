@@ -7322,4 +7322,11 @@ export const ARTICLES = [
  image: '/images/blog/imposta-ocse-multinazionali-obiettivi-lontani.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'settimana-corta-svizzera-frontalieri',
+ category: 'novita',
+ date: '2026-04-26T20:57:28.380Z',
+ image: '/images/blog/settimana-corta-svizzera-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
