@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-04-25T21:58:49.428Z",
+  "assembledAt": "2026-04-26T10:10:38.887Z",
   "jobs": [
     {
       "title": "Casseratore",
@@ -1865,7 +1865,8 @@
         "metalworker-amp-8211-welder-pemsa-bellinzona",
         "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona",
         "placoplatre-amp-8211-epaississeur-pemsa-bellinzona"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "PIASTRELLISTA",
@@ -2106,7 +2107,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "IDRAULICO",
@@ -2230,124 +2232,6 @@
         "autista-c-di-ribaltabile-pemsa-bellinzona",
         "autista-c-di-ribaltabile-pemsa-bellinzona"
       ]
-    },
-    {
-      "title": "SALDATORE TUBISTA",
-      "slug": "saldatore-tubista-pemsa-mendrisio",
-      "url": "https://www.pemsa.ch/it/job/saldatore-tubista-2669716/",
-      "applyUrl": "https://www.pemsa.ch/it/job/saldatore-tubista-2669716/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "metallo",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-10",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-25",
-      "description": "Pemsa è leader nel mercato svizzero del collocamento specializzato nei settori della costruzione, del genio civile, dell’elettricità, della tecnica dell’edilizia e dell’industria. Grazie a un’approfondita conoscenza dei requisiti tecnici e normativi svizzeri, offriamo un servizio di intermediazione professionale e su misura, valorizzando il talento locale e garantendo l’incontro tra candidati qualificati e aziende d’eccellenza. La nostra reputazione si fonda su un approccio rigoroso, orientato alla qualità e al successo sostenibile, rappresentando così un punto di riferimento imprescindibile nel panorama del recruiting tecnico in Svizzera.\n\n## Missione:\n• Eseguire saldature TIG di alta precisione su vari componenti metallici, anche in opera, garantendo forte qualità tecnica e rispetto delle normative vigenti in Svizzera. • Realizzare saldature MAG e MIG, integrandole nel processo produttivo secondo le specifiche tecniche stabilite dal cliente e dalle norme di sicurezza svizzere. • Effettuare saldature soggette a controlli radiografici con meticolosità, assicurando la conformità alle richieste qualitative. • Collaborare attivamente con il team di cantiere nel rispetto dei tempi di lavoro, delle prescrizioni di sicurezza e dell’ottimizzazione delle risorse. • Gestire autonomamente gli spostamenti al cantiere, con una distanza massimo di 20 km dal proprio domicilio, garantendo puntualità e flessibilità.\n\n## Profilo:\n• Esperienza minima di 5 anni nel territorio svizzero con comprovata competenza in saldatura TIG, incluso lavoro in opera. • Padronanza della lingua italiana a livello madrelingua per una comunicazione tecnica e quotidiana efficace. • Possesso di veicolo proprio e patente di guida valida (categoria B), indispensabili per la mobilità sul territorio. • Conoscenze solide e dimostrate nelle tecniche di saldatura MAG, MIG e capacità di eseguire saldature sottoposte a esami radiografici (preferibile). • Preferibile titolo di formazione professionale superiore di tipo SVS (Scuola superiore di tecnica). • Disponibilità a lavorare entro un raggio massimo di 20 km dal domicilio.\n\n## Ton interlocuteur/trice :\nEn collaborant avec Pemsa, vous bénéficiez d’un accompagnement personnalisé par un spécialiste du recrutement technique, garantissant un matching précis entre votre profil et les exigences des employeurs suisses. Nous valorisons la formation continue, la sécurité au travail et l’évolution de carrière, en assurant un cadre de travail conforme aux standards suisses les plus élevés. Notre objectif est de vous proposer des opportunités en adéquation parfaite avec vos compétences et aspirations, tout en facilitant votre intégration et votre réussite professionnelle sur le marché local.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "SALDATORE TUBISTA",
-        "en": "TIG Welder (Pipefitter)",
-        "de": "WIG-Schweisser/in (Rohrschlosser/in)",
-        "fr": "Soudeur TIG (Tubiste)"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è leader nel mercato svizzero del collocamento specializzato nei settori della costruzione, del genio civile, dell’elettricità, della tecnica dell’edilizia e dell’industria. Grazie a un’approfondita conoscenza dei requisiti tecnici e normativi svizzeri, offriamo un servizio di intermediazione professionale e su misura, valorizzando il talento locale e garantendo l’incontro tra candidati qualificati e aziende d’eccellenza. La nostra reputazione si fonda su un approccio rigoroso, orientato alla qualità e al successo sostenibile, rappresentando così un punto di riferimento imprescindibile nel panorama del recruiting tecnico in Svizzera. ## Missione: - Eseguire saldature TIG di alta precisione su vari componenti metallici, anche in opera, garantendo forte qualità tecnica e rispetto delle normative vigenti in Svizzera. - Realizzare saldature MAG e MIG, integrandole nel processo produttivo secondo le specifiche tecniche stabilite dal cliente e dalle norme di sicurezza svizzere. - Effettuare saldature soggette a controlli radiografici con meticolosità, assicurando la conformità alle richieste qualitative. - Collaborare attivamente con il team di cantiere nel rispetto dei tempi di lavoro, delle prescrizioni di sicurezza e dell’ottimizzazione delle risorse. - Gestire autonomamente gli spostamenti al cantiere, con una distanza massimo di 20 km dal proprio domicilio, garantendo puntualità e flessibilità. ## Profilo: - Esperienza minima di 5 anni nel territorio svizzero con comprovata competenza in saldatura TIG, incluso lavoro in opera. - Padronanza della lingua italiana a livello madrelingua per una comunicazione tecnica e quotidiana efficace. - Possesso di veicolo proprio e patente di guida valida (categoria B), indispensabili per la mobilità sul territorio. - Conoscenze solide e dimostrate nelle tecniche di saldatura MAG, MIG e capacità di eseguire saldature sottoposte a esami radiografici (preferibile). - Preferibile titolo di formazione professionale superiore di tipo SVS (Scuola superiore di tecnica). - Disponibilità a lavorare entro un raggio massimo di 20 km dal domicilio. ## Ton interlocuteur/trice : En collaborant avec Pemsa, vous bénéficiez d’un accompagnement personnalisé par un spécialiste du recrutement technique, garantissant un matching précis entre votre profil et les exigences des employeurs suisses. Nous valorisons la formation continue, la sécurité au travail et l’évolution de carrière, en assurant un cadre de travail conforme aux standards suisses les plus élevés. Notre objectif est de vous proposer des opportunités en adéquation parfaite avec vos compétences et aspirations, tout en facilitant votre intégration et votre réussite professionnelle sur le marché local. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is a leader in the Swiss market for specialized recruitment in the construction, civil engineering, electrical, building technology, and industrial sectors. Thanks to an in-depth knowledge of Swiss technical and regulatory requirements, we offer a professional and tailored placement service, enhancing local talent and ensuring the match between qualified candidates and top-tier companies. Our reputation is built on a rigorous, quality-oriented approach that prioritizes sustainable success, making us an indispensable reference point in the technical recruitment landscape in Switzerland. ## Mission: - Perform high-precision TIG welding on various metal components, including on-site work, ensuring strong technical quality and compliance with Swiss regulations. - Carry out MAG and MIG welding, integrating them into the production process according to the technical specifications set by the client and Swiss safety standards. - Perform welds subject to radiographic inspections with meticulous care, ensuring compliance with quality requirements. - Actively collaborate with the site team while respecting work schedules, safety regulations, and resource optimization. - Manage site travel independently, with a maximum distance of 20 km from your home, ensuring punctuality and flexibility. ## Profile: - Minimum of 5 years of experience in Switzerland with proven expertise in TIG welding, including on-site work. - Mastery of the Italian language at a native level for effective technical and daily communication. - Ownership of a personal vehicle and a valid driver’s license (category B), essential for mobility. - Solid and demonstrated knowledge of MAG and MIG welding techniques and the ability to perform welds subject to radiographic examinations (preferred). - Preferred higher professional training qualification of the SVS type (Scuola superiore di tecnica). - Availability to work within a maximum radius of 20 km from your home. ## Your contact person: By collaborating with Pemsa, you benefit from personalized support from a technical recruitment specialist, ensuring a precise match between your profile and the requirements of Swiss employers. We value continuous training, workplace safety, and career development, providing a work environment that meets the highest Swiss standards. Our goal is to offer you opportunities that perfectly align with your skills and aspirations, while facilitating your integration and professional success in the local market. We will only respond to applications that match the requested profile.",
-        "de": "Pemsa ist Marktführer im Bereich der spezialisierten Personalvermittlung in der Schweiz für die Branchen Bauwesen, Tiefbau, Elektrotechnik, Gebäudetechnik und Industrie. Dank fundierter Kenntnisse der schweizerischen technischen und normativen Anforderungen bieten wir einen professionellen und massgeschneiderten Vermittlungsservice, der lokale Talente fördert und die passende Verbindung zwischen qualifizierten Bewerbern und erstklassigen Unternehmen herstellt. Unser Ruf basiert auf einem rigorosen, qualitätsorientierten Ansatz, der nachhaltigen Erfolg priorisiert und uns zu einem unverzichtbaren Referenzpunkt im technischen Rekrutierungsbereich der Schweiz macht. ## Mission: - Durchführung hochpräziser WIG-Schweissarbeiten an verschiedenen Metallkomponenten, auch vor Ort, mit Garantie für hohe technische Qualität und Einhaltung der schweizerischen Vorschriften. - Ausführung von MAG- und MIG-Schweissarbeiten, Integration in den Produktionsprozess gemäss den technischen Vorgaben des Kunden und den schweizerischen Sicherheitsnormen. - Durchführung von Schweissarbeiten, die radiografischen Kontrollen unterliegen, mit grosser Sorgfalt, um die Einhaltung der Qualitätsanforderungen zu gewährleisten. - Aktive Zusammenarbeit mit dem Baustellenteam unter Einhaltung der Arbeitszeiten, Sicherheitsvorschriften und Ressourcenoptimierung. - Selbstständige Organisation der Anfahrten zur Baustelle mit einer maximalen Entfernung von 20 km vom Wohnort, unter Garantie von Pünktlichkeit und Flexibilität. ## Profil: - Mindestens 5 Jahre Berufserfahrung in der Schweiz mit nachgewiesener Kompetenz im WIG-Schweissen, einschliesslich Arbeit vor Ort. - Sehr gute Italienischkenntnisse auf muttersprachlichem Niveau für eine effektive technische und alltägliche Kommunikation. - Eigenes Fahrzeug und gültiger Führerschein (Kategorie B), unerlässlich für die Mobilität. - Fundierte und nachgewiesene Kenntnisse in MAG- und MIG-Schweisstechniken sowie Fähigkeit zur Durchführung von Schweissarbeiten, die radiografischen Prüfungen unterliegen (vorzugsweise). - Bevorzugt abgeschlossene höhere Berufsbildung vom Typ SVS (Scuola superiore di tecnica). - Bereitschaft, innerhalb eines maximalen Radius von 20 km vom Wohnort zu arbeiten. ## Ihr Ansprechpartner: Durch die Zusammenarbeit mit Pemsa profitieren Sie von einer persönlichen Betreuung durch einen Spezialisten für technische Rekrutierung, der eine präzise Abstimmung zwischen Ihrem Profil und den Anforderungen schweizerischer Arbeitgeber gewährleistet. Wir legen Wert auf kontinuierliche Weiterbildung, Arbeitssicherheit und Karriereentwicklung und bieten ein Arbeitsumfeld, das den höchsten schweizerischen Standards entspricht. Unser Ziel ist es, Ihnen Chancen zu bieten, die perfekt zu Ihren Fähigkeiten und Ambitionen passen, und gleichzeitig Ihre Integration und beruflichen Erfolg auf dem lokalen Markt zu erleichtern. Wir werden nur auf Bewerbungen reagieren, die dem angeforderten Profil entsprechen.",
-        "fr": "Pemsa est leader sur le marché suisse du recrutement spécialisé dans les secteurs de la construction, du génie civil, de l’électricité, de la technique du bâtiment et de l’industrie. Grâce à une connaissance approfondie des exigences techniques et normatives suisses, nous offrons un service d’intermédiation professionnelle et sur mesure, valorisant les talents locaux et garantissant la rencontre entre candidats qualifiés et entreprises d’excellence. Notre réputation repose sur une approche rigoureuse, axée sur la qualité et le succès durable, faisant de nous un acteur incontournable du recrutement technique en Suisse. ## Mission: - Réaliser des soudures TIG de haute précision sur divers composants métalliques, y compris sur site, en garantissant une qualité technique élevée et le respect des normes suisses en vigueur. - Effectuer des soudures MAG et MIG, en les intégrant dans le processus de production selon les spécifications techniques établies par le client et les normes de sécurité suisses. - Réaliser des soudures soumises à des contrôles radiographiques avec rigueur, en assurant la conformité aux exigences qualitatives. - Collaborer activement avec l’équipe de chantier en respectant les délais de travail, les prescriptions de sécurité et l’optimisation des ressources. - Gérer de manière autonome les déplacements vers le chantier, dans un rayon maximal de 20 km depuis votre domicile, en garantissant ponctualité et flexibilité. ## Profil: - Expérience minimale de 5 ans en Suisse avec une expertise avérée en soudure TIG, y compris le travail sur site. - Maîtrise de l’italien à un niveau natif pour une communication technique et quotidienne efficace. - Possession d’un véhicule personnel et d’un permis de conduire valide (catégorie B), indispensables pour la mobilité. - Connaissances solides et démontrées des techniques de soudure MAG et MIG, ainsi que la capacité à réaliser des soudures soumises à des examens radiographiques (préférable). - Titre de formation professionnelle supérieure de type SVS (Scuola superiore di tecnica) préféré. - Disponibilité à travailler dans un rayon maximal de 20 km depuis votre domicile. ## Votre interlocuteur/trice: En collaborant avec Pemsa, vous bénéficiez d’un accompagnement personnalisé par un spécialiste du recrutement technique, garantissant une adéquation précise entre votre profil et les exigences des employeurs suisses. Nous valorisons la formation continue, la sécurité au travail et l’évolution de carrière, en offrant un cadre de travail conforme aux normes suisses les plus élevées. Notre objectif est de vous proposer des opportunités en parfaite adéquation avec vos compétences et vos aspirations, tout en facilitant votre intégration et votre réussite professionnelle sur le marché local. Nous ne répondrons qu’aux candidatures correspondant au profil demandé."
-      },
-      "slugByLocale": {
-        "it": "saldatore-tubista-pemsa-mendrisio",
-        "en": "tig-welder-pipefitter-pemsa-mendrisio",
-        "de": "wig-schweisser-in-rohrschlosser-in-pemsa-mendrisio",
-        "fr": "soudeur-tig-tubiste-pemsa-mendrisio"
-      },
-      "id": "pemsa-ad80de744cac",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
-    },
-    {
-      "title": "Consulente di Vendita",
-      "slug": "consulente-di-vendita-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/consulente-di-vendita-2669713/",
-      "applyUrl": "https://www.pemsa.ch/it/job/consulente-di-vendita-2669713/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-10",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-25",
-      "description": "Pemsa si posiziona come leader di riferimento nel mercato svizzero per il recruiting nei settori della costruzione, del genio civile, dell’elettricità, della tecnica del edificio e dell’industria. Grazie a un’esperienza pluriennale e a una rete consolidata di contatti, Pemsa offre un servizio personalizzato e di alta qualità, mettendo a disposizione competenze specifiche e una conoscenza approfondita dei requisiti del mercato locale. La nostra missione è connettere professionisti qualificati con aziende all’avanguardia, valorizzando il talento e favorendo la crescita sostenibile del settore.\n\n## Missione:\n• Gestire e sviluppare in modo proattivo il portafoglio clienti nel settore della vendita e della consulenza, con un focus specifico sul mercato del Ticino. • Offrire un servizio di alta qualità con consulenze personalizzate, garantendo soluzioni efficaci e innovative per i clienti. • Mantenere un rapporto costante e professionale con i clienti, ascoltando le loro esigenze e proponendo prodotti e servizi adeguati. • Collaborare con i team interni per assicurare il follow-up delle offerte e la gestione efficiente degli ordini. • Partecipare attivamente a campagne di vendita, eventi commerciali e iniziative promozionali per ampliare la presenza sul territorio. • Monitorare costantemente il mercato e la concorrenza, fornendo feedback e suggerimenti per l’ottimizzazione dell’offerta commerciale.\n\n## Profilo:\n• Formazione: Possesso di un attestato federale di capacità (AFC) indispensabile per garantire solide basi tecniche e commerciali. • Esperienza: Esperienza minima di 3 anni nel mercato svizzero, con comprovata capacità nella vendita e consulenza, in particolare nella regione del Ticino. • Lingue: Italiano madrelingua obbligatorio; • Permessi e residenza: Patente di guida valida per la Svizzera e residenza stabile in Ticino, con una distanza massima di 20 km dal luogo di lavoro, per assicurare la mobilità e la puntualità. • Competenze personali: Eccellenti capacità comunicative e relazionali, orientamento al cliente e attitudine al lavoro di squadra e proattivo. • Ulteriori qualifiche: Esperienza in impiego del commercio al dettaglio AFC rappresenta un forte valore aggiunto.\n\n## Ton interlocuteur/trice :\nEntrando in contatto con Pemsa, accederai a un supporto professionale e dedicato durante tutto il processo di selezione. Il nostro team di esperti ti accompagna con punti di vista specialistici e una profonda conoscenza del mercato ticinese, al fine di valorizzare al meglio il tuo profilo e le tue competenze. Offriamo un networking di alta qualità e opportunità reali di crescita professionale in contesti dinamici e innovativi.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "Consulente di Vendita",
-        "en": "Sales Consultant",
-        "de": "Verkaufsberater/in",
-        "fr": "Conseiller/Conseillère commercial(e)"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa si posiziona come leader di riferimento nel mercato svizzero per il recruiting nei settori della costruzione, del genio civile, dell’elettricità, della tecnica del edificio e dell’industria. Grazie a un’esperienza pluriennale e a una rete consolidata di contatti, Pemsa offre un servizio personalizzato e di alta qualità, mettendo a disposizione competenze specifiche e una conoscenza approfondita dei requisiti del mercato locale. La nostra missione è connettere professionisti qualificati con aziende all’avanguardia, valorizzando il talento e favorendo la crescita sostenibile del settore. ## Missione: - Gestire e sviluppare in modo proattivo il portafoglio clienti nel settore della vendita e della consulenza, con un focus specifico sul mercato del Ticino. - Offrire un servizio di alta qualità con consulenze personalizzate, garantendo soluzioni efficaci e innovative per i clienti. - Mantenere un rapporto costante e professionale con i clienti, ascoltando le loro esigenze e proponendo prodotti e servizi adeguati. - Collaborare con i team interni per assicurare il follow-up delle offerte e la gestione efficiente degli ordini. - Partecipare attivamente a campagne di vendita, eventi commerciali e iniziative promozionali per ampliare la presenza sul territorio. - Monitorare costantemente il mercato e la concorrenza, fornendo feedback e suggerimenti per l’ottimizzazione dell’offerta commerciale. ## Profilo: - Formazione: Possesso di un attestato federale di capacità (AFC) indispensabile per garantire solide basi tecniche e commerciali. - Esperienza: Esperienza minima di 3 anni nel mercato svizzero, con comprovata capacità nella vendita e consulenza, in particolare nella regione del Ticino. - Lingue: Italiano madrelingua obbligatorio; - Permessi e residenza: Patente di guida valida per la Svizzera e residenza stabile in Ticino, con una distanza massima di 20 km dal luogo di lavoro, per assicurare la mobilità e la puntualità. - Competenze personali: Eccellenti capacità comunicative e relazionali, orientamento al cliente e attitudine al lavoro di squadra e proattivo. - Ulteriori qualifiche: Esperienza in impiego del commercio al dettaglio AFC rappresenta un forte valore aggiunto. ## Ton interlocuteur/trice : Entrando in contatto con Pemsa, accederai a un supporto professionale e dedicato durante tutto il processo di selezione. Il nostro team di esperti ti accompagna con punti di vista specialistici e una profonda conoscenza del mercato ticinese, al fine di valorizzare al meglio il tuo profilo e le tue competenze. Offriamo un networking di alta qualità e opportunità reali di crescita professionale in contesti dinamici e innovativi. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "PEMSA is positioned as a leading reference in the Swiss market for recruitment in the construction, civil engineering, electrical, building technology, and industrial sectors. With many years of experience and a well-established network of contacts, PEMSA offers personalized and high-quality services, providing specific expertise and in-depth knowledge of local market requirements. Our mission is to connect qualified professionals with cutting-edge companies, enhancing talent and fostering sustainable growth in the sector. ## Mission: - Proactively manage and develop the client portfolio in the sales and consulting sectors, with a specific focus on the Ticino market. - Provide high-quality service with personalized consulting, ensuring effective and innovative solutions for clients. - Maintain a constant and professional relationship with clients, listening to their needs and proposing suitable products and services. - Collaborate with internal teams to ensure follow-up on offers and efficient order management. - Actively participate in sales campaigns, commercial events, and promotional initiatives to expand market presence. - Continuously monitor the market and competition, providing feedback and suggestions for optimizing the commercial offering. ## Profile: - Education: Mandatory possession of a Swiss Federal Certificate of Proficiency (AFC) to ensure solid technical and commercial foundations. - Experience: Minimum 3 years of experience in the Swiss market, with proven sales and consulting skills, particularly in the Ticino region. - Languages: Native Italian speaker required. - Permits and Residency: Valid Swiss driver’s license and stable residency in Ticino, within a maximum distance of 20 km from the workplace, to ensure mobility and punctuality. - Personal Skills: Excellent communication and interpersonal skills, customer orientation, and a proactive teamwork attitude. - Additional Qualifications: Experience in retail trade AFC is a strong added value. ## Your Contact at Pemsa: By contacting Pemsa, you will gain access to professional and dedicated support throughout the selection process. Our team of experts will guide you with specialist insights and deep knowledge of the Ticino market, to best highlight your profile and skills. We offer high-quality networking and real opportunities for professional growth in dynamic and innovative contexts. We will only respond to applications that match the requested profile.",
-        "de": "PEMSA positioniert sich als führender Anbieter im Schweizer Markt für die Rekrutierung in den Bereichen Bau, Tiefbau, Elektrotechnik, Gebäudetechnik und Industrie. Dank langjähriger Erfahrung und einem etablierten Netzwerk bietet PEMSA massgeschneiderte und hochwertige Dienstleistungen, die spezifisches Fachwissen und fundierte Kenntnisse der lokalen Marktbedürfnisse vereinen. Unsere Mission ist es, qualifizierte Fachkräfte mit innovativen Unternehmen zu verbinden, Talent zu fördern und nachhaltiges Wachstum in der Branche zu unterstützen. ## Mission: - Proaktive Verwaltung und Entwicklung des Kundenportfolios im Verkaufs- und Beratungsbereich mit Fokus auf den Tessiner Markt. - Bereitstellung hochwertiger Dienstleistungen mit individueller Beratung, um effektive und innovative Lösungen für Kunden zu gewährleisten. - Aufbau und Pflege einer konstanten, professionellen Beziehung zu Kunden durch aktives Zuhören und passende Produkt- und Dienstleistungsvorschläge. - Zusammenarbeit mit internen Teams zur Sicherstellung der Nachverfolgung von Angeboten und effizienten Auftragsabwicklung. - Aktive Teilnahme an Verkaufskampagnen, Handelsmessen und Werbeinitiativen zur Erweiterung der Marktpräsenz. - Kontinuierliche Markt- und Wettbewerbsbeobachtung mit Feedback und Optimierungsvorschlägen für das kommerzielle Angebot. ## Profil: - Ausbildung: Obligatorischer Besitz eines eidgenössischen Fähigkeitszeugnisses (EFZ) zur Sicherstellung solider technischer und kaufmännischer Grundlagen. - Erfahrung: Mindestens 3 Jahre Berufserfahrung im Schweizer Markt, insbesondere im Tessiner Raum, mit nachweisbaren Verkaufs- und Beratungskompetenzen. - Sprachen: Muttersprachliches Italienisch erforderlich. - Bewilligungen und Wohnsitz: Gültiger Schweizer Führerschein und fester Wohnsitz im Tessin, maximal 20 km vom Arbeitsort entfernt, um Mobilität und Pünktlichkeit zu gewährleisten. - Persönliche Kompetenzen: Hervorragende Kommunikations- und Beziehungskompetenz, Kundenorientierung sowie proaktive Teamfähigkeit. - Zusätzliche Qualifikationen: Erfahrung im Einzelhandels-EFZ ist ein starker Pluspunkt. ## Ihr Ansprechpartner bei Pemsa: Wenn Sie sich an Pemsa wenden, erhalten Sie während des gesamten Auswahlprozesses professionelle und engagierte Unterstützung. Unser Expertenteam begleitet Sie mit Fachwissen und tiefgreifendem Wissen über den Tessiner Markt, um Ihr Profil und Ihre Fähigkeiten bestmöglich zu präsentieren. Wir bieten hochwertiges Networking und echte Chancen für berufliches Wachstum in dynamischen und innovativen Umfeldern. Wir antworten nur auf Bewerbungen, die dem beschriebenen Profil entsprechen.",
-        "fr": "PEMSA se positionne comme un acteur de référence sur le marché suisse du recrutement dans les secteurs de la construction, du génie civil, de l’électricité, de la technique du bâtiment et de l’industrie. Grâce à une expérience pluriannuelle et à un réseau de contacts bien établi, PEMSA propose des services personnalisés et de haute qualité, en mettant à disposition des compétences spécifiques et une connaissance approfondie des exigences du marché local. Notre mission est de connecter des professionnels qualifiés avec des entreprises innovantes, en valorisant les talents et en favorisant la croissance durable du secteur. ## Mission: - Gérer et développer de manière proactive le portefeuille clients dans les domaines de la vente et du conseil, avec un accent particulier sur le marché tessinois. - Offrir un service de haute qualité avec des conseils personnalisés, garantissant des solutions efficaces et innovantes pour les clients. - Maintenir une relation constante et professionnelle avec les clients, en écoutant leurs besoins et en proposant des produits et services adaptés. - Collaborer avec les équipes internes pour assurer le suivi des offres et la gestion efficace des commandes. - Participer activement aux campagnes de vente, aux événements commerciaux et aux initiatives promotionnelles pour élargir la présence sur le territoire. - Surveiller en permanence le marché et la concurrence, en fournissant des retours et des suggestions pour l’optimisation de l’offre commerciale. ## Profil: - Formation : Possession obligatoire d’un Certificat fédéral de capacité (CFC) pour garantir des bases techniques et commerciales solides. - Expérience : Minimum 3 ans d’expérience sur le marché suisse, avec des compétences avérées en vente et conseil, en particulier dans la région tessinoise. - Langues : Italien langue maternelle obligatoire. - Permis et résidence : Permis de conduire suisse valide et résidence stable au Tessin, dans un rayon maximal de 20 km du lieu de travail, pour assurer la mobilité et la ponctualité. - Compétences personnelles : Excellentes capacités de communication et relationnelles, orientation client et attitude proactive en équipe. - Qualifications supplémentaires : Une expérience dans le commerce de détail CFC représente un atout majeur. ## Votre interlocuteur/trice chez Pemsa : En contactant Pemsa, vous bénéficierez d’un accompagnement professionnel et dédié tout au long du processus de sélection. Notre équipe d’experts vous guidera avec des perspectives spécialisées et une connaissance approfondie du marché tessinois, afin de mettre en valeur au mieux votre profil et vos compétences. Nous offrons un réseautage de haute qualité et de réelles opportunités de croissance professionnelle dans des contextes dynamiques et innovants. Nous ne répondrons qu’aux candidatures correspondant au profil demandé."
-      },
-      "slugByLocale": {
-        "it": "consulente-di-vendita-pemsa-lugano",
-        "en": "sales-consultant-pemsa-lugano",
-        "de": "verkaufsberater-in-pemsa-lugano",
-        "fr": "conseiller-conseillere-commercial-e-pemsa-lugano"
-      },
-      "id": "pemsa-54610d3b1b0c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
     },
     {
       "title": "Metalcostruttore – Saldatore",
@@ -2790,7 +2674,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -3093,7 +2978,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elettricista",
