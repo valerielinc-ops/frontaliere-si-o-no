@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T12:18:53.509Z",
-    "label": "before",
-    "total": 2927,
-    "needsRetranslation": 12,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 9,
-      "en": 18,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T12:28:31.693Z",
-    "label": "after",
-    "total": 2927,
-    "needsRetranslation": 1,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 9,
-      "en": 18,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T13:15:16.042Z",
     "label": "before",
     "total": 2927,
@@ -7398,6 +7326,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-26T10:37:59.028Z",
+    "label": "before",
+    "total": 2676,
+    "needsRetranslation": 1171,
+    "incomplete": 112,
+    "complete": 2564,
+    "missingByLocale": {
+      "it": 52,
+      "en": 84,
+      "de": 83,
+      "fr": 100
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Société coopérative Migros Valais",
+        "pending": 16
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-26T11:50:07.346Z",
+    "label": "after",
+    "total": 2676,
+    "needsRetranslation": 93,
+    "incomplete": 43,
+    "complete": 2633,
+    "missingByLocale": {
+      "it": 32,
+      "en": 16,
+      "de": 30,
+      "fr": 34
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "Aziende Industriali di Lugano (AIL) SA",
+        "pending": 1
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
         "pending": 1
       }
     ]
