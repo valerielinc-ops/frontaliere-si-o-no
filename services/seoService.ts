@@ -2233,6 +2233,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  setLocale(pathLocale);
  }
  const locale = pathLocale;
+ // hreflang/<html lang> sync (Issue 204): force-sync the document language
+ // attribute and og:locale even when getLocale() already matches pathLocale.
+ // setLocale() short-circuits in that branch, so a stale `<html lang>` (e.g.
+ // left over after a 404 redirect / sessionStorage bridge) would otherwise
+ // mismatch the locale-specific hreflang alternates emitted below.
+ if (typeof document !== 'undefined' && document.documentElement.lang !== locale) {
+ document.documentElement.lang = locale;
+ }
  // For static-overlay routes (recency landings, today landings, fuel-daily,
  // border-wait, etc.) `buildPath(route, locale)` would return the generic
  // tab root (e.g. `/cerca-lavoro-ticino/`) because the route only carries

@@ -2997,6 +2997,16 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  ) => {
  const itModel = buildModel('it');
  const itPath = withSlash(`/${sectionByLocale.it}/${itModel.slug}`.replace(/\/+/g, '/'));
+ // Sitemap-jobs alignment (Issue 18): never advertise a URL whose static
+ // HTML wasn't actually emitted to dist/. The same plugin emits both the
+ // page HTML and the sitemap entry; if an earlier step skipped emission
+ // (e.g. zero jobs for that location/sector), the sitemap entry must
+ // follow. Probes the canonical Italian path the page would live at —
+ // alternates would all be dead too if the IT canonical isn't.
+ const itDirIndex = np.join(distDir, itPath.slice(1).replace(/\/$/, ''), 'index.html');
+ const itFlatHtml = np.join(distDir, itPath.replace(/\/+$/, '').slice(1) + '.html');
+ const itEmitted = _writtenPaths.has(itDirIndex) || _writtenPaths.has(itFlatHtml) || fs.existsSync(itDirIndex) || fs.existsSync(itFlatHtml);
+ if (!itEmitted) return;
  const alternateLinks = localeList.map((locale) => {
  const localeModel = buildModel(locale);
  const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localeModel.slug}`.replace(/\/+/g, '/');
