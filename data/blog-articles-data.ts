@@ -7231,4 +7231,11 @@ export const ARTICLES = [
  image: '/images/blog/apprendisti-ticino-incidenti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica',
+ category: 'novita',
+ date: '2026-04-26T06:21:52.586Z',
+ image: '/images/blog/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

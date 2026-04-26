@@ -12741,6 +12741,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica': {
+    title: 'Fiorenzo Dadò, le sue tre «P» e gli | Frontaliere Ticino',
+    description: 'Fiorenzo Dadò, presidente dell\'OCST, discute con Alain Buehler, capogruppo UDC, sulle iniziative statali. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiorenzo, dadò, statali, nella',
+    ogTitle: 'Fiorenzo Dadò, le sue tre «P» e gli statali nella morsa p',
+    ogDescription: 'Fiorenzo Dadò, presidente dell\'OCST, discute con Alain Buehler, capogruppo UDC, sulle iniziative statali.',
+    canonicalPath: '/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiorenzo Dadò, le sue tre «P» e gli statali nella morsa p",
+      "description": "Fiorenzo Dadò, presidente dell'OCST, discute con Alain Buehler, capogruppo UDC, sulle iniziative statali. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-26T06:21:52+00:00",
+      "dateModified": "2026-04-26T06:21:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

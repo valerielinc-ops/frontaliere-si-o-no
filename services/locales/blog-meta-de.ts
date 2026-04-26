@@ -2676,6 +2676,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.apprendisti-ticino-incidenti-2026.title': 'Lernende im Tessin: alarmierende Zahlen zu Unfällen',
     'blog.article.apprendisti-ticino-incidenti-2026.excerpt': 'Fast 23.000 Schweizer Lernende sind jedes Jahr von Unfällen betroffen, durchschnittlich drei davon tödlich. Unia fordert dringende Maßnahmen.',
     'blog.article.apprendisti-ticino-incidenti-2026.imageAlt': 'Gruppe von Lernenden demonstriert in Bern über Arbeitssicherheit',
+    'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.title': 'Fiorenzo Dadò, seine drei \'P\' und die Staatsangehörigen in der politischen Klemme',
+    'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.excerpt': 'Fiorenzo Dadò, Präsident des OCST, spricht mit Alain Buehler, Capo des UDC, über staatliche Initiativen.',
+    'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaDe;

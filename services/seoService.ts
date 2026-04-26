@@ -2152,6 +2152,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-fatture-cure-italiani-2026': { name: 'Crans-Montana: fatture cure italiani', path: '/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026', parent: 'blog' },
     'blog-svizzeri-shopping-como-700-milioni': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-shopping-como-700-milioni', parent: 'blog' },
     'blog-apprendisti-ticino-incidenti-2026': { name: 'Novità', path: '/articoli-frontaliere/apprendisti-ticino-incidenti-2026', parent: 'blog' },
+    'blog-fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica': { name: 'Fiorenzo Dadò, le sue tre «P» e gli stat', path: '/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica', parent: 'blog' },
  };
 
  const info = sectionNames[section];

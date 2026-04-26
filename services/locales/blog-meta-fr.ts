@@ -2676,6 +2676,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.apprendisti-ticino-incidenti-2026.title': 'Apprentis au Tessin : chiffres alarmants sur les accidents',
     'blog.article.apprendisti-ticino-incidenti-2026.excerpt': 'Près de 23.000 apprentis suisses sont victimes d\'accidents chaque année, avec trois cas mortels en moyenne. Unia demande des mesures urgentes.',
     'blog.article.apprendisti-ticino-incidenti-2026.imageAlt': 'Groupe d\'apprentis manifestant à Berne sur la sécurité au travail',
+    'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.title': 'Fiorenzo Dadò, ses trois « P » et les initiatives étatiques dans l\'étau politique',
+    'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.excerpt': 'Fiorenzo Dadò, président de l\'OCST, discute avec Alain Buehler, chef du groupe UDC, des initiatives étatiques.',
+    'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaFr;
