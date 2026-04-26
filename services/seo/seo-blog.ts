@@ -12973,6 +12973,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-latte-ticino-crisi-politica-ritardo': {
+    title: 'Latte ticinese, la situazione è urgente | Frontaliere Ticino',
+    description: 'Il Partito comunista interpella il governo sul prezzo del latte in Ticino, ai minimi storici. Urge una risposta politica alla crisi della filiera la',
+    keywords: 'frontalieri, ticino, svizzera, italia, latte, ticinese, situazione, urgente',
+    ogTitle: 'Latte ticinese, la situazione è urgente e la politica è già',
+    ogDescription: 'Il Partito comunista interpella il governo sul prezzo del latte in Ticino, ai minimi storici. Urge una risposta politica alla crisi della filiera la',
+    canonicalPath: '/articoli-frontaliere/latte-ticino-crisi-politica-ritardo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Latte ticinese, la situazione è urgente e la politica è già in ritardo",
+      "description": "Il Partito comunista interpella il governo sul prezzo del latte in Ticino, ai minimi storici. Urge una risposta politica alla crisi della filiera la",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/latte-ticino-crisi-politica-ritardo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fattoria lattiero-casearia nel Ticino con mucche al pascolo e contadino al lavoro"
+      },
+      "datePublished": "2026-04-26T15:59:49+00:00",
+      "dateModified": "2026-04-26T15:59:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/latte-ticino-crisi-politica-ritardo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

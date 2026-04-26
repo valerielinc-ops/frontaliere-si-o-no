@@ -2700,6 +2700,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.supermercati-ticino-2026.title': 'Supermärkte im Tessin: Migros, Coop und Aldi beruhigen bezüglich der Preise',
     'blog.article.supermercati-ticino-2026.excerpt': 'Keine sofortigen Preiserhöhungen für Konsumgüter trotz der Krise im Nahen Osten. Was sich für Grenzgänger ändert',
     'blog.article.supermercati-ticino-2026.imageAlt': 'Supermarkt in Tessin mit Schweizer und italienischen Produkten',
+    'blog.article.latte-ticino-crisi-politica-ritardo.title': 'Tessin-Milch, die Situation ist dringend und die Politik ist bereits im Verzug',
+    'blog.article.latte-ticino-crisi-politica-ritardo.excerpt': 'Die Kommunistische Partei befragt die Regierung zum Milchpreis im Tessin, der auf einem historischen Tiefstand ist. Es ist eine politische Antwort auf die Krise der Milchwirtschaft dringend erforderlich.',
+    'blog.article.latte-ticino-crisi-politica-ritardo.imageAlt': 'Milchviehbetrieb im Tessin mit grasenden Kühen und einem arbeitenden Bauern',
 };
 
 export default blogMetaDe;

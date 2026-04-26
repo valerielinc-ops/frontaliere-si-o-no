@@ -2700,6 +2700,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.supermercati-ticino-2026.title': 'Supermercati Ticino: Migros, Coop e Aldi rassicurano su prezzi',
     'blog.article.supermercati-ticino-2026.excerpt': 'Nessun rincaro immediato per i prodotti di largo consumo nonostante la crisi in Medio Oriente. Ecco cosa cambia per i frontalieri',
     'blog.article.supermercati-ticino-2026.imageAlt': 'Supermercato in Ticino con prodotti svizzeri e italiani',
+    'blog.article.latte-ticino-crisi-politica-ritardo.title': 'Latte ticinese, la situazione è urgente e la politica è già in ritardo',
+    'blog.article.latte-ticino-crisi-politica-ritardo.excerpt': 'Il Partito comunista interpella il governo sul prezzo del latte in Ticino, ai minimi storici. Urge una risposta politica alla crisi della filiera lattiero-casearia.',
+    'blog.article.latte-ticino-crisi-politica-ritardo.imageAlt': 'Fattoria lattiero-casearia nel Ticino con mucche al pascolo e contadino al lavoro',
 };
 
 export default blogMetaIt;

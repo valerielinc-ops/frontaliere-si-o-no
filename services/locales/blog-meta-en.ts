@@ -2700,6 +2700,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.supermercati-ticino-2026.title': 'Ticino Supermarkets: Migros, Coop, and Aldi Reassure on Prices',
     'blog.article.supermercati-ticino-2026.excerpt': 'No immediate price hikes for everyday products despite the Middle East crisis. Here\'s what changes for cross-border workers',
     'blog.article.supermercati-ticino-2026.imageAlt': 'Supermarket in Ticino with Swiss and Italian products',
+    'blog.article.latte-ticino-crisi-politica-ritardo.title': 'Ticino milk, the situation is urgent and politics is already behind',
+    'blog.article.latte-ticino-crisi-politica-ritardo.excerpt': 'The Communist Party questions the government about the price of milk in Ticino, at historic lows. A political response to the dairy crisis is urgently needed.',
+    'blog.article.latte-ticino-crisi-politica-ritardo.imageAlt': 'Dairy farm in Ticino with cows grazing and a farmer working',
 };
 
 export default blogMetaEn;

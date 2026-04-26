@@ -7287,4 +7287,11 @@ export const ARTICLES = [
  image: '/images/blog/supermercati-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'latte-ticino-crisi-politica-ritardo',
+ category: 'novita',
+ date: '2026-04-26T15:59:49.369Z',
+ image: '/images/blog/latte-ticino-crisi-politica-ritardo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

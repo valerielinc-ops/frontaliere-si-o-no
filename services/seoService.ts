@@ -2160,6 +2160,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-petizione-tassa-esenzione-militare-ticino': { name: 'Petizione tassa militare', path: '/articoli-frontaliere/petizione-tassa-esenzione-militare-ticino', parent: 'blog' },
     'blog-immigrazione-svizzera-60-anni-2026': { name: 'Immigrazione Svizzera', path: '/articoli-frontaliere/immigrazione-svizzera-60-anni-2026', parent: 'blog' },
     'blog-supermercati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/supermercati-ticino-2026', parent: 'blog' },
+    'blog-latte-ticino-crisi-politica-ritardo': { name: 'Novità', path: '/articoli-frontaliere/latte-ticino-crisi-politica-ritardo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
