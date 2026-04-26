@@ -330,7 +330,19 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchSunriseListings();
+  let listings;
+  try {
+    listings = await fetchSunriseListings();
+  } catch (fetchErr) {
+    const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+    const existing = allJobs.filter(isTargetJob);
+    if (existing.length > 0) {
+      console.log(`⚠️  Sunrise listing fetch returned no Ticino/Grigioni matches (${fetchErr.message}).`);
+      console.log(`   Keeping ${existing.length} existing Sunrise job(s) — no changes made.`);
+      return;
+    }
+    throw fetchErr;
+  }
   const jobs = [];
   for (const listing of listings) {
     jobs.push(await buildSunriseJob(listing));

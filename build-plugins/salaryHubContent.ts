@@ -254,7 +254,18 @@ const EN: Labels = {
     `Monthly, a Swiss resident nets approximately CHF ${fmtCHF(r.chResident.netIncomeMonthly)}, while an Italian cross-border worker receives about EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month (at CHF/EUR ${r.exchangeRate.toFixed(3)}).`,
   tipsExplain: (_s, _r) =>
     `To optimize your CHF-EUR conversion, services like <a href="/go/wise/" rel="sponsored">Wise</a> or <a href="/go/fineco/" rel="sponsored">Fineco</a> offer better exchange rates than traditional banks.`,
-  metaTitle: (s) => `Net salary ${fmtCHF(s.salary)} CHF cross-border worker${s.maritalStatus === 'MARRIED' ? ' married' : ''}${s.children > 0 ? ` ${s.children} children` : ''} | 2026 Simulation`,
+  metaTitle: (s) => {
+    // Mirror IT: include frontierType + distanceZone so OLD/NEW × ≤20km/>20km
+    // variants don't collapse to identical <title>s and trip Semrush.
+    const parts = [`Net salary ${fmtCHF(s.salary)} CHF cross-border worker`];
+    parts.push(s.frontierType === 'NEW' ? 'new' : 'old');
+    if (s.maritalStatus === 'MARRIED') parts.push('married');
+    if (s.children > 0) parts.push(s.children === 1 ? '1 child' : `${s.children} children`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('within 20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('over 20km');
+    parts.push('| 2026 Simulation');
+    return parts.join(' ');
+  },
   metaDesc: (s, r) => `With CHF ${fmtCHF(s.salary)} gross, a ${s.frontierType === 'OLD' ? 'old' : 'new'} cross-border worker nets approximately EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month. 2026 simulation with full tax breakdown.`,
   h1: (s) => {
     const parts = [`Net Salary CHF ${fmtCHF(s.salary)}`];
@@ -316,7 +327,16 @@ const DE: Labels = {
   distanceTitle: 'Grenz-Distanzzone',
   budgetTitle: 'Indikatives Monatsbudget',
   tipsTitle: 'Praktische Tipps',
-  metaTitle: (s) => `Nettogehalt ${fmtCHF(s.salary)} CHF Grenzgänger${s.maritalStatus === 'MARRIED' ? ' verheiratet' : ''}${s.children > 0 ? ` ${s.children} Kinder` : ''} | Simulation 2026`,
+  metaTitle: (s) => {
+    const parts = [`Nettogehalt ${fmtCHF(s.salary)} CHF Grenzgänger`];
+    parts.push(s.frontierType === 'NEW' ? 'neuer' : 'alter');
+    if (s.maritalStatus === 'MARRIED') parts.push('verheiratet');
+    if (s.children > 0) parts.push(s.children === 1 ? '1 Kind' : `${s.children} Kinder`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('innerhalb 20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('über 20km');
+    parts.push('| Simulation 2026');
+    return parts.join(' ');
+  },
   metaDesc: (s, r) => `Mit CHF ${fmtCHF(s.salary)} brutto erzielt ein ${s.frontierType === 'OLD' ? 'alter' : 'neuer'} Grenzgänger netto ca. EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/Monat. Simulation 2026.`,
   h1: (s) => {
     const parts = [`Nettogehalt CHF ${fmtCHF(s.salary)}`];
@@ -372,7 +392,16 @@ const FR: Labels = {
   distanceTitle: 'Zone de distance frontalière',
   budgetTitle: 'Budget mensuel indicatif',
   tipsTitle: 'Conseils pratiques',
-  metaTitle: (s) => `Salaire net ${fmtCHF(s.salary)} CHF frontalier${s.maritalStatus === 'MARRIED' ? ' marié' : ''}${s.children > 0 ? ` ${s.children} enfants` : ''} | Simulation 2026`,
+  metaTitle: (s) => {
+    const parts = [`Salaire net ${fmtCHF(s.salary)} CHF frontalier`];
+    parts.push(s.frontierType === 'NEW' ? 'nouveau' : 'ancien');
+    if (s.maritalStatus === 'MARRIED') parts.push('marié');
+    if (s.children > 0) parts.push(s.children === 1 ? '1 enfant' : `${s.children} enfants`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('moins 20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('plus 20km');
+    parts.push('| Simulation 2026');
+    return parts.join(' ');
+  },
   metaDesc: (s, r) => `Avec CHF ${fmtCHF(s.salary)} brut, un ${s.frontierType === 'OLD' ? 'ancien' : 'nouveau'} frontalier perçoit environ EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/mois. Simulation 2026.`,
   h1: (s) => {
     const parts = [`Salaire Net CHF ${fmtCHF(s.salary)}`];

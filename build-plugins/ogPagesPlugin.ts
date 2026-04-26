@@ -240,6 +240,27 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  if (!entries.length) { console.warn('[og-pages] No blog entries found'); return; }
 
+ /* ── Title disambiguator (Semrush title-uniqueness gate) ──────────
+  * Auto-generated articles occasionally collapse to identical <title>s
+  * across different slugs (e.g. legacy "omaggio-angeli" + 2026-suffixed
+  * republish, or two FR translations of the same headline). Compute a
+  * (locale → baseTitle → count) map after locale meta is parsed; when a
+  * baseTitle would collide, append an FNV-1a 8-char hash of the per-locale
+  * slug to the <title>. Mirrors jobsSeoPagesPlugin.buildTitleDisambiguator. */
+ const articleHashFromSlug = (slug: string): string => {
+  const cleaned = String(slug || '').toLowerCase().replace(/[^a-z0-9-]+/g, '');
+  if (!cleaned) return '';
+  let h = 0x811c9dc5;
+  for (let i = 0; i < cleaned.length; i++) {
+   h ^= cleaned.charCodeAt(i);
+   h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return ` (#${(h >>> 0).toString(16).padStart(8, '0')})`;
+ };
+ const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
+  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
+ };
+
  /* ── 2. Parse blog slug map + blog index slugs from router.ts ── */
  // BLOG_SLUGS: Record<BlogArticleId, { it, en, de, fr }> — flat lookup
  const blogSlugs: Record<string, Record<string, string>> = {};
@@ -325,6 +346,21 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  de: parseBlogMetaLocale('de'),
  fr: parseBlogMetaLocale('fr'),
  } as const;
+
+ // Populate the title-collision map now that locale meta is available.
+ // Mirror the title formula used inside html(): localizedTitle stripped of
+ // the publisher suffix, then re-joined with the canonical brand suffix.
+ const ARTICLE_TITLE_SUFFIX = ' | Frontaliere Ticino';
+ for (const en of entries) {
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+   const localeMeta = locale === 'it' ? null : blogMetaByLocale[locale][en.articleId];
+   const titleRaw = localeMeta?.title || en.ogT;
+   const titlePure = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+   const baseT = `${titlePure}${ARTICLE_TITLE_SUFFIX}`;
+   const m = articleTitleCollisions[locale];
+   m.set(baseT, (m.get(baseT) || 0) + 1);
+  }
+ }
 
  const blogBodyByLocale = {
  it: parseBlogBodyLocale('it'),
@@ -521,20 +557,29 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  ? metaDescRaw.substring(0, 152) + '…'
  : metaDescRaw;
  // <title> tag: ≤60 chars for SERP display. <h1> keeps the full headline.
+ // Per-slug disambiguator only fires when the base <title> would collide
+ // with another article's <title> in the same locale (legacy + republished
+ // pairs, multi-translation duplicates). Unique titles are untouched.
  const TITLE_MAX = 60;
  const TITLE_SUFFIX = ' | Frontaliere Ticino';
+ const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ const baseTitleProbe = `${localizedTitle}${TITLE_SUFFIX}`;
+ const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
+ const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
+ const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale) : '';
  let htmlPageTitle: string;
- const fullTitle = `${localizedTitle}${TITLE_SUFFIX}`;
+ const fullTitle = `${localizedTitle}${disamb}${TITLE_SUFFIX}`;
  if (fullTitle.length <= TITLE_MAX) {
  htmlPageTitle = fullTitle;
- } else if (localizedTitle.length <= TITLE_MAX) {
- htmlPageTitle = localizedTitle;
+ } else if (`${localizedTitle}${disamb}`.length <= TITLE_MAX) {
+ htmlPageTitle = `${localizedTitle}${disamb}`;
  } else {
- // Truncate at word boundary
- const budget = TITLE_MAX - 1;
+ // Truncate at word boundary; reserve room for disambiguator + ellipsis.
+ const budget = TITLE_MAX - 1 - disamb.length;
  const truncated = localizedTitle.substring(0, budget);
  const lastSpace = truncated.lastIndexOf(' ');
- htmlPageTitle = (lastSpace > budget * 0.4 ? truncated.substring(0, lastSpace) : truncated) + '…';
+ const trimmedTitle = (lastSpace > budget * 0.4 ? truncated.substring(0, lastSpace) : truncated) + '…';
+ htmlPageTitle = `${trimmedTitle}${disamb}`;
  }
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];

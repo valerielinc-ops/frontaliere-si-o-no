@@ -262,22 +262,22 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  let html;
+  let role;
   try {
-    html = await fetchPage(CAREERS_URL);
-  } catch (fetchErr) {
-    // Check if existing Goline jobs are already in the data
+    const html = await fetchPage(CAREERS_URL);
+    role = parseGolineOpportunitiesPage(html);
+  } catch (err) {
+    // Fall back to existing data if fetch OR parse fails (anti-bot, page structure change, no current role).
     const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
     const existing = allJobs.filter(isTargetJob);
     if (existing.length > 0) {
-      console.log(`⚠️  Could not reach Goline website (${fetchErr.message}).`);
+      console.log(`⚠️  Could not refresh Goline opportunities page (${err.message}).`);
       console.log(`   Keeping ${existing.length} existing Goline job(s) — no changes made.`);
       return;
     }
-    throw fetchErr;
+    throw err;
   }
 
-  const role = parseGolineOpportunitiesPage(html);
   const job = buildJob(role);
   const { total, diff } = mergeJobs([job]);
   updateAdapterConfig([job]);
