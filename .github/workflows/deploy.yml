@@ -164,9 +164,6 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
-      - name: Replace flat redirect files with content copies
-        run: node scripts/flat-content-replace.mjs
-
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v5
