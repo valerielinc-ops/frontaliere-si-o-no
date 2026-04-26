@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T11:57:47.756Z",
-    "label": "before",
-    "total": 2927,
-    "needsRetranslation": 19,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 9,
-      "en": 18,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T12:07:21.374Z",
-    "label": "after",
-    "total": 2927,
-    "needsRetranslation": 12,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 9,
-      "en": 18,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T12:18:53.509Z",
     "label": "before",
     "total": 2927,
@@ -7385,6 +7313,70 @@
     "needsRetranslation": 51,
     "incomplete": 25,
     "complete": 2641,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-26T08:04:13.372Z",
+    "label": "before",
+    "total": 2609,
+    "needsRetranslation": 51,
+    "incomplete": 25,
+    "complete": 2584,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 23,
+      "fr": 22
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-26T08:25:39.164Z",
+    "label": "after",
+    "total": 2609,
+    "needsRetranslation": 43,
+    "incomplete": 25,
+    "complete": 2584,
     "missingByLocale": {
       "it": 24,
       "en": 5,
