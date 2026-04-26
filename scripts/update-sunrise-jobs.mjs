@@ -334,14 +334,20 @@ async function main() {
   try {
     listings = await fetchSunriseListings();
   } catch (fetchErr) {
+    // Sunrise's careers portal legitimately has 0 Ticino/Grigioni positions
+    // most of the time (Sunrise is HQ'd in Zurich; regional roles are rare).
+    // Treat both "0 matches in source" and "fetch failed" as a no-op: keep
+    // any existing slice intact and exit cleanly, instead of failing the
+    // workflow on every run where the source is empty.
     const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
     const existing = allJobs.filter(isTargetJob);
+    console.log(`⚠️  Sunrise listing fetch returned no Ticino/Grigioni matches (${fetchErr.message}).`);
     if (existing.length > 0) {
-      console.log(`⚠️  Sunrise listing fetch returned no Ticino/Grigioni matches (${fetchErr.message}).`);
       console.log(`   Keeping ${existing.length} existing Sunrise job(s) — no changes made.`);
-      return;
+    } else {
+      console.log(`   No existing Sunrise jobs to preserve — exiting cleanly (legitimate empty state).`);
     }
-    throw fetchErr;
+    return;
   }
   const jobs = [];
   for (const listing of listings) {
