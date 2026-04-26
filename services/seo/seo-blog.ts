@@ -13379,6 +13379,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comunita-energetica-rinnovabile-luinese-400-kw': {
+    title: 'Germignaga: Comunità Energetica | Frontaliere Ticino',
+    description: 'La Comunità Energetica Rinnovabile del Luinese raggiunge 400 kW di potenza e punta a 1000 kW entro fine 2026. 17 Comuni e 287 soci coinvolti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, germignaga, comunità, energetica, rinnovabile',
+    ogTitle: 'Germignaga: Comunità Energetica Rinnovabile del Luinese',
+    ogDescription: 'La Comunità Energetica Rinnovabile del Luinese raggiunge 400 kW di potenza e punta a 1000 kW entro fine 2026. 17 Comuni e 287 soci coinvolti.',
+    canonicalPath: '/articoli-frontaliere/comunita-energetica-rinnovabile-luinese-400-kw',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Germignaga: Comunità Energetica Rinnovabile del Luinese tocca i 400 kW",
+      "description": "La Comunità Energetica Rinnovabile del Luinese raggiunge 400 kW di potenza e punta a 1000 kW entro fine 2026. 17 Comuni e 287 soci coinvolti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comunita-energetica-rinnovabile-luinese-400-kw.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con pannelli solari sui tetti, cielo azzurro e montagne circostanti"
+      },
+      "datePublished": "2026-04-26T23:39:02+00:00",
+      "dateModified": "2026-04-26T23:39:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comunita-energetica-rinnovabile-luinese-400-kw`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

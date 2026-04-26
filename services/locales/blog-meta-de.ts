@@ -2742,6 +2742,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-navigazione-costanza-2026.title': 'Historischer Durchbruch: Schweizer und deutsche Schifffahrt auf dem Bodensee',
     'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Ab 2026 gegenseitig gültige Tickets und Wiederaufnahme der Anlegestellen in Konstanz. Was sich für Grenzgänger ändert',
     'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Bodensee mit Schweizer und deutschen Booten angedockt',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.title': 'Germignaga: Die erneuerbare Energiegemeinschaft von Luinese erreicht 400 kW',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.excerpt': 'Die erneuerbare Energiegemeinschaft von Luinese erreicht 400 kW Leistung und strebt 1000 kW bis Ende 2026 an. 17 Gemeinden und 287 Mitglieder sind beteiligt.',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.imageAlt': 'Luftaufnahme des Luganersees mit Solaranlagen auf den Dächern, blauem Himmel und umliegenden Bergen',
 };
 
 export default blogMetaDe;

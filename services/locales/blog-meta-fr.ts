@@ -2742,6 +2742,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-navigazione-costanza-2026.title': 'Accord historique : navigation suisse et allemande sur le lac de Constance',
     'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Billets valables réciproquement à partir de 2026 et reprise des escales à Constance. Qu\'est-ce qui change pour les frontaliers',
     'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Lac de Constance avec des bateaux suisses et allemands amarrés',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.title': 'Germignaga: La Communauté Énergétique Renouvelable du Luinese atteint 400 kW',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.excerpt': 'La Communauté Énergétique Renouvelable du Luinese atteint 400 kW de puissance et vise 1000 kW d\'ici la fin 2026. 17 communes et 287 membres impliqués.',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.imageAlt': 'Vue aérienne du lac de Lugano avec des panneaux solaires sur les toits, ciel bleu et montagnes environnantes',
 };
 
 export default blogMetaFr;

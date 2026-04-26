@@ -2174,6 +2174,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-redditi-varesotti-2024-luvinate': { name: 'Redditi Varese', path: '/articoli-frontaliere/redditi-varesotti-2024-luvinate', parent: 'blog' },
     'blog-chiusure-autostrade-ticino-2026': { name: 'Chiusure autostrade', path: '/articoli-frontaliere/chiusure-autostrade-ticino-2026', parent: 'blog' },
     'blog-accordo-navigazione-costanza-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-navigazione-costanza-2026', parent: 'blog' },
+    'blog-comunita-energetica-rinnovabile-luinese-400-kw': { name: 'Novità', path: '/articoli-frontaliere/comunita-energetica-rinnovabile-luinese-400-kw', parent: 'blog' },
  };
 
  const info = sectionNames[section];

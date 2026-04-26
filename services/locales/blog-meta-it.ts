@@ -2742,6 +2742,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-navigazione-costanza-2026.title': 'Accordo storico: navigazione svizzera e tedesca sul Lago di Costanza',
     'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Biglietti validi reciprocamente dal 2026 e ripresa degli scali a Costanza. Cosa cambia per i frontalieri',
     'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Lago di Costanza con barche svizzere e tedesche ormeggiate',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.title': 'Germignaga: Comunità Energetica Rinnovabile del Luinese tocca i 400 kW',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.excerpt': 'La Comunità Energetica Rinnovabile del Luinese raggiunge 400 kW di potenza e punta a 1000 kW entro fine 2026. 17 Comuni e 287 soci coinvolti.',
+    'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti, cielo azzurro e montagne circostanti',
 };
 
 export default blogMetaIt;

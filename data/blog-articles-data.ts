@@ -7385,4 +7385,11 @@ export const ARTICLES = [
  image: '/images/blog/accordo-navigazione-costanza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comunita-energetica-rinnovabile-luinese-400-kw',
+ category: 'novita',
+ date: '2026-04-26T23:39:02.348Z',
+ image: '/images/blog/comunita-energetica-rinnovabile-luinese-400-kw.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
