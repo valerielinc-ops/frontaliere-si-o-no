@@ -4935,7 +4935,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialOfficialGazetteLanding.latestJobs.length}</span> {editorialOfficialGazetteLanding.latestLabel}</span>
  <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
- <span className="inline-flex items-baseline gap-1.5">{editorialOfficialGazetteLanding.officialSourceLabel} <a href={editorialOfficialGazetteLanding.officialSourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-accent no-underline hover:underline">concorsi.ti.ch <ArrowUpRight className="w-3.5 h-3.5" /></a></span>
+ <span className="inline-flex items-baseline gap-1.5">{editorialOfficialGazetteLanding.officialSourceLabel} <a href={editorialOfficialGazetteLanding.officialSourceUrl} target="_blank" rel="nofollow noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-accent no-underline hover:underline">concorsi.ti.ch <ArrowUpRight className="w-3.5 h-3.5" /></a></span>
  </div>
 
  <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5">
@@ -6246,7 +6246,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="hybrid-ab-cta"
  href={applyUrl}
  target="_blank"
- rel="noopener noreferrer"
+ rel="nofollow noopener noreferrer"
  onClick={() => Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`)}
  >
  {t('jobBoard.apply')}
@@ -6282,7 +6282,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <a
  href={applyUrl}
  target="_blank"
- rel="noopener noreferrer"
+ rel="nofollow noopener noreferrer"
  onClick={() => Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`)}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
@@ -6306,7 +6306,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <a
  href={applyUrl}
  target="_blank"
- rel="noopener noreferrer"
+ rel="nofollow noopener noreferrer"
  onClick={() => Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`)}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >

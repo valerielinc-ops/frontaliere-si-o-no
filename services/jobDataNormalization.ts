@@ -457,3 +457,76 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  if (!host) return null;
  return gFavicon(host);
 }
+
+/**
+ * Maximum length for a job slug segment within a URL path.
+ *
+ * Rationale: Semrush A9 (Issue 201) flags URLs >200 characters as a
+ * structural SEO problem. Job page URLs use the pattern
+ *   /{lang-prefix}/{section-slug}/{job-slug}/
+ * where the path overhead (locale prefix + section-slug + leading and
+ * trailing slashes) consumes ~20 characters. A 180-character cap on the
+ * job-slug segment leaves a comfortable margin so the full URL stays
+ * under 200 characters even when the locale-specific section slug is
+ * the longest variant ("offerte-di-lavoro" / "stellenangebote").
+ *
+ * 180 is also wider than the 90-character cap used inside
+ * `build-plugins/jobsSeoPagesPlugin.ts` for newly-derived fallback
+ * slugs, so it does NOT change behavior for the vast majority of
+ * existing slugs (which are 30-90 chars). It only kicks in for the few
+ * pathological multi-locale auto-generated slugs that exceeded 180.
+ *
+ * Truncation appends a 6-character deterministic hash suffix to keep
+ * the truncated form unique whenever two long inputs would otherwise
+ * collapse to the same prefix. Using a stable hash (not a random one)
+ * means rebuilding the same input always produces the same short slug,
+ * preserving the canonical URL across deploys.
+ */
+export const MAX_JOB_SLUG_LENGTH = 180;
+
+/**
+ * Returns a small deterministic hex hash of `input`. Implementation is a
+ * 32-bit FNV-1a fold rendered as 6 lowercase hex chars. Good enough for
+ * slug disambiguation collisions (1 in ~16M, far below the volume of
+ * over-long slugs we observe). Independent of Node's `crypto` module so
+ * it works in any runtime that imports this file (including the Vite
+ * browser bundle via the SPA → router code path).
+ */
+function shortHash6(input: string): string {
+ let h = 0x811c9dc5;
+ for (let i = 0; i < input.length; i += 1) {
+ h ^= input.charCodeAt(i);
+ h = Math.imul(h, 0x01000193);
+ }
+ // Ensure unsigned, then 24-bit truncate so we can render exactly 6 hex chars.
+ const u = (h >>> 0) & 0x00ffffff;
+ return u.toString(16).padStart(6, '0');
+}
+
+/**
+ * Truncate a job slug to {@link MAX_JOB_SLUG_LENGTH} characters, appending
+ * a 6-char deterministic hash suffix (separated by `-`) when truncation
+ * occurs so the result remains unique. Slugs already at or below the
+ * limit are returned untouched (no mutation).
+ *
+ * The function is idempotent and runtime-only: it does not mutate any
+ * stored data — callers must persist the returned value back into the
+ * job record (or use it at URL-emit time) for it to take effect.
+ *
+ * Usage: invoke when emitting `<job-slug>` segments into URLs (e.g.
+ * inside `build-plugins/jobsSeoPagesPlugin.ts` `localizedSlug`,
+ * `services/router.ts` job-detail path builder, or any crawler script
+ * that writes `job.slug` / `job.slugByLocale[locale]`).
+ */
+export function truncateJobSlug(rawSlug: string): string {
+ const slug = String(rawSlug || '').trim();
+ if (!slug) return '';
+ if (slug.length <= MAX_JOB_SLUG_LENGTH) return slug;
+ const suffix = `-${shortHash6(slug)}`;
+ // 6 hash chars + 1 hyphen = 7 characters reserved for disambiguation.
+ const headLen = MAX_JOB_SLUG_LENGTH - suffix.length;
+ // Trim a trailing partial-word hyphen so the result reads cleanly:
+ //   "very-long-...-trun" + "-abc123"   not   "very-long-...-trun-" + "-abc123".
+ const head = slug.slice(0, headLen).replace(/-+$/, '');
+ return `${head}${suffix}`;
+}

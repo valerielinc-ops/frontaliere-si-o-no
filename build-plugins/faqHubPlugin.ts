@@ -348,7 +348,11 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     </nav>
     <header style="margin-bottom:24px">
       <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15">${esc(copy.h1)}</h1>
+      <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
+           the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
+           FAQ + comparisons hubs for shipping two H1 tags. The body heading
+           remains the most descriptive copy for the page topic. -->
+      <h2 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;font-weight:800">${esc(copy.h1)}</h2>
     </header>
     <section style="margin:0 0 24px" data-speakable aria-label="TL;DR">
       <h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.tldrTitle)}</h2>

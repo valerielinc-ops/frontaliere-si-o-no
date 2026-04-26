@@ -65,14 +65,15 @@ describe('no JS redirects in built flat files', () => {
           const isSpaActionOnly =
             content.includes('SPA_ACTION_REDIRECT_SCRIPT') ||
             (content.includes("p.get('action')") && content.includes("sessionStorage.redirect"));
-          // flatHtmlRedirectPlugin (2026-04-25) intentionally emits a redirect
-          // bridge for every flat .html that has a sibling /index.html. The
-          // bridge is explicitly noindex so Google follows the redirect and
-          // does not double-index. These are EXPECTED, not accidental.
+          // flatHtmlRedirectPlugin (2026-04-25, updated Phase 1B 2026-04-26)
+          // intentionally emits a redirect bridge for every flat .html that
+          // has a sibling /index.html. Phase 1B dropped meta-refresh in favor
+          // of canonical + noindex + script location.replace (Semrush Issue
+          // 40 fix). These are EXPECTED, not accidental.
           const isIntentionalBridge =
             content.includes('name="robots"') &&
             content.includes('noindex') &&
-            content.includes('http-equiv="refresh"');
+            content.includes('rel="canonical"');
           if (!isSpaActionOnly && !isIntentionalBridge) {
             const relPath = path.relative(DIST_DIR, filePath);
             violations.push(relPath);

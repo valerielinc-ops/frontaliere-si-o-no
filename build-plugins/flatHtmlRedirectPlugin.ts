@@ -14,9 +14,13 @@
  * hreflang="it" href=".../foo/">` — neither pointed back to itself, which
  * Semrush counted as a conflict on every URL that produced a flat sibling.
  *
- * This plugin replaces each such flat .html with a 12-line redirect bridge
- * (canonical link to `/foo/`, meta-refresh, JS replace, noindex). Crawlers
- * follow the redirect, index `/foo/` once, and the conflict disappears.
+ * This plugin replaces each such flat .html with a redirect bridge
+ * (canonical link to `/foo/`, JS replace, noindex). Crawlers follow the
+ * redirect, index `/foo/` once, and the conflict disappears.
+ *
+ * Note: the meta http-equiv="refresh" tag was removed because Semrush flags
+ * meta-refresh redirects as a separate issue category, and per-URL <title>
+ * extracted from the canonical sibling avoids duplicate-title issues.
  *
  * Skips:
  *   - .html files with no `<dir>/index.html` sibling (genuine flat pages —
@@ -30,18 +34,17 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 
-const NOINDEX_BRIDGE = (slashUrl: string): string =>
+const NOINDEX_BRIDGE = (slashUrl: string, title: string): string =>
   `<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<title>Redirecting…</title>
+<title>${title}</title>
 <link rel="canonical" href="${slashUrl}">
 <meta name="robots" content="noindex,follow">
-<meta http-equiv="refresh" content="0;url=${slashUrl}">
 <script>location.replace(${JSON.stringify(slashUrl)})</script>
 </head>
-<body><a href="${slashUrl}">Continua</a></body>
+<body><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
 </html>`;
 
 interface FlatRedirectOptions {
@@ -93,7 +96,20 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
         }
         const relPath = path.relative(distDir, stem).replace(/\\/g, '/');
         const slashUrl = `${trimmedBase}/${relPath}/`;
-        fs.writeFileSync(file, NOINDEX_BRIDGE(slashUrl));
+        let title = `Redirecting to ${slashUrl}`;
+        try {
+          const siblingHtml = fs.readFileSync(sibling, 'utf-8');
+          const titleMatch = siblingHtml.match(/<title[^>]*>([^<]+)<\/title>/i);
+          if (titleMatch && titleMatch[1]) {
+            const extracted = titleMatch[1].trim();
+            if (extracted.length > 0) {
+              title = extracted;
+            }
+          }
+        } catch {
+          // fallback already set
+        }
+        fs.writeFileSync(file, NOINDEX_BRIDGE(slashUrl, title));
         converted++;
       }
 

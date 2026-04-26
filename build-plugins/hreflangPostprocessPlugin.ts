@@ -1,0 +1,168 @@
+/**
+ * Hreflang Post-Process Plugin
+ *
+ * Phase 2 of the SEO zero-issues sweep (2026-04-26).
+ *
+ * What it does
+ * ------------
+ * After every other build plugin has finished emitting HTML, walk every
+ * `*.html` in `dist/` and strip `<link rel="alternate" hreflang="...">`
+ * tags whose target file does not exist in the same `dist/`. This closes
+ * Semrush issues:
+ *
+ *   - Issue 8 (E1) — 1.463 broken internal links (90% hreflang-driven).
+ *   - Issue 25 (E8) — 6 wrong hreflang URLs.
+ *
+ * Why post-process instead of patching every emitter
+ * --------------------------------------------------
+ * 30+ build plugins emit hreflang. Patching each one risks divergence and
+ * regressions; a single post-process pass is universal, idempotent, and
+ * easy to test. It also runs AFTER `flatHtmlRedirectPlugin` so we can be
+ * sure the final state of every HTML file matches what GitHub Pages will
+ * actually serve.
+ *
+ * Run order
+ * ---------
+ * `enforce: 'post'` + `closeBundle.order: 'post'` + `sequential: true`.
+ * Must run AFTER flatHtmlRedirectPlugin, which itself runs last among
+ * post-phase plugins. We rely on Vite's stable plugin ordering: this
+ * plugin is registered AFTER flatHtmlRedirectPlugin in vite.config.ts, so
+ * within the post-phase queue ours is the last to execute.
+ *
+ * Flat redirect bridges (the tiny 9-line files emitted by
+ * flatHtmlRedirectPlugin) contain no hreflang tags, so the regex matches
+ * nothing and they are left untouched.
+ */
+import path from 'node:path';
+import fs from 'node:fs';
+import type { Plugin } from 'vite';
+import { filterExistingAlternates, type LocaleAlternates } from './shared/hreflangGuard';
+
+interface HreflangPostprocessOptions {
+  readonly baseUrl: string;
+}
+
+/**
+ * Match a single `<link rel="alternate" hreflang="..." href="...">` tag.
+ *
+ * - Accepts either ordering of `rel` / `hreflang` / `href` attributes (Vite/
+ *   Rollup does not reorder, but emitters across the codebase use both
+ *   orders).
+ * - Tolerates self-closing (`/>`) and HTML5 (`>`) variants.
+ * - Captures the locale (group 1) and the href (group 2).
+ *
+ * NOTE: we keep the regex deliberately strict (no `\s*` between attrs other
+ * than the canonical single-space form used by every emitter) to avoid
+ * false-positives in inline `<script>`/`<style>` content.
+ */
+const HREFLANG_LINK_RX =
+  /<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"\s*\/?>(?:\s*\n?)?/g;
+
+/**
+ * Stable iteration of every `.html` file under `dist/`, skipping the
+ * static-asset directories (no HTML inside).
+ */
+function* walkHtml(dir: string): Iterable<string> {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+      yield* walkHtml(p);
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      yield p;
+    }
+  }
+}
+
+export function hreflangPostprocessPlugin(
+  rootDir: string,
+  opts: HreflangPostprocessOptions,
+): Plugin {
+  const { baseUrl } = opts;
+
+  return {
+    name: 'hreflang-postprocess',
+    apply: 'build',
+    enforce: 'post',
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
+        const distDir = path.resolve(rootDir, 'dist');
+        if (!fs.existsSync(distDir)) return;
+
+        let filesScanned = 0;
+        let filesRewritten = 0;
+        let linksKept = 0;
+        let linksDropped = 0;
+
+        for (const file of walkHtml(distDir)) {
+          filesScanned++;
+          const html = fs.readFileSync(file, 'utf-8');
+          if (!html.includes('hreflang=')) continue;
+
+          // Collect all hreflang tags + their full match offsets so we can
+          // do a single in-place rewrite that preserves whitespace exactly.
+          const matches: Array<{
+            full: string;
+            entry: LocaleAlternates;
+            index: number;
+          }> = [];
+          HREFLANG_LINK_RX.lastIndex = 0;
+          let m: RegExpExecArray | null;
+          while ((m = HREFLANG_LINK_RX.exec(html)) !== null) {
+            matches.push({
+              full: m[0],
+              entry: { locale: m[1], url: m[2] },
+              index: m.index,
+            });
+          }
+          if (matches.length === 0) continue;
+
+          // x-default points at the IT URL. We treat it as a separate
+          // pseudo-locale so the guard checks its target independently.
+          const alternates: readonly LocaleAlternates[] = matches.map((x) => x.entry);
+          const kept = filterExistingAlternates(alternates, distDir, baseUrl);
+          const keptUrls = new Set(kept.map((k) => `${k.locale}|${k.url}`));
+
+          if (kept.length === alternates.length) {
+            linksKept += alternates.length;
+            continue; // nothing to drop
+          }
+
+          // Rewrite: walk matches in REVERSE order, splice out the broken
+          // tags by index. Reverse order keeps earlier indexes stable.
+          let rewritten = html;
+          for (let i = matches.length - 1; i >= 0; i--) {
+            const match = matches[i];
+            const key = `${match.entry.locale}|${match.entry.url}`;
+            if (keptUrls.has(key)) {
+              linksKept++;
+              continue;
+            }
+            linksDropped++;
+            // Remove the tag and any single trailing newline that belongs
+            // to it (avoids leaving blank-line gaps in <head>).
+            const end = match.index + match.full.length;
+            const tail = rewritten.slice(end);
+            const trailingNl = tail.startsWith('\n') ? 1 : 0;
+            rewritten =
+              rewritten.slice(0, match.index) +
+              rewritten.slice(end + trailingNl);
+          }
+
+          fs.writeFileSync(file, rewritten);
+          filesRewritten++;
+        }
+
+        // Single concise log line — matches the project's convention
+        // (cyan tag, counters in the body).
+        // eslint-disable-next-line no-console
+        console.log(
+          `\x1b[36m[hreflang-postprocess]\x1b[0m Scanned ${filesScanned} files; ` +
+            `kept ${linksKept} alternates, dropped ${linksDropped} broken across ${filesRewritten} files`,
+        );
+      },
+    },
+  };
+}

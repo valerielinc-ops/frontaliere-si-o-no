@@ -41,8 +41,11 @@ import {
   SECTOR_HUB_SLUG,
   SECTOR_HUB_SECTION,
   SECTOR_HUB_LOCALE_PREFIX,
+  SECTOR_HUB_DISPLAY,
   buildSectorHubPath,
   buildSectorHubSeo,
+  buildSectorProse,
+  loadSectorProseData,
   filterSectorJobs,
   countSectorJobsByLocale,
   type SectorCountableJob,
@@ -149,6 +152,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       }
 
       const counts = countSectorJobsByLocale(jobs);
+      const sectorProseData = loadSectorProseData(rootDir);
 
       // Try to discover hashed SPA entry bundle
       let entryJs = '';
@@ -178,6 +182,8 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const count = counts[locale][sector];
           const seo = buildSectorHubSeo(locale, sector, count, year);
           const matchingJobs = filterSectorJobs(jobs, sector, locale, 50);
+          const proseDisplayName = SECTOR_HUB_DISPLAY[locale][sector];
+          const prose = buildSectorProse(sector, locale, proseDisplayName, sectorProseData);
 
           const canonicalPath = buildSectorHubPath(locale, sector);
           const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -347,6 +353,7 @@ ${alternates}
           </div>
           <a href="${sectionRootUrl}" style="${STAT_TILE_WARNING};text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
         </section>
+        ${prose.html}
         <section style="margin:0 0 24px">
           <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
             <h2 style="margin:0;font-size:24px">${esc(jobsSectionLabelByLocale[locale])}</h2>

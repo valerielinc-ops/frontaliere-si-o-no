@@ -16,13 +16,9 @@ Allow: /data/switzerland-unemployment-rate.json
 Allow: /manifest.webmanifest
 Disallow: /*?debug=*
 Disallow: /*?status=*
-# Filter-state query variants on comparison pages (canton, age):
-# canonical points to the no-query URL; block crawl of variants so Semrush/Google
-# don't surface them as hreflang/canonical conflicts.
-Disallow: /*?canton=*
-Disallow: /*&canton=*
-Disallow: /*?age=*
-Disallow: /*&age=*
+# Internal job search query strings — handled by canonical + noindex meta runtime
+Disallow: /*?q=*
+Disallow: /*&q=*
 
 # Canonical host (www → non-www redirect)
 Host: https://frontaliereticino.ch

@@ -63,15 +63,15 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('expiredRobotsTag');
     });
 
-    it('legacy slug bridge pages use index,follow (canonicalized, not noindex)', () => {
+    it('legacy slug bridge pages use noindex,follow (Phase 3B: avoid duplicate-title splits)', () => {
       const start = source.indexOf('// Legacy redirect: if non-IT locale and Italian slug differs');
       const end = source.indexOf('const legacyFlat', start);
       const block = source.slice(start, end);
       expect(block).toContain('buildCanonicalBridgePage');
-      // Bridge pages use index,follow with a canonical tag pointing to the correct URL.
-      // Bing classifies noindex pages as "Blocked" — using canonical + index,follow
-      // lets search engines consolidate without blocking.
-      expect(block).toContain('noindex: false');
+      // Phase 3B: marked noindex because multi-city jobs sharing the same
+      // translated role title would trip Semrush W2 (duplicate <title>) and
+      // split authority across legacy + canonical URLs.
+      expect(block).toContain('noindex: true');
     });
 
     it('company slug alias pages use index,follow (canonicalized, not noindex)', () => {

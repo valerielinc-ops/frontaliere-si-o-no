@@ -98,6 +98,7 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_VALUE,
   STAT_TILE_WARNING,
+  clampSiteSuffix,
   renderDiscoverMore,
   renderEntityCard,
   resolveBrandLogoUrl,
@@ -1321,7 +1322,22 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     })),
   });
 
-  const title = `${h1} | Frontaliere Ticino`;
+  // Phase 3A — title vs H1 differentiation (Semrush W3) + ≤60 char (W2).
+  // Build a compact keyword-first title; only append the brand suffix when
+  // it still fits the SERP budget.
+  const titleBase =
+    kind === 'weekly' && weekLabel
+      ? (locale === 'it' ? `Mercato lavoro Ticino — W${weekLabel.week} ${weekLabel.year}`
+        : locale === 'en' ? `Ticino job market — W${weekLabel.week} ${weekLabel.year}`
+        : locale === 'de' ? `Tessiner Arbeitsmarkt — W${weekLabel.week} ${weekLabel.year}`
+        : `Marché travail Tessin — S${weekLabel.week} ${weekLabel.year}`)
+      : kind === 'monthly' && monthLabel
+      ? (locale === 'it' ? `Mercato lavoro Ticino — ${monthLabel.monthName} ${monthLabel.year}`
+        : locale === 'en' ? `Ticino job market — ${monthLabel.monthName} ${monthLabel.year}`
+        : locale === 'de' ? `Tessiner Arbeitsmarkt — ${monthLabel.monthName} ${monthLabel.year}`
+        : `Marché travail Tessin — ${monthLabel.monthName} ${monthLabel.year}`)
+      : JOB_MARKET_HUB_NAME[locale];
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = truncateAtWordBoundary(intro, 180);
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
@@ -1556,7 +1572,7 @@ function renderHubPage(inp: HubPageInputs): string {
     })),
   });
 
-  const title = `${h1} | Frontaliere Ticino`;
+  const title = clampSiteSuffix(h1, 'Frontaliere Ticino');
   const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -2257,7 +2273,14 @@ function renderSectorPage(inp: SectorPageInputs): string {
   const copy = SECTOR_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const h1 = copy.h1(sectorLabel);
-  const title = copy.metaTitle(sectorLabel);
+  // Phase 3A — keyword-first compact title (≤60 char), drop the "salaries,
+  // employers, trends" fragment that pushed it past 90 chars in some locales.
+  const titleBase =
+    locale === 'it' ? `Mercato lavoro ${sectorLabel} Ticino`
+    : locale === 'en' ? `${sectorLabel} job market in Ticino`
+    : locale === 'de' ? `Arbeitsmarkt ${sectorLabel} Tessin`
+    : `Marché travail ${sectorLabel} Tessin`;
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const metaDesc = copy.metaDesc(sectorLabel, stats.activeJobs);
 
   const statTiles = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(copy.kicker)}">

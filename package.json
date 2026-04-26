@@ -21,6 +21,7 @@
     "build:fast": "SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 NODE_OPTIONS='--max-old-space-size=12288' FAST_BUILD=1 vite build",
     "prepush:fast": "SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 node scripts/assemble-jobs-dataset.mjs --stats && vitest run --bail 1 && NODE_OPTIONS='--max-old-space-size=12288' FAST_BUILD=1 vite build",
     "test:articles": "vitest run tests/article-seo-fallback.test.ts tests/static-pages-blog-skip.test.ts tests/article-duplicate-detection.test.ts tests/related-articles.test.ts tests/whats-new.test.tsx",
+    "test:seo-gates": "vitest run tests/title-length.test.ts tests/h1-not-equal-title.test.ts tests/url-max-length.test.ts tests/hreflang-no-broken.test.ts tests/dist-single-h1-per-page.test.ts tests/dist-link-anchor-text.test.ts tests/seo-html-lang-sync.test.ts tests/seo/software-application-jsonld.test.ts",
     "audit:title-uniqueness": "node scripts/audit-title-uniqueness.mjs",
     "test:watch": "vitest",
     "new-article": "node scripts/create-article.mjs",

@@ -64,6 +64,34 @@ const frSeoLinks: Record<string, string> = {
   'related.section.sibling.health_premiums': 'Autres tranches d\'âge',
   'related.section.sibling.border_wait': 'Autres passages de la même région',
   'related.section.sibling.orphan_landing': 'Recherches associées',
+
+  // Phase 2-UI — SEO hub-page footer entry points
+  'seoHubs.footer.title': 'Explorer le site',
+  'seoHubs.footer.sectors': 'Explorer les secteurs',
+  'seoHubs.footer.allSectors': 'Tous les secteurs →',
+  'seoHubs.footer.cities': 'Explorer les villes',
+  'seoHubs.footer.allJobs': 'Tous les emplois →',
+  'seoHubs.footer.companies': 'Entreprises qui recrutent',
+  'seoHubs.footer.allCompanies': 'Toutes les entreprises →',
+  'seoHubs.footer.articles': 'Derniers articles',
+  'seoHubs.footer.allArticles': 'Tous les articles →',
+
+  // Phase 2-UI — SEO hub-page
+  'seo.hub.jobs.title': 'Toutes les offres d’emploi',
+  'seo.hub.jobs.h1': 'Toutes les offres d’emploi pour frontaliers',
+  'seo.hub.jobs.description': 'Index complet de toutes les offres d’emploi indexées pour les frontaliers au Tessin.',
+  'seo.hub.sectors.title': 'Tous les secteurs',
+  'seo.hub.sectors.h1': 'Explorer les secteurs professionnels',
+  'seo.hub.sectors.description': 'Offres d’emploi par secteur : santé, ingénierie, banque, restauration et plus de 40 catégories.',
+  'seo.hub.companies.title': 'Toutes les entreprises qui recrutent',
+  'seo.hub.companies.h1': 'Entreprises qui recrutent au Tessin',
+  'seo.hub.companies.description': 'Index alphabétique de plus de 200 entreprises qui recrutent des frontaliers au Tessin.',
+  'seo.hub.articles.title': 'Tous les articles pour frontaliers',
+  'seo.hub.articles.h1': 'Articles pour frontaliers',
+  'seo.hub.articles.description': 'Archive complète de guides, analyses fiscales et actualités pour les frontaliers.',
+
+  // Job-detail — related-jobs heading
+  'job.related.title': 'Emplois similaires',
 };
 
 export default frSeoLinks;

@@ -20,6 +20,7 @@ import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { flatHtmlRedirectPlugin } from './build-plugins/flatHtmlRedirectPlugin';
+import { hreflangPostprocessPlugin } from './build-plugins/hreflangPostprocessPlugin';
 // flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly,
 // then flatHtmlRedirectPlugin (post-processor) converts each flat .html with a sibling /index.html into a
 // 301-style redirect bridge to close ~3.2k Semrush hreflang↔canonical conflicts.
@@ -154,6 +155,11 @@ export default defineConfig(({ mode }) => {
  // `<path>/index.html` into a 301-style redirect bridge so crawlers
  // never see two canonical-conflicting copies of the same content.
  flatHtmlRedirectPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
+ // Phase 2-hreflang — runs AFTER flatHtmlRedirectPlugin. Walks every
+ // dist/*.html and strips `<link rel="alternate" hreflang>` whose target
+ // does not exist on disk, so Semrush no longer counts missing-locale
+ // translations as broken internal links (Issue 8/E1, Issue 25/E8).
+ hreflangPostprocessPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
  ]),
  ],
  define: {

@@ -64,6 +64,7 @@ import {
   isFaqHubPath,
   parseFaqHubPath,
 } from '../data/faq-hub/routes';
+import { isSeoHubPath, localeFromHubPath } from '../build-plugins/seoHubsData';
 
 // ── Workstream C SemRush landings ────────────────────────────
 // Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
@@ -1830,6 +1831,21 @@ export function parsePath(pathname: string): ParseResult {
        };
      }
    }
+ }
+
+ // Phase 2-UI — SEO hub pages (jobs/sectors/companies/articles + paginated variants).
+ // Static HTML emitted by build-plugins/seoHubsPlugin; staticOverlay leaves the
+ // body untouched while the SPA chrome (header + footer) hydrates over #root.
+ if (isSeoHubPath(pathname)) {
+   const hubLocale = localeFromHubPath(pathname);
+   // Articles hub maps to blog tab; everything else to job-board.
+   const isArticles = /\/articoli-frontaliere\/|\/cross-border-articles\/|\/grenzgaenger-artikel\/|\/articles-frontalier\//.test(pathname);
+   return {
+     route: isArticles
+       ? { activeTab: 'blog', staticOverlay: true }
+       : { activeTab: 'job-board', staticOverlay: true },
+     locale: hubLocale as Locale,
+   };
  }
 
  // AE-5 — 100-Q&A FAQ hub (/domande-frequenti-frontalieri/ + locale variants).

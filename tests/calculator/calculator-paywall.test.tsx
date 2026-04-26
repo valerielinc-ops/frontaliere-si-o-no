@@ -24,6 +24,7 @@ vi.mock('@/services/i18n', () => ({
   t: (key: string) => key,
   getLocale: () => 'it' as const,
   onLocaleChange: vi.fn(() => vi.fn()),
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/pdfReport', () => ({
