@@ -2703,6 +2703,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.latte-ticino-crisi-politica-ritardo.title': 'Tessin-Milch, die Situation ist dringend und die Politik ist bereits im Verzug',
     'blog.article.latte-ticino-crisi-politica-ritardo.excerpt': 'Die Kommunistische Partei befragt die Regierung zum Milchpreis im Tessin, der auf einem historischen Tiefstand ist. Es ist eine politische Antwort auf die Krise der Milchwirtschaft dringend erforderlich.',
     'blog.article.latte-ticino-crisi-politica-ritardo.imageAlt': 'Milchviehbetrieb im Tessin mit grasenden Kühen und einem arbeitenden Bauern',
+    'blog.article.maria-timofeeva-trionfa-chiasso-2026.title': 'Maria Timofeeva triumphiert beim Turnier in Chiasso: historischer Sieg bei der Axion Open 2026',
+    'blog.article.maria-timofeeva-trionfa-chiasso-2026.excerpt': 'Die 22-jährige Usbekin Maria Timofeeva hat die Axion Open in Chiasso gewonnen und Lisa Pigato im Finale besiegt.',
+    'blog.article.maria-timofeeva-trionfa-chiasso-2026.imageAlt': 'Tennismatch bei den Axion Open in Chiasso',
 };
 
 export default blogMetaDe;

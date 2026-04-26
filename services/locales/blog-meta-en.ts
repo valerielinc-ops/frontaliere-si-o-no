@@ -2703,6 +2703,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.latte-ticino-crisi-politica-ritardo.title': 'Ticino milk, the situation is urgent and politics is already behind',
     'blog.article.latte-ticino-crisi-politica-ritardo.excerpt': 'The Communist Party questions the government about the price of milk in Ticino, at historic lows. A political response to the dairy crisis is urgently needed.',
     'blog.article.latte-ticino-crisi-politica-ritardo.imageAlt': 'Dairy farm in Ticino with cows grazing and a farmer working',
+    'blog.article.maria-timofeeva-trionfa-chiasso-2026.title': 'Maria Timofeeva triumphs at Chiasso tournament: historic victory at the Axion Open 2026',
+    'blog.article.maria-timofeeva-trionfa-chiasso-2026.excerpt': 'Twenty-two-year-old Uzbek Maria Timofeeva won the Axion Open in Chiasso, defeating Lisa Pigato in the final.',
+    'blog.article.maria-timofeeva-trionfa-chiasso-2026.imageAlt': 'Tennis match at the Axion Open in Chiasso',
 };
 
 export default blogMetaEn;

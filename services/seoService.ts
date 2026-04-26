@@ -2161,6 +2161,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-immigrazione-svizzera-60-anni-2026': { name: 'Immigrazione Svizzera', path: '/articoli-frontaliere/immigrazione-svizzera-60-anni-2026', parent: 'blog' },
     'blog-supermercati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/supermercati-ticino-2026', parent: 'blog' },
     'blog-latte-ticino-crisi-politica-ritardo': { name: 'Novità', path: '/articoli-frontaliere/latte-ticino-crisi-politica-ritardo', parent: 'blog' },
+    'blog-maria-timofeeva-trionfa-chiasso-2026': { name: 'Sport', path: '/articoli-frontaliere/maria-timofeeva-trionfa-chiasso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

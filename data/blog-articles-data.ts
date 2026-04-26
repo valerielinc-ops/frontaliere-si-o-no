@@ -7294,4 +7294,11 @@ export const ARTICLES = [
  image: '/images/blog/latte-ticino-crisi-politica-ritardo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'maria-timofeeva-trionfa-chiasso-2026',
+ category: 'novita',
+ date: '2026-04-26T17:02:37.201Z',
+ image: '/images/blog/maria-timofeeva-trionfa-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
