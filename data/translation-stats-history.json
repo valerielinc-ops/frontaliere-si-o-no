@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T13:26:59.991Z",
-    "label": "before",
-    "total": 2927,
-    "needsRetranslation": 1,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 9,
-      "en": 18,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T13:37:39.725Z",
-    "label": "after",
-    "total": 2927,
-    "needsRetranslation": 36,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 8,
-      "en": 17,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T13:39:44.855Z",
     "label": "before",
     "total": 2927,
@@ -7450,6 +7378,102 @@
       },
       {
         "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-26T22:25:09.508Z",
+    "label": "before",
+    "total": 2675,
+    "needsRetranslation": 1158,
+    "incomplete": 53,
+    "complete": 2622,
+    "missingByLocale": {
+      "it": 39,
+      "en": 21,
+      "de": 39,
+      "fr": 43
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 12
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-26T23:29:21.954Z",
+    "label": "after",
+    "total": 2675,
+    "needsRetranslation": 70,
+    "incomplete": 27,
+    "complete": 2648,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 25,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
         "pending": 1
       },
       {
