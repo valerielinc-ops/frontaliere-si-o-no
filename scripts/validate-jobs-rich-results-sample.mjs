@@ -188,10 +188,6 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
   if (!jobPosting?.identifier?.value) warnings.push('missing:identifier.value');
   if (!jobPosting?.employmentType) errors.push('missing:employmentType');
   if (!jobPosting?.hiringOrganization?.logo) warnings.push('missing:hiringOrganization.logo');
-  if (!jobPosting?.inLanguage) warnings.push('missing:inLanguage');
-  if (jobPosting?.inLanguage && String(jobPosting.inLanguage).toLowerCase() !== localeCode) {
-    warnings.push(`invalid:inLanguage:${String(jobPosting.inLanguage)}`);
-  }
 
   const expectedSlug = resolveSlugForLocale(job, localeCode);
   const canonicalNeedle = `/` + (localeCode === 'it' ? '' : `${localeCode}/`) + `${LOCALES.find((l) => l.code === localeCode).segment}/${expectedSlug}/`;

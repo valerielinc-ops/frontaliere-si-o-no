@@ -202,22 +202,22 @@ describe('buildJobPostingSchema — per-locale output', () => {
   };
   it('emits an Italian fallback description for locale `it`', () => {
     const schema = buildJobPostingSchema(base, { locale: 'it', url: 'https://frontaliereticino.ch/' });
-    expect(schema.inLanguage).toBe('it');
+    expect('inLanguage' in schema).toBe(false);
     expect(schema.description.toLowerCase()).toMatch(/presso|candidatura/);
   });
   it('emits an English fallback description for locale `en`', () => {
     const schema = buildJobPostingSchema(base, { locale: 'en', url: 'https://frontaliereticino.ch/en/' });
-    expect(schema.inLanguage).toBe('en');
+    expect('inLanguage' in schema).toBe(false);
     expect(schema.description.toLowerCase()).toMatch(/apply|at/);
   });
   it('emits a German fallback description for locale `de`', () => {
     const schema = buildJobPostingSchema(base, { locale: 'de', url: 'https://frontaliereticino.ch/de/' });
-    expect(schema.inLanguage).toBe('de');
+    expect('inLanguage' in schema).toBe(false);
     expect(schema.description.toLowerCase()).toMatch(/bei|bewerbung/);
   });
   it('emits a French fallback description for locale `fr`', () => {
     const schema = buildJobPostingSchema(base, { locale: 'fr', url: 'https://frontaliereticino.ch/fr/' });
-    expect(schema.inLanguage).toBe('fr');
+    expect('inLanguage' in schema).toBe(false);
     expect(schema.description.toLowerCase()).toMatch(/chez|candidature/);
   });
 });

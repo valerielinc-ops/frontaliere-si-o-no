@@ -164,7 +164,6 @@ export interface JobPostingSchema {
   readonly jobLocation: PlaceSchema;
   readonly baseSalary: BaseSalarySchema;
   readonly url: string;
-  readonly inLanguage?: string;
   readonly validThrough?: string;
   readonly directApply?: boolean;
   readonly identifier?: {
@@ -551,7 +550,6 @@ export function buildJobPostingSchema(
     },
     baseSalary,
     url: opts.url,
-    inLanguage: (opts.locale || 'it').slice(0, 2).toLowerCase(),
     validThrough,
     directApply: Boolean(job.url),
     ...(job.id || job.slug

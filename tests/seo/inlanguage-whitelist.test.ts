@@ -75,6 +75,7 @@ describe('seoService — inLanguage whitelist', () => {
    'WebApplication',
    'Organization',
    'Place',
+   'JobPosting',
   ]);
 
   const offenders = schemas
@@ -104,7 +105,6 @@ describe('seoService — inLanguage whitelist', () => {
    'WebPage',
    'CollectionPage',
    'FAQPage',
-   'JobPosting',
    'HowTo',
    'Product',
    'CreativeWork',

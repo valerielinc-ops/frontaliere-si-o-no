@@ -224,9 +224,13 @@ export function truncateJobCorePreservingCity(
  * tokens without conditional logic.
  */
 export function buildTitleDisambiguator(token: string): string {
+ // Keep hyphens: stripping them collapses semantically-different slugs like
+ // `gastronomie-assistentin` and `gastronomieassistent-in` (different word
+ // boundaries) onto the same hash, re-tripping Semrush. Hyphens are
+ // information-bearing in slugs.
  const cleaned = String(token || '')
   .toLowerCase()
-  .replace(/[^a-z0-9]+/g, '');
+  .replace(/[^a-z0-9-]+/g, '');
  if (!cleaned) return '';
  // FNV-1a 32-bit hash — deterministic, no deps, well-distributed for short strings.
  let h = 0x811c9dc5;
@@ -1631,10 +1635,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- ...(() => {
- const modified = safeIsoDate(job.crawledAt) || safeIsoDate(job.updatedAt);
- return modified ? { dateModified: modified } : {};
- })(),
  ...(job.category && mapCategoryToONet(job.category) ? { occupationalCategory: mapCategoryToONet(job.category) } : {}),
  });
  const breadcrumbLd = JSON.stringify({
@@ -3861,11 +3861,15 @@ ${alternates}
  }
  };
  writeCityOrLegacy(canonicalPath, html);
- // Geo-hub cities: also keep the legacy /<section>/ricerca-<city>/
- // path live (backward-compat + external links) but emitting the same
- // HTML whose canonical already points at the clean URL.
+ // Geo-hub cities: keep the legacy /<section>/ricerca-<city>/ path live
+ // (backward-compat + external links). Strip hreflang on the legacy
+ // duplicate — Semrush/Google flag canonicalized pages that emit
+ // hreflang pointing away from themselves ("Conflicting hreflang and
+ // rel=canonical" + "No self-referencing hreflang"). Canonical alone
+ // consolidates equity onto the clean URL.
  if (cityHubKey && legacyPath !== canonicalPath) {
- writeCityOrLegacy(legacyPath, html);
+ const legacyHtml = html.replace(`${alternates}\n`, '');
+ writeCityOrLegacy(legacyPath, legacyHtml);
  }
  }
 
