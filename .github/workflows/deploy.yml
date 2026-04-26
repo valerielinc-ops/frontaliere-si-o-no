@@ -260,6 +260,13 @@ jobs:
       - name: Wait for live article metadata
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
         id: wait_live_meta
+        # Best-effort post-deploy verification: the GitHub Pages CDN can take
+        # several minutes to propagate the new HTML even after deploy-pages
+        # reports success. Don't fail the deploy job if the live URL hasn't
+        # caught up yet — the file IS uploaded; downstream social-posting
+        # steps already gate on `steps.wait_live_meta.outcome == 'success'`,
+        # so they correctly skip on timeout.
+        continue-on-error: true
         # Pass dispatch inputs via env vars to avoid shell injection / escape issues
         # when article titles contain smart quotes, apostrophes, backticks, or $.
         env:
