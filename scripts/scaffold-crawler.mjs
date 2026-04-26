@@ -23,6 +23,7 @@
  *   3. .github/workflows/update-jobs-{key}.yml — GitHub Actions workflow
  *   4. tests/{key}-crawler.test.ts             — Parser unit tests
  */
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -662,6 +663,68 @@ writeFile(files.runner, runnerContent, 'Runner');
 writeFile(files.workflow, workflowContent, 'Workflow');
 writeFile(files.test, testContent, 'Test');
 
+/* ── Logo registry + local mirror ────────────────────────────── */
+
+function registerLogo(key, domain) {
+  const tsPath = path.join(ROOT, 'services', 'jobDataNormalization.ts');
+  const src = fs.readFileSync(tsPath, 'utf-8');
+  // Skip if the slug is already in the registry. The download script will
+  // overwrite the upstream URL with a local path via the manifest overlay.
+  const alreadyRegistered = new RegExp(`['"]${key}['"]\\s*:`).test(src);
+  if (alreadyRegistered) {
+    console.log(`  ✅ Logo registry: '${key}' already present — skipping insert.`);
+    return;
+  }
+  // Insert the new entry alphabetically inside the CRAWLED_COMPANY_LOGOS
+  // block. We keep the ordering consistent so audits/diffs stay readable.
+  const blockMatch = src.match(/(CRAWLED_COMPANY_LOGOS:\s*Record<string,\s*string>\s*=\s*\{)([\s\S]*?)(\n\};)/);
+  if (!blockMatch) {
+    console.warn(`  ⚠️  Logo registry: could not locate CRAWLED_COMPANY_LOGOS — add '${key}': cLogo('${domain}') manually.`);
+    return;
+  }
+  const [, header, body, footer] = blockMatch;
+  const newEntry = ` '${key}': cLogo('${domain}'),`;
+  const lines = body.split('\n');
+  // Find the alphabetic insertion point — match how existing entries are
+  // keyed (each line starts with ' 'slug':' and is sorted alphabetically).
+  let inserted = false;
+  const out = [];
+  for (const line of lines) {
+    if (!inserted) {
+      const m = line.match(/^\s*['"]([a-z0-9-]+)['"]\s*:/);
+      if (m && m[1].localeCompare(key) > 0) {
+        out.push(newEntry);
+        inserted = true;
+      }
+    }
+    out.push(line);
+  }
+  if (!inserted) {
+    // Append at the end (right before the closing brace) as a fallback.
+    const insertAt = out.length - 1;
+    out.splice(insertAt, 0, newEntry);
+  }
+  const next = src.replace(blockMatch[0], `${header}${out.join('\n')}${footer}`);
+  fs.writeFileSync(tsPath, next, 'utf-8');
+  console.log(`  ✅ Logo registry: inserted '${key}': cLogo('${domain}') into CRAWLED_COMPANY_LOGOS.`);
+}
+
+function mirrorLogo(key, domain) {
+  console.log(`\n🖼️  Mirroring logo for ${key} (${domain})...`);
+  try {
+    execFileSync(
+      process.execPath,
+      [path.join(ROOT, 'scripts', 'download-company-logos.mjs'), '--slug', key, '--domain', domain],
+      { stdio: 'inherit', cwd: ROOT },
+    );
+  } catch (err) {
+    console.warn(`  ⚠️  Logo mirror failed (${err?.message || err}). The crawler is still scaffolded; rerun \`node scripts/download-company-logos.mjs --slug ${key} --domain ${domain}\` after fixing the issue.`);
+  }
+}
+
+registerLogo(companyKey, companyDomain);
+mirrorLogo(companyKey, companyDomain);
+
 console.log(`
 ═══════════════════════════════════════════════════════════════
   ✅ Scaffold complete! Next steps:
@@ -682,6 +745,11 @@ console.log(`
   4. REGISTER LOCATION
      Add to COMPANY_HQ in scripts/lib/crawler-location-config.mjs:
        '${companyKey}': { city: 'TODO', canton: 'TODO', postalCode: 'TODO', addressRegion: 'TODO' },
+
+     (Logo is already registered + mirrored to public/images/brands/${companyKey}.* —
+     verify it in public/logos-audit.html. If wrong, edit CRAWLED_COMPANY_LOGOS in
+     services/jobDataNormalization.ts and rerun:
+       node scripts/download-company-logos.mjs --slug ${companyKey})
 
   5. REGISTER IN ORCHESTRATOR
      Add '${companyKey}' to data/jobs-crawler-config.json

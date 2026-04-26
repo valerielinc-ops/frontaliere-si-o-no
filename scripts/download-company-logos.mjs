@@ -295,10 +295,56 @@ function renderAudit(results, counts) {
 </html>`;
 }
 
+function parseArgs(argv) {
+  const args = { slug: null, domain: null, skipAudit: false };
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === '--slug' && argv[i + 1]) args.slug = argv[++i];
+    else if (argv[i] === '--domain' && argv[i + 1]) args.domain = argv[++i];
+    else if (argv[i] === '--skip-audit') args.skipAudit = true;
+  }
+  return args;
+}
+
+async function readManifestFromDisk() {
+  try {
+    const raw = await readFile(MANIFEST, 'utf8');
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
 async function main() {
+  const opts = parseArgs(process.argv.slice(2));
   await mkdir(OUT_DIR, { recursive: true });
-  const entries = await parseLogos();
+  let entries = await parseLogos();
   console.log(`[download-company-logos] Parsed ${entries.length} entries from CRAWLED_COMPANY_LOGOS`);
+
+  if (opts.slug) {
+    const filtered = entries.filter((e) => e.slug === opts.slug);
+    if (filtered.length === 0) {
+      // Slug not in registry yet — synthesise an entry so callers (e.g. the
+      // crawler scaffold) can mirror a logo before manually editing
+      // CRAWLED_COMPANY_LOGOS. Domain defaults to `{slug}.ch` — override
+      // with --domain.
+      const domain = opts.domain || `${opts.slug.replace(/-/g, '')}.ch`;
+      console.log(
+        `[download-company-logos] --slug ${opts.slug} not in registry — synthesising clearbit entry for ${domain}`,
+      );
+      entries = [
+        {
+          slug: opts.slug,
+          kind: 'clearbit',
+          url: `https://logo.clearbit.com/${domain}`,
+          domain,
+        },
+      ];
+    } else {
+      entries = filtered;
+      console.log(`[download-company-logos] Filtered to --slug ${opts.slug} (${entries.length} entry)`);
+    }
+  }
 
   const results = await runConcurrent(entries, downloadOne, CONCURRENCY);
 
@@ -310,23 +356,28 @@ async function main() {
     failed: results.filter((r) => r.status === 'failed').length,
   };
 
-  // Manifest: only entries with a usable local path.
-  // grey-globe entries get included too (better than a broken external image)
-  // but flagged in the audit page so a human can replace them.
-  const manifest = {};
+  // Manifest write — single-slug runs MERGE into the existing manifest so
+  // they don't wipe other entries. Full runs replace the manifest entirely
+  // so removed registry slugs don't linger.
+  const baseManifest = opts.slug ? await readManifestFromDisk() : {};
+  const merged = { ...baseManifest };
   for (const r of results) {
-    if (r.path) manifest[r.slug] = r.path;
+    if (r.path) merged[r.slug] = r.path;
   }
-  const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
+  const sorted = Object.fromEntries(Object.entries(merged).sort(([a], [b]) => a.localeCompare(b)));
   await writeFile(MANIFEST, JSON.stringify(sorted, null, 2) + '\n');
 
-  await writeFile(AUDIT_PAGE, renderAudit(results, counts));
+  // Audit page only regenerated on full runs (single-slug runs would emit a
+  // misleading 1-entry page). Skip explicitly via --skip-audit if desired.
+  if (!opts.slug && !opts.skipAudit) {
+    await writeFile(AUDIT_PAGE, renderAudit(results, counts));
+    console.log(`[download-company-logos] Audit page: ${AUDIT_PAGE}`);
+  }
 
   console.log(
     `[download-company-logos] Done. downloaded=${counts.downloaded} local-existing=${counts.localExisting} grey-globe=${counts.greyGlobe} failed=${counts.failed}`,
   );
   console.log(`[download-company-logos] Manifest: ${MANIFEST}`);
-  console.log(`[download-company-logos] Audit page: ${AUDIT_PAGE}`);
   if (counts.failed > 0) {
     console.log('\nFailed entries:');
     for (const r of results.filter((x) => x.status === 'failed')) {
