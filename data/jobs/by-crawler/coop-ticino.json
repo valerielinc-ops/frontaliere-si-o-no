@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-c0vdfl",
-      "slug": "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
+      "slug": "personale-a-nachtverlad-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Nachtverlad",
       "location": "Chur",
@@ -41,8 +41,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
-        "en": "associate-nachtverlad-coop-chur-graubunden-c0vdfl",
+        "it": "personale-a-nachtverlad-coop-genossenschaft-chur",
+        "en": "staff-in-nachtverlad-coop-genossenschaft-chur",
         "de": "mitarbeiter-in-nachtverlad-coop-chur-graubunden-c0vdfl",
         "fr": "collaborateur-trice-nachtverlad-coop-chur-graubunden-c0vdfl"
       },
@@ -59,7 +59,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
+          "mitarbeiter-in-nachtverlad-coop-chur-graubunden"
+        ],
+        "en": [
+          "associate-nachtverlad-coop-chur-graubunden-c0vdfl"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
+        "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
+        "associate-nachtverlad-coop-chur-graubunden-c0vdfl"
+      ]
     },
     {
       "id": "company-hy7w7d",
