@@ -209,7 +209,7 @@ function renderAudit(results, counts) {
       return `<li class="${cls}" data-slug="${r.slug}">
       <div class="logo">${
         src
-          ? `<img src="${src}" alt="${r.slug}" loading="lazy">`
+          ? `<img src="${src}" alt="${r.slug}" width="72" height="72" loading="lazy">`
           : '<span class="ph">—</span>'
       }</div>
       <div class="meta">
