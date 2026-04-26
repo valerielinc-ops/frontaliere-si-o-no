@@ -1,75 +1,18 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-04-26T10:16:33.562Z",
+  "generatedAt": "2026-04-26T22:03:41.117Z",
   "total": 17,
-  "newCount": 2,
-  "updatedCount": 15,
+  "newCount": 0,
+  "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 93358,
-  "avgDurationMs": 93358,
+  "durationMs": 100120,
+  "avgDurationMs": 100120,
   "durationHistory": [
-    93358
+    100120
   ],
-  "newJobs": [
-    {
-      "id": "sbb-d0f346b625c6",
-      "slug": "meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "login.org",
-      "title": "Meccanico/a di produzione AFC, Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "it",
-      "postedDate": "2025-09-12",
-      "url": "https://www.login.org/it/2180-meccanicoa-di-produzione-afc",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:15:57.155Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "sbb-43c04842d010",
-      "slug": "operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "login.org",
-      "title": "Operatore/trice tecnica di pulizia AFC, Basel",
-      "location": "Basel",
-      "canton": "BS",
-      "addressLocality": "Basel",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "it",
-      "postedDate": "2025-07-25",
-      "url": "https://www.login.org/it/1969-fachfraumann-reinigungstechnik-efz",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:28.116Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "sbb-9474d7f15605",
@@ -90,7 +33,7 @@
       "postedDate": "2026-04-16",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-gestione-del-portafoglio-costruzioni-regione-sud-m-f-d/137e71fe-cbe7-453c-bb6d-53bda7cd9a6b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:15:54.725Z",
+      "crawledAt": "2026-04-26T22:02:57.486Z",
       "firstSeenAt": "2026-04-16T22:14:34.492Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -119,7 +62,7 @@
       "postedDate": "2026-04-16",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-bauportfoliomanagement-region-sued/2e4648a3-c84a-41ed-bb40-0c4379a07438",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:04.015Z",
+      "crawledAt": "2026-04-26T22:03:03.369Z",
       "firstSeenAt": "2026-04-16T22:14:38.472Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -148,7 +91,7 @@
       "postedDate": "2026-04-16",
       "url": "https://www.login.org/it/2342-fachfraumann-bahntransport-efz",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:27.509Z",
+      "crawledAt": "2026-04-26T22:03:37.797Z",
       "firstSeenAt": "2026-04-25T22:04:26.018Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -177,7 +120,7 @@
       "postedDate": "2026-03-27",
       "url": "https://www.login.org/it/2564-vorlehre-gleisbau",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:16.880Z",
+      "crawledAt": "2026-04-26T22:03:23.942Z",
       "firstSeenAt": "2026-04-25T22:04:11.965Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -206,7 +149,7 @@
       "postedDate": "2026-03-17",
       "url": "https://www.login.org/it/1796-detailhandelsfachfraumann-offentlicher-verkehr-efz-kundenbegleitung",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:19.139Z",
+      "crawledAt": "2026-04-26T22:03:25.921Z",
       "firstSeenAt": "2026-04-25T22:04:21.565Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -235,7 +178,7 @@
       "postedDate": "2026-03-05",
       "url": "https://www.login.org/it/1840-detailhandelsfachfraumann-offentlicher-verkehr-efz-kundenberatung-aarau",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:14.155Z",
+      "crawledAt": "2026-04-26T22:03:22.238Z",
       "firstSeenAt": "2026-04-25T22:04:00.228Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -264,7 +207,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:03.426Z",
+      "crawledAt": "2026-04-26T22:03:03.726Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -293,7 +236,7 @@
       "postedDate": "2026-01-28",
       "url": "https://www.login.org/it/1738-netzelektrikerin-efz-fahrleitungen",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:12.915Z",
+      "crawledAt": "2026-04-26T22:03:22.483Z",
       "firstSeenAt": "2026-04-25T22:04:09.619Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -322,7 +265,7 @@
       "postedDate": "2026-01-18",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:04.189Z",
+      "crawledAt": "2026-04-26T22:03:03.606Z",
       "firstSeenAt": "2026-04-13T11:12:22.576Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -351,7 +294,7 @@
       "postedDate": "2025-12-16",
       "url": "https://www.login.org/it/2346-operatoretrice-di-edifici-e-infrastrutture-afc",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:06.916Z",
+      "crawledAt": "2026-04-26T22:03:20.356Z",
       "firstSeenAt": "2026-04-25T22:04:04.931Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -380,12 +323,41 @@
       "postedDate": "2025-09-12",
       "url": "https://www.login.org/it/2242-praticante-ffs-infrastruttura-bellinzona",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:15:46.536Z",
+      "crawledAt": "2026-04-26T22:02:47.197Z",
       "firstSeenAt": "2026-04-25T22:03:47.666Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "sbb-d0f346b625c6",
+      "slug": "meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "login.org",
+      "title": "Meccanico/a di produzione AFC, Bellinzona",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2025-09-12",
+      "url": "https://www.login.org/it/2180-meccanicoa-di-produzione-afc",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-04-26T22:03:00.017Z",
+      "firstSeenAt": "2026-04-26T10:15:57.155Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 14
       }
@@ -409,7 +381,7 @@
       "postedDate": "2025-09-12",
       "url": "https://www.login.org/it/2181-meccanicoa-di-produzione-afc",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:15:59.267Z",
+      "crawledAt": "2026-04-26T22:03:02.377Z",
       "firstSeenAt": "2026-04-25T22:03:56.006Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -438,8 +410,37 @@
       "postedDate": "2025-07-25",
       "url": "https://www.login.org/it/2000-gleisbauerin-efz",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:21.514Z",
+      "crawledAt": "2026-04-26T22:03:26.086Z",
       "firstSeenAt": "2026-04-25T22:04:20.730Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "sbb-43c04842d010",
+      "slug": "operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "login.org",
+      "title": "Operatore/trice tecnica di pulizia AFC, Basel",
+      "location": "Basel",
+      "canton": "BS",
+      "addressLocality": "Basel",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2025-07-25",
+      "url": "https://www.login.org/it/1969-fachfraumann-reinigungstechnik-efz",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-04-26T22:03:38.699Z",
+      "firstSeenAt": "2026-04-26T10:16:28.116Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -467,7 +468,7 @@
       "postedDate": "2025-07-25",
       "url": "https://www.login.org/it/1974-fachfraumann-reinigungstechnik-efz",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:31.705Z",
+      "crawledAt": "2026-04-26T22:03:39.356Z",
       "firstSeenAt": "2026-04-25T22:04:28.540Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -496,7 +497,7 @@
       "postedDate": "2025-07-25",
       "url": "https://www.login.org/it/1744-netzelektrikerin-efz-fahrleitungen",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-26T10:16:33.401Z",
+      "crawledAt": "2026-04-26T22:03:40.954Z",
       "firstSeenAt": "2026-04-25T22:04:30.116Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
