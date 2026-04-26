@@ -118,6 +118,11 @@ describe('Phase 3B — company landing content gate', () => {
     const offenders: string[] = [];
     for (const filePath of pages) {
       const html = readFileSync(filePath, 'utf-8');
+      // Skip job-detail pages whose slug happens to begin with the company
+      // prefix (azienda-/unternehmen-/company-/entreprise-) — those are emitted
+      // by jobsSeoPagesPlugin, not by Phase 3B's company hub emitter, and
+      // already carry their own JobPosting schema + robots policy.
+      if (/"@type"\s*:\s*"JobPosting"/.test(html)) continue;
       const robots = extractRobots(html);
       if (!robots) offenders.push(filePath);
     }
