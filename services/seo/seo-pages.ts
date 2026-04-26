@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 951,
+ "numberOfItems": 950,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5126,7 +5126,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "ListItem", "position": 382, "name": "Di più In Ticino il 'no' all'iniziativa anti-du...", "url": `${BASE_URL}/articoli-frontaliere/ticino-no-anti-dumping` },
  { "@type": "ListItem", "position": 383, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"Art...", "url": `${BASE_URL}/articoli-frontaliere/chiusa-val-bedretto` },
  { "@type": "ListItem", "position": 384, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/un-passaporto-di-fedelt` },
- { "@type": "ListItem", "position": 385, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/baseball-italia-porto-rico-world-classic` },
  { "@type": "ListItem", "position": 386, "name": "Settimana di chiusure sull'autostrada che porta...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-autostrada-confine-ticino-2026` },
  { "@type": "ListItem", "position": 387, "name": "Swissminiatur inaugura la Miniera d'Oro di Sessa", "url": `${BASE_URL}/articoli-frontaliere/swissminiatur-miniera-doro-sessa` },
  { "@type": "ListItem", "position": 388, "name": "Gli svizzeri contrari all'aumento dell'IVA per ...", "url": `${BASE_URL}/articoli-frontaliere/sondaggio-tamedia-iva-esercito-avs` },
