@@ -2109,7 +2109,13 @@ ${hreflangHtml}
  }
 
  // Legacy redirect: if non-IT locale and Italian slug differs
- // generate redirect from Italian-slug-in-non-IT-locale → canonical URL
+ // generate redirect from Italian-slug-in-non-IT-locale → canonical URL.
+ // Marked noindex: this URL is a soft redirect to the canonical FR/EN/DE
+ // slug. Without noindex, multi-city jobs sharing the same translated
+ // role title (e.g. "intendant", "Pool Attendant") emit identical
+ // <title> tags across cities and trip the Semrush title-uniqueness gate
+ // — and Google would otherwise index the legacy slug alongside the
+ // canonical one, splitting authority.
  if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
  const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyHtml = buildCanonicalBridgePage({
@@ -2120,7 +2126,7 @@ ${hreflangHtml}
  body: `Questa URL legacy dell annuncio non e la versione principale. Usa la pagina canonica per contenuto e metadati aggiornati.`,
  ctaLabel: String(localizedTitle || 'Apri annuncio'),
  lang: locale,
- noindex: false,
+ noindex: true,
  });
  const legacyDir = np.join(distDir, legacyRel);
  if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
