@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-25T21:08:54.884Z",
-  "total": 10,
+  "generatedAt": "2026-04-26T09:21:02.828Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1394,
-  "avgDurationMs": 1394,
+  "durationMs": 1527,
+  "avgDurationMs": 1527,
   "durationHistory": [
-    1394
+    1527
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -117,6 +117,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,43 +197,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Netzwerk Spezialist/-in Professional",
-      "slug": "netzwerk-spezialist-in-professional-confederazione-locarno",
-      "url": "https://jobs.admin.ch/posti-vacanti/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18159",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-26",
-      "validThrough": "2026-04-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-b8b72ac5db06",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
