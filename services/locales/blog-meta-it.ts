@@ -2679,6 +2679,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.title': 'Fiorenzo Dadò, le sue tre «P» e gli statali nella morsa politica',
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.excerpt': 'Fiorenzo Dadò, presidente dell\'OCST, discute con Alain Buehler, capogruppo UDC, sulle iniziative statali.',
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.medici-senza-permesso-svizzera-2026.title': 'Medici senza permesso in Svizzera: il fenomeno preoccupante',
+    'blog.article.medici-senza-permesso-svizzera-2026.excerpt': 'Nel 2022, 36 medici interdetti in Svizzera, ma un terzo continua a esercitare. La frammentazione cantonale dei controlli facilita queste derive.',
+    'blog.article.medici-senza-permesso-svizzera-2026.imageAlt': 'Un medico in un ambulatorio a Mendrisio consulta le cartelle cliniche di un paziente',
 };
 
 export default blogMetaIt;

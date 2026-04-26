@@ -2679,6 +2679,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.title': 'Fiorenzo Dadò, His Three \'P\'s and the State\'s Role in Politics',
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.excerpt': 'Fiorenzo Dadò, president of the OCST, discusses with Alain Buehler, head of the UDC group, the state\'s initiatives.',
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.medici-senza-permesso-svizzera-2026.title': 'Doctors without permits in Switzerland: a worrying trend',
+    'blog.article.medici-senza-permesso-svizzera-2026.excerpt': 'In 2022, 36 doctors were banned in Switzerland, but a third continued to practice. The cantonal fragmentation of controls facilitates these developments.',
+    'blog.article.medici-senza-permesso-svizzera-2026.imageAlt': 'A doctor in a clinic in Mendrisio consults a patient\'s medical records',
 };
 
 export default blogMetaEn;

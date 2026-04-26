@@ -12770,6 +12770,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-medici-senza-permesso-svizzera-2026': {
+    title: 'Medici senza permesso in Svizzera: il | Frontaliere Ticino',
+    description: 'Scopri il fenomeno preoccupante dei medici che esercitano senza permesso in Svizzera e le implicazioni per i frontalieri del Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, medici, senza, permesso, fenomeno',
+    ogTitle: 'Medici senza permesso in Svizzera | Frontaliere Ticino',
+    ogDescription: 'Scopri il fenomeno preoccupante dei medici che esercitano senza permesso in Svizzera e le implicazioni per i frontalieri del Ticino.',
+    canonicalPath: '/articoli-frontaliere/medici-senza-permesso-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medici senza permesso in Svizzera: il fenomeno preoccupante e le implicazioni per i frontalieri del",
+      "description": "Scopri il fenomeno preoccupante dei medici che esercitano senza permesso in Svizzera e le implicazioni per i frontalieri del Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/medici-senza-permesso-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un medico in un ambulatorio a Mendrisio consulta le cartelle cliniche di un paziente"
+      },
+      "datePublished": "2026-04-26T08:17:18+00:00",
+      "dateModified": "2026-04-26T08:17:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/medici-senza-permesso-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

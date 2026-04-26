@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 940,
+ "numberOfItems": 941,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5658,7 +5658,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 937, "name": "Crans-Montana: fatture cure italiani | Frontali...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026` },
           { "@type": "ListItem", "position": 938, "name": "Shopping in Italia per 700 milioni: svizzeri pr...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-shopping-como-700-milioni` },
           { "@type": "ListItem", "position": 939, "name": "Apprendisti in Ticino: cifre allarmanti sugli i...", "url": `${BASE_URL}/articoli-frontaliere/apprendisti-ticino-incidenti-2026` },
-          { "@type": "ListItem", "position": 940, "name": "Fiorenzo Dadò, le sue tre «P» e gli statali nel...", "url": `${BASE_URL}/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica` }
+          { "@type": "ListItem", "position": 940, "name": "Fiorenzo Dadò, le sue tre «P» e gli statali nel...", "url": `${BASE_URL}/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica` },
+          { "@type": "ListItem", "position": 941, "name": "Medici senza permesso in Svizzera: il fenomeno ...", "url": `${BASE_URL}/articoli-frontaliere/medici-senza-permesso-svizzera-2026` }
  ]
  },
  {

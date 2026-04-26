@@ -2153,6 +2153,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzeri-shopping-como-700-milioni': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-shopping-como-700-milioni', parent: 'blog' },
     'blog-apprendisti-ticino-incidenti-2026': { name: 'Novità', path: '/articoli-frontaliere/apprendisti-ticino-incidenti-2026', parent: 'blog' },
     'blog-fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica': { name: 'Fiorenzo Dadò, le sue tre «P» e gli stat', path: '/articoli-frontaliere/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica', parent: 'blog' },
+    'blog-medici-senza-permesso-svizzera-2026': { name: 'Sanità', path: '/articoli-frontaliere/medici-senza-permesso-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

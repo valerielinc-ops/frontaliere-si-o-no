@@ -2679,6 +2679,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.title': 'Fiorenzo Dadò, seine drei \'P\' und die Staatsangehörigen in der politischen Klemme',
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.excerpt': 'Fiorenzo Dadò, Präsident des OCST, spricht mit Alain Buehler, Capo des UDC, über staatliche Initiativen.',
     'blog.article.fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.medici-senza-permesso-svizzera-2026.title': 'Ärzte ohne Bewilligung in der Schweiz: ein besorgniserregendes Phänomen',
+    'blog.article.medici-senza-permesso-svizzera-2026.excerpt': 'Im Jahr 2022 wurden 36 Ärzte in der Schweiz gesperrt, doch ein Drittel übt weiterhin. Die kantonale Zersplitterung der Kontrollen erleichtert diese Entwicklungen.',
+    'blog.article.medici-senza-permesso-svizzera-2026.imageAlt': 'Ein Arzt in einer Klinik in Mendrisio konsultiert die medizinischen Akten eines Patienten',
 };
 
 export default blogMetaDe;

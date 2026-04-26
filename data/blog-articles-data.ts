@@ -7238,4 +7238,11 @@ export const ARTICLES = [
  image: '/images/blog/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'medici-senza-permesso-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-26T08:17:18.425Z',
+ image: '/images/blog/medici-senza-permesso-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
