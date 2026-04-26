@@ -53,6 +53,9 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
   if (record.isAccessibleForFree === undefined && String(record.offers.price) === '0') {
    record.isAccessibleForFree = true;
   }
+  if ('speakable' in record) {
+   delete record.speakable;
+  }
  }
 
  return record;
