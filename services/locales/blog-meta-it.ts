@@ -2724,6 +2724,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-lufthansa-economy-basic-2026.title': 'Swiss e Lufthansa lanciano Economy Basic: solo zainetto a mano',
     'blog.article.swiss-lufthansa-economy-basic-2026.excerpt': 'Nuova tariffa Economy Basic per voli europei con bagaglio a mano piccolo. Disponibile dal 28 aprile 2026.',
     'blog.article.swiss-lufthansa-economy-basic-2026.imageAlt': 'Vista aerea di Lugano, Svizzera, con il Lago di Lugano e il paesaggio urbano.',
+    'blog.article.twint-account-frode-frontalieri.title': 'Frode TWINT: come proteggere il tuo account',
+    'blog.article.twint-account-frode-frontalieri.excerpt': 'I criminali stanno prendendo di mira gli account TWINT dei frontalieri. Ecco come difendersi e cosa fare se sei vittima di frode.',
+    'blog.article.twint-account-frode-frontalieri.imageAlt': 'Smartphone con avviso di frode su TWINT, sfondo Lago di Lugano',
 };
 
 export default blogMetaIt;

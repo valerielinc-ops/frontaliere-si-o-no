@@ -7343,4 +7343,11 @@ export const ARTICLES = [
  image: '/images/blog/swiss-lufthansa-economy-basic-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'twint-account-frode-frontalieri',
+ category: 'pratico',
+ date: '2026-04-26T21:51:02.710Z',
+ image: '/images/blog/twint-account-frode-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

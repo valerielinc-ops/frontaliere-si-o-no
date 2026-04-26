@@ -13205,6 +13205,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-twint-account-frode-frontalieri': {
+    title: 'Frode TWINT: come proteggere il tuo | Frontaliere Ticino',
+    description: 'Scopri come i criminali rubano gli account TWINT e come proteggere il tuo. Consigli pratici e cosa fare se sei vittima di frode. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, frode, twint, proteggere, account',
+    ogTitle: 'Frode TWINT: come proteggere il tuo account',
+    ogDescription: 'Scopri come i criminali rubano gli account TWINT e come proteggere il tuo. Consigli pratici e cosa fare se sei vittima di frode.',
+    canonicalPath: '/articoli-frontaliere/twint-account-frode-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frode TWINT: come proteggere il tuo account",
+      "description": "Scopri come i criminali rubano gli account TWINT e come proteggere il tuo. Consigli pratici e cosa fare se sei vittima di frode. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/twint-account-frode-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con avviso di frode su TWINT, sfondo Lago di Lugano"
+      },
+      "datePublished": "2026-04-26T21:51:02+00:00",
+      "dateModified": "2026-04-26T21:51:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/twint-account-frode-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

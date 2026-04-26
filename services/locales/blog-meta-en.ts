@@ -2724,6 +2724,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-lufthansa-economy-basic-2026.title': 'Swiss and Lufthansa launch Economy Basic: only small hand luggage',
     'blog.article.swiss-lufthansa-economy-basic-2026.excerpt': 'New Economy Basic fare for European flights with small hand luggage. Available from April 28, 2026.',
     'blog.article.swiss-lufthansa-economy-basic-2026.imageAlt': 'Aerial view of Lugano, Switzerland, with Lake Lugano and the cityscape.',
+    'blog.article.twint-account-frode-frontalieri.title': 'TWINT Fraud: How to Protect Your Account',
+    'blog.article.twint-account-frode-frontalieri.excerpt': 'Criminals are targeting TWINT accounts of cross-border workers. Here\'s how to defend yourself and what to do if you\'re a victim of fraud.',
+    'blog.article.twint-account-frode-frontalieri.imageAlt': 'Smartphone with TWINT fraud warning, Lake Lugano background',
 };
 
 export default blogMetaEn;
