@@ -7315,4 +7315,11 @@ export const ARTICLES = [
  image: '/images/blog/costi-salute-svizzera-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'imposta-ocse-multinazionali-obiettivi-lontani',
+ category: 'fiscale',
+ date: '2026-04-26T20:09:36.324Z',
+ image: '/images/blog/imposta-ocse-multinazionali-obiettivi-lontani.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

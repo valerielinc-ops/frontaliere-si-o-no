@@ -13089,6 +13089,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-ocse-multinazionali-obiettivi-lontani': {
+    title: 'Imposta OCSE sulle multinazionali | Frontaliere Ticino',
+    description: 'L\'imposta minima del 15% per le multinazionali in Svizzera ha incassato 564 milioni nel 2025, ben al di sotto degli obiettivi miliardari del Consiglio federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, ocse, sulle, multinazionali',
+    ogTitle: 'Imposta OCSE Multinazionali: Obiettivi Lontani | Frontaliere',
+    ogDescription: 'L\'imposta minima del 15% per le multinazionali in Svizzera ha incassato 564 milioni nel 2025, ben al di sotto degli obiettivi miliardari del Consiglio federale.',
+    canonicalPath: '/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta OCSE Multinazionali: Obiettivi Lontani",
+      "description": "L'imposta minima del 15% per le multinazionali in Svizzera ha incassato 564 milioni nel 2025, ben al di sotto degli obiettivi miliardari del Consiglio federale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/imposta-ocse-multinazionali-obiettivi-lontani.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine italo-svizzero in primo piano"
+      },
+      "datePublished": "2026-04-26T20:09:36+00:00",
+      "dateModified": "2026-04-26T20:09:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

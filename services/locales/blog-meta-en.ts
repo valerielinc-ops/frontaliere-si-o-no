@@ -2712,6 +2712,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costi-salute-svizzera-frontalieri-2026.title': 'Swiss healthcare costs: expert warns, \'System at breaking point\'',
     'blog.article.costi-salute-svizzera-frontalieri-2026.excerpt': 'By 2025, Swiss healthcare costs will reach 100 billion CHF, with a per capita expenditure of 900 CHF per month. Expert Igor Francetic from SUPSI warns: the system is unsustainable.',
     'blog.article.costi-salute-svizzera-frontalieri-2026.imageAlt': 'Lake Lugano with mountains and blue sky',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'OCSE tax on multinationals: distant goals, only 564 million in 2025',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'The minimum tax rate of 15% for multinationals in Switzerland raised 564 million francs in 2025, far below the federal council\'s billion-dollar targets.',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;

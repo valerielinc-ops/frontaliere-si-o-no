@@ -2712,6 +2712,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costi-salute-svizzera-frontalieri-2026.title': 'Gesundheitskosten Schweiz: Experte warnt, «System am Ende»',
     'blog.article.costi-salute-svizzera-frontalieri-2026.excerpt': 'Im Jahr 2025 werden die Gesundheitskosten in der Schweiz 100 Milliarden Franken erreichen, mit Ausgaben von 900 Franken pro Kopf und Monat. Der Experte Igor Francetic der SUPSI warnt: Das System ist nicht mehr tragbar.',
     'blog.article.costi-salute-svizzera-frontalieri-2026.imageAlt': 'Luganersee mit Bergen und blauem Himmel',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'OCSE-Steuer für Multinationale: Ziele in weiter Ferne, nur 564 Millionen im Jahr 2025',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'Die Mindeststeuer von 15% für Multinationale in der Schweiz hat im Jahr 2025 564 Millionen Franken eingebracht, weit unter den milliardenschweren Zielen des Bundesrates.',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
 };
 
 export default blogMetaDe;

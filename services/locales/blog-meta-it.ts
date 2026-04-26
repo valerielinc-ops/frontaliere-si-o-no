@@ -2712,6 +2712,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-salute-svizzera-frontalieri-2026.title': 'Costi salute Svizzera: esperto avverte, «Sistema al capolinea»',
     'blog.article.costi-salute-svizzera-frontalieri-2026.excerpt': 'Nel 2025 i costi sanitari svizzeri toccheranno i 100 miliardi, con una spesa pro capite di 900 CHF al mese. L\'esperto Igor Francetic della SUPSI avverte: il sistema è insostenibile.',
     'blog.article.costi-salute-svizzera-frontalieri-2026.imageAlt': 'Lago di Lugano con montagne e cielo azzurro',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'Imposta OCSE sulle multinazionali: obiettivi lontani, solo 564 milioni nel 2025',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'L\'imposta minima del 15% per le multinazionali in Svizzera ha incassato 564 milioni nel 2025, ben al di sotto degli obiettivi miliardari del Consiglio federale.',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Vista aerea del Lago di Lugano con il confine italo-svizzero in primo piano',
 };
 
 export default blogMetaIt;

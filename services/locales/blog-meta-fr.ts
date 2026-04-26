@@ -2712,6 +2712,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costi-salute-svizzera-frontalieri-2026.title': 'Coûts santé Suisse: un expert alerte, «Le système est à bout de souffle»',
     'blog.article.costi-salute-svizzera-frontalieri-2026.excerpt': 'En 2025, les coûts de santé suisses atteindront les 100 milliards, avec une dépense par habitant de 900 CHF par mois. L\'expert Igor Francetic de la SUPSI alerte: le système est insoutenable.',
     'blog.article.costi-salute-svizzera-frontalieri-2026.imageAlt': 'Lac de Lugano avec montagnes et ciel bleu',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.title': 'Impôt OCDE sur les multinationales : objectifs lointains, seulement 564 millions en 2025',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.excerpt': 'L\'impôt minimum de 15 % pour les multinationales en Suisse a rapporté 564 millions en 2025, bien en dessous des objectifs milliardaires du Conseil fédéral.',
+    'blog.article.imposta-ocse-multinazionali-obiettivi-lontani.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
 };
 
 export default blogMetaFr;
