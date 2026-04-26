@@ -12712,6 +12712,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendisti-ticino-incidenti-2026': {
+    title: 'Apprendisti in Ticino: cifre allarmanti | Frontaliere Ticino',
+    description: 'Quasi 23.000 apprendisti svizzeri sono vittime di incidenti ogni anno, con tre casi mortali in media. Unia chiede misure urgenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendisti, cifre, allarmanti, sugli',
+    ogTitle: 'Apprendisti in Ticino: cifre allarmanti sugli incidenti',
+    ogDescription: 'Quasi 23.000 apprendisti svizzeri sono vittime di incidenti ogni anno, con tre casi mortali in media. Unia chiede misure urgenti.',
+    canonicalPath: '/articoli-frontaliere/apprendisti-ticino-incidenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendisti in Ticino: cifre allarmanti sugli incidenti",
+      "description": "Quasi 23.000 apprendisti svizzeri sono vittime di incidenti ogni anno, con tre casi mortali in media. Unia chiede misure urgenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendisti-ticino-incidenti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di apprendisti in piazza con cartelli sulla sicurezza sul lavoro"
+      },
+      "datePublished": "2026-04-26T04:03:40+00:00",
+      "dateModified": "2026-04-26T04:03:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apprendisti-ticino-incidenti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

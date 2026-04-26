@@ -4740,7 +4740,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 938,
+ "numberOfItems": 939,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5656,7 +5656,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 935, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/marketing-territoriale-varese-35000-euro` },
           { "@type": "ListItem", "position": 936, "name": "Nuova tassa sui frontalieri: 3% in più per fina...", "url": `${BASE_URL}/articoli-frontaliere/nuova-tassa-frontalieri-2026` },
           { "@type": "ListItem", "position": 937, "name": "Crans-Montana: fatture cure italiani | Frontali...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026` },
-          { "@type": "ListItem", "position": 938, "name": "Shopping in Italia per 700 milioni: svizzeri pr...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-shopping-como-700-milioni` }
+          { "@type": "ListItem", "position": 938, "name": "Shopping in Italia per 700 milioni: svizzeri pr...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-shopping-como-700-milioni` },
+          { "@type": "ListItem", "position": 939, "name": "Apprendisti in Ticino: cifre allarmanti sugli i...", "url": `${BASE_URL}/articoli-frontaliere/apprendisti-ticino-incidenti-2026` }
  ]
  },
  {

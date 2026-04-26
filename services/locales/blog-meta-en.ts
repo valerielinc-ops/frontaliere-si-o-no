@@ -2673,6 +2673,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-shopping-como-700-milioni.title': 'Swiss spend 700 million on shopping in Italy, favoring Como stores',
     'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'Global Blue data reveals that Swiss residents spend 700 million CHF annually in Italy, with 67% of purchases made in Como supermarkets.',
     'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Busy shopping street in Como with Swiss shoppers',
+    'blog.article.apprendisti-ticino-incidenti-2026.title': 'Apprentices in Ticino: alarming figures on accidents',
+    'blog.article.apprendisti-ticino-incidenti-2026.excerpt': 'Almost 23,000 Swiss apprentices are victims of accidents every year, with an average of three fatal cases. Unia demands urgent measures.',
+    'blog.article.apprendisti-ticino-incidenti-2026.imageAlt': 'Group of apprentices protesting in Berna about workplace safety',
 };
 
 export default blogMetaEn;

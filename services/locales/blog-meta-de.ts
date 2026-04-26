@@ -2673,6 +2673,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-shopping-como-700-milioni.title': 'Einkaufen in Italien für 700 Millionen: Schweizer bevorzugen Geschäfte in Como',
     'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'Die Daten von Global Blue zeigen, dass die Schweizer jährlich 700 Millionen Franken in Italien ausgeben, wobei 67% der Einkäufe in den comaschen Supermärkten getätigt werden.',
     'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Belebte Einkaufsstraße in Como mit Schweizer Einkaufenden',
+    'blog.article.apprendisti-ticino-incidenti-2026.title': 'Lernende im Tessin: alarmierende Zahlen zu Unfällen',
+    'blog.article.apprendisti-ticino-incidenti-2026.excerpt': 'Fast 23.000 Schweizer Lernende sind jedes Jahr von Unfällen betroffen, durchschnittlich drei davon tödlich. Unia fordert dringende Maßnahmen.',
+    'blog.article.apprendisti-ticino-incidenti-2026.imageAlt': 'Gruppe von Lernenden demonstriert in Bern über Arbeitssicherheit',
 };
 
 export default blogMetaDe;

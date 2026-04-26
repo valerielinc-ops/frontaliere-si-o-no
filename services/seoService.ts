@@ -2151,6 +2151,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-tassa-frontalieri-2026': { name: 'Nuova tassa frontalieri', path: '/articoli-frontaliere/nuova-tassa-frontalieri-2026', parent: 'blog' },
     'blog-crans-montana-fatture-cure-italiani-2026': { name: 'Crans-Montana: fatture cure italiani', path: '/articoli-frontaliere/crans-montana-fatture-cure-italiani-2026', parent: 'blog' },
     'blog-svizzeri-shopping-como-700-milioni': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-shopping-como-700-milioni', parent: 'blog' },
+    'blog-apprendisti-ticino-incidenti-2026': { name: 'Novità', path: '/articoli-frontaliere/apprendisti-ticino-incidenti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

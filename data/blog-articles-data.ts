@@ -7224,4 +7224,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzeri-shopping-como-700-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'apprendisti-ticino-incidenti-2026',
+ category: 'novita',
+ date: '2026-04-26T04:03:40.243Z',
+ image: '/images/blog/apprendisti-ticino-incidenti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

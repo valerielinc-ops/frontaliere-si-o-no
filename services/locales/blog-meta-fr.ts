@@ -2673,6 +2673,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzeri-shopping-como-700-milioni.title': 'Shopping en Italie pour 700 millions: les Suisses préfèrent les magasins comasques',
     'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'Les données de Global Blue révèlent que les Suisses dépensent 700 millions par an en Italie, avec 67% des achats dans les supermarchés comasques.',
     'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Rue commerçante animée à Côme avec des acheteurs suisses',
+    'blog.article.apprendisti-ticino-incidenti-2026.title': 'Apprentis au Tessin : chiffres alarmants sur les accidents',
+    'blog.article.apprendisti-ticino-incidenti-2026.excerpt': 'Près de 23.000 apprentis suisses sont victimes d\'accidents chaque année, avec trois cas mortels en moyenne. Unia demande des mesures urgentes.',
+    'blog.article.apprendisti-ticino-incidenti-2026.imageAlt': 'Groupe d\'apprentis manifestant à Berne sur la sécurité au travail',
 };
 
 export default blogMetaFr;

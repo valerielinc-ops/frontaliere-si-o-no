@@ -2673,6 +2673,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzeri-shopping-como-700-milioni.title': 'Shopping in Italia per 700 milioni: svizzeri preferiscono negozi comaschi',
     'blog.article.svizzeri-shopping-como-700-milioni.excerpt': 'I dati di Global Blue rivelano che gli svizzeri spendono 700 milioni all\'anno in Italia, con il 67% degli acquisti nei supermercati comaschi.',
     'blog.article.svizzeri-shopping-como-700-milioni.imageAlt': 'Strada commerciale affollata a Como con acquirenti svizzeri',
+    'blog.article.apprendisti-ticino-incidenti-2026.title': 'Apprendisti in Ticino: cifre allarmanti sugli incidenti',
+    'blog.article.apprendisti-ticino-incidenti-2026.excerpt': 'Quasi 23.000 apprendisti svizzeri sono vittime di incidenti ogni anno, con tre casi mortali in media. Unia chiede misure urgenti.',
+    'blog.article.apprendisti-ticino-incidenti-2026.imageAlt': 'Gruppo di apprendisti in piazza con cartelli sulla sicurezza sul lavoro',
 };
 
 export default blogMetaIt;
