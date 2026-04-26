@@ -12799,6 +12799,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-spese-cura-italiani-2026': {
+    title: 'Crans-Montana, spese mediche: Italia | Frontaliere Ticino',
+    description: 'La premier Meloni annuncia che l\'Italia non pagherà le spese mediche per i feriti di Crans-Montana, nonostante la Svizzera intenda chiedere il rimborso',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, spese, mediche, respinge',
+    ogTitle: 'Crans-Montana, spese mediche: Italia respinge richiesta',
+    ogDescription: 'La premier Meloni annuncia che l\'Italia non pagherà le spese mediche per i feriti di Crans-Montana, nonostante la Svizzera intenda chiedere il rimborso',
+    canonicalPath: '/articoli-frontaliere/crans-montana-spese-cura-italiani-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, spese mediche: Italia respinge richiesta svizzera",
+      "description": "La premier Meloni annuncia che l'Italia non pagherà le spese mediche per i feriti di Crans-Montana, nonostante la Svizzera intenda chiedere il rimborso",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-spese-cura-italiani-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Crans-Montana con impianti da sci e paesaggio innevato"
+      },
+      "datePublished": "2026-04-26T09:22:40+00:00",
+      "dateModified": "2026-04-26T09:22:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-spese-cura-italiani-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

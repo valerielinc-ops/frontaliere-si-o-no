@@ -2682,6 +2682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.medici-senza-permesso-svizzera-2026.title': 'Medici senza permesso in Svizzera: il fenomeno preoccupante',
     'blog.article.medici-senza-permesso-svizzera-2026.excerpt': 'Nel 2022, 36 medici interdetti in Svizzera, ma un terzo continua a esercitare. La frammentazione cantonale dei controlli facilita queste derive.',
     'blog.article.medici-senza-permesso-svizzera-2026.imageAlt': 'Un medico in un ambulatorio a Mendrisio consulta le cartelle cliniche di un paziente',
+    'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, spese mediche: Italia respinge richiesta svizzera',
+    'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'La premier Meloni annuncia che l\'Italia non pagherà le spese mediche per i feriti di Crans-Montana, nonostante la Svizzera intenda chiedere il rimborso',
+    'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Vista panoramica di Crans-Montana con impianti da sci e paesaggio innevato',
 };
 
 export default blogMetaIt;

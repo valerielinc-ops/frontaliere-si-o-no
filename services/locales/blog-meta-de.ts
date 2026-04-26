@@ -2682,6 +2682,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.medici-senza-permesso-svizzera-2026.title': 'Ärzte ohne Bewilligung in der Schweiz: ein besorgniserregendes Phänomen',
     'blog.article.medici-senza-permesso-svizzera-2026.excerpt': 'Im Jahr 2022 wurden 36 Ärzte in der Schweiz gesperrt, doch ein Drittel übt weiterhin. Die kantonale Zersplitterung der Kontrollen erleichtert diese Entwicklungen.',
     'blog.article.medici-senza-permesso-svizzera-2026.imageAlt': 'Ein Arzt in einer Klinik in Mendrisio konsultiert die medizinischen Akten eines Patienten',
+    'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, medizinische Kosten: Italien lehnt Schweizer Antrag ab',
+    'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'Premierministerin Meloni kündigt an, dass Italien die medizinischen Kosten für die Verletzten von Crans-Montana nicht übernehmen wird, obwohl die Schweiz eine Rückerstattung beantragt',
+    'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Panoramablick von Crans-Montana mit Skiliften und verschneiter Landschaft',
 };
 
 export default blogMetaDe;

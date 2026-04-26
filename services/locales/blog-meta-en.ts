@@ -2682,6 +2682,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.medici-senza-permesso-svizzera-2026.title': 'Doctors without permits in Switzerland: a worrying trend',
     'blog.article.medici-senza-permesso-svizzera-2026.excerpt': 'In 2022, 36 doctors were banned in Switzerland, but a third continued to practice. The cantonal fragmentation of controls facilitates these developments.',
     'blog.article.medici-senza-permesso-svizzera-2026.imageAlt': 'A doctor in a clinic in Mendrisio consults a patient\'s medical records',
+    'blog.article.crans-montana-spese-cura-italiani-2026.title': 'Crans-Montana, medical expenses: Italy rejects Swiss request',
+    'blog.article.crans-montana-spese-cura-italiani-2026.excerpt': 'Prime Minister Meloni announces that Italy will not pay the medical expenses for the Crans-Montana injured, despite Switzerland intending to request reimbursement',
+    'blog.article.crans-montana-spese-cura-italiani-2026.imageAlt': 'Panoramic view of Crans-Montana with ski lifts and snowy landscape',
 };
 
 export default blogMetaEn;
