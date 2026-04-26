@@ -7364,4 +7364,11 @@ export const ARTICLES = [
  image: '/images/blog/cybersicurezza-industriale-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'redditi-varesotti-2024-luvinate',
+ category: 'fiscale',
+ date: '2026-04-26T22:44:19.115Z',
+ image: '/images/blog/redditi-varesotti-2024-luvinate.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

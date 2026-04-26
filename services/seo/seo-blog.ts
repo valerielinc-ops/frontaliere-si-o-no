@@ -13292,6 +13292,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-redditi-varesotti-2024-luvinate': {
+    title: 'Redditi 2024: Luvinate è il comune più | Frontaliere Ticino',
+    description: 'Luvinate supera Galliate Lombardo con un reddito medio di 37.654 euro. I dati dei frontalieri non sono inclusi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, redditi, 2024, luvinate, comune',
+    ogTitle: 'Redditi 2024: Luvinate è il comune più ricco della provincia',
+    ogDescription: 'Luvinate supera Galliate Lombardo con un reddito medio di 37.654 euro. I dati dei frontalieri non sono inclusi.',
+    canonicalPath: '/articoli-frontaliere/redditi-varesotti-2024-luvinate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Redditi 2024: Luvinate è il comune più ricco della provincia di Varese",
+      "description": "Luvinate supera Galliate Lombardo con un reddito medio di 37.654 euro. I dati dei frontalieri non sono inclusi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/redditi-varesotti-2024-luvinate.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano, mostrando Lugano e Porlezza"
+      },
+      "datePublished": "2026-04-26T22:44:19+00:00",
+      "dateModified": "2026-04-26T22:44:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/redditi-varesotti-2024-luvinate`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2171,6 +2171,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-twint-account-frode-frontalieri': { name: 'Frode TWINT', path: '/articoli-frontaliere/twint-account-frode-frontalieri', parent: 'blog' },
     'blog-costi-sanitari-ticino-2024-4-percento': { name: 'Sanità Ticino', path: '/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento', parent: 'blog' },
     'blog-cybersicurezza-industriale-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/cybersicurezza-industriale-ticino-2026', parent: 'blog' },
+    'blog-redditi-varesotti-2024-luvinate': { name: 'Redditi Varese', path: '/articoli-frontaliere/redditi-varesotti-2024-luvinate', parent: 'blog' },
  };
 
  const info = sectionNames[section];

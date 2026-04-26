@@ -2733,6 +2733,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cybersicurezza-industriale-ticino-2026.title': 'Cybersicurezza industriale: proteggere produzione e competitività',
     'blog.article.cybersicurezza-industriale-ticino-2026.excerpt': 'Le imprese del Canton Ticino devono adottare un approccio integrato per la sicurezza informatica industriale, secondo un webinar promosso da ANIMA Confindustria.',
     'blog.article.cybersicurezza-industriale-ticino-2026.imageAlt': 'Professionisti della cybersicurezza lavorano in un ambiente industriale moderno in Ticino',
+    'blog.article.redditi-varesotti-2024-luvinate.title': 'Redditi 2024: Luvinate è il comune più ricco della provincia di Varese',
+    'blog.article.redditi-varesotti-2024-luvinate.excerpt': 'Luvinate supera Galliate Lombardo con un reddito medio di 37.654 euro. I dati dei frontalieri non sono inclusi.',
+    'blog.article.redditi-varesotti-2024-luvinate.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano, mostrando Lugano e Porlezza',
 };
 
 export default blogMetaIt;

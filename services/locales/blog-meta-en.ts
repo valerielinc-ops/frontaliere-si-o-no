@@ -2733,6 +2733,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cybersicurezza-industriale-ticino-2026.title': 'Industrial cybersecurity: protecting production and competitiveness',
     'blog.article.cybersicurezza-industriale-ticino-2026.excerpt': 'Companies in the Canton of Ticino should adopt an integrated approach to industrial cybersecurity, according to a webinar promoted by ANIMA Confindustria.',
     'blog.article.cybersicurezza-industriale-ticino-2026.imageAlt': 'Cybersecurity professionals working in a modern industrial setting in Ticino',
+    'blog.article.redditi-varesotti-2024-luvinate.title': '2024 Incomes: Luvinate is the wealthiest municipality in Varese province',
+    'blog.article.redditi-varesotti-2024-luvinate.excerpt': 'Luvinate surpasses Galliate Lombardo with an average income of 37,654 euros. Cross-border workers\' data is not included.',
+    'blog.article.redditi-varesotti-2024-luvinate.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border, showing Lugano and Porlezza',
 };
 
 export default blogMetaEn;

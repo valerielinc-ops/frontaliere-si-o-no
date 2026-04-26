@@ -2733,6 +2733,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cybersicurezza-industriale-ticino-2026.title': 'Industrielle Cybersicherheit: Produktion und Wettbewerbsfähigkeit schützen',
     'blog.article.cybersicurezza-industriale-ticino-2026.excerpt': 'Die Unternehmen des Kantons Tessin müssen einen integrierten Ansatz für die industrielle IT-Sicherheit verfolgen, wie ein Webinar von ANIMA Confindustria zeigt.',
     'blog.article.cybersicurezza-industriale-ticino-2026.imageAlt': 'Cybersicherheitsfachleute arbeiten in einer modernen industriellen Umgebung in Tessin',
+    'blog.article.redditi-varesotti-2024-luvinate.title': 'Einkommen 2024: Luvinate ist die reichste Gemeinde der Provinz Varese',
+    'blog.article.redditi-varesotti-2024-luvinate.excerpt': 'Luvinate übertrifft Galliate Lombardo mit einem durchschnittlichen Einkommen von 37.654 Euro. Die Daten der Grenzgänger sind nicht enthalten.',
+    'blog.article.redditi-varesotti-2024-luvinate.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze, zeigt Lugano und Porlezza',
 };
 
 export default blogMetaDe;
