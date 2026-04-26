@@ -13,6 +13,11 @@ on:
         description: 'Optional: specific article URL to generate from (leave empty for auto-scan)'
         required: false
         type: string
+      retry_count:
+        description: 'Internal: retry counter for self-trigger chain (do not set manually)'
+        required: false
+        type: string
+        default: '0'
 
 concurrency:
   # Shared group: only 1 run active at a time, next run queues (not skipped).
@@ -503,3 +508,93 @@ jobs:
               echo "> **🔁 Retry**: trigger \`workflow_dispatch\` with URL: \`$SOURCE_URL\`" >> "$GITHUB_STEP_SUMMARY"
             fi
           fi
+
+      # ── Self-trigger chain ────────────────────────────────────────────
+      # GitHub Actions silently skips ~66% of cron slots (measured 34%
+      # utilization on this 30-min cron). At end of every run we dispatch
+      # the next via workflow_dispatch + PAT to bypass cron unreliability.
+      # The concurrency group `article-generation` already prevents overlap.
+      # The cron schedule remains as a fallback safety net.
+      - name: Determine self-trigger decision
+        id: decide_trigger
+        if: always()
+        env:
+          HAS_CHANGES: ${{ steps.changes.outputs.has_changes }}
+          COMMITTED: ${{ steps.commit.outputs.committed }}
+          VERIFIED: ${{ steps.verify_article.outputs.exists }}
+          GENERATE_OUTCOME: ${{ steps.generate.outcome }}
+          # Retry counter passed via workflow_dispatch input (default 0 for cron-triggered runs)
+          RETRY_COUNT: ${{ github.event.inputs.retry_count || '0' }}
+        run: |
+          # Outcome decision tree:
+          # ✅ verified=true → self-trigger immediately, retry_count=0
+          # ⚪ has_changes=false (no source / all duplicates) → self-trigger after 600s, retry_count=0
+          # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retry_count=0
+          # 🟠 verified=false (committed but not in dist) → RETRY with backoff
+          # 🔴 generate step failure → RETRY with backoff
+          # Backoff schedule: 60s → 300s → 1800s, max 3 retries, then give up (cron resumes)
+
+          SHOULD_TRIGGER="false"
+          DELAY="0"
+          REASON="unknown"
+          NEXT_RETRY="0"
+
+          if [ "$VERIFIED" = "true" ]; then
+            SHOULD_TRIGGER="true"
+            DELAY="0"
+            REASON="success"
+            NEXT_RETRY="0"
+          elif [ "$HAS_CHANGES" = "false" ]; then
+            SHOULD_TRIGGER="true"
+            DELAY="600"
+            REASON="no_changes"
+            NEXT_RETRY="0"
+          elif [ "$COMMITTED" = "false" ] && [ "$HAS_CHANGES" = "true" ]; then
+            SHOULD_TRIGGER="true"
+            DELAY="60"
+            REASON="rebase_failed"
+            NEXT_RETRY="0"
+          else
+            # Failure path: verify_failed OR generate_failed OR build_failed
+            CUR_RETRY="${RETRY_COUNT:-0}"
+            if [ "$CUR_RETRY" -lt 3 ]; then
+              NEXT_RETRY=$((CUR_RETRY + 1))
+              case "$NEXT_RETRY" in
+                1) DELAY=60 ;;
+                2) DELAY=300 ;;
+                3) DELAY=1800 ;;
+              esac
+              SHOULD_TRIGGER="true"
+              REASON="retry_${NEXT_RETRY}_of_3"
+            else
+              SHOULD_TRIGGER="false"
+              REASON="retry_exhausted"
+            fi
+          fi
+
+          echo "should_trigger=$SHOULD_TRIGGER" >> "$GITHUB_OUTPUT"
+          echo "delay=$DELAY" >> "$GITHUB_OUTPUT"
+          echo "reason=$REASON" >> "$GITHUB_OUTPUT"
+          echo "next_retry=$NEXT_RETRY" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "## 🔁 Self-trigger decision"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Should trigger | \`$SHOULD_TRIGGER\` |"
+            echo "| Reason | \`$REASON\` |"
+            echo "| Delay (s) | \`$DELAY\` |"
+            echo "| Retry count (next) | \`$NEXT_RETRY\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Self-trigger next run
+        if: steps.decide_trigger.outputs.should_trigger == 'true'
+        continue-on-error: true
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          WORKFLOW_FILE: generate-article.yml
+          DELAY_SECONDS: ${{ steps.decide_trigger.outputs.delay }}
+          SELF_TRIGGER_REASON: ${{ steps.decide_trigger.outputs.reason }}
+          RETRY_COUNT: ${{ steps.decide_trigger.outputs.next_retry }}
+        run: bash scripts/lib/trigger-self.sh
