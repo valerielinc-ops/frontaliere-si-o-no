@@ -81,6 +81,7 @@ import {
   TABLE_CELL_STYLE,
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
+  clampSiteSuffix,
   renderDiscoverMore,
 } from './shared/seoContentTokens';
 
@@ -1144,7 +1145,14 @@ function renderLeafPage(inp: LeafInputs): string {
   const maxFmt = formatCHF(max, locale);
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const h1 = copy.h1(cantonLabel, ageLabel);
+  // H1 is narrative for users; title is keyword-first for SERP. They must
+  // differ in text (Semrush W3, issue 105).
+  const titleBase = copy.h1(cantonLabel, ageLabel);
+  const h1 =
+    locale === 'it' ? `Confronto premi LAMal in ${cantonLabel} per la fascia ${ageLabel}`
+    : locale === 'en' ? `LAMal premium comparison in ${cantonLabel} for ${ageLabel}`
+    : locale === 'de' ? `KVG-Prämienvergleich in ${cantonLabel} für ${ageLabel}`
+    : `Comparatif des primes LAMal à ${cantonLabel} pour ${ageLabel}`;
   const intro = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
 
   // Top-20 table
@@ -1389,7 +1397,8 @@ function renderLeafPage(inp: LeafInputs): string {
     },
   });
 
-  const title = `${h1} | Frontaliere Ticino`;
+  // Phase 3A: clamp brand suffix only when it fits the 60-char SERP budget.
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -1611,7 +1620,13 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const h1 = copy.h1Canton(cantonLabel, year);
+  // SEO title (keyword-first) vs narrative H1 — Semrush W3.
+  const titleBase = copy.h1Canton(cantonLabel, year);
+  const h1 =
+    locale === 'it' ? `Confronto premi LAMal ${year} nel ${cantonLabel}`
+    : locale === 'en' ? `LAMal premium comparison ${year} in ${cantonLabel}`
+    : locale === 'de' ? `KVG-Prämienvergleich ${year} im Kanton ${cantonLabel}`
+    : `Comparatif des primes LAMal ${year} à ${cantonLabel}`;
   const intro = copy.introCanton(cantonLabel, medFmt, minFmt, maxFmt, year);
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}?canton=${stats.cantonBagCode}`;
 
@@ -1647,7 +1662,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     })),
   });
 
-  const title = `${h1} | Frontaliere Ticino`;
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -1773,6 +1788,12 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  // Title vs H1 differentiated. Title is keyword-led (≤60 char), H1 narrative.
+  const titleBase =
+    locale === 'it' ? `Premi Cassa Malati ${year} per cantone`
+    : locale === 'en' ? `Swiss health insurance premiums ${year}`
+    : locale === 'de' ? `Krankenkassenprämien ${year} nach Kanton`
+    : `Primes assurance maladie ${year} par canton`;
   const h1 = copy.h1Root(year);
   const intro = copy.introRoot(year);
 
@@ -1807,7 +1828,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     })),
   });
 
-  const title = `${h1} | Frontaliere Ticino`;
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">

@@ -79,6 +79,7 @@ import {
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   SMALL_HEADING_STYLE,
+  clampSiteSuffix,
   renderDiscoverMore,
   renderEntityCard,
   resolveBrandLogoUrl,
@@ -1557,10 +1558,29 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   });
 
   const robots = indexable ? 'index,follow' : 'noindex,follow';
-  const title =
+  // Phase 3A — Semrush W2 (≤60 char). Build a compact keyword-first title
+  // and only append the brand suffix when it still fits the budget.
+  const titleKeywordIt =
+    locale === 'it' ? 'Aziende che assumono'
+    : locale === 'en' ? 'Companies hiring'
+    : locale === 'de' ? 'Firmen, die einstellen'
+    : 'Entreprises qui recrutent';
+  const titleQualifier =
     variant === 'current'
-      ? `${h1} | Frontaliere Ticino`
-      : `${h1} — Archivio | Frontaliere Ticino`;
+      ? (companiesCount > 0
+          ? (locale === 'it' ? `${companiesCount} datori` : locale === 'en' ? `${companiesCount} employers` : locale === 'de' ? `${companiesCount} Firmen` : `${companiesCount} employeurs`)
+          : undefined)
+      : `W${weekNum} ${year}`;
+  const titleBase = (() => {
+    const parts = [titleKeywordIt, cityDisplay].join(locale === 'it' ? ' a ' : locale === 'en' ? ' in ' : locale === 'de' ? ' in ' : ' à ');
+    return titleQualifier ? `${parts} — ${titleQualifier}` : parts;
+  })();
+  const cityTitleClamped = titleBase.length <= 60 ? titleBase : titleBase.slice(0, 60).replace(/[\s,—-]+$/u, '');
+  const title = clampSiteSuffix(cityTitleClamped, 'Frontaliere Ticino');
+  // H1 narrative differs from title (Semrush W3): keep the locale-specific
+  // verbose phrasing already in COPY[] which always carries "questa settimana"
+  // / "this week" / "diese Woche" / "cette semaine".
+  void h1; // h1 is already differentiated from title; declared above.
   const description = heroSummary.slice(0, 180);
 
   const archiveNote =
@@ -2023,7 +2043,18 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   });
 
   const robots = indexable ? 'index,follow' : 'noindex,follow';
-  const title = `${h1} | Frontaliere Ticino`.slice(0, 160);
+  // Phase 3A — keyword-first compact title (≤60 char preferred).
+  const compactBase = (() => {
+    const sep = locale === 'it' ? ' a ' : locale === 'en' ? ' in ' : locale === 'de' ? ' in ' : ' à ';
+    const head = `${employer}${sep}${cityDisplay}`;
+    const qualifier =
+      variant === 'current'
+        ? (locale === 'it' ? 'offerte aperte' : locale === 'en' ? 'open jobs' : locale === 'de' ? 'offene Stellen' : 'offres ouvertes')
+        : `W${weekNum} ${year}`;
+    return `${head} — ${qualifier}`;
+  })();
+  const compactClamped = compactBase.length <= 60 ? compactBase : compactBase.slice(0, 60).replace(/[\s,—-]+$/u, '');
+  const title = clampSiteSuffix(compactClamped, 'Frontaliere Ticino');
   const description = heroSummary.slice(0, 180);
 
   const archiveNote =

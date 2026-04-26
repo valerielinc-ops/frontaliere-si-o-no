@@ -114,6 +114,203 @@ export const TABLE_HEAD_STYLE =
 export const TABLE_CELL_STYLE =
   'padding:10px 12px;border-bottom:1px solid var(--color-edge);color:var(--color-body);font-size:14px';
 
+// ── SEO title / H1 utilities (Phase 3A) ───────────────────────────────────────
+//
+// Semrush W2 (issue 102) flagged 954 SEO landing pages with `<title>` longer
+// than 60 characters; W3 (issue 105) flagged 458 pages where `<h1>` and
+// `<title>` were textually identical. Both signals hurt SERP CTR.
+//
+// `formatSeoTitle` builds a keyword-first title string clamped to a target
+// budget (default 60). It drops the optional fields in this order when the
+// composition exceeds the budget: `qualifier` → `year` → `count` → `location`.
+// `keyword` is mandatory and never dropped — if even the keyword alone is
+// longer than the budget it is returned unmodified (the caller rendered too
+// long a noun and we do not silently truncate).
+//
+// `clampSiteSuffix` appends a "| {brand}" suffix only when it still fits
+// inside the budget, removing the long-tail brand bloat that pushed many
+// titles past 60 chars (e.g. `… | Frontaliere Ticino`).
+//
+// `formatSeoH1` returns a narrative H1 that intentionally re-orders the same
+// pieces so it is never a literal duplicate of the title. The H1 is meant for
+// users (no length budget); the title is keyword-first for the SERP snippet.
+
+export interface SeoTitleParts {
+  /** Mandatory keyword/topic phrase (e.g. "Lavoro Case Anziani"). */
+  readonly keyword: string;
+  /** Optional location (e.g. "Ticino", "Lugano"). */
+  readonly location?: string;
+  /** Optional 4-digit year as string (e.g. "2026"). */
+  readonly year?: string;
+  /** Optional count (e.g. 990 active openings). */
+  readonly count?: number;
+  /** Optional trailing qualifier (e.g. "990 offerte", "47 datori (W17)"). */
+  readonly qualifier?: string;
+  /** Target maximum length, defaults to 60. */
+  readonly maxLength?: number;
+}
+
+const DEFAULT_TITLE_BUDGET = 60;
+
+function squashSpaces(s: string): string {
+  return s.replace(/\s+/g, ' ').trim();
+}
+
+function joinTitleParts(
+  keyword: string,
+  location: string | undefined,
+  year: string | undefined,
+  count: number | undefined,
+  qualifier: string | undefined,
+): string {
+  const head = [keyword, location, year].filter((p): p is string => Boolean(p && p.trim().length > 0)).join(' ');
+  const tailParts: string[] = [];
+  if (typeof count === 'number' && Number.isFinite(count) && count > 0) {
+    tailParts.push(`${count} offerte`);
+  }
+  if (qualifier && qualifier.trim().length > 0) {
+    tailParts.push(qualifier.trim());
+  }
+  const tail = tailParts.join(' · ');
+  if (!tail) return squashSpaces(head);
+  return squashSpaces(`${head} — ${tail}`);
+}
+
+/**
+ * Build an SEO `<title>` string clamped to `maxLength` (default 60 char).
+ *
+ * Composition order: `{keyword} {location} {year} — {count?} · {qualifier?}`.
+ * When the composition is too long we drop optional fields in this priority:
+ * `qualifier` → `year` → `count` → `location`. `keyword` is always preserved.
+ * Strips any leading emoji / symbol characters from the keyword to keep the
+ * SERP snippet clean (no `🔥` prefix per Semrush W2 guidance).
+ */
+export function formatSeoTitle(parts: SeoTitleParts): string {
+  const budget = parts.maxLength ?? DEFAULT_TITLE_BUDGET;
+  // Strip leading emoji / non-alphanumeric prefix from the keyword.
+  const keyword = squashSpaces(
+    String(parts.keyword || '')
+      .replace(/^[\s\p{Extended_Pictographic}\p{S}\p{P}]+/u, '')
+      .replace(/^[\s]+/, ''),
+  );
+  if (!keyword) return '';
+
+  const candidates: Array<() => string> = [
+    () => joinTitleParts(keyword, parts.location, parts.year, parts.count, parts.qualifier),
+    () => joinTitleParts(keyword, parts.location, parts.year, parts.count, undefined),
+    () => joinTitleParts(keyword, parts.location, undefined, parts.count, undefined),
+    () => joinTitleParts(keyword, parts.location, undefined, undefined, undefined),
+    () => joinTitleParts(keyword, undefined, undefined, undefined, undefined),
+  ];
+
+  for (const build of candidates) {
+    const out = build();
+    if (out.length <= budget) return out;
+  }
+
+  // Even the bare keyword overflows — return it as-is (no silent truncation).
+  return keyword;
+}
+
+/**
+ * Append a `" | {siteSuffix}"` site-name suffix to `base` only when the
+ * combined string still fits inside `maxLength`. Returns `base` unchanged
+ * otherwise.
+ *
+ * Use when you want the brand suffix on short titles (a CTR boost in some
+ * verticals) but never at the cost of overflowing the SERP snippet budget.
+ */
+export function clampSiteSuffix(
+  base: string,
+  siteSuffix: string,
+  maxLength: number = DEFAULT_TITLE_BUDGET,
+): string {
+  const baseTrim = (base || '').trim();
+  const suffixTrim = (siteSuffix || '').trim();
+  if (!suffixTrim) return baseTrim;
+  const candidate = `${baseTrim} | ${suffixTrim}`;
+  return candidate.length <= maxLength ? candidate : baseTrim;
+}
+
+export interface SeoH1Parts {
+  /** Mandatory user-facing keyword (e.g. "Case Anziani", "Lugano"). */
+  readonly keyword: string;
+  /** Optional location, e.g. "Ticino". */
+  readonly location?: string;
+  /** Optional count to weave into the narrative ("990 offerte attive..."). */
+  readonly count?: number;
+  /**
+   * Locale-aware narrative template selector. Only `it`/`en`/`de`/`fr` are
+   * supported; unknown locales fall back to `it`.
+   */
+  readonly locale?: 'it' | 'en' | 'de' | 'fr';
+  /**
+   * Narrative noun used in the count phrase (e.g. "offerte", "openings",
+   * "Stellen", "offres"). When omitted a sensible per-locale default is used.
+   */
+  readonly noun?: string;
+  /** Optional title to compare against — when equal we add a small variant. */
+  readonly title?: string;
+}
+
+const H1_DEFAULT_NOUN: Record<NonNullable<SeoH1Parts['locale']>, string> = {
+  it: 'offerte attive',
+  en: 'active openings',
+  de: 'aktive Stellen',
+  fr: 'offres actives',
+};
+
+const H1_PREP_IN: Record<NonNullable<SeoH1Parts['locale']>, string> = {
+  it: 'in',
+  en: 'in',
+  de: 'in',
+  fr: 'au',
+};
+
+/**
+ * Build a user-facing H1 string that is intentionally narrative — and never a
+ * literal duplicate of the matching SEO title.
+ *
+ * When both `count` and `keyword` are present the H1 leads with the count
+ * (e.g. `"990 offerte attive per Case Anziani in Ticino"`), giving a clear
+ * narrative signal to the user. Otherwise the H1 is just the keyword + location.
+ *
+ * If the resulting H1 ends up identical to `title` (case-insensitive) we
+ * append a ` ·` separator + count fragment so the strings differ — the
+ * `h1-not-equal-title` test asserts strict inequality after both strings are
+ * normalised, so a structural variant is enough.
+ */
+export function formatSeoH1(parts: SeoH1Parts): string {
+  const locale = (parts.locale ?? 'it') as NonNullable<SeoH1Parts['locale']>;
+  const keyword = squashSpaces(String(parts.keyword || ''));
+  const location = parts.location ? squashSpaces(parts.location) : '';
+  const noun = parts.noun || H1_DEFAULT_NOUN[locale];
+  const prep = H1_PREP_IN[locale];
+
+  let h1: string;
+  if (typeof parts.count === 'number' && Number.isFinite(parts.count) && parts.count > 0) {
+    const inLoc = location ? ` ${prep} ${location}` : '';
+    if (locale === 'en') {
+      h1 = `${parts.count} ${noun} for ${keyword}${inLoc}`;
+    } else if (locale === 'de') {
+      h1 = `${parts.count} ${noun} ${keyword}${inLoc}`;
+    } else if (locale === 'fr') {
+      h1 = `${parts.count} ${noun} pour ${keyword}${inLoc}`;
+    } else {
+      h1 = `${parts.count} ${noun} per ${keyword}${inLoc}`;
+    }
+  } else {
+    h1 = location ? `${keyword} ${prep} ${location}` : keyword;
+  }
+  h1 = squashSpaces(h1);
+
+  // Ensure h1 differs from the title (Semrush W3, issue 105).
+  if (parts.title && squashSpaces(parts.title).toLowerCase() === h1.toLowerCase()) {
+    h1 = `${h1} · ${noun}`;
+  }
+  return h1;
+}
+
 // ── Renderers ─────────────────────────────────────────────────────────────────
 
 /**

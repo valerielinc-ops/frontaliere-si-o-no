@@ -90,6 +90,7 @@ import {
   TABLE_CELL_STYLE,
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
+  clampSiteSuffix,
 } from './shared/seoContentTokens';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
@@ -1401,7 +1402,10 @@ function renderPage(inp: PageInputs): string {
   // BreadcrumbList already convey enough structure, and the live price is
   // surfaced in the visible page body.
 
-  const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
+  // Phase 3A — date suffix is informative for users; brand suffix only
+  // appended when it still fits the 60-char SERP budget (Semrush W2).
+  const titleWithDate = `${h1} (${dateStamp})`;
+  const title = clampSiteSuffix(titleWithDate, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
@@ -1576,7 +1580,7 @@ function renderArchive(inp: ArchiveInputs): string {
     : '';
 
   const dateStamp = today.toISOString().slice(0, 10);
-  const title = `${h1} | Frontaliere Ticino`;
+  const title = clampSiteSuffix(h1, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
   const breadcrumbLd = JSON.stringify({
@@ -2066,8 +2070,11 @@ function renderStationPage(opts: {
   // stations with the same brand + same street prefix but different cities
   // (e.g. "Coop Pronto Via Roma" in Chiasso vs Lugano) would otherwise
   // collide when h1 is sliced before the city segment.
-  const titleSuffix = ` (${dateStamp}) | Frontaliere Ticino`;
+  // Phase 3A — total <title> ≤60 char (Semrush W2). The H1 is already
+  // trimmed to ~60 elsewhere; the dated suffix and brand suffix are clamped
+  // separately so the date-stamp survives even when the brand has to drop.
   const titleBudget = 60;
+  const dateBadge = ` (${dateStamp})`;
   const trimmedH1 = h1.length <= titleBudget
     ? h1
     : (() => {
@@ -2076,9 +2083,6 @@ function renderStationPage(opts: {
         const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
         return base.replace(/[\s.,;:\-–—|]+$/u, '');
       })();
-  // If trimming dropped the city (which encodes zone distinctness) or the
-  // street display (which disambiguates sibling stations within a city),
-  // rebuild a concise, uniqueness-preserving title from the known parts.
   const hasCity = ctx.city.length > 0 && trimmedH1.toLowerCase().includes(ctx.city.toLowerCase());
   const streetTail = ctx.streetDisplay || ctx.slug;
   const hasStreet = streetTail.length === 0 || trimmedH1.toLowerCase().includes(streetTail.toLowerCase());
@@ -2087,7 +2091,10 @@ function renderStationPage(opts: {
     : `${ctx.brandDisplay} ${streetTail} — ${ctx.city} ${fuelLabel}`
         .replace(/\s+/g, ' ')
         .trim();
-  const title = `${safeBase}${titleSuffix}`;
+  // Drop the date suffix if appending it would already exceed the budget;
+  // then optionally add the brand suffix only when room remains.
+  const withDate = (safeBase + dateBadge).length <= titleBudget ? safeBase + dateBadge : safeBase;
+  const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -2548,7 +2555,13 @@ function renderItalianCityPage(opts: {
     })),
   });
 
-  const title = `${h1} (${dateStamp}) | Frontaliere Ticino`;
+  // Phase 3A — clamp combined title to 60 chars; drop brand first, then
+  // dated suffix if even with the date alone the budget overflows.
+  const titleWithDate60 = (() => {
+    const dated = `${h1} (${dateStamp})`;
+    return dated.length <= 60 ? dated : h1;
+  })();
+  const title = clampSiteSuffix(titleWithDate60, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -3106,7 +3119,8 @@ function renderItalianStationPage(opts: {
     url: canonicalUrl,
   });
 
-  const titleSuffix = ` (${dateStamp}) | Frontaliere Ticino`;
+  // Phase 3A — total <title> ≤60 char (Semrush W2): trim H1 to fit, then
+  // optionally append the dated badge + brand suffix as long as room remains.
   const titleBudget = 60;
   const trimmedH1 = h1.length <= titleBudget
     ? h1
@@ -3116,7 +3130,9 @@ function renderItalianStationPage(opts: {
         const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
         return base.replace(/[\s.,;:\-–—|]+$/u, '');
       })();
-  const title = `${trimmedH1}${titleSuffix}`;
+  const dated = `${trimmedH1} (${dateStamp})`;
+  const withDate = dated.length <= titleBudget ? dated : trimmedH1;
+  const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
   const description = intro.slice(0, 180);
 
   const nearestZoneLabel = FUEL_ZONE_DISPLAY[ctx.cityEntry.nearestZone];

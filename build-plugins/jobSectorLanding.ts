@@ -19,6 +19,7 @@
  */
 
 import type { JobBoardLocale } from './jobBoardSeo';
+import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokens';
 
 export type SectorHubKey = 'infermieri' | 'case-anziani' | 'educatori';
 
@@ -249,9 +250,12 @@ export function buildSectorHubSeo(
   year: number,
 ): SectorHubSeoEntry {
   const safeCount = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
-  const useFire = safeCount >= SECTOR_HUB_FIRE_THRESHOLD;
-  const prefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : '';
-  const display = SECTOR_HUB_DISPLAY[locale][sector];
+  // `useFire`, the legacy emoji prefix, and the display label are no longer
+  // used in the title/H1 (Phase 3A: title ≤60 char, no emoji prefix). Kept as
+  // a no-op reference to silence "imported but unused" lints if any.
+  void SECTOR_HUB_DISPLAY;
+  void SECTOR_HUB_FIRE_THRESHOLD;
+  const yearStr = String(year);
 
   switch (locale) {
     case 'it': {
@@ -261,11 +265,23 @@ export function buildSectorHubSeo(
         educatori: 'Educatori',
       };
       const noun = nounMap[sector];
-      const title = `${prefix}Offerte di Lavoro ${noun} Ticino ${year} — Aggiornate Oggi | Frontaliere Ticino`;
+      // SEO title: keyword-first, ≤60 char (Semrush W2). No emoji prefix, no
+      // " | Frontaliere Ticino" overflow. Brand suffix only when it fits.
+      const titleBase = formatSeoTitle({
+        keyword: `Lavoro ${noun}`,
+        location: 'Ticino',
+        year: yearStr,
+        qualifier: safeCount > 0 ? `${safeCount} offerte attive` : undefined,
+      });
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
         ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`
         : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`;
-      const h1 = safeCount > 0 ? `${safeCount} Offerte di Lavoro ${noun} in Ticino` : `Offerte di Lavoro ${noun} in Ticino`;
+      // H1: narrative ("990 posti vacanti nel settore Case Anziani in Ticino").
+      // Never identical to the SEO title (Semrush W3, issue 105).
+      const h1 = safeCount > 0
+        ? `${safeCount} posti vacanti nel settore ${noun} in Ticino`
+        : `Opportunità di lavoro per ${noun.toLowerCase()} in Ticino`;
       const intro = `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Ogni annuncio porta alla candidatura ufficiale dell'azienda.`;
       const faq = [
         {
@@ -283,7 +299,7 @@ export function buildSectorHubSeo(
           answer: 'Cliccando su un annuncio ti portiamo direttamente al sito ufficiale del datore di lavoro, dove puoi candidarti senza passaggi intermedi e senza registrazione su Frontaliere Ticino.',
         },
       ];
-      return { title, desc, ogT: `${prefix}Offerte di Lavoro ${noun} Ticino ${year} | Aggiornate Oggi`, ogD: desc, h1, intro, faq };
+      return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
     }
     case 'en': {
       const nounMap: Record<SectorHubKey, string> = {
@@ -292,11 +308,19 @@ export function buildSectorHubSeo(
         educatori: 'Educators',
       };
       const noun = nounMap[sector];
-      const title = `${prefix}${noun} Jobs in Ticino ${year} — Updated Daily | Frontaliere Ticino`;
+      const titleBase = formatSeoTitle({
+        keyword: `${noun} Jobs`,
+        location: 'Ticino',
+        year: yearStr,
+        qualifier: safeCount > 0 ? `${safeCount} active` : undefined,
+      });
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
         ? `Browse ${safeCount} ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`
         : `Browse ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`;
-      const h1 = safeCount > 0 ? `${safeCount} ${noun} Jobs in Ticino` : `${noun} Jobs in Ticino`;
+      const h1 = safeCount > 0
+        ? `${safeCount} open positions for ${noun} in Ticino`
+        : `Career opportunities for ${noun} in Ticino`;
       const intro = `A dedicated hub for ${noun.toLowerCase()} job opportunities in Ticino, Switzerland. Every listing links directly to the employer's official application page.`;
       const faq = [
         {
@@ -314,7 +338,7 @@ export function buildSectorHubSeo(
           answer: 'Each listing links directly to the employer\'s official application page — no registration needed on Frontaliere Ticino.',
         },
       ];
-      return { title, desc, ogT: `${prefix}${noun} Jobs in Ticino ${year} | Updated Daily`, ogD: desc, h1, intro, faq };
+      return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
     }
     case 'de': {
       const nounMap: Record<SectorHubKey, string> = {
@@ -323,11 +347,19 @@ export function buildSectorHubSeo(
         educatori: 'Erzieher',
       };
       const noun = nounMap[sector];
-      const title = `${prefix}Jobs ${noun} Tessin ${year} — Täglich Aktualisiert | Frontaliere Ticino`;
+      const titleBase = formatSeoTitle({
+        keyword: `Jobs ${noun}`,
+        location: 'Tessin',
+        year: yearStr,
+        qualifier: safeCount > 0 ? `${safeCount} offen` : undefined,
+      });
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
         ? `Entdecke ${safeCount} Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`
         : `Entdecke Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`;
-      const h1 = safeCount > 0 ? `${safeCount} Stellen ${noun} im Tessin` : `Stellen ${noun} im Tessin`;
+      const h1 = safeCount > 0
+        ? `${safeCount} offene Stellen für ${noun} im Tessin`
+        : `Karrierechancen für ${noun} im Tessin`;
       const intro = `Spezielle Seite für ${noun}-Stellenangebote im Tessin. Jede Anzeige führt direkt zur offiziellen Bewerbungsseite des Arbeitgebers.`;
       const faq = [
         {
@@ -345,7 +377,7 @@ export function buildSectorHubSeo(
           answer: 'Jede Anzeige verlinkt direkt auf die offizielle Bewerbungsseite des Arbeitgebers — keine Registrierung erforderlich.',
         },
       ];
-      return { title, desc, ogT: `${prefix}Jobs ${noun} Tessin ${year} | Täglich Aktualisiert`, ogD: desc, h1, intro, faq };
+      return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
     }
     case 'fr': {
       const nounMap: Record<SectorHubKey, string> = {
@@ -354,11 +386,19 @@ export function buildSectorHubSeo(
         educatori: 'Éducateurs',
       };
       const noun = nounMap[sector];
-      const title = `${prefix}Emploi ${noun} Tessin ${year} — Mises à Jour Quotidiennes | Frontaliere Ticino`;
+      const titleBase = formatSeoTitle({
+        keyword: `Emploi ${noun}`,
+        location: 'Tessin',
+        year: yearStr,
+        qualifier: safeCount > 0 ? `${safeCount} offres` : undefined,
+      });
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
         ? `Parcourez ${safeCount} offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`
         : `Parcourez les offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`;
-      const h1 = safeCount > 0 ? `${safeCount} Offres d'emploi ${noun} au Tessin` : `Offres d'emploi ${noun} au Tessin`;
+      const h1 = safeCount > 0
+        ? `${safeCount} postes ouverts pour ${noun} au Tessin`
+        : `Opportunités de carrière pour ${noun} au Tessin`;
       const intro = `Page dédiée aux offres d'emploi pour ${noun.toLowerCase()} au Tessin. Chaque annonce renvoie directement à la candidature officielle de l'employeur.`;
       const faq = [
         {
@@ -376,7 +416,7 @@ export function buildSectorHubSeo(
           answer: 'Chaque annonce renvoie directement à la page de candidature officielle de l\'employeur — sans inscription sur Frontaliere Ticino.',
         },
       ];
-      return { title, desc, ogT: `${prefix}Emploi ${noun} Tessin ${year} | Mises à Jour Quotidiennes`, ogD: desc, h1, intro, faq };
+      return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
     }
   }
 }

@@ -52,6 +52,7 @@ import {
   STAT_TILE_LABEL,
   STAT_TILE_VALUE,
   LINK_ACCENT_STYLE,
+  clampSiteSuffix,
 } from './shared/seoContentTokens';
 import {
   ORPHAN_LANDING_LOCALES,
@@ -175,15 +176,20 @@ function buildEditorialH1(query: string, locale: OrphanLandingLocale): string {
   }
 }
 
-/** Build an editorialized page title per locale (shorter than H1). */
+/**
+ * Build an editorialised page title per locale, clamped to ≤60 chars.
+ *
+ * Phase 3A — only append the brand suffix when it still fits the SERP budget.
+ * The bare canonical query alone always wins over a truncated brand suffix.
+ */
 function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string {
   const q = cap(query);
-  switch (locale) {
-    case 'it': return `${q} | Frontaliere Ticino`;
-    case 'en': return `${q} | Cross-border Workers Ticino`;
-    case 'de': return `${q} | Grenzgänger Tessin`;
-    case 'fr': return `${q} | Frontaliers Tessin`;
-  }
+  const brand =
+    locale === 'it' ? 'Frontaliere Ticino'
+    : locale === 'en' ? 'Cross-border Workers Ticino'
+    : locale === 'de' ? 'Grenzgänger Tessin'
+    : 'Frontaliers Tessin';
+  return clampSiteSuffix(q, brand);
 }
 
 /**
