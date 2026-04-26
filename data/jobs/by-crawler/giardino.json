@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-04-26T09:39:40.383Z",
+  "assembledAt": "2026-04-26T21:26:46.233Z",
   "jobs": [
     {
       "id": "giardino-4c0dd2545c09",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T09:39:38.157Z",
+      "crawledAt": "2026-04-26T21:26:44.282Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -74,6 +74,7 @@
         ]
       },
       "firstSeenAt": "2026-04-18T21:25:17.654Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,7 +119,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T09:39:38.157Z",
+      "crawledAt": "2026-04-26T21:26:44.282Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -147,6 +148,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T21:43:42.933Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -191,7 +193,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T09:39:38.156Z",
+      "crawledAt": "2026-04-26T21:26:44.281Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -223,6 +225,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T21:41:57.797Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -267,7 +270,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T09:39:38.156Z",
+      "crawledAt": "2026-04-26T21:26:44.281Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -323,6 +326,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:36:24.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
