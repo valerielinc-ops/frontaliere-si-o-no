@@ -13060,6 +13060,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-salute-svizzera-frontalieri-2026': {
+    title: 'Costi salute Svizzera: esperto avverte | Frontaliere Ticino',
+    description: 'Nel 2025 i costi sanitari svizzeri toccheranno i 100 miliardi, con una spesa pro capite di 900 CHF al mese. L\'esperto Igor Francetic della SUPSI avverte: il',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, salute, esperto, avverte',
+    ogTitle: 'Costi salute Svizzera: esperto avverte, «Sistema al',
+    ogDescription: 'Nel 2025 i costi sanitari svizzeri toccheranno i 100 miliardi, con una spesa pro capite di 900 CHF al mese. L\'esperto Igor Francetic della SUPSI avverte: il',
+    canonicalPath: '/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Costi salute Svizzera: esperto",
+      "description": "Nel 2025 i costi sanitari svizzeri toccheranno i 100 miliardi, con una spesa pro capite di 900 CHF al mese. L'esperto Igor Francetic della SUPSI avverte: il",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costi-salute-svizzera-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne e cielo azzurro"
+      },
+      "datePublished": "2026-04-26T19:22:08+00:00",
+      "dateModified": "2026-04-26T19:22:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

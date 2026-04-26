@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 950,
+ "numberOfItems": 951,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5674,7 +5674,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 947, "name": "Supermercati Ticino: Nessun rincaro immediato p...", "url": `${BASE_URL}/articoli-frontaliere/supermercati-ticino-2026` },
           { "@type": "ListItem", "position": 948, "name": "Latte ticinese, la situazione è urgente e la po...", "url": `${BASE_URL}/articoli-frontaliere/latte-ticino-crisi-politica-ritardo` },
           { "@type": "ListItem", "position": 949, "name": "Maria Timofeeva trionfa al torneo di Chiasso: v...", "url": `${BASE_URL}/articoli-frontaliere/maria-timofeeva-trionfa-chiasso-2026` },
-          { "@type": "ListItem", "position": 950, "name": "Crans-Montana: chi paga le cure per gli italiani?", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-cure-italiani-2026` }
+          { "@type": "ListItem", "position": 950, "name": "Crans-Montana: chi paga le cure per gli italiani?", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-cure-italiani-2026` },
+          { "@type": "ListItem", "position": 951, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026` }
  ]
  },
  {

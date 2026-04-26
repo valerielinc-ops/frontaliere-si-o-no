@@ -2709,6 +2709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-cure-italiani-2026.title': 'Crans-Montana: Wer zahlt für die Behandlung der Italiener?',
     'blog.article.crans-montana-cure-italiani-2026.excerpt': 'Die Rechnungen für die Behandlung der drei in Crans-Montana verletzten Italiener haben Kontroversen ausgelöst. Hier erfahren Sie, wer zahlen muss und wie das System funktioniert.',
     'blog.article.crans-montana-cure-italiani-2026.imageAlt': 'Luganersee mit Blick auf den Monte Brè',
+    'blog.article.costi-salute-svizzera-frontalieri-2026.title': 'Gesundheitskosten Schweiz: Experte warnt, «System am Ende»',
+    'blog.article.costi-salute-svizzera-frontalieri-2026.excerpt': 'Im Jahr 2025 werden die Gesundheitskosten in der Schweiz 100 Milliarden Franken erreichen, mit Ausgaben von 900 Franken pro Kopf und Monat. Der Experte Igor Francetic der SUPSI warnt: Das System ist nicht mehr tragbar.',
+    'blog.article.costi-salute-svizzera-frontalieri-2026.imageAlt': 'Luganersee mit Bergen und blauem Himmel',
 };
 
 export default blogMetaDe;

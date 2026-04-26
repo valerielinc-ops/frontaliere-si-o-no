@@ -2163,6 +2163,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-latte-ticino-crisi-politica-ritardo': { name: 'Novità', path: '/articoli-frontaliere/latte-ticino-crisi-politica-ritardo', parent: 'blog' },
     'blog-maria-timofeeva-trionfa-chiasso-2026': { name: 'Sport', path: '/articoli-frontaliere/maria-timofeeva-trionfa-chiasso-2026', parent: 'blog' },
     'blog-crans-montana-cure-italiani-2026': { name: 'Crans-Montana cure', path: '/articoli-frontaliere/crans-montana-cure-italiani-2026', parent: 'blog' },
+    'blog-costi-salute-svizzera-frontalieri-2026': { name: 'Costi salute', path: '/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

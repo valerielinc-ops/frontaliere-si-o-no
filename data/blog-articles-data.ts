@@ -7308,4 +7308,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-cure-italiani-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'costi-salute-svizzera-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-04-26T19:22:08.114Z',
+ image: '/images/blog/costi-salute-svizzera-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

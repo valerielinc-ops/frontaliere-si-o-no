@@ -2709,6 +2709,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-cure-italiani-2026.title': 'Crans-Montana: who pays for the care of the Italians?',
     'blog.article.crans-montana-cure-italiani-2026.excerpt': 'The bills for the care of the three Italians injured in Crans-Montana have sparked controversy. Here\'s who should pay and how the system works.',
     'blog.article.crans-montana-cure-italiani-2026.imageAlt': 'Lake Lugano with a view of Monte Brè',
+    'blog.article.costi-salute-svizzera-frontalieri-2026.title': 'Swiss healthcare costs: expert warns, \'System at breaking point\'',
+    'blog.article.costi-salute-svizzera-frontalieri-2026.excerpt': 'By 2025, Swiss healthcare costs will reach 100 billion CHF, with a per capita expenditure of 900 CHF per month. Expert Igor Francetic from SUPSI warns: the system is unsustainable.',
+    'blog.article.costi-salute-svizzera-frontalieri-2026.imageAlt': 'Lake Lugano with mountains and blue sky',
 };
 
 export default blogMetaEn;
