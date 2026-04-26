@@ -64,6 +64,34 @@ const enSeoLinks: Record<string, string> = {
   'related.section.sibling.health_premiums': 'Other age brackets',
   'related.section.sibling.border_wait': 'Other crossings in the same region',
   'related.section.sibling.orphan_landing': 'Related searches',
+
+  // Phase 2-UI — SEO hub-page footer entry points
+  'seoHubs.footer.title': 'Explore the site',
+  'seoHubs.footer.sectors': 'Explore sectors',
+  'seoHubs.footer.allSectors': 'All sectors →',
+  'seoHubs.footer.cities': 'Explore cities',
+  'seoHubs.footer.allJobs': 'All jobs →',
+  'seoHubs.footer.companies': 'Hiring companies',
+  'seoHubs.footer.allCompanies': 'All companies →',
+  'seoHubs.footer.articles': 'Latest articles',
+  'seoHubs.footer.allArticles': 'All articles →',
+
+  // Phase 2-UI — SEO hub-page
+  'seo.hub.jobs.title': 'All job listings',
+  'seo.hub.jobs.h1': 'All cross-border job listings',
+  'seo.hub.jobs.description': 'Complete index of every indexed job posting for cross-border workers in Ticino.',
+  'seo.hub.sectors.title': 'All professional sectors',
+  'seo.hub.sectors.h1': 'Explore professional sectors',
+  'seo.hub.sectors.description': 'Explore jobs by sector: healthcare, engineering, banking, hospitality and 40+ categories.',
+  'seo.hub.companies.title': 'All hiring companies',
+  'seo.hub.companies.h1': 'Companies hiring in Ticino',
+  'seo.hub.companies.description': 'Alphabetical index of 200+ companies hiring cross-border workers in Ticino.',
+  'seo.hub.articles.title': 'All articles for cross-border workers',
+  'seo.hub.articles.h1': 'Cross-border worker articles',
+  'seo.hub.articles.description': 'Full archive of guides, tax analysis and updates for cross-border workers.',
+
+  // Job-detail — related-jobs heading
+  'job.related.title': 'Related jobs',
 };
 
 export default enSeoLinks;

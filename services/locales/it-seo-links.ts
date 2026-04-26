@@ -73,6 +73,35 @@ const translations: Record<string, string> = {
   'related.section.sibling.health_premiums': 'Altre fasce d\'età',
   'related.section.sibling.border_wait': 'Altri valichi della stessa zona',
   'related.section.sibling.orphan_landing': 'Ricerche correlate',
+
+  // Phase 2-UI — SEO hub-page footer entry points
+  'seoHubs.footer.title': 'Esplora il sito',
+  'seoHubs.footer.sectors': 'Esplora settori',
+  'seoHubs.footer.allSectors': 'Tutti i settori →',
+  'seoHubs.footer.cities': 'Esplora città',
+  'seoHubs.footer.allJobs': 'Tutti i lavori →',
+  'seoHubs.footer.companies': 'Aziende che assumono',
+  'seoHubs.footer.allCompanies': 'Tutte le aziende →',
+  'seoHubs.footer.articles': 'Ultimi articoli',
+  'seoHubs.footer.allArticles': 'Tutti gli articoli →',
+
+  // Phase 2-UI — SEO hub-page (used by SeoHubPages.tsx and the static emitter)
+  'seo.hub.jobs.title': 'Tutti gli annunci di lavoro',
+  'seo.hub.jobs.h1': 'Tutti gli annunci di lavoro disponibili',
+  'seo.hub.jobs.description': 'Indice completo di tutte le offerte di lavoro indicizzate per i frontalieri in Ticino.',
+  'seo.hub.sectors.title': 'Tutti i settori professionali',
+  'seo.hub.sectors.h1': 'Esplora i settori professionali',
+  'seo.hub.sectors.description': 'Esplora le offerte per settore: sanitario, ingegneria, banca, ristorazione e oltre 40 categorie.',
+  'seo.hub.companies.title': 'Tutte le aziende che assumono',
+  'seo.hub.companies.h1': 'Aziende che assumono in Ticino',
+  'seo.hub.companies.description': 'Indice alfabetico di oltre 200 aziende che assumono frontalieri in Ticino.',
+  'seo.hub.articles.title': 'Tutti gli articoli per frontalieri',
+  'seo.hub.articles.h1': 'Articoli per frontalieri',
+  'seo.hub.articles.description': 'Archivio completo di guide, analisi fiscali e aggiornamenti dedicati ai frontalieri.',
+
+  // Job-detail — related-jobs heading (PARTE 6 already implemented in JobBridgeView.tsx
+  // via RELATED_COPY; key reserved for future migration to t()-based copy.)
+  'job.related.title': 'Lavori correlati',
 };
 
 export default translations;

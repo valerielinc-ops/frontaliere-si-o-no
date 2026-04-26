@@ -64,6 +64,34 @@ const deSeoLinks: Record<string, string> = {
   'related.section.sibling.health_premiums': 'Weitere Altersgruppen',
   'related.section.sibling.border_wait': 'Weitere Übergänge derselben Region',
   'related.section.sibling.orphan_landing': 'Ähnliche Suchanfragen',
+
+  // Phase 2-UI — SEO hub-page footer entry points
+  'seoHubs.footer.title': 'Website erkunden',
+  'seoHubs.footer.sectors': 'Branchen erkunden',
+  'seoHubs.footer.allSectors': 'Alle Branchen →',
+  'seoHubs.footer.cities': 'Städte erkunden',
+  'seoHubs.footer.allJobs': 'Alle Jobs →',
+  'seoHubs.footer.companies': 'Einstellende Firmen',
+  'seoHubs.footer.allCompanies': 'Alle Firmen →',
+  'seoHubs.footer.articles': 'Neueste Artikel',
+  'seoHubs.footer.allArticles': 'Alle Artikel →',
+
+  // Phase 2-UI — SEO hub-page
+  'seo.hub.jobs.title': 'Alle Stellenangebote',
+  'seo.hub.jobs.h1': 'Alle Grenzgänger-Stellenangebote',
+  'seo.hub.jobs.description': 'Vollständiger Index aller indizierten Stellenangebote für Grenzgänger im Tessin.',
+  'seo.hub.sectors.title': 'Alle Branchen',
+  'seo.hub.sectors.h1': 'Branchen erkunden',
+  'seo.hub.sectors.description': 'Stellenangebote nach Branche: Gesundheit, Ingenieurwesen, Bank, Gastronomie und über 40 Kategorien.',
+  'seo.hub.companies.title': 'Alle einstellenden Firmen',
+  'seo.hub.companies.h1': 'Firmen, die im Tessin einstellen',
+  'seo.hub.companies.description': 'Alphabetisches Verzeichnis von 200+ Firmen, die Grenzgänger im Tessin einstellen.',
+  'seo.hub.articles.title': 'Alle Grenzgänger-Artikel',
+  'seo.hub.articles.h1': 'Grenzgänger-Artikel',
+  'seo.hub.articles.description': 'Vollständiges Archiv von Leitfäden, Steueranalysen und Updates für Grenzgänger.',
+
+  // Job-detail — related-jobs heading
+  'job.related.title': 'Verwandte Stellen',
 };
 
 export default deSeoLinks;

@@ -100,6 +100,7 @@ import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
+import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
 import { pushRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
@@ -2498,6 +2499,108 @@ const App: React.FC = () => {
  )}
  </ul>
  </nav>
+ {/* Phase 2-UI — SEO hub-page entry points (close orphan/deep-page graph). */}
+ {(() => {
+   const hubLoc = (locale as SeoHubLocale) || 'it';
+   const hubs = SEO_HUB_SLUGS[hubLoc];
+   const sectorMap = Object.fromEntries(SEO_HUB_SECTORS.map((s) => [s.key, s])) as Record<string, typeof SEO_HUB_SECTORS[number]>;
+   const sectionRoot = locale === 'it'
+     ? '/cerca-lavoro-ticino'
+     : `/${locale}/${locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'}`;
+   return (
+     <nav
+       aria-label={t('seoHubs.footer.title') || 'SEO hub navigation'}
+       data-testid="footer-seo-hubs"
+       className="pt-3 pb-3 border-t border-edge/50 grid grid-cols-1 md:grid-cols-4 gap-4 text-left max-w-5xl mx-auto"
+     >
+       <div>
+         <h3 className="text-xs font-bold uppercase tracking-wider text-strong mb-2">
+           {t('seoHubs.footer.sectors') || 'Esplora settori'}
+         </h3>
+         <ul className="space-y-1 list-none p-0 m-0">
+           {SEO_FOOTER_TOP_SECTORS.map((sk) => {
+             const sector = sectorMap[sk];
+             if (!sector) return null;
+             const label = sector[hubLoc] || sector.it;
+             return (
+               <li key={sk}>
+                 <a
+                   href={`${sectionRoot}/?q=${encodeURIComponent(label)}`}
+                   className="text-xs text-subtle hover:text-accent no-underline"
+                 >
+                   {label}
+                 </a>
+               </li>
+             );
+           })}
+           <li>
+             <a href={hubs.sectorsAll} className="text-xs font-semibold text-accent hover:underline no-underline">
+               {t('seoHubs.footer.allSectors') || 'Tutti i settori →'}
+             </a>
+           </li>
+         </ul>
+       </div>
+       <div>
+         <h3 className="text-xs font-bold uppercase tracking-wider text-strong mb-2">
+           {t('seoHubs.footer.cities') || 'Esplora città'}
+         </h3>
+         <ul className="space-y-1 list-none p-0 m-0">
+           {SEO_FOOTER_TOP_CITIES.map((c) => (
+             <li key={c.key}>
+               <a
+                 href={`${sectionRoot}/${c.key}/`}
+                 className="text-xs text-subtle hover:text-accent no-underline"
+               >
+                 {c.display}
+               </a>
+             </li>
+           ))}
+           <li>
+             <a href={hubs.jobsAll} className="text-xs font-semibold text-accent hover:underline no-underline">
+               {t('seoHubs.footer.allJobs') || 'Tutti i lavori →'}
+             </a>
+           </li>
+         </ul>
+       </div>
+       <div>
+         <h3 className="text-xs font-bold uppercase tracking-wider text-strong mb-2">
+           {t('seoHubs.footer.companies') || 'Aziende che assumono'}
+         </h3>
+         <ul className="space-y-1 list-none p-0 m-0">
+           <li>
+             <a href={`${sectionRoot}/azienda-eoc-ente-ospedaliero-cantonale/`} className="text-xs text-subtle hover:text-accent no-underline">EOC</a>
+           </li>
+           <li>
+             <a href={`${sectionRoot}/azienda-abb-svizzera-sede-ticino/`} className="text-xs text-subtle hover:text-accent no-underline">ABB</a>
+           </li>
+           <li>
+             <a href={`${sectionRoot}/azienda-coop/`} className="text-xs text-subtle hover:text-accent no-underline">Coop</a>
+           </li>
+           <li>
+             <a href={`${sectionRoot}/azienda-migros/`} className="text-xs text-subtle hover:text-accent no-underline">Migros</a>
+           </li>
+           <li>
+             <a href={hubs.companiesAll} className="text-xs font-semibold text-accent hover:underline no-underline">
+               {t('seoHubs.footer.allCompanies') || 'Tutte le aziende →'}
+             </a>
+           </li>
+         </ul>
+       </div>
+       <div>
+         <h3 className="text-xs font-bold uppercase tracking-wider text-strong mb-2">
+           {t('seoHubs.footer.articles') || 'Ultimi articoli'}
+         </h3>
+         <ul className="space-y-1 list-none p-0 m-0">
+           <li>
+             <a href={hubs.articlesAll} className="text-xs font-semibold text-accent hover:underline no-underline">
+               {t('seoHubs.footer.allArticles') || 'Tutti gli articoli →'}
+             </a>
+           </li>
+         </ul>
+       </div>
+     </nav>
+   );
+ })()}
  {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
  <div className="hidden md:flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
  <a

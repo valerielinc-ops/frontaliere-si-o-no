@@ -21,6 +21,7 @@ import {
  isJobBoardLandingPath,
  type JobBoardLocale,
 } from './jobBoardSeo';
+import { emitSeoHubs } from './seoHubsPlugin';
 
 // ── FAQ page dedicated pre-rendering ──────────────────────────────────
 // The dedicated FAQ page at /domande-frequenti-frontalieri/ has 30 Q&A pairs
@@ -2787,6 +2788,25 @@ ${hrefTags}
  _qw(flatLoc, locPageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
  count++;
  }
+ }
+
+ // ── Phase 2-UI — SEO hub-pages emitter ──
+ // Indexable paginated hubs that close the orphan-page graph (Semrush 207/212/213).
+ // Generates jobs/sectors/companies/articles hub HTML × 4 locales × paginated pages.
+ try {
+   const hubs = emitSeoHubs({
+     rootDir,
+     distDir,
+     fs,
+     np,
+     entryJs,
+     entryCss,
+     hasSpaBundle,
+     qw: _qw,
+   });
+   console.log(`\x1b[36m[seo-hubs]\x1b[0m Emitted ${hubs.pagesEmitted} hub HTML pages (${hubs.sitemapEntries.length} sitemap entries)`);
+ } catch (err) {
+   console.warn('[seo-hubs] emitter failed (non-fatal):', err);
  }
 
  const t0 = Date.now();
