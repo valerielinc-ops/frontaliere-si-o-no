@@ -181,7 +181,7 @@ jobs:
 
       - name: Validate SEO quality (7 file validators in parallel)
         run: |
-          npm run validate:jobs-rich-results > /tmp/v1.log 2>&1 &
+          npm run validate:jobposting-schema > /tmp/v1.log 2>&1 &
           PID1=$!
           npm run validate:jobs-quality > /tmp/v2.log 2>&1 &
           PID2=$!
@@ -197,7 +197,7 @@ jobs:
           PID7=$!
 
           FAIL=0
-          wait $PID1 || { echo "::error::jobs-rich-results failed"; cat /tmp/v1.log; FAIL=1; }
+          wait $PID1 || { echo "::error::jobposting-schema failed"; cat /tmp/v1.log; FAIL=1; }
           wait $PID2 || { echo "::error::jobs-quality failed"; cat /tmp/v2.log; FAIL=1; }
           wait $PID3 || { echo "::error::sitemap-links failed"; cat /tmp/v3.log; FAIL=1; }
           wait $PID4 || { echo "::error::soft-404 failed"; cat /tmp/v4.log; FAIL=1; }
@@ -207,6 +207,18 @@ jobs:
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
           echo "✅ All 7 file validators passed"
+
+      - name: Gate — hreflang correctness (full dist/ walk)
+        run: npm run audit:hreflang
+
+      - name: Gate — title uniqueness per locale
+        run: npm run audit:title-uniqueness
+
+      - name: Gate — duplicate body content
+        run: npm run audit:content-duplicates
+
+      - name: Gate — page weight + <img> dims
+        run: npm run audit:page-weight
 
       - name: Validate SPA render — canonical, schema, robots (blocking)
         timeout-minutes: 5
