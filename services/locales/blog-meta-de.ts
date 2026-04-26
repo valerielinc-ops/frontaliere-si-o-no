@@ -2739,6 +2739,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusure-autostrade-ticino-2026.title': 'Nachtschließungen von Autobahnen: Was sich für Grenzgänger ändert',
     'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'Ab der Nacht zwischen dem 28. und 29. April gibt es Nachtschließungen zwischen der A8, der Autobahnzubringer Mailand und der Gallarate-Gattico-Abzweigung. Hier sind die Alternativen',
     'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Dörfern',
+    'blog.article.accordo-navigazione-costanza-2026.title': 'Historischer Durchbruch: Schweizer und deutsche Schifffahrt auf dem Bodensee',
+    'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Ab 2026 gegenseitig gültige Tickets und Wiederaufnahme der Anlegestellen in Konstanz. Was sich für Grenzgänger ändert',
+    'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Bodensee mit Schweizer und deutschen Booten angedockt',
 };
 
 export default blogMetaDe;

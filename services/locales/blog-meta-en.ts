@@ -2739,6 +2739,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-autostrade-ticino-2026.title': 'Nighttime highway closures: what changes for cross-border workers',
     'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'From the night between April 28 and 29, nighttime closures between A8, Fiera Bypass, and Gallarate-Gattico Branch. Here are the alternatives',
     'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
+    'blog.article.accordo-navigazione-costanza-2026.title': 'Historic agreement: Swiss and German navigation on Lake Constance',
+    'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Tickets valid reciprocally from 2026 and resumption of stops in Constance. What changes for cross-border workers',
+    'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Lake Constance with Swiss and German boats docked',
 };
 
 export default blogMetaEn;

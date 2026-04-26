@@ -7378,4 +7378,11 @@ export const ARTICLES = [
  image: '/images/blog/chiusure-autostrade-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'accordo-navigazione-costanza-2026',
+ category: 'novita',
+ date: '2026-04-26T23:17:55.329Z',
+ image: '/images/blog/accordo-navigazione-costanza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

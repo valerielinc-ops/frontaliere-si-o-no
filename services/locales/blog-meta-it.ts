@@ -2739,6 +2739,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-autostrade-ticino-2026.title': 'Chiusure notturne autostrade: cosa cambia per i frontalieri',
     'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'Dalla notte tra il 28 e il 29 aprile, chiusure notturne tra A8, Raccordo Fiera e Diramazione Gallarate-Gattico. Ecco le alternative',
     'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti',
+    'blog.article.accordo-navigazione-costanza-2026.title': 'Accordo storico: navigazione svizzera e tedesca sul Lago di Costanza',
+    'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Biglietti validi reciprocamente dal 2026 e ripresa degli scali a Costanza. Cosa cambia per i frontalieri',
+    'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Lago di Costanza con barche svizzere e tedesche ormeggiate',
 };
 
 export default blogMetaIt;

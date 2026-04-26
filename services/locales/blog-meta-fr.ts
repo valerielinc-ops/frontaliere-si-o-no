@@ -2739,6 +2739,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusure-autostrade-ticino-2026.title': 'Fermetures nocturnes des autoroutes : ce qui change pour les frontaliers',
     'blog.article.chiusure-autostrade-ticino-2026.excerpt': 'À partir de la nuit entre le 28 et le 29 avril, fermetures nocturnes entre l\'A8, le raccordement Fiera et la bifurcation Gallarate-Gattico. Voici les alternatives',
     'blog.article.chiusure-autostrade-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
+    'blog.article.accordo-navigazione-costanza-2026.title': 'Accord historique : navigation suisse et allemande sur le lac de Constance',
+    'blog.article.accordo-navigazione-costanza-2026.excerpt': 'Billets valables réciproquement à partir de 2026 et reprise des escales à Constance. Qu\'est-ce qui change pour les frontaliers',
+    'blog.article.accordo-navigazione-costanza-2026.imageAlt': 'Lac de Constance avec des bateaux suisses et allemands amarrés',
 };
 
 export default blogMetaFr;
