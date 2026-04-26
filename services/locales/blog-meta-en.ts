@@ -2697,6 +2697,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Immigration in Switzerland: 60 years of debate and 20 initiatives',
     'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'Immigration has made Switzerland more prosperous, but it is also one of the most contentious political issues. Here\'s how the debate has changed over 60 years.',
     'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Mendrisio border between Italy and Switzerland',
+    'blog.article.supermercati-ticino-2026.title': 'Ticino Supermarkets: Migros, Coop, and Aldi Reassure on Prices',
+    'blog.article.supermercati-ticino-2026.excerpt': 'No immediate price hikes for everyday products despite the Middle East crisis. Here\'s what changes for cross-border workers',
+    'blog.article.supermercati-ticino-2026.imageAlt': 'Supermarket in Ticino with Swiss and Italian products',
 };
 
 export default blogMetaEn;

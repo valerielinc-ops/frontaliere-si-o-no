@@ -2697,6 +2697,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Immigrazione in Svizzera: 60 anni di dibattito e 20 iniziative',
     'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'L\'immigrazione ha reso la Svizzera più prospera, ma è anche uno dei temi politici più scottanti. Ecco come è cambiato il dibattito in 60 anni.',
     'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Confine di Mendrisio tra Italia e Svizzera',
+    'blog.article.supermercati-ticino-2026.title': 'Supermercati Ticino: Migros, Coop e Aldi rassicurano su prezzi',
+    'blog.article.supermercati-ticino-2026.excerpt': 'Nessun rincaro immediato per i prodotti di largo consumo nonostante la crisi in Medio Oriente. Ecco cosa cambia per i frontalieri',
+    'blog.article.supermercati-ticino-2026.imageAlt': 'Supermercato in Ticino con prodotti svizzeri e italiani',
 };
 
 export default blogMetaIt;

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 946,
+ "numberOfItems": 947,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5670,7 +5670,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 943, "name": "Lombardia aumenta stipendi sanitari al confine ...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026` },
           { "@type": "ListItem", "position": 944, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/petizione-gioventu-comunista-tassa-esenzione-militare` },
           { "@type": "ListItem", "position": 945, "name": "Petizione per abolire la tassa di esenzione dal...", "url": `${BASE_URL}/articoli-frontaliere/petizione-tassa-esenzione-militare-ticino` },
-          { "@type": "ListItem", "position": 946, "name": "Immigrazione in Svizzera: 60 anni di dibattito ...", "url": `${BASE_URL}/articoli-frontaliere/immigrazione-svizzera-60-anni-2026` }
+          { "@type": "ListItem", "position": 946, "name": "Immigrazione in Svizzera: 60 anni di dibattito ...", "url": `${BASE_URL}/articoli-frontaliere/immigrazione-svizzera-60-anni-2026` },
+          { "@type": "ListItem", "position": 947, "name": "Supermercati Ticino: Nessun rincaro immediato p...", "url": `${BASE_URL}/articoli-frontaliere/supermercati-ticino-2026` }
  ]
  },
  {

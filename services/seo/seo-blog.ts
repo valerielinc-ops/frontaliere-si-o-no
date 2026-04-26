@@ -12944,6 +12944,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-supermercati-ticino-2026': {
+    title: 'Supermercati Ticino: Migros, Coop e | Frontaliere Ticino',
+    description: 'Migros, Coop e Aldi rassicurano: con la crisi in Medio Oriente nessun rincaro immediato per i prodotti di largo consumo in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, supermercati, migros, coop, aldi',
+    ogTitle: 'Supermercati Ticino: Nessun rincaro immediato | Frontaliere',
+    ogDescription: 'Migros, Coop e Aldi rassicurano: con la crisi in Medio Oriente nessun rincaro immediato per i prodotti di largo consumo in Ticino',
+    canonicalPath: '/articoli-frontaliere/supermercati-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Supermercati Ticino: Nessun rincaro immediato per i prodotti di largo consumo nonostante la crisi in",
+      "description": "Migros, Coop e Aldi rassicurano: con la crisi in Medio Oriente nessun rincaro immediato per i prodotti di largo consumo in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/supermercati-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato in Ticino con prodotti svizzeri e italiani"
+      },
+      "datePublished": "2026-04-26T15:04:10+00:00",
+      "dateModified": "2026-04-26T15:04:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/supermercati-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

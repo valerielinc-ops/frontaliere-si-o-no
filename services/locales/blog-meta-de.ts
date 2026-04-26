@@ -2697,6 +2697,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.immigrazione-svizzera-60-anni-2026.title': 'Einwanderung in die Schweiz: 60 Jahre Debatte und 20 Initiativen',
     'blog.article.immigrazione-svizzera-60-anni-2026.excerpt': 'Die Einwanderung hat die Schweiz wohlhabender gemacht, ist aber auch eines der politisch brisantesten Themen. So hat sich die Debatte in 60 Jahren verändert.',
     'blog.article.immigrazione-svizzera-60-anni-2026.imageAlt': 'Grenze von Mendrisio zwischen Italien und der Schweiz',
+    'blog.article.supermercati-ticino-2026.title': 'Supermärkte im Tessin: Migros, Coop und Aldi beruhigen bezüglich der Preise',
+    'blog.article.supermercati-ticino-2026.excerpt': 'Keine sofortigen Preiserhöhungen für Konsumgüter trotz der Krise im Nahen Osten. Was sich für Grenzgänger ändert',
+    'blog.article.supermercati-ticino-2026.imageAlt': 'Supermarkt in Tessin mit Schweizer und italienischen Produkten',
 };
 
 export default blogMetaDe;
