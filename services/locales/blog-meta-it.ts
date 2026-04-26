@@ -2721,6 +2721,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Adulti che ricevono soldi dai genitori perché non arrivano a fine mese',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'In Ticino, come in tutta la Svizzera, il sostegno finanziario tra generazioni è in aumento. Scopriamo le cause e le implicazioni per i frontalieri.',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Giovane adulto riceve supporto finanziario dai genitori in Ticino',
+    'blog.article.swiss-lufthansa-economy-basic-2026.title': 'Swiss e Lufthansa lanciano Economy Basic: solo zainetto a mano',
+    'blog.article.swiss-lufthansa-economy-basic-2026.excerpt': 'Nuova tariffa Economy Basic per voli europei con bagaglio a mano piccolo. Disponibile dal 28 aprile 2026.',
+    'blog.article.swiss-lufthansa-economy-basic-2026.imageAlt': 'Vista aerea di Lugano, Svizzera, con il Lago di Lugano e il paesaggio urbano.',
 };
 
 export default blogMetaIt;

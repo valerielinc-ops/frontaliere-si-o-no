@@ -2721,6 +2721,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Erwachsene, die von ihren Eltern Geld erhalten, weil sie das Monatsende nicht schaffen',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'Im Tessin, wie in der gesamten Schweiz, nimmt die finanzielle Unterstützung zwischen den Generationen zu. Wir untersuchen die Ursachen und die Auswirkungen auf die Grenzgänger.',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Junger Erwachsener erhält finanzielle Unterstützung von den Eltern in Tessin',
+    'blog.article.swiss-lufthansa-economy-basic-2026.title': 'Swiss und Lufthansa starten Economy Basic: nur Handgepäck-Tasche',
+    'blog.article.swiss-lufthansa-economy-basic-2026.excerpt': 'Neue Economy Basic-Tarif für europäische Flüge mit kleinem Handgepäck. Ab dem 28. April 2026 verfügbar.',
+    'blog.article.swiss-lufthansa-economy-basic-2026.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit dem Luganersee und der Stadtlandschaft.',
 };
 
 export default blogMetaDe;

@@ -2721,6 +2721,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Adultes recevant de l\'argent de leurs parents parce qu\'ils n\'arrivent pas à la fin du mois',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'Au Tessin, comme dans toute la Suisse, le soutien financier entre générations est en augmentation. Découvrons les causes et les implications pour les frontaliers.',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Jeune adulte reçoit un soutien financier de ses parents en Tessin',
+    'blog.article.swiss-lufthansa-economy-basic-2026.title': 'Swiss et Lufthansa lancent Economy Basic : seulement un petit sac à dos à la main',
+    'blog.article.swiss-lufthansa-economy-basic-2026.excerpt': 'Nouvelle tarification Economy Basic pour les vols européens avec un petit bagage à main. Disponible à partir du 28 avril 2026.',
+    'blog.article.swiss-lufthansa-economy-basic-2026.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le lac de Lugano et le paysage urbain.',
 };
 
 export default blogMetaFr;

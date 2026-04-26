@@ -13176,6 +13176,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-lufthansa-economy-basic-2026': {
+    title: 'Swiss e Lufthansa lanciano Economy | Frontaliere Ticino',
+    description: 'Scopri la nuova tariffa Economy Basic di Swiss e Lufthansa per voli europei con bagaglio a mano piccolo. Disponibile dal 28 aprile 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, lufthansa, lanciano, economy',
+    ogTitle: 'Swiss e Lufthansa Economy Basic | Frontaliere Ticino',
+    ogDescription: 'Scopri la nuova tariffa Economy Basic di Swiss e Lufthansa per voli europei con bagaglio a mano piccolo. Disponibile dal 28 aprile 2026.',
+    canonicalPath: '/articoli-frontaliere/swiss-lufthansa-economy-basic-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss e Lufthansa lanciano Economy Basic: solo zainetto a mano",
+      "description": "Scopri la nuova tariffa Economy Basic di Swiss e Lufthansa per voli europei con bagaglio a mano piccolo. Disponibile dal 28 aprile 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-lufthansa-economy-basic-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Svizzera, con il Lago di Lugano e il paesaggio urbano."
+      },
+      "datePublished": "2026-04-26T21:35:41+00:00",
+      "dateModified": "2026-04-26T21:35:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swiss-lufthansa-economy-basic-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

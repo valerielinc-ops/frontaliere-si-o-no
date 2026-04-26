@@ -2721,6 +2721,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Adults receiving money from parents because they can\'t make ends meet',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'In Ticino, as in the rest of Switzerland, financial support between generations is on the rise. Let\'s explore the causes and implications for cross-border workers.',
     'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Young adult receives financial support from parents in Ticino',
+    'blog.article.swiss-lufthansa-economy-basic-2026.title': 'Swiss and Lufthansa launch Economy Basic: only small hand luggage',
+    'blog.article.swiss-lufthansa-economy-basic-2026.excerpt': 'New Economy Basic fare for European flights with small hand luggage. Available from April 28, 2026.',
+    'blog.article.swiss-lufthansa-economy-basic-2026.imageAlt': 'Aerial view of Lugano, Switzerland, with Lake Lugano and the cityscape.',
 };
 
 export default blogMetaEn;
