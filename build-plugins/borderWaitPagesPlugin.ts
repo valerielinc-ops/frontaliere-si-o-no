@@ -1271,18 +1271,24 @@ function renderLeafPage(inp: LeafInputs): string {
       })
     : '';
 
-  // Title — the h1 embeds an ISO date, so the raw string can easily exceed
-  // ~70 chars once " | Frontaliere Ticino" is appended. Trim the h1 portion
-  // at a word boundary to ~48 chars (leaves ~22 chars for the site suffix).
-  const TITLE_H1_MAX = 48;
-  const titleH1 =
-    h1.length <= TITLE_H1_MAX
-      ? h1
-      : (() => {
-          const sliced = h1.slice(0, TITLE_H1_MAX);
-          const lastSpace = sliced.lastIndexOf(' ');
-          return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).replace(/[\s—–-]+$/, '');
-        })();
+  // Title — the h1 embeds an ISO date and a crossing name. Combined with
+  // the " | Frontaliere Ticino" suffix it can exceed the SERP-safe ~70 char
+  // budget. Truncation strategy:
+  //   1. If the full h1 fits TITLE_H1_MAX, use it as-is.
+  //   2. Otherwise, strip the " — <date suffix>" tail (date is already in
+  //      the URL /heute/, /today/ etc.) — preserves the crossing name in
+  //      full so multi-variant siblings (e.g. Maslianico-Pizzamiglio vs
+  //      Maslianico-Roggiana) emit distinct <title>s.
+  //   3. If still too long, fall back to a word-boundary truncation.
+  const TITLE_H1_MAX = 55;
+  const titleH1 = (() => {
+    if (h1.length <= TITLE_H1_MAX) return h1;
+    const dashIdx = h1.indexOf(' — ');
+    if (dashIdx > 0 && dashIdx <= TITLE_H1_MAX) return h1.slice(0, dashIdx);
+    const sliced = h1.slice(0, TITLE_H1_MAX);
+    const lastSpace = sliced.lastIndexOf(' ');
+    return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).replace(/[\s—–-]+$/, '');
+  })();
   const title = `${titleH1} | Frontaliere Ticino`;
   const description = intro.slice(0, 180);
 
