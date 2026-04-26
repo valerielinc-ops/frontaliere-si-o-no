@@ -1821,8 +1821,13 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const brandLogoUrl =
     (CRAWLED_COMPANY_LOGOS[brandLogoSlug] as string | undefined) ??
     (rootDir ? resolveBrandLogoUrl(rootDir, brandLogoSlug) : null);
+  // Static-page mirror of `services/logoService.ts` `handleCompanyLogoError`:
+  // Clearbit → Google favicon → /icons/company-placeholder.svg, guarded
+  // against infinite loops via `data-lf`. Inline because static HTML cannot
+  // attach React onError handlers.
+  const LOGO_ONERROR = `if(this.dataset.lf==='ph')return;if(this.src.indexOf('logo.clearbit.com')>-1){var d=this.src.replace(/^https?:\\/\\/logo\\.clearbit\\.com\\//,'').split(/[\\/?#]/)[0];if(d){this.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';this.dataset.lf='gf';return;}}this.src='/icons/company-placeholder.svg';this.dataset.lf='ph';this.style.visibility='visible';`;
   const headerLogoHtml = brandLogoUrl
-    ? `<img src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" style="display:block;width:80px;height:80px;border-radius:16px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
+    ? `<img src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" onerror="${LOGO_ONERROR}" style="display:block;width:80px;height:80px;border-radius:16px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
     : `<span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:16px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>`;
 
   // Localized labels for the job-card pills (employment type + salary suffix).
@@ -1867,7 +1872,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // Job list (≤10) — styled as job-board cards: logo · title · company·city
   // subtitle · salary · location/contract/posted-date pill row.
   const jobCardLogoHtml = brandLogoUrl
-    ? `<img src="${esc(brandLogoUrl)}" alt="" width="56" height="56" loading="lazy" decoding="async" style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
+    ? `<img src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="40" height="40" loading="lazy" decoding="async" onerror="${LOGO_ONERROR}" style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
     : `<span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>`;
 
   const jobsListHtml =

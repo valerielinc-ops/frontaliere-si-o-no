@@ -40,7 +40,7 @@ describe('jobDataNormalization', () => {
       url: 'https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=89446&LN=IT&FT=465&SG=2',
     });
 
-    expect(logo).toBe('https://www.medacta.com/images/header/Logo_Medacta.svg');
+    expect(logo).toBe(CRAWLED_COMPANY_LOGOS['medacta-international']);
   });
 
   it('detects non-geographic multi-location strings', () => {
@@ -80,7 +80,7 @@ describe('jobDataNormalization', () => {
       url: 'https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2',
     });
 
-    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dwc9d6c35e/images/global/boggi-logo.svg');
+    expect(logo).toBe(CRAWLED_COMPANY_LOGOS['boggi-milano']);
   });
 
   it('returns Boggi official logo even when the crawler record has no companyKey', () => {
@@ -90,7 +90,7 @@ describe('jobDataNormalization', () => {
       url: 'https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2',
     });
 
-    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dwc9d6c35e/images/global/boggi-logo.svg');
+    expect(logo).toBe(CRAWLED_COMPANY_LOGOS['boggi-milano']);
   });
 
   it('returns Convit official logo for Convit jobs instead of careers-page favicon', () => {
@@ -101,7 +101,7 @@ describe('jobDataNormalization', () => {
       url: 'https://www.careers-page.com/convit-holding-gmbh/job/RY658X6X',
     });
 
-    expect(logo).toBe('https://convit.ch/images/convit-logo.png');
+    expect(logo).toBe(CRAWLED_COMPANY_LOGOS['convit-holding']);
   });
 
   it('returns Convit official logo even when the crawler record has no companyKey', () => {
@@ -111,7 +111,7 @@ describe('jobDataNormalization', () => {
       url: 'https://www.careers-page.com/convit-holding-gmbh/job/RY658X6X',
     });
 
-    expect(logo).toBe('https://convit.ch/images/convit-logo.png');
+    expect(logo).toBe(CRAWLED_COMPANY_LOGOS['convit-holding']);
   });
 
   it('no CRAWLED_COMPANY_LOGOS entry uses gFavicon on a known ATS domain', () => {
