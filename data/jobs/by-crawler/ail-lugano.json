@@ -34,9 +34,9 @@
       "slug": "consulente-clientela-b2b-ail-lugano",
       "slugByLocale": {
         "it": "consulente-clientela-b2b-ail-lugano",
-        "en": "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr",
-        "de": "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr",
-        "fr": "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr"
+        "en": "b2b-customer-advisor-aziende-industriali-di-lugano-ail-sa-lugano",
+        "de": "b2b-kundenberater-aziende-industriali-di-lugano-ail-sa-lugano",
+        "fr": "b2b-conseiller-client-aziende-industriali-di-lugano-ail-sa-lugano"
       },
       "sourceLang": "it",
       "_targetScope": {
@@ -48,10 +48,20 @@
       "previousSlugsByLocale": {
         "it": [
           "project-manager-delle-comunicazione-ail-lugano"
+        ],
+        "en": [
+          "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr"
+        ],
+        "de": [
+          "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr"
+        ],
+        "fr": [
+          "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr"
         ]
       },
       "previousSlugs": [
-        "project-manager-delle-comunicazione-ail-lugano"
+        "project-manager-delle-comunicazione-ail-lugano",
+        "project-manager-delle-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano-2tyjzr"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
