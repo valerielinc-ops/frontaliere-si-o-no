@@ -7329,4 +7329,11 @@ export const ARTICLES = [
  image: '/images/blog/settimana-corta-svizzera-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'adulti-genitori-sostegno-finanziario-ticino-2026',
+ category: 'pratico',
+ date: '2026-04-26T21:17:04.930Z',
+ image: '/images/blog/adulti-genitori-sostegno-finanziario-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

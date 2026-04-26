@@ -2718,6 +2718,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.settimana-corta-svizzera-frontalieri.title': 'Semaine de quatre jours en Suisse : moins d\'heures, plus de productivité',
     'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'Une expérience suisse montre que travailler moins d\'heures pour un salaire égal réduit les absences et augmente la motivation des employés',
     'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Vue aérienne de Lugano avec le lac Ceresio et ciel bleu',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Adultes recevant de l\'argent de leurs parents parce qu\'ils n\'arrivent pas à la fin du mois',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'Au Tessin, comme dans toute la Suisse, le soutien financier entre générations est en augmentation. Découvrons les causes et les implications pour les frontaliers.',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Jeune adulte reçoit un soutien financier de ses parents en Tessin',
 };
 
 export default blogMetaFr;

@@ -2718,6 +2718,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settimana-corta-svizzera-frontalieri.title': 'Short work week in Switzerland: fewer hours, more productivity',
     'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'A Swiss experiment shows that working fewer hours for the same salary reduces absences and increases employee motivation',
     'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Aerial view of Lugano with Lake Ceresio and blue sky',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Adults receiving money from parents because they can\'t make ends meet',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'In Ticino, as in the rest of Switzerland, financial support between generations is on the rise. Let\'s explore the causes and implications for cross-border workers.',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Young adult receives financial support from parents in Ticino',
 };
 
 export default blogMetaEn;

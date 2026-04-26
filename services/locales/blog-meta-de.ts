@@ -2718,6 +2718,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settimana-corta-svizzera-frontalieri.title': 'Kurze Arbeitswoche in der Schweiz: Weniger Stunden, mehr Produktivität',
     'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'Ein Schweizer Experiment zeigt, dass weniger Arbeitsstunden bei gleichem Lohn die Fehlzeiten reduzieren und die Motivation der Mitarbeiter steigern',
     'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Luftaufnahme von Lugano mit dem Ceresio-See und blauem Himmel',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Erwachsene, die von ihren Eltern Geld erhalten, weil sie das Monatsende nicht schaffen',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'Im Tessin, wie in der gesamten Schweiz, nimmt die finanzielle Unterstützung zwischen den Generationen zu. Wir untersuchen die Ursachen und die Auswirkungen auf die Grenzgänger.',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Junger Erwachsener erhält finanzielle Unterstützung von den Eltern in Tessin',
 };
 
 export default blogMetaDe;

@@ -2718,6 +2718,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.settimana-corta-svizzera-frontalieri.title': 'Settimana corta in Svizzera: meno ore, più produttività',
     'blog.article.settimana-corta-svizzera-frontalieri.excerpt': 'Un esperimento svizzero mostra che lavorare meno ore a parità di salario riduce assenze e aumenta la motivazione dei dipendenti',
     'blog.article.settimana-corta-svizzera-frontalieri.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio e cielo azzurro',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.title': 'Adulti che ricevono soldi dai genitori perché non arrivano a fine mese',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.excerpt': 'In Ticino, come in tutta la Svizzera, il sostegno finanziario tra generazioni è in aumento. Scopriamo le cause e le implicazioni per i frontalieri.',
+    'blog.article.adulti-genitori-sostegno-finanziario-ticino-2026.imageAlt': 'Giovane adulto riceve supporto finanziario dai genitori in Ticino',
 };
 
 export default blogMetaIt;

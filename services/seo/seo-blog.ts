@@ -13147,6 +13147,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-adulti-genitori-sostegno-finanziario-ticino-2026': {
+    title: 'Adulti che ricevono soldi dai genitori | Frontaliere Ticino',
+    description: 'Scopri come il sostegno finanziario all’interno delle famiglie sta aumentando in Ticino e le implicazioni per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, adulti, ricevono, soldi, genitori',
+    ogTitle: 'Adulti che ricevono soldi dai genitori | Frontaliere Ticino',
+    ogDescription: 'Scopri come il sostegno finanziario all’interno delle famiglie sta aumentando in Ticino e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/adulti-genitori-sostegno-finanziario-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Adulti che ricevono soldi dai genitori perché non arrivano a fine mese",
+      "description": "Scopri come il sostegno finanziario all’interno delle famiglie sta aumentando in Ticino e le implicazioni per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/adulti-genitori-sostegno-finanziario-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane adulto riceve supporto finanziario dai genitori in Ticino"
+      },
+      "datePublished": "2026-04-26T21:17:04+00:00",
+      "dateModified": "2026-04-26T21:17:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/adulti-genitori-sostegno-finanziario-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

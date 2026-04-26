@@ -2166,6 +2166,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-costi-salute-svizzera-frontalieri-2026': { name: 'Costi salute', path: '/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026', parent: 'blog' },
     'blog-imposta-ocse-multinazionali-obiettivi-lontani': { name: 'Fiscale', path: '/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani', parent: 'blog' },
     'blog-settimana-corta-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/settimana-corta-svizzera-frontalieri', parent: 'blog' },
+    'blog-adulti-genitori-sostegno-finanziario-ticino-2026': { name: 'Sostegno finanziario', path: '/articoli-frontaliere/adulti-genitori-sostegno-finanziario-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
