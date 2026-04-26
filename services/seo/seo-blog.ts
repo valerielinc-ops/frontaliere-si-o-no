@@ -13234,6 +13234,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-sanitari-ticino-2024-4-percento': {
+    title: 'Costi sanitari in Ticino: +4% nel 2024 | Frontaliere Ticino',
+    description: 'Scopri l\'aumento dei costi sanitari in Ticino nel 2024 e le implicazioni per i frontalieri. Confronta i premi delle assicurazioni malattie e pianifica le tue',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, sanitari, 2024, famiglie',
+    ogTitle: 'Costi sanitari Ticino 2024: +4% | Frontaliere Ticino',
+    ogDescription: 'Scopri l\'aumento dei costi sanitari in Ticino nel 2024 e le implicazioni per i frontalieri. Confronta i premi delle assicurazioni malattie e pianifica le tue',
+    canonicalPath: '/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costi sanitari Ticino 2024: +4% | Frontaliere Ticino",
+      "description": "Scopri l'aumento dei costi sanitari in Ticino nel 2024 e le implicazioni per i frontalieri. Confronta i premi delle assicurazioni malattie e pianifica le tue",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costi-sanitari-ticino-2024-4-percento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale Civico di Lugano con vista sul lago"
+      },
+      "datePublished": "2026-04-26T22:11:47+00:00",
+      "dateModified": "2026-04-26T22:11:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

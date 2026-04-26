@@ -2169,6 +2169,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-adulti-genitori-sostegno-finanziario-ticino-2026': { name: 'Sostegno finanziario', path: '/articoli-frontaliere/adulti-genitori-sostegno-finanziario-ticino-2026', parent: 'blog' },
     'blog-swiss-lufthansa-economy-basic-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-lufthansa-economy-basic-2026', parent: 'blog' },
     'blog-twint-account-frode-frontalieri': { name: 'Frode TWINT', path: '/articoli-frontaliere/twint-account-frode-frontalieri', parent: 'blog' },
+    'blog-costi-sanitari-ticino-2024-4-percento': { name: 'Sanità Ticino', path: '/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

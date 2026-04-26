@@ -7350,4 +7350,11 @@ export const ARTICLES = [
  image: '/images/blog/twint-account-frode-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'costi-sanitari-ticino-2024-4-percento',
+ category: 'novita',
+ date: '2026-04-26T22:11:47.444Z',
+ image: '/images/blog/costi-sanitari-ticino-2024-4-percento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2727,6 +2727,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.twint-account-frode-frontalieri.title': 'TWINT-Betrug: So schützen Sie Ihr Konto',
     'blog.article.twint-account-frode-frontalieri.excerpt': 'Kriminelle zielen auf die TWINT-Konten von Grenzgängern ab. Hier erfahren Sie, wie Sie sich schützen und was zu tun ist, wenn Sie Opfer von Betrug werden.',
     'blog.article.twint-account-frode-frontalieri.imageAlt': 'Smartphone mit TWINT-Betrugswarnung, Luganersee im Hintergrund',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Gesundheitskosten im Tessin: +4% im 2024, Familien in vorderster Linie',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'Im Jahr 2024 sind die Gesundheitskosten im Tessin auf 97 Milliarden Franken gestiegen, wobei die Familien fast zwei Drittel der Kosten getragen haben',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Zivilkrankenhaus Lugano mit Seeblick',
 };
 
 export default blogMetaDe;

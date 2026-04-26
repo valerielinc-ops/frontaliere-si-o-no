@@ -2727,6 +2727,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.twint-account-frode-frontalieri.title': 'Fraude TWINT : comment protéger votre compte',
     'blog.article.twint-account-frode-frontalieri.excerpt': 'Les criminels ciblent les comptes TWINT des frontaliers. Voici comment se défendre et que faire si vous êtes victime de fraude.',
     'blog.article.twint-account-frode-frontalieri.imageAlt': 'Smartphone avec avertissement de fraude TWINT, lac de Lugano en arrière-plan',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Coûts sanitaires au Tessin : +4% en 2024, les familles en première ligne',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'En 2024, les dépenses de santé au Tessin ont atteint 97 milliards de francs, les familles ayant supporté près des deux tiers du coût',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Hôpital civil de Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

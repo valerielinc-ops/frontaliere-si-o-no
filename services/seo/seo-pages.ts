@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 955,
+ "numberOfItems": 956,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5679,7 +5679,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 952, "name": "Settimana corta in Svizzera: meno ore, più prod...", "url": `${BASE_URL}/articoli-frontaliere/settimana-corta-svizzera-frontalieri` },
           { "@type": "ListItem", "position": 953, "name": "Adulti che ricevono soldi dai genitori perché n...", "url": `${BASE_URL}/articoli-frontaliere/adulti-genitori-sostegno-finanziario-ticino-2026` },
           { "@type": "ListItem", "position": 954, "name": "Swiss e Lufthansa lanciano Economy Basic: solo ...", "url": `${BASE_URL}/articoli-frontaliere/swiss-lufthansa-economy-basic-2026` },
-          { "@type": "ListItem", "position": 955, "name": "Frode TWINT: come proteggere il tuo account", "url": `${BASE_URL}/articoli-frontaliere/twint-account-frode-frontalieri` }
+          { "@type": "ListItem", "position": 955, "name": "Frode TWINT: come proteggere il tuo account", "url": `${BASE_URL}/articoli-frontaliere/twint-account-frode-frontalieri` },
+          { "@type": "ListItem", "position": 956, "name": "Costi sanitari Ticino 2024: +4% | Frontaliere T...", "url": `${BASE_URL}/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento` }
  ]
  },
  {

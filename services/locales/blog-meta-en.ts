@@ -2727,6 +2727,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.twint-account-frode-frontalieri.title': 'TWINT Fraud: How to Protect Your Account',
     'blog.article.twint-account-frode-frontalieri.excerpt': 'Criminals are targeting TWINT accounts of cross-border workers. Here\'s how to defend yourself and what to do if you\'re a victim of fraud.',
     'blog.article.twint-account-frode-frontalieri.imageAlt': 'Smartphone with TWINT fraud warning, Lake Lugano background',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Healthcare costs in Ticino: +4% in 2024, families on the frontline',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'In 2024, healthcare spending in Ticino rose to 97 billion francs, with families bearing nearly two-thirds of the cost',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Lugano Civil Hospital with lake view',
 };
 
 export default blogMetaEn;

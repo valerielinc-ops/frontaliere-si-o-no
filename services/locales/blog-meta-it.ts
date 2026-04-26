@@ -2727,6 +2727,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.twint-account-frode-frontalieri.title': 'Frode TWINT: come proteggere il tuo account',
     'blog.article.twint-account-frode-frontalieri.excerpt': 'I criminali stanno prendendo di mira gli account TWINT dei frontalieri. Ecco come difendersi e cosa fare se sei vittima di frode.',
     'blog.article.twint-account-frode-frontalieri.imageAlt': 'Smartphone con avviso di frode su TWINT, sfondo Lago di Lugano',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.title': 'Costi sanitari in Ticino: +4% nel 2024, famiglie in prima linea',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.excerpt': 'Nel 2024 la spesa sanitaria in Ticino è salita a 97 miliardi di franchi, con le famiglie che hanno sostenuto quasi due terzi del costo',
+    'blog.article.costi-sanitari-ticino-2024-4-percento.imageAlt': 'Ospedale Civico di Lugano con vista sul lago',
 };
 
 export default blogMetaIt;
