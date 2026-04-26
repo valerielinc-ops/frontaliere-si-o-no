@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   CRAWLED_COMPANY_LOGOS,
   isMultiLocation,
+  MAX_JOB_SLUG_LENGTH,
   normalizeJobCategory,
   normalizeJobContract,
   resolveCompanyLogoUrl,
   resolveCompanyWebsiteHost,
+  truncateJobSlug,
 } from '@/services/jobDataNormalization';
 
 describe('jobDataNormalization', () => {
@@ -149,5 +151,52 @@ describe('jobDataNormalization', () => {
 
     expect(logo).not.toContain('google.com/s2/favicons');
     expect(logo).toBeTruthy();
+  });
+
+  describe('truncateJobSlug (Semrush A9 / Issue 201 — URLs >200 chars)', () => {
+    it('returns short slugs untouched', () => {
+      expect(truncateJobSlug('senior-software-engineer-zurich-ubs')).toBe(
+        'senior-software-engineer-zurich-ubs',
+      );
+    });
+
+    it('returns the empty string for falsy / blank input', () => {
+      expect(truncateJobSlug('')).toBe('');
+      expect(truncateJobSlug('   ')).toBe('');
+    });
+
+    it('caps an over-long slug at MAX_JOB_SLUG_LENGTH (180) characters', () => {
+      const overlong = 'a'.repeat(400);
+      const truncated = truncateJobSlug(overlong);
+      expect(truncated.length).toBeLessThanOrEqual(MAX_JOB_SLUG_LENGTH);
+      expect(MAX_JOB_SLUG_LENGTH).toBe(180);
+    });
+
+    it('appends a 6-char deterministic hash suffix when truncation occurs', () => {
+      const overlong = 'senior-software-engineer-' + 'x'.repeat(400);
+      const truncated = truncateJobSlug(overlong);
+      // Suffix shape: -[0-9a-f]{6} at the very end.
+      expect(truncated).toMatch(/-[0-9a-f]{6}$/);
+      // Same input yields same output (stable / deterministic).
+      expect(truncateJobSlug(overlong)).toBe(truncated);
+    });
+
+    it('disambiguates two different over-long slugs that share a long common prefix', () => {
+      const prefix = 'a'.repeat(MAX_JOB_SLUG_LENGTH + 50);
+      const a = truncateJobSlug(`${prefix}-variant-one-foo-bar-baz-qux`);
+      const b = truncateJobSlug(`${prefix}-variant-two-foo-bar-baz-qux`);
+      expect(a).not.toBe(b);
+      expect(a.length).toBeLessThanOrEqual(MAX_JOB_SLUG_LENGTH);
+      expect(b.length).toBeLessThanOrEqual(MAX_JOB_SLUG_LENGTH);
+    });
+
+    it('does not leave a trailing partial-word hyphen before the hash suffix', () => {
+      const head = 'senior-engineer-job-title-with-hyphens-';
+      const overlong = head.repeat(20); // > 180 chars and ends with `-`
+      const truncated = truncateJobSlug(overlong);
+      // No `--` collision between trimmed head and suffix separator.
+      expect(truncated).not.toMatch(/--[0-9a-f]{6}$/);
+      expect(truncated).toMatch(/[a-z0-9]-[0-9a-f]{6}$/);
+    });
   });
 });
