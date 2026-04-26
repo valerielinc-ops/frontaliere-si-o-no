@@ -10,6 +10,7 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
 
 declare global {
  interface Window {
@@ -43,6 +44,12 @@ export function isAdSenseProductionHost(hostname: string) {
 
 const IS_PROD =
  typeof window !== 'undefined' && isAdSenseProductionHost(window.location.hostname);
+
+// Bot detection runs once per page load. The result is stable for the
+// session, so cache it. isLikelyBot() returns true on Playwright/Selenium/
+// scrapers/headless — these inflate AD_REQUESTS without monetizing
+// (≤€0.10 RPM) and pollute coverage metrics.
+const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
 
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
 const initializedAdElements = new WeakSet<Element>();
@@ -294,12 +301,36 @@ export default function AdSenseBanner({
  }
  }, [scriptFailed, state]);
 
+ // ── Telemetry: emit one event per terminal state transition ──────
+ const reportedStateRef = useRef<AdState | null>(null);
+ useEffect(() => {
+ if (!IS_PROD || !adSlot) return;
+ if (state !== 'filled' && state !== 'collapsed') return;
+ if (reportedStateRef.current === state) return;
+ reportedStateRef.current = state;
+ const event = state === 'filled' ? 'ad_filled' : 'ad_collapsed';
+ const reason = state === 'collapsed'
+ ? (scriptFailed ? 'script_failed' : 'unfilled_or_timeout')
+ : undefined;
+ trackAdEvent(event, { slot: adSlot, format: adFormat, reason });
+ }, [state, adSlot, adFormat, scriptFailed]);
+
  useEffect(() => () => {
  cleanupAsyncWatchers();
  }, [cleanupAsyncWatchers]);
 
  // ── Render nothing in dev or when slot is missing ─────────
  if (!IS_PROD || !adSlot) {
+ return null;
+ }
+
+ // Skip rendering entirely for bots / headless — saves an ad_request and
+ // keeps the AdSense coverage metric uncontaminated. Logged once per slot.
+ if (SKIP_FOR_BOT) {
+ if (!pushed.current) {
+ pushed.current = true;
+ trackAdEvent('ad_bot_skip', { slot: adSlot, format: adFormat, reason: 'navigator_bot' });
+ }
  return null;
  }
 
