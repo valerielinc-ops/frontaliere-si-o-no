@@ -7413,4 +7413,11 @@ export const ARTICLES = [
  image: '/images/blog/chiasso-scoperta-enti-primo-intervento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo',
+ category: 'novita',
+ date: '2026-04-27T00:52:53.648Z',
+ image: '/images/blog/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

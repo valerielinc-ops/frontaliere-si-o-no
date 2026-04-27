@@ -2178,6 +2178,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiusura-notturna-a8-gallarate-29-aprile-2026': { name: 'Chiusura notturna', path: '/articoli-frontaliere/chiusura-notturna-a8-gallarate-29-aprile-2026', parent: 'blog' },
     'blog-sovranita-latte-ticino': { name: 'Sovranità alimentare e latte ticinese', path: '/articoli-frontaliere/sovranita-latte-ticino', parent: 'blog' },
     'blog-chiasso-scoperta-enti-primo-intervento': { name: 'Chiasso', path: '/articoli-frontaliere/chiasso-scoperta-enti-primo-intervento', parent: 'blog' },
+    'blog-tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo': { name: 'Tennis donne / “Open” di Chiasso, a Marija', path: '/articoli-frontaliere/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

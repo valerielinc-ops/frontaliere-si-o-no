@@ -13495,6 +13495,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo': {
+    title: 'Tennis donne / “Open” di Chiasso, a | Frontaliere Ticino',
+    description: 'La russa Marija Glebovna Timofeeva ha vinto il titolo dell\'“Open” di Chiasso, una delle competizioni più prestigiose in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tennis, donne, open, chiasso',
+    ogTitle: 'Tennis donne / “Open” di Chiasso, a Marija Glebovna',
+    ogDescription: 'La russa Marija Glebovna Timofeeva ha vinto il titolo dell\'“Open” di Chiasso, una delle competizioni più prestigiose in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"mainEntityOfPage\":{\"@type\":\"WebPage\"",
+      "description": "La russa Marija Glebovna Timofeeva ha vinto il titolo dell'“Open” di Chiasso, una delle competizioni più prestigiose in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "max 125 chars"
+      },
+      "datePublished": "2026-04-27T00:52:53+00:00",
+      "dateModified": "2026-04-27T00:52:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2754,6 +2754,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-scoperta-enti-primo-intervento.title': 'Chiasso: A Day Discovering the First Response Entities',
     'blog.article.chiasso-scoperta-enti-primo-intervento.excerpt': 'Question: Who are the first response entities in Chiasso? Answer: Canton police, Chiasso municipal police, Federal customs and border security office, etc.',
     'blog.article.chiasso-scoperta-enti-primo-intervento.imageAlt': 'Max 125 chars',
+    'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.title': 'Tennis Women / \'Open\' of Chiasso, Marija Glebovna Timofeeva Wins the Title',
+    'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.excerpt': 'The Russian Marija Glebovna Timofeeva has won the title of the \'Open\' of Chiasso.',
+    'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.imageAlt': 'max 125 chars',
 };
 
 export default blogMetaEn;

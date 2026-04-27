@@ -2754,6 +2754,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-scoperta-enti-primo-intervento.title': 'Chiasso: Una giornata alla scoperta degli enti di primo intervento',
     'blog.article.chiasso-scoperta-enti-primo-intervento.excerpt': 'Domanda: Chi sono gli enti di primo intervento a Chiasso? Risposta: Polizia cantonale, Polizia comunale di Chiasso, Ufficio federale della dogana e della sicurezza dei confini, ecc.',
     'blog.article.chiasso-scoperta-enti-primo-intervento.imageAlt': 'Max 125 chars',
+    'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.title': 'Tennis donne / “Open” di Chiasso, a Marija Glebovna Timofeeva il titolo',
+    'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.excerpt': 'La russa Marija Glebovna Timofeeva ha vinto il titolo dell\'“Open” di Chiasso.',
+    'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.imageAlt': 'max 125 chars',
 };
 
 export default blogMetaIt;
