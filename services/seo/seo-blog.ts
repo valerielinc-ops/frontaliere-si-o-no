@@ -17178,6 +17178,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-guardia-pro-velo-ticino-sabbadini-vitali': {
+    title: 'Cambio di guardia a Pro Velo Ticino: Sabbadini succede a Vitali',
+    description: 'Claudio Sabbadini è il nuovo presidente di Pro Velo Ticino, sostituendo Marco Vitali. Discussione su progetti per migliorare la mobilità ciclistica nelle valli',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, guardia, velo, sabbadini',
+    ogTitle: 'Cambio di guardia a Pro Velo Ticino: Sabbadini succede a Vitali',
+    ogDescription: 'Claudio Sabbadini è il nuovo presidente di Pro Velo Ticino, sostituendo Marco Vitali. Discussione su progetti per migliorare la mobilità ciclistica nelle valli',
+    canonicalPath: '/articoli-frontaliere/cambio-guardia-pro-velo-ticino-sabbadini-vitali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio di guardia a Pro Velo Ticino: Sabbadini succede a Vitali",
+      "description": "Claudio Sabbadini è il nuovo presidente di Pro Velo Ticino, sostituendo Marco Vitali. Discussione su progetti per migliorare la mobilità ciclistica nelle valli",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cambio-guardia-pro-velo-ticino-sabbadini-vitali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti in Ticino durante un evento Pro Velo"
+      },
+      "datePublished": "2026-04-27T22:00:12+00:00",
+      "dateModified": "2026-04-27T22:00:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-guardia-pro-velo-ticino-sabbadini-vitali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

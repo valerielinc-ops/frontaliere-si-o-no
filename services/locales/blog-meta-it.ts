@@ -3125,6 +3125,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.title': 'Nuovi Maestri del Lavoro 2026: Leonardo primeggia in provincia di Varese',
     'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.excerpt': 'Celebrati a Milano i nuovi Maestri del Lavoro 2026. Leonardo S.p.A. è l\'azienda con il maggior numero di premiati nella provincia di Varese.',
     'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.imageAlt': 'Gruppo di lavoratori premiati durante una cerimonia a Milano',
+    'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.title': 'Cambio di guardia a Pro Velo Ticino: Sabbadini succede a Vitali',
+    'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.excerpt': 'Claudio Sabbadini è stato eletto nuovo presidente di Pro Velo Ticino, sostituendo Marco Vitali. Discussione su progetti per migliorare la mobilità ciclistica nelle valli ticinesi.',
+    'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.imageAlt': 'Ciclisti in Ticino durante un evento Pro Velo',
 };
 
 export default blogMetaIt;

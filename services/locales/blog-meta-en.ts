@@ -3124,6 +3124,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.title': '2026 Master Workers: Leonardo leads in Varese province',
     'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.excerpt': 'The new Master Workers 2026 were celebrated in Milan. Leonardo S.p.A. is the company with the most awarded in the province of Varese.',
     'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.imageAlt': 'Group of workers receiving awards at a ceremony in Milan',
+    'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.title': 'Pro Velo Ticino: Sabbadini replaces Vitali',
+    'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.excerpt': 'Claudio Sabbadini has been elected the new president of Pro Velo Ticino, replacing Marco Vitali. Discussion on projects to improve cycling mobility in the Ticino valleys.',
+    'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.imageAlt': 'Cyclists in Ticino during a Pro Velo event',
 };
 
 export default blogMetaEn;

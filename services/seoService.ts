@@ -2302,6 +2302,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rovine-magliaso-scuole-nuove-2026': { name: 'Novità', path: '/articoli-frontaliere/rovine-magliaso-scuole-nuove-2026', parent: 'blog' },
     'blog-bns-ubs-misure-non-estreme-2026': { name: 'Novità', path: '/articoli-frontaliere/bns-ubs-misure-non-estreme-2026', parent: 'blog' },
     'blog-nuovi-maestri-lavoro-varese-leonardo-2026': { name: 'Nuovi Maestri del Lavoro', path: '/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026', parent: 'blog' },
+    'blog-cambio-guardia-pro-velo-ticino-sabbadini-vitali': { name: 'Novità', path: '/articoli-frontaliere/cambio-guardia-pro-velo-ticino-sabbadini-vitali', parent: 'blog' },
  };
 
  const info = sectionNames[section];

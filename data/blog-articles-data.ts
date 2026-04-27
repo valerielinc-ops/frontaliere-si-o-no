@@ -8302,4 +8302,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovi-maestri-lavoro-varese-leonardo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cambio-guardia-pro-velo-ticino-sabbadini-vitali',
+ category: 'novita',
+ date: '2026-04-27T22:00:12.077Z',
+ image: '/images/blog/cambio-guardia-pro-velo-ticino-sabbadini-vitali.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
