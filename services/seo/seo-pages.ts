@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1061,
+ "numberOfItems": 1062,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5785,7 +5785,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1058, "name": "Controlli Finanza Comasco: 226 persone identifi...", "url": `${BASE_URL}/articoli-frontaliere/controlli-finanza-comasco-226-persone` },
           { "@type": "ListItem", "position": 1059, "name": "{\"@context\": \"https://schema.org\", \"@type\": \"Ne...", "url": `${BASE_URL}/articoli-frontaliere/auto-cinesi-svizzera-2026` },
           { "@type": "ListItem", "position": 1060, "name": "Dengue: verso un sistema rapido per individuarl...", "url": `${BASE_URL}/articoli-frontaliere/dengue-sistema-rapido-individuazione` },
-          { "@type": "ListItem", "position": 1061, "name": "Aprile secco: allarme siccità in Ticino", "url": `${BASE_URL}/articoli-frontaliere/aprile-secco-siccita-ticino-2026` }
+          { "@type": "ListItem", "position": 1061, "name": "Aprile secco: allarme siccità in Ticino", "url": `${BASE_URL}/articoli-frontaliere/aprile-secco-siccita-ticino-2026` },
+          { "@type": "ListItem", "position": 1062, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/multa-svapo-stazioni-ticino-2026` }
  ]
  },
  {

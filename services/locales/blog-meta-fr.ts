@@ -3045,6 +3045,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aprile-secco-siccita-ticino-2026.title': 'Avril sec: alerte sécheresse en Suisse et au Tessin',
     'blog.article.aprile-secco-siccita-ticino-2026.excerpt': 'MétéoSuisse lance l\'alerte: avril 2026 est le plus sec depuis les relevés, avec de graves carences de pluie en Tessin et autres régions.',
     'blog.article.aprile-secco-siccita-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Amende jusqu\'à 500 francs pour ceux qui vapotent en gare',
+    'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'L\'Association suisse pour la prévention du tabagisme demande des amendes pour ceux qui violent l\'interdiction de fumer et de vapoter sur les quais des gares suisses',
+    'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Gare ferroviaire en Tessin avec une zone pour fumeurs et utilisateurs de cigarettes électroniques',
 };
 
 export default blogMetaFr;

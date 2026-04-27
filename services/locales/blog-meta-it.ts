@@ -3045,6 +3045,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aprile-secco-siccita-ticino-2026.title': 'Aprile secco: allarme siccità in Ticino e Svizzera',
     'blog.article.aprile-secco-siccita-ticino-2026.excerpt': 'MeteoSvizzera lancia l\'allarme: aprile 2026 è il più secco dalla rilevazione, con gravi carenze di pioggia in Ticino e altre regioni.',
     'blog.article.aprile-secco-siccita-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Multa fino a 500 franchi per chi svapa in stazione',
+    'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'L\'Associazione svizzera per la prevenzione del tabagismo chiede multe per chi viola il divieto di fumo e svapo nei binari delle stazioni svizzere',
+    'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Stazione ferroviaria in Ticino con area per fumatori e utenti di sigarette elettroniche',
 };
 
 export default blogMetaIt;

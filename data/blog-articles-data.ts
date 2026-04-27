@@ -8092,4 +8092,11 @@ export const ARTICLES = [
  image: '/images/blog/aprile-secco-siccita-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'multa-svapo-stazioni-ticino-2026',
+ category: 'novita',
+ date: '2026-04-27T17:54:27.773Z',
+ image: '/images/blog/multa-svapo-stazioni-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

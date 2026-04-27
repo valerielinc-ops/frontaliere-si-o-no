@@ -16308,6 +16308,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-multa-svapo-stazioni-ticino-2026': {
+    title: 'Multa fino a 500 franchi per chi svapa | Frontaliere Ticino',
+    description: 'L\'Associazione svizzera per la prevenzione del tabagismo propone multe fino a 500 franchi per chi viola il divieto di fumo e svapo nei binari delle stazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, multa, fino, franchi, svapa',
+    ogTitle: 'Multa fino a 500 franchi per chi svapa in stazione |',
+    ogDescription: 'L\'Associazione svizzera per la prevenzione del tabagismo propone multe fino a 500 franchi per chi viola il divieto di fumo e svapo nei binari delle stazioni',
+    canonicalPath: '/articoli-frontaliere/multa-svapo-stazioni-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Multa fino a 500 franchi per chi",
+      "description": "L'Associazione svizzera per la prevenzione del tabagismo propone multe fino a 500 franchi per chi viola il divieto di fumo e svapo nei binari delle stazioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/multa-svapo-stazioni-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria in Ticino con area per fumatori e utenti di sigarette elettroniche"
+      },
+      "datePublished": "2026-04-27T17:54:27+00:00",
+      "dateModified": "2026-04-27T17:54:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/multa-svapo-stazioni-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

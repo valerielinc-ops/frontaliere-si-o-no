@@ -3045,6 +3045,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aprile-secco-siccita-ticino-2026.title': 'Dry April: drought alert in Ticino and Switzerland',
     'blog.article.aprile-secco-siccita-ticino-2026.excerpt': 'MeteoSwiss issues a warning: April 2026 is the driest on record, with severe rainfall shortages in Ticino and other regions.',
     'blog.article.aprile-secco-siccita-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Up to 500 francs fine for vaping in train stations',
+    'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'The Swiss Association for Tobacco Prevention calls for fines for those who violate the ban on smoking and vaping on the tracks of Swiss train stations',
+    'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Train station in Ticino with a smoking area and e-cigarette users',
 };
 
 export default blogMetaEn;
