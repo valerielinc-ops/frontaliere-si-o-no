@@ -1,18 +1,93 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-27T10:30:47.408Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-04-27T21:25:59.224Z",
+  "total": 7,
+  "newCount": 2,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19036,
-  "avgDurationMs": 19036,
+  "durationMs": 18594,
+  "avgDurationMs": 18594,
   "durationHistory": [
-    19036
+    18594
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-20h-Landquart_R_783942",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-20h-Landquart_R_783942",
+      "title": "Sales Associate 20h Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "sales-associate-20h-landquart-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-04-27",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-8h-Landquart_R_783941",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-8h-Landquart_R_783941",
+      "title": "Sales Associate 8h Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "sales-associate-8h-landquart-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-04-27",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-50----Landquart_R_783737",
@@ -220,48 +295,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Store-Maintenance-Helpdesk-Coordinator_R_783682",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Store-Maintenance-Helpdesk-Coordinator_R_783682",
-      "title": "Store Maintenance Helpdesk Coordinator",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "coordinatore-di-helpdesk-di-manutenzione-del-negozio-capri-holdings-michael-kors-versace-manno",
-      "category": "retail",
-      "datePosted": "2026-04-22",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "crawledAt": "",
-      "id": "capri-holdings-9a26ce8c3e26",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-22T09:35:37.136Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
