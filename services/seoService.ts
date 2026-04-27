@@ -1357,7 +1357,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'blog-maternita-paternita-frontaliere-guida': { name: 'Congedo Genitori', path: '/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026', parent: 'blog' },
  'blog-guida-contributi-sociali-svizzera': { name: 'Guida Busta Paga', path: '/articoli-frontaliere/guida-contributi-sociali-svizzeri-busta-paga-frontaliere', parent: 'blog' },
  'blog-costo-vivere-lugano-trasferirsi': { name: 'Costo Vita Lugano 2026', path: '/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026', parent: 'blog' },
- 'blog-permesso-g-pro-contro-2026': { name: 'Permesso G: Pro e Contro', path: '/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontalieri-ticino-2026', parent: 'blog' },
  'blog-calcolo-pensione-avs-inps': { name: 'Pensione Frontalieri AVS/INPS', path: '/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa', parent: 'blog' },
  'blog-simulazione-fiscale-frontaliere-2026': { name: 'Simulazione Fiscale 2026', path: '/articoli-frontaliere/frontaliere-nuovo-accordo-fiscale-2026-simulazione', parent: 'blog' },
  'blog-lamal-cmi-scelta-frontaliere-2026': { name: 'LAMal vs CMI 2026', path: '/articoli-frontaliere/lamal-o-cmi-frontaliere-quale-conviene-2026', parent: 'blog' },
@@ -1433,7 +1432,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'blog-spese-sanitarie-frontalieri': { name: 'Spese sanitarie', path: '/articoli-frontaliere/spese-sanitarie-frontalieri', parent: 'blog' },
  // A.4 — 'blog-naspi-disoccupazione-frontalieri' retired (301 to naspi-ex-frontalieri-2026).
  'blog-dichiarazione-redditi-ticino-2026': { name: 'Dichiarazione Redditi', path: '/articoli-frontaliere/dichiarazione-redditi-ticino-2026', parent: 'blog' },
- 'blog-cantieri-traffico-a9-ticino': { name: 'Cantieri A9', path: '/articoli-frontaliere/cantieri-traffico-a9-ticino', parent: 'blog' },
  'blog-migranti-seghezzone-risparmi': { name: 'Migranti Seghezzone', path: '/articoli-frontaliere/migranti-seghezzone-risparmi', parent: 'blog' },
  'blog-cantieri-traffico-frontiera': { name: 'Traffico frontalieri', path: '/articoli-frontaliere/cantieri-traffico-frontiera', parent: 'blog' },
  'blog-salario-minimo-ps-compromesso': { name: 'Salario minimo PS', path: '/articoli-frontaliere/salario-minimo-ps-compromesso', parent: 'blog' },
@@ -1484,7 +1482,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'blog-confine-a9-disagi-marzo': { name: 'Chiusure A9 Marzo', path: '/articoli-frontaliere/chiusure-notturne-a9-chiasso-como-marzo-frontalieri', parent: 'blog' },
  'blog-autostrada-a9-disagi-frontalieri': { name: 'A9 Chiasso-Como', path: '/articoli-frontaliere/chiusura-notturna-a9-chiasso-como-frontalieri', parent: 'blog' },
  'blog-chiusure-a9-trasporti-speciali': { name: 'Chiusure A9', path: '/articoli-frontaliere/chiusure-a9-trasporti-speciali-como-chiasso', parent: 'blog' },
- 'blog-iniziativa-salari-ticino': { name: 'Iniziativa salari Ticino', path: '/articoli-frontaliere/iniziativa-salari-ticino-voto-anti-dumping', parent: 'blog' },
  'blog-salari-ticino-voto-frontalieri': { name: 'Voto Anti-Dumping Ticino', path: '/articoli-frontaliere/dumping-salariale-ticino-voto-frontalieri', parent: 'blog' },
  'blog-lutto-porlezza-frontaliere': { name: 'Incidente Porlezza', path: '/articoli-frontaliere/scontro-fatale-porlezza-frontaliere', parent: 'blog' },
  'blog-frontalieri-confine-disparita-fiscale': { name: 'Comuni Confine', path: '/articoli-frontaliere/frontalieri-confine-disparita-fiscale', parent: 'blog' },
