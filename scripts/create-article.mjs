@@ -3087,9 +3087,15 @@ function optimizeSeoMetadata(data) {
   const baseTitle = truncateAtWordBoundary(it.title || data.id || 'Articolo frontalieri', coreBudget);
   const seoTitleCore = baseTitle.replace(/\s*\|\s*Frontaliere Ticino$/i, '');
   const fullTitle = `${seoTitleCore}${TITLE_SUFFIX}`;
-  data.seo.title = fullTitle.length <= TITLE_MAX
-    ? fullTitle
-    : truncateAtWordBoundary(seoTitleCore, TITLE_MAX);
+  // Always keep the brand suffix so <title> ≠ <h1> (Semrush "Duplicate H1
+  // and title tags"). When the full string overflows TITLE_MAX, hard-truncate
+  // the core to make room — never drop the suffix.
+  if (fullTitle.length <= TITLE_MAX) {
+    data.seo.title = fullTitle;
+  } else {
+    const tightCore = truncateAtWordBoundary(seoTitleCore, coreBudget);
+    data.seo.title = `${tightCore}${TITLE_SUFFIX}`;
+  }
   data.seo.ogTitle = truncateAtWordBoundary(data.seo.ogTitle || seoTitleCore, TITLE_MAX);
   data.seo.headline = truncateAtWordBoundary(data.seo.headline || seoTitleCore, 100);
   data.seo.breadcrumbName = truncateAtWordBoundary(

@@ -1,6 +1,11 @@
-# Production canary probe URLs (Agent F — 5XX hardening)
+# Production canary probe URLs (Agent F — availability hardening)
 # One URL per line. Lines starting with # are ignored. Empty lines ignored.
 # Keep this list representative: locale homes + one sample from each SEO plugin.
+#
+# IMPORTANT: every URL must resolve to a static HTML file under dist/ (verified
+# at edit time against the build). The probe fails on 4XX *and* 5XX, so a stale
+# slug here will block deploys. When changing a slug in services/router.ts or
+# adding/removing a SEO plugin, update this list in the same PR.
 
 # — Locale homes
 https://frontaliereticino.ch/
@@ -17,50 +22,45 @@ https://frontaliereticino.ch/vivere-in-ticino/
 https://frontaliereticino.ch/statistiche/
 
 # — Core top-level sections (EN)
-https://frontaliereticino.ch/en/salary-calculator/
+https://frontaliereticino.ch/en/calculate-salary/
 https://frontaliereticino.ch/en/compare-services/
-https://frontaliereticino.ch/en/taxes-and-pensions/
+https://frontaliereticino.ch/en/taxes-and-pension/
 
-# — Comparators
+# — Comparators (sub-tabs that exist as static HTML)
 https://frontaliereticino.ch/compara-servizi/cambio-franco-euro/
-https://frontaliereticino.ch/compara-servizi/assicurazione-malattia/
-https://frontaliereticino.ch/compara-servizi/carburante/
+https://frontaliereticino.ch/compara-servizi/confronta-casse-malati/
 
-# — Job board (SPA + sample job pages)
+# — Job board (SPA shell — must serve 200 via 404.html SPA fallback resolver)
 https://frontaliereticino.ch/cerca-lavoro-ticino/
-https://frontaliereticino.ch/lavori/
-
-# — Blog
-https://frontaliereticino.ch/blog/
 
 # — Statics / legal
 https://frontaliereticino.ch/privacy/
 https://frontaliereticino.ch/mappa-del-sito/
 
-# — Sitemaps (XML; must return 200)
+# — Sitemaps + robots (XML/text; must return 200)
 https://frontaliereticino.ch/sitemap.xml
 https://frontaliereticino.ch/robots.txt
 
-# — SEO plugin samples
-# F2 LAMal premiums landing
-https://frontaliereticino.ch/premi-cassa-malati-ticino/
+# — SEO plugin samples (one URL per plugin; verifies the build emitted output)
+# F2 LAMal premiums landing — /premi-cassa-malati/{canton}/{age-bracket}/
+https://frontaliereticino.ch/premi-cassa-malati/ticino/adulto-26-30/
 
-# F4 job-market snapshot
-https://frontaliereticino.ch/mercato-del-lavoro-ticino/
+# F4 job-market snapshot — /mercato-lavoro-ticino/{period}/
+https://frontaliereticino.ch/mercato-lavoro-ticino/
 
-# F5 weekly employers
-https://frontaliereticino.ch/aziende-che-assumono-ticino/
+# F5 weekly employers — /aziende-che-assumono/{city}/
+https://frontaliereticino.ch/aziende-che-assumono/lugano/
 
-# F6 daily fuel prices
-https://frontaliereticino.ch/prezzi-carburante-ticino/
+# F6 daily fuel prices — /prezzi-benzina/{city}/ and /prezzi-diesel/{city}/
+https://frontaliereticino.ch/prezzi-benzina/lugano/
+https://frontaliereticino.ch/prezzi-diesel/lugano/
 
-# F8 border wait time
-https://frontaliereticino.ch/tempi-attesa-dogana/
+# F8 border live map (canonical landing — slug lives under /guida-frontaliere/)
+https://frontaliereticino.ch/guida-frontaliere/mappa-live-valichi/
 
-# — Guides
+# — Guides (only slugs that emit static HTML)
 https://frontaliereticino.ch/guida-frontaliere/permesso-g/
-https://frontaliereticino.ch/guida-frontaliere/permesso-b/
-https://frontaliereticino.ch/guida-frontaliere/dichiarazione-dei-redditi/
+https://frontaliereticino.ch/guida-frontaliere/confronta-permesso-g-vs-b/
 
-# — Canonical redirect target (www → apex must resolve; if 5XX, canonical broken)
+# — Canonical redirect target (www → apex must resolve 200/3xx)
 https://www.frontaliereticino.ch/

@@ -153,13 +153,11 @@ function classifyFeature(relPath) {
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) {
     return 'career-landings';
   }
-  // IT root slugs `prezzi-benzina` and `prezzi-diesel` (no -svizzera suffix)
-  // cover the Italy-side stations served at /prezzi-benzina/italia/<city>/...
-  // and the diesel-only zone hubs, both emitted by fuelDailyPagesPlugin.
-  // Locale slugs: gasoline-price-switzerland (en), prix-essence-suisse (fr),
-  // benzinpreise-schweiz (de) — keep the legacy fuel-prices-switzerland
-  // entry as a guard for older builds.
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|prix-essence-suisse|fuel-prices-switzerland|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  // Fuel-daily slugs cover both petrol and diesel for every locale, with
+  // separate roots for the Ticino-side (`-svizzera`/`-suisse`/`-schweiz`
+  // suffix) and the Italy-side stations (no suffix). Diesel mirrors petrol
+  // with the relevant translation. Legacy spellings stay as fallbacks.
+  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
   // Weekly-employers per-company×city pages live UNDER /aziende-che-assumono/<city>/<company>/...
   // Locale slugs: companies-hiring (en), unternehmen-einstellen (de),
   // entreprises-recrutent (fr) — keep the previous slug spellings as

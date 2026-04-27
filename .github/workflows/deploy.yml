@@ -245,6 +245,29 @@ jobs:
       - name: Gate — text-to-HTML ratio (Semrush "low text/HTML")
         run: npm run audit:text-html-ratio
 
+      # Semrush "Duplicate H1 and title tags" gate (ratchet).
+      #
+      # WHY: when a page's <title> equals its <h1> verbatim Semrush flags it
+      # as over-optimized — the headers waste a slot that could carry an
+      # additional keyword. The Apr 2026 audit caught 1,342 such pages on
+      # frontaliereticino.ch (mostly blog articles + fuel-daily/job-board
+      # templates whose brand suffix was dropped on overflow).
+      #
+      # HOW THE GATE WORKS: identical to text-html-ratio — compares the
+      # current dist/ offender count to data/h1-title-duplicates-baseline.json
+      # and FAILS if any feature bucket goes UP. Improvements always pass —
+      # regenerate the baseline with
+      #   npm run audit:h1-title-duplicates:rebaseline
+      # and commit the updated JSON in the same PR.
+      #
+      # IF THIS STEP FAILS: stderr names the regressed feature bucket.
+      # Inspect the matching build plugin (ogPagesPlugin for blog,
+      # fuelDailyPagesPlugin for fuel-daily, jobsSeoPagesPlugin for
+      # job-board, …) and ensure the brand suffix or a discriminator is
+      # always preserved on <title>.
+      - name: Gate — duplicate H1/title tags (Semrush)
+        run: npm run audit:h1-title-duplicates
+
       - name: Validate SPA render — canonical, schema, robots (blocking)
         timeout-minutes: 5
         run: node scripts/validate-spa-render.mjs

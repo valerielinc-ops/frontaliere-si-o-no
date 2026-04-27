@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /**
- * probe-5xx.mjs — Production canary that fails fast on 5XX responses.
+ * probe-5xx.mjs — Production availability canary.
  *
  * Reads a list of URLs from scripts/probe-urls.txt (override with
  * --file=<path>) and HTTP-GETs each with:
  *   - concurrency: 5
  *   - per-request timeout: 10s
- *   - retries: 2x with 1s backoff (handles transient Cloudflare/edge 5XX)
+ *   - retries: 2x with 1s backoff for 5XX / network errors only
+ *     (4XX is treated as a hard fail — a 404 won't auto-heal in 1s)
  *
  * Exit codes:
- *   0 — every URL returned a non-5XX status on the final attempt
- *   1 — at least one URL returned a 5XX (or network error) on every attempt
+ *   0 — every URL returned a 2XX/3XX status on the final attempt
+ *   1 — at least one URL returned a 4XX or 5XX (or network error)
  *
  * Emits a summary table (URL, status, latency_ms, attempts) on stdout and a
  * machine-readable JSON blob on stderr under the prefix `PROBE_RESULT_JSON=`
@@ -22,9 +23,11 @@
  *   node scripts/probe-5xx.mjs --concurrency=3  # override concurrency
  *
  * Why a dedicated script? Static GitHub Pages paths cannot themselves return
- * 5XX, but (a) Cloudflare in front occasionally surfaces 5XX and (b) Firebase
- * Cloud Functions called from the SPA can regress silently. This probe catches
- * either class of regression within ~15 min via production-canary.yml.
+ * 5XX, but (a) Cloudflare in front occasionally surfaces 5XX, (b) Firebase
+ * Cloud Functions called from the SPA can regress silently, and (c) a build
+ * regression (renamed slug, removed plugin output) silently 404s real URLs.
+ * The canary catches all three classes within ~15 min via production-canary.yml,
+ * and the deploy.yml post-deploy step catches them within seconds of publish.
  */
 
 import { readFile } from 'node:fs/promises';
@@ -95,15 +98,22 @@ function sleep(ms) {
 }
 
 /**
- * Probe one URL with retry on 5XX / network errors.
+ * Probe one URL.
+ *  - 2XX/3XX → success (no retry needed).
+ *  - 4XX → hard fail without retry (a 404 won't fix itself in 1s).
+ *  - 5XX / network error → retry up to RETRY_ATTEMPTS with backoff.
  * @returns {Promise<{ url: string, status: number, latencyMs: number, attempts: number, error: string|null, failed: boolean }>}
  */
 async function probeWithRetry(url) {
   let lastResult = null;
   for (let attempt = 1; attempt <= RETRY_ATTEMPTS; attempt++) {
     lastResult = await attemptProbe(url);
+    const is4xx = lastResult.status >= 400 && lastResult.status < 500;
     const is5xx = lastResult.status >= 500 && lastResult.status < 600;
     const isNetErr = lastResult.status === 0;
+    if (is4xx) {
+      return { url, ...lastResult, attempts: attempt, failed: true };
+    }
     if (!is5xx && !isNetErr) {
       return { url, ...lastResult, attempts: attempt, failed: false };
     }
@@ -195,7 +205,7 @@ async function main() {
   console.error(`PROBE_RESULT_JSON=${JSON.stringify(summary)}`);
 
   if (failures.length > 0) {
-    console.error('[probe-5xx] FAIL — the following URL(s) returned 5XX or a network error on every attempt:');
+    console.error('[probe-5xx] FAIL — the following URL(s) returned 4XX, 5XX, or a network error:');
     for (const f of failures) {
       const reason = f.status === 0 ? `network_error: ${f.error}` : `HTTP ${f.status}`;
       console.error(`  - ${f.url}  (${reason})`);

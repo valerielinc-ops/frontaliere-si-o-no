@@ -213,12 +213,16 @@ export function formatSeoTitle(parts: SeoTitleParts): string {
 }
 
 /**
- * Append a `" | {siteSuffix}"` site-name suffix to `base` only when the
- * combined string still fits inside `maxLength`. Returns `base` unchanged
- * otherwise.
+ * Append a `" | {siteSuffix}"` site-name suffix to `base`. When the combined
+ * string overflows `maxLength` the base is truncated at a word boundary and
+ * an ellipsis is added so the suffix still survives — this guarantees
+ * `<title>` differs from `<h1>` even on long headlines (Semrush
+ * "Duplicate H1 and title tags" rule).
  *
- * Use when you want the brand suffix on short titles (a CTR boost in some
- * verticals) but never at the cost of overflowing the SERP snippet budget.
+ * Edge case: if the suffix is so long that the truncation would leave no
+ * meaningful room for the headline (<12 chars), the original base is
+ * returned unchanged — callers SHOULD provide an alternative discriminator
+ * (date stamp, year, …) in that situation.
  */
 export function clampSiteSuffix(
   base: string,
@@ -228,8 +232,18 @@ export function clampSiteSuffix(
   const baseTrim = (base || '').trim();
   const suffixTrim = (siteSuffix || '').trim();
   if (!suffixTrim) return baseTrim;
-  const candidate = `${baseTrim} | ${suffixTrim}`;
-  return candidate.length <= maxLength ? candidate : baseTrim;
+  const suffixWithSep = ` | ${suffixTrim}`;
+  const candidate = `${baseTrim}${suffixWithSep}`;
+  if (candidate.length <= maxLength) return candidate;
+  // Suffix overflows — preserve it, truncate the base instead so <title>
+  // never collapses to a verbatim copy of <h1>. Reserve 1 char for ellipsis.
+  const budget = maxLength - suffixWithSep.length - 1;
+  if (budget < 12) return baseTrim;
+  const slice = baseTrim.slice(0, budget);
+  const lastSpace = slice.lastIndexOf(' ');
+  const cut = lastSpace > budget * 0.4 ? slice.slice(0, lastSpace) : slice;
+  const trimmed = cut.replace(/[\s.,;:\-–—|]+$/u, '');
+  return `${trimmed}…${suffixWithSep}`;
 }
 
 export interface SeoH1Parts {

@@ -2421,8 +2421,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Use border outline (not background:#e2e8f0) to reserve space without triggering skeleton-dominated detection
  const sp = 'border:1px solid #e2e8f0;border-radius:12px;background:#ffffff';
  const skeletonAnim = '';
- // H.6: H1 differentiation from title — prefer seoData.h1 override when set, fallback to ogT
- const h1Text = seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.ogT;
+ // H.6: H1 differentiation from title — prefer seoData.h1 override when set,
+ // otherwise fall back to ogT WITH the trailing " | Frontaliere Ticino" brand
+ // suffix stripped so <h1> reliably differs from the SERP <title>. Without
+ // the strip, pages whose ogT carries the brand suffix produce identical
+ // <title> and <h1> strings (Semrush "Duplicate H1 and title tags").
+ const stripBrand = (s: string) => s.replace(/\s*[|·]\s*Frontaliere Ticino\s*$/i, '').trim();
+ const h1Fallback = stripBrand(seoData.ogT) || seoData.ogT;
+ // Last-resort discriminator: if title == fallback (page that lacks the
+ // brand suffix entirely), append a separator so the strings still differ.
+ const h1Text = (seoData.h1 && seoData.h1.trim().length > 0)
+ ? seoData.h1
+ : (h1Fallback.toLowerCase() === stripBrand(seoData.title).toLowerCase()
+ ? `${h1Fallback} – Frontaliere Ticino`
+ : h1Fallback);
  if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
