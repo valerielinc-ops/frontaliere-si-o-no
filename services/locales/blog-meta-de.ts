@@ -2967,6 +2967,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coldiretti-brennero-made-italy-2026.title': 'Coldiretti am Brenner: Stop für falsches Made in Italy',
     'blog.article.coldiretti-brennero-made-italy-2026.excerpt': 'Landwirte aus Varese schließen sich der Protestaktion an, um den Zollcode zu ändern und gegen das falsche Made in Italy vorzugehen',
     'blog.article.coldiretti-brennero-made-italy-2026.imageAlt': 'Coldiretti-Protest am Brenner für Made in Italy',
+    'blog.article.ticino-tedeschi-turismo-2026.title': 'Tessin immer beliebter bei den Deutschen: Rekord an Touristen im Jahr 2025',
+    'blog.article.ticino-tedeschi-turismo-2026.excerpt': 'Über 450.000 Übernachtungen im Jahr 2025, mit einem Wachstum von 8,2 % im Vergleich zu 2024. Entdecken Sie, wie das Tessin deutsche Touristen anzieht.',
+    'blog.article.ticino-tedeschi-turismo-2026.imageAlt': 'Lugano Skyline mit dem Ceresio-See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

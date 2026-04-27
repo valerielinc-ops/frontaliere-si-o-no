@@ -2249,6 +2249,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-corteo-maggio-lugano-traffico-2024': { name: '1° maggio Lugano', path: '/articoli-frontaliere/corteo-maggio-lugano-traffico-2024', parent: 'blog' },
     'blog-incidenti-mortali-lavoro-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/incidenti-mortali-lavoro-svizzera-2026', parent: 'blog' },
     'blog-coldiretti-brennero-made-italy-2026': { name: 'Novità', path: '/articoli-frontaliere/coldiretti-brennero-made-italy-2026', parent: 'blog' },
+    'blog-ticino-tedeschi-turismo-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-tedeschi-turismo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

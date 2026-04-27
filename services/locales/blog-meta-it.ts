@@ -2967,6 +2967,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coldiretti-brennero-made-italy-2026.title': 'Coldiretti al Brennero: Stop al falso Made in Italy',
     'blog.article.coldiretti-brennero-made-italy-2026.excerpt': 'Agricoltori varesini si uniscono alla protesta per modificare il codice doganale e contrastare il falso Made in Italy',
     'blog.article.coldiretti-brennero-made-italy-2026.imageAlt': 'Manifestazione Coldiretti al Brennero per il Made in Italy',
+    'blog.article.ticino-tedeschi-turismo-2026.title': 'Ticino sempre più amato dai tedeschi: record di turisti nel 2025',
+    'blog.article.ticino-tedeschi-turismo-2026.excerpt': 'Oltre 450.000 pernottamenti nel 2025, con una crescita dell\'8,2% rispetto al 2024. Scopri come il Ticino attira i turisti tedeschi.',
+    'blog.article.ticino-tedeschi-turismo-2026.imageAlt': 'Panorama di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaIt;

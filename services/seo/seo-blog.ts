@@ -15554,6 +15554,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-tedeschi-turismo-2026': {
+    title: 'Ticino sempre più amato dai tedeschi | Frontaliere Ticino',
+    description: 'Scopri come il Ticino attira i turisti tedeschi con oltre 450.000 pernottamenti nel 2025 e una crescita dell\'8,2% rispetto al 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sempre, amato, tedeschi, record',
+    ogTitle: 'Ticino sempre più amato dai tedeschi | Frontaliere Ticino',
+    ogDescription: 'Scopri come il Ticino attira i turisti tedeschi con oltre 450.000 pernottamenti nel 2025 e una crescita dell\'8,2% rispetto al 2024.',
+    canonicalPath: '/articoli-frontaliere/ticino-tedeschi-turismo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino sempre più amato dai tedeschi",
+      "description": "Scopri come il Ticino attira i turisti tedeschi con oltre 450.000 pernottamenti nel 2025 e una crescita dell'8,2% rispetto al 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-tedeschi-turismo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il Lago Ceresio e le montagne circostanti"
+      },
+      "datePublished": "2026-04-27T14:35:03+00:00",
+      "dateModified": "2026-04-27T14:35:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-tedeschi-turismo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7910,4 +7910,11 @@ export const ARTICLES = [
  image: '/images/blog/coldiretti-brennero-made-italy-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ticino-tedeschi-turismo-2026',
+ category: 'novita',
+ date: '2026-04-27T14:35:03.019Z',
+ image: '/images/blog/ticino-tedeschi-turismo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

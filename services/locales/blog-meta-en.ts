@@ -2967,6 +2967,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coldiretti-brennero-made-italy-2026.title': 'Coldiretti at Brenner: Stop to Fake Made in Italy',
     'blog.article.coldiretti-brennero-made-italy-2026.excerpt': 'Varese farmers join the protest to modify the customs code and combat fake Made in Italy',
     'blog.article.coldiretti-brennero-made-italy-2026.imageAlt': 'Coldiretti protest at Brennero for Made in Italy',
+    'blog.article.ticino-tedeschi-turismo-2026.title': 'Ticino increasingly loved by Germans: record number of tourists in 2025',
+    'blog.article.ticino-tedeschi-turismo-2026.excerpt': 'Over 450,000 overnight stays in 2025, with an 8.2% increase compared to 2024. Discover how Ticino attracts German tourists.',
+    'blog.article.ticino-tedeschi-turismo-2026.imageAlt': 'Lugano skyline with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaEn;
