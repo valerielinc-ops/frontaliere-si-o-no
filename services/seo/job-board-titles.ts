@@ -31,8 +31,12 @@ export const JOB_PAGE_LOCALES: readonly JobPageLocale[] = ['it', 'en', 'de', 'fr
 
 /** Minimum visible title length (Google SERP truncation floor). */
 export const TITLE_MIN_CHARS = 50;
-/** Maximum visible title length (Google SERP truncation ceiling). */
-export const TITLE_MAX_CHARS = 60;
+/**
+ * Maximum visible title length. Aligned with the universal title rule in
+ * build-plugins/shared/titleSuffix.ts (70 chars including the
+ * " | Frontaliere Ticino" brand suffix when it fits).
+ */
+export const TITLE_MAX_CHARS = 70;
 /** Minimum active jobs above which we append 🔥 to boost CTR. */
 export const FIRE_EMOJI_THRESHOLD = 500;
 

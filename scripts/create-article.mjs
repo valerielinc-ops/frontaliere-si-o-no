@@ -3188,17 +3188,18 @@ function optimizeSeoMetadata(data) {
   const it = data.content?.it || {};
   if (!data.seo) data.seo = {};
 
+  // Universal rule (mirrors build-plugins/shared/titleSuffix.ts):
+  // headline VERBATIM; brand suffix appended only when the total stays
+  // within TITLE_MAX_CHARS (70). No headline truncation.
   const TITLE_SUFFIX = ' | Frontaliere Ticino';
-  const TITLE_MAX = 60;
-  const coreBudget = TITLE_MAX - TITLE_SUFFIX.length; // advisory soft target
-  const baseTitle = truncateAtWordBoundary(it.title || data.id || 'Articolo frontalieri', coreBudget);
-  const seoTitleCore = baseTitle.replace(/\s*\|\s*Frontaliere Ticino$/i, '');
-  // Always emit core + brand suffix verbatim. Letting the title overflow
-  // 60 char is the lesser evil — truncating risks duplicate-title
-  // collisions across articles whose unique fragment lives at the end.
-  data.seo.title = `${seoTitleCore}${TITLE_SUFFIX}`;
-  data.seo.ogTitle = truncateAtWordBoundary(data.seo.ogTitle || seoTitleCore, TITLE_MAX);
-  data.seo.headline = truncateAtWordBoundary(data.seo.headline || seoTitleCore, 100);
+  const TITLE_MAX_CHARS = 70;
+  const seoTitleCore = String(it.title || data.id || 'Articolo frontalieri')
+    .replace(/\s*\|\s*Frontaliere Ticino$/i, '')
+    .trim();
+  const candidate = `${seoTitleCore}${TITLE_SUFFIX}`;
+  data.seo.title = candidate.length <= TITLE_MAX_CHARS ? candidate : seoTitleCore;
+  data.seo.ogTitle = data.seo.ogTitle ? String(data.seo.ogTitle).trim() : seoTitleCore;
+  data.seo.headline = data.seo.headline ? String(data.seo.headline).trim() : seoTitleCore;
   data.seo.breadcrumbName = truncateAtWordBoundary(
     data.seo.breadcrumbName || seoTitleCore.split(/[:.–—]/)[0] || 'Articolo',
     42,
