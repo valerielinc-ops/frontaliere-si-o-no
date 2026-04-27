@@ -2853,6 +2853,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.title': 'Limite a 30 km/h per dimezzare l\'inquinamento acustico in Ticino',
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.excerpt': 'L\'ATA chiede maggiore autonomia per introdurre zone a 30 km/h nelle aree più esposte al rumore, in occasione della Giornata internazionale contro il rumore.',
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.imageAlt': 'Vista aerea di Lugano e del lago, giornata limpida, fotografia DSLR, illuminazione realistica, architettura dettagliata, colori vivaci.',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varese: tavolo tecnico per risolvere il problema dei parcheggi all\'ospedale Sette Laghi',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'Comune di Varese e ASST Sette Laghi si incontrano per affrontare le criticità dei parcheggi per i lavoratori sanitari. Incontro fissato per il 28 aprile 2026.',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Vista aerea del complesso ospedaliero di Varese con problemi di parcheggio',
 };
 
 export default blogMetaIt;

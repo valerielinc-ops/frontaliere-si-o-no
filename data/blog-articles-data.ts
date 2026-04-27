@@ -7644,4 +7644,11 @@ export const ARTICLES = [
  image: '/images/blog/limite-velocita-30-ticino-inquinamento-acustico.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-parcheggi-ospedale-sette-laghi-2026',
+ category: 'pratico',
+ date: '2026-04-27T10:02:41.533Z',
+ image: '/images/blog/varese-parcheggi-ospedale-sette-laghi-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

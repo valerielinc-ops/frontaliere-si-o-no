@@ -14452,6 +14452,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-parcheggi-ospedale-sette-laghi-2026': {
+    title: 'Varese: tavolo tecnico per risolvere il | Frontaliere Ticino',
+    description: 'Comune di Varese e ASST Sette Laghi si incontrano per risolvere problemi parcheggi lavoratori sanitari. Incontro fissato per il 28 aprile 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, tavolo, tecnico, risolvere',
+    ogTitle: 'Varese: tavolo tecnico per parcheggi ospedale Sette Laghi |',
+    ogDescription: 'Comune di Varese e ASST Sette Laghi si incontrano per risolvere problemi parcheggi lavoratori sanitari. Incontro fissato per il 28 aprile 2026.',
+    canonicalPath: '/articoli-frontaliere/varese-parcheggi-ospedale-sette-laghi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: tavolo tecnico per risolvere il problema dei parcheggi all'ospedale Sette Laghi",
+      "description": "Comune di Varese e ASST Sette Laghi si incontrano per risolvere problemi parcheggi lavoratori sanitari. Incontro fissato per il 28 aprile 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-parcheggi-ospedale-sette-laghi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del complesso ospedaliero di Varese con problemi di parcheggio"
+      },
+      "datePublished": "2026-04-27T10:02:41+00:00",
+      "dateModified": "2026-04-27T10:02:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-parcheggi-ospedale-sette-laghi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

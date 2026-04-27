@@ -2853,6 +2853,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.title': '30 km/h limit to halve noise pollution in Ticino',
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.excerpt': 'ATA calls for more autonomy to introduce 30 km/h zones in the areas most exposed to noise, on the occasion of International Noise Awareness Day.',
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.imageAlt': 'Aerial view of Lugano city and lake, clear day, DSLR photography, realistic lighting, detailed architecture, vibrant colors.',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varese: technical meeting to solve the parking problem at Sette Laghi Hospital',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'The Municipality of Varese and ASST Sette Laghi meet to address the critical parking issues for healthcare workers. Meeting scheduled for April 28, 2026.',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Aerial view of Varese hospital complex with parking issues',
 };
 
 export default blogMetaEn;

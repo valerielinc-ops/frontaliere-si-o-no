@@ -2853,6 +2853,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.title': 'Limite à 30 km/h pour réduire de moitié la pollution sonore au Tessin',
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.excerpt': 'L\'ATA demande plus d\'autonomie pour introduire des zones à 30 km/h dans les zones les plus exposées au bruit, à l\'occasion de la Journée internationale contre le bruit.',
     'blog.article.limite-velocita-30-ticino-inquinamento-acustico.imageAlt': 'Vue aérienne de la ville de Lugano et du lac, journée claire, photographie DSLR, éclairage réaliste, architecture détaillée, couleurs vives.',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varèse : table technique pour résoudre le problème des parkings à l\'hôpital des Sept Lacs',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'La commune de Varèse et l\'ASST des Sept Lacs se rencontrent pour aborder les critiques des parkings pour les travailleurs de la santé. La réunion est prévue pour le 28 avril 2026.',
+    'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Vue aérienne du complexe hospitalier de Varese avec des problèmes de stationnement',
 };
 
 export default blogMetaFr;
