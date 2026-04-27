@@ -2246,6 +2246,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-corsi-gratuiti-varese-sociale-2026': { name: 'Corsi gratuiti', path: '/articoli-frontaliere/corsi-gratuiti-varese-sociale-2026', parent: 'blog' },
     'blog-solaro-rifiuti-differenziata-tariffazione-puntuale': { name: 'Incontri Solaro', path: '/articoli-frontaliere/solaro-rifiuti-differenziata-tariffazione-puntuale', parent: 'blog' },
     'blog-svizzera-disoccupazione-frontalieri-quadri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri', parent: 'blog' },
+    'blog-corteo-maggio-lugano-traffico-2024': { name: '1° maggio Lugano', path: '/articoli-frontaliere/corteo-maggio-lugano-traffico-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

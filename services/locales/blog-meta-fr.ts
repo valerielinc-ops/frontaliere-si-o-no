@@ -2958,6 +2958,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Chômage des frontaliers: Quadri, «La Suisse ne doit pas payer»',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Le conseiller national tessinois Lorenzo Quadri (Lega) présente une motion pour éviter que la Suisse verse les indemnités de chômage aux frontaliers.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'Vue du lac de Lugano avec la ville en arrière-plan',
+    'blog.article.corteo-maggio-lugano-traffico-2024.title': '1er mai à Lugano: routes fermées pour la manifestation syndicale',
+    'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'De 16h00 à 17h00, le viale Castagnola, la via Capelli et d\'autres rues centrales seront fermées pour la manifestation de l\'USS Ticino et Moesa',
+    'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Vue aérienne de la promenade du lac de Lugano pendant une manifestation du 1er mai',
 };
 
 export default blogMetaFr;

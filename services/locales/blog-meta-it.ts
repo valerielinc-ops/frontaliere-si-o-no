@@ -2958,6 +2958,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Disoccupazione frontalieri: Quadri, «La Svizzera non deve pagare»',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Il consigliere nazionale ticinese Lorenzo Quadri (Lega) presenta una mozione per evitare che la Svizzera versi le indennità di disoccupazione ai frontalieri.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'Vista del Lago di Lugano con la città sullo sfondo',
+    'blog.article.corteo-maggio-lugano-traffico-2024.title': '1° maggio a Lugano: strade chiuse per il corteo sindacale',
+    'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'Dalle 16:00 alle 17:00 saranno chiusi viale Castagnola, via Capelli e altre vie centrali per il corteo dell\'USS Ticino e Moesa',
+    'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Vista aerea del lungolago di Lugano durante una manifestazione del 1° maggio',
 };
 
 export default blogMetaIt;

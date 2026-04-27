@@ -2958,6 +2958,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Arbeitslosigkeit von Grenzgängern: Quadri, «Die Schweiz soll nicht zahlen»',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Der Tessiner Nationalrat Lorenzo Quadri (Lega) reicht eine Motion ein, um zu verhindern, dass die Schweiz Arbeitslosenentschädigungen an Grenzgänger auszahlt.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
+    'blog.article.corteo-maggio-lugano-traffico-2024.title': '1. Mai in Lugano: Straßen für den Gewerkschaftsumzug gesperrt',
+    'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'Von 16:00 bis 17:00 Uhr werden der Viale Castagnola, die Via Capelli und andere zentrale Straßen für den Umzug des USS Ticino und Moesa gesperrt sein.',
+    'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Luftaufnahme des Luganer Seebodens während einer 1. Mai-Demonstration',
 };
 
 export default blogMetaDe;

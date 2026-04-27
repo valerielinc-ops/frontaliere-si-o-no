@@ -7889,4 +7889,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-disoccupazione-frontalieri-quadri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'corteo-maggio-lugano-traffico-2024',
+ category: 'pratico',
+ date: '2026-04-27T14:12:56.382Z',
+ image: '/images/blog/corteo-maggio-lugano-traffico-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

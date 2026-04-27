@@ -2958,6 +2958,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Cross-border worker unemployment: Quadri, \'Switzerland should not pay\'',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Ticino\'s National Councillor Lorenzo Quadri (Lega) presents a motion to prevent Switzerland from paying unemployment benefits to cross-border workers.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'View of Lake Lugano with the city in the background',
+    'blog.article.corteo-maggio-lugano-traffico-2024.title': '1st May in Lugano: roads closed for the trade union procession',
+    'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'From 16:00 to 17:00, Viale Castagnola, Via Capelli, and other central streets will be closed for the procession of the USS Ticino and Moesa',
+    'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Aerial view of Lugano\'s lakeside during a May 1st demonstration',
 };
 
 export default blogMetaEn;

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1032,
+ "numberOfItems": 1033,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5756,7 +5756,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1029, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-mozione-sirica-ticino-2024` },
           { "@type": "ListItem", "position": 1030, "name": "Corsi gratuiti Varese sociale | Frontaliere Ticino", "url": `${BASE_URL}/articoli-frontaliere/corsi-gratuiti-varese-sociale-2026` },
           { "@type": "ListItem", "position": 1031, "name": "Solaro: incontri su rifiuti e tariffazione punt...", "url": `${BASE_URL}/articoli-frontaliere/solaro-rifiuti-differenziata-tariffazione-puntuale` },
-          { "@type": "ListItem", "position": 1032, "name": "Disoccupazione frontalieri: Quadri, «La Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri` }
+          { "@type": "ListItem", "position": 1032, "name": "Disoccupazione frontalieri: Quadri, «La Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri` },
+          { "@type": "ListItem", "position": 1033, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/corteo-maggio-lugano-traffico-2024` }
  ]
  },
  {

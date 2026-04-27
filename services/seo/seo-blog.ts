@@ -15467,6 +15467,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-corteo-maggio-lugano-traffico-2024': {
+    title: '1° maggio a Lugano: strade chiuse per | Frontaliere Ticino',
+    description: 'Dalle 16:00 alle 17:00 saranno chiuse le vie centrali di Lugano per il corteo sindacale. Mercatini sul lungolago dalle 09:00 alle 20:00. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, lugano, strade, chiuse',
+    ogTitle: '1° maggio a Lugano: strade chiuse per corteo sindacale',
+    ogDescription: 'Dalle 16:00 alle 17:00 saranno chiuse le vie centrali di Lugano per il corteo sindacale. Mercatini sul lungolago dalle 09:00 alle 20:00.',
+    canonicalPath: '/articoli-frontaliere/corteo-maggio-lugano-traffico-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"1° maggio a Lugano: strade chiuse",
+      "description": "Dalle 16:00 alle 17:00 saranno chiuse le vie centrali di Lugano per il corteo sindacale. Mercatini sul lungolago dalle 09:00 alle 20:00. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corteo-maggio-lugano-traffico-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lungolago di Lugano durante una manifestazione del 1° maggio"
+      },
+      "datePublished": "2026-04-27T14:12:56+00:00",
+      "dateModified": "2026-04-27T14:12:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/corteo-maggio-lugano-traffico-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
