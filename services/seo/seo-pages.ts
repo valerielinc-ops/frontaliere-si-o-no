@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1070,
+ "numberOfItems": 1071,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5794,7 +5794,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1067, "name": "Berna approva sepoltura con animali domestici: ...", "url": `${BASE_URL}/articoli-frontaliere/sepolti-con-animali-domestici-berna-2026` },
           { "@type": "ListItem", "position": 1068, "name": "Due guasti in 48 ore per Swiss: implicazioni pe...", "url": `${BASE_URL}/articoli-frontaliere/swiss-guasti-voli-frontalieri-ticino-2026` },
           { "@type": "ListItem", "position": 1069, "name": "Banca d'Italia Varese: 10 anni dopo | Frontalie...", "url": `${BASE_URL}/articoli-frontaliere/banca-ditalia-varese-10-anni-dopo` },
-          { "@type": "ListItem", "position": 1070, "name": "Dati Galaxus: nel 2026 solo il 9% degli ordini ...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-contributo-clima-acquisti-online-2026` }
+          { "@type": "ListItem", "position": 1070, "name": "Dati Galaxus: nel 2026 solo il 9% degli ordini ...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-contributo-clima-acquisti-online-2026` },
+          { "@type": "ListItem", "position": 1071, "name": "Passeggiata a lago in inverno al lido di Ascona...", "url": `${BASE_URL}/articoli-frontaliere/passeggiata-lago-inverno-ascona-2026` }
  ]
  },
  {

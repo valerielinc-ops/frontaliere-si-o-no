@@ -16569,6 +16569,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passeggiata-lago-inverno-ascona-2026': {
+    title: 'Passeggiata a lago in inverno al lido | Frontaliere Ticino',
+    description: 'La stagione di prova della passeggiata invernale al lido di Ascona ha avuto successo. La presidente del Patriziato annuncia che l\'iniziativa sarà riproposta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, passeggiata, lago, inverno, lido',
+    ogTitle: 'Passeggiata a lago in inverno al lido di Ascona, test',
+    ogDescription: 'La stagione di prova della passeggiata invernale al lido di Ascona ha avuto successo. La presidente del Patriziato annuncia che l\'iniziativa sarà riproposta.',
+    canonicalPath: '/articoli-frontaliere/passeggiata-lago-inverno-ascona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passeggiata a lago in inverno al lido di Ascona, test riuscito",
+      "description": "La stagione di prova della passeggiata invernale al lido di Ascona ha avuto successo. La presidente del Patriziato annuncia che l'iniziativa sarà riproposta.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/passeggiata-lago-inverno-ascona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passeggiata invernale sul lungolago di Ascona"
+      },
+      "datePublished": "2026-04-27T18:42:22+00:00",
+      "dateModified": "2026-04-27T18:42:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passeggiata-lago-inverno-ascona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -8155,4 +8155,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzeri-contributo-clima-acquisti-online-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'passeggiata-lago-inverno-ascona-2026',
+ category: 'novita',
+ date: '2026-04-27T18:42:22.084Z',
+ image: '/images/blog/passeggiata-lago-inverno-ascona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

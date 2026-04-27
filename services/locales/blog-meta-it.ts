@@ -3072,6 +3072,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.title': 'Sempre meno svizzeri pagano il contributo clima sugli acquisti online',
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.excerpt': 'Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l\'11% del 2024 e il 12% del 2022.',
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.imageAlt': 'Persona che fa acquisti online in una casa svizzera moderna con vista sulle Alpi',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Passeggiata a lago in inverno al lido di Ascona, test',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'La stagione di prova della passeggiata invernale al lido di Ascona ha avuto successo. La presidente del Patriziato, Rachele Allidi, annuncia che l\'iniziativa sarà riproposta.',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Passeggiata invernale sul lungolago di Ascona',
 };
 
 export default blogMetaIt;

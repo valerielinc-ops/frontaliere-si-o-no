@@ -3072,6 +3072,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.title': 'Fewer Swiss paying the climate contribution on online purchases',
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.excerpt': 'Galaxus data: in 2026 only 9% of online orders in Switzerland include the voluntary climate contribution, compared to 11% in 2024 and 12% in 2022.',
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.imageAlt': 'Person shopping online in a modern Swiss home with a view of the Alps',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Winter lakeside walk at Ascona lido, test',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'The trial season of the winter lakeside walk at Ascona lido was a success. The president of the Patriziato, Rachele Allidi, announces that the initiative will be repeated.',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Winter walk along Ascona\'s lakeside',
 };
 
 export default blogMetaEn;

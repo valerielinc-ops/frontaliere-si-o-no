@@ -3072,6 +3072,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.title': 'Immer weniger Schweizer zahlen den Klimabeitrag bei Online-Käufen',
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.excerpt': 'Daten von Galaxus: Im Jahr 2026 enthalten nur noch 9% der Online-Bestellungen in der Schweiz den freiwilligen Klimabeitrag, gegenüber 11% im Jahr 2024 und 12% im Jahr 2022.',
     'blog.article.svizzeri-contributo-clima-acquisti-online-2026.imageAlt': 'Person online einkaufen in einem modernen Schweizer Zuhause mit Blick auf die Alpen',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Winterspaziergang am Seeufer in Ascona',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'Die Testphase des Winterspaziergangs am Seeufer in Ascona war erfolgreich. Die Präsidentin des Patriziats, Rachele Allidi, kündigt an, dass die Initiative wiederholt wird.',
+    'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Winterspaziergang am Ascona Seeufer',
 };
 
 export default blogMetaDe;
