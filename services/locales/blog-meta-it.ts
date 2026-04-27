@@ -2841,6 +2841,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fallimenti-fotovoltaico-clienti-ticino.title': 'Fallimenti nel fotovoltaico: clienti a rischio di perdere gli acconti',
     'blog.article.fallimenti-fotovoltaico-clienti-ticino.excerpt': 'Diverse aziende fotovoltaiche fallite, clienti con impianti incompleti e acconti a rischio. Swissolar consiglia cautela e verifiche',
     'blog.article.fallimenti-fotovoltaico-clienti-ticino.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti',
+    'blog.article.coop-svizzera-insetti-commestibili-2026.title': 'Coop Svizzera ritira gli insetti commestibili: flop del superfood del futuro',
+    'blog.article.coop-svizzera-insetti-commestibili-2026.excerpt': 'Dopo Migros, anche Coop toglie dagli scaffali hamburger di larve e snack a base di grilli. Il mercato svizzero degli insetti commestibili crolla.',
+    'blog.article.coop-svizzera-insetti-commestibili-2026.imageAlt': 'Uno scaffale di un supermercato svizzero con prodotti a base di insetti, tra cui barrette di grilli e cavallette essiccate.',
 };
 
 export default blogMetaIt;

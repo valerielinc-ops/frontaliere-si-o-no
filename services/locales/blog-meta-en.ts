@@ -2841,6 +2841,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fallimenti-fotovoltaico-clienti-ticino.title': 'Solar panel failures: customers at risk of losing deposits',
     'blog.article.fallimenti-fotovoltaico-clienti-ticino.excerpt': 'Several solar panel companies have gone bankrupt, leaving customers with incomplete installations and deposits at risk. Swissolar advises caution and verification',
     'blog.article.fallimenti-fotovoltaico-clienti-ticino.imageAlt': 'Aerial view of Lake Lugano with solar panels on rooftops',
+    'blog.article.coop-svizzera-insetti-commestibili-2026.title': 'Coop Switzerland withdraws edible insects: flop of the future superfood',
+    'blog.article.coop-svizzera-insetti-commestibili-2026.excerpt': 'After Migros, Coop also removes larva hamburgers and cricket-based snacks from its shelves. The Swiss market for edible insects collapses.',
+    'blog.article.coop-svizzera-insetti-commestibili-2026.imageAlt': 'A Swiss supermarket shelf with insect-based products, including cricket bars and dried locusts.',
 };
 
 export default blogMetaEn;

@@ -14336,6 +14336,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coop-svizzera-insetti-commestibili-2026': {
+    title: 'Coop Svizzera ritira gli insetti | Frontaliere Ticino',
+    description: 'Coop Svizzera ritira insetti commestibili dagli scaffali. Scopri le implicazioni per i frontalieri e le alternative disponibili. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, coop, ritira, insetti, commestibili',
+    ogTitle: 'Coop Svizzera ritira insetti commestibili | Frontaliere',
+    ogDescription: 'Coop Svizzera ritira insetti commestibili dagli scaffali. Scopri le implicazioni per i frontalieri e le alternative disponibili.',
+    canonicalPath: '/articoli-frontaliere/coop-svizzera-insetti-commestibili-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coop Svizzera ritira insetti commestibili dagli scaffali",
+      "description": "Coop Svizzera ritira insetti commestibili dagli scaffali. Scopri le implicazioni per i frontalieri e le alternative disponibili. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/coop-svizzera-insetti-commestibili-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uno scaffale di un supermercato svizzero con prodotti a base di insetti, tra cui barrette di grilli e cavallette essiccate."
+      },
+      "datePublished": "2026-04-27T09:42:49+00:00",
+      "dateModified": "2026-04-27T09:42:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coop-svizzera-insetti-commestibili-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
