@@ -17004,6 +17004,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-viabilita-varese-racordo-chiuso-2026': {
+    title: 'Chiusura parziale raccordo Varese-A8 lunedì sera | Frontaliere Ticino',
+    description: 'Dalle 22:00 alle 24:00 di lunedì 27 aprile 2026 chiuso il ramo di immissione sulla A8 Milano-Varese, verso Varese. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, parziale, raccordo, varese-a8',
+    ogTitle: 'Chiusura parziale raccordo Varese-A8 lunedì sera',
+    ogDescription: 'Dalle 22:00 alle 24:00 di lunedì 27 aprile 2026 chiuso il ramo di immissione sulla A8 Milano-Varese, verso Varese.',
+    canonicalPath: '/articoli-frontaliere/viabilita-varese-racordo-chiuso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura parziale raccordo Varese-A8 lunedì sera",
+      "description": "Dalle 22:00 alle 24:00 di lunedì 27 aprile 2026 chiuso il ramo di immissione sulla A8 Milano-Varese, verso Varese. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/viabilita-varese-racordo-chiuso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Varese e del Lago di Varese, con l'autostrada A8 visibile, al tramonto."
+      },
+      "datePublished": "2026-04-27T21:19:04+00:00",
+      "dateModified": "2026-04-27T21:19:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viabilita-varese-racordo-chiuso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

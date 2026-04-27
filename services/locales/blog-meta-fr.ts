@@ -3107,6 +3107,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'Nouveau contrat Tessin: jours courts et protection',
     'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Accord jusqu\'en 2031 avec de nouvelles règles sur les horaires et les conditions de travail. Focus sur la sécurité et le renouvellement générationnel',
     'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Chantier de construction à Lugano avec des ouvriers et des machines modernes',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.title': 'Fermeture partielle raccord Varèse-A8 lundi soir',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.excerpt': 'De 22:00 à 24:00 lundi 27 avril 2026, fermeture de la rampe d\'accès à l\'A8 Milan-Varèse, en direction de Varèse.',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.imageAlt': 'Vue aérienne de Varèse et du Lac de Varèse, Italie, avec l\'autoroute A8 visible, au coucher du soleil.',
 };
 
 export default blogMetaFr;

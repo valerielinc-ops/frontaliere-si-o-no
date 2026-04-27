@@ -3107,6 +3107,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'Nuovo contratto edilizia Ticino: giornate più corte e tutela dalle intemperie',
     'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Accordo fino al 2031 con nuove regole su orari e condizioni di lavoro. Focus su sicurezza e ricambio generazionale',
     'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Cantiere edile a Lugano con operai e macchinari moderni',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.title': 'Chiusura parziale raccordo Varese-A8 lunedì sera',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.excerpt': 'Dalle 22:00 alle 24:00 di lunedì 27 aprile 2026 chiuso il ramo di immissione sulla A8 Milano-Varese, verso Varese.',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.imageAlt': 'Vista aerea di Varese e del Lago di Varese, con l\'autostrada A8 visibile, al tramonto.',
 };
 
 export default blogMetaIt;

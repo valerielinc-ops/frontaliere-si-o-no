@@ -3106,6 +3106,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'Neuer Baubeschluss im Tessin: kürzere Arbeitstage und Schutz vor Witterung',
     'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Abkommen bis 2031 mit neuen Regeln zu Arbeitszeiten und -bedingungen. Fokus auf Sicherheit und Generationenwechsel',
     'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Bauplatz in Lugano mit Arbeitern und modernen Maschinen',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.title': 'Teilweise Sperrung der Anschlussstelle Varese-A8 am Montagabend',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.excerpt': 'Von 22:00 bis 24:00 Uhr am Montag, den 27. April 2026, ist der Einfahrtast zur A8 Mailand-Varese in Richtung Varese gesperrt.',
+    'blog.article.viabilita-varese-racordo-chiuso-2026.imageAlt': 'Luftaufnahme von Varese und dem Varese-See, Italien, mit der Autobahn A8 sichtbar, bei Sonnenuntergang.',
 };
 
 export default blogMetaDe;

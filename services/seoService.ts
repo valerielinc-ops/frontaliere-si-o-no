@@ -2296,6 +2296,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avis-lombardia-dono-sangue-privati-2026': { name: 'Novità', path: '/articoli-frontaliere/avis-lombardia-dono-sangue-privati-2026', parent: 'blog' },
     'blog-varese-moto-storiche-2026': { name: 'Raduno moto storiche', path: '/articoli-frontaliere/varese-moto-storiche-2026', parent: 'blog' },
     'blog-nuovo-contratto-edilizia-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026', parent: 'blog' },
+    'blog-viabilita-varese-racordo-chiuso-2026': { name: 'Viabilità', path: '/articoli-frontaliere/viabilita-varese-racordo-chiuso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
