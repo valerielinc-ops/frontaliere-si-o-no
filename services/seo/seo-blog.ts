@@ -14423,6 +14423,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-limite-velocita-30-ticino-inquinamento-acustico': {
+    title: 'Limite a 30 km/h per dimezzare | Frontaliere Ticino',
+    description: 'L\'ATA chiede maggiore autonomia per introdurre zone a 30 km/h nelle aree più esposte al rumore, migliorando la qualità della vita e la sicurezza stradale in',
+    keywords: 'frontalieri, ticino, svizzera, italia, limite, dimezzare, inquinamento, acustico',
+    ogTitle: 'Limite a 30 km/h per dimezzare l\'inquinamento acustico in',
+    ogDescription: 'L\'ATA chiede maggiore autonomia per introdurre zone a 30 km/h nelle aree più esposte al rumore, migliorando la qualità della vita e la sicurezza stradale in',
+    canonicalPath: '/articoli-frontaliere/limite-velocita-30-ticino-inquinamento-acustico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Limite a 30 km/h per dimezzare l'inquinamento acustico in Ticino",
+      "description": "L'ATA chiede maggiore autonomia per introdurre zone a 30 km/h nelle aree più esposte al rumore, migliorando la qualità della vita e la sicurezza stradale in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/limite-velocita-30-ticino-inquinamento-acustico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano e del lago, giornata limpida, fotografia DSLR, illuminazione realistica, architettura dettagliata, colori vivaci."
+      },
+      "datePublished": "2026-04-27T09:58:54+00:00",
+      "dateModified": "2026-04-27T09:58:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/limite-velocita-30-ticino-inquinamento-acustico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

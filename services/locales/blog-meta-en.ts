@@ -2850,6 +2850,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fallimenti-startup-svizzera-2026.title': 'Business Failures and Startups in Switzerland: The Unusual Boom of 2026',
     'blog.article.fallimenti-startup-svizzera-2026.excerpt': 'In the first quarter of 2026, business failures in Switzerland doubled, but new companies reached record levels. Analysis and implications for cross-border workers.',
     'blog.article.fallimenti-startup-svizzera-2026.imageAlt': 'Panoramic view of Lugano with skyscrapers and economic activity',
+    'blog.article.limite-velocita-30-ticino-inquinamento-acustico.title': '30 km/h limit to halve noise pollution in Ticino',
+    'blog.article.limite-velocita-30-ticino-inquinamento-acustico.excerpt': 'ATA calls for more autonomy to introduce 30 km/h zones in the areas most exposed to noise, on the occasion of International Noise Awareness Day.',
+    'blog.article.limite-velocita-30-ticino-inquinamento-acustico.imageAlt': 'Aerial view of Lugano city and lake, clear day, DSLR photography, realistic lighting, detailed architecture, vibrant colors.',
 };
 
 export default blogMetaEn;

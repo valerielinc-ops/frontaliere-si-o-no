@@ -2850,6 +2850,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fallimenti-startup-svizzera-2026.title': 'Insolvenzen und Startups in der Schweiz: der ungewöhnliche Boom von 2026',
     'blog.article.fallimenti-startup-svizzera-2026.excerpt': 'Im ersten Quartal 2026 haben sich die Unternehmensinsolvenzen in der Schweiz verdoppelt, doch die neu gegründeten Unternehmen erreichen Rekordwerte. Analyse und Implikationen für Grenzgänger.',
     'blog.article.fallimenti-startup-svizzera-2026.imageAlt': 'Panoramablick auf Lugano mit Wolkenkratzern und wirtschaftlicher Aktivität',
+    'blog.article.limite-velocita-30-ticino-inquinamento-acustico.title': 'Geschwindigkeitsbegrenzung auf 30 km/h zur Halbierung der Lärmbelastung im Tessin',
+    'blog.article.limite-velocita-30-ticino-inquinamento-acustico.excerpt': 'Der ATA fordert mehr Autonomie, um in den am stärksten lärmbelasteten Gebieten 30-Zonen einzuführen, anlässlich des Internationalen Tags gegen Lärm.',
+    'blog.article.limite-velocita-30-ticino-inquinamento-acustico.imageAlt': 'Luftaufnahme von Lugano und dem See, klarer Tag, DSLR-Fotografie, realistische Beleuchtung, detaillierte Architektur, lebendige Farben.',
 };
 
 export default blogMetaDe;

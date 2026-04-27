@@ -2210,6 +2210,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-coop-svizzera-insetti-commestibili-2026': { name: 'Novità', path: '/articoli-frontaliere/coop-svizzera-insetti-commestibili-2026', parent: 'blog' },
     'blog-controlli-frontalieri-airolo-2026': { name: 'Novità', path: '/articoli-frontaliere/controlli-frontalieri-airolo-2026', parent: 'blog' },
     'blog-fallimenti-startup-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/fallimenti-startup-svizzera-2026', parent: 'blog' },
+    'blog-limite-velocita-30-ticino-inquinamento-acustico': { name: 'Novità', path: '/articoli-frontaliere/limite-velocita-30-ticino-inquinamento-acustico', parent: 'blog' },
  };
 
  const info = sectionNames[section];

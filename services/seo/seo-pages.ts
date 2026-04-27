@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 996,
+ "numberOfItems": 997,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5720,7 +5720,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 993, "name": "Fallimenti fotovoltaico: clienti a rischio", "url": `${BASE_URL}/articoli-frontaliere/fallimenti-fotovoltaico-clienti-ticino` },
           { "@type": "ListItem", "position": 994, "name": "Coop Svizzera ritira insetti commestibili dagli...", "url": `${BASE_URL}/articoli-frontaliere/coop-svizzera-insetti-commestibili-2026` },
           { "@type": "ListItem", "position": 995, "name": "Controlli rafforzati a Airolo: doppia verifica ...", "url": `${BASE_URL}/articoli-frontaliere/controlli-frontalieri-airolo-2026` },
-          { "@type": "ListItem", "position": 996, "name": "Fallimenti e startup in Svizzera 2026: Analisi ...", "url": `${BASE_URL}/articoli-frontaliere/fallimenti-startup-svizzera-2026` }
+          { "@type": "ListItem", "position": 996, "name": "Fallimenti e startup in Svizzera 2026: Analisi ...", "url": `${BASE_URL}/articoli-frontaliere/fallimenti-startup-svizzera-2026` },
+          { "@type": "ListItem", "position": 997, "name": "Limite a 30 km/h per dimezzare l'inquinamento a...", "url": `${BASE_URL}/articoli-frontaliere/limite-velocita-30-ticino-inquinamento-acustico` }
  ]
  },
  {

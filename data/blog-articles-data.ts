@@ -7637,4 +7637,11 @@ export const ARTICLES = [
  image: '/images/blog/fallimenti-startup-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'limite-velocita-30-ticino-inquinamento-acustico',
+ category: 'novita',
+ date: '2026-04-27T09:58:54.897Z',
+ image: '/images/blog/limite-velocita-30-ticino-inquinamento-acustico.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
