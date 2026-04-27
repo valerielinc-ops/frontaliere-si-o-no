@@ -73,9 +73,9 @@ import {
 } from './jobMarketSnapshotData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { CITY_HUB_KEYS } from './cityJobsHub';
-import { SECTOR_HUB_KEYS } from './jobSectorLanding';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
 import {
   WEEKLY_EMPLOYERS_CURRENT_SLUG,
@@ -1156,15 +1156,36 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     de: '/de/jobs-im-tessin/',
     fr: '/fr/trouver-emploi-tessin/',
   };
+  // Common role-slug → sector hub mapping (mirror of the table in
+  // weeklyEmployersPlugin.ts:rolesHtml). Roles that map to a curated hub
+  // get the canonical URL; the rest fall back to `?q=` keyword search.
+  const ROLE_TO_SECTOR_HUB_SNAP: Record<string, SectorHubKey> = {
+    infermiere: 'infermieri', infermieri: 'infermieri', nurse: 'infermieri', nurses: 'infermieri',
+    pflegefachperson: 'infermieri', pflegepersonal: 'infermieri', infirmier: 'infermieri', infirmiere: 'infermieri',
+    educatore: 'educatori', educatrice: 'educatori', educatori: 'educatori',
+    erzieher: 'educatori', educateur: 'educatori', educateurs: 'educatori',
+    ingegnere: 'ingegneri', ingegneri: 'ingegneri', engineer: 'ingegneri', ingenieur: 'ingegneri',
+    autista: 'autisti', autisti: 'autisti', driver: 'autisti', fahrer: 'autisti', chauffeur: 'autisti',
+    sviluppatore: 'sviluppatori', sviluppatori: 'sviluppatori', developer: 'sviluppatori',
+    entwickler: 'sviluppatori', developpeur: 'sviluppatori',
+    cuoco: 'ristorazione', cuochi: 'ristorazione', chef: 'ristorazione', cameriere: 'ristorazione',
+    koch: 'ristorazione', kellner: 'ristorazione', cuisinier: 'ristorazione', serveur: 'ristorazione',
+    'operatore-socio-sanitario': 'oss', oss: 'oss', osa: 'oss',
+    pflegeassistent: 'oss', 'aide-soignant': 'oss',
+    logistico: 'logistica', logistica: 'logistica', magazziniere: 'logistica',
+    lagerist: 'logistica', logisticien: 'logistica',
+    apprendista: 'apprendistato', apprendisti: 'apprendistato', apprenticeship: 'apprendistato',
+    intern: 'apprendistato', lehrling: 'apprendistato', apprenti: 'apprendistato',
+  };
   const topRolesList = renderTopList(
     copy.topRolesHeading,
     stats.topRoles.map((r) => {
       const roleSlug = slugifyEmployer(r.name);
-      return {
-        name: r.name,
-        added: r.added,
-        url: `${jobBoardSearchBaseSnapshot[locale]}?q=${encodeURIComponent(roleSlug || r.name)}`,
-      };
+      const sectorKey = ROLE_TO_SECTOR_HUB_SNAP[roleSlug.toLowerCase()];
+      const url = sectorKey && (SECTOR_HUB_KEYS as readonly string[]).includes(sectorKey)
+        ? `${BASE_URL}${buildSectorHubPath(locale, sectorKey)}`
+        : `${jobBoardSearchBaseSnapshot[locale]}?q=${encodeURIComponent(roleSlug || r.name)}`;
+      return { name: r.name, added: r.added, url };
     }),
     locale === 'it' ? 'annunci' : locale === 'de' ? 'Anzeigen' : locale === 'fr' ? 'annonces' : 'postings',
     'top-roles',
@@ -1327,17 +1348,21 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   // "Ticino job market — March 2026"); the SEO title MUST stay distinct
   // even after the brand suffix is stripped, so each variant adds an extra
   // keyword (trends/Statistik/tendances/statistiche) the H1 doesn't carry.
+  // Title-uniqueness fix (2026-04-27): put the month / week disambiguator
+  // BEFORE the trailing keyword qualifier so it survives the 60-char clamp.
+  // Without this rearrangement two adjacent months collapse to the same
+  // truncated title (e.g. "Mercato lavoro Ticino — statistiche…").
   const titleBase =
     kind === 'weekly' && weekLabel
-      ? (locale === 'it' ? `Mercato lavoro Ticino — W${weekLabel.week} ${weekLabel.year}`
-        : locale === 'en' ? `Ticino job market — W${weekLabel.week} ${weekLabel.year}`
-        : locale === 'de' ? `Tessiner Arbeitsmarkt — W${weekLabel.week} ${weekLabel.year}`
-        : `Marché travail Tessin — S${weekLabel.week} ${weekLabel.year}`)
+      ? (locale === 'it' ? `Mercato lavoro Ticino W${weekLabel.week} ${weekLabel.year} — report`
+        : locale === 'en' ? `Ticino job market W${weekLabel.week} ${weekLabel.year} — report`
+        : locale === 'de' ? `Tessiner Arbeitsmarkt W${weekLabel.week} ${weekLabel.year} — Bericht`
+        : `Marché travail Tessin S${weekLabel.week} ${weekLabel.year} — rapport`)
       : kind === 'monthly' && monthLabel
-      ? (locale === 'it' ? `Mercato lavoro Ticino — statistiche ${monthLabel.monthName} ${monthLabel.year}`
-        : locale === 'en' ? `Ticino job market trends — ${monthLabel.monthName} ${monthLabel.year}`
-        : locale === 'de' ? `Tessiner Arbeitsmarkt Statistik — ${monthLabel.monthName} ${monthLabel.year}`
-        : `Marché travail Tessin tendances — ${monthLabel.monthName} ${monthLabel.year}`)
+      ? (locale === 'it' ? `Mercato lavoro Ticino ${monthLabel.monthName} ${monthLabel.year} — statistiche`
+        : locale === 'en' ? `Ticino job market ${monthLabel.monthName} ${monthLabel.year} — trends`
+        : locale === 'de' ? `Tessiner Arbeitsmarkt ${monthLabel.monthName} ${monthLabel.year} — Statistik`
+        : `Marché travail Tessin ${monthLabel.monthName} ${monthLabel.year} — tendances`)
       : JOB_MARKET_HUB_NAME[locale];
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = truncateAtWordBoundary(intro, 180);

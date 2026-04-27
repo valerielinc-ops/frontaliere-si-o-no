@@ -1205,7 +1205,20 @@ function renderLeafPage(inp: LeafInputs): string {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   // H1 is narrative for users; title is keyword-first for SERP. They must
   // differ in text (Semrush W3, issue 105).
-  const titleBase = copy.h1(cantonLabel, ageLabel);
+  //
+  // Title-uniqueness fix (2026-04-27): the age bracket is the unique
+  // disambiguator across the 6 per-canton-per-age pages. Putting it (in
+  // its compact `0-18` / `31-45` / `56-plus` form) before the canton
+  // guarantees the truncating clampSiteSuffix can never collapse two
+  // brackets to the same title. The verbose `ageLabel` ("giovani adulti
+  // 19-25 anni" / "young adults age 19-25" / …) still appears in the H1,
+  // intro and tables for human readers.
+  const ageShort = age === '56-plus' ? '56+' : age;
+  const titleBase =
+    locale === 'it' ? `Premi LAMal ${ageShort} anni ${cantonLabel} ${year}`
+    : locale === 'en' ? `LAMal premiums age ${ageShort} ${cantonLabel} ${year}`
+    : locale === 'de' ? `KVG-Prämien ${ageShort} Jahre ${cantonLabel} ${year}`
+    : `Primes LAMal ${ageShort} ans ${cantonLabel} ${year}`;
   const h1 =
     locale === 'it' ? `Confronto premi LAMal in ${cantonLabel} per la fascia ${ageLabel}`
     : locale === 'en' ? `LAMal premium comparison in ${cantonLabel} for ${ageLabel}`
