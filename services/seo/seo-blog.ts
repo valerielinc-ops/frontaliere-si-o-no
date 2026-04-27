@@ -15670,6 +15670,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furto-biciclette-giubiasco-2026': {
+    title: 'Furto di biciclette a Giubiasco | Frontaliere Ticino',
+    description: 'Tre biciclette elettriche rubate a Giubiasco, due arrestati per mancato pagamento del carburante. Scopri i dettagli dell\'operazione e le implicazioni per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, furto, biciclette, giubiasco, arrestati',
+    ogTitle: 'Furto biciclette Giubiasco: arrestati per mancato pagamento',
+    ogDescription: 'Tre biciclette elettriche rubate a Giubiasco, due arrestati per mancato pagamento del carburante. Scopri i dettagli dell\'operazione e le implicazioni per i',
+    canonicalPath: '/articoli-frontaliere/furto-biciclette-giubiasco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furto di biciclette a Giubiasco: arrestati per mancato pagamento della benzina",
+      "description": "Tre biciclette elettriche rubate a Giubiasco, due arrestati per mancato pagamento del carburante. Scopri i dettagli dell'operazione e le implicazioni per i",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furto-biciclette-giubiasco-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di furto di biciclette presso la stazione di Giubiasco, Ticino"
+      },
+      "datePublished": "2026-04-27T15:08:16+00:00",
+      "dateModified": "2026-04-27T15:08:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furto-biciclette-giubiasco-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

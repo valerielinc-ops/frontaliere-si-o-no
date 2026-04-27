@@ -2979,6 +2979,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ats-insubria-2026.title': 'Arbeitssicherheit: Das Engagement von ATS Insubria zwischen Überwachung und Prävention',
     'blog.article.sicurezza-lavoro-ats-insubria-2026.excerpt': 'ATS Insubria stellt die Daten des Dienstes für Prävention und Sicherheit am Arbeitsplatz (PSAL) für das Jahr 2025 vor.',
     'blog.article.sicurezza-lavoro-ats-insubria-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Monte Brè im Hintergrund',
+    'blog.article.furto-biciclette-giubiasco-2026.title': 'Fahrraddiebstahl in Giubiasco: Festnahmen wegen nicht bezahlten Benzins',
+    'blog.article.furto-biciclette-giubiasco-2026.excerpt': 'Drei Elektrofahrräder in Giubiasco gestohlen, zwei Festnahmen wegen nicht bezahlten Kraftstoffs. Erfahren Sie mehr über die Operation.',
+    'blog.article.furto-biciclette-giubiasco-2026.imageAlt': 'Fahrraddiebstahlszene in der Nähe des Bahnhofs Giubiasco, Tessin',
 };
 
 export default blogMetaDe;

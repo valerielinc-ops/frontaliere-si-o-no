@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1039,
+ "numberOfItems": 1040,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5763,7 +5763,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1036, "name": "Ticino sempre più amato dai tedeschi", "url": `${BASE_URL}/articoli-frontaliere/ticino-tedeschi-turismo-2026` },
           { "@type": "ListItem", "position": 1037, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/universita-ticino-tagli-contributi-2026` },
           { "@type": "ListItem", "position": 1038, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-arresti-furto-biciclette-2026` },
-          { "@type": "ListItem", "position": 1039, "name": "Sicurezza sul lavoro: l’impegno di ATS Insubria...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026` }
+          { "@type": "ListItem", "position": 1039, "name": "Sicurezza sul lavoro: l’impegno di ATS Insubria...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026` },
+          { "@type": "ListItem", "position": 1040, "name": "Furto di biciclette a Giubiasco: arrestati per ...", "url": `${BASE_URL}/articoli-frontaliere/furto-biciclette-giubiasco-2026` }
  ]
  },
  {

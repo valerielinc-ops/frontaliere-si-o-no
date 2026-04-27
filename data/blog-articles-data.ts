@@ -7938,4 +7938,11 @@ export const ARTICLES = [
  image: '/images/blog/sicurezza-lavoro-ats-insubria-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furto-biciclette-giubiasco-2026',
+ category: 'novita',
+ date: '2026-04-27T15:08:16.419Z',
+ image: '/images/blog/furto-biciclette-giubiasco-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

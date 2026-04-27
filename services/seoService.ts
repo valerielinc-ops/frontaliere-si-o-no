@@ -2253,6 +2253,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-universita-ticino-tagli-contributi-2026': { name: 'Tagli USI 2026', path: '/articoli-frontaliere/universita-ticino-tagli-contributi-2026', parent: 'blog' },
     'blog-chiasso-arresti-furto-biciclette-2026': { name: 'Novità', path: '/articoli-frontaliere/chiasso-arresti-furto-biciclette-2026', parent: 'blog' },
     'blog-sicurezza-lavoro-ats-insubria-2026': { name: 'Novità', path: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026', parent: 'blog' },
+    'blog-furto-biciclette-giubiasco-2026': { name: 'Furto biciclette Giubiasco', path: '/articoli-frontaliere/furto-biciclette-giubiasco-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
