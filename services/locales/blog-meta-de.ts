@@ -3082,6 +3082,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.universita-ticino-numero-chiuso-2026.title': 'Universität Ticino: Zulassungsbeschränkungen und höhere',
     'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'Ab 2026 führt die Universität der italienischen Schweiz Zulassungsbeschränkungen ein und die Gebühren steigen, insbesondere für ausländische Studierende.',
     'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Studierende, die in der Nähe des Luganer Sees mit dem Stadtpanorama im Hintergrund spazieren gehen',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Maut in der Lombardei: Ende der kostenlosen Fahrten für Grenzgänger',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'Ab dem 1. Mai 2026 ist die Maut auf der Corda Molle obligatorisch, mit 50% Rabatt für Einwohner von 22 Gemeinden. Erleichterungen für Pendler kommen',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Luftaufnahme einer belebten Autobahn in der Schweiz mit Schweizer-Italienischen Grenzschildern und einer Mautstelle in der Ferne',
 };
 
 export default blogMetaDe;

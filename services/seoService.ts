@@ -2288,6 +2288,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-carburanti-tpl-ticino-2026': { name: 'Trasporto pubblico', path: '/articoli-frontaliere/carburanti-tpl-ticino-2026', parent: 'blog' },
     'blog-scoperta-africa-materia-castronno-2026': { name: 'Eventi Culturali', path: '/articoli-frontaliere/scoperta-africa-materia-castronno-2026', parent: 'blog' },
     'blog-universita-ticino-numero-chiuso-2026': { name: 'Novità', path: '/articoli-frontaliere/universita-ticino-numero-chiuso-2026', parent: 'blog' },
+    'blog-pedaggi-autostrada-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/pedaggi-autostrada-lombardia-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

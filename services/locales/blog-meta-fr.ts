@@ -3083,6 +3083,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.universita-ticino-numero-chiuso-2026.title': 'Université du Tessin : nombre limité et frais d\'inscription',
     'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'Dès 2026, l\'Université de la Suisse italienne introduit le nombre limité et les frais d\'inscription augmentent, surtout pour les étudiants étrangers',
     'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Étudiants marchant près du lac de Lugano avec le paysage urbain en arrière-plan',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Péages autoroute Lombardie : fin des voyages gratuits pour les frontaliers',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'À partir du 1er mai 2026, péage obligatoire sur la Corda Molle avec des réductions de 50 % pour les résidents de 22 communes. Des avantages en vue pour les navetteurs',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Vue aérienne d\'une autoroute fréquentée au Tessin avec des panneaux frontaliers suisses-italiens et un péage à distance',
 };
 
 export default blogMetaFr;

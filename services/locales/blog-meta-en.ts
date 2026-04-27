@@ -3082,6 +3082,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.universita-ticino-numero-chiuso-2026.title': 'USI: limited spots and rising tuition fees',
     'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'From 2026, Università della Svizzera italiana introduces limited spots and tuition fees increase, especially for foreign students',
     'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Students walking near Lake Lugano with the city skyline in the background',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Lombardy highway tolls: end of free travel for cross-border workers',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'From 1 May 2026, mandatory tolls on the Corda Molle with 50% discounts for residents of 22 municipalities. Concessions coming for commuters',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Aerial view of a busy highway in Ticino with Swiss-Italian border signs and a toll booth in the distance',
 };
 
 export default blogMetaEn;

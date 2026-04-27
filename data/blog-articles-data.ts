@@ -8204,4 +8204,11 @@ export const ARTICLES = [
  image: '/images/blog/universita-ticino-numero-chiuso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pedaggi-autostrada-lombardia-frontalieri',
+ category: 'novita',
+ date: '2026-04-27T20:16:55.595Z',
+ image: '/images/blog/pedaggi-autostrada-lombardia-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

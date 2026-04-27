@@ -3083,6 +3083,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.universita-ticino-numero-chiuso-2026.title': 'Università Ticino: numero chiuso e rette in aumento',
     'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'Dal 2026 l\'Università della Svizzera italiana introduce il numero chiuso e le rette aumentano, soprattutto per gli studenti stranieri',
     'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Studenti che camminano vicino al Lago di Lugano con lo skyline della città sullo sfondo',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Pedaggi autostrada Lombardia: addio viaggi gratis per frontalieri',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'Dal 1° maggio 2026 pedaggio obbligatorio sulla Corda Molle con sconti del 50% per residenti di 22 comuni. Agevolazioni in arrivo per pendolari',
+    'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Vista aerea di un\'autostrada trafficata in Ticino con segnaletica del confine svizzero-italiano e casello autostradale in lontananza',
 };
 
 export default blogMetaIt;

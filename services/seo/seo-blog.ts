@@ -16772,6 +16772,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pedaggi-autostrada-lombardia-frontalieri': {
+    title: 'Pedaggi autostrada Lombardia: addio viaggi gratis per frontalieri',
+    description: 'Dal 1° maggio 2026 pedaggio obbligatorio sulla Corda Molle con sconti del 50% per residenti di 22 comuni. Agevolazioni in arrivo per pendolari. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pedaggi, autostrada, lombardia, addio',
+    ogTitle: 'Pedaggi autostrada Lombardia: addio viaggi gratis per frontalieri',
+    ogDescription: 'Dal 1° maggio 2026 pedaggio obbligatorio sulla Corda Molle con sconti del 50% per residenti di 22 comuni. Agevolazioni in arrivo per pendolari',
+    canonicalPath: '/articoli-frontaliere/pedaggi-autostrada-lombardia-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pedaggi autostrada Lombardia: addio viaggi gratis per frontalieri",
+      "description": "Dal 1° maggio 2026 pedaggio obbligatorio sulla Corda Molle con sconti del 50% per residenti di 22 comuni. Agevolazioni in arrivo per pendolari. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pedaggi-autostrada-lombardia-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un'autostrada trafficata in Ticino con segnaletica del confine svizzero-italiano e casello autostradale in lontananza"
+      },
+      "datePublished": "2026-04-27T20:16:55+00:00",
+      "dateModified": "2026-04-27T20:16:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pedaggi-autostrada-lombardia-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
