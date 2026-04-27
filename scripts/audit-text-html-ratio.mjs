@@ -147,10 +147,21 @@ function extractVisibleText(html) {
  */
 function classifyFeature(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
+  // Career-landings (per-company hub, no city) come from careerLandingsPlugin
+  // and live at /<jobs-locale>/(azienda|company|unternehmen|entreprise)-<slug>/.
+  // Match those FIRST, before the weeklyEmployers per-company×city template.
+  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) {
+    return 'career-landings';
+  }
   if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-carburante-svizzera|prix-essence-suisse|fuel-prices-switzerland|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
+  // Weekly-employers per-company×city pages live UNDER /aziende-che-assumono/<city>/<company>/...
+  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) {
+    return 'weekly-employers';
+  }
+  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) {
+    return 'weekly-employers-hub';
+  }
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test(p)) return 'job-board';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
   if (/(?:^|\/)(?:premi-cassa-malati|health-premiums|krankenkassen-praemien|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
   if (/(?:^|\/)(?:mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
   if (/(?:^|\/)(?:articoli-frontaliere|blog|articles)\//.test(p)) return 'blog';
