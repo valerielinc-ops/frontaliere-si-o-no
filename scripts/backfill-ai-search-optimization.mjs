@@ -47,7 +47,8 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
-const BODY_DIR_IT = path.join(ROOT, 'services', 'locales', 'blog-body', 'it');
+const SUPPORTED_LOCALES = ['it', 'en', 'de', 'fr'];
+const bodyDirFor = (locale) => path.join(ROOT, 'services', 'locales', 'blog-body', locale);
 
 // ── CLI parsing ─────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -61,16 +62,29 @@ const APPLY = args.includes('--apply');
 const LIMIT_RAW = getArg('--limit');
 const LIMIT = LIMIT_RAW ? parseInt(LIMIT_RAW, 10) : Infinity;
 const SAMPLE = args.includes('--show-sample');
+const LOCALE_RAW = getArg('--locale') || 'it';
+const LOCALES = LOCALE_RAW === 'all'
+  ? SUPPORTED_LOCALES
+  : LOCALE_RAW.split(',').map((s) => s.trim()).filter(Boolean);
+for (const loc of LOCALES) {
+  if (!SUPPORTED_LOCALES.includes(loc)) {
+    console.error(`ERROR: unsupported locale "${loc}". Use one of: ${SUPPORTED_LOCALES.join(', ')} or "all".`);
+    process.exit(1);
+  }
+}
+const BODY_DIR_IT = bodyDirFor('it'); // Kept for backwards-compatible export
 
 if (HELP) {
   console.log(`backfill-ai-search-optimization.mjs
 
   --apply         Write changes to disk (default: DRY-RUN)
-  --limit N       Process at most N articles
+  --limit N       Process at most N articles per locale
+  --locale L      Locale to process: it (default), en, de, fr, all, or comma-separated list
   --show-sample   Print the AI-generated block for the first article
   --help, -h      Show this help
 
   Required env (only with --apply): GH_MODELS_PAT or other AI provider key.
+  Env BACKFILL_COMMIT_BATCH (default 25), BACKFILL_AUTO_PUSH=0 to disable.
 `);
   process.exit(0);
 }
@@ -173,25 +187,26 @@ export function replaceBody1(raw, articleId, newBody1) {
 // ── Main ────────────────────────────────────────────────────────────────
 
 async function main() {
-  const files = listItBodyFiles();
-  console.log(`Scanning ${files.length} IT body files in ${path.relative(ROOT, BODY_DIR_IT)}/`);
-
-  const { needing, skipped } = findArticlesNeedingBackfill(files);
-  const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
-
-  console.log(`\nResults:`);
-  console.log(`  • Total IT articles:        ${files.length}`);
-  console.log(`  • Already AI-optimized:     ${alreadyOptimized}`);
-  console.log(`  • Need backfill:            ${needing.length}`);
-  if (skipped.some((s) => s.reason === 'unparseable')) {
-    console.log(`  • Unparseable (skipped):    ${skipped.filter((s) => s.reason === 'unparseable').length}`);
+  // Show DRY-RUN summary across all requested locales first
+  let firstSample = null;
+  let totalNeeding = 0;
+  for (const locale of LOCALES) {
+    const dir = bodyDirFor(locale);
+    const files = listItBodyFiles(dir);
+    const { needing, skipped } = findArticlesNeedingBackfill(files);
+    const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
+    console.log(`[${locale}] Total: ${files.length} | Already optimized: ${alreadyOptimized} | Need backfill: ${needing.length}`);
+    if (skipped.some((s) => s.reason === 'unparseable')) {
+      console.log(`[${locale}]   Unparseable: ${skipped.filter((s) => s.reason === 'unparseable').length}`);
+    }
+    if (!firstSample && needing.length > 0) firstSample = { locale, sample: needing[0] };
+    totalNeeding += needing.length;
   }
-
-  if (needing.length > 0) {
-    const sample = needing[0];
-    console.log(`\nSample article needing backfill: ${path.relative(ROOT, sample.filePath)}`);
-    console.log(`  body1 first 200 chars: ${sample.body1.slice(0, 200).replace(/\n/g, ' ⏎ ')}…`);
+  if (firstSample) {
+    console.log(`\nSample (${firstSample.locale}): ${path.relative(ROOT, firstSample.sample.filePath)}`);
+    console.log(`  body1 first 200 chars: ${firstSample.sample.body1.slice(0, 200).replace(/\n/g, ' ⏎ ')}…`);
   }
+  console.log(`\nTOTAL across ${LOCALES.length} locale(s): ${totalNeeding} articles need backfill`);
 
   if (!APPLY) {
     console.log(`\nDRY-RUN: pass --apply to write changes (requires AI provider key).`);
@@ -214,10 +229,28 @@ async function main() {
 
   // Lazy-import to keep DRY-RUN free of network/lib dependencies
   const { callLLM, AI_MODELS } = await import('./lib/ai-models.mjs');
-  const targets = needing.slice(0, LIMIT);
 
-  // Periodic auto-commit: prevent losing work if the orchestrator stashes/drops
-  // mid-flight. Every COMMIT_BATCH writes triggers a `git add + commit + push`.
+  let totalWritten = 0;
+  let totalFailed = 0;
+  for (const locale of LOCALES) {
+    const r = await runLocaleBackfill(locale, callLLM, AI_MODELS);
+    totalWritten += r.written;
+    totalFailed += r.failed;
+  }
+  console.log(`\n══ ALL LOCALES DONE: ${totalWritten} written, ${totalFailed} failed across ${LOCALES.length} locale(s) ══`);
+  if (totalFailed > 0) process.exit(1);
+}
+
+async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
+  const dir = bodyDirFor(locale);
+  const relDir = path.relative(ROOT, dir);
+  const files = listItBodyFiles(dir);
+  const { needing, skipped } = findArticlesNeedingBackfill(files);
+  const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
+  console.log(`\n[${locale}] ${files.length} files | ${alreadyOptimized} already optimized | ${needing.length} need backfill`);
+  if (needing.length === 0) return { locale, written: 0, failed: 0 };
+
+  const targets = needing.slice(0, LIMIT);
   const COMMIT_BATCH = parseInt(process.env.BACKFILL_COMMIT_BATCH || '25', 10);
   const AUTO_PUSH = process.env.BACKFILL_AUTO_PUSH !== '0';
   const { execSync } = await import('node:child_process');
@@ -226,21 +259,28 @@ async function main() {
     catch (err) { return `__ERR__:${(err.stderr || err.message || '').toString().trim().slice(0, 200)}`; }
   };
   const commitBatch = (count, total) => {
-    const status = safeExec('git status --porcelain services/locales/blog-body/it/');
+    const status = safeExec(`git status --porcelain ${relDir}/`);
     if (!status || status.startsWith('__ERR__:')) return;
     const lines = status.split('\n').filter(Boolean);
     if (lines.length === 0) return;
-    safeExec('git add services/locales/blog-body/it/');
-    const msg = `chore(seo): AI-search backfill batch (~${count}/${total} articles)`;
+    safeExec(`git add ${relDir}/`);
+    const msg = `chore(seo): AI-search backfill batch — ${locale} (~${count}/${total})`;
     const r = safeExec(`git commit --no-verify -m ${JSON.stringify(msg)}`);
     if (r.startsWith('__ERR__:')) return;
     if (AUTO_PUSH) {
-      // pull --rebase to integrate concurrent auto-orchestrator pushes, then push.
       const pr = safeExec('git pull --rebase --autostash origin main 2>&1');
       if (!pr.startsWith('__ERR__:')) safeExec('git push --no-verify origin main 2>&1');
     }
-    process.stdout.write(`💾 committed batch (${lines.length} files)\n`);
+    process.stdout.write(`💾 [${locale}] committed batch (${lines.length} files)\n`);
   };
+
+  const systemPrompts = {
+    it: 'Sei un editor SEO esperto. Rispondi SOLO con JSON valido, senza markdown.',
+    en: 'You are an expert SEO editor. Respond ONLY with valid JSON, no markdown.',
+    de: 'Du bist ein erfahrener SEO-Editor. Antworte NUR mit gültigem JSON, ohne Markdown.',
+    fr: 'Tu es un éditeur SEO expert. Réponds UNIQUEMENT avec du JSON valide, sans markdown.',
+  };
+  const systemPrompt = systemPrompts[locale] || systemPrompts.it;
 
   let written = 0;
   let failed = 0;
@@ -249,19 +289,19 @@ async function main() {
     const t = targets[i];
     const fullBody = [t.body1, t.body2, t.body3].filter(Boolean).join('\n\n');
     const titleGuess = t.articleId.replace(/-/g, ' ');
-    const prompt = buildBackfillPrompt({ title: titleGuess, fullBody, locale: 'it' });
-    process.stdout.write(`[${i + 1}/${targets.length}] ${t.articleId}… `);
+    const prompt = buildBackfillPrompt({ title: titleGuess, fullBody, locale });
+    process.stdout.write(`[${locale} ${i + 1}/${targets.length}] ${t.articleId}… `);
     try {
       const raw = await callLLM(
         [
-          { role: 'system', content: 'Sei un editor SEO esperto. Rispondi SOLO con JSON valido, senza markdown.' },
+          { role: 'system', content: systemPrompt },
           { role: 'user', content: prompt },
         ],
         { model: AI_MODELS.GPT4O_MINI, temperature: 0.3, maxTokens: 1500, jsonMode: true },
       );
       const parsed = JSON.parse(raw.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim());
       const valid = validateBackfillPayload(parsed);
-      const block = buildAiSearchMarkdown({ tldr: valid.tldr, keyFacts: valid.keyFacts, locale: 'it' });
+      const block = buildAiSearchMarkdown({ tldr: valid.tldr, keyFacts: valid.keyFacts, locale });
       const newBody1 = `${block}${t.body1}`;
       const newRaw = replaceBody1(t.raw, t.articleId, newBody1);
       writeFileSync(t.filePath, newRaw, 'utf-8');
@@ -269,7 +309,7 @@ async function main() {
       writtenSinceCommit++;
       console.log('OK');
       if (SAMPLE && i === 0) {
-        console.log('\n--- SAMPLE BLOCK ---');
+        console.log(`\n--- SAMPLE BLOCK (${locale}) ---`);
         console.log(block);
         console.log('--- END SAMPLE ---\n');
       }
@@ -282,12 +322,9 @@ async function main() {
       console.log(`FAIL (${err.message})`);
     }
   }
-
-  // Final flush
   if (writtenSinceCommit > 0) commitBatch(targets.length, targets.length);
-
-  console.log(`\nDone: ${written} written, ${failed} failed, ${targets.length - written - failed} skipped.`);
-  if (failed > 0) process.exit(1);
+  console.log(`[${locale}] Done: ${written} written, ${failed} failed, ${targets.length - written - failed} skipped.`);
+  return { locale, written, failed };
 }
 
 // Allow import without execution (for tests)
