@@ -7588,4 +7588,11 @@ export const ARTICLES = [
  image: '/images/blog/amazon-made-in-italy-days-2026-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'carburanti-ticino-confronto-2024',
+ category: 'pratico',
+ date: '2026-04-27T09:12:47.619Z',
+ image: '/images/blog/carburanti-ticino-confronto-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

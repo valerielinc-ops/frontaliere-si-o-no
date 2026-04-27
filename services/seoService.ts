@@ -2203,6 +2203,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agricoltori-varesini-sfide-burocrazia': { name: 'Novità', path: '/articoli-frontaliere/agricoltori-varesini-sfide-burocrazia', parent: 'blog' },
     'blog-nuove-banconote-euro-restyling-2026': { name: 'Novità', path: '/articoli-frontaliere/nuove-banconote-euro-restyling-2026', parent: 'blog' },
     'blog-amazon-made-in-italy-days-2026-ticino': { name: 'Amazon Made in Italy Days', path: '/articoli-frontaliere/amazon-made-in-italy-days-2026-ticino', parent: 'blog' },
+    'blog-carburanti-ticino-confronto-2024': { name: 'Caro-carburanti', path: '/articoli-frontaliere/carburanti-ticino-confronto-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

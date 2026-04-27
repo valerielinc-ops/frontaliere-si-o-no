@@ -2829,6 +2829,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.amazon-made-in-italy-days-2026-ticino.title': 'Amazon Made in Italy Days 2026: 5.500 italienische Exzellenzen auf der globalen Bühne',
     'blog.article.amazon-made-in-italy-days-2026-ticino.excerpt': 'Vom 13. bis 19. Mai 2026 präsentiert Amazon 5.500 Made-in-Italy-Produkte auf 11 internationalen Märkten. Zusammenarbeit mit der Agenzia Ice.',
     'blog.article.amazon-made-in-italy-days-2026-ticino.imageAlt': 'Amazon Made in Italy Days Veranstaltung in Lugano, Tessin',
+    'blog.article.carburanti-ticino-confronto-2024.title': 'Hohe Kraftstoffpreise: Wo tanken in der Schweiz?',
+    'blog.article.carburanti-ticino-confronto-2024.excerpt': 'Vergleichen Sie die Preise für Benzin und Diesel in der Schweiz und sparen Sie mit unseren praktischen Tipps',
+    'blog.article.carburanti-ticino-confronto-2024.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;

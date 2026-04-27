@@ -14220,6 +14220,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburanti-ticino-confronto-2024': {
+    title: 'Caro-carburanti: dove fare il pieno in | Frontaliere Ticino',
+    description: 'Confronta i prezzi della benzina e del diesel in Ticino e risparmia con i nostri consigli pratici. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caro-carburanti, dove, fare, pieno',
+    ogTitle: 'Caro-carburanti: dove fare il pieno in Ticino | Frontaliere',
+    ogDescription: 'Confronta i prezzi della benzina e del diesel in Ticino e risparmia con i nostri consigli pratici',
+    canonicalPath: '/articoli-frontaliere/carburanti-ticino-confronto-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caro-carburanti: dove fare il pieno in Ticino",
+      "description": "Confronta i prezzi della benzina e del diesel in Ticino e risparmia con i nostri consigli pratici. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburanti-ticino-confronto-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino"
+      },
+      "datePublished": "2026-04-27T09:12:47+00:00",
+      "dateModified": "2026-04-27T09:12:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-ticino-confronto-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
