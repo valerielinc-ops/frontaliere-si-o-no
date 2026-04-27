@@ -17265,6 +17265,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-varese-acqua-calda-oncologia': {
+    title: 'Ospedale di Varese senza acqua calda in oncologia | Frontaliere Ticino',
+    description: 'Disservizi segnalati nel reparto di oncologia e pneumologia. La Sette Laghi: soluzione in tempi brevi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, varese, senza, acqua',
+    ogTitle: 'Ospedale Varese senza acqua calda in oncologia',
+    ogDescription: 'Disservizi segnalati nel reparto di oncologia e pneumologia. La Sette Laghi: soluzione in tempi brevi.',
+    canonicalPath: '/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale Varese senza acqua calda in oncologia",
+      "description": "Disservizi segnalati nel reparto di oncologia e pneumologia. La Sette Laghi: soluzione in tempi brevi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ospedale-varese-acqua-calda-oncologia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Varese con vista lago"
+      },
+      "datePublished": "2026-04-27T22:19:02+00:00",
+      "dateModified": "2026-04-27T22:19:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

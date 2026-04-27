@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1094,
+ "numberOfItems": 1095,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5818,7 +5818,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1091, "name": "Nuovi Maestri del Lavoro 2026: Leonardo primegg...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026` },
           { "@type": "ListItem", "position": 1092, "name": "Cambio di guardia a Pro Velo Ticino: Sabbadini ...", "url": `${BASE_URL}/articoli-frontaliere/cambio-guardia-pro-velo-ticino-sabbadini-vitali` },
           { "@type": "ListItem", "position": 1093, "name": "Nuovo ambulatorio di ecocardiografia a Busto Ar...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-ambulatorio-ecocardiografia-busto-arsizio` },
-          { "@type": "ListItem", "position": 1094, "name": "Velafrica torna nel Luganese: seconda vita per ...", "url": `${BASE_URL}/articoli-frontaliere/velafrica-bici-usate-lugano-2026` }
+          { "@type": "ListItem", "position": 1094, "name": "Velafrica torna nel Luganese: seconda vita per ...", "url": `${BASE_URL}/articoli-frontaliere/velafrica-bici-usate-lugano-2026` },
+          { "@type": "ListItem", "position": 1095, "name": "Ospedale Varese senza acqua calda in oncologia", "url": `${BASE_URL}/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia` }
  ]
  },
  {

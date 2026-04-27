@@ -8323,4 +8323,11 @@ export const ARTICLES = [
  image: '/images/blog/velafrica-bici-usate-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ospedale-varese-acqua-calda-oncologia',
+ category: 'novita',
+ date: '2026-04-27T22:19:02.073Z',
+ image: '/images/blog/ospedale-varese-acqua-calda-oncologia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

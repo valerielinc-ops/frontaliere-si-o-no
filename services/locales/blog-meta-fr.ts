@@ -3134,6 +3134,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.velafrica-bici-usate-lugano-2026.title': 'Velafrica revient à Lugano : un nouveau souffle pour les vélos usagés',
     'blog.article.velafrica-bici-usate-lugano-2026.excerpt': 'Le projet Velafrica revient dans la région de Lugano pour donner une seconde vie aux vélos usagés. Une initiative qui implique la communauté et promeut la durabilité.',
     'blog.article.velafrica-bici-usate-lugano-2026.imageAlt': 'Point de collecte de vélos usagés à Lugano, avec le lac de Lugano en arrière-plan et des personnes participant à l\'initiative',
+    'blog.article.ospedale-varese-acqua-calda-oncologia.title': 'Hôpital de Varèse sans eau chaude en oncologie',
+    'blog.article.ospedale-varese-acqua-calda-oncologia.excerpt': 'Des dysfonctionnements signalés dans les services d\'oncologie et de pneumologie. La Sette Laghi: solution dans les meilleurs délais.',
+    'blog.article.ospedale-varese-acqua-calda-oncologia.imageAlt': 'Hôpital de Varese avec vue sur le lac',
 };
 
 export default blogMetaFr;
