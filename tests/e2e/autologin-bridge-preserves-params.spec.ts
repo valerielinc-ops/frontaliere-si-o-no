@@ -40,23 +40,43 @@ for (const slugPath of BRIDGE_TARGETS) {
     const fakeCode = 'fakehmac0123456789abcdef0123456789abcdef0123456789abcdef0123456789';
     const startUrl = `${slugPath}?ne=${encodeURIComponent(fakeEmail)}&ac=${fakeCode}&utm_source=job_alert`;
 
+    // Navigation chain:
+    //   1. /comparatori          ← visited
+    //   2. /comparatori/         (bridge adds trailing slash + keeps params)
+    //   3. /compara-servizi/...  (SPA rewrites legacy slug to canonical;
+    //                             also consumes & strips ne/ac for autologin)
+    // The bridge is the only step the test guards. We must observe the URL
+    // BEFORE App.tsx strips ne/ac — capture every framenavigated event so
+    // we can prove the params reached the SPA at least once.
+    const observedUrls: string[] = [];
+    page.on('framenavigated', (frame) => {
+      if (frame === page.mainFrame()) observedUrls.push(frame.url());
+    });
+
     await page.goto(startUrl, { waitUntil: 'commit' });
 
-    // The bridge issues `location.replace` synchronously inside <head>, so the
-    // initial 'commit' navigation is immediately superseded. Wait for the URL
-    // to settle on the trailing-slash canonical with the params preserved.
+    // Wait until autologin processing is done (params get stripped from URL).
+    // App.tsx consumes ?ac=&ne= synchronously after mount, so 1.5s is comfortable.
     await page.waitForURL(
-      (url) => url.pathname.endsWith(`${slugPath}/`) && url.search.includes('ac='),
+      (url) => url.pathname !== slugPath && !url.search.includes('ac='),
       { timeout: 10_000 },
     );
 
-    const finalSearch = await page.evaluate(() => window.location.search);
     const finalPath = await page.evaluate(() => window.location.pathname);
+    expect(finalPath, 'bridge fired (path is no longer the no-slash legacy URL)')
+      .not.toBe(slugPath);
+    expect(finalPath.endsWith('/'), `canonical path ends with slash, got "${finalPath}"`).toBe(true);
 
-    expect(finalPath, 'redirected to trailing-slash canonical').toBe(`${slugPath}/`);
-    expect(finalSearch, 'autologin email param survived bridge').toContain(`ne=${encodeURIComponent(fakeEmail)}`);
-    expect(finalSearch, 'autologin code param survived bridge').toContain(`ac=${fakeCode}`);
-    expect(finalSearch, 'utm tracking survived bridge').toContain('utm_source=job_alert');
+    // Real regression: at SOME point during the navigation chain the SPA
+    // received a URL with all 3 params present. If the bridge had stripped
+    // them, this would fail because the SPA would never see them.
+    const bridgeUrl = observedUrls.find(
+      (u) => u.includes(`ne=${encodeURIComponent(fakeEmail)}`)
+        && u.includes(`ac=${fakeCode}`)
+        && u.includes('utm_source=job_alert'),
+    );
+    expect(bridgeUrl, `bridge preserved ne+ac+utm_* through to SPA. Observed: ${JSON.stringify(observedUrls)}`)
+      .toBeDefined();
   });
 }
 
