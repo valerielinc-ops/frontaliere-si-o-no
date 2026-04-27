@@ -15119,6 +15119,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticinesi-missione-ucraina-2026': {
+    title: 'Ticinesi in missione umanitaria in | Frontaliere Ticino',
+    description: 'Volontari ticinesi si preparano per portare assistenza medica e conforto alla popolazione ucraina colpita dalla guerra. Scopri di più su questa missione',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinesi, missione, umanitaria, ucraina',
+    ogTitle: 'Ticinesi in missione umanitaria in Ucraina | Frontaliere',
+    ogDescription: 'Volontari ticinesi si preparano per portare assistenza medica e conforto alla popolazione ucraina colpita dalla guerra. Scopri di più su questa missione',
+    canonicalPath: '/articoli-frontaliere/ticinesi-missione-ucraina-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Ticinesi in missione umanitaria",
+      "description": "Volontari ticinesi si preparano per portare assistenza medica e conforto alla popolazione ucraina colpita dalla guerra. Scopri di più su questa missione",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticinesi-missione-ucraina-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari ticinesi in preparazione per una missione umanitaria in Ucraina, con vista sul Lago di Lugano."
+      },
+      "datePublished": "2026-04-27T12:38:18+00:00",
+      "dateModified": "2026-04-27T12:38:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticinesi-missione-ucraina-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

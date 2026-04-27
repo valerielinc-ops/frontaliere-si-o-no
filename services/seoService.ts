@@ -2234,6 +2234,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incontro-solidarieta-sicurezza-bioggio': { name: 'Incontro solidarietà sicurezza', path: '/articoli-frontaliere/incontro-solidarieta-sicurezza-bioggio', parent: 'blog' },
     'blog-infermieri-ticino-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-ticino-frontalieri-2026', parent: 'blog' },
     'blog-deepfake-legge-svizzera-2026': { name: 'Deepfake pornografici', path: '/articoli-frontaliere/deepfake-legge-svizzera-2026', parent: 'blog' },
+    'blog-ticinesi-missione-ucraina-2026': { name: 'Missioni umanitarie', path: '/articoli-frontaliere/ticinesi-missione-ucraina-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

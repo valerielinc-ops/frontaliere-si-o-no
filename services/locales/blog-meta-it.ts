@@ -2922,6 +2922,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deepfake-legge-svizzera-2026.title': 'Deepfake pornografici: cosa dice la legge svizzera',
     'blog.article.deepfake-legge-svizzera-2026.excerpt': 'In Svizzera non esiste un reato specifico per i deepfake pornografici, ma il diritto vigente può essere applicato in casi particolari',
     'blog.article.deepfake-legge-svizzera-2026.imageAlt': 'Persona preoccupata che usa un laptop con schermi che mostrano immagini manipolate, con vista sul lago di Lugano',
+    'blog.article.ticinesi-missione-ucraina-2026.title': 'Ticinesi in missione umanitaria in Ucraina: la settima missione di HUNPA',
+    'blog.article.ticinesi-missione-ucraina-2026.excerpt': 'Volontari ticinesi si preparano per portare assistenza medica e conforto alla popolazione ucraina colpita dalla guerra.',
+    'blog.article.ticinesi-missione-ucraina-2026.imageAlt': 'Volontari ticinesi in preparazione per una missione umanitaria in Ucraina, con vista sul Lago di Lugano.',
 };
 
 export default blogMetaIt;

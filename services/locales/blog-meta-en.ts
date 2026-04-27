@@ -2922,6 +2922,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.deepfake-legge-svizzera-2026.title': 'Pornographic deepfakes: what Swiss law says',
     'blog.article.deepfake-legge-svizzera-2026.excerpt': 'Switzerland does not have a specific offense for pornographic deepfakes, but existing law can be applied in particular cases',
     'blog.article.deepfake-legge-svizzera-2026.imageAlt': 'Concerned person using a laptop with screens showing manipulated images, with a view of Lake Lugano',
+    'blog.article.ticinesi-missione-ucraina-2026.title': 'Ticinese volunteers on humanitarian mission in Ukraine: the seventh mission of HUNPA',
+    'blog.article.ticinesi-missione-ucraina-2026.excerpt': 'Ticinese volunteers are preparing to bring medical assistance and comfort to the Ukrainian population affected by the war.',
+    'blog.article.ticinesi-missione-ucraina-2026.imageAlt': 'Ticino volunteers preparing for a humanitarian mission to Ukraine, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;
