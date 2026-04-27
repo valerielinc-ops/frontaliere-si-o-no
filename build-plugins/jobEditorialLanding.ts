@@ -195,6 +195,7 @@ export type JobLocationSectorLandingModel = {
  slug: string;
  location: string;
  sectorKey: JobLandingSectorKey;
+ sectorLabel: string;
  title: string;
  heading: string;
  description: string;
@@ -1651,6 +1652,7 @@ export function buildJobLocationSectorLandingModel(options: {
  slug: buildLocationSectorSlug(locale, location, sectorKey),
  location,
  sectorKey,
+ sectorLabel: label,
  title: copy.title(label, location),
  heading: copy.heading(label, location),
  description: copy.description(label, location, matches.length),

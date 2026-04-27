@@ -3022,6 +3022,51 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  items.length > 0
  ? `<ul style="list-style:none;padding:0;margin:0">${items.map((item) => `<li style="margin:0 0 12px 0;padding:0 0 12px;border-bottom:1px solid var(--color-edge)"><a href="${item.href}" style="text-decoration:none;color:var(--color-link);font-weight:700">${esc(item.title)}</a><div style="font-size:13px;color:var(--color-subtle);margin-top:4px">${esc(item.company)} · ${esc(item.location)}</div></li>`).join('')}</ul>`
  : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+
+ /**
+  * Per-(city × sector) frontalier context section. The 150+ search-/suche-/recherche-/ricerca-
+  * city×sector soft-landing pages had thin bodies (12 KB) versus heavy heads
+  * (preconnects + 4 hreflangs + JSON-LD), pushing them under the 10 % text/HTML
+  * Semrush gate. Adds 2 locale-aware paragraphs interpolating sector + location
+  * + jobsCount so Google sees substantive page-relevant copy, not template
+  * boilerplate.
+  */
+ const renderLocationSectorFrontalierContext = (args: {
+  locale: 'it' | 'en' | 'de' | 'fr';
+  sectorLabel: string;
+  location: string;
+  jobsCount: number;
+ }): string => {
+  const { locale: l, sectorLabel, location, jobsCount } = args;
+  const copy: Record<typeof l, { h: string; p1: string; p2: string }> = {
+   it: {
+    h: `Lavorare nel settore ${sectorLabel.toLowerCase()} a ${location} da frontaliere`,
+    p1: `Le ${jobsCount} offerte ${sectorLabel.toLowerCase()} attive a ${location} si rivolgono in larga parte a frontalieri italiani: il bacino di assunzione naturale dei datori del Sottoceneri include Como, Varese, Mendrisio italiana e i comuni della fascia entro 20 km dal confine. Per candidarsi serve il Permesso G, residenza in un comune italiano dentro la zona di frontiera (Lombardia o Piemonte) e il rientro al domicilio almeno una volta a settimana. Il datore richiede il permesso all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi è rinnovato annualmente. Da Como il valico di Brogeda (autostrada A2) o Chiasso-strada porta a ${location} in 25-50 minuti in ora di punta a seconda delle code; da Varese o Luino i valichi di Stabio o Gaggiolo offrono alternative.`,
+    p2: `Stipendio e cosa controllare nei singoli annunci. Le ${jobsCount} offerte di ${sectorLabel.toLowerCase()} a ${location} pubblicano la retribuzione come lordo annuo: il netto reale dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 % fino a 148.200 CHF/anno, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
+   },
+   en: {
+    h: `Working in ${sectorLabel.toLowerCase()} in ${location} as a cross-border worker`,
+    p1: `The ${jobsCount} active ${sectorLabel.toLowerCase()} listings in ${location} largely target Italian cross-border workers: the natural hiring catchment for Sottoceneri employers covers Como, Varese, Italian-side Mendrisio and the municipalities within the 20 km border zone. Applying requires a G Permit, residence in an Italian municipality inside the border zone (Lombardy or Piedmont) and returning home at least once a week. The employer files for the permit at the cantonal migration office after the contract is signed: first issuance takes 2-6 weeks and is renewed yearly. From Como the Brogeda (A2 motorway) or Chiasso-strada crossing reaches ${location} in 25-50 minutes at peak times depending on the queue; from Varese or Luino, the Stabio or Gaggiolo crossings offer alternatives.`,
+    p2: `Salary and what to read in each listing. The ${jobsCount} ${sectorLabel.toLowerCase()} openings in ${location} post compensation as gross annual figures: real take-home depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on the Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 % up to CHF 148,200/year, LPP rising from 7 % at 25 to 18 % over 55) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the job description, requirements, exact location and contract type, then run the actual net figure in the <a href="${BASE_URL}/en/calculate-salary/" style="color:var(--color-link);text-decoration:none">salary simulator</a>, factoring in commute costs to ${location} (fuel, vehicle wear, time lost at the border) for an honest comparison with an Italian alternative.`,
+   },
+   de: {
+    h: `Als Grenzgänger im Sektor ${sectorLabel.toLowerCase()} in ${location} arbeiten`,
+    p1: `Die ${jobsCount} aktiven ${sectorLabel.toLowerCase()}-Stellen in ${location} richten sich grösstenteils an italienische Grenzgänger: das natürliche Einzugsgebiet der Sottoceneri-Arbeitgeber umfasst Como, Varese, das italienische Mendrisio und die Gemeinden innerhalb der 20-km-Grenzzone. Eine Bewerbung setzt eine G-Bewilligung voraus, Wohnsitz in einer italienischen Gemeinde innerhalb der Grenzzone (Lombardei oder Piemont) und Rückkehr nach Hause mindestens einmal pro Woche. Der Arbeitgeber beantragt die Bewilligung beim kantonalen Migrationsamt nach Vertragsunterzeichnung: die erste Ausstellung dauert 2-6 Wochen, anschliessend erfolgt die jährliche Verlängerung. Von Como erreicht man ${location} über den Grenzübergang Brogeda (Autobahn A2) oder Chiasso-Strasse in 25-50 Minuten in Stosszeiten je nach Wartezeit; von Varese oder Luino bieten Stabio oder Gaggiolo Alternativen.`,
+    p2: `Lohn und worauf in den einzelnen Inseraten zu achten ist. Die ${jobsCount} ${sectorLabel.toLowerCase()}-Stellen in ${location} geben Löhne als Bruttojahresgehalt an: der reale Nettolohn hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 % bis CHF 148'200/Jahr, BVG variabel von 7 % mit 25 Jahren bis 18 % über 55) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a href="${BASE_URL}/de/gehalt-berechnen/" style="color:var(--color-link);text-decoration:none">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} (Treibstoff, Fahrzeugverschleiss, Wartezeit an der Grenze) ein.`,
+   },
+   fr: {
+    h: `Travailler dans le secteur ${sectorLabel.toLowerCase()} à ${location} en tant que frontalier`,
+    p1: `Les ${jobsCount} offres ${sectorLabel.toLowerCase()} actives à ${location} ciblent en grande partie les frontaliers italiens : le bassin d'embauche naturel des employeurs du Sottoceneri inclut Côme, Varèse, Mendrisio italienne et les communes de la bande des 20 km. Pour postuler, il faut un permis G, une résidence dans une commune italienne située dans la zone frontière (Lombardie ou Piémont) et un retour au domicile au moins une fois par semaine. L'employeur demande le permis à l'office cantonal des migrations après la signature du contrat : la première délivrance prend 2 à 6 semaines, puis le permis est renouvelé chaque année. Depuis Côme, le poste-frontière de Brogeda (autoroute A2) ou Chiasso-route conduit à ${location} en 25-50 minutes aux heures de pointe selon la file ; depuis Varèse ou Luino, les passages de Stabio ou Gaggiolo offrent des alternatives.`,
+    p2: `Salaire et points à vérifier dans chaque annonce. Les ${jobsCount} offres ${sectorLabel.toLowerCase()} à ${location} publient les rémunérations en brut annuel : le net réel dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 % jusqu'à CHF 148'200/an, LPP variable de 7 % à 25 ans à 18 % au-delà de 55 ans) et du régime fiscal cantonal. L'écart brut-net typique est de 18 à 28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu exact et le type de contrat, puis calculez le net exact dans le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link);text-decoration:none">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location} (carburant, usure du véhicule, temps perdu à la frontière).`,
+   },
+  };
+  const c = copy[l] || copy.it;
+  return `<section style="margin:0 0 28px" aria-labelledby="locSectorFrontalier">
+   <h2 id="locSectorFrontalier" style="margin:0 0 14px;font-size:24px">${esc(c.h)}</h2>
+   <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
+   <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+  </section>`;
+ };
  const buildEditorialJsonLd = (options: {
  locale: typeof localeList[number];
  name: string;
@@ -4359,6 +4404,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
+ ${renderLocationSectorFrontalierContext({ locale, sectorLabel: model.sectorLabel, location, jobsCount: model.totalJobs })}
  <section style="margin:0 0 28px">
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri settori a ${location}` : locale === 'en' ? `Other sectors in ${location}` : locale === 'de' ? `Weitere Branchen in ${location}` : `Autres secteurs a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
