@@ -8050,4 +8050,11 @@ export const ARTICLES = [
  image: '/images/blog/sportello-me-te-cunardo-marchirolo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'accordo-edilizia-ticino-2026-2031',
+ category: 'novita',
+ date: '2026-04-27T16:57:13.144Z',
+ image: '/images/blog/accordo-edilizia-ticino-2026-2031.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

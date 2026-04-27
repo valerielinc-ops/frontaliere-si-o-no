@@ -3027,6 +3027,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.title': 'Free consultation and meetings in Cunardo and Marchirolo with the ME-TE project',
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.excerpt': 'Starting in May, a cycle of three free meetings for parents on how to deal with the various stages of their children\'s development, promoted by the ME-TE project in collaboration with the Family Consulting Center of the Valleys of Cadegliano Viconago.',
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.imageAlt': 'Parents attending an educational event in Cunardo or Marchirolo',
+    'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Record agreement for Ticino construction: contract until 2031',
+    'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'The new collective cantonal contract for Ticino construction has been signed, valid until 2031. Bagnovini: \'A base for planning\'.',
+    'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Aerial view of Lake Lugano with construction sites along the shore',
 };
 
 export default blogMetaEn;

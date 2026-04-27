@@ -16134,6 +16134,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordo-edilizia-ticino-2026-2031': {
+    title: 'Accordo record per l\'edilizia ticinese | Frontaliere Ticino',
+    description: 'Firmato il nuovo contratto collettivo cantonale per l\'edilizia ticinese, valido fino al 2031. Stabilità e opportunità di formazione per lavoratori e imprese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordo, record, edilizia, ticinese',
+    ogTitle: 'Accordo record edilizia Ticino 2026-2031',
+    ogDescription: 'Firmato il nuovo contratto collettivo cantonale per l\'edilizia ticinese, valido fino al 2031. Stabilità e opportunità di formazione per lavoratori e imprese.',
+    canonicalPath: '/articoli-frontaliere/accordo-edilizia-ticino-2026-2031',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accordo record per l'edilizia ticinese: contratto fino al 2031",
+      "description": "Firmato il nuovo contratto collettivo cantonale per l'edilizia ticinese, valido fino al 2031. Stabilità e opportunità di formazione per lavoratori e imprese.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-edilizia-ticino-2026-2031.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano con cantieri edili lungo la riva"
+      },
+      "datePublished": "2026-04-27T16:57:13+00:00",
+      "dateModified": "2026-04-27T16:57:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-edilizia-ticino-2026-2031`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

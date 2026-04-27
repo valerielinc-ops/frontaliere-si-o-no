@@ -3027,6 +3027,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.title': 'Sportello e incontri gratuiti a Cunardo e Marchirolo con il progetto ME-TE',
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.excerpt': 'In partenza a maggio un ciclo di tre incontri gratuiti per genitori su come affrontare le diverse fasi evolutive dei figli, promosso dal progetto ME-TE in collaborazione con il Consultorio Familiare delle Valli di Cadegliano Viconago.',
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.imageAlt': 'Genitori partecipano a un incontro educativo a Cunardo o Marchirolo',
+    'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Accordo record per l\'edilizia ticinese: contratto fino al 2031',
+    'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'Firmato il nuovo contratto collettivo cantonale per l\'edilizia ticinese, valido fino al 2031. Bagnovini: \'Base su cui pianificare\'.',
+    'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Vista aerea del lago di Lugano con cantieri edili lungo la riva',
 };
 
 export default blogMetaIt;

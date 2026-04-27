@@ -3027,6 +3027,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.title': 'Kostenlose Beratung und Treffen in Cunardo und Marchirolo mit dem Projekt ME-TE',
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.excerpt': 'Im Mai startet ein kostenloser Zyklus von drei Treffen für Eltern, wie man die verschiedenen Entwicklungsphasen der Kinder angeht, organisiert vom Projekt ME-TE in Zusammenarbeit mit dem Familienberatungszentrum der Täler von Cadegliano Viconago.',
     'blog.article.sportello-me-te-cunardo-marchirolo-2026.imageAlt': 'Eltern nehmen an einer Bildungsveranstaltung in Cunardo oder Marchirolo teil',
+    'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Rekordabkommen für den Tessiner Bau: Vertrag bis 2031',
+    'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'Der neue kantonale Gesamtarbeitsvertrag für den Tessiner Bau wurde unterzeichnet und gilt bis 2031. Bagnovini: \'Eine Basis für die Planung\'.',
+    'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Luftaufnahme des Luganer Sees mit Baustellen entlang des Ufers',
 };
 
 export default blogMetaDe;

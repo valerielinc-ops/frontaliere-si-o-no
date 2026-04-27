@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1055,
+ "numberOfItems": 1056,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5779,7 +5779,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1052, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti` },
           { "@type": "ListItem", "position": 1053, "name": "Verdi Ticino: strategia per le cantonali 2026", "url": `${BASE_URL}/articoli-frontaliere/verdi-ticino-cantonali-2026` },
           { "@type": "ListItem", "position": 1054, "name": "Borse di studio Bracco: 11 opportunità per stud...", "url": `${BASE_URL}/articoli-frontaliere/borse-studio-bracco-lombardia-2026` },
-          { "@type": "ListItem", "position": 1055, "name": "Sportello e incontri gratuiti a Cunardo e March...", "url": `${BASE_URL}/articoli-frontaliere/sportello-me-te-cunardo-marchirolo-2026` }
+          { "@type": "ListItem", "position": 1055, "name": "Sportello e incontri gratuiti a Cunardo e March...", "url": `${BASE_URL}/articoli-frontaliere/sportello-me-te-cunardo-marchirolo-2026` },
+          { "@type": "ListItem", "position": 1056, "name": "Accordo record per l'edilizia ticinese: contrat...", "url": `${BASE_URL}/articoli-frontaliere/accordo-edilizia-ticino-2026-2031` }
  ]
  },
  {
