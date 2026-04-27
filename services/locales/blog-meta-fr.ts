@@ -2799,6 +2799,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.title': 'Bouchons rouges au San Gottardo : chaos sur les routes en mai',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.excerpt': 'Mai 2026 : des jours noirs prévus pour le trafic dans le tunnel du San Gottardo, avec des files d\'attente jusqu\'à 20 km et des retards jusqu\'à 2 heures',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.imageAlt': 'Vue aérienne de la circulation dans le tunnel du Saint-Gothard par une journée ensoleillée',
+    'blog.article.treno-guasto-bellinzona-2026.title': 'Train Lugano-Zurich en panne : passagers à pied depuis Bellinzone',
+    'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Une panne technique supprime le train de 19h00, aucun remplacement. Les passagers attendent à la gare de Bellinzone',
+    'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Train arrêté à Bellinzone, passagers descendent, soir',
 };
 
 export default blogMetaFr;

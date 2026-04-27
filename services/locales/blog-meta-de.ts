@@ -2799,6 +2799,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.title': 'Rote Ampeln am Gotthard: Verkehrschaos im Mai',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.excerpt': 'Mai 2026: Schwarze Tage für den Verkehr im Gotthard-Tunnel, mit Staus bis zu 20 km und Verspätungen von bis zu 2 Stunden',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.imageAlt': 'Luftaufnahme des Verkehrs im San-Bernardino-Tunnel an einem sonnigen Tag',
+    'blog.article.treno-guasto-bellinzona-2026.title': 'Zug Lugano-Zürich ausgefallen: Fahrgäste laufen von Bellinzona aus',
+    'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Technischer Defekt legt den Zug um 19:00 Uhr lahm, kein Ersatzverkehr. Fahrgäste warten am Bahnhof Bellinzona',
+    'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Zug hält in Bellinzona, Fahrgäste steigen aus, Abend',
 };
 
 export default blogMetaDe;

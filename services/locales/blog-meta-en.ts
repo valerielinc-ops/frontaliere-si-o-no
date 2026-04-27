@@ -2799,6 +2799,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.title': 'Red flags at the Gotthard: traffic chaos in May',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.excerpt': 'May 2026: black days expected for traffic at the Gotthard tunnel, with queues up to 20 km and delays up to 2 hours',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.imageAlt': 'Aerial view of traffic at the San Gottardo tunnel on a sunny day',
+    'blog.article.treno-guasto-bellinzona-2026.title': 'Lugano-Zurich Train Breakdown: Passengers Walk from Bellinzona',
+    'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Technical fault cancels the 19:00 train, no replacement. Passengers waiting at Bellinzona station',
+    'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Train stopped at Bellinzona station, passengers disembarking, evening',
 };
 
 export default blogMetaEn;

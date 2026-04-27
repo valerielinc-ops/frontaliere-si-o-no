@@ -2799,6 +2799,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.title': 'Bollini rossi al San Gottardo: caos traffico in maggio',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.excerpt': 'Maggio 2026: previsti giorni neri per il traffico al tunnel del San Gottardo, con code fino a 20 km e ritardi fino a 2 ore',
     'blog.article.bollini-rossi-traffico-san-gottardo-2026.imageAlt': 'Vista aerea del traffico al tunnel del San Gottardo in una giornata di sole',
+    'blog.article.treno-guasto-bellinzona-2026.title': 'Treno Lugano-Zurigo in panne: passeggeri a piedi da Bellinzona',
+    'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Guasto tecnico sopprime il treno delle 19:00, nessun sostitutivo. Passeggeri in attesa alla stazione di Bellinzona',
+    'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Treno fermo a Bellinzona, passeggeri scendono, sera',
 };
 
 export default blogMetaIt;

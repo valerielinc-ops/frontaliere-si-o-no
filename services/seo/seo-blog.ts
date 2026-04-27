@@ -13930,6 +13930,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-treno-guasto-bellinzona-2026': {
+    title: 'Treno Lugano-Zurigo in panne | Frontaliere Ticino',
+    description: 'Guasto tecnico sopprime il treno delle 19:00, nessun sostitutivo. Passeggeri in attesa alla stazione di Bellinzona. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, treno, lugano-zurigo, panne, passeggeri',
+    ogTitle: 'Treno Lugano-Zurigo in panne: passeggeri a piedi da',
+    ogDescription: 'Guasto tecnico sopprime il treno delle 19:00, nessun sostitutivo. Passeggeri in attesa alla stazione di Bellinzona',
+    canonicalPath: '/articoli-frontaliere/treno-guasto-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treno Lugano-Zurigo in panne: passeggeri a piedi da Bellinzona",
+      "description": "Guasto tecnico sopprime il treno delle 19:00, nessun sostitutivo. Passeggeri in attesa alla stazione di Bellinzona. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/treno-guasto-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno fermo a Bellinzona, passeggeri scendono, sera"
+      },
+      "datePublished": "2026-04-27T04:40:54+00:00",
+      "dateModified": "2026-04-27T04:40:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/treno-guasto-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

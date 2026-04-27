@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 979,
+ "numberOfItems": 980,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5703,7 +5703,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 976, "name": "Finanze pubbliche Ticino: allarme commercialisti", "url": `${BASE_URL}/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni` },
           { "@type": "ListItem", "position": 977, "name": "Premi non oltre il 10%, il dato che dimezza i c...", "url": `${BASE_URL}/articoli-frontaliere/premi-non-oltre-10-percento` },
           { "@type": "ListItem", "position": 978, "name": "Guerra in Iran: pressione sull'industria alimen...", "url": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-svizzera` },
-          { "@type": "ListItem", "position": 979, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026` }
+          { "@type": "ListItem", "position": 979, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026` },
+          { "@type": "ListItem", "position": 980, "name": "Treno Lugano-Zurigo in panne: passeggeri a pied...", "url": `${BASE_URL}/articoli-frontaliere/treno-guasto-bellinzona-2026` }
  ]
  },
  {
