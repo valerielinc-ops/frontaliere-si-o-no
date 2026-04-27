@@ -8085,4 +8085,11 @@ export const ARTICLES = [
  image: '/images/blog/dengue-sistema-rapido-individuazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aprile-secco-siccita-ticino-2026',
+ category: 'novita',
+ date: '2026-04-27T17:39:06.967Z',
+ image: '/images/blog/aprile-secco-siccita-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

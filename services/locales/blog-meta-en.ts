@@ -3042,6 +3042,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue: towards a rapid system to identify it in Ticino',
     'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'New measures for the early diagnosis of dengue in Canton Ticino. Here\'s what changes for cross-border workers.',
     'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape',
+    'blog.article.aprile-secco-siccita-ticino-2026.title': 'Dry April: drought alert in Ticino and Switzerland',
+    'blog.article.aprile-secco-siccita-ticino-2026.excerpt': 'MeteoSwiss issues a warning: April 2026 is the driest on record, with severe rainfall shortages in Ticino and other regions.',
+    'blog.article.aprile-secco-siccita-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

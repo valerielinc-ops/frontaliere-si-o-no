@@ -16279,6 +16279,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprile-secco-siccita-ticino-2026': {
+    title: 'Aprile secco: allarme siccità in Ticino | Frontaliere Ticino',
+    description: 'MeteoSvizzera lancia l\'allarme: aprile 2026 è il più secco dalla rilevazione, con gravi carenze di pioggia in Ticino e altre regioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprile, secco, allarme, siccità',
+    ogTitle: 'Aprile secco: allarme siccità in Ticino',
+    ogDescription: 'MeteoSvizzera lancia l\'allarme: aprile 2026 è il più secco dalla rilevazione, con gravi carenze di pioggia in Ticino e altre regioni.',
+    canonicalPath: '/articoli-frontaliere/aprile-secco-siccita-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprile secco: allarme siccità in Ticino",
+      "description": "MeteoSvizzera lancia l'allarme: aprile 2026 è il più secco dalla rilevazione, con gravi carenze di pioggia in Ticino e altre regioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aprile-secco-siccita-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-04-27T17:39:06+00:00",
+      "dateModified": "2026-04-27T17:39:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aprile-secco-siccita-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

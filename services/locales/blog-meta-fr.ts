@@ -3042,6 +3042,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue : vers un système rapide pour l\'identifier dans le canton du Ticino',
     'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'Nouvelles mesures pour le diagnostic précoce de la dengue dans le canton du Ticino. Voici ce qui change pour les frontaliers.',
     'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
+    'blog.article.aprile-secco-siccita-ticino-2026.title': 'Avril sec: alerte sécheresse en Suisse et au Tessin',
+    'blog.article.aprile-secco-siccita-ticino-2026.excerpt': 'MétéoSuisse lance l\'alerte: avril 2026 est le plus sec depuis les relevés, avec de graves carences de pluie en Tessin et autres régions.',
+    'blog.article.aprile-secco-siccita-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

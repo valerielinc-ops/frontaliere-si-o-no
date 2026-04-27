@@ -3042,6 +3042,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue: Hin zu einem schnellen System zur Identifizierung im Tessin',
     'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'Neue Maßnahmen für die frühzeitige Diagnose von Dengue im Kanton Tessin. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin',
+    'blog.article.aprile-secco-siccita-ticino-2026.title': 'Trockenheit im April: Dürrealarm im Tessin und in der Schweiz',
+    'blog.article.aprile-secco-siccita-ticino-2026.excerpt': 'MeteoSchweiz warnt: Der April 2026 ist der trockenste seit Aufzeichnungsbeginn, mit schweren Regenmangel im Tessin und anderen Regionen.',
+    'blog.article.aprile-secco-siccita-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

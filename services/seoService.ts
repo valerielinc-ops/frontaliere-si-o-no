@@ -2274,6 +2274,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-finanza-comasco-226-persone': { name: 'Controlli Finanza', path: '/articoli-frontaliere/controlli-finanza-comasco-226-persone', parent: 'blog' },
     'blog-auto-cinesi-svizzera-2026': { name: 'Auto cinesi', path: '/articoli-frontaliere/auto-cinesi-svizzera-2026', parent: 'blog' },
     'blog-dengue-sistema-rapido-individuazione': { name: 'Novità', path: '/articoli-frontaliere/dengue-sistema-rapido-individuazione', parent: 'blog' },
+    'blog-aprile-secco-siccita-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/aprile-secco-siccita-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
