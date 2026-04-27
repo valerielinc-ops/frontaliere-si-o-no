@@ -12,6 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -260,22 +261,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
-
- /**
-  * Cap blog headline at maxChars at a word boundary, append ellipsis when
-  * truncated. Defined here at the plugin-closure scope so the
-  * articleTitleCollisions map (computed below) can use the SAME post-cap
-  * string as the html() renderer — without that, two distinct full-form
-  * titles whose 55-char prefix coincides slip past collision detection
-  * (no disamb hash injected) and trip Semrush's title-uniqueness gate.
-  */
- const capBlogHead = (s: string, maxChars: number): string => {
-  if (s.length <= maxChars) return s;
-  const slice = s.slice(0, maxChars);
-  const lastSpace = slice.lastIndexOf(' ');
-  const cut = lastSpace > maxChars * 0.4 ? slice.slice(0, lastSpace) : slice;
-  return cut.replace(/[\s.,;:\-–—|]+$/u, '') + '…';
- };
+ // Headline NEVER truncated — see build-plugins/shared/titleSuffix.ts.
 
  /* ── 2. Parse blog slug map + blog index slugs from router.ts ── */
  // BLOG_SLUGS: Record<BlogArticleId, { it, en, de, fr }> — flat lookup
@@ -366,17 +352,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  // Populate the title-collision map now that locale meta is available.
  // Mirror the title formula used inside html(): localizedTitle stripped of
  // the publisher suffix, then re-joined with the canonical brand suffix.
- const ARTICLE_TITLE_SUFFIX = ' | Frontaliere Ticino';
  for (const en of entries) {
   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
    const localeMeta = locale === 'it' ? null : blogMetaByLocale[locale][en.articleId];
    const titleRaw = localeMeta?.title || en.ogT;
-   const titlePureRaw = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
-   // Mirror the 55-char head cap applied inside html() — collisions must
-   // be detected on the POST-cap string so the disambiguator hash kicks
-   // in when two distinct full titles share the same capped prefix.
-   const titlePure = capBlogHead(titlePureRaw, 55);
-   const baseT = `${titlePure}${ARTICLE_TITLE_SUFFIX}`;
+   const titlePure = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+   const baseT = buildTitleWithBrand(titlePure);
    const m = articleTitleCollisions[locale];
    m.set(baseT, (m.get(baseT) || 0) + 1);
   }
@@ -561,13 +542,8 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const localizedTitleRaw = localizedMeta?.title || en.ogT;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
- const localizedTitleStripped = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
- // Cap blog headline at 55 chars (word-boundary) so the composed
- // <title> (headline + disamb hash + " | Frontaliere Ticino" suffix)
- // stays within the ~80-char SERP soft budget. Verbose source headlines
- // (e.g. cantonal news up to 180+ chars in DE) otherwise overflow.
- // Per-slug `disamb` below preserves uniqueness across collisions.
- const localizedTitle = capBlogHead(localizedTitleStripped, 55);
+ // Headline VERBATIM — no truncation. Brand applied conditionally below.
+ const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  const localizedDesc = localizedMeta?.excerpt || en.ogD;
  // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
@@ -582,26 +558,13 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const metaDesc = metaDescRaw.length > 155
  ? metaDescRaw.substring(0, 152) + '…'
  : metaDescRaw;
- // <title> tag: ≤60 chars for SERP display. <h1> keeps the full headline.
- // Per-slug disambiguator only fires when the base <title> would collide
- // with another article's <title> in the same locale (legacy + republished
- // pairs, multi-translation duplicates). Unique titles are untouched.
- const TITLE_MAX = 60;
- const TITLE_SUFFIX = ' | Frontaliere Ticino';
+ // <title>: headline VERBATIM, brand suffix only when total ≤ 70 char.
  const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
- const baseTitleProbe = `${localizedTitle}${TITLE_SUFFIX}`;
+ const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale) : '';
- // Always emit headline + disambiguator + brand suffix verbatim, even
- // when the combined string exceeds 60 char. Truncating the headline
- // risks collapsing distinct articles to the same SERP-clamped title
- // (Semrush "Duplicate <title>" rule, deploy-blocking). A SERP display
- // truncation by Google is a soft warning, never a deploy gate.
- const htmlPageTitle = `${localizedTitle}${disamb}${TITLE_SUFFIX}`;
- // TITLE_MAX is intentionally unused below — kept as a documentation
- // anchor for the historical 60-char SERP budget.
- void TITLE_MAX;
+ const htmlPageTitle = buildTitleWithBrand(`${localizedTitle}${disamb}`);
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
