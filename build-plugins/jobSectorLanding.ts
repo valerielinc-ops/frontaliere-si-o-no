@@ -21,20 +21,63 @@
 import type { JobBoardLocale } from './jobBoardSeo';
 import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokens';
 
-export type SectorHubKey = 'infermieri' | 'case-anziani' | 'educatori';
+export type SectorHubKey =
+  | 'infermieri'
+  | 'case-anziani'
+  | 'educatori'
+  | 'ingegneri'
+  | 'autisti'
+  | 'sviluppatori'
+  | 'ristorazione';
 
 export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'infermieri',
   'case-anziani',
   'educatori',
+  'ingegneri',
+  'autisti',
+  'sviluppatori',
+  'ristorazione',
 ] as const;
 
 /** Per-locale URL slug for each sector. Query-matching, short. */
 export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string>> = {
-  it: { infermieri: 'infermieri', 'case-anziani': 'case-anziani', educatori: 'educatori' },
-  en: { infermieri: 'nurses', 'case-anziani': 'elderly-care', educatori: 'educators' },
-  de: { infermieri: 'pflegepersonal', 'case-anziani': 'altenpflege', educatori: 'erzieher' },
-  fr: { infermieri: 'infirmiers', 'case-anziani': 'maisons-retraite', educatori: 'educateurs' },
+  it: {
+    infermieri: 'infermieri',
+    'case-anziani': 'case-anziani',
+    educatori: 'educatori',
+    ingegneri: 'ingegneri',
+    autisti: 'autisti',
+    sviluppatori: 'sviluppatori',
+    ristorazione: 'ristorazione',
+  },
+  en: {
+    infermieri: 'nurses',
+    'case-anziani': 'elderly-care',
+    educatori: 'educators',
+    ingegneri: 'engineers',
+    autisti: 'drivers',
+    sviluppatori: 'developers',
+    ristorazione: 'restaurants',
+  },
+  de: {
+    infermieri: 'pflegepersonal',
+    'case-anziani': 'altenpflege',
+    educatori: 'erzieher',
+    ingegneri: 'ingenieure',
+    autisti: 'fahrer',
+    sviluppatori: 'entwickler',
+    ristorazione: 'gastronomie',
+  },
+  fr: {
+    infermieri: 'infirmiers',
+    'case-anziani': 'maisons-retraite',
+    educatori: 'educateurs',
+    ingegneri: 'ingenieurs',
+    autisti: 'chauffeurs',
+    sviluppatori: 'developpeurs',
+    ristorazione: 'restauration',
+  },
 };
 
 /** Section root slug per locale (mirror of CITY_HUB_SECTION). */
@@ -54,10 +97,42 @@ export const SECTOR_HUB_LOCALE_PREFIX: Record<JobBoardLocale, string> = {
 
 /** Display name per locale (used in H1, breadcrumbs). */
 export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, string>> = {
-  it: { infermieri: 'Infermieri', 'case-anziani': 'Case Anziani', educatori: 'Educatori' },
-  en: { infermieri: 'Nurses', 'case-anziani': 'Elderly Care', educatori: 'Educators' },
-  de: { infermieri: 'Pflegepersonal', 'case-anziani': 'Altenpflege', educatori: 'Erzieher' },
-  fr: { infermieri: 'Infirmiers', 'case-anziani': 'Maisons de Retraite', educatori: 'Éducateurs' },
+  it: {
+    infermieri: 'Infermieri',
+    'case-anziani': 'Case Anziani',
+    educatori: 'Educatori',
+    ingegneri: 'Ingegneri',
+    autisti: 'Autisti',
+    sviluppatori: 'Sviluppatori Software',
+    ristorazione: 'Ristorazione',
+  },
+  en: {
+    infermieri: 'Nurses',
+    'case-anziani': 'Elderly Care',
+    educatori: 'Educators',
+    ingegneri: 'Engineers',
+    autisti: 'Drivers',
+    sviluppatori: 'Software Developers',
+    ristorazione: 'Restaurants',
+  },
+  de: {
+    infermieri: 'Pflegepersonal',
+    'case-anziani': 'Altenpflege',
+    educatori: 'Erzieher',
+    ingegneri: 'Ingenieure',
+    autisti: 'Fahrer',
+    sviluppatori: 'Softwareentwickler',
+    ristorazione: 'Gastronomie',
+  },
+  fr: {
+    infermieri: 'Infirmiers',
+    'case-anziani': 'Maisons de Retraite',
+    educatori: 'Éducateurs',
+    ingegneri: 'Ingénieurs',
+    autisti: 'Chauffeurs',
+    sviluppatori: 'Développeurs Logiciel',
+    ristorazione: 'Restauration',
+  },
 };
 
 /** FIRE emoji threshold — matches cityJobsHub default. */
@@ -133,6 +208,14 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /casa[ -]anzian|case[ -]anzian|oscam|pregassona|altenpfleg|altersheim|pflegeheim|residenza[ -]per[ -]anzian|residenza[ -]anzian|elderly[ -]care|nursing[ -]home|maison[ -]de[ -]retraite|ehpad|ris\b|lis\b/i,
   educatori:
     /educator|educatric|educatrice|educatori|erzieher|erzieherin|p[aä]dagog|social[ -]pedagog|[eé]ducateur|[eé]ducatrice|educational[ -]assistant|operatore[ -]socio[ -]educativ/i,
+  ingegneri:
+    /ingegner|ingenieur|ingegnere|engineer|civil[ -]engineer|mechanical[ -]engineer|electrical[ -]engineer|ing[eé]nieur|softwareingenieur/i,
+  autisti:
+    /autist[aoie]|autotrasport|camionist|driver|trucker|chauffeur|fahrer|berufsfahrer|conducteur[ -]?routier|cdl[ -]driver|delivery[ -]driver/i,
+  sviluppatori:
+    /sviluppator|sviluppatore|programmator|programmatore|developer|software[ -]engineer|full[ -]?stack|front[ -]?end|back[ -]?end|devops|softwareentwickl|d[eé]veloppeur|programmeur/i,
+  ristorazione:
+    /ristora|ristoratore|ristorant|cuoc[ho]|cameri[eè]r|chef|sous[ -]chef|gastronom|hospitality|food[ -]service|restaurant|kellner|koch|k[oö]chin|service[ -]de[ -]table|cuisinier|serveur|waiter|waitress|bistro|pizzeri/i,
 };
 
 function wordCount(s: string | undefined | null): number {
@@ -263,6 +346,10 @@ export function buildSectorHubSeo(
         infermieri: 'Infermieri',
         'case-anziani': 'Case Anziani',
         educatori: 'Educatori',
+        ingegneri: 'Ingegneri',
+        autisti: 'Autisti',
+        sviluppatori: 'Sviluppatori Software',
+        ristorazione: 'Ristorazione',
       };
       const noun = nounMap[sector];
       // SEO title: keyword-first, ≤60 char (Semrush W2). No emoji prefix, no
@@ -306,6 +393,10 @@ export function buildSectorHubSeo(
         infermieri: 'Nurses',
         'case-anziani': 'Elderly Care',
         educatori: 'Educators',
+        ingegneri: 'Engineers',
+        autisti: 'Drivers',
+        sviluppatori: 'Software Developers',
+        ristorazione: 'Restaurants',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({
@@ -345,6 +436,10 @@ export function buildSectorHubSeo(
         infermieri: 'Pflegepersonal',
         'case-anziani': 'Altenpflege',
         educatori: 'Erzieher',
+        ingegneri: 'Ingenieure',
+        autisti: 'Fahrer',
+        sviluppatori: 'Softwareentwickler',
+        ristorazione: 'Gastronomie',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({
@@ -384,6 +479,10 @@ export function buildSectorHubSeo(
         infermieri: 'Infirmiers',
         'case-anziani': 'Maisons de Retraite',
         educatori: 'Éducateurs',
+        ingegneri: 'Ingénieurs',
+        autisti: 'Chauffeurs',
+        sviluppatori: 'Développeurs Logiciel',
+        ristorazione: 'Restauration',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({

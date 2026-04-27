@@ -431,6 +431,10 @@ function main() {
     'infermieri', 'nurses', 'pflegepersonal', 'infirmiers',
     'case-anziani', 'elderly-care', 'altenpflege', 'maisons-retraite',
     'educatori', 'educators', 'erzieher', 'educateurs',
+    'ingegneri', 'engineers', 'ingenieure', 'ingenieurs',
+    'autisti', 'drivers', 'fahrer', 'chauffeurs',
+    'sviluppatori', 'developers', 'entwickler', 'developpeurs',
+    'ristorazione', 'restaurants', 'gastronomie', 'restauration',
     'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
   ]);
 

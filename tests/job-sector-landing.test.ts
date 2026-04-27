@@ -26,33 +26,51 @@ import {
 const YEAR = 2026;
 
 describe('jobSectorLanding — paths', () => {
-  it('exposes exactly 3 sector keys', () => {
-    expect(SECTOR_HUB_KEYS).toEqual(['infermieri', 'case-anziani', 'educatori']);
+  it('exposes exactly 7 sector keys', () => {
+    expect(SECTOR_HUB_KEYS).toEqual([
+      'infermieri',
+      'case-anziani',
+      'educatori',
+      'ingegneri',
+      'autisti',
+      'sviluppatori',
+      'ristorazione',
+    ]);
   });
 
   it('builds canonical path per locale (IT)', () => {
     expect(buildSectorHubPath('it', 'infermieri')).toBe('/cerca-lavoro-ticino/infermieri/');
     expect(buildSectorHubPath('it', 'case-anziani')).toBe('/cerca-lavoro-ticino/case-anziani/');
     expect(buildSectorHubPath('it', 'educatori')).toBe('/cerca-lavoro-ticino/educatori/');
+    expect(buildSectorHubPath('it', 'ingegneri')).toBe('/cerca-lavoro-ticino/ingegneri/');
+    expect(buildSectorHubPath('it', 'autisti')).toBe('/cerca-lavoro-ticino/autisti/');
+    expect(buildSectorHubPath('it', 'sviluppatori')).toBe('/cerca-lavoro-ticino/sviluppatori/');
+    expect(buildSectorHubPath('it', 'ristorazione')).toBe('/cerca-lavoro-ticino/ristorazione/');
   });
 
   it('builds canonical path per locale (EN/DE/FR)', () => {
     expect(buildSectorHubPath('en', 'infermieri')).toBe('/en/find-jobs-ticino/nurses/');
     expect(buildSectorHubPath('en', 'case-anziani')).toBe('/en/find-jobs-ticino/elderly-care/');
     expect(buildSectorHubPath('en', 'educatori')).toBe('/en/find-jobs-ticino/educators/');
+    expect(buildSectorHubPath('en', 'ingegneri')).toBe('/en/find-jobs-ticino/engineers/');
+    expect(buildSectorHubPath('en', 'autisti')).toBe('/en/find-jobs-ticino/drivers/');
+    expect(buildSectorHubPath('en', 'sviluppatori')).toBe('/en/find-jobs-ticino/developers/');
+    expect(buildSectorHubPath('en', 'ristorazione')).toBe('/en/find-jobs-ticino/restaurants/');
     expect(buildSectorHubPath('de', 'infermieri')).toBe('/de/jobs-im-tessin/pflegepersonal/');
     expect(buildSectorHubPath('de', 'case-anziani')).toBe('/de/jobs-im-tessin/altenpflege/');
     expect(buildSectorHubPath('de', 'educatori')).toBe('/de/jobs-im-tessin/erzieher/');
+    expect(buildSectorHubPath('de', 'ingegneri')).toBe('/de/jobs-im-tessin/ingenieure/');
     expect(buildSectorHubPath('fr', 'infermieri')).toBe('/fr/trouver-emploi-tessin/infirmiers/');
     expect(buildSectorHubPath('fr', 'case-anziani')).toBe('/fr/trouver-emploi-tessin/maisons-retraite/');
     expect(buildSectorHubPath('fr', 'educatori')).toBe('/fr/trouver-emploi-tessin/educateurs/');
+    expect(buildSectorHubPath('fr', 'ristorazione')).toBe('/fr/trouver-emploi-tessin/restauration/');
   });
 
-  it('produces exactly 12 paths (3 sectors × 4 locales)', () => {
+  it('produces exactly 28 paths (7 sectors × 4 locales)', () => {
     const paths = allSectorHubPaths();
-    expect(paths).toHaveLength(12);
+    expect(paths).toHaveLength(28);
     const unique = new Set(paths.map((p) => p.path));
-    expect(unique.size).toBe(12);
+    expect(unique.size).toBe(28);
     for (const p of paths) expect(p.path.endsWith('/')).toBe(true);
   });
 
@@ -170,6 +188,39 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Staff', tags: ['infermiere'], description: '' }, 'infermieri')).toBe(true);
     expect(jobMatchesSector({ title: 'Staff', category: 'Educatori sociali', description: '' }, 'educatori')).toBe(true);
   });
+
+  it('matches engineer keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Ingegnere meccanico junior' }, 'ingegneri')).toBe(true);
+    expect(jobMatchesSector({ title: 'Civil Engineer Ticino' }, 'ingegneri')).toBe(true);
+    expect(jobMatchesSector({ title: 'Bauingenieur ETH' }, 'ingegneri')).toBe(true);
+    expect(jobMatchesSector({ title: 'Ingénieur électricien' }, 'ingegneri')).toBe(true);
+    expect(jobMatchesSector({ title: 'Cassiere supermercato' }, 'ingegneri')).toBe(false);
+  });
+
+  it('matches driver keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Autista camion C+E' }, 'autisti')).toBe(true);
+    expect(jobMatchesSector({ title: 'Truck driver Ticino' }, 'autisti')).toBe(true);
+    expect(jobMatchesSector({ title: 'Berufsfahrer Kategorie C' }, 'autisti')).toBe(true);
+    expect(jobMatchesSector({ title: 'Chauffeur poids lourd' }, 'autisti')).toBe(true);
+    expect(jobMatchesSector({ title: 'Software developer' }, 'autisti')).toBe(false);
+  });
+
+  it('matches software-developer keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Sviluppatore software full-stack' }, 'sviluppatori')).toBe(true);
+    expect(jobMatchesSector({ title: 'Software Engineer Backend' }, 'sviluppatori')).toBe(true);
+    expect(jobMatchesSector({ title: 'Softwareentwickler Java' }, 'sviluppatori')).toBe(true);
+    expect(jobMatchesSector({ title: 'Développeur Python senior' }, 'sviluppatori')).toBe(true);
+    expect(jobMatchesSector({ title: 'Cuoco di partita' }, 'sviluppatori')).toBe(false);
+  });
+
+  it('matches restaurant/hospitality keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Cuoco partita pesce' }, 'ristorazione')).toBe(true);
+    expect(jobMatchesSector({ title: 'Cameriera pizzeria' }, 'ristorazione')).toBe(true);
+    expect(jobMatchesSector({ title: 'Sous chef restaurant' }, 'ristorazione')).toBe(true);
+    expect(jobMatchesSector({ title: 'Koch / Köchin Hotel' }, 'ristorazione')).toBe(true);
+    expect(jobMatchesSector({ title: 'Serveur cuisinier brasserie' }, 'ristorazione')).toBe(true);
+    expect(jobMatchesSector({ title: 'Software developer' }, 'ristorazione')).toBe(false);
+  });
 });
 
 describe('jobSectorLanding — counts and filtering', () => {
@@ -255,15 +306,31 @@ describe('router — sector hub URLs', () => {
     { locale: 'it', sector: 'infermieri', path: '/cerca-lavoro-ticino/infermieri/' },
     { locale: 'it', sector: 'case-anziani', path: '/cerca-lavoro-ticino/case-anziani/' },
     { locale: 'it', sector: 'educatori', path: '/cerca-lavoro-ticino/educatori/' },
+    { locale: 'it', sector: 'ingegneri', path: '/cerca-lavoro-ticino/ingegneri/' },
+    { locale: 'it', sector: 'autisti', path: '/cerca-lavoro-ticino/autisti/' },
+    { locale: 'it', sector: 'sviluppatori', path: '/cerca-lavoro-ticino/sviluppatori/' },
+    { locale: 'it', sector: 'ristorazione', path: '/cerca-lavoro-ticino/ristorazione/' },
     { locale: 'en', sector: 'infermieri', path: '/en/find-jobs-ticino/nurses/' },
     { locale: 'en', sector: 'case-anziani', path: '/en/find-jobs-ticino/elderly-care/' },
     { locale: 'en', sector: 'educatori', path: '/en/find-jobs-ticino/educators/' },
+    { locale: 'en', sector: 'ingegneri', path: '/en/find-jobs-ticino/engineers/' },
+    { locale: 'en', sector: 'autisti', path: '/en/find-jobs-ticino/drivers/' },
+    { locale: 'en', sector: 'sviluppatori', path: '/en/find-jobs-ticino/developers/' },
+    { locale: 'en', sector: 'ristorazione', path: '/en/find-jobs-ticino/restaurants/' },
     { locale: 'de', sector: 'infermieri', path: '/de/jobs-im-tessin/pflegepersonal/' },
     { locale: 'de', sector: 'case-anziani', path: '/de/jobs-im-tessin/altenpflege/' },
     { locale: 'de', sector: 'educatori', path: '/de/jobs-im-tessin/erzieher/' },
+    { locale: 'de', sector: 'ingegneri', path: '/de/jobs-im-tessin/ingenieure/' },
+    { locale: 'de', sector: 'autisti', path: '/de/jobs-im-tessin/fahrer/' },
+    { locale: 'de', sector: 'sviluppatori', path: '/de/jobs-im-tessin/entwickler/' },
+    { locale: 'de', sector: 'ristorazione', path: '/de/jobs-im-tessin/gastronomie/' },
     { locale: 'fr', sector: 'infermieri', path: '/fr/trouver-emploi-tessin/infirmiers/' },
     { locale: 'fr', sector: 'case-anziani', path: '/fr/trouver-emploi-tessin/maisons-retraite/' },
     { locale: 'fr', sector: 'educatori', path: '/fr/trouver-emploi-tessin/educateurs/' },
+    { locale: 'fr', sector: 'ingegneri', path: '/fr/trouver-emploi-tessin/ingenieurs/' },
+    { locale: 'fr', sector: 'autisti', path: '/fr/trouver-emploi-tessin/chauffeurs/' },
+    { locale: 'fr', sector: 'sviluppatori', path: '/fr/trouver-emploi-tessin/developpeurs/' },
+    { locale: 'fr', sector: 'ristorazione', path: '/fr/trouver-emploi-tessin/restauration/' },
   ] as const;
 
   for (const c of cases) {
