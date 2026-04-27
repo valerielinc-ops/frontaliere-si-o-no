@@ -1703,7 +1703,18 @@ function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext
       const rawLast = (s.address ?? '').split(',').pop()?.trim() ?? '';
       const cityFromAddr = rawLast.replace(/^\d{4,5}\s+/, '').trim() || FUEL_ZONE_DISPLAY[zone];
       const street = (s.address ?? '').split(',')[0]?.trim() ?? '';
-      const brandDisplay = s.brand && s.brand.toUpperCase() !== 'UNDEFINED' ? titleCase(s.brand) : (s.name ? titleCase(s.name.split(/\s+/)[0] ?? 'Stazione') : 'Stazione');
+      const baseBrandDisplay = s.brand && s.brand.toUpperCase() !== 'UNDEFINED' ? titleCase(s.brand) : (s.name ? titleCase(s.name.split(/\s+/)[0] ?? 'Stazione') : 'Stazione');
+      // Title-uniqueness fix (2026-04-27): when two stations share the same
+      // brand+street, their slug carries a `-N` disambiguator (e.g.
+      // `piccadilly-via-cantonale` vs `piccadilly-via-cantonale-2`). After the
+      // 60-char clamp those two pages otherwise produce identical titles.
+      // Append the slug's trailing number to the brand display so the
+      // disambiguator survives the clamp at the start of the title.
+      const slugTailNum = (() => {
+        const m = slug.match(/-(\d+)$/);
+        return m ? m[1] : '';
+      })();
+      const brandDisplay = slugTailNum ? `${baseBrandDisplay} ${slugTailNum}` : baseBrandDisplay;
       out.push({
         station: s,
         zone,
@@ -2859,12 +2870,20 @@ function collectItalianStationContexts(
       // Strip postal-code suffix from address tail to get a clean street label
       const rawAddr = (s.address ?? '').trim();
       const street = rawAddr.replace(/\s+\d{5}\s*$/, '').trim() || rawAddr;
-      const brandDisplay =
+      const baseBrandDisplay =
         s.brand && s.brand.toUpperCase() !== 'UNDEFINED'
           ? titleCase(s.brand)
           : s.stationName
             ? titleCase(s.stationName.split(/\s+/)[0] ?? 'Stazione')
             : 'Stazione';
+      // Title-uniqueness fix (2026-04-27): same as Swiss path — append the
+      // slug-disambiguator number to brand so the 60-char clamp doesn't
+      // collapse two same-brand-and-street stations to the identical title.
+      const slugTailNum = (() => {
+        const m = slug.match(/-(\d+)$/);
+        return m ? m[1] : '';
+      })();
+      const brandDisplay = slugTailNum ? `${baseBrandDisplay} ${slugTailNum}` : baseBrandDisplay;
 
       out.push({
         station: s,
