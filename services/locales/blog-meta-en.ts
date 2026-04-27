@@ -2880,6 +2880,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'Lombardy Region allocates 6.4 million for social housing',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Over 6.4 million euros for the recovery of vacant homes and accessibility in Lombardy. Here are the details.',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Aerial view of Lake Lugano with modern buildings and construction sites',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Domestic violence: prevention through dialogue in St. Gallen',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'In St. Gallen, the police intercept potential domestic violence offenders and engage them in preventive talks with a 90% success rate.',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'A plainclothes police officer talks to a person in a café in Mendrisio',
 };
 
 export default blogMetaEn;

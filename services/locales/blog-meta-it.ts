@@ -2880,6 +2880,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'Regione Lombardia stanzia 6,4 milioni per case popolari',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Oltre 6,4 milioni di euro per il recupero di alloggi sfitti e l\'accessibilità in Lombardia. Ecco i dettagli.',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e cantieri edili',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Violenza domestica: a San Gallo la prevenzione passa dal dialogo',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'A San Gallo, la polizia intercetta potenziali autori di violenza domestica e li coinvolge in colloqui preventivi con un tasso di successo del 90%.',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'Un agente di polizia in abiti civili parla con una persona in un caffè a Mendrisio',
 };
 
 export default blogMetaIt;

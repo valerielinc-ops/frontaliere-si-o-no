@@ -14713,6 +14713,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prevenzione-violenza-domestica-san-gallo-2026': {
+    title: 'Violenza domestica: a San Gallo la | Frontaliere Ticino',
+    description: 'Scopri come la polizia di San Gallo previene la violenza domestica attraverso colloqui preventivi con un tasso di successo del 90%. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, violenza, domestica, gallo, prevenzione',
+    ogTitle: 'Violenza domestica: prevenzione a San Gallo | Frontaliere',
+    ogDescription: 'Scopri come la polizia di San Gallo previene la violenza domestica attraverso colloqui preventivi con un tasso di successo del 90%.',
+    canonicalPath: '/articoli-frontaliere/prevenzione-violenza-domestica-san-gallo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Violenza domestica: prevenzione a San Gallo",
+      "description": "Scopri come la polizia di San Gallo previene la violenza domestica attraverso colloqui preventivi con un tasso di successo del 90%. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prevenzione-violenza-domestica-san-gallo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un agente di polizia in abiti civili parla con una persona in un caffè a Mendrisio"
+      },
+      "datePublished": "2026-04-27T11:01:41+00:00",
+      "dateModified": "2026-04-27T11:01:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prevenzione-violenza-domestica-san-gallo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

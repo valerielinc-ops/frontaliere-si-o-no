@@ -2880,6 +2880,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'La région Lombardie alloue 6,4 millions pour des logements sociaux',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Plus de 6,4 millions d\'euros pour la rénovation de logements vacants et l\'accessibilité en Lombardie. Voici les détails.',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des chantiers de construction',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Violence domestique : à Saint-Gall, la prévention passe par le dialogue',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'À Saint-Gall, la police intercepte les auteurs potentiels de violence domestique et les implique dans des entretiens préventifs avec un taux de réussite de 90%.',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'Un agent de police en civil parle à une personne dans un café à Mendrisio',
 };
 
 export default blogMetaFr;

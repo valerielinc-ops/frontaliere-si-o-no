@@ -2880,6 +2880,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'Lombardei stellt 6,4 Millionen für Sozialwohnungen bereit',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Über 6,4 Millionen Euro für die Wiederherstellung von leerstehenden Wohnungen und die Zugänglichkeit in der Lombardei. Hier sind die Details.',
     'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Baustellen',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Haushaltsgewalt: In St. Gallen geht die Prävention über Dialog',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'In St. Gallen schaltet die Polizei potenzielle Täter von Haushaltsgewalt und bindet sie in präventive Gespräche ein, mit einer Erfolgsquote von 90%.',
+    'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'Ein Polizeibeamter in Zivil spricht mit einer Person in einem Café in Mendrisio',
 };
 
 export default blogMetaDe;
