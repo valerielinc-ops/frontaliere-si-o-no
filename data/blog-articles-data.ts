@@ -7665,4 +7665,11 @@ export const ARTICLES = [
  image: '/images/blog/lavoratori-pensionati-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'calcio-dnb-bellinzona-vittoria-stade-nyonnais',
+ category: 'novita',
+ date: '2026-04-27T10:19:24.373Z',
+ image: '/images/blog/calcio-dnb-bellinzona-vittoria-stade-nyonnais.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

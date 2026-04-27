@@ -2214,6 +2214,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-parcheggi-ospedale-sette-laghi-2026': { name: 'Varese Parcheggi', path: '/articoli-frontaliere/varese-parcheggi-ospedale-sette-laghi-2026', parent: 'blog' },
     'blog-zecche-ticino-2026-18000-punture': { name: 'Zecche Ticino', path: '/articoli-frontaliere/zecche-ticino-2026-18000-punture', parent: 'blog' },
     'blog-lavoratori-pensionati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/lavoratori-pensionati-ticino-2026', parent: 'blog' },
+    'blog-calcio-dnb-bellinzona-vittoria-stade-nyonnais': { name: 'Calcio Dnb', path: '/articoli-frontaliere/calcio-dnb-bellinzona-vittoria-stade-nyonnais', parent: 'blog' },
  };
 
  const info = sectionNames[section];

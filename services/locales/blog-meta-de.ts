@@ -2862,6 +2862,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoratori-pensionati-ticino-2026.title': 'Arbeitnehmer über 65: Verdoppelt in 20 Jahren',
     'blog.article.lavoratori-pensionati-ticino-2026.excerpt': 'Im Jahr 2025 arbeiten 220\'000 Personen auch nach dem 65. Lebensjahr weiter, mehr als doppelt so viele wie 2005. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.lavoratori-pensionati-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Ceresio-See und den umliegenden Bergen',
+    'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.title': 'Fussball Dnb: Bellinzona besiegt Stade Nyonnais, profitiert von den Fehlern der Gegner',
+    'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.excerpt': 'Der Bellinzona hat den Stade Nyonnais in den Vorrunden der Dnb-Fussballmeisterschaft besiegt, profitiert von den Fehlern der Gegner.',
+    'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.imageAlt': 'Ein Fußballspiel in Bellinzona, Tessin, mit Fans, die ein Tor feiern. Das Stadion ist mit Zuschauern gefüllt, und die Spieler sind auf dem Feld.',
 };
 
 export default blogMetaDe;

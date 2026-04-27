@@ -14539,6 +14539,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcio-dnb-bellinzona-vittoria-stade-nyonnais': {
+    title: 'Calcio Dnb: Bellinzona batte Stade | Frontaliere Ticino',
+    description: 'Il Bellinzona ha sconfitto lo Stade Nyonnais negli anticipi del campionato di calcio Dnb, approfittando della vittoria ottenuta grazie agli errori degli',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcio, bellinzona, batte, stade',
+    ogTitle: 'Calcio Dnb: Bellinzona batte Stade Nyonnais | Frontaliere',
+    ogDescription: 'Il Bellinzona ha sconfitto lo Stade Nyonnais negli anticipi del campionato di calcio Dnb, approfittando della vittoria ottenuta grazie agli errori degli',
+    canonicalPath: '/articoli-frontaliere/calcio-dnb-bellinzona-vittoria-stade-nyonnais',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcio Dnb: Bellinzona batte Stade Nyonnais",
+      "description": "Il Bellinzona ha sconfitto lo Stade Nyonnais negli anticipi del campionato di calcio Dnb, approfittando della vittoria ottenuta grazie agli errori degli",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calcio-dnb-bellinzona-vittoria-stade-nyonnais.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una partita di calcio a Bellinzona, Ticino, con i tifosi che festeggiano un gol. Lo stadio è pieno di spettatori e i giocatori sono in campo."
+      },
+      "datePublished": "2026-04-27T10:19:24+00:00",
+      "dateModified": "2026-04-27T10:19:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcio-dnb-bellinzona-vittoria-stade-nyonnais`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
