@@ -213,37 +213,30 @@ export function formatSeoTitle(parts: SeoTitleParts): string {
 }
 
 /**
- * Append a `" | {siteSuffix}"` site-name suffix to `base`. When the combined
- * string overflows `maxLength` the base is truncated at a word boundary and
- * an ellipsis is added so the suffix still survives — this guarantees
- * `<title>` differs from `<h1>` even on long headlines (Semrush
- * "Duplicate H1 and title tags" rule).
+ * Append a `" | {siteSuffix}"` site-name suffix to `base`. The suffix is
+ * ALWAYS appended, even when the combined string overflows `maxLength` —
+ * truncating the base risks collapsing distinct pages to the same `<title>`
+ * (Semrush "Duplicate <title>" rule, deploy-blocking) when the unique
+ * disambiguator (city name, canton label, address number, age bucket,
+ * week/month) lives at the END of the headline. Going slightly past the
+ * SERP-display budget is a softer issue ("title too long" is a soft
+ * warning, never a deploy gate).
  *
- * Edge case: if the suffix is so long that the truncation would leave no
- * meaningful room for the headline (<12 chars), the original base is
- * returned unchanged — callers SHOULD provide an alternative discriminator
- * (date stamp, year, …) in that situation.
+ * `maxLength` is therefore advisory: callers that genuinely need to fit
+ * inside the budget MUST shorten `base` themselves before calling. The
+ * function still skips appending the suffix when `siteSuffix` is empty,
+ * matching the original contract.
  */
 export function clampSiteSuffix(
   base: string,
   siteSuffix: string,
-  maxLength: number = DEFAULT_TITLE_BUDGET,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- advisory only
+  _maxLength: number = DEFAULT_TITLE_BUDGET,
 ): string {
   const baseTrim = (base || '').trim();
   const suffixTrim = (siteSuffix || '').trim();
   if (!suffixTrim) return baseTrim;
-  const suffixWithSep = ` | ${suffixTrim}`;
-  const candidate = `${baseTrim}${suffixWithSep}`;
-  if (candidate.length <= maxLength) return candidate;
-  // Suffix overflows — preserve it, truncate the base instead so <title>
-  // never collapses to a verbatim copy of <h1>. Reserve 1 char for ellipsis.
-  const budget = maxLength - suffixWithSep.length - 1;
-  if (budget < 12) return baseTrim;
-  const slice = baseTrim.slice(0, budget);
-  const lastSpace = slice.lastIndexOf(' ');
-  const cut = lastSpace > budget * 0.4 ? slice.slice(0, lastSpace) : slice;
-  const trimmed = cut.replace(/[\s.,;:\-–—|]+$/u, '');
-  return `${trimmed}…${suffixWithSep}`;
+  return `${baseTrim} | ${suffixTrim}`;
 }
 
 export interface SeoH1Parts {

@@ -117,27 +117,32 @@ describe('clampSiteSuffix', () => {
     );
   });
 
-  it('truncates the base and keeps the suffix when the combined string would exceed the budget', () => {
-    // Semrush "Duplicate H1 and title tags" rule — when the H1 equals the
-    // headline portion verbatim we must NEVER drop the suffix, otherwise
-    // <title> collapses to a copy of <h1>. Truncate the base instead.
+  it('always appends the suffix verbatim — uniqueness > SERP length budget', () => {
+    // Semrush "Duplicate <title>" + "Duplicate H1 and title tags" rules
+    // are deploy-blocking; "title too long" is soft. Letting the title
+    // overflow the 60-char budget is the lesser evil because truncating
+    // the headline risks collapsing distinct pages to the same SERP-
+    // clamped title when the unique fragment (city, age, address) lives
+    // at the end. The function therefore always returns
+    // `${base} | ${suffix}` regardless of the advisory `maxLength`.
     const long = 'Lavoro Case Anziani Ticino 2026 — 990 offerte attive oggi';
-    const out = clampSiteSuffix(long, 'Frontaliere Ticino');
-    expect(out).not.toBe(long);
-    expect(out.endsWith(' | Frontaliere Ticino')).toBe(true);
-    expect(out.length).toBeLessThanOrEqual(60);
+    expect(clampSiteSuffix(long, 'Frontaliere Ticino')).toBe(
+      `${long} | Frontaliere Ticino`,
+    );
   });
 
   it('returns the base unchanged when the suffix is empty', () => {
     expect(clampSiteSuffix('Test', '')).toBe('Test');
   });
 
-  it('respects a custom maxLength budget', () => {
+  it('ignores the maxLength parameter (it is now advisory)', () => {
     expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 100)).toBe(
       'Short | Frontaliere Ticino',
     );
-    // Suffix dominates a tiny budget: no truncation room ⇒ return base.
-    expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 10)).toBe('Short');
+    // Even a tiny "budget" still gets the suffix appended — uniqueness wins.
+    expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 10)).toBe(
+      'Short | Frontaliere Ticino',
+    );
   });
 });
 

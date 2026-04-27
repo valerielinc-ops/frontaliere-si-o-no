@@ -3083,19 +3083,13 @@ function optimizeSeoMetadata(data) {
 
   const TITLE_SUFFIX = ' | Frontaliere Ticino';
   const TITLE_MAX = 60;
-  const coreBudget = TITLE_MAX - TITLE_SUFFIX.length; // 40 chars for the core title
+  const coreBudget = TITLE_MAX - TITLE_SUFFIX.length; // advisory soft target
   const baseTitle = truncateAtWordBoundary(it.title || data.id || 'Articolo frontalieri', coreBudget);
   const seoTitleCore = baseTitle.replace(/\s*\|\s*Frontaliere Ticino$/i, '');
-  const fullTitle = `${seoTitleCore}${TITLE_SUFFIX}`;
-  // Always keep the brand suffix so <title> ≠ <h1> (Semrush "Duplicate H1
-  // and title tags"). When the full string overflows TITLE_MAX, hard-truncate
-  // the core to make room — never drop the suffix.
-  if (fullTitle.length <= TITLE_MAX) {
-    data.seo.title = fullTitle;
-  } else {
-    const tightCore = truncateAtWordBoundary(seoTitleCore, coreBudget);
-    data.seo.title = `${tightCore}${TITLE_SUFFIX}`;
-  }
+  // Always emit core + brand suffix verbatim. Letting the title overflow
+  // 60 char is the lesser evil — truncating risks duplicate-title
+  // collisions across articles whose unique fragment lives at the end.
+  data.seo.title = `${seoTitleCore}${TITLE_SUFFIX}`;
   data.seo.ogTitle = truncateAtWordBoundary(data.seo.ogTitle || seoTitleCore, TITLE_MAX);
   data.seo.headline = truncateAtWordBoundary(data.seo.headline || seoTitleCore, 100);
   data.seo.breadcrumbName = truncateAtWordBoundary(

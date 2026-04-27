@@ -567,29 +567,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale) : '';
- let htmlPageTitle: string;
- const fullTitle = `${localizedTitle}${disamb}${TITLE_SUFFIX}`;
- if (fullTitle.length <= TITLE_MAX) {
- htmlPageTitle = fullTitle;
- } else {
- // Long headline — truncate the title portion at a word boundary so
- // the brand suffix can still be appended. Keeps the SERP budget ≤60
- // char AND guarantees <title> ≠ <h1> (Semrush "Duplicate H1 and
- // title tags" rule). Without the suffix the SERP title would otherwise
- // collapse to the same string we render in <h1>.
- const budget = TITLE_MAX - TITLE_SUFFIX.length - disamb.length - 1; // -1 for ellipsis
- if (budget >= 16) {
- const truncated = localizedTitle.substring(0, budget);
- const lastSpace = truncated.lastIndexOf(' ');
- const trimmedTitle = (lastSpace > budget * 0.4 ? truncated.substring(0, lastSpace) : truncated) + '…';
- htmlPageTitle = `${trimmedTitle}${disamb}${TITLE_SUFFIX}`;
- } else {
- // Suffix + disambiguator dominate — fall back to headline + suffix
- // even if it slightly exceeds 60 char. Better a truncated SERP
- // snippet than a duplicate-H1 flag.
- htmlPageTitle = `${localizedTitle}${disamb}${TITLE_SUFFIX}`;
- }
- }
+ // Always emit headline + disambiguator + brand suffix verbatim, even
+ // when the combined string exceeds 60 char. Truncating the headline
+ // risks collapsing distinct articles to the same SERP-clamped title
+ // (Semrush "Duplicate <title>" rule, deploy-blocking). A SERP display
+ // truncation by Google is a soft warning, never a deploy gate.
+ const htmlPageTitle = `${localizedTitle}${disamb}${TITLE_SUFFIX}`;
+ // TITLE_MAX is intentionally unused below — kept as a documentation
+ // anchor for the historical 60-char SERP budget.
+ void TITLE_MAX;
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
