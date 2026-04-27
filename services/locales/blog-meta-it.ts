@@ -3122,6 +3122,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bns-ubs-misure-non-estreme-2026.title': 'BNS: Le misure per UBS non sono estreme',
     'blog.article.bns-ubs-misure-non-estreme-2026.excerpt': 'Il presidente della Banca nazionale svizzera, Martin Schlegel, difende le nuove regole per UBS, minimizzando il rischio di una partenza dell\'istituto.',
     'blog.article.bns-ubs-misure-non-estreme-2026.imageAlt': 'Vista panoramica di Lugano con il lago e il Monte Brè',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.title': 'Nuovi Maestri del Lavoro 2026: Leonardo primeggia in provincia di Varese',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.excerpt': 'Celebrati a Milano i nuovi Maestri del Lavoro 2026. Leonardo S.p.A. è l\'azienda con il maggior numero di premiati nella provincia di Varese.',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.imageAlt': 'Gruppo di lavoratori premiati durante una cerimonia a Milano',
 };
 
 export default blogMetaIt;

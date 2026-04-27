@@ -3121,6 +3121,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bns-ubs-misure-non-estreme-2026.title': 'SNB: UBS rules not extreme',
     'blog.article.bns-ubs-misure-non-estreme-2026.excerpt': 'SNB President Martin Schlegel defends new rules for UBS, downplaying the risk of the bank leaving.',
     'blog.article.bns-ubs-misure-non-estreme-2026.imageAlt': 'Panoramic view of Lugano with the lake and Monte Brè',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.title': '2026 Master Workers: Leonardo leads in Varese province',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.excerpt': 'The new Master Workers 2026 were celebrated in Milan. Leonardo S.p.A. is the company with the most awarded in the province of Varese.',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.imageAlt': 'Group of workers receiving awards at a ceremony in Milan',
 };
 
 export default blogMetaEn;

@@ -3121,6 +3121,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bns-ubs-misure-non-estreme-2026.title': 'BNS: UBS-Regeln sind nicht extrem',
     'blog.article.bns-ubs-misure-non-estreme-2026.excerpt': 'Der Präsident der Schweizerischen Nationalbank, Martin Schlegel, verteidigt die neuen Regeln für UBS und spielt das Risiko eines Abzugs des Instituts herunter.',
     'blog.article.bns-ubs-misure-non-estreme-2026.imageAlt': 'Panoramablick auf Lugano mit dem See und dem Monte Brè',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.title': 'Neue Meister der Arbeit 2026: Leonardo führt in Varese an',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.excerpt': 'In Mailand wurden die neuen Meister der Arbeit 2026 gefeiert. Leonardo S.p.A. ist das Unternehmen mit den meisten Preisträgern in der Provinz Varese.',
+    'blog.article.nuovi-maestri-lavoro-varese-leonardo-2026.imageAlt': 'Gruppe von Arbeitnehmern, die während einer Zeremonie in Mailand ausgezeichnet werden',
 };
 
 export default blogMetaDe;

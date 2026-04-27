@@ -8295,4 +8295,11 @@ export const ARTICLES = [
  image: '/images/blog/bns-ubs-misure-non-estreme-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovi-maestri-lavoro-varese-leonardo-2026',
+ category: 'novita',
+ date: '2026-04-27T21:52:00.487Z',
+ image: '/images/blog/nuovi-maestri-lavoro-varese-leonardo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2301,6 +2301,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-per-giumai-acquisti-monte-piaroi-2026': { name: 'Novità', path: '/articoli-frontaliere/per-giumai-acquisti-monte-piaroi-2026', parent: 'blog' },
     'blog-rovine-magliaso-scuole-nuove-2026': { name: 'Novità', path: '/articoli-frontaliere/rovine-magliaso-scuole-nuove-2026', parent: 'blog' },
     'blog-bns-ubs-misure-non-estreme-2026': { name: 'Novità', path: '/articoli-frontaliere/bns-ubs-misure-non-estreme-2026', parent: 'blog' },
+    'blog-nuovi-maestri-lavoro-varese-leonardo-2026': { name: 'Nuovi Maestri del Lavoro', path: '/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

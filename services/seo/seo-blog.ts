@@ -17149,6 +17149,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovi-maestri-lavoro-varese-leonardo-2026': {
+    title: 'Nuovi Maestri del Lavoro 2026: Leonardo primeggia in provincia di Varese',
+    description: 'Celebrati a Milano i nuovi Maestri del Lavoro 2026. Leonardo S.p.A. è l\'azienda con il maggior numero di premiati nella provincia di Varese. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, maestri, lavoro, leonardo',
+    ogTitle: 'Nuovi Maestri del Lavoro 2026: Leonardo primeggia in provincia di Varese',
+    ogDescription: 'Celebrati a Milano i nuovi Maestri del Lavoro 2026. Leonardo S.p.A. è l\'azienda con il maggior numero di premiati nella provincia di Varese.',
+    canonicalPath: '/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi Maestri del Lavoro 2026: Leonardo primeggia in provincia di Varese",
+      "description": "Celebrati a Milano i nuovi Maestri del Lavoro 2026. Leonardo S.p.A. è l'azienda con il maggior numero di premiati nella provincia di Varese. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-maestri-lavoro-varese-leonardo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di lavoratori premiati durante una cerimonia a Milano"
+      },
+      "datePublished": "2026-04-27T21:52:00+00:00",
+      "dateModified": "2026-04-27T21:52:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

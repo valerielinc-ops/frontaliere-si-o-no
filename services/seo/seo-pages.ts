@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1090,
+ "numberOfItems": 1091,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5814,7 +5814,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1087, "name": "Due arresti per furti di biciclette nel Mendris...", "url": `${BASE_URL}/articoli-frontaliere/furti-biciclette-mendrisiotto-2026` },
           { "@type": "ListItem", "position": 1088, "name": "Per Giümai acquista gli ultimi tre edifici del ...", "url": `${BASE_URL}/articoli-frontaliere/per-giumai-acquisti-monte-piaroi-2026` },
           { "@type": "ListItem", "position": 1089, "name": "Scoperte rovine romane a Magliaso durante costr...", "url": `${BASE_URL}/articoli-frontaliere/rovine-magliaso-scuole-nuove-2026` },
-          { "@type": "ListItem", "position": 1090, "name": "BNS: Le misure per UBS non sono estreme", "url": `${BASE_URL}/articoli-frontaliere/bns-ubs-misure-non-estreme-2026` }
+          { "@type": "ListItem", "position": 1090, "name": "BNS: Le misure per UBS non sono estreme", "url": `${BASE_URL}/articoli-frontaliere/bns-ubs-misure-non-estreme-2026` },
+          { "@type": "ListItem", "position": 1091, "name": "Nuovi Maestri del Lavoro 2026: Leonardo primegg...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026` }
  ]
  },
  {
