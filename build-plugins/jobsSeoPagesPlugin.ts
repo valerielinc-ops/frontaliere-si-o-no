@@ -5681,7 +5681,14 @@ ${alternates}
  // match a currentSlug value are included because their locale paths may differ
  // from the active job's paths — writeSoftLandingPage already skips paths
  // where active or bridge pages exist (via _writtenPaths / activeJobDirs).
- const expiredSlugs = Object.keys(tracking).filter((s) => !bridgeSlugSet.has(s));
+ // Exclude RESERVED_HUB_SLUGS from soft-landing emission. Pre-existing
+ // tracking entries imported from gsc-404 (e.g. slug "infermieri") would
+ // otherwise overwrite the legitimate sector/city hub HTML at
+ // /cerca-lavoro-ticino/infermieri/index.html with a thin job soft-landing
+ // and break Semrush W2 (Issue 102) + the canonical sector page in SERPs.
+ const expiredSlugs = Object.keys(tracking).filter(
+ (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
+ );
 
  const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
  it: { title: 'Offerta non più disponibile', banner: 'Questa posizione non è più attiva. Di seguito trovi i dettagli originali e posizioni simili.' },
