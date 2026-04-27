@@ -2901,6 +2901,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote ouvre la saison des événements 2026 : course d\'escalier et chasse au trésor',
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Deux rendez-vous incontournables : la Morcote Scal le 2 mai et la Chasse au Trésor le 9 mai dans le plus beau village du canton du Tessin.',
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Vue aérienne de Morcote, Tessin, avec le centre historique et l\'église Santa Maria del Sasso.',
+    'blog.article.svizzera-credito-energetico-2026.title': 'La Suisse à crédit énergétique : ce qui change pour les frontaliers',
+    'blog.article.svizzera-credito-energetico-2026.excerpt': 'À partir du 27 avril 2026, la Suisse dépendra des importations pour 68 % de ses besoins énergétiques. Voici les implications pour les frontaliers.',
+    'blog.article.svizzera-credito-energetico-2026.imageAlt': 'Vue panoramique du lac de Lugano avec des voiliers et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -2901,6 +2901,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote kicks off the 2026 events season: staircase race and treasure hunt',
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Two unmissable events: the Morcote Scal on May 2nd and the Treasure Hunt on May 9th in the most beautiful village of Canton Ticino.',
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Aerial view of Morcote, Ticino, with the historic center and the Church of Santa Maria del Sasso.',
+    'blog.article.svizzera-credito-energetico-2026.title': 'Switzerland\'s Energy Credit: What Changes for Cross-Border Workers',
+    'blog.article.svizzera-credito-energetico-2026.excerpt': 'As of April 27, 2026, Switzerland will rely on imports for 68% of its energy needs. Here\'s what this means for cross-border workers.',
+    'blog.article.svizzera-credito-energetico-2026.imageAlt': 'Panoramic view of Lake Lugano with sailboats and mountains in the background',
 };
 
 export default blogMetaEn;

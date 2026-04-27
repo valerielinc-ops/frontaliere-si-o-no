@@ -2901,6 +2901,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote apre la stagione eventi 2026: scalinata di corsa e caccia al tesoro',
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Due appuntamenti imperdibili: la Morcote Scal il 2 maggio e la Caccia al Tesoro il 9 maggio nel borgo più bello del Canton Ticino.',
     'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Vista aerea di Morcote, Ticino, con il centro storico e la Chiesa di Santa Maria del Sasso.',
+    'blog.article.svizzera-credito-energetico-2026.title': 'Svizzera a credito energetico: cosa cambia per i frontalieri',
+    'blog.article.svizzera-credito-energetico-2026.excerpt': 'Dal 27 aprile 2026 la Svizzera dipende dalle importazioni per il 68% del suo fabbisogno energetico. Ecco le implicazioni per i frontalieri.',
+    'blog.article.svizzera-credito-energetico-2026.imageAlt': 'Vista panoramica del Lago di Lugano con barche a vela e montagne sullo sfondo',
 };
 
 export default blogMetaIt;
