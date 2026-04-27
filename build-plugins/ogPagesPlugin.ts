@@ -534,6 +534,18 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  return htmlBody.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(/\s+/).length;
  };
 
+ /**
+ * Cap blog headline at maxChars at a word boundary, append ellipsis when truncated.
+ * Preserves uniqueness because the per-slug disambiguator hash is appended after.
+ */
+ const capBlogHead = (s: string, maxChars: number): string => {
+ if (s.length <= maxChars) return s;
+ const slice = s.slice(0, maxChars);
+ const lastSpace = slice.lastIndexOf(' ');
+ const cut = lastSpace > maxChars * 0.4 ? slice.slice(0, lastSpace) : slice;
+ return cut.replace(/[\s.,;:\-–—|]+$/u, '') + '…';
+ };
+
  const html = (locale: string, urlPath: string) => {
  const localeForMeta: 'en' | 'de' | 'fr' | null =
  (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
@@ -541,7 +553,13 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const localizedTitleRaw = localizedMeta?.title || en.ogT;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
- const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+ const localizedTitleStripped = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+ // Cap blog headline at 55 chars (word-boundary) so the composed
+ // <title> (headline + disamb hash + " | Frontaliere Ticino" suffix)
+ // stays within the ~80-char SERP soft budget. Verbose source headlines
+ // (e.g. cantonal news up to 180+ chars in DE) otherwise overflow.
+ // Per-slug `disamb` below preserves uniqueness across collisions.
+ const localizedTitle = capBlogHead(localizedTitleStripped, 55);
  const localizedDesc = localizedMeta?.excerpt || en.ogD;
  // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
